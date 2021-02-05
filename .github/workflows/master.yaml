@@ -23,7 +23,7 @@ jobs:
       # Release
       - name: Create docker tag
         run: |
-          echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/pensjon-samboerforhold > .docker_image
+          echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/pensjon-etterlatte > .docker_image
           echo "$(date "+%Y.%m.%d")-$(git rev-parse --short HEAD)" > .docker_tag
       - name: Build Docker image
         run: docker build -t $(cat .docker_image):$(cat .docker_tag) .
@@ -41,7 +41,7 @@ jobs:
       - name: Deploy dev
         uses: nais/deploy/actions/deploy@v1
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY_DEV }}
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais.yaml
           IMAGE: ${{ env.IMAGE }}
