@@ -1,24 +1,22 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: pensjon-samboerforhold
-  namespace: teampensjon
+  name: etterlatte-barnepensjon
+  namespace: etterlatte
   labels:
-    team: teampensjon
+    team: etterlatte
 spec:
   image: {{image}}
   port: 8080
   liveness:
     path: "isAlive"
-    port: 8080
     initialDelay: 20
     timeout: 1
     periodSeconds: 5
     failureThreshold: 10
   readiness:
     path: "isReady"
-    port: 8080
     initialDelay: 20
     timeout: 1
   ingresses:
-    - "https://pensjon-samboerforhold.dev.adeo.no"
+    - "https://etterlatte-barnepensjon.dev.adeo.no"
