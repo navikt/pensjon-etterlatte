@@ -10,9 +10,10 @@ import io.ktor.jackson.*
 import io.ktor.features.*
 import kotlin.test.*
 import io.ktor.server.testing.*
+import kotlin.test.Ignore
 
 class ApplicationTest {
-    @Test
+    @Test @Ignore
     fun testRoot() {
         withTestApplication({ module(testing = true) }) {
             handleRequest(HttpMethod.Get, "/").apply {

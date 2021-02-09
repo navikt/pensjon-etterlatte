@@ -20,6 +20,7 @@ apply plugin: "com.github.johnrengelman.shadow"
 group 'no.pensjon'
 version '0.0.1'
 
+
 sourceSets {
     main.kotlin.srcDirs = main.java.srcDirs = ['src']
     test.kotlin.srcDirs = test.java.srcDirs = ['test']
@@ -39,6 +40,7 @@ dependencies {
     implementation "ch.qos.logback:logback-classic:$logback_version"
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
+    implementation "org.apache.kafka:kafka-clients:2.4.0"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
 }
 
