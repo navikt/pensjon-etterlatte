@@ -25,8 +25,7 @@ fun Application.module(testing: Boolean = false) {
         }
     }
     val env = System.getenv()
-
-    val consumer = KafkaConsumer(KafkaConfig(
+    val kafkaConfig = KafkaConfig(
         bootstrapServers = "a01apvl00145.adeo.no:8443,a01apvl00146.adeo.no:8443,a01apvl00147.adeo.no:8443,a01apvl00148.adeo.no:8443,a01apvl00149.adeo.no:8443,a01apvl00150.adeo.no:8443",
         consumerGroupId = "etterlatte-v1",
         clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString(),
@@ -35,11 +34,8 @@ fun Application.module(testing: Boolean = false) {
         truststore = env["NAV_TRUSTSTORE_PATH"],
         truststorePassword = env["NAV_TRUSTSTORE_PASSWORD"],
         autoCommit = env["KAFKA_AUTO_COMMIT"]?.let { "true" == it.toLowerCase() }
-    ).consumerConfig(), ByteArrayDeserializer(), ByteArrayDeserializer())
-    consumer.subscribe(listOf("aapen-person-pdl-leesah-v1"))
+    )
 
-
-    val antallMeldingerLest = consumer.poll(Duration.ofSeconds(60)).count()
 
 
     routing {
@@ -47,6 +43,10 @@ fun Application.module(testing: Boolean = false) {
             call.respondText("Environment: " + System.getenv().keys.joinToString(","), contentType = ContentType.Text.Plain)
         }
         get("/kafka") {
+            val consumer = KafkaConsumer(kafkaConfig.consumerConfig(), ByteArrayDeserializer(), ByteArrayDeserializer())
+            consumer.subscribe(listOf("aapen-person-pdl-leesah-v1"))
+            val antallMeldingerLest = consumer.poll(Duration.ofSeconds(60)).count()
+            consumer.close()
             call.respondText("har lest $antallMeldingerLest meldinger", contentType = ContentType.Text.Plain)
         }
         get("/isAlive") {
