@@ -22,7 +22,7 @@ fun Application.module(testing: Boolean = false) {
 
     routing {
         get("/") {
-            call.respondText("HELLO WORLD!", contentType = ContentType.Text.Plain)
+            call.respondText("Environment: " + System.getenv().keys.joinToString(","), contentType = ContentType.Text.Plain)
         }
         get("/isAlive") {
             call.respondText("JADDA!", contentType = ContentType.Text.Plain)
