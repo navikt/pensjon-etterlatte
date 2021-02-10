@@ -31,8 +31,8 @@ fun Application.module(testing: Boolean = false) {
         clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString(),
         username = env.get("srvuser"),
         password = env.get("srvpwd"),
-        truststore = env["NAV_TRUSTSTORE_PATH"],
-        truststorePassword = env["NAV_TRUSTSTORE_PASSWORD"],
+        //truststore = env["NAV_TRUSTSTORE_PATH"],
+        //truststorePassword = env["NAV_TRUSTSTORE_PASSWORD"],
         autoCommit = env["KAFKA_AUTO_COMMIT"]?.let { "true" == it.toLowerCase() }
     )
 

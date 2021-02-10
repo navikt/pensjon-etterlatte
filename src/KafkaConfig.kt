@@ -51,8 +51,9 @@ class KafkaConfig(
 
             put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
             put(SaslConfigs.SASL_MECHANISM, "PLAIN")
-            put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "PLAINTEXT")
-            if (username != null) {
+            //put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "PLAINTEXT")
+            put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL")
+        if (username != null) {
                 put(
                     SaslConfigs.SASL_JAAS_CONFIG,
                     "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"$username\" password=\"$password\";"
