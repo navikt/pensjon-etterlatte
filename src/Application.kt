@@ -26,7 +26,7 @@ fun Application.module(testing: Boolean = false) {
     }
     val env = System.getenv()
     val kafkaConfig = KafkaConfig(
-        bootstrapServers = "a01apvl00145.adeo.no:8443,a01apvl00146.adeo.no:8443,a01apvl00147.adeo.no:8443,a01apvl00148.adeo.no:8443,a01apvl00149.adeo.no:8443,a01apvl00150.adeo.no:8443",
+        bootstrapServers = "b27apvl00045.preprod.local:8443,b27apvl00046.preprod.local:8443,b27apvl00047.preprod.local:8443",
         consumerGroupId = "etterlatte-v1",
         clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString(),
         username = env.get("srvuser"),
