@@ -51,7 +51,14 @@ fun Application.module(testing: Boolean = false) {
         get("/kafka") {
             val consumer = KafkaConsumer(kafkaConfig.consumerConfig(), ByteArrayDeserializer(), ByteArrayDeserializer())
             consumer.subscribe(listOf("aapen-person-pdl-leesah-v1"))
-            val antallMeldingerLest = consumer.poll(Duration.ofSeconds(5)).count()
+            val meldinger = consumer.poll(Duration.ofSeconds(5))
+            val antallMeldingerLest = meldinger.count()
+            if(meldinger.isEmpty){
+                call.respondText("Ingen nye meldinger", contentType = ContentType.Text.Plain)
+            }else{
+                call.respondText("Leste $meldinger. Melding nr 1: ${meldinger.firstOrNull()?.value()}", contentType = ContentType.Text.Plain)
+            }
+            consumer.commitSync()
             consumer.close()
             call.respondText("har lest $antallMeldingerLest meldinger", contentType = ContentType.Text.Plain)
         }
