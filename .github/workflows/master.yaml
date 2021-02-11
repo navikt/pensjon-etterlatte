@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: |
           chmod +x ./gradlew
-          ./gradlew test build
+          ./gradlew test build :shadowJar
       # Release
       - name: Create docker tag
         run: |

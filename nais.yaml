@@ -23,5 +23,9 @@ spec:
     max: 1
   envFrom:
     - secret: barnepensjon-secrets
+  accessPolicy:
+    outbound:
+      external:
+         - host: "kafka-schema-registry.nais-q.adeo.no"
   ingresses:
     - "https://etterlatte-barnepensjon.dev.adeo.no"

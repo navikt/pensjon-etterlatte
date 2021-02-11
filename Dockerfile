@@ -1,3 +1,3 @@
-FROM navikt/java:12
-COPY build/libs/app.jar app.jar
+FROM navikt/java:14
+COPY build/libs/pensjon-etterlatte-all.jar app.jar
 
