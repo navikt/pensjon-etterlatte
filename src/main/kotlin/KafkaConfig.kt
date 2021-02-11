@@ -47,6 +47,8 @@ class KafkaConfig(
             put("schema.registry.url", this)
             put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer::class.java)
             put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer::class.java)
+            put("specific.avro.reader", true)
+
         }
 
     }
