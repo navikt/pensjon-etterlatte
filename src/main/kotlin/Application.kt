@@ -6,15 +6,13 @@ import io.ktor.routing.*
 import io.ktor.http.*
 import no.nav.person.pdl.leesah.Personhendelse
 
-import java.time.Duration
-
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
-    val hendelser = LivetErEnStroemAvHendelser(if(testing)TestConfig() else DevConfig())
+    val stream = FinnDodsmeldinger(if(testing)TestConfig() else DevConfig())
 
     routing {
         get("/") {
@@ -24,18 +22,14 @@ fun Application.module(testing: Boolean = false) {
         get("/kafka") {
 
             val meldinger = mutableListOf<Personhendelse>()
-            hendelser.poll {
-               meldinger.add(it)
-            }
+
+            stream.stream()
             if(meldinger.isEmpty()){
-                call.respondText("Ingen nye meldinger", contentType = ContentType.Text.Plain)
-            }else{
-                val melding = meldinger.first()
-                call.respondText("Leste ${meldinger.size} meldinger. Melding 1 er av type ${melding.getOpplysningstype()}", contentType = ContentType.Text.Plain)
+                call.respondText("Iterasjoner: ${stream.iterasjoner}, Dødsmeldinger${stream.dodsmeldinger}av ${stream.meldinger}", contentType = ContentType.Text.Plain)
             }
         }
         get("/fromstart") {
-            hendelser.fraStart()
+            //hendelser.fraStart()
             call.respondText("partition has been set to start", contentType = ContentType.Text.Plain)
         }
 

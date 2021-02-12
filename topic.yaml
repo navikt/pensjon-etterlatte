@@ -1,0 +1,20 @@
+apiVersion: kafka.nais.io/v1
+kind: Topic
+metadata:
+  name: dodsmelding
+  namespace: etterlatte
+  labels:
+    team: etterlatte
+spec:
+  pool: nav-dev
+  config:  # optional; all fields are optional too; defaults shown
+    cleanupPolicy: compact  # delete, compact
+    minimumInSyncReplicas: 1
+    partitions: 1
+    replication: 3  # see min/max requirements
+    retentionBytes: -1  # -1 means unlimited
+    retentionHours: 720  # -1 means unlimited
+  acl:
+    - team: etterlatte
+      application: etterlatte-barnepensjon
+      access: readwrite
