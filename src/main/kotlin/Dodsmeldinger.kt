@@ -16,7 +16,7 @@ class Dodsmeldinger(val config:AppConfig) {
 
     fun personErDod(ident:String){
         logger.info("Poster at person $ident er død")
-        producer.send(ProducerRecord("dodsmelding", ident, "fyren daua"))
+        producer.send(ProducerRecord("etterlatte.dodsmelding", ident, "fyren daua"))
     }
 
 }
