@@ -1,5 +1,5 @@
-package no.pensjon.etterlatte
-import no.pensjon.etterlatte.leesah.ILivetErEnStroemAvHendelser
+package no.nav.etterlatte
+import no.nav.etterlatte.leesah.ILivetErEnStroemAvHendelser
 
 class FinnDodsmeldinger(private val livshendelser: ILivetErEnStroemAvHendelser, private val dodshendelser:IDodsmeldinger) {
     var iterasjoner = 0

@@ -1,11 +1,12 @@
-package no.pensjon.etterlatte
+package no.nav.etterlatte
+
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.http.*
 import no.nav.person.pdl.leesah.Personhendelse
-import no.pensjon.etterlatte.leesah.ILivetErEnStroemAvHendelser
-import no.pensjon.etterlatte.leesah.LivetErEnStroemAvHendelser
+import no.nav.etterlatte.leesah.ILivetErEnStroemAvHendelser
+import no.nav.etterlatte.leesah.LivetErEnStroemAvHendelser
 
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)

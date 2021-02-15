@@ -1,4 +1,4 @@
-package no.pensjon.etterlatte
+package no.nav.etterlatte
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.slf4j.LoggerFactory

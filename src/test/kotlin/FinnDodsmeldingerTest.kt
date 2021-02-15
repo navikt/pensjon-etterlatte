@@ -1,8 +1,8 @@
 import no.nav.person.pdl.leesah.Personhendelse
-import no.pensjon.etterlatte.FinnDodsmeldinger
-import no.pensjon.etterlatte.IDodsmeldinger
+import no.nav.etterlatte.FinnDodsmeldinger
+import no.nav.etterlatte.IDodsmeldinger
 
-import no.pensjon.etterlatte.leesah.ILivetErEnStroemAvHendelser
+import no.nav.etterlatte.leesah.ILivetErEnStroemAvHendelser
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Assertions.assertEquals

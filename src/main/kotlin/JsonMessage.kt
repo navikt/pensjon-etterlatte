@@ -1,4 +1,4 @@
-package no.pensjon.etterlatte
+package no.nav.etterlatte
 
 import com.fasterxml.jackson.core.JsonParseException
 import com.fasterxml.jackson.databind.DeserializationFeature

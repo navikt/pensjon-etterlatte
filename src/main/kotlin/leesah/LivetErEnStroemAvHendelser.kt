@@ -1,4 +1,4 @@
-package no.pensjon.etterlatte.leesah
+package no.nav.etterlatte.leesah
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay

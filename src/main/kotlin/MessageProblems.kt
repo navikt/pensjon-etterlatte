@@ -1,4 +1,4 @@
-package no.pensjon.etterlatte
+package no.nav.etterlatte
 
 class MessageProblems(private val originalMessage: String) {
     private val errors = mutableListOf<String>()

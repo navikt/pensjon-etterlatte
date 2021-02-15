@@ -1,4 +1,4 @@
-package no.pensjon.etterlatte.leesah
+package no.nav.etterlatte.leesah
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer
 import org.apache.kafka.clients.CommonClientConfigs

@@ -54,7 +54,7 @@ tasks.withType<KotlinCompile> {
 tasks.named<Jar>("jar") {
     archiveBaseName.set("app")
     manifest {
-        attributes["Main-Class"] = "no.pensjon.ApplicationKt"
+        attributes["Main-Class"] = "no.nav.etterlatte.ApplicationKt"
     }
 }
 

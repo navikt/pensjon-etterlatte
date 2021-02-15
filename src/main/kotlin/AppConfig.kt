@@ -1,4 +1,4 @@
-package no.pensjon.etterlatte
+package no.nav.etterlatte
 import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.config.SslConfigs
