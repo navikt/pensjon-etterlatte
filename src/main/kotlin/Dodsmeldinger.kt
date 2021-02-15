@@ -10,7 +10,7 @@ class Dodsmeldinger(val config:AppConfig) {
     val logger = LoggerFactory.getLogger(this.javaClass)
 
     init {
-        Runtime.getRuntime().addShutdownHook(Thread{ producer?.close()})
+        Runtime.getRuntime().addShutdownHook(Thread{ producer.close()})
 
     }
 
