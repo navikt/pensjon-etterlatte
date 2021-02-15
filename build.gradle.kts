@@ -23,6 +23,8 @@ dependencies {
     implementation ("io.ktor:ktor-jackson:1.4.3")
     implementation("io.micrometer:micrometer-registry-prometheus:1.6.1")
     implementation("com.fasterxml:jackson-xml-databind:0.6.2")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.0")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.0")
     implementation("org.apache.kafka:kafka-clients:2.5.0")
     implementation("org.apache.avro:avro:1.10.0")
     implementation("io.confluent:kafka-avro-serializer:5.0.0") {

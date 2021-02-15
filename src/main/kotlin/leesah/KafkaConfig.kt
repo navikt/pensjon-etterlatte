@@ -1,4 +1,4 @@
-package no.pensjon
+package no.pensjon.etterlatte.leesah
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer
 import org.apache.kafka.clients.CommonClientConfigs
@@ -10,7 +10,6 @@ import java.io.File
 import java.time.Duration
 import java.util.*
 
-// Understands how to configure kafka from environment variables
 class KafkaConfig(
     private val bootstrapServers: String,
     private val consumerGroupId: String,

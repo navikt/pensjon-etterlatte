@@ -1,10 +1,11 @@
-package no.pensjon
-
+package no.pensjon.etterlatte
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.http.*
 import no.nav.person.pdl.leesah.Personhendelse
+import no.pensjon.etterlatte.leesah.ILivetErEnStroemAvHendelser
+import no.pensjon.etterlatte.leesah.LivetErEnStroemAvHendelser
 
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -12,7 +13,17 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
-    val stream = FinnDodsmeldinger(if(testing)TestConfig() else DevConfig())
+
+    val config = if(testing)TestConfig() else DevConfig()
+
+    val stream = if(config.enableKafka){
+        val livshendelser: ILivetErEnStroemAvHendelser = LivetErEnStroemAvHendelser(config.env)
+        val dodshendelser:IDodsmeldinger = Dodsmeldinger(config)
+        FinnDodsmeldinger(livshendelser, dodshendelser)
+    } else {
+        null
+    }
+
 
     routing {
         get("/") {
@@ -23,9 +34,9 @@ fun Application.module(testing: Boolean = false) {
 
             val meldinger = mutableListOf<Personhendelse>()
 
-            stream.stream()
+            stream?.stream()
             if(meldinger.isEmpty()){
-                call.respondText("Iterasjoner: ${stream.iterasjoner}, Dødsmeldinger${stream.dodsmeldinger}av ${stream.meldinger}", contentType = ContentType.Text.Plain)
+                call.respondText("Iterasjoner: ${stream?.iterasjoner}, Dødsmeldinger${stream?.dodsmeldinger}av ${stream?.meldinger}", contentType = ContentType.Text.Plain)
             }
         }
         get("/fromstart") {

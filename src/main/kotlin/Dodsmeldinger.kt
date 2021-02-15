@@ -1,12 +1,16 @@
-package no.pensjon
-
+package no.pensjon.etterlatte
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.slf4j.LoggerFactory
+import java.util.*
 
-class Dodsmeldinger(val config:AppConfig) {
+interface IDodsmeldinger {
+    fun personErDod(ident: String)
+}
 
-    val producer = KafkaProducer<String, String>(config.aivenproducerConfig())
+class Dodsmeldinger(config:AppConfig) : IDodsmeldinger {
+
+    val producer = KafkaProducer<String, String>(config.producerConfig())
     val logger = LoggerFactory.getLogger(this.javaClass)
 
     init {
@@ -14,9 +18,14 @@ class Dodsmeldinger(val config:AppConfig) {
 
     }
 
-    fun personErDod(ident:String){
+    override fun personErDod(ident:String){
         logger.info("Poster at person $ident er død")
-        producer.send(ProducerRecord("etterlatte.dodsmelding", ident, "fyren daua"))
+        producer.send(ProducerRecord("etterlatte.dodsmelding", UUID.randomUUID().toString(),  JsonMessage("{}", MessageProblems("{}"))
+            .apply {
+                set("eventtype", "person_dod")
+                set("ident", ident)
+            }
+            .toJson()))
     }
 
 }

@@ -1,12 +1,10 @@
-package no.pensjon
+package no.pensjon.etterlatte
+import no.pensjon.etterlatte.leesah.ILivetErEnStroemAvHendelser
 
-class FinnDodsmeldinger(val config:AppConfig) {
+class FinnDodsmeldinger(private val livshendelser: ILivetErEnStroemAvHendelser, private val dodshendelser:IDodsmeldinger) {
     var iterasjoner = 0
     var dodsmeldinger = 0
     var meldinger = 0
-
-    val livshendelser = LivetErEnStroemAvHendelser(config)
-    val dodshendelser = if(config.enableKafka) Dodsmeldinger(config) else null
 
 
     fun stream(){
@@ -14,7 +12,7 @@ class FinnDodsmeldinger(val config:AppConfig) {
         livshendelser.poll {
             meldinger++
             if(it.getOpplysningstype()== "DOEDSFALL_V1") {
-                dodshendelser?.personErDod(it.getPersonidenter().get(0))
+                dodshendelser.personErDod(it.getPersonidenter()[0])
                 dodsmeldinger++
             }
         }

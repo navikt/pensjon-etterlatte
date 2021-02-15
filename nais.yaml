@@ -23,6 +23,13 @@ spec:
     max: 1
   envFrom:
     - secret: barnepensjon-secrets
+  env:
+    - name: LEESAH_KAFKA_BROKERS
+      value: "b27apvl00045.preprod.local:8443,b27apvl00046.preprod.local:8443,b27apvl00047.preprod.local:8443"
+    - name: LEESAH_KAFKA_SCHEMA_REGISTRY
+      value: "https://kafka-schema-registry.nais-q.adeo.no/"
+    - name: LEESAH_KAFKA_GROUP_ID
+      value: "etterlatte-v1"
   accessPolicy:
     outbound:
       external:
