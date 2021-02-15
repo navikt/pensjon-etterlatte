@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - apps/pensjon-etterlatte/**
 
 jobs:
   build-release-deploy:
@@ -19,14 +21,14 @@ jobs:
       - name: Build
         run: |
           chmod +x ./gradlew
-          ./gradlew test build :shadowJar
+          ./gradlew -p apps/pensjon-etterlatte test build :shadowJar
       # Release
       - name: Create docker tag
         run: |
           echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/pensjon-etterlatte > .docker_image
           echo "$(date "+%Y.%m.%d")-$(git rev-parse --short HEAD)" > .docker_tag
       - name: Build Docker image
-        run: docker build -t $(cat .docker_image):$(cat .docker_tag) .
+        run: docker build -t $(cat .docker_image):$(cat .docker_tag) apps/pensjon-etterlatte
       - name: Login to Github Package Registry
         env:
           DOCKER_USERNAME: x-access-token
@@ -43,5 +45,5 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais.yaml
+          RESOURCE: apps/pensjon-etterlatte/nais.yaml
           IMAGE: ${{ env.IMAGE }}
