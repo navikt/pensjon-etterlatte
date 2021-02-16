@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: |
           chmod +x ./gradlew
-          ./gradlew -p apps/pensjon-etterlatte test build :shadowJar
+          ./gradlew :apps:pensjon-etterlatte:test :apps:pensjon-etterlatte:build :apps:pensjon-etterlatte:shadowJar
       # Release
       - name: Create docker tag
         run: |
