@@ -19,6 +19,6 @@ dependencies {
 tasks.named<Jar>("jar") {
     archiveBaseName.set("app")
     manifest {
-        attributes["Main-Class"] = "finnetterlatteKt"
+        attributes["Main-Class"] = "FinnetterlatteKt"
     }
 }
