@@ -10,3 +10,5 @@ pluginManagement {
 }
 rootProject.name = "pensjon-etterlatte-root"
 include("apps:pensjon-etterlatte")
+include("apps:finn-etterlatte")
+findProject(":apps:finn-etterlatte")?.name = "finn-etterlatte"
