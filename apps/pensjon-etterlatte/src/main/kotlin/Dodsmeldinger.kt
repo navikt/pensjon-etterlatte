@@ -22,8 +22,8 @@ class Dodsmeldinger(config:AppConfig) : IDodsmeldinger {
         logger.info("Poster at person $ident er død")
         producer.send(ProducerRecord("etterlatte.dodsmelding", UUID.randomUUID().toString(),  JsonMessage("{}", MessageProblems("{}"))
             .apply {
-                set("eventtype", "person_dod")
-                set("ident", ident)
+                set("@event_name", "person_dod")
+                set("@ident", ident)
             }
             .toJson()))
     }
