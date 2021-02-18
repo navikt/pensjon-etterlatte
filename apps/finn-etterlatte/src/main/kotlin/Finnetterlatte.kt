@@ -3,6 +3,10 @@ import no.nav.helse.rapids_rivers.*
 fun main() {
     val env = System.getenv()
         env.put("KAFKA_BOOTSTRAP_SERVERS", env.get("KAFKA_BROOKERS"))
+        env.put("NAV_TRUSTSTORE_PATH", env.get("KAFKA_TRUSTSTORE_PATH"))
+        env.put("NAV_TRUSTSTORE_PASSWORD", env.get("KAFKA_CREDSTORE_PASSWORD"))
+        env.put("KAFKA_KEYSTORE_PASSWORD", env.get("KAFKA_CREDSTORE_PASSWORD"))
+
 
     RapidApplication.create(env).apply {
         MyCoolApp(this)
