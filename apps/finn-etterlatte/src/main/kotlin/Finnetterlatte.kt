@@ -2,10 +2,10 @@ import no.nav.helse.rapids_rivers.*
 
 fun main() {
     val env = System.getenv().toMutableMap()
-        env.put("KAFKA_BOOTSTRAP_SERVERS", env.get("KAFKA_BROOKERS"))
-        env.put("NAV_TRUSTSTORE_PATH", env.get("KAFKA_TRUSTSTORE_PATH"))
-        env.put("NAV_TRUSTSTORE_PASSWORD", env.get("KAFKA_CREDSTORE_PASSWORD"))
-        env.put("KAFKA_KEYSTORE_PASSWORD", env.get("KAFKA_CREDSTORE_PASSWORD"))
+    env["KAFKA_BOOTSTRAP_SERVERS"] = env["KAFKA_BROKERS"]
+    env["NAV_TRUSTSTORE_PATH"] = env["KAFKA_TRUSTSTORE_PATH"]
+    env["NAV_TRUSTSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
+    env["KAFKA_KEYSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
 
 
     RapidApplication.create(env).apply {
