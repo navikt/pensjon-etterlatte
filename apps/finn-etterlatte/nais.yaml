@@ -28,5 +28,3 @@ spec:
       value: finnetterlatte
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
-    - name: KAFKA_RESET_POLICY
-      value: none
