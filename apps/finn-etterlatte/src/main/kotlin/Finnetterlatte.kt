@@ -22,6 +22,7 @@ internal class MyCoolApp(
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "person_dod") }
+            validate { it.requireKey("@ident") }
         }.register(this)
     }
 
