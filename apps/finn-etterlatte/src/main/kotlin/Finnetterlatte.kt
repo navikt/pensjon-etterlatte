@@ -1,7 +1,7 @@
 import no.nav.helse.rapids_rivers.*
 
 fun main() {
-    val env = System.getenv()
+    val env = System.getenv().toMutableMap()
         env.put("KAFKA_BOOTSTRAP_SERVERS", env.get("KAFKA_BROOKERS"))
         env.put("NAV_TRUSTSTORE_PATH", env.get("KAFKA_TRUSTSTORE_PATH"))
         env.put("NAV_TRUSTSTORE_PASSWORD", env.get("KAFKA_CREDSTORE_PASSWORD"))
