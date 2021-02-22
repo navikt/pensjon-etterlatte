@@ -1,6 +1,4 @@
-import AppBuilder.Companion.CONFIG_PDL_URL
 import AppBuilder.Companion.CONFIG_STS_PASSWORD
-import AppBuilder.Companion.CONFIG_STS_URL
 import AppBuilder.Companion.CONFIG_STS_USERNAME
 import no.nav.helse.rapids_rivers.*
 
@@ -11,8 +9,6 @@ fun main() {
     env["NAV_TRUSTSTORE_PATH"] = env["KAFKA_TRUSTSTORE_PATH"]
     env["NAV_TRUSTSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
     env["KAFKA_KEYSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
-    env[CONFIG_PDL_URL] = "https://pdl-api.dev-fss.nais.io/graphql"
-    env[CONFIG_STS_URL] = "https://security-token-service.dev.adeo.no/rest/v1/sts/token?grant_type=client_credentials&scope=openid"
     env[CONFIG_STS_USERNAME] = env["srvuser"]
     env[CONFIG_STS_PASSWORD] = env["srvpwd"]
 
@@ -40,7 +36,6 @@ internal class MyCoolApp(rapidsConnection: RapidsConnection, val pdl:FinnEtterla
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
         println(packet["@ident"].asText())
-
 
         pdl.finnEtterlatteForPerson().forEach{
             context.send(JsonMessage("{}", MessageProblems("{}")).apply {
