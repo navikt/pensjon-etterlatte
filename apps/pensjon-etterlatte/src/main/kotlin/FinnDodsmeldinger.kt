@@ -18,5 +18,9 @@ class FinnDodsmeldinger(private val livshendelser: ILivetErEnStroemAvHendelser, 
         }
     }
 
+    fun fraStart(){
+        livshendelser.fraStart()
+    }
+
 
 }

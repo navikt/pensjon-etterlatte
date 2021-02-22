@@ -41,7 +41,7 @@ fun Application.module(testing: Boolean = false) {
             }
         }
         get("/fromstart") {
-            //hendelser.fraStart()
+
             call.respondText("partition has been set to start", contentType = ContentType.Text.Plain)
         }
 

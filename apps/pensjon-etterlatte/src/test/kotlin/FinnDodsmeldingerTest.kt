@@ -33,6 +33,10 @@ class LeesahMock(val moccData:List<Personhendelse>) : ILivetErEnStroemAvHendelse
         moccData.forEach(c)
         return 1
     }
+
+    override fun fraStart() {
+
+    }
 }
 
 class DodsMock(val c:(String)->Unit): IDodsmeldinger {
