@@ -23,19 +23,20 @@ spec:
     cpuThresholdPercentage: 90
     max: 1
     min: 1
+  webproxy: true
   env:
     - name: KAFKA_CONSUMER_GROUP_ID
       value: finnetterlatte
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
     - name: PDL_URL
-      value: "https://pdl-api.dev-fss.nais.io/graphql"
+      value: "https://api-gw-q1.oera.no/pdl-api/graphql"
     - name: STS_URL
-      value: "https://security-token-service.dev.adeo.no/rest/v1/sts/token?grant_type=client_credentials&scope=openid"
+      value: "https://api-gw-q1.oera.no/security-token-service/rest/v1/sts/token?grant_type=client_credentials&scope=openid"
   envFrom:
     - secret: barnepensjon-secrets
   accessPolicy:
     outbound:
       external:
-        - host: "pdl-api.dev-fss.nais.io"
+        - host: "pdl-api.dev.adeo.no"
         - host: "security-token-service.dev.adeo.no"
