@@ -19,16 +19,16 @@ class MyCoolAppTest {
                         .toJson())
             }.inspektør
 
-        println(inspector.message(0))
-
-        assertEquals("456", inspector.message(0).get("ident").asText())
-        assertEquals("789", inspector.message(1).get("ident").asText())
+        assertEquals("456", inspector.message(0).get("@ident").asText())
+        assertEquals("etterlatt_barn_identifisert", inspector.message(0).get("@event_name").asText())
+        assertEquals("456", inspector.message(0).get("@ident").asText())
+        assertEquals("789", inspector.message(1).get("@ident").asText())
 
     }
 }
 
-class FinnEtterlatteMock():FinnEtterlatteForPerson {
-    override fun finnEtterlatteForPerson(): List<String> {
+class FinnEtterlatteMock:FinnEtterlatteForPerson {
+    override suspend fun finnEtterlatteForPerson(forelder: String): List<String> {
         return listOf("456", "789")
     }
 }

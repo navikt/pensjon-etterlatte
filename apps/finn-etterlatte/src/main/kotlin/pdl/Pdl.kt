@@ -8,25 +8,9 @@ import io.ktor.http.*
 import io.ktor.http.content.*
 
 class Pdl(private val client: HttpClient, private val apiUrl: String):FinnEtterlatteForPerson {
-    suspend fun call(){
-        val queryPart = """hentPerson(ident: "07028500992") {
-        navn(historikk: false) {
-            fornavn
-            mellomnavn
-            etternavn
-            forkortetNavn
-        }
-        folkeregisteridentifikator(historikk: false){
-            identifikasjonsnummer
-        }
-        foedsel {
-            foedselsdato
-        }
-        familierelasjoner {
-            relatertPersonsIdent
-            relatertPersonsRolle
-            minRolleForPerson
-        }
+    override suspend fun finnEtterlatteForPerson(forelder:String): List<String> {
+
+        val queryPart = """hentPerson(ident: "$forelder") {
         forelderBarnRelasjon {
             relatertPersonsIdent
             relatertPersonsRolle
@@ -36,21 +20,19 @@ class Pdl(private val client: HttpClient, private val apiUrl: String):FinnEtterl
 """
 
         val gql = """{"query":"query{ ${queryPart.replace(""""""", """\"""").replace("\n", """\n""")} } "}"""
-
-        println(gql)
         client.post<ObjectNode>(apiUrl){
             header("Tema", "PEN")
             header("Accept", "application/json")
             body = TextContent(gql, ContentType.Application.Json)
         }.also {
-            println(it)
             val barnRelasjoner = it.get("data").get("hentPerson").get("forelderBarnRelasjon")
+            val barn = mutableListOf<String>()
             for(i in 0 until barnRelasjoner.size())
-                println(barnRelasjoner.get(i).get("minRolleForPerson"))
-        }
-    }
+                if (barnRelasjoner.get(i).get("relatertPersonsRolle").textValue() == "BARN")
+                    barn.add(barnRelasjoner.get(i).get("relatertPersonsIdent").textValue())
+            return barn
 
-    override fun finnEtterlatteForPerson(): List<String> {
+        }
         return emptyList()
     }
 
