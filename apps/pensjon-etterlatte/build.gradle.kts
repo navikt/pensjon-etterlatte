@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.4.20"
+    kotlin("jvm")
     id("com.commercehub.gradle.plugin.avro") version "0.21.0"
     id("com.github.johnrengelman.shadow") version "5.2.0"
 }

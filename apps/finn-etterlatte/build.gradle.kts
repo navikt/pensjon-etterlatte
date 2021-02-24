@@ -3,7 +3,7 @@ val junitJupiterVersion = "5.6.2"
 val ktorVersion = "1.5.1"
 
 plugins {
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm")
     //id("com.expediagroup.graphql") version $latestGraphQLKotlinVersion
     id("com.github.johnrengelman.shadow") version "5.2.0"
 
