@@ -19,6 +19,9 @@ spec:
     path: /metrics
   kafka:
     pool: nav-dev
+  azure:
+    application:
+      enabled: true
   replicas:
     cpuThresholdPercentage: 90
     max: 1
@@ -29,13 +32,8 @@ spec:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
     - name: PDL_URL
-      value: "https://pdl-api.dev.adeo.no/graphql"
-    - name: STS_URL
-      value: "https://security-token-service.nais.preprod.local/rest/v1/sts/token?grant_type=client_credentials&scope=openid"
-  envFrom:
-    - secret: barnepensjon-secrets
+      value: "https://etterlatte-proxy.dev-fss-pub.nais.io/pdl"
   accessPolicy:
     outbound:
       external:
-        - host: "pdl-api.dev.adeo.no"
-        - host: "security-token-service.nais.preprod.local"
+        - host: "https://etterlatte-proxy.dev-fss-pub.nais.io"

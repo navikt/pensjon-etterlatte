@@ -15,6 +15,7 @@ repositories {
     mavenCentral()
     maven("https://jitpack.io")
     maven("https://kotlin.bintray.com/ktor")
+    //maven("https://jcenter.bintray.com")
 }
 
 dependencies {
@@ -22,9 +23,11 @@ dependencies {
     implementation("com.github.navikt:rapids-and-rivers:1.880e7a5")
     //implementation("com.expediagroup", "graphql-kotlin-ktor-client" , "4.0.0-alpha.13")
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-logging-jvm:$ktorVersion")
     implementation("io.ktor:ktor-client-auth:$ktorVersion")
     implementation("io.ktor:ktor-client-jackson:$ktorVersion")
+    implementation("no.nav.security:token-client-core:1.3.3")
 
     testImplementation("io.ktor:ktor-client-mock:$ktorVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
