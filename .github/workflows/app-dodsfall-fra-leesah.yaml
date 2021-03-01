@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - apps/pensjon-etterlatte/**
+      - apps/dodsfall-fra-leesah/**
 
 jobs:
   build-release-deploy:
@@ -21,14 +21,14 @@ jobs:
       - name: Build
         run: |
           chmod +x ./gradlew
-          ./gradlew :apps:pensjon-etterlatte:test :apps:pensjon-etterlatte:build :apps:pensjon-etterlatte:shadowJar
+          ./gradlew :apps:dodsfall-fra-leesah:test :apps:dodsfall-fra-leesah:build :apps:dodsfall-fra-leesah:shadowJar
       # Release
       - name: Create docker tag
         run: |
-          echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/pensjon-etterlatte > .docker_image
+          echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/dodsfall-fra-leesah > .docker_image
           echo "$(date "+%Y.%m.%d")-$(git rev-parse --short HEAD)" > .docker_tag
       - name: Build Docker image
-        run: docker build -t $(cat .docker_image):$(cat .docker_tag) apps/pensjon-etterlatte
+        run: docker build -t $(cat .docker_image):$(cat .docker_tag) apps/dodsfall-fra-leesah
       - name: Login to Github Package Registry
         env:
           DOCKER_USERNAME: x-access-token
@@ -45,5 +45,5 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: apps/pensjon-etterlatte/nais.yaml
+          RESOURCE: apps/dodsfall-fra-leesah/nais.yaml
           IMAGE: ${{ env.IMAGE }}

@@ -10,7 +10,7 @@ pluginManagement {
 }
 rootProject.name = "pensjon-etterlatte-root"
 
-include("apps:pensjon-etterlatte")
+include("apps:dodsfall-fra-leesah")
 include("apps:finn-etterlatte")
 include("apps:etterlatte-proxy")
 include("libs:ktorclient-auth-clientcredentials")
