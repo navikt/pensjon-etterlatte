@@ -37,7 +37,7 @@ fun Application.module(testing: Boolean = false) {
 
             stream?.stream()
             if(meldinger.isEmpty()){
-                call.respondText("Iterasjoner: ${stream?.iterasjoner}, Dødsmeldinger${stream?.dodsmeldinger}av ${stream?.meldinger}", contentType = ContentType.Text.Plain)
+                call.respondText("Iterasjoner: ${stream?.iterasjoner}, Dødsmeldinger ${stream?.dodsmeldinger} av ${stream?.meldinger}", contentType = ContentType.Text.Plain)
             }
         }
         get("/fromstart") {
