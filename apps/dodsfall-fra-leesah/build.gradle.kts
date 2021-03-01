@@ -32,6 +32,8 @@ dependencies {
     }
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
     testImplementation ("io.ktor:ktor-server-tests:1.4.3")
+    testImplementation ("no.nav:kafka-embedded-env:2.7.0")
+    //testImplementation("org.scala-lang:scala-library:2.12.11")
 
 }
 

@@ -22,29 +22,39 @@ class LivetErEnStroemAvHendelser(env: Map<String, String>) : ILivetErEnStroemAvH
     val leesahtopic = "aapen-person-pdl-leesah-v1"
     private var consumer:KafkaConsumer<String, Personhendelse>? = null;
 
-    init{
+    init {
 
+        val startuptask = {
+            consumer = KafkaConsumer(
+                    KafkaConfig(
+                            bootstrapServers = env["LEESAH_KAFKA_BROKERS"]!!,
+                            consumerGroupId = env["LEESAH_KAFKA_GROUP_ID"]!!,
+                            clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString(),
+                            username = env["srvuser"],
+                            password = env["srvpwd"],
+                            autoCommit = env["KAFKA_AUTO_COMMIT"]?.let { "true" == it.toLowerCase() },
+                            //maxRecords = 20,
+                            schemaRegistryUrl = env["LEESAH_KAFKA_SCHEMA_REGISTRY"],
+                            autoOffsetResetConfig = "latest"
+                    ).consumerConfig())
+            consumer?.subscribe(listOf(leesahtopic))
+
+            logger.info("kafka consumer startet")
+            Runtime.getRuntime().addShutdownHook(Thread { consumer?.close() })
+        }
+
+        if (env["DELAYED_START"] == "true") {
             GlobalScope.launch {
                 logger.info("venter 30s for sidecars")
                 delay(30L * 1000L)
                 logger.info("starter kafka consumer")
+                startuptask()
 
-                consumer = KafkaConsumer(
-                    KafkaConfig(
-                    bootstrapServers = env["LEESAH_KAFKA_BROKERS"]!!,
-                    consumerGroupId =  env["LEESAH_KAFKA_GROUP_ID"]!!,
-                    clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString(),
-                    username = env["srvuser"],
-                    password = env["srvpwd"],
-                    autoCommit = env["KAFKA_AUTO_COMMIT"]?.let { "true" == it.toLowerCase()},
-                    //maxRecords = 20,
-                    schemaRegistryUrl = env["LEESAH_KAFKA_SCHEMA_REGISTRY"]
-                ).consumerConfig())
-                consumer?.subscribe(listOf(leesahtopic))
-
-                logger.info("kafka consumer startet")
-                Runtime.getRuntime().addShutdownHook(Thread{ consumer?.close()})
             }
+        } else {
+            startuptask()
+        }
+
 
     }
 

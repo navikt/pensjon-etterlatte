@@ -13,11 +13,16 @@ sealed class AppConfig(val enableKafka:Boolean, val env:Map<String, String>) {
     abstract fun producerConfig(): MutableMap<String, Any>
 }
 
-class TestConfig: AppConfig(false, emptyMap()) {
-    override fun producerConfig(): MutableMap<String, Any> = throw IllegalArgumentException()
+class TestConfig(enableKafka: Boolean = false, env: Map<String, String> = emptyMap()): AppConfig(enableKafka, env) {
+    override fun producerConfig(): MutableMap<String, Any> = mutableMapOf(
+            ProducerConfig.BOOTSTRAP_SERVERS_CONFIG to env["KAFKA_BROKERS"]!!,
+            ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java.canonicalName,
+            ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java.canonicalName,
+            ProducerConfig.ACKS_CONFIG to "all",
+    )
 }
 
-class DevConfig: AppConfig(true, System.getenv()) {
+class DevConfig: AppConfig(true, System.getenv().toMutableMap().apply { put("DELAYED_START", "true") }) {
     private val JAVA_KEYSTORE = "jks"
     private val PKCS12 = "PKCS12"
 
