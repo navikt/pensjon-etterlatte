@@ -1,4 +1,4 @@
-name: Build, release and deploy
+name: dodsfall-fra-leesah - Build, release and deploy
 
 on:
   push:

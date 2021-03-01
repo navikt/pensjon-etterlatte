@@ -1,4 +1,4 @@
-name: Build, release and deploy
+name: finn-etterlatte - Build, release and deploy
 
 on:
   push:
