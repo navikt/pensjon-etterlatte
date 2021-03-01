@@ -9,7 +9,8 @@ pluginManagement {
     }
 }
 rootProject.name = "pensjon-etterlatte-root"
+
 include("apps:pensjon-etterlatte")
 include("apps:finn-etterlatte")
 include("apps:etterlatte-proxy")
-findProject(":apps:finn-etterlatte")?.name = "finn-etterlatte"
+include("libs:ktorclient-auth-clientcredentials")

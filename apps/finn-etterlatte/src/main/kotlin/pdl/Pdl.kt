@@ -33,7 +33,6 @@ class Pdl(private val client: HttpClient, private val apiUrl: String):FinnEtterl
             return barn
 
         }
-        return emptyList()
     }
 
 }

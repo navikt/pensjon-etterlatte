@@ -1,47 +1,43 @@
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val logback_version: String by project
-val ktor_version: String by project
-val kotlin_version: String by project
-val micrometer_version: String by project
-val unleashClientJavaVersion = "3.3.3"
-val orgJsonVersion = "20180813"
+val logbackversion: String by project
+val ktorversion: String by project
+val kotlinversion: String by project
+val micrometerversion: String by project
+val orgJsonVersion: String by project
+val junitJupiterVersion: String by project
 
 plugins {
     application
     kotlin("jvm")
 }
 
-group = "no.nav.etterlatte"
-
 application {
     mainClassName = "io.ktor.server.netty.EngineMain"
 }
 
-repositories {
-    mavenLocal()
-    jcenter()
-    maven { url = uri("https://kotlin.bintray.com/ktor") }
-}
-
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-core-jvm:$ktor_version")
-    implementation("io.ktor:ktor-client-auth-jvm:$ktor_version")
-    implementation("io.ktor:ktor-client-apache:$ktor_version")
-    implementation("io.ktor:ktor-client-jackson:$ktor_version")
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-auth:$ktor_version")
-    implementation("io.ktor:ktor-auth-jwt:$ktor_version")
-    implementation("io.ktor:ktor-jackson:$ktor_version")
-    implementation("io.micrometer:micrometer-registry-prometheus:$micrometer_version")
-    implementation("no.finn.unleash:unleash-client-java:$unleashClientJavaVersion")
-    testImplementation("io.ktor:ktor-server-tests:$ktor_version")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinversion")
+    implementation("io.ktor:ktor-server-netty:$ktorversion")
+    implementation("ch.qos.logback:logback-classic:$logbackversion")
+
+    implementation("io.ktor:ktor-client-core:$ktorversion")
+    implementation("io.ktor:ktor-client-core-jvm:$ktorversion")
+    implementation("io.ktor:ktor-client-auth-jvm:$ktorversion")
+    implementation("io.ktor:ktor-client-apache:$ktorversion")
+    implementation("io.ktor:ktor-client-jackson:$ktorversion")
+    implementation("io.ktor:ktor-server-core:$ktorversion")
+    implementation("io.ktor:ktor-auth:$ktorversion")
+    implementation("io.ktor:ktor-auth-jwt:$ktorversion")
+    implementation("io.ktor:ktor-jackson:$ktorversion")
+    implementation("io.micrometer:micrometer-registry-prometheus:$micrometerversion")
+    testImplementation("io.ktor:ktor-server-tests:$ktorversion")
     implementation("org.json:json:$orgJsonVersion")
+   // implementation("org.slf4j:slf4j-api:1.7.30")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 }
 
 kotlin.sourceSets["main"].kotlin.srcDirs("src")
@@ -53,10 +49,6 @@ sourceSets["test"].resources.srcDirs("testresources")
 java {
     sourceCompatibility = JavaVersion.VERSION_12
     targetCompatibility = JavaVersion.VERSION_12
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
 }
 
 tasks.named<Jar>("jar") {

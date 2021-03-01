@@ -1,4 +1,4 @@
-package no.nav.security.token.support.ktor.http
+package no.nav.etterlatte.security.ktor
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature

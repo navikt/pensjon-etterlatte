@@ -1,35 +1,24 @@
 
-val junitJupiterVersion = "5.6.2"
-val ktorVersion = "1.5.1"
+val junitJupiterVersion:String by project
+val ktorversion:String by project
+val rapidsandriversversion:String by project
 
 plugins {
     kotlin("jvm")
-    //id("com.expediagroup.graphql") version $latestGraphQLKotlinVersion
     id("com.github.johnrengelman.shadow") version "5.2.0"
-
-}
-
-version = "unspecified"
-
-repositories {
-    mavenCentral()
-    maven("https://jitpack.io")
-    maven("https://kotlin.bintray.com/ktor")
-    //maven("https://jcenter.bintray.com")
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("com.github.navikt:rapids-and-rivers:1.880e7a5")
-    //implementation("com.expediagroup", "graphql-kotlin-ktor-client" , "4.0.0-alpha.13")
-    implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
-    implementation("io.ktor:ktor-client-core:$ktorVersion")
-    implementation("io.ktor:ktor-client-logging-jvm:$ktorVersion")
-    implementation("io.ktor:ktor-client-auth:$ktorVersion")
-    implementation("io.ktor:ktor-client-jackson:$ktorVersion")
-    implementation("no.nav.security:token-client-core:1.3.3")
+    implementation("com.github.navikt:rapids-and-rivers:$rapidsandriversversion")
+    implementation("io.ktor:ktor-client-okhttp:$ktorversion")
+    implementation("io.ktor:ktor-client-core:$ktorversion")
+    implementation("io.ktor:ktor-client-logging-jvm:$ktorversion")
+    implementation("io.ktor:ktor-client-auth:$ktorversion")
+    implementation("io.ktor:ktor-client-jackson:$ktorversion")
+    implementation(project(":libs:ktorclient-auth-clientcredentials"))
 
-    testImplementation("io.ktor:ktor-client-mock:$ktorVersion")
+    testImplementation("io.ktor:ktor-client-mock:$ktorversion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")

@@ -17,8 +17,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @KtorExperimentalAPI
 @Suppress("unused") // Referenced in application.conf
-@kotlin.jvm.JvmOverloads
-fun Application.module(testing: Boolean = false) {
+fun Application.module() {
     val config = runBlocking { environment.config.load() }
     val stsClient = StsClient(config.sts)
     installAuthentication(config.aad)

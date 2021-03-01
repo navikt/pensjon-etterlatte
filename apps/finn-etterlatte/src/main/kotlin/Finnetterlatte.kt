@@ -1,5 +1,3 @@
-import AppBuilder.Companion.CONFIG_STS_PASSWORD
-import AppBuilder.Companion.CONFIG_STS_USERNAME
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.*
 
@@ -10,8 +8,6 @@ fun main() {
     env["NAV_TRUSTSTORE_PATH"] = env["KAFKA_TRUSTSTORE_PATH"]
     env["NAV_TRUSTSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
     env["KAFKA_KEYSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
-    env[CONFIG_STS_USERNAME] = env["srvuser"]
-    env[CONFIG_STS_PASSWORD] = env["srvpwd"]
 
     RapidApplication.create(env).apply {
         MyCoolApp(this, AppBuilder(env).pdlService())

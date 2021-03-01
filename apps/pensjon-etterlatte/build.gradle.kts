@@ -7,15 +7,9 @@ plugins {
 }
 
 repositories {
-    mavenCentral()
     maven("https://packages.confluent.io/maven/")
-    maven("https://jitpack.io")
 }
-/*
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-}
-*/
+
 dependencies {
     implementation("io.ktor:ktor-server-core:1.4.3")
     implementation("io.ktor:ktor-server-netty:1.4.3")
@@ -30,11 +24,7 @@ dependencies {
     implementation("io.confluent:kafka-avro-serializer:5.0.0") {
         exclude(group = "org.slf4j", module = "slf4j-log4j12")
     }
-    implementation("no.nav.security:token-support:1.3.3")
     implementation ("ch.qos.logback:logback-classic:1.2.1")
-
-
-
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testImplementation("no.nav:kafka-embedded-env:2.5.0") {
@@ -45,25 +35,9 @@ dependencies {
 
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "14"
-}
-
-
-
 tasks.named<Jar>("jar") {
     archiveBaseName.set("app")
     manifest {
         attributes["Main-Class"] = "no.nav.etterlatte.ApplicationKt"
     }
 }
-
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
-
-tasks.withType<Wrapper> {
-    gradleVersion = "6.7"
-}
-
-

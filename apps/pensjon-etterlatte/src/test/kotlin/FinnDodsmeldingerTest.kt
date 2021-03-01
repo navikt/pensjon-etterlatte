@@ -12,19 +12,20 @@ internal class FinnDodsmeldingerTest {
 
     @Test
     fun ikkeDodsmelding() {
-        val subject = FinnDodsmeldinger(LeesahMock(listOf(Personhendelse().apply{opplysningstype = "Ikke dodsmelding"})), DodsMock{fail()})
+        val subject = FinnDodsmeldinger(LeesahMock(listOf(Personhendelse().apply{put("opplysningstype", "Ikke dodsmelding")})), DodsMock{fail()})
         subject.stream()
     }
 
     @Test
     fun dodsmelding() {
-        val dødsmeldinger = mutableListOf<String>()
+        val dodsmeldinger = mutableListOf<String>()
         val subject = FinnDodsmeldinger(LeesahMock(listOf(Personhendelse().apply{
-            opplysningstype = "DOEDSFALL_V1";
-            setPersonidenter(listOf("123"))})), DodsMock{dødsmeldinger += it})
+            put("opplysningstype", "DOEDSFALL_V1")
+            put("personidenter", listOf("123"))
+            })), DodsMock{dodsmeldinger += it})
         subject.stream()
-        assertEquals(1, dødsmeldinger.size)
-        assertEquals("123", dødsmeldinger[0])
+        assertEquals(1, dodsmeldinger.size)
+        assertEquals("123", dodsmeldinger[0])
     }
 }
 

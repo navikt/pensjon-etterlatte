@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - apps/finn-etterlatte/**
+      - libs/ktorclient-auth-clientcredentials/**
 
 jobs:
   build-release-deploy:
