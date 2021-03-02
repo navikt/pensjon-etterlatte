@@ -16,7 +16,7 @@ spec:
     retentionHours: 720  # -1 means unlimited
   acl:
     - team: etterlatte
-      application: etterlatte-barnepensjon
+      application: dodsfall-fra-leesah
       access: readwrite
     - team: etterlatte
       application: finn-etterlatte
