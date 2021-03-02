@@ -1,22 +1,33 @@
 package no.nav.etterlatte.routes
 
-import io.ktor.application.*
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
-import io.ktor.request.*
-import io.ktor.routing.*
-import io.ktor.util.*
-import no.nav.etterlatte.*
+import io.ktor.application.call
+import io.ktor.client.request.accept
+import io.ktor.client.request.header
+import io.ktor.client.request.post
+import io.ktor.client.statement.HttpResponse
+import io.ktor.http.ContentType
+import io.ktor.http.HttpHeaders
+import io.ktor.http.HttpMethod
+import io.ktor.http.contentType
+import io.ktor.request.header
+import io.ktor.request.receive
+import io.ktor.routing.Route
+import io.ktor.routing.post
+import io.ktor.routing.route
+import io.ktor.util.KtorExperimentalAPI
+import no.nav.etterlatte.Config
+import no.nav.etterlatte.NavCallId
+import no.nav.etterlatte.StsClient
+import no.nav.etterlatte.httpClient
+import no.nav.etterlatte.pipeResponse
 import org.json.simple.JSONObject
-import java.util.*
+import java.util.UUID
 
 @KtorExperimentalAPI
 fun Route.pdl(
     config: Config,
     stsClient: StsClient,
-
-    ) {
+) {
     route("/pdl") {
         post {
 

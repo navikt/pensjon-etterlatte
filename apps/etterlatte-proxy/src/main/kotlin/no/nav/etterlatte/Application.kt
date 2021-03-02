@@ -33,8 +33,6 @@ fun Application.module() {
         filter { call -> !call.request.path().startsWith("/internal") }
     }
 
-
-
     routing {
         internal()
         authenticate("aad") {
