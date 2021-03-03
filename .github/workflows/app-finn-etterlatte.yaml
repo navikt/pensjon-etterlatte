@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: |
           chmod +x ./gradlew
-          ./gradlew :apps:finn-etterlatte:test :apps:finn-etterlatte:build :apps:finn-etterlatte:shadowJar
+          ./gradlew :apps:finn-etterlatte:test :apps:finn-etterlatte:build
       # Release
       - name: Create docker tag
         run: |

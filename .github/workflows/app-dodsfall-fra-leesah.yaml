@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: |
           chmod +x ./gradlew
-          ./gradlew :apps:dodsfall-fra-leesah:test :apps:dodsfall-fra-leesah:build :apps:dodsfall-fra-leesah:shadowJar
+          ./gradlew :apps:dodsfall-fra-leesah:test :apps:dodsfall-fra-leesah:build
       # Release
       - name: Create docker tag
         run: |
