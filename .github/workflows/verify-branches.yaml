@@ -1,0 +1,23 @@
+name: Verify branches
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!main'
+
+jobs:
+  verify-branches:
+    name: Verification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '14.x'
+
+      # Build
+      - name: Run Gradle Check
+        run: |
+          chmod +x ./gradlew
+          ./gradlew check
