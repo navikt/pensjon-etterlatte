@@ -1,22 +1,24 @@
 import no.nav.helse.rapids_rivers.JsonMessage
-import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.*
 
-class MyCoolAppTest {
+class FinnEtterlatteTest {
 
     @Test
-    fun opprett(){
+    fun opprett() {
         val inspector = TestRapid()
-            .apply { MyCoolApp(this, FinnEtterlatteMock()) }
+            .apply { FinnEtterlatte(this, FinnEtterlatteMock()) }
             .apply {
                 sendTestMessage(
-                    JsonMessage.newMessage(mapOf(
-                      "@event_name" to "person_dod",
-                      "@ident" to "123",
-                    ))
-                        .toJson())
+                    JsonMessage.newMessage(
+                        mapOf(
+                            "@event_name" to "person_dod",
+                            "@ident" to "123",
+                        )
+                    )
+                        .toJson()
+                )
             }.inspektør
 
         assertEquals("456", inspector.message(0).get("@ident").asText())
@@ -27,7 +29,7 @@ class MyCoolAppTest {
     }
 }
 
-class FinnEtterlatteMock:FinnEtterlatteForPerson {
+class FinnEtterlatteMock : FinnEtterlatteForPerson {
     override suspend fun finnEtterlatteForPerson(forelder: String): List<String> {
         return listOf("456", "789")
     }

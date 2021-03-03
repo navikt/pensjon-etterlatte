@@ -1,11 +1,10 @@
-
-val junitJupiterVersion:String by project
-val ktorversion:String by project
-val rapidsandriversversion:String by project
+val junitJupiterVersion: String by project
+val ktorversion: String by project
+val rapidsandriversversion: String by project
 
 plugins {
+    application
     kotlin("jvm")
-    id("com.github.johnrengelman.shadow") version "5.2.0"
 }
 
 dependencies {
@@ -26,14 +25,21 @@ dependencies {
 }
 tasks.named<Jar>("jar") {
     archiveBaseName.set("app")
+
     manifest {
-        attributes["Main-Class"] = "FinnetterlatteKt"
+        attributes["Main-Class"] = "no.nav.etterlatte.ApplicationKt"
+        attributes["Class-Path"] = configurations.runtimeClasspath.get().joinToString(separator = " ") {
+            it.name
+        }
+    }
+
+    doLast {
+        configurations.runtimeClasspath.get().forEach {
+            val file = File("$buildDir/libs/${it.name}")
+            if (!file.exists())
+                it.copyTo(file)
+        }
     }
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
-    testLogging {
-        events("passed", "skipped", "failed")
-    }
-}
+

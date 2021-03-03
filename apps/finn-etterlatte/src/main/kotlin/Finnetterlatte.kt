@@ -1,23 +1,12 @@
 import kotlinx.coroutines.runBlocking
-import no.nav.helse.rapids_rivers.*
-
-fun main() {
-
-    val env = System.getenv().toMutableMap()
-    env["KAFKA_BOOTSTRAP_SERVERS"] = env["KAFKA_BROKERS"]
-    env["NAV_TRUSTSTORE_PATH"] = env["KAFKA_TRUSTSTORE_PATH"]
-    env["NAV_TRUSTSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
-    env["KAFKA_KEYSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
-
-    RapidApplication.create(env).apply {
-        MyCoolApp(this, AppBuilder(env).pdlService())
-        Monitor(this)
-
-    }.start()
-}
+import no.nav.helse.rapids_rivers.JsonMessage
+import no.nav.helse.rapids_rivers.MessageProblems
+import no.nav.helse.rapids_rivers.RapidsConnection
+import no.nav.helse.rapids_rivers.River
 
 
-internal class MyCoolApp(rapidsConnection: RapidsConnection, val pdl:FinnEtterlatteForPerson) : River.PacketListener {
+internal class FinnEtterlatte(rapidsConnection: RapidsConnection, private val pdl: FinnEtterlatteForPerson) :
+    River.PacketListener {
 
     init {
         River(rapidsConnection).apply {
@@ -36,7 +25,7 @@ internal class MyCoolApp(rapidsConnection: RapidsConnection, val pdl:FinnEtterla
 
 
         runBlocking {
-            pdl.finnEtterlatteForPerson(packet["@ident"].asText()).forEach{
+            pdl.finnEtterlatteForPerson(packet["@ident"].asText()).forEach {
                 context.send(JsonMessage("{}", MessageProblems("{}")).apply {
                     set("@ident", it)
                     set("@Ident_avdod", packet["@ident"])
@@ -66,6 +55,6 @@ internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListene
     }
 }
 
-interface FinnEtterlatteForPerson{
-    suspend fun finnEtterlatteForPerson(forelder: String):List<String>
+interface FinnEtterlatteForPerson {
+    suspend fun finnEtterlatteForPerson(forelder: String): List<String>
 }
