@@ -1,7 +1,8 @@
-import io.ktor.client.*
-import io.ktor.client.engine.okhttp.*
-import io.ktor.client.features.auth.*
-import io.ktor.client.features.json.*
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.features.auth.Auth
+import io.ktor.client.features.json.JacksonSerializer
+import io.ktor.client.features.json.JsonFeature
 import no.nav.etterlatte.pdl.Pdl
 import no.nav.etterlatte.security.ktor.clientCredential
 

@@ -1,12 +1,14 @@
 package no.nav.etterlatte
 
-import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.routing.*
-import io.ktor.http.*
-import no.nav.person.pdl.leesah.Personhendelse
+import io.ktor.application.Application
+import io.ktor.application.call
+import io.ktor.http.ContentType
+import io.ktor.response.respondText
+import io.ktor.routing.get
+import io.ktor.routing.routing
 import no.nav.etterlatte.leesah.ILivetErEnStroemAvHendelser
 import no.nav.etterlatte.leesah.LivetErEnStroemAvHendelser
+import no.nav.person.pdl.leesah.Personhendelse
 
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)

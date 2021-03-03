@@ -1,11 +1,10 @@
-import no.nav.person.pdl.leesah.Personhendelse
 import no.nav.etterlatte.FinnDodsmeldinger
 import no.nav.etterlatte.IDodsmeldinger
-
 import no.nav.etterlatte.leesah.ILivetErEnStroemAvHendelser
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.fail
+import no.nav.person.pdl.leesah.Personhendelse
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.fail
+import org.junit.jupiter.api.Test
 
 
 internal class FinnDodsmeldingerTest {

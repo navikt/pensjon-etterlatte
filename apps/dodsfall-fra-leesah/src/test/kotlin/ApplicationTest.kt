@@ -1,9 +1,11 @@
 package no.nav.etterlatte
 
-import io.ktor.http.*
-import kotlin.test.*
-import io.ktor.server.testing.*
+import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
+import io.ktor.server.testing.handleRequest
+import io.ktor.server.testing.withTestApplication
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class ApplicationTest {
     @Test
