@@ -7,7 +7,7 @@ metadata:
     team: etterlatte
 spec:
   pool: nav-dev
-  config:  # optional; all fields are optional too; defaults shown
+  config: # optional; all fields are optional too; defaults shown
     cleanupPolicy: compact  # delete, compact
     minimumInSyncReplicas: 1
     partitions: 1
@@ -20,4 +20,7 @@ spec:
       access: readwrite
     - team: etterlatte
       application: finn-etterlatte
+      access: readwrite
+    - team: etterlatte
+      application: heartbeat
       access: readwrite
