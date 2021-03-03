@@ -1,10 +1,5 @@
 package no.nav.etterlatte
 
-import io.ktor.application.call
-import io.ktor.http.ContentType
-import io.ktor.response.respondText
-import io.ktor.routing.get
-import io.ktor.routing.routing
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -48,13 +43,9 @@ fun main() {
     env["NAV_TRUSTSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
     env["KAFKA_KEYSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
 
-    RapidApplication.create(env) { appengine, _ ->
-        appengine.application.routing {
-            get("/stats") {
-                call.respondText(database.toString(), ContentType.Text.Plain)
-            }
-        }
-    }.apply {
+
+
+    RapidApplication.create(env).apply {
         HeartbeatListener(this)
         Heart(this)
         start()
@@ -75,6 +66,7 @@ internal class HeartbeatListener(rapidsConnection: RapidsConnection) :
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
         database[packet["@id"].textValue()] = packet["@app"].textValue()
+        println(packet.toJson())
     }
 }
 
