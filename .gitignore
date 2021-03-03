@@ -1,8 +1,6 @@
-/build/
-/.gradle/
-/apps/*/build/
-/apps/*/.gradle/
-/libs/*/build/
-/libs/*/.gradle/
-/.idea/
 .DS_Store
+.gradle/
+.idea/
+
+build/
+node_modules/
