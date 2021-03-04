@@ -48,9 +48,9 @@ fun main() {
     RapidApplication.create(env).apply {
         HeartbeatListener(this)
         Heart(this)
-        start()
         PulsEmitter(this)
-    }
+    }.start()
+
 }
 
 
