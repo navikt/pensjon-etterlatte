@@ -4,11 +4,9 @@ import AppBuilder
 import FinnEtterlatte
 import Monitor
 import no.nav.helse.rapids_rivers.JsonMessage
-import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
-import org.slf4j.LoggerFactory
 
 fun main() {
 
@@ -25,9 +23,7 @@ fun main() {
     }.start()
 }
 
-internal class Heart(rapidsConnection: RapidsConnection) :
-    River.PacketListener {
-    private val log = LoggerFactory.getLogger(Heart::class.java)
+internal class Heart(rapidsConnection: RapidsConnection) : River.PacketListener {
 
     init {
         River(rapidsConnection).apply {
@@ -37,16 +33,9 @@ internal class Heart(rapidsConnection: RapidsConnection) :
     }
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
-        log.info("Accepted ${packet.toJson()}")
-        packet["@app"] = System.getenv("NAIS_APP_NAME")
-        context.send(packet.toJson())
+        context.send(packet.apply {
+            this["@app"] = System.getenv("NAIS_APP_NAME")
+        }.toJson())
     }
 
-    override fun onError(problems: MessageProblems, context: RapidsConnection.MessageContext) {
-        log.info("Error: ${problems.toExtendedReport()}")
-    }
-
-    override fun onSevere(error: MessageProblems.MessageException, context: RapidsConnection.MessageContext) {
-        log.info("Severe: ${error.problems.toExtendedReport()}")
-    }
 }

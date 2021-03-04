@@ -1,10 +1,41 @@
 package no.nav.etterlatte
 
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
+import java.time.Duration
+import java.time.Instant
+import java.util.*
 import kotlin.collections.set
+
+
+internal val Int.hours: Long
+    get() = minutes * 60
+
+internal val Int.minutes: Long
+    get() = seconds * 60
+
+internal val Int.seconds: Long
+    get() = this * 1000L
+
+
+object database {
+    private val db = mutableMapOf<String, Instant>()
+
+    fun new() = UUID.randomUUID().toString().also {
+        db[it] = Instant.now()
+        GlobalScope.launch {
+            delay(1.hours)
+            db.remove(it)
+        }
+    }
+
+    operator fun get(id: String) = db[id]?.let { Duration.between(it, Instant.now()) }
+}
 
 fun main() {
 
@@ -16,7 +47,6 @@ fun main() {
 
 
     Emitter()
-
     RapidApplication.create(env).apply {
         HeartbeatListener(this)
         Heart(this)
@@ -36,7 +66,8 @@ internal class HeartbeatListener(rapidsConnection: RapidsConnection) :
     }
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
-        println(packet.toJson())
+        println(database[packet["@id"].textValue()]?.let { "App ${packet["@app"]} lagging by $it" }
+            ?: "Heard unrequested or timed out heartbeat from ${packet["@app"]} ")
     }
 }
 

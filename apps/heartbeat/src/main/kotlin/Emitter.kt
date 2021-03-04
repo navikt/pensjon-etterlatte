@@ -12,10 +12,9 @@ import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.config.SslConfigs
 import org.apache.kafka.common.security.auth.SecurityProtocol
 import org.apache.kafka.common.serialization.StringSerializer
-import java.util.*
 
 
-class Emitter {
+class Emitter() {
     private val JAVA_KEYSTORE = "jks"
     private val PKCS12 = "PKCS12"
     private val env = System.getenv()
@@ -26,12 +25,9 @@ class Emitter {
         GlobalScope.launch {
             println("starter emitter")
             while (true) {
-
-                delay(60000L)
-
-                val id = UUID.randomUUID().toString()
-
-                println("Sender puls")
+                delay(30000L)
+                val id = database.new()
+                println("Sender puls $id")
                 producer.send(
                     ProducerRecord(
                         "etterlatte.dodsmelding",
