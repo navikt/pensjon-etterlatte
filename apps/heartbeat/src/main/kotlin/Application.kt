@@ -1,14 +1,9 @@
 package no.nav.etterlatte
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import no.nav.helse.rapids_rivers.JsonMessage
-import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
-import java.util.*
 import kotlin.collections.set
 
 fun main() {
@@ -20,11 +15,11 @@ fun main() {
     env["KAFKA_KEYSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
 
 
+    Emitter()
 
     RapidApplication.create(env).apply {
         HeartbeatListener(this)
         Heart(this)
-        PulsEmitter(this)
     }.start()
 
 }
@@ -61,23 +56,4 @@ internal class Heart(rapidsConnection: RapidsConnection) :
     }
 }
 
-internal class PulsEmitter(val rapidsConnection: RapidsConnection) {
-    init {
-        GlobalScope.launch {
-            println("starter emitter")
-            while (true) {
 
-                delay(60000L)
-
-                val id = UUID.randomUUID().toString()
-
-                println("Sender puls")
-                rapidsConnection.publish(JsonMessage("{}", MessageProblems("{}")).apply {
-                    set("@behov", "heartbeat")
-                    set("@id", id)
-                }.toJson())
-            }
-        }
-
-    }
-}

@@ -43,10 +43,10 @@ internal class Heart(rapidsConnection: RapidsConnection) :
     }
 
     override fun onError(problems: MessageProblems, context: RapidsConnection.MessageContext) {
-        log.info("Error: $problems")
+        log.info("Error: ${problems.toExtendedReport()}")
     }
 
     override fun onSevere(error: MessageProblems.MessageException, context: RapidsConnection.MessageContext) {
-        log.info("Severe: $error")
+        log.info("Severe: ${error.problems.toExtendedReport()}")
     }
 }
