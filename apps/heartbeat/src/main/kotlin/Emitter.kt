@@ -35,7 +35,7 @@ class Emitter {
                 producer.send(
                     ProducerRecord(
                         "etterlatte.dodsmelding",
-                        null,
+                        "heartbeat",
                         JsonMessage("{}", MessageProblems("{}")).apply {
                             set("@behov", "heartbeat")
                             set("@id", id)
