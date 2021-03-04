@@ -8,33 +8,9 @@ import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
-import java.time.Duration
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneId
 import java.util.*
 import kotlin.collections.set
-import kotlin.time.ExperimentalTime
-import kotlin.time.minutes
 
-object database {
-    private val db = mutableMapOf<String, HeartBeats>()
-    operator fun get(id: String) = db[id]
-    operator fun set(id: String, app: String) {
-        db[id]?.registerAnswer(app)
-    }
-
-    operator fun plusAssign(id: String) {
-        db[id] = HeartBeats()
-    }
-
-    override fun toString(): String {
-        return "data: {${db.values}}"
-    }
-}
-
-
-@ExperimentalTime
 fun main() {
 
     val env = System.getenv().toMutableMap()
@@ -65,7 +41,6 @@ internal class HeartbeatListener(rapidsConnection: RapidsConnection) :
     }
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
-        database[packet["@id"].textValue()] = packet["@app"].textValue()
         println(packet.toJson())
     }
 }
@@ -86,19 +61,17 @@ internal class Heart(rapidsConnection: RapidsConnection) :
     }
 }
 
-@ExperimentalTime
 internal class PulsEmitter(val rapidsConnection: RapidsConnection) {
     init {
         GlobalScope.launch {
-            var running = true
-            Runtime.getRuntime().addShutdownHook(Thread { running = false })
+            println("starter emitter")
+            while (true) {
 
-            while (running) {
-                delay(1.5.minutes)
+                delay(60000L)
 
                 val id = UUID.randomUUID().toString()
-                database += id
 
+                println("Sender puls")
                 rapidsConnection.publish(JsonMessage("{}", MessageProblems("{}")).apply {
                     set("@behov", "heartbeat")
                     set("@id", id)
@@ -106,35 +79,5 @@ internal class PulsEmitter(val rapidsConnection: RapidsConnection) {
             }
         }
 
-    }
-}
-
-class HeartBeats {
-    val created = Instant.now()
-    val answers = mutableListOf<HeartBeat>()
-
-    fun registerAnswer(app: String) {
-        answers.add(HeartBeat(app, created))
-    }
-
-
-    override fun toString(): String {
-        return """{
-          | created: ${LocalDateTime.ofInstant(created, ZoneId.systemDefault())}, 
-          | answers: $answers
-          |}
-        """.trimMargin()
-    }
-}
-
-class HeartBeat(val app: String, offset: Instant) {
-    val lag = Duration.between(offset, Instant.now())
-
-    override fun toString(): String {
-        return """  {
-          |    lagg: ${lag}, 
-          |    app: $app
-          |  }
-        """.trimMargin()
     }
 }
