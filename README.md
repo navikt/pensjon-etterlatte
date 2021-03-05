@@ -2,6 +2,16 @@
 
 Monorepo for ny løsning for ytelser til etterlatte
 
+## Apps
+[dodsfall-fra-leesah](apps/dodsfall-fra-leesah)
+
+[etterlatte-proxy](apps/etterlatte-proxy)
+
+[finn-etterlatte](apps/finn-etterlatte)
+
+[selvbetjening-ui](apps/selvbetjening-ui)
+
+
 # Henvendelser
 
 Spørsmål knyttet til koden eller prosjektet kan stilles som issues her på GitHub.
