@@ -14,7 +14,7 @@ import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import java.time.Duration
 import java.time.Instant
-import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
 import kotlin.collections.set
@@ -50,7 +50,7 @@ object database {
     operator fun get(id: String) = db[id]
     fun pretty(): String {
         return """{
-            |  pulses: ${db.values.map { it.pretty() }.pretty(4)}
+            |  "pulses": ${db.values.map { it.pretty() }.pretty(4)}
             |}""".trimMargin()
     }
 }
@@ -64,9 +64,9 @@ class Puls {
 
     fun pretty() =
         """{
-            |      emitted: ${LocalDate.ofInstant(ts, ZoneId.systemDefault())},
-            |      heartbeats: ${
-            beats.map { "{ app: ${it.app}, lag: ${Duration.between(ts, it.ts)} }" }.pretty(8)
+            |      "emitted": ${LocalDateTime.ofInstant(ts, ZoneId.systemDefault())},
+            |      "heartbeats": ${
+            beats.map { "{ \"app\": ${it.app}, \"lag\": ${Duration.between(ts, it.ts)} }" }.pretty(8)
         }
             |    }""".trimMargin()
 
