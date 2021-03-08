@@ -1,5 +1,10 @@
 package no.nav.etterlatte
 
+import io.ktor.application.call
+import io.ktor.http.ContentType
+import io.ktor.response.respondText
+import io.ktor.routing.get
+import io.ktor.routing.routing
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -9,6 +14,8 @@ import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import java.time.Duration
 import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.*
 import kotlin.collections.set
 
@@ -22,23 +29,54 @@ internal val Int.minutes: Long
 internal val Int.seconds: Long
     get() = this * 1000L
 
+fun List<Any>.pretty(indent: Int = 0): String =
+    if (isEmpty()) "[]" else joinToString(
+        ",\n${" ".repeat(indent)}",
+        "[\n${" ".repeat(indent)}",
+        "\n${" ".repeat(indent - 2)}]"
+    )
 
 object database {
-    private val db = mutableMapOf<String, Instant>()
+    private val db = mutableMapOf<String, Puls>()
 
-    fun new() = UUID.randomUUID().toString().also {
-        db[it] = Instant.now()
+    fun newPuls() = UUID.randomUUID().toString().also {
+        db[it] = Puls()
         GlobalScope.launch {
             delay(1.hours)
             db.remove(it)
         }
     }
 
-    operator fun get(id: String) = db[id]?.let { Duration.between(it, Instant.now()) }
+    operator fun get(id: String) = db[id]
+    fun pretty(): String {
+        return """{
+            |  pulses: ${db.values.map { it.pretty() }.pretty(4)}
+            |}""".trimMargin()
+    }
+}
+
+class Puls {
+    private val ts = Instant.now()
+    private val beats = mutableListOf<Heartbeat>()
+    fun registerHeartbeat(app: String) {
+        beats.add(Heartbeat(app))
+    }
+
+    fun pretty() =
+        """{
+            |      emitted: ${LocalDate.ofInstant(ts, ZoneId.systemDefault())},
+            |      heartbeats: ${
+            beats.map { "{ app: ${it.app}, lag: ${Duration.between(ts, it.ts)} }" }.pretty(8)
+        }
+            |    }""".trimMargin()
+
+}
+
+class Heartbeat(val app: String) {
+    val ts = Instant.now()
 }
 
 fun main() {
-
     val env = System.getenv().toMutableMap()
     env["KAFKA_BOOTSTRAP_SERVERS"] = env["KAFKA_BROKERS"]
     env["NAV_TRUSTSTORE_PATH"] = env["KAFKA_TRUSTSTORE_PATH"]
@@ -47,10 +85,17 @@ fun main() {
 
 
     Emitter()
-    RapidApplication.create(env).apply {
-        HeartbeatListener(this)
-        Heart(this)
-    }.start()
+    RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env)).withKtorModule {
+        routing {
+            get("/") {
+                call.respondText(database.pretty(), ContentType.Text.Plain)
+            }
+        }
+    }.build()
+        .apply {
+            HeartbeatListener(this)
+            Heart(this)
+        }.start()
 
 }
 
@@ -66,7 +111,9 @@ internal class HeartbeatListener(rapidsConnection: RapidsConnection) :
     }
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
-        println(database[packet["@id"].textValue()]?.let { "App ${packet["@app"]} lagging by $it" }
+        println(database[packet["@id"].textValue()]?.also {
+            it.registerHeartbeat(packet["@app"].textValue())
+        }
             ?: "Heard unrequested or timed out heartbeat from ${packet["@app"]} ")
     }
 }

@@ -31,3 +31,5 @@ spec:
       value: heartbeat
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
+  ingresses:
+    - "https://etterlatte-heartbeat.dev.adeo.no"

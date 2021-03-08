@@ -14,7 +14,7 @@ import org.apache.kafka.common.security.auth.SecurityProtocol
 import org.apache.kafka.common.serialization.StringSerializer
 
 
-class Emitter() {
+class Emitter {
     private val JAVA_KEYSTORE = "jks"
     private val PKCS12 = "PKCS12"
     private val env = System.getenv()
@@ -26,7 +26,7 @@ class Emitter() {
             println("starter emitter")
             while (true) {
                 delay(30000L)
-                val id = database.new()
+                val id = database.newPuls()
                 println("Sender puls $id")
                 producer.send(
                     ProducerRecord(
