@@ -64,9 +64,9 @@ class Puls {
 
     fun pretty() =
         """{
-            |      "emitted": ${LocalDateTime.ofInstant(ts, ZoneId.systemDefault())},
+            |      "emitted": "${LocalDateTime.ofInstant(ts, ZoneId.systemDefault())}",
             |      "heartbeats": ${
-            beats.map { "{ \"app\": ${it.app}, \"lag\": ${Duration.between(ts, it.ts)} }" }.pretty(8)
+            beats.map { """{ "app": "${it.app}", "lag": "${Duration.between(ts, it.ts)}" }""" }.pretty(8)
         }
             |    }""".trimMargin()
 
@@ -111,10 +111,8 @@ internal class HeartbeatListener(rapidsConnection: RapidsConnection) :
     }
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
-        println(database[packet["@id"].textValue()]?.also {
-            it.registerHeartbeat(packet["@app"].textValue())
-        }
-            ?: "Heard unrequested or timed out heartbeat from ${packet["@app"]} ")
+        database[packet["@id"].textValue()]?.also { it.registerHeartbeat(packet["@app"].textValue()) }
+            ?: println("Heard unrequested or timed out heartbeat from ${packet["@app"]} ")
     }
 }
 

@@ -27,7 +27,6 @@ class Emitter {
             while (true) {
                 delay(30000L)
                 val id = database.newPuls()
-                println("Sender puls $id")
                 producer.send(
                     ProducerRecord(
                         "etterlatte.dodsmelding",
