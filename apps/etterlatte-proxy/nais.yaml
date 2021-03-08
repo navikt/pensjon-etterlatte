@@ -7,7 +7,7 @@ metadata:
   labels:
     team: etterlatte
 spec:
-  image: { { image } }
+  image: {{ image }}
   team: etterlatte
   port: 8080
   replicas:
