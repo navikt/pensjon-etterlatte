@@ -8,13 +8,14 @@ import io.ktor.util.KtorExperimentalAPI
 data class Config(
     val sts: Sts,
     val pdl: PDL,
-    val aad: AAD
+    val aad: AAD,
+    val tokenX: TokenX
 ) {
     data class PDL(
         val url: String
     )
 
-     data class Sts(
+    data class Sts(
         val url: String,
         val serviceuser: ServiceUser,
     ) {
@@ -26,6 +27,16 @@ data class Config(
                 return "name=$name, password=<REDACTED>"
             }
         }
+    }
+
+    data class TokenX(
+        val metadata: Metadata,
+        val clientId: String,
+    ) {
+        data class Metadata(
+            @JsonProperty("issuer") val issuer: String,
+            @JsonProperty("jwks_uri") val jwksUri: String,
+        )
     }
 
     data class AAD(
@@ -53,5 +64,9 @@ suspend fun ApplicationConfig.load() = Config(
     aad = Config.AAD(
         metadata = httpClientWithProxy().get(property("aad.wellKnownUrl").getString()),
         clientId = property("aad.clientId").getString()
+    ),
+    tokenX = Config.TokenX(
+        metadata = httpClient().get(property("tokenx.wellKnownUrl").getString()),
+        clientId = property("tokenx.clientId").getString()
     )
 )

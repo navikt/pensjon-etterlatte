@@ -8,6 +8,7 @@ import io.ktor.features.ContentNegotiation
 import io.ktor.http.ContentType
 import io.ktor.jackson.JacksonConverter
 import io.ktor.request.path
+import io.ktor.routing.route
 import io.ktor.routing.routing
 import io.ktor.util.KtorExperimentalAPI
 import kotlinx.coroutines.runBlocking
@@ -22,7 +23,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module() {
     val config = runBlocking { environment.config.load() }
     val stsClient = StsClient(config.sts)
-    installAuthentication(config.aad)
+    installAuthentication(config.aad, config.tokenX)
 
     install(ContentNegotiation) {
         register(ContentType.Application.Json, JacksonConverter())
@@ -37,6 +38,14 @@ fun Application.module() {
         internal()
         authenticate("aad") {
             pdl(config, stsClient)
+            route("/aad") {
+                pdl(config, stsClient)
+            }
+        }
+        authenticate("tokenX") {
+            route("/tokenx") {
+                pdl(config, stsClient)
+            }
         }
     }
 }
