@@ -9,7 +9,11 @@ Monorepo for ny løsning for ytelser til etterlatte
 
 [finn-etterlatte](apps/finn-etterlatte)
 
+[heartbeat](apps/heartbeat)
+
 [selvbetjening-ui](apps/selvbetjening-ui)
+
+
 
 
 # Henvendelser
