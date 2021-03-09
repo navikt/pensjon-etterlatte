@@ -6,9 +6,9 @@ env:
 on:
   push:
     branches:
-      - 'DeploySelvbetjening'
-#    paths:
-#      - apps/selvbetjening-ui/**
+      - main
+    paths:
+      - apps/selvbetjening-ui/**
 
 jobs:
   build-and-publish:
