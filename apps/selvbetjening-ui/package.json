@@ -17,6 +17,8 @@
     "constate": "^3.2.0",
     "craco": "^0.0.3",
     "craco-less": "^1.17.1",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.6.2",
     "nav-frontend-alertstriper": "^3.0.51",
     "nav-frontend-alertstriper-style": "^2.0.21",
     "nav-frontend-chevron": "^1.0.21",
@@ -72,6 +74,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
+    "serve": "NODE_ENV=production node server.js",
     "lint": "yarn lint:jsts && yarn lint:less",
     "lint:jsts": "npx eslint .",
     "lint:less": "npx stylelint --syntax less **/*.less"

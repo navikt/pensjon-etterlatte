@@ -3,14 +3,16 @@ import ReactDOM from "react-dom";
 import "./index.less";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Router basename={process.env.PUBLIC_URL}>
+    // <React.StrictMode>
+    <Router basename={process.env.PUBLIC_URL}>
+        <Switch>
             <Route path={"/"} component={App} />
-        </Router>
-    </React.StrictMode>,
+        </Switch>
+    </Router>,
     document.getElementById("root")
 );
 
@@ -18,3 +20,8 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
