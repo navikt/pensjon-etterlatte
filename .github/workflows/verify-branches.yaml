@@ -5,6 +5,7 @@ on:
     branches:
       - '*'
       - '!main'
+      - '!DeploySelvbetjening'
 
 jobs:
   verify-branches:

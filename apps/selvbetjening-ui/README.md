@@ -10,6 +10,7 @@ Dersom du ikke har installert Yarn kan du kjøre:\
 Deretter sjekk at det ble installert riktig:\
 `yarn --version`
 
+
 ### Kjøre lokalt
 
 Installere prosjektet:\
@@ -23,6 +24,7 @@ Kjører prosjektet lokalt.\
 
 Teste prosjektet:\
 `yarn test`
+
 
 ### Bygging for produksjon:
 
@@ -38,6 +40,7 @@ https://www.npmjs.com/package/serve
 yarn install -g serve
 serve build
 ```
+
 
 ## NAV Frontend-moduler
 

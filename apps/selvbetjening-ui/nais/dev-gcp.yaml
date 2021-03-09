@@ -13,7 +13,7 @@ spec:
     cpuThresholdPercentage: 90
   port: 8080
   ingresses:
-    - "https://www-gcp.dev.nav.no/etterlatte"
+    - "https://etterlatte-selvbetjening-ui.dev.nav.no"
   liveness:
     path: /is_alive
     initialDelay: 10
@@ -27,7 +27,7 @@ spec:
     timeout: 5
   prometheus:
     enabled: true
-    path: /prometheus
+    path: /metrics
   resources:
     limits:
       cpu: 500m

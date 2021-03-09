@@ -8,8 +8,16 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
 app.get("/is_alive", (req, res) => {
     res.sendStatus(200);
 });
 
-app.listen(9000);
+app.get("/is_ready", (req, res) => {
+    res.sendStatus(200);
+});
+
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+    console.log(`App listening on port: ${port}`);
+});

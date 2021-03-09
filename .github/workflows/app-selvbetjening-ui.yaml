@@ -1,12 +1,14 @@
-  
 name: selvbetjening-ui - Build, release and deploy
+
+env:
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/selvbetjening-ui:${{ github.sha }}
 
 on:
   push:
     branches:
-      - main
-    paths:
-      - apps/selvbetjening-ui/**
+      - 'DeploySelvbetjening'
+#    paths:
+#      - apps/selvbetjening-ui/**
 
 jobs:
   build-and-publish:
@@ -15,12 +17,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - uses: navikt/pensjon-etterlatte/apps/selvbetjening-ui
       - name: Setup Node 14
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
       - name: Install and build
+        working-directory: apps/selvbetjening-ui
         run: |
           yarn install
           yarn build
@@ -28,7 +30,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          docker build --tag ${IMAGE} .
+          docker build --tag ${IMAGE} apps/selvbetjening-ui
           docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
           docker push ${IMAGE}
 
@@ -37,17 +39,9 @@ jobs:
     needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: navikt/pensjon-etterlatte/apps/selvbetjening-ui
-      - uses: actions/download-artifact@v1
-        with:
-          name: VERSION.txt
-          path: .
-      - run: echo "VERSION=`cat VERSION.txt`" >> $GITHUB_ENV
-      - run: echo "IMAGE=docker.pkg.github.com/${GITHUB_REPOSITORY}/$APP:$VERSION" >> $GITHUB_ENV
-      - name: deploy to dev-gcp
-        uses: nais/deploy/actions/deploy@master
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais/dev-gcp.yaml
+          RESOURCE: apps/selvbetjening-ui/nais/dev-gcp.yaml

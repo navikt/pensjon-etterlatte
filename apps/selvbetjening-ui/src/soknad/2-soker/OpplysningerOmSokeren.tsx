@@ -1,20 +1,11 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import "../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { Input, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import constate from "constate";
 import { useHistory } from "react-router-dom";
-
-function useFnr() {
-    const [fnr, setFnr] = useState("");
-    //const
-    return { fnr };
-}
-
-const [FnrProvider, useFr] = constate(useFnr);
 
 interface Props {
     forrigeSteg?: number;
