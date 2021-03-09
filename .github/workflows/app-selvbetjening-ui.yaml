@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - uses: apps/selvbetjening-ui
+      - uses: navikt/pensjon-etterlatte/apps/selvbetjening-ui
       - name: Setup Node 14
         uses: actions/setup-node@v2
         with:
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: apps/selvbetjening-ui
+      - uses: navikt/pensjon-etterlatte/apps/selvbetjening-ui
       - uses: actions/download-artifact@v1
         with:
           name: VERSION.txt
