@@ -24,3 +24,6 @@ spec:
     - team: etterlatte
       application: heartbeat
       access: readwrite
+    - team: etterlatte
+      application: sjekk-alder-etterlatte
+      access: readwrite

@@ -12,6 +12,7 @@ rootProject.name = "pensjon-etterlatte-root"
 
 include("apps:dodsfall-fra-leesah")
 include("apps:finn-etterlatte")
+include("apps:sjekk-alder-etterlatte")
 include("apps:etterlatte-proxy")
 include("apps:heartbeat")
 include("libs:ktorclient-auth-clientcredentials")
