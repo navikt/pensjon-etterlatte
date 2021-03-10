@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Route, Switch, useRouteMatch } from "react-router";
+import { Route, useRouteMatch } from "react-router";
 import SoknadType from "./1-type/SoknadType";
 import OpplysningerOmSokeren from "./2-soker/OpplysningerOmSokeren";
 import OmDenAvdode from "./3-avdod/OmDenAvdode";
@@ -14,13 +14,7 @@ const SoknadDialog: FC = () => {
     let { path } = useRouteMatch();
 
     return (
-        <Switch>
-            <Route path={"/"}>
-                <h1>Root soknad</h1>
-            </Route>
-            <Route path={`${path}/`}>
-                <h1>Soknad</h1>
-            </Route>
+        <>
             {/* Implementer state for steget brukeren befinner seg på */}
             <Route path={`${path}/steg/1`} render={() => <SoknadType nesteSteg={2} />} />
             <Route path={`${path}/steg/2`} render={() => <OpplysningerOmSokeren forrigeSteg={1} nesteSteg={3} />} />
@@ -31,7 +25,7 @@ const SoknadDialog: FC = () => {
             <Route path={`${path}/steg/7`} render={() => <AndreYtelser forrigeSteg={6} nesteSteg={8} />} />
             <Route path={`${path}/steg/8`} render={() => <Sprakform forrigeSteg={7} nesteSteg={9} />} />
             <Route path={`${path}/steg/9`} render={() => <ErklaeringOgUnderskrift forrigeSteg={8} />} />
-        </Switch>
+        </>
     );
 };
 

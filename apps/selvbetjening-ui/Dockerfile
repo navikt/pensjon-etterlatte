@@ -2,14 +2,10 @@ FROM node:14
 
 WORKDIR /usr/src/app
 
-# COPY . .
-
-# RUN npm install express path
-
-COPY dist ./dist
+COPY build ./build
 COPY server.js .
-COPY node_modules ./node_modules
-COPY package.json .
+
+RUN npm install express path
 
 EXPOSE 8080
 
