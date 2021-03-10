@@ -13,7 +13,7 @@ class SjekkAlderEtterlatteTest {
                 sendTestMessage(
                     JsonMessage.newMessage(
                         mapOf(
-                            "@event_name" to "person_dod",
+                            "@event_name" to "etterlatt_barn_identifisert",
                             "@ident" to "123",
                         )
                     )
