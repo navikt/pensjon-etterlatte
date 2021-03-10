@@ -28,7 +28,7 @@ internal class PdlTest {
                                     "data":{ 
                                         "hentPerson": {
                                             "foedsel": [{
-                                               "foedselsdato": "1980-01-01"
+                                               "foedselsdato": "2010-01-01"
                                             },
                                             {
                                                "foedselsdato": "1981-01-01"
@@ -49,7 +49,7 @@ internal class PdlTest {
 
         runBlocking {
             PdlAlder(httpClient, "https://pdl.no/").sjekkAlderForEtterlatte("abc").also {
-                assertEquals(41, it)
+                assertEquals(11, it)
             }
         }
 
