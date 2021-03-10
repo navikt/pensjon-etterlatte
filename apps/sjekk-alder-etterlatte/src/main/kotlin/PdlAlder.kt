@@ -24,7 +24,7 @@ class PdlAlder(private val client: HttpClient, private val apiUrl: String): Sjek
             header("Accept", "application/json")
             body = TextContent(gql, ContentType.Application.Json)
         }.also {
-            val foedselsdato = it.get("data").get("hentPerson").get("foedsel").get("foedselsdato")
+            val foedselsdato = it.get("data").get("hentPerson").get("foedsel").get(0).get("foedselsdato")
 
             val dato = LocalDate.parse(foedselsdato.textValue())
             return Period.between(dato, LocalDate.now()).years

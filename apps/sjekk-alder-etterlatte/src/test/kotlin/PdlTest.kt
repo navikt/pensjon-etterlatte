@@ -27,9 +27,12 @@ internal class PdlTest {
                             respond("""{
                                     "data":{ 
                                         "hentPerson": {
-                                            "foedsel": {
+                                            "foedsel": [{
                                                "foedselsdato": "1980-01-01"
-                                            }
+                                            },
+                                            {
+                                               "foedselsdato": "1981-01-01"
+                                            }]                                          
                                         }
                                     }
                                 }""",

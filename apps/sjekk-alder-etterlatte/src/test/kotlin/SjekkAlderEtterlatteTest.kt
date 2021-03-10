@@ -26,7 +26,7 @@ class SjekkAlderEtterlatteTest {
 }
 
 class SjekkAlderEtterlatteMock : SjekkAlderForEtterlatte {
-    override suspend fun sjekkAlderForEtterlatte(forelder: String): Int {
+    override suspend fun sjekkAlderForEtterlatte(etterlatt: String): Int {
         return 12
     }
 }

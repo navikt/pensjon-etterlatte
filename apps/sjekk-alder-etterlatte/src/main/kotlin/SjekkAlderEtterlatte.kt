@@ -52,5 +52,5 @@ internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListene
 }
 
 interface SjekkAlderForEtterlatte {
-    suspend fun sjekkAlderForEtterlatte(forelder: String): Int
+    suspend fun sjekkAlderForEtterlatte(etterlatt: String): Int
 }
