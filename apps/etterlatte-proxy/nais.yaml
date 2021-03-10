@@ -58,3 +58,6 @@ spec:
         - application: finn-etterlatte
           namespace: etterlatte
           cluster: dev-gcp
+        - application: sjekk-alder-etterlatte
+          namespace: etterlatte
+          cluster: dev-gcp
