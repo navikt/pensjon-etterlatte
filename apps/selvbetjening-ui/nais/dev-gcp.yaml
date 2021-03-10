@@ -7,27 +7,24 @@ metadata:
     team: etterlatte
 spec:
   image: {{ image }}
+  port: 8080
   replicas:
     min: 1
     max: 2
     cpuThresholdPercentage: 90
-  port: 8080
   ingresses:
     - "https://etterlatte-selvbetjening-ui.dev.nav.no"
   liveness:
-    path: /is_alive
+    path: /isAlive
     initialDelay: 10
     timeout: 5
     periodSeconds: 5
     failureThreshold: 30
   readiness:
-    path: /is_ready
+    path: /isReady
     initialDelay: 30
     periodSeconds: 5
     timeout: 5
-  prometheus:
-    enabled: true
-    path: /metrics
   resources:
     limits:
       cpu: 500m

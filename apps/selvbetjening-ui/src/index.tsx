@@ -3,15 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.less";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
     // <React.StrictMode>
     <Router basename={process.env.PUBLIC_URL}>
-        <Switch>
-            <Route path={"/"} component={App} />
-        </Switch>
+        <App />
     </Router>,
     document.getElementById("root")
 );
