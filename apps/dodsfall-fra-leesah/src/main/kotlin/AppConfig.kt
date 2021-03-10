@@ -4,7 +4,6 @@ import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.config.SslConfigs
 import org.apache.kafka.common.security.auth.SecurityProtocol
 import org.apache.kafka.common.serialization.StringSerializer
-import java.lang.IllegalArgumentException
 
 
 
@@ -44,6 +43,7 @@ class DevConfig: AppConfig(true, System.getenv().toMutableMap().apply { put("DEL
         SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG to envOrThrow("KAFKA_CREDSTORE_PASSWORD"),
         SslConfigs.SSL_KEY_PASSWORD_CONFIG to envOrThrow("KAFKA_CREDSTORE_PASSWORD")
     )
+
 }
 
 
