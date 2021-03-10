@@ -35,8 +35,6 @@ internal class SjekkAlderEtterlatte(rapidsConnection: RapidsConnection, private 
 
     }
 
-
-
 internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListener {
 
     init {
