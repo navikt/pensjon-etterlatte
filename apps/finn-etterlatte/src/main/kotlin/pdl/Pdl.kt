@@ -2,10 +2,11 @@ package no.nav.etterlatte.pdl
 
 import FinnEtterlatteForPerson
 import com.fasterxml.jackson.databind.node.ObjectNode
-import io.ktor.client.*
-import io.ktor.client.request.*
-import io.ktor.http.*
-import io.ktor.http.content.*
+import io.ktor.client.HttpClient
+import io.ktor.client.request.header
+import io.ktor.client.request.post
+import io.ktor.http.ContentType
+import io.ktor.http.content.TextContent
 
 class Pdl(private val client: HttpClient, private val apiUrl: String):FinnEtterlatteForPerson {
     override suspend fun finnEtterlatteForPerson(forelder:String): List<String> {

@@ -12,6 +12,7 @@ internal class SjekkAlderEtterlatte(rapidsConnection: RapidsConnection, private 
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "etterlatt_barn_identifisert") }
             validate { it.requireKey("@ident") }
+            validate { it.forbid("@alder") }
         }.register(this)
     }
 
@@ -25,18 +26,15 @@ internal class SjekkAlderEtterlatte(rapidsConnection: RapidsConnection, private 
 
 
         runBlocking {
-            pdl.sjekkAlderForEtterlatte(packet["@ident"].asText()).forEach {
-                context.send(JsonMessage("{}", MessageProblems("{}")).apply {
-                    set("@ident", it)
-                    set("@Ident_avdod", packet["@ident"])
-                    set("@event_name", "etterlatt_barn_identifisert")
-                }.toJson())
+
+            packet["@alder"] = pdl.sjekkAlderForEtterlatte(packet["@ident"].asText())
+            context.send(packet.toJson())
+
             }
         }
-        // nested objects can be chained using "."
-        // println(packet["nested.key"].asText())
+
     }
-}
+
 
 
 internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListener {
@@ -56,5 +54,5 @@ internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListene
 }
 
 interface SjekkAlderForEtterlatte {
-    suspend fun sjekkAlderForEtterlatte(forelder: String): List<String>
+    suspend fun sjekkAlderForEtterlatte(forelder: String): Int
 }

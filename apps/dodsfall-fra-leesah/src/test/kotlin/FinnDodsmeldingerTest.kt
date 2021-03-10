@@ -11,7 +11,7 @@ internal class FinnDodsmeldingerTest {
 
     @Test
     fun ikkeDodsmelding() {
-        val subject = FinnDodsmeldinger(LeesahMock(listOf(Personhendelse().apply{put("opplysningstype", "Ikke dodsmelding")})), DodsMock{fail()})
+        val subject = FinnDodsmeldinger(LeesahMock(listOf(Personhendelse().apply{put("opplysningstype", "Ikke dodsmelding")})), DodsMock{_,_ -> fail()})
         subject.stream()
     }
 
@@ -21,7 +21,7 @@ internal class FinnDodsmeldingerTest {
         val subject = FinnDodsmeldinger(LeesahMock(listOf(Personhendelse().apply{
             put("opplysningstype", "DOEDSFALL_V1")
             put("personidenter", listOf("123"))
-            })), DodsMock{dodsmeldinger += it})
+            })), DodsMock{it,_-> dodsmeldinger += it})
         subject.stream()
         assertEquals(1, dodsmeldinger.size)
         assertEquals("123", dodsmeldinger[0])
@@ -39,7 +39,7 @@ class LeesahMock(val moccData:List<Personhendelse>) : ILivetErEnStroemAvHendelse
     }
 }
 
-class DodsMock(val c:(String)->Unit): IDodsmeldinger {
-    override fun personErDod(ident: String) = c(ident)
+ class DodsMock(val c:(String, String?)->Unit): IDodsmeldinger {
+    override fun personErDod(ident: String, doedsdato: String?) = c(ident, doedsdato)
 
 }

@@ -21,16 +21,12 @@ class SjekkAlderEtterlatteTest {
                 )
             }.inspektør
 
-        assertEquals("456", inspector.message(0).get("@ident").asText())
-        assertEquals("etterlatt_barn_identifisert", inspector.message(0).get("@event_name").asText())
-        assertEquals("456", inspector.message(0).get("@ident").asText())
-        assertEquals("789", inspector.message(1).get("@ident").asText())
-
+        assertEquals(12, inspector.message(0).get("@alder").asInt())
     }
 }
 
 class SjekkAlderEtterlatteMock : SjekkAlderForEtterlatte {
-    override suspend fun sjekkAlderForEtterlatte(forelder: String): List<String> {
-        return listOf("456", "789")
+    override suspend fun sjekkAlderForEtterlatte(forelder: String): Int {
+        return 12
     }
 }

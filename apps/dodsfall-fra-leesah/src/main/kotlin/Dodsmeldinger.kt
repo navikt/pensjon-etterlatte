@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory
 import java.util.*
 
 interface IDodsmeldinger {
-    fun personErDod(ident: String)
+    fun personErDod(ident: String, doedsdato: String?)
 }
 
 class Dodsmeldinger(config:AppConfig) : IDodsmeldinger {
@@ -18,12 +18,15 @@ class Dodsmeldinger(config:AppConfig) : IDodsmeldinger {
 
     }
 
-    override fun personErDod(ident:String){
+    override fun personErDod(ident:String, doedsdato: String?){
         logger.info("Poster at person $ident er død")
         producer.send(ProducerRecord("etterlatte.dodsmelding", UUID.randomUUID().toString(),  JsonMessage("{}", MessageProblems("{}"))
             .apply {
                 set("@event_name", "person_dod")
                 set("@ident", ident)
+                doedsdato?.also {
+                   set("@doedsdato" , it)
+                }
             }
             .toJson()))
     }

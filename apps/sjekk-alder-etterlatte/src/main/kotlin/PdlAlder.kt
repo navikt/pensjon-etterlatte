@@ -1,4 +1,3 @@
-//package no.nav.etterlatte.
 
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.client.HttpClient
@@ -6,15 +5,15 @@ import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.http.ContentType
 import io.ktor.http.content.TextContent
+import java.time.LocalDate
+import java.time.Period
 
 class PdlAlder(private val client: HttpClient, private val apiUrl: String): SjekkAlderForEtterlatte {
-    override suspend fun sjekkAlderForEtterlatte(forelder:String): List<String> {
+    override suspend fun sjekkAlderForEtterlatte(etterlatt:String): Int {
 
-        val queryPart = """hentPerson(ident: "$forelder") {
-        forelderBarnRelasjon {
-            relatertPersonsIdent
-            relatertPersonsRolle
-            minRolleForPerson
+        val queryPart = """hentPerson(ident: "$etterlatt") {
+        foedsel {
+            foedselsdato
         }
     }
 """
@@ -25,13 +24,10 @@ class PdlAlder(private val client: HttpClient, private val apiUrl: String): Sjek
             header("Accept", "application/json")
             body = TextContent(gql, ContentType.Application.Json)
         }.also {
-            val barnRelasjoner = it.get("data").get("hentPerson").get("forelderBarnRelasjon")
-            val barn = mutableListOf<String>()
-            for(i in 0 until barnRelasjoner.size())
-                if (barnRelasjoner.get(i).get("relatertPersonsRolle").textValue() == "BARN")
-                    barn.add(barnRelasjoner.get(i).get("relatertPersonsIdent").textValue())
-            return barn
+            val foedselsdato = it.get("data").get("hentPerson").get("foedsel").get("foedselsdato")
 
+            val dato = LocalDate.parse(foedselsdato.textValue())
+            return Period.between(dato, LocalDate.now()).years
         }
     }
 

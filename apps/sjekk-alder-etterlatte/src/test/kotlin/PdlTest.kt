@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test
 internal class PdlTest {
 
     @Test
-    fun finnEtterlatteForPerson() {
+    fun sjekkAlderForEtterlatte() {
 
         val httpClient = HttpClient(MockEngine){
             engine {
@@ -27,14 +27,9 @@ internal class PdlTest {
                             respond("""{
                                     "data":{ 
                                         "hentPerson": {
-                                            "forelderBarnRelasjon": [{
-                                               "relatertPersonsIdent": "321",
-                                               "relatertPersonsRolle": "BARN"
-                                            },
-                                            {
-                                               "relatertPersonsIdent": "456",
-                                               "relatertPersonsRolle": "FAR"
-                                            }]
+                                            "foedsel": {
+                                               "foedselsdato": "1980-01-01"
+                                            }
                                         }
                                     }
                                 }""",
@@ -51,8 +46,7 @@ internal class PdlTest {
 
         runBlocking {
             PdlAlder(httpClient, "https://pdl.no/").sjekkAlderForEtterlatte("abc").also {
-                assertEquals("321", it.get(0))
-                assertEquals(1, it.size)
+                assertEquals(41, it)
             }
         }
 
