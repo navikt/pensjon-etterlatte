@@ -12,6 +12,7 @@ import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.config.SslConfigs
 import org.apache.kafka.common.security.auth.SecurityProtocol
 import org.apache.kafka.common.serialization.StringSerializer
+import java.time.LocalDateTime
 
 
 class Emitter {
@@ -30,10 +31,10 @@ class Emitter {
                 producer.send(
                     ProducerRecord(
                         "etterlatte.dodsmelding",
-                        "heartbeat",
                         JsonMessage("{}", MessageProblems("{}")).apply {
-                            set("@behov", "heartbeat")
+                            set("@event_name", "ping")
                             set("@id", id)
+                            set("ping_time", LocalDateTime.now())
                         }.toJson()
                     )
                 ).get()

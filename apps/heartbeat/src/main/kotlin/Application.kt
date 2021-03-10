@@ -94,7 +94,6 @@ fun main() {
     }.build()
         .apply {
             HeartbeatListener(this)
-            Heart(this)
         }.start()
 
 }
@@ -105,31 +104,15 @@ internal class HeartbeatListener(rapidsConnection: RapidsConnection) :
 
     init {
         River(rapidsConnection).apply {
-            validate { it.demandValue("@behov", "heartbeat") }
-            validate { it.requireKey("@app", "@id") }
+            validate { it.requireValue("@event_name", "pong") }
+            validate { it.requireKey("app_name", "@id") }
+            validate { it.interestedIn("instance_id", "pong_time") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
-        database[packet["@id"].textValue()]?.also { it.registerHeartbeat(packet["@app"].textValue()) }
-            ?: println("Heard unrequested or timed out heartbeat from ${packet["@app"]} ")
+        database[packet["@id"].textValue()]?.also { it.registerHeartbeat(packet["app_name"].textValue()) }
+            ?: println("Heard unrequested or timed out heartbeat from ${packet["app_name"]} ")
+
     }
 }
-
-internal class Heart(rapidsConnection: RapidsConnection) :
-    River.PacketListener {
-
-    init {
-        River(rapidsConnection).apply {
-            validate { it.demandValue("@behov", "heartbeat") }
-            validate { it.rejectKey("@app") }
-        }.register(this)
-    }
-
-    override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
-        packet["@app"] = System.getenv("NAIS_APP_NAME")
-        context.send(packet.toJson())
-    }
-}
-
-
