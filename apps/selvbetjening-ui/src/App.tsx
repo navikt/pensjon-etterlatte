@@ -3,11 +3,11 @@ import { Route, Switch } from "react-router";
 import "./App.less";
 import NotFound from "./NotFound";
 import SoknadDialog from "./components/soknad/SoknadDialog";
-import { StateProvider } from "./store";
+import ContextProviders from "./context/ContextProviders";
 
 const App = () => {
     return (
-        <StateProvider>
+        <ContextProviders>
             <Switch>
                 <Route path={"/soknad"}>
                     <SoknadDialog />
@@ -16,7 +16,7 @@ const App = () => {
                     <NotFound />
                 </Route>
             </Switch>
-        </StateProvider>
+        </ContextProviders>
     );
 };
 

@@ -1,11 +1,11 @@
-import React, { FC, useContext } from "react";
+import { FC } from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { RadioPanelGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useHistory } from "react-router-dom";
-import { store } from "../../../store";
+import { SoknadActionTypes, useSoknadContext } from "../../../context/SoknadContext";
 
 interface Props {
     forrigeSteg?: number;
@@ -16,12 +16,12 @@ const Sprakform: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
     const history = useHistory();
 
     // @ts-ignore
-    const { state, dispatch } = useContext(store);
+    const { state, dispatch } = useSoknadContext();
 
     function setLanguage(e: any) {
         const target = e.target as HTMLInputElement;
 
-        dispatch({ type: "SET_LANGUAGE", payload: target.value });
+        dispatch({ type: SoknadActionTypes.SET_SPRAK, payload: target.value });
     }
 
     return (
@@ -37,7 +37,7 @@ const Sprakform: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         { label: "Bokmål", value: "Bokmål" },
                         { label: "Nynorsk (dette er feil svar)", value: "Nynorsk" },
                     ]}
-                    checked={state.language}
+                    checked={state.sprak}
                     onChange={setLanguage}
                 />
             </Panel>

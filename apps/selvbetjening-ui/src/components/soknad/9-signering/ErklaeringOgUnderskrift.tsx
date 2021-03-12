@@ -1,12 +1,12 @@
-import React, { FC, useContext } from "react";
+import { FC } from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useHistory } from "react-router-dom";
-import { store } from "../../../store";
 import Tekstomrade from "nav-frontend-tekstomrade";
 import { Checkbox } from "nav-frontend-skjema";
+import { SoknadActionTypes, useSoknadContext } from "../../../context/SoknadContext";
 
 interface Props {
     forrigeSteg?: number;
@@ -17,12 +17,12 @@ const ErklaeringOgUnderskrift: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
     const history = useHistory();
 
     // @ts-ignore
-    const { state, dispatch } = useContext(store);
+    const { state, dispatch } = useSoknadContext();
 
     function handleChange(e: any) {
         const target = e.target as HTMLInputElement;
 
-        dispatch({ type: "SET_CONFIRMATION", payload: target.checked });
+        dispatch({ type: SoknadActionTypes.SET_BEKREFTET, payload: target.checked });
     }
 
     return (
@@ -36,7 +36,7 @@ const ErklaeringOgUnderskrift: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                     bekrefter at opplysningene er gitt etter beste skjønn og overbevisning og så fullstendig som det har
                     vært mulig.
                 </Tekstomrade>
-                <Checkbox label={"Checkbox"} onChange={handleChange} checked={state.confirmation} />
+                <Checkbox label={"Checkbox"} onChange={handleChange} checked={state.bekreftet} />
 
                 {/* Dato og sjekkboks-verdi må sendes. Kanskje backend burde ta av seg dato? */}
             </Panel>

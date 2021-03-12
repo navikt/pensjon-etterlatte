@@ -1,11 +1,11 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { FnrInput, Input, RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useHistory } from "react-router-dom";
-import { store } from "../../../store";
+import { AvdodActionTypes, useAvdodContext } from "../../../context/AvdodContext";
 
 interface Props {
     forrigeSteg?: number;
@@ -15,8 +15,7 @@ interface Props {
 const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
     const history = useHistory();
 
-    // @ts-ignore
-    const { state, dispatch } = useContext(store);
+    const { state, dispatch } = useAvdodContext();
 
     return (
         <div className="app">
@@ -29,17 +28,23 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                     {/* 3.1 */}
                     <Input
                         label="Fornavn"
-                        value={state.avdod.fornavn}
+                        value={state.fornavn}
                         onChange={(e) => {
-                            dispatch({ type: "SET_AVDOD_FORNAVN", payload: (e.target as HTMLInputElement).value });
+                            dispatch({
+                                type: AvdodActionTypes.SET_AVDOD_FORNAVN,
+                                payload: (e.target as HTMLInputElement).value,
+                            });
                         }}
                     />
 
                     <Input
                         label="Etternavn"
-                        value={state.avdod.etternavn}
+                        value={state.etternavn}
                         onChange={(e) => {
-                            dispatch({ type: "SET_AVDOD_ETTERNAVN", payload: (e.target as HTMLInputElement).value });
+                            dispatch({
+                                type: AvdodActionTypes.SET_AVDOD_ETTERNAVN,
+                                payload: (e.target as HTMLInputElement).value,
+                            });
                         }}
                     />
 
@@ -47,9 +52,12 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                     <FnrInput
                         label="Fødselsnummer (11 siffer)"
                         // bredde="L"
-                        value={state.avdod.fnr}
+                        value={state.fnr}
                         onChange={(e) => {
-                            dispatch({ type: "SET_AVDOD_FNR", payload: (e.target as HTMLInputElement).value });
+                            dispatch({
+                                type: AvdodActionTypes.SET_AVDOD_FNR,
+                                payload: (e.target as HTMLInputElement).value,
+                            });
                         }}
                         onValidate={() => {} /*setValid(val)*/}
                         // feil={submit && !valid ? "Ugyldig fødselsnummer" : undefined}
@@ -58,19 +66,22 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                     {/* 3.3 */}
                     <Input
                         label="Dødsdato (dd.mm.åå)"
-                        value={state.avdod.dodsdato}
+                        value={state.dodsdato}
                         onChange={(e) => {
-                            dispatch({ type: "SET_AVDOD_DODSDATO", payload: (e.target as HTMLInputElement).value });
+                            dispatch({
+                                type: AvdodActionTypes.SET_AVDOD_DODSDATO,
+                                payload: (e.target as HTMLInputElement).value,
+                            });
                         }}
                     />
 
                     {/* 3.4 */}
                     <Input
                         label="Statsborgerskap"
-                        value={state.avdod.statsborgerskap}
+                        value={state.statsborgerskap}
                         onChange={(e) => {
                             dispatch({
-                                type: "SET_AVDOD_STATSBORGERSKAP",
+                                type: AvdodActionTypes.SET_AVDOD_STATSBORGERSKAP,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -88,9 +99,12 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                             { label: "Ja", value: "Ja" },
                             { label: "Nei", value: "Nei" },
                         ]}
-                        checked={state.avdod.bosetning}
+                        checked={state.bosetning}
                         onChange={(e) => {
-                            dispatch({ type: "SET_AVDOD_BOSETNING", payload: (e.target as HTMLInputElement).value });
+                            dispatch({
+                                type: AvdodActionTypes.SET_AVDOD_BOSETNING,
+                                payload: (e.target as HTMLInputElement).value,
+                            });
                         }}
                     />
                     <br />
@@ -103,10 +117,10 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                             { label: "Ja", value: "Ja" },
                             { label: "Nei", value: "Nei" },
                         ]}
-                        checked={state.avdod.dodsfallAarsak}
+                        checked={state.dodsfallAarsak}
                         onChange={(e) => {
                             dispatch({
-                                type: "SET_AVDOD_DODSFALL_ARSAK",
+                                type: AvdodActionTypes.SET_AVDOD_DODSFALL_ARSAK,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -121,10 +135,10 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                             { label: "Ja", value: "Ja" },
                             { label: "Nei", value: "Nei" },
                         ]}
-                        checked={state.avdod.boddEllerJobbetUtland}
+                        checked={state.boddEllerJobbetUtland}
                         onChange={(e) => {
                             dispatch({
-                                type: "SET_AVDOD_BODD_ELLER_JOBBET_UTLAND",
+                                type: AvdodActionTypes.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -142,15 +156,15 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                             { label: "Ja", value: "Ja" },
                             { label: "Nei", value: "Nei" },
                         ]}
-                        checked={state.avdod.pensjonsgivendeInntekt}
+                        checked={state.pensjonsgivendeInntekt}
                         onChange={(e) => {
                             dispatch({
-                                type: "SET_AVDOD_PENSJONSGIVEDE_INNTEKT",
+                                type: AvdodActionTypes.SET_AVDOD_PENSJONSGIVEDE_INNTEKT,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
                     />
-                    {state.avdod.pensjonsgivendeInntekt === "Ja" && <Input label="Oppgi bruttobeløp pr. år (kr)" />}
+                    {state.pensjonsgivendeInntekt === "Ja" && <Input label="Oppgi bruttobeløp pr. år (kr)" />}
                     <br />
 
                     {/* 3.11 Samme som over ?! */}
@@ -163,15 +177,15 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                             { label: "Ja", value: "Ja" },
                             { label: "Nei", value: "Nei" },
                         ]}
-                        checked={state.avdod.pensjonAndreLand}
+                        checked={state.pensjonAndreLand}
                         onChange={(e) => {
                             dispatch({
-                                type: "SET_AVDOD_PENSJON_ANDRE_LAND",
+                                type: AvdodActionTypes.SET_AVDOD_PENSJON_ANDRE_LAND,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
                     />
-                    {state.avdod.pensjonAndreLand === "Ja" && <Input label="Oppgi bruttobeløp pr. år (kr)" />}
+                    {state.pensjonAndreLand === "Ja" && <Input label="Oppgi bruttobeløp pr. år (kr)" />}
                     <br />
 
                     {/* 3.13 */}
@@ -184,15 +198,15 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                             { label: "Ja", value: "Ja" },
                             { label: "Nei", value: "Nei" },
                         ]}
-                        checked={state.avdod.militaerTjeneste}
+                        checked={state.militaerTjeneste}
                         onChange={(e) => {
                             dispatch({
-                                type: "SET_AVDOD_MILITAER_TJENESTE",
+                                type: AvdodActionTypes.SET_AVDOD_MILITAER_TJENESTE,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
                     />
-                    {state.avdod.militaerTjeneste === "Ja" && <Input label="Oppgi årstall" />}
+                    {state.militaerTjeneste === "Ja" && <Input label="Oppgi årstall" />}
                     <br />
                 </SkjemaGruppe>
                 <br />
