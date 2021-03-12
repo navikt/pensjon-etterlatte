@@ -31,6 +31,7 @@ class Emitter {
                 producer.send(
                     ProducerRecord(
                         "etterlatte.dodsmelding",
+                        id,
                         JsonMessage("{}", MessageProblems("{}")).apply {
                             set("@event_name", "ping")
                             set("@id", id)

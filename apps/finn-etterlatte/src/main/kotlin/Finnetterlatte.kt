@@ -1,3 +1,5 @@
+package no.nav.etterlatte
+
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
@@ -13,11 +15,6 @@ internal class FinnEtterlatte(rapidsConnection: RapidsConnection, private val pd
             validate { it.demandValue("@event_name", "person_dod") }
             validate { it.requireKey("@ident") }
         }.register(this)
-    }
-
-    override fun onError(problems: MessageProblems, context: RapidsConnection.MessageContext) {
-        /* fordi vi bruker demandValue() på event_name kan vi trygt anta at meldingen
-           er "my_event", og at det er minst én av de ulike require*() som har feilet */
     }
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
