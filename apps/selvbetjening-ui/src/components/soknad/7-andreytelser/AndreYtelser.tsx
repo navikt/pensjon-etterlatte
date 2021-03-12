@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "../../App.less";
+import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { Input, Radio, RadioGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
