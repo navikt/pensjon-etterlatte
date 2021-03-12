@@ -6,7 +6,8 @@ import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useHistory } from "react-router-dom";
 import Tekstomrade from "nav-frontend-tekstomrade";
 import { Checkbox } from "nav-frontend-skjema";
-import { SoknadActionTypes, useSoknadContext } from "../../../context/SoknadContext";
+import { useSoknadContext } from "../../../context/soknad/SoknadContext";
+import { SoknadActionTypes } from "../../../context/soknad/soknad";
 
 interface Props {
     forrigeSteg?: number;
@@ -16,7 +17,6 @@ interface Props {
 const ErklaeringOgUnderskrift: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
     const history = useHistory();
 
-    // @ts-ignore
     const { state, dispatch } = useSoknadContext();
 
     function handleChange(e: any) {

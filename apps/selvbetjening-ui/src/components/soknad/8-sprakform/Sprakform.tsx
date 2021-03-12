@@ -5,7 +5,8 @@ import { RadioPanelGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useHistory } from "react-router-dom";
-import { SoknadActionTypes, useSoknadContext } from "../../../context/SoknadContext";
+import { useSoknadContext } from "../../../context/soknad/SoknadContext";
+import { SoknadActionTypes } from "../../../context/soknad/soknad";
 
 interface Props {
     forrigeSteg?: number;
@@ -15,7 +16,6 @@ interface Props {
 const Sprakform: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
     const history = useHistory();
 
-    // @ts-ignore
     const { state, dispatch } = useSoknadContext();
 
     function setLanguage(e: any) {

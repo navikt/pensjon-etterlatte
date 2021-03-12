@@ -1,27 +1,7 @@
 import { createContext, FC, useContext, useReducer } from "react";
+import { ISoknad, ISoknadAction, SoknadActionTypes, SoknadProps } from "./soknad";
 
 // const storedState = JSON.parse(localStorage.getItem("etterlatte-store"));
-
-interface ISoknad {
-    sprak: string;
-    bekreftet: boolean;
-    pensjonOvergangsstonad: boolean;
-    gjenlevendetillegg: boolean;
-    barnepensjon: boolean;
-    stonadTilBarnetilsyn: boolean;
-    stonadTilSkolepenger: boolean;
-}
-
-export enum SoknadActionTypes {
-    SET_SPRAK = "SET_SPRAK",
-    SET_BEKREFTET = "SET_BEKREFTET",
-    SET_TYPER = "SET_TYPER",
-}
-
-type ISoknadAction = {
-    type: SoknadActionTypes;
-    payload: any;
-};
 
 const initialState: ISoknad = {
     sprak: "",
@@ -54,10 +34,7 @@ const reducer = (state: ISoknad, action: ISoknadAction) => {
     }
 };
 
-const SoknadContext = createContext<{
-    state: ISoknad;
-    dispatch: (action: ISoknadAction) => void;
-}>({
+const SoknadContext = createContext<SoknadProps>({
     state: initialState,
     dispatch: () => {},
 });
@@ -66,11 +43,10 @@ const useSoknadContext = () => useContext(SoknadContext);
 
 const SoknadProvider: FC = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const value = { state, dispatch };
 
     // localStorage.setItem('etterlatte-store', JSON.stringify(state))
 
-    return <SoknadContext.Provider value={value}>{children}</SoknadContext.Provider>;
+    return <SoknadContext.Provider value={{ state, dispatch }}>{children}</SoknadContext.Provider>;
 };
 
 export { useSoknadContext, SoknadProvider };

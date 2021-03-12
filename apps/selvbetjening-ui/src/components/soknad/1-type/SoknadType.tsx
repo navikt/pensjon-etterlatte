@@ -6,7 +6,8 @@ import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useHistory } from "react-router-dom";
-import { SoknadActionTypes, useSoknadContext } from "../../../context/SoknadContext";
+import { useSoknadContext } from "../../../context/soknad/SoknadContext";
+import { SoknadActionTypes } from "../../../context/soknad/soknad";
 
 interface Props {
     forrigeSteg?: number;

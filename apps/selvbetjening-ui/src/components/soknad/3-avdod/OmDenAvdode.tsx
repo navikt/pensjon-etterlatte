@@ -5,7 +5,8 @@ import { FnrInput, Input, RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-sk
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useHistory } from "react-router-dom";
-import { AvdodActionTypes, useAvdodContext } from "../../../context/AvdodContext";
+import { useAvdodContext } from "../../../context/avdod/AvdodContext";
+import { AvdodActionTypes as ActionType } from "../../../context/avdod/avdod";
 
 interface Props {
     forrigeSteg?: number;
@@ -31,7 +32,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         value={state.fornavn}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_FORNAVN,
+                                type: ActionType.SET_AVDOD_FORNAVN,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -42,7 +43,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         value={state.etternavn}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_ETTERNAVN,
+                                type: ActionType.SET_AVDOD_ETTERNAVN,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -55,7 +56,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         value={state.fnr}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_FNR,
+                                type: ActionType.SET_AVDOD_FNR,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -69,7 +70,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         value={state.dodsdato}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_DODSDATO,
+                                type: ActionType.SET_AVDOD_DODSDATO,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -81,7 +82,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         value={state.statsborgerskap}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_STATSBORGERSKAP,
+                                type: ActionType.SET_AVDOD_STATSBORGERSKAP,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -102,7 +103,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         checked={state.bosetning}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_BOSETNING,
+                                type: ActionType.SET_AVDOD_BOSETNING,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -120,7 +121,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         checked={state.dodsfallAarsak}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_DODSFALL_ARSAK,
+                                type: ActionType.SET_AVDOD_DODSFALL_ARSAK,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -138,7 +139,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         checked={state.boddEllerJobbetUtland}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND,
+                                type: ActionType.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -159,7 +160,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         checked={state.pensjonsgivendeInntekt}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_PENSJONSGIVEDE_INNTEKT,
+                                type: ActionType.SET_AVDOD_PENSJONSGIVEDE_INNTEKT,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -180,7 +181,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         checked={state.pensjonAndreLand}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_PENSJON_ANDRE_LAND,
+                                type: ActionType.SET_AVDOD_PENSJON_ANDRE_LAND,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
@@ -201,7 +202,7 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                         checked={state.militaerTjeneste}
                         onChange={(e) => {
                             dispatch({
-                                type: AvdodActionTypes.SET_AVDOD_MILITAER_TJENESTE,
+                                type: ActionType.SET_AVDOD_MILITAER_TJENESTE,
                                 payload: (e.target as HTMLInputElement).value,
                             });
                         }}
