@@ -9,4 +9,4 @@ RUN npm install express path
 
 EXPOSE 8080
 
-CMD ["node", "./server.js"]
+CMD ["NODE_ENV=production", "node", "./server.js"]
