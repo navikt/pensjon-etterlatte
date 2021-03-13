@@ -73,7 +73,6 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
-    "serve": "NODE_ENV=production node server.js",
     "lint": "yarn lint:jsts && yarn lint:less",
     "lint:jsts": "npx eslint .",
     "lint:less": "npx stylelint --syntax less **/*.less"
