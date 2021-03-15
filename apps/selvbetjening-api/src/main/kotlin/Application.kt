@@ -26,7 +26,7 @@ fun main() {
             }
 
             install(CORS) {
-                host("localhost:3000")
+                host("localhost:8080")
 
                 allowCredentials = true
             }
