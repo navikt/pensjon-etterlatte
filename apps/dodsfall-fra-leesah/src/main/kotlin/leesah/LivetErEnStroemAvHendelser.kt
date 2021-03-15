@@ -14,7 +14,6 @@ import java.util.*
 interface ILivetErEnStroemAvHendelser {
     fun poll(c: (Personhendelse) -> Unit): Int
     fun fraStart()
-    fun stop();
 }
 
 class LivetErEnStroemAvHendelser(env: Map<String, String>) : ILivetErEnStroemAvHendelser {
@@ -34,7 +33,6 @@ class LivetErEnStroemAvHendelser(env: Map<String, String>) : ILivetErEnStroemAvH
                             username = env["srvuser"],
                             password = env["srvpwd"],
                             autoCommit = env["KAFKA_AUTO_COMMIT"]?.let { "true" == it.toLowerCase() },
-                            //maxRecords = 20,
                             schemaRegistryUrl = env["LEESAH_KAFKA_SCHEMA_REGISTRY"],
                             autoOffsetResetConfig = "latest"
                     ).consumerConfig())
@@ -71,9 +69,5 @@ class LivetErEnStroemAvHendelser(env: Map<String, String>) : ILivetErEnStroemAvH
     override fun fraStart(){
         consumer?.seekToBeginning(emptyList())
         consumer?.commitSync()
-    }
-
-    override fun stop() {
-        //consumer?.close()
     }
 }

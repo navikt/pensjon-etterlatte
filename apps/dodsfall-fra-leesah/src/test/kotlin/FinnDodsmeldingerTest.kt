@@ -28,17 +28,13 @@ internal class FinnDodsmeldingerTest {
     }
 }
 
-class LeesahMock(val moccData:List<Personhendelse>) : ILivetErEnStroemAvHendelser {
+class LeesahMock(val mockData:List<Personhendelse>) : ILivetErEnStroemAvHendelser {
     override fun poll(c: (Personhendelse) -> Unit): Int {
-        moccData.forEach(c)
+        mockData.forEach(c)
         return 1
     }
 
     override fun fraStart() {
-
-    }
-
-    override fun stop() {
 
     }
 }

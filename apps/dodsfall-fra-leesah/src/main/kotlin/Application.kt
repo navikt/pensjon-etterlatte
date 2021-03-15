@@ -58,12 +58,10 @@ fun Application.module() {
         get("/") {
             call.respondText("Environment: " + System.getenv().keys.joinToString(","), contentType = ContentType.Text.Plain)
         }
-
         get("/start") {
             stream?.start()
             call.respondText("Starting leesah stream", contentType = ContentType.Text.Plain)
-         }
-
+        }
         get("/status") {
             call.respondText("Iterasjoner: ${stream?.iterasjoner}, Dødsmeldinger ${stream?.dodsmeldinger} av ${stream?.meldinger}", contentType = ContentType.Text.Plain)
         }
@@ -75,7 +73,6 @@ fun Application.module() {
             stream?.fraStart()
             call.respondText("partition has been set to start", contentType = ContentType.Text.Plain)
         }
-
         get("/isAlive") {
             call.respondText("JADDA!", contentType = ContentType.Text.Plain)
         }
