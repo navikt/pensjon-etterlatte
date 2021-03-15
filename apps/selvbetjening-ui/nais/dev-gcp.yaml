@@ -32,6 +32,7 @@ spec:
     requests:
       cpu: 200m
       memory: 256Mi
+  webproxy: true
   env:
     - name: DECORATOR_URL
       value: https://dekoratoren.dev.nav.no

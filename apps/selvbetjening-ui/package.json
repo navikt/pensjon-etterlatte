@@ -19,6 +19,7 @@
     "craco-less": "^1.17.1",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
+    "http-proxy-middleware": "^1.0.6",
     "nav-frontend-alertstriper": "^3.0.51",
     "nav-frontend-alertstriper-style": "^2.0.21",
     "nav-frontend-chevron": "^1.0.21",
