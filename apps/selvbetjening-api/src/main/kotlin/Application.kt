@@ -27,6 +27,8 @@ fun main() {
 
             install(CORS) {
                 host("localhost:3000")
+
+                allowCredentials = true
             }
 
             routing {
