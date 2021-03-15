@@ -25,6 +25,11 @@ Kjører prosjektet lokalt.\
 Teste prosjektet:\
 `yarn test`
 
+### Koble til APIet lokalt
+
+For å koble til `selvbetjening-api` kan du bruke port forwarding: 
+
+`kubectl -n etterlatte port-forward svc/selvbetjening-api 8085:80`
 
 ### Bygging for produksjon:
 

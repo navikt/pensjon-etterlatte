@@ -2,6 +2,7 @@ package no.nav.etterlatte
 
 import io.ktor.application.call
 import io.ktor.application.install
+import io.ktor.features.CORS
 import io.ktor.features.ContentNegotiation
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
@@ -22,6 +23,10 @@ fun main() {
         module {
             install(ContentNegotiation) {
                 jackson()
+            }
+
+            install(CORS) {
+                host("localhost:3000")
             }
 
             routing {
