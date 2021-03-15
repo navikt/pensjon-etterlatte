@@ -1,4 +1,6 @@
 package no.nav.etterlatte
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.leesah.ILivetErEnStroemAvHendelser
 import java.time.format.DateTimeFormatter
 
@@ -6,17 +8,23 @@ class FinnDodsmeldinger(private val livshendelser: ILivetErEnStroemAvHendelser, 
     var iterasjoner = 0
     var dodsmeldinger = 0
     var meldinger = 0
-    var stopped = false
+    var stopped = true
 
     fun stream(){
         iterasjoner++
-        livshendelser.poll {
+        val antallMeldingerLest = livshendelser.poll {
             meldinger++
+
             if(it.getOpplysningstype()== "DOEDSFALL_V1") {
                 dodshendelser.personErDod(it.getPersonidenter()[0],( it.getDoedsfall()?.getDoedsdato()?.format(DateTimeFormatter.ISO_DATE))  )
                 dodsmeldinger++
             }
+
         }
+        runBlocking {
+            if (antallMeldingerLest == 0) delay(200)
+        }
+
     }
 
     fun fraStart(){
@@ -24,8 +32,11 @@ class FinnDodsmeldinger(private val livshendelser: ILivetErEnStroemAvHendelser, 
     }
 
     fun stop(){
-        livshendelser.stop()
+        //livshendelser.stop()
         stopped = true
+    }
+    fun start(){
+        stopped = false
     }
 
 

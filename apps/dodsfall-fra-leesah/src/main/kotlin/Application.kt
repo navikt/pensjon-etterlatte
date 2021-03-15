@@ -6,20 +6,33 @@ import io.ktor.http.ContentType
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.routing
+import io.ktor.server.engine.applicationEngineEnvironment
+import io.ktor.server.engine.connector
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.netty.Netty
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.leesah.ILivetErEnStroemAvHendelser
 import no.nav.etterlatte.leesah.LivetErEnStroemAvHendelser
-import no.nav.person.pdl.leesah.Personhendelse
+var stream:FinnDodsmeldinger?=null
 
 
-fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
+fun main() {
+    embeddedServer(Netty, environment = applicationEngineEnvironment {
+        module(Application::module)
 
-@Suppress("unused") // Referenced in application.conf
-@kotlin.jvm.JvmOverloads
-fun Application.module(testing: Boolean = false) {
+        connector {
+            port = 8080
+        }
+    }
+    ).apply {
+        Runtime.getRuntime().addShutdownHook(Thread {
+            stop(3000, 3000)
+        })
+    }.start(false)
 
-    val config = if(testing)TestConfig() else DevConfig()
-
-    val stream = if(config.enableKafka){
+    val config = DevConfig()
+    stream = if(config.enableKafka){
         val livshendelser: ILivetErEnStroemAvHendelser = LivetErEnStroemAvHendelser(config.env)
         val dodshendelser:IDodsmeldinger = Dodsmeldinger(config)
         FinnDodsmeldinger(livshendelser, dodshendelser)
@@ -27,32 +40,36 @@ fun Application.module(testing: Boolean = false) {
         null
     }
 
+    while(true){
+        if(stream?.stopped == true) {
+        runBlocking {
+            delay(200)
+            }
+        } else {
+            stream?.stream()
+        }
+    }
+}
+
+@Suppress("unused") // Referenced in application.conf
+fun Application.module() {
 
     routing {
         get("/") {
             call.respondText("Environment: " + System.getenv().keys.joinToString(","), contentType = ContentType.Text.Plain)
         }
 
-        get("/readall") {
+        get("/start") {
+            stream?.start()
             call.respondText("Starting leesah stream", contentType = ContentType.Text.Plain)
-            do {
-                if(stream?.stopped == true) break
-                stream?.stream()
-            }while(true)
-        }
+         }
 
         get("/status") {
-
-            val meldinger = mutableListOf<Personhendelse>()
-
-            //stream?.stream()
-            if(meldinger.isEmpty()){
-                call.respondText("Iterasjoner: ${stream?.iterasjoner}, Dødsmeldinger ${stream?.dodsmeldinger} av ${stream?.meldinger}", contentType = ContentType.Text.Plain)
-            }
+            call.respondText("Iterasjoner: ${stream?.iterasjoner}, Dødsmeldinger ${stream?.dodsmeldinger} av ${stream?.meldinger}", contentType = ContentType.Text.Plain)
         }
         get("/stop") {
             stream?.stop()
-            call.respondText("closing consumer", contentType = ContentType.Text.Plain)
+            call.respondText("Stopped reading messages", contentType = ContentType.Text.Plain)
         }
         get("/fromstart") {
             stream?.fraStart()
