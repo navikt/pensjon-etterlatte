@@ -1,15 +1,13 @@
 import { FC } from "react";
 import axios from "axios";
 
-const apiUrl = process.env.REACT_APP_SELVBETJENING_API;
-
-console.log(`Api url: ${apiUrl}`);
+const api = axios.create({
+    withCredentials: true,
+    baseURL: process.env.REACT_APP_SELVBETJENING_API,
+});
 
 const isReady = () => {
-    axios
-        .get(`${apiUrl}/internal/isready`, {
-            withCredentials: true,
-        })
+    api.get("/internal/isready")
         .then((response) => {
             console.log(response);
         })
@@ -19,10 +17,7 @@ const isReady = () => {
 };
 
 const isAlive = () => {
-    axios
-        .get(`${apiUrl}/internal/isalive`, {
-            withCredentials: true,
-        })
+    api.get("/internal/isalive")
         .then((response) => {
             console.log(response);
         })
