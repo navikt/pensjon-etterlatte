@@ -6,7 +6,7 @@ class FinnDodsmeldinger(private val livshendelser: ILivetErEnStroemAvHendelser, 
     var iterasjoner = 0
     var dodsmeldinger = 0
     var meldinger = 0
-
+    var stopped = false
 
     fun stream(){
         iterasjoner++
@@ -21,6 +21,11 @@ class FinnDodsmeldinger(private val livshendelser: ILivetErEnStroemAvHendelser, 
 
     fun fraStart(){
         livshendelser.fraStart()
+    }
+
+    fun stop(){
+        livshendelser.stop()
+        stopped = true
     }
 
 

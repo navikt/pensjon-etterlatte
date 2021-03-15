@@ -14,6 +14,7 @@ import java.util.*
 interface ILivetErEnStroemAvHendelser {
     fun poll(c: (Personhendelse) -> Unit): Int
     fun fraStart()
+    fun stop();
 }
 
 class LivetErEnStroemAvHendelser(env: Map<String, String>) : ILivetErEnStroemAvHendelser {
@@ -72,4 +73,7 @@ class LivetErEnStroemAvHendelser(env: Map<String, String>) : ILivetErEnStroemAvH
         consumer?.commitSync()
     }
 
+    override fun stop() {
+        //consumer?.close()
+    }
 }

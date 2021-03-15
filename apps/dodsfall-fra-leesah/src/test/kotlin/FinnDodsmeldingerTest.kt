@@ -37,6 +37,10 @@ class LeesahMock(val moccData:List<Personhendelse>) : ILivetErEnStroemAvHendelse
     override fun fraStart() {
 
     }
+
+    override fun stop() {
+
+    }
 }
 
  class DodsMock(val c:(String, String?)->Unit): IDodsmeldinger {

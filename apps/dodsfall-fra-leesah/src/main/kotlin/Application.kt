@@ -33,17 +33,29 @@ fun Application.module(testing: Boolean = false) {
             call.respondText("Environment: " + System.getenv().keys.joinToString(","), contentType = ContentType.Text.Plain)
         }
 
-        get("/kafka") {
+        get("/readall") {
+            call.respondText("Starting leesah stream", contentType = ContentType.Text.Plain)
+            do {
+                if(stream?.stopped == true) break
+                stream?.stream()
+            }while(true)
+        }
+
+        get("/status") {
 
             val meldinger = mutableListOf<Personhendelse>()
 
-            stream?.stream()
+            //stream?.stream()
             if(meldinger.isEmpty()){
                 call.respondText("Iterasjoner: ${stream?.iterasjoner}, Dødsmeldinger ${stream?.dodsmeldinger} av ${stream?.meldinger}", contentType = ContentType.Text.Plain)
             }
         }
+        get("/stop") {
+            stream?.stop()
+            call.respondText("closing consumer", contentType = ContentType.Text.Plain)
+        }
         get("/fromstart") {
-
+            stream?.fraStart()
             call.respondText("partition has been set to start", contentType = ContentType.Text.Plain)
         }
 
