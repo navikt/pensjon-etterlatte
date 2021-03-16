@@ -1,27 +1,31 @@
-package pdl
+package no.nav.etterlatte.pdl
 
-import io.ktor.client.*
-import io.ktor.client.engine.mock.*
-import io.ktor.client.features.json.*
-import io.ktor.http.*
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.mock.MockEngine
+import io.ktor.client.engine.mock.respond
+import io.ktor.client.features.json.JacksonSerializer
+import io.ktor.client.features.json.JsonFeature
+import io.ktor.http.ContentType
+import io.ktor.http.fullPath
+import io.ktor.http.headersOf
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.pdl.Pdl
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 
 internal class PdlTest {
 
     @Test
     fun finnEtterlatteForPerson() {
 
-        val httpClient = HttpClient(MockEngine){
+        val httpClient = HttpClient(MockEngine) {
             engine {
                 addHandler { request ->
                     when (request.url.fullPath) {
                         "/" -> {
-                            val responseHeaders = headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
-                            respond("""{
+                            val responseHeaders =
+                                headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
+                            respond(
+                                """{
                                     "data":{ 
                                         "hentPerson": {
                                             "forelderBarnRelasjon": [{
@@ -35,13 +39,15 @@ internal class PdlTest {
                                         }
                                     }
                                 }""",
-                                headers = responseHeaders)
+                                headers = responseHeaders
+                            )
                         }
                         else -> error("Unhandled ${request.url.fullPath}")
                     }
                 }
             }
-            install(JsonFeature) {serializer = JacksonSerializer() } }
+            install(JsonFeature) { serializer = JacksonSerializer() }
+        }
 
 
 
@@ -53,6 +59,6 @@ internal class PdlTest {
             }
         }
 
-}
+    }
 
 }

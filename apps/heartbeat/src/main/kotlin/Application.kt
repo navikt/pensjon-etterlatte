@@ -9,6 +9,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import no.nav.helse.rapids_rivers.JsonMessage
+import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
@@ -18,7 +19,6 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
 import kotlin.collections.set
-
 
 internal val Int.hours: Long
     get() = minutes * 60
@@ -84,7 +84,6 @@ fun main() {
     env["KAFKA_KEYSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
 
 
-    Emitter()
     RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env)).withKtorModule {
         routing {
             get("/") {
@@ -94,10 +93,25 @@ fun main() {
     }.build()
         .apply {
             HeartbeatListener(this)
-        }.start()
+            GlobalScope.launch {
+                delay(30.seconds)
+                println("starter emitter")
 
+                while (true) {
+                    database.newPuls().also {
+                        publish(it, pingEvent(it))
+                    }
+                    delay(5.minutes)
+                }
+            }
+        }.start()
 }
 
+fun pingEvent(id: String) = JsonMessage("{}", MessageProblems("{}")).apply {
+    set("@event_name", "ping")
+    set("@id", id)
+    set("ping_time", LocalDateTime.now())
+}.toJson()
 
 internal class HeartbeatListener(rapidsConnection: RapidsConnection) :
     River.PacketListener {
@@ -113,6 +127,5 @@ internal class HeartbeatListener(rapidsConnection: RapidsConnection) :
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
         database[packet["@id"].textValue()]?.also { it.registerHeartbeat(packet["app_name"].textValue()) }
             ?: println("Heard unrequested or timed out heartbeat from ${packet["app_name"]} ")
-
     }
 }
