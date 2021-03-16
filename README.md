@@ -13,7 +13,7 @@ Monorepo for ny løsning for ytelser til etterlatte
 
 [selvbetjening-ui](apps/selvbetjening-ui)
 
-[selvbetjening-ui](apps/selvbetjening-ui)
+[selvbetjening-api](apps/selvbetjening-api)
 
 [sjekk-alder-etterlatte](apps/sjekk-alder-etterlatte)
 
