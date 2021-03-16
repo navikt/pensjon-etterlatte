@@ -1,7 +1,11 @@
 package no.nav.etterlatte
 
+import com.typesafe.config.ConfigFactory
 import io.ktor.application.call
 import io.ktor.application.install
+import io.ktor.auth.Authentication
+import io.ktor.auth.authenticate
+import io.ktor.config.HoconApplicationConfig
 import io.ktor.features.CORS
 import io.ktor.features.ContentNegotiation
 import io.ktor.http.ContentType
@@ -16,11 +20,13 @@ import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
+import no.nav.security.token.support.ktor.tokenValidationSupport
 
 
 fun main() {
     embeddedServer(Netty, environment = applicationEngineEnvironment {
         module {
+            config = HoconApplicationConfig(ConfigFactory.load())
             install(ContentNegotiation) {
                 jackson()
             }
@@ -29,6 +35,10 @@ fun main() {
                 host("localhost:8080")
 
                 allowCredentials = true
+            }
+
+            install(Authentication) {
+                tokenValidationSupport(config = config)
             }
 
             routing {
@@ -43,6 +53,13 @@ fun main() {
                 route("api") {
                     get {
                         call.respond(HttpStatusCode.OK, Pair("navn", "Ola Nordmann"))
+                    }
+                }
+                authenticate {
+                    route("secure") {
+                        get {
+                            call.respond(HttpStatusCode.OK, Pair("navn", "Ola Nordmann"))
+                        }
                     }
                 }
             }
