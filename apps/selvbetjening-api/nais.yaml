@@ -25,3 +25,7 @@ spec:
     enabled: true
   ingresses:
     - "https://etterlatte-selvbetjening-api.dev.adeo.no"
+  accessPolicy:
+    inbound:
+      rules:
+        - application: selvbetjening-ui

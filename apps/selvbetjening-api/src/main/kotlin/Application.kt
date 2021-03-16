@@ -6,7 +6,6 @@ import io.ktor.application.install
 import io.ktor.auth.Authentication
 import io.ktor.auth.authenticate
 import io.ktor.config.HoconApplicationConfig
-import io.ktor.features.CORS
 import io.ktor.features.ContentNegotiation
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
@@ -29,12 +28,6 @@ fun main() {
             config = HoconApplicationConfig(ConfigFactory.load())
             install(ContentNegotiation) {
                 jackson()
-            }
-
-            install(CORS) {
-                host("localhost:8080")
-
-                allowCredentials = true
             }
 
             install(Authentication) {
