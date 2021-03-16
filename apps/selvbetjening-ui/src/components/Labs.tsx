@@ -3,11 +3,10 @@ import axios from "axios";
 
 const api = axios.create({
     withCredentials: true,
-    baseURL: process.env.REACT_APP_SELVBETJENING_API,
 });
 
 const isReady = () => {
-    api.get("/internal/isready")
+    api.get("/api/internal/isready")
         .then((response) => {
             console.log(response);
         })
@@ -17,7 +16,7 @@ const isReady = () => {
 };
 
 const isAlive = () => {
-    api.get("/internal/isalive")
+    api.get("/api/internal/isalive")
         .then((response) => {
             console.log(response);
         })
