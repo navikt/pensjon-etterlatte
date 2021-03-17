@@ -34,6 +34,8 @@ spec:
       memory: 256Mi
   webproxy: true
   env:
+    - name: API_URL
+      value: http://selvbetjening-api.etterlatte.svc.cluster.local
     - name: DECORATOR_URL
       value: https://dekoratoren.dev.nav.no
   accessPolicy:

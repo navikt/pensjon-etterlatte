@@ -3,10 +3,11 @@ import axios from "axios";
 
 const api = axios.create({
     withCredentials: true,
+    baseURL: "/api",
 });
 
 const isReady = () => {
-    api.get("/api/internal/isready")
+    api.get("/internal/isready")
         .then((response) => {
             console.log(response);
         })
@@ -16,7 +17,7 @@ const isReady = () => {
 };
 
 const isAlive = () => {
-    api.get("/api/internal/isalive")
+    api.get("/internal/isalive")
         .then((response) => {
             console.log(response);
         })

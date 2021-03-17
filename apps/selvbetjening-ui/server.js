@@ -1,16 +1,24 @@
 const express = require("express");
 const proxy = require("express-http-proxy");
 const path = require("path");
+const getDecorator = require("./dekorator");
 
 const app = express();
 
-app.use("/api", proxy("http://selvbetjening-api.etterlatte.svc.cluster.local"));
+app.use("/api", proxy(process.env.API_URL));
 
 app.use(express.static(path.join(__dirname, "build")));
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) => {
-    // TODO: Legge til dekorator
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    getDecorator()
+        .then((fragments) => {
+            res.render("index.html", fragments);
+        })
+        .catch((e) => {
+            const error = `Failed to get decorator: ${e}`;
+            console.log(error);
+            res.status(500).send(error);
+        });
 });
 
 app.get("/isAlive", (req, res) => {
