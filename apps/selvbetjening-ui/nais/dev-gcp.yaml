@@ -37,7 +37,7 @@ spec:
     - name: API_URL
       value: http://selvbetjening-api
     - name: DECORATOR_URL
-      value: https://dekoratoren.dev.nav.no
+      value: https://dekoratoren.dev.nav.no/?context=privatperson
   accessPolicy:
     outbound:
       external:

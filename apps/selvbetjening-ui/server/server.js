@@ -1,40 +1,32 @@
 const express = require("express");
 const proxy = require("express-http-proxy");
 const path = require("path");
-const mustacheExpress = require("mustache-express");
-const getDecorator = require("./dekorator");
+const getDecorator = require("./decorator");
 
 const app = express();
 
 const buildPath = path.resolve(__dirname, "../build");
 
-app.set("views", buildPath);
-app.set("view engine", "mustache");
-app.engine("html", mustacheExpress());
+app.use("/", express.static(buildPath, { index: false }));
 
+// Selvbetjening API
 const apiUrl = process.env.API_URL || "localhost:8085";
 app.use("/api", proxy(apiUrl));
 
-// app.use(express.static(path.join(__dirname, "build")));
-app.use("/", express.static(buildPath, { index: false }));
-
+// Match everything except internal and static
 app.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
-    getDecorator()
-        .then((fragments) => {
-            res.render("index.html", fragments);
+    getDecorator(`${buildPath}/index.html`)
+        .then((html) => {
+            res.send(html);
         })
         .catch((e) => {
-            const error = `Failed to get decorator: ${e}`;
-            console.log(error);
-            res.status(500).send(error);
+            console.error(e);
+            res.status(500).send(e);
         })
 );
 
-app.get("/isAlive", (req, res) => {
-    res.sendStatus(200);
-});
-
-app.get("/isReady", (req, res) => {
+// Endpoints to verify is app is ready/alive
+app.get(`/isAlive|isReady`, (req, res) => {
     res.sendStatus(200);
 });
 
