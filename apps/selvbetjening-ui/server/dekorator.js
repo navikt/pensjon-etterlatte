@@ -11,13 +11,16 @@ const cache = new NodeCache({
     checkperiod: MINUTE_IN_SECONDS,
 });
 
+const decoratorUrl = process.env.DECORATOR_URL || "https://www.nav.no/dekoratoren";
+console.log(decoratorUrl);
+
 const getDecorator = () =>
     new Promise((resolve, reject) => {
         const decorator = cache.get("main-cache");
         if (decorator) {
             resolve(decorator);
         } else {
-            request(process.env.DECORATOR_URL, (error, response, body) => {
+            request(decoratorUrl, (error, response, body) => {
                 if (!error && response.statusCode >= 200 && response.statusCode < 400) {
                     const { document } = new JSDOM(body).window;
                     const prop = "innerHTML";

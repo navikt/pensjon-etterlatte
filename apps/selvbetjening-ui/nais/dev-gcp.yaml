@@ -35,7 +35,7 @@ spec:
   webproxy: true
   env:
     - name: API_URL
-      value: http://selvbetjening-api.etterlatte.svc.cluster.local
+      value: http://selvbetjening-api
     - name: DECORATOR_URL
       value: https://dekoratoren.dev.nav.no
   accessPolicy:
