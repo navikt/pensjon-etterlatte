@@ -5,7 +5,8 @@ const getDecorator = require("./dekorator");
 
 const app = express();
 
-app.use("/api", proxy(process.env.API_URL));
+const apiUrl = process.env.API_URL || "localhost:8085";
+app.use("/api", proxy(apiUrl));
 
 app.use(express.static(path.join(__dirname, "build")));
 
@@ -29,7 +30,7 @@ app.get("/isReady", (req, res) => {
     res.sendStatus(200);
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`App listening on port: ${port}`);
 });
