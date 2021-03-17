@@ -1,3 +1,5 @@
+val rapidsandriversversion: String by project
+
 plugins {
     application
     kotlin("jvm")
@@ -22,6 +24,8 @@ dependencies {
     implementation("io.confluent:kafka-avro-serializer:5.0.0") {
         exclude(group = "org.slf4j", module = "slf4j-log4j12")
     }
+    implementation("com.github.navikt:rapids-and-rivers:$rapidsandriversversion")
+
     implementation("ch.qos.logback:logback-classic:1.2.1")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
