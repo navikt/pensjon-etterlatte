@@ -1,5 +1,4 @@
-
-//import no.nav.etterlatte.
+package no.nav.etterlatte
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
@@ -12,19 +11,22 @@ import io.ktor.http.headersOf
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.time.LocalDate
 
 internal class PdlTest {
 
     @Test
     fun sjekkAlderForEtterlatte() {
 
-        val httpClient = HttpClient(MockEngine){
+        val httpClient = HttpClient(MockEngine) {
             engine {
                 addHandler { request ->
                     when (request.url.fullPath) {
                         "/" -> {
-                            val responseHeaders = headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
-                            respond("""{
+                            val responseHeaders =
+                                headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
+                            respond(
+                                """{
                                     "data":{ 
                                         "hentPerson": {
                                             "foedsel": [{
@@ -36,23 +38,25 @@ internal class PdlTest {
                                         }
                                     }
                                 }""",
-                                headers = responseHeaders)
+                                headers = responseHeaders
+                            )
                         }
                         else -> error("Unhandled ${request.url.fullPath}")
                     }
                 }
             }
-            install(JsonFeature) {serializer = JacksonSerializer() } }
+            install(JsonFeature) { serializer = JacksonSerializer() }
+        }
 
 
 
 
         runBlocking {
             PdlAlder(httpClient, "https://pdl.no/").sjekkAlderForEtterlatte("abc").also {
-                assertEquals(11, it)
+                assertEquals(LocalDate.of(2010, 1, 1), it)
             }
         }
 
-}
+    }
 
 }

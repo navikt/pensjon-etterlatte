@@ -23,13 +23,12 @@ class Dodsmeldinger(config: AppConfig) : IDodsmeldinger {
     override fun personErDod(ident: String, doedsdato: String?) {
         logger.info("Poster at person $ident er død")
         producer.send(ProducerRecord("etterlatte.dodsmelding",
-            UUID.randomUUID().toString(),
-            JsonMessage("{}", MessageProblems("{}"))
+            UUID.randomUUID().toString(), JsonMessage("{}", MessageProblems("{}"))
                 .apply {
                     set("@event_name", "person_dod")
-                    set("@ident", ident)
+                    set("@avdod_ident", ident)
                     doedsdato?.also {
-                        set("@doedsdato", it)
+                        set("@avdod_doedsdato", it)
                     }
                 }
                 .toJson()))
@@ -46,9 +45,9 @@ class DodsmeldingerRapid(private val context: RapidsConnection) : IDodsmeldinger
         context.publish(UUID.randomUUID().toString(), JsonMessage("{}", MessageProblems("{}"))
             .apply {
                 set("@event_name", "person_dod")
-                set("@ident", ident)
+                set("@avdod_ident", ident)
                 doedsdato?.also {
-                    set("@doedsdato", it)
+                    set("@avdod_doedsdato", it)
                 }
             }
             .toJson())

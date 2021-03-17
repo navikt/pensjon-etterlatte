@@ -13,25 +13,21 @@ internal class FinnEtterlatte(rapidsConnection: RapidsConnection, private val pd
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "person_dod") }
-            validate { it.requireKey("@ident") }
+            validate { it.requireKey("@avdod_ident") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
-        println(packet["@ident"].asText())
-
+        println(packet["@avdod_ident"].asText())
 
         runBlocking {
-            pdl.finnEtterlatteForPerson(packet["@ident"].asText()).forEach {
-                context.send(JsonMessage("{}", MessageProblems("{}")).apply {
-                    set("@ident", it)
-                    set("@Ident_avdod", packet["@ident"])
+            pdl.finnEtterlatteForPerson(packet["@avdod_ident"].asText()).forEach {
+                context.send(JsonMessage(packet.toJson(), MessageProblems("{}")).apply {
+                    set("@etterlatt_ident", it)
                     set("@event_name", "etterlatt_barn_identifisert")
                 }.toJson())
             }
         }
-        // nested objects can be chained using "."
-        // println(packet["nested.key"].asText())
     }
 }
 

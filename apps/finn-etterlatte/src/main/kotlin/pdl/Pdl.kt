@@ -15,7 +15,6 @@ class Pdl(private val client: HttpClient, private val apiUrl: String) : FinnEtte
         forelderBarnRelasjon {
             relatertPersonsIdent
             relatertPersonsRolle
-            minRolleForPerson
         }
     }
 """
@@ -35,5 +34,4 @@ class Pdl(private val client: HttpClient, private val apiUrl: String) : FinnEtte
 
         }
     }
-
 }
