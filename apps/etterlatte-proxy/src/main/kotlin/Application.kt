@@ -12,6 +12,8 @@ import io.ktor.routing.route
 import io.ktor.routing.routing
 import io.ktor.util.KtorExperimentalAPI
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.StsClient
+import no.nav.etterlatte.installAuthentication
 import no.nav.etterlatte.routes.internal
 import no.nav.etterlatte.routes.pdl
 import org.slf4j.event.Level

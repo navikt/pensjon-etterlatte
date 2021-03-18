@@ -21,7 +21,7 @@ import no.nav.etterlatte.StsClient
 import no.nav.etterlatte.httpClient
 import no.nav.etterlatte.pipeResponse
 import org.json.simple.JSONObject
-import java.util.UUID
+import java.util.*
 
 @KtorExperimentalAPI
 fun Route.pdl(

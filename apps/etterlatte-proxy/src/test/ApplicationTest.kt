@@ -13,10 +13,17 @@ import kotlin.test.assertEquals
 class ApplicationTest {
 
     @Test
-    @Ignore
     fun testRoot() {
         withTestApplication({ module() }) {
             handleRequest(HttpMethod.Get, "/").apply {
+                assertEquals(HttpStatusCode.OK, response.status())
+                assertEquals("HELLO WORLD!", response.content)
+            }
+        }
+    }
+    fun testPDL() {
+        withTestApplication({ module() }) {
+            handleRequest(HttpMethod.Get, "/pdl").apply {
                 assertEquals(HttpStatusCode.OK, response.status())
                 assertEquals("HELLO WORLD!", response.content)
             }
