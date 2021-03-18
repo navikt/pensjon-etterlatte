@@ -43,6 +43,8 @@ spec:
   env:
     - name: API_URL
       value: http://selvbetjening-api
+    - name: NODE_ENV
+      value: dev
   accessPolicy:
     outbound:
       external:
