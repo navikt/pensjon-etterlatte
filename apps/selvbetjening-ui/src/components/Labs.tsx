@@ -26,12 +26,23 @@ const isAlive = () => {
         });
 };
 
+const hentPerson = () => {
+    api.get("/person/123456789")
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
+
 const Labs: FC = () => {
     return (
         <>
             <h1>Selvbetjening API</h1>
             <button onClick={isReady}>isready</button>
             <button onClick={isAlive}>isalive</button>
+            <button onClick={hentPerson}>hentPerson</button>
         </>
     );
 };

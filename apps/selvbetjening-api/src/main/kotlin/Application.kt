@@ -23,7 +23,6 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.http.content.TextContent
 import io.ktor.jackson.jackson
 import io.ktor.response.respond
-import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.route
 import io.ktor.routing.routing
@@ -32,7 +31,10 @@ import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.ktor.util.KtorExperimentalAPI
+import no.nav.etterlatte.health.healthApi
 import no.nav.etterlatte.oauth.ClientConfig
+import no.nav.etterlatte.person.PersonClient
+import no.nav.etterlatte.person.personApi
 import no.nav.security.token.support.client.core.oauth2.OAuth2AccessTokenResponse
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import no.nav.security.token.support.ktor.tokenValidationSupport
@@ -61,15 +63,13 @@ fun main() {
 
             val oauth2Client = checkNotNull(ClientConfig(config, defaultHttpClient).clients["tokenx"])
 
+            val personClient = PersonClient(defaultHttpClient)
+
             routing {
-                route("internal") {
-                    get("isalive") {
-                        call.respondText("JADDA!", contentType = ContentType.Text.Plain)
-                    }
-                    get("isready") {
-                        call.respondText("JADDA!", contentType = ContentType.Text.Plain)
-                    }
-                }
+                healthApi()
+
+                personApi(personClient)
+
                 route("api") {
                     get {
                         call.respond(HttpStatusCode.OK, Pair("navn", "Ola Nordmann"))
