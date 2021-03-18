@@ -3,6 +3,7 @@ const { injectDecoratorServerSide } = require("@navikt/nav-dekoratoren-moduler/s
 const getDecorator = (filePath) =>
     injectDecoratorServerSide({
         env: "dev",
+        context: "privatperson",
         filePath: filePath,
         // enforceLogin: true,
         // level: "Level4",

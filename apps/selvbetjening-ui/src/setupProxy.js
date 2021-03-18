@@ -1,5 +1,5 @@
-const proxy = require("http-proxy-middleware");
+const proxy = require("express-http-proxy");
 
 module.exports = function (app) {
-    app.use(proxy("/api", { target: "http://localhost:8080" }));
+    app.use("/api", proxy("http://localhost:8085"));
 };
