@@ -33,11 +33,15 @@ spec:
       cpu: 200m
       memory: 256Mi
   webproxy: true
+  tokenx:
+    enabled: true
+    idporten:
+      enabled: true
+      redirectURI: "https://etterlatte-selvbetjening-ui.dev.nav.no/oauth2/callback"
+      frontchannelLogoutURI: "https://etterlatte-selvbetjening-ui.dev.nav.no/logout"
   env:
     - name: API_URL
       value: http://selvbetjening-api
-    - name: DECORATOR_URL
-      value: https://dekoratoren.dev.nav.no/?context=privatperson
   accessPolicy:
     outbound:
       external:
