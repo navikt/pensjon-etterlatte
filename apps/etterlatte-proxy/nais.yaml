@@ -61,3 +61,6 @@ spec:
         - application: sjekk-alder-etterlatte
           namespace: etterlatte
           cluster: dev-gcp
+        - application: selvbetjening-api
+          namespace: etterlatte
+          cluster: dev-gcp
