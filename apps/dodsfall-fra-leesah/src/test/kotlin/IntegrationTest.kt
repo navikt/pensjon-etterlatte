@@ -2,10 +2,10 @@ import io.confluent.kafka.serializers.KafkaAvroSerializer
 import no.nav.common.KafkaEnvironment
 import no.nav.etterlatte.Dodsmeldinger
 import no.nav.etterlatte.FinnDodsmeldinger
-import no.nav.etterlatte.JsonMessage
-import no.nav.etterlatte.MessageProblems
 import no.nav.etterlatte.TestConfig
 import no.nav.etterlatte.leesah.LivetErEnStroemAvHendelser
+import no.nav.helse.rapids_rivers.JsonMessage
+import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.person.pdl.leesah.Endringstype
 import no.nav.person.pdl.leesah.Personhendelse
 import org.apache.kafka.clients.consumer.ConsumerConfig

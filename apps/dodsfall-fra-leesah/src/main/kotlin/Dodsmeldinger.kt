@@ -1,5 +1,7 @@
 package no.nav.etterlatte
 
+import no.nav.helse.rapids_rivers.JsonMessage
+import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord

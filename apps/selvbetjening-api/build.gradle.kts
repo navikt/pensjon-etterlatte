@@ -24,6 +24,13 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
     testImplementation("io.ktor:ktor-server-tests:1.4.3")
 
+    implementation("io.ktor:ktor-client-core:$ktorversion")
+    implementation("io.ktor:ktor-client-jackson:$ktorversion")
+    implementation("io.ktor:ktor-jackson:$ktorversion")
+    implementation("io.ktor:ktor-client-cio-jvm:$ktorversion")
+    implementation("io.ktor:ktor-server-netty:$ktorversion")
+    implementation("io.ktor:ktor-server-core:$ktorversion")
+
 }
 
 tasks.named<Jar>("jar") {
