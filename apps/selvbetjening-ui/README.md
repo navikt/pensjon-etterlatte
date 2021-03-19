@@ -10,6 +10,8 @@ Dersom du ikke har installert Yarn kan du kjøre:\
 Deretter sjekk at det ble installert riktig:\
 `yarn --version`
 
+Du er også nødt til å installere `naisdevice` og sette opp `kubectl` for at koblinger mot GCP skal fungere.\
+Les mer her: https://doc.nais.io
 
 ### Kjøre lokalt
 
