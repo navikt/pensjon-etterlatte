@@ -45,6 +45,8 @@ spec:
       value: http://selvbetjening-api
     - name: NODE_ENV
       value: dev
+    - name: REDIS_HOST
+      value: selvbetjening-redis
   accessPolicy:
     outbound:
       external:
