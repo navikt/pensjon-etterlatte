@@ -2,18 +2,8 @@ const { injectDecoratorServerSide } = require("@navikt/nav-dekoratoren-moduler/s
 
 const environment = process.env.NODE_ENV;
 
-const loginServiceProps =
-    environment !== "localhost"
-        ? {
-              enforceLogin: true,
-              redirectToApp: true,
-              level: "Level4",
-          }
-        : undefined;
-
 const props = {
-    ...loginServiceProps,
-    env: environment,
+    env: environment ?? "dev",
     context: "privatperson",
     breadcrumbs: [
         {

@@ -76,6 +76,8 @@
     "start": "craco start",
     "build": "craco build",
     "server": "node ./server/server.js",
+    "server:dev": "NODE_ENV=dev node ./server/server.js",
+    "server:prod": "NODE_ENV=production node ./server/server.js",
     "test": "craco test",
     "eject": "craco eject",
     "lint": "yarn lint:jsts && yarn lint:less",
