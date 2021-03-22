@@ -5,7 +5,7 @@ import NotFound from "./NotFound";
 import SoknadDialog from "./components/soknad/SoknadDialog";
 import Labs from "./components/Labs";
 import ContextProviders from "./context/ContextProviders";
-import { EnforceLoginLoader } from "@navikt/nav-dekoratoren-moduler";
+import SoknadForside from "./components/soknad/SoknadForside";
 
 const App = () => {
     return (
@@ -14,10 +14,11 @@ const App = () => {
                 <Route path={"/labs"}>
                     <Labs />
                 </Route>
+                <Route exact path={"/"}>
+                    <SoknadForside />
+                </Route>
                 <Route path={"/soknad"}>
-                    <EnforceLoginLoader>
-                        <SoknadDialog />
-                    </EnforceLoginLoader>
+                    <SoknadDialog />
                 </Route>
                 <Route>
                     <NotFound />
