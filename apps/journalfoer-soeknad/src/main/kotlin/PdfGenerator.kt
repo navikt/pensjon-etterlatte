@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.client.HttpClient
 import io.ktor.client.request.header
 import io.ktor.client.request.post
@@ -15,13 +14,11 @@ class PdfGenerator(private val client: HttpClient, private val apiUrl: String) :
 
 
     override suspend fun genererPdf(input: String, template: String) : ByteArray {
-        val apiUrl = "$baseUrl$template"
-        return client.post<ObjectNode>(apiUrl) {
+        val pdfUrl = "$apiUrl$template"
+        return client.post(pdfUrl) {
             header("Content-Type", "application/json")
             header("X-Correlation-ID", MDC.get("X-Correlation-ID") ?: UUID.randomUUID().toString())
             body =  input
-        }.let {
-            it.binaryValue()
         }
     }
 
