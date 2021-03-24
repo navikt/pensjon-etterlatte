@@ -16,6 +16,7 @@ dependencies {
     implementation("io.ktor:ktor-client-auth:$ktorversion")
     implementation("io.ktor:ktor-client-jackson:$ktorversion")
     implementation(project(":libs:ktorclient-auth-clientcredentials"))
+    implementation(project(":libs:common"))
 
     testImplementation("io.ktor:ktor-client-mock:$ktorversion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
