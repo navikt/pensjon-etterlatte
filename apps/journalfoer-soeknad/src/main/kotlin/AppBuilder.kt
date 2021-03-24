@@ -9,11 +9,11 @@ import no.nav.etterlatte.security.ktor.clientCredential
 
 class AppBuilder(private val props: Map<String, String>) {
     companion object {
-        val CONFIG_PDL_URL = "PDL_URL"
+        val CONFIG_PDF_URL = "PDF_URL"
         val CONFIG_DOKARKIV_URL = "DOKARKIV_URL"
     }
 
-    fun genererPdf() = PdfGenerator(pdfhttpclient(), props[CONFIG_PDL_URL]!!)
+    fun genererPdf() = PdfGenerator(pdfhttpclient(), props[CONFIG_PDF_URL]!!)
     fun journalfoerDok() = Journalfoer(jourhttpclient(), props[CONFIG_DOKARKIV_URL]!! )
 
     fun jourhttpclient() = HttpClient(OkHttp) {
