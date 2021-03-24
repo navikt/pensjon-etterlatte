@@ -4,8 +4,6 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.header
 import io.ktor.client.request.post
 import no.nav.helse.rapids_rivers.JsonMessage
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import java.util.*
 
@@ -16,7 +14,7 @@ import java.util.*
 class Journalfoer(private val client: HttpClient, private val apiUrl: String) : JournalfoerDok {
 
 
-    private val log: Logger = LoggerFactory.getLogger(this::class.java)
+    //private val log: Logger = LoggerFactory.getLogger(this::class.java)
 
     override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String {
         val apiUrl = "hvorfinnerjegDokarkivet"
