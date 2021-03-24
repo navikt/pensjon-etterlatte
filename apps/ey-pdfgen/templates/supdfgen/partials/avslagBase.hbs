@@ -1,0 +1,38 @@
+{{#> supdfgen/partials/base}}
+    {{> @partial-block}}
+
+
+    <div class="info">
+        <h3>Du har rett til å klage</h3>
+        <p>
+            Du kan klage innen seks uker fra den datoen du mottok vedtaket. Du finner skjema og informasjon på nav.no/klage.
+        </p>
+    </div>
+
+    <div class="info">
+        <h3>Du har rett til innsyn</h3>
+        <p>
+            På nav.no/DittNAV kan du se dokumentene i saken din.
+        </p>
+    </div>
+
+    <div class="info">
+        <h3>Har du spørsmål?</h3>
+        <p>
+            Du finner nyttig informasjon på nav.no/supplerende.<br/>
+            Du kan også kontakte oss på 55 55 33 34.
+        </p>
+    </div>
+
+    <div class="hilsen">
+        <p>
+            Med vennlig hilsen <br/>
+            {{#if saksbehandlerNavn}}{{saksbehandlerNavn}}{{#if attestantNavn}} og {{attestantNavn}}{{/if}} hos {{/if}}NAV Familie- og pensjonsytelser Ålesund<br/>
+            <br />
+            Postadresse:<br />
+            NAV Familie- og pensjonsytelser Ålesund<br />
+            Postboks 6600 Etterstad<br />
+            0607 OSLO
+        </p>
+    </div>
+{{/supdfgen/partials/base}}

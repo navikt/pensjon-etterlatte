@@ -1,0 +1,166 @@
+{
+  "saksnummer":  2021,
+  "søknadsId": "98465998-f749-4db4-b9ae-fd19a8f027fa",
+  "dagensDatoOgTidspunkt": "01.01.2021 12:00",
+  "søknadOpprettet": "01.01.2021",
+  "navn": {
+    "fornavn": "Tore",
+    "mellomnavn": "Johnas",
+    "etternavn": "Strømøy"
+  },
+  "søknadInnhold": {
+    "uførevedtak": {
+      "harUførevedtak": true
+    },
+    "personopplysninger": {
+      "fnr": "12345678910"
+    },
+    "flyktningsstatus": {
+      "registrertFlyktning": false
+    },
+    "boforhold": {
+      "borOgOppholderSegINorge": true,
+      "delerBolig": true,
+      "delerBoligMed": "EKTEMAKE_SAMBOER",
+      "ektefellePartnerSamboer": {
+        "fnr": "01010101010",
+        "erUførFlyktning": false
+      },
+      "innlagtPåInstitusjon": {
+        "datoForInnleggelse": "2020-01-01",
+        "datoForUtskrivelse": "2020-01-31",
+        "fortsattInnlagt": false
+      },
+      "oppgittAdresse":{
+        "type":"BorPåAdresse",
+        "poststed":"OSLO",
+        "postnummer":"0050",
+        "adresselinje":"Oslogata 12"
+      }
+    },
+    "utenlandsopphold": {
+      "registrertePerioder": [
+        {
+          "utreisedato": "2020-01-01",
+          "innreisedato": "2020-01-31"
+        },
+        {
+          "utreisedato": "2020-02-01",
+          "innreisedato": "2020-02-05"
+        }
+      ],
+      "planlagtePerioder": [
+        {
+          "utreisedato": "2020-07-01",
+          "innreisedato": "2020-07-31"
+        }
+      ]
+    },
+    "oppholdstillatelse": {
+      "erNorskStatsborger": false,
+      "harOppholdstillatelse": true,
+      "oppholdstillatelseType": "MIDLERTIDIG",
+      "statsborgerskapAndreLand": false,
+      "statsborgerskapAndreLandFritekst": null
+    },
+    "inntektOgPensjon": {
+      "forventetInntekt": 2500,
+      "andreYtelserINav": "sosialstønad",
+      "andreYtelserINavBeløp": 33,
+      "søktAndreYtelserIkkeBehandletBegrunnelse": "uføre",
+      "sosialstønadBeløp": 7000.0,
+      "trygdeytelseIUtlandet": [
+        {
+          "beløp": 200,
+          "type": "trygd",
+          "valuta": "En valuta"
+        },
+        {
+          "beløp": 500,
+          "type": "Annen trygd",
+          "valuta": "En annen valuta"
+        }
+      ],
+      "pensjon": [
+        {
+          "ordning": "KLP",
+          "beløp": 2000.0
+        },
+        {
+          "ordning": "SPK",
+          "beløp": 5000.0
+        }
+      ]
+    },
+    "formue": {
+      "eierBolig": false,
+      "borIBolig": false,
+      "verdiPåBolig": 600000,
+      "boligBrukesTil": "Mine barn bor der",
+      "depositumsBeløp": null,
+      "kontonummer": "12345678912",
+      "verdiPåEiendom": 3,
+      "kjøretøy": [
+        {
+          "verdiPåKjøretøy": 25000,
+          "kjøretøyDeEier": "99001122"
+        },
+        {
+          "verdiPåKjøretøy": 50000,
+          "kjøretøyDeEier": "00112233"
+        }
+      ],
+      "innskuddsBeløp": 10,
+      "verdipapirBeløp": 20,
+      "skylderNoenMegPengerBeløp": 30,
+      "kontanterBeløp": 40
+    },
+    "forNav2": {
+      "harFullmektigEllerVerge": "verge",
+      "type": "DigitalSøknad"
+    },
+    "forNav": {
+      "mottaksdatoForSøknad": "13.12.2020",
+      "grunnForPapirinnsending": "VergeHarSøktPåVegneAvBruker",
+      "annenGrunn": "",
+      "type": "Papirsøknad"
+    },
+    "ektefelle": {
+      "formue": {
+        "eierBolig": false,
+        "borIBolig": false,
+        "verdiPåBolig": 0,
+        "boligBrukesTil": "",
+        "depositumsBeløp": 0,
+        "kontonummer": "11111111111",
+        "verdiPåEiendom": 0,
+        "eiendomBrukesTil": "",
+        "kjøretøy": [],
+        "innskuddsBeløp": 0,
+        "verdipapirBeløp": 0,
+        "skylderNoenMegPengerBeløp": 100,
+        "kontanterBeløp": 50
+      },
+      "inntektOgPensjon": {
+        "pensjon": [],
+        "forventetInntekt": null,
+        "andreYtelserINav": null,
+        "andreYtelserINavBeløp": null,
+        "søktAndreYtelserIkkeBehandletBegrunnelse": null,
+        "sosialstønadBeløp": null,
+        "trygdeytelseIUtlandet": [
+          {
+            "beløp": 200,
+            "type": "trygd",
+            "valuta": "En valuta"
+          },
+          {
+            "beløp": 500,
+            "type": "Annen trygd",
+            "valuta": "En annen valuta"
+          }
+        ]
+      }
+    }
+  }
+}
