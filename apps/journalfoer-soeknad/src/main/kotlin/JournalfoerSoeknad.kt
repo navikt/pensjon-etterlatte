@@ -12,6 +12,11 @@ internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private va
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
         }.register(this)
     }
 
@@ -20,7 +25,7 @@ internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private va
 
         runBlocking {
             
-            dok.journalfoerDok("metadata", pdf.genererPdf(packet["@skjema_info"].asText(), "enTemplate"))
+            dok.journalfoerDok(packet, pdf.genererPdf("metadata", "enTemplate"))
 
             context.send(packet.toJson())
         }
@@ -31,5 +36,5 @@ interface GenererPdf {
     suspend fun genererPdf(input: String, template: String) : ByteArray
 }
 interface JournalfoerDok {
-    suspend fun journalfoerDok(metadata: String, pdf: ByteArray) : String
+    suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray) : String
 }

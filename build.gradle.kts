@@ -32,6 +32,7 @@ subprojects {
         set("logbackversion", "1.2.1")
         set("micrometerversion", "1.5.5")
         set("orgJsonVersion", "20180813")
+        set("jacksonVersion", "2.12.1")
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
