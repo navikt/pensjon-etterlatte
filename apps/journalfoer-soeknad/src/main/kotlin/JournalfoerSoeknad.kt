@@ -25,9 +25,9 @@ internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private va
         //println(packet["@etterlatt_ident"].asText())
 
         runBlocking {
-            
-            dok.journalfoerDok(packet, pdf.genererPdf("metadata", "enTemplate"))
 
+
+            packet["@journalpostId"] =  dok.journalfoerDok(packet, pdf.genererPdf(packet["@skjema_info"].asText(),"enTemplate"))
             context.send(packet.toJson())
         }
     }

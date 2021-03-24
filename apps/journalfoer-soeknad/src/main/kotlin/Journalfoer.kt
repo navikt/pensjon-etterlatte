@@ -34,6 +34,7 @@ class Journalfoer(private val client: HttpClient, private val apiUrl: String) : 
                 )
             ),
         )
+
         return client.post<String>(apiUrl) {
             listOf("forsoekFerdigstill" to "true")
             header("Content-Type", "application/json")
