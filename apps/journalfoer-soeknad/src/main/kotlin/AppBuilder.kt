@@ -14,7 +14,7 @@ class AppBuilder(private val props: Map<String, String>) {
     }
 
     fun genererPdf() = PdfGenerator(pdfhttpclient(), props[CONFIG_PDL_URL]!!)
-    fun journalfoerDok() = Journalfoer(jourhttpclient(),props[CONFIG_DOKARKIV_URL]!! )
+    fun journalfoerDok() = Journalfoer(jourhttpclient(), props[CONFIG_DOKARKIV_URL]!! )
 
     fun jourhttpclient() = HttpClient(OkHttp) {
         install(JsonFeature) { serializer = JacksonSerializer() }

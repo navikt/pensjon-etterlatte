@@ -31,7 +31,9 @@ spec:
       value: journalfoersoeknad
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
-    - name: PDL_URL
+    - name: PDF_URL
+      value: "https://etterlatte-proxy.dev-fss-pub.nais.io/pdl"
+    - name: DOKARKIV_URL
       value: "https://etterlatte-proxy.dev-fss-pub.nais.io/pdl"
   accessPolicy:
     outbound:
