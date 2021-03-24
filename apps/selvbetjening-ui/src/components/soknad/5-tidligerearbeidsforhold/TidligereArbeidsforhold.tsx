@@ -1,25 +1,20 @@
-import React, { FC } from "react";
+import React from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { Input, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Fareknapp, Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { useHistory } from "react-router-dom";
 import { useTidligereArbeidsforholdContext } from "../../../context/tidligerearbeidsforhold/TidlArbeidsforholdContext";
 import { TidlArbActionTypes } from "../../../context/tidligerearbeidsforhold/tidligere-arbeidsforhold";
+import SoknadSteg from "../../../typer/SoknadSteg";
 
-interface Props {
-    forrigeSteg?: number;
-    nesteSteg?: number;
-}
-
-const TidligereArbeidsforhold: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
-    const history = useHistory();
-
+const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useTidligereArbeidsforholdContext();
 
     return (
-        <div className="app">
+        <div>
+            {/* TODO: Kun relevant hvis "skolepenger" */}
+            {/* TODO: Kun relevant hvis IKKE i arbeid, eks. hvis student. */}
             {/* Steg 4 */}
             <Panel>
                 <Systemtittel>5 Opplysninger om søkers tidligere arbeidsforhold</Systemtittel>
@@ -64,8 +59,8 @@ const TidligereArbeidsforhold: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
             </Panel>
 
             <Panel>
-                {forrigeSteg && <Knapp onClick={() => history.push(`/soknad/steg/${forrigeSteg}`)}>Tilbake</Knapp>}
-                {nesteSteg && <Hovedknapp onClick={() => history.push(`/soknad/steg/${nesteSteg}`)}>Neste</Hovedknapp>}
+                <Knapp onClick={forrige}>Tilbake</Knapp>
+                <Hovedknapp onClick={neste}>Neste</Hovedknapp>
             </Panel>
         </div>
     );

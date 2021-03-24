@@ -1,21 +1,14 @@
-import React, { FC } from "react";
+import React from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { Input, RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { useHistory } from "react-router-dom";
 import { useArbeidsforholdContext } from "../../../context/arbeidsforhold/ArbeidsforholdContext";
 import { ArbeidsforholdActionTypes } from "../../../context/arbeidsforhold/arbeidsforhold";
+import SoknadSteg from "../../../typer/SoknadSteg";
 
-interface Props {
-    forrigeSteg?: number;
-    nesteSteg?: number;
-}
-
-const NavaerendeArbeidsforhold: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
-    const history = useHistory();
-
+const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useArbeidsforholdContext();
 
     const update = (target: any, type: ArbeidsforholdActionTypes) => {
@@ -23,9 +16,12 @@ const NavaerendeArbeidsforhold: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
     };
 
     return (
-        <div className="app">
+        <div>
             {/* Steg 6 */}
             <Panel>
+                {/* TODO: I arbeid eller student? */}
+                {/* TODO: Hvis student, ikke vise dette skjemaet */}
+
                 <Systemtittel>6 Søkers nåværende arbeids- og inntektsforhold</Systemtittel>
 
                 <SkjemaGruppe>
@@ -110,8 +106,8 @@ const NavaerendeArbeidsforhold: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
             </Panel>
 
             <Panel>
-                {forrigeSteg && <Knapp onClick={() => history.push(`/soknad/steg/${forrigeSteg}`)}>Tilbake</Knapp>}
-                {nesteSteg && <Hovedknapp onClick={() => history.push(`/soknad/steg/${nesteSteg}`)}>Neste</Hovedknapp>}
+                <Knapp onClick={forrige}>Tilbake</Knapp>
+                <Hovedknapp onClick={neste}>Neste</Hovedknapp>
             </Panel>
         </div>
     );

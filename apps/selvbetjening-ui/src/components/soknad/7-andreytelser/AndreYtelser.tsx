@@ -1,21 +1,14 @@
-import { FC, SyntheticEvent } from "react";
+import { SyntheticEvent } from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { Input, RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { useHistory } from "react-router-dom";
 import { useAndreYtelserContext } from "../../../context/andreytelser/AndreYtelserContext";
 import { AndreYtelserActionTypes as ActionType } from "../../../context/andreytelser/andre-ytelser";
+import SoknadSteg from "../../../typer/SoknadSteg";
 
-interface Props {
-    forrigeSteg?: number;
-    nesteSteg?: number;
-}
-
-const AndreYtelser: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
-    const history = useHistory();
-
+const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useAndreYtelserContext();
 
     const update = (event: any, type: ActionType) => {
@@ -26,7 +19,7 @@ const AndreYtelser: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
     };
 
     return (
-        <div className="app">
+        <div>
             {/* Steg 7 */}
             <Panel>
                 <Systemtittel>7 Opplysninger om andre ytelser</Systemtittel>
@@ -98,8 +91,8 @@ const AndreYtelser: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
             </Panel>
 
             <Panel>
-                {forrigeSteg && <Knapp onClick={() => history.push(`/soknad/steg/${forrigeSteg}`)}>Tilbake</Knapp>}
-                {nesteSteg && <Hovedknapp onClick={() => history.push(`/soknad/steg/${nesteSteg}`)}>Neste</Hovedknapp>}
+                <Knapp onClick={forrige}>Tilbake</Knapp>
+                <Hovedknapp onClick={neste}>Neste</Hovedknapp>
             </Panel>
         </div>
     );

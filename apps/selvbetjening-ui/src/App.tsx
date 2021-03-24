@@ -9,22 +9,24 @@ import SoknadForside from "./components/soknad/SoknadForside";
 
 const App = () => {
     return (
-        <ContextProviders>
-            <Switch>
-                <Route path={"/labs"}>
-                    <Labs />
-                </Route>
-                <Route exact path={"/"}>
-                    <SoknadForside />
-                </Route>
-                <Route path={"/soknad"}>
-                    <SoknadDialog />
-                </Route>
-                <Route>
-                    <NotFound />
-                </Route>
-            </Switch>
-        </ContextProviders>
+        <>
+            <ContextProviders>
+                <Switch>
+                    <Route path={"/labs"}>
+                        <Labs />
+                    </Route>
+                    <Route exact path={"/"}>
+                        <SoknadForside />
+                    </Route>
+                    <Route path={"/soknad"}>
+                        <SoknadDialog />
+                    </Route>
+                    <Route>
+                        <NotFound />
+                    </Route>
+                </Switch>
+            </ContextProviders>
+        </>
     );
 };
 

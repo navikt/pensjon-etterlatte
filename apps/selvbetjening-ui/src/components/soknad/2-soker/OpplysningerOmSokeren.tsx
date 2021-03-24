@@ -1,22 +1,15 @@
-import React, { FC } from "react";
+import React from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { Input, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { useHistory } from "react-router-dom";
+import SoknadSteg from "../../../typer/SoknadSteg";
 
-interface Props {
-    forrigeSteg?: number;
-    nesteSteg?: number;
-}
-
-const OpplysningerOmSokeren: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
-    const history = useHistory();
-
+const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
     return (
-        <div className="app">
+        <div>
             {/* Steg 2 */}
             <Panel>
                 <Systemtittel>2 Opplysninger om søkeren</Systemtittel>
@@ -36,11 +29,18 @@ const OpplysningerOmSokeren: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
                     {/* Denne kan trolig sløyfes siden brukeren er innlogget */}
                     <Input label="Fødselsnummer (11 siffer)" />
                 </SkjemaGruppe>
+
+                {/* Mulighet for å fylle inn barnets kontonr. */}
+
+                {/*
+                    Skal kun være ett felt for kontonr som hentes fra NAV sine systemer.
+                    Bruker skal kunne endre kontonr, men må informeres om at vi kun forholder oss til ETT nr.
+                */}
             </Panel>
 
             <Panel>
-                {forrigeSteg && <Knapp onClick={() => history.push(`/soknad/steg/${forrigeSteg}`)}>Tilbake</Knapp>}
-                {nesteSteg && <Hovedknapp onClick={() => history.push(`/soknad/steg/${nesteSteg}`)}>Neste</Hovedknapp>}
+                <Knapp onClick={forrige}>Tilbake</Knapp>
+                <Hovedknapp onClick={neste}>Neste</Hovedknapp>
             </Panel>
         </div>
     );

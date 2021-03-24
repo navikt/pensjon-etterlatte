@@ -1,25 +1,17 @@
-import { FC } from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { FnrInput, Input, RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { useHistory } from "react-router-dom";
 import { useAvdodContext } from "../../../context/avdod/AvdodContext";
 import { AvdodActionTypes as ActionType } from "../../../context/avdod/avdod";
+import SoknadSteg from "../../../typer/SoknadSteg";
 
-interface Props {
-    forrigeSteg?: number;
-    nesteSteg?: number;
-}
-
-const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
-    const history = useHistory();
-
+const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useAvdodContext();
 
     return (
-        <div className="app">
+        <div>
             {/* Steg 3 */}
             <Panel>
                 <Systemtittel>3 Opplysninger om den avdøde</Systemtittel>
@@ -214,8 +206,8 @@ const OmDenAvdode: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
             </Panel>
 
             <Panel>
-                {forrigeSteg && <Knapp onClick={() => history.push(`/soknad/steg/${forrigeSteg}`)}>Tilbake</Knapp>}
-                {nesteSteg && <Hovedknapp onClick={() => history.push(`/soknad/steg/${nesteSteg}`)}>Neste</Hovedknapp>}
+                <Knapp onClick={forrige}>Tilbake</Knapp>
+                <Hovedknapp onClick={neste}>Neste</Hovedknapp>
             </Panel>
         </div>
     );

@@ -1,21 +1,13 @@
-import { FC } from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { RadioPanelGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { useHistory } from "react-router-dom";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { SoknadActionTypes } from "../../../context/soknad/soknad";
+import SoknadSteg from "../../../typer/SoknadSteg";
 
-interface Props {
-    forrigeSteg?: number;
-    nesteSteg?: number;
-}
-
-const Sprakform: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
-    const history = useHistory();
-
+const Sprakform: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useSoknadContext();
 
     function setLanguage(e: any) {
@@ -25,7 +17,7 @@ const Sprakform: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
     }
 
     return (
-        <div className="app">
+        <div>
             {/* Steg 8 */}
             <Panel>
                 <Systemtittel>8 Språkform</Systemtittel>
@@ -43,8 +35,8 @@ const Sprakform: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
             </Panel>
 
             <Panel>
-                {forrigeSteg && <Knapp onClick={() => history.push(`/soknad/steg/${forrigeSteg}`)}>Tilbake</Knapp>}
-                {nesteSteg && <Hovedknapp onClick={() => history.push(`/soknad/steg/${nesteSteg}`)}>Neste</Hovedknapp>}
+                <Knapp onClick={forrige}>Tilbake</Knapp>
+                <Hovedknapp onClick={neste}>Neste</Hovedknapp>
             </Panel>
         </div>
     );

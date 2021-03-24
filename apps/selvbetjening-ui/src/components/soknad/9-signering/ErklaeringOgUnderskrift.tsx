@@ -1,22 +1,14 @@
-import { FC } from "react";
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { useHistory } from "react-router-dom";
 import Tekstomrade from "nav-frontend-tekstomrade";
 import { Checkbox } from "nav-frontend-skjema";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { SoknadActionTypes } from "../../../context/soknad/soknad";
+import SoknadSteg from "../../../typer/SoknadSteg";
 
-interface Props {
-    forrigeSteg?: number;
-    nesteSteg?: number;
-}
-
-const ErklaeringOgUnderskrift: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
-    const history = useHistory();
-
+const ErklaeringOgUnderskrift: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useSoknadContext();
 
     function handleChange(e: any) {
@@ -26,7 +18,7 @@ const ErklaeringOgUnderskrift: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
     }
 
     return (
-        <div className="app">
+        <div>
             {/* Steg 9 */}
             <Panel>
                 <Systemtittel>9 Erklæring og underskrift</Systemtittel>
@@ -42,8 +34,8 @@ const ErklaeringOgUnderskrift: FC<Props> = ({ forrigeSteg, nesteSteg }) => {
             </Panel>
 
             <Panel>
-                {forrigeSteg && <Knapp onClick={() => history.push(`/soknad/steg/${forrigeSteg}`)}>Tilbake</Knapp>}
-                {nesteSteg && <Hovedknapp onClick={() => history.push(`/soknad/steg/${nesteSteg}`)}>Neste</Hovedknapp>}
+                <Knapp onClick={forrige}>Tilbake</Knapp>
+                <Hovedknapp onClick={neste}>Neste</Hovedknapp>
             </Panel>
         </div>
     );
