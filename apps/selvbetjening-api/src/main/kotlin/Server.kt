@@ -19,6 +19,7 @@ import io.ktor.server.netty.Netty
 import no.nav.etterlatte.health.healthApi
 import no.nav.etterlatte.person.PersonClient
 import no.nav.etterlatte.person.personApi
+import no.nav.etterlatte.soknad.soknadApi
 import no.nav.security.token.support.ktor.tokenValidationSupport
 
 class Server {
@@ -39,6 +40,7 @@ class Server {
             routing {
                 healthApi()
                 personApi(personClient)
+                soknadApi()
 
                 route("api") {
                     get {

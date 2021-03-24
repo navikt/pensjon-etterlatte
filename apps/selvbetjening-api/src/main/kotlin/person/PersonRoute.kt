@@ -12,6 +12,14 @@ import io.ktor.routing.route
  */
 fun Route.personApi(client: PersonClient) {
     route("person") {
+        get("innlogget") {
+            val fnr = "fnr-fra-token"
+
+            val person = client.hentPerson(fnr)
+
+            call.respond(HttpStatusCode.OK, person)
+        }
+
         get("{fnr}") {
             val fnr = call.parameters["fnr"]!!
 
@@ -19,7 +27,5 @@ fun Route.personApi(client: PersonClient) {
 
             call.respond(HttpStatusCode.OK, person)
         }
-
-
     }
 }
