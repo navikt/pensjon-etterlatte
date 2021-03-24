@@ -5,15 +5,18 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 
-
-internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private val pdl: GenererPdf) :
+internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private val pdf: GenererPdf, private val dok: JournalfoerDok) :
     River.PacketListener {
 
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
-            //((validate { it.requireKey("@etterlatt_ident", "@avdod_doedsdato") }
-            //validate { it.forbid("@alder_ved_dodsfall") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@skjema_info") }
         }.register(this)
     }
 
@@ -21,13 +24,9 @@ internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private va
         //println(packet["@etterlatt_ident"].asText())
 
         runBlocking {
+            
+            dok.journalfoerDok(packet, pdf.genererPdf("metadata", "enTemplate"))
 
-            //TODO generere PDF og journalføre
-
-           // packet["@alder_ved_dodsfall"] = Period.between(
-               // pdl.sjekkAlderForEtterlatte(packet["@etterlatt_ident"].asText()),
-               // LocalDate.parse(packet["@avdod_doedsdato"].textValue())
-          //  ).years
             context.send(packet.toJson())
         }
     }
@@ -37,5 +36,5 @@ interface GenererPdf {
     suspend fun genererPdf(input: String, template: String) : ByteArray
 }
 interface JournalfoerDok {
-    suspend fun journalfoerDok(metadata: String, pdf: ByteArray) : String
+    suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray) : String
 }

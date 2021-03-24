@@ -12,6 +12,7 @@ dependencies {
     implementation("io.ktor:ktor-metrics-micrometer:$ktorversion")
     implementation("io.ktor:ktor-jackson:$ktorversion")
     implementation("io.ktor:ktor-auth:$ktorversion")
+    implementation("io.ktor:ktor-client-logging:$ktorversion")
     implementation("io.micrometer:micrometer-registry-prometheus:1.6.1")
     implementation("com.fasterxml:jackson-xml-databind:0.6.2")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.0")
@@ -30,6 +31,7 @@ dependencies {
     implementation("io.ktor:ktor-client-cio-jvm:$ktorversion")
     implementation("io.ktor:ktor-server-netty:$ktorversion")
     implementation("io.ktor:ktor-server-core:$ktorversion")
+    implementation("no.nav.security:mock-oauth2-server:0.3.1")
 
 }
 

@@ -2,147 +2,142 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.node.ObjectNode
-import com.nimbusds.jwt.SignedJWT
+import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
+import io.ktor.application.ApplicationCall
 import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.auth.Authentication
-import io.ktor.auth.authenticate
 import io.ktor.auth.principal
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.logging.DEFAULT
+import io.ktor.client.features.logging.LogLevel
+import io.ktor.client.features.logging.Logger
+import io.ktor.client.features.logging.Logging
+import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.header
-import io.ktor.client.request.post
 import io.ktor.config.HoconApplicationConfig
-import io.ktor.features.ContentNegotiation
-import io.ktor.http.ContentType
-import io.ktor.http.HttpStatusCode
-import io.ktor.http.content.TextContent
-import io.ktor.jackson.jackson
-import io.ktor.response.respond
-import io.ktor.routing.get
-import io.ktor.routing.route
-import io.ktor.routing.routing
-import io.ktor.server.engine.applicationEngineEnvironment
-import io.ktor.server.engine.connector
-import io.ktor.server.engine.embeddedServer
-import io.ktor.server.netty.Netty
 import io.ktor.util.KtorExperimentalAPI
-import no.nav.etterlatte.health.healthApi
+import io.ktor.util.pipeline.PipelineContext
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 import no.nav.etterlatte.oauth.ClientConfig
-import no.nav.etterlatte.person.PersonClient
-import no.nav.etterlatte.person.personApi
-import no.nav.security.token.support.client.core.oauth2.OAuth2AccessTokenResponse
+import no.nav.etterlatte.oauth.OAuth2Client
+import no.nav.security.token.support.core.jwt.JwtToken
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
-import no.nav.security.token.support.ktor.tokenValidationSupport
+import oauth.mockOautServer
 
-val defaultHttpClient = HttpClient(CIO) {
-    install(JsonFeature) {
-        serializer = JacksonSerializer {
-            configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            setSerializationInclusion(JsonInclude.Include.NON_NULL)
+
+interface Context {
+    fun securityContext(): SecurityContext
+    fun config(): Config
+    fun httpClient(): HttpClient
+}
+
+object ApplicationContext : Context {
+    private val config: Config =
+        if (System.getenv().containsKey("NAIS_APP_NAME")) ConfigFactory.load() else ConfigFactory.load(
+            "application-lokal.conf"
+        )
+    private val defaultHttpClient = HttpClient(CIO) {
+        install(JsonFeature) {
+            serializer = JacksonSerializer {
+                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                setSerializationInclusion(JsonInclude.Include.NON_NULL)
+            }
+        }
+
+        install(Logging) {
+            logger = Logger.DEFAULT
+            level = LogLevel.ALL
+        }
+    }
+
+    fun close() = defaultHttpClient.close()
+    val oauth2Client: OAuth2Client
+
+    init {
+        if (config.hasPath("no.nav.etterlatte.env.oauth.mock") && config.getBoolean("no.nav.etterlatte.env.oauth.mock")) mockOautServer()
+        oauth2Client = checkNotNull(ClientConfig(HoconApplicationConfig(config), defaultHttpClient).clients["tokenx"])
+    }
+
+    override fun config() = config
+    override fun httpClient() = defaultHttpClient
+    override fun securityContext() = NoSecurity()
+
+
+}
+
+
+object BeanFactory {
+    fun pdl(ctx: Context): PdlService {
+        val conf = ctx.config().getConfig("tjenester.pdl")
+        return if ("mock".let { conf.hasPath(it) && conf.getBoolean(it) }) {
+            PdlMock()
+        } else {
+            pdlGraphql(ctx, conf)
+        }
+    }
+
+    private fun pdlGraphql(ctx: Context, conf: Config): PdlService {
+        return SecureUri(conf).let {
+            PdlGraphqlKlient(
+                uri = it,
+                httpClient = ctx.httpClient(),
+                outpountSecurity = ctx.securityContext().re(it)
+            )
         }
     }
 }
+
 
 @KtorExperimentalAPI
 fun main() {
-    embeddedServer(Netty, environment = applicationEngineEnvironment {
-        module {
-            config = HoconApplicationConfig(ConfigFactory.load())
-            install(ContentNegotiation) {
-                jackson()
-            }
+    Server().run()
+    ApplicationContext.close()
+}
 
-            install(Authentication) {
-                tokenValidationSupport(config = config)
-            }
 
-            val oauth2Client = checkNotNull(ClientConfig(config, defaultHttpClient).clients["tokenx"])
+fun PipelineContext<*, ApplicationCall>.requestContext(): RequestContext =
+    RequestContext(TokenxSecurityContext(call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()!!))
 
-            val personClient = PersonClient(defaultHttpClient)
+class RequestContext(private val secCtx: SecurityContext) : Context by ApplicationContext {
+    override fun securityContext() = secCtx
+}
 
-            routing {
-                healthApi()
-
-                personApi(personClient)
-
-                route("api") {
-                    get {
-                        call.respond(HttpStatusCode.OK, Pair("navn", "Ola Nordmann"))
-                    }
-                }
-                authenticate {
-                    route("secure") {
-                        get {
-                            val token = call.principal<TokenValidationContextPrincipal>().asTokenString()
-                            val oAuth2Response =
-                                oauth2Client.tokenExchange(token, "dev-fss:etterlatte:etterlatte-proxy")
-
-                            val person =
-                                call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get(
-                                    "pid"
-                                )?.toString()
-                            require(person != null)
-                            val queryPart = """hentPerson(ident: "$person") {
-            forelderBarnRelasjon {
-                relatertPersonsIdent
-                relatertPersonsRolle
-            }
+class TokenxSecurityContext(val inToken: JwtToken) : SecurityContext {
+    override fun re(uri: SecureUri): suspend HttpRequestBuilder.() -> Unit {
+        val oAuth2Response = GlobalScope.async {
+            ApplicationContext.oauth2Client.tokenExchange(
+                inToken.tokenAsString,
+                uri.securityScope
+            )
         }
-        """
-
-                            val gql = """{"query":"query{ ${
-                                queryPart.replace(""""""", """\"""").replace("\n", """\n""")
-                            } } "}"""
-                            defaultHttpClient.post<ObjectNode>("https://etterlatte-proxy.dev-fss-pub.nais.io/pdl") {
-                                header("Tema", "PEN")
-                                header("Accept", "application/json")
-                                header("Authorization", "Bearer ${oAuth2Response.accessToken}")
-                                body = TextContent(gql, ContentType.Application.Json)
-                            }.also {
-                                val barnRelasjoner = it.get("data").get("hentPerson").get("forelderBarnRelasjon")
-                                val barn = mutableListOf<String>()
-                                for (i in 0 until barnRelasjoner.size())
-                                    if (barnRelasjoner.get(i).get("relatertPersonsRolle").textValue() == "BARN")
-                                        barn.add(barnRelasjoner.get(i).get("relatertPersonsIdent").textValue())
-
-                                call.respond(
-                                    HttpStatusCode.OK,
-                                    mapOf(
-                                        "navn" to "arne",
-                                        "barn" to barn
-                                    )
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        connector {
-            port = 8080
+        return {
+            header("Authorization", "Bearer ${oAuth2Response.await().accessToken}")
         }
     }
-    ).apply {
-        Runtime.getRuntime().addShutdownHook(Thread {
-            stop(3000, 3000)
-        })
-    }.start(true)
 
+    override fun user() = inToken.jwtTokenClaims?.get("pid")?.toString()
 }
 
-data class DemoTokenResponse(
-    val grantType: String,
-    val tokenResponse: OAuth2AccessTokenResponse
+class NoSecurity : SecurityContext {
+    override fun re(uri: SecureUri): suspend HttpRequestBuilder.() -> Unit = { }
+    override fun user() = throw RuntimeException("No user")
+}
+
+interface SecurityContext {
+    fun re(uri: SecureUri): suspend HttpRequestBuilder.() -> Unit
+    fun user(): String?
+}
+
+class SecureUri(
+    val url: String,
+    val securityScope: String
 ) {
-    val claims: Map<String, Any> = SignedJWT.parse(tokenResponse.accessToken).jwtClaimsSet.claims
+    constructor(conf: Config) : this(
+        conf.getString("url"),
+        conf.getString("tilbyder")
+    )
 }
-
-internal fun TokenValidationContextPrincipal?.asTokenString(): String =
-    this?.context?.firstValidToken?.map { it.tokenAsString }?.orElse(null)
-        ?: throw RuntimeException("no token found in call context")

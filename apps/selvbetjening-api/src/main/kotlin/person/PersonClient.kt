@@ -28,10 +28,10 @@ class PersonClient(
         return Person(
             fornavn = "Test",
             etternavn = "Testesen",
-            bostedsadresse = "Testveien 123, 0123 Oslo",
-            telefonnummer = "99988877",
-            epost = "test@nav.no",
-            statsborgerskap = "NO"
+            fødselsnummer = "01010154321",
+            adresse = "Testveien 123, 0123 Oslo",
+            statsborgerskap = "NO",
+            sivilstatus = "Gift"
         )
     }
 
