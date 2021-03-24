@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import io.ktor.client.HttpClient
 import io.ktor.client.request.header
 import io.ktor.client.request.post
@@ -35,6 +34,7 @@ class Journalfoer(private val client: HttpClient, private val apiUrl: String) : 
                 )
             ),
         )
+
         return client.post<String>(apiUrl) {
             listOf("forsoekFerdigstill" to "true")
             header("Content-Type", "application/json")
@@ -43,13 +43,14 @@ class Journalfoer(private val client: HttpClient, private val apiUrl: String) : 
             body = JournalpostRequest(
                 tittel = dokumentInnhold["@dok_tittel"].asText(),
                 journalpostType = JournalPostType.INNGAAENDE,
-                tema = dokumentInnhold["@dok_tema"].asText(),
-                kanal = dokumentInnhold["@dok_tittel"].asText(),
-                behandlingstema = dokumentInnhold["@dok_tittel"].asText(),
-                journalfoerendeEnhet = dokumentInnhold["@dok_tittel"].asText(),
+                tema = dokumentInnhold["@tema"].asText(),
+                kanal = dokumentInnhold["@kanal"].asText(),
+                behandlingstema = dokumentInnhold["@behandlingstema"].asText(),
+                journalfoerendeEnhet = dokumentInnhold["@journalfoerendeEnhet"].asText(),
                 avsenderMottaker = AvsenderMottaker(
                     id = "id",
-                    navn = "navn"
+                    navn = "navn",
+                    idType = "FNR"
                 ),
                 bruker = Bruker(
                     id = "id",
@@ -67,7 +68,7 @@ class Journalfoer(private val client: HttpClient, private val apiUrl: String) : 
     }
 
     internal data class JournalpostRequest(
-        @JsonProperty("@dok_tittel") val tittel: String,
+        val tittel: String,
         val journalpostType: JournalPostType,
         val tema: String,
         val kanal: String?,
