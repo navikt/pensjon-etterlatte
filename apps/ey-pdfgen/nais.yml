@@ -1,10 +1,10 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: su-pdfgen
-  namespace: supstonad
+  name: ey-pdfgen
+  namespace: etterlatte
   labels:
-    team: supstonad
+    team: etterlatte
 spec:
   image: {{ image }}
   replicas:
