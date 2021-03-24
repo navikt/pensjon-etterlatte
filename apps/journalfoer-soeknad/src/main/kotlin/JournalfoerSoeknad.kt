@@ -12,6 +12,7 @@ internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private va
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@template") }
             validate { it.requireKey("@tittel") }
             validate { it.requireKey("@kanal") }
             validate { it.requireKey("@avsenderMottaker") }
@@ -26,8 +27,8 @@ internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private va
 
         runBlocking {
 
-
-            packet["@journalpostId"] =  dok.journalfoerDok(packet, pdf.genererPdf(packet["@skjema_info"].asText(),"enTemplate"))
+    //må endre håndering av skjermainfo
+            packet["@journalpostId"] =  dok.journalfoerDok(packet, pdf.genererPdf(packet["@skjema_info"].asText(),packet["@template"].asText()))
             context.send(packet.toJson())
         }
     }

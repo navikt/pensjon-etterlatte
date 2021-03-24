@@ -32,10 +32,10 @@ spec:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
     - name: PDF_URL
-      value: "https://etterlatte-proxy.dev-fss-pub.nais.io/pdl"
+      value: "http://ey-pdfgen/api/v1/genpdf/eypdfgen"
     - name: DOKARKIV_URL
       value: "https://etterlatte-proxy.dev-fss-pub.nais.io/pdl"
   accessPolicy:
     outbound:
       external:
-        - host: "https://etterlatte-proxy.dev-fss-pub.nais.io"
+        - host: "https://ey-pdfgen"
