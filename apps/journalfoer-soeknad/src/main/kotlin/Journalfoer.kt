@@ -19,7 +19,7 @@ class Journalfoer(private val client: HttpClient, private val apiUrl: String) : 
     private val log: Logger = LoggerFactory.getLogger(this::class.java)
 
     override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String {
-        val apiUrl = "hvorfinnerjegDokarkiv"
+        val apiUrl = "hvorfinnerjegDokarkivet"
 
 
         val dok: List<JournalpostDokument> = listOf(
