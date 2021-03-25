@@ -3,11 +3,10 @@ package no.nav.etterlatte
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.client.HttpClient
-import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.header
 import io.ktor.client.request.post
+import io.ktor.content.TextContent
 import io.ktor.http.ContentType
-import io.ktor.http.content.TextContent
 
 interface PdlService {
     suspend fun personInfo(person: String): PersonInfo
@@ -15,10 +14,9 @@ interface PdlService {
 
 
 class PdlGraphqlKlient(
-    val uri: SecureUri,
-    val pdlTema: String = "PEN",
-    val httpClient: HttpClient,
-    val outpountSecurity: suspend HttpRequestBuilder.() -> Unit
+    private val uri: String,
+    private val pdlTema: String = "PEN",
+    private val httpClient: HttpClient
 
 ) : PdlService {
     override suspend fun personInfo(person: String): PersonInfo {
@@ -34,8 +32,7 @@ class PdlGraphqlKlient(
             queryPart.replace(""""""", """\"""").replace("\n", """\n""")
         } } "}"""
 
-        httpClient.post<ObjectNode>(uri.url) {
-            outpountSecurity()
+        httpClient.post<ObjectNode>(uri) {
             header("Tema", pdlTema)
             header("Accept", "application/json")
             body = TextContent(gql, ContentType.Application.Json)

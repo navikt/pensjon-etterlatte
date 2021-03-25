@@ -6,6 +6,10 @@ plugins {
     kotlin("jvm")
 }
 
+repositories {
+    jcenter()
+}
+
 dependencies {
     implementation("io.ktor:ktor-server-core:$ktorversion")
     implementation("io.ktor:ktor-server-netty:$ktorversion")
@@ -24,14 +28,18 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
     testImplementation("io.ktor:ktor-server-tests:1.4.3")
+    testImplementation("no.nav.security:mock-oauth2-server:0.3.1")
 
     implementation("io.ktor:ktor-client-core:$ktorversion")
     implementation("io.ktor:ktor-client-jackson:$ktorversion")
     implementation("io.ktor:ktor-jackson:$ktorversion")
     implementation("io.ktor:ktor-client-cio-jvm:$ktorversion")
     implementation("io.ktor:ktor-server-netty:$ktorversion")
+    implementation("io.ktor:ktor-server-cio:$ktorversion")
+    implementation("io.ktor:ktor-client-auth:$ktorversion")
     implementation("io.ktor:ktor-server-core:$ktorversion")
-    implementation("no.nav.security:mock-oauth2-server:0.3.1")
+    implementation("io.ktor:ktor-locations:$ktorversion")
+    implementation("io.ktor:ktor-html-builder:$ktorversion")
 
 }
 
