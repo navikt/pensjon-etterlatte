@@ -15,6 +15,7 @@ import io.ktor.client.features.logging.Logger
 import io.ktor.client.features.logging.Logging
 import io.ktor.config.HoconApplicationConfig
 import io.ktor.util.KtorExperimentalAPI
+import kotlinx.coroutines.delay
 import no.nav.etterlatte.ktor.tokenexchange.bearerToken
 import no.nav.etterlatte.oauth.ClientConfig
 import no.nav.security.token.support.core.context.TokenValidationContext
@@ -78,7 +79,8 @@ class ApplicationContext(configLocation: String? = null) {
 }
 
 @KtorExperimentalAPI
-fun main() {
+suspend fun main() {
+    delay(30_000)//Wait for istio-proxy
     ApplicationContext().also {
         Server(it).run()
     }.close()

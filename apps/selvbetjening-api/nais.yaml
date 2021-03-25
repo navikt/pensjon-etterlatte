@@ -10,13 +10,13 @@ spec:
   port: 8080
   liveness:
     path: "internal/isalive"
-    initialDelay: 20
+    initialDelay: 40
     timeout: 1
     periodSeconds: 5
     failureThreshold: 10
   readiness:
     path: "internal/isready"
-    initialDelay: 20
+    initialDelay: 40
     timeout: 1
   replicas:
     min: 1
