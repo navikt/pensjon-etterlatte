@@ -1,8 +1,6 @@
 package no.nav.etterlatte.person
 
 import io.ktor.application.call
-import io.ktor.http.HttpStatusCode
-import io.ktor.response.respond
 import io.ktor.response.respondText
 import io.ktor.routing.Route
 import io.ktor.routing.get
@@ -19,7 +17,7 @@ fun Route.personApi(client: PersonClient) {
 
             val person = client.hentPerson(fnr)
 
-            call.respondText { person.toJson() }
+            call.respondText(person.toJson())
         }
 
         get("{fnr}") {
@@ -27,7 +25,7 @@ fun Route.personApi(client: PersonClient) {
 
             val person = client.hentPerson(fnr)
 
-            call.respond(HttpStatusCode.OK, person)
+            call.respondText(person.toJson())
         }
     }
 }
