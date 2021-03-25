@@ -17,46 +17,55 @@ const initialState: ISteg = {
             label: "1",
             component: SoknadType,
             path: "/steg/1",
+            disabled: false,
         },
         {
             label: "2",
             component: OpplysningerOmSokeren,
             path: "/steg/2",
+            disabled: true,
         },
         {
             label: "3",
             component: OmDenAvdode,
             path: "/steg/3",
+            disabled: true,
         },
         {
             label: "4",
             component: OpplysningerOmBarn,
             path: "/steg/4",
+            disabled: true,
         },
         {
             label: "5",
             component: TidligereArbeidsforhold,
             path: "/steg/5",
+            disabled: true,
         },
         {
             label: "6",
             component: NavaerendeArbeidsforhold,
             path: "/steg/6",
+            disabled: true,
         },
         {
             label: "7",
             component: AndreYtelser,
             path: "/steg/7",
+            disabled: true,
         },
         {
             label: "8",
             component: Sprakform,
             path: "/steg/8",
+            disabled: true,
         },
         {
             label: "9",
             component: ErklaeringOgUnderskrift,
             path: "/steg/9",
+            disabled: true,
         },
     ],
 };
@@ -64,8 +73,21 @@ const initialState: ISteg = {
 const reducer = (state: ISteg, action: IStegAction) => {
     switch (action.type) {
         case StegActionTypes.FORRIGE:
-        case StegActionTypes.NESTE:
-            return { ...state, aktivtSteg: action.payload };
+        case StegActionTypes.NESTE: {
+            const index = action.payload - 1;
+
+            const oppdatertListe = [...state.steg];
+
+            let element = { ...oppdatertListe[index] };
+            element.disabled = false;
+            oppdatertListe[index] = element;
+
+            return {
+                ...state,
+                aktivtSteg: action.payload,
+                steg: oppdatertListe,
+            };
+        }
         default:
             return { ...state };
     }

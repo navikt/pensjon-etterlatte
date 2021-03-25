@@ -1,14 +1,15 @@
 import SoknadSteg from "../../typer/SoknadSteg";
 
-export interface IStegInnhold {
+export interface IStegElement {
     label: string;
     component: SoknadSteg;
     path: string;
+    disabled: boolean;
 }
 
 export interface ISteg {
     aktivtSteg?: number;
-    steg: IStegInnhold[];
+    steg: IStegElement[];
 }
 
 export enum StegActionTypes {

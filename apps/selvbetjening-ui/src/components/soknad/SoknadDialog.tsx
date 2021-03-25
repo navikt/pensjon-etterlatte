@@ -12,6 +12,10 @@ const SoknadDialog: FC = () => {
 
     const { state, dispatch } = useStegContext();
 
+    /*
+     * TODO: Steghåndtering må forbedres, dette er ikke helt bra...
+     */
+
     const forrige = (nåværendeSteg: number) => {
         const forrigeSteg = nåværendeSteg - 1;
 
@@ -28,19 +32,22 @@ const SoknadDialog: FC = () => {
     };
 
     const alleSteg = state.steg.map((steg, index) => {
-        let aktiv = index === state.aktivtSteg;
-
-        if (aktiv) console.log(`${index} er aktiv`);
-
         return {
             index: index + 1,
             label: steg.label,
+            disabled: steg.disabled,
         };
     });
 
     return (
         <>
-            <Stegindikator aktivtSteg={(state.aktivtSteg ?? 1) - 1} steg={alleSteg} onChange={() => {}} />
+            <Stegindikator
+                aktivtSteg={(state.aktivtSteg ?? 1) - 1}
+                steg={alleSteg}
+                onChange={(index) => {
+                    history.push(`/soknad/steg/${index + 1}`);
+                }}
+            />
 
             <div className={"app"}>
                 {state.steg.map((steg, index) => {

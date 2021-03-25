@@ -1,3 +1,5 @@
+import IPerson from "../../typer/IPerson";
+
 export interface ISoknad {
     sprak: string;
     fraDato: string;
@@ -7,6 +9,7 @@ export interface ISoknad {
     barnepensjon: boolean;
     stonadTilBarnetilsyn: boolean;
     stonadTilSkolepenger: boolean;
+    søker?: IPerson;
     gyldig: boolean;
     error?: {
         stønadMangler?: string;
@@ -15,6 +18,7 @@ export interface ISoknad {
 }
 
 export enum SoknadActionTypes {
+    HENT_INNLOGGET_BRUKER,
     SET_FRA_DATO,
     SET_SPRAK,
     SET_BEKREFTET,

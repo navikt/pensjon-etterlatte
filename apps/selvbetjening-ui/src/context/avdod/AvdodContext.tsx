@@ -12,9 +12,12 @@ const initialState: IAvdod = {
     bosetning: "",
     dodsfallAarsak: "",
     boddEllerJobbetUtland: "",
-    pensjonsgivendeInntekt: "",
-    pensjonAndreLand: "",
-    militaerTjeneste: "",
+    haddePensjonsgivendeInntekt: "",
+    pensjonsgivendeInntektSvar: "",
+    haddePensjonAndreLand: "",
+    pensjonAndreLandSvar: "",
+    harAvtjentMilitærTjeneste: "",
+    avtjentMilitærTjenesteSvar: "",
 };
 
 const reducer = (state: IAvdod, action: IAvdodAction) => {
@@ -36,11 +39,17 @@ const reducer = (state: IAvdod, action: IAvdodAction) => {
         case AvdodActionTypes.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND:
             return { ...state, boddEllerJobbetUtland: action.payload };
         case AvdodActionTypes.SET_AVDOD_PENSJONSGIVEDE_INNTEKT:
-            return { ...state, pensjonsgivendeInntekt: action.payload };
+            return { ...state, haddePensjonsgivendeInntekt: action.payload };
+        case AvdodActionTypes.SET_AVDOD_PENSJONSGIVEDE_INNTEKT_SVAR:
+            return { ...state, pensjonsgivendeInntektSvar: action.payload };
         case AvdodActionTypes.SET_AVDOD_PENSJON_ANDRE_LAND:
-            return { ...state, pensjonAndreLand: action.payload };
+            return { ...state, haddePensjonAndreLand: action.payload };
+        case AvdodActionTypes.SET_AVDOD_PENSJON_ANDRE_LAND_SVAR:
+            return { ...state, pensjonAndreLandSvar: action.payload };
         case AvdodActionTypes.SET_AVDOD_MILITAER_TJENESTE:
-            return { ...state, militaerTjeneste: action.payload };
+            return { ...state, harAvtjentMilitærTjeneste: action.payload };
+        case AvdodActionTypes.SET_AVDOD_MILITAER_TJENESTE_SVAR:
+            return { ...state, avtjentMilitærTjenesteSvar: action.payload };
         default:
             return state;
     }

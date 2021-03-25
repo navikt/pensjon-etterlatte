@@ -7,9 +7,12 @@ export interface IAvdod {
     bosetning: string;
     dodsfallAarsak: string;
     boddEllerJobbetUtland: string;
-    pensjonsgivendeInntekt: string;
-    pensjonAndreLand: string;
-    militaerTjeneste: string;
+    haddePensjonsgivendeInntekt: string;
+    pensjonsgivendeInntektSvar: string;
+    haddePensjonAndreLand: string;
+    pensjonAndreLandSvar: string;
+    harAvtjentMilitærTjeneste: string;
+    avtjentMilitærTjenesteSvar: string;
 }
 
 export enum AvdodActionTypes {
@@ -22,8 +25,11 @@ export enum AvdodActionTypes {
     SET_AVDOD_DODSFALL_ARSAK,
     SET_AVDOD_BODD_ELLER_JOBBET_UTLAND,
     SET_AVDOD_PENSJONSGIVEDE_INNTEKT,
+    SET_AVDOD_PENSJONSGIVEDE_INNTEKT_SVAR,
     SET_AVDOD_PENSJON_ANDRE_LAND,
+    SET_AVDOD_PENSJON_ANDRE_LAND_SVAR,
     SET_AVDOD_MILITAER_TJENESTE,
+    SET_AVDOD_MILITAER_TJENESTE_SVAR,
 }
 
 export interface IAvdodAction {

@@ -1,14 +1,31 @@
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
-import { FnrInput, Input, RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
+import { FnrInput, Input, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useAvdodContext } from "../../../context/avdod/AvdodContext";
 import { AvdodActionTypes as ActionType } from "../../../context/avdod/avdod";
 import SoknadSteg from "../../../typer/SoknadSteg";
+import ToValgRadio from "../../felles/ToValgRadio";
+import React, { SyntheticEvent } from "react";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useAvdodContext();
+
+    const oppdater = (type: ActionType, payload: string) => {
+        dispatch({ type, payload });
+    };
+
+    const oppdaterInput = (type: ActionType, e: SyntheticEvent) => {
+        dispatch({ type, payload: (e.target as HTMLInputElement).value });
+    };
+
+    const oppdaterFnr = (e: SyntheticEvent) => {
+        const value = (e.target as HTMLInputElement).value;
+        const fnr = value.replace(/[^\d]+/g, "");
+
+        dispatch({ type: ActionType.SET_AVDOD_FNR, payload: fnr });
+    };
 
     return (
         <div>
@@ -22,23 +39,13 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <Input
                         label="Fornavn"
                         value={state.fornavn}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_FORNAVN,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
+                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_FORNAVN, e)}
                     />
 
                     <Input
                         label="Etternavn"
                         value={state.etternavn}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_ETTERNAVN,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
+                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_ETTERNAVN, e)}
                     />
 
                     {/* 3.2 */}
@@ -46,160 +53,124 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         label="Fødselsnummer (11 siffer)"
                         // bredde="L"
                         value={state.fnr}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_FNR,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
-                        onValidate={() => {} /*setValid(val)*/}
-                        // feil={submit && !valid ? "Ugyldig fødselsnummer" : undefined}
+                        type={"tel"}
+                        maxLength={11}
+                        onChange={oppdaterFnr}
+                        onValidate={
+                            (valid) => {
+                                console.log(`is valid: ${valid}`);
+                            } /*setValid(val)*/
+                        }
+                        // feil={ ? "Ugyldig fødselsnummer" : undefined}
                     />
 
                     {/* 3.3 */}
                     <Input
                         label="Dødsdato (dd.mm.åå)"
                         value={state.dodsdato}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_DODSDATO,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
+                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_DODSDATO, e)}
                     />
 
                     {/* 3.4 */}
                     <Input
                         label="Statsborgerskap"
                         value={state.statsborgerskap}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_STATSBORGERSKAP,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
+                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_STATSBORGERSKAP, e)}
                     />
 
                     {/* 3.5 fjernes. Ikke lenger gyldig. */}
-
                     <br />
                     <br />
                     {/* 3.6 */}
-                    <RadioPanelGruppe
-                        name={"avdodBosetning"}
-                        legend={"Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?"}
-                        radios={[
-                            { label: "Ja", value: "Ja" },
-                            { label: "Nei", value: "Nei" },
-                        ]}
+                    <ToValgRadio
                         checked={state.bosetning}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_BOSETNING,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
+                        legend={"Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?"}
+                        onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_BOSETNING, valgtSvar)}
                     />
                     <br />
 
                     {/* 3.7 */}
-                    <RadioPanelGruppe
-                        name={"dodsfallArsak"}
-                        legend={"Kan dødesfallet være en følge av yrkesskade/yrkessykdom?"}
-                        radios={[
-                            { label: "Ja", value: "Ja" },
-                            { label: "Nei", value: "Nei" },
-                        ]}
+                    <ToValgRadio
+                        // name={"dodsfallArsak"}
                         checked={state.dodsfallAarsak}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_DODSFALL_ARSAK,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
+                        legend={"Kan dødesfallet være en følge av yrkesskade/yrkessykdom?"}
+                        onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_DODSFALL_ARSAK, valgtSvar)}
                     />
                     <br />
 
                     {/* 3.8 */}
-                    <RadioPanelGruppe
-                        name={"avdodBoddEllerJobbetUtland"}
-                        legend={"Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?"}
-                        radios={[
-                            { label: "Ja", value: "Ja" },
-                            { label: "Nei", value: "Nei" },
-                        ]}
+                    <ToValgRadio
+                        // name={"avdodBoddEllerJobbetUtland"}
                         checked={state.boddEllerJobbetUtland}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
+                        legend={"Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?"}
+                        onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND, valgtSvar)}
                     />
                     {/* 3.9 Info om arbeidsforhold og inntekt hvis JA over */}
                     <br />
 
                     {/* 3.10 */}
-                    <RadioPanelGruppe
-                        name={"pensjonsgivendeInntekt"}
+                    <ToValgRadio
+                        // name={"pensjonsgivendeInntekt"}
+                        checked={state.haddePensjonsgivendeInntekt}
                         legend={
                             "Hadde den avdøde pensjonsgivende inntekt (arbeidsinntekt eller næringsinntekt) på tidspunktet før dødsfallet?"
                         }
-                        radios={[
-                            { label: "Ja", value: "Ja" },
-                            { label: "Nei", value: "Nei" },
-                        ]}
-                        checked={state.pensjonsgivendeInntekt}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_PENSJONSGIVEDE_INNTEKT,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
-                    />
-                    {state.pensjonsgivendeInntekt === "Ja" && <Input label="Oppgi bruttobeløp pr. år (kr)" />}
+                        onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_PENSJONSGIVEDE_INNTEKT, valgtSvar)}
+                    >
+                        <Input
+                            label="Oppgi bruttobeløp pr. år (kr)"
+                            value={state.pensjonsgivendeInntektSvar}
+                            onChange={(valgtSvar) =>
+                                oppdaterInput(ActionType.SET_AVDOD_PENSJONSGIVEDE_INNTEKT_SVAR, valgtSvar)
+                            }
+                        />
+                    </ToValgRadio>
                     <br />
 
                     {/* 3.11 Samme som over ?! */}
 
                     {/* 3.12 */}
-                    <RadioPanelGruppe
-                        name={"pensjonAndreLand"}
+                    <ToValgRadio
+                        // name={"pensjonAndreLand"}
+                        checked={state.haddePensjonAndreLand}
                         legend={"Mottok den avdøde pensjon fra andre land enn Norge?"}
-                        radios={[
-                            { label: "Ja", value: "Ja" },
-                            { label: "Nei", value: "Nei" },
-                        ]}
-                        checked={state.pensjonAndreLand}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_PENSJON_ANDRE_LAND,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
-                    />
-                    {state.pensjonAndreLand === "Ja" && <Input label="Oppgi bruttobeløp pr. år (kr)" />}
+                        onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_PENSJON_ANDRE_LAND, valgtSvar)}
+                    >
+                        <Input
+                            label="Oppgi bruttobeløp pr. år (kr)"
+                            value={state.pensjonAndreLandSvar}
+                            onChange={(valgtSvar) =>
+                                oppdaterInput(ActionType.SET_AVDOD_PENSJON_ANDRE_LAND_SVAR, valgtSvar)
+                            }
+                        />
+                    </ToValgRadio>
                     <br />
 
                     {/* 3.13 */}
-                    <RadioPanelGruppe
-                        name={"militaerTjeneste"}
+                    <ToValgRadio
+                        // name={"militaerTjeneste"}
+                        checked={state.harAvtjentMilitærTjeneste}
                         legend={
                             "Har den avdøde etter 1966 avtjent militær eller sivil førstegangstjeneste som varte minst 30 dager?"
                         }
-                        radios={[
-                            { label: "Ja", value: "Ja" },
-                            { label: "Nei", value: "Nei" },
-                        ]}
-                        checked={state.militaerTjeneste}
-                        onChange={(e) => {
-                            dispatch({
-                                type: ActionType.SET_AVDOD_MILITAER_TJENESTE,
-                                payload: (e.target as HTMLInputElement).value,
-                            });
-                        }}
-                    />
-                    {state.militaerTjeneste === "Ja" && <Input label="Oppgi årstall" />}
+                        onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_MILITAER_TJENESTE, valgtSvar)}
+                    >
+                        <Input
+                            label="Oppgi årstall"
+                            value={state.avtjentMilitærTjenesteSvar}
+                            onChange={(valgtSvar) =>
+                                oppdaterInput(ActionType.SET_AVDOD_MILITAER_TJENESTE_SVAR, valgtSvar)
+                            }
+                        />
+                    </ToValgRadio>
+                    {/*
+                    {state.harAvtjentMilitærTjeneste === "Ja" && (
+                        <Input
+                            label="Oppgi årstall"
+                            value={state.avtjentMilitærTjenesteSvar}
+                        />
+                    )}
+*/}
                     <br />
                 </SkjemaGruppe>
                 <br />

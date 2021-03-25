@@ -12,12 +12,15 @@ const initialState: ISoknad = {
     barnepensjon: false,
     stonadTilBarnetilsyn: false,
     stonadTilSkolepenger: false,
+    søker: undefined,
     gyldig: false,
     error: undefined,
 };
 
 const reducer = (state: ISoknad, action: ISoknadAction) => {
     switch (action.type) {
+        case SoknadActionTypes.HENT_INNLOGGET_BRUKER:
+            return { ...state, søker: action.payload };
         case SoknadActionTypes.SET_FRA_DATO:
             return { ...state, fraDato: action.payload };
         case SoknadActionTypes.SET_SPRAK:
