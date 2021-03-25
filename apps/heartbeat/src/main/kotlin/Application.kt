@@ -76,14 +76,6 @@ class Heartbeat(val app: String) {
 }
 
 fun main() {
-    database.newPuls().let { database[it] }?.apply {
-        registerHeartbeat("lol")
-        registerHeartbeat("lal")
-    }
-    println(json.writeValueAsString(database.data()))
-}
-
-fun main2() {
     RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(System.getenv())).withKtorModule {
         routing {
             get("/") {
