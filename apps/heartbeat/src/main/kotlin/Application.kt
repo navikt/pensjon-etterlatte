@@ -1,5 +1,8 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.ktor.application.call
 import io.ktor.http.ContentType
 import io.ktor.response.respondText
@@ -9,6 +12,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import no.nav.helse.rapids_rivers.JsonMessage
+import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
@@ -20,6 +24,11 @@ import java.time.ZoneId
 import java.util.*
 import kotlin.collections.set
 
+val json = jacksonObjectMapper()
+    .registerModule(JavaTimeModule())
+    .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+    .writerWithDefaultPrettyPrinter()
+
 internal val Int.hours: Long
     get() = minutes * 60
 
@@ -28,13 +37,6 @@ internal val Int.minutes: Long
 
 internal val Int.seconds: Long
     get() = this * 1000L
-
-fun List<Any>.pretty(indent: Int = 0): String =
-    if (isEmpty()) "[]" else joinToString(
-        ",\n${" ".repeat(indent)}",
-        "[\n${" ".repeat(indent)}",
-        "\n${" ".repeat(indent - 2)}]"
-    )
 
 object database {
     private val db = mutableMapOf<String, Puls>()
@@ -48,11 +50,7 @@ object database {
     }
 
     operator fun get(id: String) = db[id]
-    fun pretty(): String {
-        return """{
-            |  "pulses": ${db.values.map { it.pretty() }.pretty(4)}
-            |}""".trimMargin()
-    }
+    fun data() = mapOf<String, Any>("pulses" to db.values.map { it.data() })
 }
 
 class Puls {
@@ -62,14 +60,15 @@ class Puls {
         beats.add(Heartbeat(app))
     }
 
-    fun pretty() =
-        """{
-            |      "emitted": "${LocalDateTime.ofInstant(ts, ZoneId.systemDefault())}",
-            |      "heartbeats": ${
-            beats.map { """{ "app": "${it.app}", "lag": "${Duration.between(ts, it.ts)}" }""" }.pretty(8)
+    fun data() = mapOf(
+        "emitted" to LocalDateTime.ofInstant(ts, ZoneId.systemDefault()),
+        "heartbeats" to beats.map {
+            mapOf(
+                "app" to it.app,
+                "lag" to Duration.between(ts, it.ts)
+            )
         }
-            |    }""".trimMargin()
-
+    )
 }
 
 class Heartbeat(val app: String) {
@@ -77,17 +76,18 @@ class Heartbeat(val app: String) {
 }
 
 fun main() {
-    val env = System.getenv().toMutableMap()
-    env["KAFKA_BOOTSTRAP_SERVERS"] = env["KAFKA_BROKERS"]
-    env["NAV_TRUSTSTORE_PATH"] = env["KAFKA_TRUSTSTORE_PATH"]
-    env["NAV_TRUSTSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
-    env["KAFKA_KEYSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
+    database.newPuls().let { database[it] }?.apply {
+        registerHeartbeat("lol")
+        registerHeartbeat("lal")
+    }
+    println(json.writeValueAsString(database.data()))
+}
 
-
-    RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env)).withKtorModule {
+fun main2() {
+    RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(System.getenv())).withKtorModule {
         routing {
             get("/") {
-                call.respondText(database.pretty(), ContentType.Text.Plain)
+                call.respondText(json.writeValueAsString(database.data()), ContentType.Text.Plain)
             }
         }
     }.build()
@@ -124,7 +124,7 @@ internal class HeartbeatListener(rapidsConnection: RapidsConnection) :
         }.register(this)
     }
 
-    override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
+    override fun onPacket(packet: JsonMessage, context: MessageContext) {
         database[packet["@id"].textValue()]?.also { it.registerHeartbeat(packet["app_name"].textValue()) }
             ?: println("Heard unrequested or timed out heartbeat from ${packet["app_name"]} ")
     }

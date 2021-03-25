@@ -28,7 +28,7 @@ subprojects {
         set("kotlinversion", "1.4.20")
         set("junitJupiterVersion", "5.6.2")
         set("tokensupportversion", "1.3.3")
-        set("rapidsandriversversion", "1.880e7a5")
+        set("rapidsandriversversion", "1.6535123")
         set("logbackversion", "1.2.1")
         set("micrometerversion", "1.5.5")
         set("orgJsonVersion", "20180813")
