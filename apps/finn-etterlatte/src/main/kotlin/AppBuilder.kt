@@ -19,7 +19,7 @@ class AppBuilder(private val props: Map<String, String>) {
         install(JsonFeature) { serializer = JacksonSerializer() }
         install(Auth) {
             clientCredential {
-                config = System.getenv().toMutableMap()
+                config = props.toMutableMap()
                     .apply { put("AZURE_APP_OUTBOUND_SCOPE", "api://dev-fss.etterlatte.etterlatte-proxy/.default") }
             }
         }

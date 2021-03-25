@@ -2,10 +2,15 @@ package no.nav.etterlatte
 
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
+import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 
-internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private val pdf: GenererPdf, private val dok: JournalfoerDok) :
+internal class JournalfoerSoeknad(
+    rapidsConnection: RapidsConnection,
+    private val pdf: GenererPdf,
+    private val dok: JournalfoerDok
+) :
     River.PacketListener {
 
     init {
@@ -22,21 +27,25 @@ internal class JournalfoerSoeknad(rapidsConnection: RapidsConnection, private va
         }.register(this)
     }
 
-    override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
+    override fun onPacket(packet: JsonMessage, context: MessageContext) {
         //println(packet["@etterlatt_ident"].asText())
 
         runBlocking {
 
-    //må endre håndering av skjermainfo
-            packet["@journalpostId"] =  dok.journalfoerDok(packet, pdf.genererPdf(packet["@skjema_info"].asText(),packet["@template"].asText()))
-            context.send(packet.toJson())
+            //må endre håndering av skjermainfo
+            packet["@journalpostId"] = dok.journalfoerDok(
+                packet,
+                pdf.genererPdf(packet["@skjema_info"].asText(), packet["@template"].asText())
+            )
+            context.publish(packet.toJson())
         }
     }
 }
 
 interface GenererPdf {
-    suspend fun genererPdf(input: String, template: String) : ByteArray
+    suspend fun genererPdf(input: String, template: String): ByteArray
 }
+
 interface JournalfoerDok {
-    suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray) : String
+    suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String
 }

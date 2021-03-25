@@ -16,13 +16,7 @@ var stream: FinnDodsmeldinger? = null
 
 
 fun main() {
-    val env = System.getenv().toMutableMap()
-    env["KAFKA_BOOTSTRAP_SERVERS"] = env["KAFKA_BROKERS"]
-    env["NAV_TRUSTSTORE_PATH"] = env["KAFKA_TRUSTSTORE_PATH"]
-    env["NAV_TRUSTSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
-    env["KAFKA_KEYSTORE_PASSWORD"] = env["KAFKA_CREDSTORE_PASSWORD"]
-
-    RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
+    RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(System.getenv()))
         .withKtorModule(Application::module)
         .build()
         .apply {

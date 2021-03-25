@@ -2,6 +2,7 @@ package no.nav.etterlatte
 
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
+import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
@@ -17,12 +18,12 @@ internal class FinnEtterlatte(rapidsConnection: RapidsConnection, private val pd
         }.register(this)
     }
 
-    override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
+    override fun onPacket(packet: JsonMessage, context: MessageContext) {
         println(packet["@avdod_ident"].asText())
 
         runBlocking {
             pdl.finnEtterlatteForPerson(packet["@avdod_ident"].asText()).forEach {
-                context.send(JsonMessage(packet.toJson(), MessageProblems("{}")).apply {
+                context.publish(JsonMessage(packet.toJson(), MessageProblems("{}")).apply {
                     set("@etterlatt_ident", it)
                     set("@event_name", "etterlatt_barn_identifisert")
                 }.toJson())
@@ -40,10 +41,10 @@ internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListene
         }.register(this)
     }
 
-    override fun onError(problems: MessageProblems, context: RapidsConnection.MessageContext) {
+    override fun onError(problems: MessageProblems, context: MessageContext) {
     }
 
-    override fun onPacket(packet: JsonMessage, context: RapidsConnection.MessageContext) {
+    override fun onPacket(packet: JsonMessage, context: MessageContext) {
         println(packet.toJson())
     }
 }
