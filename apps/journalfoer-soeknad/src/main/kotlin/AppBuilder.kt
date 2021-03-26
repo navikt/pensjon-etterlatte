@@ -29,16 +29,9 @@ class AppBuilder(private val props: Map<String, String>) {
         Runtime.getRuntime().addShutdownHook(Thread { it.close() })
     }
 
-    //Denne må skrives om
     fun pdfhttpclient() = HttpClient(OkHttp) {
         install(JsonFeature) { serializer = JacksonSerializer() }
-        install(Auth) {
-            clientCredential {
-                config = System.getenv().toMutableMap().apply {
-                    put("AZURE_APP_OUTBOUND_SCOPE", "api://dev-fss.etterlatte.etterlatte-proxy/.default")
-                }
-            }
-        }
+
     }.also {
         Runtime.getRuntime().addShutdownHook(Thread { it.close() })
     }
