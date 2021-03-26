@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.JsonNode
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
@@ -33,9 +34,7 @@ internal class JournalfoerSoeknad(
         runBlocking {
 
             //må endre håndering av skjermainfo
-            packet["@journalpostId"] = dok.journalfoerDok(
-                packet,
-                pdf.genererPdf(packet["@skjema_info"].asText(), packet["@template"].asText())
+            packet["@journalpostId"] = dok.journalfoerDok(packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
             )
             context.publish(packet.toJson())
         }
@@ -43,7 +42,7 @@ internal class JournalfoerSoeknad(
 }
 
 interface GenererPdf {
-    suspend fun genererPdf(input: String, template: String): ByteArray
+    suspend fun genererPdf(input: JsonNode, template: String): ByteArray
 }
 
 interface JournalfoerDok {
