@@ -29,7 +29,7 @@ const SoknadType: SoknadSteg = ({ neste }) => {
 
             <section>
                 <CheckboksPanelGruppe
-                    feil={state.error?.stønadMangler}
+                    // feil={state.error?.stønadMangler}
                     // name={'type'}
                     checkboxes={[
                         {
@@ -90,7 +90,7 @@ const SoknadType: SoknadSteg = ({ neste }) => {
             )}
 
             <section>
-                <SkjemaGruppe feil={state.error?.datoMangler}>
+                <SkjemaGruppe>
                     {/* TODO: Skal være fra måneden etter dødsfallet */}
                     <Input
                         label="Fra dato (mm.åå)"

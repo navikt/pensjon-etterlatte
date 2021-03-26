@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 const SoknadForside: FC = () => {
     const history = useHistory();
 
-    const [isChecked, setIsChecked] = useState(false);
+    const [harBekreftet, settBekreftet] = useState(false);
 
     return (
         <>
@@ -150,8 +150,8 @@ const SoknadForside: FC = () => {
 
                     <BekreftCheckboksPanel
                         label="Ja, jeg samtykker"
-                        checked={isChecked}
-                        onChange={(e) => setIsChecked((e.target as HTMLInputElement).checked)}
+                        checked={harBekreftet}
+                        onChange={(e) => settBekreftet((e.target as HTMLInputElement).checked)}
                     >
                         <p>For å komme videre må du gi oss lov til å hente inn og bruke opplysninger om deg.</p>
 
@@ -159,7 +159,7 @@ const SoknadForside: FC = () => {
                     </BekreftCheckboksPanel>
                 </section>
 
-                {isChecked && <Hovedknapp onClick={() => history.push(`/soknad/steg/1`)}>Start søknad</Hovedknapp>}
+                {harBekreftet && <Hovedknapp onClick={() => history.push(`/soknad/steg/1`)}>Start søknad</Hovedknapp>}
             </Panel>
         </>
     );

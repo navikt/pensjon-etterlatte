@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
-import "../../../App.less";
+import "./OpplysningerOmSokeren.less";
 import { Panel } from "nav-frontend-paneler";
-import { Element, Ingress, Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
+import { Element, Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { hentInnloggetPerson } from "../../../api";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import IPerson from "../../../typer/IPerson";
+import { IPerson } from "../../../typer/IPerson";
 import { SoknadActionTypes } from "../../../context/soknad/soknad";
 import ToValgRadio from "../../felles/ToValgRadio";
+import { Input } from "nav-frontend-skjema";
 
 const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useSoknadContext();
@@ -38,10 +39,10 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                 <br />
 
                 {!!søker && (
-                    <>
+                    <div className={"opplysninger"}>
                         <section>
-                            <Undertittel>Fødselsnummer / d-nummer</Undertittel>
-                            <Ingress>{søker.fødselsnummer}</Ingress>
+                            <Element>Fødselsnummer / d-nummer</Element>
+                            <Normaltekst>{søker.fødselsnummer}</Normaltekst>
                         </section>
 
                         <section>
@@ -51,8 +52,9 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                             </Normaltekst>
                         </section>
 
+                        {/* 2.3 */}
                         <section>
-                            <Element>Adresse</Element>
+                            <Element>Bostedsadresse</Element>
                             <Normaltekst>{søker.adresse}</Normaltekst>
                         </section>
 
@@ -61,20 +63,60 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                             <Normaltekst>{søker.sivilstatus}</Normaltekst>
                         </section>
 
+                        {/* 2.6 */}
                         <section>
                             <Element>Statsborgerskap</Element>
                             <Normaltekst>{søker.statsborgerskap}</Normaltekst>
                         </section>
-                    </>
+                    </div>
                 )}
 
                 <ToValgRadio
-                    checked={"Ja"}
-                    legend={"Bor du på denne adressen?"}
+                    label={"Bor du på denne adressen?"}
+                    checked={state.kontaktinfo?.boadresseBekreftet}
+                    invert={true}
+                    onChange={(valgtSvar) => {
+                        dispatch({ type: SoknadActionTypes.BEKREFT_BOADRESSE, payload: valgtSvar });
+                    }}
+                >
+                    <AlertStripe type="advarsel" form={"inline"}>
+                        Du må oppgi riktig adresse til Folkeregisteret for å bruke denne søknaden
+                    </AlertStripe>
+                </ToValgRadio>
+
+                {/* 2.4 */}
+                <Input
+                    type={"tel"}
+                    label={"Telefonnummer"}
+                    value={state.kontaktinfo?.telefonnummer}
                     onChange={(e) => {
-                        console.log(e);
+                        dispatch({
+                            type: SoknadActionTypes.SETT_TELEFON,
+                            payload: (e.target as HTMLInputElement).value,
+                        });
                     }}
                 />
+
+                {/* 2.5 */}
+                <Input
+                    label={"E-post"}
+                    value={state.kontaktinfo?.epost}
+                    onChange={(e) => {
+                        dispatch({ type: SoknadActionTypes.SETT_EPOST, payload: (e.target as HTMLInputElement).value });
+                    }}
+                />
+
+                {/* 2.7 */}
+                <ToValgRadio
+                    label={"Oppholder du deg i Norge?"}
+                    checked={""}
+                    invert={true}
+                    onChange={(valgtSvar) => {
+                        dispatch({ type: SoknadActionTypes.BEKREFT_BOADRESSE, payload: valgtSvar });
+                    }}
+                >
+                    <Input label={"Oppgi land"} value={""} onChange={() => {}} />
+                </ToValgRadio>
 
                 {/* Mulighet for å fylle inn barnets kontonr. */}
 

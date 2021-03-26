@@ -2,8 +2,9 @@ import React, { FC } from "react";
 import { RadioPanelGruppe } from "nav-frontend-skjema";
 
 interface Props {
-    legend: string;
-    checked: string;
+    label: string;
+    checked?: string;
+    invert?: boolean; // Trigger på NEI i stedet
     onChange: (valgtSvar: string) => void;
     children?: React.ReactNode | React.ReactChild | React.ReactChildren;
 }
@@ -13,12 +14,12 @@ enum IValg {
     NEI = "Nei",
 }
 
-const ToValgRadio: FC<Props> = ({ legend, checked, onChange, children }) => {
+const ToValgRadio: FC<Props> = ({ label, checked, invert, onChange, children }) => {
     return (
-        <>
+        <section>
             <RadioPanelGruppe
                 name={""}
-                legend={legend}
+                legend={label}
                 className={"to-valg-radio"}
                 radios={[
                     { label: IValg.JA, value: IValg.JA },
@@ -27,8 +28,9 @@ const ToValgRadio: FC<Props> = ({ legend, checked, onChange, children }) => {
                 checked={checked}
                 onChange={(e) => onChange((e.target as HTMLInputElement).value)}
             />
-            {checked === IValg.JA && <>{children}</>}
-        </>
+            {invert && checked === IValg.NEI && <>{children}</>}
+            {!invert && checked === IValg.JA && <>{children}</>}
+        </section>
     );
 };
 

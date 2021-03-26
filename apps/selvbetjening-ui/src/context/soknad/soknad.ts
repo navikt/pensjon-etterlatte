@@ -1,4 +1,4 @@
-import IPerson from "../../typer/IPerson";
+import { IPerson, IKontaktinfo } from "../../typer/IPerson";
 
 export interface ISoknad {
     sprak: string;
@@ -10,20 +10,18 @@ export interface ISoknad {
     stonadTilBarnetilsyn: boolean;
     stonadTilSkolepenger: boolean;
     søker?: IPerson;
-    gyldig: boolean;
-    error?: {
-        stønadMangler?: string;
-        datoMangler?: string;
-    };
+    kontaktinfo?: IKontaktinfo;
 }
 
 export enum SoknadActionTypes {
     HENT_INNLOGGET_BRUKER,
+    BEKREFT_BOADRESSE,
     SET_FRA_DATO,
     SET_SPRAK,
     SET_BEKREFTET,
     SET_TYPER,
-    VALIDER_SKJEMA,
+    SETT_TELEFON,
+    SETT_EPOST,
 }
 
 export interface ISoknadAction {

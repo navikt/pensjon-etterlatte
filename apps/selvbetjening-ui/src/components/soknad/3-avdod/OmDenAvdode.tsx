@@ -84,7 +84,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     {/* 3.6 */}
                     <ToValgRadio
                         checked={state.bosetning}
-                        legend={"Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?"}
+                        label={"Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?"}
                         onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_BOSETNING, valgtSvar)}
                     />
                     <br />
@@ -93,7 +93,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <ToValgRadio
                         // name={"dodsfallArsak"}
                         checked={state.dodsfallAarsak}
-                        legend={"Kan dødesfallet være en følge av yrkesskade/yrkessykdom?"}
+                        label={"Kan dødesfallet være en følge av yrkesskade/yrkessykdom?"}
                         onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_DODSFALL_ARSAK, valgtSvar)}
                     />
                     <br />
@@ -102,7 +102,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <ToValgRadio
                         // name={"avdodBoddEllerJobbetUtland"}
                         checked={state.boddEllerJobbetUtland}
-                        legend={"Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?"}
+                        label={"Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?"}
                         onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND, valgtSvar)}
                     />
                     {/* 3.9 Info om arbeidsforhold og inntekt hvis JA over */}
@@ -112,7 +112,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <ToValgRadio
                         // name={"pensjonsgivendeInntekt"}
                         checked={state.haddePensjonsgivendeInntekt}
-                        legend={
+                        label={
                             "Hadde den avdøde pensjonsgivende inntekt (arbeidsinntekt eller næringsinntekt) på tidspunktet før dødsfallet?"
                         }
                         onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_PENSJONSGIVEDE_INNTEKT, valgtSvar)}
@@ -133,7 +133,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <ToValgRadio
                         // name={"pensjonAndreLand"}
                         checked={state.haddePensjonAndreLand}
-                        legend={"Mottok den avdøde pensjon fra andre land enn Norge?"}
+                        label={"Mottok den avdøde pensjon fra andre land enn Norge?"}
                         onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_PENSJON_ANDRE_LAND, valgtSvar)}
                     >
                         <Input
@@ -150,7 +150,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <ToValgRadio
                         // name={"militaerTjeneste"}
                         checked={state.harAvtjentMilitærTjeneste}
-                        legend={
+                        label={
                             "Har den avdøde etter 1966 avtjent militær eller sivil førstegangstjeneste som varte minst 30 dager?"
                         }
                         onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_MILITAER_TJENESTE, valgtSvar)}
@@ -163,15 +163,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             }
                         />
                     </ToValgRadio>
-                    {/*
-                    {state.harAvtjentMilitærTjeneste === "Ja" && (
-                        <Input
-                            label="Oppgi årstall"
-                            value={state.avtjentMilitærTjenesteSvar}
-                        />
-                    )}
-*/}
-                    <br />
                 </SkjemaGruppe>
                 <br />
             </Panel>

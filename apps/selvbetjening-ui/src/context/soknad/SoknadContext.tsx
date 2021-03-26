@@ -13,8 +13,7 @@ const initialState: ISoknad = {
     stonadTilBarnetilsyn: false,
     stonadTilSkolepenger: false,
     søker: undefined,
-    gyldig: false,
-    error: undefined,
+    kontaktinfo: undefined,
 };
 
 const reducer = (state: ISoknad, action: ISoknadAction) => {
@@ -27,6 +26,12 @@ const reducer = (state: ISoknad, action: ISoknadAction) => {
             return { ...state, sprak: action.payload };
         case SoknadActionTypes.SET_BEKREFTET:
             return { ...state, bekreftet: action.payload };
+        case SoknadActionTypes.BEKREFT_BOADRESSE:
+            return { ...state, kontaktinfo: { ...state.kontaktinfo, boadresseBekreftet: action.payload } };
+        case SoknadActionTypes.SETT_TELEFON:
+            return { ...state, kontaktinfo: { ...state.kontaktinfo, telefonnummer: action.payload } };
+        case SoknadActionTypes.SETT_EPOST:
+            return { ...state, kontaktinfo: { ...state.kontaktinfo, epost: action.payload } };
         case SoknadActionTypes.SET_TYPER: {
             const { name, checked } = action.payload;
 
@@ -36,27 +41,6 @@ const reducer = (state: ISoknad, action: ISoknadAction) => {
             else if (name === "3") return { ...state, stonadTilBarnetilsyn: checked };
             else if (name === "4") return { ...state, stonadTilSkolepenger: checked };
             else return { ...state };
-        }
-        case SoknadActionTypes.VALIDER_SKJEMA: {
-            let error = {
-                stønadMangler: "",
-                datoMangler: "",
-            };
-
-            if (
-                !state.pensjonOvergangsstonad &&
-                !state.gjenlevendetillegg &&
-                !state.barnepensjon &&
-                !state.stonadTilBarnetilsyn &&
-                !state.stonadTilSkolepenger
-            ) {
-                error.stønadMangler = "Du må velge minst én stønad for å gå videre!";
-            }
-
-            if (!state.fraDato) {
-                error.datoMangler = "Fra dato er påkrevd.";
-            }
-            return { ...state, error, gyldig: !error.stønadMangler && !error.datoMangler };
         }
         default:
             return state;
