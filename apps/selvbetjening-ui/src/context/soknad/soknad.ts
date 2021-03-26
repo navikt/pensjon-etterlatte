@@ -1,14 +1,16 @@
 import { IPerson, IKontaktinfo } from "../../typer/IPerson";
 
+interface IStønad {
+    label: string;
+    checked: boolean;
+    beskjed?: string;
+}
+
 export interface ISoknad {
     sprak: string;
     fraDato: string;
     bekreftet: boolean;
-    pensjonOvergangsstonad: boolean;
-    gjenlevendetillegg: boolean;
-    barnepensjon: boolean;
-    stonadTilBarnetilsyn: boolean;
-    stonadTilSkolepenger: boolean;
+    valgteStønader: IStønad[];
     søker?: IPerson;
     kontaktinfo?: IKontaktinfo;
 }
@@ -19,6 +21,7 @@ export enum SoknadActionTypes {
     SET_FRA_DATO,
     SET_SPRAK,
     SET_BEKREFTET,
+    VELG_STØNAD,
     SET_TYPER,
     SETT_TELEFON,
     SETT_EPOST,

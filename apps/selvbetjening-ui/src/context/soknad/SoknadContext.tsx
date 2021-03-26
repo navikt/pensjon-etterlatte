@@ -7,11 +7,32 @@ const initialState: ISoknad = {
     sprak: "",
     fraDato: "",
     bekreftet: false,
-    pensjonOvergangsstonad: false,
-    gjenlevendetillegg: false,
-    barnepensjon: false,
-    stonadTilBarnetilsyn: false,
-    stonadTilSkolepenger: false,
+    valgteStønader: [
+        {
+            label: "Pensjon-/overgangsstønad",
+            checked: false,
+        },
+        {
+            label: "Gjenlevendetillegg i uføretrygden",
+            checked: false,
+        },
+        {
+            label: "Barnepensjon",
+            checked: false,
+        },
+        {
+            label: "Stønad til barnetilsyn pga. arbeid",
+            checked: false,
+            beskjed:
+                "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt.",
+        },
+        {
+            label: "Stønad til skolepenger",
+            checked: false,
+            beskjed:
+                "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt.",
+        },
+    ],
     søker: undefined,
     kontaktinfo: undefined,
 };
@@ -32,15 +53,15 @@ const reducer = (state: ISoknad, action: ISoknadAction) => {
             return { ...state, kontaktinfo: { ...state.kontaktinfo, telefonnummer: action.payload } };
         case SoknadActionTypes.SETT_EPOST:
             return { ...state, kontaktinfo: { ...state.kontaktinfo, epost: action.payload } };
-        case SoknadActionTypes.SET_TYPER: {
-            const { name, checked } = action.payload;
+        case SoknadActionTypes.VELG_STØNAD: {
+            const index = action.payload;
+            const oppdatertListe = [...state.valgteStønader];
 
-            if (name === "0") return { ...state, pensjonOvergangsstonad: checked };
-            else if (name === "1") return { ...state, gjenlevendetillegg: checked };
-            else if (name === "2") return { ...state, barnepensjon: checked };
-            else if (name === "3") return { ...state, stonadTilBarnetilsyn: checked };
-            else if (name === "4") return { ...state, stonadTilSkolepenger: checked };
-            else return { ...state };
+            let element = { ...oppdatertListe[index] };
+            element.checked = !element.checked;
+            oppdatertListe[index] = element;
+
+            return { ...state, valgteStønader: oppdatertListe };
         }
         default:
             return state;

@@ -11,11 +11,11 @@ import SoknadSteg from "../../../typer/SoknadSteg";
 const SoknadType: SoknadSteg = ({ neste }) => {
     const { state, dispatch } = useSoknadContext();
 
-    const handleChange = (e: any) => {
-        const target = e.target as HTMLInputElement;
-
-        dispatch({ type: SoknadActionTypes.SET_TYPER, payload: { name: target.name, checked: target.checked } });
+    const oppdaterValgtStønad = (e: any) => {
+        dispatch({ type: SoknadActionTypes.VELG_STØNAD, payload: (e.target as HTMLInputElement).name });
     };
+
+    const stønadMedBeskjed = state.valgteStønader.find((e) => e.beskjed && e.checked);
 
     return (
         <Panel>
@@ -31,35 +31,15 @@ const SoknadType: SoknadSteg = ({ neste }) => {
                 <CheckboksPanelGruppe
                     // feil={state.error?.stønadMangler}
                     // name={'type'}
-                    checkboxes={[
-                        {
-                            label: "Pensjon-/overgangsstønad",
-                            name: "0",
-                            checked: state.pensjonOvergangsstonad,
-                        },
-                        {
-                            label: "Gjenlevendetillegg i uføretrygden",
-                            name: "1",
-                            checked: state.gjenlevendetillegg,
-                        },
-                        {
-                            label: "Barnepensjon",
-                            name: "2",
-                            checked: state.barnepensjon,
-                        },
-                        {
-                            label: "Stønad til barnetilsyn pga. arbeid",
-                            name: "3",
-                            checked: state.stonadTilBarnetilsyn,
-                        },
-                        {
-                            label: "Stønad til skolepenger",
-                            name: "4",
-                            checked: state.stonadTilSkolepenger,
-                        },
-                    ]}
+                    checkboxes={state.valgteStønader.map((el, index) => {
+                        return {
+                            label: el.label,
+                            checked: el.checked,
+                            name: `${index}`,
+                        };
+                    })}
                     // checked={type}
-                    onChange={handleChange}
+                    onChange={oppdaterValgtStønad}
                 />
             </section>
 
@@ -80,12 +60,9 @@ const SoknadType: SoknadSteg = ({ neste }) => {
 
                 */}
 
-            {(state.stonadTilBarnetilsyn || state.stonadTilSkolepenger) && (
+            {stønadMedBeskjed && (
                 <section>
-                    <AlertStripe type="info">
-                        Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV
-                        ta kontakt.
-                    </AlertStripe>
+                    <AlertStripe type="info">{stønadMedBeskjed.beskjed}</AlertStripe>
                 </section>
             )}
 
