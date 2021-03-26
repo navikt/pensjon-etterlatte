@@ -7,18 +7,10 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import org.slf4j.MDC
 import java.util.*
 
-
-//internal const val suPdfGenPath = "/api/v1/genpdf/supdfgen"
-//internal const val SOKNAD_TEMPLATE = "soknad"
-
 class Journalfoer(private val client: HttpClient, private val apiUrl: String) : JournalfoerDok {
-
-
-    //private val log: Logger = LoggerFactory.getLogger(this::class.java)
 
     override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String {
         val apiUrl = "hvorfinnerjegDokarkivet"
-
 
         val dok: List<JournalpostDokument> = listOf(
             JournalpostDokument(

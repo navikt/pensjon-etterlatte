@@ -19,6 +19,7 @@ internal class JournalfoerSoeknad(
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@template") }
+            validate { it.requireKey("@journalpost") }
             validate { it.requireKey("@tittel") }
             validate { it.requireKey("@kanal") }
             validate { it.requireKey("@avsenderMottaker") }
@@ -29,11 +30,8 @@ internal class JournalfoerSoeknad(
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        //println(packet["@etterlatt_ident"].asText())
 
         runBlocking {
-
-            //må endre håndering av skjermainfo
             packet["@journalpostId"] = dok.journalfoerDok(packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
             )
             context.publish(packet.toJson())
