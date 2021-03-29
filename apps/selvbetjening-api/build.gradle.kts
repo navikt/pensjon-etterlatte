@@ -38,8 +38,8 @@ dependencies {
     implementation("io.ktor:ktor-server-cio:$ktorversion")
     implementation("io.ktor:ktor-client-auth:$ktorversion")
     implementation("io.ktor:ktor-server-core:$ktorversion")
-    implementation("io.ktor:ktor-locations:$ktorversion")
     implementation("io.ktor:ktor-html-builder:$ktorversion")
+    implementation("org.apache.kafka:kafka-clients:2.5.0")
 
 }
 

@@ -1,6 +1,7 @@
 package no.nav.etterlatte
 
 import io.ktor.application.ApplicationCall
+import io.ktor.application.ApplicationCallPipeline
 import io.ktor.application.call
 import io.ktor.application.install
 import io.ktor.auth.Authentication
@@ -10,8 +11,8 @@ import io.ktor.config.HoconApplicationConfig
 import io.ktor.features.ContentNegotiation
 import io.ktor.http.HttpStatusCode
 import io.ktor.jackson.jackson
-import io.ktor.locations.Locations
 import io.ktor.response.respond
+import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.route
 import io.ktor.routing.routing
@@ -35,7 +36,6 @@ class Server(val applicationContext: ApplicationContext) {
     val personClient = PersonClient(applicationContext.httpClient())
     val engine = embeddedServer(io.ktor.server.cio.CIO, environment = applicationEngineEnvironment {
         module {
-
             install(ContentNegotiation) {
                 jackson()
             }
@@ -43,13 +43,13 @@ class Server(val applicationContext: ApplicationContext) {
             install(Authentication) {
                 tokenValidationSupport(config = configuration)
             }
-            install(Locations)
+
 
 
             routing {
                 healthApi()
                 personApi(personClient)
-                soknadApi()
+                soknadApi(applicationContext.rapid)
 
                 route("api") {
                     get {
@@ -58,20 +58,28 @@ class Server(val applicationContext: ApplicationContext) {
                 }
                 authenticate {
                     route("secure") {
+                        attachSecurityContext()
+
                         get {
-                            withSecurityCOntext(applicationContext) {
-                                applicationContext.pdl.personInfo(applicationContext.securityContext.get().user()!!)
-                            }.also {
-                                call.respond(
-                                    HttpStatusCode.OK, it
-                                )
-                            }
+                            println(
+                                call.principal<TokenValidationContextPrincipal>()?.context!!.getClaims("tokenx")
+                                    .get("pid")
+                            )
+                            println(
+                                ThreadBoundSecCtx.get().user()!!
+                            )
+                            applicationContext.pdl.personInfo(ThreadBoundSecCtx.get().user()!!)
+                                .also {
+                                    call.respond(
+                                        HttpStatusCode.OK, it
+                                    )
+                                }
                         }
                     }
                 }
             }
-        }
 
+        }
         connector {
             port = 8080
         }
@@ -82,12 +90,29 @@ class Server(val applicationContext: ApplicationContext) {
     fun run() = engine.start(true)
 }
 
+fun Route.attachSecurityContext() {
+    intercept(ApplicationCallPipeline.Call) {
+        println("hei")
+        withContext(
+            Dispatchers.Default + ThreadBoundSecCtx.asContextElement(
+                value = SecurityContext(
+                    call.principal<TokenValidationContextPrincipal>()?.context!!
+                )
+            )
+        ) {
+            call.attributes
+
+            proceed()
+        }
+        println("hade")
+    }
+}
+
 suspend fun <T> PipelineContext<*, ApplicationCall>.withSecurityCOntext(
-    ctx: ApplicationContext,
     block: suspend CoroutineScope.() -> T
 ): T {
     return withContext(
-        Dispatchers.Default + ctx.securityContext.asContextElement(
+        Dispatchers.Default + ThreadBoundSecCtx.asContextElement(
             value = SecurityContext(
                 call.principal<TokenValidationContextPrincipal>()?.context!!
             )

@@ -15,13 +15,24 @@ import io.ktor.client.features.logging.Logger
 import io.ktor.client.features.logging.Logging
 import io.ktor.config.HoconApplicationConfig
 import io.ktor.util.KtorExperimentalAPI
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.ktor.tokenexchange.bearerToken
 import no.nav.etterlatte.oauth.ClientConfig
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
 
-class ApplicationContext(configLocation: String? = null) {
+interface Rapid {
+    suspend fun publish(message: String): Job
+}
+
+object ThreadBoundSecCtx : ThreadLocal<SecurityContext>()
+
+class ApplicationContext(configLocation: String? = null, wait: Job = GlobalScope.launch { }) {
     private val closables = mutableListOf<() -> Unit>()
     val config: Config = configLocation?.let { ConfigFactory.load(it) } ?: ConfigFactory.load()
     private val defaultHttpClient = HttpClient(CIO) {
@@ -41,13 +52,21 @@ class ApplicationContext(configLocation: String? = null) {
         closables.forEach { it() }
     }
 
-    val securityContext = ThreadLocal<SecurityContext>()
     val pdl: PdlService
     val tokenKlients = ClientConfig(HoconApplicationConfig(config), defaultHttpClient)
+    val rapid: Rapid =
+        if (System.getenv().containsKey("KAFKA_BROKERS")) KafkaRapid.fromEnv(System.getenv()) else object : Rapid {
+            override suspend fun publish(message: String): Job {
+                return coroutineScope { launch { println(message) } }
+            }
+        }
 
     init {
         val tokenexchangeIssuer = "tokenx"
-        val tokenxKlient = checkNotNull(tokenKlients.clients[tokenexchangeIssuer])
+        val tokenxKlient = runBlocking {
+            wait.join()
+            checkNotNull(tokenKlients.clients[tokenexchangeIssuer])
+        }
         HttpClient(CIO) {
             install(JsonFeature) {
                 serializer = JacksonSerializer {
@@ -58,7 +77,7 @@ class ApplicationContext(configLocation: String? = null) {
             install(Auth) {
                 bearerToken {
                     tokenprovider = suspend {
-                        securityContext.get().tokenIssuedBy(tokenexchangeIssuer)?.let {
+                        ThreadBoundSecCtx.get().tokenIssuedBy(tokenexchangeIssuer)?.let {
                             tokenxKlient.tokenExchange(
                                 it.tokenAsString,
                                 config.getString("no.nav.etterlatte.tjenester.pdl.audience")
@@ -80,8 +99,8 @@ class ApplicationContext(configLocation: String? = null) {
 
 @KtorExperimentalAPI
 suspend fun main() {
-    delay(30_000)//Wait for istio-proxy
-    ApplicationContext().also {
+    ApplicationContext(wait = GlobalScope.launch { delay(30_000) }
+    ).also {
         Server(it).run()
     }.close()
 }

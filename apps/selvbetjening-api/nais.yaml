@@ -23,11 +23,15 @@ spec:
     max: 1
   tokenx:
     enabled: true
+  kafka:
+    pool: nav-dev
   env:
     - name: PDL_URL
       value: "https://etterlatte-proxy.dev-fss-pub.nais.io/pdl"
     - name: PDL_AUDIENCE
       value: "dev-fss:etterlatte:etterlatte-proxy"
+    - name: KAFKA_RAPID_TOPIC
+      value: etterlatte.dodsmelding
   ingresses:
     - "https://etterlatte-selvbetjening-api.dev.adeo.no"
   accessPolicy:

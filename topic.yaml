@@ -30,3 +30,6 @@ spec:
     - team: etterlatte
       application: journalfoer-soeknad
       access: readwrite
+    - team: etterlatte
+      application: selvbetjening-api
+      access: readwrite
