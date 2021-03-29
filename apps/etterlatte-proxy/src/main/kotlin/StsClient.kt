@@ -9,6 +9,9 @@ import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.request.forms.submitForm
 import io.ktor.http.Parameters
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import java.time.Instant
 
 class StsClient(private val config: Config.Sts) {
     private val httpClient = HttpClient(Apache) {
@@ -22,16 +25,41 @@ class StsClient(private val config: Config.Sts) {
         install(JsonFeature) {
             serializer = JacksonSerializer()
         }
+    }.also {
+        Runtime.getRuntime().addShutdownHook(Thread { it.close() })
     }
 
-    // todo - should probably cache token
-    suspend fun getToken(): StsToken = httpClient.submitForm(
+    private val tokenLifetimeMargin = 60
+    private var cachedToken: StsToken = StsToken("", "", 0)
+    private var cachedTokenExpiery: Instant = Instant.MIN
+    private val mutex = Mutex()
+
+    private suspend fun fetchToken() = httpClient.submitForm<StsToken>(
         formParameters = Parameters.build {
             append("grant_type", "client_credentials")
             append("scope", "openid")
         },
         url = config.url,
     )
+
+    private suspend fun refreshIfNeeded() {
+        Instant.now().also { start ->
+            if (cachedTokenExpiery.isBefore(start))
+                mutex.withLock {
+                    if (cachedTokenExpiery.isBefore(start)) {
+                        fetchToken().also {
+                            cachedToken = it
+                            cachedTokenExpiery = start.plusSeconds(it.expiresIn.toLong() - tokenLifetimeMargin)
+                        }
+                    }
+                }
+        }
+    }
+
+    suspend fun getToken(): StsToken {
+        refreshIfNeeded()
+        return cachedToken
+    }
 }
 
 data class StsToken(
@@ -44,3 +72,4 @@ data class StsToken(
 ) {
     override fun toString() = accessToken
 }
+
