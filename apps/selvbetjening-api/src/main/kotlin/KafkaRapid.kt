@@ -11,6 +11,7 @@ import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.config.SslConfigs
 import org.apache.kafka.common.security.auth.SecurityProtocol
+import org.apache.kafka.common.serialization.StringSerializer
 import java.net.InetAddress
 import java.util.*
 
@@ -34,8 +35,8 @@ class KafkaRapid(private val producer: Producer<String, String>, private val top
                 put(ProducerConfig.ACKS_CONFIG, "1")
                 put(ProducerConfig.LINGER_MS_CONFIG, "0")
                 put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1")
-            }.let {
-                KafkaRapid(KafkaProducer(it), env["KAFKA_RAPID_TOPIC"]!!)
+            }.let { conf ->
+                KafkaRapid(StringSerializer().let { KafkaProducer(conf, it, it) }, env["KAFKA_RAPID_TOPIC"]!!)
             }
 
         }
