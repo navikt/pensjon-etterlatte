@@ -34,7 +34,7 @@ spec:
     - name: PDF_URL
       value: "http://ey-pdfgen/api/v1/genpdf/eypdfgen"
     - name: DOKARKIV_URL
-      value: "https://etterlatte-proxy.dev-fss-pub.nais.io/pdl"
+      value: "https://dokarkiv-q2.nais.preprod.local"
   accessPolicy:
     outbound:
       external:

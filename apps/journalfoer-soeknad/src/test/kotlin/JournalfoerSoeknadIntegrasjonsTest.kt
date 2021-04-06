@@ -8,14 +8,13 @@ import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
 import java.nio.file.Paths
 
 
 class JournalfoerSoeknadIntegrasjonsTestTest {
 
     //Krever at man kjører opp run_development i ey-pdfgen!
-    @Test
+    //@Test
     fun integrasjonstestPDFGen() {
 
         val message = JsonMessage(
@@ -39,7 +38,6 @@ class JournalfoerSoeknadIntegrasjonsTestTest {
         message.interestedIn("@skjema_info")
 
         val httpClient = HttpClient(OkHttp) {
-
             install(JsonFeature) { serializer = JacksonSerializer() }
         }
 

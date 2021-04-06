@@ -12,10 +12,11 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import org.slf4j.MDC
 import java.util.*
 
-class Journalfoer(private val client: HttpClient, private val apiUrl: String) : JournalfoerDok {
+class Journalfoer(private val client: HttpClient, private val baseUrl: String) : JournalfoerDok {
 
     override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String {
-        val apiUrl = "hvorfinnerjegDokarkivet"
+        val apiUrl = "/rest/journalpostapi/v1/journalpost"
+        val fullUrl = "$baseUrl$apiUrl"
 
         val objectMapper = jacksonObjectMapper()
             .registerModule(JavaTimeModule())
@@ -39,7 +40,7 @@ class Journalfoer(private val client: HttpClient, private val apiUrl: String) : 
             )
 
 
-            client.post<String>(apiUrl) {
+            client.post<String>(fullUrl) {
                 listOf("forsoekFerdigstill" to "true")
                 header("Content-Type", "application/json")
                 header("Accept", "application/json")
@@ -61,7 +62,7 @@ class Journalfoer(private val client: HttpClient, private val apiUrl: String) : 
                         ),
                         bruker = Bruker(
                             id = jorp.bruker.id,
-                            idType = "FNR"
+                            idType = jorp.bruker.idType
                         ),
 
                         /*   sak = Fagsak(
@@ -79,7 +80,7 @@ class Journalfoer(private val client: HttpClient, private val apiUrl: String) : 
     }
 }
 
-data class JournalpostInfo(
+internal data class JournalpostInfo(
     val tittel: String,
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,
