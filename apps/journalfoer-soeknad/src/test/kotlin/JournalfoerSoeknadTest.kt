@@ -18,36 +18,15 @@ import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.nio.file.Paths
-import java.util.*
 
 
 class JournalfoerSoeknadTest {
 
-    var pdf = Paths.get("pdf.pdf").toFile().readBytes()
-
-    val dok: List<JournalpostDokument> = listOf(
-        JournalpostDokument(
-            tittel = "test",
-            dokumentKategori = DokumentKategori.IB,
-            dokumentvarianter = listOf(
-                DokumentVariant.ArkivPDF(fysiskDokument = Base64.getEncoder().encodeToString(pdf)),
-                DokumentVariant.OriginalJson(
-                    fysiskDokument = Base64.getEncoder().encodeToString(pdf),
-                )
-            )
-        )
-    )
-
     @Test
     fun journalfoer() {
 
-        val jorp =JournalpostRequest(
+        val jorp = JournalpostInfo(
             tittel = "tittel",
-            journalpostType = JournalPostType.INNGAAENDE,
-            tema = "tema",
-            kanal = "brev",
-            behandlingstema = "PEN",
-            journalfoerendeEnhet = "Pensjon Oslo",
             avsenderMottaker = AvsenderMottaker(
                 id = "id",
                 navn = "navn",
@@ -56,14 +35,7 @@ class JournalfoerSoeknadTest {
             bruker = Bruker(
                 id = "id",
                 idType = "FNR"
-            ),
-
-            sak = Fagsak(
-                fagsakId = "id",
-                fagsaksystem = "BP",
-                sakstype = "soknad"
-            ),
-            dokumenter = dok
+            )
         )
 
         val message = JsonMessage(
@@ -85,7 +57,9 @@ class JournalfoerSoeknadTest {
     }}""", MessageProblems("{}")
         )
         message.interestedIn("@skjema_info")
-        message["@journalpost"] = jorp
+        message["@journalpostInfo"] = jorp
+        message["@template"] = "buhaha"
+        message["@event_name"] = "soeknad_innsendt"
 
         val inspector = TestRapid()
             .apply { JournalfoerSoeknad(this, genererPdfMock(), journalfoerDokMock()) }
@@ -94,9 +68,7 @@ class JournalfoerSoeknadTest {
                     message.toJson()
                 )
             }.inspektør
-
-        //HER MÅ JEG ASSERTE NOE; MEN inspector.message er ikke satt
-        //assertEquals("456", )//   .message(0).get("@journalpostId") )
+        assertEquals("1234", inspector.message(0).get("@journalpostId").asText() )
 
     }
 
