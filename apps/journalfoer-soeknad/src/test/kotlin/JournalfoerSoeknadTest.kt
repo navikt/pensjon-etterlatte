@@ -119,7 +119,7 @@ class JournalfoerSoeknadTest {
                 message["@skjema_info"],
                 "soknad"
             ).also {
-                Paths.get("pdf.pdf").toFile().writeBytes(it)
+                Paths.get("src/test/resources/pdf.pdf").toFile().writeBytes(it)
                 assertEquals(String(it), "Dette er en veldig spennende PDF")
             }
         }
@@ -135,7 +135,7 @@ class JournalfoerDokMock : JournalfoerDok {
 
 class GenererPdfMock : GenererPdf {
     override suspend fun genererPdf(input: JsonNode, template: String): ByteArray {
-        return Paths.get("/src/test/resources/pdf.pdf").toFile().readBytes()
+        return Paths.get("src/test/resources/pdf.pdf").toFile().readBytes()
     }
 }
 
