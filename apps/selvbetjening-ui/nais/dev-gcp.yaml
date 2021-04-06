@@ -38,8 +38,8 @@ spec:
     enabled: true
     idporten:
       enabled: true
-      redirectURI: "https://etterlatte-selvbetjening-ui.dev.nav.no/oauth2/callback"
-      frontchannelLogoutURI: "https://etterlatte-selvbetjening-ui.dev.nav.no/logout"
+      redirectURI: "/oauth2/callback"
+      frontchannelLogoutURI: "/oauth2/logout"
   env:
     - name: API_URL
       value: http://selvbetjening-api
