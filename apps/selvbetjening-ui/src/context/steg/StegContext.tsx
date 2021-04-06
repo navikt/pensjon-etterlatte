@@ -1,5 +1,5 @@
 import { createContext, FC, useContext, useReducer } from "react";
-import { ISteg, IStegAction, StegActionTypes, StegProps } from "./steg";
+import { ISteg, IStegAction, IStegElement, StegActionTypes, StegProps } from "./steg";
 import SoknadType from "../../components/soknad/1-type/SoknadType";
 import OpplysningerOmSokeren from "../../components/soknad/2-soker/OpplysningerOmSokeren";
 import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
@@ -8,10 +8,9 @@ import TidligereArbeidsforhold from "../../components/soknad/5-tidligerearbeidsf
 import NavaerendeArbeidsforhold from "../../components/soknad/6-arbeidsforhold/NavaerendeArbeidsforhold";
 import AndreYtelser from "../../components/soknad/7-andreytelser/AndreYtelser";
 import Sprakform from "../../components/soknad/8-sprakform/Sprakform";
-import ErklaeringOgUnderskrift from "../../components/soknad/9-signering/ErklaeringOgUnderskrift";
 
 const initialState: ISteg = {
-    aktivtSteg: undefined,
+    aktivtSteg: 1,
     steg: [
         {
             label: "1",
@@ -61,30 +60,40 @@ const initialState: ISteg = {
             path: "/steg/8",
             disabled: true,
         },
-        {
-            label: "9",
-            component: ErklaeringOgUnderskrift,
-            path: "/steg/9",
-            disabled: true,
-        },
     ],
+};
+
+const oppdaterIndex = (index: number, liste: IStegElement[]) => {
+    const oppdatertListe = liste;
+
+    let element = { ...oppdatertListe[index] };
+    element.disabled = false;
+    oppdatertListe[index] = element;
+
+    return oppdatertListe;
 };
 
 const reducer = (state: ISteg, action: IStegAction) => {
     switch (action.type) {
-        case StegActionTypes.FORRIGE:
-        case StegActionTypes.NESTE: {
-            const index = action.payload - 1;
+        // TODO: Bevare brukerens aktive steg i local storage
 
-            const oppdatertListe = [...state.steg];
-
-            let element = { ...oppdatertListe[index] };
-            element.disabled = false;
-            oppdatertListe[index] = element;
+        case StegActionTypes.FORRIGE: {
+            const index = state.aktivtSteg - 1;
+            const oppdatertListe = oppdaterIndex(index, [...state.steg]);
 
             return {
                 ...state,
-                aktivtSteg: action.payload,
+                aktivtSteg: index,
+                steg: oppdatertListe,
+            };
+        }
+        case StegActionTypes.NESTE: {
+            const index = state.aktivtSteg - 1;
+            const oppdatertListe = oppdaterIndex(index, [...state.steg]);
+
+            return {
+                ...state,
+                aktivtSteg: state.aktivtSteg + 1,
                 steg: oppdatertListe,
             };
         }

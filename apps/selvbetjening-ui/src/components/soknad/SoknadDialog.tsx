@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { Route, useRouteMatch } from "react-router";
 import Stegindikator from "nav-frontend-stegindikator/lib/stegindikator";
 import { useStegContext } from "../../context/steg/StegContext";
@@ -15,25 +15,17 @@ const SoknadDialog: FC = () => {
     /*
      * TODO: Steghåndtering må forbedres, dette er ikke helt bra...
      */
+    useEffect(() => {
+        console.log(`Aktivt steg: ${state.aktivtSteg}`);
+        history.push(`/soknad/steg/${state.aktivtSteg}`);
+    }, [history, state.aktivtSteg]);
 
-    const forrige = (nåværendeSteg: number) => {
-        const forrigeSteg = nåværendeSteg - 1;
-
-        dispatch({ type: StegActionTypes.FORRIGE, payload: forrigeSteg });
-
-        history.push(`/soknad/steg/${forrigeSteg}`);
-    };
-    const neste = (nåværendeSteg: number) => {
-        const nesteSteg = nåværendeSteg + 1;
-
-        dispatch({ type: StegActionTypes.NESTE, payload: nesteSteg });
-
-        history.push(`/soknad/steg/${nesteSteg}`);
-    };
+    const forrige = () => dispatch({ type: StegActionTypes.FORRIGE });
+    const neste = () => dispatch({ type: StegActionTypes.NESTE });
 
     const alleSteg = state.steg.map((steg, index) => {
         return {
-            index: index + 1,
+            index: index,
             label: steg.label,
             disabled: steg.disabled,
         };
@@ -42,10 +34,10 @@ const SoknadDialog: FC = () => {
     return (
         <>
             <Stegindikator
-                aktivtSteg={(state.aktivtSteg ?? 1) - 1}
+                aktivtSteg={state.aktivtSteg - 1}
                 steg={alleSteg}
                 onChange={(index) => {
-                    history.push(`/soknad/steg/${index + 1}`);
+                    history.push(`${path}/steg/${index + 1}`);
                 }}
             />
 
@@ -55,7 +47,7 @@ const SoknadDialog: FC = () => {
 
                     return (
                         <Route key={index} path={`${path}/steg/${stegNr}`} component={steg.component}>
-                            <steg.component forrige={() => forrige(stegNr)} neste={() => neste(stegNr)} />
+                            <steg.component forrige={forrige} neste={neste} />
                         </Route>
                     );
                 })}

@@ -8,7 +8,7 @@ export interface IStegElement {
 }
 
 export interface ISteg {
-    aktivtSteg?: number;
+    aktivtSteg: number;
     steg: IStegElement[];
 }
 
