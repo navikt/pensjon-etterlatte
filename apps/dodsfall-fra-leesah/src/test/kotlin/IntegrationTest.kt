@@ -1,22 +1,16 @@
 import io.confluent.kafka.serializers.KafkaAvroSerializer
 import no.nav.common.KafkaEnvironment
-import no.nav.etterlatte.Dodsmeldinger
+import no.nav.etterlatte.DodsmeldingerRapid
 import no.nav.etterlatte.FinnDodsmeldinger
-import no.nav.etterlatte.TestConfig
 import no.nav.etterlatte.leesah.LivetErEnStroemAvHendelser
-import no.nav.helse.rapids_rivers.JsonMessage
-import no.nav.helse.rapids_rivers.MessageProblems
+import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import no.nav.person.pdl.leesah.Endringstype
 import no.nav.person.pdl.leesah.Personhendelse
-import org.apache.kafka.clients.consumer.ConsumerConfig
-import org.apache.kafka.clients.consumer.KafkaConsumer
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.clients.producer.ProducerRecord
-import org.apache.kafka.common.serialization.StringDeserializer
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Test
-import java.time.Duration
 import java.time.Instant
 import kotlin.test.assertEquals
 
@@ -24,12 +18,13 @@ class IntegrationTest {
     companion object {
         val kafkaEnv = KafkaEnvironment(
             noOfBrokers = 1,
-            topicNames = listOf("etterlatte.dodsmelding", "aapen-person-pdl-leesah-v1"),
+            topicNames = listOf("aapen-person-pdl-leesah-v1"),
             withSecurity = false,
             //users = listOf(JAASCredential("myP1", "myP1p"),JAASCredential("myC1", "myC1p")),
             autoStart = true,
             withSchemaRegistry = true
         )
+        val rapid = TestRapid()
 
         @AfterAll
         @JvmStatic
@@ -42,11 +37,8 @@ class IntegrationTest {
     fun test() {
 
         val leesahTopic: KafkaProducer<String, Personhendelse> = producerForLeesah()
-        val rapid: KafkaConsumer<String, String> = consumerForRapid()
-
         val app = testApp()
 
-        rapid.subscribe(listOf("etterlatte.dodsmelding"))
         app.stream()
         leesahTopic.send(
             ProducerRecord(
@@ -72,17 +64,14 @@ class IntegrationTest {
         ).get()
         app.stream()
 
-        rapid.poll(Duration.ofSeconds(4L)).apply {
-            assertEquals(1, this.count())
-        }.forEach {
-            val msg = JsonMessage(it.value(), MessageProblems(it.value()))
-            println(it.value())
-            msg.interestedIn("@avdod_ident", "@event_name", "system_read_count")
+        rapid.inspektør.run {
+            assertEquals(1, size)
+            message(0)
+        }.also { msg ->
             assertEquals("1234567", msg["@avdod_ident"].textValue())
             assertEquals("person_dod", msg["@event_name"].textValue())
-            assertEquals(1, msg["system_read_count"].asInt())
+            assertEquals(0, msg["system_read_count"].asInt())
         }
-
     }
 
     private fun testApp() = FinnDodsmeldinger(
@@ -92,20 +81,9 @@ class IntegrationTest {
                 "LEESAH_KAFKA_GROUP_ID" to "leesah-consumer",
                 "LEESAH_KAFKA_SCHEMA_REGISTRY" to kafkaEnv.schemaRegistry?.url!!
             )
-        ), Dodsmeldinger(TestConfig(true, mapOf("KAFKA_BROKERS" to kafkaEnv.brokersURL)))
+        ), DodsmeldingerRapid(rapid)
     )
 
-
-    private fun consumerForRapid() = KafkaConsumer(
-        mapOf(
-            ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG to kafkaEnv.brokersURL,
-            ConsumerConfig.GROUP_ID_CONFIG to "test",
-            ConsumerConfig.AUTO_OFFSET_RESET_CONFIG to "earliest",
-            ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG to "false",
-            ConsumerConfig.MAX_POLL_RECORDS_CONFIG to "10",
-            ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG to "100"
-        ), StringDeserializer(), StringDeserializer()
-    )
 
     private fun producerForLeesah() = KafkaProducer<String, Personhendelse>(
         mapOf(

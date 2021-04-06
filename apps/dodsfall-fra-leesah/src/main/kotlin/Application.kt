@@ -21,7 +21,7 @@ fun main() {
         .build()
         .apply {
             GlobalScope.launch {
-                stream = FinnDodsmeldinger(LivetErEnStroemAvHendelser(DevConfig().env), DodsmeldingerRapid(this@apply))
+                stream = FinnDodsmeldinger(LivetErEnStroemAvHendelser(System.getenv()), DodsmeldingerRapid(this@apply))
                 while (true) {
                     if (stream?.stopped == true) {
                         delay(200)
