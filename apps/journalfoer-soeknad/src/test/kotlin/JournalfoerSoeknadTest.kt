@@ -135,7 +135,7 @@ class JournalfoerDokMock : JournalfoerDok {
 
 class GenererPdfMock : GenererPdf {
     override suspend fun genererPdf(input: JsonNode, template: String): ByteArray {
-        return Paths.get("pdf.pdf").toFile().readBytes()
+        return Paths.get("/src/test/resources/pdf.pdf").toFile().readBytes()
     }
 }
 
