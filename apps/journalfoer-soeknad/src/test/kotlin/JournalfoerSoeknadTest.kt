@@ -58,7 +58,7 @@ class JournalfoerSoeknadTest {
         )
         message.interestedIn("@skjema_info")
         message["@journalpostInfo"] = jorp
-        message["@template"] = "buhaha"
+        message["@template"] = "soknad"
         message["@event_name"] = "soeknad_innsendt"
 
         val inspector = TestRapid()
@@ -93,6 +93,7 @@ class JournalfoerSoeknadTest {
     }}""", MessageProblems("{}")
         )
         message.interestedIn("@skjema_info")
+
         val httpClient = HttpClient(MockEngine) {
             engine {
                 addHandler { request ->

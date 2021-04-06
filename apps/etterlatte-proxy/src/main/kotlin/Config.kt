@@ -8,10 +8,14 @@ import io.ktor.util.KtorExperimentalAPI
 data class Config(
     val sts: Sts,
     val pdl: PDL,
+    val dok: DOK,
     val aad: AAD,
     val tokenX: TokenX
 ) {
     data class PDL(
+        val url: String
+    )
+    data class DOK(
         val url: String
     )
 
@@ -54,6 +58,7 @@ data class Config(
 @KtorExperimentalAPI
 suspend fun ApplicationConfig.load() = Config(
     pdl = Config.PDL(url = property("pdl.url").getString()),
+    dok = Config.DOK(url = property("dok.url").getString()),
     sts = Config.Sts(
         url = property("sts.url").getString(),
         serviceuser = Config.Sts.ServiceUser(

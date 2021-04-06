@@ -49,6 +49,8 @@ spec:
       value: http://security-token-service.default.svc.nais.local/rest/v1/sts/token
     - name: PDL_URL
       value: http://pdl-api.default.svc.nais.local/graphql
+    - name: DOK_URL
+      value: https://dokarkiv-q2.nais.preprod.local
   prometheus:
     enabled: true
     path: /internal/prometheus
@@ -62,5 +64,8 @@ spec:
           namespace: etterlatte
           cluster: dev-gcp
         - application: selvbetjening-api
+          namespace: etterlatte
+          cluster: dev-gcp
+        - application: journalfoer-soeknad
           namespace: etterlatte
           cluster: dev-gcp
