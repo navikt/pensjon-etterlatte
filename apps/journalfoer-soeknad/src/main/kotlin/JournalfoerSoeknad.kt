@@ -19,18 +19,17 @@ internal class JournalfoerSoeknad(
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@template") }
-            validate { it.requireKey("@journalpost") }
-            validate { it.requireKey("@tittel") }
-            validate { it.requireKey("@kanal") }
-            validate { it.requireKey("@avsenderMottaker") }
-            validate { it.requireKey("@sak") }
-            validate { it.requireKey("@dokumenter") }
-            validate { it.requireKey("@journalfoerendeEnhet") }
+            validate { it.requireKey("@journalpostInfo") }
+            //validate { it.requireKey("@tittel") }
+            //validate { it.requireKey("@kanal") }
+            //validate { it.requireKey("@avsenderMottaker") }
+            //validate { it.requireKey("@sak") }
+            //validate { it.requireKey("@dokument") }
+            //validate { it.requireKey("@journalfoerendeEnhet") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-
         runBlocking {
             packet["@journalpostId"] = dok.journalfoerDok(packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
             )
