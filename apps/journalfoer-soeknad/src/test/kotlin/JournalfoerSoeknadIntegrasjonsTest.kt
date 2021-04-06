@@ -51,10 +51,7 @@ class JournalfoerSoeknadIntegrasjonsTestTest {
                 Paths.get("pdf.pdf").toFile().writeBytes(it)
                 assertEquals(String(it).substring(0, 8), "%PDF-1.4")
             }
-
-            assertEquals(1, 1)
         }
-
     }
 }
 

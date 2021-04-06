@@ -62,19 +62,14 @@ class JournalfoerSoeknadTest {
         message["@event_name"] = "soeknad_innsendt"
 
         val inspector = TestRapid()
-            .apply { JournalfoerSoeknad(this, genererPdfMock(), journalfoerDokMock()) }
+            .apply { JournalfoerSoeknad(this, GenererPdfMock(), JournalfoerDokMock()) }
             .apply {
                 sendTestMessage(
                     message.toJson()
                 )
             }.inspektør
-        assertEquals("1234", inspector.message(0).get("@journalpostId").asText() )
-
+        assertEquals("1234", inspector.message(0).get("@journalpostId").asText())
     }
-
-
-
-
 
     @Test
     fun testPdfGen() {
@@ -104,7 +99,7 @@ class JournalfoerSoeknadTest {
                     when (request.url.fullPath) {
                         "/api/v1/genpdf/eypdfgen/soknad" -> {
                             val req = jacksonObjectMapper().readTree((request.body as TextContent).text)
-                                assertEquals(message["@skjema_info"], req)
+                            assertEquals(message["@skjema_info"], req)
                             val responseHeaders =
                                 headersOf("Content-Type" to listOf(ContentType.Application.Pdf.toString()))
                             respond(
@@ -125,21 +120,20 @@ class JournalfoerSoeknadTest {
                 "soknad"
             ).also {
                 Paths.get("pdf.pdf").toFile().writeBytes(it)
-                assertEquals(String(it),"Dette er en veldig spennende PDF")
+                assertEquals(String(it), "Dette er en veldig spennende PDF")
             }
         }
     }
 
 }
 
-
-class journalfoerDokMock : JournalfoerDok {
+class JournalfoerDokMock : JournalfoerDok {
     override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String {
         return "1234"
     }
 }
 
-class genererPdfMock : GenererPdf {
+class GenererPdfMock : GenererPdf {
     override suspend fun genererPdf(input: JsonNode, template: String): ByteArray {
         return Paths.get("pdf.pdf").toFile().readBytes()
     }
