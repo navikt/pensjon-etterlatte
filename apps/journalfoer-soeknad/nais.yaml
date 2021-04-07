@@ -38,5 +38,5 @@ spec:
       value: "https://etterlatte-proxy.dev-fss-pub.nais.io/dok"
   accessPolicy:
     outbound:
-      external:
-        - host: "https://ey-pdfgen"
+      rules:
+        - application: ey-pdfgen
