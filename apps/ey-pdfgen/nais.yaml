@@ -6,7 +6,7 @@ metadata:
   labels:
     team: etterlatte
 spec:
-  image: { { image } }
+  image: {{ image }}
   replicas:
     min: 1
     max: 1
