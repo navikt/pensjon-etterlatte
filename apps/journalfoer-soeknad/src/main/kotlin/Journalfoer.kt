@@ -15,8 +15,6 @@ import java.util.*
 class Journalfoer(private val client: HttpClient, private val baseUrl: String) : JournalfoerDok {
 
     override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String {
-        val apiUrl = "/rest/journalpostapi/v1/journalpost"
-        val fullUrl = "$baseUrl$apiUrl"
 
         val objectMapper = jacksonObjectMapper()
             .registerModule(JavaTimeModule())
@@ -40,7 +38,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
             )
 
 
-            client.post<String>(fullUrl) {
+            client.post<String>(baseUrl) {
                 listOf("forsoekFerdigstill" to "true")
                 header("Content-Type", "application/json")
                 header("Accept", "application/json")
