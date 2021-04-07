@@ -38,11 +38,6 @@ fun Route.dok(
             try {
                 val response = httpClient().post<HttpResponse>(dokUrl) {
                     header(HttpHeaders.Authorization, "Bearer $stsToken")
-                    header("Nav-Consumer-Token", "Bearer $stsToken")
-                    call.request.header("Tema")?.also {
-                        header("Tema", it)
-                    }
-                    header("X-Correlation-ID", callId)
                     method = HttpMethod.Post
                     contentType(ContentType.Application.Json)
                     accept(ContentType.Application.Json)

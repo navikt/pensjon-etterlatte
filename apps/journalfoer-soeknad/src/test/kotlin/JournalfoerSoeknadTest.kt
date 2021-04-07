@@ -72,6 +72,7 @@ class JournalfoerSoeknadTest {
     }
 
     @Test
+
     fun testPdfGen() {
 
         val message = JsonMessage(

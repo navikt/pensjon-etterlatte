@@ -41,12 +41,6 @@ fun Application.module() {
             pdl(config, stsClient)
             route("/aad") {
                 pdl(config, stsClient)
-            }
-        }
-        //Dette er kanskje ikke riktig?
-        authenticate("aad") {
-            dok(config, stsClient)
-            route("/dok") {
                 dok(config, stsClient)
             }
         }
