@@ -1,12 +1,14 @@
 import "../../../App.less";
 import { Panel } from "nav-frontend-paneler";
-import { CheckboksPanelGruppe, Input, SkjemaGruppe } from "nav-frontend-skjema";
+import { CheckboksPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
+import "react-datepicker/dist/react-datepicker.css";
 import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 import { Hovedknapp } from "nav-frontend-knapper";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { SoknadActionTypes } from "../../../context/soknad/soknad";
 import SoknadSteg from "../../../typer/SoknadSteg";
+import Datovelger from "../../felles/Datovelger";
 
 const SoknadType: SoknadSteg = ({ neste }) => {
     const { state, dispatch } = useSoknadContext();
@@ -69,18 +71,16 @@ const SoknadType: SoknadSteg = ({ neste }) => {
             <section>
                 <SkjemaGruppe>
                     {/* TODO: Skal være fra måneden etter dødsfallet */}
-                    <Input
-                        label="Fra dato (mm.åå)"
-                        value={state.fraDato}
-                        onChange={(e) => {
-                            const target = e.target as HTMLInputElement;
-
-                            dispatch({ type: SoknadActionTypes.SET_FRA_DATO, payload: target.value });
-                        }}
+                    <Datovelger
+                        label={"Fra dato"}
+                        valgtDato={state.fraDato}
+                        onChange={(dato) => dispatch({ type: SoknadActionTypes.SET_FRA_DATO, payload: dato })}
                     />
                 </SkjemaGruppe>
 
-                <AlertStripe type="info" form={"inline"}>
+                <br />
+
+                <AlertStripe type="info">
                     <strong>Etterbetaling:</strong> Ytelser gis som regel ikke for lengre tid tilbake enn tre måneder
                     før den kalendermåned da kravet blir satt fram. Barnepensjon etterbetales for opptil tre år før den
                     kalendermåned da kravet blir satt fram.

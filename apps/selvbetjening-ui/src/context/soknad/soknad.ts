@@ -8,7 +8,7 @@ interface IStønad {
 
 export interface ISoknad {
     sprak: string;
-    fraDato: string;
+    fraDato: Date | null;
     bekreftet: boolean;
     valgteStønader: IStønad[];
     søker?: IPerson;

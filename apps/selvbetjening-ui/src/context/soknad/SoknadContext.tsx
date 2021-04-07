@@ -5,7 +5,7 @@ import { ISoknad, ISoknadAction, SoknadActionTypes, SoknadProps } from "./soknad
 
 const initialState: ISoknad = {
     sprak: "",
-    fraDato: "",
+    fraDato: null,
     bekreftet: false,
     valgteStønader: [
         {
