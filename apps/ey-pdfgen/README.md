@@ -1,5 +1,5 @@
 # su-pdfgen
-PDF generator for supplerende stønad. Kjør lokalt docker image med  `./run_development.sh`
+PDF generator for Etterlatte og barnepensjon. Kjør lokalt docker image med  `./run_development.sh`
 
 PDFene kan testes lokalt på `http://localhost:8081/api/v1/genpdf/<application>/<template>`, f.eks.
 http://localhost:8081/api/v1/genpdf/supdfgen/vedtakInnvilgelse
