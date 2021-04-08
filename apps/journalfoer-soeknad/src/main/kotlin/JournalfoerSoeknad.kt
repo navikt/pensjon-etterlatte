@@ -24,11 +24,16 @@ internal class JournalfoerSoeknad(
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
+        try {
         runBlocking {
             packet["@journalpostId"] = dok.journalfoerDok(
                 packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
             )
             context.publish(packet.toJson())
+        }
+    } catch( err: Exception) {
+            println("Fillern, dette klarte jeg ikke: " + err)
+
         }
     }
 }
