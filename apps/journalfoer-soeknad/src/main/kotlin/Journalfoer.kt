@@ -31,7 +31,6 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                     dokumentvarianter = listOf(
                         DokumentVariant.ArkivPDF(fysiskDokument = Base64.getEncoder().encodeToString(pdf))
                         //DokumentVariant.OriginalJson(fysiskDokument = dokumentInnhold["@skjema_info"].asText()
-                        )
                     )
                 )
             )
