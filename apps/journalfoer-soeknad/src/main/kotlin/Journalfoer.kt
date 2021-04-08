@@ -20,14 +20,14 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
             .registerModule(JavaTimeModule())
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-        val jorp: JournalpostInfo? = objectMapper.treeToValue(dokumentInnhold["@journalpostInfo"])
+        val journalpostInfo: JournalpostInfo? = objectMapper.treeToValue(dokumentInnhold["@journalpostInfo"])
 
 
-        return jorp?.let {
+        return journalpostInfo?.let {
 
             val dok: List<JournalpostDokument> = listOf(
                 JournalpostDokument(
-                    tittel = jorp.tittel ,
+                    tittel = journalpostInfo.tittel ,
                     dokumentKategori = DokumentKategori.IB,
                     dokumentvarianter = listOf(
                         DokumentVariant.ArkivPDF(fysiskDokument = Base64.getEncoder().encodeToString(pdf)),
@@ -46,7 +46,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                 body =
 
                     JournalpostRequest(
-                        tittel = jorp.tittel,
+                        tittel = journalpostInfo.tittel,
                         journalpostType = JournalPostType.INNGAAENDE,
                         tema = "PEN",
                         kanal = "NAV_NO",
@@ -54,13 +54,13 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                         //journalfoerendeEnhet = dokumentInnhold["@journalfoerendeEnhet"].asText(),
 
                         avsenderMottaker = AvsenderMottaker(
-                            id = jorp.avsenderMottaker.id,
-                            navn = jorp.avsenderMottaker.navn,
-                            idType = jorp.avsenderMottaker.idType
+                            id = journalpostInfo.avsenderMottaker.id,
+                            navn = journalpostInfo.avsenderMottaker.navn,
+                            idType = journalpostInfo.avsenderMottaker.idType
                         ),
                         bruker = Bruker(
-                            id = jorp.bruker.id,
-                            idType = jorp.bruker.idType
+                            id = journalpostInfo.bruker.id,
+                            idType = journalpostInfo.bruker.idType
                         ),
 
                         /*   sak = Fagsak(

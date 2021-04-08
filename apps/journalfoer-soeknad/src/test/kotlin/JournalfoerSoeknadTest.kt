@@ -58,7 +58,7 @@ class JournalfoerSoeknadTest {
         )
         message.interestedIn("@skjema_info")
         message["@journalpostInfo"] = jorp
-        message["@template"] = "soknad"
+        message["@template"] = "soeknad"
         message["@event_name"] = "soeknad_innsendt"
 
         val inspector = TestRapid()
