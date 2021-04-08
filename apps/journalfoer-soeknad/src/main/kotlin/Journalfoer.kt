@@ -36,7 +36,8 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                     )
                 ),
             )
-
+            println(journalpostInfo.avsenderMottaker.id)
+            println(journalpostInfo.bruker.id)
 
             client.post<String>(baseUrl) {
                 listOf("forsoekFerdigstill" to "true")
