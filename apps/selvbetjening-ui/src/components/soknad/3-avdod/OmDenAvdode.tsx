@@ -51,7 +51,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     {/* 3.2 */}
                     <FnrInput
                         label="Fødselsnummer (11 siffer)"
-                        // bredde="L"
                         value={state.fnr}
                         type={"tel"}
                         maxLength={11}

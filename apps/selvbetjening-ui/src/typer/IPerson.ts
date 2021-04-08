@@ -9,6 +9,7 @@ export interface IPerson {
 
 export interface IKontaktinfo {
     boadresseBekreftet?: string;
+    oppholderSegINorge?: string;
     telefonnummer?: string;
     epost?: string;
 }

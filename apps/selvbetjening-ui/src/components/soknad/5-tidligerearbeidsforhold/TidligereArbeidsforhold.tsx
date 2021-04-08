@@ -24,8 +24,7 @@ const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                         <SkjemaGruppe key={index}>
                             <Input
                                 value={item.beskrivelse}
-                                bredde={"XXL"}
-                                label="Skoler utover grunnskolen, yrkesrettede kurs o.l. og tidligere arbeidsforhold"
+                                label={"Skoler utover grunnskolen, yrkesrettede kurs o.l. og tidligere arbeidsforhold"}
                                 onChange={(e) => {
                                     dispatch({
                                         type: TidlArbActionTypes.OPPDATER_BESKRIVELSE,
@@ -35,8 +34,7 @@ const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                             />
                             <Input
                                 value={item.varighet}
-                                bredde={"XXL"}
-                                label="Varighet"
+                                label={"Varighet"}
                                 onChange={(e) => {
                                     dispatch({
                                         type: TidlArbActionTypes.OPPDATER_VARIGHET,

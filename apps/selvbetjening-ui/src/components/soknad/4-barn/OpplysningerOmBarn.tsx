@@ -5,6 +5,7 @@ import { Input, Radio, RadioGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import SoknadSteg from "../../../typer/SoknadSteg";
+import ToValgRadio from "../../felles/ToValgRadio";
 
 const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     return (
@@ -26,12 +27,9 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                         <Radio label={"Egne særkullsbarn"} name="" />
                     </RadioGruppe>
 
-                    <RadioGruppe legend="Bor barnet i utlandet?">
-                        <Radio label={"Ja"} name="" />
-                        <Radio label={"Nei"} name="" />
-                    </RadioGruppe>
-
-                    <Input label=" Hvis ja, oppgi statsborgerskap og land." />
+                    <ToValgRadio checked={""} label={"Bor barnet i utlandet?"} onChange={() => {}}>
+                        <Input label=" Hvis ja, oppgi statsborgerskap og land." />
+                    </ToValgRadio>
                 </SkjemaGruppe>
 
                 <br />

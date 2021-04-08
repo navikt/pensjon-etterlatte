@@ -24,7 +24,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
             console.log(person);
             dispatch({ type: SoknadActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
         });
-    });
+    }, [søker, dispatch]);
 
     return (
         <div>
@@ -109,10 +109,10 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                 {/* 2.7 */}
                 <ToValgRadio
                     label={"Oppholder du deg i Norge?"}
-                    checked={""}
+                    checked={state.kontaktinfo?.oppholderSegINorge}
                     invert={true}
                     onChange={(valgtSvar) => {
-                        dispatch({ type: SoknadActionTypes.BEKREFT_BOADRESSE, payload: valgtSvar });
+                        dispatch({ type: SoknadActionTypes.OPPHOLD_NORGE, payload: valgtSvar });
                     }}
                 >
                     <Input label={"Oppgi land"} value={""} onChange={() => {}} />

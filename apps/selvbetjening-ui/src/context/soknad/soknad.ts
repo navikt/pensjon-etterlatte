@@ -11,13 +11,14 @@ export interface ISoknad {
     fraDato: Date | null;
     bekreftet: boolean;
     valgteStønader: IStønad[];
-    søker?: IPerson;
+    søker: IPerson | null;
     kontaktinfo?: IKontaktinfo;
 }
 
 export enum SoknadActionTypes {
     HENT_INNLOGGET_BRUKER,
     BEKREFT_BOADRESSE,
+    OPPHOLD_NORGE,
     SET_FRA_DATO,
     SET_SPRAK,
     SET_BEKREFTET,

@@ -12,21 +12,23 @@ const SoknadDialog: FC = () => {
 
     const { state, dispatch } = useStegContext();
 
-    /*
-     * TODO: Steghåndtering må forbedres, dette er ikke helt bra...
-     */
     useEffect(() => {
-        console.log(`Aktivt steg: ${state.aktivtSteg}`);
         history.push(`/soknad/steg/${state.aktivtSteg}`);
     }, [history, state.aktivtSteg]);
 
     const forrige = () => dispatch({ type: StegActionTypes.FORRIGE });
-    const neste = () => dispatch({ type: StegActionTypes.NESTE });
+    const neste = () => {
+        if (state.aktivtSteg !== state.steg.length) {
+            dispatch({ type: StegActionTypes.NESTE });
+        } else {
+            // TODO: Side for "ferdig søknad"
+        }
+    };
 
     const alleSteg = state.steg.map((steg, index) => {
         return {
             index: index,
-            label: steg.label,
+            label: `${index}`,
             disabled: steg.disabled,
         };
     });
@@ -46,7 +48,7 @@ const SoknadDialog: FC = () => {
                     const stegNr = index + 1;
 
                     return (
-                        <Route key={index} path={`${path}/steg/${stegNr}`} component={steg.component}>
+                        <Route key={index} path={`${path}/steg/${stegNr}`}>
                             <steg.component forrige={forrige} neste={neste} />
                         </Route>
                     );

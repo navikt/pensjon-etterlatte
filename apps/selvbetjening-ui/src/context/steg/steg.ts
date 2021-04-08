@@ -1,9 +1,7 @@
 import SoknadSteg from "../../typer/SoknadSteg";
 
 export interface IStegElement {
-    label: string;
     component: SoknadSteg;
-    path: string;
     disabled: boolean;
 }
 

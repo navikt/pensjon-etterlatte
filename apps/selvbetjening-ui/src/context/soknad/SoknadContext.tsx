@@ -33,7 +33,7 @@ const initialState: ISoknad = {
                 "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt.",
         },
     ],
-    søker: undefined,
+    søker: null,
     kontaktinfo: undefined,
 };
 
@@ -49,6 +49,8 @@ const reducer = (state: ISoknad, action: ISoknadAction) => {
             return { ...state, bekreftet: action.payload };
         case SoknadActionTypes.BEKREFT_BOADRESSE:
             return { ...state, kontaktinfo: { ...state.kontaktinfo, boadresseBekreftet: action.payload } };
+        case SoknadActionTypes.OPPHOLD_NORGE:
+            return { ...state, kontaktinfo: { ...state.kontaktinfo, oppholderSegINorge: action.payload } };
         case SoknadActionTypes.SETT_TELEFON:
             return { ...state, kontaktinfo: { ...state.kontaktinfo, telefonnummer: action.payload } };
         case SoknadActionTypes.SETT_EPOST:

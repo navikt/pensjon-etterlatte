@@ -1,12 +1,13 @@
-import { FC, useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { subMonths } from "date-fns";
 import DatePicker from "react-datepicker";
 import { Label } from "nav-frontend-skjema";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
 import nb from "date-fns/locale/nb";
+import { v4 as uuid } from "uuid";
 
 interface Props {
-    label: string;
+    label: React.ReactNode;
     valgtDato: Date | null;
     minDato?: Date | null;
     maksDato?: Date | null;
@@ -21,11 +22,14 @@ const Datovelger: FC<Props> = ({ label, valgtDato, onChange }) => {
         setDefaultLocale("nb");
     }, []);
 
+    const name = uuid();
+
     return (
         <div className={"skjemaelement"}>
-            <Label htmlFor={label}>{label}</Label>
+            <Label htmlFor={name}>{label}</Label>
 
             <DatePicker
+                name={name}
                 className={"skjemaelement__input input--fullbredde"}
                 selected={valgtDato}
                 minDate={subMonths(new Date(), 3)}
