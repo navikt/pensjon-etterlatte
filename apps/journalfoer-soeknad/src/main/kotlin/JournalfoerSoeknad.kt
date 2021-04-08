@@ -20,8 +20,9 @@ internal class JournalfoerSoeknad(
             validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@template") }
             validate { it.requireKey("@journalpostInfo") }
+            validate { it.rejectKey("@journalpostId") }
         }.register(this)
-    }
+    }                                                        
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         try {

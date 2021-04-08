@@ -30,12 +30,11 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                     dokumentKategori = DokumentKategori.SOK,
                     dokumentvarianter = listOf(
                         DokumentVariant.ArkivPDF(fysiskDokument = Base64.getEncoder().encodeToString(pdf))
+                        //jeg må finne ut hvordan jeg legger inn original JSON
                         //DokumentVariant.OriginalJson(fysiskDokument = dokumentInnhold["@skjema_info"].asText()
                     )
                 )
             )
-            println(journalpostInfo.avsenderMottaker.id)
-            println(journalpostInfo.bruker.id)
             println(pdf)
 
 
