@@ -8,9 +8,11 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.request.header
 import io.ktor.request.receive
+import io.ktor.response.respondText
 import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.route
@@ -45,9 +47,14 @@ fun Route.dok(
                     body = receiveString
                 }
                 call.pipeResponse(response)
-            } catch (cause: Throwable) {
+            } catch (cause: io.ktor.client.features.ClientRequestException) {
                 println("Feil i kall mot Dokarkiv: $cause")
                 cause.printStackTrace()
+                call.respondText(status = cause.response.status) { cause.message!! }
+            }catch (cause: Throwable) {
+                println("Feil i kall mot Dokarkiv: $cause")
+                cause.printStackTrace()
+                call.respondText(status = HttpStatusCode.InternalServerError) { cause.message?:"Intern feil" }
             }
         }
     }
