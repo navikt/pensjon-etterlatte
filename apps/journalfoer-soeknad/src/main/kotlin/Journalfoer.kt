@@ -22,16 +22,16 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
         val journalpostInfo: JournalpostInfo? = objectMapper.treeToValue(dokumentInnhold["@journalpostInfo"])
 
-
         return journalpostInfo?.let {
 
             val dok: List<JournalpostDokument> = listOf(
                 JournalpostDokument(
-                    tittel = journalpostInfo.tittel ,
+                    tittel = journalpostInfo.tittel,
                     dokumentKategori = DokumentKategori.IB,
                     dokumentvarianter = listOf(
                         DokumentVariant.ArkivPDF(fysiskDokument = Base64.getEncoder().encodeToString(pdf)),
-                        DokumentVariant.OriginalJson(fysiskDokument = dokumentInnhold["@skjema_info"].asText()
+                        DokumentVariant.OriginalJson(
+                            fysiskDokument = dokumentInnhold["@skjema_info"].asText()
                         )
                     )
                 ),
