@@ -35,6 +35,7 @@ const initialState: ISoknad = {
     ],
     søker: null,
     kontaktinfo: undefined,
+    opplysningerOmBarn: [],
 };
 
 const reducer = (state: ISoknad, action: ISoknadAction) => {
@@ -64,6 +65,13 @@ const reducer = (state: ISoknad, action: ISoknadAction) => {
             oppdatertListe[index] = element;
 
             return { ...state, valgteStønader: oppdatertListe };
+        }
+        case SoknadActionTypes.LEGG_TIL_BARN: {
+            const { opplysningerOmBarn } = state;
+
+            opplysningerOmBarn.push(action.payload);
+
+            return { ...state, opplysningerOmBarn };
         }
         default:
             return state;

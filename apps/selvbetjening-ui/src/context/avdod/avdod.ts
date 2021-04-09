@@ -2,7 +2,7 @@ export interface IAvdod {
     fornavn: string;
     etternavn: string;
     fnr: string;
-    dodsdato: string;
+    dodsdato: Date | null;
     statsborgerskap: string;
     bosetning: string;
     dodsfallAarsak: string;

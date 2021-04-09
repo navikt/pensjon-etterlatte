@@ -1,3 +1,12 @@
+export interface IBarn {
+    fornavn?: string;
+    etternavn?: string;
+    fødselsnummer?: string;
+    foreldre?: string;
+    bosattUtland?: string;
+    statsborgerskapOgLand?: string;
+}
+
 export interface IPerson {
     fornavn: string;
     etternavn: string;

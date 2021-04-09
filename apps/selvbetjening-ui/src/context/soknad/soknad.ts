@@ -1,4 +1,4 @@
-import { IPerson, IKontaktinfo } from "../../typer/IPerson";
+import { IPerson, IKontaktinfo, IBarn } from "../../typer/IPerson";
 
 interface IStønad {
     label: string;
@@ -13,6 +13,7 @@ export interface ISoknad {
     valgteStønader: IStønad[];
     søker: IPerson | null;
     kontaktinfo?: IKontaktinfo;
+    opplysningerOmBarn: IBarn[];
 }
 
 export enum SoknadActionTypes {
@@ -26,6 +27,7 @@ export enum SoknadActionTypes {
     SET_TYPER,
     SETT_TELEFON,
     SETT_EPOST,
+    LEGG_TIL_BARN,
 }
 
 export interface ISoknadAction {

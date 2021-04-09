@@ -1,0 +1,70 @@
+@import "../../../App.less";
+
+.barnekort-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin: 0 auto;
+    width: 620px;
+
+    .barnekort {
+        .typo-normal,
+        .typo-element {
+            font-size: 18px;
+        }
+        margin: 0 1rem 1rem 0;
+        width: 276px;
+        background-color: #e7e9e9;
+
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        &.legg-til {
+            height: 230px;
+        }
+        &__header {
+            box-sizing: border-box;
+            height: 128px;
+            background-color: #4d3e55;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom: 4px solid #826ba1;
+            display: flex;
+            align-items: flex-end;
+
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        &__informasjonsboks {
+            padding: 2rem 2rem;
+            .informasjonsboks-innhold {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+                .informasjonselement {
+                    margin: 10px 0 10px 0;
+                }
+            }
+        }
+
+        &__endre-barnekort {
+            border: none;
+            text-align: left;
+            padding: inherit;
+        }
+
+        .legg-til-barn-kort {
+            border-radius: 5px;
+            height: 200px;
+
+            .typo-element {
+                padding-bottom: 2rem;
+            }
+        }
+    }
+}

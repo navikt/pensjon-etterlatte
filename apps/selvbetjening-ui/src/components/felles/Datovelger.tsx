@@ -1,5 +1,4 @@
 import React, { FC, useEffect } from "react";
-import { subMonths } from "date-fns";
 import DatePicker from "react-datepicker";
 import { Label } from "nav-frontend-skjema";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
@@ -9,8 +8,6 @@ import { v4 as uuid } from "uuid";
 interface Props {
     label: React.ReactNode;
     valgtDato: Date | null;
-    minDato?: Date | null;
-    maksDato?: Date | null;
     onChange: (dato: Date) => void;
 }
 
@@ -32,9 +29,8 @@ const Datovelger: FC<Props> = ({ label, valgtDato, onChange }) => {
                 name={name}
                 className={"skjemaelement__input input--fullbredde"}
                 selected={valgtDato}
-                minDate={subMonths(new Date(), 3)}
-                dateFormat={"dd.MM.yyyy"}
-                placeholderText={"dd.mm.åååå"}
+                dateFormat={"dd.MM.yy"}
+                placeholderText={"dd.mm.åå"}
                 onChange={onChange}
             />
         </div>

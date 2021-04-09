@@ -8,6 +8,7 @@ import { AvdodActionTypes as ActionType } from "../../../context/avdod/avdod";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import ToValgRadio from "../../felles/ToValgRadio";
 import React, { SyntheticEvent } from "react";
+import Datovelger from "../../felles/Datovelger";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useAvdodContext();
@@ -64,10 +65,10 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     />
 
                     {/* 3.3 */}
-                    <Input
-                        label="Dødsdato (dd.mm.åå)"
-                        value={state.dodsdato}
-                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_DODSDATO, e)}
+                    <Datovelger
+                        label={"Dødsdato"}
+                        valgtDato={state.dodsdato}
+                        onChange={(valgtDato) => dispatch({ type: ActionType.SET_AVDOD_DODSDATO, payload: valgtDato })}
                     />
 
                     {/* 3.4 */}

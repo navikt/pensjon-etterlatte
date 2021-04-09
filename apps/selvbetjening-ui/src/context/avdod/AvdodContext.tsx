@@ -7,7 +7,7 @@ const initialState: IAvdod = {
     fornavn: "",
     etternavn: "",
     fnr: "",
-    dodsdato: "",
+    dodsdato: null,
     statsborgerskap: "",
     bosetning: "",
     dodsfallAarsak: "",
