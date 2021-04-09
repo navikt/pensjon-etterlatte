@@ -49,9 +49,10 @@ class Server(val applicationContext: ApplicationContext) {
             routing {
                 healthApi()
                 personApi(personClient)
-                soknadApi(applicationContext.rapid)
 
                 route("api") {
+                    attachFakeSecurityContext()
+                    soknadApi(applicationContext.rapid)
                     get {
                         call.respond(HttpStatusCode.OK, PdlMock().personInfo(""))
                     }
@@ -92,12 +93,24 @@ class Server(val applicationContext: ApplicationContext) {
 
 fun Route.attachSecurityContext() {
     intercept(ApplicationCallPipeline.Call) {
-        println("hei")
         withContext(
             Dispatchers.Default + ThreadBoundSecCtx.asContextElement(
-                value = SecurityContext(
+                value = TokenSecurityContext(
                     call.principal<TokenValidationContextPrincipal>()?.context!!
                 )
+            )
+        ) {
+            call.attributes
+            proceed()
+        }
+    }
+}
+
+fun Route.attachFakeSecurityContext() {
+    intercept(ApplicationCallPipeline.Call) {
+        withContext(
+            Dispatchers.Default + ThreadBoundSecCtx.asContextElement(
+                value = SynteticHardcodedUser("26104500284")
             )
         ) {
             call.attributes
@@ -113,7 +126,7 @@ suspend fun <T> PipelineContext<*, ApplicationCall>.withSecurityCOntext(
 ): T {
     return withContext(
         Dispatchers.Default + ThreadBoundSecCtx.asContextElement(
-            value = SecurityContext(
+            value = TokenSecurityContext(
                 call.principal<TokenValidationContextPrincipal>()?.context!!
             )
         ), block

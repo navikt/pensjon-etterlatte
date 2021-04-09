@@ -105,10 +105,24 @@ suspend fun main() {
     }.close()
 }
 
-class SecurityContext(private val tokens: TokenValidationContext) {
-    fun tokenIssuedBy(issuer: String): JwtToken? {
+interface SecurityContext{
+    fun tokenIssuedBy(issuer: String): JwtToken?
+    fun user(): String?
+}
+
+class SynteticHardcodedUser(private val user:String): SecurityContext{
+    override fun tokenIssuedBy(issuer: String): JwtToken? {
+        return null
+    }
+
+    override fun user() = user
+
+}
+
+class TokenSecurityContext(private val tokens: TokenValidationContext): SecurityContext {
+    override fun tokenIssuedBy(issuer: String): JwtToken? {
         return tokens.getJwtToken(issuer)
     }
 
-    fun user() = tokens.firstValidToken.get().jwtTokenClaims?.get("pid")?.toString()
+    override fun user() = tokens.firstValidToken.get().jwtTokenClaims?.get("pid")?.toString()
 }
