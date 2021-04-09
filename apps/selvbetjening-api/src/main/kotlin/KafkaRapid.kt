@@ -45,8 +45,11 @@ class KafkaRapid(private val producer: Producer<String, String>, private val top
 
     override suspend fun publish(message: String): Job {
         val f = producer.send(ProducerRecord(topic, UUID.randomUUID().toString(), message))
+        println("publishing soeknad: $message")
         return withContext(Dispatchers.IO) {
             launch { f.get() }
         }
     }
 }
+
+
