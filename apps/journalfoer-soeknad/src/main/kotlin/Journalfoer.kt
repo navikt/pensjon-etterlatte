@@ -51,6 +51,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                     JournalpostRequest(
                         tittel = journalpostInfo.tittel,
                         journalpostType = JournalPostType.INNGAAENDE,
+                        journalfoerendeEnhet = "4803",
                         tema = "PEN",
                         kanal = "NAV_NO",
                         //behandlingstema = dokumentInnhold["@behandlingstema"].asText(),
@@ -93,7 +94,7 @@ internal data class JournalpostRequest(
     val tema: String,
     val kanal: String?,
     //val behandlingstema: String,
-    //val journalfoerendeEnhet: String,
+    val journalfoerendeEnhet: String,
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,
     //val sak: Fagsak?,
