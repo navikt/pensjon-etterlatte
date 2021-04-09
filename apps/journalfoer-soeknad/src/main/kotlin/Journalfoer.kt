@@ -29,9 +29,12 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                     tittel = journalpostInfo.tittel,
                     dokumentKategori = DokumentKategori.SOK,
                     dokumentvarianter = listOf(
-                        DokumentVariant.ArkivPDF(fysiskDokument = Base64.getEncoder().encodeToString(pdf))
-                        //jeg må finne ut hvordan jeg legger inn original JSON
-                        //DokumentVariant.OriginalJson(fysiskDokument = dokumentInnhold["@skjema_info"].asText()
+                        DokumentVariant.ArkivPDF(fysiskDokument = Base64.getEncoder().encodeToString(pdf)),
+                        DokumentVariant.OriginalJson(
+                            fysiskDokument = Base64.getEncoder().encodeToString(
+                                objectMapper.writeValueAsString(dokumentInnhold["@skjema_info"]).toByteArray()
+                            )
+                        )
                     )
                 )
             )
