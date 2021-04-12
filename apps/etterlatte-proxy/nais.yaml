@@ -50,7 +50,7 @@ spec:
     - name: PDL_URL
       value: http://pdl-api.default.svc.nais.local/graphql
     - name: DOK_URL
-      value: https://dokarkiv-q2.nais.preprod.local/rest/journalpostapi/v1/journalpost
+      value: https://dokarkiv-q1.nais.preprod.local/rest/journalpostapi/v1/journalpost
   prometheus:
     enabled: true
     path: /internal/prometheus
