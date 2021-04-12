@@ -110,7 +110,9 @@ fun Route.attachFakeSecurityContext() {
     intercept(ApplicationCallPipeline.Call) {
         withContext(
             Dispatchers.Default + ThreadBoundSecCtx.asContextElement(
-                value = SynteticHardcodedUser("14106126780")
+                //Q0 bruker value = SynteticHardcodedUser("14106126780")
+                //Q1 Bruker
+                value = SynteticHardcodedUser("07106123912")
             )
         ) {
             call.attributes
