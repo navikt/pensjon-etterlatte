@@ -67,7 +67,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     {/* 3.3 */}
                     <Datovelger
                         label={"Dødsdato"}
-                        valgtDato={state.dodsdato}
+                        valgtDato={state.doedsdato}
                         onChange={(valgtDato) => dispatch({ type: ActionType.SET_AVDOD_DODSDATO, payload: valgtDato })}
                     />
 
@@ -92,7 +92,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     {/* 3.7 */}
                     <ToValgRadio
                         // name={"dodsfallArsak"}
-                        checked={state.dodsfallAarsak}
+                        checked={state.doedsfallAarsak}
                         label={"Kan dødesfallet være en følge av yrkesskade/yrkessykdom?"}
                         onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_DODSFALL_ARSAK, valgtSvar)}
                     />
@@ -149,7 +149,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     {/* 3.13 */}
                     <ToValgRadio
                         // name={"militaerTjeneste"}
-                        checked={state.harAvtjentMilitærTjeneste}
+                        checked={state.harAvtjentMilitaerTjeneste}
                         label={
                             "Har den avdøde etter 1966 avtjent militær eller sivil førstegangstjeneste som varte minst 30 dager?"
                         }
@@ -157,7 +157,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     >
                         <Input
                             label="Oppgi årstall"
-                            value={state.avtjentMilitærTjenesteSvar}
+                            value={state.avtjentMilitaerTjenesteSvar}
                             onChange={(valgtSvar) =>
                                 oppdaterInput(ActionType.SET_AVDOD_MILITAER_TJENESTE_SVAR, valgtSvar)
                             }

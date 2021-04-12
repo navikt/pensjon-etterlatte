@@ -7,6 +7,7 @@ import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useArbeidsforholdContext } from "../../../context/arbeidsforhold/ArbeidsforholdContext";
 import { ArbeidsforholdActionTypes } from "../../../context/arbeidsforhold/arbeidsforhold";
 import SoknadSteg from "../../../typer/SoknadSteg";
+import Datovelger from "../../felles/Datovelger";
 
 const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useArbeidsforholdContext();
@@ -34,15 +35,19 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                     label="Stilling"
                     onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_STILLING)}
                 />
-                <Input
-                    value={state.startDato}
-                    label="Startdato (dd.mm.åå)"
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_START_DATO)}
+                <Datovelger
+                    valgtDato={state.startDato}
+                    label={"Startdato"}
+                    onChange={(valgtDato) =>
+                        dispatch({ type: ArbeidsforholdActionTypes.OPPDATER_START_DATO, payload: valgtDato })
+                    }
                 />
-                <Input
-                    value={state.sluttDato}
-                    label="Fremtidig sluttdato (dd.mm.åå)"
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_SLUTT_DATO)}
+                <Datovelger
+                    valgtDato={state.sluttDato}
+                    label={"Fremtidig sluttdato"}
+                    onChange={(valgtDato) =>
+                        dispatch({ type: ArbeidsforholdActionTypes.OPPDATER_SLUTT_DATO, payload: valgtDato })
+                    }
                 />
                 <br />
 
@@ -72,8 +77,11 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
 
                 {state.heltidDeltid === "Deltid" && (
                     <Input
-                        value={state.stillingsprosent}
-                        label="Hvis deltid, oppgi prosent"
+                        value={state.stillingsprosent ?? ""}
+                        type={"number"}
+                        min={0}
+                        max={100}
+                        label="Oppgi stillingsprosent"
                         onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_STILLINGSPROSENT)}
                     />
                 )}

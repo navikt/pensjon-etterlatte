@@ -7,17 +7,17 @@ const initialState: IAvdod = {
     fornavn: "",
     etternavn: "",
     fnr: "",
-    dodsdato: null,
+    doedsdato: null,
     statsborgerskap: "",
     bosetning: "",
-    dodsfallAarsak: "",
+    doedsfallAarsak: "",
     boddEllerJobbetUtland: "",
     haddePensjonsgivendeInntekt: "",
     pensjonsgivendeInntektSvar: "",
     haddePensjonAndreLand: "",
     pensjonAndreLandSvar: "",
-    harAvtjentMilitærTjeneste: "",
-    avtjentMilitærTjenesteSvar: "",
+    harAvtjentMilitaerTjeneste: "",
+    avtjentMilitaerTjenesteSvar: "",
 };
 
 const reducer = (state: IAvdod, action: IAvdodAction) => {
@@ -29,13 +29,13 @@ const reducer = (state: IAvdod, action: IAvdodAction) => {
         case AvdodActionTypes.SET_AVDOD_FNR:
             return { ...state, fnr: action.payload };
         case AvdodActionTypes.SET_AVDOD_DODSDATO:
-            return { ...state, dodsdato: action.payload };
+            return { ...state, doedsdato: action.payload };
         case AvdodActionTypes.SET_AVDOD_STATSBORGERSKAP:
             return { ...state, statsborgerskap: action.payload };
         case AvdodActionTypes.SET_AVDOD_BOSETNING:
             return { ...state, bosetning: action.payload };
         case AvdodActionTypes.SET_AVDOD_DODSFALL_ARSAK:
-            return { ...state, dodsfallAarsak: action.payload };
+            return { ...state, doedsfallAarsak: action.payload };
         case AvdodActionTypes.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND:
             return { ...state, boddEllerJobbetUtland: action.payload };
         case AvdodActionTypes.SET_AVDOD_PENSJONSGIVEDE_INNTEKT:
@@ -47,9 +47,9 @@ const reducer = (state: IAvdod, action: IAvdodAction) => {
         case AvdodActionTypes.SET_AVDOD_PENSJON_ANDRE_LAND_SVAR:
             return { ...state, pensjonAndreLandSvar: action.payload };
         case AvdodActionTypes.SET_AVDOD_MILITAER_TJENESTE:
-            return { ...state, harAvtjentMilitærTjeneste: action.payload };
+            return { ...state, harAvtjentMilitaerTjeneste: action.payload };
         case AvdodActionTypes.SET_AVDOD_MILITAER_TJENESTE_SVAR:
-            return { ...state, avtjentMilitærTjenesteSvar: action.payload };
+            return { ...state, avtjentMilitaerTjenesteSvar: action.payload };
         default:
             return state;
     }

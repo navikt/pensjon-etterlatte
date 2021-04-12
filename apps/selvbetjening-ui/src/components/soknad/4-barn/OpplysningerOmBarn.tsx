@@ -10,7 +10,7 @@ import ToValgRadio from "../../felles/ToValgRadio";
 import { default as Modal } from "nav-frontend-modal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IBarn } from "../../../typer/IPerson";
-import { SoknadActionTypes } from "../../../context/soknad/soknad";
+import { SoeknadActionTypes } from "../../../context/soknad/soknad";
 
 Modal.setAppElement("#root");
 
@@ -24,7 +24,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const tomtElement: IBarn = {
         fornavn: "",
         etternavn: "",
-        fødselsnummer: "",
+        foedselsnummer: "",
         foreldre: "",
         bosattUtland: "",
         statsborgerskapOgLand: "",
@@ -33,7 +33,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const [barn, setBarn] = useState(tomtElement);
 
     const leggTilBarn = () => {
-        dispatch({ type: SoknadActionTypes.LEGG_TIL_BARN, payload: barn });
+        dispatch({ type: SoeknadActionTypes.LEGG_TIL_BARN, payload: barn });
 
         setBarn(tomtElement);
     };
@@ -47,7 +47,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                 <div className={"barnekort-wrapper"}>
                     {state.opplysningerOmBarn?.map((barn) => {
                         return (
-                            <div className={"barnekort"} key={barn.fødselsnummer}>
+                            <div className={"barnekort"} key={barn.foedselsnummer}>
                                 <div className={"barnekort__header"}>
                                     <img alt="barn" className="barneikon" src={ikon} />
                                 </div>
@@ -58,7 +58,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                                         </Undertittel>
                                     </div>
                                     <div className="informasjonselement">
-                                        <Normaltekst>{barn.fødselsnummer}</Normaltekst>
+                                        <Normaltekst>{barn.foedselsnummer}</Normaltekst>
                                         <Normaltekst>{barn.foreldre}</Normaltekst>
                                         <Normaltekst>Bosatt i utlandet: {barn.bosattUtland}</Normaltekst>
                                     </div>
@@ -94,9 +94,9 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
 
                             <Input
                                 label="Fødselsnummer (11 siffer)"
-                                value={barn.fødselsnummer}
+                                value={barn.foedselsnummer}
                                 onChange={(e) =>
-                                    setBarn({ ...barn, fødselsnummer: (e.target as HTMLInputElement).value })
+                                    setBarn({ ...barn, foedselsnummer: (e.target as HTMLInputElement).value })
                                 }
                             />
 

@@ -1,11 +1,11 @@
 export interface IArbeidsforhold {
     yrke: string;
     stilling: string;
-    startDato: string;
-    sluttDato: string;
+    startDato: Date | null;
+    sluttDato: Date | null;
     ansettelsesforhold: string; // låse valg til type?
     heltidDeltid: string;
-    stillingsprosent: string;
+    stillingsprosent: number | null;
     arbeidsgiver: {
         navn: string;
         adresse: string;

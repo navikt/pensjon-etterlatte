@@ -1,6 +1,6 @@
 import { createContext, FC, useContext, useReducer } from "react";
 import { ISteg, IStegAction, IStegElement, StegActionTypes, StegProps } from "./steg";
-import SoknadType from "../../components/soknad/1-type/SoknadType";
+import SoeknadType from "../../components/soknad/1-type/SoeknadType";
 import OpplysningerOmSokeren from "../../components/soknad/2-soker/OpplysningerOmSokeren";
 import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
 import OpplysningerOmBarn from "../../components/soknad/4-barn/OpplysningerOmBarn";
@@ -16,7 +16,7 @@ const initialState: ISteg = {
     aktivtSteg: lagretSteg ? Number(lagretSteg) : 1,
     steg: [
         {
-            component: SoknadType,
+            component: SoeknadType,
             disabled: false,
         },
         {

@@ -6,18 +6,18 @@ import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 import { Hovedknapp } from "nav-frontend-knapper";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { SoknadActionTypes } from "../../../context/soknad/soknad";
+import { SoeknadActionTypes } from "../../../context/soknad/soknad";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import Datovelger from "../../felles/Datovelger";
 
-const SoknadType: SoknadSteg = ({ neste }) => {
+const SoeknadType: SoknadSteg = ({ neste }) => {
     const { state, dispatch } = useSoknadContext();
 
-    const oppdaterValgtStønad = (e: any) => {
-        dispatch({ type: SoknadActionTypes.VELG_STØNAD, payload: (e.target as HTMLInputElement).name });
+    const oppdaterValgtStoenad = (e: any) => {
+        dispatch({ type: SoeknadActionTypes.VELG_STOENAD, payload: (e.target as HTMLInputElement).name });
     };
 
-    const stønadMedBeskjed = state.valgteStønader.find((e) => e.beskjed && e.checked);
+    const stoenadMedBeskjed = state.valgteStoenader.find((e) => e.beskjed && e.checked);
 
     return (
         <Panel>
@@ -33,7 +33,7 @@ const SoknadType: SoknadSteg = ({ neste }) => {
                 <CheckboksPanelGruppe
                     // feil={state.error?.stønadMangler}
                     // name={'type'}
-                    checkboxes={state.valgteStønader.map((el, index) => {
+                    checkboxes={state.valgteStoenader.map((el, index) => {
                         return {
                             label: el.label,
                             checked: el.checked,
@@ -41,7 +41,7 @@ const SoknadType: SoknadSteg = ({ neste }) => {
                         };
                     })}
                     // checked={type}
-                    onChange={oppdaterValgtStønad}
+                    onChange={oppdaterValgtStoenad}
                 />
             </section>
 
@@ -62,9 +62,9 @@ const SoknadType: SoknadSteg = ({ neste }) => {
 
                 */}
 
-            {stønadMedBeskjed && (
+            {stoenadMedBeskjed && (
                 <section>
-                    <AlertStripe type="info">{stønadMedBeskjed.beskjed}</AlertStripe>
+                    <AlertStripe type="info">{stoenadMedBeskjed.beskjed}</AlertStripe>
                 </section>
             )}
 
@@ -74,7 +74,7 @@ const SoknadType: SoknadSteg = ({ neste }) => {
                     <Datovelger
                         label={"Fra dato"}
                         valgtDato={state.fraDato}
-                        onChange={(dato) => dispatch({ type: SoknadActionTypes.SET_FRA_DATO, payload: dato })}
+                        onChange={(dato) => dispatch({ type: SoeknadActionTypes.SETT_FRA_DATO, payload: dato })}
                     />
                 </SkjemaGruppe>
 
@@ -97,4 +97,4 @@ const SoknadType: SoknadSteg = ({ neste }) => {
     );
 };
 
-export default SoknadType;
+export default SoeknadType;

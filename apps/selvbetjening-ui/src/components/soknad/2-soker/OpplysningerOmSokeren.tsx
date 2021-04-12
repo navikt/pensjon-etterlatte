@@ -8,23 +8,23 @@ import SoknadSteg from "../../../typer/SoknadSteg";
 import { hentInnloggetPerson } from "../../../api";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IPerson } from "../../../typer/IPerson";
-import { SoknadActionTypes } from "../../../context/soknad/soknad";
+import { SoeknadActionTypes } from "../../../context/soknad/soknad";
 import ToValgRadio from "../../felles/ToValgRadio";
 import { Input } from "nav-frontend-skjema";
 
 const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useSoknadContext();
 
-    const { søker } = state;
+    const { soeker } = state;
 
     useEffect(() => {
-        if (!!søker) return;
+        if (!!soeker) return;
 
         hentInnloggetPerson().then((person: IPerson) => {
             console.log(person);
-            dispatch({ type: SoknadActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
+            dispatch({ type: SoeknadActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
         });
-    }, [søker, dispatch]);
+    }, [soeker, dispatch]);
 
     return (
         <div>
@@ -38,35 +38,35 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                 </AlertStripe>
                 <br />
 
-                {!!søker && (
+                {!!soeker && (
                     <div className={"opplysninger"}>
                         <section>
                             <Element>Fødselsnummer / d-nummer</Element>
-                            <Normaltekst>{søker.fødselsnummer}</Normaltekst>
+                            <Normaltekst>{soeker.foedselsnummer}</Normaltekst>
                         </section>
 
                         <section>
                             <Element>Navn</Element>
                             <Normaltekst>
-                                {søker.fornavn} {søker.etternavn}
+                                {soeker.fornavn} {soeker.etternavn}
                             </Normaltekst>
                         </section>
 
                         {/* 2.3 */}
                         <section>
                             <Element>Bostedsadresse</Element>
-                            <Normaltekst>{søker.adresse}</Normaltekst>
+                            <Normaltekst>{soeker.adresse}</Normaltekst>
                         </section>
 
                         <section>
                             <Element>Sivilstatus</Element>
-                            <Normaltekst>{søker.sivilstatus}</Normaltekst>
+                            <Normaltekst>{soeker.sivilstatus}</Normaltekst>
                         </section>
 
                         {/* 2.6 */}
                         <section>
                             <Element>Statsborgerskap</Element>
-                            <Normaltekst>{søker.statsborgerskap}</Normaltekst>
+                            <Normaltekst>{soeker.statsborgerskap}</Normaltekst>
                         </section>
                     </div>
                 )}
@@ -76,7 +76,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     checked={state.kontaktinfo?.boadresseBekreftet}
                     invert={true}
                     onChange={(valgtSvar) => {
-                        dispatch({ type: SoknadActionTypes.BEKREFT_BOADRESSE, payload: valgtSvar });
+                        dispatch({ type: SoeknadActionTypes.BEKREFT_BOADRESSE, payload: valgtSvar });
                     }}
                 >
                     <AlertStripe type="advarsel" form={"inline"}>
@@ -91,7 +91,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     value={state.kontaktinfo?.telefonnummer}
                     onChange={(e) => {
                         dispatch({
-                            type: SoknadActionTypes.SETT_TELEFON,
+                            type: SoeknadActionTypes.SETT_TELEFON,
                             payload: (e.target as HTMLInputElement).value,
                         });
                     }}
@@ -102,7 +102,10 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     label={"E-post"}
                     value={state.kontaktinfo?.epost}
                     onChange={(e) => {
-                        dispatch({ type: SoknadActionTypes.SETT_EPOST, payload: (e.target as HTMLInputElement).value });
+                        dispatch({
+                            type: SoeknadActionTypes.SETT_EPOST,
+                            payload: (e.target as HTMLInputElement).value,
+                        });
                     }}
                 />
 
@@ -112,7 +115,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     checked={state.kontaktinfo?.oppholderSegINorge}
                     invert={true}
                     onChange={(valgtSvar) => {
-                        dispatch({ type: SoknadActionTypes.OPPHOLD_NORGE, payload: valgtSvar });
+                        dispatch({ type: SoeknadActionTypes.OPPHOLD_NORGE, payload: valgtSvar });
                     }}
                 >
                     <Input label={"Oppgi land"} value={""} onChange={() => {}} />

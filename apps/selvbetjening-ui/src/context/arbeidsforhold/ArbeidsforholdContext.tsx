@@ -9,11 +9,11 @@ import {
 const initialState: IArbeidsforhold = {
     yrke: "",
     stilling: "",
-    startDato: "",
-    sluttDato: "",
+    startDato: null,
+    sluttDato: null,
     ansettelsesforhold: "", // låse valg til type?
     heltidDeltid: "",
-    stillingsprosent: "",
+    stillingsprosent: null,
     arbeidsgiver: {
         navn: "",
         adresse: "",

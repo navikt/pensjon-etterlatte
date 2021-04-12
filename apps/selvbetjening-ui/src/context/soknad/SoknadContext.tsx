@@ -1,13 +1,13 @@
 import { createContext, FC, useContext, useReducer } from "react";
-import { ISoknad, ISoknadAction, SoknadActionTypes, SoknadProps } from "./soknad";
+import { ISoeknad, ISoeknadAction, SoeknadActionTypes, SoeknadProps } from "./soknad";
 
 // const storedState = JSON.parse(localStorage.getItem("etterlatte-store"));
 
-const initialState: ISoknad = {
-    sprak: "",
+const initialState: ISoeknad = {
+    spraak: "",
     fraDato: null,
     bekreftet: false,
-    valgteStønader: [
+    valgteStoenader: [
         {
             label: "Pensjon-/overgangsstønad",
             checked: false,
@@ -33,40 +33,40 @@ const initialState: ISoknad = {
                 "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt.",
         },
     ],
-    søker: null,
+    soeker: null,
     kontaktinfo: undefined,
     opplysningerOmBarn: [],
 };
 
-const reducer = (state: ISoknad, action: ISoknadAction) => {
+const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
-        case SoknadActionTypes.HENT_INNLOGGET_BRUKER:
-            return { ...state, søker: action.payload };
-        case SoknadActionTypes.SET_FRA_DATO:
+        case SoeknadActionTypes.HENT_INNLOGGET_BRUKER:
+            return { ...state, soeker: action.payload };
+        case SoeknadActionTypes.SETT_FRA_DATO:
             return { ...state, fraDato: action.payload };
-        case SoknadActionTypes.SET_SPRAK:
-            return { ...state, sprak: action.payload };
-        case SoknadActionTypes.SET_BEKREFTET:
+        case SoeknadActionTypes.VELG_SPRAAK:
+            return { ...state, spraak: action.payload };
+        case SoeknadActionTypes.SETT_BEKREFTET:
             return { ...state, bekreftet: action.payload };
-        case SoknadActionTypes.BEKREFT_BOADRESSE:
+        case SoeknadActionTypes.BEKREFT_BOADRESSE:
             return { ...state, kontaktinfo: { ...state.kontaktinfo, boadresseBekreftet: action.payload } };
-        case SoknadActionTypes.OPPHOLD_NORGE:
+        case SoeknadActionTypes.OPPHOLD_NORGE:
             return { ...state, kontaktinfo: { ...state.kontaktinfo, oppholderSegINorge: action.payload } };
-        case SoknadActionTypes.SETT_TELEFON:
+        case SoeknadActionTypes.SETT_TELEFON:
             return { ...state, kontaktinfo: { ...state.kontaktinfo, telefonnummer: action.payload } };
-        case SoknadActionTypes.SETT_EPOST:
+        case SoeknadActionTypes.SETT_EPOST:
             return { ...state, kontaktinfo: { ...state.kontaktinfo, epost: action.payload } };
-        case SoknadActionTypes.VELG_STØNAD: {
+        case SoeknadActionTypes.VELG_STOENAD: {
             const index = action.payload;
-            const oppdatertListe = [...state.valgteStønader];
+            const oppdatertListe = [...state.valgteStoenader];
 
             let element = { ...oppdatertListe[index] };
             element.checked = !element.checked;
             oppdatertListe[index] = element;
 
-            return { ...state, valgteStønader: oppdatertListe };
+            return { ...state, valgteStoenader: oppdatertListe };
         }
-        case SoknadActionTypes.LEGG_TIL_BARN: {
+        case SoeknadActionTypes.LEGG_TIL_BARN: {
             const { opplysningerOmBarn } = state;
 
             opplysningerOmBarn.push(action.payload);
@@ -78,7 +78,7 @@ const reducer = (state: ISoknad, action: ISoknadAction) => {
     }
 };
 
-const SoknadContext = createContext<SoknadProps>({
+const SoknadContext = createContext<SoeknadProps>({
     state: initialState,
     dispatch: () => {},
 });

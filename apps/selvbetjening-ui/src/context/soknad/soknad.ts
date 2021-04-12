@@ -1,41 +1,40 @@
 import { IPerson, IKontaktinfo, IBarn } from "../../typer/IPerson";
 
-interface IStønad {
+interface IStoenad {
     label: string;
     checked: boolean;
     beskjed?: string;
 }
 
-export interface ISoknad {
-    sprak: string;
+export interface ISoeknad {
+    spraak: string;
     fraDato: Date | null;
     bekreftet: boolean;
-    valgteStønader: IStønad[];
-    søker: IPerson | null;
+    valgteStoenader: IStoenad[];
+    soeker: IPerson | null;
     kontaktinfo?: IKontaktinfo;
     opplysningerOmBarn: IBarn[];
 }
 
-export enum SoknadActionTypes {
+export enum SoeknadActionTypes {
     HENT_INNLOGGET_BRUKER,
     BEKREFT_BOADRESSE,
     OPPHOLD_NORGE,
-    SET_FRA_DATO,
-    SET_SPRAK,
-    SET_BEKREFTET,
-    VELG_STØNAD,
-    SET_TYPER,
+    SETT_FRA_DATO,
+    SETT_BEKREFTET,
+    VELG_SPRAAK,
+    VELG_STOENAD,
     SETT_TELEFON,
     SETT_EPOST,
     LEGG_TIL_BARN,
 }
 
-export interface ISoknadAction {
-    type: SoknadActionTypes;
+export interface ISoeknadAction {
+    type: SoeknadActionTypes;
     payload?: any;
 }
 
-export interface SoknadProps {
-    state: ISoknad;
-    dispatch: (action: ISoknadAction) => void;
+export interface SoeknadProps {
+    state: ISoeknad;
+    dispatch: (action: ISoeknadAction) => void;
 }
