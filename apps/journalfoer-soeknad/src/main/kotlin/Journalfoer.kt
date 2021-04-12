@@ -42,7 +42,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
 
 
             client.post<String>(baseUrl) {
-                listOf("forsoekFerdigstill" to "true")
+                listOf("forsoekFerdigstill" to "false")
                 header("Content-Type", "application/json")
                 header("Accept", "application/json")
                 header("X-Correlation-ID", MDC.get("X-Correlation-ID") ?: UUID.randomUUID().toString())
@@ -51,7 +51,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                     JournalpostRequest(
                         tittel = journalpostInfo.tittel,
                         journalpostType = JournalPostType.INNGAAENDE,
-                        journalfoerendeEnhet = "4803",
+                        journalfoerendeEnhet = "9999",
                         tema = "PEN",
                         kanal = "NAV_NO",
                         //behandlingstema = dokumentInnhold["@behandlingstema"].asText(),
