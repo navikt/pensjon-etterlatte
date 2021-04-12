@@ -1,15 +1,13 @@
 import { SyntheticEvent } from "react";
 import "../../../App.less";
-import { Panel } from "nav-frontend-paneler";
 import { Input, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useAndreYtelserContext } from "../../../context/andreytelser/AndreYtelserContext";
 import { AndreYtelserActionTypes as ActionType } from "../../../context/andreytelser/andre-ytelser";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import ToValgRadio from "../../felles/ToValgRadio";
 
-const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
+const AndreYtelser: SoknadSteg = () => {
     const { state, dispatch } = useAndreYtelserContext();
 
     const update = (event: any, type: ActionType) => {
@@ -20,67 +18,60 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
     };
 
     return (
-        <div>
+        <>
             {/* Steg 7 */}
-            <Panel>
-                <Systemtittel>7 Opplysninger om andre ytelser</Systemtittel>
+            <Systemtittel>7 Opplysninger om andre ytelser</Systemtittel>
 
-                <SkjemaGruppe>
-                    <ToValgRadio
-                        checked={state.mottarAndreYtelser}
-                        label={
-                            "Mottar du ytelser til livsopphold fra folketrygden som dagpenger under arbeidsledighet, sykepenger, stønad ved barns og andre nære pårørendes sykdom, arbeidsavklaringspenger, svangerskapspenger, foreldrepenger, AFP, uføretrygd eller alderspensjon?"
+            <SkjemaGruppe>
+                <ToValgRadio
+                    checked={state.mottarAndreYtelser}
+                    label={
+                        "Mottar du ytelser til livsopphold fra folketrygden som dagpenger under arbeidsledighet, sykepenger, stønad ved barns og andre nære pårørendes sykdom, arbeidsavklaringspenger, svangerskapspenger, foreldrepenger, AFP, uføretrygd eller alderspensjon?"
+                    }
+                    onChange={(valgtSvar) => dispatch({ type: ActionType.SET_ANDRE_YTELSER, payload: valgtSvar })}
+                />
+
+                <ToValgRadio
+                    checked={state.harKravOmAnnenStonad}
+                    label={"Har du satt fram krav om annen stønad/pensjon som ikke er avgjort?"}
+                    onChange={(valgtSvar) =>
+                        dispatch({ type: ActionType.SET_KRAV_OM_ANNEN_STONAD, payload: valgtSvar })
+                    }
+                >
+                    <Input
+                        value={state.annenStonadBeskrivelse}
+                        label="Hva slags stønad/pensjon?"
+                        onChange={(e: SyntheticEvent<EventTarget>) =>
+                            update(e, ActionType.SET_ANNEN_STONAD_BESKRIVELSE)
                         }
-                        onChange={(valgtSvar) => dispatch({ type: ActionType.SET_ANDRE_YTELSER, payload: valgtSvar })}
+                    />
+                </ToValgRadio>
+
+                <ToValgRadio
+                    checked={state.mottarPensjonFraUtlandet}
+                    label={"Mottar du pensjon fra utlandet?"}
+                    onChange={(valgtSvar) =>
+                        dispatch({ type: ActionType.SET_MOTTAR_PENSJON_UTLAND, payload: valgtSvar })
+                    }
+                >
+                    <Input
+                        value={state.pensjonUtlandBeskrivelse}
+                        label="Hvis ja, hva slags pensjon og fra hvilket land?"
+                        onChange={(e: SyntheticEvent<EventTarget>) =>
+                            update(e, ActionType.SET_PENSJON_UTLAND_BESKRIVELSE)
+                        }
                     />
 
-                    <ToValgRadio
-                        checked={state.harKravOmAnnenStonad}
-                        label={"Har du satt fram krav om annen stønad/pensjon som ikke er avgjort?"}
-                        onChange={(valgtSvar) =>
-                            dispatch({ type: ActionType.SET_KRAV_OM_ANNEN_STONAD, payload: valgtSvar })
+                    <Input
+                        value={state.pensjonUtlandBruttobelop}
+                        label="Bruttobeløp pr. år i landets valuta, oppgi landets valuta"
+                        onChange={(e: SyntheticEvent<EventTarget>) =>
+                            update(e, ActionType.SET_PENSJON_UTLAND_BRUTTOBELOP)
                         }
-                    >
-                        <Input
-                            value={state.annenStonadBeskrivelse}
-                            label="Hva slags stønad/pensjon?"
-                            onChange={(e: SyntheticEvent<EventTarget>) =>
-                                update(e, ActionType.SET_ANNEN_STONAD_BESKRIVELSE)
-                            }
-                        />
-                    </ToValgRadio>
-
-                    <ToValgRadio
-                        checked={state.mottarPensjonFraUtlandet}
-                        label={"Mottar du pensjon fra utlandet?"}
-                        onChange={(valgtSvar) =>
-                            dispatch({ type: ActionType.SET_MOTTAR_PENSJON_UTLAND, payload: valgtSvar })
-                        }
-                    >
-                        <Input
-                            value={state.pensjonUtlandBeskrivelse}
-                            label="Hvis ja, hva slags pensjon og fra hvilket land?"
-                            onChange={(e: SyntheticEvent<EventTarget>) =>
-                                update(e, ActionType.SET_PENSJON_UTLAND_BESKRIVELSE)
-                            }
-                        />
-
-                        <Input
-                            value={state.pensjonUtlandBruttobelop}
-                            label="Bruttobeløp pr. år i landets valuta, oppgi landets valuta"
-                            onChange={(e: SyntheticEvent<EventTarget>) =>
-                                update(e, ActionType.SET_PENSJON_UTLAND_BRUTTOBELOP)
-                            }
-                        />
-                    </ToValgRadio>
-                </SkjemaGruppe>
-            </Panel>
-
-            <Panel>
-                <Knapp onClick={forrige}>Tilbake</Knapp>
-                <Hovedknapp onClick={neste}>Neste</Hovedknapp>
-            </Panel>
-        </div>
+                    />
+                </ToValgRadio>
+            </SkjemaGruppe>
+        </>
     );
 };
 

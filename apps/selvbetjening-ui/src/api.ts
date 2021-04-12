@@ -9,6 +9,21 @@ export const hentInnloggetPerson = () => {
     return api
         .get("/person/innlogget")
         .then((response) => {
+            console.log(response);
+
+            return response.data;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
+
+export const sendSoeknad = (soeknad: object) => {
+    return api
+        .post("/api/soknad", soeknad)
+        .then((response) => {
+            console.log(response);
+
             return response.data;
         })
         .catch((error) => {

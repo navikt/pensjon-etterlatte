@@ -1,15 +1,13 @@
 import React from "react";
 import "../../../App.less";
-import { Panel } from "nav-frontend-paneler";
 import { Input, RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { useArbeidsforholdContext } from "../../../context/arbeidsforhold/ArbeidsforholdContext";
 import { ArbeidsforholdActionTypes } from "../../../context/arbeidsforhold/arbeidsforhold";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import Datovelger from "../../felles/Datovelger";
 
-const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
+const NavaerendeArbeidsforhold: SoknadSteg = () => {
     const { state, dispatch } = useArbeidsforholdContext();
 
     const update = (target: any, type: ArbeidsforholdActionTypes) => {
@@ -17,7 +15,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
     };
 
     return (
-        <Panel>
+        <>
             {/* Steg 6 */}
             {/* TODO: I arbeid eller student? */}
             {/* TODO: Hvis student, ikke vise dette skjemaet */}
@@ -111,10 +109,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                     onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_PERSONINNTEKT)}
                 />
             </SkjemaGruppe>
-
-            <Knapp onClick={forrige}>Tilbake</Knapp>
-            <Hovedknapp onClick={neste}>Neste</Hovedknapp>
-        </Panel>
+        </>
     );
 };
 

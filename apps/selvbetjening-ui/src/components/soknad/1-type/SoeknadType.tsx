@@ -1,26 +1,26 @@
 import "../../../App.less";
-import { Panel } from "nav-frontend-paneler";
 import { CheckboksPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import "react-datepicker/dist/react-datepicker.css";
 import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
-import { Hovedknapp } from "nav-frontend-knapper";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { SoeknadActionTypes } from "../../../context/soknad/soknad";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import Datovelger from "../../felles/Datovelger";
 
-const SoeknadType: SoknadSteg = ({ neste }) => {
+const SoeknadType: SoknadSteg = () => {
     const { state, dispatch } = useSoknadContext();
+
+    const { fraDato, valgteStoenader } = state;
 
     const oppdaterValgtStoenad = (e: any) => {
         dispatch({ type: SoeknadActionTypes.VELG_STOENAD, payload: (e.target as HTMLInputElement).name });
     };
 
-    const stoenadMedBeskjed = state.valgteStoenader.find((e) => e.beskjed && e.checked);
+    const stoenadMedBeskjed = valgteStoenader.find((e) => e.beskjed && e.checked);
 
     return (
-        <Panel>
+        <>
             {/* Steg 1 */}
 
             {/* Dette kan kanskje være forsiden? Brukeren velger hvilken type søknad, og vi viser deretter nødvendige felter? */}
@@ -33,7 +33,7 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
                 <CheckboksPanelGruppe
                     // feil={state.error?.stønadMangler}
                     // name={'type'}
-                    checkboxes={state.valgteStoenader.map((el, index) => {
+                    checkboxes={valgteStoenader.map((el, index) => {
                         return {
                             label: el.label,
                             checked: el.checked,
@@ -73,7 +73,7 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
                     {/* TODO: Skal være fra måneden etter dødsfallet */}
                     <Datovelger
                         label={"Fra dato"}
-                        valgtDato={state.fraDato}
+                        valgtDato={fraDato}
                         onChange={(dato) => dispatch({ type: SoeknadActionTypes.SETT_FRA_DATO, payload: dato })}
                     />
                 </SkjemaGruppe>
@@ -86,14 +86,7 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
                     kalendermåned da kravet blir satt fram.
                 </AlertStripe>
             </section>
-
-            <section className={"center"}>
-                <p>Du må svare på alle spørsmålene før du kan gå videre til neste steg</p>
-
-                {/* TODO: Låse neste-knappen inntil alt er "utfylt". */}
-                <Hovedknapp onClick={neste}>Neste</Hovedknapp>
-            </section>
-        </Panel>
+        </>
     );
 };
 
