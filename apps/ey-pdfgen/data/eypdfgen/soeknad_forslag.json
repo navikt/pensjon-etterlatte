@@ -1,0 +1,47 @@
+{
+  "hvaSoekerDu": {
+    "etterlattepensjon": true,
+    "gjenlevendetillegg": false,
+    "barnepensjon": false,
+    "barnetilsyn": false,
+    "skolepenger": false,
+    "fraDato": "01-01-2022"
+  },
+  "opplysningerOmSoekeren": {},
+  "opplysningerOmDenAvdoede": {},
+  "opplysningerOmBarn": [
+    {
+      "navn": "Barn Barnesen",
+      "fnr": "01010155555",
+      "opphav": "Fellesbarn m/avdøde",
+      "bosattUtland": "Nei",
+      "statsborgerskapOgLand": null
+    }
+  ],
+  "opplysningerOmTidligereArbeidsforhold": [
+    {
+      "skolerUtoverGrunnskoleOsv": "Kurs i pomfrittsteiking",
+      "varighet": "2 måneder"
+    }
+  ],
+  "soekersNaavaerendeArbeidsforhold":{
+    "yrke": "Frityrbransjen",
+    "stilling": "Potetsjef",
+    "startdato": "01-04-1984",
+    "fremtidigSluttdato": null,
+    "typeArbeidsforhold": "Fast",
+    "heltidEllerDeltid": "Heltid",
+    "stillingsprosent": null,
+    "arbeidsgiversNavn": "Kims Pomfrittkiosk",
+    "arbeidsgiversAdresse": "Pomfrittveien 13, 0475 Oslo",
+    "bruttoInntektMd": 15000,
+    "personinntektFraNaeringPrAar": 200000
+  },
+  "opplysningerOmAndreYtelser": {
+    "mottarYtelser": "Nei",
+    "kravAnnenStoenadEllerPensjon": {
+      "svar": "Ja",
+      "beskrivelse": ""
+    }
+  }
+}
