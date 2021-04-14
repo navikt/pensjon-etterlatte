@@ -26,7 +26,7 @@ const OpplysningerOmBarn: SoknadSteg = () => {
         etternavn: "",
         foedselsnummer: "",
         foreldre: "",
-        bosattUtland: "",
+        bosattUtland: undefined,
         statsborgerskap: "",
         land: "",
     };

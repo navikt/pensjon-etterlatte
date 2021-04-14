@@ -1,9 +1,11 @@
+import { IValg } from "./ISpoersmaal";
+
 export interface IBarn {
     fornavn?: string;
     etternavn?: string;
     foedselsnummer?: string;
     foreldre?: string;
-    bosattUtland?: string;
+    bosattUtland?: IValg;
     statsborgerskap?: string;
     land?: string;
 }
@@ -18,8 +20,8 @@ export interface IPerson {
 }
 
 export interface IKontaktinfo {
-    boadresseBekreftet?: string;
-    oppholderSegINorge?: string;
+    boadresseBekreftet?: IValg;
+    oppholderSegINorge?: IValg;
     telefonnummer?: string;
     epost?: string;
 }

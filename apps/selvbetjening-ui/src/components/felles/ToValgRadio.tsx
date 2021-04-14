@@ -1,17 +1,13 @@
 import React, { FC } from "react";
 import { RadioPanelGruppe } from "nav-frontend-skjema";
+import { IValg } from "../../typer/ISpoersmaal";
 
 interface Props {
     label: string;
-    checked?: string;
+    checked?: IValg;
     invert?: boolean; // Trigger på NEI i stedet
-    onChange: (valgtSvar: string) => void;
+    onChange: (valgtSvar: IValg) => void;
     children?: React.ReactNode | React.ReactChild | React.ReactChildren;
-}
-
-enum IValg {
-    JA = "Ja",
-    NEI = "Nei",
 }
 
 const ToValgRadio: FC<Props> = ({ label, checked, invert, onChange, children }) => {
@@ -26,7 +22,7 @@ const ToValgRadio: FC<Props> = ({ label, checked, invert, onChange, children }) 
                     { label: IValg.NEI, value: IValg.NEI },
                 ]}
                 checked={checked}
-                onChange={(e) => onChange((e.target as HTMLInputElement).value)}
+                onChange={(e) => onChange((e.target as HTMLInputElement).value as IValg)}
             />
             {invert && checked === IValg.NEI && <>{children}</>}
             {!invert && checked === IValg.JA && <>{children}</>}

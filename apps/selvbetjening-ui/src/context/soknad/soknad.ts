@@ -1,13 +1,14 @@
 import { IPerson, IKontaktinfo, IBarn } from "../../typer/IPerson";
+import { IValg } from "../../typer/ISpoersmaal";
 
 export interface IAndreYtelser {
-    mottarAndreYtelser: string;
+    mottarAndreYtelser?: IValg;
     kravOmAnnenStonad: {
-        svar: string;
+        svar?: IValg;
         beskrivelseAvStoenad?: string;
     };
     mottarPensjonUtland: {
-        svar: string;
+        svar?: IValg;
         hvaSlagsPensjon?: string;
         fraHvilketLand?: string;
         bruttobeloepPrAar?: string;
@@ -30,9 +31,9 @@ export interface IStoenadType {
 
 export interface ISoeknad {
     fraDato: Date | null;
-    stoenadType: IStoenadType | null;
+    stoenadType: IStoenadType;
     soeker: IPerson | null;
-    kontaktinfo?: IKontaktinfo | null;
+    kontaktinfo?: IKontaktinfo;
     avdod: null; // TODO: 3 Opplysninger om den avdøde
     opplysningerOmBarn: IBarn[]; // 4 Opplysninger om barn
     tidligereArbeidsforhold: IArbeidsforholdElement[]; // 5 Opplysninger om tidligere arbeidsforhold

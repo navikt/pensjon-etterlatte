@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../../App.less";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
@@ -13,13 +13,13 @@ const AndreYtelser: SoknadSteg = () => {
     const { andreYtelser } = state;
 
     const initialState: IAndreYtelser = andreYtelser || {
-        mottarAndreYtelser: "",
+        mottarAndreYtelser: undefined,
         kravOmAnnenStonad: {
-            svar: "",
+            svar: undefined,
             beskrivelseAvStoenad: "",
         },
         mottarPensjonUtland: {
-            svar: "",
+            svar: undefined,
             hvaSlagsPensjon: "",
             fraHvilketLand: "",
             bruttobeloepPrAar: "",
@@ -29,14 +29,16 @@ const AndreYtelser: SoknadSteg = () => {
 
     const [ytelser, setYtelser] = useState(initialState);
 
-    const updateState = () => dispatch({ type: SoeknadActionTypes.OPPDATER_ANDRE_YTELSER, payload: ytelser });
+    useEffect(() => {
+        dispatch({ type: SoeknadActionTypes.OPPDATER_ANDRE_YTELSER, payload: ytelser });
+    }, [ytelser, dispatch]);
 
     return (
         <>
             {/* Steg 7 */}
             <Systemtittel>7 Opplysninger om andre ytelser</Systemtittel>
 
-            <SkjemaGruppe onBlur={updateState}>
+            <SkjemaGruppe>
                 <ToValgRadio
                     checked={ytelser.mottarAndreYtelser}
                     label={

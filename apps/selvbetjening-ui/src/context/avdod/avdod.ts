@@ -1,17 +1,19 @@
+import { IValg } from "../../typer/ISpoersmaal";
+
 export interface IAvdod {
     fornavn: string;
     etternavn: string;
     fnr: string;
     doedsdato: Date | null;
     statsborgerskap: string;
-    bosetning: string;
-    doedsfallAarsak: string;
-    boddEllerJobbetUtland: string;
-    haddePensjonsgivendeInntekt: string;
+    bosetning?: IValg;
+    doedsfallAarsak?: IValg;
+    boddEllerJobbetUtland?: IValg;
+    haddePensjonsgivendeInntekt?: IValg;
     pensjonsgivendeInntektSvar: string;
-    haddePensjonAndreLand: string;
+    haddePensjonAndreLand?: IValg;
     pensjonAndreLandSvar: string;
-    harAvtjentMilitaerTjeneste: string;
+    harAvtjentMilitaerTjeneste?: IValg;
     avtjentMilitaerTjenesteSvar: string;
 }
 
