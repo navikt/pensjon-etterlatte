@@ -1,20 +1,20 @@
-@import "../../../App.less";
-
-.barnekort-wrapper {
+.infokort-wrapper {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     margin: 0 auto;
-    width: 620px;
+    column-gap: 1rem;
 
-    .barnekort {
+    .infokort {
         .typo-normal,
         .typo-element {
             font-size: 18px;
         }
-        margin: 0 1rem 1rem 0;
-        width: 276px;
         background-color: #e7e9e9;
+        flex: auto;
+
+        margin-bottom: 1rem;
+        max-width: 50%;
 
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
@@ -36,6 +36,13 @@
                 display: block;
                 margin: 0 auto;
             }
+            &.gjennomsiktig {
+                opacity: 0.4;
+            }
+        }
+
+        .infokort-knapper {
+            float: right;
         }
 
         &__informasjonsboks {
@@ -52,19 +59,15 @@
             }
         }
 
-        &__endre-barnekort {
+        &__endre-infokort {
             border: none;
             text-align: left;
             padding: inherit;
         }
 
-        .legg-til-barn-kort {
-            border-radius: 5px;
-            height: 200px;
-
-            .typo-element {
-                padding-bottom: 2rem;
-            }
+        &__fullbredde {
+            width: 100%;
+            max-width: 100%;
         }
     }
 }

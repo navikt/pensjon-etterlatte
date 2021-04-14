@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import "./OpplysningerOmBarn.less";
+import "../../../App.less";
+import "../../felles/Infokort.less";
 import ikon from "../../../assets/barn1.svg";
-import { Input, RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
-import { Knapp } from "nav-frontend-knapper";
+import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import ToValgRadio from "../../felles/ToValgRadio";
 import { default as Modal } from "nav-frontend-modal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IBarn } from "../../../typer/IPerson";
 import { SoeknadActionTypes } from "../../../context/soknad/soknad";
+import TekstInput from "../../felles/TekstInput";
 
 Modal.setAppElement("#root");
 
@@ -25,14 +27,25 @@ const OpplysningerOmBarn: SoknadSteg = () => {
         foedselsnummer: "",
         foreldre: "",
         bosattUtland: "",
-        statsborgerskapOgLand: "",
+        statsborgerskap: "",
+        land: "",
     };
 
     const [barn, setBarn] = useState(tomtElement);
 
-    const leggTilBarn = () => {
-        dispatch({ type: SoeknadActionTypes.LEGG_TIL_BARN, payload: barn });
+    const leggTilOgLukk = () => {
+        leggTil();
+        setIsOpen(false);
+        setBarn(tomtElement);
+    };
 
+    const leggTil = () => {
+        dispatch({ type: SoeknadActionTypes.LEGG_TIL_BARN, payload: barn });
+        setBarn(tomtElement);
+    };
+
+    const lukkModalvindu = () => {
+        setIsOpen(false);
         setBarn(tomtElement);
     };
 
@@ -41,14 +54,14 @@ const OpplysningerOmBarn: SoknadSteg = () => {
             {/* Steg 4 */}
             <Systemtittel>4 Opplysninger om barn</Systemtittel>
 
-            <div className={"barnekort-wrapper"}>
+            <div className={"infokort-wrapper"}>
                 {state.opplysningerOmBarn?.map((barn) => {
                     return (
-                        <div className={"barnekort"} key={barn.foedselsnummer}>
-                            <div className={"barnekort__header"}>
+                        <div className={"infokort"} key={barn.foedselsnummer}>
+                            <div className={"infokort__header"}>
                                 <img alt="barn" className="barneikon" src={ikon} />
                             </div>
-                            <div className={"barnekort__informasjonsboks"}>
+                            <div className={"infokort__informasjonsboks"}>
                                 <div className={"informasjonsboks-innhold"}>
                                     <Undertittel tag="h3">
                                         {barn.fornavn} {barn.etternavn}
@@ -63,36 +76,45 @@ const OpplysningerOmBarn: SoknadSteg = () => {
                         </div>
                     );
                 })}
+
+                <div className={"infokort"}>
+                    <div className={"infokort__header gjennomsiktig"}>
+                        <img alt="barn" className="barneikon" src={ikon} />
+                    </div>
+                    <div className={"infokort__informasjonsboks"}>
+                        <div className={"informasjonsboks-innhold"}>
+                            <Knapp onClick={() => setIsOpen(true)}>+ Legg til barn</Knapp>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <br />
-            <Knapp onClick={() => setIsOpen(true)}>+ Legg til barn</Knapp>
             <Modal
                 isOpen={isOpen}
-                onRequestClose={() => setIsOpen(false)}
+                onRequestClose={lukkModalvindu}
                 closeButton={true}
-                contentLabel="Min modalrute"
+                contentLabel="Modalvindu - Opplysninger om barn"
             >
                 <div style={{ padding: "2rem 2.5rem" }}>
                     <SkjemaGruppe>
                         {/* sjekkboks for INGEN BARN */}
 
-                        <Input
+                        <TekstInput
                             label="Fornavn"
                             value={barn.fornavn}
-                            onChange={(e) => setBarn({ ...barn, fornavn: (e.target as HTMLInputElement).value })}
+                            onChange={(fornavn) => setBarn({ ...barn, fornavn })}
                         />
 
-                        <Input
+                        <TekstInput
                             label="Etternavn"
                             value={barn.etternavn}
-                            onChange={(e) => setBarn({ ...barn, etternavn: (e.target as HTMLInputElement).value })}
+                            onChange={(etternavn) => setBarn({ ...barn, etternavn })}
                         />
 
-                        <Input
+                        <TekstInput
                             label="Fødselsnummer (11 siffer)"
                             value={barn.foedselsnummer}
-                            onChange={(e) => setBarn({ ...barn, foedselsnummer: (e.target as HTMLInputElement).value })}
+                            onChange={(foedselsnummer) => setBarn({ ...barn, foedselsnummer })}
                         />
 
                         <RadioPanelGruppe
@@ -111,19 +133,33 @@ const OpplysningerOmBarn: SoknadSteg = () => {
                             label={"Bor barnet i utlandet?"}
                             onChange={(valgtSvar) => setBarn({ ...barn, bosattUtland: valgtSvar })}
                         >
-                            <Input
-                                label="Hvis ja, oppgi statsborgerskap og land."
-                                value={barn.statsborgerskapOgLand}
-                                onChange={(e) =>
+                            <TekstInput
+                                label="Statsborgerskap"
+                                value={barn.statsborgerskap}
+                                onChange={(statsborgerskap) =>
                                     setBarn({
                                         ...barn,
-                                        statsborgerskapOgLand: (e.target as HTMLInputElement).value,
+                                        statsborgerskap,
+                                    })
+                                }
+                            />
+
+                            <TekstInput
+                                label="Land"
+                                value={barn.land}
+                                onChange={(land) =>
+                                    setBarn({
+                                        ...barn,
+                                        land,
                                     })
                                 }
                             />
                         </ToValgRadio>
 
-                        <Knapp onClick={leggTilBarn}>Legg til</Knapp>
+                        <section className={"navigasjon-rad"}>
+                            <Knapp onClick={leggTilOgLukk}>Legg til og lukk</Knapp>
+                            <Hovedknapp onClick={leggTil}>Legg til</Hovedknapp>
+                        </section>
                     </SkjemaGruppe>
                 </div>
             </Modal>

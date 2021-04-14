@@ -1,13 +1,14 @@
-import React, { FC, useEffect } from "react";
+import { FC, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { Label } from "nav-frontend-skjema";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
+import { parseISO } from "date-fns";
 import nb from "date-fns/locale/nb";
 import { v4 as uuid } from "uuid";
 
 interface Props {
-    label: React.ReactNode;
-    valgtDato: Date | null;
+    label: string;
+    valgtDato: Date | string | null;
     onChange: (dato: Date) => void;
 }
 
@@ -19,21 +20,28 @@ const Datovelger: FC<Props> = ({ label, valgtDato, onChange }) => {
         setDefaultLocale("nb");
     }, []);
 
+    let dato: Date | null;
+    if (typeof valgtDato === "string") {
+        dato = parseISO(valgtDato);
+    } else {
+        dato = valgtDato;
+    }
+
     const name = uuid();
 
     return (
-        <div className={"skjemaelement"}>
+        <section className={"skjemaelement"}>
             <Label htmlFor={name}>{label}</Label>
 
             <DatePicker
                 name={name}
                 className={"skjemaelement__input input--fullbredde"}
-                selected={valgtDato}
+                selected={dato}
                 dateFormat={"dd.MM.yy"}
                 placeholderText={"dd.mm.åå"}
                 onChange={onChange}
             />
-        </div>
+        </section>
     );
 };
 

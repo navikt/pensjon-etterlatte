@@ -30,36 +30,41 @@ const OmDenAvdode: SoknadSteg = () => {
         <>
             {/* Steg 3 */}
             <Systemtittel>3 Opplysninger om den avdøde</Systemtittel>
-            <br />
 
             <SkjemaGruppe>
                 {/* 3.1 */}
-                <Input
-                    label="Fornavn"
-                    value={state.fornavn}
-                    onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_FORNAVN, e)}
-                />
+                <section>
+                    <Input
+                        label="Fornavn"
+                        value={state.fornavn}
+                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_FORNAVN, e)}
+                    />
+                </section>
 
-                <Input
-                    label="Etternavn"
-                    value={state.etternavn}
-                    onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_ETTERNAVN, e)}
-                />
+                <section>
+                    <Input
+                        label="Etternavn"
+                        value={state.etternavn}
+                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_ETTERNAVN, e)}
+                    />
+                </section>
 
                 {/* 3.2 */}
-                <FnrInput
-                    label="Fødselsnummer (11 siffer)"
-                    value={state.fnr}
-                    type={"tel"}
-                    maxLength={11}
-                    onChange={oppdaterFnr}
-                    onValidate={
-                        (valid) => {
-                            console.log(`is valid: ${valid}`);
-                        } /*setValid(val)*/
-                    }
-                    // feil={ ? "Ugyldig fødselsnummer" : undefined}
-                />
+                <section>
+                    <FnrInput
+                        label="Fødselsnummer (11 siffer)"
+                        value={state.fnr}
+                        type={"tel"}
+                        maxLength={11}
+                        onChange={oppdaterFnr}
+                        onValidate={
+                            (valid) => {
+                                console.log(`is valid: ${valid}`);
+                            } /*setValid(val)*/
+                        }
+                        // feil={ ? "Ugyldig fødselsnummer" : undefined}
+                    />
+                </section>
 
                 {/* 3.3 */}
                 <Datovelger
@@ -69,22 +74,21 @@ const OmDenAvdode: SoknadSteg = () => {
                 />
 
                 {/* 3.4 */}
-                <Input
-                    label="Statsborgerskap"
-                    value={state.statsborgerskap}
-                    onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_STATSBORGERSKAP, e)}
-                />
+                <section>
+                    <Input
+                        label="Statsborgerskap"
+                        value={state.statsborgerskap}
+                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_STATSBORGERSKAP, e)}
+                    />
+                </section>
 
                 {/* 3.5 fjernes. Ikke lenger gyldig. */}
-                <br />
-                <br />
                 {/* 3.6 */}
                 <ToValgRadio
                     checked={state.bosetning}
                     label={"Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?"}
                     onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_BOSETNING, valgtSvar)}
                 />
-                <br />
 
                 {/* 3.7 */}
                 <ToValgRadio
@@ -93,7 +97,6 @@ const OmDenAvdode: SoknadSteg = () => {
                     label={"Kan dødesfallet være en følge av yrkesskade/yrkessykdom?"}
                     onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_DODSFALL_ARSAK, valgtSvar)}
                 />
-                <br />
 
                 {/* 3.8 */}
                 <ToValgRadio
@@ -103,7 +106,6 @@ const OmDenAvdode: SoknadSteg = () => {
                     onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND, valgtSvar)}
                 />
                 {/* 3.9 Info om arbeidsforhold og inntekt hvis JA over */}
-                <br />
 
                 {/* 3.10 */}
                 <ToValgRadio
@@ -122,7 +124,6 @@ const OmDenAvdode: SoknadSteg = () => {
                         }
                     />
                 </ToValgRadio>
-                <br />
 
                 {/* 3.11 Samme som over ?! */}
 
@@ -139,7 +140,6 @@ const OmDenAvdode: SoknadSteg = () => {
                         onChange={(valgtSvar) => oppdaterInput(ActionType.SET_AVDOD_PENSJON_ANDRE_LAND_SVAR, valgtSvar)}
                     />
                 </ToValgRadio>
-                <br />
 
                 {/* 3.13 */}
                 <ToValgRadio
@@ -157,7 +157,6 @@ const OmDenAvdode: SoknadSteg = () => {
                     />
                 </ToValgRadio>
             </SkjemaGruppe>
-            <br />
         </>
     );
 };

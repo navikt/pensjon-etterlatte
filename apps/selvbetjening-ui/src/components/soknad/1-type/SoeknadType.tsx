@@ -1,23 +1,33 @@
 import "../../../App.less";
-import { CheckboksPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 import "react-datepicker/dist/react-datepicker.css";
 import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { IStoenadType, SoeknadActionTypes } from "../../../context/soknad/soknad";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import Datovelger from "../../felles/Datovelger";
+import * as React from "react";
+import { useEffect, useState } from "react";
+import Sjekkboks from "../../felles/Sjekkboks";
 
 const SoeknadType: SoknadSteg = () => {
     const { state, dispatch } = useSoknadContext();
+    const { fraDato, stoenadType } = state;
 
-    const { fraDato, valgteStoenader } = state;
-
-    const oppdaterValgtStoenad = (e: any) => {
-        dispatch({ type: SoeknadActionTypes.VELG_STOENAD, payload: (e.target as HTMLInputElement).name });
+    const initialState: IStoenadType = stoenadType || {
+        etterlatte: false,
+        gjenlevendetillegg: false,
+        barnepensjon: false,
+        barnetilsyn: false,
+        skolepenger: false,
     };
 
-    const stoenadMedBeskjed = valgteStoenader.find((e) => e.beskjed && e.checked);
+    const [stoenader, setStoenader] = useState(initialState);
+
+    useEffect(() => {
+        dispatch({ type: SoeknadActionTypes.OPPDATER_VALGTE_STOENADER, payload: stoenader });
+    }, [stoenader, dispatch]);
 
     return (
         <>
@@ -30,25 +40,42 @@ const SoeknadType: SoknadSteg = () => {
             </section>
 
             <section>
-                <CheckboksPanelGruppe
-                    // feil={state.error?.stønadMangler}
-                    // name={'type'}
-                    checkboxes={valgteStoenader.map((el, index) => {
-                        return {
-                            label: el.label,
-                            checked: el.checked,
-                            name: `${index}`,
-                        };
-                    })}
-                    // checked={type}
-                    onChange={oppdaterValgtStoenad}
-                />
+                <SkjemaGruppe className={"inputPanelGruppe"}>
+                    <Sjekkboks
+                        label={"Pensjon-/overgangsstønad"}
+                        checked={stoenader.etterlatte}
+                        onChange={(etterlatte) => {
+                            console.log("oppdater sjekkboks");
+                            setStoenader({ ...stoenader, etterlatte });
+                        }}
+                    />
+                    <Sjekkboks
+                        label={"Gjenlevendetillegg i uføretrygden"}
+                        checked={stoenader.gjenlevendetillegg}
+                        onChange={(gjenlevendetillegg) => setStoenader({ ...stoenader, gjenlevendetillegg })}
+                    />
+                    <Sjekkboks
+                        label={"Barnepensjon"}
+                        checked={stoenader.barnepensjon}
+                        onChange={(barnepensjon) => setStoenader({ ...stoenader, barnepensjon })}
+                    />
+                    <Sjekkboks
+                        label={"Stønad til barnetilsyn pga. arbeid"}
+                        checked={stoenader.barnetilsyn}
+                        onChange={(barnetilsyn) => setStoenader({ ...stoenader, barnetilsyn })}
+                    />
+                    <Sjekkboks
+                        label={"Stønad til skolepenger"}
+                        checked={stoenader.skolepenger}
+                        onChange={(skolepenger) => setStoenader({ ...stoenader, skolepenger })}
+                    />
+                </SkjemaGruppe>
             </section>
 
             {/*
-                    TODO: Lenke til skjemaer
+                TODO: Lenke til skjemaer
 
-                    Heter nå 17-09.01
+                Heter nå 17-09.01
 
                 https://www.nav.no/soknader/nb/person/pensjon/gjenlevende-ektefelle-partner-eller-samboer#NAV151201
 
@@ -60,25 +87,25 @@ const SoeknadType: SoknadSteg = () => {
                 Stønad til skolepenger. Du kan ha rett til stønad til skolepenger ved nødvendig og hensiktsmessig
                 utdanning. (NAV 17-09.01).
 
-                */}
+            */}
 
-            {stoenadMedBeskjed && (
+            {(stoenader.barnetilsyn || stoenader.skolepenger) && (
                 <section>
-                    <AlertStripe type="info">{stoenadMedBeskjed.beskjed}</AlertStripe>
+                    <AlertStripe type="info">
+                        Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV
+                        ta kontakt.
+                    </AlertStripe>
                 </section>
             )}
 
             <section>
                 <SkjemaGruppe>
-                    {/* TODO: Skal være fra måneden etter dødsfallet */}
                     <Datovelger
                         label={"Fra dato"}
                         valgtDato={fraDato}
                         onChange={(dato) => dispatch({ type: SoeknadActionTypes.SETT_FRA_DATO, payload: dato })}
                     />
                 </SkjemaGruppe>
-
-                <br />
 
                 <AlertStripe type="info">
                     <strong>Etterbetaling:</strong> Ytelser gis som regel ikke for lengre tid tilbake enn tre måneder

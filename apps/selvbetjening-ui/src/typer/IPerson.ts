@@ -4,7 +4,8 @@ export interface IBarn {
     foedselsnummer?: string;
     foreldre?: string;
     bosattUtland?: string;
-    statsborgerskapOgLand?: string;
+    statsborgerskap?: string;
+    land?: string;
 }
 
 export interface IPerson {

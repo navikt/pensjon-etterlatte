@@ -1443,6 +1443,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@navikt/ds-icons@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-0.2.1.tgz#ac3822fc70c0dce656a54f3040de53d05547cc4f"
+  integrity sha512-AYIlCVLcJpH+IJKhr2nZUEOcCcKYL+LgwZuWP2fnR/y00Tw2y4ccCM/bs+h5r5VlB7GOVyzIVBSyesdDhdbwQQ==
+
 "@navikt/fnrvalidator@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@navikt/fnrvalidator/-/fnrvalidator-1.1.3.tgz#1bd136977a708120b6069276b0069b2a9cc9ae73"
@@ -8043,6 +8048,11 @@ nav-frontend-ikoner-assets@^2.0.10, nav-frontend-ikoner-assets@^2.0.7:
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/nav-frontend-ikoner-assets/-/nav-frontend-ikoner-assets-2.0.10.tgz#8525d171ce81c9444f904374057cd77d98bae82d"
   integrity sha512-n/2qIk29rRkR8OZwZBnSIWRKdC25t/8lAhZXEvFZrqmjAC+U4xHHj5+VlCoN5O5VIzq4xtck1Flwj7mJehAj7g==
+
+nav-frontend-ikonknapper@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/nav-frontend-ikonknapper/-/nav-frontend-ikonknapper-1.1.1.tgz#410634e5dbf2313441698f6a88f890f967aca4eb"
+  integrity sha512-X3Y4nN1E6hyXan4feu2KpHIAsQkq03yjJ81aSb6OF2wJZL5JHYIak8e++jIyAXn2y5U2nhUrLWhJM3wVj44hvg==
 
 nav-frontend-js-utils@^1.0.13:
   version "1.0.17"

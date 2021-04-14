@@ -1,41 +1,20 @@
 import { createContext, FC, useContext, useReducer } from "react";
 import { ISoeknad, ISoeknadAction, SoeknadActionTypes, SoeknadProps } from "./soknad";
 
-// const storedState = JSON.parse(localStorage.getItem("etterlatte-store"));
+const STORAGE_KEY = "etterlatte-store";
 
-const initialState: ISoeknad = {
-    spraak: "",
+const json = localStorage.getItem(STORAGE_KEY);
+const storedState = json ? JSON.parse(json) : null;
+
+const initialState: ISoeknad = storedState || {
     fraDato: null,
-    bekreftet: false,
-    valgteStoenader: [
-        {
-            label: "Pensjon-/overgangsstønad",
-            checked: false,
-        },
-        {
-            label: "Gjenlevendetillegg i uføretrygden",
-            checked: false,
-        },
-        {
-            label: "Barnepensjon",
-            checked: false,
-        },
-        {
-            label: "Stønad til barnetilsyn pga. arbeid",
-            checked: false,
-            beskjed:
-                "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt.",
-        },
-        {
-            label: "Stønad til skolepenger",
-            checked: false,
-            beskjed:
-                "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt.",
-        },
-    ],
+    stoenadType: null,
     soeker: null,
-    kontaktinfo: undefined,
+    kontaktinfo: null,
     opplysningerOmBarn: [],
+    tidligereArbeidsforhold: [],
+    naavaerendeArbeidsforhold: null,
+    andreYtelser: null,
 };
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
@@ -44,10 +23,6 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
             return { ...state, soeker: action.payload };
         case SoeknadActionTypes.SETT_FRA_DATO:
             return { ...state, fraDato: action.payload };
-        case SoeknadActionTypes.VELG_SPRAAK:
-            return { ...state, spraak: action.payload };
-        case SoeknadActionTypes.SETT_BEKREFTET:
-            return { ...state, bekreftet: action.payload };
         case SoeknadActionTypes.BEKREFT_BOADRESSE:
             return { ...state, kontaktinfo: { ...state.kontaktinfo, boadresseBekreftet: action.payload } };
         case SoeknadActionTypes.OPPHOLD_NORGE:
@@ -56,15 +31,8 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
             return { ...state, kontaktinfo: { ...state.kontaktinfo, telefonnummer: action.payload } };
         case SoeknadActionTypes.SETT_EPOST:
             return { ...state, kontaktinfo: { ...state.kontaktinfo, epost: action.payload } };
-        case SoeknadActionTypes.VELG_STOENAD: {
-            const index = action.payload;
-            const oppdatertListe = [...state.valgteStoenader];
-
-            let element = { ...oppdatertListe[index] };
-            element.checked = !element.checked;
-            oppdatertListe[index] = element;
-
-            return { ...state, valgteStoenader: oppdatertListe };
+        case SoeknadActionTypes.OPPDATER_VALGTE_STOENADER: {
+            return { ...state, stoenadType: action.payload };
         }
         case SoeknadActionTypes.LEGG_TIL_BARN: {
             const { opplysningerOmBarn } = state;
@@ -72,6 +40,21 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
             opplysningerOmBarn.push(action.payload);
 
             return { ...state, opplysningerOmBarn };
+        }
+        case SoeknadActionTypes.LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD: {
+            return { ...state, tidligereArbeidsforhold: [...state.tidligereArbeidsforhold, action.payload] };
+        }
+        case SoeknadActionTypes.FJERN_TIDLIGERE_ARBEIDSFORHOLD: {
+            const indexToDelete: number = action.payload;
+
+            const tidligereArbeidsforhold = [
+                ...state.tidligereArbeidsforhold.filter((_: any, index: number) => index !== indexToDelete),
+            ];
+
+            return { ...state, tidligereArbeidsforhold };
+        }
+        case SoeknadActionTypes.OPPDATER_ANDRE_YTELSER: {
+            return { ...state, andreYtelser: action.payload };
         }
         default:
             return state;
@@ -88,7 +71,7 @@ const useSoknadContext = () => useContext(SoknadContext);
 const SoknadProvider: FC = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    // localStorage.setItem('etterlatte-store', JSON.stringify(state))
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 
     return <SoknadContext.Provider value={{ state, dispatch }}>{children}</SoknadContext.Provider>;
 };
