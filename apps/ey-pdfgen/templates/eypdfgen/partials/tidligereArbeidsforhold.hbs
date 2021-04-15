@@ -1,0 +1,24 @@
+<table>
+    <thead>
+    <tr>
+        <td class="tr50"><h4>Tidligere arbeidsforhold</h4></td>
+        <td></td>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#with tidligereArbeidsforhold}}
+        {{#each tidligereArbeidsforhold}}
+            <tr>
+                <td>Beskrivelse:</td>
+                <td>{{this.beskrivelse}}
+                </td>
+            </tr>
+            <tr>
+                <td>Varighet:</td>
+                <td>{{this.varighet}}</td>
+            </tr>
+        {{/each}}
+    {{/with}}
+    </tbody>
+</table>

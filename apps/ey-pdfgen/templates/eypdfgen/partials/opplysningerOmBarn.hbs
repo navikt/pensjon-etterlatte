@@ -1,0 +1,43 @@
+<table>
+    <thead>
+    <tr>
+        <td class="tr50"><h4>Opplysninger om barn</h4></td>
+        <td></td>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#with opplysningerOmBarn}}
+        {{#each opplysningerOmBarn}}
+            <tr>
+                <td>Fornavn:</td>
+                <td>{{this.fornavn}}</td>
+            </tr>
+            <tr>
+                <td>Etternavn:</td>
+                <td>{{this.etternavn}}</td>
+            </tr>
+            <tr>
+                <td>Fødselsnummer:</td>
+                <td>{{this.fødselsnummer}}</td>
+            </tr>
+            <tr>
+                <td>Foreldre:</td>
+                <td>{{this.foreldre}}</td>
+            </tr>
+            <tr>
+                <td>Bosatt utland:</td>
+                <td>{{this.bosattUtland}}</td>
+            </tr>
+            <tr>
+                <td>Statsborgerskap:</td>
+                <td>{{this.statsborgerskap}}</td>
+            </tr>
+            <tr>
+                <td>Land:</td>
+                <td>{{this.land}}</td>
+            </tr>
+        {{/each}}
+    {{/with}}
+    </tbody>
+</table>

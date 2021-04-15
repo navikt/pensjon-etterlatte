@@ -1,0 +1,49 @@
+<table>
+    <thead>
+    <tr>
+        <td class="tr50"><h4>Fra dato</h4></td>
+        <td></td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>Fra dato:</td>
+        <td>{{fraDato}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+    <tr>
+        <td class="tr50"><h4>Stønadstype</h4></td>
+        <td></td>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#with stoenadType}}
+        <tr>
+            <td>Etterlatte:</td>
+            <td>{{this.etterlatte}}</td>
+        </tr>
+        <tr>
+            <td>Gjenlevendetilegg:</td>
+            <td>{{this.gjenlevendetillegg}}</td>
+        </tr>
+        <tr>
+            <td>Barnepensjon:</td>
+            <td>{{this.barnepensjon}}</td>
+        </tr>
+        <tr>
+            <td>Barnetilsyn:</td>
+            <td>{{this.barnetilsyn}}</td>
+        </tr>
+        <tr>
+            <td>Skolepenger:</td>
+            <td>{{this.skolepenger}}</td>
+        </tr>
+    {{/with}}
+    </tbody>
+</table>

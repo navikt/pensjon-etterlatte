@@ -1,0 +1,67 @@
+<table>
+    <thead>
+    <tr>
+        <td class="tr50"><h4>Søker</h4></td>
+        <td></td>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#with soeker}}
+        <tr>
+            <td>Fornavn:</td>
+            <td>{{this.fornavn}}</td>
+        </tr>
+        <tr>
+            <td>Etternavn:</td>
+            <td>{{this.etternavn}}</td>
+        </tr>
+        <tr>
+            <td>Fødselsnummer:</td>
+            <td>{{this.fødselsnummer}}</td>
+        </tr>
+        <tr>
+            <td>Adresse:</td>
+            <td>{{this.adresse}}</td>
+        </tr>
+        <tr>
+            <td>Statsborgerskap:</td>
+            <td>{{this.statsborgerskap}}</td>
+        </tr>
+        <tr>
+            <td>Sivilstatus:</td>
+            <td>{{this.sivilstatus}}</td>
+        </tr>
+    {{/with}}
+    </tbody>
+</table>
+
+<table>
+    <thead>
+    <tr>
+        <td class="tr50"><h4>Søker</h4></td>
+        <td></td>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#with kontaktinfo}}
+        <tr>
+            <td>Boadresse Bekreftet:</td>
+            <td>{{this.boadresseBekreftet}}</td>
+        </tr>
+        <tr>
+            <td>Telefonnummer:</td>
+            <td>{{this.telefonnummer}}</td>
+        </tr>
+        <tr>
+            <td>Epost:</td>
+            <td>{{this.epost}}</td>
+        </tr>
+        <tr>
+            <td>Oppholder seg i Norge:</td>
+            <td>{{this.oppholderSegINorge}}</td>
+        </tr>
+    {{/with}}
+    </tbody>
+</table>

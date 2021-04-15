@@ -1,166 +1,69 @@
 {
-  "saksnummer":  2021,
-  "søknadsId": "98465998-f749-4db4-b9ae-fd19a8f027fa",
-  "dagensDatoOgTidspunkt": "01.01.2021 12:00",
-  "søknadOpprettet": "01.01.2021",
-  "navn": {
-    "fornavn": "Tore",
-    "mellomnavn": "Johnas",
-    "etternavn": "Strømøy"
-  },
-  "søknadInnhold": {
-    "uførevedtak": {
-      "harUførevedtak": true
+    "fraDato":"2021-04-15T22:00:00.000Z",
+    "stoenadType":{
+        "etterlatte":false,
+        "gjenlevendetillegg":false,
+        "barnepensjon":true,
+        "barnetilsyn":false,
+        "skolepenger":false
     },
-    "personopplysninger": {
-      "fnr": "12345678910"
+    "soeker":{
+        "fornavn":"Test",
+        "etternavn":"Testesen",
+        "fødselsnummer":"01010154321",
+        "adresse":"Testveien 123, 0123 Oslo",
+        "statsborgerskap":"NO",
+        "sivilstatus":"Gift"
     },
-    "flyktningsstatus": {
-      "registrertFlyktning": false
+    "kontaktinfo":{
+        "boadresseBekreftet":"Ja",
+        "telefonnummer":"99999999",
+        "epost":"minepost@post.no",
+        "oppholderSegINorge":"Ja"
     },
-    "boforhold": {
-      "borOgOppholderSegINorge": true,
-      "delerBolig": true,
-      "delerBoligMed": "EKTEMAKE_SAMBOER",
-      "ektefellePartnerSamboer": {
-        "fnr": "01010101010",
-        "erUførFlyktning": false
-      },
-      "innlagtPåInstitusjon": {
-        "datoForInnleggelse": "2020-01-01",
-        "datoForUtskrivelse": "2020-01-31",
-        "fortsattInnlagt": false
-      },
-      "oppgittAdresse":{
-        "type":"BorPåAdresse",
-        "poststed":"OSLO",
-        "postnummer":"0050",
-        "adresselinje":"Oslogata 12"
-      }
-    },
-    "utenlandsopphold": {
-      "registrertePerioder": [
+    "opplysningerOmBarn":[
         {
-          "utreisedato": "2020-01-01",
-          "innreisedato": "2020-01-31"
+            "fornavn":"Mini",
+            "etternavn":"Test",
+            "foedselsnummer":"010101123456",
+            "foreldre":"Fellesbarn m/avdøde",
+            "bosattUtland":"Nei",
+            "statsborgerskap":"",
+            "land":""
         },
         {
-          "utreisedato": "2020-02-01",
-          "innreisedato": "2020-02-05"
+            "fornavn":"Mini2",
+            "etternavn":"Testersen",
+            "foedselsnummer":"",
+            "foreldre":"Avdødes særkullsbarn",
+            "bosattUtland":"Nei",
+            "statsborgerskap":"",
+            "land":""
         }
-      ],
-      "planlagtePerioder": [
+    ],
+    "tidligereArbeidsforhold":[
         {
-          "utreisedato": "2020-07-01",
-          "innreisedato": "2020-07-31"
-        }
-      ]
-    },
-    "oppholdstillatelse": {
-      "erNorskStatsborger": false,
-      "harOppholdstillatelse": true,
-      "oppholdstillatelseType": "MIDLERTIDIG",
-      "statsborgerskapAndreLand": false,
-      "statsborgerskapAndreLandFritekst": null
-    },
-    "inntektOgPensjon": {
-      "forventetInntekt": 2500,
-      "andreYtelserINav": "sosialstønad",
-      "andreYtelserINavBeløp": 33,
-      "søktAndreYtelserIkkeBehandletBegrunnelse": "uføre",
-      "sosialstønadBeløp": 7000.0,
-      "trygdeytelseIUtlandet": [
-        {
-          "beløp": 200,
-          "type": "trygd",
-          "valuta": "En valuta"
+            "beskrivelse":"ja, masse",
+            "varighet":"leeeeenge"
         },
         {
-          "beløp": 500,
-          "type": "Annen trygd",
-          "valuta": "En annen valuta"
+            "beskrivelse":"sofaen",
+            "varighet":"enda lengre"
         }
-      ],
-      "pensjon": [
-        {
-          "ordning": "KLP",
-          "beløp": 2000.0
+    ],
+    "naavaerendeArbeidsforhold":null,
+    "andreYtelser":{
+        "mottarAndreYtelser":"Nei",
+        "kravOmAnnenStonad":{
+            "svar":"Ja",
+            "beskrivelseAvStoenad":"alder"
         },
-        {
-          "ordning": "SPK",
-          "beløp": 5000.0
+        "mottarPensjonUtland": {
+            "svar":"Ja",
+            "hvaSlagsPensjon":"alder",
+            "fraHvilketLand":"Tyrkia",
+            "bruttobeloepPrAar":"300",
+            "landetsValuta":"SEK"
         }
-      ]
-    },
-    "formue": {
-      "eierBolig": false,
-      "borIBolig": false,
-      "verdiPåBolig": 600000,
-      "boligBrukesTil": "Mine barn bor der",
-      "depositumsBeløp": null,
-      "kontonummer": "12345678912",
-      "verdiPåEiendom": 3,
-      "kjøretøy": [
-        {
-          "verdiPåKjøretøy": 25000,
-          "kjøretøyDeEier": "99001122"
-        },
-        {
-          "verdiPåKjøretøy": 50000,
-          "kjøretøyDeEier": "00112233"
-        }
-      ],
-      "innskuddsBeløp": 10,
-      "verdipapirBeløp": 20,
-      "skylderNoenMegPengerBeløp": 30,
-      "kontanterBeløp": 40
-    },
-    "forNav2": {
-      "harFullmektigEllerVerge": "verge",
-      "type": "DigitalSøknad"
-    },
-    "forNav": {
-      "mottaksdatoForSøknad": "13.12.2020",
-      "grunnForPapirinnsending": "VergeHarSøktPåVegneAvBruker",
-      "annenGrunn": "",
-      "type": "Papirsøknad"
-    },
-    "ektefelle": {
-      "formue": {
-        "eierBolig": false,
-        "borIBolig": false,
-        "verdiPåBolig": 0,
-        "boligBrukesTil": "",
-        "depositumsBeløp": 0,
-        "kontonummer": "11111111111",
-        "verdiPåEiendom": 0,
-        "eiendomBrukesTil": "",
-        "kjøretøy": [],
-        "innskuddsBeløp": 0,
-        "verdipapirBeløp": 0,
-        "skylderNoenMegPengerBeløp": 100,
-        "kontanterBeløp": 50
-      },
-      "inntektOgPensjon": {
-        "pensjon": [],
-        "forventetInntekt": null,
-        "andreYtelserINav": null,
-        "andreYtelserINavBeløp": null,
-        "søktAndreYtelserIkkeBehandletBegrunnelse": null,
-        "sosialstønadBeløp": null,
-        "trygdeytelseIUtlandet": [
-          {
-            "beløp": 200,
-            "type": "trygd",
-            "valuta": "En valuta"
-          },
-          {
-            "beløp": 500,
-            "type": "Annen trygd",
-            "valuta": "En annen valuta"
-          }
-        ]
-      }
     }
-  }
 }
