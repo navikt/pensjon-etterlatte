@@ -21,7 +21,6 @@ dependencies {
     implementation("com.fasterxml:jackson-xml-databind:0.6.2")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.0")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.0")
-    implementation("ch.qos.logback:logback-classic:1.2.1")
     implementation("no.nav.security:token-client-core:$tokensupportversion")
     implementation("no.nav.security:token-validation-ktor:$tokensupportversion")
 
@@ -41,6 +40,10 @@ dependencies {
     implementation("io.ktor:ktor-html-builder:$ktorversion")
     implementation("org.apache.kafka:kafka-clients:2.5.0")
 
+    // Logging
+    implementation("org.slf4j:slf4j-api:1.7.30")
+    implementation("ch.qos.logback:logback-classic:1.2.3")
+    implementation("net.logstash.logback:logstash-logback-encoder:6.6")
 }
 
 tasks.named<Jar>("jar") {
