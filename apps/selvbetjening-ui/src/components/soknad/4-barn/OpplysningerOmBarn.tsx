@@ -9,7 +9,7 @@ import SoknadSteg from "../../../typer/SoknadSteg";
 import ToValgRadio from "../../felles/ToValgRadio";
 import { default as Modal } from "nav-frontend-modal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { IBarn } from "../../../typer/IPerson";
+import { IBarn } from "../../../typer/person";
 import { SoeknadActionTypes } from "../../../context/soknad/soknad";
 import TekstInput from "../../felles/TekstInput";
 

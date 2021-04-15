@@ -1,18 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../../App.less";
 import { Input, RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
-import { useArbeidsforholdContext } from "../../../context/arbeidsforhold/ArbeidsforholdContext";
-import { ArbeidsforholdActionTypes } from "../../../context/arbeidsforhold/arbeidsforhold";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import Datovelger from "../../felles/Datovelger";
+import { useSoknadContext } from "../../../context/soknad/SoknadContext";
+import TekstInput from "../../felles/TekstInput";
+import { IArbeidsforhold, SoeknadActionTypes } from "../../../context/soknad/soknad";
 
 const NavaerendeArbeidsforhold: SoknadSteg = () => {
-    const { state, dispatch } = useArbeidsforholdContext();
+    const { state, dispatch } = useSoknadContext();
 
-    const update = (target: any, type: ArbeidsforholdActionTypes) => {
-        dispatch({ type, payload: target.value });
+    const initialState: IArbeidsforhold = state.naavaerendeArbeidsforhold || {
+        yrke: "",
+        stilling: "",
+        startDato: null,
+        sluttDato: null,
+        ansettelsesforhold: "", // låse valg til type?
+        heltidDeltid: "",
+        stillingsprosent: null,
+        arbeidsgiver: {
+            navn: "",
+            adresse: "",
+        },
+        inntekt: {
+            bruttoArbeidsinntektPrMd: "",
+            personinntektFraNaeringPrAr: "",
+        },
     };
+
+    const [arbeidsforhold, setArbeidsforhold] = useState(initialState);
+
+    useEffect(() => {
+        dispatch({ type: SoeknadActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD, payload: arbeidsforhold });
+    }, [arbeidsforhold, dispatch]);
 
     return (
         <>
@@ -23,29 +44,25 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
             <Systemtittel>6 Søkers nåværende arbeids- og inntektsforhold</Systemtittel>
 
             <SkjemaGruppe>
-                <Input
-                    value={state.yrke}
+                <TekstInput
+                    value={arbeidsforhold.yrke}
                     label="Yrke"
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_YRKE)}
+                    onChange={(yrke) => setArbeidsforhold({ ...arbeidsforhold, yrke })}
                 />
-                <Input
-                    value={state.stilling}
+                <TekstInput
+                    value={arbeidsforhold.stilling}
                     label="Stilling"
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_STILLING)}
+                    onChange={(stilling) => setArbeidsforhold({ ...arbeidsforhold, stilling })}
                 />
                 <Datovelger
-                    valgtDato={state.startDato}
+                    valgtDato={arbeidsforhold.startDato}
                     label={"Startdato"}
-                    onChange={(valgtDato) =>
-                        dispatch({ type: ArbeidsforholdActionTypes.OPPDATER_START_DATO, payload: valgtDato })
-                    }
+                    onChange={(startDato) => setArbeidsforhold({ ...arbeidsforhold, startDato })}
                 />
                 <Datovelger
-                    valgtDato={state.sluttDato}
+                    valgtDato={arbeidsforhold.sluttDato}
                     label={"Fremtidig sluttdato"}
-                    onChange={(valgtDato) =>
-                        dispatch({ type: ArbeidsforholdActionTypes.OPPDATER_SLUTT_DATO, payload: valgtDato })
-                    }
+                    onChange={(sluttDato) => setArbeidsforhold({ ...arbeidsforhold, sluttDato })}
                 />
                 <br />
 
@@ -57,8 +74,13 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                         { label: "Midlertidig", value: "Midlertidig" },
                         { label: "Sesongarbeid", value: "Sesongarbeid" },
                     ]}
-                    checked={state.ansettelsesforhold}
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_ANSETTELSESFORHOLD)}
+                    checked={arbeidsforhold.ansettelsesforhold}
+                    onChange={(e) =>
+                        setArbeidsforhold({
+                            ...arbeidsforhold,
+                            ansettelsesforhold: (e.target as HTMLInputElement).value,
+                        })
+                    }
                 />
                 <br />
                 <RadioPanelGruppe
@@ -69,44 +91,68 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                         { label: "Heltid", value: "Heltid" },
                         { label: "Deltid", value: "Deltid" },
                     ]}
-                    checked={state.heltidDeltid}
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_HELTID_DELTID)}
+                    checked={arbeidsforhold.heltidDeltid}
+                    onChange={(e) =>
+                        setArbeidsforhold({ ...arbeidsforhold, heltidDeltid: (e.target as HTMLInputElement).value })
+                    }
                 />
 
-                {state.heltidDeltid === "Deltid" && (
+                {arbeidsforhold.heltidDeltid === "Deltid" && (
                     <Input
-                        value={state.stillingsprosent ?? ""}
+                        value={arbeidsforhold.stillingsprosent ?? ""}
                         type={"number"}
                         min={0}
                         max={100}
                         label="Oppgi stillingsprosent"
-                        onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_STILLINGSPROSENT)}
+                        onChange={(e) =>
+                            setArbeidsforhold({
+                                ...arbeidsforhold,
+                                stillingsprosent: Number((e.target as HTMLInputElement).value),
+                            })
+                        }
                     />
                 )}
                 <br />
 
-                <Input
-                    value={state.arbeidsgiver.navn}
+                <TekstInput
+                    value={arbeidsforhold.arbeidsgiver.navn}
                     label="Arbeidsgivers navn (Virksomhetens navn)"
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_ARBEIDSGIVER_NAVN)}
+                    onChange={(navn) =>
+                        setArbeidsforhold({ ...arbeidsforhold, arbeidsgiver: { ...arbeidsforhold.arbeidsgiver, navn } })
+                    }
                 />
-                <Input
-                    value={state.arbeidsgiver.adresse}
+                <TekstInput
+                    value={arbeidsforhold.arbeidsgiver.adresse}
                     label="Arbeidsgivers adresse (Virksomhetens adresse)"
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_ARBEIDSGIVER_ADRESSE)}
+                    onChange={(adresse) =>
+                        setArbeidsforhold({
+                            ...arbeidsforhold,
+                            arbeidsgiver: { ...arbeidsforhold.arbeidsgiver, adresse },
+                        })
+                    }
                 />
 
-                <Input
-                    value={state.inntekt.bruttoArbeidsinntektPrMd}
+                <TekstInput
+                    value={arbeidsforhold.inntekt.bruttoArbeidsinntektPrMd}
                     label="Brutto arbeidsinntekt pr. måned"
                     placeholder="Kr"
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_BRUTTO_ARBEIDSINNTEKT)}
+                    onChange={(bruttoArbeidsinntektPrMd) =>
+                        setArbeidsforhold({
+                            ...arbeidsforhold,
+                            inntekt: { ...arbeidsforhold.inntekt, bruttoArbeidsinntektPrMd },
+                        })
+                    }
                 />
-                <Input
-                    value={state.inntekt.personinntektFraNaeringPrAr}
+                <TekstInput
+                    value={arbeidsforhold.inntekt.personinntektFraNaeringPrAr}
                     label="Beregnet personinntekt fra næring pr. år"
                     placeholder="Kr"
-                    onChange={(e) => update(e.target, ArbeidsforholdActionTypes.OPPDATER_PERSONINNTEKT)}
+                    onChange={(personinntektFraNaeringPrAr) =>
+                        setArbeidsforhold({
+                            ...arbeidsforhold,
+                            inntekt: { ...arbeidsforhold.inntekt, personinntektFraNaeringPrAr },
+                        })
+                    }
                 />
             </SkjemaGruppe>
         </>

@@ -5,24 +5,22 @@ import AlertStripe from "nav-frontend-alertstriper";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { hentInnloggetPerson } from "../../../api";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { IPerson } from "../../../typer/IPerson";
+import { IPdlPerson } from "../../../typer/person";
 import { SoeknadActionTypes } from "../../../context/soknad/soknad";
 import ToValgRadio from "../../felles/ToValgRadio";
 import { Input } from "nav-frontend-skjema";
 
 const OpplysningerOmSokeren: SoknadSteg = () => {
     const { state, dispatch } = useSoknadContext();
-
-    const { soeker } = state;
+    const { opplysningerOmSoekeren } = state;
 
     useEffect(() => {
-        if (!!soeker) return;
-
-        hentInnloggetPerson().then((person: IPerson) => {
-            console.log(person);
-            dispatch({ type: SoeknadActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
-        });
-    }, [soeker, dispatch]);
+        if (!opplysningerOmSoekeren) {
+            hentInnloggetPerson().then((person: IPdlPerson) => {
+                dispatch({ type: SoeknadActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
+            });
+        }
+    }, [opplysningerOmSoekeren, dispatch]);
 
     return (
         <>
@@ -35,42 +33,42 @@ const OpplysningerOmSokeren: SoknadSteg = () => {
             </AlertStripe>
             <br />
 
-            {!!soeker && (
+            {!!opplysningerOmSoekeren && (
                 <div className={"opplysninger"}>
                     <section>
                         <Element>Fødselsnummer / d-nummer</Element>
-                        <Normaltekst>{soeker.foedselsnummer}</Normaltekst>
+                        <Normaltekst>{opplysningerOmSoekeren.foedselsnummer}</Normaltekst>
                     </section>
 
                     <section>
                         <Element>Navn</Element>
                         <Normaltekst>
-                            {soeker.fornavn} {soeker.etternavn}
+                            {opplysningerOmSoekeren.navn?.fornavn} {opplysningerOmSoekeren.navn?.etternavn}
                         </Normaltekst>
                     </section>
 
                     {/* 2.3 */}
                     <section>
                         <Element>Bostedsadresse</Element>
-                        <Normaltekst>{soeker.adresse}</Normaltekst>
+                        <Normaltekst>{opplysningerOmSoekeren.bosted?.adresse}</Normaltekst>
                     </section>
 
                     <section>
                         <Element>Sivilstatus</Element>
-                        <Normaltekst>{soeker.sivilstatus}</Normaltekst>
+                        <Normaltekst>{opplysningerOmSoekeren.sivilstatus}</Normaltekst>
                     </section>
 
                     {/* 2.6 */}
                     <section>
                         <Element>Statsborgerskap</Element>
-                        <Normaltekst>{soeker.statsborgerskap}</Normaltekst>
+                        <Normaltekst>{opplysningerOmSoekeren.statsborgerskap}</Normaltekst>
                     </section>
                 </div>
             )}
 
             <ToValgRadio
                 label={"Bor du på denne adressen?"}
-                checked={state.kontaktinfo?.boadresseBekreftet}
+                checked={opplysningerOmSoekeren?.bosted?.boadresseBekreftet}
                 invert={true}
                 onChange={(valgtSvar) => {
                     dispatch({ type: SoeknadActionTypes.BEKREFT_BOADRESSE, payload: valgtSvar });
@@ -81,42 +79,45 @@ const OpplysningerOmSokeren: SoknadSteg = () => {
                 </AlertStripe>
             </ToValgRadio>
 
-            {/* 2.4 */}
-            <Input
-                type={"tel"}
-                label={"Telefonnummer"}
-                value={state.kontaktinfo?.telefonnummer}
-                onChange={(e) => {
-                    dispatch({
-                        type: SoeknadActionTypes.SETT_TELEFON,
-                        payload: (e.target as HTMLInputElement).value,
-                    });
-                }}
-            />
+            {/* TODO: */}
+            <div style={{ pointerEvents: "none", opacity: ".4" }}>
+                {/* 2.4 */}
+                <Input
+                    type={"tel"}
+                    label={"Telefonnummer"}
+                    value={opplysningerOmSoekeren?.kontaktinfo?.telefonnummer}
+                    onChange={(e) => {
+                        dispatch({
+                            type: SoeknadActionTypes.SETT_TELEFON,
+                            payload: (e.target as HTMLInputElement).value,
+                        });
+                    }}
+                />
 
-            {/* 2.5 */}
-            <Input
-                label={"E-post"}
-                value={state.kontaktinfo?.epost}
-                onChange={(e) => {
-                    dispatch({
-                        type: SoeknadActionTypes.SETT_EPOST,
-                        payload: (e.target as HTMLInputElement).value,
-                    });
-                }}
-            />
+                {/* 2.5 */}
+                <Input
+                    label={"E-post"}
+                    value={opplysningerOmSoekeren?.kontaktinfo?.epost}
+                    onChange={(e) => {
+                        dispatch({
+                            type: SoeknadActionTypes.SETT_EPOST,
+                            payload: (e.target as HTMLInputElement).value,
+                        });
+                    }}
+                />
 
-            {/* 2.7 */}
-            <ToValgRadio
-                label={"Oppholder du deg i Norge?"}
-                checked={state.kontaktinfo?.oppholderSegINorge}
-                invert={true}
-                onChange={(valgtSvar) => {
-                    dispatch({ type: SoeknadActionTypes.OPPHOLD_NORGE, payload: valgtSvar });
-                }}
-            >
-                <Input label={"Oppgi land"} value={""} onChange={() => {}} />
-            </ToValgRadio>
+                {/* 2.7 */}
+                <ToValgRadio
+                    label={"Oppholder du deg i Norge?"}
+                    checked={opplysningerOmSoekeren?.bosted?.oppholderSegINorge}
+                    invert={true}
+                    onChange={(valgtSvar) => {
+                        dispatch({ type: SoeknadActionTypes.OPPHOLD_NORGE, payload: valgtSvar });
+                    }}
+                >
+                    <Input label={"Oppgi land"} value={""} onChange={() => {}} />
+                </ToValgRadio>
+            </div>
 
             {/* Mulighet for å fylle inn barnets kontonr. */}
 

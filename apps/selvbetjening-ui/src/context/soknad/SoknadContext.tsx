@@ -1,5 +1,6 @@
 import { createContext, FC, useContext, useReducer } from "react";
 import { ISoeknad, ISoeknadAction, SoeknadActionTypes, SoeknadProps } from "./soknad";
+import { IPdlPerson, ISoeker } from "../../typer/person";
 
 const STORAGE_KEY = "etterlatte-store";
 
@@ -7,10 +8,9 @@ const json = localStorage.getItem(STORAGE_KEY);
 const storedState = json ? JSON.parse(json) : null;
 
 const initialState: ISoeknad = storedState || {
-    fraDato: null,
     stoenadType: null,
-    soeker: null,
-    kontaktinfo: null,
+    opplysningerOmSoekeren: null,
+    opplysningerOmDenAvdoede: null,
     opplysningerOmBarn: [],
     tidligereArbeidsforhold: [],
     naavaerendeArbeidsforhold: null,
@@ -19,21 +19,44 @@ const initialState: ISoeknad = storedState || {
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
-        case SoeknadActionTypes.HENT_INNLOGGET_BRUKER:
-            return { ...state, soeker: action.payload };
-        case SoeknadActionTypes.SETT_FRA_DATO:
-            return { ...state, fraDato: action.payload };
-        case SoeknadActionTypes.BEKREFT_BOADRESSE:
-            return { ...state, kontaktinfo: { ...state.kontaktinfo, boadresseBekreftet: action.payload } };
-        case SoeknadActionTypes.OPPHOLD_NORGE:
-            return { ...state, kontaktinfo: { ...state.kontaktinfo, oppholderSegINorge: action.payload } };
-        case SoeknadActionTypes.SETT_TELEFON:
-            return { ...state, kontaktinfo: { ...state.kontaktinfo, telefonnummer: action.payload } };
-        case SoeknadActionTypes.SETT_EPOST:
-            return { ...state, kontaktinfo: { ...state.kontaktinfo, epost: action.payload } };
-        case SoeknadActionTypes.OPPDATER_VALGTE_STOENADER: {
-            return { ...state, stoenadType: action.payload };
+        case SoeknadActionTypes.HENT_INNLOGGET_BRUKER: {
+            const pdlPerson: IPdlPerson = action.payload;
+
+            // TODO: Håndtere manglende person på en god måte
+            if (!pdlPerson) return state;
+
+            const opplysningerOmSoekeren: ISoeker = {
+                ...state.opplysningerOmSoekeren,
+                foedselsnummer: pdlPerson.foedselsnummer,
+                navn: {
+                    fornavn: pdlPerson.fornavn,
+                    etternavn: pdlPerson.etternavn,
+                },
+                bosted: {
+                    adresse: pdlPerson.adresse,
+                },
+                statsborgerskap: pdlPerson.statsborgerskap,
+                sivilstatus: pdlPerson.sivilstatus,
+            };
+
+            return { ...state, opplysningerOmSoekeren };
         }
+        case SoeknadActionTypes.BEKREFT_BOADRESSE: {
+            return {
+                ...state,
+                opplysningerOmSoekeren: {
+                    ...state.opplysningerOmSoekeren,
+                    bosted: {
+                        ...state.opplysningerOmSoekeren?.bosted,
+                        boadresseBekreftet: action.payload,
+                    },
+                },
+            };
+        }
+        case SoeknadActionTypes.OPPDATER_VALGTE_STOENADER:
+            return { ...state, stoenadType: action.payload };
+        case SoeknadActionTypes.OPPDATER_AVDOED:
+            return { ...state, opplysningerOmDenAvdoede: action.payload };
         case SoeknadActionTypes.LEGG_TIL_BARN: {
             const { opplysningerOmBarn } = state;
 
@@ -53,9 +76,10 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
 
             return { ...state, tidligereArbeidsforhold };
         }
-        case SoeknadActionTypes.OPPDATER_ANDRE_YTELSER: {
+        case SoeknadActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD:
+            return { ...state, naavaerendeArbeidsforhold: action.payload };
+        case SoeknadActionTypes.OPPDATER_ANDRE_YTELSER:
             return { ...state, andreYtelser: action.payload };
-        }
         default:
             return state;
     }

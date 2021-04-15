@@ -21,7 +21,6 @@ const SoknadDialog: FC = () => {
         history.push(`/soknad/steg/${aktivtSteg}`);
     }, [history, aktivtSteg]);
 
-    // const settSteg = () => dispatch({type: StegActionTypes.NESTE })
     const forrige = () => dispatch({ type: StegActionTypes.FORRIGE });
     const neste = () => {
         if (aktivtSteg !== steg.length) {
@@ -32,7 +31,9 @@ const SoknadDialog: FC = () => {
     };
 
     const soeknad = useSoknadContext().state;
-    const send = () => sendSoeknad(soeknad).then((r) => console.log(r));
+    const send = () => {
+        sendSoeknad(soeknad).then((r) => console.log(r));
+    };
 
     const alleSteg = steg.map(({ disabled }, index) => {
         return {

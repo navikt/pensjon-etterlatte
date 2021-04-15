@@ -1,30 +1,48 @@
 import "../../../App.less";
-import { FnrInput, Input, SkjemaGruppe } from "nav-frontend-skjema";
+import { FnrInput, SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
-import { useAvdodContext } from "../../../context/avdod/AvdodContext";
-import { AvdodActionTypes as ActionType } from "../../../context/avdod/avdod";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import ToValgRadio from "../../felles/ToValgRadio";
-import React, { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useEffect, useState } from "react";
 import Datovelger from "../../felles/Datovelger";
+import { useSoknadContext } from "../../../context/soknad/SoknadContext";
+import { IAvdoed } from "../../../typer/person";
+import TekstInput from "../../felles/TekstInput";
+import { SoeknadActionTypes } from "../../../context/soknad/soknad";
 
 const OmDenAvdode: SoknadSteg = () => {
-    const { state, dispatch } = useAvdodContext();
+    const { state, dispatch } = useSoknadContext();
 
-    const oppdater = (type: ActionType, payload: string) => {
-        dispatch({ type, payload });
+    // TODO: Rydde i null | undefined. For øyeblikket lite konsekvent bruk...
+    const initialState: IAvdoed = state.opplysningerOmDenAvdoede || {
+        fornavn: "",
+        etternavn: "",
+        foedselsnummer: "",
+        doedsdato: null,
+        statsborgerskap: "",
+        bosetning: undefined,
+        doedsfallAarsak: undefined,
+        boddEllerJobbetUtland: undefined,
+        haddePensjonsgivendeInntekt: undefined,
+        pensjonsgivendeInntektSvar: "",
+        haddePensjonAndreLand: undefined,
+        pensjonAndreLandSvar: "",
+        harAvtjentMilitaerTjeneste: undefined,
+        avtjentMilitaerTjenesteSvar: "",
     };
 
-    const oppdaterInput = (type: ActionType, e: SyntheticEvent) => {
-        dispatch({ type, payload: (e.target as HTMLInputElement).value });
-    };
+    const [avdoed, setAvdoed] = useState(initialState);
 
     const oppdaterFnr = (e: SyntheticEvent) => {
         const value = (e.target as HTMLInputElement).value;
-        const fnr = value.replace(/[^\d]+/g, "");
+        const foedselsnummer = value.replace(/[^\d]+/g, "");
 
-        dispatch({ type: ActionType.SET_AVDOD_FNR, payload: fnr });
+        setAvdoed({ ...avdoed, foedselsnummer });
     };
+
+    useEffect(() => {
+        dispatch({ type: SoeknadActionTypes.OPPDATER_AVDOED, payload: avdoed });
+    }, [avdoed, dispatch]);
 
     return (
         <>
@@ -34,18 +52,18 @@ const OmDenAvdode: SoknadSteg = () => {
             <SkjemaGruppe>
                 {/* 3.1 */}
                 <section>
-                    <Input
+                    <TekstInput
                         label="Fornavn"
-                        value={state.fornavn}
-                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_FORNAVN, e)}
+                        value={avdoed.fornavn}
+                        onChange={(fornavn) => setAvdoed({ ...avdoed, fornavn })}
                     />
                 </section>
 
                 <section>
-                    <Input
+                    <TekstInput
                         label="Etternavn"
-                        value={state.etternavn}
-                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_ETTERNAVN, e)}
+                        value={avdoed.etternavn}
+                        onChange={(etternavn) => setAvdoed({ ...avdoed, etternavn })}
                     />
                 </section>
 
@@ -53,7 +71,7 @@ const OmDenAvdode: SoknadSteg = () => {
                 <section>
                     <FnrInput
                         label="Fødselsnummer (11 siffer)"
-                        value={state.fnr}
+                        value={avdoed.foedselsnummer}
                         type={"tel"}
                         maxLength={11}
                         onChange={oppdaterFnr}
@@ -69,59 +87,57 @@ const OmDenAvdode: SoknadSteg = () => {
                 {/* 3.3 */}
                 <Datovelger
                     label={"Dødsdato"}
-                    valgtDato={state.doedsdato}
-                    onChange={(valgtDato) => dispatch({ type: ActionType.SET_AVDOD_DODSDATO, payload: valgtDato })}
+                    valgtDato={avdoed.doedsdato}
+                    onChange={(doedsdato) => setAvdoed({ ...avdoed, doedsdato })}
                 />
 
                 {/* 3.4 */}
                 <section>
-                    <Input
+                    <TekstInput
                         label="Statsborgerskap"
-                        value={state.statsborgerskap}
-                        onChange={(e) => oppdaterInput(ActionType.SET_AVDOD_STATSBORGERSKAP, e)}
+                        value={avdoed.statsborgerskap}
+                        onChange={(statsborgerskap) => setAvdoed({ ...avdoed, statsborgerskap })}
                     />
                 </section>
 
                 {/* 3.5 fjernes. Ikke lenger gyldig. */}
                 {/* 3.6 */}
                 <ToValgRadio
-                    checked={state.bosetning}
+                    checked={avdoed.bosetning}
                     label={"Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?"}
-                    onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_BOSETNING, valgtSvar)}
+                    onChange={(bosetning) => setAvdoed({ ...avdoed, bosetning })}
                 />
 
                 {/* 3.7 */}
                 <ToValgRadio
                     // name={"dodsfallArsak"}
-                    checked={state.doedsfallAarsak}
+                    checked={avdoed.doedsfallAarsak}
                     label={"Kan dødesfallet være en følge av yrkesskade/yrkessykdom?"}
-                    onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_DODSFALL_ARSAK, valgtSvar)}
+                    onChange={(doedsfallAarsak) => setAvdoed({ ...avdoed, doedsfallAarsak })}
                 />
 
                 {/* 3.8 */}
                 <ToValgRadio
                     // name={"avdodBoddEllerJobbetUtland"}
-                    checked={state.boddEllerJobbetUtland}
+                    checked={avdoed.boddEllerJobbetUtland}
                     label={"Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?"}
-                    onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_BODD_ELLER_JOBBET_UTLAND, valgtSvar)}
+                    onChange={(boddEllerJobbetUtland) => setAvdoed({ ...avdoed, boddEllerJobbetUtland })}
                 />
                 {/* 3.9 Info om arbeidsforhold og inntekt hvis JA over */}
 
                 {/* 3.10 */}
                 <ToValgRadio
                     // name={"pensjonsgivendeInntekt"}
-                    checked={state.haddePensjonsgivendeInntekt}
+                    checked={avdoed.haddePensjonsgivendeInntekt}
                     label={
                         "Hadde den avdøde pensjonsgivende inntekt (arbeidsinntekt eller næringsinntekt) på tidspunktet før dødsfallet?"
                     }
-                    onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_PENSJONSGIVEDE_INNTEKT, valgtSvar)}
+                    onChange={(haddePensjonsgivendeInntekt) => setAvdoed({ ...avdoed, haddePensjonsgivendeInntekt })}
                 >
-                    <Input
+                    <TekstInput
                         label="Oppgi bruttobeløp pr. år (kr)"
-                        value={state.pensjonsgivendeInntektSvar}
-                        onChange={(valgtSvar) =>
-                            oppdaterInput(ActionType.SET_AVDOD_PENSJONSGIVEDE_INNTEKT_SVAR, valgtSvar)
-                        }
+                        value={avdoed.pensjonsgivendeInntektSvar}
+                        onChange={(pensjonsgivendeInntektSvar) => setAvdoed({ ...avdoed, pensjonsgivendeInntektSvar })}
                     />
                 </ToValgRadio>
 
@@ -130,30 +146,35 @@ const OmDenAvdode: SoknadSteg = () => {
                 {/* 3.12 */}
                 <ToValgRadio
                     // name={"pensjonAndreLand"}
-                    checked={state.haddePensjonAndreLand}
+                    checked={avdoed.haddePensjonAndreLand}
                     label={"Mottok den avdøde pensjon fra andre land enn Norge?"}
-                    onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_PENSJON_ANDRE_LAND, valgtSvar)}
+                    onChange={(haddePensjonAndreLand) => setAvdoed({ ...avdoed, haddePensjonAndreLand })}
                 >
-                    <Input
+                    <TekstInput
                         label="Oppgi bruttobeløp pr. år (kr)"
-                        value={state.pensjonAndreLandSvar}
-                        onChange={(valgtSvar) => oppdaterInput(ActionType.SET_AVDOD_PENSJON_ANDRE_LAND_SVAR, valgtSvar)}
+                        value={avdoed.pensjonAndreLandSvar}
+                        onChange={(pensjonAndreLandSvar) => setAvdoed({ ...avdoed, pensjonAndreLandSvar })}
                     />
                 </ToValgRadio>
 
                 {/* 3.13 */}
                 <ToValgRadio
                     // name={"militaerTjeneste"}
-                    checked={state.harAvtjentMilitaerTjeneste}
+                    checked={avdoed.harAvtjentMilitaerTjeneste}
                     label={
                         "Har den avdøde etter 1966 avtjent militær eller sivil førstegangstjeneste som varte minst 30 dager?"
                     }
-                    onChange={(valgtSvar) => oppdater(ActionType.SET_AVDOD_MILITAER_TJENESTE, valgtSvar)}
+                    onChange={(harAvtjentMilitaerTjeneste) => setAvdoed({ ...avdoed, harAvtjentMilitaerTjeneste })}
                 >
-                    <Input
+                    <TekstInput
                         label="Oppgi årstall"
-                        value={state.avtjentMilitaerTjenesteSvar}
-                        onChange={(valgtSvar) => oppdaterInput(ActionType.SET_AVDOD_MILITAER_TJENESTE_SVAR, valgtSvar)}
+                        value={avdoed.avtjentMilitaerTjenesteSvar}
+                        onChange={(avtjentMilitaerTjenesteSvar) =>
+                            setAvdoed({
+                                ...avdoed,
+                                avtjentMilitaerTjenesteSvar,
+                            })
+                        }
                     />
                 </ToValgRadio>
             </SkjemaGruppe>

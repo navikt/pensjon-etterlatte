@@ -1,4 +1,4 @@
-import { IPerson, IKontaktinfo, IBarn } from "../../typer/IPerson";
+import { IAvdoed, IBarn, ISoeker } from "../../typer/person";
 import { IValg } from "../../typer/ISpoersmaal";
 
 export interface IAndreYtelser {
@@ -27,31 +27,56 @@ export interface IStoenadType {
     barnepensjon: boolean;
     barnetilsyn: boolean;
     skolepenger: boolean;
+    fraDato: Date | null;
+}
+
+export interface IArbeidsforhold {
+    yrke: string;
+    stilling: string;
+    startDato: Date | null;
+    sluttDato: Date | null;
+    ansettelsesforhold: string; // låse valg til type?
+    heltidDeltid: string;
+    stillingsprosent: number | null;
+    arbeidsgiver: {
+        navn: string;
+        adresse: string;
+    };
+    inntekt: {
+        bruttoArbeidsinntektPrMd: string;
+        personinntektFraNaeringPrAr: string;
+    };
 }
 
 export interface ISoeknad {
-    fraDato: Date | null;
-    stoenadType: IStoenadType;
-    soeker: IPerson | null;
-    kontaktinfo?: IKontaktinfo;
-    avdod: null; // TODO: 3 Opplysninger om den avdøde
-    opplysningerOmBarn: IBarn[]; // 4 Opplysninger om barn
-    tidligereArbeidsforhold: IArbeidsforholdElement[]; // 5 Opplysninger om tidligere arbeidsforhold
-    naavaerendeArbeidsforhold: null; // TODO: 6 Søkers nåværende arbeids- og inntektsforhold
-    andreYtelser: IAndreYtelser | null; // 7 Opplysninger om andre ytelser
+    // 1 Hva søker du?
+    stoenadType: IStoenadType | null;
+    // 2 Opplysninger om søkeren
+    opplysningerOmSoekeren: ISoeker | null;
+    // 3 Opplysninger om den avdøde
+    opplysningerOmDenAvdoede: IAvdoed | null;
+    // 4 Opplysninger om barn
+    opplysningerOmBarn: IBarn[];
+    // 5 Opplysninger om tidligere arbeidsforhold
+    tidligereArbeidsforhold: IArbeidsforholdElement[];
+    // 6 Søkers nåværende arbeids- og inntektsforhold
+    naavaerendeArbeidsforhold: IArbeidsforhold | null;
+    // 7 Opplysninger om andre ytelser
+    andreYtelser: IAndreYtelser | null;
 }
 
 export enum SoeknadActionTypes {
     HENT_INNLOGGET_BRUKER,
     BEKREFT_BOADRESSE,
     OPPHOLD_NORGE,
-    SETT_FRA_DATO,
     OPPDATER_VALGTE_STOENADER,
+    OPPDATER_AVDOED,
     SETT_TELEFON,
     SETT_EPOST,
     LEGG_TIL_BARN,
     LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD,
     FJERN_TIDLIGERE_ARBEIDSFORHOLD,
+    OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD,
     OPPDATER_ANDRE_YTELSER,
 }
 

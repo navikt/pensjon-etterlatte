@@ -3,13 +3,19 @@ import React, { ChangeEvent, FC } from "react";
 
 interface Props {
     value?: string;
+    placeholder?: string;
     label: string;
     onChange: (value: string) => void;
 }
 
-const TekstInput: FC<Props> = ({ value, label, onChange }) => {
+const TekstInput: FC<Props> = ({ value, placeholder, label, onChange }) => {
     return (
-        <Input value={value} label={label} onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)} />
+        <Input
+            value={value}
+            placeholder={placeholder}
+            label={label}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
+        />
     );
 };
 

@@ -13,9 +13,10 @@ import Sjekkboks from "../../felles/Sjekkboks";
 
 const SoeknadType: SoknadSteg = () => {
     const { state, dispatch } = useSoknadContext();
-    const { fraDato, stoenadType } = state;
+    const { stoenadType } = state;
 
     const initialState: IStoenadType = stoenadType || {
+        fraDato: null,
         etterlatte: false,
         gjenlevendetillegg: false,
         barnepensjon: false,
@@ -102,8 +103,8 @@ const SoeknadType: SoknadSteg = () => {
                 <SkjemaGruppe>
                     <Datovelger
                         label={"Fra dato"}
-                        valgtDato={fraDato}
-                        onChange={(dato) => dispatch({ type: SoeknadActionTypes.SETT_FRA_DATO, payload: dato })}
+                        valgtDato={stoenader.fraDato}
+                        onChange={(fraDato) => setStoenader({ ...stoenader, fraDato })}
                     />
                 </SkjemaGruppe>
 
