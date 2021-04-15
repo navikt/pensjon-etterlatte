@@ -9,9 +9,10 @@
         <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
     </appender>
 
-    <root level="TRACE">
-        <appender-ref ref="STDOUT"/>
+    <root level="INFO">
+        <appender-ref ref="STDOUT_JSON"/>
     </root>
+
     <logger name="org.eclipse.jetty" level="INFO"/>
     <logger name="org.apache.kafka" level="INFO"/>
     <logger name="io.netty" level="INFO"/>
