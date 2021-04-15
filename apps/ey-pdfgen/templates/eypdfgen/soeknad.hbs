@@ -217,8 +217,13 @@
     {{#with tidligereArbeidsforhold}}
         {{#each tidligereArbeidsforhold}}
             <tr>
-                <td>:</td>
-                <td>{{this.}}</td>
+                <td>Beskrivelse:</td>
+                <td>{{this.beskrivelse}}
+            }}</td>
+            </tr>
+            <tr>
+                <td>Varighet:</td>
+                <td>{{this.varighet}}</td>
             </tr>
         {{/each}}
     {{/with}}
@@ -236,8 +241,8 @@
     <tbody>
     {{#with naavaerendeArbeidsforhold}}
             <tr>
-                <td>:</td>
-                <td>{{this.}}</td>
+                <td>Nåværende arbeidsforhold:</td>
+                <td>TBD</td>
             </tr>
     {{/with}}
     </tbody>
