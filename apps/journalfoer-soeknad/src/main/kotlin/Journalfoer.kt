@@ -38,8 +38,6 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                     )
                 )
             )
-            println(pdf)
-
 
             client.post<String>(baseUrl) {
                 listOf("forsoekFerdigstill" to "true")
