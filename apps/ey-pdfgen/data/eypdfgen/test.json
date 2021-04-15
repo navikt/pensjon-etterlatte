@@ -3,7 +3,8 @@
   "stoenadType":{
     "etterlatte":false,
     "gjenlevendetillegg":false,
-    "barnepensjon":true,"barnetilsyn":false,
+    "barnepensjon":true,
+    "barnetilsyn":false,
     "skolepenger":false
   },
   "soeker":{
