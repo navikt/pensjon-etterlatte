@@ -12,7 +12,8 @@
     "etternavn":"Testesen",
     "fødselsnummer":"01010154321",
     "adresse":"Testveien 123, 0123 Oslo",
-    "statsborgerskap":"NO","sivilstatus":"Gift"
+    "statsborgerskap":"NO",
+    "sivilstatus":"Gift"
   },
   "kontaktinfo":{
     "boadresseBekreftet":"Ja",
@@ -20,29 +21,49 @@
     "epost":"minepost@post.no",
     "oppholderSegINorge":"Ja"
   },
-  "opplysningerOmBarn":[{
-    "fornavn":"Mini",
-    "etternavn":"Test",
-    "foedselsnummer":"010101123456",
-    "foreldre":"Fellesbarn m/avdøde",
-    "bosattUtland":"Nei",
-    "statsborgerskap":"",
-    "land":""
-  }],
-  "tidligereArbeidsforhold":[],
+  "opplysningerOmBarn":[
+    {
+      "fornavn":"Mini",
+      "etternavn":"Test",
+      "foedselsnummer":"010101123456",
+      "foreldre":"Fellesbarn m/avdøde",
+      "bosattUtland":"Nei",
+      "statsborgerskap":"",
+      "land":""
+    },
+    {
+      "fornavn":"Mini2",
+      "etternavn":"Testersen",
+      "foedselsnummer":"",
+      "foreldre":"Avdødes særkullsbarn",
+      "bosattUtland":"Nei",
+      "statsborgerskap":"",
+      "land":""
+    }
+  ],
+  "tidligereArbeidsforhold":[
+    {
+      "beskrivelse":"ja, masse",
+      "varighet":"leeeeenge"
+    },
+    {
+      "beskrivelse":"sofaen",
+      "varighet":"enda lengre"
+    }
+  ],
   "naavaerendeArbeidsforhold":null,
   "andreYtelser":{
     "mottarAndreYtelser":"Nei",
     "kravOmAnnenStonad":{
-      "svar":"Nei",
-      "beskrivelseAvStoenad":""
+      "svar":"Ja",
+      "beskrivelseAvStoenad":"alder"
     },
-    "mottarPensjonUtland":{
-      "svar":"Nei",
-      "hvaSlagsPensjon":"",
-      "fraHvilketLand":"",
-      "bruttobeloepPrAar":"",
-      "landetsValuta":""
+    "mottarPensjonUtland": {
+      "svar":"Ja",
+      "hvaSlagsPensjon":"alder",
+      "fraHvilketLand":"Tyrkia",
+      "bruttobeloepPrAar":"300",
+      "landetsValuta":"SEK"
     }
   }
 }
