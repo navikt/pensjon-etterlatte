@@ -24,23 +24,20 @@
         }
 
         table.inner {
-            margin-left: 5%;
+            background-color: #fafafa;
+            border: 1px #ccc solid;
         }
 
         table.inner thead {
-            background-color: #bdcacd;
+            background-color: #ddd;
+        }
+
+        table td {
+            width: 50%;
         }
 
         td h4 {
             margin: 0;
-        }
-
-        .tr50 {
-            width: 50%;
-        }
-
-        .signaturHeader {
-            margin-bottom: 3em;
         }
 
         body {
@@ -62,13 +59,6 @@
 {{> eypdfgen/partials/naavaerendeArbeidsforhold}}
 
 {{> eypdfgen/partials/andreYtelser}}
-
-<div>
-    <p class="signaturHeader">Signatur, {{navn.fornavn}} {{navn.mellomnavn}} {{navn.etternavn}}
-        , {{dagensDatoOgTidspunkt}}</p>
-    <p>--------------------------------------------------</p>
-</div>
-
 
 </body>
 </html>

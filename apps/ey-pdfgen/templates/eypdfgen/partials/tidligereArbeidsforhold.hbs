@@ -1,8 +1,9 @@
 <table>
     <thead>
     <tr>
-        <td class="tr50"><h4>Tidligere arbeidsforhold</h4></td>
-        <td></td>
+        <th colspan="2">
+            <h4>Tidligere arbeidsforhold</h4>
+        </th>
     </tr>
     </thead>
 
@@ -10,13 +11,23 @@
     {{#with tidligereArbeidsforhold}}
         {{#each tidligereArbeidsforhold}}
             <tr>
-                <td>Beskrivelse:</td>
-                <td>{{this.beskrivelse}}
+                <td colspan="2">
+                    <table class="inner">
+                        <thead>
+                        <tr>
+                            <th>Beskrivelse:</th>
+                            <th>{{this.beskrivelse}}</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>Varighet:</td>
+                            <td>{{this.varighet}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </td>
-            </tr>
-            <tr>
-                <td>Varighet:</td>
-                <td>{{this.varighet}}</td>
             </tr>
         {{/each}}
     {{/with}}

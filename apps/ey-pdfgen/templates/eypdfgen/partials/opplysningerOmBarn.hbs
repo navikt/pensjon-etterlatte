@@ -1,8 +1,9 @@
 <table>
     <thead>
     <tr>
-        <td class="tr50"><h4>Opplysninger om barn</h4></td>
-        <td></td>
+        <th colspan="2">
+            <h4>Opplysninger om barn</h4>
+        </th>
     </tr>
     </thead>
 
@@ -10,32 +11,39 @@
     {{#with opplysningerOmBarn}}
         {{#each opplysningerOmBarn}}
             <tr>
-                <td>Fornavn:</td>
-                <td>{{this.fornavn}}</td>
-            </tr>
-            <tr>
-                <td>Etternavn:</td>
-                <td>{{this.etternavn}}</td>
-            </tr>
-            <tr>
-                <td>Fødselsnummer:</td>
-                <td>{{this.fødselsnummer}}</td>
-            </tr>
-            <tr>
-                <td>Foreldre:</td>
-                <td>{{this.foreldre}}</td>
-            </tr>
-            <tr>
-                <td>Bosatt utland:</td>
-                <td>{{this.bosattUtland}}</td>
-            </tr>
-            <tr>
-                <td>Statsborgerskap:</td>
-                <td>{{this.statsborgerskap}}</td>
-            </tr>
-            <tr>
-                <td>Land:</td>
-                <td>{{this.land}}</td>
+                <td colspan="2">
+                    <table class="inner">
+                        <thead>
+                        <tr>
+                            <th>Navn:</th>
+                            <th>{{this.fornavn}} {{this.etternavn}}</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>Fødselsnummer:</td>
+                            <td>{{this.foedselsnummer}}</td>
+                        </tr>
+                        <tr>
+                            <td>Foreldre:</td>
+                            <td>{{this.foreldre}}</td>
+                        </tr>
+                        <tr>
+                            <td>Bosatt utland:</td>
+                            <td>{{this.bosattUtland}}</td>
+                        </tr>
+                        <tr>
+                            <td>Statsborgerskap:</td>
+                            <td>{{this.statsborgerskap}}</td>
+                        </tr>
+                        <tr>
+                            <td>Land:</td>
+                            <td>{{this.land}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
             </tr>
         {{/each}}
     {{/with}}
