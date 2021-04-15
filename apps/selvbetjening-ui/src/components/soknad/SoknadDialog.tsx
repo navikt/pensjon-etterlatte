@@ -32,7 +32,16 @@ const SoknadDialog: FC = () => {
 
     const soeknad = useSoknadContext().state;
     const send = () => {
-        sendSoeknad(soeknad).then((r) => console.log(r));
+        sendSoeknad(soeknad)
+            .then((r) => {
+                console.log(r);
+
+                history.push("/sendt");
+            })
+            .catch((error) => {
+                // TODO: Håndtere feil. Redirect til feilside?
+                console.error(error);
+            });
     };
 
     const alleSteg = steg.map(({ disabled }, index) => {

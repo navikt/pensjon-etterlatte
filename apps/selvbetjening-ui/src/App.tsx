@@ -6,6 +6,7 @@ import SoknadDialog from "./components/soknad/SoknadDialog";
 import Labs from "./components/Labs";
 import ContextProviders from "./context/ContextProviders";
 import SoknadForside from "./components/soknad/SoknadForside";
+import SoknadSendt from "./components/soknad/SoknadSendt";
 
 const App = () => {
     return (
@@ -20,6 +21,9 @@ const App = () => {
                     </Route>
                     <Route path={"/soknad"}>
                         <SoknadDialog />
+                    </Route>
+                    <Route path={"/sendt"}>
+                        <SoknadSendt />
                     </Route>
                     <Route>
                         <NotFound />
