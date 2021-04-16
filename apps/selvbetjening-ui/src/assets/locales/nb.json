@@ -1,0 +1,28 @@
+{
+  "fraDato": "Fra dato",
+  "tilDato": "Til dato",
+  "btn": {
+    "back": "Tilbake",
+    "next": "Neste",
+    "sendApplication": "Send søknad",
+    "asdf": ""
+  },
+  "stoenadType": {
+    "etterlatte": "Pensjon-/overgangsstønad",
+    "gjenlevendetillegg": "Gjenlevendetillegg i uføretrygden",
+    "barnepensjon": "Barnepensjon",
+    "barnetilsyn": "Barnetilsyn",
+    "skolepenger": "Skolepenger",
+    "infoOmBarnetilsynOgSkolepenger": "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt."
+  },
+  "etterbetaling": {
+    "tittel": "Etterbetaling",
+    "info": "Ytelser gis som regel ikke for lengre tid tilbake enn tre måneder før den kalendermåned da kravet blir satt fram. Barnepensjon etterbetales for opptil tre år før den kalendermåned da kravet blir satt fram."
+  },
+  "step": {
+    "benefitType": "1 Hva søker du?",
+    "aboutTheApplicant": "2 Opplysninger om søkeren",
+    "aboutTheDeceased": "3 Opplysninger om den avdøde",
+    "": ""
+  }
+}

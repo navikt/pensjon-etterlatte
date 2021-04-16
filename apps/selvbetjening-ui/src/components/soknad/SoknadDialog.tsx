@@ -8,8 +8,10 @@ import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { Panel } from "nav-frontend-paneler";
 import { sendSoeknad } from "../../api";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
+import { useTranslation } from "react-i18next";
 
 const SoknadDialog: FC = () => {
+    const { t } = useTranslation();
     const history = useHistory();
     const { path } = useRouteMatch();
 
@@ -78,11 +80,11 @@ const SoknadDialog: FC = () => {
                 })}
 
                 <section className={"navigasjon-rad"}>
-                    {aktivtSteg > 1 && <Knapp onClick={forrige}>Tilbake</Knapp>}
+                    {aktivtSteg > 1 && <Knapp onClick={forrige}>{t("btn.back")}</Knapp>}
 
-                    {aktivtSteg < steg.length && <Hovedknapp onClick={neste}>Neste</Hovedknapp>}
+                    {aktivtSteg < steg.length && <Hovedknapp onClick={neste}>{t("btn.next")}</Hovedknapp>}
 
-                    {aktivtSteg === steg.length && <Hovedknapp onClick={send}>Send søknad</Hovedknapp>}
+                    {aktivtSteg === steg.length && <Hovedknapp onClick={send}>{t("btn.sendApplication")}</Hovedknapp>}
                 </section>
             </div>
         </>

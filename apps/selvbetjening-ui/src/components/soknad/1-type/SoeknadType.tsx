@@ -10,8 +10,10 @@ import Datovelger from "../../felles/Datovelger";
 import * as React from "react";
 import { useEffect, useState } from "react";
 import Sjekkboks from "../../felles/Sjekkboks";
+import { useTranslation } from "react-i18next";
 
 const SoeknadType: SoknadSteg = () => {
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
     const { stoenadType } = state;
 
@@ -37,36 +39,33 @@ const SoeknadType: SoknadSteg = () => {
             {/* Dette kan kanskje være forsiden? Brukeren velger hvilken type søknad, og vi viser deretter nødvendige felter? */}
 
             <section>
-                <Systemtittel>1 Hva søker du?</Systemtittel>
+                <Systemtittel>{t("step.benefitType")}</Systemtittel>
             </section>
 
             <section>
                 <SkjemaGruppe className={"inputPanelGruppe"}>
                     <Sjekkboks
-                        label={"Pensjon-/overgangsstønad"}
+                        label={t("stoenadType.etterlatte")}
                         checked={stoenader.etterlatte}
-                        onChange={(etterlatte) => {
-                            console.log("oppdater sjekkboks");
-                            setStoenader({ ...stoenader, etterlatte });
-                        }}
+                        onChange={(etterlatte) => setStoenader({ ...stoenader, etterlatte })}
                     />
                     <Sjekkboks
-                        label={"Gjenlevendetillegg i uføretrygden"}
+                        label={t("stoenadType.gjenlevendetillegg")}
                         checked={stoenader.gjenlevendetillegg}
                         onChange={(gjenlevendetillegg) => setStoenader({ ...stoenader, gjenlevendetillegg })}
                     />
                     <Sjekkboks
-                        label={"Barnepensjon"}
+                        label={t("stoenadType.barnepensjon")}
                         checked={stoenader.barnepensjon}
                         onChange={(barnepensjon) => setStoenader({ ...stoenader, barnepensjon })}
                     />
                     <Sjekkboks
-                        label={"Stønad til barnetilsyn pga. arbeid"}
+                        label={t("stoenadType.barnetilsyn")}
                         checked={stoenader.barnetilsyn}
                         onChange={(barnetilsyn) => setStoenader({ ...stoenader, barnetilsyn })}
                     />
                     <Sjekkboks
-                        label={"Stønad til skolepenger"}
+                        label={t("stoenadType.skolepenger")}
                         checked={stoenader.skolepenger}
                         onChange={(skolepenger) => setStoenader({ ...stoenader, skolepenger })}
                     />
@@ -92,26 +91,22 @@ const SoeknadType: SoknadSteg = () => {
 
             {(stoenader.barnetilsyn || stoenader.skolepenger) && (
                 <section>
-                    <AlertStripe type="info">
-                        Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV
-                        ta kontakt.
-                    </AlertStripe>
+                    <AlertStripe type="info">{t("stoenadType.infoOmBarnetilsynOgSkolepenger")}</AlertStripe>
                 </section>
             )}
 
             <section>
                 <SkjemaGruppe>
                     <Datovelger
-                        label={"Fra dato"}
+                        label={t("fraDato")}
                         valgtDato={stoenader.fraDato}
                         onChange={(fraDato) => setStoenader({ ...stoenader, fraDato })}
                     />
                 </SkjemaGruppe>
 
                 <AlertStripe type="info">
-                    <strong>Etterbetaling:</strong> Ytelser gis som regel ikke for lengre tid tilbake enn tre måneder
-                    før den kalendermåned da kravet blir satt fram. Barnepensjon etterbetales for opptil tre år før den
-                    kalendermåned da kravet blir satt fram.
+                    <strong>{t("etterbetaling.tittel")}: </strong>
+                    {t("etterbetaling.info")}
                 </AlertStripe>
             </section>
         </>
