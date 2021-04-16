@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../../App.less";
 import "../../felles/Infokort.less";
-import ikon from "../../../assets/barn1.svg";
+import ikon from "../../../assets/ikoner/barn1.svg";
 import { RadioPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
 import { Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";

@@ -7,7 +7,7 @@ import { Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
 import { Hovedknapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
 import { useHistory } from "react-router-dom";
-import ikon from "../../assets/veileder.svg";
+import ikon from "../../assets/ikoner/veileder.svg";
 
 const SoknadForside: FC = () => {
     const history = useHistory();

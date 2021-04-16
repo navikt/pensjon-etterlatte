@@ -5,7 +5,7 @@ import Lenke from "nav-frontend-lenker";
 import { Normaltekst, Sidetittel } from "nav-frontend-typografi";
 import { Knapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
-import ikon from "../../assets/veileder.svg";
+import ikon from "../../assets/ikoner/veileder.svg";
 
 const SoknadSendt: FC = () => {
     return (
