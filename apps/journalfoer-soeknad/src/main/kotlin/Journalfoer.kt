@@ -13,13 +13,12 @@ import org.slf4j.MDC
 import java.util.*
 
 class Journalfoer(private val client: HttpClient, private val baseUrl: String) : JournalfoerDok {
+    private val objectMapper = jacksonObjectMapper()
+        .registerModule(JavaTimeModule())
+        .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+        .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
 
     override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String {
-
-        val objectMapper = jacksonObjectMapper()
-            .registerModule(JavaTimeModule())
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
         val journalpostInfo: JournalpostInfo? = objectMapper.treeToValue(dokumentInnhold["@journalpostInfo"])
 
         return journalpostInfo?.let {

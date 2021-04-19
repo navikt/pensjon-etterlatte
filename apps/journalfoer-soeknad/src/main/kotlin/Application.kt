@@ -3,10 +3,11 @@ package no.nav.etterlatte
 import no.nav.helse.rapids_rivers.RapidApplication
 
 fun main() {
-
-    val env = System.getenv()
-
-    RapidApplication.create(env).apply {
-        JournalfoerSoeknad(this, AppBuilder(env).genererPdf(), AppBuilder(env).journalfoerDok())
-    }.start()
+    System.getenv().also { env ->
+        AppBuilder(env).also { appBuilder ->
+            RapidApplication.create(env).apply {
+                JournalfoerSoeknad(this, appBuilder.genererPdf(), appBuilder.journalfoerDok())
+            }.start()
+        }
+    }
 }

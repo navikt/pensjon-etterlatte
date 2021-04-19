@@ -1,6 +1,7 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
@@ -26,7 +27,7 @@ internal class JournalfoerSoeknad(
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         try {
-            runBlocking {
+            runBlocking(Dispatchers.IO) {
                 packet["@journalpostId"] = dok.journalfoerDok(
                     packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
                 )
