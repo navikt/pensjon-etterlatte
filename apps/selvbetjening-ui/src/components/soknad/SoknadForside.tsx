@@ -22,7 +22,7 @@ const SoknadForside: FC = () => {
     return (
         <>
             <Panel className={"forside"}>
-                <Veileder tekst={`${t("")}, ${innloggetBrukerNavn}`} posisjon="høyre">
+                <Veileder tekst={`${t("forside.hei")}, ${innloggetBrukerNavn}`} posisjon="høyre">
                     <img alt="veileder" src={ikon} />
                 </Veileder>
 

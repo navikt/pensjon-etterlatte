@@ -14,7 +14,7 @@ import Datovelger from "../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
 
 const TidligereArbeidsforhold: SoknadSteg = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     // Modal
@@ -55,6 +55,8 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
         setArbeidsforhold(tomtElement);
     };
 
+    const dtf = Intl.DateTimeFormat(i18n.language, { month: "short", year: "numeric" });
+
     return (
         <>
             {/* TODO: Kun relevant hvis "skolepenger" */}
@@ -65,6 +67,9 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
 
             <div className={"infokort-wrapper"}>
                 {state.tidligereArbeidsforhold.map((item: any, index: number) => {
+                    let fraDato = dtf.format(new Date(item.fraDato));
+                    let tilDato = dtf.format(new Date(item.tilDato));
+
                     return (
                         <div key={index} className={"infokort infokort__fullbredde"}>
                             <div className={"infokort-knapper"}>
@@ -81,20 +86,25 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
                                     <Undertittel tag="h3">{item.beskrivelse}</Undertittel>
                                 </div>
                                 <div className="informasjonselement">
-                                    <Normaltekst>{item.varighet}</Normaltekst>
+                                    <Normaltekst>
+                                        <span className={"capitalize"}>{fraDato}</span> -{" "}
+                                        <span className={"capitalize"}>{tilDato}</span>
+                                    </Normaltekst>
                                 </div>
-
-                                {/*<Fareknapp onClick={() => dispatch({ type: TidlArbActionTypes.FJERN, payload: index })}>
-                                    Fjern
-                                </Fareknapp>*/}
                             </div>
                         </div>
                     );
                 })}
+
+                <div className={"infokort infokort__fullbredde"}>
+                    <div className={"infokort__informasjonsboks"}>
+                        <div className="informasjonselement center">
+                            <Knapp onClick={() => setIsOpen(true)}>{t("knapp.leggTilArbeidsforhold")}</Knapp>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <br />
-            <Knapp onClick={() => setIsOpen(true)}>{t("knapp.leggTilArbeidsforhold")}</Knapp>
             <Modal
                 isOpen={isOpen}
                 onRequestClose={lukkModalvindu}
@@ -105,15 +115,9 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
                     <SkjemaGruppe>
                         <TekstInput
                             value={arbeidsforhold.beskrivelse}
-                            label={t("tidligerArbeidsforhold.skoleKursArbeidOsv")}
+                            label={t("tidligereArbeidsforhold.skoleKursArbeidOsv")}
                             onChange={(beskrivelse) => setArbeidsforhold({ ...arbeidsforhold, beskrivelse })}
                         />
-
-                        {/*<TekstInput
-                            value={arbeidsforhold.varighet}
-                            label={"Varighet"}
-                            onChange={(varighet) => setArbeidsforhold({ ...arbeidsforhold, varighet })}
-                        />*/}
 
                         <div className={"skjemagruppe skjemagruppe__inline"}>
                             <Datovelger
