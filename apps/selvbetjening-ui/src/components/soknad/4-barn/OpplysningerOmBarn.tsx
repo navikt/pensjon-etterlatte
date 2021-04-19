@@ -12,10 +12,12 @@ import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IBarn } from "../../../typer/person";
 import { SoeknadActionTypes } from "../../../context/soknad/soknad";
 import TekstInput from "../../felles/TekstInput";
+import { useTranslation } from "react-i18next";
 
 Modal.setAppElement("#root");
 
 const OpplysningerOmBarn: SoknadSteg = () => {
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     // Modal
@@ -52,7 +54,7 @@ const OpplysningerOmBarn: SoknadSteg = () => {
     return (
         <>
             {/* Steg 4 */}
-            <Systemtittel>4 Opplysninger om barn</Systemtittel>
+            <Systemtittel>{t("opplysningerOmBarn.tittel")}</Systemtittel>
 
             <div className={"infokort-wrapper"}>
                 {state.opplysningerOmBarn?.map((barn) => {
@@ -70,7 +72,9 @@ const OpplysningerOmBarn: SoknadSteg = () => {
                                 <div className="informasjonselement">
                                     <Normaltekst>{barn.foedselsnummer}</Normaltekst>
                                     <Normaltekst>{barn.foreldre}</Normaltekst>
-                                    <Normaltekst>Bosatt i utlandet: {barn.bosattUtland}</Normaltekst>
+                                    <Normaltekst>
+                                        {t("opplysningerOmBarn.bosattUtland")}: {barn.bosattUtland}
+                                    </Normaltekst>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +87,7 @@ const OpplysningerOmBarn: SoknadSteg = () => {
                     </div>
                     <div className={"infokort__informasjonsboks"}>
                         <div className={"informasjonsboks-innhold"}>
-                            <Knapp onClick={() => setIsOpen(true)}>+ Legg til barn</Knapp>
+                            <Knapp onClick={() => setIsOpen(true)}>{t("knapp.leggTilBarn")}</Knapp>
                         </div>
                     </div>
                 </div>
@@ -93,26 +97,26 @@ const OpplysningerOmBarn: SoknadSteg = () => {
                 isOpen={isOpen}
                 onRequestClose={lukkModalvindu}
                 closeButton={true}
-                contentLabel="Modalvindu - Opplysninger om barn"
+                contentLabel={t("opplysningerOmBarn.modalContentLabel")}
             >
                 <div style={{ padding: "2rem 2.5rem" }}>
                     <SkjemaGruppe>
                         {/* sjekkboks for INGEN BARN */}
 
                         <TekstInput
-                            label="Fornavn"
+                            label={t("felles.fornavn")}
                             value={barn.fornavn}
                             onChange={(fornavn) => setBarn({ ...barn, fornavn })}
                         />
 
                         <TekstInput
-                            label="Etternavn"
+                            label={t("felles.etternavn")}
                             value={barn.etternavn}
                             onChange={(etternavn) => setBarn({ ...barn, etternavn })}
                         />
 
                         <TekstInput
-                            label="Fødselsnummer (11 siffer)"
+                            label={t("felles.fnr")}
                             value={barn.foedselsnummer}
                             onChange={(foedselsnummer) => setBarn({ ...barn, foedselsnummer })}
                         />
@@ -120,9 +124,9 @@ const OpplysningerOmBarn: SoknadSteg = () => {
                         <RadioPanelGruppe
                             name={"barn-opphav"}
                             radios={[
-                                { label: "Fellesbarn m/avdøde", value: "Fellesbarn m/avdøde" },
-                                { label: "Avdødes særkullsbarn", value: "Avdødes særkullsbarn" },
-                                { label: "Egne særkullsbarn", value: "Egne særkullsbarn" },
+                                { label: t("opplysningerOmBarn.fellesbarnMedAvdoed"), value: "Fellesbarn m/avdøde" },
+                                { label: t("opplysningerOmBarn.avdoedesSaerkullsbarn"), value: "Avdødes særkullsbarn" },
+                                { label: t("opplysningerOmBarn.egneSaerkullsbarn"), value: "Egne særkullsbarn" },
                             ]}
                             checked={barn.foreldre}
                             onChange={(e) => setBarn({ ...barn, foreldre: (e.target as HTMLInputElement).value })}
@@ -130,11 +134,11 @@ const OpplysningerOmBarn: SoknadSteg = () => {
 
                         <ToValgRadio
                             checked={barn.bosattUtland}
-                            label={"Bor barnet i utlandet?"}
+                            label={t("opplysningerOmBarn.borUtenlands")}
                             onChange={(valgtSvar) => setBarn({ ...barn, bosattUtland: valgtSvar })}
                         >
                             <TekstInput
-                                label="Statsborgerskap"
+                                label={t("felles.statsborgerskap")}
                                 value={barn.statsborgerskap}
                                 onChange={(statsborgerskap) =>
                                     setBarn({
@@ -145,7 +149,7 @@ const OpplysningerOmBarn: SoknadSteg = () => {
                             />
 
                             <TekstInput
-                                label="Land"
+                                label={t("felles.land")}
                                 value={barn.land}
                                 onChange={(land) =>
                                     setBarn({
@@ -157,8 +161,8 @@ const OpplysningerOmBarn: SoknadSteg = () => {
                         </ToValgRadio>
 
                         <section className={"navigasjon-rad"}>
-                            <Knapp onClick={leggTilOgLukk}>Legg til og lukk</Knapp>
-                            <Hovedknapp onClick={leggTil}>Legg til</Hovedknapp>
+                            <Knapp onClick={leggTilOgLukk}>{t("knapp.leggTilOgLukk")}</Knapp>
+                            <Hovedknapp onClick={leggTil}>{t("knapp.leggTil")}</Hovedknapp>
                         </section>
                     </SkjemaGruppe>
                 </div>

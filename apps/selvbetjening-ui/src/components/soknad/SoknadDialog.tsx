@@ -80,11 +80,11 @@ const SoknadDialog: FC = () => {
                 })}
 
                 <section className={"navigasjon-rad"}>
-                    {aktivtSteg > 1 && <Knapp onClick={forrige}>{t("btn.back")}</Knapp>}
+                    {aktivtSteg > 1 && <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>}
 
-                    {aktivtSteg < steg.length && <Hovedknapp onClick={neste}>{t("btn.next")}</Hovedknapp>}
+                    {aktivtSteg < steg.length && <Hovedknapp onClick={neste}>{t("knapp.neste")}</Hovedknapp>}
 
-                    {aktivtSteg === steg.length && <Hovedknapp onClick={send}>{t("btn.sendApplication")}</Hovedknapp>}
+                    {aktivtSteg === steg.length && <Hovedknapp onClick={send}>{t("knapp.sendSoeknad")}</Hovedknapp>}
                 </section>
             </div>
         </>

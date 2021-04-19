@@ -10,12 +10,13 @@ interface Props {
     label: string;
     valgtDato: Date | string | null;
     onChange: (dato: Date) => void;
+    showMonthYearPicker?: boolean;
 }
 
 // TODO: Støtte nynorsk og engelsk
 registerLocale("nb", nb);
 
-const Datovelger: FC<Props> = ({ label, valgtDato, onChange }) => {
+const Datovelger: FC<Props> = ({ label, valgtDato, onChange, showMonthYearPicker }) => {
     useEffect(() => {
         setDefaultLocale("nb");
     }, []);
@@ -35,11 +36,13 @@ const Datovelger: FC<Props> = ({ label, valgtDato, onChange }) => {
 
             <DatePicker
                 name={name}
+                tabIndex={5}
                 className={"skjemaelement__input input--fullbredde"}
                 selected={dato}
-                dateFormat={"dd.MM.yy"}
-                placeholderText={"dd.mm.åå"}
+                dateFormat={showMonthYearPicker ? "MM.yy" : "dd.MM.yy"}
+                placeholderText={showMonthYearPicker ? "mm.åå" : "dd.mm.åå"}
                 onChange={onChange}
+                showMonthYearPicker
             />
         </section>
     );

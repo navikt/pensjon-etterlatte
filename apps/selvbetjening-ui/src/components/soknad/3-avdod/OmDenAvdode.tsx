@@ -9,8 +9,10 @@ import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IAvdoed } from "../../../typer/person";
 import TekstInput from "../../felles/TekstInput";
 import { SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { useTranslation } from "react-i18next";
 
 const OmDenAvdode: SoknadSteg = () => {
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     // TODO: Rydde i null | undefined. For øyeblikket lite konsekvent bruk...
@@ -47,13 +49,13 @@ const OmDenAvdode: SoknadSteg = () => {
     return (
         <>
             {/* Steg 3 */}
-            <Systemtittel>3 Opplysninger om den avdøde</Systemtittel>
+            <Systemtittel>{t("omDenAvdoede.tittel")}</Systemtittel>
 
             <SkjemaGruppe>
                 {/* 3.1 */}
                 <section>
                     <TekstInput
-                        label="Fornavn"
+                        label={t("felles.fornavn")}
                         value={avdoed.fornavn}
                         onChange={(fornavn) => setAvdoed({ ...avdoed, fornavn })}
                     />
@@ -61,7 +63,7 @@ const OmDenAvdode: SoknadSteg = () => {
 
                 <section>
                     <TekstInput
-                        label="Etternavn"
+                        label={t("felles.etternavn")}
                         value={avdoed.etternavn}
                         onChange={(etternavn) => setAvdoed({ ...avdoed, etternavn })}
                     />
@@ -70,7 +72,7 @@ const OmDenAvdode: SoknadSteg = () => {
                 {/* 3.2 */}
                 <section>
                     <FnrInput
-                        label="Fødselsnummer (11 siffer)"
+                        label={t("felles.fnr")}
                         value={avdoed.foedselsnummer}
                         type={"tel"}
                         maxLength={11}
@@ -86,7 +88,7 @@ const OmDenAvdode: SoknadSteg = () => {
 
                 {/* 3.3 */}
                 <Datovelger
-                    label={"Dødsdato"}
+                    label={t("felles.doedsdato")}
                     valgtDato={avdoed.doedsdato}
                     onChange={(doedsdato) => setAvdoed({ ...avdoed, doedsdato })}
                 />
@@ -94,7 +96,7 @@ const OmDenAvdode: SoknadSteg = () => {
                 {/* 3.4 */}
                 <section>
                     <TekstInput
-                        label="Statsborgerskap"
+                        label={t("felles.statsborgerskap")}
                         value={avdoed.statsborgerskap}
                         onChange={(statsborgerskap) => setAvdoed({ ...avdoed, statsborgerskap })}
                     />
@@ -104,7 +106,7 @@ const OmDenAvdode: SoknadSteg = () => {
                 {/* 3.6 */}
                 <ToValgRadio
                     checked={avdoed.bosetning}
-                    label={"Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?"}
+                    label={t("omDenAvdoede.bosattSammenhengende")}
                     onChange={(bosetning) => setAvdoed({ ...avdoed, bosetning })}
                 />
 
@@ -112,7 +114,7 @@ const OmDenAvdode: SoknadSteg = () => {
                 <ToValgRadio
                     // name={"dodsfallArsak"}
                     checked={avdoed.doedsfallAarsak}
-                    label={"Kan dødesfallet være en følge av yrkesskade/yrkessykdom?"}
+                    label={t("omDenAvdoede.doedsfallPgaYrkesskade")}
                     onChange={(doedsfallAarsak) => setAvdoed({ ...avdoed, doedsfallAarsak })}
                 />
 
@@ -120,7 +122,7 @@ const OmDenAvdode: SoknadSteg = () => {
                 <ToValgRadio
                     // name={"avdodBoddEllerJobbetUtland"}
                     checked={avdoed.boddEllerJobbetUtland}
-                    label={"Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?"}
+                    label={t("omDenAvdoede.boddEllerJobbetUtland")}
                     onChange={(boddEllerJobbetUtland) => setAvdoed({ ...avdoed, boddEllerJobbetUtland })}
                 />
                 {/* 3.9 Info om arbeidsforhold og inntekt hvis JA over */}
@@ -129,13 +131,11 @@ const OmDenAvdode: SoknadSteg = () => {
                 <ToValgRadio
                     // name={"pensjonsgivendeInntekt"}
                     checked={avdoed.haddePensjonsgivendeInntekt}
-                    label={
-                        "Hadde den avdøde pensjonsgivende inntekt (arbeidsinntekt eller næringsinntekt) på tidspunktet før dødsfallet?"
-                    }
+                    label={t("omDenAvdoede.haddePensjonsgivendeInntekt")}
                     onChange={(haddePensjonsgivendeInntekt) => setAvdoed({ ...avdoed, haddePensjonsgivendeInntekt })}
                 >
                     <TekstInput
-                        label="Oppgi bruttobeløp pr. år (kr)"
+                        label={t("omDenAvdoede.pensjonsgivendeInntekt")}
                         value={avdoed.pensjonsgivendeInntektSvar}
                         onChange={(pensjonsgivendeInntektSvar) => setAvdoed({ ...avdoed, pensjonsgivendeInntektSvar })}
                     />
@@ -147,11 +147,11 @@ const OmDenAvdode: SoknadSteg = () => {
                 <ToValgRadio
                     // name={"pensjonAndreLand"}
                     checked={avdoed.haddePensjonAndreLand}
-                    label={"Mottok den avdøde pensjon fra andre land enn Norge?"}
+                    label={t("omDenAvdoede.mottokPensjonAndreLand")}
                     onChange={(haddePensjonAndreLand) => setAvdoed({ ...avdoed, haddePensjonAndreLand })}
                 >
                     <TekstInput
-                        label="Oppgi bruttobeløp pr. år (kr)"
+                        label={t("omDenAvdoede.pensjonUtlandBruttoinntekt")}
                         value={avdoed.pensjonAndreLandSvar}
                         onChange={(pensjonAndreLandSvar) => setAvdoed({ ...avdoed, pensjonAndreLandSvar })}
                     />
@@ -161,13 +161,11 @@ const OmDenAvdode: SoknadSteg = () => {
                 <ToValgRadio
                     // name={"militaerTjeneste"}
                     checked={avdoed.harAvtjentMilitaerTjeneste}
-                    label={
-                        "Har den avdøde etter 1966 avtjent militær eller sivil førstegangstjeneste som varte minst 30 dager?"
-                    }
+                    label={t("omDenAvdoede.harAvtjentMilitaerTjeneste")}
                     onChange={(harAvtjentMilitaerTjeneste) => setAvdoed({ ...avdoed, harAvtjentMilitaerTjeneste })}
                 >
                     <TekstInput
-                        label="Oppgi årstall"
+                        label={t("omDenAvdoede.avtjentMilitaerTjenesteAarstall")}
                         value={avdoed.avtjentMilitaerTjenesteSvar}
                         onChange={(avtjentMilitaerTjenesteSvar) =>
                             setAvdoed({

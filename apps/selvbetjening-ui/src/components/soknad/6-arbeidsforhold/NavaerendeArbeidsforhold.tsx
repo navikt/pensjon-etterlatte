@@ -7,8 +7,10 @@ import Datovelger from "../../felles/Datovelger";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import TekstInput from "../../felles/TekstInput";
 import { IArbeidsforhold, SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { useTranslation } from "react-i18next";
 
 const NavaerendeArbeidsforhold: SoknadSteg = () => {
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     const initialState: IArbeidsforhold = state.naavaerendeArbeidsforhold || {
@@ -41,38 +43,38 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
             {/* TODO: I arbeid eller student? */}
             {/* TODO: Hvis student, ikke vise dette skjemaet */}
 
-            <Systemtittel>6 Søkers nåværende arbeids- og inntektsforhold</Systemtittel>
+            <Systemtittel>{t("naavaerendeArbeidsforhold.tittel")}</Systemtittel>
 
             <SkjemaGruppe>
                 <TekstInput
                     value={arbeidsforhold.yrke}
-                    label="Yrke"
+                    label={t("felles.yrke")}
                     onChange={(yrke) => setArbeidsforhold({ ...arbeidsforhold, yrke })}
                 />
                 <TekstInput
                     value={arbeidsforhold.stilling}
-                    label="Stilling"
+                    label={t("felles.stilling")}
                     onChange={(stilling) => setArbeidsforhold({ ...arbeidsforhold, stilling })}
                 />
                 <Datovelger
                     valgtDato={arbeidsforhold.startDato}
-                    label={"Startdato"}
+                    label={t("felles.startDato")}
                     onChange={(startDato) => setArbeidsforhold({ ...arbeidsforhold, startDato })}
                 />
                 <Datovelger
                     valgtDato={arbeidsforhold.sluttDato}
-                    label={"Fremtidig sluttdato"}
+                    label={t("felles.sluttDato")}
                     onChange={(sluttDato) => setArbeidsforhold({ ...arbeidsforhold, sluttDato })}
                 />
                 <br />
 
                 <RadioPanelGruppe
                     name={"ansettelsesforhold"}
-                    legend={"Oppgi type arbeidsforhold"}
+                    legend={t("naavaerendeArbeidsforhold.typeArbeidsforhold")}
                     radios={[
-                        { label: "Fast", value: "Fast" },
-                        { label: "Midlertidig", value: "Midlertidig" },
-                        { label: "Sesongarbeid", value: "Sesongarbeid" },
+                        { label: t("naavaerendeArbeidsforhold.fast"), value: "Fast" },
+                        { label: t("naavaerendeArbeidsforhold.midlertidig"), value: "Midlertidig" },
+                        { label: t("naavaerendeArbeidsforhold.sesongarbeid"), value: "Sesongarbeid" },
                     ]}
                     checked={arbeidsforhold.ansettelsesforhold}
                     onChange={(e) =>
@@ -86,10 +88,10 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                 <RadioPanelGruppe
                     name={"heltidDeltid"}
                     className={"to-valg-radio"}
-                    legend={"Er arbeidsforholdet heltid eller deltid?"}
+                    legend={t("naavaerendeArbeidsforhold.heltidEllerDeltid")}
                     radios={[
-                        { label: "Heltid", value: "Heltid" },
-                        { label: "Deltid", value: "Deltid" },
+                        { label: t("naavaerendeArbeidsforhold.heltid"), value: "Heltid" },
+                        { label: t("naavaerendeArbeidsforhold.deltid"), value: "Deltid" },
                     ]}
                     checked={arbeidsforhold.heltidDeltid}
                     onChange={(e) =>
@@ -103,7 +105,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                         type={"number"}
                         min={0}
                         max={100}
-                        label="Oppgi stillingsprosent"
+                        label={t("naavaerendeArbeidsforhold.stillingsprosent")}
                         onChange={(e) =>
                             setArbeidsforhold({
                                 ...arbeidsforhold,
@@ -116,14 +118,14 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
 
                 <TekstInput
                     value={arbeidsforhold.arbeidsgiver.navn}
-                    label="Arbeidsgivers navn (Virksomhetens navn)"
+                    label={t("naavaerendeArbeidsforhold.arbeidsgiversNavn")}
                     onChange={(navn) =>
                         setArbeidsforhold({ ...arbeidsforhold, arbeidsgiver: { ...arbeidsforhold.arbeidsgiver, navn } })
                     }
                 />
                 <TekstInput
                     value={arbeidsforhold.arbeidsgiver.adresse}
-                    label="Arbeidsgivers adresse (Virksomhetens adresse)"
+                    label={t("naavaerendeArbeidsforhold.arbeidsgiversAdresse")}
                     onChange={(adresse) =>
                         setArbeidsforhold({
                             ...arbeidsforhold,
@@ -134,7 +136,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
 
                 <TekstInput
                     value={arbeidsforhold.inntekt.bruttoArbeidsinntektPrMd}
-                    label="Brutto arbeidsinntekt pr. måned"
+                    label={t("naavaerendeArbeidsforhold.bruttoInntektPrMd")}
                     placeholder="Kr"
                     onChange={(bruttoArbeidsinntektPrMd) =>
                         setArbeidsforhold({
@@ -145,7 +147,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                 />
                 <TekstInput
                     value={arbeidsforhold.inntekt.personinntektFraNaeringPrAr}
-                    label="Beregnet personinntekt fra næring pr. år"
+                    label={t("naavaerendeArbeidsforhold.personinntektFraNaering")}
                     placeholder="Kr"
                     onChange={(personinntektFraNaeringPrAr) =>
                         setArbeidsforhold({

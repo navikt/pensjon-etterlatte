@@ -7,8 +7,10 @@ import ToValgRadio from "../../felles/ToValgRadio";
 import { IAndreYtelser, SoeknadActionTypes } from "../../../context/soknad/soknad";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import TekstInput from "../../felles/TekstInput";
+import { useTranslation } from "react-i18next";
 
 const AndreYtelser: SoknadSteg = () => {
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
     const { andreYtelser } = state;
 
@@ -36,20 +38,18 @@ const AndreYtelser: SoknadSteg = () => {
     return (
         <>
             {/* Steg 7 */}
-            <Systemtittel>7 Opplysninger om andre ytelser</Systemtittel>
+            <Systemtittel>{t("andreYtelser.tittel")}</Systemtittel>
 
             <SkjemaGruppe>
                 <ToValgRadio
                     checked={ytelser.mottarAndreYtelser}
-                    label={
-                        "Mottar du ytelser til livsopphold fra folketrygden som dagpenger under arbeidsledighet, sykepenger, stønad ved barns og andre nære pårørendes sykdom, arbeidsavklaringspenger, svangerskapspenger, foreldrepenger, AFP, uføretrygd eller alderspensjon?"
-                    }
+                    label={t("andreYtelser.mottarAndreYtelser")}
                     onChange={(mottarAndreYtelser) => setYtelser({ ...ytelser, mottarAndreYtelser })}
                 />
 
                 <ToValgRadio
                     checked={ytelser.kravOmAnnenStonad.svar}
-                    label={"Har du satt fram krav om annen stønad/pensjon som ikke er avgjort?"}
+                    label={t("andreYtelser.kravOmAnnenStonad")}
                     onChange={(svar) =>
                         setYtelser({
                             ...ytelser,
@@ -59,7 +59,7 @@ const AndreYtelser: SoknadSteg = () => {
                 >
                     <TekstInput
                         value={ytelser.kravOmAnnenStonad.beskrivelseAvStoenad}
-                        label="Hva slags stønad/pensjon?"
+                        label={t("andreYtelser.beskrivelseAvAnnenStoenad")}
                         onChange={(beskrivelseAvStoenad) =>
                             setYtelser({
                                 ...ytelser,
@@ -71,7 +71,7 @@ const AndreYtelser: SoknadSteg = () => {
 
                 <ToValgRadio
                     checked={ytelser.mottarPensjonUtland.svar}
-                    label={"Mottar du pensjon fra utlandet?"}
+                    label={t("andreYtelser.mottarPensjonUtland")}
                     onChange={(svar) =>
                         setYtelser({
                             ...ytelser,
@@ -81,7 +81,7 @@ const AndreYtelser: SoknadSteg = () => {
                 >
                     <TekstInput
                         value={ytelser.mottarPensjonUtland.hvaSlagsPensjon}
-                        label="Hva slags pensjon?"
+                        label={t("andreYtelser.hvaSlagsPensjon")}
                         onChange={(hvaSlagsPensjon) =>
                             setYtelser({
                                 ...ytelser,
@@ -92,7 +92,7 @@ const AndreYtelser: SoknadSteg = () => {
 
                     <TekstInput
                         value={ytelser.mottarPensjonUtland.fraHvilketLand}
-                        label="Fra hvilket land?"
+                        label={t("andreYtelser.mottarFraLand")}
                         onChange={(fraHvilketLand) =>
                             setYtelser({
                                 ...ytelser,
@@ -103,7 +103,7 @@ const AndreYtelser: SoknadSteg = () => {
 
                     <TekstInput
                         value={ytelser.mottarPensjonUtland.bruttobeloepPrAar}
-                        label="Bruttobeløp pr. år i landets valuta"
+                        label={t("andreYtelser.bruttobeloep")}
                         onChange={(bruttobeloepPrAar) =>
                             setYtelser({
                                 ...ytelser,
@@ -114,7 +114,7 @@ const AndreYtelser: SoknadSteg = () => {
 
                     <TekstInput
                         value={ytelser.mottarPensjonUtland.landetsValuta}
-                        label="Oppgi landets valuta"
+                        label={t("andreYtelser.landetsValuta")}
                         onChange={(landetsValuta) =>
                             setYtelser({
                                 ...ytelser,

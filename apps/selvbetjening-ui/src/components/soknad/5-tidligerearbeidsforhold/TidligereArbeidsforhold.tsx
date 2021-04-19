@@ -9,15 +9,23 @@ import { default as Modal } from "nav-frontend-modal";
 import { Xknapp } from "nav-frontend-ikonknapper";
 import TekstInput from "../../felles/TekstInput";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { IArbeidsforholdElement, SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { ITidligereArbeidsforhold, SoeknadActionTypes } from "../../../context/soknad/soknad";
+import Datovelger from "../../felles/Datovelger";
+import { useTranslation } from "react-i18next";
 
 const TidligereArbeidsforhold: SoknadSteg = () => {
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     // Modal
     const [isOpen, setIsOpen] = useState(false);
 
-    const tomtElement: IArbeidsforholdElement = { beskrivelse: "", varighet: "" };
+    const tomtElement: ITidligereArbeidsforhold = {
+        beskrivelse: "",
+        varighet: "",
+        fraDato: null,
+        tilDato: null,
+    };
 
     const [arbeidsforhold, setArbeidsforhold] = useState(tomtElement);
 
@@ -53,7 +61,7 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
             {/* TODO: Kun relevant hvis IKKE i arbeid, eks. hvis student. */}
             {/* Steg 4 */}
 
-            <Systemtittel>5 Opplysninger om søkers tidligere arbeidsforhold</Systemtittel>
+            <Systemtittel>{t("tidligereArbeidsforhold.tittel")}</Systemtittel>
 
             <div className={"infokort-wrapper"}>
                 {state.tidligereArbeidsforhold.map((item: any, index: number) => {
@@ -66,7 +74,7 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
                                     onClick={() => redigerElement(index)}
                                 />
                                 */}
-                                <Xknapp title={"Fjern element"} onClick={() => fjern(index)} />
+                                <Xknapp title={t("knapp.fjernElement")} onClick={() => fjern(index)} />
                             </div>
                             <div className={"infokort__informasjonsboks"}>
                                 <div className={"informasjonsboks-innhold"}>
@@ -86,7 +94,7 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
             </div>
 
             <br />
-            <Knapp onClick={() => setIsOpen(true)}>+ Legg til arbeidsforhold</Knapp>
+            <Knapp onClick={() => setIsOpen(true)}>{t("knapp.leggTilArbeidsforhold")}</Knapp>
             <Modal
                 isOpen={isOpen}
                 onRequestClose={lukkModalvindu}
@@ -97,21 +105,36 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
                     <SkjemaGruppe>
                         <TekstInput
                             value={arbeidsforhold.beskrivelse}
-                            label={"Skoler utover grunnskolen, yrkesrettede kurs o.l. og tidligere arbeidsforhold"}
+                            label={t("tidligerArbeidsforhold.skoleKursArbeidOsv")}
                             onChange={(beskrivelse) => setArbeidsforhold({ ...arbeidsforhold, beskrivelse })}
                         />
 
-                        <TekstInput
+                        {/*<TekstInput
                             value={arbeidsforhold.varighet}
                             label={"Varighet"}
                             onChange={(varighet) => setArbeidsforhold({ ...arbeidsforhold, varighet })}
-                        />
+                        />*/}
 
-                        <section className={"navigasjon-rad"}>
-                            <Knapp onClick={leggTilOgLukk}>Legg til og lukk</Knapp>
-                            <Hovedknapp onClick={leggTil}>Legg til</Hovedknapp>
-                        </section>
+                        <div className={"skjemagruppe skjemagruppe__inline"}>
+                            <Datovelger
+                                label={t("felles.fraDato")}
+                                valgtDato={arbeidsforhold.fraDato}
+                                onChange={(fraDato) => setArbeidsforhold({ ...arbeidsforhold, fraDato })}
+                                showMonthYearPicker
+                            />
+                            <Datovelger
+                                label={t("felles.tilDato")}
+                                valgtDato={arbeidsforhold.tilDato}
+                                onChange={(tilDato) => setArbeidsforhold({ ...arbeidsforhold, tilDato })}
+                                showMonthYearPicker
+                            />
+                        </div>
                     </SkjemaGruppe>
+
+                    <section className={"navigasjon-rad"}>
+                        <Knapp onClick={leggTilOgLukk}>{t("knapp.leggTilOgLukk")}</Knapp>
+                        <Hovedknapp onClick={leggTil}>{t("knapp.leggTil")}</Hovedknapp>
+                    </section>
                 </div>
             </Modal>
         </>

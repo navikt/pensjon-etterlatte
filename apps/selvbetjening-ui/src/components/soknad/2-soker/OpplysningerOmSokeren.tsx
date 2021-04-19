@@ -9,8 +9,10 @@ import { IPdlPerson } from "../../../typer/person";
 import { SoeknadActionTypes } from "../../../context/soknad/soknad";
 import ToValgRadio from "../../felles/ToValgRadio";
 import { Input } from "nav-frontend-skjema";
+import { useTranslation } from "react-i18next";
 
 const OpplysningerOmSokeren: SoknadSteg = () => {
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
     const { opplysningerOmSoekeren } = state;
 
@@ -25,23 +27,21 @@ const OpplysningerOmSokeren: SoknadSteg = () => {
     return (
         <>
             {/* Steg 2 */}
-            <Systemtittel>2 Opplysninger om søkeren</Systemtittel>
+            <Systemtittel>{t("omSoekeren.tittel")}</Systemtittel>
 
             <br />
-            <AlertStripe type="advarsel">
-                Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.
-            </AlertStripe>
+            <AlertStripe type="advarsel">{t("omSoekeren.advarsel")}</AlertStripe>
             <br />
 
             {!!opplysningerOmSoekeren && (
                 <div className={"opplysninger"}>
                     <section>
-                        <Element>Fødselsnummer / d-nummer</Element>
+                        <Element>{t("felles.fnrDnr")}</Element>
                         <Normaltekst>{opplysningerOmSoekeren.foedselsnummer}</Normaltekst>
                     </section>
 
                     <section>
-                        <Element>Navn</Element>
+                        <Element>{t("felles.navn")}</Element>
                         <Normaltekst>
                             {opplysningerOmSoekeren.navn?.fornavn} {opplysningerOmSoekeren.navn?.etternavn}
                         </Normaltekst>
@@ -49,25 +49,25 @@ const OpplysningerOmSokeren: SoknadSteg = () => {
 
                     {/* 2.3 */}
                     <section>
-                        <Element>Bostedsadresse</Element>
+                        <Element>{t("felles.adresse")}</Element>
                         <Normaltekst>{opplysningerOmSoekeren.bosted?.adresse}</Normaltekst>
                     </section>
 
                     <section>
-                        <Element>Sivilstatus</Element>
+                        <Element>{t("felles.sivilstatus")}</Element>
                         <Normaltekst>{opplysningerOmSoekeren.sivilstatus}</Normaltekst>
                     </section>
 
                     {/* 2.6 */}
                     <section>
-                        <Element>Statsborgerskap</Element>
+                        <Element>{t("felles.statsborgerskap")}</Element>
                         <Normaltekst>{opplysningerOmSoekeren.statsborgerskap}</Normaltekst>
                     </section>
                 </div>
             )}
 
             <ToValgRadio
-                label={"Bor du på denne adressen?"}
+                label={t("omSoekeren.borPaaAdresse")}
                 checked={opplysningerOmSoekeren?.bosted?.boadresseBekreftet}
                 invert={true}
                 onChange={(valgtSvar) => {
@@ -75,7 +75,7 @@ const OpplysningerOmSokeren: SoknadSteg = () => {
                 }}
             >
                 <AlertStripe type="advarsel" form={"inline"}>
-                    Du må oppgi riktig adresse til Folkeregisteret for å bruke denne søknaden
+                    {t("omSoekeren.infoFolkeregisteret")}
                 </AlertStripe>
             </ToValgRadio>
 
@@ -84,7 +84,7 @@ const OpplysningerOmSokeren: SoknadSteg = () => {
                 {/* 2.4 */}
                 <Input
                     type={"tel"}
-                    label={"Telefonnummer"}
+                    label={t("felles.telefon")}
                     value={opplysningerOmSoekeren?.kontaktinfo?.telefonnummer}
                     onChange={(e) => {
                         dispatch({
@@ -96,7 +96,7 @@ const OpplysningerOmSokeren: SoknadSteg = () => {
 
                 {/* 2.5 */}
                 <Input
-                    label={"E-post"}
+                    label={t("felles.epost")}
                     value={opplysningerOmSoekeren?.kontaktinfo?.epost}
                     onChange={(e) => {
                         dispatch({
@@ -108,14 +108,14 @@ const OpplysningerOmSokeren: SoknadSteg = () => {
 
                 {/* 2.7 */}
                 <ToValgRadio
-                    label={"Oppholder du deg i Norge?"}
+                    label={t("omSoekeren.oppholderSegINorge")}
                     checked={opplysningerOmSoekeren?.bosted?.oppholderSegINorge}
                     invert={true}
                     onChange={(valgtSvar) => {
                         dispatch({ type: SoeknadActionTypes.OPPHOLD_NORGE, payload: valgtSvar });
                     }}
                 >
-                    <Input label={"Oppgi land"} value={""} onChange={() => {}} />
+                    <Input label={t("omSoekeren.oppgiLand")} value={""} onChange={() => {}} />
                 </ToValgRadio>
             </div>
 

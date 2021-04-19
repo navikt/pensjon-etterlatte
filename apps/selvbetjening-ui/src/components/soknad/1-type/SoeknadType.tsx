@@ -39,7 +39,7 @@ const SoeknadType: SoknadSteg = () => {
             {/* Dette kan kanskje være forsiden? Brukeren velger hvilken type søknad, og vi viser deretter nødvendige felter? */}
 
             <section>
-                <Systemtittel>{t("step.benefitType")}</Systemtittel>
+                <Systemtittel>{t("stoenadType.tittel")}</Systemtittel>
             </section>
 
             <section>
@@ -98,15 +98,15 @@ const SoeknadType: SoknadSteg = () => {
             <section>
                 <SkjemaGruppe>
                     <Datovelger
-                        label={t("fraDato")}
+                        label={t("felles.fraDato")}
                         valgtDato={stoenader.fraDato}
                         onChange={(fraDato) => setStoenader({ ...stoenader, fraDato })}
                     />
                 </SkjemaGruppe>
 
                 <AlertStripe type="info">
-                    <strong>{t("etterbetaling.tittel")}: </strong>
-                    {t("etterbetaling.info")}
+                    <strong>{t("stoenadType.etterbetaling.tittel")}: </strong>
+                    {t("stoenadType.etterbetaling.info")}
                 </AlertStripe>
             </section>
         </>

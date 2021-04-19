@@ -1,28 +1,133 @@
 {
-  "fraDato": "Fra dato",
-  "tilDato": "Til dato",
-  "btn": {
-    "back": "Tilbake",
-    "next": "Neste",
-    "sendApplication": "Send søknad",
-    "asdf": ""
+  "knapp": {
+    "tilbake": "Tilbake",
+    "neste": "Neste",
+    "sendSoeknad": "Send søknad",
+    "leggTil": "Legg til",
+    "leggTilOgLukk": "Legg til og lukk",
+    "fjernElement": "Fjern element",
+    "leggTilBarn": "+ Legg til barn",
+    "leggTilArbeidsforhold": "+ Legg til arbeidsforhold"
+  },
+  "forside": {
+    "tittel": "Søknad om etterlatteytelser",
+    "omYtelsene": "Dersom du grunnet dødsfall har blitt enslig mor eller far og har barn under 18 år, vil etterlatteytelser sikre deg og dine barn inntekt. Inntekten din avgjør hvor mye du har krav på.",
+    "lenkeTilInfoOmYtelsene": "Mer om etterlatteytelser",
+    "startSoeknad": "Start søknad",
+    "riktigeOpplysninger": {
+      "tittel": "Det er viktig at du gir oss riktige opplysninger",
+      "intro": "For at vi skal kunne behandle søknaden din, må du gi oss riktige opplysninger.",
+      "endringerMaaMeldesIfra": "Hvis du får etterlatteytelser, må du melde fra når det skjer viktige endringer i livet ditt, for eksempel bo- og familiesituasjonen eller arbeid og utdanning. Det samme gjelder dersom inntekten din endrer seg."
+    },
+    "dokumentasjon": {
+      "tittel": "Det kan hende du må sende inn dokumentasjon",
+      "duFaarBeskjed": "Du får beskjed underveis i søknaden hvis du må dokumentere noen av opplysningene dine. Dokumentasjon du har sendt inn tidligere trenger du ikke sende på nytt.",
+      "duFaarBeskjed2": "Noen ganger kan vi også trenge mer informasjon. Da gir vi deg beskjed om dette.",
+      "lenkeTilInformasjon": "Oversikt over hva som krever dokumentasjon"
+    },
+    "slikSoekerDu": {
+      "tittel": "Slik søker du",
+      "kunRelevantInfo": "I søknaden stiller vi kun spørsmål som er relevante i din situasjon. Antall spørsmål og tiden det tar å søke vil derfor kunne variere. De fleste bruker 10 minutter.",
+      "viLagrer": "Vi lagrer søknaden din ut morgendagen. Derfor kan du ta pauser når du fyller ut. Du kan også slette i denne perioden.",
+      "dokumentasjonKanEttersendes": "Mangler du dokumentasjon, kan du ettersende dette."
+    },
+    "samykke": {
+      "tittel": "Vi stoler på deg",
+      "beskrivelse": "For å komme videre må du gi oss lov til å hente inn og bruke opplysninger om deg.",
+      "bekreftelse": "Ja, jeg samtykker",
+      "lesMer": "Les om hvilke opplysninger vi henter og hvordan vi bruker dem."
+    }
   },
   "stoenadType": {
+    "tittel": "1 Hva søker du?",
     "etterlatte": "Pensjon-/overgangsstønad",
     "gjenlevendetillegg": "Gjenlevendetillegg i uføretrygden",
     "barnepensjon": "Barnepensjon",
     "barnetilsyn": "Barnetilsyn",
     "skolepenger": "Skolepenger",
-    "infoOmBarnetilsynOgSkolepenger": "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt."
+    "infoOmBarnetilsynOgSkolepenger": "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt.",
+    "etterbetaling": {
+      "tittel": "Etterbetaling",
+      "info": "Ytelser gis som regel ikke for lengre tid tilbake enn tre måneder før den kalendermåned da kravet blir satt fram. Barnepensjon etterbetales for opptil tre år før den kalendermåned da kravet blir satt fram."
+    }
   },
-  "etterbetaling": {
-    "tittel": "Etterbetaling",
-    "info": "Ytelser gis som regel ikke for lengre tid tilbake enn tre måneder før den kalendermåned da kravet blir satt fram. Barnepensjon etterbetales for opptil tre år før den kalendermåned da kravet blir satt fram."
+  "omSoekeren": {
+    "tittel": "2 Opplysninger om søkeren",
+    "advarsel": "Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.",
+    "borPaaAdresse": "Bor du på denne adressen?",
+    "oppholderSegINorge": "Oppholder du deg i Norge?",
+    "oppgiLand": "Oppgi land",
+    "infoFolkeregisteret": "Du må oppgi riktig adresse til Folkeregisteret for å bruke denne søknaden."
   },
-  "step": {
-    "benefitType": "1 Hva søker du?",
-    "aboutTheApplicant": "2 Opplysninger om søkeren",
-    "aboutTheDeceased": "3 Opplysninger om den avdøde",
-    "": ""
+  "omDenAvdoede": {
+    "tittel": "3 Opplysninger om den avdøde",
+    "bosattSammenhengende": "Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?",
+    "doedsfallPgaYrkesskade": "Kan dødesfallet være en følge av yrkesskade/yrkessykdom?",
+    "boddEllerJobbetUtland": "Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?",
+    "haddePensjonsgivendeInntekt": "Hadde den avdøde pensjonsgivende inntekt (arbeidsinntekt eller næringsinntekt) på tidspunktet før dødsfallet?",
+    "pensjonsgivendeInntekt": "Oppgi bruttobeløp pr. år (kr)",
+    "mottokPensjonAndreLand": "Mottok den avdøde pensjon fra andre land enn Norge?",
+    "pensjonUtlandBruttoinntekt": "Oppgi bruttobeløp pr. år (kr)",
+    "harAvtjentMilitaerTjeneste": "Har den avdøde etter 1966 avtjent militær eller sivil førstegangstjeneste som varte minst 30 dager?",
+    "avtjentMilitaerTjenesteAarstall": "Oppgi årstall"
+  },
+  "opplysningerOmBarn": {
+    "tittel": "4 Opplysninger om barn",
+    "modalContentLabel": "Modalvindu - Opplysninger om barn",
+    "bosattUtland": "Bosatt i utlandet",
+    "fellesbarnMedAvdoed": "Fellesbarn m/avdøde",
+    "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
+    "egneSaerkullsbarn": "Egne særkullsbarn",
+    "borUtenlands": "Bor barnet i utlandet?"
+  },
+  "tidligereArbeidsforhold": {
+    "tittel": "5 Opplysninger om søkers tidligere arbeidsforhold",
+    "skoleKursArbeidOsv": "Skoler utover grunnskolen, yrkesrettede kurs o.l. og tidligere arbeidsforhold"
+  },
+  "naavaerendeArbeidsforhold": {
+    "tittel": "6 Søkers nåværende arbeids- og inntektsforhold",
+    "typeArbeidsforhold": "Oppgi type arbeidsforhold",
+    "fast": "Fast",
+    "midlertidig": "Midlertidig",
+    "sesongarbeid": "Sesongarbeid",
+    "heltidEllerDeltid": "Er arbeidsforholdet heltid eller deltid?",
+    "heltid": "Heltid",
+    "deltid": "Deltid",
+    "stillingsprosent": "Oppgi stillingsprosent",
+    "arbeidsgiversNavn": "Arbeidsgivers navn (Virksomhetens navn)",
+    "arbeidsgiversAdresse": "Arbeidsgivers adresse (Virksomhetens adresse)",
+    "bruttoInntektPrMd": "Brutto arbeidsinntekt pr. måned",
+    "personinntektFraNaering": "Beregnet personinntekt fra næring pr. år"
+  },
+  "andreYtelser": {
+    "tittel": "7 Opplysninger om andre ytelser",
+    "mottarAndreYtelser": "Mottar du ytelser til livsopphold fra folketrygden som dagpenger under arbeidsledighet, sykepenger, stønad ved barns og andre nære pårørendes sykdom, arbeidsavklaringspenger, svangerskapspenger, foreldrepenger, AFP, uføretrygd eller alderspensjon?",
+    "kravOmAnnenStonad": "Har du satt fram krav om annen stønad/pensjon som ikke er avgjort?",
+    "beskrivelseAvAnnenStoenad": "Hva slags stønad/pensjon?",
+    "mottarPensjonUtland": "Mottar du pensjon fra utlandet?",
+    "hvaSlagsPensjon": "Hva slags pensjon?",
+    "mottarFraLand": "Fra hvilket land?",
+    "bruttobeloep": "Bruttobeløp pr. år i landets valuta",
+    "landetsValuta": "Oppgi landets valuta"
+  },
+  "felles": {
+    "fnrDnr": "Fødselsnummer / d-nummer",
+    "fnr": "Fødselsnummer (11 siffer)",
+    "doedsdato": "Dødsdato",
+    "navn": "Navn",
+    "fornavn": "Fornavn",
+    "etternavn": "Etternavn",
+    "adresse": "Bostedsadresse",
+    "sivilstatus": "Sivilstatus",
+    "statsborgerskap": "Statsborgerskap",
+    "land": "Land",
+    "telefon": "Telefonnummer",
+    "epost": "E-post",
+    "fraDato": "Fra dato",
+    "tilDato": "Til dato",
+    "yrke": "Yrke",
+    "stilling": "Stilling",
+    "startDato": "Startdato",
+    "sluttDato": "Fremtidig sluttdato"
   }
 }

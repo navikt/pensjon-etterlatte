@@ -16,9 +16,11 @@ export interface IAndreYtelser {
     };
 }
 
-export interface IArbeidsforholdElement {
+export interface ITidligereArbeidsforhold {
     beskrivelse: string;
     varighet: string;
+    fraDato: Date | null;
+    tilDato: Date | null;
 }
 
 export interface IStoenadType {
@@ -58,7 +60,7 @@ export interface ISoeknad {
     // 4 Opplysninger om barn
     opplysningerOmBarn: IBarn[];
     // 5 Opplysninger om tidligere arbeidsforhold
-    tidligereArbeidsforhold: IArbeidsforholdElement[];
+    tidligereArbeidsforhold: ITidligereArbeidsforhold[];
     // 6 Søkers nåværende arbeids- og inntektsforhold
     naavaerendeArbeidsforhold: IArbeidsforhold | null;
     // 7 Opplysninger om andre ytelser
