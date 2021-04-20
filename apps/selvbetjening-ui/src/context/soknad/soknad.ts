@@ -67,7 +67,8 @@ export interface ISoeknad {
     andreYtelser: IAndreYtelser | null;
 }
 
-export enum SoeknadActionTypes {
+export enum ActionTypes {
+    TILBAKESTILL,
     HENT_INNLOGGET_BRUKER,
     BEKREFT_BOADRESSE,
     OPPHOLD_NORGE,
@@ -83,7 +84,7 @@ export enum SoeknadActionTypes {
 }
 
 export interface ISoeknadAction {
-    type: SoeknadActionTypes;
+    type: ActionTypes;
     payload?: any;
 }
 

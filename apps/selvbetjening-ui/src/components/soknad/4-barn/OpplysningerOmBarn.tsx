@@ -10,7 +10,7 @@ import ToValgRadio from "../../felles/ToValgRadio";
 import { default as Modal } from "nav-frontend-modal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IBarn } from "../../../typer/person";
-import { SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { ActionTypes } from "../../../context/soknad/soknad";
 import TekstInput from "../../felles/TekstInput";
 import { useTranslation } from "react-i18next";
 
@@ -42,7 +42,7 @@ const OpplysningerOmBarn: SoknadSteg = () => {
     };
 
     const leggTil = () => {
-        dispatch({ type: SoeknadActionTypes.LEGG_TIL_BARN, payload: barn });
+        dispatch({ type: ActionTypes.LEGG_TIL_BARN, payload: barn });
         setBarn(tomtElement);
     };
 

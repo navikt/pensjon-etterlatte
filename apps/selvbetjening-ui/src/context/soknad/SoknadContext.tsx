@@ -1,5 +1,5 @@
 import { createContext, FC, useContext, useReducer } from "react";
-import { ISoeknad, ISoeknadAction, SoeknadActionTypes, SoeknadProps } from "./soknad";
+import { ISoeknad, ISoeknadAction, ActionTypes, SoeknadProps } from "./soknad";
 import { IPdlPerson, ISoeker } from "../../typer/person";
 
 const STORAGE_KEY = "etterlatte-store";
@@ -19,7 +19,18 @@ const initialState: ISoeknad = storedState || {
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
-        case SoeknadActionTypes.HENT_INNLOGGET_BRUKER: {
+        case ActionTypes.TILBAKESTILL: {
+            return {
+                stoenadType: null,
+                opplysningerOmSoekeren: null,
+                opplysningerOmDenAvdoede: null,
+                opplysningerOmBarn: [],
+                tidligereArbeidsforhold: [],
+                naavaerendeArbeidsforhold: null,
+                andreYtelser: null,
+            };
+        }
+        case ActionTypes.HENT_INNLOGGET_BRUKER: {
             const pdlPerson: IPdlPerson = action.payload;
 
             // TODO: Håndtere manglende person på en god måte
@@ -41,7 +52,7 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
 
             return { ...state, opplysningerOmSoekeren };
         }
-        case SoeknadActionTypes.BEKREFT_BOADRESSE: {
+        case ActionTypes.BEKREFT_BOADRESSE: {
             return {
                 ...state,
                 opplysningerOmSoekeren: {
@@ -53,21 +64,21 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 },
             };
         }
-        case SoeknadActionTypes.OPPDATER_VALGTE_STOENADER:
+        case ActionTypes.OPPDATER_VALGTE_STOENADER:
             return { ...state, stoenadType: action.payload };
-        case SoeknadActionTypes.OPPDATER_AVDOED:
+        case ActionTypes.OPPDATER_AVDOED:
             return { ...state, opplysningerOmDenAvdoede: action.payload };
-        case SoeknadActionTypes.LEGG_TIL_BARN: {
+        case ActionTypes.LEGG_TIL_BARN: {
             const { opplysningerOmBarn } = state;
 
             opplysningerOmBarn.push(action.payload);
 
             return { ...state, opplysningerOmBarn };
         }
-        case SoeknadActionTypes.LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD: {
+        case ActionTypes.LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD: {
             return { ...state, tidligereArbeidsforhold: [...state.tidligereArbeidsforhold, action.payload] };
         }
-        case SoeknadActionTypes.FJERN_TIDLIGERE_ARBEIDSFORHOLD: {
+        case ActionTypes.FJERN_TIDLIGERE_ARBEIDSFORHOLD: {
             const indexToDelete: number = action.payload;
 
             const tidligereArbeidsforhold = [
@@ -76,9 +87,9 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
 
             return { ...state, tidligereArbeidsforhold };
         }
-        case SoeknadActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD:
+        case ActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD:
             return { ...state, naavaerendeArbeidsforhold: action.payload };
-        case SoeknadActionTypes.OPPDATER_ANDRE_YTELSER:
+        case ActionTypes.OPPDATER_ANDRE_YTELSER:
             return { ...state, andreYtelser: action.payload };
         default:
             return state;

@@ -4,7 +4,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import ToValgRadio from "../../felles/ToValgRadio";
-import { IAndreYtelser, SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { IAndreYtelser, ActionTypes } from "../../../context/soknad/soknad";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import TekstInput from "../../felles/TekstInput";
 import { useTranslation } from "react-i18next";
@@ -32,7 +32,7 @@ const AndreYtelser: SoknadSteg = () => {
     const [ytelser, setYtelser] = useState(initialState);
 
     useEffect(() => {
-        dispatch({ type: SoeknadActionTypes.OPPDATER_ANDRE_YTELSER, payload: ytelser });
+        dispatch({ type: ActionTypes.OPPDATER_ANDRE_YTELSER, payload: ytelser });
     }, [ytelser, dispatch]);
 
     return (

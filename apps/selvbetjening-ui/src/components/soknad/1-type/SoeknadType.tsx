@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { IStoenadType, SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { IStoenadType, ActionTypes } from "../../../context/soknad/soknad";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import Datovelger from "../../felles/Datovelger";
 import * as React from "react";
@@ -29,7 +29,7 @@ const SoeknadType: SoknadSteg = () => {
     const [stoenader, setStoenader] = useState(initialState);
 
     useEffect(() => {
-        dispatch({ type: SoeknadActionTypes.OPPDATER_VALGTE_STOENADER, payload: stoenader });
+        dispatch({ type: ActionTypes.OPPDATER_VALGTE_STOENADER, payload: stoenader });
     }, [stoenader, dispatch]);
 
     return (

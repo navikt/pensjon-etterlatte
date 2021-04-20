@@ -11,6 +11,7 @@ export interface ISteg {
 }
 
 export enum StegActionTypes {
+    TILBAKESTILL,
     NESTE,
     FORRIGE,
 }

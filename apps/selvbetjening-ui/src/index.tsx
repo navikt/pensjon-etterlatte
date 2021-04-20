@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
-import { HashRouter as Router, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import nbLocale from "./assets/locales/nb.json";
 import nnLocale from "./assets/locales/nn.json";

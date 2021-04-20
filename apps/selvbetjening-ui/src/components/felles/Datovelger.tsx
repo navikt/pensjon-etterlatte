@@ -3,8 +3,9 @@ import DatePicker from "react-datepicker";
 import { Label } from "nav-frontend-skjema";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
 import { parseISO } from "date-fns";
-import nb from "date-fns/locale/nb";
+import { nb, nn, enUS as en } from "date-fns/locale";
 import { v4 as uuid } from "uuid";
+import { useTranslation } from "react-i18next";
 
 interface Props {
     label: string;
@@ -13,13 +14,16 @@ interface Props {
     showMonthYearPicker?: boolean;
 }
 
-// TODO: Støtte nynorsk og engelsk
-registerLocale("nb", nb);
-
 const Datovelger: FC<Props> = ({ label, valgtDato, onChange, showMonthYearPicker }) => {
+    const { i18n } = useTranslation();
+
+    registerLocale("nb", nb);
+    registerLocale("nn", nn);
+    registerLocale("en", en);
+
     useEffect(() => {
-        setDefaultLocale("nb");
-    }, []);
+        setDefaultLocale(i18n.language);
+    }, [i18n.language]);
 
     let dato: Date | null;
     if (typeof valgtDato === "string") {

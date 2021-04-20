@@ -9,7 +9,7 @@ import { default as Modal } from "nav-frontend-modal";
 import { Xknapp } from "nav-frontend-ikonknapper";
 import TekstInput from "../../felles/TekstInput";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { ITidligereArbeidsforhold, SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { ITidligereArbeidsforhold, ActionTypes } from "../../../context/soknad/soknad";
 import Datovelger from "../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
 
@@ -37,7 +37,7 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
 
     const leggTil = () => {
         dispatch({
-            type: SoeknadActionTypes.LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD,
+            type: ActionTypes.LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD,
             payload: arbeidsforhold,
         });
 
@@ -46,7 +46,7 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
 
     const fjern = (index: number) =>
         dispatch({
-            type: SoeknadActionTypes.FJERN_TIDLIGERE_ARBEIDSFORHOLD,
+            type: ActionTypes.FJERN_TIDLIGERE_ARBEIDSFORHOLD,
             payload: index,
         });
 

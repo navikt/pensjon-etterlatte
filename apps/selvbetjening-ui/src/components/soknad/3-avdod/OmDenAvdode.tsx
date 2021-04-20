@@ -8,7 +8,7 @@ import Datovelger from "../../felles/Datovelger";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IAvdoed } from "../../../typer/person";
 import TekstInput from "../../felles/TekstInput";
-import { SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 
 const OmDenAvdode: SoknadSteg = () => {
@@ -43,7 +43,7 @@ const OmDenAvdode: SoknadSteg = () => {
     };
 
     useEffect(() => {
-        dispatch({ type: SoeknadActionTypes.OPPDATER_AVDOED, payload: avdoed });
+        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: avdoed });
     }, [avdoed, dispatch]);
 
     return (

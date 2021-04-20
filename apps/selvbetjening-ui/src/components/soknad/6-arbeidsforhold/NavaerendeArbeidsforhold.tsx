@@ -6,7 +6,7 @@ import SoknadSteg from "../../../typer/SoknadSteg";
 import Datovelger from "../../felles/Datovelger";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import TekstInput from "../../felles/TekstInput";
-import { IArbeidsforhold, SoeknadActionTypes } from "../../../context/soknad/soknad";
+import { IArbeidsforhold, ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 
 const NavaerendeArbeidsforhold: SoknadSteg = () => {
@@ -34,7 +34,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
     const [arbeidsforhold, setArbeidsforhold] = useState(initialState);
 
     useEffect(() => {
-        dispatch({ type: SoeknadActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD, payload: arbeidsforhold });
+        dispatch({ type: ActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD, payload: arbeidsforhold });
     }, [arbeidsforhold, dispatch]);
 
     return (

@@ -58,7 +58,47 @@
     "borPaaAdresse": "Bor du på denne adressen?",
     "oppholderSegINorge": "Oppholder du deg i Norge?",
     "oppgiLand": "Oppgi land",
-    "infoFolkeregisteret": "Du må oppgi riktig adresse til Folkeregisteret for å bruke denne søknaden."
+    "infoFolkeregisteret": "Du må oppgi riktig adresse til Folkeregisteret for å bruke denne søknaden.",
+    "medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i utlandet?",
+    "norskKontonummer": "Norsk kontonummer som pensjonen blir overført til (11 siffer)",
+    "forholdTilAvdoede": {
+      "tittel": "Ditt forhold til avdøde",
+      "ektefelle": "Gjenlevende ektefelle",
+      "partner": "Gjenlevende partner",
+      "samboer": "Gjenlevende samboer",
+      "ugift": "Ugift, men ble forsørget av den avdøde",
+      "datoForPartnerskap": "Dato for inngått ekteskap/partnerskap/ samboerforhold (dd.mm.åå)"
+    },
+    "gjenlevendeSamboer": "Hvis gjenlevende samboer, har/har du hatt barn med eller vært gift med den avdøde samboeren?",
+    "varSkiltFraAvdoede": "Var du skilt fra avdød ektefelle/partner eller opplevde samlivsbrudd før samboeren døde?",
+    "datoForSamlivsbrudd": "Dato for skilsmisse/samlivsbrudd (dd.mm.åå)",
+    "mottokBidragFraAvdoede": "Mottok du bidrag fra avdøde?",
+    "bidragBeloep": "Oppgi beløp pr. år på dødsfallstidspunktet",
+    "nyInngaaelse": {
+      "tittel": "Har du etter dødsfallet/ skillsmissen/samlivsbruddet inngått",
+      "ekteskap": "Ekteskap",
+      "partnerskap": "Partnerskap",
+      "samboerskap": "Samboerskap",
+      "dato": "Dato for inngåelse"
+    },
+    "nyInngaaelseOpploest": "Er dette ekteskapet/partnerskapet/ samboerskapet oppløst?",
+    "aarsakOpploesning": {
+      "tittel": "Oppgi årsak",
+      "dødsfall": "Dødsfall",
+      "skilsmisse": "Skilsmisse",
+      "bruddISamboerskap": "Brudd i samboerskap"
+    },
+    "nyInngaaelseOpploestDato": "Dato for oppløsning (dd.mm.åå)",
+    "oppgiNavnSamboer": "Hvis du er samboer, oppgi etternavn og fornavn på samboer",
+    "harHattBarnEllerVaertGiftMedSamboer": "Har eller har du hatt barn med eller vært gift med nåværende samboer?",
+    "harSamboerInntekt": {
+      "tittel": "Har samboer inntekt?",
+      "arbeidsinntekt": "Arbeidsinntekt",
+      "pensjon": "Pensjon",
+      "kapitalinntekt": "Kapitalinntekt",
+      "andreYtelser": "Andre ytelser",
+      "bruttoinntekt": "Samlet bruttoinntekt pr. år"
+    }
   },
   "omDenAvdoede": {
     "tittel": "3 Opplysninger om den avdøde",

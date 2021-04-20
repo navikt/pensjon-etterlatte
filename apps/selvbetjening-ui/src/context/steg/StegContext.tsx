@@ -1,5 +1,5 @@
 import { createContext, FC, useContext, useReducer } from "react";
-import { ISteg, IStegAction, IStegElement, StegActionTypes, StegProps } from "./steg";
+import { ISteg, IStegAction, StegActionTypes, StegProps } from "./steg";
 import SoeknadType from "../../components/soknad/1-type/SoeknadType";
 import OpplysningerOmSokeren from "../../components/soknad/2-soker/OpplysningerOmSokeren";
 import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
@@ -46,36 +46,41 @@ const initialState: ISteg = {
     ],
 };
 
-const oppdaterIndex = (index: number, liste: IStegElement[]) => {
-    const oppdatertListe = liste;
+const oppdaterSteg = (state: ISteg) => {
+    const index = state.aktivtSteg - 1;
+    const oppdaterteSteg = [...state.steg];
 
-    let element = { ...oppdatertListe[index] };
+    let element = { ...oppdaterteSteg[index] };
     element.disabled = false;
-    oppdatertListe[index] = element;
+    oppdaterteSteg[index] = element;
 
-    return oppdatertListe;
+    return { index, oppdaterteSteg };
 };
 
 const reducer = (state: ISteg, action: IStegAction) => {
     switch (action.type) {
+        case StegActionTypes.TILBAKESTILL: {
+            return {
+                ...state,
+                aktivtSteg: 1,
+            };
+        }
         case StegActionTypes.FORRIGE: {
-            const index = state.aktivtSteg - 1;
-            const oppdatertListe = oppdaterIndex(index, [...state.steg]);
+            const { index, oppdaterteSteg } = oppdaterSteg(state);
 
             return {
                 ...state,
                 aktivtSteg: index,
-                steg: oppdatertListe,
+                steg: oppdaterteSteg,
             };
         }
         case StegActionTypes.NESTE: {
-            const index = state.aktivtSteg - 1;
-            const oppdatertListe = oppdaterIndex(index, [...state.steg]);
+            const { oppdaterteSteg } = oppdaterSteg(state);
 
             return {
                 ...state,
                 aktivtSteg: state.aktivtSteg + 1,
-                steg: oppdatertListe,
+                steg: oppdaterteSteg,
             };
         }
         default:

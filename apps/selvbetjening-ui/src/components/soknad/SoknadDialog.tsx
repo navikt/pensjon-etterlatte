@@ -6,13 +6,12 @@ import { useHistory } from "react-router-dom";
 import { StegActionTypes } from "../../context/steg/steg";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { Panel } from "nav-frontend-paneler";
-import { sendSoeknad } from "../../api";
-import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useTranslation } from "react-i18next";
 
 const SoknadDialog: FC = () => {
-    const { t } = useTranslation();
     const history = useHistory();
+
+    const { t } = useTranslation();
     const { path } = useRouteMatch();
 
     const { state, dispatch } = useStegContext();
@@ -30,20 +29,6 @@ const SoknadDialog: FC = () => {
         } else {
             // TODO: Side for "ferdig søknad"
         }
-    };
-
-    const soeknad = useSoknadContext().state;
-    const send = () => {
-        sendSoeknad(soeknad)
-            .then((r) => {
-                console.log(r);
-
-                history.push("/sendt");
-            })
-            .catch((error) => {
-                // TODO: Håndtere feil. Redirect til feilside?
-                console.error(error);
-            });
     };
 
     const alleSteg = steg.map(({ disabled }, index) => {
@@ -71,7 +56,7 @@ const SoknadDialog: FC = () => {
                     const stegNr = index + 1;
 
                     return (
-                        <Route key={index} path={`${path}/steg/${stegNr}`}>
+                        <Route key={index} path={`${path}/${stegNr}`}>
                             <Panel>
                                 <steg.component />
                             </Panel>
@@ -84,7 +69,11 @@ const SoknadDialog: FC = () => {
 
                     {aktivtSteg < steg.length && <Hovedknapp onClick={neste}>{t("knapp.neste")}</Hovedknapp>}
 
-                    {aktivtSteg === steg.length && <Hovedknapp onClick={send}>{t("knapp.sendSoeknad")}</Hovedknapp>}
+                    {aktivtSteg === steg.length && (
+                        <Hovedknapp onClick={() => history.push("/soknad/oppsummering")}>
+                            {t("knapp.tilOppsummering")}
+                        </Hovedknapp>
+                    )}
                 </section>
             </div>
         </>

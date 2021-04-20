@@ -9,10 +9,16 @@ import Veileder from "nav-frontend-veileder";
 import { useHistory } from "react-router-dom";
 import ikon from "../../assets/ikoner/veileder.svg";
 import { useTranslation } from "react-i18next";
+import { useStegContext } from "../../context/steg/StegContext";
 
 const SoknadForside: FC = () => {
     const { t } = useTranslation();
+    const { state } = useStegContext();
     const history = useHistory();
+
+    if (state.aktivtSteg !== 1) {
+        history.push(`/soknad/steg/${state.aktivtSteg}`);
+    }
 
     const [harBekreftet, settBekreftet] = useState(false);
 
