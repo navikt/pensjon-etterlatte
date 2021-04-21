@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { useState } from "react";
 import "./SoknadForside.less";
 import { Panel } from "nav-frontend-paneler";
 import { BekreftCheckboksPanel } from "nav-frontend-skjema";
@@ -11,7 +11,7 @@ import ikon from "../../assets/ikoner/veileder.svg";
 import { useTranslation } from "react-i18next";
 import { useStegContext } from "../../context/steg/StegContext";
 
-const SoknadForside: FC = () => {
+const SoknadForside = () => {
     const { t } = useTranslation();
     const { state } = useStegContext();
     const history = useHistory();

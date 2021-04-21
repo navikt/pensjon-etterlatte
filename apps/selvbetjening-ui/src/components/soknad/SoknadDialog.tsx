@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 import { Route, useRouteMatch } from "react-router";
 import Stegindikator from "nav-frontend-stegindikator/lib/stegindikator";
 import { useStegContext } from "../../context/steg/StegContext";
@@ -8,7 +8,7 @@ import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { Panel } from "nav-frontend-paneler";
 import { useTranslation } from "react-i18next";
 
-const SoknadDialog: FC = () => {
+const SoknadDialog = () => {
     const history = useHistory();
 
     const { t } = useTranslation();

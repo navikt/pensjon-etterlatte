@@ -1,0 +1,23 @@
+export interface IBruker {
+    fornavn: string;
+    etternavn: string;
+    foedselsnummer: string;
+    adresse: string;
+    statsborgerskap: string;
+    sivilstatus: string;
+}
+
+export enum ActionTypes {
+    TILBAKESTILL,
+    HENT_INNLOGGET_BRUKER,
+}
+
+export interface IBrukerAction {
+    type: ActionTypes;
+    payload?: any;
+}
+
+export interface StegProps {
+    state: IBruker;
+    dispatch: (action: IBrukerAction) => void;
+}

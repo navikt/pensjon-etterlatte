@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 interface Props {
     label: string;
-    valgtDato: Date | string | null;
+    valgtDato?: Date | string | null;
     onChange: (dato: Date) => void;
     showMonthYearPicker?: boolean;
 }
@@ -25,7 +25,7 @@ const Datovelger: FC<Props> = ({ label, valgtDato, onChange, showMonthYearPicker
         setDefaultLocale(i18n.language);
     }, [i18n.language]);
 
-    let dato: Date | null;
+    let dato: Date | null | undefined;
     if (typeof valgtDato === "string") {
         dato = parseISO(valgtDato);
     } else {

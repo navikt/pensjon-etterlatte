@@ -1,6 +1,5 @@
 import { createContext, FC, useContext, useReducer } from "react";
-import { ISoeknad, ISoeknadAction, ActionTypes, SoeknadProps } from "./soknad";
-import { IPdlPerson, ISoeker } from "../../typer/person";
+import { ActionTypes, ISoeknad, ISoeknadAction, SoeknadProps } from "./soknad";
 
 const STORAGE_KEY = "etterlatte-store";
 
@@ -8,6 +7,7 @@ const json = localStorage.getItem(STORAGE_KEY);
 const storedState = json ? JSON.parse(json) : null;
 
 const initialState: ISoeknad = storedState || {
+    innloggetBruker: null,
     stoenadType: null,
     opplysningerOmSoekeren: null,
     opplysningerOmDenAvdoede: null,
@@ -21,6 +21,7 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
         case ActionTypes.TILBAKESTILL: {
             return {
+                innloggetBruker: null,
                 stoenadType: null,
                 opplysningerOmSoekeren: null,
                 opplysningerOmDenAvdoede: null,
@@ -30,42 +31,10 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 andreYtelser: null,
             };
         }
-        case ActionTypes.HENT_INNLOGGET_BRUKER: {
-            const pdlPerson: IPdlPerson = action.payload;
-
-            // TODO: Håndtere manglende person på en god måte
-            if (!pdlPerson) return state;
-
-            const opplysningerOmSoekeren: ISoeker = {
-                ...state.opplysningerOmSoekeren,
-                foedselsnummer: pdlPerson.foedselsnummer,
-                navn: {
-                    fornavn: pdlPerson.fornavn,
-                    etternavn: pdlPerson.etternavn,
-                },
-                bosted: {
-                    adresse: pdlPerson.adresse,
-                },
-                statsborgerskap: pdlPerson.statsborgerskap,
-                sivilstatus: pdlPerson.sivilstatus,
-            };
-
-            return { ...state, opplysningerOmSoekeren };
-        }
-        case ActionTypes.BEKREFT_BOADRESSE: {
-            return {
-                ...state,
-                opplysningerOmSoekeren: {
-                    ...state.opplysningerOmSoekeren,
-                    bosted: {
-                        ...state.opplysningerOmSoekeren?.bosted,
-                        boadresseBekreftet: action.payload,
-                    },
-                },
-            };
-        }
         case ActionTypes.OPPDATER_VALGTE_STOENADER:
             return { ...state, stoenadType: action.payload };
+        case ActionTypes.OPPDATER_SOEKER:
+            return { ...state, opplysningerOmSoekeren: action.payload };
         case ActionTypes.OPPDATER_AVDOED:
             return { ...state, opplysningerOmDenAvdoede: action.payload };
         case ActionTypes.LEGG_TIL_BARN: {

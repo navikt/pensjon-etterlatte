@@ -11,7 +11,7 @@ interface Props {
 const TekstInput: FC<Props> = ({ value, placeholder, label, onChange }) => {
     return (
         <Input
-            value={value}
+            value={value || ""}
             placeholder={placeholder}
             label={label}
             onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}

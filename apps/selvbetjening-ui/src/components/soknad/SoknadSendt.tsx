@@ -1,4 +1,3 @@
-import React, { FC } from "react";
 import "./SoknadForside.less";
 import { Panel } from "nav-frontend-paneler";
 import Lenke from "nav-frontend-lenker";
@@ -12,7 +11,7 @@ import { useHistory } from "react-router-dom";
 import { useStegContext } from "../../context/steg/StegContext";
 import { StegActionTypes } from "../../context/steg/steg";
 
-const SoknadSendt: FC = () => {
+const SoknadSendt = () => {
     const history = useHistory();
     const soeknadDispatch = useSoknadContext().dispatch;
     const stegDispatch = useStegContext().dispatch;
