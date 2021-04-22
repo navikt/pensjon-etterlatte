@@ -3,7 +3,7 @@ import { CheckboksPanel } from "nav-frontend-skjema";
 
 interface Props {
     label: string;
-    checked: boolean;
+    checked?: boolean;
     onChange: (checked: boolean) => void;
 }
 

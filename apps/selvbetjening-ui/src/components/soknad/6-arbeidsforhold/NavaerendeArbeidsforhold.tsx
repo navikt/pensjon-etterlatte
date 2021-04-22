@@ -13,23 +13,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
-    const initialState: IArbeidsforhold = state.naavaerendeArbeidsforhold || {
-        yrke: "",
-        stilling: "",
-        startDato: null,
-        sluttDato: null,
-        ansettelsesforhold: "", // låse valg til type?
-        heltidDeltid: "",
-        stillingsprosent: null,
-        arbeidsgiver: {
-            navn: "",
-            adresse: "",
-        },
-        inntekt: {
-            bruttoArbeidsinntektPrMd: "",
-            personinntektFraNaeringPrAr: "",
-        },
-    };
+    const initialState: IArbeidsforhold = state.naavaerendeArbeidsforhold || {};
 
     const [arbeidsforhold, setArbeidsforhold] = useState(initialState);
 
@@ -117,14 +101,14 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                 <br />
 
                 <TekstInput
-                    value={arbeidsforhold.arbeidsgiver.navn}
+                    value={arbeidsforhold.arbeidsgiver?.navn}
                     label={t("naavaerendeArbeidsforhold.arbeidsgiversNavn")}
                     onChange={(navn) =>
                         setArbeidsforhold({ ...arbeidsforhold, arbeidsgiver: { ...arbeidsforhold.arbeidsgiver, navn } })
                     }
                 />
                 <TekstInput
-                    value={arbeidsforhold.arbeidsgiver.adresse}
+                    value={arbeidsforhold.arbeidsgiver?.adresse}
                     label={t("naavaerendeArbeidsforhold.arbeidsgiversAdresse")}
                     onChange={(adresse) =>
                         setArbeidsforhold({
@@ -135,7 +119,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                 />
 
                 <TekstInput
-                    value={arbeidsforhold.inntekt.bruttoArbeidsinntektPrMd}
+                    value={arbeidsforhold.inntekt?.bruttoArbeidsinntektPrMd}
                     label={t("naavaerendeArbeidsforhold.bruttoInntektPrMd")}
                     placeholder="Kr"
                     onChange={(bruttoArbeidsinntektPrMd) =>
@@ -146,7 +130,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                     }
                 />
                 <TekstInput
-                    value={arbeidsforhold.inntekt.personinntektFraNaeringPrAr}
+                    value={arbeidsforhold.inntekt?.personinntektFraNaeringPrAr}
                     label={t("naavaerendeArbeidsforhold.personinntektFraNaering")}
                     placeholder="Kr"
                     onChange={(personinntektFraNaeringPrAr) =>

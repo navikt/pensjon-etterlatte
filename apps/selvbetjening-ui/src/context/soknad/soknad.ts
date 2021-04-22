@@ -17,36 +17,36 @@ export interface IAndreYtelser {
 }
 
 export interface ITidligereArbeidsforhold {
-    beskrivelse: string;
-    varighet: string;
-    fraDato: Date | null;
-    tilDato: Date | null;
+    beskrivelse?: string;
+    varighet?: string;
+    fraDato?: Date;
+    tilDato?: Date;
 }
 
 export interface IStoenadType {
-    etterlatte: boolean;
-    gjenlevendetillegg: boolean;
-    barnepensjon: boolean;
-    barnetilsyn: boolean;
-    skolepenger: boolean;
-    fraDato: Date | null;
+    etterlatte?: boolean;
+    gjenlevendetillegg?: boolean;
+    barnepensjon?: boolean;
+    barnetilsyn?: boolean;
+    skolepenger?: boolean;
+    fraDato?: Date;
 }
 
 export interface IArbeidsforhold {
-    yrke: string;
-    stilling: string;
-    startDato: Date | null;
-    sluttDato: Date | null;
-    ansettelsesforhold: string; // låse valg til type?
-    heltidDeltid: string;
-    stillingsprosent: number | null;
-    arbeidsgiver: {
-        navn: string;
-        adresse: string;
+    yrke?: string;
+    stilling?: string;
+    startDato?: Date;
+    sluttDato?: Date;
+    ansettelsesforhold?: string; // låse valg til type?
+    heltidDeltid?: string;
+    stillingsprosent?: number | null;
+    arbeidsgiver?: {
+        navn?: string;
+        adresse?: string;
     };
-    inntekt: {
-        bruttoArbeidsinntektPrMd: string;
-        personinntektFraNaeringPrAr: string;
+    inntekt?: {
+        bruttoArbeidsinntektPrMd?: string;
+        personinntektFraNaeringPrAr?: string;
     };
 }
 

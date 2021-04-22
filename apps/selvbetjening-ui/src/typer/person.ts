@@ -68,6 +68,7 @@ export interface IForholdAvdoed {
 }
 
 export interface ISoeker {
+    bostedsadresseBekreftet?: IValg;
     kontaktinfo?: IKontaktinfo;
     kontonummer?: string; // 2.8
     oppholderSegINorge?: IValg; // 2.7

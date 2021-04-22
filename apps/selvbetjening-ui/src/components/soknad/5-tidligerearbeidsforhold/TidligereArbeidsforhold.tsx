@@ -20,19 +20,12 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
     // Modal
     const [isOpen, setIsOpen] = useState(false);
 
-    const tomtElement: ITidligereArbeidsforhold = {
-        beskrivelse: "",
-        varighet: "",
-        fraDato: null,
-        tilDato: null,
-    };
-
-    const [arbeidsforhold, setArbeidsforhold] = useState(tomtElement);
+    const [arbeidsforhold, setArbeidsforhold] = useState<ITidligereArbeidsforhold>({});
 
     const leggTilOgLukk = () => {
         leggTil();
         setIsOpen(false);
-        setArbeidsforhold(tomtElement);
+        setArbeidsforhold({});
     };
 
     const leggTil = () => {
@@ -41,7 +34,7 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
             payload: arbeidsforhold,
         });
 
-        setArbeidsforhold(tomtElement);
+        setArbeidsforhold({});
     };
 
     const fjern = (index: number) =>
@@ -52,7 +45,7 @@ const TidligereArbeidsforhold: SoknadSteg = () => {
 
     const lukkModalvindu = () => {
         setIsOpen(false);
-        setArbeidsforhold(tomtElement);
+        setArbeidsforhold({});
     };
 
     const dtf = Intl.DateTimeFormat(i18n.language, { month: "short", year: "numeric" });

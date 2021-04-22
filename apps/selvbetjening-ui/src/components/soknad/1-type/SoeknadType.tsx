@@ -15,18 +15,9 @@ import { useTranslation } from "react-i18next";
 const SoeknadType: SoknadSteg = () => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
-    const { stoenadType } = state;
 
-    const initialState: IStoenadType = stoenadType || {
-        fraDato: null,
-        etterlatte: false,
-        gjenlevendetillegg: false,
-        barnepensjon: false,
-        barnetilsyn: false,
-        skolepenger: false,
-    };
-
-    const [stoenader, setStoenader] = useState(initialState);
+    const initialState = state.stoenadType || {};
+    const [stoenader, setStoenader] = useState<IStoenadType>(initialState);
 
     useEffect(() => {
         dispatch({ type: ActionTypes.OPPDATER_VALGTE_STOENADER, payload: stoenader });

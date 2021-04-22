@@ -23,32 +23,22 @@ const OpplysningerOmBarn: SoknadSteg = () => {
     // Modal
     const [isOpen, setIsOpen] = useState(false);
 
-    const tomtElement: IBarn = {
-        fornavn: "",
-        etternavn: "",
-        foedselsnummer: "",
-        foreldre: "",
-        bosattUtland: undefined,
-        statsborgerskap: "",
-        land: "",
-    };
-
-    const [barn, setBarn] = useState(tomtElement);
+    const [barn, setBarn] = useState<IBarn>({});
 
     const leggTilOgLukk = () => {
         leggTil();
         setIsOpen(false);
-        setBarn(tomtElement);
+        setBarn({});
     };
 
     const leggTil = () => {
         dispatch({ type: ActionTypes.LEGG_TIL_BARN, payload: barn });
-        setBarn(tomtElement);
+        setBarn({});
     };
 
     const lukkModalvindu = () => {
         setIsOpen(false);
-        setBarn(tomtElement);
+        setBarn({});
     };
 
     return (

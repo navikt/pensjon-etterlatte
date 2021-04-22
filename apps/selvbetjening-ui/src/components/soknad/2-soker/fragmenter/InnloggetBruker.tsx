@@ -21,6 +21,7 @@ const InnloggetBruker = () => {
 
     return (
         <>
+            {/* TODO: Ikke lagre innlogget bruker? */}
             <br />
             <AlertStripe type="advarsel">{t("omSoekeren.advarsel")}</AlertStripe>
             <br />

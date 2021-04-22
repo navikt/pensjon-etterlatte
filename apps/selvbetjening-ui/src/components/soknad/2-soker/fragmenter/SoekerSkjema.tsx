@@ -9,6 +9,9 @@ import SamboerSkjema from "./SamboerSkjema";
 import { ActionTypes } from "../../../../context/soknad/soknad";
 import NySivilstatusSkjema from "./NySivilstatusSkjema";
 import ForholdAvdoedSkjema from "./ForholdAvdoedSkjema";
+import AlertStripe from "nav-frontend-alertstriper";
+import { IValg } from "../../../../typer/ISpoersmaal";
+import KontaktinfoSkjema from "./KontaktinfoSkjema";
 
 const SoekerSkjema = () => {
     const { t } = useTranslation();
@@ -24,70 +27,74 @@ const SoekerSkjema = () => {
 
     return (
         <SkjemaGruppe>
-            {/* 2.4 */}
-            <TekstInput
-                label={t("felles.telefon")}
-                value={soeker?.kontaktinfo?.telefonnummer}
-                onChange={(telefonnummer) =>
-                    setSoeker({
-                        ...soeker,
-                        kontaktinfo: { ...soeker.kontaktinfo, telefonnummer },
-                    })
-                }
-            />
-
-            {/* 2.5 */}
-            <TekstInput
-                label={t("felles.epost")}
-                value={soeker?.kontaktinfo?.epost}
-                onChange={(epost) => setSoeker({ ...soeker, kontaktinfo: { ...soeker.kontaktinfo, epost } })}
-            />
-
-            {/* 2.7 */}
             <ToValgRadio
-                label={t("omSoekeren.oppholderSegINorge")}
-                checked={soeker?.oppholderSegINorge}
+                label={t("omSoekeren.borPaaAdresse")}
+                checked={soeker.bostedsadresseBekreftet}
                 invert={true}
-                onChange={(oppholderSegINorge) => setSoeker({ ...soeker, oppholderSegINorge })}
+                onChange={(bostedsadresseBekreftet) => setSoeker({ ...soeker, bostedsadresseBekreftet })}
             >
-                <TekstInput
-                    label={t("omSoekeren.oppgiLand")}
-                    value={soeker.oppholdsland}
-                    onChange={(oppholdsland) => setSoeker({ ...soeker, oppholdsland })}
-                />
+                <AlertStripe type="advarsel" form={"inline"}>
+                    {t("omSoekeren.infoFolkeregisteret")}
+                </AlertStripe>
             </ToValgRadio>
 
-            <ToValgRadio
-                label={t("omSoekeren.medlemFolketrygdenUtland")}
-                checked={soeker.medlemFolketrygdenUtland}
-                onChange={(medlemFolketrygdenUtland) => setSoeker({ ...soeker, medlemFolketrygdenUtland })}
-            />
+            {soeker.bostedsadresseBekreftet === IValg.JA && (
+                <>
+                    <KontaktinfoSkjema
+                        kontaktinfo={soeker?.kontaktinfo}
+                        setKontaktinfo={(kontaktinfo) => setSoeker({ ...soeker, kontaktinfo })}
+                    />
 
-            {/* 2.8 */}
-            <TekstInput
-                label={t("omSoekeren.norskKontonummer")}
-                value={soeker?.kontonummer}
-                onChange={(kontonummer) => setSoeker({ ...soeker, kontonummer })}
-            />
-            {/* TODO: Automatisk fylle inn kontonummer vi har, men gi bruker mulighet til å endre. */}
+                    {/* 2.7 */}
+                    <ToValgRadio
+                        label={t("omSoekeren.oppholderSegINorge")}
+                        checked={soeker?.oppholderSegINorge}
+                        invert={true}
+                        onChange={(oppholderSegINorge) => setSoeker({ ...soeker, oppholderSegINorge })}
+                    >
+                        <TekstInput
+                            label={t("omSoekeren.oppgiLand")}
+                            value={soeker.oppholdsland}
+                            onChange={(oppholdsland) => setSoeker({ ...soeker, oppholdsland })}
+                        />
+                    </ToValgRadio>
 
-            {/* 2.9 */}
-            <ForholdAvdoedSkjema
-                forholdTilAvdoed={soeker.forholdTilAvdoed}
-                setForholdTilAvdoed={(forholdTilAvdoed) => setSoeker({ ...soeker, forholdTilAvdoed })}
-            />
+                    <ToValgRadio
+                        label={t("omSoekeren.medlemFolketrygdenUtland")}
+                        checked={soeker.medlemFolketrygdenUtland}
+                        onChange={(medlemFolketrygdenUtland) => setSoeker({ ...soeker, medlemFolketrygdenUtland })}
+                    />
 
-            <br />
+                    {/* 2.8 */}
+                    <TekstInput
+                        label={t("omSoekeren.norskKontonummer")}
+                        value={soeker?.kontonummer}
+                        onChange={(kontonummer) => setSoeker({ ...soeker, kontonummer })}
+                    />
+                    {/* TODO: Automatisk fylle inn kontonummer vi har, men gi bruker mulighet til å endre. */}
 
-            <NySivilstatusSkjema
-                nySivilstatus={soeker.nySivilstatus}
-                setNySivilstatus={(nySivilstatus) => setSoeker({ ...soeker, nySivilstatus })}
-            />
+                    {/* 2.9 */}
+                    <ForholdAvdoedSkjema
+                        forholdTilAvdoed={soeker.forholdTilAvdoed}
+                        setForholdTilAvdoed={(forholdTilAvdoed) => setSoeker({ ...soeker, forholdTilAvdoed })}
+                    />
 
-            <br />
+                    <br />
 
-            {soeker.nySivilstatus?.nySivilstatusEtterDoedsfallet === "Samboerskap" && (
-                <SamboerSkjema samboer={soeker.samboer} setSamboer={(samboer) => setSoeker({ ...soeker, samboer })} />
+                    <NySivilstatusSkjema
+                        nySivilstatus={soeker.nySivilstatus}
+                        setNySivilstatus={(nySivilstatus) => setSoeker({ ...soeker, nySivilstatus })}
+                    />
+
+                    <br />
+
+                    {soeker.nySivilstatus?.nySivilstatusEtterDoedsfallet === "Samboerskap" && (
+                        <SamboerSkjema
+                            samboer={soeker.samboer}
+                            setSamboer={(samboer) => setSoeker({ ...soeker, samboer })}
+                        />
+                    )}
+                </>
             )}
         </SkjemaGruppe>
     );
