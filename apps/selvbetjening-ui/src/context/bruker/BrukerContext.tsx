@@ -1,5 +1,5 @@
 import { createContext, FC, useContext, useReducer } from "react";
-import { IBruker, IBrukerAction, ActionTypes, StegProps } from "./bruker";
+import { ActionTypes, IBruker, IBrukerAction, StegProps } from "./bruker";
 
 const initialState: IBruker = {
     fornavn: "",
@@ -12,9 +12,14 @@ const initialState: IBruker = {
 
 const reducer = (state: IBruker, action: IBrukerAction) => {
     switch (action.type) {
-        case ActionTypes.TILBAKESTILL: {
+        case ActionTypes.INIT_TEST_BRUKER: {
             return {
-                ...state,
+                fornavn: "STERK",
+                etternavn: "BUSK",
+                foedselsnummer: "24014021406",
+                adresse: "Testveien 12, 0539 Oslo",
+                statsborgerskap: "Norsk",
+                sivilstatus: "Gift",
             };
         }
         case ActionTypes.HENT_INNLOGGET_BRUKER: {
@@ -23,7 +28,7 @@ const reducer = (state: IBruker, action: IBrukerAction) => {
             // TODO: Håndtere manglende person på en god måte
             if (!innloggetBruker) return state;
 
-            return { ...state, innloggetBruker };
+            return { ...innloggetBruker };
         }
         default:
             return { ...state };
