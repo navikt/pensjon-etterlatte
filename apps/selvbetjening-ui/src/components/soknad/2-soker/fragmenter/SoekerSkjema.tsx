@@ -25,6 +25,15 @@ const SoekerSkjema = () => {
         dispatch({ type: ActionTypes.OPPDATER_SOEKER, payload: soeker });
     }, [soeker, dispatch]);
 
+    const oppholderSegINorge = (valg: IValg) => {
+        setSoeker({
+            ...soeker,
+            oppholderSegINorge: valg,
+            oppholdsland: valg === IValg.JA ? "" : soeker.oppholdsland,
+            medlemFolketrygdenUtland: valg === IValg.JA ? undefined : soeker.medlemFolketrygdenUtland,
+        });
+    };
+
     return (
         <SkjemaGruppe>
             <ToValgRadio
@@ -50,20 +59,20 @@ const SoekerSkjema = () => {
                         label={t("omSoekeren.oppholderSegINorge")}
                         checked={soeker?.oppholderSegINorge}
                         invert={true}
-                        onChange={(oppholderSegINorge) => setSoeker({ ...soeker, oppholderSegINorge })}
+                        onChange={oppholderSegINorge}
                     >
                         <TekstInput
                             label={t("omSoekeren.oppgiLand")}
                             value={soeker.oppholdsland}
                             onChange={(oppholdsland) => setSoeker({ ...soeker, oppholdsland })}
                         />
-                    </ToValgRadio>
 
-                    <ToValgRadio
-                        label={t("omSoekeren.medlemFolketrygdenUtland")}
-                        checked={soeker.medlemFolketrygdenUtland}
-                        onChange={(medlemFolketrygdenUtland) => setSoeker({ ...soeker, medlemFolketrygdenUtland })}
-                    />
+                        <ToValgRadio
+                            label={t("omSoekeren.medlemFolketrygdenUtland")}
+                            checked={soeker.medlemFolketrygdenUtland}
+                            onChange={(medlemFolketrygdenUtland) => setSoeker({ ...soeker, medlemFolketrygdenUtland })}
+                        />
+                    </ToValgRadio>
 
                     {/* 2.8 */}
                     <TekstInput

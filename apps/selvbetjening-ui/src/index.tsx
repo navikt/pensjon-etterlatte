@@ -45,7 +45,10 @@ ReactDOM.render(
     // <React.StrictMode>
     <Router basename={process.env.PUBLIC_URL}>
         <ScrollToTop />
-        <App />
+
+        <div className={"app"}>
+            <App />
+        </div>
     </Router>,
     document.getElementById("root")
 );
