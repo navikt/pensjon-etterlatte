@@ -1,46 +1,47 @@
 import { createContext, FC, useContext, useReducer } from "react";
 import { ISteg, IStegAction, StegActionTypes, StegProps } from "./steg";
-import SoeknadType from "../../components/soknad/1-type/SoeknadType";
-import OpplysningerOmSokeren from "../../components/soknad/2-soker/OpplysningerOmSokeren";
-import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
-import OpplysningerOmBarn from "../../components/soknad/4-barn/OpplysningerOmBarn";
-import TidligereArbeidsforhold from "../../components/soknad/5-tidligerearbeidsforhold/TidligereArbeidsforhold";
-import NavaerendeArbeidsforhold from "../../components/soknad/6-arbeidsforhold/NavaerendeArbeidsforhold";
-import AndreYtelser from "../../components/soknad/7-andreytelser/AndreYtelser";
 
 const STORAGE_KEY = "etterlatte-soknad-steg";
 
-const lagretSteg = localStorage.getItem(STORAGE_KEY) || null;
+const json = localStorage.getItem(STORAGE_KEY) || null;
+const lagretState = json ? JSON.parse(json) : null;
 
-const initialState: ISteg = {
-    aktivtSteg: lagretSteg ? Number(lagretSteg) : 1,
+const initialState: ISteg = lagretState || {
+    aktivtSteg: 1,
     steg: [
         {
-            component: SoeknadType,
+            path: "soeknad-type",
+            label: "Hva søker du?",
             disabled: false,
         },
         {
-            component: OpplysningerOmSokeren,
+            path: "opplysninger-om-sokeren",
+            label: "Opplysninger om søkeren",
             disabled: true,
         },
         {
-            component: OmDenAvdode,
+            path: "om-den-avdode",
+            label: "Opplysninger om den avdøde",
             disabled: true,
         },
         {
-            component: OpplysningerOmBarn,
+            path: "opplysninger-om-barn",
+            label: "Opplysninger om barn",
             disabled: true,
         },
         {
-            component: TidligereArbeidsforhold,
+            path: "tidligere-arbeidsforhold",
+            label: "Tidligere arbeidsforhold, kurs, m.m.",
             disabled: true,
         },
         {
-            component: NavaerendeArbeidsforhold,
+            path: "navaerende-arbeidsforhold",
+            label: "Nåværende arbeidsforhold",
             disabled: true,
         },
         {
-            component: AndreYtelser,
+            path: "andre-ytelser",
+            label: "Andre ytelser",
             disabled: true,
         },
     ],
@@ -63,6 +64,20 @@ const reducer = (state: ISteg, action: IStegAction) => {
             return {
                 ...state,
                 aktivtSteg: 1,
+            };
+        }
+        case StegActionTypes.SETT_STEG: {
+            const index = action.payload;
+            const oppdaterteSteg = [...state.steg];
+
+            let element = { ...oppdaterteSteg[index] };
+            element.disabled = false;
+            oppdaterteSteg[index] = element;
+
+            return {
+                ...state,
+                aktivtSteg: index + 1,
+                steg: oppdaterteSteg,
             };
         }
         case StegActionTypes.FORRIGE: {
@@ -98,7 +113,7 @@ const useStegContext = () => useContext(StegContext);
 const StegProvider: FC = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    localStorage.setItem(STORAGE_KEY, `${state.aktivtSteg}`);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 
     return <StegContext.Provider value={{ state, dispatch }}>{children}</StegContext.Provider>;
 };

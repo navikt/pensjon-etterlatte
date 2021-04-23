@@ -1,7 +1,6 @@
-import SoknadSteg from "../../typer/SoknadSteg";
-
 export interface IStegElement {
-    component: SoknadSteg;
+    path: string;
+    label: string;
     disabled: boolean;
 }
 
@@ -12,6 +11,7 @@ export interface ISteg {
 
 export enum StegActionTypes {
     TILBAKESTILL,
+    SETT_STEG,
     NESTE,
     FORRIGE,
 }

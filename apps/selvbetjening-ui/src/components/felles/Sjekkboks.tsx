@@ -11,7 +11,7 @@ const Sjekkboks: FC<Props> = ({ label, checked, onChange }) => {
     return (
         <CheckboksPanel
             label={label}
-            checked={checked}
+            checked={checked || false}
             onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
         />
     );
