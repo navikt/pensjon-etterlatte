@@ -18,10 +18,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
     const [arbeidsforhold, setArbeidsforhold] = useState(initialState);
 
     useEffect(() => {
-        dispatch({
-            type: ActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD,
-            payload: arbeidsforhold,
-        });
+        dispatch({ type: ActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD, payload: arbeidsforhold });
     }, [arbeidsforhold, dispatch]);
 
     return (
@@ -43,19 +40,16 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                     label={t("felles.stilling")}
                     onChange={(stilling) => setArbeidsforhold({ ...arbeidsforhold, stilling })}
                 />
-
-                <div className={"skjemagruppe skjemagruppe__inline"}>
-                    <Datovelger
-                        valgtDato={arbeidsforhold.startDato}
-                        label={t("felles.startDato")}
-                        onChange={(startDato) => setArbeidsforhold({ ...arbeidsforhold, startDato })}
-                    />
-                    <Datovelger
-                        valgtDato={arbeidsforhold.sluttDato}
-                        label={t("felles.sluttDato")}
-                        onChange={(sluttDato) => setArbeidsforhold({ ...arbeidsforhold, sluttDato })}
-                    />
-                </div>
+                <Datovelger
+                    valgtDato={arbeidsforhold.startDato}
+                    label={t("felles.startDato")}
+                    onChange={(startDato) => setArbeidsforhold({ ...arbeidsforhold, startDato })}
+                />
+                <Datovelger
+                    valgtDato={arbeidsforhold.sluttDato}
+                    label={t("felles.sluttDato")}
+                    onChange={(sluttDato) => setArbeidsforhold({ ...arbeidsforhold, sluttDato })}
+                />
                 <br />
 
                 <RadioPanelGruppe
@@ -85,10 +79,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = () => {
                     ]}
                     checked={arbeidsforhold.heltidDeltid}
                     onChange={(e) =>
-                        setArbeidsforhold({
-                            ...arbeidsforhold,
-                            heltidDeltid: (e.target as HTMLInputElement).value,
-                        })
+                        setArbeidsforhold({ ...arbeidsforhold, heltidDeltid: (e.target as HTMLInputElement).value })
                     }
                 />
 

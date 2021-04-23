@@ -8,8 +8,8 @@ export interface IBruker {
 }
 
 export enum ActionTypes {
+    TILBAKESTILL,
     HENT_INNLOGGET_BRUKER,
-    INIT_TEST_BRUKER,
 }
 
 export interface IBrukerAction {

@@ -16,8 +16,6 @@ const OpplysningerOmSokeren: SoknadSteg = () => {
             {/* Informasjon om den innloggede brukeren */}
             <InnloggetBruker />
 
-            <br />
-
             {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <SoekerSkjema />
         </>

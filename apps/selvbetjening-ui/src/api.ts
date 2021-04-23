@@ -6,11 +6,16 @@ const api = axios.create({
 });
 
 export const hentInnloggetPerson = () => {
-    return api.get("/person/innlogget").then((response) => {
-        console.log(response);
+    return api
+        .get("/person/innlogget")
+        .then((response) => {
+            console.log(response);
 
-        return response.data;
-    });
+            return response.data;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 };
 
 export const sendSoeknad = (soeknad: object) => {

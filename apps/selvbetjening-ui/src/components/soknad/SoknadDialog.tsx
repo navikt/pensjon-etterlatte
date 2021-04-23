@@ -51,29 +51,31 @@ const SoknadDialog = () => {
                 />
             )}
 
-            {state.steg.map((steg, index) => {
-                const stegNr = index + 1;
+            <div className={"app"}>
+                {state.steg.map((steg, index) => {
+                    const stegNr = index + 1;
 
-                return (
-                    <Route key={index} path={`${path}/${stegNr}`}>
-                        <Panel>
-                            <steg.component />
-                        </Panel>
-                    </Route>
-                );
-            })}
+                    return (
+                        <Route key={index} path={`${path}/${stegNr}`}>
+                            <Panel>
+                                <steg.component />
+                            </Panel>
+                        </Route>
+                    );
+                })}
 
-            <section className={"navigasjon-rad"}>
-                {aktivtSteg > 1 && <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>}
+                <section className={"navigasjon-rad"}>
+                    {aktivtSteg > 1 && <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>}
 
-                {aktivtSteg < steg.length && <Hovedknapp onClick={neste}>{t("knapp.neste")}</Hovedknapp>}
+                    {aktivtSteg < steg.length && <Hovedknapp onClick={neste}>{t("knapp.neste")}</Hovedknapp>}
 
-                {aktivtSteg === steg.length && (
-                    <Hovedknapp onClick={() => history.push("/soknad/oppsummering")}>
-                        {t("knapp.tilOppsummering")}
-                    </Hovedknapp>
-                )}
-            </section>
+                    {aktivtSteg === steg.length && (
+                        <Hovedknapp onClick={() => history.push("/soknad/oppsummering")}>
+                            {t("knapp.tilOppsummering")}
+                        </Hovedknapp>
+                    )}
+                </section>
+            </div>
         </>
     );
 };
