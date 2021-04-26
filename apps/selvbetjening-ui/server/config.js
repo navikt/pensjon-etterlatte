@@ -6,8 +6,8 @@ const basePath = "";
 const app = {
     useSecureCookies: !!process.env.NAIS_CLUSTER_NAME,
     port: process.env.PORT || 3000,
-    apidingsUrl: process.env.API_DINGS_URL || "https://api-dings.dev-fss-pub.nais.io",
-    targetAudience: process.env.API_DINGS_AUDIENCE || "dev-fss:plattformsikkerhet:api-dings",
+    targetAudience: process.env.SELVBETJENING_AUDIENCE || "local:selvbetjening-ui",
+    cluster: process.env.NAIS_CLUSTER_NAME || "",
 };
 
 const session = {

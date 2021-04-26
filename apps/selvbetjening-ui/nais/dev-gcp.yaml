@@ -50,6 +50,8 @@ spec:
       value: dev
     - name: REDIS_HOST
       value: selvbetjening-redis.etterlatte.svc.cluster.local
+    - name: SELVBETJENING_AUDIENCE
+      value: dev-gcp:etterlatte:selvbetjening-ui
   accessPolicy:
     outbound:
       external:
