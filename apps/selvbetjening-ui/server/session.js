@@ -3,7 +3,7 @@ const redis = require("redis");
 const config = require("./config");
 const RedisStore = require("connect-redis");
 
-export const setupSession = () => {
+const setupSession = () => {
     const options = {
         cookie: {
             maxAge: config.session.maxAgeMs,

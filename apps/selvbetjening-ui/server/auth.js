@@ -9,7 +9,7 @@ let idportenClient = null;
 let idportenMetadata = null;
 let appConfig = null;
 
-export const setup = async (idpConfig, txConfig, appConf) => {
+const setup = async (idpConfig, txConfig, appConf) => {
     idportenConfig = idpConfig;
     tokenxConfig = txConfig;
     appConfig = appConf;
@@ -20,7 +20,7 @@ export const setup = async (idpConfig, txConfig, appConf) => {
     });
 };
 
-export const authUrl = (session) => {
+const authUrl = (session) => {
     return idportenClient.authorizationUrl({
         scope: idportenConfig.scope,
         redirect_uri: idportenConfig.redirectUri,
@@ -33,7 +33,7 @@ export const authUrl = (session) => {
     });
 };
 
-export const validateOidcCallback = async (req) => {
+const validateOidcCallback = async (req) => {
     const params = idportenClient.callbackParams(req);
     const nonce = req.session.nonce;
     const state = req.session.state;
@@ -51,7 +51,7 @@ export const validateOidcCallback = async (req) => {
         });
 };
 
-export const exchangeToken = async (idportenToken) => {
+const exchangeToken = async (idportenToken) => {
     const now = Math.floor(Date.now() / 1000);
     // additional claims not set by openid-client
     const additionalClaims = {
@@ -79,7 +79,7 @@ export const exchangeToken = async (idportenToken) => {
         });
 };
 
-export const refresh = (oldTokenSet) => {
+const refresh = (oldTokenSet) => {
     const additionalClaims = {
         clientAssertionPayload: {
             aud: idportenMetadata.issuer,
@@ -127,4 +127,12 @@ const init = async () => {
     } catch (err) {
         return Promise.reject(err);
     }
+};
+
+module.exports = {
+    setup,
+    authUrl,
+    validateOidcCallback,
+    exchangeToken,
+    refresh,
 };
