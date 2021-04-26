@@ -2,7 +2,17 @@ const { injectDecoratorServerSide } = require("@navikt/nav-dekoratoren-moduler/s
 
 const environment = process.env.NODE_ENV;
 
+// TODO: Ta i bruk <EnforceLoginLoader />
+// https://github.com/navikt/nav-dekoratoren-moduler#-enforceloginloader--
+
+const authProps = {
+    enforceLogin: true,
+    redirectToApp: true,
+    level: "Level3",
+};
+
 const props = {
+    ...authProps,
     env: environment ?? "dev",
     context: "privatperson",
     breadcrumbs: [
