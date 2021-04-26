@@ -1,10 +1,10 @@
 const express = require("express");
 const proxy = require("express-http-proxy");
 const path = require("path");
-const getDecorator = require("decorator");
-const logger = require("logger");
-const auth = require("auth");
-const config = require("config");
+const getDecorator = require("./decorator");
+const logger = require("./logger");
+const auth = require("./auth");
+const config = require("./config");
 const { setupSession } = require("./session");
 const { generators, TokenSet } = require("openid-client");
 
