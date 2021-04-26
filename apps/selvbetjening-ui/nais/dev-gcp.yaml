@@ -40,6 +40,9 @@ spec:
       enabled: true
       redirectURI: "/oauth2/callback"
       frontchannelLogoutURI: "/oauth2/logout"
+  envFrom:
+    - secret: redis-password
+    - secret: session-encrypt-key
   env:
     - name: API_URL
       value: http://selvbetjening-api

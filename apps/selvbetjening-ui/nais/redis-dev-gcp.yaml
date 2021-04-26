@@ -6,7 +6,7 @@ metadata:
   labels:
     team: etterlatte
 spec:
-  image: redis:latest
+  image: bitnami/redis:latest
   port: 6379
   replicas: # A single Redis-app doesn't scale
     min: 1
@@ -21,6 +21,8 @@ spec:
   service:
     port: 6379
     protocol: redis
+  envFrom:
+    - secret: redis-password
   accessPolicy:
     inbound:
       rules:
