@@ -6,7 +6,7 @@ metadata:
   labels:
     team: etterlatte
 spec:
-  image: redis:latest # or a custom Redis-image
+  image: redis:latest
   port: 6379
   replicas: # A single Redis-app doesn't scale
     min: 1
