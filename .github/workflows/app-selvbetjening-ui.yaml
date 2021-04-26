@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - apps/selvbetjening-ui/**
+      - !apps/selvbetjening-ui/nais/redis-dev-gcp.yaml
 
 jobs:
   build-and-publish:

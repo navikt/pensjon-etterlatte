@@ -20,4 +20,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CLUSTER: dev-gcp
-          RESOURCE: apps/selvbetjening-ui/nais/dev-gcp.yaml
+          RESOURCE: apps/selvbetjening-ui/nais/redis-dev-gcp.yaml
