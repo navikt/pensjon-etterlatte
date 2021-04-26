@@ -1,0 +1,23 @@
+name: Deploy Redis to dev-gcp
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - apps/selvbetjening-ui/nais/redis-dev-gcp.yaml
+
+jobs:
+  deploy:
+    name: Deploy to dev-gcp
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy to dev-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLUSTER: dev-gcp
+          RESOURCE: apps/selvbetjening-ui/nais/dev-gcp.yaml

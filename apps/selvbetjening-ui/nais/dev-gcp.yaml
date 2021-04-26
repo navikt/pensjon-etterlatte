@@ -45,6 +45,8 @@ spec:
       value: http://selvbetjening-api
     - name: NODE_ENV
       value: dev
+    - name: REDIS_HOST
+      value: http://selvbetjening-redis
   accessPolicy:
     outbound:
       external:
@@ -53,3 +55,4 @@ spec:
         - host: tokendings.dev-gcp.nais.io
       rules:
         - application: selvbetjening-api
+        - application: selvbetjening-redis
