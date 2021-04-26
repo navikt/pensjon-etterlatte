@@ -10,6 +10,16 @@ const { generators, TokenSet } = require("openid-client");
 
 const app = express();
 
+let authEndpoint = null;
+auth.setup(config.idporten, config.tokenx, config.app)
+    .then((endpoint) => {
+        authEndpoint = endpoint;
+    })
+    .catch((err) => {
+        logger.error(`Error while setting up auth: ${err}`);
+        process.exit(1);
+    });
+
 const buildPath = path.resolve(__dirname, "../build");
 
 const basePath = config.basePath;
