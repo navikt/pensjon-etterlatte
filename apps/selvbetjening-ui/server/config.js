@@ -13,7 +13,7 @@ const app = {
 const session = {
     secret: process.env.SESSION_SECRET,
     maxAgeMs: process.env.SESSION_MAX_AGE_MS || 2 * 60 * 60 * 1000, // defaults to 2 hours
-    redisHost: process.env.REDIS_HOST || "http://localhost",
+    redisHost: process.env.REDIS_HOST,
     redisPort: process.env.REDIS_PORT || 6379,
     redisPassword: process.env.REDIS_PASSWORD,
 };

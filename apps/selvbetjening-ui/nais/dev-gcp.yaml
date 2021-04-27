@@ -43,12 +43,10 @@ spec:
   env:
     - name: API_URL
       value: http://selvbetjening-api
-    - name: NODE_ENV
-      value: dev
     - name: REDIS_HOST
       value: selvbetjening-redis.etterlatte.svc.cluster.local
     - name: SELVBETJENING_AUDIENCE
-      value: dev-gcp:etterlatte:selvbetjening-ui
+      value: dev-gcp:etterlatte:selvbetjening-api
   accessPolicy:
     outbound:
       external:

@@ -1,9 +1,9 @@
 const { injectDecoratorServerSide } = require("@navikt/nav-dekoratoren-moduler/ssr");
 
-const environment = process.env.NODE_ENV;
-
 // TODO: Ta i bruk <EnforceLoginLoader />
 // https://github.com/navikt/nav-dekoratoren-moduler#-enforceloginloader--
+
+const env = process.env.NAIS_CLUSTER_NAME === "prod-gcp" ? "prod" : "dev";
 
 const authProps = {
     enforceLogin: true,
@@ -13,7 +13,7 @@ const authProps = {
 
 const props = {
     ...authProps,
-    env: environment ?? "dev",
+    env,
     context: "privatperson",
     breadcrumbs: [
         {
