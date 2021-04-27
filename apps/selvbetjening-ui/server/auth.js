@@ -98,6 +98,7 @@ const init = async () => {
     logger.info(`discovered tokenx @ ${tokenx.issuer}`);
 
     try {
+        logger.info(`IDPORTEN_JWK: ${idportenConfig.clientJwk}`);
         const idportenJwk = JSON.parse(idportenConfig.clientJwk);
         logger.info("Successfully parsed IDPORTEN_CLIENT_JWK");
         idportenClient = new idporten.Client(
