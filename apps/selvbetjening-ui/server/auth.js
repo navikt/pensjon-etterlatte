@@ -43,6 +43,9 @@ const validateOidcCallback = async (req) => {
         },
     };
 
+    console.log("additionalClaims");
+    console.log(additionalClaims);
+
     return idportenClient
         .callback(idportenConfig.redirectUri, params, { nonce, state }, additionalClaims)
         .catch((err) => Promise.reject(`error in oidc callback: ${err}`))

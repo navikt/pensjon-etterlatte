@@ -44,6 +44,7 @@ app.get(`${basePath}/oauth2/callback`, async (req, res) => {
 
     auth.validateOidcCallback(req)
         .then((tokens) => {
+            logger.info("Preparing cookie");
             session.tokens = tokens;
             session.state = null;
             session.nonce = null;
@@ -51,6 +52,7 @@ app.get(`${basePath}/oauth2/callback`, async (req, res) => {
             res.cookie("selvbetjening-idtoken", `${tokens.id_token}`, {
                 secure: config.app.useSecureCookies,
                 sameSite: "lax",
+                domain: config.idporten.domain,
                 maxAge: config.session.maxAgeMs,
             });
             res.redirect(303, "/");
