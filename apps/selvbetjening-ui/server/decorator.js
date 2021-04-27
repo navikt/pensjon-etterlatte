@@ -8,7 +8,7 @@ const environment = process.env.NODE_ENV;
 const authProps = {
     enforceLogin: true,
     redirectToApp: true,
-    level: "Level3",
+    level: "Level4",
 };
 
 const props = {

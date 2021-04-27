@@ -24,7 +24,7 @@ const authUrl = (session) => {
     return idportenClient.authorizationUrl({
         scope: idportenConfig.scope,
         redirect_uri: idportenConfig.redirectUri,
-        response_type: "code",
+        response_type: idportenConfig.responseType[0],
         response_mode: "query",
         nonce: session.nonce,
         state: session.state,
@@ -39,7 +39,7 @@ const validateOidcCallback = async (req) => {
     const state = req.session.state;
     const additionalClaims = {
         clientAssertionPayload: {
-            aud: idportenMetadata.issuer,
+            aud: idportenMetadata.metadata.issuer,
         },
     };
 

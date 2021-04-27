@@ -28,6 +28,7 @@ const idporten = {
     clientID: process.env.IDPORTEN_CLIENT_ID,
     clientJwk: process.env.IDPORTEN_CLIENT_JWK,
     redirectUri: process.env.IDPORTEN_REDIRECT_URI || "http://localhost:3000/oauth2/callback",
+    domain: process.env.NAIS_CLUSTER_NAME === "prod-gcp" ? "nav.no" : "dev.nav.no",
     responseType: ["code"],
     scope: "openid profile",
 };

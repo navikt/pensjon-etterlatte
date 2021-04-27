@@ -3,22 +3,16 @@ const proxy = require("express-http-proxy");
 const path = require("path");
 const getDecorator = require("./decorator");
 const logger = require("./logger");
-const auth = require("./auth");
 const config = require("./config");
+const auth = require("./auth");
 const { setupSession } = require("./session");
 const { generators, TokenSet } = require("openid-client");
 
 const app = express();
 
-/*
-info: discovered idporten @ https://oidc-ver2.difi.no/idporten-oidc-provider/
-info: discovered tokenx @ https://tokendings.dev-gcp.nais.io
-error: Error while setting up auth: SyntaxError: Unexpected token u in JSON at position 0
-*/
 let authEndpoint = null;
 auth.setup(config.idporten, config.tokenx, config.app)
     .then((endpoint) => {
-        logger.info(`auth endpoint: ${endpoint}`);
         authEndpoint = endpoint;
     })
     .catch((err) => {
@@ -53,7 +47,8 @@ app.get(`${basePath}/oauth2/callback`, async (req, res) => {
             session.tokens = tokens;
             session.state = null;
             session.nonce = null;
-            res.cookie("dings-id", `${tokens.id_token}`, {
+
+            res.cookie("selvbetjening-idtoken", `${tokens.id_token}`, {
                 secure: config.app.useSecureCookies,
                 sameSite: "lax",
                 maxAge: config.session.maxAgeMs,
@@ -69,16 +64,19 @@ app.get(`${basePath}/oauth2/callback`, async (req, res) => {
 
 // check auth
 app.use(async (req, res, next) => {
+    logger.info("Checking auth");
     const session = req.session;
 
     const currentTokens = session.tokens;
 
     if (!currentTokens) {
+        logger.info("No current tokens");
         res.redirect(`${basePath}/login`);
     } else {
+        logger.info("Found current tokens");
         const currentTokenSet = new TokenSet(currentTokens);
         if (currentTokenSet.expired()) {
-            logger.debug("refreshing token");
+            logger.info("refreshing token");
             auth.refresh(currentTokens)
                 .then((refreshedTokenSet) => {
                     session.tokens = new TokenSet(refreshedTokenSet);
