@@ -25,7 +25,7 @@ const buildPath = path.resolve(__dirname, "../build");
 const basePath = config.basePath;
 
 app.use(setupSession());
-app.use("/", express.static(buildPath, { index: false }));
+app.use(basePath, express.static(buildPath, { index: false }));
 
 // Selvbetjening API
 const apiUrl = process.env.API_URL || "localhost:8085";
