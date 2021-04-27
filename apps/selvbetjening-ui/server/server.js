@@ -10,9 +10,15 @@ const { generators, TokenSet } = require("openid-client");
 
 const app = express();
 
+/*
+info: discovered idporten @ https://oidc-ver2.difi.no/idporten-oidc-provider/
+info: discovered tokenx @ https://tokendings.dev-gcp.nais.io
+error: Error while setting up auth: SyntaxError: Unexpected token u in JSON at position 0
+*/
 let authEndpoint = null;
 auth.setup(config.idporten, config.tokenx, config.app)
     .then((endpoint) => {
+        logger.info(`auth endpoint: ${endpoint}`);
         authEndpoint = endpoint;
     })
     .catch((err) => {

@@ -99,6 +99,7 @@ const init = async () => {
 
     try {
         const idportenJwk = JSON.parse(idportenConfig.clientJwk);
+        logger.info("Successfully parsed IDPORTEN_CLIENT_JWK");
         idportenClient = new idporten.Client(
             {
                 client_id: idportenConfig.clientID,
@@ -113,6 +114,7 @@ const init = async () => {
         );
 
         const tokenxJwk = JSON.parse(tokenxConfig.privateJwk);
+        logger.info("Successfully parsed TOKEN_X_PRIVATE_JWK");
         tokenxClient = new tokenx.Client(
             {
                 client_id: tokenxConfig.clientID,
@@ -125,6 +127,8 @@ const init = async () => {
 
         return Promise.resolve({ idporten: idportenClient, tokenx: tokenxClient });
     } catch (err) {
+        logger.error("Error while parsing JWKs or creating clients.");
+        logger.error(err);
         return Promise.reject(err);
     }
 };

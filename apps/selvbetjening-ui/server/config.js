@@ -18,6 +18,9 @@ const session = {
     redisPassword: process.env.REDIS_PASSWORD,
 };
 
+/*
+ * https://doc.nais.io/security/auth/idporten/
+ */
 const idporten = {
     discoveryUrl:
         process.env.IDPORTEN_WELL_KNOWN_URL ||
@@ -30,8 +33,9 @@ const idporten = {
 };
 
 const tokenx = {
-    discoveryUrl: process.env.TOKEN_X_WELL_KNOWN_URL,
-    clientID: process.env.TOKEN_X_CLIENT_ID,
+    discoveryUrl:
+        process.env.TOKEN_X_WELL_KNOWN_URL || "http://localhost:8080/default/.well-known/openid-configuration",
+    clientID: process.env.TOKEN_X_CLIENT_ID || "debugger",
     privateJwk: process.env.TOKEN_X_PRIVATE_JWK,
 };
 
