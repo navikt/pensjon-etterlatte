@@ -38,8 +38,6 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    redirectURI: "/oauth2/callback"
-    frontchannelLogoutURI: "/oauth2/logout"
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
