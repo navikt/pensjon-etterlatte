@@ -8,7 +8,11 @@ const auth = require("./auth");
 const { setupSession } = require("./session");
 const { generators, TokenSet } = require("openid-client");
 
+const buildPath = path.resolve(__dirname, "../build");
+const basePath = config.basePath;
 const app = express();
+
+app.set("trust proxy", 1);
 
 let authEndpoint = null;
 auth.setup(config.idporten, config.tokenx, config.app)
@@ -19,10 +23,6 @@ auth.setup(config.idporten, config.tokenx, config.app)
         logger.error(`Error while setting up auth: ${err}`);
         process.exit(1);
     });
-
-const buildPath = path.resolve(__dirname, "../build");
-
-const basePath = config.basePath;
 
 app.use(setupSession());
 app.use(basePath, express.static(buildPath, { index: false }));
