@@ -37,14 +37,20 @@ const validateOidcCallback = async (req) => {
     const params = idportenClient.callbackParams(req);
     const nonce = req.session.nonce;
     const state = req.session.state;
+
+    logger.info("idportenMetadata");
+    logger.info(idportenMetadata);
+    logger.info(`idportenMetadata.metadata.issuer: ${idportenMetadata.metadata.issuer}`);
+    logger.info(`idportenMetadata.issuer: ${idportenMetadata.issuer}`);
+
     const additionalClaims = {
         clientAssertionPayload: {
             aud: idportenMetadata.metadata.issuer,
         },
     };
 
-    console.log("additionalClaims");
-    console.log(additionalClaims);
+    logger.info("additionalClaims");
+    logger.info(additionalClaims);
 
     return idportenClient
         .callback(idportenConfig.redirectUri, params, { nonce, state }, additionalClaims)
