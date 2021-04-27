@@ -13,7 +13,6 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - "https://etterlatte-selvbetjening-ui.dev.nav.no"
     - "https://etterlatteytelser.dev.nav.no"
   liveness:
     path: /isAlive
