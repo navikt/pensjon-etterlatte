@@ -79,10 +79,7 @@ const exchangeToken = async (idportenToken) => {
             audience: appConfig.targetAudience,
         })
         .then((tokenSet) => {
-            const accessToken = tokenSet.access_token;
-            logger.info(accessToken);
-            logger.info(`tokenSet.access_token: ${JSON.stringify(accessToken)}`);
-            return Promise.resolve(accessToken);
+            return Promise.resolve(tokenSet.access_token);
         })
         .catch((err) => {
             logger.error(`Error while exchanging token: ${err}`);

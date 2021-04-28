@@ -7,16 +7,13 @@ const options = () => ({
     parseReqBody: false,
     proxyReqOptDecorator: (options, req) => {
         return new Promise((resolve, reject) => {
-            let onfulfilled = (response) => {
-                logger.info("response.access_token", response.access_token);
-                logger.info(response.access_token);
-
-                options.headers.Authorization = `Bearer ${response.access_token}`;
-                resolve(options);
-            };
-            let onrejected = (error) => reject(error);
-
-            return auth.exchangeToken(req.session.tokens.access_token).then(onfulfilled, onrejected);
+            return auth.exchangeToken(req.session.tokens.access_token).then(
+                (accessToken) => {
+                    options.headers.Authorization = `Bearer ${accessToken}`;
+                    resolve(options);
+                },
+                (error) => reject(error)
+            );
         });
     },
 });
