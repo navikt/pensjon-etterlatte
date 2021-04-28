@@ -99,15 +99,7 @@ const createClientAssertion = async () => {
         exp: now + 60, // max 120
     };
 
-    logger.info(`JWT Sign Payload: ${JSON.stringify(payload)}`);
-
-    logger.info(`JWK: ${tokenxConfig.privateJwk}`);
-    logger.info(`JWK kid: ${tokenxConfig.privateJwk.kid}`);
-
-    const key = await toKey(tokenxConfig.privateJwk);
-
-    logger.info(`Key: ${key}`);
-    logger.info(`JSON Key: ${JSON.stringify(key)}`);
+    const key = await asKey(tokenxConfig.privateJwk);
 
     const options = {
         algorithm: "RS256",
@@ -118,12 +110,10 @@ const createClientAssertion = async () => {
         },
     };
 
-    logger.info(`JWT Sign Options: ${JSON.stringify(options)}`);
-
     return jwt.sign(payload, key.toPEM(true), options);
 };
 
-const toKey = async (jwk) => {
+const asKey = async (jwk) => {
     return jose.JWK.asKey(jwk).then((key) => {
         return Promise.resolve(key);
     });
