@@ -8,9 +8,11 @@ import io.ktor.auth.Authentication
 import io.ktor.auth.authenticate
 import io.ktor.auth.principal
 import io.ktor.config.HoconApplicationConfig
+import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.http.HttpStatusCode
 import io.ktor.jackson.jackson
+import io.ktor.request.path
 import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.get
@@ -30,6 +32,7 @@ import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import no.nav.security.token.support.ktor.tokenValidationSupport
+import org.slf4j.event.Level
 
 class Server(val applicationContext: ApplicationContext) {
     val configuration = HoconApplicationConfig(applicationContext.config)
@@ -44,7 +47,10 @@ class Server(val applicationContext: ApplicationContext) {
                 tokenValidationSupport(config = configuration)
             }
 
-
+            install(CallLogging) {
+                level = Level.INFO
+                filter { call -> !call.request.path().startsWith("/internal") }
+            }
 
             routing {
                 healthApi()
