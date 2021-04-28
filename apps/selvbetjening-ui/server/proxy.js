@@ -3,8 +3,6 @@ const auth = require("./auth");
 const logger = require("./logger");
 const proxy = require("express-http-proxy");
 
-const basePath = config.basePath;
-
 const options = () => ({
     parseReqBody: false,
     proxyReqOptDecorator: (options, req) => {
@@ -21,13 +19,18 @@ const options = () => ({
 });
 
 const setup = (app) => {
-    auth.setup(config.idporten, config.tokenx, config.app).catch((err) => {
-        logger.error(`Error while setting up auth: ${err}`);
-        process.exit(1);
-    });
+    let authEndpoint = null;
+    auth.setup(config.idporten, config.tokenx, config.app)
+        .then((endpoint) => {
+            authEndpoint = endpoint;
+        })
+        .catch((err) => {
+            logger.error(`Error while setting up auth: ${err}`);
+            process.exit(1);
+        });
 
     // Proxy Selvbetjening API
-    app.use(`${basePath}/api`, proxy(config.apiUrl, options()));
+    app.use(`${config.basePath}/api`, proxy(config.apiUrl, options()));
 };
 
 module.exports = {

@@ -1,4 +1,7 @@
 const { Issuer, TokenSet } = require("openid-client");
+const jwt = require("jsonwebtoken");
+const ULID = require("ulid");
+const jose = require("node-jose");
 const logger = require("./logger");
 
 let tokenxConfig = null;
@@ -62,24 +65,18 @@ const validateOidcCallback = async (req) => {
 };
 
 const exchangeToken = async (idportenToken) => {
-    const now = Math.floor(Date.now() / 1000);
-    // additional claims not set by openid-client
-    const additionalClaims = {
-        clientAssertionPayload: {
-            nbf: now,
-        },
-    };
+    const clientAssertion = await createClientAssertion();
+
     return tokenxClient
-        .grant(
-            {
-                grant_type: "urn:ietf:params:oauth:grant-type:token-exchange",
-                client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-                subject_token_type: "urn:ietf:params:oauth:token-type:jwt",
-                audience: appConfig.targetAudience,
-                subject_token: idportenToken,
-            },
-            additionalClaims
-        )
+        .grant({
+            grant_type: "urn:ietf:params:oauth:grant-type:token-exchange",
+            client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+            token_endpoint_auth_method: "private_key_jwt",
+            subject_token_type: "urn:ietf:params:oauth:token-type:jwt",
+            client_assertion: clientAssertion,
+            audience: appConfig.targetAudience,
+            subject_token: idportenToken,
+        })
         .then((tokenSet) => {
             return Promise.resolve(tokenSet.access_token);
         })
@@ -87,6 +84,29 @@ const exchangeToken = async (idportenToken) => {
             logger.error(`Error while exchanging token: ${err}`);
             return Promise.reject(err);
         });
+};
+
+const createClientAssertion = async () => {
+    const now = Math.floor(Date.now() / 1000);
+    return jwt.sign(
+        {
+            sub: tokenxConfig.clientID,
+            aud: tokenxMetadata.token_endpoint,
+            iss: tokenxConfig.clientID,
+            exp: now + 60, // max 120
+            iat: now,
+            jti: ULID.ulid(),
+            nbf: now,
+        },
+        await privateKeyToPem(tokenxConfig.privateJwk),
+        { algorithm: "RS256" }
+    );
+};
+
+const privateKeyToPem = async (jwk) => {
+    return jose.JWK.asKey(jwk).then((key) => {
+        return Promise.resolve(key.toPEM(true));
+    });
 };
 
 const refresh = (oldTokenSet) => {
