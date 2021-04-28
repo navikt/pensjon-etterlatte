@@ -102,7 +102,7 @@ const getSecure = async (bearerToken) => {
     }).then((res) => res.text());
 };
 
-app.get(`${basePath}/secure`, async (req, res) => {
+app.get(`${basePath}/api/secure`, async (req, res) => {
     try {
         const accessToken = await auth.exchangeToken(req.session.tokens.access_token);
         const response = await getSecure(accessToken);

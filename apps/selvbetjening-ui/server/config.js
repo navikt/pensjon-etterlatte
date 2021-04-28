@@ -6,7 +6,7 @@ const basePath = "";
 const app = {
     useSecureCookies: !!process.env.NAIS_CLUSTER_NAME,
     port: process.env.PORT || 8080,
-    targetAudience: process.env.SELVBETJENING_AUDIENCE || "local:selvbetjening-ui",
+    targetAudience: process.env.SELVBETJENING_AUDIENCE || "local:selvbetjening-api",
     cluster: process.env.NAIS_CLUSTER_NAME || "",
 };
 
