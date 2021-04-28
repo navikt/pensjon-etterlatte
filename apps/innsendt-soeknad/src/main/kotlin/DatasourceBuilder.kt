@@ -7,7 +7,7 @@ import javax.sql.DataSource
 
 class DataSourceBuilder(env: Map<String, String>) {
     private val hikariConfig = HikariConfig().apply {
-        jdbcUrl = env["DB_URL"]
+        jdbcUrl = "jdbc:${env["DB_URL"]}"
         maximumPoolSize = 3
         minimumIdle = 1
         idleTimeout = 10001
