@@ -1,8 +1,8 @@
 const express = require("express");
-const proxy = require("express-http-proxy");
 const path = require("path");
 const getDecorator = require("./decorator");
 const logger = require("./logger");
+const proxy = require("./proxy");
 const config = require("./config");
 const auth = require("./auth");
 const { setupSession } = require("./session");
@@ -13,23 +13,8 @@ const basePath = config.basePath;
 const app = express();
 
 app.set("trust proxy", 1);
-
-let authEndpoint = null;
-auth.setup(config.idporten, config.tokenx, config.app)
-    .then((endpoint) => {
-        authEndpoint = endpoint;
-    })
-    .catch((err) => {
-        logger.error(`Error while setting up auth: ${err}`);
-        process.exit(1);
-    });
-
 app.use(setupSession());
 app.use(basePath, express.static(buildPath, { index: false }));
-
-// Selvbetjening API
-const apiUrl = process.env.API_URL || "localhost:8085";
-app.use(`${basePath}/api`, proxy(apiUrl));
 
 app.get(`${basePath}/login`, async (req, res) => {
     // lgtm [js/missing-rate-limiting]
@@ -93,31 +78,7 @@ app.use(async (req, res, next) => {
     }
 });
 
-const getSecure = async (bearerToken) => {
-    const apiUrl = process.env.API_URL;
-    logger.info(`Kaller api: ${apiUrl}`);
-
-    return fetch(`${apiUrl}/secure`, {
-        method: "get",
-        headers: { Authorization: `Bearer ${bearerToken}` },
-    }).then((res) => {
-        const responseText = res.text();
-        logger.info(`responseText: ${responseText}`);
-        return responseText;
-    });
-};
-
-app.get(`${basePath}/api/secure`, async (req, res) => {
-    try {
-        const accessToken = await auth.exchangeToken(req.session.tokens.access_token);
-        logger.info(`Hentet accessToken: ${accessToken}`);
-        const response = await getSecure(accessToken);
-        res.send(response);
-    } catch (err) {
-        logger.error(`Error while calling api: ${err}`);
-        res.sendStatus(500);
-    }
-});
+proxy.setup(app);
 
 // Match everything except internal and static
 app.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>

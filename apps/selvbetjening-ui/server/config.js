@@ -2,6 +2,7 @@
 
 // TODO: Sti til vårt endepunkt på NAV.no
 const basePath = "";
+const apiUrl = process.env.API_URL || "localhost:8085";
 
 const app = {
     useSecureCookies: !!process.env.NAIS_CLUSTER_NAME,
@@ -42,6 +43,7 @@ const tokenx = {
 
 module.exports = {
     basePath,
+    apiUrl,
     app,
     session,
     idporten,
