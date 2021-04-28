@@ -8,6 +8,9 @@ const options = () => ({
     proxyReqOptDecorator: (options, req) => {
         return new Promise((resolve, reject) => {
             let onfulfilled = (response) => {
+                logger.info("response.access_token", response.access_token);
+                logger.info(response.access_token);
+
                 options.headers.Authorization = `Bearer ${response.access_token}`;
                 resolve(options);
             };

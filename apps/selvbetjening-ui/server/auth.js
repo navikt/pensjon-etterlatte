@@ -176,8 +176,7 @@ const init = async () => {
 
         return Promise.resolve({ idporten: idportenClient, tokenx: tokenxClient });
     } catch (err) {
-        logger.error("Error while parsing JWKs or creating clients.");
-        logger.error(err);
+        logger.error("Error while parsing JWKs or creating clients.", err);
         return Promise.reject(err);
     }
 };
