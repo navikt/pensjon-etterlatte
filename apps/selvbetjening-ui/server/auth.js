@@ -71,11 +71,11 @@ const exchangeToken = async (idportenToken) => {
         .grant({
             grant_type: "urn:ietf:params:oauth:grant-type:token-exchange",
             client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-            token_endpoint_auth_method: "private_key_jwt",
-            subject_token_type: "urn:ietf:params:oauth:token-type:jwt",
+            // token_endpoint_auth_method: "private_key_jwt",
             client_assertion: clientAssertion,
-            audience: appConfig.targetAudience,
+            subject_token_type: "urn:ietf:params:oauth:token-type:jwt",
             subject_token: idportenToken,
+            audience: appConfig.targetAudience,
         })
         .then((tokenSet) => {
             return Promise.resolve(tokenSet.access_token);
@@ -91,17 +91,28 @@ const createClientAssertion = async () => {
 
     const payload = {
         sub: tokenxConfig.clientID,
-        aud: tokenxMetadata.token_endpoint,
         iss: tokenxConfig.clientID,
-        exp: now + 60, // max 120
-        iat: now,
+        aud: tokenxMetadata.token_endpoint,
         jti: ULID.ulid(),
         nbf: now,
+        iat: now,
+        exp: now + 60, // max 120
     };
 
-    logger.info(`JWT Payload: ${JSON.stringify(payload)}`);
+    logger.info(`JWT Sign Payload: ${JSON.stringify(payload)}`);
 
-    return jwt.sign(payload, await privateKeyToPem(tokenxConfig.privateJwk), { algorithm: "RS256" });
+    const options = {
+        algorithm: "RS256",
+        header: {
+            kid: tokenxConfig.privateJwk.kid,
+            typ: "JWT",
+            alg: "RS256",
+        },
+    };
+
+    logger.info(`JWT Sign Options: ${JSON.stringify(options)}`);
+
+    return jwt.sign(payload, await privateKeyToPem(tokenxConfig.privateJwk), options);
 };
 
 const privateKeyToPem = async (jwk) => {
