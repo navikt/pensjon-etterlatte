@@ -33,3 +33,6 @@ spec:
     - team: etterlatte
       application: selvbetjening-api
       access: readwrite
+    - team: etterlatte
+      application: innsendt-soeknad
+      access: readwrite

@@ -1,0 +1,47 @@
+name: innsendt-soeknad - Build, release and deploy
+
+env:
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/innsendt-soeknad:${{ github.sha }}
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - apps/innsendt-soeknad/**
+      - libs/ktorclient-auth-clientcredentials/**
+
+jobs:
+  build-release-deploy:
+    name: Build, release and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '14.x'
+
+      # Build
+      - name: Build
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :apps:innsendt-soeknad:test :apps:innsendt-soeknad:build
+      # Release
+      - name: Build Docker image
+        run: docker build -t ${IMAGE} apps/innsendt-soeknad
+      - name: Login to Github Package Registry
+        env:
+          DOCKER_USERNAME: x-access-token
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin docker.pkg.github.com
+      - name: Release docker image
+        run: docker push ${IMAGE}
+
+      # Deploy
+      - name: Deploy dev
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: apps/innsendt-soeknad/nais.yaml

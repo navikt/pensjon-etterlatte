@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import no.nav.helse.rapids_rivers.MessageContext
 
-class SoeknadPubliserer(val rapid: MessageContext, val db: SoeknadDao) {
+class SoeknadPubliserer(val rapid: MessageContext, val db: SoeknadRepository) {
     val mapper: ObjectMapper = jacksonObjectMapper()
     fun Any.toJson(): String = mapper.writeValueAsString(this)
 

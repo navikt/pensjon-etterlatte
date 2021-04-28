@@ -3,6 +3,7 @@ package no.nav.etterlatte
 import io.ktor.application.call
 import io.ktor.http.ContentType
 import io.ktor.response.respondText
+import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.routing
 import kotlinx.coroutines.GlobalScope
@@ -14,45 +15,47 @@ import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 
-fun main() {
-
-    val datasourceBuilder = DataSourceBuilder(System.getenv())
-    var rapid: SoeknadPubliserer? = null
-    val db = SoeknadDao(datasourceBuilder.getDataSource())
-
-
-    RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(System.getenv())).withKtorModule {
-        routing {
-            get("/api/soeknad") {
-                val lagretSoknad = db.nySoeknad(UlagretSoeknad("abc", "{}"))
-                GlobalScope.launch {
-                    rapid!!.publiser(lagretSoknad)
-                }
-                call.respondText("", ContentType.Text.Plain)
-            }
+fun Route.soeknadApi(db: SoeknadRepository){
+     get("/api/soeknad") {
+            db.nySoeknad(UlagretSoeknad("abc", "{}"))
+            call.respondText("", ContentType.Text.Plain)
         }
-    }.build()
-        .apply {
-            rapid = SoeknadPubliserer(this, db)
-            register(object: RapidsConnection.StatusListener{
+}
+
+
+fun main() {
+    val datasourceBuilder = DataSourceBuilder(System.getenv())
+    val db = PostgresSoeknadRepository.using(datasourceBuilder.getDataSource())
+
+    val rapidApplication = RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(System.getenv()))
+        .withKtorModule {
+            routing {
+                soeknadApi(db)
+            }
+        }.build().also { rapidConnection ->
+            rapidConnection.register(object: RapidsConnection.StatusListener{
                 override fun onStartup(rapidsConnection: RapidsConnection) {
                     datasourceBuilder.migrate()
                     GlobalScope.launch {
+                        val rapid = SoeknadPubliserer(rapidsConnection, db)
                         while(true) {
                             delay(600_000)
                             db.usendteSoeknader().forEach {
-                                rapid!!.publiser(it)
+                                rapid.publiser(it)
                             }
                         }
                     }
                 }
             })
-            JournalpostSkrevet(this, db)
-        }.start()
+            JournalpostSkrevet(rapidConnection, db)
+        }
+
+
+    rapidApplication.start()
 }
 
 
-internal class JournalpostSkrevet(rapidsConnection: RapidsConnection, private val soeknader: SoeknadDao) :
+internal class JournalpostSkrevet(rapidsConnection: RapidsConnection, private val soeknader: SoeknadRepository) :
     River.PacketListener {
 
     init {
@@ -66,3 +69,5 @@ internal class JournalpostSkrevet(rapidsConnection: RapidsConnection, private va
         soeknader.soeknadJournalfoert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
     }
 }
+
+

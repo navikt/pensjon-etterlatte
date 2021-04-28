@@ -3,27 +3,29 @@ import kotliquery.queryOf
 import kotliquery.sessionOf
 import kotliquery.using
 import no.nav.etterlatte.DataSourceBuilder
-import no.nav.etterlatte.SoeknadDao
+import no.nav.etterlatte.PostgresSoeknadRepository
+import no.nav.etterlatte.UlagretSoeknad
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 
-class DbTest {
+class DbIntegrationTest {
     val url = "jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE"
     @Container
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
 
 
-    @Test
+    @Disabled @Test
     fun test(){
         postgreSQLContainer.start()
         postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
         postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
         val dsb = DataSourceBuilder(mapOf("DB_URL" to postgreSQLContainer.jdbcUrl))
         dsb.migrate()
-        val db = SoeknadDao(dsb.getDataSource())
-
+        val db = PostgresSoeknadRepository.using(dsb.getDataSource())
+        db.nySoeknad(UlagretSoeknad("abc", """{}"""))
         var usendte = db.usendteSoeknader()
         Assertions.assertEquals(0, usendte.size)
 

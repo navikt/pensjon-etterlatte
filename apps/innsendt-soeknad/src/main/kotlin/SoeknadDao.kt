@@ -5,7 +5,14 @@ import kotliquery.sessionOf
 import kotliquery.using
 import javax.sql.DataSource
 
-class SoeknadDao(private val dataSource: DataSource) {
+interface SoeknadRepository {
+    fun nySoeknad(soeknad: UlagretSoeknad): LagretSoeknad
+    fun soeknadSendt(soeknad: LagretSoeknad)
+    fun soeknadJournalfoert(soeknad: LagretSoeknad)
+    fun usendteSoeknader(): List<LagretSoeknad>
+}
+
+class PostgresSoeknadRepository private constructor (private val dataSource: DataSource): SoeknadRepository {
     companion object{
         val CREATE_SOEKNAD = "INSERT INTO soeknad(id, fnr, data) VALUES(?, ?, (to_json(?::json)))"
         val CREATE_HENDELSE = "INSERT INTO hendelse(id, soeknad, status, data) VALUES(?, ?, ?, (to_json(?::json)))"
@@ -14,8 +21,12 @@ class SoeknadDao(private val dataSource: DataSource) {
                         FROM soeknad s 
                         where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt') and s.opprettet < (now() at time zone 'utc' - interval '15 minutes')
                         fetch first 10 rows only""".trimIndent()
+
+        fun using(datasource: DataSource): SoeknadRepository{
+            return PostgresSoeknadRepository(datasource)
+        }
     }
-    fun nySoeknad(soeknad: UlagretSoeknad): LagretSoeknad{
+    override fun nySoeknad(soeknad: UlagretSoeknad): LagretSoeknad{
         return using(sessionOf(dataSource)) { session ->
             session.transaction {
                 val id = it.run(queryOf("select nextval('soeknad_id')", emptyMap()).map { it.long(1) }.asSingle)!!
@@ -24,11 +35,11 @@ class SoeknadDao(private val dataSource: DataSource) {
             }
         }
     }
-    fun soeknadSendt(soeknad: LagretSoeknad){
+    override fun soeknadSendt(soeknad: LagretSoeknad){
         nyStatus(soeknad, "sendt", """{}""")
     }
 
-    fun soeknadJournalfoert(soeknad: LagretSoeknad){
+    override fun soeknadJournalfoert(soeknad: LagretSoeknad){
         nyStatus(soeknad, "journalfoert", "{}")
     }
 
@@ -41,7 +52,7 @@ class SoeknadDao(private val dataSource: DataSource) {
         }
     }
 
-    fun usendteSoeknader(): List<LagretSoeknad> {
+    override fun usendteSoeknader(): List<LagretSoeknad> {
         return using(sessionOf(dataSource)) { session ->
             session.transaction {
                 it.run(queryOf(
@@ -55,7 +66,6 @@ class SoeknadDao(private val dataSource: DataSource) {
             }
         }
     }
-
 }
 
 
