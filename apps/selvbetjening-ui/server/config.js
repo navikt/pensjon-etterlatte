@@ -1,5 +1,3 @@
-// require('dotenv').config()
-
 // TODO: Sti til vårt endepunkt på NAV.no
 const basePath = "";
 const apiUrl = process.env.API_URL || "localhost:8085";
