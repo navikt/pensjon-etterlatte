@@ -13,6 +13,7 @@ let idportenMetadata = null;
 let appConfig = null;
 
 const setup = async (idpConfig, txConfig, appConf) => {
+    logger.info("starting setup");
     idportenConfig = idpConfig;
     tokenxConfig = txConfig;
     appConfig = appConf;
@@ -71,7 +72,7 @@ const exchangeToken = async (idportenToken) => {
         .grant({
             grant_type: "urn:ietf:params:oauth:grant-type:token-exchange",
             client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-            // token_endpoint_auth_method: "private_key_jwt",
+            token_endpoint_auth_method: "private_key_jwt",
             client_assertion: clientAssertion,
             subject_token_type: "urn:ietf:params:oauth:token-type:jwt",
             subject_token: idportenToken,
@@ -129,6 +130,7 @@ const refresh = (oldTokenSet) => {
 };
 
 const init = async () => {
+    logger.info("init clients");
     const idporten = await Issuer.discover(idportenConfig.discoveryUrl);
     const tokenx = await Issuer.discover(tokenxConfig.discoveryUrl);
     tokenxMetadata = tokenx;
@@ -138,8 +140,10 @@ const init = async () => {
     logger.info(`discovered tokenx @ ${tokenx.issuer}`);
 
     try {
+        logger.info(`idportenConfig.clientJwk`);
+        logger.info(idportenConfig.clientJwk);
         const idportenJwk = JSON.parse(idportenConfig.clientJwk);
-        logger.info("Successfully parsed IDPORTEN_CLIENT_JWK");
+        logger.info("idportenClient");
         idportenClient = new idporten.Client(
             {
                 client_id: idportenConfig.clientID,
@@ -153,17 +157,22 @@ const init = async () => {
             }
         );
 
-        const tokenxJwk = JSON.parse(tokenxConfig.privateJwk);
-        logger.info("Successfully parsed TOKEN_X_PRIVATE_JWK");
+        logger.info("tokenxClient");
+        logger.info(tokenxConfig.clientID);
+        // const tokenxJwk = JSON.parse(tokenxConfig.privateJwk);
         tokenxClient = new tokenx.Client(
             {
                 client_id: tokenxConfig.clientID,
-                token_endpoint_auth_method: "private_key_jwt",
-            },
-            {
-                keys: [tokenxJwk],
+                redirect_uris: [tokenxConfig.redirectUri, "http://localhost:8080/oauth2/callback"],
+                // token_endpoint_auth_method: "private_key_jwt",
+                token_endpoint_auth_method: "none",
             }
+            // {
+            //     keys: [tokenxJwk],
+            // }
         );
+
+        logger.info("Successfully created clients: IDPorten & TokenX");
 
         return Promise.resolve({ idporten: idportenClient, tokenx: tokenxClient });
     } catch (err) {

@@ -19,6 +19,7 @@ const options = () => ({
 });
 
 const setup = (app) => {
+    logger.info("setup");
     let authEndpoint = null;
     auth.setup(config.idporten, config.tokenx, config.app)
         .then((endpoint) => {
