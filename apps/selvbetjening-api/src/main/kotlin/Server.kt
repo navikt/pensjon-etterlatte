@@ -60,7 +60,7 @@ class Server(val applicationContext: ApplicationContext) {
                 authenticate {
                     route("secure") {
                         attachSecurityContext()
-
+                        soknadApi(applicationContext.rapid)
                         get {
                             println(
                                 call.principal<TokenValidationContextPrincipal>()?.context!!.getClaims("tokenx")

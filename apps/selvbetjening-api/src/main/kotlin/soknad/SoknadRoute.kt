@@ -21,7 +21,7 @@ fun Route.soknadApi(rapid: Rapid) {
         post {
             val fnr = ThreadBoundSecCtx.get().user()!!
             val soknad = call.receive<JsonNode>()
-
+            println("Mottatt søknad for $fnr")
             val rapidMessage = mapper.createObjectNode()
             rapidMessage.put("@event_name", "soeknad_innsendt")
             rapidMessage.set<ObjectNode>("@skjema_info", soknad)
