@@ -39,23 +39,16 @@ const authUrl = (session) => {
 
 const validateOidcCallback = async (req) => {
     const params = idportenClient.callbackParams(req);
-    logger.info(`params: ${JSON.stringify(params)}`);
 
     const session = req.session;
-    logger.info(`session: ${JSON.stringify(session)}`);
-
     const nonce = session.nonce;
     const state = session.state;
-
-    logger.info(`idportenMetadata: ${JSON.stringify(idportenMetadata)}`);
 
     const additionalClaims = {
         clientAssertionPayload: {
             aud: idportenMetadata.issuer,
         },
     };
-
-    logger.info(`idportenConfig: ${JSON.stringify(idportenConfig)}`);
 
     return idportenClient
         .callback(idportenConfig.redirectUri, params, { nonce, state }, additionalClaims)
@@ -130,7 +123,6 @@ const refresh = (oldTokenSet) => {
 };
 
 const init = async () => {
-    logger.info("init clients");
     const idporten = await Issuer.discover(idportenConfig.discoveryUrl);
     const tokenx = await Issuer.discover(tokenxConfig.discoveryUrl);
     tokenxMetadata = tokenx;
@@ -140,10 +132,7 @@ const init = async () => {
     logger.info(`discovered tokenx @ ${tokenx.issuer}`);
 
     try {
-        logger.info(`idportenConfig.clientJwk`);
-        logger.info(idportenConfig.clientJwk);
         const idportenJwk = JSON.parse(idportenConfig.clientJwk);
-        logger.info("idportenClient");
         idportenClient = new idporten.Client(
             {
                 client_id: idportenConfig.clientID,
@@ -157,20 +146,11 @@ const init = async () => {
             }
         );
 
-        logger.info("tokenxClient");
-        logger.info(tokenxConfig.clientID);
-        // const tokenxJwk = JSON.parse(tokenxConfig.privateJwk);
-        tokenxClient = new tokenx.Client(
-            {
-                client_id: tokenxConfig.clientID,
-                redirect_uris: [tokenxConfig.redirectUri, "http://localhost:8080/oauth2/callback"],
-                // token_endpoint_auth_method: "private_key_jwt",
-                token_endpoint_auth_method: "none",
-            }
-            // {
-            //     keys: [tokenxJwk],
-            // }
-        );
+        tokenxClient = new tokenx.Client({
+            client_id: tokenxConfig.clientID,
+            redirect_uris: [tokenxConfig.redirectUri, "http://localhost:8080/oauth2/callback"],
+            token_endpoint_auth_method: "none",
+        });
 
         logger.info("Successfully created clients: IDPorten & TokenX");
 

@@ -29,7 +29,6 @@ app.get(`${basePath}/oauth2/callback`, async (req, res) => {
 
     auth.validateOidcCallback(req)
         .then((tokens) => {
-            logger.info("Preparing cookie");
             session.tokens = tokens;
             session.state = null;
             session.nonce = null;
@@ -51,19 +50,14 @@ app.get(`${basePath}/oauth2/callback`, async (req, res) => {
 
 // check auth
 app.use(async (req, res, next) => {
-    logger.info("Sjekker auth/tokens");
     const session = req.session;
-
     const currentTokens = session.tokens;
 
     if (!currentTokens) {
-        logger.info("Ingen token funnet");
         res.redirect(`${basePath}/login`);
     } else {
-        logger.info("Fant token");
         const currentTokenSet = new TokenSet(currentTokens);
         if (currentTokenSet.expired()) {
-            logger.info("Fornyer token");
             auth.refresh(currentTokens)
                 .then((refreshedTokenSet) => {
                     session.tokens = new TokenSet(refreshedTokenSet);
