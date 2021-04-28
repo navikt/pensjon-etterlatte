@@ -66,19 +66,19 @@ app.get(`${basePath}/oauth2/callback`, async (req, res) => {
 
 // check auth
 app.use(async (req, res, next) => {
-    logger.info("Checking auth");
+    logger.info("Sjekker auth/tokens");
     const session = req.session;
 
     const currentTokens = session.tokens;
 
     if (!currentTokens) {
-        logger.info("No current tokens");
+        logger.info("Ingen token funnet");
         res.redirect(`${basePath}/login`);
     } else {
-        logger.info("Found current tokens");
+        logger.info("Fant token");
         const currentTokenSet = new TokenSet(currentTokens);
         if (currentTokenSet.expired()) {
-            logger.info("refreshing token");
+            logger.info("Fornyer token");
             auth.refresh(currentTokens)
                 .then((refreshedTokenSet) => {
                     session.tokens = new TokenSet(refreshedTokenSet);
@@ -95,16 +95,22 @@ app.use(async (req, res, next) => {
 
 const getSecure = async (bearerToken) => {
     const apiUrl = process.env.API_URL;
+    logger.info(`Kaller api: ${apiUrl}`);
 
     return fetch(`${apiUrl}/secure`, {
         method: "get",
         headers: { Authorization: `Bearer ${bearerToken}` },
-    }).then((res) => res.text());
+    }).then((res) => {
+        const responseText = res.text();
+        logger.info(`responseText: ${responseText}`);
+        return responseText;
+    });
 };
 
 app.get(`${basePath}/api/secure`, async (req, res) => {
     try {
         const accessToken = await auth.exchangeToken(req.session.tokens.access_token);
+        logger.info(`Hentet accessToken: ${accessToken}`);
         const response = await getSecure(accessToken);
         res.send(response);
     } catch (err) {
