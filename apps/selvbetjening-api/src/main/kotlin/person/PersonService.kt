@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.client.HttpClient
 import io.ktor.client.request.header
 import io.ktor.client.request.post
+import io.ktor.content.TextContent
+import io.ktor.http.ContentType
+import no.nav.etterlatte.common.toJson
 import org.slf4j.LoggerFactory
 
 interface PersonKlient {
@@ -30,7 +33,7 @@ class PersonService(
         val hentPerson = httpClient.post<ObjectNode>(uri) {
             header("Tema", TEMA)
             header("Accept", "application/json")
-            body = request
+            body = TextContent(request.toJson(), ContentType.Application.Json)
         }
 
         logger.info("Fant person: ${hentPerson.toPrettyString()}")
