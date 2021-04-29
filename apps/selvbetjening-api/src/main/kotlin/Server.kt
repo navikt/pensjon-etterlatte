@@ -54,24 +54,20 @@ class Server(val applicationContext: ApplicationContext) {
 
             routing {
                 healthApi()
-                personApi(personClient)
 
-                route("api") {
-                    attachFakeSecurityContext()
-                    soknadApi(applicationContext.rapid)
-                    get {
-                        call.respond(HttpStatusCode.OK, PdlMock().personInfo(""))
-                    }
-                }
                 authenticate {
+                    personApi(personClient)
+                    soknadApi(applicationContext.rapid)
+
                     route("secure") {
                         attachSecurityContext()
-                        soknadApi(applicationContext.rapid)
+
                         get {
-                            println(
-                                call.principal<TokenValidationContextPrincipal>()?.context!!.getClaims("tokenx")
-                                    .get("pid")
-                            )
+                            val tokexPid = call.principal<TokenValidationContextPrincipal>()?.context!!
+                                .getClaims("tokenx")
+                                .get("pid")
+                            call.application.environment.log.info("TokenX PID: $tokexPid")
+
                             println(
                                 ThreadBoundSecCtx.get().user()!!
                             )

@@ -5,6 +5,7 @@ import io.ktor.response.respondText
 import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.route
+import no.nav.etterlatte.ThreadBoundSecCtx
 import no.nav.etterlatte.common.toJson
 
 /**
@@ -13,7 +14,8 @@ import no.nav.etterlatte.common.toJson
 fun Route.personApi(client: PersonClient) {
     route("person") {
         get("innlogget") {
-            val fnr = "fnr-fra-token"
+            val fnr = ThreadBoundSecCtx.get().user()!!
+            call.application.environment.log.info("Henter innlogget person med fnr: $fnr")
 
             val person = client.hentPerson(fnr)
 
