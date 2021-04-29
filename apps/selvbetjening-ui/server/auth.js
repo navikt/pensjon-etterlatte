@@ -13,6 +13,7 @@ let idportenMetadata = null;
 let appConfig = null;
 
 const setup = async (idpConfig, txConfig, appConf) => {
+    logger.info("starting setup");
     idportenConfig = idpConfig;
     tokenxConfig = txConfig;
     appConfig = appConf;
@@ -38,23 +39,16 @@ const authUrl = (session) => {
 
 const validateOidcCallback = async (req) => {
     const params = idportenClient.callbackParams(req);
-    logger.info(`params: ${JSON.stringify(params)}`);
 
     const session = req.session;
-    logger.info(`session: ${JSON.stringify(session)}`);
-
     const nonce = session.nonce;
     const state = session.state;
-
-    logger.info(`idportenMetadata: ${JSON.stringify(idportenMetadata)}`);
 
     const additionalClaims = {
         clientAssertionPayload: {
             aud: idportenMetadata.issuer,
         },
     };
-
-    logger.info(`idportenConfig: ${JSON.stringify(idportenConfig)}`);
 
     return idportenClient
         .callback(idportenConfig.redirectUri, params, { nonce, state }, additionalClaims)
@@ -71,7 +65,7 @@ const exchangeToken = async (idportenToken) => {
         .grant({
             grant_type: "urn:ietf:params:oauth:grant-type:token-exchange",
             client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-            // token_endpoint_auth_method: "private_key_jwt",
+            token_endpoint_auth_method: "private_key_jwt",
             client_assertion: clientAssertion,
             subject_token_type: "urn:ietf:params:oauth:token-type:jwt",
             subject_token: idportenToken,
@@ -99,15 +93,7 @@ const createClientAssertion = async () => {
         exp: now + 60, // max 120
     };
 
-    logger.info(`JWT Sign Payload: ${JSON.stringify(payload)}`);
-
-    logger.info(`JWK: ${tokenxConfig.privateJwk}`);
-    logger.info(`JWK kid: ${tokenxConfig.privateJwk.kid}`);
-
-    const key = await toKey(tokenxConfig.privateJwk);
-
-    logger.info(`Key: ${key}`);
-    logger.info(`JSON Key: ${JSON.stringify(key)}`);
+    const key = await asKey(tokenxConfig.privateJwk);
 
     const options = {
         algorithm: "RS256",
@@ -118,12 +104,10 @@ const createClientAssertion = async () => {
         },
     };
 
-    logger.info(`JWT Sign Options: ${JSON.stringify(options)}`);
-
     return jwt.sign(payload, key.toPEM(true), options);
 };
 
-const toKey = async (jwk) => {
+const asKey = async (jwk) => {
     return jose.JWK.asKey(jwk).then((key) => {
         return Promise.resolve(key);
     });
@@ -149,7 +133,6 @@ const init = async () => {
 
     try {
         const idportenJwk = JSON.parse(idportenConfig.clientJwk);
-        logger.info("Successfully parsed IDPORTEN_CLIENT_JWK");
         idportenClient = new idporten.Client(
             {
                 client_id: idportenConfig.clientID,
@@ -163,22 +146,17 @@ const init = async () => {
             }
         );
 
-        const tokenxJwk = JSON.parse(tokenxConfig.privateJwk);
-        logger.info("Successfully parsed TOKEN_X_PRIVATE_JWK");
-        tokenxClient = new tokenx.Client(
-            {
-                client_id: tokenxConfig.clientID,
-                token_endpoint_auth_method: "private_key_jwt",
-            },
-            {
-                keys: [tokenxJwk],
-            }
-        );
+        tokenxClient = new tokenx.Client({
+            client_id: tokenxConfig.clientID,
+            redirect_uris: [tokenxConfig.redirectUri, "http://localhost:8080/oauth2/callback"],
+            token_endpoint_auth_method: "none",
+        });
+
+        logger.info("Successfully created clients: IDPorten & TokenX");
 
         return Promise.resolve({ idporten: idportenClient, tokenx: tokenxClient });
     } catch (err) {
-        logger.error("Error while parsing JWKs or creating clients.");
-        logger.error(err);
+        logger.error("Error while parsing JWKs or creating clients.", err);
         return Promise.reject(err);
     }
 };

@@ -35,6 +35,9 @@ spec:
   ingresses:
     - "https://etterlatte-selvbetjening-api.dev.adeo.no"
   accessPolicy:
+    outbound:
+      rules:
+        - application: etterlatte-proxy
     inbound:
       rules:
         - application: selvbetjening-ui

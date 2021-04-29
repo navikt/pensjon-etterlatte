@@ -1,3 +1,5 @@
+const logger = require("./logger");
+
 // TODO: Sti til vårt endepunkt på NAV.no
 const basePath = "";
 const apiUrl = process.env.API_URL || "localhost:8085";
@@ -34,9 +36,10 @@ const idporten = {
 
 const tokenx = {
     discoveryUrl:
-        process.env.TOKEN_X_WELL_KNOWN_URL || "http://localhost:8080/default/.well-known/openid-configuration",
+        process.env.TOKEN_X_WELL_KNOWN_URL ||
+        "https://oidc-ver2.difi.no/idporten-oidc-provider/.well-known/openid-configuration",
     clientID: process.env.TOKEN_X_CLIENT_ID || "debugger",
-    privateJwk: process.env.TOKEN_X_PRIVATE_JWK,
+    privateJwk: JSON.parse(process.env.TOKEN_X_PRIVATE_JWK),
 };
 
 module.exports = {
