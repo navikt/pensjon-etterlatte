@@ -9,7 +9,7 @@ import io.ktor.client.request.post
 import io.ktor.content.TextContent
 import io.ktor.http.ContentType
 import no.nav.etterlatte.common.toJson
-import org.slf4j.LoggerFactory
+//import org.slf4j.LoggerFactory
 
 interface PersonKlient {
     suspend fun hentPerson(fnr: String): Person
@@ -19,7 +19,7 @@ class PersonService(
     private val uri: String,
     private val httpClient: HttpClient
 ): PersonKlient {
-    private val logger = LoggerFactory.getLogger(PersonKlient::class.java)
+//    private val logger = LoggerFactory.getLogger(PersonService::class.java)
 
     companion object {
         private const val TEMA = "PEN"
@@ -30,7 +30,7 @@ class PersonService(
 
         val request = GraphqlRequest(query, Variables(ident = fnr)).toJson()
 
-        logger.info("Sender GraphQL request: $request")
+//        logger.info("Sender GraphQL request: $request")
 
         val hentPerson = httpClient.post<ObjectNode>(uri) {
             header("Tema", TEMA)
@@ -38,7 +38,7 @@ class PersonService(
             body = TextContent(request, ContentType.Application.Json)
         }
 
-        logger.info("Fant person: ${hentPerson.toPrettyString()}")
+//        logger.info("Fant person: ${hentPerson.toPrettyString()}")
 
         return Person(
             fornavn = "Test",
