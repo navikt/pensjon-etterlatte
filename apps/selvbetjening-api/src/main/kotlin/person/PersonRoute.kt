@@ -1,27 +1,24 @@
 package no.nav.etterlatte.person
 
 import io.ktor.application.call
-import io.ktor.auth.principal
 import io.ktor.response.respondText
 import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.route
+import no.nav.etterlatte.common.innloggetBrukerFnr
 import no.nav.etterlatte.common.toJson
-import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 
 /**
  * Endepunkter for uthenting av person
  */
-fun Route.personApi(client: PersonClient) {
+fun Route.personApi(service: PersonService) {
     route("person") {
         get("innlogget") {
-            val fnr = call.principal<TokenValidationContextPrincipal>()?.context!!
-                .getClaims("tokenx")
-                .getStringClaim("pid")
+            val fnr = innloggetBrukerFnr()
 
             call.application.environment.log.info("Henter innlogget person med fnr: $fnr")
 
-            val person = client.hentPerson(fnr)
+            val person = service.hentPerson(fnr)
 
             call.respondText(person.toJson())
         }
@@ -29,7 +26,7 @@ fun Route.personApi(client: PersonClient) {
         get("{fnr}") {
             val fnr = call.parameters["fnr"]!!
 
-            val person = client.hentPerson(fnr)
+            val person = service.hentPerson(fnr)
 
             call.respondText(person.toJson())
         }

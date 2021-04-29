@@ -1,8 +1,5 @@
 query($ident: ID!) {
     hentPerson(ident: $ident) {
-        adressebeskyttelse {
-            gradering
-        }
         bostedsadresse {
             vegadresse {
                 ...vegadresseDetails
@@ -14,30 +11,6 @@ query($ident: ID!) {
             gyldigTilOgMed
             metadata {
                 ...metadataDetails
-            }
-        }
-        oppholdsadresse {
-            vegadresse {
-                ...vegadresseDetails
-            }
-            utenlandskAdresse {
-                ...utenlandskAdresseDetails
-            }
-            gyldigFraOgMed
-            metadata {
-                ...metadataDetails
-            }
-        }
-        kontaktadresse {
-            coAdressenavn
-            type
-            gyldigFraOgMed
-            gyldigTilOgMed
-            metadata {
-                ...metadataDetails
-            }
-            vegadresse {
-                ...vegadresseDetails
             }
         }
         navn {
@@ -59,20 +32,6 @@ query($ident: ID!) {
             foedeland
             foedested
             foedselsaar
-            metadata {
-                ...metadataDetails
-            }
-        }
-        doedsfall {
-            doedsdato
-            metadata {
-                ...metadataDetails
-            }
-        }
-        familierelasjoner {
-            relatertPersonsIdent
-            relatertPersonsRolle
-            minRolleForPerson
             metadata {
                 ...metadataDetails
             }

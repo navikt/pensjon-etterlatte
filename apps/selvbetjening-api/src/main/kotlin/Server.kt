@@ -18,6 +18,7 @@ import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.route
 import io.ktor.routing.routing
+import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
@@ -26,18 +27,20 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asContextElement
 import kotlinx.coroutines.withContext
+import no.nav.etterlatte.common.innloggetBrukerFnr
 import no.nav.etterlatte.health.healthApi
-import no.nav.etterlatte.person.PersonClient
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import no.nav.security.token.support.ktor.tokenValidationSupport
 import org.slf4j.event.Level
 
-class Server(val applicationContext: ApplicationContext) {
-    val configuration = HoconApplicationConfig(applicationContext.config)
-    val personClient = PersonClient(applicationContext.httpClient())
-    val engine = embeddedServer(io.ktor.server.cio.CIO, environment = applicationEngineEnvironment {
+class Server(private val applicationContext: ApplicationContext) {
+    private val configuration = HoconApplicationConfig(applicationContext.config)
+
+    private val personClient = applicationContext.personService
+
+    private val engine = embeddedServer(CIO, environment = applicationEngineEnvironment {
         module {
             install(ContentNegotiation) {
                 jackson()
@@ -63,15 +66,10 @@ class Server(val applicationContext: ApplicationContext) {
                         attachSecurityContext()
 
                         get {
-                            val tokexPid = call.principal<TokenValidationContextPrincipal>()?.context!!
-                                .getClaims("tokenx")
-                                .get("pid")
-                            call.application.environment.log.info("TokenX PID: $tokexPid")
+                            val fnr = innloggetBrukerFnr()
+                            call.application.environment.log.info("TokenX PID: $fnr")
 
-                            println(
-                                ThreadBoundSecCtx.get().user()!!
-                            )
-                            applicationContext.pdl.personInfo(ThreadBoundSecCtx.get().user()!!)
+                            applicationContext.pdl.personInfo(fnr)
                                 .also {
                                     call.respond(
                                         HttpStatusCode.OK, it
@@ -86,9 +84,7 @@ class Server(val applicationContext: ApplicationContext) {
         connector {
             port = 8080
         }
-    }
-    )
-
+    })
 
     fun run() = engine.start(true)
 }

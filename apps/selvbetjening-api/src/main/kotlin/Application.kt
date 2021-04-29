@@ -23,6 +23,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.ktor.tokenexchange.bearerToken
 import no.nav.etterlatte.oauth.ClientConfig
+import no.nav.etterlatte.person.PersonKlient
+import no.nav.etterlatte.person.PersonService
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
 
@@ -34,7 +36,9 @@ object ThreadBoundSecCtx : ThreadLocal<SecurityContext>()
 
 class ApplicationContext(configLocation: String? = null, wait: Job = GlobalScope.launch { }) {
     private val closables = mutableListOf<() -> Unit>()
+
     val config: Config = configLocation?.let { ConfigFactory.load(it) } ?: ConfigFactory.load()
+
     private val defaultHttpClient = HttpClient(CIO) {
         install(JsonFeature) {
             serializer = JacksonSerializer {
@@ -53,6 +57,8 @@ class ApplicationContext(configLocation: String? = null, wait: Job = GlobalScope
     }
 
     val pdl: PdlService
+    val personService: PersonService
+
     val tokenKlients = ClientConfig(HoconApplicationConfig(config), defaultHttpClient)
     val rapid: Rapid =
         if (System.getenv().containsKey("KAFKA_BROKERS")) KafkaRapid.fromEnv(System.getenv()) else object : Rapid {
@@ -88,6 +94,8 @@ class ApplicationContext(configLocation: String? = null, wait: Job = GlobalScope
             }
         }.also {
             pdl = PdlGraphqlKlient(config.getString("no.nav.etterlatte.tjenester.pdl.url"), "PEN", it)
+            personService = PersonService(config.getString("no.nav.etterlatte.tjenester.pdl.url"), it)
+
             closables.add(it::close)
         }
 
@@ -99,10 +107,9 @@ class ApplicationContext(configLocation: String? = null, wait: Job = GlobalScope
 
 @KtorExperimentalAPI
 suspend fun main() {
-    ApplicationContext(wait = GlobalScope.launch { delay(30_000) }
-    ).also {
-        Server(it).run()
-    }.close()
+    ApplicationContext(wait = GlobalScope.launch { delay(30_000) })
+        .also { Server(it).run() }
+        .close()
 }
 
 interface SecurityContext{
@@ -116,7 +123,6 @@ class SynteticHardcodedUser(private val user:String): SecurityContext{
     }
 
     override fun user() = user
-
 }
 
 class TokenSecurityContext(private val tokens: TokenValidationContext): SecurityContext {

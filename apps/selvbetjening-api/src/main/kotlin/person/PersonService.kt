@@ -2,33 +2,43 @@ package no.nav.etterlatte.person
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.client.HttpClient
 import io.ktor.client.request.header
 import io.ktor.client.request.post
+import org.slf4j.LoggerFactory
 
-class PersonClient(
+interface PersonKlient {
+    suspend fun hentPerson(fnr: String): Person
+}
+
+class PersonService(
+    private val uri: String,
     private val httpClient: HttpClient
-) {
+): PersonKlient {
+    private val logger = LoggerFactory.getLogger(PersonKlient::class.java)
 
-    suspend fun hentPerson(fnr: String): Person {
+    companion object {
+        private const val TEMA = "PEN"
+    }
+
+    override suspend fun hentPerson(fnr: String): Person {
         val query = javaClass.getResource("/pdl/hentPerson.graphql").readText().replace(Regex("[\n\t]"), "")
 
         val request = GraphqlRequest(query, Variables(ident = fnr))
 
-        // TODO: Opprette et GraphQL-objekt for å håndtere responsen
-        /*
-        val hentPerson = httpClient.post<String>("https://etterlatte-proxy.dev-fss-pub.nais.io/pdl") {
-            header("Tema", "PEN")
+        val hentPerson = httpClient.post<ObjectNode>(uri) {
+            header("Tema", TEMA)
             header("Accept", "application/json")
-            header("Authorization", "Bearer ${token}")
             body = request
         }
-        */
+
+        logger.info("Fant person: ${hentPerson.toPrettyString()}")
 
         return Person(
             fornavn = "Test",
             etternavn = "Testesen",
-            fødselsnummer = "01010154321",
+            fødselsnummer = fnr,
             adresse = "Testveien 123, 0123 Oslo",
             statsborgerskap = "NO",
             sivilstatus = "Gift"
