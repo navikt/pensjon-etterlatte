@@ -28,12 +28,14 @@ class PersonService(
     override suspend fun hentPerson(fnr: String): Person {
         val query = javaClass.getResource("/pdl/hentPerson.graphql").readText().replace(Regex("[\n\t]"), "")
 
-        val request = GraphqlRequest(query, Variables(ident = fnr))
+        val request = GraphqlRequest(query, Variables(ident = fnr)).toJson()
+
+        logger.info("Sender GraphQL request: $request")
 
         val hentPerson = httpClient.post<ObjectNode>(uri) {
             header("Tema", TEMA)
             header("Accept", "application/json")
-            body = TextContent(request.toJson(), ContentType.Application.Json)
+            body = TextContent(request, ContentType.Application.Json)
         }
 
         logger.info("Fant person: ${hentPerson.toPrettyString()}")
@@ -50,11 +52,11 @@ class PersonService(
 
 }
 
-private data class GraphqlRequest(
+data class GraphqlRequest(
     val query: String,
     val variables: Variables
 )
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-private data class Variables(val ident: String)
+data class Variables(val ident: String)
