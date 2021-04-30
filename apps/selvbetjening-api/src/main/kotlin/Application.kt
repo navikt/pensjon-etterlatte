@@ -93,8 +93,10 @@ class ApplicationContext(configLocation: String? = null, wait: Job = GlobalScope
                 }
             }
         }.also {
-            pdl = PdlGraphqlKlient(config.getString("no.nav.etterlatte.tjenester.pdl.url"), "PEN", it)
-            personService = PersonService(config.getString("no.nav.etterlatte.tjenester.pdl.url"), it)
+            val pdlProxyUrl = config.getString("no.nav.etterlatte.tjenester.pdl.url")
+
+            personService = PersonService(pdlProxyUrl, it)
+            pdl = PdlGraphqlKlient(pdlProxyUrl, "PEN", it)
 
             closables.add(it::close)
         }

@@ -59,11 +59,12 @@ class Server(private val applicationContext: ApplicationContext) {
                 healthApi()
 
                 authenticate {
+                    attachSecurityContext()
+
                     personApi(personClient)
                     soknadApi(applicationContext.rapid)
 
                     route("secure") {
-                        attachSecurityContext()
 
                         get {
                             val fnr = innloggetBrukerFnr()
