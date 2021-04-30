@@ -1,7 +1,12 @@
 import { createContext, FC, useContext, useReducer } from "react";
 import { ActionTypes, IBruker, IBrukerAction, StegProps } from "./bruker";
 
-const initialState: IBruker = {
+const STORAGE_KEY = "ey-store-soeker";
+
+const json = localStorage.getItem(STORAGE_KEY);
+const storedState = json ? JSON.parse(json) : null;
+
+const initialState: IBruker = storedState || {
     fornavn: "",
     etternavn: "",
     foedselsnummer: "",
@@ -44,6 +49,8 @@ const useBrukerContext = () => useContext(StegContext);
 
 const BrukerProvider: FC = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 
     return <StegContext.Provider value={{ state, dispatch }}>{children}</StegContext.Provider>;
 };

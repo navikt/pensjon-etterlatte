@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./SoknadForside.less";
 import { Panel } from "nav-frontend-paneler";
 import { BekreftCheckboksPanel } from "nav-frontend-skjema";
@@ -10,20 +10,39 @@ import { useHistory } from "react-router-dom";
 import ikon from "../../assets/ikoner/veileder.svg";
 import { useTranslation } from "react-i18next";
 import { useStegContext } from "../../context/steg/StegContext";
+import { useBrukerContext } from "../../context/bruker/BrukerContext";
+import { hentInnloggetPerson } from "../../api";
+import { ActionTypes, IBruker } from "../../context/bruker/bruker";
 
 const SoknadForside = () => {
     const { t } = useTranslation();
     const { state } = useStegContext();
     const history = useHistory();
 
+    const brukerState = useBrukerContext().state;
+    const dispatch = useBrukerContext().dispatch;
+
+    useEffect(() => {
+        if (!brukerState.foedselsnummer) {
+            hentInnloggetPerson()
+                .then((person: IBruker) => {
+                    dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
+                })
+                .catch(() => {
+                    if (process.env.NODE_ENV === "development") {
+                        dispatch({ type: ActionTypes.INIT_TEST_BRUKER });
+                    }
+                });
+        }
+    }, [brukerState.foedselsnummer, dispatch]);
+
+    const innloggetBrukerNavn = `${brukerState.fornavn} ${brukerState.etternavn}`;
+
     if (state.aktivtSteg !== 1) {
         history.push(`/soknad/steg/${state.aktivtSteg}`);
     }
 
     const [harBekreftet, settBekreftet] = useState(false);
-
-    // TODO: Faktisk bruke innlogget bruker sitt navn
-    const innloggetBrukerNavn = "STERK GAPAHUK";
 
     return (
         <>

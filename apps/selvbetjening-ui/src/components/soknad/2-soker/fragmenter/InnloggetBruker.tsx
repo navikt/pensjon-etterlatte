@@ -1,30 +1,13 @@
 import AlertStripe from "nav-frontend-alertstriper";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
-import { hentInnloggetPerson } from "../../../../api";
-import { ActionTypes, IBruker } from "../../../../context/bruker/bruker";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 import { Panel } from "nav-frontend-paneler";
 
 const InnloggetBruker = () => {
     const { t } = useTranslation();
 
-    const { state, dispatch } = useBrukerContext();
-
-    useEffect(() => {
-        if (!state.foedselsnummer) {
-            hentInnloggetPerson()
-                .then((person: IBruker) => {
-                    dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
-                })
-                .catch(() => {
-                    if (process.env.NODE_ENV === "development") {
-                        dispatch({ type: ActionTypes.INIT_TEST_BRUKER });
-                    }
-                });
-        }
-    }, [state.foedselsnummer, dispatch]);
+    const { state } = useBrukerContext();
 
     return (
         <>
