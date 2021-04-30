@@ -94,7 +94,8 @@
     "redis": "^3.1.2",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0",
-    "ulid": "^2.3.0"
+    "ulid": "^2.3.0",
+    "winston": "^3.3.3"
   },
   "scripts": {
     "start": "craco start",

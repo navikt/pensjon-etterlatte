@@ -47,6 +47,8 @@ spec:
       value: selvbetjening-redis.etterlatte.svc.cluster.local
     - name: SELVBETJENING_AUDIENCE
       value: dev-gcp:etterlatte:selvbetjening-api
+    - name: NODE_LOG_LEVEL
+      value: info
   accessPolicy:
     outbound:
       external:

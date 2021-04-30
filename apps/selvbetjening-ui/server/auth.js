@@ -13,7 +13,7 @@ let idportenMetadata = null;
 let appConfig = null;
 
 const setup = async (idpConfig, txConfig, appConf) => {
-    logger.info("starting setup");
+    logger.info("Setter opp autentisering og tilhørende konfig");
     idportenConfig = idpConfig;
     tokenxConfig = txConfig;
     appConfig = appConf;
@@ -75,7 +75,7 @@ const exchangeToken = async (idportenToken) => {
             return Promise.resolve(tokenSet.access_token);
         })
         .catch((err) => {
-            logger.error(`Error while exchanging token: ${err}`);
+            logger.error("Feil under utveksling av token: ", err);
             return Promise.reject(err);
         });
 };
@@ -108,6 +108,8 @@ const createClientAssertion = async () => {
 };
 
 const asKey = async (jwk) => {
+    if (!jwk) throw Error("JWK Mangler");
+
     return jose.JWK.asKey(jwk).then((key) => {
         return Promise.resolve(key);
     });
@@ -128,8 +130,8 @@ const init = async () => {
     tokenxMetadata = tokenx;
     idportenMetadata = idporten;
 
-    logger.info(`discovered idporten @ ${idporten.issuer}`);
-    logger.info(`discovered tokenx @ ${tokenx.issuer}`);
+    logger.info(`Discovered IDPorten @ ${idporten.issuer}`);
+    logger.info(`Discovered TokenX @ ${tokenx.issuer}`);
 
     try {
         const idportenJwk = JSON.parse(idportenConfig.clientJwk);
@@ -152,11 +154,11 @@ const init = async () => {
             token_endpoint_auth_method: "none",
         });
 
-        logger.info("Successfully created clients: IDPorten & TokenX");
+        logger.info("Opprettet klienter for IDPorten og TokenX");
 
         return Promise.resolve({ idporten: idportenClient, tokenx: tokenxClient });
     } catch (err) {
-        logger.error("Error while parsing JWKs or creating clients.", err);
+        logger.error("Feil oppsto under parsing av jwt eller opprettelse av klientene", err);
         return Promise.reject(err);
     }
 };

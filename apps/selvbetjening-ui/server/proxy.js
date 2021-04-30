@@ -9,11 +9,13 @@ const options = () => ({
         return new Promise((resolve, reject) => {
             return auth.exchangeToken(req.session.tokens.access_token).then(
                 (accessToken) => {
-                    logger.info(`accessToken: ${accessToken}`);
                     options.headers.Authorization = `Bearer ${accessToken}`;
                     resolve(options);
                 },
-                (error) => reject(error)
+                (error) => {
+                    logger.error("Feil oppsto ved endring av request headers", error)
+                    reject(error)
+                }
             );
         });
     },

@@ -17,7 +17,8 @@ app.use(setupSession());
 app.use(basePath, express.static(buildPath, { index: false }));
 
 app.get(`${basePath}/login`, async (req, res) => {
-    // lgtm [js/missing-rate-limiting]
+    logger.info("Sender bruker til login");
+
     const session = req.session;
     session.nonce = generators.nonce();
     session.state = generators.state();
@@ -42,7 +43,7 @@ app.get(`${basePath}/oauth2/callback`, async (req, res) => {
             res.redirect(303, "/");
         })
         .catch((err) => {
-            logger.error(err);
+            logger.error("Feil oppsto under validateOidcCallback: ", err);
             session.destroy();
             res.sendStatus(403);
         });
@@ -63,7 +64,7 @@ app.use(async (req, res, next) => {
                     session.tokens = new TokenSet(refreshedTokenSet);
                 })
                 .catch((err) => {
-                    logger.error(err);
+                    logger.error("Feil oppsto ved refresh av token", err);
                     session.destroy();
                     res.redirect(`${basePath}/login`);
                 });
