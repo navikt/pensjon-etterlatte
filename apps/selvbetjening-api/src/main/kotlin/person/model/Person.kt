@@ -29,7 +29,7 @@ data class Navn(
     val forkortetNavn: String? = null,
     val gyldigFraOgMed: LocalDate? = null,
     val folkeregistermetadata: Folkeregistermetadata? = null,
-    val metadata: Metadata
+    val metadata: Metadata? = null
 )
 
 data class Statsborgerskap(
