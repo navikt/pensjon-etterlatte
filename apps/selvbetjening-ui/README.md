@@ -46,6 +46,15 @@ For å kjøre build med `server.js` lokalt kan en av følgende brukes:
 `yarn server:production`
 
 
+## Testmiljøet
+
+Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:
+[https://etterlatteytelser.dev.nav.no](https://etterlatteytelser.dev.nav.no) 
+
+Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via Citrix/Utviklerimage.
+
+Innloggingsdetaljer kan oppdrives av noen i teamet. 
+
 # NAV Avhengigheter
 
 ## Dekoratøren
