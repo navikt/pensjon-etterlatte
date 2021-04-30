@@ -1,12 +1,8 @@
 const { createLogger, format, transports } = require("winston");
 const { Console } = transports;
-const { colorize, combine, timestamp, simple, printf } = format;
+const { colorize, combine, timestamp, simple, json } = format;
 
-const logstashFormat = printf(({ level, message, timestamp }) => {
-    return `{"@timestamp": "${timestamp}", "message": "${message}", "level": "${level.toUpperCase()}"`;
-});
-
-const production = combine(timestamp(), logstashFormat);
+const production = combine(timestamp(), json());
 
 const dev = combine(colorize(), simple());
 

@@ -13,8 +13,8 @@ const options = () => ({
                     resolve(options);
                 },
                 (error) => {
-                    logger.error("Feil oppsto ved endring av request headers", error)
-                    reject(error)
+                    logger.error("Feil oppsto ved endring av request headers", error);
+                    reject(error);
                 }
             );
         });
