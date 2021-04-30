@@ -49,7 +49,12 @@ class PersonService(
 
         logger.info(responseNode.toPrettyString())
 
-        val response = mapJsonToAny(responseNode.toJson(), typeRefs<PersonResponse>())
+        val response = try {
+            mapJsonToAny(responseNode.toJson(), typeRefs<PersonResponse>())
+        } catch (e: Exception) {
+            logger.error("Error under deserialisering av pdl repons", e)
+            throw e
+        }
 
         val hentPerson = response.data?.hentPerson
         if (hentPerson === null) {
