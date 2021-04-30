@@ -7,6 +7,8 @@ import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.content.TextContent
 import io.ktor.http.ContentType
+import no.nav.etterlatte.common.toJson
+import org.slf4j.LoggerFactory
 
 interface PdlService {
     suspend fun personInfo(person: String): PersonInfo
@@ -19,6 +21,8 @@ class PdlGraphqlKlient(
     private val httpClient: HttpClient
 
 ) : PdlService {
+    private val logger = LoggerFactory.getLogger(PdlGraphqlKlient::class.java)
+
     override suspend fun personInfo(person: String): PersonInfo {
         val queryPart = """hentPerson(ident: "$person") {
             forelderBarnRelasjon {
@@ -37,6 +41,8 @@ class PdlGraphqlKlient(
             header("Accept", "application/json")
             body = TextContent(gql, ContentType.Application.Json)
         }.also {
+
+            logger.info(it.toPrettyString())
 
             val barnRelasjoner = "data.hentPerson.forelderBarnRelasjon".split(".")
                 .fold(it, JsonNode::get) // it.get("data").get("hentPerson").get("forelderBarnRelasjon")

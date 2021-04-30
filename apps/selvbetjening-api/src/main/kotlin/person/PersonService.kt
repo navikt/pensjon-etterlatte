@@ -2,14 +2,17 @@ package no.nav.etterlatte.person
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.client.HttpClient
 import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.content.TextContent
+import io.ktor.features.NotFoundException
 import io.ktor.http.ContentType
 import no.nav.etterlatte.common.toJson
-//import org.slf4j.LoggerFactory
+import no.nav.etterlatte.person.model.GraphqlRequest
+import no.nav.etterlatte.person.model.PersonResponse
+import no.nav.etterlatte.person.model.Variables
+import org.slf4j.LoggerFactory
 
 interface PersonKlient {
     suspend fun hentPerson(fnr: String): Person
@@ -19,7 +22,7 @@ class PersonService(
     private val uri: String,
     private val httpClient: HttpClient
 ): PersonKlient {
-//    private val logger = LoggerFactory.getLogger(PersonService::class.java)
+    private val logger = LoggerFactory.getLogger(PersonService::class.java)
 
     companion object {
         private const val TEMA = "PEN"
@@ -30,33 +33,38 @@ class PersonService(
 
         val request = GraphqlRequest(query, Variables(ident = fnr)).toJson()
 
-//        logger.info("Sender GraphQL request: $request")
-
-        val hentPerson = httpClient.post<ObjectNode>(uri) {
+        val response = httpClient.post<PersonResponse>(uri) {
             header("Tema", TEMA)
             header("Accept", "application/json")
             body = TextContent(request, ContentType.Application.Json)
         }
 
-//        logger.info("Fant person: ${hentPerson.toPrettyString()}")
+        val hentPerson = response.data?.hentPerson
+        if (hentPerson === null) {
+            logger.error("Kunne ikke hente person fra PDL")
+            throw NotFoundException()
+        }
+
+        val navn = hentPerson.navn.singleOrNull()!!
+
+        // TODO: Uthenting av data fra person
+
+        val bostedsadresse = hentPerson.bostedsadresse
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }
+
+        val statsborgerskap = hentPerson.statsborgerskap
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }
+
+        val sivilstand = hentPerson.sivilstand
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
         return Person(
-            fornavn = "Test",
-            etternavn = "Testesen",
+            fornavn = navn.fornavn,
+            etternavn = navn.etternavn,
             fødselsnummer = fnr,
-            adresse = "Testveien 123, 0123 Oslo",
-            statsborgerskap = "NO",
-            sivilstatus = "Gift"
+            adresse = bostedsadresse?.vegadresse?.toString(),
+            statsborgerskap = statsborgerskap?.land,
+            sivilstatus = sivilstand?.type?.name
         )
     }
-
 }
-
-data class GraphqlRequest(
-    val query: String,
-    val variables: Variables
-)
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
-data class Variables(val ident: String)

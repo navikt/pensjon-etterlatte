@@ -56,7 +56,6 @@ class ApplicationContext(configLocation: String? = null, wait: Job = GlobalScope
         closables.forEach { it() }
     }
 
-    val pdl: PdlService
     val personService: PersonService
 
     val tokenKlients = ClientConfig(HoconApplicationConfig(config), defaultHttpClient)
@@ -93,18 +92,16 @@ class ApplicationContext(configLocation: String? = null, wait: Job = GlobalScope
                 }
             }
         }.also {
-            val pdlProxyUrl = config.getString("no.nav.etterlatte.tjenester.pdl.url")
-
-            personService = PersonService(pdlProxyUrl, it)
-            pdl = PdlGraphqlKlient(pdlProxyUrl, "PEN", it)
+            personService = PersonService(
+                uri = config.getString("no.nav.etterlatte.tjenester.pdl.url"),
+                httpClient = it
+            )
 
             closables.add(it::close)
         }
 
         closables.add(defaultHttpClient::close)
     }
-
-    fun httpClient() = defaultHttpClient
 }
 
 @KtorExperimentalAPI

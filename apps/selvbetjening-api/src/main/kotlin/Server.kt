@@ -10,13 +10,9 @@ import io.ktor.auth.principal
 import io.ktor.config.HoconApplicationConfig
 import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
-import io.ktor.http.HttpStatusCode
 import io.ktor.jackson.jackson
 import io.ktor.request.path
-import io.ktor.response.respond
 import io.ktor.routing.Route
-import io.ktor.routing.get
-import io.ktor.routing.route
 import io.ktor.routing.routing
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
@@ -27,7 +23,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asContextElement
 import kotlinx.coroutines.withContext
-import no.nav.etterlatte.common.innloggetBrukerFnr
 import no.nav.etterlatte.health.healthApi
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
@@ -38,7 +33,7 @@ import org.slf4j.event.Level
 class Server(private val applicationContext: ApplicationContext) {
     private val configuration = HoconApplicationConfig(applicationContext.config)
 
-    private val personClient = applicationContext.personService
+    private val personService = applicationContext.personService
 
     private val engine = embeddedServer(CIO, environment = applicationEngineEnvironment {
         module {
@@ -61,23 +56,8 @@ class Server(private val applicationContext: ApplicationContext) {
                 authenticate {
                     attachSecurityContext()
 
-                    personApi(personClient)
+                    personApi(personService)
                     soknadApi(applicationContext.rapid)
-
-                    route("secure") {
-
-                        get {
-                            val fnr = innloggetBrukerFnr()
-                            call.application.environment.log.info("TokenX PID: $fnr")
-
-                            applicationContext.pdl.personInfo(fnr)
-                                .also {
-                                    call.respond(
-                                        HttpStatusCode.OK, it
-                                    )
-                                }
-                        }
-                    }
                 }
             }
 
