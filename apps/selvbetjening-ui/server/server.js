@@ -17,8 +17,6 @@ app.use(setupSession());
 app.use(basePath, express.static(buildPath, { index: false }));
 
 app.get(`${basePath}/login`, async (req, res) => {
-    logger.info("Sender bruker til login");
-
     const session = req.session;
     session.nonce = generators.nonce();
     session.state = generators.state();
