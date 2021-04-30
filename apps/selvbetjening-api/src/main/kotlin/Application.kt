@@ -2,6 +2,7 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import io.ktor.client.HttpClient
@@ -77,6 +78,7 @@ class ApplicationContext(configLocation: String? = null, wait: Job = GlobalScope
                 serializer = JacksonSerializer {
                     configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                     setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    registerModule(JavaTimeModule())
                 }
             }
             install(Auth) {
