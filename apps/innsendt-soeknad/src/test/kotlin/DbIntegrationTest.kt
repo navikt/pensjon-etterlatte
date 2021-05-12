@@ -6,6 +6,7 @@ import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.PostgresSoeknadRepository
 import no.nav.etterlatte.UlagretSoeknad
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
@@ -16,7 +17,7 @@ class DbIntegrationTest {
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
 
 
-    @Test
+    @Test @Disabled
     fun test(){
         postgreSQLContainer.start()
         postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
