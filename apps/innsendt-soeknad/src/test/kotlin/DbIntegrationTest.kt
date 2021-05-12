@@ -6,7 +6,6 @@ import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.PostgresSoeknadRepository
 import no.nav.etterlatte.UlagretSoeknad
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
@@ -17,12 +16,12 @@ class DbIntegrationTest {
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
 
 
-    @Disabled @Test
+    @Test
     fun test(){
         postgreSQLContainer.start()
         postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
         postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
-        val dsb = DataSourceBuilder(mapOf("DB_URL" to postgreSQLContainer.jdbcUrl))
+        val dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
         dsb.migrate()
         val db = PostgresSoeknadRepository.using(dsb.getDataSource())
         db.nySoeknad(UlagretSoeknad("abc", """{}"""))

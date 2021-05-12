@@ -5,11 +5,6 @@ import no.nav.etterlatte.UlagretSoeknad
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
 
-class ApplicationTest {
-
-}
-
-
 fun testMessage(journalpost: Long, soeknad: Long) =
     JsonMessage("{}", MessageProblems("{}")).apply {
         this["@journalpostId"] = journalpost

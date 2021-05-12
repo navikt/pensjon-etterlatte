@@ -1,10 +1,18 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.JsonNode
+import com.typesafe.config.ConfigFactory
 import io.ktor.application.call
+import io.ktor.application.install
+import io.ktor.auth.Authentication
+import io.ktor.auth.authenticate
+import io.ktor.auth.principal
+import io.ktor.config.HoconApplicationConfig
 import io.ktor.http.ContentType
+import io.ktor.request.receive
 import io.ktor.response.respondText
 import io.ktor.routing.Route
-import io.ktor.routing.get
+import io.ktor.routing.post
 import io.ktor.routing.routing
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -14,11 +22,15 @@ import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
+import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
+import no.nav.security.token.support.ktor.tokenValidationSupport
 
 fun Route.soeknadApi(db: SoeknadRepository){
-     get("/api/soeknad") {
-            db.nySoeknad(UlagretSoeknad("abc", "{}"))
-            call.respondText("", ContentType.Text.Plain)
+     post("/api/soeknad") {
+            val fnr = call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
+            val soknad = call.receive<JsonNode>()
+            val lagretSoeknad = db.nySoeknad(UlagretSoeknad(fnr, soknad.toJson()))
+            call.respondText(lagretSoeknad.id.toString(), ContentType.Text.Plain)
         }
 }
 
@@ -29,8 +41,14 @@ fun main() {
 
     val rapidApplication = RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(System.getenv()))
         .withKtorModule {
+            install(Authentication) {
+                tokenValidationSupport(config = HoconApplicationConfig(ConfigFactory.load()))
+            }
+
             routing {
-                soeknadApi(db)
+                authenticate {
+                    soeknadApi(db)
+                }
             }
         }.build().also { rapidConnection ->
             rapidConnection.register(object: RapidsConnection.StatusListener{

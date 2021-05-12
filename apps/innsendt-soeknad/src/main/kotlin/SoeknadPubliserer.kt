@@ -1,14 +1,9 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import no.nav.helse.rapids_rivers.MessageContext
 
 class SoeknadPubliserer(val rapid: MessageContext, val db: SoeknadRepository) {
-    val mapper: ObjectMapper = jacksonObjectMapper()
-    fun Any.toJson(): String = mapper.writeValueAsString(this)
-
     fun publiser(soeknad: LagretSoeknad){
         mapper.createObjectNode().apply {
             put("@event_name", "soeknad_innsendt")
@@ -21,3 +16,20 @@ class SoeknadPubliserer(val rapid: MessageContext, val db: SoeknadRepository) {
         db.soeknadSendt(soeknad)
     }
 }
+
+data class JournalPostInfo(
+    val tittel: String,
+    val avsenderMottaker: AvsenderMottaker,
+    val bruker: Bruker
+)
+
+data class AvsenderMottaker(
+    val id: String,
+    val navn:String,
+    val idType: String
+)
+
+data class Bruker(
+    val id: String,
+    val idType: String
+)

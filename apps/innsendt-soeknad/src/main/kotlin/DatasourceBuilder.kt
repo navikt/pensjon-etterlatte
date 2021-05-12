@@ -42,20 +42,3 @@ class DataSourceBuilder(env: Map<String, String>) {
             .load()
             .migrate()
 }
-
-data class JournalPostInfo(
-    val tittel: String,
-    val avsenderMottaker: AvsenderMottaker,
-    val bruker: Bruker
-)
-
-data class AvsenderMottaker(
-    val id: String,
-    val navn:String,
-    val idType: String
-)
-
-data class Bruker(
-    val id: String,
-    val idType: String
-)
