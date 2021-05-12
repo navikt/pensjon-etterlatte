@@ -3,7 +3,7 @@ val rapidsandriversversion: String by project
 plugins {
     application
     kotlin("jvm")
-    id("com.commercehub.gradle.plugin.avro") version "0.21.0"
+    id("com.github.davidmc24.gradle.plugin.avro") version "1.2.0"
 }
 
 repositories {
