@@ -19,9 +19,8 @@ spec:
     path: /metrics
   kafka:
     pool: nav-dev
-  azure:
-    application:
-      enabled: true
+  tokenx:
+    enabled: true
   gcp:
     sqlInstances:
       - type: POSTGRES_12
@@ -37,3 +36,7 @@ spec:
       value: innsendt-soeknad
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
+  accessPolicy:
+    inbound:
+      rules:
+        - application: selvbetjening-api
