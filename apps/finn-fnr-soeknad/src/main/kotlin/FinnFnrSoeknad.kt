@@ -35,8 +35,8 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
             }
     }
     private fun finnFnrForSkjema(skjemainfo: JsonNode ): String? {
-        val jsonpath = JsonPath(skjemainfo.toString())
-        jsonpath.readFromJson<JsonNode>(skjemainfo)
+        //val jsonpath = JsonPath(skjemainfo.toString())
+        //jsonpath.readFromJson<JsonNode>(skjemainfo)
         return JsonPath.parse(skjemainfo.toString())?.read("$..foedselsnummer")
         /*val objectMapper = jacksonObjectMapper()
             .registerModule(JavaTimeModule())
