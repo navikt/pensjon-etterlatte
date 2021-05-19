@@ -38,7 +38,6 @@ dependencies {
     implementation("io.ktor:ktor-client-auth:$ktorversion")
     implementation("io.ktor:ktor-server-core:$ktorversion")
     implementation("io.ktor:ktor-html-builder:$ktorversion")
-    implementation("org.apache.kafka:kafka-clients:2.5.0")
 
     // Logging
     implementation("org.slf4j:slf4j-api:1.7.30")

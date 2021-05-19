@@ -30,14 +30,15 @@ spec:
       value: "https://etterlatte-proxy.dev-fss-pub.nais.io/tokenx/pdl"
     - name: PDL_AUDIENCE
       value: "dev-fss:etterlatte:etterlatte-proxy"
-    - name: KAFKA_RAPID_TOPIC
-      value: etterlatte.dodsmelding
+    - name: INNSENDTSOEKNAD_AUDIENCE
+      value: "dev-gcp:etterlatte:innsendt-soeknad"
   ingresses:
     - "https://etterlatte-selvbetjening-api.dev.adeo.no"
   accessPolicy:
     outbound:
       rules:
         - application: etterlatte-proxy
+        - application: innsendt-soeknad
     inbound:
       rules:
         - application: selvbetjening-ui

@@ -57,7 +57,7 @@ class Server(private val applicationContext: ApplicationContext) {
                     attachSecurityContext()
 
                     personApi(personService)
-                    soknadApi(applicationContext.rapid)
+                    soknadApi(applicationContext.innsendtSoeknadEndpoint)
                 }
             }
 
