@@ -1,8 +1,6 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
-import com.nfeld.jsonpathkt.JsonPath
-import com.nfeld.jsonpathkt.extension.read
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
@@ -30,29 +28,21 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
 
         runBlocking {
 
-            packet["@fnr_liste"] = finnFnrForSkjema(packet["@skjema_info"]).toString()
-            context.publish(packet.toJson())
+            finnFnrForSkjema(packet["@skjema_info"])?.let {
+                packet["@fnr_liste"] = it
+                context.publish(packet.toJson())
+                 }
+
             }
     }
     private fun finnFnrForSkjema(skjemainfo: JsonNode ): String? {
-        //val jsonpath = JsonPath(skjemainfo.toString())
-        //jsonpath.readFromJson<JsonNode>(skjemainfo)
-        return JsonPath.parse(skjemainfo.toString())?.read("$..foedselsnummer")
-        /*val objectMapper = jacksonObjectMapper()
-            .registerModule(JavaTimeModule())
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+        val regex = """\b(\d{11})\b""".toRegex()
+        return regex.findAll(skjemainfo.toString())
+            .map { it.groupValues[1] }
+            .joinToString()
 
-        val gah:Map<String,Object?>? = objectMapper.treeToValue(skjemainfo)
-        gah?.let {
-            return gah.filter { it.key == "foedselsnummer" }.values.toString()
+        //return JsonPath.parse(skjemainfo.toString())?.read("$..foedselsnummer")
 
-
-        }
-
-        return "n"
-
-         */
     }
 
 }
