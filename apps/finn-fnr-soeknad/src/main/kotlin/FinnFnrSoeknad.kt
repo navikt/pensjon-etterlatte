@@ -16,8 +16,6 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@skjema_info") }
-//            validate { it.requireKey("@template") }
-//            validate { it.requireKey("@journalpostInfo") }
             validate { it.rejectKey("@fnr_liste") }
         }.register(this)
     }
@@ -39,7 +37,7 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
         val regex = """\b(\d{11})\b""".toRegex()
 
         return regex.findAll(skjemainfo.toString())
-            .filter { validateControlDigits(it.toString()) }
+            .filter { validateControlDigits(it.value) }
             .map { it.groupValues[1] }
             .joinToString()
     }
@@ -52,13 +50,16 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
         val controlDigits1 = intArrayOf(3, 7, 6, 1, 8, 9, 4, 5, 2)
         val controlDigits2 = intArrayOf(5, 4, 3, 2, 7, 6, 5, 4, 3, 2)
         val ks1 = Character.getNumericValue(value[9])
-
+        println(value)
         val c1 = mod(controlDigits1, value)
+        println("modulo1: $c1")
+        println("kontrollsiffer: $ks1")
         if (c1 == 10 || c1 != ks1) {
             return false
         }
 
         val c2 = mod(controlDigits2, value)
+        println("modulo2: $c2")
         if (c2 == 10 || c2 != Character.getNumericValue(value[10])) {
             return false
         }

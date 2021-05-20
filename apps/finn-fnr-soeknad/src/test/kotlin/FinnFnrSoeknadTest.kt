@@ -14,12 +14,17 @@ class FinnFnrSoeknadTest {
         "soeker": {
             "fornavn": "Test",
             "etternavn": "Testesen",
-            "fnr": "24014021406"
+            "fnr": "07106123912"
+        },
+        "tulleperson": {
+            "fornavn": "tull",
+            "etternavn": "ball",
+            "fnr": "01010123656"
         },
         "avdoed": {
             "fornavn": "Død",
             "etternavn": "Dødesen",
-            "fnr": "12341234123"
+            "fnr": "14106126780"
         },
         "andreTall": {
             "kode": "12121212121212",
@@ -43,6 +48,6 @@ class FinnFnrSoeknadTest {
                 )
             }.inspektør
 
-        assertEquals("24014021406, 12341234123", inspector.message(0).get("@fnr_liste").asText())
+        assertEquals("07106123912, 14106126780", inspector.message(0).get("@fnr_liste").asText())
     }
 }
