@@ -9,6 +9,26 @@ class FinnFnrSoeknadTest {
 
     @Test
     fun opprett() {
+        val json = """
+    {
+        "soeker": {
+            "fornavn": "Test",
+            "etternavn": "Testesen",
+            "fnr": "24014021406"
+        },
+        "avdoed": {
+            "fornavn": "Død",
+            "etternavn": "Dødesen",
+            "fnr": "12341234123"
+        },
+        "andreTall": {
+            "kode": "12121212121212",
+            "skalIkkeBliMed": "00059581835823582385",
+            "skalIkkeBliMed2": "1234"
+        }
+    }
+""".trimIndent()
+
         val inspector = TestRapid()
             .apply { FinnFnrSoeknad(this) }
             .apply {
@@ -16,25 +36,13 @@ class FinnFnrSoeknadTest {
                     JsonMessage.newMessage(
                         mapOf(
                             "@event_name" to "soeknad_innsendt",
-                            "@skjema_info" to "12345678901",
+                            "@skjema_info" to json,
                         )
                     )
                         .toJson()
                 )
             }.inspektør
 
-        assertEquals("12345678901", inspector.message(0).get("@fnr_liste").asText())
-        //assertEquals("etterlatt_barn_identifisert", inspector.message(0).get("@event_name").asText())
-        //assertEquals("456", inspector.message(0).get("@etterlatt_ident").asText())
-        //assertEquals("789", inspector.message(1).get("@etterlatt_ident").asText())
-
+        assertEquals("24014021406, 12341234123", inspector.message(0).get("@fnr_liste").asText())
     }
 }
-
-/*
-class FinnFnrSoeknadMock : FinnEtterlatteForPerson {
-    override suspend fun finnEtterlatteForPerson(forelder: String): List<String> {
-        return listOf("456", "789")
-    }
-}
-*/

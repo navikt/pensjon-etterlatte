@@ -45,7 +45,7 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
     }
 
     private fun validerFnr(fnr: String): Boolean {
-        TODO()
+        //TODO()
         return true
     }
 
