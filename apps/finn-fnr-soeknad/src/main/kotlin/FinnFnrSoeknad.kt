@@ -28,14 +28,14 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
 
         runBlocking {
 
-            finnFnrForSkjema(packet["@skjema_info"])?.let {
-                packet["@fnr_liste"] = it
-                context.publish(packet.toJson())
-                 }
+            packet["@fnr_liste"] = finnFnrForSkjema(packet["@skjema_info"])
+            context.publish(packet.toJson())
+
 
             }
     }
-    private fun finnFnrForSkjema(skjemainfo: JsonNode ): String? {
+
+    private fun finnFnrForSkjema(skjemainfo: JsonNode ): String {
         val regex = """\b(\d{11})\b""".toRegex()
         return regex.findAll(skjemainfo.toString())
             .map { it.groupValues[1] }
