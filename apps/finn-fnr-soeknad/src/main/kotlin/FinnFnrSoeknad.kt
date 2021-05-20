@@ -37,12 +37,16 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
 
     private fun finnFnrForSkjema(skjemainfo: JsonNode ): String {
         val regex = """\b(\d{11})\b""".toRegex()
+
         return regex.findAll(skjemainfo.toString())
+            .filter { validerFnr(it.toString()) }
             .map { it.groupValues[1] }
             .joinToString()
+    }
 
-        //return JsonPath.parse(skjemainfo.toString())?.read("$..foedselsnummer")
-
+    private fun validerFnr(fnr: String): Boolean {
+        TODO()
+        return true
     }
 
 }
