@@ -9,8 +9,15 @@ import io.ktor.http.content.TextContent
 import no.nav.etterlatte.FinnAdressebeskyttelseForFnr
 
 class Pdl(private val client: HttpClient, private val apiUrl: String) : FinnAdressebeskyttelseForFnr {
-    override suspend fun finnAdressebeskyttelseForFnr(fnrListe: String): List<String> {
-        val queryPart = """hentPersonBolk(ident: "$fnrListe") {
+
+    val KODE6 = "STRENGT FORTROLIG"
+    val KODE7= "FORTROLIG"
+    val KODE19 = "STRENGT_FORTROLIG_UTLAND"
+    val INGENBESKYTTELSE = "INGEN BESKYTTELSE"
+    override suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): String {
+
+        var query = getGraphqlResource("/hentAdressebeskyttelse.graphql")
+      /*  val queryPart = """hentPersonBolk(ident: "$fnrListe") {
         person {
             adressebeskyttelse(historikk: false) {
                 gradering
@@ -19,21 +26,30 @@ class Pdl(private val client: HttpClient, private val apiUrl: String) : FinnAdre
     }
 """
 
-        val gql = """{"query":"query{ ${queryPart.replace(""""""", """\"""").replace("\n", """\n""")} } "}"""
+       */
+
+        //val gql = """{"query":"query{ ${queryPart.replace(""""""", """\"""").replace("\n", """\n""")} } "}"""
         client.post<ObjectNode>(apiUrl) {
             header("Tema", "PEN")
             header("Accept", "application/json")
-            body = TextContent(gql, ContentType.Application.Json)
+            body = TextContent(query, ContentType.Application.Json)
         }.also {
 
             //TODO endre logikken til å hente ut adressebeskyttelse
-            val barnRelasjoner = it.get("data").get("hentPerson").get("forelderBarnRelasjon")
-            val barn = mutableListOf<String>()
-            for (i in 0 until barnRelasjoner.size())
-                if (barnRelasjoner.get(i).get("relatertPersonsRolle").textValue() == "BARN")
-                    barn.add(barnRelasjoner.get(i).get("relatertPersonsIdent").textValue())
-            return barn
-
+            val graderinger = it.get("data").get("Person").get("adressebeskyttelse").get("gradering")
+            var kode7 = false
+            var kode19 = true
+            for (i in 0 until graderinger.size())
+                when(graderinger.get(i).textValue()) {
+                    KODE6 -> return KODE6
+                    KODE19 -> kode19 = true
+                    KODE7 -> kode7 = true
+                }
+                if(kode19) return KODE19
+                if(kode7) return KODE7
+                return INGENBESKYTTELSE
         }
     }
+    fun getGraphqlResource(file: String): String =
+        javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
 }

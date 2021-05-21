@@ -23,8 +23,9 @@ internal class SjekkAdressebeskyttelse(rapidsConnection: RapidsConnection, priva
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         println(packet["@fnr_liste"].asText())
 
+        val identer: List<String> = packet["@fnr_liste"].map { it.textValue() }
         runBlocking {
-            packet["@adressebeskyttelse"] = pdl.finnAdressebeskyttelseForFnr(packet["@fnr_liste"].asText())
+            packet["@adressebeskyttelse"] = pdl.finnAdressebeskyttelseForFnr(identer)
             context.publish(packet.toJson())
         }
     }
@@ -48,5 +49,5 @@ internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListene
 }
 
 interface FinnAdressebeskyttelseForFnr {
-    suspend fun finnAdressebeskyttelseForFnr(forelder: String): List<String>
+    suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): String
 }

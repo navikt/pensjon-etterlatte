@@ -31,7 +31,7 @@ class FinnAdressebeskyttelseTest {
 }
 
 class FinnAdressebeskyttelseMock : FinnAdressebeskyttelseForFnr {
-    override suspend fun finnAdressebeskyttelseForFnr(forelder: String): List<String> {
-        return listOf("456", "789")
+    override suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): String {
+        return "SUPERHEMMELIG"
     }
 }
