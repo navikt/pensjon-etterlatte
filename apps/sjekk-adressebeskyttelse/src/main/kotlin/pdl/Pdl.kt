@@ -10,11 +10,12 @@ import no.nav.etterlatte.FinnAdressebeskyttelseForFnr
 
 class Pdl(private val client: HttpClient, private val apiUrl: String) : FinnAdressebeskyttelseForFnr {
     override suspend fun finnAdressebeskyttelseForFnr(forelder: String): List<String> {
-
-        val queryPart = """hentPerson(ident: "$forelder") {
-        forelderBarnRelasjon {
-            relatertPersonsIdent
-            relatertPersonsRolle
+        forelder.sp
+        val queryPart = """hentPersonBolk(ident: "$forelder") {
+        person {
+            adressebeskyttelse(historikk: false) {
+                gradering
+            }
         }
     }
 """
@@ -25,6 +26,7 @@ class Pdl(private val client: HttpClient, private val apiUrl: String) : FinnAdre
             header("Accept", "application/json")
             body = TextContent(gql, ContentType.Application.Json)
         }.also {
+
             val barnRelasjoner = it.get("data").get("hentPerson").get("forelderBarnRelasjon")
             val barn = mutableListOf<String>()
             for (i in 0 until barnRelasjoner.size())
