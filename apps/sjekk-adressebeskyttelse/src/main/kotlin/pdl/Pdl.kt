@@ -9,9 +9,8 @@ import io.ktor.http.content.TextContent
 import no.nav.etterlatte.FinnAdressebeskyttelseForFnr
 
 class Pdl(private val client: HttpClient, private val apiUrl: String) : FinnAdressebeskyttelseForFnr {
-    override suspend fun finnAdressebeskyttelseForFnr(forelder: String): List<String> {
-        forelder.sp
-        val queryPart = """hentPersonBolk(ident: "$forelder") {
+    override suspend fun finnAdressebeskyttelseForFnr(fnrListe: String): List<String> {
+        val queryPart = """hentPersonBolk(ident: "$fnrListe") {
         person {
             adressebeskyttelse(historikk: false) {
                 gradering
@@ -27,6 +26,7 @@ class Pdl(private val client: HttpClient, private val apiUrl: String) : FinnAdre
             body = TextContent(gql, ContentType.Application.Json)
         }.also {
 
+            //TODO endre logikken til å hente ut adressebeskyttelse
             val barnRelasjoner = it.get("data").get("hentPerson").get("forelderBarnRelasjon")
             val barn = mutableListOf<String>()
             for (i in 0 until barnRelasjoner.size())

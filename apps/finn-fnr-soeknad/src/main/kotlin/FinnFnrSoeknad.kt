@@ -33,13 +33,14 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
             }
     }
 
-    private fun finnFnrForSkjema(skjemainfo: JsonNode ): String {
+    private fun finnFnrForSkjema(skjemainfo: JsonNode ): List<String> {
         val regex = """\b(\d{11})\b""".toRegex()
 
         return regex.findAll(skjemainfo.toString())
             .filter { validateControlDigits(it.value) }
             .map { it.groupValues[1] }
-            .joinToString()
+            .toList()
+            //.joinToString()
     }
 
     private fun validateControlDigits(value:String): Boolean {

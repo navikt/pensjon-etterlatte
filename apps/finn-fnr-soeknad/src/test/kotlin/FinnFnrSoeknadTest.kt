@@ -48,6 +48,8 @@ class FinnFnrSoeknadTest {
                 )
             }.inspektør
 
-        assertEquals("07106123912, 14106126780", inspector.message(0).get("@fnr_liste").asText())
+        assertEquals("07106123912", inspector.message(0).get("@fnr_liste")[0].asText())
+        assertEquals("14106126780", inspector.message(0).get("@fnr_liste")[1].asText())
+        assertEquals(2,inspector.message(0).get("@fnr_liste").size())
     }
 }
