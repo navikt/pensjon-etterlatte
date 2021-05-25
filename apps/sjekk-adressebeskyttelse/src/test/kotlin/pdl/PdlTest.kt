@@ -21,24 +21,10 @@ internal class PdlTest {
                 addHandler { request ->
                     when (request.url.fullPath) {
                         "/" -> {
+                            val response = javaClass.getResource("mockOne.json").readText().replace(Regex("[\n\t]"), "")
                             val responseHeaders =
                                 headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
-                            respond(
-                                """{
-                                    "data":{ 
-                                        "hentPerson": {
-                                            "forelderBarnRelasjon": [{
-                                               "relatertPersonsIdent": "321",
-                                               "relatertPersonsRolle": "BARN"
-                                            },
-                                            {
-                                               "relatertPersonsIdent": "456",
-                                               "relatertPersonsRolle": "FAR"
-                                            }]
-                                        }
-                                    }
-                                }""",
-                                headers = responseHeaders
+                            respond(response, headers = responseHeaders
                             )
                         }
                         else -> error("Unhandled ${request.url.fullPath}")
@@ -52,8 +38,11 @@ internal class PdlTest {
 
 
         runBlocking {
-            Pdl(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(listOf("tjo","ho")).also {
-                assertEquals("321", it.get(0))
+            Pdl(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(listOf("12334466","4231423142","234234325")).also {
+                //assertEquals("321", it.get(0))
+                assertEquals("321", it.flatMap { it.get("hentPersonBolk") }
+                    .map { it.get("adressebeskyttelse") }
+                    .map { it.get("gradering").get(0) })
                 //assertEquals(1, it.size)
             }
         }

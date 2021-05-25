@@ -1,0 +1,21 @@
+{
+  "data":{
+    "hentPersonBolk": [{
+      "adressebeskyttelse": {
+        "gradering": "STRENGT_FORTROLIG"
+      }
+    },
+    {
+      "adressebeskyttelse": {
+        "gradering": "FORTROLIG"
+      }
+    },
+      {
+      "adressebeskyttelse": {
+        "gradering": "STRENGT_FORTROLIG_UTLAND"
+      }
+    }]
+  }
+}
+
+

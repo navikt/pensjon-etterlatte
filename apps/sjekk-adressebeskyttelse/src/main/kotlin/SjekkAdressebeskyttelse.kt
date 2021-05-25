@@ -9,8 +9,15 @@ import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 
 
-internal class SjekkAdressebeskyttelse(rapidsConnection: RapidsConnection, private val pdl: FinnAdressebeskyttelseForFnr) :
+internal class SjekkAdressebeskyttelse(
+    rapidsConnection: RapidsConnection,
+    private val pdl: FinnAdressebeskyttelseForFnr
+) :
     River.PacketListener {
+    val KODE6 = "STRENGT_FORTROLIG"
+    val KODE7 = "FORTROLIG"
+    val KODE19 = "STRENGT_FORTROLIG_UTLAND"
+    val INGENBESKYTTELSE = "INGEN BESKYTTELSE"
 
     init {
         River(rapidsConnection).apply {
@@ -22,20 +29,26 @@ internal class SjekkAdressebeskyttelse(rapidsConnection: RapidsConnection, priva
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        println(packet["@fnr_liste"].asText())
-        val KODE6 = "STRENGT FORTROLIG"
-        val KODE7= "FORTROLIG"
-        val KODE19 = "STRENGT_FORTROLIG_UTLAND"
-        val INGENBESKYTTELSE = "INGEN BESKYTTELSE"
-        val identer: List<String> = packet["@fnr_liste"].map { it.textValue() }
+
+        val identer: List<String> = packet["@fnr_liste"].map { it.asText() }
+
         runBlocking {
             val graderinger = pdl.finnAdressebeskyttelseForFnr(identer)
+                .flatMap { it.get("hentPersonBolk") }
+                .map { it.get("adressebeskyttelse") }
+                .map { it.get("gradering") }
+
             var beskyttelse = INGENBESKYTTELSE
-            for (i in 0 until graderinger.size())
-                when(graderinger.get(i).textValue()) {
+
+            for (i in 0 until graderinger.size)
+                when (graderinger[i].textValue()) {
                     KODE6 -> beskyttelse = KODE6
-                    KODE19 -> if ( beskyttelse != KODE6) {beskyttelse = KODE19}
-                    KODE7 -> if ( beskyttelse != KODE6 && beskyttelse != KODE19) {beskyttelse = KODE7}
+                    KODE19 -> if (beskyttelse != KODE6) {
+                        beskyttelse = KODE19
+                    }
+                    KODE7 -> if (beskyttelse != KODE6 && beskyttelse != KODE19) {
+                        beskyttelse = KODE7
+                    }
                 }
             packet["@adressebeskyttelse"] = beskyttelse
 
@@ -43,7 +56,6 @@ internal class SjekkAdressebeskyttelse(rapidsConnection: RapidsConnection, priva
         }
     }
 }
-
 
 internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListener {
 

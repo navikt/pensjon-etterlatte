@@ -15,25 +15,16 @@ class Pdl(private val client: HttpClient, private val apiUrl: String) : FinnAdre
     override suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): JsonNode {
 
         var query = getGraphqlResource("/hentAdressebeskyttelse.graphql")
-      /*  val queryPart = """hentPersonBolk(ident: "$fnrListe") {
-        person {
-            adressebeskyttelse(historikk: false) {
-                gradering
-            }
-        }
-    }
-"""
 
-       */
 
-        //val gql = """{"query":"query{ ${queryPart.replace(""""""", """\"""").replace("\n", """\n""")} } "}"""
+
         client.post<ObjectNode>(apiUrl) {
             header("Tema", "PEN")
             header("Accept", "application/json")
             body = TextContent(query, ContentType.Application.Json)
         }.also {
 
-        return it.get("data").get("Person").get("adressebeskyttelse").get("gradering")
+        return it.get("data").get("hentPersonBolk")//.get("adressebeskyttelse").get("gradering")
         }
     }
     fun getGraphqlResource(file: String): String =
