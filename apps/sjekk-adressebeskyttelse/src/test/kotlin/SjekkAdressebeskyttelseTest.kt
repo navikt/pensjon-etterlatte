@@ -3,10 +3,11 @@ package no.nav.etterlatte
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class FinnAdressebeskyttelseTest {
 
-   // @Test
+    @Test
     fun opprett() {
         val inspector = TestRapid()
             .apply { SjekkAdressebeskyttelse(this, FinnAdressebeskyttelseMock()) }
@@ -22,10 +23,10 @@ class FinnAdressebeskyttelseTest {
                 )
             }.inspektør
 
-        assertEquals("456", inspector.message(0).get("@etterlatt_ident").asText())
-        assertEquals("etterlatt_barn_identifisert", inspector.message(0).get("@event_name").asText())
-        assertEquals("456", inspector.message(0).get("@etterlatt_ident").asText())
-        assertEquals("789", inspector.message(1).get("@etterlatt_ident").asText())
+        assertEquals("SUPERHEMMELIG", inspector.message(0).get("@adressebeskyttelse").asText())
+        //assertEquals("etterlatt_barn_identifisert", inspector.message(0).get("@event_name").asText())
+        //assertEquals("456", inspector.message(0).get("@etterlatt_ident").asText())
+        //assertEquals("789", inspector.message(1).get("@etterlatt_ident").asText())
 
     }
 }

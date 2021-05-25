@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.JsonNode
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
@@ -22,10 +23,22 @@ internal class SjekkAdressebeskyttelse(rapidsConnection: RapidsConnection, priva
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         println(packet["@fnr_liste"].asText())
-
+        val KODE6 = "STRENGT FORTROLIG"
+        val KODE7= "FORTROLIG"
+        val KODE19 = "STRENGT_FORTROLIG_UTLAND"
+        val INGENBESKYTTELSE = "INGEN BESKYTTELSE"
         val identer: List<String> = packet["@fnr_liste"].map { it.textValue() }
         runBlocking {
-            packet["@adressebeskyttelse"] = pdl.finnAdressebeskyttelseForFnr(identer)
+            val graderinger = pdl.finnAdressebeskyttelseForFnr(identer)
+            var beskyttelse = INGENBESKYTTELSE
+            for (i in 0 until graderinger.size())
+                when(graderinger.get(i).textValue()) {
+                    KODE6 -> beskyttelse = KODE6
+                    KODE19 -> if ( beskyttelse != KODE6) {beskyttelse = KODE19}
+                    KODE7 -> if ( beskyttelse != KODE6 && beskyttelse != KODE19) {beskyttelse = KODE7}
+                }
+            packet["@adressebeskyttelse"] = beskyttelse
+
             context.publish(packet.toJson())
         }
     }
@@ -49,5 +62,5 @@ internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListene
 }
 
 interface FinnAdressebeskyttelseForFnr {
-    suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): String
+    suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): JsonNode
 }
