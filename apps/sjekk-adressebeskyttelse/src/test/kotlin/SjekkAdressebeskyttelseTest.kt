@@ -5,10 +5,11 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class FinnAdressebeskyttelseTest {
 
-    //@Test
+    @Test
     fun opprett() {
         val inspector = TestRapid()
             .apply { SjekkAdressebeskyttelse(this, FinnAdressebeskyttelseMock()) }
@@ -33,7 +34,7 @@ class FinnAdressebeskyttelseTest {
     //@Test
     fun oppretteDummytest() {
 
-        val bah = javaClass.getResource("mockOne.json").readText().replace(Regex("[\n\t]"), "")
+        val bah = javaClass.getResource("/mockOne.json").readText().replace(Regex("[\n\t]"), "")
         println(bah)
     }
 }

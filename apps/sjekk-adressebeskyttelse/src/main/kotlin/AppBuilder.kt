@@ -5,7 +5,7 @@ import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
-import no.nav.etterlatte.pdl.Pdl
+import no.nav.etterlatte.pdlAdressebeskyttelse.PdlAdressebeskyttelse
 import no.nav.etterlatte.security.ktor.clientCredential
 
 class AppBuilder(private val props: Map<String, String>) {
@@ -13,7 +13,7 @@ class AppBuilder(private val props: Map<String, String>) {
         val CONFIG_PDL_URL = "PDL_URL"
     }
 
-    fun pdlService() = Pdl(pdlhttpclient(), props[CONFIG_PDL_URL]!!)
+    fun pdlService() = PdlAdressebeskyttelse(pdlhttpclient(), props[CONFIG_PDL_URL]!!)
 
     fun pdlhttpclient() = HttpClient(OkHttp) {
         install(JsonFeature) { serializer = JacksonSerializer() }
