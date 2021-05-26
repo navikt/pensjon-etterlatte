@@ -70,7 +70,7 @@ fun main() {
                     }
                     GlobalScope.launch {
                         val usendtAlder = Gauge.build("alder_eldste_usendte", "Alder på elste usendte søknad").register()
-                        val ikkeJournalfoertAlder = Gauge.build("alder_eldste_usendte", "Alder på eldste ikke-arkiverte søknad").register()
+                        val ikkeJournalfoertAlder = Gauge.build("alder_eldste_uarkiverte", "Alder på eldste ikke-arkiverte søknad").register()
                         val soknadTilstand = Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand").register()
 
                         while(true) {
@@ -82,7 +82,9 @@ fun main() {
                                 ikkeJournalfoertAlder.set(ChronoUnit.MINUTES.between(LocalDateTime.now(), this).toDouble())
                             }
 
-                            db.rapport().forEach{
+                            db.rapport().also{
+                                println(it)
+                            }.forEach{
                                 soknadTilstand.labels(it.key).set(it.value.toDouble())
                             }
                         }
