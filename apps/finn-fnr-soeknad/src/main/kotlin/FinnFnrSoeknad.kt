@@ -21,7 +21,6 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        //println(packet["@skjema_info"].asText())
 
 
         runBlocking {
@@ -40,7 +39,6 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
             .filter { validateControlDigits(it.value) }
             .map { it.groupValues[1] }
             .toList()
-            //.joinToString()
     }
 
     private fun validateControlDigits(value:String): Boolean {
