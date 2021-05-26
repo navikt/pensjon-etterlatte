@@ -14,6 +14,7 @@ import io.ktor.response.respondText
 import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.routing
+import io.prometheus.client.Gauge
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -24,6 +25,8 @@ import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import no.nav.security.token.support.ktor.tokenValidationSupport
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
 
 fun Route.soeknadApi(db: SoeknadRepository){
      post("/api/soeknad") {
@@ -36,6 +39,8 @@ fun Route.soeknadApi(db: SoeknadRepository){
 
 
 fun main() {
+
+
     val datasourceBuilder = DataSourceBuilder(System.getenv())
     val db = PostgresSoeknadRepository.using(datasourceBuilder.getDataSource())
 
@@ -60,6 +65,25 @@ fun main() {
                             delay(600_000)
                             db.usendteSoeknader().forEach {
                                 rapid.publiser(it)
+                            }
+                        }
+                    }
+                    GlobalScope.launch {
+                        val usendtAlder = Gauge.build("alder_eldste_usendte", "Alder på elste usendte søknad").register()
+                        val ikkeJournalfoertAlder = Gauge.build("alder_eldste_usendte", "Alder på eldste ikke-arkiverte søknad").register()
+                        val soknadTilstand = Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand").register()
+
+                        while(true) {
+                            delay(60_000)
+                            db.eldsteUsendte()?.apply {
+                                usendtAlder.set(ChronoUnit.MINUTES.between(LocalDateTime.now(), this).toDouble())
+                            }
+                            db.eldsteUarkiverte()?.apply {
+                                ikkeJournalfoertAlder.set(ChronoUnit.MINUTES.between(LocalDateTime.now(), this).toDouble())
+                            }
+
+                            db.rapport().forEach{
+                                soknadTilstand.labels(it.key).set(it.value.toDouble())
                             }
                         }
                     }

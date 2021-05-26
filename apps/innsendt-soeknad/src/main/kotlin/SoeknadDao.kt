@@ -3,6 +3,8 @@ package no.nav.etterlatte
 import kotliquery.queryOf
 import kotliquery.sessionOf
 import kotliquery.using
+import java.time.LocalDateTime
+import java.time.ZoneId
 import javax.sql.DataSource
 
 interface SoeknadRepository {
@@ -21,8 +23,32 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
                         FROM soeknad s 
                         where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt') and s.opprettet < (now() at time zone 'utc' - interval '15 minutes')
                         fetch first 10 rows only""".trimIndent()
+        val SELECT_OLDEST_UNSENT = """
+                        SELECT MIN(s.opprettet)
+                        FROM soeknad s 
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt')""".trimIndent()
+        val SELECT_OLDEST_UNARCHIVED = """
+                        SELECT MIN(s.opprettet)
+                        FROM soeknad s 
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'journalfoert')""".trimIndent()
+        val SELECT_RAPPORT = """
+                        SELECT 'opprettet', count(1) 
+                        FROM soeknad s 
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status in ('sendt', 'journalfoert'))
+                        UNION
+                        SELECT 'sendt', count(1) 
+                        FROM soeknad s 
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'journalfoert')
+                        AND exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt')
+                        UNION
+                        SELECT 'arkivert', count(1) 
+                        FROM soeknad s 
+                        where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'journalfoert')""".trimIndent()
 
-        fun using(datasource: DataSource): SoeknadRepository{
+
+
+
+        fun using(datasource: DataSource): PostgresSoeknadRepository{
             return PostgresSoeknadRepository(datasource)
         }
     }
@@ -66,6 +92,35 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             }
         }
     }
+
+    fun eldsteUsendte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
+        session.transaction {
+            it.run(queryOf(
+                SELECT_OLDEST_UNSENT, emptyMap()).map { row ->
+                row.localDateTimeOrNull(1)?.let{
+                    it.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime()
+                }
+            }.asSingle)
+        }
+    }
+    fun eldsteUarkiverte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
+        session.transaction {
+            it.run(queryOf(
+                SELECT_OLDEST_UNARCHIVED, emptyMap()).map { row ->
+                row.localDateTimeOrNull(1)?.let{
+                    it.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime()
+                }
+            }.asSingle)
+        }
+    }
+    fun rapport(): Map<String, Long> = using(sessionOf(dataSource)) { session ->
+        session.transaction {
+            it.run(queryOf(
+                SELECT_RAPPORT, emptyMap()).map { row ->
+                Pair(row.string(1), row.long(2))
+            }.asList)
+        }
+    }.toMap()
 }
 
 
@@ -80,3 +135,9 @@ data class UlagretSoeknad(
     val fnr: String,
     val soeknad: String
 )
+
+data class Rapport(
+    val opprettet: Long,
+    val sendt: Long,
+    val arkivert: Long
+    )
