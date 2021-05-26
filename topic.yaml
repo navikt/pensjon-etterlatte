@@ -36,3 +36,9 @@ spec:
     - team: etterlatte
       application: innsendt-soeknad
       access: readwrite
+    - team: etterlatte
+      application: sjekk-adressebeskyttelse
+      access: readwrite
+    - team: etterlatte
+      application: finn-fnr-soeknad
+      access: readwrite
