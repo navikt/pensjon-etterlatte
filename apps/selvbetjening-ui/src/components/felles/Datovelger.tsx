@@ -1,20 +1,31 @@
-import { FC, useEffect } from "react";
-import DatePicker from "react-datepicker";
-import { Label } from "nav-frontend-skjema";
-import { registerLocale, setDefaultLocale } from "react-datepicker";
+import { ReactNode, useEffect } from "react";
+import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
+import { Label, SkjemaelementFeilmelding } from "nav-frontend-skjema";
 import { parseISO } from "date-fns";
-import { nb, nn, enUS as en } from "date-fns/locale";
+import { enUS as en, nb, nn } from "date-fns/locale";
 import { v4 as uuid } from "uuid";
 import { useTranslation } from "react-i18next";
+import { Controller } from "react-hook-form";
+import { FieldPath } from "react-hook-form/dist/types";
+import classnames from "classnames";
+import { Control } from "react-hook-form/dist/types/form";
 
-interface Props {
+interface DatovelgerProps {
+    name: FieldPath<any>;
+    control: Control<any>;
     label: string;
-    valgtDato?: Date | string | null;
-    onChange: (dato: Date) => void;
-    showMonthYearPicker?: boolean;
+    feil?: ReactNode | boolean;
 }
 
-const Datovelger: FC<Props> = ({ label, valgtDato, onChange, showMonthYearPicker }) => {
+const parseDate = (dato: Date | string) => {
+    if (typeof dato === "string") return parseISO(dato);
+    else return dato;
+};
+
+/*
+* TODO: Ikke mulig å enkelt tabbe gjennom datovelgeren... må fikses!
+*/
+const Datovelger = ({ name, control, label, feil }: DatovelgerProps) => {
     const { i18n } = useTranslation();
 
     registerLocale("nb", nb);
@@ -25,29 +36,36 @@ const Datovelger: FC<Props> = ({ label, valgtDato, onChange, showMonthYearPicker
         setDefaultLocale(i18n.language);
     }, [i18n.language]);
 
-    let dato: Date | null | undefined;
-    if (typeof valgtDato === "string") {
-        dato = parseISO(valgtDato);
-    } else {
-        dato = valgtDato;
-    }
+    const id = uuid();
 
-    const name = uuid();
+    const classNames = classnames(
+        "skjemaelement__input",
+        "input--fullbredde",
+        feil && "skjemaelement__input--harFeil"
+    );
 
     return (
         <section className={"skjemaelement"}>
-            <Label htmlFor={name}>{label}</Label>
+            <Label htmlFor={id}>{label}</Label>
 
-            <DatePicker
+            <Controller
                 name={name}
-                tabIndex={5}
-                className={"skjemaelement__input input--fullbredde"}
-                selected={dato}
-                dateFormat={showMonthYearPicker ? "MM.yy" : "dd.MM.yy"}
-                placeholderText={showMonthYearPicker ? "mm.åå" : "dd.mm.åå"}
-                onChange={onChange}
-                showMonthYearPicker
+                control={control}
+                defaultValue={undefined}
+                render={({ field: { onChange, onBlur, value } }) => (
+                    <DatePicker
+                        id={id}
+                        className={classNames}
+                        selected={parseDate(value)}
+                        dateFormat={"dd.MM.yy"}
+                        placeholderText={"dd.mm.åå"}
+                        onChange={onChange}
+                        onBlur={onBlur}
+                    />
+                )}
             />
+
+            {feil && <SkjemaelementFeilmelding>{feil}</SkjemaelementFeilmelding>}
         </section>
     );
 };

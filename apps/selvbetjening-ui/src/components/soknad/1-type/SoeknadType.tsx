@@ -4,66 +4,62 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { IStoenadType, ActionTypes } from "../../../context/soknad/soknad";
+import { ActionTypes } from "../../../context/soknad/soknad";
 import SoknadSteg from "../../../typer/SoknadSteg";
-import Datovelger from "../../felles/Datovelger";
-import * as React from "react";
-import { useEffect, useState } from "react";
-import Sjekkboks from "../../felles/Sjekkboks";
 import { useTranslation } from "react-i18next";
+import { FormProvider, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Hovedknapp } from "nav-frontend-knapper";
+import Datovelger from "../../felles/Datovelger";
+import { RHFToValgRadio, RHFRadio } from "../../felles/RHFRadio";
+import SoeknadTypeSchema from "./SoeknadTypeSchema";
+import { IStoenadType, Ytelse } from "../../../typer/ytelser";
 
-const SoeknadType: SoknadSteg = () => {
+const SoeknadType: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
+
     const { state, dispatch } = useSoknadContext();
-
     const initialState = state.stoenadType || {};
-    const [stoenader, setStoenader] = useState<IStoenadType>(initialState);
 
-    useEffect(() => {
-        dispatch({ type: ActionTypes.OPPDATER_VALGTE_STOENADER, payload: stoenader });
-    }, [stoenader, dispatch]);
+    const methods = useForm<IStoenadType>({
+        mode: "onSubmit",
+        defaultValues: initialState,
+        resolver: yupResolver(SoeknadTypeSchema),
+    });
+
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+    } = methods;
+
+    const lagre = (data: IStoenadType) => {
+        dispatch({ type: ActionTypes.OPPDATER_VALGTE_STOENADER, payload: data });
+        neste!!();
+    };
 
     return (
-        <>
-            {/* Steg 1 */}
-
-            {/* Dette kan kanskje være forsiden? Brukeren velger hvilken type søknad, og vi viser deretter nødvendige felter? */}
-
-            <section>
-                <Systemtittel>{t("stoenadType.tittel")}</Systemtittel>
-            </section>
-
-            <section>
-                <SkjemaGruppe className={"inputPanelGruppe"}>
-                    <Sjekkboks
-                        label={t("stoenadType.etterlatte")}
-                        checked={stoenader.etterlatte}
-                        onChange={(etterlatte) => setStoenader({ ...stoenader, etterlatte })}
-                    />
-                    <Sjekkboks
-                        label={t("stoenadType.gjenlevendetillegg")}
-                        checked={stoenader.gjenlevendetillegg}
-                        onChange={(gjenlevendetillegg) => setStoenader({ ...stoenader, gjenlevendetillegg })}
-                    />
-                    <Sjekkboks
-                        label={t("stoenadType.barnepensjon")}
-                        checked={stoenader.barnepensjon}
-                        onChange={(barnepensjon) => setStoenader({ ...stoenader, barnepensjon })}
-                    />
-                    <Sjekkboks
-                        label={t("stoenadType.barnetilsyn")}
-                        checked={stoenader.barnetilsyn}
-                        onChange={(barnetilsyn) => setStoenader({ ...stoenader, barnetilsyn })}
-                    />
-                    <Sjekkboks
-                        label={t("stoenadType.skolepenger")}
-                        checked={stoenader.skolepenger}
-                        onChange={(skolepenger) => setStoenader({ ...stoenader, skolepenger })}
-                    />
+        <FormProvider {...methods}>
+            <form onSubmit={handleSubmit(lagre)}>
+                <SkjemaGruppe>
+                    <Systemtittel>{t("stoenadType.tittel")}</Systemtittel>
                 </SkjemaGruppe>
-            </section>
 
-            {/*
+                <RHFRadio
+                    name={"valgteYtelser.hovedytelse"}
+                    legend={"Velg hovedytelsen du vil søke om"}
+                    radios={[
+                        { label: t("etterlatteytelser.etterlatte"), value: Ytelse.etterlatte },
+                        { label: t("etterlatteytelser.gjenlevendetillegg"), value: Ytelse.gjenlevendetillegg },
+                    ]}
+                />
+
+                <RHFToValgRadio
+                    name={"valgteYtelser.barnepensjon"}
+                    legend={"Har du barn og vil søke om barnepensjon?"}
+                />
+
+                {/*
                 TODO: Lenke til skjemaer
 
                 Heter nå 17-09.01
@@ -80,18 +76,12 @@ const SoeknadType: SoknadSteg = () => {
 
             */}
 
-            {(stoenader.barnetilsyn || stoenader.skolepenger) && (
-                <section>
-                    <AlertStripe type="info">{t("stoenadType.infoOmBarnetilsynOgSkolepenger")}</AlertStripe>
-                </section>
-            )}
-
-            <section>
                 <SkjemaGruppe>
                     <Datovelger
+                        name={"fraDato"}
+                        control={control}
                         label={t("felles.fraDato")}
-                        valgtDato={stoenader.fraDato}
-                        onChange={(fraDato) => setStoenader({ ...stoenader, fraDato })}
+                        feil={errors.fraDato && "Fra dato må være satt."}
                     />
                 </SkjemaGruppe>
 
@@ -99,8 +89,12 @@ const SoeknadType: SoknadSteg = () => {
                     <strong>{t("stoenadType.etterbetaling.tittel")}: </strong>
                     {t("stoenadType.etterbetaling.info")}
                 </AlertStripe>
-            </section>
-        </>
+
+                <SkjemaGruppe className={"navigasjon-rad"}>
+                    <Hovedknapp htmlType={"submit"}>{t("knapp.neste")}</Hovedknapp>
+                </SkjemaGruppe>
+            </form>
+        </FormProvider>
     );
 };
 

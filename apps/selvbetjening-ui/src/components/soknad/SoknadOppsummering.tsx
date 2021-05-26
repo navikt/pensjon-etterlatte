@@ -1,12 +1,12 @@
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { sendSoeknad } from "../../api";
 import { useHistory } from "react-router-dom";
-import { Panel } from "nav-frontend-paneler";
+import Panel from "nav-frontend-paneler";
 import { Element, Normaltekst, Undertittel } from "nav-frontend-typografi";
 import React from "react";
 import AlertStripe from "nav-frontend-alertstriper";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { IValg } from "../../typer/ISpoersmaal";
+import IValg from "../../typer/IValg";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 
 const SoknadOppsummering = () => {
@@ -16,7 +16,7 @@ const SoknadOppsummering = () => {
     const { state } = useSoknadContext();
 
     const {
-        stoenadType,
+        // stoenadType,
         opplysningerOmSoekeren,
         // opplysningerOmDenAvdoede,
         // opplysningerOmBarn,
@@ -38,13 +38,9 @@ const SoknadOppsummering = () => {
             });
     };
 
-    const stoenader = [
-        stoenadType?.etterlatte && "Etterlatte",
-        stoenadType?.gjenlevendetillegg && "Gjenlevendetillegg",
-        stoenadType?.barnepensjon && "Barnepensjon",
-        stoenadType?.barnetilsyn && "Barnetilsyn",
-        stoenadType?.skolepenger && "Skolepenger",
-    ];
+    // const valgteYtelser = stoenadType?.valgteYtelser!!;
+    // const barnepensjonValgt = !!valgteYtelser.barnepensjon && valgteYtelser.barnepensjon === IValg.JA;
+    // const harValgtFlereYtelser = !!valgteYtelser.hovedytelse && barnepensjonValgt;
 
     return (
         <>
@@ -52,24 +48,6 @@ const SoknadOppsummering = () => {
             <br />
 
             <AlertStripe type={"advarsel"}>UTKAST! Venter på endelig design.</AlertStripe>
-            <br />
-
-            <Panel border className={"opplysninger"}>
-                <Undertittel>{stoenader.length > 1 ? "Valgte stønader" : "Valgt stønad"}</Undertittel>
-                <br />
-
-                <section>
-                    {stoenader.map((type, i) => {
-                        return <Normaltekst key={i}>{type}</Normaltekst>;
-                    })}
-                </section>
-                <br />
-
-                <section>
-                    <Element>Fra dato</Element>
-                    <Normaltekst>{stoenadType?.fraDato}</Normaltekst>
-                </section>
-            </Panel>
             <br />
 
             <Panel border className={"opplysninger"}>

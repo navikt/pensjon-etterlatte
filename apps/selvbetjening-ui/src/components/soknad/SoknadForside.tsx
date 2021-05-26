@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./SoknadForside.less";
-import { Panel } from "nav-frontend-paneler";
+import Panel from "nav-frontend-paneler";
 import { BekreftCheckboksPanel } from "nav-frontend-skjema";
 import Lenke from "nav-frontend-lenker";
 import { Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
@@ -38,7 +38,7 @@ const SoknadForside = () => {
 
     const innloggetBrukerNavn = `${brukerState.fornavn} ${brukerState.etternavn}`;
 
-    if (state.aktivtSteg !== 1) {
+    if (state.aktivtSteg !== state.steg[0].path) {
         history.push(`/soknad/steg/${state.aktivtSteg}`);
     }
 

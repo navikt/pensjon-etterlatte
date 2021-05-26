@@ -1,7 +1,16 @@
 {
+  "ytelser": ["etterlatte", "gjenlevendetillegg", "barnepensjon", "barnetilsyn", "skolepenger"],
+  "etterlatteytelser": {
+    "etterlatte": "Pensjon-/overgangsstønad",
+    "gjenlevendetillegg": "Gjenlevendetillegg i uføretrygden",
+    "barnepensjon": "Barnepensjon",
+    "barnetilsyn": "Barnetilsyn",
+    "skolepenger": "Skolepenger"
+  },
   "knapp": {
     "tilbake": "Tilbake",
     "neste": "Neste",
+    "tilOppsummering": "Til oppsummering",
     "sendSoeknad": "Send søknad",
     "leggTil": "Legg til",
     "leggTilOgLukk": "Legg til og lukk",
@@ -58,7 +67,7 @@
     "borPaaAdresse": "Bor du på denne adressen?",
     "oppholderSegINorge": "Oppholder du deg i Norge?",
     "oppgiLand": "Oppgi land",
-    "infoFolkeregisteret": "Du må oppgi riktig adresse til Folkeregisteret for å bruke denne søknaden.",
+    "infoFolkeregisteret": "Saksbehandler vil ta kontakt med deg for å oppdrive korrekt adresse.",
     "medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i utlandet?",
     "norskKontonummer": "Norsk kontonummer som pensjonen blir overført til (11 siffer)",
     "forholdTilAvdoede": {
@@ -170,5 +179,12 @@
     "stilling": "Stilling",
     "startDato": "Startdato",
     "sluttDato": "Fremtidig sluttdato"
+  },
+  "feil": {
+    "kontonummer": {
+      "matches" : "",
+      "min" : "Kontonummer kan ikke være mindre enn 11 siffer.",
+      "max" : "Kontonummer kan ikke overstige 11 siffer."
+    }
   }
 }

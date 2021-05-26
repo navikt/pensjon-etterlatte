@@ -23,6 +23,9 @@ app.get(`${basePath}/login`, async (req, res) => {
     res.redirect(auth.authUrl(session));
 });
 
+// TODO: Logout og slette sesjon
+// app.get(`${basePath}/logout`)
+
 app.get(`${basePath}/oauth2/callback`, async (req, res) => {
     const session = req.session;
 

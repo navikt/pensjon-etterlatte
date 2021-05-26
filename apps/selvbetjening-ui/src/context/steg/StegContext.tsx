@@ -1,5 +1,5 @@
 import { createContext, FC, useContext, useReducer } from "react";
-import { ISteg, IStegAction, StegActionTypes, StegProps } from "./steg";
+import { ISteg, IStegAction, MuligeSteg, StegActionTypes, StegPath, StegProps } from "./steg";
 
 const STORAGE_KEY = "etterlatte-soknad-steg";
 
@@ -7,53 +7,18 @@ const json = localStorage.getItem(STORAGE_KEY) || null;
 const lagretState = json ? JSON.parse(json) : null;
 
 const initialState: ISteg = lagretState || {
-    aktivtSteg: 1,
-    steg: [
-        {
-            path: "soeknad-type",
-            label: "Hva søker du?",
-            disabled: false,
-        },
-        {
-            path: "opplysninger-om-sokeren",
-            label: "Opplysninger om søkeren",
-            disabled: true,
-        },
-        {
-            path: "om-den-avdode",
-            label: "Opplysninger om den avdøde",
-            disabled: true,
-        },
-        {
-            path: "opplysninger-om-barn",
-            label: "Opplysninger om barn",
-            disabled: true,
-        },
-        {
-            path: "tidligere-arbeidsforhold",
-            label: "Tidligere arbeidsforhold, kurs, m.m.",
-            disabled: true,
-        },
-        {
-            path: "navaerende-arbeidsforhold",
-            label: "Nåværende arbeidsforhold",
-            disabled: true,
-        },
-        {
-            path: "andre-ytelser",
-            label: "Andre ytelser",
-            disabled: true,
-        },
-    ],
+    aktivtSteg: StegPath.SoknadType,
+    steg: MuligeSteg,
 };
 
 const oppdaterSteg = (state: ISteg) => {
-    const index = state.aktivtSteg - 1;
+    const index = state.steg.findIndex((value) => value.path === state.aktivtSteg);
     const oppdaterteSteg = [...state.steg];
 
-    let element = { ...oppdaterteSteg[index] };
-    element.disabled = false;
-    oppdaterteSteg[index] = element;
+    oppdaterteSteg[index] = {
+        ...oppdaterteSteg[index],
+        disabled: false,
+    };
 
     return { index, oppdaterteSteg };
 };
@@ -63,21 +28,15 @@ const reducer = (state: ISteg, action: IStegAction) => {
         case StegActionTypes.TILBAKESTILL: {
             return {
                 ...state,
-                aktivtSteg: 1,
+                aktivtSteg: state.steg[0].path,
             };
         }
         case StegActionTypes.SETT_STEG: {
-            const index = action.payload;
-            const oppdaterteSteg = [...state.steg];
-
-            let element = { ...oppdaterteSteg[index] };
-            element.disabled = false;
-            oppdaterteSteg[index] = element;
+            const aktivtSteg = state.steg[action.payload].path;
 
             return {
                 ...state,
-                aktivtSteg: index + 1,
-                steg: oppdaterteSteg,
+                aktivtSteg,
             };
         }
         case StegActionTypes.FORRIGE: {
@@ -85,16 +44,16 @@ const reducer = (state: ISteg, action: IStegAction) => {
 
             return {
                 ...state,
-                aktivtSteg: index,
+                aktivtSteg: state.steg[index - 1].path,
                 steg: oppdaterteSteg,
             };
         }
         case StegActionTypes.NESTE: {
-            const { oppdaterteSteg } = oppdaterSteg(state);
+            const { index, oppdaterteSteg } = oppdaterSteg(state);
 
             return {
                 ...state,
-                aktivtSteg: state.aktivtSteg + 1,
+                aktivtSteg: state.steg[index + 1].path,
                 steg: oppdaterteSteg,
             };
         }

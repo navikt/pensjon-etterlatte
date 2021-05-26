@@ -1,4 +1,24 @@
-import { IValg } from "./ISpoersmaal";
+import IValg from "./IValg";
+
+export enum NySivilstatus {
+    ekteskap = "ekteskap",
+    partnerskap = "partnerskap",
+    samboerskap = "samboerskap",
+    ingen = "ingen"
+}
+
+export enum OpploesningAarsak {
+    doedsfall = "Dødsfall",
+    skilsmisse = "Skilsmisse",
+    bruddSamboerskap = "Brudd i samboerskap",
+}
+
+export enum ForholdTilAvdoed {
+    gjenlevendeEktefelle = "Gjenlevende ektefelle",
+    gjenlevendePartner = "Gjenlevende partner",
+    gjenlevendeSamboer = "Gjenlevende samboer",
+    ugiftMenForsoerget = "Ugift, men ble forsørget av den avdøde",
+}
 
 export interface IBarn {
     fornavn?: string;
@@ -17,20 +37,20 @@ export interface INavn {
 }
 
 export interface IAvdoed {
-    fornavn: string;
-    etternavn: string;
-    foedselsnummer: string;
-    doedsdato: Date | null;
-    statsborgerskap: string;
+    fornavn?: string;
+    etternavn?: string;
+    foedselsnummer?: string;
+    doedsdato?: Date | null;
+    statsborgerskap?: string;
     bosetning?: IValg;
     doedsfallAarsak?: IValg;
     boddEllerJobbetUtland?: IValg;
     haddePensjonsgivendeInntekt?: IValg;
-    pensjonsgivendeInntektSvar: string;
+    pensjonsgivendeInntektSvar?: string;
     haddePensjonAndreLand?: IValg;
-    pensjonAndreLandSvar: string;
+    pensjonAndreLandSvar?: string;
     harAvtjentMilitaerTjeneste?: IValg;
-    avtjentMilitaerTjenesteSvar: string;
+    avtjentMilitaerTjenesteSvar?: string;
 }
 
 export interface ISamboer {
@@ -49,10 +69,10 @@ export interface IKontaktinfo {
 }
 
 export interface INySivilstatus {
-    nySivilstatusEtterDoedsfallet?: string; // 2.13
+    nySivilstatusEtterDoedsfallet?: NySivilstatus; // 2.13
     datoForInngaaelse?: Date;
     nySivilstatusOpploest?: IValg; // 2.14
-    aarsakForOpploesningen?: string; // 2.15
+    aarsakForOpploesningen?: OpploesningAarsak; // 2.15
     datoForOpploesningen?: Date;
 }
 

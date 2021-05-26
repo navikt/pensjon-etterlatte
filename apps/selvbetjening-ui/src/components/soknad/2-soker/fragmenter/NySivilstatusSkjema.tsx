@@ -1,18 +1,25 @@
-import { INySivilstatus } from "../../../../typer/person";
-import { RadioPanelGruppe } from "nav-frontend-skjema";
-import Datovelger from "../../../felles/Datovelger";
-import ToValgRadio from "../../../felles/ToValgRadio";
+import { ISoeker, NySivilstatus, OpploesningAarsak } from "../../../../typer/person";
 import { useTranslation } from "react-i18next";
-import { Panel } from "nav-frontend-paneler";
+import Panel from "nav-frontend-paneler";
 import { Undertittel } from "nav-frontend-typografi";
+import { useFormContext } from "react-hook-form";
+import Datovelger from "../../../felles/Datovelger";
+import { RHFToValgRadio, RHFRadio } from "../../../felles/RHFRadio";
+import IValg from "../../../../typer/IValg";
 
-interface Props {
-    nySivilstatus?: INySivilstatus;
-    setNySivilstatus: (nySivilstatus: INySivilstatus) => void;
-}
-
-const NySivilstatusSkjema = ({ nySivilstatus, setNySivilstatus }: Props) => {
+const NySivilstatusSkjema = () => {
     const { t } = useTranslation();
+
+    const {
+        control,
+        watch,
+        formState: { errors }
+    } = useFormContext<ISoeker>();
+
+    const nySivilstatus = watch("nySivilstatus.nySivilstatusEtterDoedsfallet");
+    const harNySivilstatus = !!nySivilstatus && nySivilstatus !== NySivilstatus.ingen;
+
+    const nyInngaaelseOpploest = watch("nySivilstatus.nySivilstatusOpploest")
 
     return (
         <Panel border>
@@ -21,73 +28,63 @@ const NySivilstatusSkjema = ({ nySivilstatus, setNySivilstatus }: Props) => {
             <br />
 
             {/* 2.13 */}
-            <RadioPanelGruppe
-                name={"barn-opphav"}
+            <RHFRadio
+                name={"nySivilstatus.nySivilstatusEtterDoedsfallet"}
                 legend={t("omSoekeren.nyInngaaelse.tittel")}
                 radios={[
-                    { label: t("omSoekeren.nyInngaaelse.ekteskap"), value: "Ekteskap" },
-                    { label: t("omSoekeren.nyInngaaelse.partnerskap"), value: "Partnerskap" },
-                    { label: t("omSoekeren.nyInngaaelse.samboerskap"), value: "Samboerskap" },
-                    { label: "Ingen", value: "" },
+                    { label: t("omSoekeren.nyInngaaelse.ekteskap"), value: NySivilstatus.ekteskap },
+                    { label: t("omSoekeren.nyInngaaelse.partnerskap"), value: NySivilstatus.partnerskap },
+                    { label: t("omSoekeren.nyInngaaelse.samboerskap"), value: NySivilstatus.samboerskap },
+                    { label: "Ingen", value: NySivilstatus.ingen },
                 ]}
-                checked={nySivilstatus?.nySivilstatusEtterDoedsfallet}
-                onChange={(e) =>
-                    setNySivilstatus({
-                        ...nySivilstatus,
-                        nySivilstatusEtterDoedsfallet: (e.target as HTMLInputElement).value,
-                    })
-                }
             />
 
-            {!!nySivilstatus?.nySivilstatusEtterDoedsfallet && (
+            {harNySivilstatus && (
                 <>
                     {/* 2.13 */}
                     <Datovelger
+                        name={"nySivilstatus.datoForInngaaelse"}
+                        control={control}
                         label={t("omSoekeren.nyInngaaelse.dato")}
-                        valgtDato={nySivilstatus?.datoForInngaaelse}
-                        onChange={(datoForInngaaelse) => setNySivilstatus({ ...nySivilstatus, datoForInngaaelse })}
+                        feil={errors.nySivilstatus?.datoForInngaaelse && "Må besvares"}
                     />
 
                     {/* 2.14 */}
-                    <ToValgRadio
-                        label={t("omSoekeren.nyInngaaelseOpploest")}
-                        checked={nySivilstatus?.nySivilstatusOpploest}
-                        onChange={(nySivilstatusOpploest) =>
-                            setNySivilstatus({ ...nySivilstatus, nySivilstatusOpploest })
-                        }
-                    >
-                        {/* 2.15 */}
-                        <RadioPanelGruppe
-                            name={"aarsak-opploesning"}
-                            legend={t("omSoekeren.aarsakOpploesning.tittel")}
-                            radios={[
-                                { label: t("omSoekeren.aarsakOpploesning.dødsfall"), value: "Dødsfall" },
-                                { label: t("omSoekeren.aarsakOpploesning.skilsmisse"), value: "Skilsmisse" },
-                                {
-                                    label: t("omSoekeren.aarsakOpploesning.bruddISamboerskap"),
-                                    value: "Brudd i samboerskap",
-                                },
-                            ]}
-                            checked={nySivilstatus?.aarsakForOpploesningen}
-                            onChange={(e) =>
-                                setNySivilstatus({
-                                    ...nySivilstatus,
-                                    aarsakForOpploesningen: (e.target as HTMLInputElement).value,
-                                })
-                            }
-                        />
+                    <RHFToValgRadio
+                        name={"nySivilstatus.nySivilstatusOpploest"}
+                        legend={t("omSoekeren.nyInngaaelseOpploest")}
+                    />
 
-                        <Datovelger
-                            label={t("omSoekeren.nyInngaaelseOpploestDato")}
-                            valgtDato={nySivilstatus?.datoForOpploesningen}
-                            onChange={(datoForOpploesningen) =>
-                                setNySivilstatus({
-                                    ...nySivilstatus,
-                                    datoForOpploesningen,
-                                })
-                            }
-                        />
-                    </ToValgRadio>
+                    {/* 2.15 */}
+                    {nyInngaaelseOpploest === IValg.JA && (
+                        <>
+                            <RHFRadio
+                                name={"nySivilstatus.aarsakForOpploesningen"}
+                                legend={t("omSoekeren.aarsakOpploesning.tittel")}
+                                radios={[
+                                    {
+                                        label: t("omSoekeren.aarsakOpploesning.dødsfall"),
+                                        value: OpploesningAarsak.doedsfall
+                                    },
+                                    {
+                                        label: t("omSoekeren.aarsakOpploesning.skilsmisse"),
+                                        value: OpploesningAarsak.skilsmisse
+                                    },
+                                    {
+                                        label: t("omSoekeren.aarsakOpploesning.bruddISamboerskap"),
+                                        value: OpploesningAarsak.bruddSamboerskap
+                                    },
+                                ]}
+                            />
+
+                            <Datovelger
+                                name={"nySivilstatus.datoForOpploesningen"}
+                                control={control}
+                                label={t("omSoekeren.nyInngaaelseOpploestDato")}
+                                feil={errors.nySivilstatus?.datoForOpploesningen && "Må besvares"}
+                            />
+                        </>
+                    )}
                 </>
             )}
         </Panel>

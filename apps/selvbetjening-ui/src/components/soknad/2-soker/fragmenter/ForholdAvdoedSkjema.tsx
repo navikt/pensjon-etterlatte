@@ -1,19 +1,25 @@
-import { Panel } from "nav-frontend-paneler";
-import { RadioPanelGruppe } from "nav-frontend-skjema";
-import Datovelger from "../../../felles/Datovelger";
-import ToValgRadio from "../../../felles/ToValgRadio";
-import TekstInput from "../../../felles/TekstInput";
-import { IForholdAvdoed } from "../../../../typer/person";
+import Panel from "nav-frontend-paneler";
+import { ForholdTilAvdoed, ISoeker } from "../../../../typer/person";
 import { useTranslation } from "react-i18next";
 import { Undertittel } from "nav-frontend-typografi";
+import { useFormContext } from "react-hook-form";
+import Datovelger from "../../../felles/Datovelger";
+import RHFInput from "../../../felles/RHFInput";
+import { RHFToValgRadio, RHFRadio } from "../../../felles/RHFRadio";
+import IValg from "../../../../typer/IValg";
 
-interface Props {
-    forholdTilAvdoed?: IForholdAvdoed;
-    setForholdTilAvdoed: (forholdAvdoed: IForholdAvdoed) => void;
-}
-
-const ForholdAvoedSkjema = ({ forholdTilAvdoed, setForholdTilAvdoed }: Props) => {
+const ForholdAvoedSkjema = () => {
     const { t } = useTranslation();
+
+    const {
+        control,
+        watch,
+        formState: { errors }
+    } = useFormContext<ISoeker>();
+
+    const forholdTilAvdoede = watch("forholdTilAvdoed.forholdTilAvdoede")
+    const varSkiltFoerDoedsfall = watch("forholdTilAvdoed.varSkiltFoerDoedsfall")
+    const mottokBidragFraAvdoede = watch("forholdTilAvdoed.mottokBidragFraAvdoede")
 
     return (
         <Panel border>
@@ -21,90 +27,71 @@ const ForholdAvoedSkjema = ({ forholdTilAvdoed, setForholdTilAvdoed }: Props) =>
 
             <br />
 
-            <RadioPanelGruppe
-                name={"forholdTilAvdoede"}
-                // legend={t("omSoekeren.forholdTilAvdoede.tittel")}
+            <RHFRadio
+                name={"forholdTilAvdoed.forholdTilAvdoede"}
                 radios={[
-                    { label: t("omSoekeren.forholdTilAvdoede.ektefelle"), value: "Gjenlevende ektefelle" },
-                    { label: t("omSoekeren.forholdTilAvdoede.partner"), value: "Gjenlevende partner" },
-                    { label: t("omSoekeren.forholdTilAvdoede.samboer"), value: "Gjenlevende samboer" },
+                    {
+                        label: t("omSoekeren.forholdTilAvdoede.ektefelle"),
+                        value: ForholdTilAvdoed.gjenlevendeEktefelle
+                    },
+                    {
+                        label: t("omSoekeren.forholdTilAvdoede.partner"),
+                        value: ForholdTilAvdoed.gjenlevendePartner
+                    },
+                    {
+                        label: t("omSoekeren.forholdTilAvdoede.samboer"),
+                        value: ForholdTilAvdoed.gjenlevendeSamboer
+                    },
                     {
                         label: t("omSoekeren.forholdTilAvdoede.ugift"),
-                        value: "Ugift, men ble forsørget av den avdøde",
+                        value: ForholdTilAvdoed.ugiftMenForsoerget,
                     },
                 ]}
-                checked={forholdTilAvdoed?.forholdTilAvdoede}
-                onChange={(e) =>
-                    setForholdTilAvdoed({
-                        ...forholdTilAvdoed,
-                        forholdTilAvdoede: (e.target as HTMLInputElement).value,
-                    })
-                }
             />
 
             {/* 2.9 */}
             <Datovelger
+                name={"forholdTilAvdoed.datoForInngaattPartnerskap"}
+                control={control}
                 label={t("omSoekeren.forholdTilAvdoede.datoForPartnerskap")}
-                valgtDato={forholdTilAvdoed?.datoForInngaattPartnerskap}
-                onChange={(datoForInngaattPartnerskap) =>
-                    setForholdTilAvdoed({
-                        ...forholdTilAvdoed,
-                        datoForInngaattPartnerskap,
-                    })
-                }
+                feil={errors.forholdTilAvdoed?.datoForInngaattPartnerskap && "Må fylles ut"}
             />
 
             {/* 2.10 */}
-            {forholdTilAvdoed?.forholdTilAvdoede === "Gjenlevende samboer" && (
-                <>
-                    <ToValgRadio
-                        label={t("omSoekeren.hattBarnEllerVaertGift")}
-                        checked={forholdTilAvdoed?.hattBarnEllerVaertGift}
-                        onChange={(hattBarnEllerVaertGift) =>
-                            setForholdTilAvdoed({
-                                ...forholdTilAvdoed,
-                                hattBarnEllerVaertGift,
-                            })
-                        }
-                    />
-                </>
+            {forholdTilAvdoede === ForholdTilAvdoed.gjenlevendeSamboer && (
+                <RHFToValgRadio
+                    name={"forholdTilAvdoed.hattBarnEllerVaertGift"}
+                    legend={t("omSoekeren.hattBarnEllerVaertGift")}
+                />
             )}
 
             {/* 2.11 */}
-            <ToValgRadio
-                label={t("omSoekeren.varSkiltFraAvdoede")}
-                checked={forholdTilAvdoed?.varSkiltFoerDoedsfall}
-                onChange={(varSkiltFoerDoedsfall) =>
-                    setForholdTilAvdoed({
-                        ...forholdTilAvdoed,
-                        varSkiltFoerDoedsfall,
-                    })
-                }
-            >
+            <RHFToValgRadio
+                name={"forholdTilAvdoed.varSkiltFoerDoedsfall"}
+                legend={t("omSoekeren.varSkiltFraAvdoede")}
+            />
+
+            {varSkiltFoerDoedsfall === IValg.JA && (
                 <Datovelger
+                    name={"forholdTilAvdoed.datoForSkilsmisse"}
+                    control={control}
                     label={t("omSoekeren.datoForSamlivsbrudd")}
-                    valgtDato={forholdTilAvdoed?.datoForSkilsmisse}
-                    onChange={(datoForSkilsmisse) => setForholdTilAvdoed({ ...forholdTilAvdoed, datoForSkilsmisse })}
+                    feil={errors.forholdTilAvdoed?.datoForSkilsmisse && "Må fylles ut"}
                 />
-            </ToValgRadio>
+            )}
 
             {/* 2.12 */}
-            <ToValgRadio
-                label={t("omSoekeren.mottokBidragFraAvdoede")}
-                checked={forholdTilAvdoed?.mottokBidragFraAvdoede}
-                onChange={(mottokBidragFraAvdoede) =>
-                    setForholdTilAvdoed({
-                        ...forholdTilAvdoed,
-                        mottokBidragFraAvdoede,
-                    })
-                }
-            >
-                <TekstInput
+            <RHFToValgRadio
+                name={"forholdTilAvdoed.mottokBidragFraAvdoede"}
+                legend={t("omSoekeren.mottokBidragFraAvdoede")}
+            />
+
+            {mottokBidragFraAvdoede === IValg.JA && (
+                <RHFInput
+                    name={"forholdTilAvdoed.bidragBeloepPrAar"}
                     label={t("omSoekeren.bidragBeloep")}
-                    value={forholdTilAvdoed?.bidragBeloepPrAar}
-                    onChange={(bidragBeloepPrAar) => setForholdTilAvdoed({ ...forholdTilAvdoed, bidragBeloepPrAar })}
                 />
-            </ToValgRadio>
+            )}
         </Panel>
     );
 };

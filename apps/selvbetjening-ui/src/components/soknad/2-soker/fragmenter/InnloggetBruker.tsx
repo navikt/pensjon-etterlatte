@@ -2,7 +2,7 @@ import AlertStripe from "nav-frontend-alertstriper";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
-import { Panel } from "nav-frontend-paneler";
+import Panel from "nav-frontend-paneler";
 
 const InnloggetBruker = () => {
     const { t } = useTranslation();

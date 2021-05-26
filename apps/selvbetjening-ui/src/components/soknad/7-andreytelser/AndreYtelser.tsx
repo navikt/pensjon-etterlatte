@@ -1,130 +1,109 @@
-import { useEffect, useState } from "react";
 import "../../../App.less";
+
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
-import SoknadSteg from "../../../typer/SoknadSteg";
-import ToValgRadio from "../../felles/ToValgRadio";
-import { IAndreYtelser, ActionTypes } from "../../../context/soknad/soknad";
+import { ActionTypes } from "../../../context/soknad/soknad";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import TekstInput from "../../felles/TekstInput";
 import { useTranslation } from "react-i18next";
+import { FormProvider, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Hovedknapp, Knapp } from "nav-frontend-knapper";
+import { RHFToValgRadio } from "../../felles/RHFRadio";
+import { IAndreYtelser } from "../../../typer/ytelser";
 
-const AndreYtelser: SoknadSteg = () => {
+import SoknadSteg from "../../../typer/SoknadSteg";
+import RHFInput from "../../felles/RHFInput";
+import IValg from "../../../typer/IValg";
+import Panel from "nav-frontend-paneler";
+import AndreYtelserSchema from "./AndreYtelserSchema";
+
+const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
-    const { andreYtelser } = state;
 
-    const initialState: IAndreYtelser = andreYtelser || {
-        mottarAndreYtelser: undefined,
-        kravOmAnnenStonad: {
-            svar: undefined,
-            beskrivelseAvStoenad: "",
-        },
-        mottarPensjonUtland: {
-            svar: undefined,
-            hvaSlagsPensjon: "",
-            fraHvilketLand: "",
-            bruttobeloepPrAar: "",
-            landetsValuta: "",
-        },
+    const methods = useForm<IAndreYtelser>({
+        mode: "onSubmit",
+        defaultValues: state.andreYtelser || {},
+        resolver: yupResolver(AndreYtelserSchema),
+    });
+
+    const {
+        handleSubmit,
+        watch,
+    } = methods;
+
+    const lagre = (data: IAndreYtelser) => {
+        dispatch({ type: ActionTypes.OPPDATER_ANDRE_YTELSER, payload: data });
+        neste!!();
     };
 
-    const [ytelser, setYtelser] = useState(initialState);
-
-    useEffect(() => {
-        dispatch({ type: ActionTypes.OPPDATER_ANDRE_YTELSER, payload: ytelser });
-    }, [ytelser, dispatch]);
+    const kravOmAnnenStonad = watch("kravOmAnnenStonad.svar")
+    const mottarPensjonUtland = watch("mottarPensjonUtland.svar")
 
     return (
-        <>
-            {/* Steg 7 */}
-            <Systemtittel>{t("andreYtelser.tittel")}</Systemtittel>
+        <FormProvider {...methods}>
+            <form onSubmit={handleSubmit(lagre)}>
+                {/* Steg 7 */}
+                <Systemtittel>{t("andreYtelser.tittel")}</Systemtittel>
 
-            <SkjemaGruppe>
-                <ToValgRadio
-                    checked={ytelser.mottarAndreYtelser}
-                    label={t("andreYtelser.mottarAndreYtelser")}
-                    onChange={(mottarAndreYtelser) => setYtelser({ ...ytelser, mottarAndreYtelser })}
-                />
-
-                <ToValgRadio
-                    checked={ytelser.kravOmAnnenStonad.svar}
-                    label={t("andreYtelser.kravOmAnnenStonad")}
-                    onChange={(svar) =>
-                        setYtelser({
-                            ...ytelser,
-                            kravOmAnnenStonad: { ...ytelser.kravOmAnnenStonad, svar },
-                        })
-                    }
-                >
-                    <TekstInput
-                        value={ytelser.kravOmAnnenStonad.beskrivelseAvStoenad}
-                        label={t("andreYtelser.beskrivelseAvAnnenStoenad")}
-                        onChange={(beskrivelseAvStoenad) =>
-                            setYtelser({
-                                ...ytelser,
-                                kravOmAnnenStonad: { ...ytelser.kravOmAnnenStonad, beskrivelseAvStoenad },
-                            })
-                        }
+                <SkjemaGruppe>
+                    <RHFToValgRadio
+                        name={"mottarAndreYtelser"}
+                        legend={t("andreYtelser.mottarAndreYtelser")}
                     />
-                </ToValgRadio>
+                </SkjemaGruppe>
 
-                <ToValgRadio
-                    checked={ytelser.mottarPensjonUtland.svar}
-                    label={t("andreYtelser.mottarPensjonUtland")}
-                    onChange={(svar) =>
-                        setYtelser({
-                            ...ytelser,
-                            mottarPensjonUtland: { ...ytelser.mottarPensjonUtland, svar },
-                        })
-                    }
-                >
-                    <TekstInput
-                        value={ytelser.mottarPensjonUtland.hvaSlagsPensjon}
-                        label={t("andreYtelser.hvaSlagsPensjon")}
-                        onChange={(hvaSlagsPensjon) =>
-                            setYtelser({
-                                ...ytelser,
-                                mottarPensjonUtland: { ...ytelser.mottarPensjonUtland, hvaSlagsPensjon },
-                            })
-                        }
+                <SkjemaGruppe>
+                    <RHFToValgRadio
+                        name={"kravOmAnnenStonad.svar"}
+                        legend={t("andreYtelser.kravOmAnnenStonad")}
                     />
 
-                    <TekstInput
-                        value={ytelser.mottarPensjonUtland.fraHvilketLand}
-                        label={t("andreYtelser.mottarFraLand")}
-                        onChange={(fraHvilketLand) =>
-                            setYtelser({
-                                ...ytelser,
-                                mottarPensjonUtland: { ...ytelser.mottarPensjonUtland, fraHvilketLand },
-                            })
-                        }
+                    {kravOmAnnenStonad === IValg.JA && (
+                        <RHFInput
+                            name={"kravOmAnnenStonad.beskrivelseAvStoenad"}
+                            label={t("andreYtelser.beskrivelseAvAnnenStoenad")}
+                        />
+                    )}
+                </SkjemaGruppe>
+
+                <SkjemaGruppe>
+                    <RHFToValgRadio
+                        name={"mottarPensjonUtland.svar"}
+                        legend={t("andreYtelser.mottarPensjonUtland")}
                     />
 
-                    <TekstInput
-                        value={ytelser.mottarPensjonUtland.bruttobeloepPrAar}
-                        label={t("andreYtelser.bruttobeloep")}
-                        onChange={(bruttobeloepPrAar) =>
-                            setYtelser({
-                                ...ytelser,
-                                mottarPensjonUtland: { ...ytelser.mottarPensjonUtland, bruttobeloepPrAar },
-                            })
-                        }
-                    />
+                    {mottarPensjonUtland === IValg.JA && (
+                        <Panel border>
+                            <RHFInput
+                                name={"mottarPensjonUtland.hvaSlagsPensjon"}
+                                label={t("andreYtelser.hvaSlagsPensjon")}
+                            />
 
-                    <TekstInput
-                        value={ytelser.mottarPensjonUtland.landetsValuta}
-                        label={t("andreYtelser.landetsValuta")}
-                        onChange={(landetsValuta) =>
-                            setYtelser({
-                                ...ytelser,
-                                mottarPensjonUtland: { ...ytelser.mottarPensjonUtland, landetsValuta },
-                            })
-                        }
-                    />
-                </ToValgRadio>
-            </SkjemaGruppe>
-        </>
+                            <RHFInput
+                                name={"mottarPensjonUtland.fraHvilketLand"}
+                                label={t("andreYtelser.mottarFraLand")}
+                            />
+
+                            <RHFInput
+                                name={"mottarPensjonUtland.bruttobeloepPrAar"}
+                                label={t("andreYtelser.bruttobeloep")}
+                            />
+
+                            <RHFInput
+                                name={"mottarPensjonUtland.landetsValuta"}
+                                label={t("andreYtelser.landetsValuta")}
+                            />
+                        </Panel>
+                    )}
+                </SkjemaGruppe>
+
+                <SkjemaGruppe className={"navigasjon-rad"}>
+                    <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>
+                    <Hovedknapp htmlType={"submit"}>{t("knapp.neste")}</Hovedknapp>
+                </SkjemaGruppe>
+            </form>
+        </FormProvider>
     );
 };
 

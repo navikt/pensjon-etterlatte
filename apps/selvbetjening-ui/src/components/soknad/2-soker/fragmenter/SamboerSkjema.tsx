@@ -1,19 +1,19 @@
 import { useTranslation } from "react-i18next";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { ISamboer } from "../../../../typer/person";
-import Sjekkboks from "../../../felles/Sjekkboks";
-import TekstInput from "../../../felles/TekstInput";
-import ToValgRadio from "../../../felles/ToValgRadio";
+import { ISoeker } from "../../../../typer/person";
 import { Undertittel } from "nav-frontend-typografi";
-import { Panel } from "nav-frontend-paneler";
+import Panel from "nav-frontend-paneler";
+import { useFormContext } from "react-hook-form";
+import RHFInput from "../../../felles/RHFInput";
+import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import IValg from "../../../../typer/IValg";
 
-interface Props {
-    samboer?: ISamboer;
-    setSamboer: (samboer: ISamboer) => void;
-}
-
-const SamboerSkjema = ({ samboer, setSamboer }: Props) => {
+const SamboerSkjema = () => {
     const { t } = useTranslation();
+
+    const { watch } = useFormContext<ISoeker>();
+
+    const samboerHarInntekt = watch("samboer.harInntekt")
 
     return (
         <Panel border>
@@ -22,60 +22,43 @@ const SamboerSkjema = ({ samboer, setSamboer }: Props) => {
             <br />
 
             {/* 2.16 */}
-            <TekstInput
+            <RHFInput
+                name={"samboer.navn"}
                 label={t("omSoekeren.oppgiNavnSamboer")}
-                value={samboer?.navn}
-                onChange={(navn) => setSamboer({ ...samboer, navn })}
             />
 
-            <TekstInput
+            <RHFInput
+                name={"samboer.foedselsnummer"}
                 label={t("felles.fnr")}
-                value={samboer?.foedselsnummer}
-                onChange={(foedselsnummer) => setSamboer({ ...samboer, foedselsnummer })}
             />
 
-            <ToValgRadio
-                label={t("omSoekeren.harHattBarnEllerVaertGiftMedSamboer")}
-                checked={samboer?.hattBarnEllerVaertGift}
-                onChange={(hattBarnEllerVaertGift) => setSamboer({ ...samboer, hattBarnEllerVaertGift })}
+            <RHFToValgRadio
+                name={"samboer.hattBarnEllerVaertGift"}
+                legend={t("omSoekeren.harHattBarnEllerVaertGiftMedSamboer")}
             />
 
             {/* 2.17 */}
-            <ToValgRadio
-                label={t("omSoekeren.harSamboerInntekt.tittel")}
-                checked={samboer?.harInntekt}
-                onChange={(harInntekt) => setSamboer({ ...samboer, harInntekt })}
-            >
-                <SkjemaGruppe className={"inputPanelGruppe"}>
-                    <Sjekkboks
-                        label={t("omSoekeren.harSamboerInntekt.arbeidsinntekt")}
-                        checked={false}
-                        onChange={() => {}}
-                    />
-                    <Sjekkboks label={t("omSoekeren.harSamboerInntekt.pensjon")} checked={false} onChange={() => {}} />
-                    <Sjekkboks
-                        label={t("omSoekeren.harSamboerInntekt.kapitalinntekt")}
-                        checked={false}
-                        onChange={() => {}}
-                    />
-                    <Sjekkboks
-                        label={t("omSoekeren.harSamboerInntekt.andreYtelser")}
-                        checked={false}
-                        onChange={() => {}}
-                    />
-                </SkjemaGruppe>
+            <RHFToValgRadio
+                name={"samboer.harInntekt"}
+                legend={t("omSoekeren.harSamboerInntekt.tittel")}
+            />
 
-                <TekstInput
-                    label={t("omSoekeren.harSamboerInntekt.bruttoinntekt")}
-                    value={samboer?.samletBruttoinntektPrAar}
-                    onChange={(samletBruttoinntektPrAar) =>
-                        setSamboer({
-                            ...samboer,
-                            samletBruttoinntektPrAar,
-                        })
-                    }
-                />
-            </ToValgRadio>
+            {samboerHarInntekt === IValg.JA && (
+                <>
+                    <SkjemaGruppe className={"inputPanelGruppe"}>
+                        {/* TODO: Fikse ifm RHF */}
+                        {/*<Sjekkboks navn={""} label={t("omSoekeren.harSamboerInntekt.arbeidsinntekt")} />*/}
+                        {/*<Sjekkboks navn={""} label={t("omSoekeren.harSamboerInntekt.pensjon")} />*/}
+                        {/*<Sjekkboks navn={""} label={t("omSoekeren.harSamboerInntekt.kapitalinntekt")} />*/}
+                        {/*<Sjekkboks navn={""} label={t("omSoekeren.harSamboerInntekt.andreYtelser")} />*/}
+                    </SkjemaGruppe>
+
+                    <RHFInput
+                        name={"samboer.samletBruttoinntektPrAar"}
+                        label={t("omSoekeren.harSamboerInntekt.bruttoinntekt")}
+                    />
+                </>
+            )}
         </Panel>
     );
 };
