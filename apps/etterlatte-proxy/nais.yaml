@@ -69,3 +69,6 @@ spec:
         - application: journalfoer-soeknad
           namespace: etterlatte
           cluster: dev-gcp
+        - application: sjekk-adressebeskyttelse
+          namespace: etterlatte
+          cluster: dev-gcp
