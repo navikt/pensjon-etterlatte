@@ -11,6 +11,7 @@ import io.ktor.client.request.post
 import no.nav.helse.rapids_rivers.JsonMessage
 import org.slf4j.MDC
 import java.util.*
+import no.nav.etterlatte.libs.common.journalpost.*
 
 class Journalfoer(private val client: HttpClient, private val baseUrl: String) : JournalfoerDok {
     private val objectMapper = jacksonObjectMapper()
@@ -76,78 +77,3 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
             ?: "klarte ikke å journalføre"
     }
 }
-
-internal data class JournalpostInfo(
-    val tittel: String,
-    val avsenderMottaker: AvsenderMottaker,
-    val bruker: Bruker,
-)
-
-internal data class JournalpostRequest(
-    val tittel: String,
-    val journalpostType: JournalPostType,
-    val tema: String,
-    val kanal: String?,
-    val behandlingstema: String,
-    val journalfoerendeEnhet: String,
-    val avsenderMottaker: AvsenderMottaker,
-    val bruker: Bruker,
-    //val sak: Fagsak?,
-    var dokumenter: List<JournalpostDokument>
-)
-
-data class AvsenderMottaker(
-    val id: String,
-    val idType: String = "FNR",
-    val navn: String
-)
-
-data class Bruker(
-    val id: String,
-    val idType: String = "FNR"
-)
-
-data class Fagsak(
-    val fagsakId: String,
-    val fagsaksystem: String = "SUPSTONAD",
-    val sakstype: String = "FAGSAK"
-)
-
-data class JournalpostDokument(
-    val tittel: String,
-    val dokumentKategori: DokumentKategori,
-    val brevkode: String = "XX.YY-ZZ",
-    val dokumentvarianter: List<DokumentVariant>
-)
-
-sealed class DokumentVariant {
-    abstract val filtype: String
-    abstract val fysiskDokument: String
-    abstract val variantformat: String
-
-    data class ArkivPDF(
-        override val fysiskDokument: String,
-    ) : DokumentVariant() {
-        override val filtype: String = "PDFA"
-        override val variantformat: String = "ARKIV"
-    }
-
-    data class OriginalJson(
-        override val fysiskDokument: String,
-    ) : DokumentVariant() {
-        override val filtype: String = "JSON"
-        override val variantformat: String = "ORIGINAL"
-    }
-}
-
-enum class JournalPostType(val type: String) {
-    INNGAAENDE("INNGAAENDE"),
-    UTGAAENDE("UTGAAENDE")
-}
-
-enum class DokumentKategori(val type: String) {
-    SOK("SOK"),
-    VB("VB"),
-    IB("IB")
-}
-
