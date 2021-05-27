@@ -15,7 +15,7 @@ export const hentInnloggetPerson = () => {
 
 export const sendSoeknad = (soeknad: object) => {
     return api
-        .post("/api/soknad", soeknad)
+        .post("/api/soeknad", soeknad)
         .then((response) => {
             console.log(response);
 
