@@ -67,7 +67,7 @@ fun main() {
                     GlobalScope.launch {
                         val rapid = SoeknadPubliserer(rapidsConnection, db)
                         while(true) {
-                            delay(600_000)
+                            delay(120_000)
                             db.usendteSoeknader().forEach {
                                 rapid.publiser(it)
                             }

@@ -21,7 +21,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         val SELECT_OLD = """
                         SELECT *, now() - interval '5 minutes' 
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt') and s.opprettet < (now() at time zone 'utc' - interval '15 minutes')
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt') and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
                         fetch first 10 rows only""".trimIndent()
         val SELECT_OLDEST_UNSENT = """
                         SELECT MIN(s.opprettet)
