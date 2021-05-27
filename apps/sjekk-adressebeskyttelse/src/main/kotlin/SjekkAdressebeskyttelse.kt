@@ -31,27 +31,32 @@ internal class SjekkAdressebeskyttelse(
 
         val identer: List<String> = packet["@fnr_liste"].map { it.asText() }
 
-        runBlocking {
-            val graderinger = pdl.finnAdressebeskyttelseForFnr(identer)
-                .flatMap { it.get("hentPersonBolk") }
-                .map { it.get("adressebeskyttelse") }
-                .map { it.get("gradering") }
+        if(identer.isNotEmpty()) {
+            runBlocking {
+                val graderinger = pdl.finnAdressebeskyttelseForFnr(identer)
+                    .flatMap { it.get("hentPersonBolk") }
+                    .map { it.get("adressebeskyttelse") }
+                    .map { it.get("gradering") }
 
-            var beskyttelse = INGENBESKYTTELSE
+                var beskyttelse = INGENBESKYTTELSE
 
-            for (i in 0 until graderinger.size)
-                when (graderinger[i].textValue()) {
-                    KODE6 -> beskyttelse = KODE6
-                    KODE19 -> if (beskyttelse != KODE6) {
-                        beskyttelse = KODE19
+                for (i in 0 until graderinger.size)
+                    when (graderinger[i].textValue()) {
+                        KODE6 -> beskyttelse = KODE6
+                        KODE19 -> if (beskyttelse != KODE6) {
+                            beskyttelse = KODE19
+                        }
+                        KODE7 -> if (beskyttelse != KODE6 && beskyttelse != KODE19) {
+                            beskyttelse = KODE7
+                        }
                     }
-                    KODE7 -> if (beskyttelse != KODE6 && beskyttelse != KODE19) {
-                        beskyttelse = KODE7
-                    }
-                }
-            packet["@adressebeskyttelse"] = beskyttelse
-            println("vurdert adressebeskyttelse til $beskyttelse")
-            context.publish(packet.toJson())
+                packet["@adressebeskyttelse"] = beskyttelse
+                println("vurdert adressebeskyttelse til $beskyttelse")
+                context.publish(packet.toJson())
+            }
+        } else {
+            packet["@adressebeskyttelse"] = INGENBESKYTTELSE
+            println("hvabehager? Jeg kan ikke sjekke adressebeskyttelse uten å ha FNR")
         }
     }
 }
