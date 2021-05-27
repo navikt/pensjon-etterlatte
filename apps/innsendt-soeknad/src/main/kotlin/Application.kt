@@ -8,7 +8,9 @@ import io.ktor.auth.Authentication
 import io.ktor.auth.authenticate
 import io.ktor.auth.principal
 import io.ktor.config.HoconApplicationConfig
+import io.ktor.features.ContentNegotiation
 import io.ktor.http.ContentType
+import io.ktor.jackson.jackson
 import io.ktor.request.receive
 import io.ktor.response.respondText
 import io.ktor.routing.Route
@@ -30,11 +32,11 @@ import java.time.temporal.ChronoUnit
 
 fun Route.soeknadApi(db: SoeknadRepository){
      post("/api/soeknad") {
-            val fnr = call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
-            val soknad = call.receive<JsonNode>()
-            val lagretSoeknad = db.nySoeknad(UlagretSoeknad(fnr, soknad.toJson()))
-            call.respondText(lagretSoeknad.id.toString(), ContentType.Text.Plain)
-        }
+         val fnr = call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
+         val soknad = call.receive<JsonNode>()
+         val lagretSoeknad = db.nySoeknad(UlagretSoeknad(fnr, soknad.toJson()))
+         call.respondText(lagretSoeknad.id.toString(), ContentType.Text.Plain)
+     }
 }
 
 
@@ -48,6 +50,9 @@ fun main() {
         .withKtorModule {
             install(Authentication) {
                 tokenValidationSupport(config = HoconApplicationConfig(ConfigFactory.load()))
+            }
+            install(ContentNegotiation) {
+                jackson()
             }
 
             routing {
