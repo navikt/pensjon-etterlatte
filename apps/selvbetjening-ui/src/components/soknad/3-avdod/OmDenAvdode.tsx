@@ -8,22 +8,19 @@ import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { Controller, FormProvider, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import Datovelger from "../../felles/Datovelger";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import RHFInput from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import IValg from "../../../typer/IValg";
-import AvdoedSchema from "./AvdoedSchema";
+import Feilmeldinger from "../../felles/Feilmeldinger";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     const methods = useForm<IAvdoed>({
-        mode: "onSubmit",
         defaultValues: state.opplysningerOmDenAvdoede || {},
-        resolver: yupResolver(AvdoedSchema),
     });
 
     const {
@@ -86,9 +83,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 {/* 3.3 */}
                 <Datovelger
                     name={"doedsdato"}
-                    control={control}
                     label={t("felles.doedsdato")}
-                    feil={errors.doedsdato && "Dødsdato må fylles ut"}
                 />
 
                 {/* 3.4 */}
@@ -141,6 +136,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <RHFInput
                         name={"pensjonAndreLandSvar"}
                         label={t("omDenAvdoede.pensjonUtlandBruttoinntekt")}
+                        rules={{pattern: /^\d+$/}}
                     />
                 )}
 
@@ -154,8 +150,11 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <RHFInput
                         name={"avtjentMilitaerTjenesteSvar"}
                         label={t("omDenAvdoede.avtjentMilitaerTjenesteAarstall")}
+                        rules={{pattern: /^\d{4}$/}}
                     />
                 )}
+
+                <Feilmeldinger errors={errors} />
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
                     <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>

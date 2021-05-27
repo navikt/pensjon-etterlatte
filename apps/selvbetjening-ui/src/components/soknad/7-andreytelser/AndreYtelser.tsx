@@ -6,7 +6,6 @@ import { ActionTypes } from "../../../context/soknad/soknad";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import { IAndreYtelser } from "../../../typer/ytelser";
@@ -15,21 +14,20 @@ import SoknadSteg from "../../../typer/SoknadSteg";
 import RHFInput from "../../felles/RHFInput";
 import IValg from "../../../typer/IValg";
 import Panel from "nav-frontend-paneler";
-import AndreYtelserSchema from "./AndreYtelserSchema";
+import Feilmeldinger from "../../felles/Feilmeldinger";
 
 const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     const methods = useForm<IAndreYtelser>({
-        mode: "onSubmit",
         defaultValues: state.andreYtelser || {},
-        resolver: yupResolver(AndreYtelserSchema),
     });
 
     const {
         handleSubmit,
         watch,
+        formState: { errors }
     } = methods;
 
     const lagre = (data: IAndreYtelser) => {
@@ -97,6 +95,8 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
                         </Panel>
                     )}
                 </SkjemaGruppe>
+
+                <Feilmeldinger errors={errors} />
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
                     <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>

@@ -1,5 +1,11 @@
 {
-  "ytelser": ["etterlatte", "gjenlevendetillegg", "barnepensjon", "barnetilsyn", "skolepenger"],
+  "ytelser": [
+    "etterlatte",
+    "gjenlevendetillegg",
+    "barnepensjon",
+    "barnetilsyn",
+    "skolepenger"
+  ],
   "etterlatteytelser": {
     "etterlatte": "Pensjon-/overgangsstønad",
     "gjenlevendetillegg": "Gjenlevendetillegg i uføretrygden",
@@ -181,10 +187,91 @@
     "sluttDato": "Fremtidig sluttdato"
   },
   "feil": {
+    "valgteYtelser": {
+      "hovedytelse": {
+        "required": "Hovedytelse må være valgt"
+      },
+      "barnepensjon": {
+        "required": "Må besvares"
+      }
+    },
+    "fraDato": {
+      "required": "Fra dato må være valgt"
+    },
+    "bostedsadresseBekreftet": {
+      "required": "Bostedsadresse må bekreftes/avkreftes"
+    },
+    "kontaktinfo": {
+      "telefonnummer": {
+        "required": "Telefonnummer må fylles ut",
+        "pattern": "Telefonnummer kan kun bestå av siffer (0-9)"
+      },
+      "epost": {
+        "required": "E-post må fylles ut",
+        "pattern": "E-post må være gyldig"
+      }
+    },
     "kontonummer": {
-      "matches" : "",
-      "min" : "Kontonummer kan ikke være mindre enn 11 siffer.",
-      "max" : "Kontonummer kan ikke overstige 11 siffer."
+      "required": "Kontonummer må fylles ut (11 siffer)",
+      "pattern": "Kontonummer kan kun bestå av 11 siffer"
+    },
+    "oppholderSegINorge": {
+      "required": "Opphold må besvares"
+    },
+    "forholdTilAvdoed": {
+      "forholdTilAvdoede": {
+        "required": "Forhold til den avdøde må besvares"
+      },
+      "datoForInngaattPartnerskap": {
+        "required": "Dato må oppgis"
+      },
+      "varSkiltFoerDoedsfall": {
+        "required": "Skilsmisse/samlivsbrudd må besvares"
+      },
+      "mottokBidragFraAvdoede": {
+        "required": "Spørsmål om bidrag må besvares"
+      },
+      "forholdTilAvdoed.bidragBeloepPrAar": {
+        "required": "Beløp/bidrag mottatt må fylles ut"
+      }
+    },
+    "nySivilstatus": {
+      "nySivilstatusEtterDoedsfallet": {
+        "required": "Endret sivilstatus må besvares"
+      },
+      "aarsakForOpploesningen": {
+        "required": "Årsak for oppløsningen må oppgis"
+      }
+    },
+    "yrke": {
+      "required":  "Yrke må besvares"
+    },
+    "stilling": {
+      "required":  "Stilling må besvares"
+    },
+    "startDato": {
+      "required":  "Startdato må besvares"
+    },
+    "sluttDato": {
+      "required":  "Sluttdato må besvares"
+    },
+    "ansettelsesforhold": {
+      "required":  "Ansettelsesforhold må besvares"
+    },
+    "heltidDeltid": {
+      "required":  "Du må oppgi om stillingen er heltid eller deltid"
+    },
+    "stillingsprosent": {
+      "required": "Stillingsprosent må fylles ut",
+      "pattern": "Stillingsprosent må oppgis i siffer (0-99)"
+    },
+    "arbeidsgiver": {
+      "navn.required":  "Arbeidsgivers navn må fylles ut",
+      "adresse.required":  "Arbeidsgivers adresse må fylles ut"
+    },
+    "inntekt": {
+      "bruttoArbeidsinntektPrMd.required": "Brutto arbeidsinntekt må fylles ut",
+      "personinntektFraNaeringPrAr.required": "Personinntekt fra næring må fylles ut"
     }
   }
 }

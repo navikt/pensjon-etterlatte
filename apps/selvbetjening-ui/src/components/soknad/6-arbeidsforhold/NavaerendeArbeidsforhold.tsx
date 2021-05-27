@@ -8,12 +8,11 @@ import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { FormProvider, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import Datovelger from "../../felles/Datovelger";
 import RHFInput from "../../felles/RHFInput";
-import NaavaerendeArbeidsforholdSchema from "./NaavaerendeArbeidsforholdSchema";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import { IArbeidsforhold } from "../../../typer/arbeidsforhold";
+import Feilmeldinger from "../../felles/Feilmeldinger";
 
 const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -21,11 +20,9 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
 
     const methods = useForm<IArbeidsforhold>({
         defaultValues: state.naavaerendeArbeidsforhold || {},
-        resolver: yupResolver(NaavaerendeArbeidsforholdSchema),
     });
 
     const {
-        control,
         handleSubmit,
         watch,
         formState: { errors },
@@ -62,16 +59,12 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                 <div className={"skjemagruppe skjemagruppe__inline"}>
                     <Datovelger
                         name={"startDato"}
-                        control={control}
                         label={t("felles.startDato")}
-                        feil={errors.startDato && "Startdato må fylles ut"}
                     />
 
                     <Datovelger
                         name={"sluttDato"}
-                        control={control}
                         label={t("felles.sluttDato")}
-                        feil={errors.sluttDato && "Sluttdato må fylles ut"}
                     />
                 </div>
 
@@ -101,6 +94,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                         <RHFInput
                             name={"stillingsprosent"}
                             label={t("naavaerendeArbeidsforhold.stillingsprosent")}
+                            rules={{pattern: /^[0-9]{1,2}$/}}
                         />
                     )}
                 </SkjemaGruppe>
@@ -120,12 +114,16 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                     <RHFInput
                         name={"inntekt.bruttoArbeidsinntektPrMd"}
                         label={t("naavaerendeArbeidsforhold.bruttoInntektPrMd")}
+                        rules={{pattern: /^\d+$/}}
                     />
                     <RHFInput
                         name={"inntekt.personinntektFraNaeringPrAr"}
                         label={t("naavaerendeArbeidsforhold.personinntektFraNaering")}
+                        rules={{pattern: /^\d+$/}}
                     />
                 </SkjemaGruppe>
+
+                <Feilmeldinger errors={errors} />
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
                     <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>

@@ -14,10 +14,9 @@ import SamboerSkjema from "./fragmenter/SamboerSkjema";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { ISoeker } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
-import { yupResolver } from "@hookform/resolvers/yup";
 import RHFInput from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
-import SoekerSchema from "./SoekerSchema";
+import Feilmeldinger from "../../felles/Feilmeldinger";
 
 const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -30,12 +29,12 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
 
     const methods = useForm<ISoeker>({
         defaultValues: state.opplysningerOmSoekeren || {},
-        resolver: yupResolver(SoekerSchema)
     });
 
     const {
         handleSubmit,
         watch,
+        formState: { errors }
     } = methods;
 
     const nySivilstatusEtterDoedsfallet = watch("nySivilstatus.nySivilstatusEtterDoedsfallet")
@@ -67,12 +66,14 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     <RHFInput
                         name={"kontaktinfo.telefonnummer"}
                         label={t("felles.telefon")}
+                        rules={{pattern: /^\d+$/}}
                     />
 
                     {/* 2.5 */}
                     <RHFInput
                         name={"kontaktinfo.epost"}
                         label={t("felles.epost")}
+                        // TODO: Validere e-post
                     />
 
                     {/* 2.7 */}
@@ -86,6 +87,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                             <RHFInput
                                 name={"oppholdsland"}
                                 label={t("omSoekeren.oppgiLand")}
+                                rules={{pattern: /^[\w|\s]+$/}}
                             />
 
                             <RHFToValgRadio
@@ -99,6 +101,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     <RHFInput
                         name={"kontonummer"}
                         label={t("omSoekeren.norskKontonummer")}
+                        rules={{pattern: /^\d{11}$/}}
                     />
                     {/* TODO: Automatisk fylle inn kontonummer vi har, men gi bruker mulighet til å endre. */}
 
@@ -112,6 +115,8 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     <br />
 
                     {nySivilstatusEtterDoedsfallet === "Samboerskap" && (<SamboerSkjema />)}
+
+                    <Feilmeldinger errors={errors} />
 
                     <SkjemaGruppe className={"navigasjon-rad"}>
                         <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>

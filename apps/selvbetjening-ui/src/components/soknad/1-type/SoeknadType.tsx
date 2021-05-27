@@ -8,27 +8,22 @@ import { ActionTypes } from "../../../context/soknad/soknad";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Hovedknapp } from "nav-frontend-knapper";
 import Datovelger from "../../felles/Datovelger";
-import { RHFToValgRadio, RHFRadio } from "../../felles/RHFRadio";
-import SoeknadTypeSchema from "./SoeknadTypeSchema";
+import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import { IStoenadType, Ytelse } from "../../../typer/ytelser";
+import Feilmeldinger from "../../felles/Feilmeldinger";
 
 const SoeknadType: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
 
     const { state, dispatch } = useSoknadContext();
-    const initialState = state.stoenadType || {};
 
     const methods = useForm<IStoenadType>({
-        mode: "onSubmit",
-        defaultValues: initialState,
-        resolver: yupResolver(SoeknadTypeSchema),
+        defaultValues: state.stoenadType || {},
     });
 
     const {
-        control,
         handleSubmit,
         formState: { errors },
     } = methods;
@@ -79,16 +74,18 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
                 <SkjemaGruppe>
                     <Datovelger
                         name={"fraDato"}
-                        control={control}
                         label={t("felles.fraDato")}
-                        feil={errors.fraDato && "Fra dato må være satt."}
                     />
                 </SkjemaGruppe>
 
-                <AlertStripe type="info">
-                    <strong>{t("stoenadType.etterbetaling.tittel")}: </strong>
-                    {t("stoenadType.etterbetaling.info")}
-                </AlertStripe>
+                <SkjemaGruppe>
+                    <AlertStripe type="info">
+                        <strong>{t("stoenadType.etterbetaling.tittel")}: </strong>
+                        {t("stoenadType.etterbetaling.info")}
+                    </AlertStripe>
+                </SkjemaGruppe>
+
+                <Feilmeldinger errors={errors} />
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
                     <Hovedknapp htmlType={"submit"}>{t("knapp.neste")}</Hovedknapp>

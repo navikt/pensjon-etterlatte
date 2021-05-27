@@ -11,11 +11,7 @@ import IValg from "../../../../typer/IValg";
 const ForholdAvoedSkjema = () => {
     const { t } = useTranslation();
 
-    const {
-        control,
-        watch,
-        formState: { errors }
-    } = useFormContext<ISoeker>();
+    const { watch } = useFormContext<ISoeker>();
 
     const forholdTilAvdoede = watch("forholdTilAvdoed.forholdTilAvdoede")
     const varSkiltFoerDoedsfall = watch("forholdTilAvdoed.varSkiltFoerDoedsfall")
@@ -52,9 +48,7 @@ const ForholdAvoedSkjema = () => {
             {/* 2.9 */}
             <Datovelger
                 name={"forholdTilAvdoed.datoForInngaattPartnerskap"}
-                control={control}
                 label={t("omSoekeren.forholdTilAvdoede.datoForPartnerskap")}
-                feil={errors.forholdTilAvdoed?.datoForInngaattPartnerskap && "Må fylles ut"}
             />
 
             {/* 2.10 */}
@@ -74,9 +68,7 @@ const ForholdAvoedSkjema = () => {
             {varSkiltFoerDoedsfall === IValg.JA && (
                 <Datovelger
                     name={"forholdTilAvdoed.datoForSkilsmisse"}
-                    control={control}
                     label={t("omSoekeren.datoForSamlivsbrudd")}
-                    feil={errors.forholdTilAvdoed?.datoForSkilsmisse && "Må fylles ut"}
                 />
             )}
 
@@ -90,6 +82,7 @@ const ForholdAvoedSkjema = () => {
                 <RHFInput
                     name={"forholdTilAvdoed.bidragBeloepPrAar"}
                     label={t("omSoekeren.bidragBeloep")}
+                    rules={{pattern: /^\d+$/}}
                 />
             )}
         </Panel>
