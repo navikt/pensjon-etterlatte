@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import kotliquery.Row
 import kotliquery.queryOf
 import kotliquery.sessionOf
 import kotliquery.using
@@ -19,7 +20,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         val CREATE_SOEKNAD = "INSERT INTO soeknad(id, fnr, data) VALUES(?, ?, (to_json(?::json)))"
         val CREATE_HENDELSE = "INSERT INTO hendelse(id, soeknad, status, data) VALUES(?, ?, ?, (to_json(?::json)))"
         val SELECT_OLD = """
-                        SELECT *, now() - interval '5 minutes' 
+                        SELECT *
                         FROM soeknad s 
                         where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt') and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
                         fetch first 10 rows only""".trimIndent()
@@ -52,6 +53,8 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             return PostgresSoeknadRepository(datasource)
         }
     }
+
+    private val postgresTimeZone = ZoneId.of("UTC")
     override fun nySoeknad(soeknad: UlagretSoeknad): LagretSoeknad{
         return using(sessionOf(dataSource)) { session ->
             session.transaction {
@@ -97,9 +100,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         session.transaction {
             it.run(queryOf(
                 SELECT_OLDEST_UNSENT, emptyMap()).map { row ->
-                row.localDateTimeOrNull(1)?.let{
-                    it.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime()
-                }
+                row.postgresLocalDate(1)
             }.asSingle)
         }
     }
@@ -107,9 +108,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         session.transaction {
             it.run(queryOf(
                 SELECT_OLDEST_UNARCHIVED, emptyMap()).map { row ->
-                row.localDateTimeOrNull(1)?.let{
-                    it.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime()
-                }
+                row.postgresLocalDate(1)
             }.asSingle)
         }
     }
@@ -121,6 +120,12 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             }.asList)
         }
     }.toMap()
+
+    private fun Row.postgresLocalDate(columnIndex: Int) =
+        localDateTimeOrNull(columnIndex)
+            ?.atZone(postgresTimeZone)
+            ?.withZoneSameInstant(ZoneId.systemDefault())
+            ?.toLocalDateTime()
 }
 
 
@@ -135,9 +140,3 @@ data class UlagretSoeknad(
     val fnr: String,
     val soeknad: String
 )
-
-data class Rapport(
-    val opprettet: Long,
-    val sendt: Long,
-    val arkivert: Long
-    )

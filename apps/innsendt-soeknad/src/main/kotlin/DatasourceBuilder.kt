@@ -33,7 +33,7 @@ class DataSourceBuilder(env: Map<String, String>) {
 
     fun getDataSource() = HikariDataSource(hikariConfig)
 
-    fun migrate() =runMigration(getDataSource())
+    fun migrate() =getDataSource().use { runMigration(it) }
 
 
     private fun runMigration(dataSource: DataSource) =
