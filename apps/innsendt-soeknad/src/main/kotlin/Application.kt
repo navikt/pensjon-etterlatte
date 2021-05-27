@@ -81,10 +81,10 @@ fun main() {
                         while(true) {
                             delay(60_000)
                             db.eldsteUsendte()?.apply {
-                                usendtAlder.set(ChronoUnit.MINUTES.between(LocalDateTime.now(), this).toDouble())
+                                usendtAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
                             }
                             db.eldsteUarkiverte()?.apply {
-                                ikkeJournalfoertAlder.set(ChronoUnit.MINUTES.between(LocalDateTime.now(), this).toDouble())
+                                ikkeJournalfoertAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
                             }
 
                             db.rapport().also{
