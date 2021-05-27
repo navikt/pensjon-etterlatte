@@ -13,6 +13,9 @@ import LeggTilArbeidsforholdSkjema from "./LeggTilArbeidsforholdSkjema";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ITidligereArbeidsforhold } from "../../../typer/arbeidsforhold";
 
+/**
+ * TODO: Skal kun fylles ut dersom søker har valgt "pensjon/overgangsstønad", "skolepenger", eller "barnetilsyn"
+ */
 const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
     const { t, i18n } = useTranslation();
     const { state, dispatch } = useSoknadContext();
@@ -34,16 +37,12 @@ const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
             payload: index,
         });
 
-    const lukkModalvindu = () => {
-        setIsOpen(false);
-    };
+    const lukkModalvindu = () => setIsOpen(false);
 
     const dtf = Intl.DateTimeFormat(i18n.language, { month: "short", year: "numeric" });
 
     return (
         <>
-            {/* TODO: Kun relevant hvis "skolepenger" */}
-            {/* TODO: Kun relevant hvis IKKE i arbeid, eks. hvis student. */}
             {/* Steg 4 */}
 
             <Systemtittel>{t("tidligereArbeidsforhold.tittel")}</Systemtittel>

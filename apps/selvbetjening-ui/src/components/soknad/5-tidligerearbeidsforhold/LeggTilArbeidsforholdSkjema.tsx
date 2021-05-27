@@ -1,11 +1,10 @@
-import { Input, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Hovedknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import Datovelger from "../../felles/Datovelger";
-import TidligereArbeidsforholdSchema from "./TidligereArbeidsforholdSchema";
 import { ITidligereArbeidsforhold } from "../../../typer/arbeidsforhold";
+import RHFInput from "../../felles/RHFInput";
 
 interface Props {
     lagre: (data: ITidligereArbeidsforhold) => void;
@@ -14,42 +13,29 @@ interface Props {
 const LeggTilArbeidsforholdSkjema = ({ lagre }: Props) => {
     const { t } = useTranslation();
 
-    const methods = useForm<ITidligereArbeidsforhold>({
-        mode: "onSubmit",
-        resolver: yupResolver(TidligereArbeidsforholdSchema),
-    });
+    const methods = useForm<ITidligereArbeidsforhold>();
 
-    const {
-        control,
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = methods;
+    const { handleSubmit } = methods;
 
     return (
         <FormProvider {...methods}>
-            <form style={{ padding: "2rem 2.5rem" }} onSubmit={handleSubmit(lagre)}>
+            <form style={{ padding: "2rem 2.5rem" }} onSubmit={handleSubmit(lagre, (err) => console.log(err))}>
                 <SkjemaGruppe>
-                    <Input
-                        {...register("beskrivelse")}
+                    <RHFInput
+                        name={"beskrivelse"}
                         label={t("tidligereArbeidsforhold.skoleKursArbeidOsv")}
-                        feil={errors?.beskrivelse?.message}
                     />
                 </SkjemaGruppe>
 
                 <div className={"skjemagruppe skjemagruppe__inline"}>
                     <Datovelger
                         name={"fraDato"}
-                        control={control}
                         label={t("felles.fraDato")}
-                        feil={errors?.fraDato?.message}
                     />
 
                     <Datovelger
                         name={"tilDato"}
-                        control={control}
                         label={t("felles.tilDato")}
-                        feil={errors?.tilDato?.message}
                     />
                 </div>
 

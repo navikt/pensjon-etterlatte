@@ -3,18 +3,15 @@ import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import { Label, SkjemaelementFeilmelding } from "nav-frontend-skjema";
 import { parseISO } from "date-fns";
 import { enUS as en, nb, nn } from "date-fns/locale";
-import { v4 as uuid } from "uuid";
 import { useTranslation } from "react-i18next";
-import { Controller } from "react-hook-form";
+import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath } from "react-hook-form/dist/types";
 import classnames from "classnames";
-import { Control } from "react-hook-form/dist/types/form";
+import { get } from "lodash";
 
 interface DatovelgerProps {
     name: FieldPath<any>;
-    control: Control<any>;
-    label: string;
-    feil?: ReactNode | boolean;
+    label: ReactNode;
 }
 
 const parseDate = (dato: Date | string) => {
@@ -25,8 +22,9 @@ const parseDate = (dato: Date | string) => {
 /*
 * TODO: Ikke mulig å enkelt tabbe gjennom datovelgeren... må fikses!
 */
-const Datovelger = ({ name, control, label, feil }: DatovelgerProps) => {
-    const { i18n } = useTranslation();
+const Datovelger = ({ name, label }: DatovelgerProps) => {
+    const { t, i18n } = useTranslation();
+    const { control, formState: { errors } } = useFormContext();
 
     registerLocale("nb", nb);
     registerLocale("nn", nn);
@@ -36,7 +34,8 @@ const Datovelger = ({ name, control, label, feil }: DatovelgerProps) => {
         setDefaultLocale(i18n.language);
     }, [i18n.language]);
 
-    const id = uuid();
+    const error: FieldError = get(errors, name)
+    const feil = error && t(`feil.${error.ref?.name}.${error.type}`)
 
     const classNames = classnames(
         "skjemaelement__input",
@@ -46,15 +45,16 @@ const Datovelger = ({ name, control, label, feil }: DatovelgerProps) => {
 
     return (
         <section className={"skjemaelement"}>
-            <Label htmlFor={id}>{label}</Label>
+            <Label htmlFor={name}>{label}</Label>
 
             <Controller
                 name={name}
                 control={control}
                 defaultValue={undefined}
+                rules={{required: true}}
                 render={({ field: { onChange, onBlur, value } }) => (
                     <DatePicker
-                        id={id}
+                        id={name}
                         className={classNames}
                         selected={parseDate(value)}
                         dateFormat={"dd.MM.yy"}

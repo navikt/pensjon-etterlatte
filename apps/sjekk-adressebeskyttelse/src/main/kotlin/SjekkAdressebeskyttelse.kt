@@ -50,7 +50,7 @@ internal class SjekkAdressebeskyttelse(
                     }
                 }
             packet["@adressebeskyttelse"] = beskyttelse
-
+            println("vurdert adressebeskyttelse til $beskyttelse")
             context.publish(packet.toJson())
         }
     }

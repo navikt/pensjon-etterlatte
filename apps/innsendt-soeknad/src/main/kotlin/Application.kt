@@ -8,12 +8,15 @@ import io.ktor.auth.Authentication
 import io.ktor.auth.authenticate
 import io.ktor.auth.principal
 import io.ktor.config.HoconApplicationConfig
+import io.ktor.features.ContentNegotiation
 import io.ktor.http.ContentType
+import io.ktor.jackson.jackson
 import io.ktor.request.receive
 import io.ktor.response.respondText
 import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.routing
+import io.prometheus.client.Gauge
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -24,18 +27,22 @@ import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import no.nav.security.token.support.ktor.tokenValidationSupport
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
 
 fun Route.soeknadApi(db: SoeknadRepository){
      post("/api/soeknad") {
-            val fnr = call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
-            val soknad = call.receive<JsonNode>()
-            val lagretSoeknad = db.nySoeknad(UlagretSoeknad(fnr, soknad.toJson()))
-            call.respondText(lagretSoeknad.id.toString(), ContentType.Text.Plain)
-        }
+         val fnr = call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
+         val soknad = call.receive<JsonNode>()
+         val lagretSoeknad = db.nySoeknad(UlagretSoeknad(fnr, soknad.toJson()))
+         call.respondText(lagretSoeknad.id.toString(), ContentType.Text.Plain)
+     }
 }
 
 
 fun main() {
+
+
     val datasourceBuilder = DataSourceBuilder(System.getenv())
     val db = PostgresSoeknadRepository.using(datasourceBuilder.getDataSource())
 
@@ -43,6 +50,9 @@ fun main() {
         .withKtorModule {
             install(Authentication) {
                 tokenValidationSupport(config = HoconApplicationConfig(ConfigFactory.load()))
+            }
+            install(ContentNegotiation) {
+                jackson()
             }
 
             routing {
@@ -57,9 +67,30 @@ fun main() {
                     GlobalScope.launch {
                         val rapid = SoeknadPubliserer(rapidsConnection, db)
                         while(true) {
-                            delay(600_000)
+                            delay(120_000)
                             db.usendteSoeknader().forEach {
                                 rapid.publiser(it)
+                            }
+                        }
+                    }
+                    GlobalScope.launch {
+                        val usendtAlder = Gauge.build("alder_eldste_usendte", "Alder på elste usendte søknad").register()
+                        val ikkeJournalfoertAlder = Gauge.build("alder_eldste_uarkiverte", "Alder på eldste ikke-arkiverte søknad").register()
+                        val soknadTilstand = Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand").register()
+
+                        while(true) {
+                            delay(60_000)
+                            db.eldsteUsendte()?.apply {
+                                usendtAlder.set(ChronoUnit.MINUTES.between(LocalDateTime.now(), this).toDouble())
+                            }
+                            db.eldsteUarkiverte()?.apply {
+                                ikkeJournalfoertAlder.set(ChronoUnit.MINUTES.between(LocalDateTime.now(), this).toDouble())
+                            }
+
+                            db.rapport().also{
+                                println(it)
+                            }.forEach{
+                                soknadTilstand.labels(it.key).set(it.value.toDouble())
                             }
                         }
                     }

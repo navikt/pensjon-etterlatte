@@ -10,11 +10,7 @@ import IValg from "../../../../typer/IValg";
 const NySivilstatusSkjema = () => {
     const { t } = useTranslation();
 
-    const {
-        control,
-        watch,
-        formState: { errors }
-    } = useFormContext<ISoeker>();
+    const { watch } = useFormContext<ISoeker>();
 
     const nySivilstatus = watch("nySivilstatus.nySivilstatusEtterDoedsfallet");
     const harNySivilstatus = !!nySivilstatus && nySivilstatus !== NySivilstatus.ingen;
@@ -44,9 +40,7 @@ const NySivilstatusSkjema = () => {
                     {/* 2.13 */}
                     <Datovelger
                         name={"nySivilstatus.datoForInngaaelse"}
-                        control={control}
                         label={t("omSoekeren.nyInngaaelse.dato")}
-                        feil={errors.nySivilstatus?.datoForInngaaelse && "Må besvares"}
                     />
 
                     {/* 2.14 */}
@@ -79,9 +73,7 @@ const NySivilstatusSkjema = () => {
 
                             <Datovelger
                                 name={"nySivilstatus.datoForOpploesningen"}
-                                control={control}
                                 label={t("omSoekeren.nyInngaaelseOpploestDato")}
-                                feil={errors.nySivilstatus?.datoForOpploesningen && "Må besvares"}
                             />
                         </>
                     )}
