@@ -71,10 +71,10 @@ internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListene
 }
 fun finnGradering(node: JsonNode) : Graderinger {
 
-    if ( node.isMissingOrNull() || node.textValue() == "") {
-        Graderinger.INGEN_BESKYTTELSE
+   return if ( node.isMissingOrNull() || node.textValue() == "") {
+         Graderinger.INGEN_BESKYTTELSE
     }
-    return try {
+    else try {
          Graderinger.valueOf(node.textValue())
     } catch (e: IllegalArgumentException) {
         //Riktig default?

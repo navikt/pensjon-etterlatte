@@ -1,0 +1,27 @@
+{
+  "data": {
+    "hentPersonBolk": [
+      {
+        "ident": "12345678910",
+        "person": {
+          "adressebeskyttelse": [
+            {
+              "gradering": "STRENGT_FORTROLIG_UTLAND"
+            }
+          ]
+        }
+      },
+      {
+        "ident": "12345678910",
+        "person": {
+          "adressebeskyttelse": [
+            {
+              "gradering": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
