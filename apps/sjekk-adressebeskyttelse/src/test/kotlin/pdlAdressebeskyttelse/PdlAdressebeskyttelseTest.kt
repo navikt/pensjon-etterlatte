@@ -22,7 +22,7 @@ internal class PdlAdressebeskyttelseTest {
                 addHandler { request ->
                     when (request.url.fullPath) {
                         "/" -> {
-                            val response = javaClass.getResource("/mockOne.json").readText().replace(Regex("[\n\t]"), "")
+                            val response = javaClass.getResource("/pdlMock1.json").readText().replace(Regex("[\n\t]"), "")
                             val responseHeaders =
                                 headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
                             respond(response, headers = responseHeaders
@@ -40,7 +40,9 @@ internal class PdlAdressebeskyttelseTest {
 
         runBlocking {
             PdlAdressebeskyttelse(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(listOf("12334466","4231423142","234234325")).also {
-                assertEquals("STRENGT_FORTROLIG", it.flatMap{ it.get("adressebeskyttelse") }[0].textValue())
+                println("gah")
+                //fikset, men dette er ikke pen
+                assertEquals("FORTROLIG", it.get("hentPersonBolk").get(0).get("person").get("adressebeskyttelse").get(0).get("gradering").textValue())
 
             }
         }

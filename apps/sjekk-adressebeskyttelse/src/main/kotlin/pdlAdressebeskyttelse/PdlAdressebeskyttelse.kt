@@ -28,7 +28,7 @@ class PdlAdressebeskyttelse(private val client: HttpClient, private val apiUrl: 
             body = request
         }.also {
 
-        return it.get("data").get("hentPersonBolk")//.get("adressebeskyttelse").get("gradering")
+        return it.get("data")//.get("hentPersonBolk")//.get("person") //.get("adressebeskyttelse").get("gradering")
         }
     }
     fun getGraphqlResource(file: String): String =
