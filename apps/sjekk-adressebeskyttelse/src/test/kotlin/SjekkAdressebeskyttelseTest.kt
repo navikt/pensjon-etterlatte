@@ -27,6 +27,7 @@ class FinnAdressebeskyttelseTest {
             }.inspektør
 
         assertEquals("STRENGT_FORTROLIG", inspector.message(0).get("@adressebeskyttelse").asText())
+        
         //assertEquals("etterlatt_barn_identifisert", inspector.message(0).get("@event_name").asText())
         //assertEquals("456", inspector.message(0).get("@etterlatt_ident").asText())
         //assertEquals("789", inspector.message(1).get("@etterlatt_ident").asText())

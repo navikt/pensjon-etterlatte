@@ -2,11 +2,14 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.INGENBESKYTTELSE
+import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
+import no.nav.helse.rapids_rivers.isMissingOrNull
 
 
 internal class SjekkAdressebeskyttelse(
@@ -14,10 +17,6 @@ internal class SjekkAdressebeskyttelse(
     private val pdl: FinnAdressebeskyttelseForFnr
 ) :
     River.PacketListener {
-    val KODE6 = "STRENGT_FORTROLIG"
-    val KODE7 = "FORTROLIG"
-    val KODE19 = "STRENGT_FORTROLIG_UTLAND"
-    val INGENBESKYTTELSE = "INGEN_BESKYTTELSE"
 
     init {
         River(rapidsConnection).apply {
@@ -35,25 +34,16 @@ internal class SjekkAdressebeskyttelse(
         if(identer.isNotEmpty()) {
             runBlocking {
 
-                val graderinger = pdl.finnAdressebeskyttelseForFnr(identer)
+                val beskyttelse = pdl.finnAdressebeskyttelseForFnr(identer)
                     .flatMap { it.get("hentPersonBolk") }
                     .map { it.get("adressebeskyttelse") }
                     .map { it.get("gradering") }
+                    .map {finnGradering(it)}
+                    .minByOrNull { it.ordinal } ?: Graderinger.INGEN_BESKYTTELSE
 
-                var beskyttelse = INGENBESKYTTELSE
 
-                for (element in graderinger)
-                    when (element.textValue()) {
-                        KODE6 -> beskyttelse = KODE6
-                        KODE19 -> if (beskyttelse != KODE6) {
-                            beskyttelse = KODE19
-                        }
-                        KODE7 -> if (beskyttelse != KODE6 && beskyttelse != KODE19) {
-                            beskyttelse = KODE7
-                        }
-                    }
-                packet["@adressebeskyttelse"] = beskyttelse
-                println("vurdert adressebeskyttelse til $beskyttelse")
+                packet["@adressebeskyttelse"] = beskyttelse.name
+                println("vurdert adressebeskyttelse til ${beskyttelse.name}")
                 context.publish(packet.toJson())
             }
         } else {
@@ -76,6 +66,18 @@ internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListene
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         println(packet.toJson())
+    }
+}
+fun finnGradering(node: JsonNode) : Graderinger {
+
+    if ( node.isMissingOrNull() || node.textValue() == "") {
+        Graderinger.INGEN_BESKYTTELSE
+    }
+    return try {
+         Graderinger.valueOf(node.textValue())
+    } catch (e: IllegalArgumentException) {
+        //Riktig default?
+        Graderinger.STRENGT_FORTROLIG
     }
 }
 
