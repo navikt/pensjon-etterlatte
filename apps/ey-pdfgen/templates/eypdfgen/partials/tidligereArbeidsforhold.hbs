@@ -15,15 +15,18 @@
                     <table class="inner">
                         <thead>
                         <tr>
-                            <th>Beskrivelse:</th>
-                            <th>{{this.beskrivelse}}</th>
+                            <th colspan="2">Tidl. arbeidsforhold nr. {{inc @index}}</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr>
+                            <td>Beskrivelse:</td>
+                            <td>{{this.beskrivelse}}</td>
+                        </tr>
+                        <tr>
                             <td>Varighet:</td>
-                            <td>{{this.fraDato}} - {{this.tilDato}}</td>
+                            <td>{{iso_to_nor_date this.fraDato}} - {{iso_to_nor_date this.tilDato}}</td>
                         </tr>
                         </tbody>
                     </table>

@@ -19,11 +19,11 @@
         </tr>
         <tr>
             <td>Startdato:</td>
-            <td>{{this.startDato}}</td>
+            <td>{{iso_to_nor_date this.startDato}}</td>
         </tr>
         <tr>
             <td>Sluttdato:</td>
-            <td>{{this.sluttDato}}</td>
+            <td>{{iso_to_nor_date this.sluttDato}}</td>
         </tr>
         <tr>
             <td>Ansettelsesforhold:</td>
@@ -35,7 +35,7 @@
         </tr>
         <tr>
             <td>Stillingsprosent:</td>
-            <td>{{this.stillingsprosent}}</td>
+            <td>{{this.stillingsprosent}}%</td>
         </tr>
 
         {{#with this.arbeidsgiver}}

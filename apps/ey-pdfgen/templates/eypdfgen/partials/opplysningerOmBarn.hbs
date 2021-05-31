@@ -15,12 +15,15 @@
                     <table class="inner">
                         <thead>
                         <tr>
-                            <th>Navn:</th>
-                            <th>{{this.fornavn}} {{this.etternavn}}</th>
+                            <th colspan="2">Barn {{inc @index}}</th>
                         </tr>
                         </thead>
 
                         <tbody>
+                        <tr>
+                            <td>Navn:</td>
+                            <td>{{this.fornavn}} {{this.etternavn}}</td>
+                        </tr>
                         <tr>
                             <td>Fødselsnummer:</td>
                             <td>{{this.foedselsnummer}}</td>

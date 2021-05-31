@@ -10,30 +10,16 @@
     <tbody>
     {{#with stoenadType}}
         <tr>
-            <td>
-                Valgte stønader:
-            </td>
-            <td>
-                {{#if this.etterlatte}}
-                    <div>- Etterlatte</div>
-                {{/if}}
-                {{#if this.gjenlevendetillegg}}
-                    <div>- Gjenlevendetilegg</div>
-                {{/if}}
-                {{#if this.barnepensjon}}
-                    <div>- Barnepensjon</div>
-                {{/if}}
-                {{#if this.barnetilsyn}}
-                    <div>- Barnetilsyn</div>
-                {{/if}}
-                {{#if this.skolepenger}}
-                    <div>- Skolepenger</div>
-                {{/if}}
-            </td>
+            <td>Valgt hovedytelse:</td>
+            <td>{{capitalize this.valgteYtelser.hovedytelse}}</td>
+        </tr>
+        <tr>
+            <td>Søker også barnepensjon</td>
+            <td>{{capitalize this.valgteYtelser.barnepensjon}}</td>
         </tr>
         <tr>
             <td>Fra dato:</td>
-            <td>{{this.fraDato}}</td>
+            <td>{{iso_to_nor_date this.fraDato}}</td>
         </tr>
     {{/with}}
     </tbody>
