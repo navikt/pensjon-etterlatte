@@ -29,25 +29,34 @@ internal class SjekkAdressebeskyttelse(
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
 
-        val identer  = packet["@fnr_liste"].map { it.asText() } + packet["@fnr_soeker"].textValue()
+        val identer = packet["@fnr_liste"].map { it.asText() } + packet["@fnr_soeker"].textValue()
 
-        if(identer.isNotEmpty()) {
+        if (identer.isNotEmpty()) {
             runBlocking {
 
-                //val gah = pdl.finnAdressebeskyttelseForFnr(identer)
-                //println(gah.toString())
-                val beskyttelse = pdl.finnAdressebeskyttelseForFnr(identer)
-                    .flatMap { it.get("hentPersonBolk") }
+
+                println("before")
+                val bah = pdl.finnAdressebeskyttelseForFnr(identer)
+                println(bah.toString())
+                println(bah.get("hentPersonBolk").toString());
+                val buh = bah.flatMap { bah.get("hentPersonBolk") }
                     .map { it.get("person") }
-                    .map { it.get("adressebeskyttelse")[0] }
-                    //.map { it.get("gradering") }
-                    .map {finnGradering(it)}
+                    .map { it.get("adressebeskyttelse") }
+                    .map { finnGradering(it) }
                     .minByOrNull { it.ordinal } ?: Graderinger.INGEN_BESKYTTELSE
 
-
-                packet["@adressebeskyttelse"] = beskyttelse.name
-                println("vurdert adressebeskyttelse til ${beskyttelse.name}")
+                packet["@adressebeskyttelse"] = buh.name
+                println("vurdert adressebeskyttelse til ${buh.name}")
                 context.publish(packet.toJson())
+
+                //.also{
+                //Do something
+                //}
+
+
+                //packet["@adressebeskyttelse"] = beskyttelse.name
+                //println("vurdert adressebeskyttelse til ${beskyttelse.name}")
+                //context.publish(packet.toJson())
             }
         } else {
             packet["@adressebeskyttelse"] = INGENBESKYTTELSE
@@ -71,18 +80,19 @@ internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListene
         println(packet.toJson())
     }
 }
-fun finnGradering(node: JsonNode) : Graderinger {
 
-   return if ( node.isMissingOrNull() || node.textValue() == "") {
-         Graderinger.INGEN_BESKYTTELSE
-    }
-     else if (node.get("gradering").isMissingOrNull() || node.get("gradering").textValue() == ""){
-       Graderinger.INGEN_BESKYTTELSE
-   }
-    else try {
-         Graderinger.valueOf(node.get("gradering").textValue())
+fun finnGradering(nodes: JsonNode): Graderinger {
+
+    val node = nodes[0]
+    return if (nodes.isMissingOrNull() || nodes.toString() == "[]") {
+        Graderinger.INGEN_BESKYTTELSE
+    } else if (node.isMissingOrNull() || node.get("gradering").textValue() == "") {
+        Graderinger.INGEN_BESKYTTELSE
+    } else try {
+        Graderinger.valueOf(node.get("gradering").textValue())
     } catch (e: IllegalArgumentException) {
         //Riktig default?
+        println("uggabugga")
         Graderinger.STRENGT_FORTROLIG
     }
 }

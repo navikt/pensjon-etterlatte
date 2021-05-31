@@ -67,6 +67,20 @@ class FinnAdressebeskyttelseTest {
         assertEquals("STRENGT_FORTROLIG_UTLAND", inspector.message(0).get("@adressebeskyttelse").asText())
 
     }
+    @Test
+    fun faktiskTomRetur() {
+        val json = getTestResource("/OppdaterJournalpostInfoTest1.json")
+        val inspector = TestRapid()
+            .apply { SjekkAdressebeskyttelse(this, FinnAdressebeskyttelseMock("/pdl-faktisk.json")) }
+            .apply {
+                sendTestMessage(
+                    json
+                )
+            }.inspektør
+
+        assertEquals("INGEN_BESKYTTELSE", inspector.message(0).get("@adressebeskyttelse").asText())
+
+    }
 
     fun getTestResource( file: String): String {
         return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
