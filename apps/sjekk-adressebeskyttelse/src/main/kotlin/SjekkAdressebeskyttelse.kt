@@ -33,30 +33,18 @@ internal class SjekkAdressebeskyttelse(
 
         if (identer.isNotEmpty()) {
             runBlocking {
-
-
-                println("before")
-                val bah = pdl.finnAdressebeskyttelseForFnr(identer)
-                println(bah.toString())
-                println(bah.get("hentPersonBolk").toString());
-                val buh = bah.flatMap { bah.get("hentPersonBolk") }
+                val buh = pdl.finnAdressebeskyttelseForFnr(identer)
+                println(buh.toString())
+                val beskyttelse = pdl.finnAdressebeskyttelseForFnr(identer)
+                    .flatMap { it.get("hentPersonBolk") }
                     .map { it.get("person") }
                     .map { it.get("adressebeskyttelse") }
                     .map { finnGradering(it) }
                     .minByOrNull { it.ordinal } ?: Graderinger.INGEN_BESKYTTELSE
 
-                packet["@adressebeskyttelse"] = buh.name
-                println("vurdert adressebeskyttelse til ${buh.name}")
+                packet["@adressebeskyttelse"] = beskyttelse.name
+                println("vurdert adressebeskyttelse til ${beskyttelse.name}")
                 context.publish(packet.toJson())
-
-                //.also{
-                //Do something
-                //}
-
-
-                //packet["@adressebeskyttelse"] = beskyttelse.name
-                //println("vurdert adressebeskyttelse til ${beskyttelse.name}")
-                //context.publish(packet.toJson())
             }
         } else {
             packet["@adressebeskyttelse"] = INGENBESKYTTELSE
@@ -92,7 +80,6 @@ fun finnGradering(nodes: JsonNode): Graderinger {
         Graderinger.valueOf(node.get("gradering").textValue())
     } catch (e: IllegalArgumentException) {
         //Riktig default?
-        println("uggabugga")
         Graderinger.STRENGT_FORTROLIG
     }
 }
