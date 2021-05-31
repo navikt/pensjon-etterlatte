@@ -1,19 +1,15 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.nfeld.jsonpathkt.JsonPath
-import com.nfeld.jsonpathkt.extension.read
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.libs.common.journalpost.AvsenderMottaker
+import no.nav.etterlatte.libs.common.journalpost.Bruker
+import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
-import no.nav.etterlatte.libs.common.journalpost.*
 
 
 internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
@@ -53,7 +49,7 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
         val KODE6 = "STRENGT_FORTROLIG"
         val KODE7 = "FORTROLIG"
         val KODE19 = "STRENGT_FORTROLIG_UTLAND"
-        val INGENBESKYTTELSE = "INGEN BESKYTTELSE"
+        val INGENBESKYTTELSE = "INGEN_BESKYTTELSE"
         var resultat: String
 
         when (adressebeskyttelse.textValue()) {

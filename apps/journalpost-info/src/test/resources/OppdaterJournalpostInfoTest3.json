@@ -1,0 +1,5 @@
+{
+  "@event_name": "soeknad_innsendt",
+  "@adressebeskyttelse": "STRENGT_FORTROLIG_UTLAND",
+  "@fnr_soeker": "12345678901"
+}

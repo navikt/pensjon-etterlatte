@@ -17,7 +17,7 @@ internal class SjekkAdressebeskyttelse(
     val KODE6 = "STRENGT_FORTROLIG"
     val KODE7 = "FORTROLIG"
     val KODE19 = "STRENGT_FORTROLIG_UTLAND"
-    val INGENBESKYTTELSE = "INGEN BESKYTTELSE"
+    val INGENBESKYTTELSE = "INGEN_BESKYTTELSE"
 
     init {
         River(rapidsConnection).apply {
