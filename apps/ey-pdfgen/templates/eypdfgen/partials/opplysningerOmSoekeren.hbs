@@ -8,7 +8,11 @@
     </thead>
 
     <tbody>
-    {{#with soeker}}
+    {{#with opplysningerOmSoekeren}}
+
+    <!-- TODO: Opplysninger om søker må fikses. Fylles ut av backend? -->
+
+    <!--
         <tr>
             <td>Fornavn:</td>
             <td>{{this.fornavn}}</td>
@@ -29,29 +33,134 @@
             <td>Statsborgerskap:</td>
             <td>{{this.statsborgerskap}}</td>
         </tr>
-        <tr>
-            <td>Sivilstatus:</td>
-            <td>{{this.sivilstatus}}</td>
-        </tr>
-    {{/with}}
+-->
 
-    {{#with kontaktinfo}}
         <tr>
-            <td>Boadresse Bekreftet:</td>
-            <td>{{this.boadresseBekreftet}}</td>
+            <td>Folkeregistrert adresse bekreftet:</td>
+            <td>{{this.bostedsadresseBekreftet}}</td>
         </tr>
+
         <tr>
-            <td>Telefonnummer:</td>
-            <td>{{this.telefonnummer}}</td>
+            <td colspan="2">
+                <table class="inner">
+                    <tr>
+                        <td>Oppholder seg i Norge:</td>
+                        <td>{{this.oppholderSegINorge}}</td>
+                    </tr>
+                    <tr>
+                        <td>Oppholdsland:</td>
+                        <td>{{this.oppholdsland}}</td>
+                    </tr>
+                    <tr>
+                        <td>Medlem folketrygden utland:</td>
+                        <td>{{this.medlemFolketrygdenUtland}}</td>
+                    </tr>
+                </table>
+            </td>
         </tr>
-        <tr>
-            <td>Epost:</td>
-            <td>{{this.epost}}</td>
-        </tr>
-        <tr>
-            <td>Oppholder seg i Norge:</td>
-            <td>{{this.oppholderSegINorge}}</td>
-        </tr>
+
+        {{#with this.kontaktinfo}}
+            <tr>
+                <td colspan="2">
+                    <table class="inner">
+                        <tr>
+                            <td>Telefonnummer:</td>
+                            <td>{{this.telefonnummer}}</td>
+                        </tr>
+                        <tr>
+                            <td>Epost:</td>
+                            <td>{{this.epost}}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        {{/with}}
+
+        {{#with this.forholdTilAvdoed}}
+            <tr>
+                <td colspan="2">
+                    <table class="inner">
+                        <tr>
+                            <td>Forhold til avdøde:</td>
+                            <td>{{this.forholdTilAvdoede}}</td>
+                        </tr>
+                        <tr>
+                            <td>Dato for inngått partnerskap:</td>
+                            <td>{{this.datoForInngaattPartnerskap}}</td>
+                        </tr>
+                        <tr>
+                            <td>Var skilt før dødsfall:</td>
+                            <td>{{this.varSkiltFoerDoedsfall}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mottok bidrag fra avdøde:</td>
+                            <td>{{this.mottokBidragFraAvdoede}}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        {{/with}}
+
+        {{#with this.nySivilstatus}}
+            <tr>
+                <td colspan="2">
+                    <table class="inner">
+                        <tr>
+                            <td>Ny sivilstatus etter dødsfallet:</td>
+                            <td>{{this.nySivilstatusEtterDoedsfallet}}</td>
+                        </tr>
+                        <tr>
+                            <td>Dato inngått:</td>
+                            <td>{{this.datoForInngaaelse}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ny sivilstatus oppløst:</td>
+                            <td>{{this.nySivilstatusOpploest}}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        {{/with}}
+
+        {{#with this.samboer}}
+            <tr>
+                <td colspan="2">
+                    <table class="inner">
+                        <tr>
+                            <td>Navn:</td>
+                            <td>{{this.navn}}</td>
+                        </tr>
+                        <tr>
+                            <td>Fødselsnummer:</td>
+                            <td>{{this.foedselsnummer}}</td>
+                        </tr>
+                        <tr>
+                            <td>Hatt barn eller vært gift:</td>
+                            <td>{{this.hattBarnEllerVaertGift}}</td>
+                        </tr>
+                        <tr>
+                            <td>Har inntekt:</td>
+                            <td>{{this.harInntekt}}</td>
+                        </tr>
+                        <tr>
+                            <td>Inntektstype:</td>
+                            <td>
+                            {{#with this.inntektstype}}
+                                {{#each this}}
+                                    {{this}},
+                                {{/each}}
+                            {{/with}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Samlet bruttoinntekt pr år:</td>
+                            <td>{{this.samletBruttoinntektPrAar}}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        {{/with}}
+
     {{/with}}
     </tbody>
 </table>

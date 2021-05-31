@@ -23,16 +23,18 @@ internal class SjekkAdressebeskyttelse(
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@fnr_liste") }
+            validate { it.requireKey("@fnr_soeker") }
             validate { it.rejectKey("@adressebeskyttelse") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
 
-        val identer: List<String> = packet["@fnr_liste"].map { it.asText() }
+        val identer  = packet["@fnr_liste"].map { it.asText() } + packet["@fnr_soeker"].textValue()
 
         if(identer.isNotEmpty()) {
             runBlocking {
+
                 val graderinger = pdl.finnAdressebeskyttelseForFnr(identer)
                     .flatMap { it.get("hentPersonBolk") }
                     .map { it.get("adressebeskyttelse") }
@@ -40,8 +42,8 @@ internal class SjekkAdressebeskyttelse(
 
                 var beskyttelse = INGENBESKYTTELSE
 
-                for (i in 0 until graderinger.size)
-                    when (graderinger[i].textValue()) {
+                for (element in graderinger)
+                    when (element.textValue()) {
                         KODE6 -> beskyttelse = KODE6
                         KODE19 -> if (beskyttelse != KODE6) {
                             beskyttelse = KODE19

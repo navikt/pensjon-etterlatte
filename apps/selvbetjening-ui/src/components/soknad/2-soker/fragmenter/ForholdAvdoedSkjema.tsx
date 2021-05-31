@@ -7,6 +7,7 @@ import Datovelger from "../../../felles/Datovelger";
 import RHFInput from "../../../felles/RHFInput";
 import { RHFToValgRadio, RHFRadio } from "../../../felles/RHFRadio";
 import IValg from "../../../../typer/IValg";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const ForholdAvoedSkjema = () => {
     const { t } = useTranslation();
@@ -46,10 +47,12 @@ const ForholdAvoedSkjema = () => {
             />
 
             {/* 2.9 */}
-            <Datovelger
-                name={"forholdTilAvdoed.datoForInngaattPartnerskap"}
-                label={t("omSoekeren.forholdTilAvdoede.datoForPartnerskap")}
-            />
+            <SkjemaGruppe>
+                <Datovelger
+                    name={"forholdTilAvdoed.datoForInngaattPartnerskap"}
+                    label={t("omSoekeren.forholdTilAvdoede.datoForPartnerskap")}
+                />
+            </SkjemaGruppe>
 
             {/* 2.10 */}
             {forholdTilAvdoede === ForholdTilAvdoed.gjenlevendeSamboer && (
@@ -66,10 +69,12 @@ const ForholdAvoedSkjema = () => {
             />
 
             {varSkiltFoerDoedsfall === IValg.JA && (
-                <Datovelger
-                    name={"forholdTilAvdoed.datoForSkilsmisse"}
-                    label={t("omSoekeren.datoForSamlivsbrudd")}
-                />
+                <SkjemaGruppe>
+                    <Datovelger
+                        name={"forholdTilAvdoed.datoForSkilsmisse"}
+                        label={t("omSoekeren.datoForSamlivsbrudd")}
+                    />
+                </SkjemaGruppe>
             )}
 
             {/* 2.12 */}
@@ -79,11 +84,13 @@ const ForholdAvoedSkjema = () => {
             />
 
             {mottokBidragFraAvdoede === IValg.JA && (
-                <RHFInput
-                    name={"forholdTilAvdoed.bidragBeloepPrAar"}
-                    label={t("omSoekeren.bidragBeloep")}
-                    rules={{pattern: /^\d+$/}}
-                />
+                <SkjemaGruppe>
+                    <RHFInput
+                        name={"forholdTilAvdoed.bidragBeloepPrAar"}
+                        label={t("omSoekeren.bidragBeloep")}
+                        rules={{ pattern: /^\d+$/ }}
+                    />
+                </SkjemaGruppe>
             )}
         </Panel>
     );

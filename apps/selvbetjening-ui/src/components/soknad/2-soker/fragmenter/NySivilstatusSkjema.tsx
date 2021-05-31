@@ -6,6 +6,7 @@ import { useFormContext } from "react-hook-form";
 import Datovelger from "../../../felles/Datovelger";
 import { RHFToValgRadio, RHFRadio } from "../../../felles/RHFRadio";
 import IValg from "../../../../typer/IValg";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const NySivilstatusSkjema = () => {
     const { t } = useTranslation();
@@ -38,10 +39,12 @@ const NySivilstatusSkjema = () => {
             {harNySivilstatus && (
                 <>
                     {/* 2.13 */}
-                    <Datovelger
-                        name={"nySivilstatus.datoForInngaaelse"}
-                        label={t("omSoekeren.nyInngaaelse.dato")}
-                    />
+                    <SkjemaGruppe>
+                        <Datovelger
+                            name={"nySivilstatus.datoForInngaaelse"}
+                            label={t("omSoekeren.nyInngaaelse.dato")}
+                        />
+                    </SkjemaGruppe>
 
                     {/* 2.14 */}
                     <RHFToValgRadio
@@ -71,10 +74,12 @@ const NySivilstatusSkjema = () => {
                                 ]}
                             />
 
-                            <Datovelger
-                                name={"nySivilstatus.datoForOpploesningen"}
-                                label={t("omSoekeren.nyInngaaelseOpploestDato")}
-                            />
+                            <SkjemaGruppe>
+                                <Datovelger
+                                    name={"nySivilstatus.datoForOpploesningen"}
+                                    label={t("omSoekeren.nyInngaaelseOpploestDato")}
+                                />
+                            </SkjemaGruppe>
                         </>
                     )}
                 </>

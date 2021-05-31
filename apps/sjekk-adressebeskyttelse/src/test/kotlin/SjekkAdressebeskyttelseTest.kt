@@ -18,7 +18,8 @@ class FinnAdressebeskyttelseTest {
                     JsonMessage.newMessage(
                         mapOf(
                             "@event_name" to "soeknad_innsendt",
-                            "@fnr_liste" to listOf("07106123912","131312342")
+                            "@fnr_liste" to listOf("07106123912","131312342"),
+                            "@fnr_soeker" to "13141544958"
                         )
                     )
                         .toJson()

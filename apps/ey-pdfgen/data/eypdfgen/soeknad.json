@@ -1,92 +1,114 @@
 {
   "stoenadType": {
-    "fraDato": "2021-03-29T22:00:00.000Z",
-    "etterlatte": true,
-    "gjenlevendetillegg": false,
-    "barnepensjon": true,
-    "barnetilsyn": false,
-    "skolepenger": true
+    "valgteYtelser": {
+      "hovedytelse": "gjenlevendetillegg",
+      "barnepensjon": "Ja"
+    },
+    "fraDato": "2021-05-08T22:00:00.000Z"
   },
   "opplysningerOmSoekeren": {
-    "bosted": {
-      "boadresseBekreftet": "Ja"
-    }
+    "bostedsadresseBekreftet": "Ja",
+    "kontaktinfo": {
+      "telefonnummer": "124124",
+      "epost": "asdf@nav.no"
+    },
+    "oppholderSegINorge": "Nei",
+    "kontonummer": "12351232521",
+    "forholdTilAvdoed": {
+      "forholdTilAvdoede": "Ugift, men ble forsørget av den avdøde",
+      "datoForInngaattPartnerskap": "2021-05-13T22:00:00.000Z",
+      "varSkiltFoerDoedsfall": "Nei",
+      "mottokBidragFraAvdoede": "Nei"
+    },
+    "nySivilstatus": {
+      "nySivilstatusEtterDoedsfallet": "samboerskap",
+      "datoForInngaaelse": "2021-04-30T22:00:00.000Z",
+      "nySivilstatusOpploest": "Ja",
+      "aarsakForOpploesningen": "Skilsmisse",
+      "datoForOpploesningen": "2021-05-19T22:00:00.000Z"
+    },
+    "samboer": {
+      "navn": "Bob Saget",
+      "foedselsnummer": "24014021406",
+      "hattBarnEllerVaertGift": "Ja",
+      "harInntekt": "Ja",
+      "inntektstype": [
+        "andreYtelser",
+        "pensjon"
+      ],
+      "samletBruttoinntektPrAar": "12345"
+    },
+    "oppholdsland": "Kongo",
+    "medlemFolketrygdenUtland": "Ja"
   },
   "opplysningerOmDenAvdoede": {
-    "fornavn": "FET",
-    "etternavn": "DISKO",
-    "foedselsnummer": "15913859135",
-    "doedsdato": "2021-04-15T13:45:52.880Z",
-    "statsborgerskap": "DANSK",
-    "pensjonsgivendeInntektSvar": "123456",
-    "pensjonAndreLandSvar": "321321",
-    "avtjentMilitaerTjenesteSvar": "1984",
+    "fornavn": "Test",
+    "etternavn": "Avdødesen",
+    "foedselsnummer": "24014021406",
+    "doedsdato": "2021-04-28T22:00:00.000Z",
+    "statsborgerskap": "Norge",
     "bosetning": "Ja",
     "doedsfallAarsak": "Ja",
     "boddEllerJobbetUtland": "Ja",
     "haddePensjonsgivendeInntekt": "Ja",
+    "pensjonsgivendeInntektSvar": "120000",
     "haddePensjonAndreLand": "Ja",
-    "harAvtjentMilitaerTjeneste": "Ja"
+    "pensjonAndreLandSvar": "40000",
+    "harAvtjentMilitaerTjeneste": "Ja",
+    "avtjentMilitaerTjenesteSvar": "1984"
   },
   "opplysningerOmBarn": [
     {
-      "fornavn": "BARN",
-      "etternavn": "BARNESEN",
-      "foedselsnummer": "5050505050",
+      "fornavn": "Liten",
+      "etternavn": "Bart",
+      "foedselsnummer": "24014021406",
       "foreldre": "Fellesbarn m/avdøde",
       "bosattUtland": "Ja",
-      "statsborgerskap": "POLSK",
-      "land": "DANMARK"
-    },
-    {
-      "fornavn": "TYRKISK",
-      "etternavn": "PEPPER",
-      "foedselsnummer": "050505050",
-      "foreldre": "Avdødes særkullsbarn",
-      "bosattUtland": "Ja",
-      "statsborgerskap": "NIGERIANSK",
-      "land": "POLEN"
+      "statsborgerskap": "Polsk",
+      "land": "Polen"
     }
   ],
   "tidligereArbeidsforhold": [
     {
-      "beskrivelse": "Kurs i potetsteking",
-      "varighet": "3 år"
+      "beskrivelse": "Blæh",
+      "fraDato": "2021-04-28T22:00:00.000Z",
+      "tilDato": "2021-04-26T22:00:00.000Z"
     },
     {
-      "beskrivelse": "MY NAME A BORAT",
-      "varighet": "3 år"
+      "beskrivelse": "Fisk",
+      "fraDato": "2021-04-27T22:00:00.000Z",
+      "tilDato": "2021-05-07T22:00:00.000Z"
     }
   ],
   "naavaerendeArbeidsforhold": {
-    "yrke": "IT",
-    "stilling": "Utvikler",
-    "startDato": "2021-04-15T13:47:59.374Z",
-    "sluttDato": "2021-04-15T13:48:00.348Z",
-    "ansettelsesforhold": "Fast",
-    "heltidDeltid": "Heltid",
-    "stillingsprosent": null,
+    "yrke": "Hundesledefører",
+    "stilling": "Testkanin",
+    "startDato": "2021-05-31T08:09:28.855Z",
+    "sluttDato": "2021-05-31T08:09:30.215Z",
+    "ansettelsesforhold": "Sesongarbeid",
+    "heltidDeltid": "Deltid",
+    "stillingsprosent": "40",
     "arbeidsgiver": {
-      "navn": "NAV",
-      "adresse": "Sannergata"
+      "navn": "Hundesleder AS",
+      "adresse": "Sledeveien 13, 1234 Oslo"
     },
     "inntekt": {
-      "bruttoArbeidsinntektPrMd": "123456",
-      "personinntektFraNaeringPrAr": "23456"
+      "bruttoArbeidsinntektPrMd": "51000",
+      "personinntektFraNaeringPrAr": "0"
     }
   },
   "andreYtelser": {
-    "mottarAndreYtelser": "Ja",
+    "mottarAndreYtelser": "Nei",
     "kravOmAnnenStonad": {
       "svar": "Ja",
-      "beskrivelseAvStoenad": "Uførepensjon"
+      "beskrivelseAvStoenad": "Kul pensjon"
     },
     "mottarPensjonUtland": {
       "svar": "Ja",
-      "hvaSlagsPensjon": "Uførepensjon",
-      "fraHvilketLand": "Nigeria",
-      "bruttobeloepPrAar": "10",
-      "landetsValuta": "NDR"
+      "hvaSlagsPensjon": "Thai Pensjon",
+      "fraHvilketLand": "Thailand",
+      "bruttobeloepPrAar": "5000",
+      "landetsValuta": "BHAT"
     }
   }
 }

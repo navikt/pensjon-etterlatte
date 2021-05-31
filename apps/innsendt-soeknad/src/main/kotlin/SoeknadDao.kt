@@ -15,14 +15,22 @@ interface SoeknadRepository {
     fun usendteSoeknader(): List<LagretSoeknad>
 }
 
-class PostgresSoeknadRepository private constructor (private val dataSource: DataSource): SoeknadRepository {
+interface StatistikkRepository {
+    fun eldsteUsendte(): LocalDateTime?
+    fun eldsteUarkiverte(): LocalDateTime?
+    fun rapport(): Map<String, Long>
+}
+
+class PostgresSoeknadRepository private constructor (private val dataSource: DataSource): SoeknadRepository, StatistikkRepository {
     companion object{
         val CREATE_SOEKNAD = "INSERT INTO soeknad(id, fnr, data) VALUES(?, ?, (to_json(?::json)))"
         val CREATE_HENDELSE = "INSERT INTO hendelse(id, soeknad, status, data) VALUES(?, ?, ?, (to_json(?::json)))"
         val SELECT_OLD = """
                         SELECT *
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt') and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes'))
+                        and not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'journalfoert')
+                        and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
                         fetch first 10 rows only""".trimIndent()
         val SELECT_OLDEST_UNSENT = """
                         SELECT MIN(s.opprettet)
@@ -45,8 +53,6 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
                         SELECT 'arkivert', count(1) 
                         FROM soeknad s 
                         where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'journalfoert')""".trimIndent()
-
-
 
 
         fun using(datasource: DataSource): PostgresSoeknadRepository{
@@ -96,7 +102,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         }
     }
 
-    fun eldsteUsendte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
+    override fun eldsteUsendte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
         session.transaction {
             it.run(queryOf(
                 SELECT_OLDEST_UNSENT, emptyMap()).map { row ->
@@ -104,7 +110,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             }.asSingle)
         }
     }
-    fun eldsteUarkiverte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
+    override fun eldsteUarkiverte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
         session.transaction {
             it.run(queryOf(
                 SELECT_OLDEST_UNARCHIVED, emptyMap()).map { row ->
@@ -112,7 +118,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             }.asSingle)
         }
     }
-    fun rapport(): Map<String, Long> = using(sessionOf(dataSource)) { session ->
+    override fun rapport(): Map<String, Long> = using(sessionOf(dataSource)) { session ->
         session.transaction {
             it.run(queryOf(
                 SELECT_RAPPORT, emptyMap()).map { row ->

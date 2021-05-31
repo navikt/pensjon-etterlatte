@@ -26,6 +26,7 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
     const {
         handleSubmit,
         formState: { errors },
+        watch
     } = methods;
 
     const lagre = (data: IStoenadType) => {
@@ -33,25 +34,42 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
         neste!!();
     };
 
+    const hovedytelse = watch("valgteYtelser.hovedytelse")
+
     return (
         <FormProvider {...methods}>
             <form onSubmit={handleSubmit(lagre)}>
                 <SkjemaGruppe>
-                    <Systemtittel>{t("stoenadType.tittel")}</Systemtittel>
+                    <Systemtittel>Din situasjon</Systemtittel>
                 </SkjemaGruppe>
 
                 <RHFRadio
                     name={"valgteYtelser.hovedytelse"}
-                    legend={"Velg hovedytelsen du vil søke om"}
+                    legend={"Jeg har mistet min ektefelle/partner/samboer og er ..."}
                     radios={[
-                        { label: t("etterlatteytelser.etterlatte"), value: Ytelse.etterlatte },
-                        { label: t("etterlatteytelser.gjenlevendetillegg"), value: Ytelse.gjenlevendetillegg },
+                        {
+                            label: <>... i arbeid/under utdanning/arbeidsledig og
+                                søker <b>gjenlevendepensjon-/overgangsstønad</b></>,
+                            value: Ytelse.etterlatte
+                        },
+                        {
+                            label: <>... uføretrygdet og søker <b>gjenlevendetillegg i uføretrygden</b></>,
+                            value: Ytelse.gjenlevendetillegg
+                        },
                     ]}
                 />
 
+                {hovedytelse && (
+                    <SkjemaGruppe>
+                        <AlertStripe type={"advarsel"}>
+                            Dersom du har gradert uføretrygd har du ikke rett på gjenlevendetillegg i uføretrygden.
+                        </AlertStripe>
+                    </SkjemaGruppe>
+                )}
+
                 <RHFToValgRadio
                     name={"valgteYtelser.barnepensjon"}
-                    legend={"Har du barn og vil søke om barnepensjon?"}
+                    legend={"Har/hadde du barn under 18 år med avdøde og vil søke om barnepensjon i tillegg?"}
                 />
 
                 {/*
@@ -69,7 +87,7 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
                 Stønad til skolepenger. Du kan ha rett til stønad til skolepenger ved nødvendig og hensiktsmessig
                 utdanning. (NAV 17-09.01).
 
-            */}
+                */}
 
                 <SkjemaGruppe>
                     <Datovelger
