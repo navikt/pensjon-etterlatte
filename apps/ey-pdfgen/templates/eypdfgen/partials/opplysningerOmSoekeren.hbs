@@ -130,7 +130,7 @@
                         {{#eq this.mottokBidragFraAvdoede "Ja"}}
                             <tr>
                                 <td>Beløp mottatt i bidrag fra avdøde:</td>
-                                <td>{{this.bidragBeloepPrAar}}</td>
+                                <td>kr. {{currency_no this.bidragBeloepPrAar}}</td>
                             </tr>
                         {{/eq}}
                         </tbody>
@@ -207,7 +207,7 @@
                         </tr>
                         <tr>
                             <td>Samlet bruttoinntekt pr år:</td>
-                            <td>{{this.samletBruttoinntektPrAar}}</td>
+                            <td>kr. {{currency_no this.samletBruttoinntektPrAar}}</td>
                         </tr>
                         </tbody>
                     </table>
