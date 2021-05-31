@@ -1,19 +1,19 @@
-import { SyntheticEvent } from "react";
 import "../../../App.less";
-import { FnrInput, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import Datovelger from "../../felles/Datovelger";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import RHFInput from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import IValg from "../../../typer/IValg";
 import Feilmeldinger from "../../felles/Feilmeldinger";
+import { fnr } from "@navikt/fnrvalidator";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -24,17 +24,10 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     });
 
     const {
-        control,
         handleSubmit,
         watch,
         formState: { errors },
     } = methods;
-
-    const oppdaterFnr = (e: SyntheticEvent) => {
-        const value = (e.target as HTMLInputElement).value;
-
-        return value.replace(/[^\d]+/g, "");
-    };
 
     const lagre = (data: IAvdoed) => {
         dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: data });
@@ -63,21 +56,11 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 />
 
                 {/* 3.2 */}
-                <Controller
+                <RHFInput
+                    type={"number"}
                     name={"foedselsnummer"}
-                    control={control}
-                    render={({ field: { value, onChange } }) => (
-                        <FnrInput
-                            label={t("felles.fnr")}
-                            value={value || ""}
-                            type={"tel"}
-                            maxLength={11}
-                            onChange={(e) => onChange(oppdaterFnr(e))}
-                            onValidate={() => {
-                            }}
-                            feil={errors.foedselsnummer && "Ugyldig fødselsnummer"}
-                        />
-                    )}
+                    label={t("felles.fnr")}
+                    rules={{validate: (value) => (fnr(value).status === 'valid')}}
                 />
 
                 {/* 3.3 */}

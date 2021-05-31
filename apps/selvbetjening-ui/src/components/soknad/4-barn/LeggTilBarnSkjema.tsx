@@ -2,7 +2,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
 import { Hovedknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
-import { IBarn } from "../../../typer/person";
+import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import RHFInput from "../../felles/RHFInput";
 
@@ -35,11 +35,13 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                     <RHFInput
                         name={"fornavn"}
                         label={t("felles.fornavn")}
+                        rules={{pattern: /^\D+$/}}
                     />
 
                     <RHFInput
                         name={"etternavn"}
                         label={t("felles.etternavn")}
+                        rules={{pattern: /^\D+$/}}
                     />
 
                     <RHFInput
@@ -51,9 +53,9 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                         name={"foreldre"}
                         legend={"Hvilken relasjon har du til barnet?"}
                         radios={[
-                            { label: t("opplysningerOmBarn.fellesbarnMedAvdoed"), value: "Fellesbarn m/avdøde" },
-                            { label: t("opplysningerOmBarn.avdoedesSaerkullsbarn"), value: "Avdødes særkullsbarn" },
-                            { label: t("opplysningerOmBarn.egneSaerkullsbarn"), value: "Egne særkullsbarn" },
+                            { label: t("opplysningerOmBarn.fellesbarnMedAvdoed"), value: BarnRelasjon.fellesbarnMedAvdoede },
+                            { label: t("opplysningerOmBarn.avdoedesSaerkullsbarn"), value: BarnRelasjon.avdoedesSaerkullsbarn },
+                            { label: t("opplysningerOmBarn.egneSaerkullsbarn"), value: BarnRelasjon.egneSaerkullsbarn },
                         ]}
                     />
 

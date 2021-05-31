@@ -20,6 +20,12 @@ export enum ForholdTilAvdoed {
     ugiftMenForsoerget = "Ugift, men ble forsørget av den avdøde",
 }
 
+export enum BarnRelasjon {
+    fellesbarnMedAvdoede = "Fellesbarn m/avdøde",
+    avdoedesSaerkullsbarn = "Avdødes særkullsbarn",
+    egneSaerkullsbarn = "Egne særkullsbarn",
+}
+
 export interface IBarn {
     fornavn?: string;
     etternavn?: string;
@@ -53,13 +59,20 @@ export interface IAvdoed {
     avtjentMilitaerTjenesteSvar?: string;
 }
 
+export enum SamboerInntekt {
+    arbeidsinntekt = "arbeidsinntekt",
+    pensjon = "pensjon",
+    kapitalinntekt = "kapitalinntekt",
+    andreYtelser = "andreYtelser",
+}
+
 export interface ISamboer {
     erSamboer?: IValg;
     navn?: string;
     foedselsnummer?: string;
     hattBarnEllerVaertGift?: IValg;
     harInntekt?: IValg;
-    inntektstype?: string[];
+    inntektstype?: SamboerInntekt[];
     samletBruttoinntektPrAar?: string;
 }
 

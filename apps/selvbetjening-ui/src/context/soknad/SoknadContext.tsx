@@ -7,7 +7,6 @@ const json = localStorage.getItem(STORAGE_KEY);
 const storedState = json ? JSON.parse(json) : null;
 
 const initialState: ISoeknad = storedState || {
-    innloggetBruker: null,
     stoenadType: null,
     opplysningerOmSoekeren: null,
     opplysningerOmDenAvdoede: null,
@@ -21,7 +20,6 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
         case ActionTypes.TILBAKESTILL: {
             return {
-                innloggetBruker: null,
                 stoenadType: null,
                 opplysningerOmSoekeren: null,
                 opplysningerOmDenAvdoede: null,

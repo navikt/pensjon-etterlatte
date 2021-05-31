@@ -14,6 +14,8 @@ import BarnInfokort from "./BarnInfokort";
 import { v4 as uuid } from "uuid";
 import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { SkjemaGruppe } from "nav-frontend-skjema";
+import IValg from "../../../typer/IValg";
+import AlertStripe from "nav-frontend-alertstriper";
 
 Modal.setAppElement("#root");
 
@@ -29,36 +31,53 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         setIsOpen(false);
     };
 
+    const harBarn = state.stoenadType?.valgteYtelser?.barnepensjon === IValg.JA
+
     return (
         <>
             {/* Steg 4 */}
-            <Systemtittel>{t("opplysningerOmBarn.tittel")}</Systemtittel>
+            <SkjemaGruppe>
+                <Systemtittel>{t("opplysningerOmBarn.tittel")}</Systemtittel>
+            </SkjemaGruppe>
 
-            <div className={"infokort-wrapper"}>
-                {state.opplysningerOmBarn?.map((barn) => (
-                    <BarnInfokort key={uuid()} barn={barn} />
-                ))}
+            {harBarn ? (
+                <SkjemaGruppe>
+                    <div className={"infokort-wrapper"}>
+                        {state.opplysningerOmBarn?.map((barn) => (
+                            <BarnInfokort key={uuid()} barn={barn} />
+                        ))}
 
-                <div className={"infokort"}>
-                    <div className={"infokort__header gjennomsiktig"}>
-                        <img alt="barn" className="barneikon" src={ikon} />
-                    </div>
-                    <div className={"infokort__informasjonsboks"}>
-                        <div className={"informasjonsboks-innhold"}>
-                            <Knapp onClick={() => setIsOpen(true)}>{t("knapp.leggTilBarn")}</Knapp>
+                        <div className={"infokort"}>
+                            <div className={"infokort__header gjennomsiktig"}>
+                                <img alt="barn" className="barneikon" src={ikon} />
+                            </div>
+                            <div className={"infokort__informasjonsboks"}>
+                                <div className={"informasjonsboks-innhold"}>
+                                    <Knapp onClick={() => setIsOpen(true)}>
+                                        {t("knapp.leggTilBarn")}
+                                    </Knapp>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <Modal
-                isOpen={isOpen}
-                onRequestClose={() => setIsOpen(false)}
-                closeButton={true}
-                contentLabel={t("opplysningerOmBarn.modalContentLabel")}
-            >
-                <LeggTilBarnSkjema lagre={leggTilBarn} />
-            </Modal>
+                    <Modal
+                        isOpen={isOpen}
+                        onRequestClose={() => setIsOpen(false)}
+                        closeButton={true}
+                        contentLabel={t("opplysningerOmBarn.modalContentLabel")}
+                    >
+                        <LeggTilBarnSkjema lagre={leggTilBarn} />
+                    </Modal>
+                </SkjemaGruppe>
+            ): (
+                <SkjemaGruppe>
+                    <AlertStripe type={"info"}>
+                        Du trenger ikke fylle ut dette steget ...
+                    </AlertStripe>
+                </SkjemaGruppe>
+            )}
+
 
             <SkjemaGruppe className={"navigasjon-rad"}>
                 <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>

@@ -12,7 +12,7 @@ import ForholdAvdoedSkjema from "./fragmenter/ForholdAvdoedSkjema";
 import NySivilstatusSkjema from "./fragmenter/NySivilstatusSkjema";
 import SamboerSkjema from "./fragmenter/SamboerSkjema";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { ISoeker } from "../../../typer/person";
+import { ISoeker, NySivilstatus } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import RHFInput from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
@@ -63,18 +63,20 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                         <AlertStripe type="advarsel">{t("omSoekeren.infoFolkeregisteret")}</AlertStripe>
                     )}
 
-                    <RHFInput
-                        name={"kontaktinfo.telefonnummer"}
-                        label={t("felles.telefon")}
-                        rules={{pattern: /^\d+$/}}
-                    />
+                    <SkjemaGruppe>
+                        <RHFInput
+                            name={"kontaktinfo.telefonnummer"}
+                            label={t("felles.telefon")}
+                            rules={{pattern: /^\d+$/}}
+                        />
 
-                    {/* 2.5 */}
-                    <RHFInput
-                        name={"kontaktinfo.epost"}
-                        label={t("felles.epost")}
-                        // TODO: Validere e-post
-                    />
+                        {/* 2.5 */}
+                        <RHFInput
+                            name={"kontaktinfo.epost"}
+                            label={t("felles.epost")}
+                            // TODO: Validere e-post
+                        />
+                    </SkjemaGruppe>
 
                     {/* 2.7 */}
                     <RHFToValgRadio
@@ -83,7 +85,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     />
 
                     {oppholderSegINorge === IValg.NEI && (
-                        <>
+                        <SkjemaGruppe>
                             <RHFInput
                                 name={"oppholdsland"}
                                 label={t("omSoekeren.oppgiLand")}
@@ -94,15 +96,17 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                                 name={"medlemFolketrygdenUtland"}
                                 legend={t("omSoekeren.medlemFolketrygdenUtland")}
                             />
-                        </>
+                        </SkjemaGruppe>
                     )}
 
                     {/* 2.8 */}
-                    <RHFInput
-                        name={"kontonummer"}
-                        label={t("omSoekeren.norskKontonummer")}
-                        rules={{pattern: /^\d{11}$/}}
-                    />
+                    <SkjemaGruppe>
+                        <RHFInput
+                            name={"kontonummer"}
+                            label={t("omSoekeren.norskKontonummer")}
+                            rules={{pattern: /^\d{11}$/}}
+                        />
+                    </SkjemaGruppe>
                     {/* TODO: Automatisk fylle inn kontonummer vi har, men gi bruker mulighet til å endre. */}
 
                     {/* 2.9 */}
@@ -114,7 +118,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
 
                     <br />
 
-                    {nySivilstatusEtterDoedsfallet === "Samboerskap" && (<SamboerSkjema />)}
+                    {nySivilstatusEtterDoedsfallet === NySivilstatus.samboerskap && (<SamboerSkjema />)}
 
                     <Feilmeldinger errors={errors} />
 

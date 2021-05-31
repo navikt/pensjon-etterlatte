@@ -13,6 +13,12 @@
     "barnetilsyn": "Barnetilsyn",
     "skolepenger": "Skolepenger"
   },
+  "situasjon": {
+    "arbeidstaker" :  "... i arbeid",
+    "arbeidsledig" : "... arbeidsledig",
+    "student" :  "... student",
+    "ufoer" : "... uføretrygdet"
+  },
   "knapp": {
     "tilbake": "Tilbake",
     "neste": "Neste",
@@ -188,6 +194,9 @@
   },
   "feil": {
     "valgteYtelser": {
+      "situasjon": {
+        "required": "Livssituasjon må være valgt"
+      },
       "hovedytelse": {
         "required": "Hovedytelse må være valgt"
       },

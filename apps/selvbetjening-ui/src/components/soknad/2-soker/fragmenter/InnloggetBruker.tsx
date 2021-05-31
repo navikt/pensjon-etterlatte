@@ -3,6 +3,7 @@ import { Element, Normaltekst } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 import Panel from "nav-frontend-paneler";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const InnloggetBruker = () => {
     const { t } = useTranslation();
@@ -10,7 +11,7 @@ const InnloggetBruker = () => {
     const { state } = useBrukerContext();
 
     return (
-        <>
+        <SkjemaGruppe>
             {/* TODO: Ikke lagre innlogget bruker? */}
             <br />
             <AlertStripe type="advarsel">{t("omSoekeren.advarsel")}</AlertStripe>
@@ -46,7 +47,7 @@ const InnloggetBruker = () => {
                     <Normaltekst>{state.statsborgerskap}</Normaltekst>
                 </section>
             </Panel>
-        </>
+        </SkjemaGruppe>
     );
 };
 
