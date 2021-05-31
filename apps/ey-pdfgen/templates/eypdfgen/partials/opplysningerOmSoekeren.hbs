@@ -119,7 +119,7 @@
                         {{#eq this.varSkiltFoerDoedsfall "Ja"}}
                             <tr>
                                 <td>Dato for skilsmisse/samlivsbrudd:</td>
-                                <td>{{this.datoForSkilsmisse}}</td>
+                                <td>{{iso_to_nor_date this.datoForSkilsmisse}}</td>
                             </tr>
                         {{/eq}}
 
