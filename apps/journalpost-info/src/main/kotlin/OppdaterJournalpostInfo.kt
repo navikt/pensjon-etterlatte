@@ -22,7 +22,7 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
-            validate { it.requireKey("@skjema_info") }
+            //validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@adressebeskyttelse") }
             validate { it.requireKey("@fnr_soeker") }
             validate { it.rejectKey("@journalpostInfo") }
@@ -42,8 +42,8 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
 
         val journalpostInfo = JournalpostInfo (
             tittel = "Søknad om etterlatteytelser",
-            avsenderMottaker = AvsenderMottaker(id = packet["@fnr_soeker"].toString(), idType = "FNR", navn = ""),
-            bruker = Bruker(id = packet["@fnr_soeker"].toString(), idType = "FNR"),
+            avsenderMottaker = AvsenderMottaker(id = packet["@fnr_soeker"].asText(), idType = "FNR", navn = ""),
+            bruker = Bruker(id = packet["@fnr_soeker"].asText(), idType = "FNR"),
             journalfoerendeEnhet = finnEnhet(packet["@adressebeskyttelse"])
         )
         return journalpostInfo
@@ -56,7 +56,7 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
         val INGENBESKYTTELSE = "INGEN BESKYTTELSE"
         var resultat: String
 
-        when (adressebeskyttelse.toString()) {
+        when (adressebeskyttelse.textValue()) {
             KODE6, KODE19 -> resultat = "2103"
             KODE7, INGENBESKYTTELSE -> resultat = "4817"
             else -> resultat = "4817"
