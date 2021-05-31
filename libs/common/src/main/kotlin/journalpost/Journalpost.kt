@@ -4,6 +4,7 @@ data class JournalpostInfo(
     val tittel: String,
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,
+    val journalfoerendeEnhet: String
 )
 
 data class JournalpostRequest(
