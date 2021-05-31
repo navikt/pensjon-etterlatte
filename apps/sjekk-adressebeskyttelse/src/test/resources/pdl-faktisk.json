@@ -1,9 +1,11 @@
 {
-  "hentPersonBolk": [
-    {
-      "person": {
-        "adressebeskyttelse": []
+  "data": {
+    "hentPersonBolk": [
+      {
+        "person": {
+          "adressebeskyttelse": []
+        }
       }
-    }
-  ]
+    ]
+  }
 }
