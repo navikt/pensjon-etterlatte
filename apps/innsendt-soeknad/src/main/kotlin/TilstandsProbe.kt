@@ -6,27 +6,37 @@ import kotlinx.coroutines.delay
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
-class TilstandsProbe(private val db: PostgresSoeknadRepository){
+class TilstandsProbe(private val db: StatistikkRepository){
     private val usendtAlder = Gauge.build("alder_eldste_usendte", "Alder på elste usendte søknad").register()
     private val ikkeJournalfoertAlder = Gauge.build("alder_eldste_uarkiverte", "Alder på eldste ikke-arkiverte søknad").register()
     private val soknadTilstand = Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand").register()
 
+    private fun gatherMetrics(){
+        db.eldsteUsendte()?.apply {
+            usendtAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
+        }
+        db.eldsteUarkiverte()?.apply {
+            ikkeJournalfoertAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
+        }
+
+        db.rapport().also{
+            println(it)
+        }.forEach{
+            soknadTilstand.labels(it.key).set(it.value.toDouble())
+        }
+    }
+
     suspend fun start(running: Job){
-        delay(60_000)
+        var cycle = Cycle(6, 0)
         while(!running.isCompleted) {
-            db.eldsteUsendte()?.apply {
-                usendtAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
-            }
-            db.eldsteUarkiverte()?.apply {
-                ikkeJournalfoertAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
+            cycle = cycle.step()
+            if(cycle.currentStep == 0){
+                gatherMetrics()
+            } else {
+                delay(10_000)
             }
 
-            db.rapport().also{
-                println(it)
-            }.forEach{
-                soknadTilstand.labels(it.key).set(it.value.toDouble())
-            }
-            delay(60_000)
+
         }
     }
 }
