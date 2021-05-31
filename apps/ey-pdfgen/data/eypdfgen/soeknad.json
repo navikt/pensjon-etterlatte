@@ -13,12 +13,17 @@
       "epost": "asdf@nav.no"
     },
     "oppholderSegINorge": "Nei",
+    "oppholdsland": "Kongo",
+    "medlemFolketrygdenUtland": "Ja",
     "kontonummer": "12351232521",
     "forholdTilAvdoed": {
-      "forholdTilAvdoede": "Ugift, men ble forsørget av den avdøde",
+      "forholdTilAvdoede": "Gjenlevende samboer",
       "datoForInngaattPartnerskap": "2021-05-13T22:00:00.000Z",
-      "varSkiltFoerDoedsfall": "Nei",
-      "mottokBidragFraAvdoede": "Nei"
+      "varSkiltFoerDoedsfall": "Ja",
+      "mottokBidragFraAvdoede": "Ja",
+      "hattBarnEllerVaertGift": "Ja",
+      "bidragBeloepPrAar": "55304",
+      "datoForSkilsmisse": "2021-05-05T22:00:00.000Z"
     },
     "nySivilstatus": {
       "nySivilstatusEtterDoedsfallet": "samboerskap",
@@ -37,9 +42,7 @@
         "pensjon"
       ],
       "samletBruttoinntektPrAar": "12345"
-    },
-    "oppholdsland": "Kongo",
-    "medlemFolketrygdenUtland": "Ja"
+    }
   },
   "opplysningerOmDenAvdoede": {
     "fornavn": "Test",

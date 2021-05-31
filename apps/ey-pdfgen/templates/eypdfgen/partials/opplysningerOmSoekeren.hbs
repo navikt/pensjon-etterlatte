@@ -111,14 +111,28 @@
                             <td>Dato for inngått partnerskap:</td>
                             <td>{{iso_to_nor_date this.datoForInngaattPartnerskap}}</td>
                         </tr>
+
                         <tr>
                             <td>Var skilt før dødsfall:</td>
                             <td>{{this.varSkiltFoerDoedsfall}}</td>
                         </tr>
+                        {{#eq this.varSkiltFoerDoedsfall "Ja"}}
+                            <tr>
+                                <td>Dato for skilsmisse/samlivsbrudd:</td>
+                                <td>{{this.datoForSkilsmisse}}</td>
+                            </tr>
+                        {{/eq}}
+
                         <tr>
                             <td>Mottok bidrag fra avdøde:</td>
                             <td>{{this.mottokBidragFraAvdoede}}</td>
                         </tr>
+                        {{#eq this.mottokBidragFraAvdoede "Ja"}}
+                            <tr>
+                                <td>Beløp mottatt i bidrag fra avdøde:</td>
+                                <td>{{this.bidragBeloepPrAar}}</td>
+                            </tr>
+                        {{/eq}}
                         </tbody>
                     </table>
                 </td>
