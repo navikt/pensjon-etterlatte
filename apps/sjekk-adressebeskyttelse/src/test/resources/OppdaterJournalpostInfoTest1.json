@@ -1,0 +1,8 @@
+{
+  "@event_name": "soeknad_innsendt",
+  "@fnr_liste": [
+    "1312312453",
+    "423424324234"
+  ],
+  "@fnr_soeker": "12345678901"
+}

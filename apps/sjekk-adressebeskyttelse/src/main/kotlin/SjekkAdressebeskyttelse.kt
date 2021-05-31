@@ -36,7 +36,8 @@ internal class SjekkAdressebeskyttelse(
 
                 val beskyttelse = pdl.finnAdressebeskyttelseForFnr(identer)
                     .flatMap { it.get("hentPersonBolk") }
-                    .map { it.get("adressebeskyttelse") }
+                    .map { it.get("person") }
+                    .map { it.get("adressebeskyttelse")[0] }
                     .map { it.get("gradering") }
                     .map {finnGradering(it)}
                     .minByOrNull { it.ordinal } ?: Graderinger.INGEN_BESKYTTELSE

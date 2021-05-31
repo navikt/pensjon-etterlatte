@@ -2,58 +2,49 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class FinnAdressebeskyttelseTest {
 
+
+
+
+
     @Test
-    fun opprett() {
+    fun testFeltMapping() {
+        val json = getTestResource("/OppdaterJournalpostInfoTest1.json")
         val inspector = TestRapid()
-            .apply { SjekkAdressebeskyttelse(this, FinnAdressebeskyttelseMock()) }
+            .apply { SjekkAdressebeskyttelse(this, FinnAdressebeskyttelseMock("/pdlMock1.json")) }
             .apply {
                 sendTestMessage(
-                    JsonMessage.newMessage(
-                        mapOf(
-                            "@event_name" to "soeknad_innsendt",
-                            "@fnr_liste" to listOf("07106123912","131312342"),
-                            "@fnr_soeker" to "13141544958"
-                        )
-                    )
-                        .toJson()
+                    json
                 )
             }.inspektør
 
         assertEquals("STRENGT_FORTROLIG", inspector.message(0).get("@adressebeskyttelse").asText())
-        
-        //assertEquals("etterlatt_barn_identifisert", inspector.message(0).get("@event_name").asText())
-        //assertEquals("456", inspector.message(0).get("@etterlatt_ident").asText())
-        //assertEquals("789", inspector.message(1).get("@etterlatt_ident").asText())
+
 
     }
-    //@Test
-    fun oppretteDummytest() {
 
-        val bah = javaClass.getResource("/mockOne.json").readText().replace(Regex("[\n\t]"), "")
-        println(bah)
+    fun getTestResource( file: String): String {
+        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
     }
+
 }
 
 
-
-class FinnAdressebeskyttelseMock : FinnAdressebeskyttelseForFnr {
+class FinnAdressebeskyttelseMock(val file: String) : FinnAdressebeskyttelseForFnr {
     override suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): JsonNode {
         val mapper = ObjectMapper()
-        var response = getTestResource("/mockOne.json")
+        val response = getTestResource(file)
 
         val newNode: JsonNode = mapper.readTree(response)
 
         return newNode
     }
-    fun getTestResource(file: String): String {
-        println(file)
+    fun getTestResource( file: String): String {
         return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
     }
 }
