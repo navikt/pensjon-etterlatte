@@ -12,13 +12,15 @@ import io.ktor.http.ContentType
 import io.ktor.http.fullPath
 import io.ktor.http.headersOf
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.libs.common.journalpost.AvsenderMottaker
+import no.nav.etterlatte.libs.common.journalpost.Bruker
+import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.nio.file.Paths
-import no.nav.etterlatte.libs.common.journalpost.*
 
 class JournalfoerSoeknadTest {
 
@@ -27,6 +29,7 @@ class JournalfoerSoeknadTest {
 
         val jorp = JournalpostInfo(
             tittel = "tittel",
+            journalfoerendeEnhet = "4817",
             avsenderMottaker = AvsenderMottaker(
                 id = "id",
                 navn = "navn",

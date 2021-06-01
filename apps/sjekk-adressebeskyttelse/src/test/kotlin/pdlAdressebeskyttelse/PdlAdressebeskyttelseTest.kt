@@ -40,7 +40,6 @@ internal class PdlAdressebeskyttelseTest {
 
         runBlocking {
             PdlAdressebeskyttelse(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(listOf("12334466","4231423142","234234325")).also {
-                println("gah")
                 //fikset, men dette er ikke pen
                 assertEquals("FORTROLIG", it.get("data").get("hentPersonBolk").get(0).get("person").get("adressebeskyttelse").get(0).get("gradering").textValue())
 

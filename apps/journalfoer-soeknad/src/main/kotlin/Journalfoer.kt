@@ -8,10 +8,17 @@ import com.fasterxml.jackson.module.kotlin.treeToValue
 import io.ktor.client.HttpClient
 import io.ktor.client.request.header
 import io.ktor.client.request.post
+import no.nav.etterlatte.libs.common.journalpost.AvsenderMottaker
+import no.nav.etterlatte.libs.common.journalpost.Bruker
+import no.nav.etterlatte.libs.common.journalpost.DokumentKategori
+import no.nav.etterlatte.libs.common.journalpost.DokumentVariant
+import no.nav.etterlatte.libs.common.journalpost.JournalPostType
+import no.nav.etterlatte.libs.common.journalpost.JournalpostDokument
+import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
+import no.nav.etterlatte.libs.common.journalpost.JournalpostRequest
 import no.nav.helse.rapids_rivers.JsonMessage
 import org.slf4j.MDC
 import java.util.*
-import no.nav.etterlatte.libs.common.journalpost.*
 
 class Journalfoer(private val client: HttpClient, private val baseUrl: String) : JournalfoerDok {
     private val objectMapper = jacksonObjectMapper()
@@ -49,7 +56,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                     JournalpostRequest(
                         tittel = journalpostInfo.tittel,
                         journalpostType = JournalPostType.INNGAAENDE,
-                        journalfoerendeEnhet = "4817",
+                        journalfoerendeEnhet = journalpostInfo.journalfoerendeEnhet,
                         tema = "PEN",
                         kanal = "NAV_NO",
                         behandlingstema = "ab0255",
