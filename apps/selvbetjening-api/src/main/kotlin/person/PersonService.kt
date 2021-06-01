@@ -69,10 +69,14 @@ class PersonService(
         val sivilstand = hentPerson.sivilstand
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
+        val foedsel = hentPerson.foedsel
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }
+
         return Person(
             fornavn = navn.fornavn,
             etternavn = navn.etternavn,
-            fødselsnummer = fnr,
+            foedselsnummer = fnr,
+            foedselsaar = foedsel?.foedselsaar,
             adresse = bostedsadresse?.vegadresse?.toString(),
             statsborgerskap = statsborgerskap?.land,
             sivilstatus = sivilstand?.type?.name

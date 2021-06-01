@@ -2,6 +2,7 @@ export interface IBruker {
     fornavn: string;
     etternavn: string;
     foedselsnummer: string;
+    foedselsaar: number;
     adresse: string;
     statsborgerskap: string;
     sivilstatus: string;

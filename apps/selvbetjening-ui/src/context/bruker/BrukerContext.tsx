@@ -22,12 +22,14 @@ const reducer = (state: IBruker, action: IBrukerAction) => {
                 fornavn: "STERK",
                 etternavn: "BUSK",
                 foedselsnummer: "24014021406",
+                foedselsaar: 1984,
                 adresse: "Testveien 12, 0539 Oslo",
                 statsborgerskap: "Norsk",
                 sivilstatus: "Gift",
             };
         }
         case ActionTypes.HENT_INNLOGGET_BRUKER: {
+            console.log(action.payload);
             const innloggetBruker: IBruker = action.payload;
 
             // TODO: Håndtere manglende person på en god måte
