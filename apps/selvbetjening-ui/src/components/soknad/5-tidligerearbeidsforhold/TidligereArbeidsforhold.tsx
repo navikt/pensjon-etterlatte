@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import "../../../App.less";
 import "../../felles/Infokort.less";
-import { Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
+import { Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { default as Modal } from "nav-frontend-modal";
-import { Xknapp } from "nav-frontend-ikonknapper";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import LeggTilArbeidsforholdSkjema from "./LeggTilArbeidsforholdSkjema";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ITidligereArbeidsforhold } from "../../../typer/arbeidsforhold";
+import TidlArbeidKort from "./TidlArbeidKort";
+import { Ytelse } from "../../../typer/ytelser";
+import AlertStripe from "nav-frontend-alertstriper";
 
 /**
  * TODO: Skal kun fylles ut dersom søker har valgt "pensjon/overgangsstønad", "skolepenger", eller "barnetilsyn"
  */
 const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     // Modal
@@ -37,9 +39,8 @@ const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
             payload: index,
         });
 
-    const lukkModalvindu = () => setIsOpen(false);
-
-    const dtf = Intl.DateTimeFormat(i18n.language, { month: "short", year: "numeric" });
+    const gjenlevendetillegg = state.stoenadType?.valgteYtelser?.hovedytelse === Ytelse.gjenlevendetillegg
+    const skjemaGyldig = gjenlevendetillegg || (!gjenlevendetillegg && state.tidligereArbeidsforhold.length > 0)
 
     return (
         <>
@@ -47,58 +48,50 @@ const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
 
             <Systemtittel>{t("tidligereArbeidsforhold.tittel")}</Systemtittel>
 
-            <div className={"infokort-wrapper"}>
-                {state.tidligereArbeidsforhold.map((item: any, index: number) => {
-                    let fraDato = dtf.format(new Date(item.fraDato));
-                    let tilDato = dtf.format(new Date(item.tilDato));
+            {gjenlevendetillegg ? (
+                <SkjemaGruppe>
+                    <AlertStripe type={"info"}>
+                        Siden du søker om <b>gjenlevendetillegg i uføretrygden</b> trenger du ikke fylle ut noe på denne siden.
+                    </AlertStripe>
+                </SkjemaGruppe>
+            ) : (
+                <SkjemaGruppe>
+                    <div className={"infokort-wrapper"}>
+                        {state.tidligereArbeidsforhold.map((item: any, index: number) => (
+                            <TidlArbeidKort item={item} index={index} fjern={fjern}/>
+                        ))}
 
-                    return (
-                        <div key={index} className={"infokort infokort__fullbredde"}>
-                            <div className={"infokort-knapper"}>
-                                {/* TODO: Lage støtte for å redigere elementer
-                                <RedigerKnapp
-                                    title={"Rediger element"}
-                                    onClick={() => redigerElement(index)}
-                                />
-                                */}
-                                <Xknapp title={t("knapp.fjernElement")} onClick={() => fjern(index)} />
-                            </div>
+                        <div className={"infokort infokort__fullbredde"}>
                             <div className={"infokort__informasjonsboks"}>
-                                <div className={"informasjonsboks-innhold"}>
-                                    <Undertittel tag="h3">{item.beskrivelse}</Undertittel>
-                                </div>
-                                <div className="informasjonselement">
-                                    <Normaltekst>
-                                        <span className={"capitalize"}>{fraDato}</span> -{" "}
-                                        <span className={"capitalize"}>{tilDato}</span>
-                                    </Normaltekst>
+                                <div className="informasjonselement center">
+                                    <Knapp onClick={() => setIsOpen(true)}>{t("knapp.leggTilArbeidsforhold")}</Knapp>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })}
-
-                <div className={"infokort infokort__fullbredde"}>
-                    <div className={"infokort__informasjonsboks"}>
-                        <div className="informasjonselement center">
-                            <Knapp onClick={() => setIsOpen(true)}>{t("knapp.leggTilArbeidsforhold")}</Knapp>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <Modal
-                isOpen={isOpen}
-                onRequestClose={lukkModalvindu}
-                closeButton={true}
-                contentLabel="Modalvindu - Tidligere Arbeidsforhold"
-            >
-                <LeggTilArbeidsforholdSkjema lagre={leggTilOgLukk} />
-            </Modal>
+                    <Modal
+                        isOpen={isOpen}
+                        onRequestClose={() => setIsOpen(false)}
+                        closeButton={true}
+                        contentLabel="Modalvindu - Tidligere Arbeidsforhold"
+                    >
+                        <LeggTilArbeidsforholdSkjema lagre={leggTilOgLukk}/>
+                    </Modal>
+                </SkjemaGruppe>
+            )}
+
+            {!skjemaGyldig && (
+                <SkjemaGruppe>
+                    <AlertStripe type={"advarsel"}>
+                        Siden du søker om gjenlevendepensjon må du fylle ut informasjon om tidligere arbeidsforhold for å gå videre.
+                    </AlertStripe>
+                </SkjemaGruppe>
+            )}
 
             <SkjemaGruppe className={"navigasjon-rad"}>
                 <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>
-                <Hovedknapp onClick={neste}>{t("knapp.neste")}</Hovedknapp>
+                <Hovedknapp onClick={neste} disabled={!skjemaGyldig}>{t("knapp.neste")}</Hovedknapp>
             </SkjemaGruppe>
         </>
     );

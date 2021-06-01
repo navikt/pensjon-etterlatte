@@ -45,36 +45,38 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
             <form onSubmit={handleSubmit(lagre)}>
                 {/* 3.1 */}
-                <RHFInput
-                    name={"fornavn"}
-                    label={t("felles.fornavn")}
-                />
+                <SkjemaGruppe>
+                    <RHFInput
+                        name={"fornavn"}
+                        label={t("felles.fornavn")}
+                    />
 
-                <RHFInput
-                    name={"etternavn"}
-                    label={t("felles.etternavn")}
-                />
+                    <RHFInput
+                        name={"etternavn"}
+                        label={t("felles.etternavn")}
+                    />
 
-                {/* 3.2 */}
-                <RHFInput
-                    type={"number"}
-                    name={"foedselsnummer"}
-                    label={t("felles.fnr")}
-                    rules={{validate: (value) => (fnr(value).status === 'valid')}}
-                />
+                    {/* 3.2 */}
+                    <RHFInput
+                        type={"number"}
+                        name={"foedselsnummer"}
+                        label={t("felles.fnr")}
+                        rules={{ validate: (value) => (fnr(value).status === 'valid') }}
+                    />
 
-                {/* 3.3 */}
-                <Datovelger
-                    name={"doedsdato"}
-                    label={t("felles.doedsdato")}
-                    maxDate={new Date()}
-                />
+                    {/* 3.3 */}
+                    <Datovelger
+                        name={"doedsdato"}
+                        label={t("felles.doedsdato")}
+                        maxDate={new Date()}
+                    />
 
-                {/* 3.4 */}
-                <RHFInput
-                    name={"statsborgerskap"}
-                    label={t("felles.statsborgerskap")}
-                />
+                    {/* 3.4 */}
+                    <RHFInput
+                        name={"statsborgerskap"}
+                        label={t("felles.statsborgerskap")}
+                    />
+                </SkjemaGruppe>
 
                 {/* 3.5 fjernes. Ikke lenger gyldig. */}
                 {/* 3.6 */}
@@ -103,10 +105,12 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 />
 
                 {haddePensjonsgivendeInntekt === IValg.JA && (
-                    <RHFInput
-                        name={"pensjonsgivendeInntektSvar"}
-                        label={t("omDenAvdoede.pensjonsgivendeInntekt")}
-                    />
+                    <SkjemaGruppe>
+                        <RHFInput
+                            name={"pensjonsgivendeInntektSvar"}
+                            label={t("omDenAvdoede.pensjonsgivendeInntekt")}
+                        />
+                    </SkjemaGruppe>
                 )}
                 {/* 3.11 Samme som over ?! */}
 
@@ -117,11 +121,13 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 />
 
                 {haddePensjonAndreLand === IValg.JA && (
-                    <RHFInput
-                        name={"pensjonAndreLandSvar"}
-                        label={t("omDenAvdoede.pensjonUtlandBruttoinntekt")}
-                        rules={{pattern: /^\d+$/}}
-                    />
+                    <SkjemaGruppe>
+                        <RHFInput
+                            name={"pensjonAndreLandSvar"}
+                            label={t("omDenAvdoede.pensjonUtlandBruttoinntekt")}
+                            rules={{ pattern: /^\d+$/ }}
+                        />
+                    </SkjemaGruppe>
                 )}
 
                 {/* 3.13 */}
@@ -131,14 +137,16 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 />
 
                 {harAvtjentMilitaerTjeneste === IValg.JA && (
-                    <RHFInput
-                        name={"avtjentMilitaerTjenesteSvar"}
-                        label={t("omDenAvdoede.avtjentMilitaerTjenesteAarstall")}
-                        rules={{pattern: /^\d{4}$/}}
-                    />
+                    <SkjemaGruppe>
+                        <RHFInput
+                            name={"avtjentMilitaerTjenesteSvar"}
+                            label={t("omDenAvdoede.avtjentMilitaerTjenesteAarstall")}
+                            rules={{ pattern: /^\d{4}$/ }}
+                        />
+                    </SkjemaGruppe>
                 )}
 
-                <Feilmeldinger errors={errors} />
+                <Feilmeldinger errors={errors}/>
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
                     <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>
