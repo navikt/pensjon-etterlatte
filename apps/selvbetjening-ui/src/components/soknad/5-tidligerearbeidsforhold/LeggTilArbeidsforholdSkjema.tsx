@@ -15,7 +15,7 @@ const LeggTilArbeidsforholdSkjema = ({ lagre }: Props) => {
 
     const methods = useForm<ITidligereArbeidsforhold>();
 
-    const { handleSubmit } = methods;
+    const { handleSubmit, watch } = methods;
 
     return (
         <FormProvider {...methods}>
@@ -31,11 +31,13 @@ const LeggTilArbeidsforholdSkjema = ({ lagre }: Props) => {
                     <Datovelger
                         name={"fraDato"}
                         label={t("felles.fraDato")}
+                        maxDate={watch("tilDato")}
                     />
 
                     <Datovelger
                         name={"tilDato"}
                         label={t("felles.tilDato")}
+                        minDate={watch("fraDato")}
                     />
                 </div>
 
