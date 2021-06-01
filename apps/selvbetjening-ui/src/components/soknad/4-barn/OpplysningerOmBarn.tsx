@@ -32,6 +32,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     };
 
     const harBarn = state.stoenadType?.valgteYtelser?.barnepensjon === IValg.JA
+    const skjemaGyldig = !harBarn || (harBarn && state.opplysningerOmBarn.length > 0)
 
     return (
         <>
@@ -79,9 +80,17 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
             )}
 
 
+            {!skjemaGyldig && (
+                <SkjemaGruppe>
+                    <AlertStripe type={"advarsel"}>
+                        Siden du søker om barnepensjon må du fylle ut informasjon om barn for å gå videre.
+                    </AlertStripe>
+                </SkjemaGruppe>
+            )}
+
             <SkjemaGruppe className={"navigasjon-rad"}>
                 <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>
-                <Hovedknapp onClick={neste}>{t("knapp.neste")}</Hovedknapp>
+                <Hovedknapp onClick={neste} disabled={!skjemaGyldig}>{t("knapp.neste")}</Hovedknapp>
             </SkjemaGruppe>
         </>
     );
