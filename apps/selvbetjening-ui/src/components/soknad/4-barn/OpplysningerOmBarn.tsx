@@ -89,7 +89,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
             )}
 
             <SkjemaGruppe className={"navigasjon-rad"}>
-                <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>
+                <Knapp htmlType={"button"} onClick={forrige}>{t("knapp.tilbake")}</Knapp>
                 <Hovedknapp onClick={neste} disabled={!skjemaGyldig}>{t("knapp.neste")}</Hovedknapp>
             </SkjemaGruppe>
         </>

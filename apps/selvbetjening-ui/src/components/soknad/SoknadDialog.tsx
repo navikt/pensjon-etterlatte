@@ -42,9 +42,6 @@ const SoknadDialog = () => {
                 <Stegindikator
                     aktivtSteg={steg.findIndex((value) => value.path === aktivtSteg)}
                     steg={alleSteg}
-                    onChange={(index: number) => {
-                        dispatch({ type: StegActionTypes.SETT_STEG, payload: index });
-                    }}
                 />
             )}
 

@@ -38,7 +38,7 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
 
     return (
         <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(lagre)}>
+            <form>
                 <SkjemaGruppe>
                     <Systemtittel>Din situasjon</Systemtittel>
                 </SkjemaGruppe>
@@ -106,7 +106,12 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
                 <Feilmeldinger errors={errors} />
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Hovedknapp htmlType={"submit"}>{t("knapp.neste")}</Hovedknapp>
+                    <Hovedknapp
+                        htmlType={"button"}
+                        onClick={handleSubmit(lagre)}
+                    >
+                        {t("knapp.neste")}
+                    </Hovedknapp>
                 </SkjemaGruppe>
             </form>
         </FormProvider>

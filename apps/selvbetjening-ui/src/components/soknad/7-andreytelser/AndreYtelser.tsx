@@ -40,7 +40,7 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
 
     return (
         <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(lagre)}>
+            <form>
                 {/* Steg 7 */}
                 <Systemtittel>{t("andreYtelser.tittel")}</Systemtittel>
 
@@ -99,8 +99,13 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
                 <Feilmeldinger errors={errors} />
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>
-                    <Hovedknapp htmlType={"submit"}>{t("knapp.neste")}</Hovedknapp>
+                    <Knapp htmlType={"button"} onClick={forrige}>
+                        {t("knapp.tilbake")}
+                    </Knapp>
+
+                    <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
+                        {t("knapp.neste")}
+                    </Hovedknapp>
                 </SkjemaGruppe>
             </form>
         </FormProvider>

@@ -43,7 +43,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
             {/* Steg 3 */}
             <Systemtittel>{t("omDenAvdoede.tittel")}</Systemtittel>
 
-            <form onSubmit={handleSubmit(lagre)}>
+            <form>
                 {/* 3.1 */}
                 <SkjemaGruppe>
                     <RHFInput
@@ -149,8 +149,13 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <Feilmeldinger errors={errors}/>
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>
-                    <Hovedknapp htmlType={"submit"}>{t("knapp.neste")}</Hovedknapp>
+                    <Knapp htmlType={"button"} onClick={forrige}>
+                        {t("knapp.tilbake")}
+                    </Knapp>
+
+                    <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
+                        {t("knapp.neste")}
+                    </Hovedknapp>
                 </SkjemaGruppe>
             </form>
         </FormProvider>

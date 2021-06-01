@@ -53,7 +53,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
             <FormProvider {...methods}>
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
-                <form onSubmit={handleSubmit(lagre)}>
+                <form>
                     <RHFToValgRadio
                         name={"bostedsadresseBekreftet"}
                         legend={t("omSoekeren.borPaaAdresse")}
@@ -123,9 +123,13 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     <Feilmeldinger errors={errors} />
 
                     <SkjemaGruppe className={"navigasjon-rad"}>
-                        <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>
+                        <Knapp htmlType={"button"} onClick={forrige}>
+                            {t("knapp.tilbake")}
+                        </Knapp>
 
-                        <Hovedknapp htmlType={"submit"}>{t("knapp.neste")}</Hovedknapp>
+                        <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
+                            {t("knapp.neste")}
+                        </Hovedknapp>
                     </SkjemaGruppe>
                 </form>
             </FormProvider>

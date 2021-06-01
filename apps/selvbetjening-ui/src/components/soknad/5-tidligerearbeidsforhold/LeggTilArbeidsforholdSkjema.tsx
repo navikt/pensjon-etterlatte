@@ -5,6 +5,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import Datovelger from "../../felles/Datovelger";
 import { ITidligereArbeidsforhold } from "../../../typer/arbeidsforhold";
 import RHFInput from "../../felles/RHFInput";
+import Feilmeldinger from "../../felles/Feilmeldinger";
 
 interface Props {
     lagre: (data: ITidligereArbeidsforhold) => void;
@@ -15,11 +16,15 @@ const LeggTilArbeidsforholdSkjema = ({ lagre }: Props) => {
 
     const methods = useForm<ITidligereArbeidsforhold>();
 
-    const { handleSubmit, watch } = methods;
+    const {
+        formState: { errors },
+        handleSubmit,
+        watch
+    } = methods;
 
     return (
         <FormProvider {...methods}>
-            <form style={{ padding: "2rem 2.5rem" }} onSubmit={handleSubmit(lagre, (err) => console.log(err))}>
+            <form style={{ padding: "2rem 2.5rem" }}>
                 <SkjemaGruppe>
                     <RHFInput
                         name={"beskrivelse"}
@@ -41,8 +46,12 @@ const LeggTilArbeidsforholdSkjema = ({ lagre }: Props) => {
                     />
                 </div>
 
+                <Feilmeldinger errors={errors} />
+
                 <section className={"navigasjon-rad"}>
-                    <Hovedknapp htmlType={"submit"}>{t("knapp.leggTil")}</Hovedknapp>
+                    <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
+                        {t("knapp.leggTil")}
+                    </Hovedknapp>
                 </section>
             </form>
         </FormProvider>

@@ -43,7 +43,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
 
             <Systemtittel>{t("naavaerendeArbeidsforhold.tittel")}</Systemtittel>
 
-            <form onSubmit={handleSubmit(lagre)}>
+            <form>
                 <SkjemaGruppe>
                     <RHFInput
                         name={"yrke"}
@@ -96,7 +96,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                         <RHFInput
                             name={"stillingsprosent"}
                             label={t("naavaerendeArbeidsforhold.stillingsprosent")}
-                            rules={{pattern: /^[0-9]{1,2}$/}}
+                            rules={{ pattern: /^[0-9]{1,2}$/ }}
                         />
                     )}
                 </SkjemaGruppe>
@@ -116,21 +116,31 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                     <RHFInput
                         name={"inntekt.bruttoArbeidsinntektPrMd"}
                         label={t("naavaerendeArbeidsforhold.bruttoInntektPrMd")}
-                        rules={{pattern: /^\d+$/}}
+                        rules={{ pattern: /^\d+$/ }}
                     />
                     <RHFInput
                         name={"inntekt.personinntektFraNaeringPrAr"}
                         label={t("naavaerendeArbeidsforhold.personinntektFraNaering")}
-                        rules={{pattern: /^\d+$/}}
+                        rules={{ pattern: /^\d+$/ }}
                     />
                 </SkjemaGruppe>
 
-                <Feilmeldinger errors={errors} />
+                <Feilmeldinger errors={errors}/>
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Knapp onClick={forrige}>{t("knapp.tilbake")}</Knapp>
+                    <Knapp
+                        htmlType={"button"}
+                        onClick={forrige}
+                    >
+                        {t("knapp.tilbake")}
+                    </Knapp>
 
-                    <Hovedknapp htmlType={"submit"}>{t("knapp.neste")}</Hovedknapp>
+                    <Hovedknapp
+                        htmlType={"button"}
+                        onClick={handleSubmit(lagre)}
+                    >
+                        {t("knapp.neste")}
+                    </Hovedknapp>
                 </SkjemaGruppe>
             </form>
         </FormProvider>

@@ -6,6 +6,7 @@ import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import RHFInput from "../../felles/RHFInput";
 import IValg from "../../../typer/IValg";
+import Feilmeldinger from "../../felles/Feilmeldinger";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -17,6 +18,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
     const methods = useForm<IBarn>();
 
     const {
+        formState: { errors },
         handleSubmit,
         reset,
         watch,
@@ -31,7 +33,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
     return (
         <FormProvider {...methods}>
-            <form style={{ padding: "2rem 2.5rem" }} onSubmit={handleSubmit(leggTilOgLukk)}>
+            <form style={{ padding: "2rem 2.5rem" }}>
                 <SkjemaGruppe>
                     <RHFInput
                         name={"fornavn"}
@@ -79,8 +81,12 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                         </SkjemaGruppe>
                     )}
 
+                    <Feilmeldinger errors={errors} />
+
                     <section className={"navigasjon-rad"}>
-                        <Hovedknapp htmlType={"submit"}>{t("knapp.leggTil")}</Hovedknapp>
+                        <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
+                            {t("knapp.leggTil")}
+                        </Hovedknapp>
                     </section>
                 </SkjemaGruppe>
             </form>
