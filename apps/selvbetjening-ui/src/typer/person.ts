@@ -104,6 +104,7 @@ export interface ISoeker {
     bostedsadresseBekreftet?: IValg;
     kontaktinfo?: IKontaktinfo;
     kontonummer?: string; // 2.8
+    flyktning?: IValg;
     oppholderSegINorge?: IValg; // 2.7
     oppholdsland?: string; // 2.7
     medlemFolketrygdenUtland?: IValg;

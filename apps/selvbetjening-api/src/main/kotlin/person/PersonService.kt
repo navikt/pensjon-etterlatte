@@ -2,11 +2,13 @@ package no.nav.etterlatte.person
 
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.client.HttpClient
+import io.ktor.client.request.accept
 import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.content.TextContent
 import io.ktor.features.NotFoundException
 import io.ktor.http.ContentType
+import io.ktor.http.ContentType.Application.Json
 import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.common.typeRefs
@@ -37,8 +39,8 @@ class PersonService(
 
         val responseNode = httpClient.post<ObjectNode> {
             header("Tema", TEMA)
-            header("Accept", "application/json")
-            body = TextContent(request, ContentType.Application.Json)
+            accept(Json)
+            body = TextContent(request, Json)
         }
 
         logger.info(responseNode.toPrettyString())
@@ -50,15 +52,17 @@ class PersonService(
             throw e
         }
 
-        val hentPerson = response.data?.hentPerson
+        return response.tilPerson(fnr)
+    }
+
+    private fun PersonResponse.tilPerson(fnr: String): Person {
+        val hentPerson = this.data?.hentPerson
         if (hentPerson === null) {
             logger.error("Kunne ikke hente person fra PDL")
             throw NotFoundException()
         }
 
         val navn = hentPerson.navn.singleOrNull()!!
-
-        // TODO: Uthenting av data fra person
 
         val bostedsadresse = hentPerson.bostedsadresse
             .maxByOrNull { it.metadata.sisteRegistrertDato() }

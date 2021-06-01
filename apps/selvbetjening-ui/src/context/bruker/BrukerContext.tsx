@@ -22,7 +22,7 @@ const reducer = (state: IBruker, action: IBrukerAction) => {
                 fornavn: "STERK",
                 etternavn: "BUSK",
                 foedselsnummer: "24014021406",
-                foedselsaar: 1984,
+                foedselsaar: 1940,
                 adresse: "Testveien 12, 0539 Oslo",
                 statsborgerskap: "Norsk",
                 sivilstatus: "Gift",

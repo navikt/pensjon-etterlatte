@@ -21,11 +21,13 @@ fun Route.soknadApi(innsendtSoeknadEndpint: HttpClient) {
         post {
             val fnr = ThreadBoundSecCtx.get().user()!!
             call.application.environment.log.info("Mottatt søknad for $fnr")
+
             val responseFromSoeknad = innsendtSoeknadEndpint.post<HttpStatement> {
                 contentType(ContentType.Application.Json)
                 body = call.receive<JsonNode>()
             }.execute()
-            if(responseFromSoeknad.status.isSuccess())
+
+            if (responseFromSoeknad.status.isSuccess())
                 call.respond(HttpStatusCode.Created)
             else
                 call.respond(HttpStatusCode.InternalServerError)

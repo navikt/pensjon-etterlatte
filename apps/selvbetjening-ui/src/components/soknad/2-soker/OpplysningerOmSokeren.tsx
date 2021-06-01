@@ -17,10 +17,12 @@ import { ActionTypes } from "../../../context/soknad/soknad";
 import RHFInput from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
+import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 
 const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
+    const brukerState = useBrukerContext().state;
 
     const lagre = (data: ISoeker) => {
         dispatch({ type: ActionTypes.OPPDATER_SOEKER, payload: data })
@@ -36,6 +38,8 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
         watch,
         formState: { errors }
     } = methods;
+
+    const skalSjekkeFlyktningStatus = brukerState.foedselsaar < 1960;
 
     const nySivilstatusEtterDoedsfallet = watch("nySivilstatus.nySivilstatusEtterDoedsfallet")
     const borPaaRegistrertAdresse = watch("bostedsadresseBekreftet")
@@ -54,6 +58,13 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
                 <form>
+                    {skalSjekkeFlyktningStatus && (
+                        <RHFToValgRadio
+                            name={"flyktning"}
+                            legend={<>Har du status som flyktning? <i>(gjelder alle født før 1960)</i></>}
+                        />
+                    )}
+
                     <RHFToValgRadio
                         name={"bostedsadresseBekreftet"}
                         legend={t("omSoekeren.borPaaAdresse")}

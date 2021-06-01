@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-import io.ktor.application.ApplicationCall
 import io.ktor.application.ApplicationCallPipeline
 import io.ktor.application.call
 import io.ktor.application.install
@@ -18,8 +17,6 @@ import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
-import io.ktor.util.pipeline.PipelineContext
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asContextElement
 import kotlinx.coroutines.withContext
@@ -83,33 +80,4 @@ fun Route.attachSecurityContext() {
             proceed()
         }
     }
-}
-
-fun Route.attachFakeSecurityContext() {
-    intercept(ApplicationCallPipeline.Call) {
-        withContext(
-            Dispatchers.Default + ThreadBoundSecCtx.asContextElement(
-                //Q0 bruker value = SynteticHardcodedUser("14106126780")
-                //Q1 Bruker
-                value = SynteticHardcodedUser("07106123912")
-            )
-        ) {
-            call.attributes
-
-            proceed()
-        }
-        println("hade")
-    }
-}
-
-suspend fun <T> PipelineContext<*, ApplicationCall>.withSecurityCOntext(
-    block: suspend CoroutineScope.() -> T
-): T {
-    return withContext(
-        Dispatchers.Default + ThreadBoundSecCtx.asContextElement(
-            value = TokenSecurityContext(
-                call.principal<TokenValidationContextPrincipal>()?.context!!
-            )
-        ), block
-    )
 }

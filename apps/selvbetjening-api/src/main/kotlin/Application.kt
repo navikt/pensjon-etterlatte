@@ -118,14 +118,6 @@ interface SecurityContext{
     fun user(): String?
 }
 
-class SynteticHardcodedUser(private val user:String): SecurityContext{
-    override fun tokenIssuedBy(issuer: String): JwtToken? {
-        return null
-    }
-
-    override fun user() = user
-}
-
 class TokenSecurityContext(private val tokens: TokenValidationContext): SecurityContext {
     override fun tokenIssuedBy(issuer: String): JwtToken? {
         return tokens.getJwtToken(issuer)

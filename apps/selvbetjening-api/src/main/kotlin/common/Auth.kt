@@ -6,8 +6,7 @@ import io.ktor.auth.principal
 import io.ktor.util.pipeline.PipelineContext
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 
-fun PipelineContext<Unit, ApplicationCall>.innloggetBrukerFnr() =
+fun PipelineContext<Unit, ApplicationCall>.innloggetBrukerFnr(): String =
     call.principal<TokenValidationContextPrincipal>()?.context!!
         .getClaims("tokenx")
         .getStringClaim("pid")
-
