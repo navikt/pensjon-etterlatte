@@ -12,17 +12,20 @@ import { get } from "lodash";
 interface DatovelgerProps {
     name: FieldPath<any>;
     label: ReactNode;
+    minDate?: Date | string;
+    maxDate?: Date | string;
 }
 
-const parseDate = (dato: Date | string) => {
-    if (typeof dato === "string") return parseISO(dato);
+const parseDate = (dato?: Date | string) => {
+    if (!dato) return;
+    else if (typeof dato === "string") return parseISO(dato);
     else return dato;
 };
 
 /*
 * TODO: Ikke mulig å enkelt tabbe gjennom datovelgeren... må fikses!
 */
-const Datovelger = ({ name, label }: DatovelgerProps) => {
+const Datovelger = ({ name, label, minDate, maxDate }: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
     const { control, formState: { errors } } = useFormContext();
 
@@ -61,6 +64,8 @@ const Datovelger = ({ name, label }: DatovelgerProps) => {
                         placeholderText={"dd.mm.åå"}
                         onChange={onChange}
                         onBlur={onBlur}
+                        minDate={parseDate(minDate)}
+                        maxDate={parseDate(maxDate)}
                     />
                 )}
             />

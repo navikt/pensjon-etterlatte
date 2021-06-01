@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import RHFInput from "../../felles/RHFInput";
+import IValg from "../../../typer/IValg";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -64,7 +65,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                         legend={t("opplysningerOmBarn.borUtenlands")}
                     />
 
-                    {bosattUtland && (
+                    {bosattUtland === IValg.JA && (
                         <SkjemaGruppe>
                             <RHFInput
                                 name={"statsborgerskap"}

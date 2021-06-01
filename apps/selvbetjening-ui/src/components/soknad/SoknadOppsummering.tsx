@@ -8,12 +8,13 @@ import AlertStripe from "nav-frontend-alertstriper";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import IValg from "../../typer/IValg";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
+import { ActionTypes } from "../../context/soknad/soknad";
 
 const SoknadOppsummering = () => {
     const history = useHistory();
 
     // const { t } = useTranslation();
-    const { state } = useSoknadContext();
+    const { state, dispatch } = useSoknadContext();
 
     const {
         // stoenadType,
@@ -29,6 +30,8 @@ const SoknadOppsummering = () => {
         sendSoeknad(state)
             .then((r) => {
                 console.log(r);
+
+                dispatch({ type: ActionTypes.TILBAKESTILL })
 
                 history.push("/soknad/sendt");
             })

@@ -60,11 +60,13 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                     <Datovelger
                         name={"startDato"}
                         label={t("felles.startDato")}
+                        maxDate={watch("sluttDato")}
                     />
 
                     <Datovelger
                         name={"sluttDato"}
                         label={t("felles.sluttDato")}
+                        minDate={watch("startDato")}
                     />
                 </div>
 
