@@ -67,6 +67,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <Datovelger
                     name={"doedsdato"}
                     label={t("felles.doedsdato")}
+                    maxDate={new Date()}
                 />
 
                 {/* 3.4 */}
