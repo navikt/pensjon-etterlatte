@@ -84,7 +84,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                     <Feilmeldinger errors={errors} />
 
                     <section className={"navigasjon-rad"}>
-                        <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
+                        <Hovedknapp htmlType={"button"} onClick={handleSubmit(leggTilOgLukk)}>
                             {t("knapp.leggTil")}
                         </Hovedknapp>
                     </section>
