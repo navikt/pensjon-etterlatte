@@ -36,9 +36,9 @@ class JournalfoerSoeknadTest {
                     message
                 )
             }.inspektør
-        println(inspector.message(0).toString())
-        assertEquals("467010363", inspector.message(0).get("@dokarkivRetur").get("journalpostId").asText())
-
+        assertEquals("true", inspector.message(0).get("@dokarkivRetur").get("journalpostferdigstilt").asText())
+        assertEquals("4817", inspector.message(0).get("@journalpostInfo").get("journlanfoerendeEnhet").asText())
+        assertEquals("4817", inspector.message(0).get("@journalpostInfo").get("journlanfoerendeEnhet").asText())
 
     }
 

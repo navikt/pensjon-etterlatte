@@ -32,8 +32,7 @@ internal class JournalfoerSoeknad(
                 packet["@dokarkivRetur"] = dok.journalfoerDok(
                     packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
                 )
-                println("Journalført en ny PDF med journalpostId: " +packet["@journalpostId"])
-                println(packet["@skjema_info"])
+                println("Journalført en ny PDF med journalpostId: " +packet["@dokarkivRetur"])
                 context.publish(packet.toJson())
             }
         } catch (err: Exception) {
