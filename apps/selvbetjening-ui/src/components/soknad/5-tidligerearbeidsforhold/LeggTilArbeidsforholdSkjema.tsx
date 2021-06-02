@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
 import Datovelger from "../../felles/Datovelger";
 import { ITidligereArbeidsforhold } from "../../../typer/arbeidsforhold";
-import RHFInput from "../../felles/RHFInput";
+import { RHFInput } from "../../felles/RHFInput";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 
 interface Props {

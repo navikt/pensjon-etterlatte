@@ -4,7 +4,7 @@ import { ISoeker, SamboerInntekt } from "../../../../typer/person";
 import { Undertittel } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
 import { Controller, useFormContext } from "react-hook-form";
-import RHFInput from "../../../felles/RHFInput";
+import { RHFInput } from "../../../felles/RHFInput";
 import { RHFToValgRadio } from "../../../felles/RHFRadio";
 import IValg from "../../../../typer/IValg";
 import { fnr } from "@navikt/fnrvalidator";

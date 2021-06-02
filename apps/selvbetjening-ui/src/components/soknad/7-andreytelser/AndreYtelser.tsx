@@ -11,7 +11,7 @@ import { RHFToValgRadio } from "../../felles/RHFRadio";
 import { IAndreYtelser } from "../../../typer/ytelser";
 
 import SoknadSteg from "../../../typer/SoknadSteg";
-import RHFInput from "../../felles/RHFInput";
+import { RHFInput } from "../../felles/RHFInput";
 import IValg from "../../../typer/IValg";
 import Panel from "nav-frontend-paneler";
 import Feilmeldinger from "../../felles/Feilmeldinger";

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Undertittel } from "nav-frontend-typografi";
 import { useFormContext } from "react-hook-form";
 import Datovelger from "../../../felles/Datovelger";
-import RHFInput from "../../../felles/RHFInput";
+import { RHFInput } from "../../../felles/RHFInput";
 import { RHFToValgRadio, RHFRadio } from "../../../felles/RHFRadio";
 import IValg from "../../../../typer/IValg";
 import { SkjemaGruppe } from "nav-frontend-skjema";
@@ -51,6 +51,7 @@ const ForholdAvoedSkjema = () => {
                 <Datovelger
                     name={"forholdTilAvdoed.datoForInngaattPartnerskap"}
                     label={t("omSoekeren.forholdTilAvdoede.datoForPartnerskap")}
+                    maxDate={new Date()}
                 />
             </SkjemaGruppe>
 

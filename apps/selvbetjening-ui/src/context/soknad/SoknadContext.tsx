@@ -7,6 +7,7 @@ const json = localStorage.getItem(STORAGE_KEY);
 const storedState = json ? JSON.parse(json) : null;
 
 const initialState: ISoeknad = storedState || {
+    harSamtykket: false,
     stoenadType: null,
     opplysningerOmSoekeren: null,
     opplysningerOmDenAvdoede: null,
@@ -20,6 +21,7 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
         case ActionTypes.TILBAKESTILL: {
             return {
+                harSamtykket: false,
                 stoenadType: null,
                 opplysningerOmSoekeren: null,
                 opplysningerOmDenAvdoede: null,
@@ -29,6 +31,8 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 andreYtelser: null,
             };
         }
+        case ActionTypes.OPPDATER_SAMTYKKE:
+            return { ...state, harSamtykket: action.payload }
         case ActionTypes.OPPDATER_VALGTE_STOENADER:
             return { ...state, stoenadType: action.payload };
         case ActionTypes.OPPDATER_SOEKER:
@@ -39,6 +43,15 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
             const { opplysningerOmBarn } = state;
 
             opplysningerOmBarn.push(action.payload);
+
+            return { ...state, opplysningerOmBarn };
+        }
+        case ActionTypes.FJERN_BARN: {
+            const indexToDelete: number = action.payload;
+
+            const opplysningerOmBarn = [
+                ...state.opplysningerOmBarn.filter((_: any, index: number) => index !== indexToDelete),
+            ];
 
             return { ...state, opplysningerOmBarn };
         }

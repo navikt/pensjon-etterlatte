@@ -222,7 +222,7 @@
     },
     "kontonummer": {
       "required": "Kontonummer må fylles ut (11 siffer)",
-      "pattern": "Kontonummer kan kun bestå av 11 siffer"
+      "pattern": "Kontonummer ikke gyldig. Må bestå av 11 siffer."
     },
     "oppholderSegINorge": {
       "required": "Opphold må besvares"

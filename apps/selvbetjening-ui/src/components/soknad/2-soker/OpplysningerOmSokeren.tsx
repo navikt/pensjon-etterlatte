@@ -14,10 +14,11 @@ import SamboerSkjema from "./fragmenter/SamboerSkjema";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { ISoeker, NySivilstatus } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
-import RHFInput from "../../felles/RHFInput";
+import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
+import Panel from "nav-frontend-paneler";
 
 const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -58,6 +59,33 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
                 <form>
+                    <SkjemaGruppe>
+                        <Panel border>
+                            <RHFTelefonInput
+                                name={"kontaktinfo.telefonnummer"}
+                                label={t("felles.telefon")}
+                                // rules={{pattern: /^\d+$/}}
+                            />
+
+                            {/* 2.5 */}
+                            <RHFInput
+                                name={"kontaktinfo.epost"}
+                                label={t("felles.epost")}
+                                // TODO: Validere e-post
+                            />
+
+                            {/* 2.8 */}
+                            {/* TODO: Automatisk fylle inn kontonummer vi har, men gi bruker mulighet til å endre. */}
+                            <SkjemaGruppe>
+                                <RHFKontonummerInput
+                                    name={"kontonummer"}
+                                    label={t("omSoekeren.norskKontonummer")}
+                                    rules={{pattern: /^\d{4}\.\d{2}\.\d{5}$/}}
+                                />
+                            </SkjemaGruppe>
+                        </Panel>
+                    </SkjemaGruppe>
+
                     {skalSjekkeFlyktningStatus && (
                         <RHFToValgRadio
                             name={"flyktning"}
@@ -73,21 +101,6 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     {borPaaRegistrertAdresse === IValg.NEI && (
                         <AlertStripe type="advarsel">{t("omSoekeren.infoFolkeregisteret")}</AlertStripe>
                     )}
-
-                    <SkjemaGruppe>
-                        <RHFInput
-                            name={"kontaktinfo.telefonnummer"}
-                            label={t("felles.telefon")}
-                            rules={{pattern: /^\d+$/}}
-                        />
-
-                        {/* 2.5 */}
-                        <RHFInput
-                            name={"kontaktinfo.epost"}
-                            label={t("felles.epost")}
-                            // TODO: Validere e-post
-                        />
-                    </SkjemaGruppe>
 
                     {/* 2.7 */}
                     <RHFToValgRadio
@@ -109,16 +122,6 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                             />
                         </SkjemaGruppe>
                     )}
-
-                    {/* 2.8 */}
-                    <SkjemaGruppe>
-                        <RHFInput
-                            name={"kontonummer"}
-                            label={t("omSoekeren.norskKontonummer")}
-                            rules={{pattern: /^\d{11}$/}}
-                        />
-                    </SkjemaGruppe>
-                    {/* TODO: Automatisk fylle inn kontonummer vi har, men gi bruker mulighet til å endre. */}
 
                     {/* 2.9 */}
                     <ForholdAvdoedSkjema />

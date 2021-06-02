@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./SoknadForside.less";
 import Panel from "nav-frontend-paneler";
 import { BekreftCheckboksPanel } from "nav-frontend-skjema";
@@ -13,36 +13,45 @@ import { useStegContext } from "../../context/steg/StegContext";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { hentInnloggetPerson } from "../../api";
 import { ActionTypes, IBruker } from "../../context/bruker/bruker";
+import { useSoknadContext } from "../../context/soknad/SoknadContext";
+import { ActionTypes as SoknadActionTypes } from "../../context/soknad/soknad";
 
 const SoknadForside = () => {
-    const { t } = useTranslation();
-    const { state } = useStegContext();
     const history = useHistory();
 
-    const brukerState = useBrukerContext().state;
-    const dispatch = useBrukerContext().dispatch;
+    const { t } = useTranslation();
+
+    const { state: stegState } = useStegContext();
+
+    const {
+        state: soknadState,
+        dispatch: soknadDispatch
+    } = useSoknadContext();
+
+    const {
+        state: brukerState,
+        dispatch: brukerDispatch
+    } = useBrukerContext();
 
     useEffect(() => {
         if (!brukerState.foedselsnummer) {
             hentInnloggetPerson()
                 .then((person: IBruker) => {
-                    dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
+                    brukerDispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
                 })
                 .catch(() => {
                     if (process.env.NODE_ENV === "development") {
-                        dispatch({ type: ActionTypes.INIT_TEST_BRUKER });
+                        brukerDispatch({ type: ActionTypes.INIT_TEST_BRUKER });
                     }
                 });
         }
-    }, [brukerState.foedselsnummer, dispatch]);
+    }, [brukerState.foedselsnummer, brukerDispatch]);
 
     const innloggetBrukerNavn = `${brukerState.fornavn} ${brukerState.etternavn}`;
 
-    if (state.aktivtSteg !== state.steg[0].path) {
-        history.push(`/soknad/steg/${state.aktivtSteg}`);
+    if (stegState.aktivtSteg !== stegState.steg[0].path) {
+        history.push(`/soknad/steg/${stegState.aktivtSteg}`);
     }
-
-    const [harBekreftet, settBekreftet] = useState(false);
 
     return (
         <>
@@ -102,8 +111,13 @@ const SoknadForside = () => {
 
                     <BekreftCheckboksPanel
                         label={t("forside.samtykke.bekreftelse")}
-                        checked={harBekreftet}
-                        onChange={(e) => settBekreftet((e.target as HTMLInputElement).checked)}
+                        checked={soknadState.harSamtykket}
+                        onChange={(e) =>
+                            soknadDispatch({
+                                type: SoknadActionTypes.OPPDATER_SAMTYKKE,
+                                payload: (e.target as HTMLInputElement).checked
+                            })
+                        }
                     >
                         <p>{t("forside.samtykke.beskrivelse")}</p>
 
@@ -111,7 +125,7 @@ const SoknadForside = () => {
                     </BekreftCheckboksPanel>
                 </section>
 
-                {harBekreftet && (
+                {soknadState.harSamtykket && (
                     <Hovedknapp onClick={() => history.push(`/soknad/steg/1`)}>{t("forside.startSoeknad")}</Hovedknapp>
                 )}
             </Panel>

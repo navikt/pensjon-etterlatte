@@ -11,11 +11,11 @@ import { IBarn } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import BarnInfokort from "./BarnInfokort";
-import { v4 as uuid } from "uuid";
 import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import IValg from "../../../typer/IValg";
 import AlertStripe from "nav-frontend-alertstriper";
+import { v4 as uuid } from "uuid";
 
 Modal.setAppElement("#root");
 
@@ -31,6 +31,9 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         setIsOpen(false);
     };
 
+    const fjern = (index: number) =>
+        dispatch({ type: ActionTypes.FJERN_BARN, payload: index, });
+
     const harBarn = state.stoenadType?.valgteYtelser?.barnepensjon === IValg.JA
     const skjemaGyldig = !harBarn || (harBarn && state.opplysningerOmBarn.length > 0)
 
@@ -44,8 +47,8 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
             {harBarn ? (
                 <SkjemaGruppe>
                     <div className={"infokort-wrapper"}>
-                        {state.opplysningerOmBarn?.map((barn) => (
-                            <BarnInfokort key={uuid()} barn={barn} />
+                        {state.opplysningerOmBarn?.map((barn: IBarn, index: number) => (
+                            <BarnInfokort key={uuid()} barn={barn} index={index} fjern={fjern} />
                         ))}
 
                         <div className={"infokort"}>

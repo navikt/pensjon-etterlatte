@@ -4,7 +4,7 @@ import { Hovedknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
-import RHFInput from "../../felles/RHFInput";
+import { RHFInput } from "../../felles/RHFInput";
 import IValg from "../../../typer/IValg";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 

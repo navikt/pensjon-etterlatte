@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
 import Datovelger from "../../felles/Datovelger";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import RHFInput from "../../felles/RHFInput";
+import { RHFInput } from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import IValg from "../../../typer/IValg";
 import Feilmeldinger from "../../felles/Feilmeldinger";
