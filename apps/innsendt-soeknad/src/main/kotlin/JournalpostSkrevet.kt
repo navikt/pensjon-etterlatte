@@ -22,12 +22,13 @@ internal class JournalpostSkrevet(rapidsConnection: RapidsConnection, private va
         if(packet["@dokarkivRetur"].get("journalpostferdigstilt").asBoolean()){
             soeknader.soeknadArkivert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
         } else {
+            println("Arkivering feilet: ${packet.toJson()}")
             soeknader.soeknadFeiletArkivering(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()), packet["@dokarkivRetur"].toJson())
         }
 
         if(!packet["@hendelse_gyldig_til"].isMissingOrNull()){
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
-                if(it.isAfter(OffsetDateTime.now())){
+                if(it.isBefore(OffsetDateTime.now())){
                     println("${OffsetDateTime.now()}: Fikk melding om at søknad ${packet["@lagret_soeknad_id"].asLong()} er arkivert, men hendelsen gikk ut på dato $it")
                 }
             }
