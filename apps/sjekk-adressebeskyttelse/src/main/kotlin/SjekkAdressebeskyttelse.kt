@@ -6,7 +6,6 @@ import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.INGEN
 import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
-import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import no.nav.helse.rapids_rivers.isMissingOrNull
@@ -48,22 +47,6 @@ internal class SjekkAdressebeskyttelse(
             packet["@adressebeskyttelse"] = INGENBESKYTTELSE
             println("hvabehager? Jeg kan ikke sjekke adressebeskyttelse uten å ha FNR")
         }
-    }
-}
-
-internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListener {
-
-    init {
-        River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", "soeknad_innsendt") }
-        }.register(this)
-    }
-
-    override fun onError(problems: MessageProblems, context: MessageContext) {
-    }
-
-    override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        println(packet.toJson())
     }
 }
 

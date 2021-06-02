@@ -6,6 +6,5 @@ fun main() {
     val env = System.getenv()
     RapidApplication.create(env).also {
         OppdaterJournalpostInfo(it)
-        Monitor(it)
     }.start()
 }

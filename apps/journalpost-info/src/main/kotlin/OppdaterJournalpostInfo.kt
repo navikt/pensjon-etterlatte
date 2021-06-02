@@ -11,7 +11,6 @@ import no.nav.etterlatte.libs.common.journalpost.Bruker
 import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
-import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 
@@ -56,22 +55,6 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
             INGENBESKYTTELSE -> "4817"
             else -> "4817"
         }
-    }
-}
-
-internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListener {
-
-    init {
-        River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", "fnr_liste_laget") }
-        }.register(this)
-    }
-
-    override fun onError(problems: MessageProblems, context: MessageContext) {
-    }
-
-    override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        println(packet.toJson())
     }
 }
 

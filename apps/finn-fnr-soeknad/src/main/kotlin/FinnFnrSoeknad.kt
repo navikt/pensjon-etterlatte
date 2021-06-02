@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
-import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 
@@ -69,20 +68,5 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
     }
 }
 
-internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListener {
-
-    init {
-        River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", "fnr_liste_laget") }
-        }.register(this)
-    }
-
-    override fun onError(problems: MessageProblems, context: MessageContext) {
-    }
-
-    override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        println(packet.toJson())
-    }
-}
 
 

@@ -32,23 +32,6 @@ internal class FinnEtterlatte(rapidsConnection: RapidsConnection, private val pd
     }
 }
 
-
-internal class Monitor(rapidsConnection: RapidsConnection) : River.PacketListener {
-
-    init {
-        River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", "etterlatt_barn_identifisert") }
-        }.register(this)
-    }
-
-    override fun onError(problems: MessageProblems, context: MessageContext) {
-    }
-
-    override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        println(packet.toJson())
-    }
-}
-
 interface FinnEtterlatteForPerson {
     suspend fun finnEtterlatteForPerson(forelder: String): List<String>
 }
