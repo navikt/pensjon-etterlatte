@@ -11,7 +11,7 @@ import javax.sql.DataSource
 interface SoeknadRepository {
     fun nySoeknad(soeknad: UlagretSoeknad): LagretSoeknad
     fun soeknadSendt(soeknad: LagretSoeknad)
-    fun soeknadJournalfoert(soeknad: LagretSoeknad)
+    fun soeknadArkivert(soeknad: LagretSoeknad)
     fun usendteSoeknader(): List<LagretSoeknad>
 }
 
@@ -23,36 +23,43 @@ interface StatistikkRepository {
 
 class PostgresSoeknadRepository private constructor (private val dataSource: DataSource): SoeknadRepository, StatistikkRepository {
     companion object{
+        object Status{
+            val sendt = "sendt"
+            val arkivert = "arkivert"
+            val arkiveringsfeil = "arkiveringsfeil"
+        }
+
         val CREATE_SOEKNAD = "INSERT INTO soeknad(id, fnr, data) VALUES(?, ?, (to_json(?::json)))"
         val CREATE_HENDELSE = "INSERT INTO hendelse(id, soeknad, status, data) VALUES(?, ?, ?, (to_json(?::json)))"
         val SELECT_OLD = """
                         SELECT *
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes'))
-                        and not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'journalfoert')
+                        where not exists ( select 1 from hendelse h where h.soeknad = s.id 
+                        and (h.status = '${Status.sendt}' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
+                        OR (h.status in ('${Status.arkivert}', '${Status.arkiveringsfeil}')))
                         and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
                         fetch first 10 rows only""".trimIndent()
         val SELECT_OLDEST_UNSENT = """
                         SELECT MIN(s.opprettet)
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt')""".trimIndent()
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.sendt}')""".trimIndent()
         val SELECT_OLDEST_UNARCHIVED = """
                         SELECT MIN(s.opprettet)
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'journalfoert')""".trimIndent()
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}')""".trimIndent()
         val SELECT_RAPPORT = """
                         SELECT 'opprettet', count(1) 
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status in ('sendt', 'journalfoert'))
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status in ('${Status.sendt}', '${Status.arkivert}'))
                         UNION
                         SELECT 'sendt', count(1) 
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'journalfoert')
-                        AND exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'sendt')
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}')
+                        AND exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.sendt}')
                         UNION
                         SELECT 'arkivert', count(1) 
                         FROM soeknad s 
-                        where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = 'journalfoert')""".trimIndent()
+                        where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}')""".trimIndent()
 
 
         fun using(datasource: DataSource): PostgresSoeknadRepository{
@@ -71,11 +78,11 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         }
     }
     override fun soeknadSendt(soeknad: LagretSoeknad){
-        nyStatus(soeknad, "sendt", """{}""")
+        nyStatus(soeknad, Status.sendt, """{}""")
     }
 
-    override fun soeknadJournalfoert(soeknad: LagretSoeknad){
-        nyStatus(soeknad, "journalfoert", "{}")
+    override fun soeknadArkivert(soeknad: LagretSoeknad){
+        nyStatus(soeknad, Status.arkivert, "{}")
     }
 
     private fun nyStatus(soeknad: LagretSoeknad, status: String, data: String){

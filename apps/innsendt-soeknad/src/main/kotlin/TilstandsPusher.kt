@@ -8,6 +8,7 @@ class TilstandsPusher(private val db: SoeknadRepository, private val publiserSoe
         var cycle = Cycle(12, 0)
         while(!running.isCompleted) {
             cycle = cycle.step()
+
             if(cycle.currentStep == 0){
                 db.usendteSoeknader().also {
                     println("Publiserer melding om søknader ${it.map(LagretSoeknad::id)} ut på kafka")

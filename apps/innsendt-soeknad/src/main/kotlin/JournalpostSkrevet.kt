@@ -12,18 +12,18 @@ internal class JournalpostSkrevet(rapidsConnection: RapidsConnection, private va
 
     init {
         River(rapidsConnection).apply {
-            validate { it.requireKey("@journalpostId") }
+            validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.interestedIn("@hendelse_gyldig_til") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        soeknader.soeknadJournalfoert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
+        soeknader.soeknadArkivert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
         if(!packet["@hendelse_gyldig_til"].isMissingOrNull()){
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
                 if(it.isAfter(OffsetDateTime.now())){
-                    println{"${OffsetDateTime.now()}: Fikk melding om at søknad ${packet["@lagret_soeknad_id"].asLong()} er arkivert, men hendelsen gikk ut på dato $it"}
+                    println("${OffsetDateTime.now()}: Fikk melding om at søknad ${packet["@lagret_soeknad_id"].asLong()} er arkivert, men hendelsen gikk ut på dato $it")
                 }
             }
         }
