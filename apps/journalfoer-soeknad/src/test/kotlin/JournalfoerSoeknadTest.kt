@@ -12,9 +12,7 @@ import io.ktor.http.ContentType
 import io.ktor.http.fullPath
 import io.ktor.http.headersOf
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.libs.common.journalpost.AvsenderMottaker
-import no.nav.etterlatte.libs.common.journalpost.Bruker
-import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
+import no.nav.etterlatte.libs.common.objectMapper
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
@@ -24,54 +22,24 @@ import java.nio.file.Paths
 
 class JournalfoerSoeknadTest {
 
+
+    fun getTestResource( file: String): String {
+        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
+    }
     @Test
     fun journalfoer() {
-
-        val jorp = JournalpostInfo(
-            tittel = "tittel",
-            journalfoerendeEnhet = "4817",
-            avsenderMottaker = AvsenderMottaker(
-                id = "id",
-                navn = "navn",
-                idType = "FNR"
-            ),
-            bruker = Bruker(
-                id = "id",
-                idType = "FNR"
-            )
-        )
-
-        val message = JsonMessage(
-            """{"@skjema_info":{
-        "søknadInnhold": {
-            "forNav": {
-                "saksnummer": 123,
-                "søknadsId": 321,
-                "søknadOpprettet": "En eller annen gang"
-            },
-            "personopplysninger": {
-                "navn": {
-                    "fornavn": "Dolly",
-                    "mellomnavn": "D.",
-                    "etternavn": "Duck"
-                }
-            }
-        }
-    }}""", MessageProblems("{}")
-        )
-        message.interestedIn("@skjema_info")
-        message["@journalpostInfo"] = jorp
-        message["@template"] = "soeknad"
-        message["@event_name"] = "soeknad_innsendt"
-
+        val message = getTestResource("/fullMessage.json")
         val inspector = TestRapid()
-            .apply { JournalfoerSoeknad(this, GenererPdfMock(), JournalfoerDokMock()) }
+            .apply { JournalfoerSoeknad(this, GenererPdfMock(), JournalfoerDokMock("/journalfoerResponse.json")) }
             .apply {
                 sendTestMessage(
-                    message.toJson()
+                    message
                 )
             }.inspektør
-        assertEquals("1234", inspector.message(0).get("@journalpostId").asText())
+        println(inspector.message(0).toString())
+        assertEquals("467010363", inspector.message(0).get("@dokarkivRetur").get("journalpostId").asText())
+
+
     }
 
     @Test
@@ -132,9 +100,12 @@ class JournalfoerSoeknadTest {
 
 }
 
-class JournalfoerDokMock : JournalfoerDok {
-    override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String {
-        return "1234"
+class JournalfoerDokMock(val file: String) : JournalfoerDok {
+    override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): JsonNode {
+        return objectMapper.readTree(getTestResource(file))
+    }
+    fun getTestResource( file: String): String {
+        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
     }
 }
 

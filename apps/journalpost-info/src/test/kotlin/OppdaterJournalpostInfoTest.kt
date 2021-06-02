@@ -37,7 +37,7 @@ class OppdaterJournalpostInfoTest {
                     json
                 )
             }.inspektør
-
+        println(inspector.message(0))
         assertEquals("2103", inspector.message(0).get("@journalpostInfo").get("journalfoerendeEnhet").asText())
     }
     @Test

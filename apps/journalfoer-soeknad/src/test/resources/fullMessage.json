@@ -1,0 +1,35 @@
+{
+  "@event_name": "soeknad_innsendt",
+  "@template": "trenger jeg denne",
+  "@journalpostInfo": {
+    "tittel": "tittel",
+    "avsenderMottaker": {
+      "id": "123456789",
+      "navn": "avsentermottagernavn",
+      "idType": "FNR"
+    },
+    "bruker": {
+      "id": "9876532",
+      "navn": "Brukernavn",
+      "idType": "FNR"
+    },
+    "journlanfoerendeEnhet": "4817"
+  },
+  "@skjema_info": {
+    "søknadInnhold": {
+      "forNav": {
+        "saksnummer": 123,
+        "søknadsId": 321,
+        "søknadOpprettet": "En eller annen gang"
+      },
+      "personopplysninger": {
+        "navn": {
+          "fornavn": "Dolly",
+          "mellomnavn": "D.",
+          "etternavn": "Duck"
+        }
+      }
+    }
+  }
+}
+

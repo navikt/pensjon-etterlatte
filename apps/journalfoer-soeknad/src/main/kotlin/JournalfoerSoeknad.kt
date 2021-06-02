@@ -22,13 +22,14 @@ internal class JournalfoerSoeknad(
             validate { it.requireKey("@template") }
             validate { it.requireKey("@journalpostInfo") }
             validate { it.rejectKey("@journalpostId") }
+            validate { it.rejectKey("@dokarkivRetur") }
         }.register(this)
     }                                                        
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         try {
             runBlocking(Dispatchers.IO) {
-                packet["@journalpostId"] = dok.journalfoerDok(
+                packet["@dokarkivRetur"] = dok.journalfoerDok(
                     packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
                 )
                 println("Journalført en ny PDF med journalpostId: " +packet["@journalpostId"])
@@ -47,5 +48,5 @@ interface GenererPdf {
 }
 
 interface JournalfoerDok {
-    suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): String
+    suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): JsonNode
 }
