@@ -14,7 +14,6 @@ import io.ktor.http.headersOf
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.objectMapper
 import no.nav.helse.rapids_rivers.JsonMessage
-import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -38,7 +37,7 @@ class JournalfoerSoeknadTest {
             }.inspektør
         assertEquals("true", inspector.message(0).get("@dokarkivRetur").get("journalpostferdigstilt").asText())
         assertEquals("4817", inspector.message(0).get("@journalpostInfo").get("journlanfoerendeEnhet").asText())
-        assertEquals("4817", inspector.message(0).get("@journalpostInfo").get("journlanfoerendeEnhet").asText())
+        assertEquals("123", inspector.message(0).get("@dokarkivRetur").get("dokumenter")[0].get("dokumentInfoId").asText())
 
     }
 
@@ -46,33 +45,14 @@ class JournalfoerSoeknadTest {
 
     fun testPdfGen() {
 
-        val message = JsonMessage(
-            """{"@skjema_info":{
-        "søknadInnhold": {
-            "forNav": {
-                "saksnummer": 123,
-                "søknadsId": 321,
-                "søknadOpprettet": "En eller annen gang"
-            },
-            "personopplysninger": {
-                "navn": {
-                    "fornavn": "Dolly",
-                    "mellomnavn": "D.",
-                    "etternavn": "Duck"
-                }
-            }
-        }
-    }}""", MessageProblems("{}")
-        )
-        message.interestedIn("@skjema_info")
-
+        val message = objectMapper.readTree(getTestResource("/fullMessage.json"))
         val httpClient = HttpClient(MockEngine) {
             engine {
                 addHandler { request ->
                     when (request.url.fullPath) {
                         "/api/v1/genpdf/eypdfgen/soknad" -> {
                             val req = jacksonObjectMapper().readTree((request.body as TextContent).text)
-                            assertEquals(message["@skjema_info"], req)
+                            assertEquals(message.get("@skjema_info"), req)
                             val responseHeaders =
                                 headersOf("Content-Type" to listOf(ContentType.Application.Pdf.toString()))
                             respond(
@@ -89,7 +69,7 @@ class JournalfoerSoeknadTest {
 
         runBlocking {
             PdfGenerator(httpClient, "https://ey-pdfgen/api/v1/genpdf/eypdfgen").genererPdf(
-                message["@skjema_info"],
+                message.get("@skjema_info"),
                 "soknad"
             ).also {
                 Paths.get("src/test/resources/pdf.pdf").toFile().writeBytes(it)
