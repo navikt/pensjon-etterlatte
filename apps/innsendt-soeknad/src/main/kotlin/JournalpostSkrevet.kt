@@ -19,7 +19,12 @@ internal class JournalpostSkrevet(rapidsConnection: RapidsConnection, private va
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        soeknader.soeknadArkivert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
+        if(packet["@dokarkivRetur"].get("journalpostferdigstilt").asBoolean()){
+            soeknader.soeknadArkivert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
+        } else {
+            soeknader.soeknadFeiletArkivering(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()), packet["@dokarkivRetur"].toJson())
+        }
+
         if(!packet["@hendelse_gyldig_til"].isMissingOrNull()){
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
                 if(it.isAfter(OffsetDateTime.now())){

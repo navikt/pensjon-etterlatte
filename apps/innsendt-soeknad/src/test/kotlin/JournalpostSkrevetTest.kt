@@ -3,19 +3,17 @@ import no.nav.etterlatte.JournalpostSkrevet
 import no.nav.etterlatte.LagretSoeknad
 import no.nav.etterlatte.SoeknadRepository
 import no.nav.etterlatte.UlagretSoeknad
+import no.nav.etterlatte.mapper
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import java.time.OffsetDateTime
-import java.time.ZoneId
-import java.time.temporal.ChronoUnit
 
 class JournalpostSkrevetTest {
 
     @Test
-    fun test(){
+    fun `meldinger med journalpostferdigstilt blir arkivert`(){
         val db = TestRepo()
 
         val testRapid = TestRapid().apply {
@@ -26,29 +24,48 @@ class JournalpostSkrevetTest {
         testRapid.sendTestMessage(testMessage(21, 22))
         testRapid.sendTestMessage(testMessage(31, 32))
 
-
-        assertEquals(12L, db.journalfoerteSoeknader[0].id)
-        assertEquals(22L, db.journalfoerteSoeknader[1].id)
-        assertEquals(32L, db.journalfoerteSoeknader[2].id)
+        assertEquals(3, db.arkiveringOk.size)
+        assertEquals(0, db.arkiveringFeilet.size)
+        assertEquals(12L, db.arkiveringOk[0].id)
+        assertEquals(22L, db.arkiveringOk[1].id)
+        assertEquals(32L, db.arkiveringOk[2].id)
 
     }
 
     @Test
-    fun test2(){
-        println(OffsetDateTime.now(ZoneId.of("UTC")).plusMinutes(30L).truncatedTo(ChronoUnit.SECONDS).toString())
+    fun `meldinger uten journalpostferdigstilt blir ansett som feilet`(){
+        val db = TestRepo()
+
+        val testRapid = TestRapid().apply {
+            JournalpostSkrevet(this, db)
+        }
+
+        testRapid.sendTestMessage(testMessage(11, 12, false))
+        testRapid.sendTestMessage(testMessage(21, 22, false))
+        testRapid.sendTestMessage(testMessage(31, 32, false))
+
+        assertEquals(0, db.arkiveringOk.size)
+        assertEquals(3, db.arkiveringFeilet.size)
+        assertEquals(12L, db.arkiveringFeilet[0].id)
+        assertEquals(22L, db.arkiveringFeilet[1].id)
+        assertEquals(32L, db.arkiveringFeilet[2].id)
 
     }
 }
-fun testMessage(journalpost: Long, soeknad: Long) =
+fun testMessage(journalpost: Long, soeknad: Long, journalpostferdigstilt: Boolean = true) =
     JsonMessage("{}", MessageProblems("{}")).apply {
-        this["@dokarkivRetur"] = journalpost
+        this["@dokarkivRetur"] = mapper.createObjectNode().also {
+            it.put("journalpostferdigstilt", journalpostferdigstilt)
+            it.put("journalpostId", journalpost)
+        }
         this["@lagret_soeknad_id"] = soeknad
 
     }.toJson()
 
 
 class TestRepo: SoeknadRepository {
-    val journalfoerteSoeknader = mutableListOf<LagretSoeknad>()
+    val arkiveringOk = mutableListOf<LagretSoeknad>()
+    val arkiveringFeilet = mutableListOf<LagretSoeknad>()
     override fun nySoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
         TODO("Not yet implemented")
     }
@@ -58,7 +75,12 @@ class TestRepo: SoeknadRepository {
     }
 
     override fun soeknadArkivert(soeknad: LagretSoeknad) {
-        journalfoerteSoeknader += soeknad
+        arkiveringOk += soeknad
+    }
+
+    override fun soeknadFeiletArkivering(soeknad: LagretSoeknad, jsonFeil: String) {
+        arkiveringFeilet += soeknad
+
     }
 
     override fun usendteSoeknader(): List<LagretSoeknad> {

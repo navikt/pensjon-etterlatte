@@ -12,6 +12,7 @@ interface SoeknadRepository {
     fun nySoeknad(soeknad: UlagretSoeknad): LagretSoeknad
     fun soeknadSendt(soeknad: LagretSoeknad)
     fun soeknadArkivert(soeknad: LagretSoeknad)
+    fun soeknadFeiletArkivering(soeknad: LagretSoeknad, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
 }
 
@@ -83,6 +84,10 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
 
     override fun soeknadArkivert(soeknad: LagretSoeknad){
         nyStatus(soeknad, Status.arkivert, "{}")
+    }
+
+    override fun soeknadFeiletArkivering(soeknad: LagretSoeknad, jsonFeil: String) {
+        nyStatus(soeknad, Status.arkiveringsfeil, jsonFeil)
     }
 
     private fun nyStatus(soeknad: LagretSoeknad, status: String, data: String){
