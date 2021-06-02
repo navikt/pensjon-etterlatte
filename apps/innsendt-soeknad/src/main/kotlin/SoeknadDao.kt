@@ -36,8 +36,8 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
                         SELECT *
                         FROM soeknad s 
                         where not exists ( select 1 from hendelse h where h.soeknad = s.id 
-                        and (h.status = '${Status.sendt}' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
-                        OR (h.status in ('${Status.arkivert}', '${Status.arkiveringsfeil}')))
+                        and ((h.status = '${Status.sendt}' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
+                        OR (h.status in ('${Status.arkivert}', '${Status.arkiveringsfeil}'))))
                         and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
                         fetch first 10 rows only""".trimIndent()
         val SELECT_OLDEST_UNSENT = """
@@ -55,12 +55,16 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
                         UNION
                         SELECT 'sendt', count(1) 
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}')
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status not in ('${Status.arkivert}', '${Status.arkiveringsfeil}'))
                         AND exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.sendt}')
                         UNION
                         SELECT 'arkivert', count(1) 
                         FROM soeknad s 
-                        where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}')""".trimIndent()
+                        where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}')
+                        UNION
+                        SELECT 'arkiveringsfeil', count(1) 
+                        FROM soeknad s 
+                        where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkiveringsfeil}')""".trimIndent()
 
 
         fun using(datasource: DataSource): PostgresSoeknadRepository{
