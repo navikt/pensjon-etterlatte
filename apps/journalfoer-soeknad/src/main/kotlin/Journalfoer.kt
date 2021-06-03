@@ -33,14 +33,16 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
     override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): JsonNode {
 
         val journalpostInfo: JournalpostInfo? = objectMapper.treeToValue(dokumentInnhold["@journalpostInfo"])
+        val lagretSoeknadId = dokumentInnhold["@lagret_soeknad_id"]
 
         val journalpostrequest = journalpostInfo?.let {
 
             JournalpostRequest(
-                tittel = journalpostInfo.tittel,
+                tittel = journalpostInfo.tittel + lagretSoeknadId,
                 journalpostType = JournalPostType.INNGAAENDE,
                 journalfoerendeEnhet = journalpostInfo.journalfoerendeEnhet,
                 tema = "PEN",
+                eksternReferanseId = journalpostInfo.tittel + lagretSoeknadId,
                 kanal = "NAV_NO",
                 behandlingstema = "ab0255",
                 avsenderMottaker = AvsenderMottaker(

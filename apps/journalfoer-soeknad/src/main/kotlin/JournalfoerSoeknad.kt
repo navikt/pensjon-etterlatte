@@ -21,10 +21,11 @@ internal class JournalfoerSoeknad(
             validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@template") }
             validate { it.requireKey("@journalpostInfo") }
+            validate { it.rejectKey("@lagret_soeknad_id") }
             validate { it.rejectKey("@journalpostId") }
             validate { it.rejectKey("@dokarkivRetur") }
         }.register(this)
-    }                                                        
+    }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         try {
@@ -32,7 +33,7 @@ internal class JournalfoerSoeknad(
                 packet["@dokarkivRetur"] = dok.journalfoerDok(
                     packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
                 )
-                println("Journalført en ny PDF med journalpostId: " +packet["@dokarkivRetur"])
+                println("Journalført en ny PDF med journalpostId: " + packet["@dokarkivRetur"])
                 context.publish(packet.toJson())
             }
         } catch (err: Exception) {
