@@ -1,5 +1,6 @@
 import { createContext, FC, useContext, useReducer } from "react";
 import { ActionTypes, ISoeknad, ISoeknadAction, SoeknadProps } from "./soknad";
+import mockJson from "../../assets/dummy-soeknad.json";
 
 const STORAGE_KEY = "etterlatte-store";
 
@@ -8,7 +9,7 @@ const storedState = json ? JSON.parse(json) : null;
 
 const initialState: ISoeknad = storedState || {
     harSamtykket: false,
-    stoenadType: null,
+    situasjon: null,
     opplysningerOmSoekeren: null,
     opplysningerOmDenAvdoede: null,
     opplysningerOmBarn: [],
@@ -19,10 +20,15 @@ const initialState: ISoeknad = storedState || {
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
+        case ActionTypes.MOCK_SOEKNAD: {
+            const json = JSON.stringify(mockJson)
+
+            return JSON.parse(json) as ISoeknad;
+        }
         case ActionTypes.TILBAKESTILL: {
             return {
                 harSamtykket: false,
-                stoenadType: null,
+                situasjon: null,
                 opplysningerOmSoekeren: null,
                 opplysningerOmDenAvdoede: null,
                 opplysningerOmBarn: [],
@@ -33,8 +39,8 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
         }
         case ActionTypes.OPPDATER_SAMTYKKE:
             return { ...state, harSamtykket: action.payload }
-        case ActionTypes.OPPDATER_VALGTE_STOENADER:
-            return { ...state, stoenadType: action.payload };
+        case ActionTypes.OPPDATER_SITUASJON:
+            return { ...state, situasjon: action.payload };
         case ActionTypes.OPPDATER_SOEKER:
             return { ...state, opplysningerOmSoekeren: action.payload };
         case ActionTypes.OPPDATER_AVDOED:

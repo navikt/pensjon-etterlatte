@@ -37,14 +37,14 @@ const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
             payload: index,
         });
 
-    const gjenlevendetillegg = state.stoenadType?.valgteYtelser?.hovedytelse === Ytelse.gjenlevendetillegg
+    const gjenlevendetillegg = state.situasjon?.valgteYtelser?.hovedytelse === Ytelse.gjenlevendetillegg
     const skjemaGyldig = gjenlevendetillegg || (!gjenlevendetillegg && state.tidligereArbeidsforhold.length > 0)
 
     return (
         <>
             {/* Steg 4 */}
 
-            <Systemtittel>{t("tidligereArbeidsforhold.tittel")}</Systemtittel>
+            <Systemtittel className={"center"}>{t("tidligereArbeidsforhold.tittel")}</Systemtittel>
 
             {gjenlevendetillegg ? (
                 <SkjemaGruppe>

@@ -69,7 +69,6 @@ export enum SamboerInntekt {
 }
 
 export interface ISamboer {
-    erSamboer?: IValg;
     navn?: string;
     foedselsnummer?: string;
     hattBarnEllerVaertGift?: IValg;
@@ -92,7 +91,7 @@ export interface INySivilstatus {
 }
 
 export interface IForholdAvdoed {
-    forholdTilAvdoede?: string; // 2.9
+    forholdTilAvdoede?: ForholdTilAvdoed; // 2.9
     datoForInngaattPartnerskap?: Date | null;
     // hvis gjenlevende samboer:
     varSkiltFoerDoedsfall?: IValg; // 2.11

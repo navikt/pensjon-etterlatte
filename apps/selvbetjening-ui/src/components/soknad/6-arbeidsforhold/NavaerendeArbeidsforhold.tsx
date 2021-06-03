@@ -41,7 +41,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
             {/* TODO: I arbeid eller student? */}
             {/* TODO: Hvis student, ikke vise dette skjemaet */}
 
-            <Systemtittel>{t("naavaerendeArbeidsforhold.tittel")}</Systemtittel>
+            <Systemtittel className={"center"}>{t("naavaerendeArbeidsforhold.tittel")}</Systemtittel>
 
             <form>
                 <SkjemaGruppe>

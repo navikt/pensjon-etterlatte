@@ -1,11 +1,11 @@
 import {IAvdoed, IBarn, ISoeker} from "../../typer/person";
 import {IArbeidsforhold, ITidligereArbeidsforhold} from "../../typer/arbeidsforhold";
-import {IAndreYtelser, IStoenadType} from "../../typer/ytelser";
+import {IAndreYtelser, ISituasjon} from "../../typer/ytelser";
 
 export interface ISoeknad {
     harSamtykket: boolean;
     // 1 Hva søker du?
-    stoenadType: IStoenadType | null;
+    situasjon: ISituasjon | null;
     // 2 Opplysninger om søkeren
     opplysningerOmSoekeren: ISoeker | null;
     // 3 Opplysninger om den avdøde
@@ -21,9 +21,10 @@ export interface ISoeknad {
 }
 
 export enum ActionTypes {
+    MOCK_SOEKNAD,
     TILBAKESTILL,
     OPPDATER_SAMTYKKE,
-    OPPDATER_VALGTE_STOENADER,
+    OPPDATER_SITUASJON,
     OPPDATER_SOEKER,
     OPPDATER_AVDOED,
     LEGG_TIL_BARN,

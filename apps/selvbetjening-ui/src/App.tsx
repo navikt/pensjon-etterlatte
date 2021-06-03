@@ -6,7 +6,7 @@ import SoknadDialog from "./components/soknad/SoknadDialog";
 import ContextProviders from "./context/ContextProviders";
 import SoknadForside from "./components/soknad/SoknadForside";
 import SoknadSendt from "./components/soknad/SoknadSendt";
-import SoknadOppsummering from "./components/soknad/SoknadOppsummering";
+import Oppsummering from "./components/soknad/8-oppsummering/Oppsummering";
 import { useSoknadContext } from "./context/soknad/SoknadContext";
 import { useHistory } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const App = () => {
                 <Route exact path={"/"} component={SoknadForside} />
 
                 <Route path={"/soknad/steg"} component={SoknadDialog} />
-                <Route path={"/soknad/oppsummering"} component={SoknadOppsummering} />
+                <Route exact path={"/soknad/steg/oppsummering"} component={Oppsummering} />
                 <Route path={"/soknad/sendt"} component={SoknadSendt} />
 
                 <Route component={NotFound} />

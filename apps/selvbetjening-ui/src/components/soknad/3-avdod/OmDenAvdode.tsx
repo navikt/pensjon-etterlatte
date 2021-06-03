@@ -41,7 +41,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     return (
         <FormProvider {...methods}>
             {/* Steg 3 */}
-            <Systemtittel>{t("omDenAvdoede.tittel")}</Systemtittel>
+            <Systemtittel className={"center"}>{t("omDenAvdoede.tittel")}</Systemtittel>
 
             <form>
                 {/* 3.1 */}

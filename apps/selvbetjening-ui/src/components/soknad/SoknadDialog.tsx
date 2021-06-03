@@ -1,10 +1,9 @@
-import { useEffect } from "react";
 import { Route, useRouteMatch } from "react-router";
 import { useStegContext } from "../../context/steg/StegContext";
-import { useHistory } from "react-router-dom";
-import { StegActionTypes, StegPath } from "../../context/steg/steg";
+import { useHistory, useLocation } from "react-router-dom";
+import { StegPath } from "../../context/steg/steg";
 import Panel from "nav-frontend-paneler";
-import SoeknadType from "../../components/soknad/1-type/SoeknadType";
+import SoekerSituasjon from "./1-situasjon/SoekerSituasjon";
 import OpplysningerOmSokeren from "../../components/soknad/2-soker/OpplysningerOmSokeren";
 import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
 import OpplysningerOmBarn from "../../components/soknad/4-barn/OpplysningerOmBarn";
@@ -12,31 +11,32 @@ import TidligereArbeidsforhold from "../../components/soknad/5-tidligerearbeidsf
 import NavaerendeArbeidsforhold from "../../components/soknad/6-arbeidsforhold/NavaerendeArbeidsforhold";
 import AndreYtelser from "../../components/soknad/7-andreytelser/AndreYtelser";
 import SoknadStegviser from "./SoknadStegviser";
+import Oppsummering from "./8-oppsummering/Oppsummering";
 
 const SoknadDialog = () => {
     const history = useHistory();
 
     const { path } = useRouteMatch();
+    const location = useLocation();
 
-    const {
-        dispatch,
-        state: { aktivtSteg }
-    } = useStegContext();
+    const { state: { steg } } = useStegContext();
 
-    useEffect(() => {
-        history.push(`/soknad/steg/${aktivtSteg}`);
-    }, [history, aktivtSteg]);
+    const settSteg = (retning: -1 | 1) => {
+        const index = steg.findIndex((value) => location.pathname.includes(value.path))
+        const nesteSteg = steg[index + retning]
 
-    const forrige = () => dispatch({ type: StegActionTypes.FORRIGE });
-    const neste = () => dispatch({ type: StegActionTypes.NESTE });
-    const tilOppsummering = () => history.push("/soknad/oppsummering");
+        history.push(`/soknad/steg/${nesteSteg.path}`)
+    }
+
+    const forrige = () => settSteg(-1)
+    const neste = () => settSteg(1)
 
     return (
         <>
             <SoknadStegviser />
 
             <Panel>
-                <Route path={`${path}/${StegPath.SoknadType}`} render={() => <SoeknadType neste={neste} />} />
+                <Route path={`${path}/${StegPath.DinSituasjon}`} render={() => <SoekerSituasjon neste={neste} />} />
                 <Route
                     path={`${path}/${StegPath.OmSoekeren}`}
                     render={() => <OpplysningerOmSokeren neste={neste} forrige={forrige} />}
@@ -59,7 +59,11 @@ const SoknadDialog = () => {
                 />
                 <Route
                     path={`${path}/${StegPath.AndreYtelser}`}
-                    render={() => <AndreYtelser neste={tilOppsummering} forrige={forrige} />}
+                    render={() => <AndreYtelser neste={neste} forrige={forrige} />}
+                />
+                <Route
+                    path={`${path}/${StegPath.Oppsummering}`}
+                    render={() => <Oppsummering forrige={forrige} />}
                 />
             </Panel>
         </>

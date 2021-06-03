@@ -61,7 +61,7 @@
     }
   },
   "stoenadType": {
-    "tittel": "1 Hva søker du?",
+    "tittel": "Hva søker du?",
     "etterlatte": "Pensjon-/overgangsstønad",
     "gjenlevendetillegg": "Gjenlevendetillegg i uføretrygden",
     "barnepensjon": "Barnepensjon",
@@ -74,7 +74,7 @@
     }
   },
   "omSoekeren": {
-    "tittel": "2 Opplysninger om søkeren",
+    "tittel": "Opplysninger om søkeren",
     "advarsel": "Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.",
     "borPaaAdresse": "Bor du på denne adressen?",
     "oppholderSegINorge": "Oppholder du deg i Norge?",
@@ -122,7 +122,7 @@
     }
   },
   "omDenAvdoede": {
-    "tittel": "3 Opplysninger om den avdøde",
+    "tittel": "Opplysninger om den avdøde",
     "bosattSammenhengende": "Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?",
     "doedsfallPgaYrkesskade": "Kan dødesfallet være en følge av yrkesskade/yrkessykdom?",
     "boddEllerJobbetUtland": "Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?",
@@ -134,7 +134,7 @@
     "avtjentMilitaerTjenesteAarstall": "Oppgi årstall"
   },
   "opplysningerOmBarn": {
-    "tittel": "4 Opplysninger om barn",
+    "tittel": "Opplysninger om barn",
     "modalContentLabel": "Modalvindu - Opplysninger om barn",
     "bosattUtland": "Bosatt i utlandet",
     "fellesbarnMedAvdoed": "Fellesbarn m/avdøde",
@@ -145,11 +145,11 @@
     "barnetsKontonummer": "Barnets kontonummer (11 siffer)"
   },
   "tidligereArbeidsforhold": {
-    "tittel": "5 Opplysninger om søkers tidligere arbeidsforhold",
+    "tittel": "Opplysninger om søkers tidligere arbeidsforhold",
     "skoleKursArbeidOsv": "Skoler utover grunnskolen, yrkesrettede kurs o.l. og tidligere arbeidsforhold"
   },
   "naavaerendeArbeidsforhold": {
-    "tittel": "6 Søkers nåværende arbeids- og inntektsforhold",
+    "tittel": "Søkers nåværende arbeids- og inntektsforhold",
     "typeArbeidsforhold": "Oppgi type arbeidsforhold",
     "fast": "Fast",
     "midlertidig": "Midlertidig",
@@ -164,7 +164,7 @@
     "personinntektFraNaering": "Beregnet personinntekt fra næring pr. år"
   },
   "andreYtelser": {
-    "tittel": "7 Opplysninger om andre ytelser",
+    "tittel": "Opplysninger om andre ytelser",
     "mottarAndreYtelser": "Mottar du ytelser til livsopphold fra folketrygden som dagpenger under arbeidsledighet, sykepenger, stønad ved barns og andre nære pårørendes sykdom, arbeidsavklaringspenger, svangerskapspenger, foreldrepenger, AFP, uføretrygd eller alderspensjon?",
     "kravOmAnnenStonad": "Har du satt fram krav om annen stønad/pensjon som ikke er avgjort?",
     "beskrivelseAvAnnenStoenad": "Hva slags stønad/pensjon?",

@@ -7,7 +7,7 @@ const json = localStorage.getItem(STORAGE_KEY) || null;
 const lagretState = json ? JSON.parse(json) : null;
 
 const initialState: ISteg = lagretState || {
-    aktivtSteg: StegPath.SoknadType,
+    aktivtSteg: StegPath.DinSituasjon,
     steg: MuligeSteg,
 };
 

@@ -1,58 +1,65 @@
 export enum StegPath {
-    SoknadType = "soeknad-type",
-    OmSoekeren = "opplysninger-om-soekeren",
-    OmAvdoed = "opplysninger-om-den-avdoede",
-    OmBarn = "opplysninger-om-barn",
+    DinSituasjon = "din-situasjon",
+    OmSoekeren = "om-deg",
+    OmAvdoed = "om-den-avdoede",
+    OmBarn = "om-barn",
     TidlArbeidsforhold = "tidligere-arbeidsforhold",
     Arbeidsforhold = "naavaerende-arbeidsforhold",
     AndreYtelser = "andre-ytelser",
+    Oppsummering = "oppsummering",
 }
 
 export enum StegLabelKey {
-    SoknadType = "SoknadType",
+    DinSituasjon = "DinSituasjon",
     OmSoekeren = "OmSoekeren",
     OmAvdoed = "OmAvdoed",
     OmBarn = "OmBarn",
     TidlArbeidsforhold = "TidlArbeidsforhold",
     Arbeidsforhold = "Arbeidsforhold",
     AndreYtelser = "AndreYtelser",
+    Oppsummering = "Oppsummering"
 }
 
 export const MuligeSteg: IStegElement[] = [
     {
-        path: StegPath.SoknadType,
-        label: StegLabelKey.SoknadType,
+        path: StegPath.DinSituasjon,
+        label: StegLabelKey.DinSituasjon,
         disabled: false,
     },
     {
         path: StegPath.OmSoekeren,
         label: StegLabelKey.OmSoekeren,
-        disabled: true,
+        disabled: false,
     },
     {
         path: StegPath.OmAvdoed,
         label: StegLabelKey.OmAvdoed,
-        disabled: true,
+        disabled: false,
     },
     {
         path: StegPath.OmBarn,
         label: StegLabelKey.OmBarn,
-        disabled: true,
+        disabled: false,
     },
     {
         path: StegPath.TidlArbeidsforhold,
         label: StegLabelKey.TidlArbeidsforhold,
-        disabled: true,
+        disabled: false,
     },
     {
         path: StegPath.Arbeidsforhold,
         label: StegLabelKey.Arbeidsforhold,
-        disabled: true,
+        disabled: false,
     },
     {
         path: StegPath.AndreYtelser,
         label: StegLabelKey.AndreYtelser,
-        disabled: true,
+        disabled: false,
+    },
+    {
+        path: StegPath.Oppsummering,
+        label: StegLabelKey.Oppsummering,
+        disabled: false,
     },
 ];
 

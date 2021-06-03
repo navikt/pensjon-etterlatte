@@ -3,12 +3,9 @@ import IValg from "./IValg";
 export enum Ytelse {
     etterlatte = "etterlatte",
     gjenlevendetillegg = "gjenlevendetillegg",
-    barnepensjon = "barnepensjon",
-    // barnetilsyn = "barnetilsyn",
-    // skolepenger = "skolepenger",
 }
 
-export interface IStoenadType {
+export interface ISituasjon {
     valgteYtelser?: {
         hovedytelse?: Ytelse;
         barnepensjon?: IValg;

@@ -4,24 +4,22 @@ import Panel from "nav-frontend-paneler";
 import { BekreftCheckboksPanel } from "nav-frontend-skjema";
 import Lenke from "nav-frontend-lenker";
 import { Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
-import { Hovedknapp } from "nav-frontend-knapper";
+import { Fareknapp, Hovedknapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
 import { useHistory } from "react-router-dom";
 import ikon from "../../assets/ikoner/veileder.svg";
 import { useTranslation } from "react-i18next";
-import { useStegContext } from "../../context/steg/StegContext";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { hentInnloggetPerson } from "../../api";
 import { ActionTypes, IBruker } from "../../context/bruker/bruker";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes as SoknadActionTypes } from "../../context/soknad/soknad";
+import { useStegContext } from "../../context/steg/StegContext";
 
 const SoknadForside = () => {
     const history = useHistory();
 
     const { t } = useTranslation();
-
-    const { state: stegState } = useStegContext();
 
     const {
         state: soknadState,
@@ -32,6 +30,8 @@ const SoknadForside = () => {
         state: brukerState,
         dispatch: brukerDispatch
     } = useBrukerContext();
+
+    const { state: { steg } } = useStegContext();
 
     useEffect(() => {
         if (!brukerState.foedselsnummer) {
@@ -47,11 +47,17 @@ const SoknadForside = () => {
         }
     }, [brukerState.foedselsnummer, brukerDispatch]);
 
-    const innloggetBrukerNavn = `${brukerState.fornavn} ${brukerState.etternavn}`;
-
-    if (stegState.aktivtSteg !== stegState.steg[0].path) {
-        history.push(`/soknad/steg/${stegState.aktivtSteg}`);
+    const startSoeknad = () => {
+        const foersteSteg = steg[0]
+        history.push(`/soknad/steg/${foersteSteg.path}`)
     }
+
+    const mockSoeknad = () => {
+        soknadDispatch({ type: SoknadActionTypes.MOCK_SOEKNAD });
+        startSoeknad();
+    }
+
+    const innloggetBrukerNavn = `${brukerState.fornavn} ${brukerState.etternavn}`;
 
     return (
         <Panel className={"forside"}>
@@ -125,7 +131,13 @@ const SoknadForside = () => {
             </section>
 
             {soknadState.harSamtykket && (
-                <Hovedknapp onClick={() => history.push(`/soknad/steg/1`)}>{t("forside.startSoeknad")}</Hovedknapp>
+                <Hovedknapp onClick={startSoeknad}>{t("forside.startSoeknad")}</Hovedknapp>
+            )}
+
+            {process.env.NODE_ENV !== "production" && (
+                <Fareknapp onClick={mockSoeknad}>
+                    Mock Søknad
+                </Fareknapp>
             )}
         </Panel>
     );

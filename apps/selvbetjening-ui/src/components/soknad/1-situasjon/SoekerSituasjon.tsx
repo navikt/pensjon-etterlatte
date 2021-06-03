@@ -11,16 +11,16 @@ import { FormProvider, useForm } from "react-hook-form";
 import { Hovedknapp } from "nav-frontend-knapper";
 import Datovelger from "../../felles/Datovelger";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
-import { IStoenadType, Ytelse } from "../../../typer/ytelser";
+import { ISituasjon, Ytelse } from "../../../typer/ytelser";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 
-const SoeknadType: SoknadSteg = ({ neste }) => {
+const SoekerSituasjon: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
 
     const { state, dispatch } = useSoknadContext();
 
-    const methods = useForm<IStoenadType>({
-        defaultValues: state.stoenadType || {},
+    const methods = useForm<ISituasjon>({
+        defaultValues: state.situasjon || {},
     });
 
     const {
@@ -29,8 +29,8 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
         watch
     } = methods;
 
-    const lagre = (data: IStoenadType) => {
-        dispatch({ type: ActionTypes.OPPDATER_VALGTE_STOENADER, payload: data });
+    const lagre = (data: ISituasjon) => {
+        dispatch({ type: ActionTypes.OPPDATER_SITUASJON, payload: data });
         neste!!();
     };
 
@@ -40,7 +40,7 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
         <FormProvider {...methods}>
             <form>
                 <SkjemaGruppe>
-                    <Systemtittel>Din situasjon</Systemtittel>
+                    <Systemtittel className={"center"}>Din situasjon</Systemtittel>
                 </SkjemaGruppe>
 
                 <RHFRadio
@@ -118,4 +118,4 @@ const SoeknadType: SoknadSteg = ({ neste }) => {
     );
 };
 
-export default SoeknadType;
+export default SoekerSituasjon;

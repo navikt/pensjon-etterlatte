@@ -42,7 +42,7 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
         <FormProvider {...methods}>
             <form>
                 {/* Steg 7 */}
-                <Systemtittel>{t("andreYtelser.tittel")}</Systemtittel>
+                <Systemtittel className={"center"}>{t("andreYtelser.tittel")}</Systemtittel>
 
                 <SkjemaGruppe>
                     <RHFToValgRadio
@@ -104,7 +104,7 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
                     </Knapp>
 
                     <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
-                        {t("knapp.neste")}
+                        {t("knapp.tilOppsummering")}
                     </Hovedknapp>
                 </SkjemaGruppe>
             </form>

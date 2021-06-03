@@ -1,0 +1,126 @@
+{
+  "harSamtykket": true,
+  "situasjon": {
+    "valgteYtelser": {
+      "hovedytelse": "etterlatte",
+      "barnepensjon": "Ja"
+    },
+    "fraDato": "2021-06-08T22:00:00.000Z"
+  },
+  "opplysningerOmSoekeren": {
+    "kontaktinfo": {
+      "telefonnummer": "999 88 777",
+      "epost": "test@nav.no"
+    },
+    "kontonummer": "2010.11.51223",
+    "flyktning": "Ja",
+    "bostedsadresseBekreftet": "Ja",
+    "oppholderSegINorge": "Nei",
+    "forholdTilAvdoed": {
+      "forholdTilAvdoede": "Gjenlevende ektefelle",
+      "datoForInngaattPartnerskap": "2021-06-01T22:00:00.000Z",
+      "varSkiltFoerDoedsfall": "Ja",
+      "mottokBidragFraAvdoede": "Ja",
+      "datoForSkilsmisse": "2021-05-31T22:00:00.000Z",
+      "bidragBeloepPrAar": "500000"
+    },
+    "nySivilstatus": {
+      "nySivilstatusEtterDoedsfallet": "samboerskap",
+      "datoForInngaaelse": "2021-05-31T22:00:00.000Z",
+      "nySivilstatusOpploest": "Ja",
+      "aarsakForOpploesningen": "Dødsfall",
+      "datoForOpploesningen": "2021-05-31T22:00:00.000Z"
+    },
+    "oppholdsland": "Polen",
+    "medlemFolketrygdenUtland": "Ja",
+    "samboer": {
+      "navn": "Sam Samboersen",
+      "foedselsnummer": "24014021406",
+      "hattBarnEllerVaertGift": "Ja",
+      "harInntekt": "Ja",
+      "inntektstype": [
+        "arbeidsinntekt",
+        "pensjon",
+        "kapitalinntekt",
+        "andreYtelser"
+      ],
+      "samletBruttoinntektPrAar": "150000"
+    }
+  },
+  "opplysningerOmDenAvdoede": {
+    "fornavn": "Død ",
+    "etternavn": "Dødesen",
+    "foedselsnummer": "24014021406",
+    "doedsdato": "2021-06-03T12:51:20.776Z",
+    "statsborgerskap": "Polsk",
+    "bosetning": "Ja",
+    "doedsfallAarsak": "Ja",
+    "boddEllerJobbetUtland": "Ja",
+    "haddePensjonsgivendeInntekt": "Ja",
+    "haddePensjonAndreLand": "Ja",
+    "harAvtjentMilitaerTjeneste": "Ja",
+    "pensjonsgivendeInntektSvar": "200000",
+    "pensjonAndreLandSvar": "10000",
+    "avtjentMilitaerTjenesteSvar": "1984"
+  },
+  "opplysningerOmBarn": [
+    {
+      "fornavn": "Liten",
+      "etternavn": "Gutt",
+      "foedselsnummer": "24014021406",
+      "brukeAnnenKonto": "Ja",
+      "foreldre": "Fellesbarn m/avdøde",
+      "bosattUtland": "Ja",
+      "kontonummer": "1112.22.31231",
+      "statsborgerskap": "Polsk",
+      "land": "Polen"
+    },
+    {
+      "fornavn": "Stor",
+      "etternavn": "Jente",
+      "foedselsnummer": "24014021406",
+      "brukeAnnenKonto": "Ja",
+      "foreldre": "Fellesbarn m/avdøde",
+      "bosattUtland": "Nei",
+      "kontonummer": "5555.44.33333"
+    }
+  ],
+  "tidligereArbeidsforhold": [
+    {
+      "beskrivelse": "Livets harde skole",
+      "fraDato": "2021-05-31T22:00:00.000Z",
+      "tilDato": "2021-06-02T22:00:00.000Z"
+    }
+  ],
+  "naavaerendeArbeidsforhold": {
+    "yrke": "Snekker",
+    "stilling": "Tømrer",
+    "startDato": "2021-06-07T22:00:00.000Z",
+    "sluttDato": "2021-06-24T22:00:00.000Z",
+    "ansettelsesforhold": "Midlertidig",
+    "heltidDeltid": "Deltid",
+    "arbeidsgiver": {
+      "navn": "Tømmer og Sånt AS",
+      "adresse": "Skogveien 12, 1342 Snarøya"
+    },
+    "inntekt": {
+      "bruttoArbeidsinntektPrMd": "20000",
+      "personinntektFraNaeringPrAr": "0"
+    },
+    "stillingsprosent": "50"
+  },
+  "andreYtelser": {
+    "mottarAndreYtelser": "Ja",
+    "kravOmAnnenStonad": {
+      "svar": "Ja",
+      "beskrivelseAvStoenad": "Husker ikke"
+    },
+    "mottarPensjonUtland": {
+      "svar": "Ja",
+      "hvaSlagsPensjon": "Polsk Uførepensjon",
+      "fraHvilketLand": "Polen",
+      "bruttobeloepPrAar": "100",
+      "landetsValuta": "PLN"
+    }
+  }
+}

@@ -49,7 +49,9 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
     return (
         <>
             {/* Steg 2 */}
-            <Systemtittel>{t("omSoekeren.tittel")}</Systemtittel>
+            <Systemtittel className={"center"}>
+                {t("omSoekeren.tittel")}
+            </Systemtittel>
 
             {/* Informasjon om den innloggede brukeren */}
             <InnloggetBruker />
