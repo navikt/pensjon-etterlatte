@@ -4,7 +4,7 @@ import { Hovedknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
-import { RHFInput } from "../../felles/RHFInput";
+import { RHFInput, RHFKontonummerInput } from "../../felles/RHFInput";
 import IValg from "../../../typer/IValg";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 
@@ -30,6 +30,8 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
     };
 
     const bosattUtland = watch("bosattUtland")
+    const brukeAnnenKonto = watch("brukeAnnenKonto")
+
 
     return (
         <FormProvider {...methods}>
@@ -38,37 +40,59 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                     <RHFInput
                         name={"fornavn"}
                         label={t("felles.fornavn")}
-                        rules={{pattern: /^\D+$/}}
+                        rules={{ pattern: /^\D+$/ }}
                     />
 
                     <RHFInput
                         name={"etternavn"}
                         label={t("felles.etternavn")}
-                        rules={{pattern: /^\D+$/}}
+                        rules={{ pattern: /^\D+$/ }}
                     />
 
                     <RHFInput
                         name={"foedselsnummer"}
                         label={t("felles.fnr")}
                     />
+                </SkjemaGruppe>
 
-                    <RHFRadio
-                        name={"foreldre"}
-                        legend={"Hvilken relasjon har du til barnet?"}
-                        radios={[
-                            { label: t("opplysningerOmBarn.fellesbarnMedAvdoed"), value: BarnRelasjon.fellesbarnMedAvdoede },
-                            { label: t("opplysningerOmBarn.avdoedesSaerkullsbarn"), value: BarnRelasjon.avdoedesSaerkullsbarn },
-                            { label: t("opplysningerOmBarn.egneSaerkullsbarn"), value: BarnRelasjon.egneSaerkullsbarn },
-                        ]}
+                <SkjemaGruppe>
+                    <RHFToValgRadio
+                        name={"brukeAnnenKonto"}
+                        legend={t("opplysningerOmBarn.brukeAnnenKonto")}
                     />
 
+                    {brukeAnnenKonto === IValg.JA && (
+                        <RHFKontonummerInput
+                            name={"kontonummer"}
+                            label={t("opplysningerOmBarn.barnetsKontonummer")}
+                        />
+                    )}
+                </SkjemaGruppe>
+
+                <RHFRadio
+                    name={"foreldre"}
+                    legend={"Hvilken relasjon har du til barnet?"}
+                    radios={[
+                        {
+                            label: t("opplysningerOmBarn.fellesbarnMedAvdoed"),
+                            value: BarnRelasjon.fellesbarnMedAvdoede
+                        },
+                        {
+                            label: t("opplysningerOmBarn.avdoedesSaerkullsbarn"),
+                            value: BarnRelasjon.avdoedesSaerkullsbarn
+                        },
+                        { label: t("opplysningerOmBarn.egneSaerkullsbarn"), value: BarnRelasjon.egneSaerkullsbarn },
+                    ]}
+                />
+
+                <SkjemaGruppe>
                     <RHFToValgRadio
                         name={"bosattUtland"}
                         legend={t("opplysningerOmBarn.borUtenlands")}
                     />
 
                     {bosattUtland === IValg.JA && (
-                        <SkjemaGruppe>
+                        <>
                             <RHFInput
                                 name={"statsborgerskap"}
                                 label={t("felles.statsborgerskap")}
@@ -78,16 +102,16 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                                 name={"land"}
                                 label={t("felles.land")}
                             />
-                        </SkjemaGruppe>
+                        </>
                     )}
+                </SkjemaGruppe>
 
-                    <Feilmeldinger errors={errors} />
+                <Feilmeldinger errors={errors}/>
 
-                    <section className={"navigasjon-rad"}>
-                        <Hovedknapp htmlType={"button"} onClick={handleSubmit(leggTilOgLukk)}>
-                            {t("knapp.leggTil")}
-                        </Hovedknapp>
-                    </section>
+                <SkjemaGruppe className={"navigasjon-rad"}>
+                    <Hovedknapp htmlType={"button"} onClick={handleSubmit(leggTilOgLukk)}>
+                        {t("knapp.leggTil")}
+                    </Hovedknapp>
                 </SkjemaGruppe>
             </form>
         </FormProvider>

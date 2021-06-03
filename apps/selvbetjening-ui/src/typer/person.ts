@@ -30,6 +30,8 @@ export interface IBarn {
     fornavn?: string;
     etternavn?: string;
     foedselsnummer?: string;
+    brukeAnnenKonto?: IValg;
+    kontonummer?: string;
     foreldre?: string;
     bosattUtland?: IValg;
     statsborgerskap?: string;

@@ -140,7 +140,9 @@
     "fellesbarnMedAvdoed": "Fellesbarn m/avdøde",
     "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
     "egneSaerkullsbarn": "Egne særkullsbarn",
-    "borUtenlands": "Bor barnet i utlandet?"
+    "borUtenlands": "Bor barnet i utlandet?",
+    "brukeAnnenKonto": "Ønsker du å bruke et annet kontonummer for barnet? Hvis du velger \"Nei\" vil kontonummeret du tidligere har oppgitt bli benyttet.",
+    "barnetsKontonummer": "Barnets kontonummer (11 siffer)"
   },
   "tidligereArbeidsforhold": {
     "tittel": "5 Opplysninger om søkers tidligere arbeidsforhold",
