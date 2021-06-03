@@ -8,31 +8,8 @@ import org.junit.jupiter.api.Test
 class FinnFnrSoeknadTest {
 
     @Test
-    fun opprett() {
-        val json = """
-    {
-        "soeker": {
-            "fornavn": "Test",
-            "etternavn": "Testesen",
-            "fnr": "07106123912"
-        },
-        "tulleperson": {
-            "fornavn": "tull",
-            "etternavn": "ball",
-            "fnr": "01010123656"
-        },
-        "avdoed": {
-            "fornavn": "Død",
-            "etternavn": "Dødesen",
-            "fnr": "14106126780"
-        },
-        "andreTall": {
-            "kode": "12121212121212",
-            "skalIkkeBliMed": "00059581835823582385",
-            "skalIkkeBliMed2": "1234"
-        }
-    }
-""".trimIndent()
+    fun test1() {
+        val json = getTestResource("/FinnFnrSoeknadTest1.json")
 
         val inspector = TestRapid()
             .apply { FinnFnrSoeknad(this) }
@@ -50,6 +27,14 @@ class FinnFnrSoeknadTest {
 
         assertEquals("07106123912", inspector.message(0).get("@fnr_liste")[0].asText())
         assertEquals("14106126780", inspector.message(0).get("@fnr_liste")[1].asText())
-        assertEquals(2,inspector.message(0).get("@fnr_liste").size())
+        assertEquals("21929774873", inspector.message(0).get("@fnr_liste")[2].asText())
+        assertEquals("61929750062", inspector.message(0).get("@fnr_liste")[3].asText())
+        assertEquals("61483601467", inspector.message(0).get("@fnr_liste")[4].asText())
+        assertEquals("29507030252", inspector.message(0).get("@fnr_liste")[5].asText())
+
+        assertEquals(6,inspector.message(0).get("@fnr_liste").size())
+    }
+    fun getTestResource( file: String): String {
+        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
     }
 }
