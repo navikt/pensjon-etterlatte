@@ -54,82 +54,80 @@ const SoknadForside = () => {
     }
 
     return (
-        <>
-            <Panel className={"forside"}>
-                <Veileder tekst={`${t("forside.hei")}, ${innloggetBrukerNavn}`} posisjon="høyre">
-                    <img alt="veileder" src={ikon} />
-                </Veileder>
+        <Panel className={"forside"}>
+            <Veileder tekst={`${t("forside.hei")}, ${innloggetBrukerNavn}`} posisjon="høyre">
+                <img alt="veileder" src={ikon}/>
+            </Veileder>
 
-                <br />
+            <br/>
 
-                <section>
-                    <Sidetittel>{t("forside.tittel")}</Sidetittel>
+            <section>
+                <Sidetittel>{t("forside.tittel")}</Sidetittel>
 
-                    <Normaltekst>
-                        <p>{t("forside.omYtelsene")}</p>
+                <Normaltekst>
+                    <p>{t("forside.omYtelsene")}</p>
 
-                        <Lenke href={"#"}>{t("forside.lenkeTilInfoOmYtelsene")}</Lenke>
-                    </Normaltekst>
-                </section>
+                    <Lenke href={"#"}>{t("forside.lenkeTilInfoOmYtelsene")}</Lenke>
+                </Normaltekst>
+            </section>
 
-                <section>
-                    <Undertittel>{t("forside.riktigeOpplysninger.tittel")}</Undertittel>
+            <section>
+                <Undertittel>{t("forside.riktigeOpplysninger.tittel")}</Undertittel>
 
-                    <Normaltekst>
-                        <p>{t("forside.riktigeOpplysninger.intro")}</p>
+                <Normaltekst>
+                    <p>{t("forside.riktigeOpplysninger.intro")}</p>
 
-                        <p>{t("forside.riktigeOpplysninger.endringerMaaMeldesIfra")}</p>
-                    </Normaltekst>
-                </section>
+                    <p>{t("forside.riktigeOpplysninger.endringerMaaMeldesIfra")}</p>
+                </Normaltekst>
+            </section>
 
-                <section>
-                    <Undertittel>{t("forside.dokumentasjon.tittel")}</Undertittel>
+            <section>
+                <Undertittel>{t("forside.dokumentasjon.tittel")}</Undertittel>
 
-                    <Normaltekst>
-                        <p>{t("forside.dokumentasjon.duFaarBeskjed")}</p>
+                <Normaltekst>
+                    <p>{t("forside.dokumentasjon.duFaarBeskjed")}</p>
 
-                        <p>{t("forside.dokumentasjon.duFaarBeskjed2")}</p>
+                    <p>{t("forside.dokumentasjon.duFaarBeskjed2")}</p>
 
-                        <Lenke href={"#"}>{t("forside.dokumentasjon.lenkeTilInformasjon")}</Lenke>
-                    </Normaltekst>
-                </section>
+                    <Lenke href={"#"}>{t("forside.dokumentasjon.lenkeTilInformasjon")}</Lenke>
+                </Normaltekst>
+            </section>
 
-                <section>
-                    <Undertittel>{t("forside.slikSoekerDu.tittel")}</Undertittel>
+            <section>
+                <Undertittel>{t("forside.slikSoekerDu.tittel")}</Undertittel>
 
-                    <Normaltekst>
-                        <p>{t("forside.slikSoekerDu.kunRelevantInfo")}</p>
+                <Normaltekst>
+                    <p>{t("forside.slikSoekerDu.kunRelevantInfo")}</p>
 
-                        <p>{t("forside.slikSoekerDu.viLagrer")}</p>
+                    <p>{t("forside.slikSoekerDu.viLagrer")}</p>
 
-                        <p>{t("forside.slikSoekerDu.dokumentasjonKanEttersendes")}</p>
-                    </Normaltekst>
-                </section>
+                    <p>{t("forside.slikSoekerDu.dokumentasjonKanEttersendes")}</p>
+                </Normaltekst>
+            </section>
 
-                <section>
-                    <Undertittel>{t("forside.samtykke.tittel")}</Undertittel>
+            <section>
+                <Undertittel>{t("forside.samtykke.tittel")}</Undertittel>
 
-                    <BekreftCheckboksPanel
-                        label={t("forside.samtykke.bekreftelse")}
-                        checked={soknadState.harSamtykket}
-                        onChange={(e) =>
-                            soknadDispatch({
-                                type: SoknadActionTypes.OPPDATER_SAMTYKKE,
-                                payload: (e.target as HTMLInputElement).checked
-                            })
-                        }
-                    >
-                        <p>{t("forside.samtykke.beskrivelse")}</p>
+                <BekreftCheckboksPanel
+                    label={t("forside.samtykke.bekreftelse")}
+                    checked={soknadState.harSamtykket}
+                    onChange={(e) =>
+                        soknadDispatch({
+                            type: SoknadActionTypes.OPPDATER_SAMTYKKE,
+                            payload: (e.target as HTMLInputElement).checked
+                        })
+                    }
+                >
+                    <p>{t("forside.samtykke.beskrivelse")}</p>
 
-                        <Lenke href="#">{t("forside.samtykke.lesMer")}</Lenke>
-                    </BekreftCheckboksPanel>
-                </section>
+                    <Lenke href="#">{t("forside.samtykke.lesMer")}</Lenke>
+                </BekreftCheckboksPanel>
+            </section>
 
-                {soknadState.harSamtykket && (
-                    <Hovedknapp onClick={() => history.push(`/soknad/steg/1`)}>{t("forside.startSoeknad")}</Hovedknapp>
-                )}
-            </Panel>
-        </>
+            {soknadState.harSamtykket && (
+                <Hovedknapp onClick={() => history.push(`/soknad/steg/1`)}>{t("forside.startSoeknad")}</Hovedknapp>
+            )}
+        </Panel>
     );
 };
 

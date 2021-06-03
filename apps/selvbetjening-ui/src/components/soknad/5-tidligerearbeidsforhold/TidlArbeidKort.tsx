@@ -18,14 +18,8 @@ const TidlArbeidKort = memo(({ item, index, fjern }: KortProps) => {
     const tilDato = dtf.format(new Date(item.tilDato));
 
     return (
-        <div key={index} className={"infokort infokort__fullbredde"}>
+        <div className={"infokort infokort__fullbredde"}>
             <div className={"infokort-knapper"}>
-                {/* TODO: Lage støtte for å redigere elementer
-                        <RedigerKnapp
-                            title={"Rediger element"}
-                            onClick={() => redigerElement(index)}
-                        />
-                */}
                 <Xknapp title={t("knapp.fjernElement")} onClick={() => fjern(index)}/>
             </div>
             <div className={"infokort__informasjonsboks"}>

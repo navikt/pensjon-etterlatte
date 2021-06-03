@@ -14,10 +14,8 @@ import { ITidligereArbeidsforhold } from "../../../typer/arbeidsforhold";
 import TidlArbeidKort from "./TidlArbeidKort";
 import { Ytelse } from "../../../typer/ytelser";
 import AlertStripe from "nav-frontend-alertstriper";
+import { v4 as uuid } from "uuid";
 
-/**
- * TODO: Skal kun fylles ut dersom søker har valgt "pensjon/overgangsstønad", "skolepenger", eller "barnetilsyn"
- */
 const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
@@ -58,7 +56,7 @@ const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <div className={"infokort-wrapper"}>
                         {state.tidligereArbeidsforhold.map((item: any, index: number) => (
-                            <TidlArbeidKort item={item} index={index} fjern={fjern}/>
+                            <TidlArbeidKort key={uuid()} item={item} index={index} fjern={fjern}/>
                         ))}
 
                         <div className={"infokort infokort__fullbredde"}>
