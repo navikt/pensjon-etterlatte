@@ -21,8 +21,8 @@ internal class JournalfoerSoeknad(
             validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@template") }
             validate { it.requireKey("@journalpostInfo") }
-            validate { it.rejectKey("@lagret_soeknad_id") }
-            validate { it.rejectKey("@journalpostId") }
+            validate { it.requireKey("@lagret_soeknad_id") }
+            //validate { it.rejectKey("@journalpostId") }
             validate { it.rejectKey("@dokarkivRetur") }
         }.register(this)
     }
