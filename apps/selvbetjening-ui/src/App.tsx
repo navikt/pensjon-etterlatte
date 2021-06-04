@@ -18,7 +18,7 @@ const App = () => {
                 <Route path={"/labs"} component={DevLabs} />
 
                 <Route path={"/soknad/steg"} component={SoknadDialog} />
-                <Route path={"/soknad/sendt"} component={SoknadSendt} />
+                <Route path={"/soknad/sendt/:id"} component={SoknadSendt} />
 
                 <Route component={NotFound} />
             </Switch>

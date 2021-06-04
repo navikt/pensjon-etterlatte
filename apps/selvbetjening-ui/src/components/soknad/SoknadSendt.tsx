@@ -9,16 +9,23 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
+import { useParams } from "react-router";
+
+interface SoknadSendtProps {
+    id: string;
+}
 
 const SoknadSendt = () => {
+    const { id } = useParams<SoknadSendtProps>();
+
     const { dispatch } = useSoknadContext();
 
     useEffect(() => {
         dispatch({ type: ActionTypes.TILBAKESTILL });
-    })
+    }, [dispatch])
 
     return (
-        <Panel className={"forside"}>
+        <Panel className={"forside center"}>
             <SkjemaGruppe>
                 <Veileder tekst="Søknaden er sendt!" posisjon="høyre">
                     <img alt="veileder" src={ikon}/>
@@ -27,13 +34,29 @@ const SoknadSendt = () => {
 
             <SkjemaGruppe>
                 <Sidetittel>Takk for din søknad!</Sidetittel>
+            </SkjemaGruppe>
 
+            <SkjemaGruppe>
                 <Normaltekst>
-                    <p>Din søknad er nå sendt og vil bli behandlet ila. 2-3 uker.</p>
+                    Din søknad er nå sendt og vil bli behandlet ila. 2-3 uker.
+                </Normaltekst>
+            </SkjemaGruppe>
 
+            <SkjemaGruppe>
+                <Normaltekst>
+                    Ditt saksnummer er:
+                </Normaltekst>
+                <Normaltekst>
+                    <b>{id}</b>
+                </Normaltekst>
+            </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                <Normaltekst>
                     <Lenke href={"#"}>Les mer om behandling av søknad her.</Lenke>
                 </Normaltekst>
             </SkjemaGruppe>
+
 
             <SkjemaGruppe>
                 <section className={"navigasjon-rad"}>

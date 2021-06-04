@@ -43,8 +43,8 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
         setSenderSoeknad(true);
 
         sendSoeknad(state)
-            .then(() => {
-                history.push("/soknad/sendt");
+            .then((soknadId) => {
+                history.push(`/soknad/sendt/${soknadId}`);
             })
             .catch((error) => {
                 console.log(error)

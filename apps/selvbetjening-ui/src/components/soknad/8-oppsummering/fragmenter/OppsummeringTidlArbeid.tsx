@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { Ingress } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
 import { ITidligereArbeidsforhold } from "../../../../typer/arbeidsforhold";
+import { v4 as uuid } from "uuid";
 
 const OppsummeringTidlArbeid = ({ state }: { state: ITidligereArbeidsforhold[] }) => {
     const { t } = useTranslation();
@@ -15,7 +16,7 @@ const OppsummeringTidlArbeid = ({ state }: { state: ITidligereArbeidsforhold[] }
     return (
         <Ekspanderbartpanel tittel={"Om tidligere arbeidsforhold"} className={"oppsummering"} apen={true}>
             {state.map((arbeid) => (
-                <>
+                <div key={uuid()}>
                     <Ingress>{arbeid.beskrivelse}</Ingress>
 
                     <Panel>
@@ -28,7 +29,7 @@ const OppsummeringTidlArbeid = ({ state }: { state: ITidligereArbeidsforhold[] }
                             innhold={arbeid.tilDato}
                         />
                     </Panel>
-                </>
+                </div>
             ))}
 
             <Lenke href={`/soknad/steg/${StegPath.TidlArbeidsforhold}`}>

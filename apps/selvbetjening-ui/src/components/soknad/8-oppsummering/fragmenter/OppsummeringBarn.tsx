@@ -9,6 +9,7 @@ import { IBarn } from "../../../../typer/person";
 import { useTranslation } from "react-i18next";
 import { Ingress } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
+import { v4 as uuid } from "uuid";
 
 const OppsummeringBarn = ({ state }: { state: IBarn[] }) => {
     const { t } = useTranslation();
@@ -16,7 +17,7 @@ const OppsummeringBarn = ({ state }: { state: IBarn[] }) => {
     return (
         <Ekspanderbartpanel tittel={"Om barn"} className={"oppsummering"} apen={true}>
             {state.map((barn) => (
-                <>
+                <div key={uuid()}>
                     <Ingress>{barn.fornavn} {barn.etternavn}</Ingress>
 
                     <Panel>
@@ -54,7 +55,7 @@ const OppsummeringBarn = ({ state }: { state: IBarn[] }) => {
                             </>
                         )}
                     </Panel>
-                </>
+                </div>
             ))}
 
             <Lenke href={`/soknad/steg/${StegPath.OmBarn}`}>
