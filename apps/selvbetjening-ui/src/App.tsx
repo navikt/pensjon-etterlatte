@@ -14,9 +14,8 @@ const App = () => {
             <Switch>
                 <Route exact path={"/"} component={SoknadForside} />
 
-                {process.env.NODE_ENV !== "production" && (
-                    <Route path={"/labs"} component={DevLabs} />
-                )}
+                {/* TODO: Kun støtte i dev og Q, ikke prod. Krever litt endringer i appen. */}
+                <Route path={"/labs"} component={DevLabs} />
 
                 <Route path={"/soknad/steg"} component={SoknadDialog} />
                 <Route path={"/soknad/sendt"} component={SoknadSendt} />
