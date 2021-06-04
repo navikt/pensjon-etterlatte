@@ -28,17 +28,13 @@ internal class SjekkAdressebeskyttelse(
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
 
-        println("før identer")
         val identer = packet["@fnr_liste"].map { it.asText() } + packet["@fnr_soeker"].textValue()
-        println("etter identer")
         if (identer.isNotEmpty()) {
             runBlocking {
-                println(identer)
-                println(pdl.finnAdressebeskyttelseForFnr(identer))
                 val beskyttelse = pdl.finnAdressebeskyttelseForFnr(identer)
                     .flatMap { it.get("hentPersonBolk") }
-                    .map { it.get("person") }
-                    .map { it.get("adressebeskyttelse") }
+                    .mapNotNull { it.get("person") }
+                    .mapNotNull { it.get("adressebeskyttelse") }
                     .map { finnGradering(it) }
                     .minByOrNull { it.ordinal } ?: Graderinger.INGEN_BESKYTTELSE
 
