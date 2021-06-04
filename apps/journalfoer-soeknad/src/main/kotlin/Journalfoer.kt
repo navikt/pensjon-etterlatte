@@ -42,7 +42,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                 journalpostType = JournalPostType.INNGAAENDE,
                 journalfoerendeEnhet = journalpostInfo.journalfoerendeEnhet,
                 tema = "PEN",
-                eksternReferanseId = journalpostInfo.tittel + lagretSoeknadId,
+                //eksternReferanseId = journalpostInfo.tittel + lagretSoeknadId,
                 kanal = "NAV_NO",
                 behandlingstema = "ab0255",
                 avsenderMottaker = AvsenderMottaker(
