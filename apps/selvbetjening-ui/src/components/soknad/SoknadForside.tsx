@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import "./SoknadForside.less";
-import Panel from "nav-frontend-paneler";
-import { BekreftCheckboksPanel } from "nav-frontend-skjema";
+import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Lenke from "nav-frontend-lenker";
 import { Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
 import { Hovedknapp } from "nav-frontend-knapper";
@@ -56,46 +55,44 @@ const SoknadForside = () => {
     const innloggetBrukerNavn = `${brukerState.fornavn} ${brukerState.etternavn}`;
 
     return (
-        <Panel className={"forside"}>
-            <Veileder tekst={`${t("forside.hei")}, ${innloggetBrukerNavn}`} posisjon="høyre">
-                <img alt="veileder" src={ikon}/>
-            </Veileder>
+        <div className={"forside"}>
+            <SkjemaGruppe>
+                <Veileder tekst={`${t("forside.hei")}, ${innloggetBrukerNavn}`} posisjon="høyre">
+                    <img alt="veileder" src={ikon}/>
+                </Veileder>
+            </SkjemaGruppe>
 
-            <br/>
-
-            <section>
+            <SkjemaGruppe>
                 <Sidetittel>{t("forside.tittel")}</Sidetittel>
 
-                <Normaltekst>
-                    <p>{t("forside.omYtelsene")}</p>
+                <Normaltekst>{t("forside.omYtelsene")}</Normaltekst>
 
+                <Normaltekst>
                     <Lenke href={"#"}>{t("forside.lenkeTilInfoOmYtelsene")}</Lenke>
                 </Normaltekst>
-            </section>
+            </SkjemaGruppe>
 
-            <section>
+            <SkjemaGruppe>
                 <Undertittel>{t("forside.riktigeOpplysninger.tittel")}</Undertittel>
 
-                <Normaltekst>
-                    <p>{t("forside.riktigeOpplysninger.intro")}</p>
+                <Normaltekst>{t("forside.riktigeOpplysninger.intro")}</Normaltekst>
 
-                    <p>{t("forside.riktigeOpplysninger.endringerMaaMeldesIfra")}</p>
-                </Normaltekst>
-            </section>
+                <Normaltekst>{t("forside.riktigeOpplysninger.endringerMaaMeldesIfra")}</Normaltekst>
+            </SkjemaGruppe>
 
-            <section>
+            <SkjemaGruppe>
                 <Undertittel>{t("forside.dokumentasjon.tittel")}</Undertittel>
 
+                <Normaltekst>{t("forside.dokumentasjon.duFaarBeskjed")}</Normaltekst>
+
+                <Normaltekst>{t("forside.dokumentasjon.duFaarBeskjed2")}</Normaltekst>
+
                 <Normaltekst>
-                    <p>{t("forside.dokumentasjon.duFaarBeskjed")}</p>
-
-                    <p>{t("forside.dokumentasjon.duFaarBeskjed2")}</p>
-
                     <Lenke href={"#"}>{t("forside.dokumentasjon.lenkeTilInformasjon")}</Lenke>
                 </Normaltekst>
-            </section>
+            </SkjemaGruppe>
 
-            <section>
+            <SkjemaGruppe>
                 <Undertittel>{t("forside.slikSoekerDu.tittel")}</Undertittel>
 
                 <Normaltekst>
@@ -105,10 +102,12 @@ const SoknadForside = () => {
 
                     <p>{t("forside.slikSoekerDu.dokumentasjonKanEttersendes")}</p>
                 </Normaltekst>
-            </section>
+            </SkjemaGruppe>
 
-            <section>
+            <SkjemaGruppe>
                 <Undertittel>{t("forside.samtykke.tittel")}</Undertittel>
+
+                <br/>
 
                 <BekreftCheckboksPanel
                     label={t("forside.samtykke.bekreftelse")}
@@ -124,12 +123,12 @@ const SoknadForside = () => {
 
                     <Lenke href="#">{t("forside.samtykke.lesMer")}</Lenke>
                 </BekreftCheckboksPanel>
-            </section>
+            </SkjemaGruppe>
 
             {soknadState.harSamtykket && (
                 <Hovedknapp onClick={startSoeknad}>{t("forside.startSoeknad")}</Hovedknapp>
             )}
-        </Panel>
+        </div>
     );
 };
 
