@@ -79,13 +79,13 @@ const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
                 />
                 {(!!nySivilstatus?.nySivilstatusEtterDoedsfallet && nySivilstatus.nySivilstatusEtterDoedsfallet !== NySivilstatus.ingen) && (
                     <>
-                        <TekstGruppe tittel={t('omSoekeren.datoForInngaaelse')}
+                        <TekstGruppe tittel={t("omSoekeren.nyInngaaelse.dato")}
                                      innhold={nySivilstatus?.datoForInngaaelse?.toString()}/>
-                        <TekstGruppe tittel={t('omSoekeren.nySivilstatusOpploest')}
+                        <TekstGruppe tittel={t("omSoekeren.nyInngaaelseOpploest")}
                                      innhold={nySivilstatus?.nySivilstatusOpploest}/>
-                        <TekstGruppe tittel={t('omSoekeren.aarsakForOpploesningen')}
+                        <TekstGruppe tittel={t("omSoekeren.aarsakOpploesning.tittel")}
                                      innhold={nySivilstatus?.aarsakForOpploesningen}/>
-                        <TekstGruppe tittel={t('omSoekeren.datoForOpploesningen')}
+                        <TekstGruppe tittel={t("omSoekeren.nyInngaaelseOpploestDato")}
                                      innhold={nySivilstatus?.datoForOpploesningen?.toString()}/>
                     </>
                 )}

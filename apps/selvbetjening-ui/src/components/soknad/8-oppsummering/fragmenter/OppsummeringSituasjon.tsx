@@ -1,9 +1,11 @@
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import { ISituasjon } from "../../../../typer/ytelser";
-import { SkjemaGruppe } from "nav-frontend-skjema";
-import { Element, Normaltekst } from "nav-frontend-typografi";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import TekstGruppe from "./TekstGruppe";
+import { StegPath } from "../../../../context/steg/steg";
+import { EditFilled } from "@navikt/ds-icons";
+import Lenke from "nav-frontend-lenker";
 
 
 const OppsummeringSituasjon = ({ state }: { state: ISituasjon }) => {
@@ -13,20 +15,16 @@ const OppsummeringSituasjon = ({ state }: { state: ISituasjon }) => {
 
     return (
         <Ekspanderbartpanel tittel={"Din situasjon"} className={"oppsummering"}  apen={true}>
-            <SkjemaGruppe>
-                <Element>Valgt ytelse: </Element>
-                <Normaltekst>{t(`stoenadType.${hovedytelse}`)}</Normaltekst>
-            </SkjemaGruppe>
+            <TekstGruppe tittel={"Valgt ytelse: "} innhold={t(`stoenadType.${hovedytelse}`)} />
 
-            <SkjemaGruppe>
-                <Element>Søker barnepensjon?</Element>
-                <Normaltekst>{state.valgteYtelser?.barnepensjon}</Normaltekst>
-            </SkjemaGruppe>
+            <TekstGruppe tittel={"Søker barnepensjon?"} innhold={state.valgteYtelser?.barnepensjon} />
 
-            <SkjemaGruppe>
-                <Element>Fra dato: </Element>
-                <Normaltekst>{state.fraDato}</Normaltekst>
-            </SkjemaGruppe>
+            <TekstGruppe tittel={"Fra dato: "} innhold={state.fraDato} />
+
+            <Lenke href={`/soknad/steg/${StegPath.DinSituasjon}`}>
+                <EditFilled />
+                <span>Endre svar</span>
+            </Lenke>
         </Ekspanderbartpanel>
     )
 }
