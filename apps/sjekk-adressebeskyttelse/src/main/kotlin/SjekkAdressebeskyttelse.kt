@@ -32,6 +32,7 @@ internal class SjekkAdressebeskyttelse(
 
         if (identer.isNotEmpty()) {
             runBlocking {
+                println(pdl.finnAdressebeskyttelseForFnr(identer))
                 val beskyttelse = pdl.finnAdressebeskyttelseForFnr(identer)
                     .flatMap { it.get("hentPersonBolk") }
                     .map { it.get("person") }
