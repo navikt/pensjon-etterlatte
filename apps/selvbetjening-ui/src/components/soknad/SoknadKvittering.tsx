@@ -1,5 +1,4 @@
 import "./SoknadForside.less";
-import Panel from "nav-frontend-paneler";
 import Lenke from "nav-frontend-lenker";
 import { Ingress, Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
