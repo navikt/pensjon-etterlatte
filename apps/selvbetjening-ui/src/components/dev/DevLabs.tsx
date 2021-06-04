@@ -26,7 +26,7 @@ const DevLabs = () => {
 
         setTimeout(() => {
             history.push("/soknad/steg/oppsummering")
-        }, 5000)
+        }, 3500)
     }
 
     const tilbakestill = () => {
@@ -36,7 +36,7 @@ const DevLabs = () => {
 
         setTimeout(() => {
             setState({...state, reset: false});
-        }, 5000)
+        }, 3500)
     }
 
     return (
@@ -53,7 +53,7 @@ const DevLabs = () => {
 
             {state.mocked && (
                 <AlertStripe type={"suksess"}>
-                    Søknad mocket!
+                    Søknad mocket! Tar deg til oppsummering ...
                 </AlertStripe>
             )}
 
