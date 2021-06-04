@@ -17,13 +17,12 @@ export const sendSoeknad = (soeknad: object) => {
     return api
         .post("/api/soeknad", soeknad)
         .then((response) => {
-            console.log(response);
+            if (response.status !== 200) {
+                throw new Error()
+            }
 
             return response.data;
         })
-        .catch((error) => {
-            console.error(error);
-        });
 };
 
 export const isReady = () => {

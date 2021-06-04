@@ -16,6 +16,8 @@ import OppsummeringArbeidsforhold from "./fragmenter/OppsummeringArbeidsforhold"
 import OppsummeringAndreYtelser from "./fragmenter/OppsummeringAndreYtelser";
 import { default as Modal } from "nav-frontend-modal";
 import { ActionTypes } from "../../../context/soknad/soknad";
+import NavFrontendSpinner from "nav-frontend-spinner";
+import AlertStripe from "nav-frontend-alertstriper";
 
 const Oppsummering: SoknadSteg = ({ forrige }) => {
     const history = useHistory();
@@ -32,20 +34,22 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
         andreYtelser
     } = state;
 
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const [senderSoeknad, setSenderSoeknad] = useState(false);
+    const [error, setError] = useState(false);
 
     const send = () => {
-        sendSoeknad(state)
-            .then((r) => {
-                console.log(r);
+        setSenderSoeknad(true);
 
+        sendSoeknad(state)
+            .then(() => {
                 history.push("/soknad/sendt");
             })
             .catch((error) => {
-                // TODO: Håndtere feil. Redirect til feilside?
-                console.error(error);
-
-
+                console.log(error)
+                setSenderSoeknad(false);
+                setError(true)
             });
     };
 
@@ -107,7 +111,25 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
                 </SkjemaGruppe>
             </Modal>
 
-            <SkjemaGruppe className={"navigasjon-rad"}>
+            {senderSoeknad && (
+                <div className={"spinner-overlay"}>
+                    <div className={"center"}>
+                        <NavFrontendSpinner />
+                        <br />
+                        <Ingress>Sender søknaden. Vennligst vent ...</Ingress>
+                    </div>
+                </div>
+            )}
+
+            {error && (
+                <SkjemaGruppe>
+                    <AlertStripe type={"feil"}>
+                        En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du kontakte kundeservice.
+                    </AlertStripe>
+                </SkjemaGruppe>
+            )}
+
+            <SkjemaGruppe className={"navigasjon-rad"} >
                 <Knapp htmlType={"button"} onClick={forrige}>
                     {t("knapp.tilbake")}
                 </Knapp>
