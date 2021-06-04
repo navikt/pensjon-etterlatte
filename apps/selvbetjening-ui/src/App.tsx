@@ -5,7 +5,7 @@ import NotFound from "./NotFound";
 import SoknadDialog from "./components/soknad/SoknadDialog";
 import ContextProviders from "./context/ContextProviders";
 import SoknadForside from "./components/soknad/SoknadForside";
-import SoknadSendt from "./components/soknad/SoknadSendt";
+import SoknadKvittering from "./components/soknad/SoknadKvittering";
 import DevLabs from "./components/dev/DevLabs";
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
                 <Route path={"/labs"} component={DevLabs} />
 
                 <Route path={"/soknad/steg"} component={SoknadDialog} />
-                <Route path={"/soknad/sendt/:id"} component={SoknadSendt} />
+                <Route path={"/soknad/sendt/:id"} component={SoknadKvittering} />
 
                 <Route component={NotFound} />
             </Switch>

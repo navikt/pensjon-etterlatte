@@ -6,11 +6,12 @@ const api = axios.create({
 });
 
 export const hentInnloggetPerson = () => {
-    return api.get("/person/innlogget").then((response) => {
-        console.log(response);
+    return api.get("/person/innlogget")
+        .then((response) => {
+            console.log(response);
 
-        return response.data;
-    });
+            return response.data;
+        });
 };
 
 export const sendSoeknad = (soeknad: object) => {
@@ -22,7 +23,7 @@ export const sendSoeknad = (soeknad: object) => {
             }
 
             return response.data;
-        })
+        });
 };
 
 export const isReady = () => {
@@ -39,28 +40,6 @@ export const isReady = () => {
 export const isAlive = () => {
     return api
         .get("/internal/isalive")
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-};
-
-export const hentPerson = () => {
-    return api
-        .get("/person/123456789")
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-};
-
-export const secure = () => {
-    return api
-        .get("/secure")
         .then((response) => {
             console.log(response);
         })

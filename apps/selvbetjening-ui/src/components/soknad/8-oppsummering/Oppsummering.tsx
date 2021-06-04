@@ -18,6 +18,7 @@ import { default as Modal } from "nav-frontend-modal";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import NavFrontendSpinner from "nav-frontend-spinner";
 import AlertStripe from "nav-frontend-alertstriper";
+import classNames from "classnames";
 
 const Oppsummering: SoknadSteg = ({ forrige }) => {
     const history = useHistory();
@@ -111,16 +112,6 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
                 </SkjemaGruppe>
             </Modal>
 
-            {senderSoeknad && (
-                <div className={"spinner-overlay"}>
-                    <div className={"center"}>
-                        <NavFrontendSpinner />
-                        <br />
-                        <Ingress>Sender søknaden. Vennligst vent ...</Ingress>
-                    </div>
-                </div>
-            )}
-
             {error && (
                 <SkjemaGruppe>
                     <AlertStripe type={"feil"}>
@@ -129,17 +120,19 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
                 </SkjemaGruppe>
             )}
 
-            <SkjemaGruppe className={"navigasjon-rad"} >
+            <SkjemaGruppe className={classNames("navigasjon-rad", senderSoeknad && "disabled")} >
                 <Knapp htmlType={"button"} onClick={forrige}>
                     {t("knapp.tilbake")}
                 </Knapp>
 
                 <Hovedknapp htmlType={"button"} onClick={send}>
-                    {t("knapp.sendSoeknad")}
+                    {t("knapp.sendSoeknad")} {senderSoeknad && (
+                        <NavFrontendSpinner />
+                    )}
                 </Hovedknapp>
             </SkjemaGruppe>
 
-            <SkjemaGruppe className={"navigasjon-rad"}>
+            <SkjemaGruppe className={classNames("navigasjon-rad", senderSoeknad && "disabled")}>
                 <Flatknapp htmlType={"button"} onClick={() => setIsOpen(true)}>
                     Avbryt
                 </Flatknapp>
