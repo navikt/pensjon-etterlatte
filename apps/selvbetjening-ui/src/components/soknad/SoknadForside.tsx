@@ -4,7 +4,7 @@ import Panel from "nav-frontend-paneler";
 import { BekreftCheckboksPanel } from "nav-frontend-skjema";
 import Lenke from "nav-frontend-lenker";
 import { Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
-import { Fareknapp, Hovedknapp } from "nav-frontend-knapper";
+import { Hovedknapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
 import { useHistory } from "react-router-dom";
 import ikon from "../../assets/ikoner/veileder.svg";
@@ -52,10 +52,6 @@ const SoknadForside = () => {
         history.push(`/soknad/steg/${foersteSteg.path}`)
     }
 
-    const mockSoeknad = () => {
-        soknadDispatch({ type: SoknadActionTypes.MOCK_SOEKNAD });
-        startSoeknad();
-    }
 
     const innloggetBrukerNavn = `${brukerState.fornavn} ${brukerState.etternavn}`;
 
@@ -132,12 +128,6 @@ const SoknadForside = () => {
 
             {soknadState.harSamtykket && (
                 <Hovedknapp onClick={startSoeknad}>{t("forside.startSoeknad")}</Hovedknapp>
-            )}
-
-            {process.env.NODE_ENV !== "production" && (
-                <Fareknapp onClick={mockSoeknad}>
-                    Mock Søknad
-                </Fareknapp>
             )}
         </Panel>
     );

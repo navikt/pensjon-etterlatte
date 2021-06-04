@@ -6,26 +6,19 @@ import SoknadDialog from "./components/soknad/SoknadDialog";
 import ContextProviders from "./context/ContextProviders";
 import SoknadForside from "./components/soknad/SoknadForside";
 import SoknadSendt from "./components/soknad/SoknadSendt";
-import Oppsummering from "./components/soknad/8-oppsummering/Oppsummering";
-import { useSoknadContext } from "./context/soknad/SoknadContext";
-import { useHistory } from "react-router-dom";
+import DevLabs from "./components/dev/DevLabs";
 
 const App = () => {
-    const history = useHistory()
-
-    const { state: { harSamtykket }} = useSoknadContext();
-
-    if (!harSamtykket) {
-        history.push("/")
-    }
-
     return (
         <ContextProviders>
             <Switch>
                 <Route exact path={"/"} component={SoknadForside} />
 
+                {process.env.NODE_ENV !== "production" && (
+                    <Route path={"/labs"} component={DevLabs} />
+                )}
+
                 <Route path={"/soknad/steg"} component={SoknadDialog} />
-                <Route exact path={"/soknad/steg/oppsummering"} component={Oppsummering} />
                 <Route path={"/soknad/sendt"} component={SoknadSendt} />
 
                 <Route component={NotFound} />

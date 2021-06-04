@@ -12,6 +12,7 @@ import NavaerendeArbeidsforhold from "../../components/soknad/6-arbeidsforhold/N
 import AndreYtelser from "../../components/soknad/7-andreytelser/AndreYtelser";
 import SoknadStegviser from "./SoknadStegviser";
 import Oppsummering from "./8-oppsummering/Oppsummering";
+import { useSoknadContext } from "../../context/soknad/SoknadContext";
 
 const SoknadDialog = () => {
     const history = useHistory();
@@ -20,6 +21,12 @@ const SoknadDialog = () => {
     const location = useLocation();
 
     const { state: { steg } } = useStegContext();
+
+    const { state: { harSamtykket }} = useSoknadContext();
+
+    if (!harSamtykket) {
+        history.push("/")
+    }
 
     const settSteg = (retning: -1 | 1) => {
         const index = steg.findIndex((value) => location.pathname.includes(value.path))
