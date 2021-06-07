@@ -9,6 +9,7 @@ import com.fasterxml.jackson.module.kotlin.treeToValue
 import io.ktor.client.HttpClient
 import io.ktor.client.request.accept
 import io.ktor.client.request.header
+import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
@@ -71,7 +72,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
             )
         }
         return client.post(baseUrl) {
-            listOf("forsoekFerdigstill" to "true")
+            parameter("forsoekFerdigstill", true)
             accept(ContentType.Application.Json)
             contentType(ContentType.Application.Json)
             header("X-Correlation-ID", MDC.get("X-Correlation-ID") ?: UUID.randomUUID().toString())
