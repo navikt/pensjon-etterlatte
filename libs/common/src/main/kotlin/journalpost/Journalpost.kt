@@ -16,7 +16,7 @@ data class JournalpostRequest(
     val journalfoerendeEnhet: String,
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,
-    //val eksternReferanseId: String,
+    val eksternReferanseId: String,
     //val sak: Fagsak?,
     var dokumenter: List<JournalpostDokument>
 )
