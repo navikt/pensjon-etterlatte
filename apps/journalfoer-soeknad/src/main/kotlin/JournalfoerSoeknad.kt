@@ -33,8 +33,7 @@ internal class JournalfoerSoeknad(
                     packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
                 )
                 println("Journalført en ny PDF med journalpostId: " + packet["@dokarkivRetur"])
-                println("publiserer ikke melding for å teste duplikatsjekk")
-            //context.publish(packet.toJson())
+                context.publish(packet.toJson())
             }
         } catch (err: Exception) {
             println("Fillern, dette klarte jeg ikke: " + err)

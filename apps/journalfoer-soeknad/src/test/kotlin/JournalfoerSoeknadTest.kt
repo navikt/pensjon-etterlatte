@@ -25,7 +25,7 @@ class JournalfoerSoeknadTest {
     fun getTestResource( file: String): String {
         return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
     }
-    //@Test
+    @Test
     fun journalfoer() {
         val message = getTestResource("/fullMessage.json")
         val inspector = TestRapid()
