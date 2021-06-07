@@ -20,9 +20,9 @@ class JournalpostSkrevetTest {
             JournalpostSkrevet(this, db)
         }
 
-        testRapid.sendTestMessage(testMessage(11, 12))
-        testRapid.sendTestMessage(testMessage(21, 22))
-        testRapid.sendTestMessage(testMessage(31, 32))
+        testRapid.sendTestMessage(testMessage(11, 12, 1))
+        testRapid.sendTestMessage(testMessage(21, 22, 2))
+        testRapid.sendTestMessage(testMessage(31, 32, 3))
 
         assertEquals(3, db.arkiveringOk.size)
         assertEquals(0, db.arkiveringFeilet.size)
@@ -40,9 +40,9 @@ class JournalpostSkrevetTest {
             JournalpostSkrevet(this, db)
         }
 
-        testRapid.sendTestMessage(testMessage(11, 12, false))
-        testRapid.sendTestMessage(testMessage(21, 22, false))
-        testRapid.sendTestMessage(testMessage(31, 32, false))
+        testRapid.sendTestMessage(testMessage(11, 12))
+        testRapid.sendTestMessage(testMessage(21, 22))
+        testRapid.sendTestMessage(testMessage(31, 32))
 
         assertEquals(0, db.arkiveringOk.size)
         assertEquals(3, db.arkiveringFeilet.size)
@@ -52,11 +52,15 @@ class JournalpostSkrevetTest {
 
     }
 }
-fun testMessage(journalpost: Long, soeknad: Long, journalpostferdigstilt: Boolean = true) =
+fun testMessage(journalpost: Long, soeknad: Long, dokumentInfoId: Long? = null) =
     JsonMessage("{}", MessageProblems("{}")).apply {
         this["@dokarkivRetur"] = mapper.createObjectNode().also {
-            it.put("journalpostferdigstilt", journalpostferdigstilt)
+            it.put("journalpostferdigstilt", false)
             it.put("journalpostId", journalpost)
+            dokumentInfoId?.also { dii ->
+                it.putArray("dokumenter").addObject().put("dokumentInfoId", dokumentInfoId)
+
+            }
         }
         this["@lagret_soeknad_id"] = soeknad
 

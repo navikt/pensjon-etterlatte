@@ -19,7 +19,7 @@ internal class JournalpostSkrevet(rapidsConnection: RapidsConnection, private va
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        if(packet["@dokarkivRetur"].get("journalpostferdigstilt").asBoolean()){
+        if(packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong()?:0L != 0L){
             soeknader.soeknadArkivert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
         } else {
             println("Arkivering feilet: ${packet.toJson()}")
