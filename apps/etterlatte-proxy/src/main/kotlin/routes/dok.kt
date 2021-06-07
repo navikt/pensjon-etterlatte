@@ -3,6 +3,7 @@ package no.nav.etterlatte.routes
 import io.ktor.application.call
 import io.ktor.client.request.accept
 import io.ktor.client.request.header
+import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
@@ -39,6 +40,7 @@ fun Route.dok(
 
             try {
                 val response = httpClient().post<HttpResponse>(dokUrl) {
+                    parameter("forsoekFerdigstill", true)
                     header(HttpHeaders.Authorization, "Bearer $stsToken")
                     method = HttpMethod.Post
                     contentType(ContentType.Application.Json)
