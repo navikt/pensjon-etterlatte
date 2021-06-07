@@ -51,10 +51,10 @@ fun Route.dok(
                 println("Feil i kall mot Dokarkiv: $cause")
                 cause.printStackTrace()
                 call.respondText(status = cause.response.status) { cause.message!! }
-            }catch (cause: Throwable) {
+            } catch (cause: Throwable) {
                 println("Feil i kall mot Dokarkiv: $cause")
                 cause.printStackTrace()
-                call.respondText(status = HttpStatusCode.InternalServerError) { cause.message?:"Intern feil" }
+                call.respondText(status = HttpStatusCode.InternalServerError) { cause.message ?: "Intern feil" }
             }
         }
     }
