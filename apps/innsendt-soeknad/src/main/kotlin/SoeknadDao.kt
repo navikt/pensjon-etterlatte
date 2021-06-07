@@ -55,7 +55,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
                         UNION
                         SELECT 'sendt', count(1) 
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status not in ('${Status.arkivert}', '${Status.arkiveringsfeil}'))
+                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status in ('${Status.arkivert}', '${Status.arkiveringsfeil}'))
                         AND exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.sendt}')
                         UNION
                         SELECT 'arkivert', count(1) 

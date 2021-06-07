@@ -45,12 +45,3 @@ fun main() {
 
     rapidApplication.start()
 }
-
-
-
-
-
-
-
-
-
