@@ -11,7 +11,6 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
-import io.ktor.request.header
 import io.ktor.request.receive
 import io.ktor.response.respondText
 import io.ktor.routing.Route
@@ -19,12 +18,10 @@ import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.util.KtorExperimentalAPI
 import no.nav.etterlatte.Config
-import no.nav.etterlatte.NavCallId
 import no.nav.etterlatte.StsClient
 import no.nav.etterlatte.httpClient
 import no.nav.etterlatte.pipeResponse
 import org.json.simple.JSONObject
-import java.util.*
 
 @KtorExperimentalAPI
 fun Route.dok(
@@ -36,7 +33,7 @@ fun Route.dok(
 
             val dokUrl = config.dok.url
             val stsToken = stsClient.getToken()
-            val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
+            //val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
 
             try {
                 val response = httpClient().post<HttpResponse>(dokUrl) {
