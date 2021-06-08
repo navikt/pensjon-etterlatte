@@ -7,9 +7,11 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.treeToValue
 import io.ktor.client.HttpClient
+import io.ktor.client.call.receive
 import io.ktor.client.request.accept
 import io.ktor.client.request.header
 import io.ktor.client.request.post
+import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import no.nav.etterlatte.libs.common.journalpost.AvsenderMottaker
@@ -34,7 +36,6 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
 
         val journalpostInfo: JournalpostInfo? = objectMapper.treeToValue(dokumentInnhold["@journalpostInfo"])
         val lagretSoeknadId = dokumentInnhold["@lagret_soeknad_id"]
-
         val journalpostrequest = journalpostInfo?.let {
 
             JournalpostRequest(
@@ -70,14 +71,27 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                 )
             )
         }
-        return client.post(baseUrl) {
-            accept(ContentType.Application.Json)
-            contentType(ContentType.Application.Json)
-            header("X-Correlation-ID", MDC.get("X-Correlation-ID") ?: UUID.randomUUID().toString())
-            body = journalpostrequest!!
+        try {
+            val retur = client.post<HttpResponse>(baseUrl) {
+                accept(ContentType.Application.Json)
+                contentType(ContentType.Application.Json)
+                header("X-Correlation-ID", MDC.get("X-Correlation-ID") ?: UUID.randomUUID().toString())
+                body = journalpostrequest!!
+            }
+            return retur.receive()
+        } catch (cause: io.ktor.client.features.ClientRequestException) {
+            if (cause.response.status.value == 409) {
+                println("Duplikat journalpost: $cause")
+                cause.printStackTrace()
+                return cause.response.receive()
+            }
+            return cause.response.receive()
+
+        } catch (cause: Throwable) {
+            println("Feil i kall mot Dokarkiv: $cause")
+            cause.printStackTrace()
+            return objectMapper.readTree(cause.message)
 
         }
     }
 }
-
-
