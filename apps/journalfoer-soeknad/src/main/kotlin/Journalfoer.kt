@@ -86,7 +86,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                 cause.printStackTrace()
                 //return cause.response.receive()
             }
-            
+            println("Hvorfor havna jeg her? ${cause.response.status.value}")
             return cause.response.receive()
 
         } catch (cause: Throwable) {
