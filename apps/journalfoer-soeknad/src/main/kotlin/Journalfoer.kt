@@ -8,6 +8,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.treeToValue
 import io.ktor.client.HttpClient
 import io.ktor.client.call.receive
+import io.ktor.client.features.ResponseException
 import io.ktor.client.request.accept
 import io.ktor.client.request.header
 import io.ktor.client.request.post
@@ -79,7 +80,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                 body = journalpostrequest!!
             }
             return retur.receive()
-        } catch (cause: io.ktor.client.features.ClientRequestException) {
+        } catch (cause: ResponseException) {
             if (cause.response.status.value == 409) {
                 println("Duplikat journalpost: $cause")
                 cause.printStackTrace()

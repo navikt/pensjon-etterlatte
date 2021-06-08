@@ -1,6 +1,7 @@
 package no.nav.etterlatte.routes
 
 import io.ktor.application.call
+import io.ktor.client.features.ResponseException
 import io.ktor.client.request.accept
 import io.ktor.client.request.header
 import io.ktor.client.request.post
@@ -47,10 +48,11 @@ fun Route.dok(
                     body = receiveString
                 }
                 call.pipeResponse(response)
-            } catch (cause: io.ktor.client.features.ClientRequestException) {
+            } catch (cause: ResponseException) {
                 println("Feil i kall mot Dokarkiv: $cause")
                 cause.printStackTrace()
-                call.respondText(status = cause.response.status) { cause.message!! }
+                //call.respondText(status = cause.response.status) { cause.message!! }
+                call.pipeResponse(cause.response)
             } catch (cause: Throwable) {
                 println("Feil i kall mot Dokarkiv: $cause")
                 cause.printStackTrace()
