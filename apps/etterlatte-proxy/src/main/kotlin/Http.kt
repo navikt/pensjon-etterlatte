@@ -6,6 +6,7 @@ import io.ktor.application.ApplicationCall
 import io.ktor.auth.authentication
 import io.ktor.auth.jwt.JWTPrincipal
 import io.ktor.client.HttpClient
+import io.ktor.client.call.receive
 import io.ktor.client.engine.apache.Apache
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
@@ -18,6 +19,7 @@ import io.ktor.http.content.OutgoingContent
 import io.ktor.response.respond
 import io.ktor.util.KtorExperimentalAPI
 import io.ktor.util.filter
+import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.ByteWriteChannel
 import io.ktor.utils.io.copyAndClose
 import org.apache.http.impl.conn.SystemDefaultRoutePlanner
@@ -61,7 +63,8 @@ suspend fun ApplicationCall.pipeResponse(response: HttpResponse) {
         override val status: HttpStatusCode = response.status
         override suspend fun writeTo(channel: ByteWriteChannel) {
 
-            response.content.copyAndClose(channel)
+            //response.content.copyAndClose(channel)
+            response.receive<ByteReadChannel>().copyAndClose(channel)
         }
     })
 }
