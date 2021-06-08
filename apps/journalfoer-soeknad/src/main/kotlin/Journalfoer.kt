@@ -84,7 +84,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
             if (cause.response.status.value == 409) {
                 println("Duplikat journalpost: $cause")
                 cause.printStackTrace()
-                return cause.response.receive()
+                //return cause.response.receive()
             }
             
             return cause.response.receive()

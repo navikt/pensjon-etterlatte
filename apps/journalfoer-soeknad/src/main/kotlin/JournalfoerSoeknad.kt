@@ -1,7 +1,7 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
-import io.ktor.client.features.ClientRequestException
+import io.ktor.client.features.ResponseException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
@@ -36,7 +36,7 @@ internal class JournalfoerSoeknad(
                 println("Journalført en ny PDF med journalpostId: " + packet["@dokarkivRetur"])
                 context.publish(packet.toJson())
             }
-        }catch (err: ClientRequestException){
+        }catch (err: ResponseException){
             println("duplikat: $err")
             println(packet["@dokarkivRetur"])
         } catch (err: Exception) {
