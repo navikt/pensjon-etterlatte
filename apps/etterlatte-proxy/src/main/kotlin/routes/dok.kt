@@ -11,17 +11,17 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
-import io.ktor.request.receive
+import io.ktor.request.receiveChannel
 import io.ktor.response.respondText
 import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.util.KtorExperimentalAPI
 import no.nav.etterlatte.Config
+import no.nav.etterlatte.ProxiedContent
 import no.nav.etterlatte.StsClient
 import no.nav.etterlatte.httpClient
 import no.nav.etterlatte.pipeResponse
-import org.json.simple.JSONObject
 
 @KtorExperimentalAPI
 fun Route.dok(
@@ -41,8 +41,7 @@ fun Route.dok(
                     method = HttpMethod.Post
                     contentType(ContentType.Application.Json)
                     accept(ContentType.Application.Json)
-                    val receiveString = call.receive<JSONObject>()
-                    body = receiveString
+                    body = ProxiedContent(call.request.headers, call.receiveChannel())
                 }
                 call.pipeResponse(response)
             } catch (cause: ResponseException) {

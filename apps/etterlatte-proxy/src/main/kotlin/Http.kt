@@ -26,11 +26,13 @@ import org.apache.http.impl.conn.SystemDefaultRoutePlanner
 import java.net.ProxySelector
 
 @KtorExperimentalAPI
-fun httpClient() = HttpClient(Apache) {
+fun jsonClient() = HttpClient(Apache) {
     install(JsonFeature) {
         serializer = JacksonSerializer { configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false) }
     }
 }
+
+fun httpClient() = HttpClient(Apache)
 
 fun httpClientWithProxy() = HttpClient(Apache) {
     install(JsonFeature) {
@@ -42,6 +44,26 @@ fun httpClientWithProxy() = HttpClient(Apache) {
         }
     }
 }
+
+class ProxiedContent(val proxiedHeaders: Headers, val content: ByteReadChannel, override val status: HttpStatusCode? = null): OutgoingContent.WriteChannelContent(){
+    override val contentLength: Long? = proxiedHeaders[HttpHeaders.ContentLength]?.toLong()
+    override val contentType: ContentType? = proxiedHeaders[HttpHeaders.ContentType]?.let { ContentType.parse(it) }
+    override val headers: Headers = Headers.build {
+        appendAll(proxiedHeaders.filter { key, _ ->
+            !key.equals(
+                HttpHeaders.ContentType,
+                ignoreCase = true
+            ) && !key.equals(HttpHeaders.ContentLength, ignoreCase = true)
+                    && !key.equals(HttpHeaders.TransferEncoding, ignoreCase = true)
+                    && !key.equals(HttpHeaders.Authorization, ignoreCase = true)
+        })
+    }
+    override suspend fun writeTo(channel: ByteWriteChannel) {
+        content.copyAndClose(channel)
+    }
+}
+
+
 
 suspend fun ApplicationCall.pipeResponse(response: HttpResponse) {
     val proxiedHeaders = response.headers
