@@ -63,8 +63,11 @@ suspend fun ApplicationCall.pipeResponse(response: HttpResponse) {
         override val status: HttpStatusCode = response.status
         override suspend fun writeTo(channel: ByteWriteChannel) {
 
-            //response.content.copyAndClose(channel)
-            response.receive<ByteReadChannel>().copyAndClose(channel)
+            if(response.content.isClosedForRead) {
+                response.receive<ByteReadChannel>().copyAndClose(channel)
+            } else {
+                response.content.copyAndClose(channel)
+            }
         }
     })
 }
