@@ -24,6 +24,7 @@ dependencies {
     implementation("io.ktor:ktor-client-auth-jvm:$ktorversion")
     implementation("io.ktor:ktor-client-apache:$ktorversion")
     implementation("io.ktor:ktor-client-jackson:$ktorversion")
+    implementation("io.ktor:ktor-client-logging:$ktorversion")
     implementation("io.ktor:ktor-server-core:$ktorversion")
     implementation("io.ktor:ktor-auth:$ktorversion")
     implementation("io.ktor:ktor-auth-jwt:$ktorversion")

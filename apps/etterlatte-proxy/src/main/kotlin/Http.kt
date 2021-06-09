@@ -10,6 +10,8 @@ import io.ktor.client.call.receive
 import io.ktor.client.engine.apache.Apache
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.logging.LogLevel
+import io.ktor.client.features.logging.Logging
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.Headers
@@ -32,7 +34,11 @@ fun jsonClient() = HttpClient(Apache) {
     }
 }
 
-fun httpClient() = HttpClient(Apache)
+fun httpClient() = HttpClient(Apache){
+    install(Logging) {
+        level = LogLevel.HEADERS
+    }
+}
 
 fun httpClientWithProxy() = HttpClient(Apache) {
     install(JsonFeature) {
