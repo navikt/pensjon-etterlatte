@@ -36,9 +36,6 @@ fun Route.pdl(
                 val response = httpClient().post<HttpResponse>(pdlUrl) {
                     header(HttpHeaders.Authorization, "Bearer $stsToken")
                     header("Nav-Consumer-Token", "Bearer $stsToken")
-                    call.request.header("Tema")?.also {
-                        header("Tema", it)
-                    }
                     header("X-Correlation-ID", callId)
                     method = HttpMethod.Post
                     body = ProxiedContent(call.request.headers, call.receiveChannel())
