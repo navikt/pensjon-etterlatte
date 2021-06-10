@@ -24,7 +24,7 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
 
         runBlocking {
 
-            val brukere = finnFnrForSkjema(packet["@skjema_info"])
+            val brukere = finnFnrForSkjema(packet["@skjema_info"]).distinct()
             println("fant følgende brukere: $brukere")
             packet["@fnr_liste"] = brukere
             context.publish(packet.toJson())

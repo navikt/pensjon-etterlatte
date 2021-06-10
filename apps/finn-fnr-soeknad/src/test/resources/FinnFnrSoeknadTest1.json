@@ -14,6 +14,11 @@
     "etternavn": "Dødesen",
     "fnr": "14106126780"
   },
+  "duplikat": {
+    "fornavn": "Død",
+    "etternavn": "Dødesen",
+    "fnr": "14106126780"
+  },
   "andreTall": {
     "kode": "12121212121212",
     "skalIkkeBliMed": "00059581835823582385",
