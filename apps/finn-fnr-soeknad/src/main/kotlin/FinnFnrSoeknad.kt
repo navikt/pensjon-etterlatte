@@ -24,7 +24,7 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
 
         runBlocking {
 
-            val brukere = finnFnrForSkjema(packet["@skjema_info"]).distinct()
+            val brukere = finnFnrForSkjema(packet["@skjema_info"])
             println("fant følgende brukere: $brukere")
             packet["@fnr_liste"] = brukere
             context.publish(packet.toJson())
@@ -40,6 +40,7 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
             .filter { validateControlDigits(it.value) }
             .map { it.groupValues[1] }
             .toList()
+            .distinct()
     }
 
     private fun validateControlDigits(value:String): Boolean {
