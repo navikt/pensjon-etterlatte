@@ -83,10 +83,8 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
         } catch (cause: ResponseException) {
             if (cause.response.status.value == 409) {
                 println("Duplikat journalpost: $cause")
-                cause.printStackTrace()
-                //return cause.response.receive()
+
             }
-            println("Hvorfor havna jeg her? ${cause.response.status.value}")
             return cause.response.receive()
 
         } catch (cause: Throwable) {
@@ -97,3 +95,4 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
         }
     }
 }
+

@@ -29,10 +29,8 @@ internal class SjekkAdressebeskyttelse(
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
 
         val identer = packet["@fnr_liste"].map { it.asText() } + packet["@fnr_soeker"].textValue()
-        println("identer: $identer")
         if (identer.isNotEmpty()) {
             runBlocking {
-                println("beskyttelse: ${pdl.finnAdressebeskyttelseForFnr(identer)}")
                 val beskyttelse = pdl.finnAdressebeskyttelseForFnr(identer)
                     .flatMap { it.get("hentPersonBolk") }
                     .mapNotNull { it.get("person") }
