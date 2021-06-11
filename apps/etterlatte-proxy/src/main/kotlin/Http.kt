@@ -12,12 +12,14 @@ import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.logging.LogLevel
 import io.ktor.client.features.logging.Logging
+import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.content.OutgoingContent
+import io.ktor.request.receiveChannel
 import io.ktor.response.respond
 import io.ktor.util.KtorExperimentalAPI
 import io.ktor.util.filter
@@ -28,7 +30,7 @@ import org.apache.http.impl.conn.SystemDefaultRoutePlanner
 import java.net.ProxySelector
 
 @KtorExperimentalAPI
-fun jsonClient() = HttpClient(Apache) {
+fun jsonClient() =  HttpClient(Apache) {
     install(JsonFeature) {
         serializer = JacksonSerializer { configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false) }
     }
@@ -38,7 +40,7 @@ fun httpClient() = HttpClient(Apache){
     install(Logging) {
         level = LogLevel.HEADERS
     }
-}
+}.also { Runtime.getRuntime().addShutdownHook(Thread{it.close()}) }
 
 fun httpClientWithProxy() = HttpClient(Apache) {
     install(JsonFeature) {
@@ -51,17 +53,24 @@ fun httpClientWithProxy() = HttpClient(Apache) {
     }
 }
 
+val proxiedContenHeaders = listOf(
+    HttpHeaders.ContentType,
+    HttpHeaders.ContentLength,
+    HttpHeaders.TransferEncoding,
+)
+fun filterContenHeaders(requestHeaders: Headers): Headers{
+    return Headers.build { appendAll(requestHeaders.filter { key, _ -> proxiedContenHeaders.any{it.equals(key, true)} }) }
+}
+
 class ProxiedContent(val proxiedHeaders: Headers, val content: ByteReadChannel, override val status: HttpStatusCode? = null): OutgoingContent.WriteChannelContent(){
+    companion object{
+        private val ignoredHeaders = listOf(HttpHeaders.ContentType, HttpHeaders.ContentLength, HttpHeaders.TransferEncoding, HttpHeaders.Authorization)
+    }
     override val contentLength: Long? = proxiedHeaders[HttpHeaders.ContentLength]?.toLong()
     override val contentType: ContentType? = proxiedHeaders[HttpHeaders.ContentType]?.let { ContentType.parse(it) }
     override val headers: Headers = Headers.build {
         appendAll(proxiedHeaders.filter { key, _ ->
-            !key.equals(
-                HttpHeaders.ContentType,
-                ignoreCase = true
-            ) && !key.equals(HttpHeaders.ContentLength, ignoreCase = true)
-                    && !key.equals(HttpHeaders.TransferEncoding, ignoreCase = true)
-                    && !key.equals(HttpHeaders.Authorization, ignoreCase = true)
+            ignoredHeaders.none { it.equals(it, ignoreCase = true) }
         })
     }
     override suspend fun writeTo(channel: ByteWriteChannel) {
@@ -69,35 +78,20 @@ class ProxiedContent(val proxiedHeaders: Headers, val content: ByteReadChannel, 
     }
 }
 
-
+suspend fun HttpRequestBuilder.pipeRequest(call: ApplicationCall, customHeaders: List<String> = emptyList()){
+    val requestHeadersToProxy = listOf(
+        HttpHeaders.Accept,
+        HttpHeaders.AcceptCharset,
+        HttpHeaders.AcceptEncoding,
+    ) + customHeaders
+    headers.appendAll(call.request.headers.filter { key, _ ->
+        requestHeadersToProxy.any{it.equals(key, true)}
+    })
+    body = ProxiedContent(filterContenHeaders(call.request.headers), call.receiveChannel())
+}
 
 suspend fun ApplicationCall.pipeResponse(response: HttpResponse) {
-    val proxiedHeaders = response.headers
-    val contentType = proxiedHeaders[HttpHeaders.ContentType]
-    val contentLength = proxiedHeaders[HttpHeaders.ContentLength]
-
-    respond(object : OutgoingContent.WriteChannelContent() {
-        override val contentLength: Long? = contentLength?.toLong()
-        override val contentType: ContentType? = contentType?.let { ContentType.parse(it) }
-        override val headers: Headers = Headers.build {
-            appendAll(proxiedHeaders.filter { key, _ ->
-                !key.equals(
-                    HttpHeaders.ContentType,
-                    ignoreCase = true
-                ) && !key.equals(HttpHeaders.ContentLength, ignoreCase = true)
-                    && !key.equals(HttpHeaders.TransferEncoding, ignoreCase = true)
-            })
-        }
-        override val status: HttpStatusCode = response.status
-        override suspend fun writeTo(channel: ByteWriteChannel) {
-
-            if(response.content.isClosedForRead) {
-                response.receive<ByteReadChannel>().copyAndClose(channel)
-            } else {
-                response.content.copyAndClose(channel)
-            }
-        }
-    })
+    respond(ProxiedContent(response.headers, if(response.content.isClosedForRead) { response.receive() } else { response.content }, response.status))
 }
 
 fun ApplicationCall.getTokenInfo(): Map<String, JsonNode> = authentication
@@ -111,5 +105,3 @@ val HttpHeaders.NavCallId: String
     get() = "Nav-Call-Id"
 val HttpHeaders.NavConsumerId: String
     get() = "Nav-Consumer-Id"
-val HttpHeaders.NavPersonIdenter: String
-    get() = "Nav-Personidenter"

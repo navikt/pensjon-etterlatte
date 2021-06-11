@@ -5,20 +5,22 @@ import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.HttpHeaders
-import io.ktor.http.HttpMethod
 import io.ktor.request.header
-import io.ktor.request.receiveChannel
 import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.util.KtorExperimentalAPI
 import no.nav.etterlatte.Config
 import no.nav.etterlatte.NavCallId
-import no.nav.etterlatte.ProxiedContent
 import no.nav.etterlatte.StsClient
 import no.nav.etterlatte.httpClient
+import no.nav.etterlatte.pipeRequest
 import no.nav.etterlatte.pipeResponse
 import java.util.*
+
+val HttpHeaders.Tema: String get() = "Tema"
+val HttpHeaders.NavConsumerToken: String get() = "Nav-Consumer-Token"
+val HttpHeaders.XCorrelationID: String get() = "X-Correlation-ID"
 
 @KtorExperimentalAPI
 fun Route.pdl(
@@ -26,19 +28,19 @@ fun Route.pdl(
     stsClient: StsClient,
 ) {
     route("/pdl") {
-        post {
+        val httpClient = httpClient()
+        val pdlUrl = config.pdl.url
 
-            val pdlUrl = config.pdl.url
+        post {
             val stsToken = stsClient.getToken()
             val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
 
             try {
-                val response = httpClient().post<HttpResponse>(pdlUrl) {
+                val response = httpClient.post<HttpResponse>(pdlUrl) {
                     header(HttpHeaders.Authorization, "Bearer $stsToken")
-                    header("Nav-Consumer-Token", "Bearer $stsToken")
-                    header("X-Correlation-ID", callId)
-                    method = HttpMethod.Post
-                    body = ProxiedContent(call.request.headers, call.receiveChannel())
+                    header(HttpHeaders.NavConsumerToken, "Bearer $stsToken")
+                    header(HttpHeaders.XCorrelationID, callId)
+                    pipeRequest(call, listOf(HttpHeaders.Tema))
                 }
                 call.pipeResponse(response)
             } catch (cause: Throwable) {

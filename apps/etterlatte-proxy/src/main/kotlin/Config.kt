@@ -67,11 +67,11 @@ suspend fun ApplicationConfig.load() = Config(
         )
     ),
     aad = Config.AAD(
-        metadata = httpClientWithProxy().get(property("aad.wellKnownUrl").getString()),
+        metadata = httpClientWithProxy().use{ it.get(property("aad.wellKnownUrl").getString())},
         clientId = property("aad.clientId").getString()
     ),
     tokenX = Config.TokenX(
-        metadata = jsonClient().get(property("tokenx.wellKnownUrl").getString()),
+        metadata = jsonClient().use{ it.get(property("tokenx.wellKnownUrl").getString())},
         clientId = property("tokenx.clientId").getString()
     )
 )
