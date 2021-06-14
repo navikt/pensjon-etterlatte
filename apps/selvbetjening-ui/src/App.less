@@ -74,9 +74,16 @@
 
 .oppsummering {
     &.ekspanderbartPanel--border,
-    &.ekspanderbartPanel--border.ekspanderbartPanel--apen {
+    &.ekspanderbartPanel--border:hover,
+    &.ekspanderbartPanel--border.ekspanderbartPanel--apen,
+    &.ekspanderbartPanel--border.ekspanderbartPanel--apen:hover {
         border: 0;
         border-top: 1px solid #6a6a6a;
+        border-radius: 0 !important;
+        box-shadow: none;
+    }
+
+    .ekspanderbartPanel__hode:focus {
         border-radius: 0 !important;
     }
 }

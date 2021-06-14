@@ -7,36 +7,30 @@ const STORAGE_KEY = "etterlatte-store";
 const json = localStorage.getItem(STORAGE_KEY);
 const storedState = json ? JSON.parse(json) : null;
 
-const initialState: ISoeknad = storedState || {
+const tomSoeknad = {
     harSamtykket: false,
-    situasjon: null,
-    opplysningerOmSoekeren: null,
-    opplysningerOmDenAvdoede: null,
+    situasjon: {},
+    opplysningerOmSoekeren: {},
+    opplysningerOmDenAvdoede: {},
     opplysningerOmBarn: [],
     tidligereArbeidsforhold: [],
-    naavaerendeArbeidsforhold: null,
-    andreYtelser: null,
+    naavaerendeArbeidsforhold: {},
+    andreYtelser: {},
 };
 
+const initialState: ISoeknad = storedState || tomSoeknad;
+
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
+    console.log(`ActionType: ${action.type}`)
+
     switch (action.type) {
         case ActionTypes.MOCK_SOEKNAD: {
             const json = JSON.stringify(mockJson)
 
             return JSON.parse(json) as ISoeknad;
         }
-        case ActionTypes.TILBAKESTILL: {
-            return {
-                harSamtykket: false,
-                situasjon: null,
-                opplysningerOmSoekeren: null,
-                opplysningerOmDenAvdoede: null,
-                opplysningerOmBarn: [],
-                tidligereArbeidsforhold: [],
-                naavaerendeArbeidsforhold: null,
-                andreYtelser: null,
-            };
-        }
+        case ActionTypes.TILBAKESTILL:
+            return tomSoeknad;
         case ActionTypes.OPPDATER_SAMTYKKE:
             return { ...state, harSamtykket: action.payload }
         case ActionTypes.OPPDATER_SITUASJON:
