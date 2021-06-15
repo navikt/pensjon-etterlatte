@@ -5,7 +5,7 @@ export interface IArbeidsforhold {
     sluttDato?: Date;
     ansettelsesforhold?: string; // låse valg til type?
     heltidDeltid?: string;
-    stillingsprosent?: number | null;
+    stillingsprosent?: number;
     arbeidsgiver?: {
         navn?: string;
         adresse?: string;

@@ -3,33 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.less";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import i18next from "i18next";
-import { initReactI18next } from "react-i18next";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-import nbLocale from "./assets/locales/nb.json";
-import nnLocale from "./assets/locales/nn.json";
-import enLocale from "./assets/locales/en.json";
-
-i18next.use(initReactI18next).init({
-    resources: {
-        nb: {
-            translation: nbLocale,
-        },
-        nn: {
-            translation: nnLocale,
-        },
-        en: {
-            translation: enLocale,
-        },
-    },
-    lng: "nb",
-    // keySeparator: false,
-    nsSeparator: false,
-    interpolation: {
-        escapeValue: false,
-    },
-});
+import "./i18n";
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
