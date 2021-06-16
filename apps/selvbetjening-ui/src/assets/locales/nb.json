@@ -1,4 +1,14 @@
 {
+  "steg": {
+    "DinSituasjon":  "Din situasjon",
+    "OmSoekeren": "Om deg",
+    "OmAvdoed":  "Opplysninger om den avdøde",
+    "OmBarn": "Opplysninger om barn",
+    "TidlArbeidsforhold":  "Om tidligere arbeidsforhold",
+    "Arbeidsforhold": "Om nåværende arbeidsforhold",
+    "AndreYtelser":  "Andre ytelser",
+    "Oppsummering": "Oppsummering"
+  },
   "ytelser": [
     "etterlatte",
     "gjenlevendetillegg",

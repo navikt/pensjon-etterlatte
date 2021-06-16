@@ -9,8 +9,8 @@ export interface IBruker {
 }
 
 export enum ActionTypes {
-    HENT_INNLOGGET_BRUKER,
-    INIT_TEST_BRUKER,
+    HENT_INNLOGGET_BRUKER = "HENT_INNLOGGET_BRUKER",
+    INIT_TEST_BRUKER = "INIT_TEST_BRUKER",
 }
 
 export interface IBrukerAction {

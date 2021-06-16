@@ -25,25 +25,3 @@ export const sendSoeknad = (soeknad: object) => {
             return response.data;
         });
 };
-
-export const isReady = () => {
-    return api
-        .get("/internal/isready")
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-};
-
-export const isAlive = () => {
-    return api
-        .get("/internal/isalive")
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-};

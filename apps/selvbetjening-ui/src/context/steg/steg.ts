@@ -75,10 +75,10 @@ export interface ISteg {
 }
 
 export enum StegActionTypes {
-    TILBAKESTILL,
-    SETT_STEG,
-    NESTE,
-    FORRIGE,
+    TILBAKESTILL = "TILBAKESTILL",
+    SETT_STEG = "SETT_STEG",
+    NESTE = "NESTE",
+    FORRIGE = "FORRIGE",
 }
 
 export interface IStegAction {

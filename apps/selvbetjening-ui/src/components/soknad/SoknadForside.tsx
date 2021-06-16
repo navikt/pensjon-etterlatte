@@ -95,13 +95,11 @@ const SoknadForside = () => {
             <SkjemaGruppe>
                 <Undertittel>{t("forside.slikSoekerDu.tittel")}</Undertittel>
 
-                <Normaltekst>
-                    <p>{t("forside.slikSoekerDu.kunRelevantInfo")}</p>
+                <Normaltekst>{t("forside.slikSoekerDu.kunRelevantInfo")}</Normaltekst>
 
-                    <p>{t("forside.slikSoekerDu.viLagrer")}</p>
+                <Normaltekst>{t("forside.slikSoekerDu.viLagrer")}</Normaltekst>
 
-                    <p>{t("forside.slikSoekerDu.dokumentasjonKanEttersendes")}</p>
-                </Normaltekst>
+                <Normaltekst>{t("forside.slikSoekerDu.dokumentasjonKanEttersendes")}</Normaltekst>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

@@ -21,8 +21,6 @@ const tomSoeknad = {
 const initialState: ISoeknad = storedState || tomSoeknad;
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
-    console.log(`ActionType: ${action.type}`)
-
     switch (action.type) {
         case ActionTypes.MOCK_SOEKNAD: {
             const json = JSON.stringify(mockJson)
