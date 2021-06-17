@@ -45,3 +45,6 @@ spec:
     - team: etterlatte
       application: journalpost-info
       access: readwrite
+    - team: etterlatte
+      application: bpc-exporer
+      access: read
