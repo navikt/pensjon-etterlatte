@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import "./App.less";
+import "../App.less";
 import Panel from "nav-frontend-paneler";
 import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";
 
-const NotFound: FC = () => {
+const SideIkkeFunnet: FC = () => {
     return (
         <Panel>
             <Systemtittel>Oi, her var det noe rusk</Systemtittel>
@@ -15,4 +15,4 @@ const NotFound: FC = () => {
     );
 };
 
-export default NotFound;
+export default SideIkkeFunnet;

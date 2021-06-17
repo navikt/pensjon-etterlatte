@@ -6,14 +6,7 @@ const STORAGE_KEY = "ey-store-soeker";
 const json = localStorage.getItem(STORAGE_KEY);
 const storedState = json ? JSON.parse(json) : null;
 
-const initialState: IBruker = storedState || {
-    fornavn: "",
-    etternavn: "",
-    foedselsnummer: "",
-    adresse: "",
-    statsborgerskap: "",
-    sivilstatus: "",
-};
+const initialState: IBruker = storedState || {};
 
 const reducer = (state: IBruker, action: IBrukerAction) => {
     switch (action.type) {
@@ -29,7 +22,6 @@ const reducer = (state: IBruker, action: IBrukerAction) => {
             };
         }
         case ActionTypes.HENT_INNLOGGET_BRUKER: {
-            console.log(action.payload);
             const innloggetBruker: IBruker = action.payload;
 
             // TODO: Håndtere manglende person på en god måte

@@ -40,7 +40,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
         formState: { errors }
     } = methods;
 
-    const skalSjekkeFlyktningStatus = brukerState.foedselsaar < 1960;
+    const skalSjekkeFlyktningStatus = brukerState.foedselsaar!! < 1960;
 
     const nySivilstatusEtterDoedsfallet = watch("nySivilstatus.nySivilstatusEtterDoedsfallet")
     const borPaaRegistrertAdresse = watch("bostedsadresseBekreftet")

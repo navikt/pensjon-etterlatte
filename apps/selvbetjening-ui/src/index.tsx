@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import "./i18n";
+import ContextProviders from "./context/ContextProviders";
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -23,7 +24,9 @@ ReactDOM.render(
         <ScrollToTop />
 
         <div className={"app"}>
-            <App />
+            <ContextProviders>
+                <App />
+            </ContextProviders>
         </div>
     </Router>,
     document.getElementById("root")
