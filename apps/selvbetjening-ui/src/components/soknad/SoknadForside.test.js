@@ -1,7 +1,7 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import ReactDOM from "react-dom";
+import { act, screen, fireEvent } from "@testing-library/react";
 import SoknadForside from "./SoknadForside";
 import { SoknadProvider } from "../../context/soknad/SoknadContext";
-import { BrukerProvider } from "../../context/bruker/BrukerContext";
 
 jest.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
@@ -16,18 +16,39 @@ jest.mock('react-i18next', () => ({
     },
 }));
 
+jest.mock("../../context/bruker/BrukerContext", () => ({
+    useBrukerContext: () => {
+        return {
+            state: {
+                fornavn: "STERK",
+                etternavn: "BUSK"
+            }
+        }
+    }
+}))
+
+let container;
+
 beforeEach(() => {
-    render(
-            <SoknadProvider>
-                <BrukerProvider>
+    container = document.createElement("root");
+    document.body.appendChild(container);
+
+    act(() => {
+        ReactDOM.render((
+                <SoknadProvider>
                     <SoknadForside/>
-                </BrukerProvider>
-            </SoknadProvider>
-    )
-})
+                </SoknadProvider>
+        ), container)
+    });
+});
+
+afterEach(() => {
+    document.body.removeChild(container);
+    container = null;
+});
 
 describe("Samtykke", () => {
-    it("Knapp vises ikke hvis samtykke mangler", () => {
+    it("Knapp vises ikke hvis samtykke mangler", async () => {
         const bekreftSjekkboks = screen.getByLabelText("forside.samtykke.bekreftelse");
         expect(bekreftSjekkboks).toBeVisible()
         expect(bekreftSjekkboks).not.toBeChecked()
@@ -40,10 +61,20 @@ describe("Samtykke", () => {
         const bekreftSjekkboks = screen.getByLabelText("forside.samtykke.bekreftelse");
         expect(bekreftSjekkboks).toBeVisible()
 
-        fireEvent.click(bekreftSjekkboks);
+        await act(async () => {
+            fireEvent.click(bekreftSjekkboks)
+        })
         expect(bekreftSjekkboks).toBeChecked()
 
         const startKnapp = await screen.findByText("forside.startSoeknad")
         expect(startKnapp).toBeVisible()
+    })
+})
+
+describe("Velkomstmelding", () => {
+    it("Velkomstmelding med brukers navn vises", async () => {
+        const velkomstmelding = await screen.findByText(/forside.hei/)
+
+        expect(velkomstmelding.textContent).toBe("forside.hei, STERK BUSK")
     })
 })

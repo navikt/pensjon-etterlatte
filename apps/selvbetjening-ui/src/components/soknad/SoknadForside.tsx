@@ -1,19 +1,16 @@
-import { useEffect } from "react";
 import "./SoknadForside.less";
+import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useBrukerContext } from "../../context/bruker/BrukerContext";
+import { useSoknadContext } from "../../context/soknad/SoknadContext";
+import { ActionTypes } from "../../context/soknad/soknad";
+import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
-import Lenke from "nav-frontend-lenker";
 import { Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
 import { Hovedknapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
-import { useHistory } from "react-router-dom";
+import Lenke from "nav-frontend-lenker";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { useTranslation } from "react-i18next";
-import { useBrukerContext } from "../../context/bruker/BrukerContext";
-import { hentInnloggetPerson } from "../../api";
-import { ActionTypes, IBruker } from "../../context/bruker/bruker";
-import { useSoknadContext } from "../../context/soknad/SoknadContext";
-import { ActionTypes as SoknadActionTypes } from "../../context/soknad/soknad";
-import { useStegContext } from "../../context/steg/StegContext";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -25,34 +22,16 @@ const SoknadForside = () => {
         dispatch: soknadDispatch
     } = useSoknadContext();
 
-    const {
-        state: brukerState,
-        dispatch: brukerDispatch
-    } = useBrukerContext();
+    const { state: brukerState } = useBrukerContext();
 
     const { state: { steg } } = useStegContext();
-
-    useEffect(() => {
-        if (!brukerState.foedselsnummer) {
-            hentInnloggetPerson()
-                .then((person: IBruker) => {
-                    brukerDispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
-                })
-                .catch(() => {
-                    if (process.env.NODE_ENV === "development") {
-                        brukerDispatch({ type: ActionTypes.INIT_TEST_BRUKER });
-                    }
-                });
-        }
-    }, [brukerState.foedselsnummer, brukerDispatch]);
 
     const startSoeknad = () => {
         const foersteSteg = steg[0]
         history.push(`/soknad/steg/${foersteSteg.path}`)
     }
 
-
-    const innloggetBrukerNavn = `${brukerState.fornavn} ${brukerState.etternavn}`;
+    const innloggetBrukerNavn = `${brukerState?.fornavn} ${brukerState?.etternavn}`;
 
     return (
         <div className={"forside"}>
@@ -112,7 +91,7 @@ const SoknadForside = () => {
                     checked={soknadState.harSamtykket}
                     onChange={(e) =>
                         soknadDispatch({
-                            type: SoknadActionTypes.OPPDATER_SAMTYKKE,
+                            type: ActionTypes.OPPDATER_SAMTYKKE,
                             payload: (e.target as HTMLInputElement).checked
                         })
                     }

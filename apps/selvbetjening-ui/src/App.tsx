@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router";
 import "./App.less";
-import NotFound from "./NotFound";
+import SideIkkeFunnet from "./components/SideIkkeFunnet";
 import SoknadDialog from "./components/soknad/SoknadDialog";
-import ContextProviders from "./context/ContextProviders";
 import SoknadForside from "./components/soknad/SoknadForside";
 import SoknadKvittering from "./components/soknad/SoknadKvittering";
 import DevLabs from "./components/dev/DevLabs";
+import { hentInnloggetPerson } from "./api";
+import { ActionTypes, IBruker } from "./context/bruker/bruker";
+import { useBrukerContext } from "./context/bruker/BrukerContext";
 
 const App = () => {
+    const {
+        state: brukerState,
+        dispatch: brukerDispatch
+    } = useBrukerContext();
+
+    useEffect(() => {
+        if (!brukerState?.foedselsnummer) {
+            hentInnloggetPerson()
+                .then((person: IBruker) => {
+                    brukerDispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
+                })
+                .catch(() => {
+                    if (process.env.NODE_ENV === "development") {
+                        brukerDispatch({ type: ActionTypes.INIT_TEST_BRUKER });
+                    }
+                });
+        }
+    }, [brukerState?.foedselsnummer, brukerDispatch]);
+
     return (
-        <ContextProviders>
-            <Switch>
-                <Route exact path={"/"} component={SoknadForside} />
+        <Switch>
+            <Route exact path={"/"} component={SoknadForside} />
 
-                {/* TODO: Kun støtte i dev og Q, ikke prod. Krever litt endringer i appen. */}
-                <Route path={"/labs"} component={DevLabs} />
+            {/* TODO: Kun støtte i dev og Q, ikke prod. Krever litt endringer i appen. */}
+            <Route path={"/labs"} component={DevLabs} />
 
-                <Route path={"/soknad/steg"} component={SoknadDialog} />
-                <Route path={"/soknad/sendt/:id"} component={SoknadKvittering} />
+            <Route path={"/soknad/steg"} component={SoknadDialog} />
+            <Route path={"/soknad/sendt/:id"} component={SoknadKvittering} />
 
-                <Route component={NotFound} />
-            </Switch>
-        </ContextProviders>
+            <Route component={SideIkkeFunnet} />
+        </Switch>
     );
 };
 
