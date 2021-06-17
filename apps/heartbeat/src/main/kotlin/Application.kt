@@ -1,5 +1,7 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.ObjectWriter
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
@@ -24,7 +26,7 @@ import java.time.ZoneId
 import java.util.*
 import kotlin.collections.set
 
-val json = jacksonObjectMapper()
+val json: ObjectWriter = jacksonObjectMapper()
     .registerModule(JavaTimeModule())
     .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
     .writerWithDefaultPrettyPrinter()
@@ -93,7 +95,7 @@ fun main() {
                     database.newPuls().also {
                         publish(it, pingEvent(it))
                     }
-                    delay(5.minutes)
+                    delay(60.minutes)
                 }
             }
         }.start()
