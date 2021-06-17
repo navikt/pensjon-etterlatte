@@ -48,3 +48,6 @@ spec:
     - team: etterlatte
       application: etterlatte-kafka-manager
       access: read
+    - team: etterlatte
+      application: bpc-explorer
+      access: read
