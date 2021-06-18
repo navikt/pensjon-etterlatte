@@ -11,7 +11,7 @@ import Datovelger from "../../felles/Datovelger";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { RHFInput } from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
-import IValg from "../../../typer/IValg";
+import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { fnr } from "@navikt/fnrvalidator";
 
@@ -34,9 +34,9 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         neste!!();
     };
 
-    const haddePensjonsgivendeInntekt = watch("haddePensjonsgivendeInntekt")
-    const haddePensjonAndreLand = watch("haddePensjonAndreLand")
-    const harAvtjentMilitaerTjeneste = watch("harAvtjentMilitaerTjeneste")
+    const haddePensjonsgivendeInntekt = watch("haddePensjonsgivendeInntekt.svar")
+    const mottokPensjonAndreLand = watch("mottokPensjonAndreLand.svar")
+    const harAvtjentMilitaerTjeneste = watch("harAvtjentMilitaerTjeneste.svar")
 
     return (
         <FormProvider {...methods}>
@@ -100,14 +100,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 {/* 3.10 */}
                 <RHFToValgRadio
-                    name={"haddePensjonsgivendeInntekt"}
+                    name={"haddePensjonsgivendeInntekt.svar"}
                     legend={t("omDenAvdoede.haddePensjonsgivendeInntekt")}
                 />
 
                 {haddePensjonsgivendeInntekt === IValg.JA && (
                     <SkjemaGruppe>
                         <RHFInput
-                            name={"pensjonsgivendeInntektSvar"}
+                            name={"haddePensjonsgivendeInntekt.beskrivelse"}
                             label={t("omDenAvdoede.pensjonsgivendeInntekt")}
                         />
                     </SkjemaGruppe>
@@ -116,14 +116,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 {/* 3.12 */}
                 <RHFToValgRadio
-                    name={"haddePensjonAndreLand"}
+                    name={"mottokPensjonAndreLand.svar"}
                     legend={t("omDenAvdoede.mottokPensjonAndreLand")}
                 />
 
-                {haddePensjonAndreLand === IValg.JA && (
+                {mottokPensjonAndreLand === IValg.JA && (
                     <SkjemaGruppe>
                         <RHFInput
-                            name={"pensjonAndreLandSvar"}
+                            name={"mottokPensjonAndreLand.beskrivelse"}
                             label={t("omDenAvdoede.pensjonUtlandBruttoinntekt")}
                             rules={{ pattern: /^\d+$/ }}
                         />
@@ -132,14 +132,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 {/* 3.13 */}
                 <RHFToValgRadio
-                    name={"harAvtjentMilitaerTjeneste"}
+                    name={"harAvtjentMilitaerTjeneste.svar"}
                     legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste")}
                 />
 
                 {harAvtjentMilitaerTjeneste === IValg.JA && (
                     <SkjemaGruppe>
                         <RHFInput
-                            name={"avtjentMilitaerTjenesteSvar"}
+                            name={"avtjentMilitaerTjenesteSvar.beskrivelse"}
                             label={t("omDenAvdoede.avtjentMilitaerTjenesteAarstall")}
                             rules={{ pattern: /^\d{4}$/ }}
                         />

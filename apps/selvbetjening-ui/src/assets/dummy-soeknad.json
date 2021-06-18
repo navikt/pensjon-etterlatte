@@ -16,12 +16,14 @@
     "flyktning": "Ja",
     "bostedsadresseBekreftet": "Ja",
     "oppholderSegINorge": "Nei",
+    "oppholdsland": "Polen",
+    "medlemFolketrygdenUtland": "Ja",
     "forholdTilAvdoed": {
       "forholdTilAvdoede": "Gjenlevende ektefelle",
       "datoForInngaattPartnerskap": "2021-06-01T22:00:00.000Z",
       "varSkiltFoerDoedsfall": "Ja",
-      "mottokBidragFraAvdoede": "Ja",
       "datoForSkilsmisse": "2021-05-31T22:00:00.000Z",
+      "mottokBidragFraAvdoede": "Ja",
       "bidragBeloepPrAar": "500000"
     },
     "nySivilstatus": {
@@ -31,20 +33,20 @@
       "aarsakForOpploesningen": "Dødsfall",
       "datoForOpploesningen": "2021-05-31T22:00:00.000Z"
     },
-    "oppholdsland": "Polen",
-    "medlemFolketrygdenUtland": "Ja",
     "samboer": {
       "navn": "Sam Samboersen",
       "foedselsnummer": "24014021406",
       "hattBarnEllerVaertGift": "Ja",
-      "harInntekt": "Ja",
-      "inntektstype": [
-        "arbeidsinntekt",
-        "pensjon",
-        "kapitalinntekt",
-        "andreYtelser"
-      ],
-      "samletBruttoinntektPrAar": "150000"
+      "harInntekt": {
+        "svar": "Ja",
+        "inntektstype": [
+          "arbeidsinntekt",
+          "pensjon",
+          "kapitalinntekt",
+          "andreYtelser"
+        ],
+        "samletBruttoinntektPrAar": "150000"
+      }
     }
   },
   "opplysningerOmDenAvdoede": {
@@ -56,33 +58,50 @@
     "bosetning": "Ja",
     "doedsfallAarsak": "Ja",
     "boddEllerJobbetUtland": "Ja",
-    "haddePensjonsgivendeInntekt": "Ja",
-    "haddePensjonAndreLand": "Ja",
-    "harAvtjentMilitaerTjeneste": "Ja",
-    "pensjonsgivendeInntektSvar": "200000",
-    "pensjonAndreLandSvar": "10000",
-    "avtjentMilitaerTjenesteSvar": "1984"
+    "haddePensjonsgivendeInntekt": {
+      "svar": "Ja",
+      "beskrivelse": "200000"
+    },
+    "mottokPensjonAndreLand": {
+      "svar": "Ja",
+      "beskrivelse": "10000"
+    },
+    "harAvtjentMilitaerTjeneste": {
+      "svar": "Ja",
+      "beskrivelse": "1984"
+    },
+    "avtjentMilitaerTjenesteSvar": {
+      "beskrivelse": "1984"
+    }
   },
   "opplysningerOmBarn": [
     {
       "fornavn": "Liten",
       "etternavn": "Gutt",
       "foedselsnummer": "24014021406",
-      "brukeAnnenKonto": "Ja",
-      "foreldre": "Fellesbarn m/avdøde",
-      "bosattUtland": "Ja",
-      "kontonummer": "1112.22.31231",
-      "statsborgerskap": "Polsk",
-      "land": "Polen"
+      "relasjon": "Fellesbarn m/avdøde",
+      "brukeAnnenKonto": {
+        "svar": "Ja",
+        "kontonummer": "1112.22.31231"
+      },
+      "bosattUtland": {
+        "svar": "Ja",
+        "statsborgerskap": "Polsk",
+        "land": "Polen"
+      }
     },
     {
       "fornavn": "Stor",
       "etternavn": "Jente",
       "foedselsnummer": "24014021406",
-      "brukeAnnenKonto": "Ja",
-      "foreldre": "Fellesbarn m/avdøde",
-      "bosattUtland": "Nei",
-      "kontonummer": "5555.44.33333"
+      "brukeAnnenKonto": {
+        "svar": "Ja",
+        "kontonummer": "5555.44.33333"
+      },
+      "relasjon": "Fellesbarn m/avdøde",
+      "bosattUtland": {
+        "svar": "Nei"
+      }
     }
   ],
   "tidligereArbeidsforhold": [
@@ -90,6 +109,11 @@
       "beskrivelse": "Livets harde skole",
       "fraDato": "2021-05-31T22:00:00.000Z",
       "tilDato": "2021-06-02T22:00:00.000Z"
+    },
+    {
+      "beskrivelse": "Ungdomskolen",
+      "fraDato": "2021-06-18T12:17:34.543Z",
+      "tilDato": "2021-06-18T12:17:35.971Z"
     }
   ],
   "naavaerendeArbeidsforhold": {
@@ -99,6 +123,7 @@
     "sluttDato": "2021-06-24T22:00:00.000Z",
     "ansettelsesforhold": "Midlertidig",
     "heltidDeltid": "Deltid",
+    "stillingsprosent": "50",
     "arbeidsgiver": {
       "navn": "Tømmer og Sånt AS",
       "adresse": "Skogveien 12, 1342 Snarøya"
@@ -106,8 +131,7 @@
     "inntekt": {
       "bruttoArbeidsinntektPrMd": "20000",
       "personinntektFraNaeringPrAr": "0"
-    },
-    "stillingsprosent": "50"
+    }
   },
   "andreYtelser": {
     "mottarAndreYtelser": "Ja",

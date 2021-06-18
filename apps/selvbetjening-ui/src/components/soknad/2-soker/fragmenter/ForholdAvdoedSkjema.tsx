@@ -6,7 +6,7 @@ import { useFormContext } from "react-hook-form";
 import Datovelger from "../../../felles/Datovelger";
 import { RHFInput } from "../../../felles/RHFInput";
 import { RHFToValgRadio, RHFRadio } from "../../../felles/RHFRadio";
-import IValg from "../../../../typer/IValg";
+import { IValg } from "../../../../typer/Spoersmaal";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const ForholdAvoedSkjema = () => {

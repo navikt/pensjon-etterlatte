@@ -5,7 +5,7 @@ import { Undertittel } from "nav-frontend-typografi";
 import { useFormContext } from "react-hook-form";
 import Datovelger from "../../../felles/Datovelger";
 import { RHFToValgRadio, RHFRadio } from "../../../felles/RHFRadio";
-import IValg from "../../../../typer/IValg";
+import { IValg } from "../../../../typer/Spoersmaal";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const NySivilstatusSkjema = () => {

@@ -1,4 +1,4 @@
-import IValg from "../../../../typer/IValg";
+import { IValg } from "../../../../typer/Spoersmaal";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import { EditFilled } from "@navikt/ds-icons";
 import { ForholdTilAvdoed, ISoeker, NySivilstatus } from "../../../../typer/person";
@@ -103,9 +103,11 @@ const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
                         <TekstGruppe tittel={t("omSoekeren.harHattBarnEllerVaertGiftMedSamboer")}
                                      innhold={samboer?.hattBarnEllerVaertGift}/>
                         <TekstGruppe tittel={t("omSoekeren.harSamboerInntekt.tittel")}
-                                     innhold={samboer?.harInntekt}/>
+                                     innhold={samboer?.harInntekt?.svar}/>
+                        <TekstGruppe tittel={t("omSoekeren.harSamboerInntekt.inntektstype")}
+                                     innhold={samboer?.harInntekt?.inntektstype}/>
                         <TekstGruppe tittel={t("omSoekeren.harSamboerInntekt.bruttoinntekt")}
-                                     innhold={samboer?.samletBruttoinntektPrAar}/>
+                                     innhold={samboer?.harInntekt?.samletBruttoinntektPrAar}/>
                     </Panel>
                 </>
             )}

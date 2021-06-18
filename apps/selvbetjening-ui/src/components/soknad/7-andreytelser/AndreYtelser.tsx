@@ -12,7 +12,7 @@ import { IAndreYtelser } from "../../../typer/ytelser";
 
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { RHFInput } from "../../felles/RHFInput";
-import IValg from "../../../typer/IValg";
+import { IValg } from "../../../typer/Spoersmaal";
 import Panel from "nav-frontend-paneler";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 
@@ -54,13 +54,13 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <RHFToValgRadio
                         name={"kravOmAnnenStonad.svar"}
-                        legend={t("andreYtelser.kravOmAnnenStonad")}
+                        legend={t("andreYtelser.kravOmAnnenStonad.svar")}
                     />
 
                     {kravOmAnnenStonad === IValg.JA && (
                         <RHFInput
                             name={"kravOmAnnenStonad.beskrivelseAvStoenad"}
-                            label={t("andreYtelser.beskrivelseAvAnnenStoenad")}
+                            label={t("andreYtelser.kravOmAnnenStonad.beskrivelse")}
                         />
                     )}
                 </SkjemaGruppe>
@@ -68,29 +68,29 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <RHFToValgRadio
                         name={"mottarPensjonUtland.svar"}
-                        legend={t("andreYtelser.mottarPensjonUtland")}
+                        legend={t("andreYtelser.mottarPensjonUtland.svar")}
                     />
 
                     {mottarPensjonUtland === IValg.JA && (
                         <Panel border>
                             <RHFInput
                                 name={"mottarPensjonUtland.hvaSlagsPensjon"}
-                                label={t("andreYtelser.hvaSlagsPensjon")}
+                                label={t("andreYtelser.mottarPensjonUtland.hvaSlagsPensjon")}
                             />
 
                             <RHFInput
                                 name={"mottarPensjonUtland.fraHvilketLand"}
-                                label={t("andreYtelser.mottarFraLand")}
+                                label={t("andreYtelser.mottarPensjonUtland.mottarFraLand")}
                             />
 
                             <RHFInput
                                 name={"mottarPensjonUtland.bruttobeloepPrAar"}
-                                label={t("andreYtelser.bruttobeloep")}
+                                label={t("andreYtelser.mottarPensjonUtland.bruttobeloep")}
                             />
 
                             <RHFInput
                                 name={"mottarPensjonUtland.landetsValuta"}
-                                label={t("andreYtelser.landetsValuta")}
+                                label={t("andreYtelser.mottarPensjonUtland.landetsValuta")}
                             />
                         </Panel>
                     )}

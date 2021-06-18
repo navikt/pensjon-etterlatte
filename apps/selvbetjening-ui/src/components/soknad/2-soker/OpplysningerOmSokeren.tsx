@@ -6,7 +6,7 @@ import InnloggetBruker from "./fragmenter/InnloggetBruker";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
-import IValg from "../../../typer/IValg";
+import { IValg } from "../../../typer/Spoersmaal";
 import AlertStripe from "nav-frontend-alertstriper";
 import ForholdAvdoedSkjema from "./fragmenter/ForholdAvdoedSkjema";
 import NySivilstatusSkjema from "./fragmenter/NySivilstatusSkjema";

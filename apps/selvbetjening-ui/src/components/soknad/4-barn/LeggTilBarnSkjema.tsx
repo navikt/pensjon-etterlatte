@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import { RHFInput, RHFKontonummerInput } from "../../felles/RHFInput";
-import IValg from "../../../typer/IValg";
+import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 
 interface Props {
@@ -29,8 +29,8 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
         reset();
     };
 
-    const bosattUtland = watch("bosattUtland")
-    const brukeAnnenKonto = watch("brukeAnnenKonto")
+    const bosattUtland = watch("bosattUtland.svar")
+    const brukeAnnenKonto = watch("brukeAnnenKonto.svar")
 
 
     return (
@@ -58,7 +58,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                 <SkjemaGruppe>
                     <RHFToValgRadio
                         name={"brukeAnnenKonto"}
-                        legend={t("opplysningerOmBarn.brukeAnnenKonto")}
+                        legend={t("opplysningerOmBarn.brukeAnnenKonto.svar")}
                     />
 
                     {brukeAnnenKonto === IValg.JA && (
@@ -71,7 +71,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                 <RHFRadio
                     name={"foreldre"}
-                    legend={"Hvilken relasjon har du til barnet?"}
+                    legend={t('barn.relasjon')}
                     radios={[
                         {
                             label: t("opplysningerOmBarn.fellesbarnMedAvdoed"),
@@ -87,20 +87,20 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                 <SkjemaGruppe>
                     <RHFToValgRadio
-                        name={"bosattUtland"}
+                        name={"bosattUtland.svar"}
                         legend={t("opplysningerOmBarn.borUtenlands")}
                     />
 
                     {bosattUtland === IValg.JA && (
                         <>
                             <RHFInput
-                                name={"statsborgerskap"}
-                                label={t("felles.statsborgerskap")}
+                                name={"bosattUtland.statsborgerskap"}
+                                label={t("barn.statsborgerskap")}
                             />
 
                             <RHFInput
-                                name={"land"}
-                                label={t("felles.land")}
+                                name={"bosattUtland.land"}
+                                label={t("barn.land")}
                             />
                         </>
                     )}

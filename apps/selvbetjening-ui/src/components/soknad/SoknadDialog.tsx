@@ -10,7 +10,7 @@ import OpplysningerOmBarn from "../../components/soknad/4-barn/OpplysningerOmBar
 import TidligereArbeidsforhold from "../../components/soknad/5-tidligerearbeidsforhold/TidligereArbeidsforhold";
 import NavaerendeArbeidsforhold from "../../components/soknad/6-arbeidsforhold/NavaerendeArbeidsforhold";
 import AndreYtelser from "../../components/soknad/7-andreytelser/AndreYtelser";
-import SoknadStegviser from "./SoknadStegviser";
+import Stegviser from "../felles/Stegviser";
 import Oppsummering from "./8-oppsummering/Oppsummering";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 
@@ -40,7 +40,7 @@ const SoknadDialog = () => {
 
     return (
         <>
-            <SoknadStegviser />
+            <Stegviser />
 
             <Panel>
                 <Route path={`${path}/${StegPath.DinSituasjon}`} render={() => <SoekerSituasjon neste={neste} />} />

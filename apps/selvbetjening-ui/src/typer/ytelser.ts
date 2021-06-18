@@ -1,4 +1,4 @@
-import IValg from "./IValg";
+import { IValg } from "./Spoersmaal";
 
 export enum Ytelse {
     etterlatte = "etterlatte",
@@ -17,7 +17,7 @@ export interface IAndreYtelser {
     mottarAndreYtelser?: IValg;
     kravOmAnnenStonad?: {
         svar?: IValg;
-        beskrivelseAvStoenad?: string;
+        beskrivelse?: string;
     };
     mottarPensjonUtland?: {
         svar?: IValg;

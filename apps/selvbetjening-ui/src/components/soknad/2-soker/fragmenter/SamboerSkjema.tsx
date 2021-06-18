@@ -6,7 +6,7 @@ import Panel from "nav-frontend-paneler";
 import { Controller, useFormContext } from "react-hook-form";
 import { RHFInput } from "../../../felles/RHFInput";
 import { RHFToValgRadio } from "../../../felles/RHFRadio";
-import IValg from "../../../../typer/IValg";
+import { IValg } from "../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
 
 const SamboerSkjema = () => {
@@ -14,7 +14,7 @@ const SamboerSkjema = () => {
 
     const { control, watch } = useFormContext<ISoeker>();
 
-    const samboerHarInntekt = watch("samboer.harInntekt")
+    const samboerHarInntekt = watch("samboer.harInntekt.svar")
 
     const handleSelect = (inntektstype: SamboerInntekt[], name: SamboerInntekt) => {
         return inntektstype?.includes(name)
@@ -49,7 +49,7 @@ const SamboerSkjema = () => {
 
             {/* 2.17 */}
             <RHFToValgRadio
-                name={"samboer.harInntekt"}
+                name={"samboer.harInntekt.svar"}
                 legend={t("omSoekeren.harSamboerInntekt.tittel")}
             />
 
@@ -57,7 +57,7 @@ const SamboerSkjema = () => {
                 <>
                     <SkjemaGruppe className={"inputPanelGruppe"}>
                         <Controller
-                            name={"samboer.inntektstype"}
+                            name={"samboer.harInntekt.inntektstype"}
                             control={control}
                             render={({ field: { onChange, value } }) => (
                                 <CheckboksPanelGruppe
@@ -78,7 +78,7 @@ const SamboerSkjema = () => {
 
                     <SkjemaGruppe>
                         <RHFInput
-                            name={"samboer.samletBruttoinntektPrAar"}
+                            name={"samboer.harInntekt.samletBruttoinntektPrAar"}
                             label={t("omSoekeren.harSamboerInntekt.bruttoinntekt")}
                         />
                     </SkjemaGruppe>

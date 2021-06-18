@@ -1,25 +1,24 @@
-import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import { ISituasjon } from "../../../../typer/ytelser";
-import React from "react";
 import { useTranslation } from "react-i18next";
-import TekstGruppe from "./TekstGruppe";
 import { StegPath } from "../../../../context/steg/steg";
 import { EditFilled } from "@navikt/ds-icons";
+import { v4 as uuid } from "uuid";
+import TekstGruppe from "./TekstGruppe";
+import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import Lenke from "nav-frontend-lenker";
-
+import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
 
 const OppsummeringSituasjon = ({ state }: { state: ISituasjon }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const ot = new ObjectTreeReader(i18n)
 
-    const hovedytelse = state.valgteYtelser?.hovedytelse;
+    const tekster = ot.traverse<ISituasjon>(state)
 
     return (
-        <Ekspanderbartpanel tittel={"Din situasjon"} className={"oppsummering"}  apen={true}>
-            <TekstGruppe tittel={"Valgt ytelse: "} innhold={t(`stoenadType.${hovedytelse}`)} />
-
-            <TekstGruppe tittel={"Søker barnepensjon?"} innhold={state.valgteYtelser?.barnepensjon} />
-
-            <TekstGruppe tittel={"Fra dato: "} innhold={state.fraDato} />
+        <Ekspanderbartpanel tittel={"Din situasjon"} className={"oppsummering"} apen={true}>
+            {tekster.map(({ key, val }) => (
+                <TekstGruppe key={uuid()} tittel={t(key)} innhold={val} />
+            ))}
 
             <Lenke href={`/soknad/steg/${StegPath.DinSituasjon}`}>
                 <EditFilled />

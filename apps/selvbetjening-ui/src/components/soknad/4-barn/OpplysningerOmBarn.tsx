@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import BarnInfokort from "./BarnInfokort";
 import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import IValg from "../../../typer/IValg";
+import { IValg } from "../../../typer/Spoersmaal";
 import AlertStripe from "nav-frontend-alertstriper";
 import { v4 as uuid } from "uuid";
 

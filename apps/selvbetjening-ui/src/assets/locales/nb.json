@@ -154,6 +154,30 @@
     "brukeAnnenKonto": "Ønsker du å bruke et annet kontonummer for barnet? Hvis du velger \"Nei\" vil kontonummeret du tidligere har oppgitt bli benyttet.",
     "barnetsKontonummer": "Barnets kontonummer (11 siffer)"
   },
+  "avdoed": {
+    "fornavn": "Fornavn",
+    "etternavn": "Etternavn",
+    "foedselsnummer": "Fødselsnummer",
+    "doedsdato": "Dødsdato",
+    "statsborgerskap": "Statsborgerskap"
+  },
+  "barn": {
+    "fornavn": "Fornavn",
+    "etternavn": "Etternavn",
+    "fellesbarnMedAvdoed": "Fellesbarn m/avdøde",
+    "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
+    "egneSaerkullsbarn": "Egne særkullsbarn",
+    "relasjon": "Hvilken relasjon har du til barnet?",
+    "brukeAnnenKonto": {
+      "svar": "Ønsker du å bruke et annet kontonummer for barnet? Hvis du velger \"Nei\" vil kontonummeret du tidligere har oppgitt bli benyttet.",
+      "kontonummer": "Barnets kontonummer (11 siffer)"
+    },
+    "bosattUtland": {
+      "svar": "Bor barnet i utlandet?",
+      "land": "Land",
+      "statsborgerskap": "Statsborgerskap"
+    }
+  },
   "tidligereArbeidsforhold": {
     "tittel": "Opplysninger om søkers tidligere arbeidsforhold",
     "skoleKursArbeidOsv": "Skoler utover grunnskolen, yrkesrettede kurs o.l. og tidligere arbeidsforhold"
@@ -176,13 +200,17 @@
   "andreYtelser": {
     "tittel": "Opplysninger om andre ytelser",
     "mottarAndreYtelser": "Mottar du ytelser til livsopphold fra folketrygden som dagpenger under arbeidsledighet, sykepenger, stønad ved barns og andre nære pårørendes sykdom, arbeidsavklaringspenger, svangerskapspenger, foreldrepenger, AFP, uføretrygd eller alderspensjon?",
-    "kravOmAnnenStonad": "Har du satt fram krav om annen stønad/pensjon som ikke er avgjort?",
-    "beskrivelseAvAnnenStoenad": "Hva slags stønad/pensjon?",
-    "mottarPensjonUtland": "Mottar du pensjon fra utlandet?",
-    "hvaSlagsPensjon": "Hva slags pensjon?",
-    "mottarFraLand": "Fra hvilket land?",
-    "bruttobeloep": "Bruttobeløp pr. år i landets valuta",
-    "landetsValuta": "Oppgi landets valuta"
+    "kravOmAnnenStonad": {
+      "svar": "Har du satt fram krav om annen stønad/pensjon som ikke er avgjort?",
+      "beskrivelse": "Hva slags stønad/pensjon?"
+    },
+    "mottarPensjonUtland": {
+      "svar": "Mottar du pensjon fra utlandet?",
+      "hvaSlagsPensjon": "Hva slags pensjon?",
+      "mottarFraLand": "Fra hvilket land?",
+      "bruttobeloep": "Bruttobeløp pr. år i landets valuta",
+      "landetsValuta": "Oppgi landets valuta"
+    }
   },
   "felles": {
     "fnrDnr": "Fødselsnummer / d-nummer",

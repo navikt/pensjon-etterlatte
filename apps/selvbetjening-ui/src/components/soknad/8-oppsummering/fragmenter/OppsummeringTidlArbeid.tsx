@@ -9,25 +9,30 @@ import { Ingress } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
 import { ITidligereArbeidsforhold } from "../../../../typer/arbeidsforhold";
 import { v4 as uuid } from "uuid";
+import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
 
 const OppsummeringTidlArbeid = ({ state }: { state: ITidligereArbeidsforhold[] }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+
+    const otr = new ObjectTreeReader(i18n);
+
+    const arbeidsforhold = state.map(arbeid => {
+        return {
+            ingress: arbeid.beskrivelse,
+            tekster: otr.traverse<ITidligereArbeidsforhold>(arbeid)
+        }
+    });
 
     return (
         <Ekspanderbartpanel tittel={"Om tidligere arbeidsforhold"} className={"oppsummering"} apen={true}>
-            {state.map((arbeid) => (
+            {arbeidsforhold.map(({ ingress, tekster }) => (
                 <div key={uuid()}>
-                    <Ingress>{arbeid.beskrivelse}</Ingress>
+                    <Ingress>{ingress}</Ingress>
 
                     <Panel>
-                        <TekstGruppe
-                            tittel={t("felles.fraDato")}
-                            innhold={arbeid.fraDato}
-                        />
-                        <TekstGruppe
-                            tittel={t("felles.tilDato")}
-                            innhold={arbeid.tilDato}
-                        />
+                        {tekster.map(({ key, val }) => (
+                            <TekstGruppe key={uuid()} tittel={t(key)} innhold={val} />
+                        ))}
                     </Panel>
                 </div>
             ))}

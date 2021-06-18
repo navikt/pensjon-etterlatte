@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { RadioPanelGruppe, RadioPanelProps } from "nav-frontend-skjema";
-import IValg from "../../typer/IValg";
+import { IValg } from "../../typer/Spoersmaal";
 import { v4 as uuid } from "uuid";
 import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath, FieldValues } from "react-hook-form/dist/types";

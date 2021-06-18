@@ -1,4 +1,4 @@
-import IValg from "./IValg";
+import { IValg } from "./Spoersmaal";
 
 export enum NySivilstatus {
     ekteskap = "ekteskap",
@@ -30,18 +30,16 @@ export interface IBarn {
     fornavn?: string;
     etternavn?: string;
     foedselsnummer?: string;
-    brukeAnnenKonto?: IValg;
-    kontonummer?: string;
-    foreldre?: string;
-    bosattUtland?: IValg;
-    statsborgerskap?: string;
-    land?: string;
-}
-
-export interface INavn {
-    fornavn: string;
-    mellomnavn?: string;
-    etternavn: string;
+    brukeAnnenKonto?: {
+        svar?: IValg;
+        kontonummer?: string;
+    };
+    relasjon?: string;
+    bosattUtland?: {
+        svar?: IValg;
+        statsborgerskap?: string;
+        land?: string;
+    };
 }
 
 export interface IAvdoed {
@@ -53,12 +51,18 @@ export interface IAvdoed {
     bosetning?: IValg;
     doedsfallAarsak?: IValg;
     boddEllerJobbetUtland?: IValg;
-    haddePensjonsgivendeInntekt?: IValg;
-    pensjonsgivendeInntektSvar?: string;
-    haddePensjonAndreLand?: IValg;
-    pensjonAndreLandSvar?: string;
-    harAvtjentMilitaerTjeneste?: IValg;
-    avtjentMilitaerTjenesteSvar?: string;
+    haddePensjonsgivendeInntekt?: {
+        svar?: IValg;
+        beskrivelse?: string;
+    }
+    mottokPensjonAndreLand?: {
+        svar?: IValg;
+        beskrivelse?: string;
+    }
+    harAvtjentMilitaerTjeneste?: {
+        svar?: IValg;
+        beskrivelse?: string;
+    }
 }
 
 export enum SamboerInntekt {
@@ -72,9 +76,11 @@ export interface ISamboer {
     navn?: string;
     foedselsnummer?: string;
     hattBarnEllerVaertGift?: IValg;
-    harInntekt?: IValg;
-    inntektstype?: SamboerInntekt[];
-    samletBruttoinntektPrAar?: string;
+    harInntekt?: {
+        svar?: IValg;
+        inntektstype?: SamboerInntekt[];
+        samletBruttoinntektPrAar?: string;
+    }
 }
 
 export interface IKontaktinfo {

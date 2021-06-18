@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { IStegElement } from "../../context/steg/steg";
 
-const SoknadStegviser = () => {
+const Stegviser = () => {
     const { t } = useTranslation();
 
     const location = useLocation()
@@ -25,4 +25,4 @@ const SoknadStegviser = () => {
     )
 }
 
-export default SoknadStegviser;
+export default Stegviser;

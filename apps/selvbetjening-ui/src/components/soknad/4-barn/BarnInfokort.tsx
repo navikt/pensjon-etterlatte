@@ -30,9 +30,9 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
                 </div>
                 <div className="informasjonselement">
                     <Normaltekst>{barn.foedselsnummer}</Normaltekst>
-                    <Normaltekst>{barn.foreldre}</Normaltekst>
+                    <Normaltekst>{barn.relasjon}</Normaltekst>
                     <Normaltekst>
-                        {t("opplysningerOmBarn.bosattUtland")}: {barn.bosattUtland}
+                        {t("opplysningerOmBarn.bosattUtland")}: {barn.bosattUtland?.svar}
                     </Normaltekst>
                 </div>
             </div>

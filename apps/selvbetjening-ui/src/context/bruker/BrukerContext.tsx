@@ -4,9 +4,7 @@ import { ActionTypes, IBruker, IBrukerAction, StegProps } from "./bruker";
 const STORAGE_KEY = "ey-store-soeker";
 
 const json = localStorage.getItem(STORAGE_KEY);
-const storedState = json ? JSON.parse(json) : null;
-
-const initialState: IBruker = storedState || {};
+const initialState: IBruker = json ? JSON.parse(json) : {};
 
 const reducer = (state: IBruker, action: IBrukerAction) => {
     switch (action.type) {

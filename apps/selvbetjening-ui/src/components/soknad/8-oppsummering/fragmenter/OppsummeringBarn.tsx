@@ -1,5 +1,4 @@
 import TekstGruppe from "./TekstGruppe";
-import IValg from "../../../../typer/IValg";
 import Lenke from "nav-frontend-lenker";
 import { StegPath } from "../../../../context/steg/steg";
 import { EditFilled } from "@navikt/ds-icons";
@@ -10,50 +9,29 @@ import { useTranslation } from "react-i18next";
 import { Ingress } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
 import { v4 as uuid } from "uuid";
+import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
 
 const OppsummeringBarn = ({ state }: { state: IBarn[] }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+
+    const otr = new ObjectTreeReader(i18n)
+
+    const barnMedTekster = state.map(barn => {
+        return {
+            ingress: `${barn.fornavn} ${barn.etternavn}`,
+            tekster: otr.traverse<IBarn>(barn, "barn")
+        }
+    })
 
     return (
         <Ekspanderbartpanel tittel={"Om barn"} className={"oppsummering"} apen={true}>
-            {state.map((barn) => (
+            {barnMedTekster.map(barn => (
                 <div key={uuid()}>
-                    <Ingress>{barn.fornavn} {barn.etternavn}</Ingress>
-
+                    <Ingress>{barn.ingress}</Ingress>
                     <Panel>
-                        <TekstGruppe
-                            tittel={t("felles.fnr")}
-                            innhold={barn.foedselsnummer}
-                        />
-                        <TekstGruppe
-                            tittel={t("opplysningerOmBarn.brukeAnnenKonto")}
-                            innhold={barn.brukeAnnenKonto}
-                        />
-                        <TekstGruppe
-                            tittel={t("opplysningerOmBarn.barnetsKontonummer")}
-                            innhold={barn.kontonummer}
-                        />
-                        <TekstGruppe
-                            tittel={"Hvilken relasjon har du til barnet?"}
-                            innhold={barn.foreldre}
-                        />
-                        <TekstGruppe
-                            tittel={t("opplysningerOmBarn.borUtenlands")}
-                            innhold={barn.bosattUtland}
-                        />
-
-                        {barn.bosattUtland === IValg.JA && (
-                            <>
-                                <TekstGruppe
-                                    tittel={t("felles.statsborgerskap")}
-                                    innhold={barn.statsborgerskap}
-                                />
-                                <TekstGruppe
-                                    tittel={t("felles.land")}
-                                    innhold={barn.land}
-                                />
-                            </>
-                        )}
+                        {barn.tekster.map(({ key, val }) => (
+                            <TekstGruppe key={uuid()} tittel={t(key)} innhold={val} />
+                        ))}
                     </Panel>
                 </div>
             ))}

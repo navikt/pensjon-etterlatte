@@ -2,11 +2,6 @@ import { createContext, FC, useContext, useReducer } from "react";
 import { ActionTypes, ISoeknad, ISoeknadAction, SoeknadProps } from "./soknad";
 import mockJson from "../../assets/dummy-soeknad.json";
 
-const STORAGE_KEY = "etterlatte-store";
-
-const json = localStorage.getItem(STORAGE_KEY);
-const storedState = json ? JSON.parse(json) : null;
-
 const tomSoeknad = {
     harSamtykket: false,
     situasjon: {},
@@ -18,7 +13,9 @@ const tomSoeknad = {
     andreYtelser: {},
 };
 
-const initialState: ISoeknad = storedState || tomSoeknad;
+const STORAGE_KEY = "etterlatte-store";
+const json = localStorage.getItem(STORAGE_KEY);
+const initialState: ISoeknad = json ? JSON.parse(json) : tomSoeknad;
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
