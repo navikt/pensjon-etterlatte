@@ -41,33 +41,40 @@
     "leggTilArbeidsforhold": "+ Legg til arbeidsforhold"
   },
   "forside": {
-    "tittel": "Søknad om etterlatteytelser",
-    "hei": "Hei",
-    "omYtelsene": "Dersom du grunnet dødsfall har blitt enslig mor eller far og har barn under 18 år, vil etterlatteytelser sikre deg og dine barn inntekt. Inntekten din avgjør hvor mye du har krav på.",
-    "lenkeTilInfoOmYtelsene": "Mer om etterlatteytelser",
+    "tittel": "Søknad om gjenlevendepensjon",
+    "hei": "Hei, {{navn}}",
     "startSoeknad": "Start søknad",
+    "omYtelsene": {
+      "innhold": "Har du mistet ektefellen/ partneren/ samboeren din, kan du ha rett til gjenlevendepensjon. Du kan også ha rett til gjenlevendepensjon som fraskilt ektefelle, tidligere parnere eller tidligere samboer med fellesbarn. Det forutsetter at du ikke har giftet deg på nytt eller fått barn med ny samboer. \n\nHvis ikke du har rett til gjenlevendepensjon kan du ha rett til overgangsstønad for etterlatte. Vi vil avgjøre hvilken ytelse du har rett til, basert på opplysningene du gir oss om din situasjon. \n\nEr du etterlatt skal gjenlevendepensjonen sikre deg inntekt. Hvor mye du tjener vil påvirke hvor mye du kan motta i gjenlevendepensjon.",
+      "lenke": "Mer om gjenlevendepensjon"
+    },
+    "barnepensjon": {
+      "tittel": "Du kan også søke barnepensjon",
+      "innhold": "Hvis du har felles barn under 18 år med avdøde, kan du også søke om barnepensjon for barnet/ barna i denne søknaden."
+    },
     "riktigeOpplysninger": {
       "tittel": "Det er viktig at du gir oss riktige opplysninger",
-      "intro": "For at vi skal kunne behandle søknaden din, må du gi oss riktige opplysninger.",
-      "endringerMaaMeldesIfra": "Hvis du får etterlatteytelser, må du melde fra når det skjer viktige endringer i livet ditt, for eksempel bo- og familiesituasjonen eller arbeid og utdanning. Det samme gjelder dersom inntekten din endrer seg."
+      "innhold": "For at vi skal kunne behandle søknaden din, må du gi oss riktige opplysninger. \n\nHvis du får gjenlevendepensjon eller overgangsstønad, må du melde fra når det skjer viktige endringer i livet ditt. Det kan for eksemepl være hvis sivilstanden eller inntekten din endrer seg, eller hvis du skal oppholde deg i utlandet over lengre tid."
     },
     "dokumentasjon": {
       "tittel": "Det kan hende du må sende inn dokumentasjon",
-      "duFaarBeskjed": "Du får beskjed underveis i søknaden hvis du må dokumentere noen av opplysningene dine. Dokumentasjon du har sendt inn tidligere trenger du ikke sende på nytt.",
-      "duFaarBeskjed2": "Noen ganger kan vi også trenge mer informasjon. Da gir vi deg beskjed om dette.",
-      "lenkeTilInformasjon": "Oversikt over hva som krever dokumentasjon"
+      "innhold": "Hvis du må dokumentere noen av opplysningene dine, gir vi deg beskjed om det. Det samme gjelder hvis vi trenger mer informasjon fra deg."
+    },
+    "uthentingAvInfo": {
+      "tittel": "Vi vil hente informasjon om deg",
+      "innhold": "I tillegg til opplysningene du gir i søknaden, henter vi inn informasjon om deg og den avdøde for å avgjøre om du har rett til gjenlevendepensjon. Det samme gjelder for å vurdere om barnet har rett til barnepensjon. Vi henter også inn informasjon om eventuelle felles barn. \n\nVi henter:\n- personinformasjon fra Folkeregisteret\n- inntektsinformasjon fra Skatteetaten\n- opplysninger om arbeidsforhold fra arbeidsgiver- og arbeidstakerregisteret\n- opplysninger om andre ytelser fra nav\n- eventuelt informasjon fra utenlandske trygdemyndigheter",
+      "lenke": "Slik behandler vi personopplysningene dine"
     },
     "slikSoekerDu": {
       "tittel": "Slik søker du",
-      "kunRelevantInfo": "I søknaden stiller vi kun spørsmål som er relevante i din situasjon. Antall spørsmål og tiden det tar å søke vil derfor kunne variere. De fleste bruker 10 minutter.",
-      "viLagrer": "Vi lagrer søknaden din ut morgendagen. Derfor kan du ta pauser når du fyller ut. Du kan også slette i denne perioden.",
-      "dokumentasjonKanEttersendes": "Mangler du dokumentasjon, kan du ettersende dette."
+      "innhold": "I søknaden stiller vi kun spørsmål som er relevante i din situasjon. Antall spørsmål og tiden det tar å søke vil derfor kunne variere. De fleste bruker rundt 10 minutter."
     },
     "samtykke": {
       "tittel": "Vi stoler på deg",
-      "beskrivelse": "For å komme videre må du gi oss lov til å hente inn og bruke opplysninger om deg.",
-      "bekreftelse": "Ja, jeg samtykker",
-      "lesMer": "Les om hvilke opplysninger vi henter og hvordan vi bruker dem."
+      "innhold": "Jeg forstår at hvis jeg gir uriktige eller holder tilbake opplysninger kan det få konsekvenser for retten min til gjenlevendepensjon. Jeg er også klar over at jeg må betale tilbake dersom jeg får penger jeg ikke har rett til og som skyldes at jeg har latt være å informere eller gitt feil opplysninger.",
+      "harLest": "Jeg har lest og forstått det som står på",
+      "lenke": "nav.no/rettogplikt",
+      "bekreftelse": "Jeg, {{navn}}, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
     }
   },
   "stoenadType": {
@@ -172,6 +179,7 @@
       "svar": "Ønsker du å bruke et annet kontonummer for barnet? Hvis du velger \"Nei\" vil kontonummeret du tidligere har oppgitt bli benyttet.",
       "kontonummer": "Barnets kontonummer (11 siffer)"
     },
+    "borUtenlands": "Bosatt i utlandet",
     "bosattUtland": {
       "svar": "Bor barnet i utlandet?",
       "land": "Land",

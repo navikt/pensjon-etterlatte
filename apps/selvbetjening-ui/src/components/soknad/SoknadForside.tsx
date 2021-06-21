@@ -36,7 +36,7 @@ const SoknadForside = () => {
     return (
         <div className={"forside"}>
             <SkjemaGruppe>
-                <Veileder tekst={`${t("forside.hei")}, ${innloggetBrukerNavn}`} posisjon="høyre">
+                <Veileder tekst={`${t("forside.hei", { navn: innloggetBrukerNavn })}`} posisjon="høyre">
                     <img alt="veileder" src={ikon}/>
                 </Veileder>
             </SkjemaGruppe>
@@ -44,41 +44,43 @@ const SoknadForside = () => {
             <SkjemaGruppe>
                 <Sidetittel>{t("forside.tittel")}</Sidetittel>
 
-                <Normaltekst>{t("forside.omYtelsene")}</Normaltekst>
+                <Normaltekst>{t("forside.omYtelsene.innhold")}</Normaltekst>
 
                 <Normaltekst>
-                    <Lenke href={"#"}>{t("forside.lenkeTilInfoOmYtelsene")}</Lenke>
+                    <Lenke href={"https://www.nav.no/no/person/familie/har-du-mistet-noen-i-naer-familie/har-du-mistet-ektefellen-samboeren-eller-partneren-din"}>
+                        {t("forside.omYtelsene.lenke")}
+                    </Lenke>
                 </Normaltekst>
+            </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                <Undertittel>{t("forside.barnepensjon.tittel")}</Undertittel>
+
+                <Normaltekst>{t("forside.barnepensjon.innhold")}</Normaltekst>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <Undertittel>{t("forside.riktigeOpplysninger.tittel")}</Undertittel>
 
-                <Normaltekst>{t("forside.riktigeOpplysninger.intro")}</Normaltekst>
-
-                <Normaltekst>{t("forside.riktigeOpplysninger.endringerMaaMeldesIfra")}</Normaltekst>
+                <Normaltekst>{t("forside.riktigeOpplysninger.innhold")}</Normaltekst>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Undertittel>{t("forside.dokumentasjon.tittel")}</Undertittel>
+                <Undertittel>{t("forside.uthentingAvInfo.tittel")}</Undertittel>
 
-                <Normaltekst>{t("forside.dokumentasjon.duFaarBeskjed")}</Normaltekst>
-
-                <Normaltekst>{t("forside.dokumentasjon.duFaarBeskjed2")}</Normaltekst>
+                <Normaltekst>{t("forside.uthentingAvInfo.innhold")}</Normaltekst>
 
                 <Normaltekst>
-                    <Lenke href={"#"}>{t("forside.dokumentasjon.lenkeTilInformasjon")}</Lenke>
+                    <Lenke href={"https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten"}>
+                        {t("forside.uthentingAvInfo.lenke")}
+                    </Lenke>
                 </Normaltekst>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <Undertittel>{t("forside.slikSoekerDu.tittel")}</Undertittel>
 
-                <Normaltekst>{t("forside.slikSoekerDu.kunRelevantInfo")}</Normaltekst>
-
-                <Normaltekst>{t("forside.slikSoekerDu.viLagrer")}</Normaltekst>
-
-                <Normaltekst>{t("forside.slikSoekerDu.dokumentasjonKanEttersendes")}</Normaltekst>
+                <Normaltekst>{t("forside.slikSoekerDu.innhold")}</Normaltekst>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -87,7 +89,7 @@ const SoknadForside = () => {
                 <br/>
 
                 <BekreftCheckboksPanel
-                    label={t("forside.samtykke.bekreftelse")}
+                    label={t("forside.samtykke.bekreftelse", { navn: innloggetBrukerNavn })}
                     checked={soknadState.harSamtykket}
                     onChange={(e) =>
                         soknadDispatch({
@@ -96,9 +98,12 @@ const SoknadForside = () => {
                         })
                     }
                 >
-                    <p>{t("forside.samtykke.beskrivelse")}</p>
+                    <Normaltekst>{t("forside.samtykke.innhold")}</Normaltekst>
 
-                    <Lenke href="#">{t("forside.samtykke.lesMer")}</Lenke>
+                    <Normaltekst>
+                        {t("forside.samtykke.harLest")}:&nbsp;
+                        <Lenke href={"https://www.nav.no/rettogplikt"}>nav.no/rettogplikt</Lenke>
+                    </Normaltekst>
                 </BekreftCheckboksPanel>
             </SkjemaGruppe>
 
