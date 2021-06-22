@@ -1,6 +1,6 @@
-import {IAvdoed, IBarn, ISoeker} from "../../typer/person";
-import {IArbeidsforhold, ITidligereArbeidsforhold} from "../../typer/arbeidsforhold";
-import {IAndreYtelser, ISituasjon} from "../../typer/ytelser";
+import { IAvdoed, IBarn, ISoeker } from "../../typer/person";
+import { IArbeidsforhold, ITidligereArbeidsforhold } from "../../typer/arbeidsforhold";
+import { IAndreYtelser, ISituasjon } from "../../typer/ytelser";
 
 export interface ISoeknad {
     harSamtykket: boolean;

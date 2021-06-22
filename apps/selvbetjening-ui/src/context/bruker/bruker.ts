@@ -3,6 +3,7 @@ export interface IBruker {
     etternavn?: string;
     foedselsnummer?: string;
     foedselsaar?: number;
+    foedselsdato?: Date;
     adresse?: string;
     statsborgerskap?: string;
     sivilstatus?: string;
@@ -11,11 +12,12 @@ export interface IBruker {
 export enum ActionTypes {
     HENT_INNLOGGET_BRUKER = "HENT_INNLOGGET_BRUKER",
     INIT_TEST_BRUKER = "INIT_TEST_BRUKER",
+    TILBAKESTILL = "TILBAKESTILL",
 }
 
 export interface IBrukerAction {
     type: ActionTypes;
-    payload?: any;
+    payload?: IBruker;
 }
 
 export interface StegProps {
