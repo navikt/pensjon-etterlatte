@@ -1,17 +1,17 @@
-import TekstGruppe from "./TekstGruppe";
-import Lenke from "nav-frontend-lenker";
-import { StegPath } from "../../../../context/steg/steg";
-import { EditFilled } from "@navikt/ds-icons";
-import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
-import React from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Ingress } from "nav-frontend-typografi";
-import Panel from "nav-frontend-paneler";
-import { ITidligereArbeidsforhold } from "../../../../typer/arbeidsforhold";
 import { v4 as uuid } from "uuid";
+import { EditFilled } from "@navikt/ds-icons";
+import { StegPath } from "../../../../context/steg/steg";
+import { ITidligereArbeidsforhold } from "../../../../typer/arbeidsforhold";
+import { Ingress } from "nav-frontend-typografi";
+import Lenke from "nav-frontend-lenker";
+import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
+import Panel from "nav-frontend-paneler";
+import TekstGruppe from "./TekstGruppe";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
 
-const OppsummeringTidlArbeid = ({ state }: { state: ITidligereArbeidsforhold[] }) => {
+const OppsummeringTidlArbeid = memo(({ state }: { state: ITidligereArbeidsforhold[] }) => {
     const { t, i18n } = useTranslation();
 
     const otr = new ObjectTreeReader(i18n);
@@ -43,6 +43,6 @@ const OppsummeringTidlArbeid = ({ state }: { state: ITidligereArbeidsforhold[] }
             </Lenke>
         </Ekspanderbartpanel>
     )
-}
+});
 
 export default OppsummeringTidlArbeid;

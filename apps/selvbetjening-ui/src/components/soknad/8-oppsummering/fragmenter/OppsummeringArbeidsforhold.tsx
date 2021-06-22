@@ -1,14 +1,15 @@
-import TekstGruppe from "./TekstGruppe";
-import Lenke from "nav-frontend-lenker";
-import { StegPath } from "../../../../context/steg/steg";
-import { EditFilled } from "@navikt/ds-icons";
-import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { IArbeidsforhold } from "../../../../typer/arbeidsforhold";
 import { v4 as uuid } from "uuid";
+import { EditFilled } from "@navikt/ds-icons";
+import { StegPath } from "../../../../context/steg/steg";
+import { IArbeidsforhold } from "../../../../typer/arbeidsforhold";
+import Lenke from "nav-frontend-lenker";
+import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
+import TekstGruppe from "./TekstGruppe";
 
-const OppsummeringArbeidsforhold = ({ state }: { state: IArbeidsforhold }) => {
+const OppsummeringArbeidsforhold = memo(({ state }: { state: IArbeidsforhold }) => {
     const { t, i18n } = useTranslation();
 
     const otr = new ObjectTreeReader(i18n);
@@ -27,6 +28,6 @@ const OppsummeringArbeidsforhold = ({ state }: { state: IArbeidsforhold }) => {
             </Lenke>
         </Ekspanderbartpanel>
     )
-}
+});
 
 export default OppsummeringArbeidsforhold;

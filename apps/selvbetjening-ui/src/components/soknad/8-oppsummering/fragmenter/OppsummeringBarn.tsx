@@ -1,17 +1,17 @@
+import { memo } from "react";
+import { useTranslation } from "react-i18next";
+import { v4 as uuid } from "uuid";
+import { EditFilled } from "@navikt/ds-icons";
+import { StegPath } from "../../../../context/steg/steg";
+import { Ingress } from "nav-frontend-typografi";
+import { IBarn } from "../../../../typer/person";
+import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import TekstGruppe from "./TekstGruppe";
 import Lenke from "nav-frontend-lenker";
-import { StegPath } from "../../../../context/steg/steg";
-import { EditFilled } from "@navikt/ds-icons";
-import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
-import React from "react";
-import { IBarn } from "../../../../typer/person";
-import { useTranslation } from "react-i18next";
-import { Ingress } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
-import { v4 as uuid } from "uuid";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
 
-const OppsummeringBarn = ({ state }: { state: IBarn[] }) => {
+const OppsummeringBarn = memo(({ state }: { state: IBarn[] }) => {
     const { t, i18n } = useTranslation();
 
     const otr = new ObjectTreeReader(i18n)
@@ -42,6 +42,5 @@ const OppsummeringBarn = ({ state }: { state: IBarn[] }) => {
             </Lenke>
         </Ekspanderbartpanel>
     )
-}
-
+})
 export default OppsummeringBarn;

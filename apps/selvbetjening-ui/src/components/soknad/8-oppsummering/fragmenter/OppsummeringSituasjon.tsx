@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { ISituasjon } from "../../../../typer/ytelser";
 import { useTranslation } from "react-i18next";
 import { StegPath } from "../../../../context/steg/steg";
@@ -8,8 +9,9 @@ import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import Lenke from "nav-frontend-lenker";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
 
-const OppsummeringSituasjon = ({ state }: { state: ISituasjon }) => {
+const OppsummeringSituasjon = memo(({ state }: { state: ISituasjon }) => {
     const { t, i18n } = useTranslation();
+
     const ot = new ObjectTreeReader(i18n)
 
     const tekster = ot.traverse<ISituasjon>(state, "situasjon")
@@ -26,6 +28,6 @@ const OppsummeringSituasjon = ({ state }: { state: ISituasjon }) => {
             </Lenke>
         </Ekspanderbartpanel>
     )
-}
+});
 
 export default OppsummeringSituasjon;
