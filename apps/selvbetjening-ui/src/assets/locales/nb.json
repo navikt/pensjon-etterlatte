@@ -25,7 +25,7 @@
     "hei": "Hei, {{navn}}",
     "startSoeknad": "Start søknad",
     "omYtelsene": {
-      "innhold": "Har du mistet ektefellen/ partneren/ samboeren din, kan du ha rett til gjenlevendepensjon. Du kan også ha rett til gjenlevendepensjon som fraskilt ektefelle, tidligere parnere eller tidligere samboer med fellesbarn. Det forutsetter at du ikke har giftet deg på nytt eller fått barn med ny samboer. \n\nHvis ikke du har rett til gjenlevendepensjon kan du ha rett til overgangsstønad for etterlatte. Vi vil avgjøre hvilken ytelse du har rett til, basert på opplysningene du gir oss om din situasjon. \n\nEr du etterlatt skal gjenlevendepensjonen sikre deg inntekt. Hvor mye du tjener vil påvirke hvor mye du kan motta i gjenlevendepensjon.",
+      "innhold": "Har du mistet ektefellen, partneren eller samboeren din, kan du ha rett til gjenlevendepensjon. Du kan også ha rett til gjenlevendepensjon som fraskilt ektefelle, tidligere parnere eller tidligere samboer med felles barn. Det forutsetter at du ikke har giftet deg på nytt eller fått barn med ny samboer. \n\nHvis ikke du har rett til gjenlevendepensjon kan du ha rett til overgangsstønad for etterlatte. Vi vil avgjøre hvilken ytelse du har rett til, basert på opplysningene du gir oss om din situasjon. \n\nEr du etterlatt skal gjenlevendepensjonen sikre deg inntekt. Hvor mye du tjener vil påvirke hvor mye du kan motta i gjenlevendepensjon.",
       "lenke": "Mer om gjenlevendepensjon"
     },
     "barnepensjon": {
@@ -34,7 +34,7 @@
     },
     "riktigeOpplysninger": {
       "tittel": "Det er viktig at du gir oss riktige opplysninger",
-      "innhold": "For at vi skal kunne behandle søknaden din, må du gi oss riktige opplysninger. \n\nHvis du får gjenlevendepensjon eller overgangsstønad, må du melde fra når det skjer viktige endringer i livet ditt. Det kan for eksemepl være hvis sivilstanden eller inntekten din endrer seg, eller hvis du skal oppholde deg i utlandet over lengre tid."
+      "innhold": "For at vi skal kunne behandle søknaden din, må du gi oss riktige opplysninger. \n\nHvis du får gjenlevendepensjon eller overgangsstønad, må du melde fra når det skjer viktige endringer i livet ditt. Det kan for eksempel være hvis sivilstanden eller inntekten din endrer seg, eller hvis du skal oppholde deg i utlandet over lengre tid."
     },
     "dokumentasjon": {
       "tittel": "Det kan hende du må sende inn dokumentasjon",
