@@ -19,7 +19,7 @@ const OppsummeringBarn = ({ state }: { state: IBarn[] }) => {
     const barnMedTekster = state.map(barn => {
         return {
             ingress: `${barn.fornavn} ${barn.etternavn}`,
-            tekster: otr.traverse<IBarn>(barn, "barn")
+            tekster: otr.traverse<IBarn>(barn, "omBarn")
         }
     })
 
