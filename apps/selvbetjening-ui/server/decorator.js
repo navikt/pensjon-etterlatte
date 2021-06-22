@@ -15,14 +15,7 @@ const props = {
     ...authProps,
     env,
     context: "privatperson",
-    simple: true,
-    breadcrumbs: [
-        {
-            url: "https://www.nav.no/person/familie/soknad",
-            title: "Søknad om etterlatteytelser",
-            handleInApp: true,
-        },
-    ],
+    simple: true
 };
 
 const getDecorator = (filePath) => injectDecoratorServerSide({ ...props, filePath });

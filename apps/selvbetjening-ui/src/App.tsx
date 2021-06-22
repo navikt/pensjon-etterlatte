@@ -9,6 +9,7 @@ import DevLabs from "./components/dev/DevLabs";
 import { hentInnloggetPerson } from "./api";
 import { ActionTypes, IBruker } from "./context/bruker/bruker";
 import { useBrukerContext } from "./context/bruker/BrukerContext";
+import Banner from "./components/felles/Banner";
 
 const App = () => {
     const {
@@ -31,17 +32,23 @@ const App = () => {
     }, [brukerState?.foedselsnummer, brukerDispatch]);
 
     return (
-        <Switch>
-            <Route exact path={"/"} component={SoknadForside} />
+        <>
+            <Banner tekst={"Søknad om gjenlevendepensjon"}/>
 
-            {/* TODO: Kun støtte i dev og Q, ikke prod. Krever litt endringer i appen. */}
-            <Route path={"/labs"} component={DevLabs} />
+            <div className={"soeknad"}>
+                <Switch>
+                    <Route exact path={"/"} component={SoknadForside} />
 
-            <Route path={"/soknad/steg"} component={SoknadDialog} />
-            <Route path={"/soknad/sendt/:id"} component={SoknadKvittering} />
+                    {/* TODO: Kun støtte i dev og Q, ikke prod. Krever litt endringer i appen. */}
+                    <Route path={"/labs"} component={DevLabs} />
 
-            <Route component={SideIkkeFunnet} />
-        </Switch>
+                    <Route path={"/soknad/steg"} component={SoknadDialog} />
+                    <Route path={"/soknad/sendt/:id"} component={SoknadKvittering} />
+
+                    <Route component={SideIkkeFunnet} />
+                </Switch>
+            </div>
+        </>
     );
 };
 
