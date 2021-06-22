@@ -7,7 +7,6 @@ import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.content.TextContent
 import io.ktor.features.NotFoundException
-import io.ktor.http.ContentType
 import io.ktor.http.ContentType.Application.Json
 import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
@@ -80,6 +79,7 @@ class PersonService(
             fornavn = navn.fornavn,
             etternavn = navn.etternavn,
             foedselsnummer = fnr,
+            foedselsdato = foedsel?.foedselsdato,
             foedselsaar = foedsel?.foedselsaar,
             adresse = bostedsadresse?.vegadresse?.toString(),
             statsborgerskap = statsborgerskap?.land,
