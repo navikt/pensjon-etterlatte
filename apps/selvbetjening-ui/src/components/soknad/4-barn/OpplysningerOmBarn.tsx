@@ -34,14 +34,14 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const fjern = (index: number) =>
         dispatch({ type: ActionTypes.FJERN_BARN, payload: index, });
 
-    const harBarn = state.situasjon?.valgteYtelser?.barnepensjon === IValg.JA
+    const harBarn = state.situasjon?.barnepensjon === IValg.JA
     const skjemaGyldig = !harBarn || (harBarn && state.opplysningerOmBarn.length > 0)
 
     return (
         <>
             {/* Steg 4 */}
             <SkjemaGruppe>
-                <Systemtittel className={"center"}>{t("opplysningerOmBarn.tittel")}</Systemtittel>
+                <Systemtittel className={"center"}>{t("omBarn.tittel")}</Systemtittel>
             </SkjemaGruppe>
 
             {harBarn ? (
@@ -69,7 +69,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                         isOpen={isOpen}
                         onRequestClose={() => setIsOpen(false)}
                         closeButton={true}
-                        contentLabel={t("opplysningerOmBarn.modalContentLabel")}
+                        contentLabel={t("omBarn.tittel")}
                     >
                         <LeggTilBarnSkjema lagre={leggTilBarn} />
                     </Modal>

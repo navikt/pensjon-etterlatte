@@ -19,7 +19,7 @@ const OppsummeringTidlArbeid = ({ state }: { state: ITidligereArbeidsforhold[] }
     const arbeidsforhold = state.map(arbeid => {
         return {
             ingress: arbeid.beskrivelse,
-            tekster: otr.traverse<ITidligereArbeidsforhold>(arbeid)
+            tekster: otr.traverse<ITidligereArbeidsforhold>(arbeid, "tidligereArbeidsforhold")
         }
     });
 

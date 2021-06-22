@@ -39,68 +39,68 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                 <SkjemaGruppe>
                     <RHFInput
                         name={"fornavn"}
-                        label={t("felles.fornavn")}
+                        label={t("omBarn.fornavn")}
                         rules={{ pattern: /^\D+$/ }}
                     />
 
                     <RHFInput
                         name={"etternavn"}
-                        label={t("felles.etternavn")}
+                        label={t("omBarn.etternavn")}
                         rules={{ pattern: /^\D+$/ }}
                     />
 
                     <RHFInput
                         name={"foedselsnummer"}
-                        label={t("felles.fnr")}
+                        label={t("omBarn.foedselsnummer")}
                     />
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
                     <RHFToValgRadio
-                        name={"brukeAnnenKonto"}
-                        legend={t("opplysningerOmBarn.brukeAnnenKonto.svar")}
+                        name={"brukeAnnenKonto.svar"}
+                        legend={t("omBarn.brukeAnnenKonto.svar")}
                     />
 
                     {brukeAnnenKonto === IValg.JA && (
                         <RHFKontonummerInput
-                            name={"kontonummer"}
-                            label={t("opplysningerOmBarn.barnetsKontonummer")}
+                            name={"brukeAnnenKonto.kontonummer"}
+                            label={t("omBarn.brukeAnnenKonto.kontonummer")}
                         />
                     )}
                 </SkjemaGruppe>
 
                 <RHFRadio
                     name={"foreldre"}
-                    legend={t('barn.relasjon')}
+                    legend={t("omBarn.relasjon")}
                     radios={[
                         {
-                            label: t("opplysningerOmBarn.fellesbarnMedAvdoed"),
+                            label: t("omBarn.fellesbarnMedAvdoed"),
                             value: BarnRelasjon.fellesbarnMedAvdoede
                         },
                         {
-                            label: t("opplysningerOmBarn.avdoedesSaerkullsbarn"),
+                            label: t("omBarn.avdoedesSaerkullsbarn"),
                             value: BarnRelasjon.avdoedesSaerkullsbarn
                         },
-                        { label: t("opplysningerOmBarn.egneSaerkullsbarn"), value: BarnRelasjon.egneSaerkullsbarn },
+                        { label: t("omBarn.egneSaerkullsbarn"), value: BarnRelasjon.egneSaerkullsbarn },
                     ]}
                 />
 
                 <SkjemaGruppe>
                     <RHFToValgRadio
                         name={"bosattUtland.svar"}
-                        legend={t("opplysningerOmBarn.borUtenlands")}
+                        legend={t("omBarn.bosattUtland.svar")}
                     />
 
                     {bosattUtland === IValg.JA && (
                         <>
                             <RHFInput
                                 name={"bosattUtland.statsborgerskap"}
-                                label={t("barn.statsborgerskap")}
+                                label={t("omBarn.bosattUtland.statsborgerskap")}
                             />
 
                             <RHFInput
                                 name={"bosattUtland.land"}
-                                label={t("barn.land")}
+                                label={t("omBarn.bosattUtland.land")}
                             />
                         </>
                     )}

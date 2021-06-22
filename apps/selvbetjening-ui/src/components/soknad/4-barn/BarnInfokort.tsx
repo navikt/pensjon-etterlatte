@@ -4,6 +4,7 @@ import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Xknapp } from "nav-frontend-ikonknapper";
+import { IValg } from "../../../typer/Spoersmaal";
 
 interface Props {
     barn: IBarn;
@@ -31,9 +32,10 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
                 <div className="informasjonselement">
                     <Normaltekst>{barn.foedselsnummer}</Normaltekst>
                     <Normaltekst>{barn.relasjon}</Normaltekst>
-                    <Normaltekst>
-                        {t("opplysningerOmBarn.bosattUtland")}: {barn.bosattUtland?.svar}
-                    </Normaltekst>
+
+                    {barn.bosattUtland?.svar === IValg.JA && (
+                        <Normaltekst>{t("omBarn.borUtenlands")}</Normaltekst>
+                    )}
                 </div>
             </div>
         </div>

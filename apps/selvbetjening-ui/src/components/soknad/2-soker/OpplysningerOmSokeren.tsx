@@ -65,14 +65,14 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                         <Panel border>
                             <RHFTelefonInput
                                 name={"kontaktinfo.telefonnummer"}
-                                label={t("felles.telefon")}
-                                // rules={{pattern: /^\d+$/}}
+                                label={t("omSoekeren.kontaktinfo.telefon")}
+                                // TODO: Validere telefon ... ?
                             />
 
                             {/* 2.5 */}
                             <RHFInput
                                 name={"kontaktinfo.epost"}
-                                label={t("felles.epost")}
+                                label={t("omSoekeren.kontaktinfo.epost")}
                                 // TODO: Validere e-post
                             />
 
@@ -81,7 +81,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                             <SkjemaGruppe>
                                 <RHFKontonummerInput
                                     name={"kontonummer"}
-                                    label={t("omSoekeren.norskKontonummer")}
+                                    label={t("omSoekeren.kontonummer")}
                                     rules={{pattern: /^\d{4}\.\d{2}\.\d{5}$/}}
                                 />
                             </SkjemaGruppe>

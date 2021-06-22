@@ -1,10 +1,8 @@
 {
   "harSamtykket": true,
   "situasjon": {
-    "valgteYtelser": {
-      "hovedytelse": "etterlatte",
-      "barnepensjon": "Ja"
-    },
+    "hovedytelse": "etterlatte",
+    "barnepensjon": "Ja",
     "fraDato": "2021-06-08T22:00:00.000Z"
   },
   "opplysningerOmSoekeren": {
@@ -68,9 +66,6 @@
     },
     "harAvtjentMilitaerTjeneste": {
       "svar": "Ja",
-      "beskrivelse": "1984"
-    },
-    "avtjentMilitaerTjenesteSvar": {
       "beskrivelse": "1984"
     }
   },
@@ -137,7 +132,7 @@
     "mottarAndreYtelser": "Ja",
     "kravOmAnnenStonad": {
       "svar": "Ja",
-      "beskrivelseAvStoenad": "Husker ikke"
+      "beskrivelse": "Husker ikke"
     },
     "mottarPensjonUtland": {
       "svar": "Ja",

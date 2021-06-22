@@ -48,33 +48,33 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <RHFInput
                         name={"fornavn"}
-                        label={t("felles.fornavn")}
+                        label={t("omDenAvdoede.fornavn")}
                     />
 
                     <RHFInput
                         name={"etternavn"}
-                        label={t("felles.etternavn")}
+                        label={t("omDenAvdoede.etternavn")}
                     />
 
                     {/* 3.2 */}
                     <RHFInput
                         type={"number"}
                         name={"foedselsnummer"}
-                        label={t("felles.fnr")}
+                        label={t("omDenAvdoede.foedselsnummer")}
                         rules={{ validate: (value) => (fnr(value).status === 'valid') }}
                     />
 
                     {/* 3.3 */}
                     <Datovelger
                         name={"doedsdato"}
-                        label={t("felles.doedsdato")}
+                        label={t("omDenAvdoede.doedsdato")}
                         maxDate={new Date()}
                     />
 
                     {/* 3.4 */}
                     <RHFInput
                         name={"statsborgerskap"}
-                        label={t("felles.statsborgerskap")}
+                        label={t("omDenAvdoede.statsborgerskap")}
                     />
                 </SkjemaGruppe>
 
@@ -82,13 +82,13 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 {/* 3.6 */}
                 <RHFToValgRadio
                     name={"bosetning"}
-                    legend={t("omDenAvdoede.bosattSammenhengende")}
+                    legend={t("omDenAvdoede.bosetning")}
                 />
 
                 {/* 3.7 */}
                 <RHFToValgRadio
                     name={"doedsfallAarsak"}
-                    legend={t("omDenAvdoede.doedsfallPgaYrkesskade")}
+                    legend={t("omDenAvdoede.doedsfallAarsak")}
                 />
 
                 {/* 3.8 */}
@@ -101,14 +101,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 {/* 3.10 */}
                 <RHFToValgRadio
                     name={"haddePensjonsgivendeInntekt.svar"}
-                    legend={t("omDenAvdoede.haddePensjonsgivendeInntekt")}
+                    legend={t("omDenAvdoede.haddePensjonsgivendeInntekt.svar")}
                 />
 
                 {haddePensjonsgivendeInntekt === IValg.JA && (
                     <SkjemaGruppe>
                         <RHFInput
                             name={"haddePensjonsgivendeInntekt.beskrivelse"}
-                            label={t("omDenAvdoede.pensjonsgivendeInntekt")}
+                            label={t("omDenAvdoede.haddePensjonsgivendeInntekt.beskrivelse")}
                         />
                     </SkjemaGruppe>
                 )}
@@ -117,14 +117,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 {/* 3.12 */}
                 <RHFToValgRadio
                     name={"mottokPensjonAndreLand.svar"}
-                    legend={t("omDenAvdoede.mottokPensjonAndreLand")}
+                    legend={t("omDenAvdoede.mottokPensjonAndreLand.svar")}
                 />
 
                 {mottokPensjonAndreLand === IValg.JA && (
                     <SkjemaGruppe>
                         <RHFInput
                             name={"mottokPensjonAndreLand.beskrivelse"}
-                            label={t("omDenAvdoede.pensjonUtlandBruttoinntekt")}
+                            label={t("omDenAvdoede.mottokPensjonAndreLand.beskrivelse")}
                             rules={{ pattern: /^\d+$/ }}
                         />
                     </SkjemaGruppe>
@@ -133,14 +133,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 {/* 3.13 */}
                 <RHFToValgRadio
                     name={"harAvtjentMilitaerTjeneste.svar"}
-                    legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste")}
+                    legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
                 />
 
                 {harAvtjentMilitaerTjeneste === IValg.JA && (
                     <SkjemaGruppe>
                         <RHFInput
-                            name={"avtjentMilitaerTjenesteSvar.beskrivelse"}
-                            label={t("omDenAvdoede.avtjentMilitaerTjenesteAarstall")}
+                            name={"harAvtjentMilitaerTjeneste.beskrivelse"}
+                            label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
                             rules={{ pattern: /^\d{4}$/ }}
                         />
                     </SkjemaGruppe>

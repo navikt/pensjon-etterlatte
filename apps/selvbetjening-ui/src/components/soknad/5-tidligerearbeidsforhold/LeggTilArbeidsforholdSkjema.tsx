@@ -28,7 +28,7 @@ const LeggTilArbeidsforholdSkjema = ({ lagre }: Props) => {
                 <SkjemaGruppe>
                     <RHFInput
                         name={"beskrivelse"}
-                        label={t("tidligereArbeidsforhold.skoleKursArbeidOsv")}
+                        label={t("tidligereArbeidsforhold.beskrivelse")}
                     />
                 </SkjemaGruppe>
 

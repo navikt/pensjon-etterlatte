@@ -59,7 +59,7 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
 
                     {kravOmAnnenStonad === IValg.JA && (
                         <RHFInput
-                            name={"kravOmAnnenStonad.beskrivelseAvStoenad"}
+                            name={"kravOmAnnenStonad.beskrivelse"}
                             label={t("andreYtelser.kravOmAnnenStonad.beskrivelse")}
                         />
                     )}

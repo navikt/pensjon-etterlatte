@@ -14,7 +14,7 @@ const OppsummeringAvdoed = ({ state }: { state: IAvdoed }) => {
 
     const otr = new ObjectTreeReader(i18n)
 
-    const tekster = otr.traverse<IAvdoed>(state)
+    const tekster = otr.traverse<IAvdoed>(state, "omDenAvdoede")
 
     return (
         <Ekspanderbartpanel tittel={"Om avdøde"} className={"oppsummering"} apen={true}>

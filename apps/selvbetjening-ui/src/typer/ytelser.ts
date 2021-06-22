@@ -6,10 +6,8 @@ export enum Ytelse {
 }
 
 export interface ISituasjon {
-    valgteYtelser?: {
-        hovedytelse?: Ytelse;
-        barnepensjon?: IValg;
-    };
+    hovedytelse?: Ytelse;
+    barnepensjon?: IValg;
     fraDato?: Date;
 }
 

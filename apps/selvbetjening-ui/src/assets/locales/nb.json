@@ -9,26 +9,6 @@
     "AndreYtelser":  "Andre ytelser",
     "Oppsummering": "Oppsummering"
   },
-  "ytelser": [
-    "etterlatte",
-    "gjenlevendetillegg",
-    "barnepensjon",
-    "barnetilsyn",
-    "skolepenger"
-  ],
-  "etterlatteytelser": {
-    "etterlatte": "Pensjon-/overgangsstønad",
-    "gjenlevendetillegg": "Gjenlevendetillegg i uføretrygden",
-    "barnepensjon": "Barnepensjon",
-    "barnetilsyn": "Barnetilsyn",
-    "skolepenger": "Skolepenger"
-  },
-  "situasjon": {
-    "arbeidstaker" :  "... i arbeid",
-    "arbeidsledig" : "... arbeidsledig",
-    "student" :  "... student",
-    "ufoer" : "... uføretrygdet"
-  },
   "knapp": {
     "tilbake": "Tilbake",
     "neste": "Neste",
@@ -77,14 +57,10 @@
       "bekreftelse": "Jeg, {{navn}}, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
     }
   },
-  "stoenadType": {
-    "tittel": "Hva søker du?",
-    "etterlatte": "Pensjon-/overgangsstønad",
-    "gjenlevendetillegg": "Gjenlevendetillegg i uføretrygden",
+  "situasjon": {
+    "hovedytelse": "Valgt ytelse",
     "barnepensjon": "Barnepensjon",
-    "barnetilsyn": "Barnetilsyn",
-    "skolepenger": "Skolepenger",
-    "infoOmBarnetilsynOgSkolepenger": "Hvis du søker om stønad til barnetilsyn på grunn av arbeid eller stønad til skolepenger, vil NAV ta kontakt.",
+    "fraDato": "Fra dato",
     "etterbetaling": {
       "tittel": "Etterbetaling",
       "info": "Ytelser gis som regel ikke for lengre tid tilbake enn tre måneder før den kalendermåned da kravet blir satt fram. Barnepensjon etterbetales for opptil tre år før den kalendermåned da kravet blir satt fram."
@@ -98,7 +74,11 @@
     "oppgiLand": "Oppgi land",
     "infoFolkeregisteret": "Saksbehandler vil ta kontakt med deg for å oppdrive korrekt adresse.",
     "medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i utlandet?",
-    "norskKontonummer": "Norsk kontonummer som pensjonen blir overført til (11 siffer)",
+    "kontaktinfo": {
+      "telefon": "Telefonnummer",
+      "epost": "E-post"
+    },
+    "kontonummer": "Norsk kontonummer som pensjonen blir overført til (11 siffer)",
     "forholdTilAvdoede": {
       "tittel": "Ditt forhold til avdøde",
       "ektefelle": "Gjenlevende ektefelle",
@@ -140,44 +120,39 @@
   },
   "omDenAvdoede": {
     "tittel": "Opplysninger om den avdøde",
-    "bosattSammenhengende": "Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?",
-    "doedsfallPgaYrkesskade": "Kan dødsfallet være en følge av yrkesskade/yrkessykdom?",
-    "boddEllerJobbetUtland": "Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?",
-    "haddePensjonsgivendeInntekt": "Hadde den avdøde pensjonsgivende inntekt (arbeidsinntekt eller næringsinntekt) på tidspunktet før dødsfallet?",
-    "pensjonsgivendeInntekt": "Oppgi bruttobeløp pr. år (kr)",
-    "mottokPensjonAndreLand": "Mottok den avdøde pensjon fra andre land enn Norge?",
-    "pensjonUtlandBruttoinntekt": "Oppgi bruttobeløp pr. år (kr)",
-    "harAvtjentMilitaerTjeneste": "Har den avdøde etter 1966 avtjent militær eller sivil førstegangstjeneste som varte minst 30 dager?",
-    "avtjentMilitaerTjenesteAarstall": "Oppgi årstall"
-  },
-  "opplysningerOmBarn": {
-    "tittel": "Opplysninger om barn",
-    "modalContentLabel": "Modalvindu - Opplysninger om barn",
-    "bosattUtland": "Bosatt i utlandet",
-    "fellesbarnMedAvdoed": "Fellesbarn m/avdøde",
-    "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
-    "egneSaerkullsbarn": "Egne særkullsbarn",
-    "borUtenlands": "Bor barnet i utlandet?",
-    "brukeAnnenKonto": "Ønsker du å bruke et annet kontonummer for barnet? Hvis du velger \"Nei\" vil kontonummeret du tidligere har oppgitt bli benyttet.",
-    "barnetsKontonummer": "Barnets kontonummer (11 siffer)"
-  },
-  "avdoed": {
     "fornavn": "Fornavn",
     "etternavn": "Etternavn",
     "foedselsnummer": "Fødselsnummer",
-    "doedsdato": "Dødsdato",
-    "statsborgerskap": "Statsborgerskap"
+    "doedsdato": "Dato for dødsfallet",
+    "statsborgerskap": "Statsborgerskap",
+    "bosetning": "Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?",
+    "doedsfallAarsak": "Kan dødsfallet være en følge av yrkesskade/yrkessykdom?",
+    "boddEllerJobbetUtland": "Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?",
+    "haddePensjonsgivendeInntekt": {
+      "svar": "Hadde den avdøde pensjonsgivende inntekt (arbeidsinntekt eller næringsinntekt) på tidspunktet før dødsfallet?",
+      "beskrivelse": "Oppgi bruttobeløp pr. år (kr)"
+    },
+    "mottokPensjonAndreLand": {
+      "svar": "Mottok den avdøde pensjon fra andre land enn Norge?",
+      "beskrivelse": "Oppgi bruttobeløp pr. år (kr)"
+    },
+    "harAvtjentMilitaerTjeneste": {
+      "svar": "Har den avdøde etter 1966 avtjent militær eller sivil førstegangstjeneste som varte minst 30 dager?",
+      "beskrivelse": "Oppgi årstall"
+    }
   },
-  "barn": {
+  "omBarn": {
+    "tittel": "Opplysninger om barn",
     "fornavn": "Fornavn",
     "etternavn": "Etternavn",
+    "foedselsnummer": "Barnets fødselsnummer / d-nummer",
     "fellesbarnMedAvdoed": "Fellesbarn m/avdøde",
     "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
     "egneSaerkullsbarn": "Egne særkullsbarn",
     "relasjon": "Hvilken relasjon har du til barnet?",
     "brukeAnnenKonto": {
       "svar": "Ønsker du å bruke et annet kontonummer for barnet? Hvis du velger \"Nei\" vil kontonummeret du tidligere har oppgitt bli benyttet.",
-      "kontonummer": "Barnets kontonummer (11 siffer)"
+      "kontonummer": "Barnets kontonummer"
     },
     "borUtenlands": "Bosatt i utlandet",
     "bosattUtland": {
@@ -188,22 +163,32 @@
   },
   "tidligereArbeidsforhold": {
     "tittel": "Opplysninger om søkers tidligere arbeidsforhold",
-    "skoleKursArbeidOsv": "Skoler utover grunnskolen, yrkesrettede kurs o.l. og tidligere arbeidsforhold"
+    "beskrivelse": "Skoler utover grunnskolen, yrkesrettede kurs o.l. og tidligere arbeidsforhold",
+    "fraDato": "Fra dato",
+    "tilDato": "Til dato"
   },
   "naavaerendeArbeidsforhold": {
     "tittel": "Søkers nåværende arbeids- og inntektsforhold",
-    "typeArbeidsforhold": "Oppgi type arbeidsforhold",
+    "yrke": "Yrke",
+    "stilling": "Stilling",
+    "startDato": "Startdato",
+    "sluttDato": "Eventuell sluttdato",
+    "ansettelsesforhold": "Oppgi type arbeidsforhold",
     "fast": "Fast",
     "midlertidig": "Midlertidig",
     "sesongarbeid": "Sesongarbeid",
-    "heltidEllerDeltid": "Er arbeidsforholdet heltid eller deltid?",
+    "heltidDeltid": "Er arbeidsforholdet heltid eller deltid?",
     "heltid": "Heltid",
     "deltid": "Deltid",
     "stillingsprosent": "Oppgi stillingsprosent",
-    "arbeidsgiversNavn": "Arbeidsgivers navn (Virksomhetens navn)",
-    "arbeidsgiversAdresse": "Arbeidsgivers adresse (Virksomhetens adresse)",
-    "bruttoInntektPrMd": "Brutto arbeidsinntekt pr. måned",
-    "personinntektFraNaering": "Beregnet personinntekt fra næring pr. år"
+    "arbeidsgiver": {
+      "navn": "Arbeidsgivers navn (Virksomhetens navn)",
+      "adresse": "Arbeidsgivers adresse (Virksomhetens adresse)"
+    },
+    "inntekt": {
+      "bruttoArbeidsinntektPrMd": "Brutto arbeidsinntekt pr. måned",
+      "personinntektFraNaeringPrAr": "Beregnet personinntekt fra næring pr. år"
+    }
   },
   "andreYtelser": {
     "tittel": "Opplysninger om andre ytelser",
@@ -215,8 +200,8 @@
     "mottarPensjonUtland": {
       "svar": "Mottar du pensjon fra utlandet?",
       "hvaSlagsPensjon": "Hva slags pensjon?",
-      "mottarFraLand": "Fra hvilket land?",
-      "bruttobeloep": "Bruttobeløp pr. år i landets valuta",
+      "fraHvilketLand": "Fra hvilket land?",
+      "bruttobeloepPrAar": "Bruttobeløp pr. år i landets valuta",
       "landetsValuta": "Oppgi landets valuta"
     }
   },
@@ -231,26 +216,17 @@
     "sivilstatus": "Sivilstatus",
     "statsborgerskap": "Statsborgerskap",
     "land": "Land",
-    "telefon": "Telefonnummer",
-    "epost": "E-post",
     "fraDato": "Fra dato",
     "tilDato": "Til dato",
-    "yrke": "Yrke",
-    "stilling": "Stilling",
     "startDato": "Startdato",
     "sluttDato": "Fremtidig sluttdato"
   },
   "feil": {
-    "valgteYtelser": {
-      "situasjon": {
-        "required": "Livssituasjon må være valgt"
-      },
-      "hovedytelse": {
-        "required": "Hovedytelse må være valgt"
-      },
-      "barnepensjon": {
-        "required": "Må besvares"
-      }
+    "hovedytelse": {
+      "required": "Hovedytelse må være valgt"
+    },
+    "barnepensjon": {
+      "required": "Må besvares"
     },
     "fraDato": {
       "required": "Fra dato må være valgt"

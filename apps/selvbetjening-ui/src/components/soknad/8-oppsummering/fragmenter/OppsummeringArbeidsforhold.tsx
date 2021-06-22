@@ -13,13 +13,13 @@ const OppsummeringArbeidsforhold = ({ state }: { state: IArbeidsforhold }) => {
 
     const otr = new ObjectTreeReader(i18n);
 
-    const tekster = otr.traverse<IArbeidsforhold>(state, "arbeidsforhold");
+    const tekster = otr.traverse<IArbeidsforhold>(state, "naavaerendeArbeidsforhold");
 
     return (
         <Ekspanderbartpanel tittel={"Om nåværende arbeidsforhold"} className={"oppsummering"} apen={true}>
             {tekster.map(({ key, val }) => (
                 <TekstGruppe key={uuid()} tittel={t(key)} innhold={val} />
-            ))};
+            ))}
 
             <Lenke href={`/soknad/steg/${StegPath.Arbeidsforhold}`}>
                 <EditFilled/>

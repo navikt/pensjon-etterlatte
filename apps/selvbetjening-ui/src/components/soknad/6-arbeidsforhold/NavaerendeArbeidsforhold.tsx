@@ -47,25 +47,25 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <RHFInput
                         name={"yrke"}
-                        label={t("felles.yrke")}
+                        label={t("naavaerendeArbeidsforhold.yrke")}
                     />
 
                     <RHFInput
                         name={"stilling"}
-                        label={t("felles.stilling")}
+                        label={t("naavaerendeArbeidsforhold.stilling")}
                     />
                 </SkjemaGruppe>
 
                 <div className={"skjemagruppe skjemagruppe__inline"}>
                     <Datovelger
                         name={"startDato"}
-                        label={t("felles.startDato")}
+                        label={t("naavaerendeArbeidsforhold.startDato")}
                         maxDate={watch("sluttDato")}
                     />
 
                     <Datovelger
                         name={"sluttDato"}
-                        label={t("felles.sluttDato")}
+                        label={t("naavaerendeArbeidsforhold.sluttDato")}
                         minDate={watch("startDato")}
                     />
                 </div>
@@ -73,7 +73,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <RHFRadio
                         name={"ansettelsesforhold"}
-                        legend={t("naavaerendeArbeidsforhold.typeArbeidsforhold")}
+                        legend={t("naavaerendeArbeidsforhold.ansettelsesforhold")}
                         radios={[
                             { label: t("naavaerendeArbeidsforhold.fast"), value: "Fast" },
                             { label: t("naavaerendeArbeidsforhold.midlertidig"), value: "Midlertidig" },
@@ -85,7 +85,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <RHFToValgRadio
                         name={"heltidDeltid"}
-                        legend={t("naavaerendeArbeidsforhold.heltidEllerDeltid")}
+                        legend={t("naavaerendeArbeidsforhold.heltidDeltid")}
                         overrideRadios={[
                             { label: t("naavaerendeArbeidsforhold.heltid"), value: "Heltid" },
                             { label: t("naavaerendeArbeidsforhold.deltid"), value: "Deltid" },
@@ -104,23 +104,23 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <RHFInput
                         name={"arbeidsgiver.navn"}
-                        label={t("naavaerendeArbeidsforhold.arbeidsgiversNavn")}
+                        label={t("naavaerendeArbeidsforhold.arbeidsgiver.navn")}
                     />
                     <RHFInput
                         name={"arbeidsgiver.adresse"}
-                        label={t("naavaerendeArbeidsforhold.arbeidsgiversAdresse")}
+                        label={t("naavaerendeArbeidsforhold.arbeidsgiver.adresse")}
                     />
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
                     <RHFInput
                         name={"inntekt.bruttoArbeidsinntektPrMd"}
-                        label={t("naavaerendeArbeidsforhold.bruttoInntektPrMd")}
+                        label={t("naavaerendeArbeidsforhold.inntekt.bruttoArbeidsinntektPrMd")}
                         rules={{ pattern: /^\d+$/ }}
                     />
                     <RHFInput
                         name={"inntekt.personinntektFraNaeringPrAr"}
-                        label={t("naavaerendeArbeidsforhold.personinntektFraNaering")}
+                        label={t("naavaerendeArbeidsforhold.inntekt.personinntektFraNaeringPrAr")}
                         rules={{ pattern: /^\d+$/ }}
                     />
                 </SkjemaGruppe>

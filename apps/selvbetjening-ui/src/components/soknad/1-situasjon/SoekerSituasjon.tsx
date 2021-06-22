@@ -34,7 +34,7 @@ const SoekerSituasjon: SoknadSteg = ({ neste }) => {
         neste!!();
     };
 
-    const hovedytelse = watch("valgteYtelser.hovedytelse")
+    const hovedytelse = watch("hovedytelse")
 
     return (
         <FormProvider {...methods}>
@@ -44,7 +44,7 @@ const SoekerSituasjon: SoknadSteg = ({ neste }) => {
                 </SkjemaGruppe>
 
                 <RHFRadio
-                    name={"valgteYtelser.hovedytelse"}
+                    name={"hovedytelse"}
                     legend={"Jeg har mistet min ektefelle/partner/samboer og er ..."}
                     radios={[
                         {
@@ -68,7 +68,7 @@ const SoekerSituasjon: SoknadSteg = ({ neste }) => {
                 )}
 
                 <RHFToValgRadio
-                    name={"valgteYtelser.barnepensjon"}
+                    name={"barnepensjon"}
                     legend={"Har/hadde du barn under 18 år med avdøde og vil søke om barnepensjon i tillegg?"}
                 />
 
@@ -98,8 +98,8 @@ const SoekerSituasjon: SoknadSteg = ({ neste }) => {
 
                 <SkjemaGruppe>
                     <AlertStripe type="info">
-                        <strong>{t("stoenadType.etterbetaling.tittel")}: </strong>
-                        {t("stoenadType.etterbetaling.info")}
+                        <strong>{t("situasjon.etterbetaling.tittel")}: </strong>
+                        {t("situasjon.etterbetaling.info")}
                     </AlertStripe>
                 </SkjemaGruppe>
 

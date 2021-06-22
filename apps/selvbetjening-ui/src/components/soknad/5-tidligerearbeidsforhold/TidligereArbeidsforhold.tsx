@@ -37,7 +37,7 @@ const TidligereArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
             payload: index,
         });
 
-    const gjenlevendetillegg = state.situasjon?.valgteYtelser?.hovedytelse === Ytelse.gjenlevendetillegg
+    const gjenlevendetillegg = state.situasjon?.hovedytelse === Ytelse.gjenlevendetillegg
     const skjemaGyldig = gjenlevendetillegg || (!gjenlevendetillegg && state.tidligereArbeidsforhold.length > 0)
 
     return (

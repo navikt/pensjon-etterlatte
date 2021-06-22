@@ -12,7 +12,7 @@ const OppsummeringSituasjon = ({ state }: { state: ISituasjon }) => {
     const { t, i18n } = useTranslation();
     const ot = new ObjectTreeReader(i18n)
 
-    const tekster = ot.traverse<ISituasjon>(state)
+    const tekster = ot.traverse<ISituasjon>(state, "situasjon")
 
     return (
         <Ekspanderbartpanel tittel={"Din situasjon"} className={"oppsummering"} apen={true}>
