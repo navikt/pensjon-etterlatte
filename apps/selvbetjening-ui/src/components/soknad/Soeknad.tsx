@@ -11,6 +11,8 @@ import { useHistory } from "react-router-dom";
 
 const Soeknad = () => {
     const { path } = useRouteMatch();
+    console.log(`path: ${path}`)
+
     const history = useHistory();
 
     const {
@@ -40,9 +42,11 @@ const Soeknad = () => {
 
     return (
         <>
-            <Route exact path={`${path}/`} component={SoknadForside} />
-            <Route path={`${path}/steg`} component={SoknadDialog} />
-            <Route path={`${path}/sendt/:id`} component={SoknadKvittering} />
+            <Route path={"/soknad/steg"} component={SoknadDialog} />
+
+            <Route path={"/soknad/sendt/:id"} component={SoknadKvittering} />
+
+            <Route exact path={"/"} component={SoknadForside} />
         </>
     );
 }
