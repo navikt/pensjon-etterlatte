@@ -15,7 +15,9 @@ interface Props {
 const LeggTilBarnSkjema = ({ lagre }: Props) => {
     const { t } = useTranslation();
 
-    const methods = useForm<IBarn>();
+    const methods = useForm<IBarn>({
+        shouldUnregister: true
+    });
 
     const {
         formState: { errors },

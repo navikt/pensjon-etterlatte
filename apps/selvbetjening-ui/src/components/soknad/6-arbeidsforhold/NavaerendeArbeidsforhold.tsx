@@ -20,6 +20,7 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
 
     const methods = useForm<IArbeidsforhold>({
         defaultValues: state.naavaerendeArbeidsforhold || {},
+        shouldUnregister: true
     });
 
     const {

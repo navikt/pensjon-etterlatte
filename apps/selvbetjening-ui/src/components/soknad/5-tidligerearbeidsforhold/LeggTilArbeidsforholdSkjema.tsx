@@ -14,7 +14,9 @@ interface Props {
 const LeggTilArbeidsforholdSkjema = ({ lagre }: Props) => {
     const { t } = useTranslation();
 
-    const methods = useForm<ITidligereArbeidsforhold>();
+    const methods = useForm<ITidligereArbeidsforhold>({
+        shouldUnregister: true
+    });
 
     const {
         formState: { errors },

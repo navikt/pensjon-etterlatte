@@ -21,6 +21,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     const methods = useForm<IAvdoed>({
         defaultValues: state.opplysningerOmDenAvdoede || {},
+        shouldUnregister: true
     });
 
     const {

@@ -22,6 +22,7 @@ const AndreYtelser: SoknadSteg = ({ neste, forrige }) => {
 
     const methods = useForm<IAndreYtelser>({
         defaultValues: state.andreYtelser || {},
+        shouldUnregister: true
     });
 
     const {

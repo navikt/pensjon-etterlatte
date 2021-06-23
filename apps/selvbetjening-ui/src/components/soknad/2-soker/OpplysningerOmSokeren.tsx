@@ -32,6 +32,7 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
 
     const methods = useForm<ISoeker>({
         defaultValues: state.opplysningerOmSoekeren || {},
+        shouldUnregister: true
     });
 
     const {

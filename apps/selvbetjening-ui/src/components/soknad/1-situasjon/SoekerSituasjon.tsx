@@ -21,6 +21,7 @@ const SoekerSituasjon: SoknadSteg = ({ neste }) => {
 
     const methods = useForm<ISituasjon>({
         defaultValues: state.situasjon || {},
+        shouldUnregister: true
     });
 
     const {
