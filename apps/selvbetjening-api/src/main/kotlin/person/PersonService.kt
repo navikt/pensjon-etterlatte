@@ -79,7 +79,7 @@ class PersonService(
             fornavn = navn.fornavn,
             etternavn = navn.etternavn,
             foedselsnummer = fnr,
-            foedselsdato = foedsel?.foedselsdato,
+            foedselsdato = foedsel?.foedselsdato?.toString(),
             foedselsaar = foedsel?.foedselsaar,
             adresse = bostedsadresse?.vegadresse?.toString(),
             statsborgerskap = statsborgerskap?.land,
