@@ -89,4 +89,8 @@ class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
         return emptyList()
     }
 
+    override fun slettArkiverteSoeknader() {
+        op()
+    }
+
 }

@@ -91,4 +91,8 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
+    override fun slettArkiverteSoeknader() {
+        TODO("Not yet implemented")
+    }
+
 }

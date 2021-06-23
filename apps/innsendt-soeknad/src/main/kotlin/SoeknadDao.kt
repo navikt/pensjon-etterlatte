@@ -14,6 +14,7 @@ interface SoeknadRepository {
     fun soeknadArkivert(soeknad: LagretSoeknad)
     fun soeknadFeiletArkivering(soeknad: LagretSoeknad, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
+    fun slettArkiverteSoeknader()
 }
 
 interface StatistikkRepository {
@@ -65,6 +66,9 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
                         SELECT 'arkiveringsfeil', count(1) 
                         FROM soeknad s 
                         where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkiveringsfeil}')""".trimIndent()
+        val DELETE_ARKIVERTE_SOEKNADER = """
+            DELETE FROM soeknad s where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}') 
+        """.trimIndent()
 
 
         fun using(datasource: DataSource): PostgresSoeknadRepository{
@@ -99,6 +103,14 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             session.transaction {
                 val id = it.run(queryOf("select nextval('hendelse_id')", emptyMap()).map { it.long(1) }.asSingle)!!
                 it.run(queryOf(CREATE_HENDELSE, id, soeknad.id, status, data).asExecute)
+            }
+        }
+    }
+
+    override fun slettArkiverteSoeknader(){
+        using(sessionOf(dataSource)) { session ->
+            session.transaction {
+                it.run(queryOf(DELETE_ARKIVERTE_SOEKNADER).asUpdate)
             }
         }
     }
