@@ -8,17 +8,15 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
 import { IValg } from "../../../typer/Spoersmaal";
 import AlertStripe from "nav-frontend-alertstriper";
-import ForholdAvdoedSkjema from "./fragmenter/ForholdAvdoedSkjema";
-import NySivilstatusSkjema from "./fragmenter/NySivilstatusSkjema";
-import SamboerSkjema from "./fragmenter/SamboerSkjema";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { ISoeker, NySivilstatus } from "../../../typer/person";
+import { ISoeker } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Panel from "nav-frontend-paneler";
+import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 
 const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -43,7 +41,6 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
 
     const skalSjekkeFlyktningStatus = brukerState.foedselsaar!! < 1960;
 
-    const nySivilstatusEtterDoedsfallet = watch("nySivilstatus.nySivilstatusEtterDoedsfallet")
     const borPaaRegistrertAdresse = watch("bostedsadresseBekreftet")
     const oppholderSegINorge = watch("oppholderSegINorge")
 
@@ -127,15 +124,9 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                     )}
 
                     {/* 2.9 */}
-                    <ForholdAvdoedSkjema />
+                    <ForholdTilAvdoedeSkjema />
 
                     <br />
-
-                    <NySivilstatusSkjema />
-
-                    <br />
-
-                    {nySivilstatusEtterDoedsfallet === NySivilstatus.samboerskap && (<SamboerSkjema />)}
 
                     <Feilmeldinger errors={errors} />
 

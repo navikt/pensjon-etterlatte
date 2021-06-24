@@ -10,7 +10,7 @@ export enum NySivilstatus {
 export enum OpploesningAarsak {
     doedsfall = "Dødsfall",
     skilsmisse = "Skilsmisse",
-    bruddSamboerskap = "Brudd i samboerskap",
+    samlivsbrudd = "Samlivsbrudd",
 }
 
 export enum ForholdTilAvdoed {
@@ -89,22 +89,27 @@ export interface IKontaktinfo {
 }
 
 export interface INySivilstatus {
-    nySivilstatusEtterDoedsfallet?: NySivilstatus; // 2.13
-    datoForInngaaelse?: Date;
-    nySivilstatusOpploest?: IValg; // 2.14
-    aarsakForOpploesningen?: OpploesningAarsak; // 2.15
-    datoForOpploesningen?: Date;
+    inngaatt?: {
+        svar?: string;
+        dato?: Date;
+    };
+    opploest?: {
+        svar?: IValg;
+        dato?: Date;
+    }
 }
 
-export interface IForholdAvdoed {
-    forholdTilAvdoede?: ForholdTilAvdoed; // 2.9
-    datoForInngaattPartnerskap?: Date | null;
-    // hvis gjenlevende samboer:
-    varSkiltFoerDoedsfall?: IValg; // 2.11
-    datoForSkilsmisse?: Date | null; // hvis ja over
-    mottokBidragFraAvdoede?: IValg; // 2.12
-    bidragBeloepPrAar?: string; // hvis ja over
-    hattBarnEllerVaertGift?: IValg;
+export interface IForholdAvdoede {
+    forholdTilAvdoede?: string; // 2.9
+    datoForInngaattPartnerskap?: Date;
+    datoForSkilsmisse?: Date;
+    datoForInngaattSamboerskap?: Date;
+    datoForSamlivsbrudd?: Date;
+    datoForDoedsfallet?: Date;
+    fellesBarn?: IValg;
+    omsorgForBarn?: IValg;
+    tidligereGift?: IValg;
+    mottokBidrag?: IValg;
 }
 
 export interface ISoeker {
@@ -115,7 +120,7 @@ export interface ISoeker {
     oppholderSegINorge?: IValg; // 2.7
     oppholdsland?: string; // 2.7
     medlemFolketrygdenUtland?: IValg;
-    forholdTilAvdoed?: IForholdAvdoed;
+    forholdTilAvdoede?: IForholdAvdoede;
     nySivilstatus?: INySivilstatus;
     samboer?: ISamboer; // 2.16
 }

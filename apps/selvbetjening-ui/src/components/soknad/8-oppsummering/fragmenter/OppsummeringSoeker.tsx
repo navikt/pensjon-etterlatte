@@ -1,26 +1,23 @@
-import { IValg } from "../../../../typer/Spoersmaal";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
-import { EditFilled } from "@navikt/ds-icons";
-import { ForholdTilAvdoed, ISoeker, NySivilstatus } from "../../../../typer/person";
-import TekstGruppe from "./TekstGruppe";
-import { Ingress } from "nav-frontend-typografi";
+import { ISoeker } from "../../../../typer/person";
+import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
 import { useTranslation } from "react-i18next";
-import Panel from "nav-frontend-paneler";
-import Lenke from "nav-frontend-lenker";
-import { StegPath } from "../../../../context/steg/steg";
+import TekstGruppe from "./TekstGruppe";
+import { v4 as uuid } from "uuid";
 
 const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
-    const {
-        forholdTilAvdoed,
-        nySivilstatus,
-        samboer
-    } = state;
+    const otr = new ObjectTreeReader(i18n);
+
+    const tekster = otr.traverse<ISoeker>(state, "omSoekeren")
 
     return (
         <Ekspanderbartpanel tittel={"Om deg"} className={"oppsummering"} apen={true}>
-            <TekstGruppe tittel={"Bor på folkeregistrert adresse?"} innhold={state.bostedsadresseBekreftet}/>
+            {tekster.map(({ key, val }) => (
+                <TekstGruppe key={uuid()} tittel={t(key)} innhold={val} />
+            ))}
+            {/*<TekstGruppe tittel={"Bor på folkeregistrert adresse?"} innhold={state.bostedsadresseBekreftet}/>
 
             <TekstGruppe tittel={"Telefonnummer"} innhold={state.kontaktinfo?.telefonnummer}/>
 
@@ -58,16 +55,16 @@ const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
                 <TekstGruppe tittel={t("omSoekeren.varSkiltFraAvdoede")}
                              innhold={forholdTilAvdoed?.varSkiltFoerDoedsfall}/>
 
-                {forholdTilAvdoed?.varSkiltFoerDoedsfall === IValg.JA && (
+                {forholdTilAvdoed?.varSkiltFoerDoedsfall?.svar === IValg.JA && (
                     <TekstGruppe tittel={t("omSoekeren.datoForSamlivsbrudd")}
-                                 innhold={forholdTilAvdoed?.datoForSkilsmisse}/>
+                                 innhold={forholdTilAvdoed?.varSkiltFoerDoedsfall?.datoForSkilsmisse}/>
                 )}
 
                 <TekstGruppe tittel={t("omSoekeren.mottokBidragFraAvdoede")}
                              innhold={forholdTilAvdoed?.mottokBidragFraAvdoede}/>
 
-                {forholdTilAvdoed?.mottokBidragFraAvdoede === IValg.JA && (
-                    <TekstGruppe tittel={t("omSoekeren.bidragBeloep")} innhold={forholdTilAvdoed?.bidragBeloepPrAar}/>
+                {forholdTilAvdoed?.mottokBidragFraAvdoede?.svar === IValg.JA && (
+                    <TekstGruppe tittel={t("omSoekeren.bidragBeloep")} innhold={forholdTilAvdoed?.mottokBidragFraAvdoede?.bidragBeloepPrAar}/>
                 )}
             </Panel>
 
@@ -115,7 +112,7 @@ const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
             <Lenke href={`/soknad/steg/${StegPath.OmSoekeren}`}>
                 <EditFilled />
                 <span>Endre svar</span>
-            </Lenke>
+            </Lenke>*/}
         </Ekspanderbartpanel>
     )
 };

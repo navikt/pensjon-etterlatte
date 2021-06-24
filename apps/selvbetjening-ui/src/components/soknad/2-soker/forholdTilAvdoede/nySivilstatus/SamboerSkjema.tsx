@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { CheckboksPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
-import { ISoeker, SamboerInntekt } from "../../../../typer/person";
+import { ISoeker, SamboerInntekt } from "../../../../../typer/person";
 import { Undertittel } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
 import { Controller, useFormContext } from "react-hook-form";
-import { RHFInput } from "../../../felles/RHFInput";
-import { RHFToValgRadio } from "../../../felles/RHFRadio";
-import { IValg } from "../../../../typer/Spoersmaal";
+import { RHFInput } from "../../../../felles/RHFInput";
+import { RHFToValgRadio } from "../../../../felles/RHFRadio";
+import { IValg } from "../../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
 
 const SamboerSkjema = () => {
@@ -41,11 +41,6 @@ const SamboerSkjema = () => {
                     rules={{ validate: (value) => (fnr(value).status === 'valid') }}
                 />
             </SkjemaGruppe>
-
-            <RHFToValgRadio
-                name={"samboer.hattBarnEllerVaertGift"}
-                legend={t("omSoekeren.harHattBarnEllerVaertGiftMedSamboer")}
-            />
 
             {/* 2.17 */}
             <RHFToValgRadio
