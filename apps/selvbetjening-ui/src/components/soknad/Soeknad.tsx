@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { hentInnloggetPerson } from "../../api";
 import { ActionTypes, IBruker } from "../../context/bruker/bruker";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
-import { Route, useRouteMatch } from "react-router";
+import { Route } from "react-router";
 import SoknadForside from "./SoknadForside";
 import SoknadDialog from "./SoknadDialog";
 import SoknadKvittering from "./SoknadKvittering";
@@ -10,9 +10,6 @@ import { gyldigAlder, hentAlder } from "../../utils/Utils";
 import { useHistory } from "react-router-dom";
 
 const Soeknad = () => {
-    const { path } = useRouteMatch();
-    console.log(`path: ${path}`)
-
     const history = useHistory();
 
     const {

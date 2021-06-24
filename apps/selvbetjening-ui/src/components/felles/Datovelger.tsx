@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from "react";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
-import { Label, SkjemaelementFeilmelding } from "nav-frontend-skjema";
+import { Label, SkjemaelementFeilmelding, SkjemaGruppe } from "nav-frontend-skjema";
 import { parseISO } from "date-fns";
 import { enUS as en, nb, nn } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
@@ -47,31 +47,33 @@ const Datovelger = ({ name, label, minDate, maxDate }: DatovelgerProps) => {
     );
 
     return (
-        <section className={"skjemaelement"}>
-            <Label htmlFor={name}>{label}</Label>
+        <SkjemaGruppe>
+            <section className={"skjemaelement"}>
+                <Label htmlFor={name}>{label}</Label>
 
-            <Controller
-                name={name}
-                control={control}
-                defaultValue={undefined}
-                rules={{required: true}}
-                render={({ field: { onChange, onBlur, value } }) => (
-                    <DatePicker
-                        id={name}
-                        className={classNames}
-                        selected={parseDate(value)}
-                        dateFormat={"dd.MM.yy"}
-                        placeholderText={"dd.mm.åå"}
-                        onChange={onChange}
-                        onBlur={onBlur}
-                        minDate={parseDate(minDate)}
-                        maxDate={parseDate(maxDate)}
-                    />
-                )}
-            />
+                <Controller
+                    name={name}
+                    control={control}
+                    defaultValue={undefined}
+                    rules={{required: true}}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <DatePicker
+                            id={name}
+                            className={classNames}
+                            selected={parseDate(value)}
+                            dateFormat={"dd.MM.yy"}
+                            placeholderText={"dd.mm.åå"}
+                            onChange={onChange}
+                            onBlur={onBlur}
+                            minDate={parseDate(minDate)}
+                            maxDate={parseDate(maxDate)}
+                        />
+                    )}
+                />
 
-            {feil && <SkjemaelementFeilmelding>{feil}</SkjemaelementFeilmelding>}
-        </section>
+                {feil && <SkjemaelementFeilmelding>{feil}</SkjemaelementFeilmelding>}
+            </section>
+        </SkjemaGruppe>
     );
 };
 

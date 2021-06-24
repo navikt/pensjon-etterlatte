@@ -57,19 +57,17 @@ const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
                     />
                 </SkjemaGruppe>
 
-                <div className={"skjemagruppe skjemagruppe__inline"}>
-                    <Datovelger
-                        name={"startDato"}
-                        label={t("naavaerendeArbeidsforhold.startDato")}
-                        maxDate={watch("sluttDato")}
-                    />
+                <Datovelger
+                    name={"startDato"}
+                    label={t("naavaerendeArbeidsforhold.startDato")}
+                    maxDate={watch("sluttDato")}
+                />
 
-                    <Datovelger
-                        name={"sluttDato"}
-                        label={t("naavaerendeArbeidsforhold.sluttDato")}
-                        minDate={watch("startDato")}
-                    />
-                </div>
+                <Datovelger
+                    name={"sluttDato"}
+                    label={t("naavaerendeArbeidsforhold.sluttDato")}
+                    minDate={watch("startDato")}
+                />
 
                 <SkjemaGruppe>
                     <RHFRadio
