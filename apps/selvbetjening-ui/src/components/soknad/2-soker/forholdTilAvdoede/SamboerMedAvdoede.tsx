@@ -72,6 +72,6 @@ const SamboerMedAvdoede = () => {
             <NySivilstatus />
         </>
     )
-}
+};
 
 export default SamboerMedAvdoede;

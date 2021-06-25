@@ -4,6 +4,9 @@ import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
 import { useTranslation } from "react-i18next";
 import TekstGruppe from "./TekstGruppe";
 import { v4 as uuid } from "uuid";
+import Lenke from "nav-frontend-lenker";
+import { StegPath } from "../../../../context/steg/steg";
+import { EditFilled } from "@navikt/ds-icons";
 
 const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
     const { t, i18n } = useTranslation();
@@ -17,6 +20,7 @@ const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
             {tekster.map(({ key, val }) => (
                 <TekstGruppe key={uuid()} tittel={t(key)} innhold={val} />
             ))}
+
             {/*<TekstGruppe tittel={"Bor på folkeregistrert adresse?"} innhold={state.bostedsadresseBekreftet}/>
 
             <TekstGruppe tittel={"Telefonnummer"} innhold={state.kontaktinfo?.telefonnummer}/>
@@ -107,12 +111,12 @@ const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
                                      innhold={samboer?.harInntekt?.samletBruttoinntektPrAar}/>
                     </Panel>
                 </>
-            )}
+            )}*/}
 
             <Lenke href={`/soknad/steg/${StegPath.OmSoekeren}`}>
                 <EditFilled />
                 <span>Endre svar</span>
-            </Lenke>*/}
+            </Lenke>
         </Ekspanderbartpanel>
     )
 };
