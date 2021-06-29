@@ -8,7 +8,7 @@ import Lenke from "nav-frontend-lenker";
 import { StegPath } from "../../../../context/steg/steg";
 import { EditFilled } from "@navikt/ds-icons";
 
-const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
+const OppsummeringOmDeg = ({ state }: { state: ISoeker }) => {
     const { t, i18n } = useTranslation();
 
     const otr = new ObjectTreeReader(i18n);
@@ -113,7 +113,7 @@ const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
                 </>
             )}*/}
 
-            <Lenke href={`/soknad/steg/${StegPath.OmSoekeren}`}>
+            <Lenke href={`/soknad/steg/${StegPath.OmDeg}`}>
                 <EditFilled />
                 <span>Endre svar</span>
             </Lenke>
@@ -121,4 +121,4 @@ const OppsummeringSoeker = ({ state }: { state: ISoeker }) => {
     )
 };
 
-export default OppsummeringSoeker;
+export default OppsummeringOmDeg;

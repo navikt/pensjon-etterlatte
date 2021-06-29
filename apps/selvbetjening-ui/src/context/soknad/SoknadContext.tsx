@@ -4,9 +4,10 @@ import mockJson from "../../assets/dummy-soeknad.json";
 
 const tomSoeknad = {
     harSamtykket: false,
-    situasjon: {},
-    opplysningerOmSoekeren: {},
-    opplysningerOmDenAvdoede: {},
+    omSoeknaden: {},
+    omDeg: {},
+    omDenAvdoede: {},
+    dinSituasjon: {},
     opplysningerOmBarn: [],
     tidligereArbeidsforhold: [],
     naavaerendeArbeidsforhold: {},
@@ -28,12 +29,14 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
             return tomSoeknad;
         case ActionTypes.OPPDATER_SAMTYKKE:
             return { ...state, harSamtykket: action.payload }
-        case ActionTypes.OPPDATER_SITUASJON:
-            return { ...state, situasjon: action.payload };
-        case ActionTypes.OPPDATER_SOEKER:
-            return { ...state, opplysningerOmSoekeren: action.payload };
+        case ActionTypes.OPPDATERT_OM_SOEKNADEN:
+            return { ...state, omSoeknaden: action.payload };
+        case ActionTypes.OPPDATER_OM_DEG:
+            return { ...state, omDeg: action.payload };
         case ActionTypes.OPPDATER_AVDOED:
-            return { ...state, opplysningerOmDenAvdoede: action.payload };
+            return { ...state, omDenAvdoede: action.payload };
+        case ActionTypes.OPPDATER_DIN_SITUASJON:
+            return { ...state, dinSituasjon: action.payload };
         case ActionTypes.LEGG_TIL_BARN: {
             const { opplysningerOmBarn } = state;
 
@@ -50,6 +53,7 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
 
             return { ...state, opplysningerOmBarn };
         }
+        /*
         case ActionTypes.LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD: {
             return { ...state, tidligereArbeidsforhold: [...state.tidligereArbeidsforhold, action.payload] };
         }
@@ -66,6 +70,7 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
             return { ...state, naavaerendeArbeidsforhold: action.payload };
         case ActionTypes.OPPDATER_ANDRE_YTELSER:
             return { ...state, andreYtelser: action.payload };
+        */
         default:
             return state;
     }

@@ -30,8 +30,8 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
                     </Undertittel>
                 </div>
                 <div className="informasjonselement">
-                    <Normaltekst>{barn.foedselsnummer}</Normaltekst>
-                    <Normaltekst>{barn.relasjon}</Normaltekst>
+                    <Normaltekst>Fnr: {barn.foedselsnummer}</Normaltekst>
+                    <Normaltekst>Relasjon: {barn.relasjon}</Normaltekst>
 
                     {barn.bosattUtland?.svar === IValg.JA && (
                         <Normaltekst>{t("omBarn.borUtenlands")}</Normaltekst>

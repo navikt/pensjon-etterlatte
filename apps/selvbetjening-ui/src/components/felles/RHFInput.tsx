@@ -1,22 +1,26 @@
-import { ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
+import { ChangeEvent, ReactNode } from "react";
 import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath, FieldValues } from "react-hook-form/dist/types";
-import { Input } from "nav-frontend-skjema";
+import { Input, InputProps } from "nav-frontend-skjema";
 import { get } from "lodash"
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
+import { getTransKey } from "../../utils/Utils";
+import { fnr } from "@navikt/fnrvalidator";
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface RHFProps extends Omit<InputProps, 'name'> {
     name: FieldPath<FieldValues>;
     label: ReactNode;
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>;
 }
 
-export const RHFInput = ({name, label, rules, ...rest}: Props) => {
+export const RHFInput = ({name, rules, ...rest}: RHFProps) => {
     const { t } = useTranslation();
     const { control, formState: { errors }} = useFormContext();
 
     const error: FieldError = get(errors, name)
+
+    const feilmelding = t(getTransKey(error) || "")
 
     return (
         <Controller
@@ -28,8 +32,7 @@ export const RHFInput = ({name, label, rules, ...rest}: Props) => {
                     id={name}
                     value={value || ""}
                     onChange={onChange}
-                    label={label}
-                    feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
+                    feil={feilmelding}
                     {...rest}
                 />
             )}
@@ -37,11 +40,13 @@ export const RHFInput = ({name, label, rules, ...rest}: Props) => {
     )
 };
 
-export const RHFKontonummerInput = ({name, label, rules, ...rest}: Props) => {
+export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
     const { t } = useTranslation();
     const { control, formState: { errors }} = useFormContext();
 
     const error: FieldError = get(errors, name)
+
+    const feilmelding = t(getTransKey(error) || "")
 
     const format = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value
@@ -69,8 +74,7 @@ export const RHFKontonummerInput = ({name, label, rules, ...rest}: Props) => {
                     id={name}
                     value={value || ""}
                     onChange={(e) => onChange(format(e))}
-                    label={label}
-                    feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
+                    feil={feilmelding}
                     maxLength={13}
                     {...rest}
                 />
@@ -79,11 +83,13 @@ export const RHFKontonummerInput = ({name, label, rules, ...rest}: Props) => {
     )
 };
 
-export const RHFTelefonInput = ({name, label, rules, ...rest}: Props) => {
+export const RHFTelefonInput = ({name, rules, ...rest}: RHFProps) => {
     const { t } = useTranslation();
     const { control, formState: { errors }} = useFormContext();
 
     const error: FieldError = get(errors, name)
+
+    const feilmelding = t(getTransKey(error) || "")
 
     const format = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value
@@ -111,8 +117,7 @@ export const RHFTelefonInput = ({name, label, rules, ...rest}: Props) => {
                     id={name}
                     value={value || ""}
                     onChange={(e) => onChange(format(e))}
-                    label={label}
-                    feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
+                    feil={feilmelding}
                     maxLength={13}
                     {...rest}
                 />
@@ -121,3 +126,12 @@ export const RHFTelefonInput = ({name, label, rules, ...rest}: Props) => {
     )
 };
 
+export const RHFFoedselsnummerInput = ({ ...rest }: RHFProps) => {
+    return (
+        <RHFInput
+            {...rest}
+            type={"number"}
+            rules={{ validate: (value) => (fnr(value).status === 'valid') }}
+        />
+    )
+}

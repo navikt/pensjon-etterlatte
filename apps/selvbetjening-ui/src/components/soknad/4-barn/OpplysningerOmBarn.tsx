@@ -12,9 +12,7 @@ import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import BarnInfokort from "./BarnInfokort";
 import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
-import { SkjemaGruppe } from "nav-frontend-skjema";
-import { IValg } from "../../../typer/Spoersmaal";
-import AlertStripe from "nav-frontend-alertstriper";
+import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 
 Modal.setAppElement("#root");
@@ -34,66 +32,62 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const fjern = (index: number) =>
         dispatch({ type: ActionTypes.FJERN_BARN, payload: index, });
 
-    const harBarn = state.situasjon?.barnepensjon === IValg.JA
-    const skjemaGyldig = !harBarn || (harBarn && state.opplysningerOmBarn.length > 0)
+    const [soekerBarnep, setSoekerBarnep] = useState<boolean>(false);
 
     return (
         <>
             {/* Steg 4 */}
             <SkjemaGruppe>
-                <Systemtittel className={"center"}>{t("omBarn.tittel")}</Systemtittel>
+                <Systemtittel className={"center"}>
+                    Om barn
+                </Systemtittel>
             </SkjemaGruppe>
 
-            {harBarn ? (
-                <SkjemaGruppe>
-                    <div className={"infokort-wrapper"}>
-                        {state.opplysningerOmBarn?.map((barn: IBarn, index: number) => (
-                            <BarnInfokort key={uuid()} barn={barn} index={index} fjern={fjern} />
-                        ))}
+            <SkjemaGruppe>
+                <div className={"infokort-wrapper"}>
+                    {state.opplysningerOmBarn?.map((barn: IBarn, index: number) => (
+                        <BarnInfokort key={uuid()} barn={barn} index={index} fjern={fjern} />
+                    ))}
 
-                        <div className={"infokort"}>
-                            <div className={"infokort__header gjennomsiktig"}>
-                                <img alt="barn" className="barneikon" src={ikon} />
-                            </div>
-                            <div className={"infokort__informasjonsboks"}>
-                                <div className={"informasjonsboks-innhold"}>
-                                    <Knapp onClick={() => setIsOpen(true)}>
-                                        {t("knapp.leggTilBarn")}
-                                    </Knapp>
-                                </div>
+                    <div className={"infokort"}>
+                        <div className={"infokort__header gjennomsiktig"}>
+                            <img alt="barn" className="barneikon" src={ikon} />
+                        </div>
+                        <div className={"infokort__informasjonsboks"}>
+                            <div className={"informasjonsboks-innhold"}>
+                                <Knapp onClick={() => setIsOpen(true)}>
+                                    {t("knapp.leggTilBarn")}
+                                </Knapp>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <Modal
-                        isOpen={isOpen}
-                        onRequestClose={() => setIsOpen(false)}
-                        closeButton={true}
-                        contentLabel={t("omBarn.tittel")}
+                <Modal
+                    isOpen={isOpen}
+                    onRequestClose={() => setIsOpen(false)}
+                    closeButton={true}
+                    contentLabel={t("omBarn.tittel")}
+                >
+                    <LeggTilBarnSkjema lagre={leggTilBarn} />
+                </Modal>
+            </SkjemaGruppe>
+
+            {state.opplysningerOmBarn.length > 0 && (
+                <SkjemaGruppe>
+                    <BekreftCheckboksPanel
+                        label={"Ja, jeg ønsker å søke om barnepensjon."}
+                        checked={soekerBarnep}
+                        onChange={(e) => setSoekerBarnep((e.target as HTMLInputElement).checked)}
                     >
-                        <LeggTilBarnSkjema lagre={leggTilBarn} />
-                    </Modal>
-                </SkjemaGruppe>
-            ): (
-                <SkjemaGruppe>
-                    <AlertStripe type={"info"}>
-                        Du trenger ikke fylle ut dette steget ...
-                    </AlertStripe>
-                </SkjemaGruppe>
-            )}
-
-
-            {!skjemaGyldig && (
-                <SkjemaGruppe>
-                    <AlertStripe type={"advarsel"}>
-                        Siden du søker om barnepensjon må du fylle ut informasjon om barn for å gå videre.
-                    </AlertStripe>
+                        Hvis du har felles barn med avdøde, som er under 18 år, kan de ha rett til barnepensjon.
+                    </BekreftCheckboksPanel>
                 </SkjemaGruppe>
             )}
 
             <SkjemaGruppe className={"navigasjon-rad"}>
                 <Knapp htmlType={"button"} onClick={forrige}>{t("knapp.tilbake")}</Knapp>
-                <Hovedknapp onClick={neste} disabled={!skjemaGyldig}>{t("knapp.neste")}</Hovedknapp>
+                <Hovedknapp onClick={neste}>{t("knapp.neste")}</Hovedknapp>
             </SkjemaGruppe>
         </>
     );

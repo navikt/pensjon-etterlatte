@@ -1,4 +1,4 @@
-import "./OpplysningerOmSokeren.less";
+import "./OmDeg.less";
 import { Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
@@ -15,21 +15,20 @@ import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/RHF
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
-import Panel from "nav-frontend-paneler";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 
-const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
+const OmDeg: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
     const brukerState = useBrukerContext().state;
 
     const lagre = (data: ISoeker) => {
-        dispatch({ type: ActionTypes.OPPDATER_SOEKER, payload: data })
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: data })
         neste!!()
     };
 
     const methods = useForm<ISoeker>({
-        defaultValues: state.opplysningerOmSoekeren || {},
+        defaultValues: state.omDeg || {},
         shouldUnregister: true
     });
 
@@ -59,31 +58,44 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
                 <form>
-                    <SkjemaGruppe>
-                        <Panel border>
+                    <RHFToValgRadio
+                        name={"bostedsadresseBekreftet"}
+                        legend={t("omSoekeren.borPaaAdresse")}
+                    />
+
+                    {borPaaRegistrertAdresse === IValg.NEI && (
+                        <SkjemaGruppe>
+                            <AlertStripe type="advarsel">{t("omSoekeren.infoFolkeregisteret")}</AlertStripe>
+                        </SkjemaGruppe>
+                    )}
+
+                    <div className={"rad skjemagruppe"}>
+                        <div className={"kol-50"}>
                             <RHFTelefonInput
                                 name={"kontaktinfo.telefonnummer"}
                                 label={t("omSoekeren.kontaktinfo.telefon")}
                                 // TODO: Validere telefon ... ?
                             />
+                        </div>
 
+                        <div className={"kol-50"}>
                             {/* 2.5 */}
                             <RHFInput
                                 name={"kontaktinfo.epost"}
                                 label={t("omSoekeren.kontaktinfo.epost")}
                                 // TODO: Validere e-post
                             />
+                        </div>
+                    </div>
 
-                            {/* 2.8 */}
-                            {/* TODO: Automatisk fylle inn kontonummer vi har, men gi bruker mulighet til å endre. */}
-                            <SkjemaGruppe>
-                                <RHFKontonummerInput
-                                    name={"kontonummer"}
-                                    label={t("omSoekeren.kontonummer")}
-                                    rules={{pattern: /^\d{4}\.\d{2}\.\d{5}$/}}
-                                />
-                            </SkjemaGruppe>
-                        </Panel>
+                    {/* 2.8 */}
+                    {/* TODO: Automatisk fylle inn kontonummer vi har, men gi bruker mulighet til å endre. */}
+                    <SkjemaGruppe>
+                        <RHFKontonummerInput
+                            name={"kontonummer"}
+                            label={t("omSoekeren.kontonummer")}
+                            rules={{pattern: /^\d{4}\.\d{2}\.\d{5}$/}}
+                        />
                     </SkjemaGruppe>
 
                     {skalSjekkeFlyktningStatus && (
@@ -93,14 +105,6 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
                         />
                     )}
 
-                    <RHFToValgRadio
-                        name={"bostedsadresseBekreftet"}
-                        legend={t("omSoekeren.borPaaAdresse")}
-                    />
-
-                    {borPaaRegistrertAdresse === IValg.NEI && (
-                        <AlertStripe type="advarsel">{t("omSoekeren.infoFolkeregisteret")}</AlertStripe>
-                    )}
 
                     {/* 2.7 */}
                     <RHFToValgRadio
@@ -145,4 +149,4 @@ const OpplysningerOmSokeren: SoknadSteg = ({ neste, forrige }) => {
     );
 };
 
-export default OpplysningerOmSokeren;
+export default OmDeg;

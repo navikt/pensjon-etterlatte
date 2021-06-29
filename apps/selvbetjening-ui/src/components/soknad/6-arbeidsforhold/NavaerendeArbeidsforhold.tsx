@@ -1,148 +1,103 @@
 import React from "react";
 import "../../../App.less";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { Systemtittel } from "nav-frontend-typografi";
-import SoknadSteg from "../../../typer/SoknadSteg";
-import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { FormProvider, useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import Datovelger from "../../felles/Datovelger";
 import { RHFInput } from "../../felles/RHFInput";
-import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
-import { IArbeidsforhold } from "../../../typer/arbeidsforhold";
-import Feilmeldinger from "../../felles/Feilmeldinger";
+import { RHFToValgRadio } from "../../felles/RHFRadio";
+import { StillingType } from "../../../typer/arbeidsforhold";
+import { ISituasjon } from "../../../typer/situasjon";
+import { RHFSelect } from "../../felles/RHFSelect";
 
-const NavaerendeArbeidsforhold: SoknadSteg = ({ neste, forrige }) => {
+const NavaerendeArbeidsforhold = () => {
     const { t } = useTranslation();
-    const { state, dispatch } = useSoknadContext();
 
-    const methods = useForm<IArbeidsforhold>({
-        defaultValues: state.naavaerendeArbeidsforhold || {},
-        shouldUnregister: true
-    });
+    const { watch } = useFormContext<ISituasjon>();
 
-    const {
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = methods;
-
-    const lagre = (data: IArbeidsforhold) => {
-        dispatch({ type: ActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD, payload: data });
-        neste!!();
-    };
-
-    const heltidDeltid = watch("heltidDeltid")
+    const heltidDeltid = watch("arbeidsforhold.heltidDeltid")
 
     return (
-        <FormProvider {...methods}>
-            {/* Steg 6 */}
-            {/* TODO: I arbeid eller student? */}
-            {/* TODO: Hvis student, ikke vise dette skjemaet */}
+        <>
+            <SkjemaGruppe>
+                <RHFInput
+                    name={"arbeidsforhold.stillingEllerYrke"}
+                    label={t("naavaerendeArbeidsforhold.stillingEllerYrke")}
+                />
+            </SkjemaGruppe>
 
-            <Systemtittel className={"center"}>{t("naavaerendeArbeidsforhold.tittel")}</Systemtittel>
+            <Datovelger
+                name={"arbeidsforhold.startDato"}
+                label={t("naavaerendeArbeidsforhold.startDato")}
+                maxDate={watch("arbeidsforhold.sluttDato")}
+            />
 
-            <form>
-                <SkjemaGruppe>
-                    <RHFInput
-                        name={"yrke"}
-                        label={t("naavaerendeArbeidsforhold.yrke")}
-                    />
+            <SkjemaGruppe>
+                <RHFSelect
+                    name={"arbeidsforhold.ansettelsesforhold"}
+                    label={t("naavaerendeArbeidsforhold.ansettelsesforhold")}
+                    selectOptions={[
+                        { label: "Velg ...", value: undefined },
+                        { label: t("naavaerendeArbeidsforhold.fast"), value: StillingType.Fast },
+                        { label: t("naavaerendeArbeidsforhold.midlertidig"), value: StillingType.Midlertidig },
+                        { label: t("naavaerendeArbeidsforhold.sesongarbeid"), value: StillingType.Sesongarbeid },
+                    ]}
+                />
+            </SkjemaGruppe>
 
-                    <RHFInput
-                        name={"stilling"}
-                        label={t("naavaerendeArbeidsforhold.stilling")}
-                    />
-                </SkjemaGruppe>
-
-                <Datovelger
-                    name={"startDato"}
-                    label={t("naavaerendeArbeidsforhold.startDato")}
-                    maxDate={watch("sluttDato")}
+            <div className={"rad skjemagruppe"}>
+                <RHFSelect
+                    // className={"kolonne"}
+                    name={"arbeidsforhold.heltidDeltid"}
+                    label={t("naavaerendeArbeidsforhold.heltidDeltid")}
+                    selectOptions={[
+                        { label: "Velg ...", value: undefined },
+                        { label: t("naavaerendeArbeidsforhold.heltid"), value: "Heltid" },
+                        { label: t("naavaerendeArbeidsforhold.deltid"), value: "Deltid" },
+                    ]}
                 />
 
-                <Datovelger
-                    name={"sluttDato"}
-                    label={t("naavaerendeArbeidsforhold.sluttDato")}
-                    minDate={watch("startDato")}
+                {heltidDeltid === "Deltid" && (
+                    <RHFInput
+                        className={"kolonne"}
+                        name={"arbeidsforhold.stillingsprosent"}
+                        label={t("naavaerendeArbeidsforhold.stillingsprosent")}
+                        rules={{ pattern: /^[0-9]{1,2}$/ }}
+                    />
+                )}
+            </div>
+
+            <SkjemaGruppe>
+                <RHFInput
+                    name={"arbeidsforhold.arbeidsgiver.navn"}
+                    label={t("naavaerendeArbeidsforhold.arbeidsgiver.navn")}
                 />
+                <RHFInput
+                    name={"arbeidsforhold.arbeidsgiver.adresse"}
+                    label={t("naavaerendeArbeidsforhold.arbeidsgiver.adresse")}
+                />
+            </SkjemaGruppe>
 
-                <SkjemaGruppe>
-                    <RHFRadio
-                        name={"ansettelsesforhold"}
-                        legend={t("naavaerendeArbeidsforhold.ansettelsesforhold")}
-                        radios={[
-                            { label: t("naavaerendeArbeidsforhold.fast"), value: "Fast" },
-                            { label: t("naavaerendeArbeidsforhold.midlertidig"), value: "Midlertidig" },
-                            { label: t("naavaerendeArbeidsforhold.sesongarbeid"), value: "Sesongarbeid" },
-                        ]}
-                    />
-                </SkjemaGruppe>
+            <SkjemaGruppe>
+                <RHFInput
+                    name={"arbeidsforhold.inntekt.bruttoArbeidsinntektPrMd"}
+                    label={t("naavaerendeArbeidsforhold.inntekt.bruttoArbeidsinntektPrMd")}
+                    rules={{ pattern: /^\d+$/ }}
+                />
+                <RHFInput
+                    name={"arbeidsforhold.inntekt.personinntektFraNaeringPrAr"}
+                    label={t("naavaerendeArbeidsforhold.inntekt.personinntektFraNaeringPrAr")}
+                    rules={{ pattern: /^\d+$/ }}
+                />
+            </SkjemaGruppe>
 
-                <SkjemaGruppe>
-                    <RHFToValgRadio
-                        name={"heltidDeltid"}
-                        legend={t("naavaerendeArbeidsforhold.heltidDeltid")}
-                        overrideRadios={[
-                            { label: t("naavaerendeArbeidsforhold.heltid"), value: "Heltid" },
-                            { label: t("naavaerendeArbeidsforhold.deltid"), value: "Deltid" },
-                        ]}
-                    />
-
-                    {heltidDeltid === "Deltid" && (
-                        <RHFInput
-                            name={"stillingsprosent"}
-                            label={t("naavaerendeArbeidsforhold.stillingsprosent")}
-                            rules={{ pattern: /^[0-9]{1,2}$/ }}
-                        />
-                    )}
-                </SkjemaGruppe>
-
-                <SkjemaGruppe>
-                    <RHFInput
-                        name={"arbeidsgiver.navn"}
-                        label={t("naavaerendeArbeidsforhold.arbeidsgiver.navn")}
-                    />
-                    <RHFInput
-                        name={"arbeidsgiver.adresse"}
-                        label={t("naavaerendeArbeidsforhold.arbeidsgiver.adresse")}
-                    />
-                </SkjemaGruppe>
-
-                <SkjemaGruppe>
-                    <RHFInput
-                        name={"inntekt.bruttoArbeidsinntektPrMd"}
-                        label={t("naavaerendeArbeidsforhold.inntekt.bruttoArbeidsinntektPrMd")}
-                        rules={{ pattern: /^\d+$/ }}
-                    />
-                    <RHFInput
-                        name={"inntekt.personinntektFraNaeringPrAr"}
-                        label={t("naavaerendeArbeidsforhold.inntekt.personinntektFraNaeringPrAr")}
-                        rules={{ pattern: /^\d+$/ }}
-                    />
-                </SkjemaGruppe>
-
-                <Feilmeldinger errors={errors}/>
-
-                <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Knapp
-                        htmlType={"button"}
-                        onClick={forrige}
-                    >
-                        {t("knapp.tilbake")}
-                    </Knapp>
-
-                    <Hovedknapp
-                        htmlType={"button"}
-                        onClick={handleSubmit(lagre)}
-                    >
-                        {t("knapp.neste")}
-                    </Hovedknapp>
-                </SkjemaGruppe>
-            </form>
-        </FormProvider>
+            <SkjemaGruppe>
+                <RHFToValgRadio
+                    name={"arbeidsforhold.forventerEndretInntekt"}
+                    legend={"arbeidsforhold.forventerEndretInntekt"}
+                />
+            </SkjemaGruppe>
+        </>
     );
 };
 

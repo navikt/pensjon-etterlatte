@@ -39,22 +39,30 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
         <FormProvider {...methods}>
             <form style={{ padding: "2rem 2.5rem" }}>
                 <SkjemaGruppe>
-                    <RHFInput
-                        name={"fornavn"}
-                        label={t("omBarn.fornavn")}
-                        rules={{ pattern: /^\D+$/ }}
-                    />
+                    <div className={"rad"}>
+                        <div className={"kol-50"}>
+                            <RHFInput
+                                name={"fornavn"}
+                                label={t("omBarn.fornavn")}
+                                rules={{ pattern: /^\D+$/ }}
+                            />
+                        </div>
 
-                    <RHFInput
-                        name={"etternavn"}
-                        label={t("omBarn.etternavn")}
-                        rules={{ pattern: /^\D+$/ }}
-                    />
+                        <div className={"kol-50"}>
+                            <RHFInput
+                                name={"etternavn"}
+                                label={t("omBarn.etternavn")}
+                                rules={{ pattern: /^\D+$/ }}
+                            />
+                        </div>
+                    </div>
 
-                    <RHFInput
-                        name={"foedselsnummer"}
-                        label={t("omBarn.foedselsnummer")}
-                    />
+                    <div className={"rad"}>
+                        <RHFInput
+                            name={"foedselsnummer"}
+                            label={t("omBarn.foedselsnummer")}
+                        />
+                    </div>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
@@ -72,7 +80,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                 </SkjemaGruppe>
 
                 <RHFRadio
-                    name={"foreldre"}
+                    name={"relasjon"}
                     legend={t("omBarn.relasjon")}
                     radios={[
                         {
@@ -92,21 +100,28 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                         name={"bosattUtland.svar"}
                         legend={t("omBarn.bosattUtland.svar")}
                     />
-
-                    {bosattUtland === IValg.JA && (
-                        <>
-                            <RHFInput
-                                name={"bosattUtland.statsborgerskap"}
-                                label={t("omBarn.bosattUtland.statsborgerskap")}
-                            />
-
-                            <RHFInput
-                                name={"bosattUtland.land"}
-                                label={t("omBarn.bosattUtland.land")}
-                            />
-                        </>
-                    )}
                 </SkjemaGruppe>
+
+                {bosattUtland === IValg.JA && (
+                    <SkjemaGruppe>
+                        <div className={"rad"}>
+                            <div className={"kol-50"}>
+                                <RHFInput
+                                    name={"bosattUtland.statsborgerskap"}
+                                    label={t("omBarn.bosattUtland.statsborgerskap")}
+                                />
+                            </div>
+
+                            <div className={"kol-50"}>
+                                <RHFInput
+                                    name={"bosattUtland.land"}
+                                    label={t("omBarn.bosattUtland.land")}
+                                />
+                            </div>
+                        </div>
+                    </SkjemaGruppe>
+                )}
+
 
                 <Feilmeldinger errors={errors}/>
 
