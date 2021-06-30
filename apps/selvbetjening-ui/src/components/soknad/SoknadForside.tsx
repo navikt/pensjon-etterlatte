@@ -101,12 +101,10 @@ const SoknadForside = () => {
                         })
                     }
                 >
-                    <Normaltekst>
-                        {t("forside.samtykke.harLest")}&nbsp;
-                        <Lenke href={t("forside.samtykke.lenke.href")}>
-                            {t("forside.samtykke.lenke.tekst")}
-                        </Lenke>
-                    </Normaltekst>
+                    {t("forside.samtykke.harLest")}&nbsp;
+                    <Lenke href={t("forside.samtykke.lenke.href")}>
+                        {t("forside.samtykke.lenke.tekst")}
+                    </Lenke>
                 </BekreftCheckboksPanel>
             </SkjemaGruppe>
 

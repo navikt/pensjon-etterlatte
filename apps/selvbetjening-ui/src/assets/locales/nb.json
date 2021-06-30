@@ -37,7 +37,7 @@
     },
     "uthentingAvInfo": {
       "tittel": "Vi vil hente informasjon om deg",
-      "innhold": "For at vi skal kunne behandle søknaden din, må vi også hente informasjon om deg, avdøde og eventuelle barn. \n\nVi henter:\n",
+      "innhold": "For at vi skal kunne behandle søknaden din, må vi hente informasjon om deg, avdøde og eventuelle barn. \n\nVi henter:\n",
       "innholdListe": {
         "li1": "<strong>Personinformasjon</strong> fra Folkeregisteret",
         "li2": "<strong>Inntektsinformasjon</strong> fra Skatteetaten",
