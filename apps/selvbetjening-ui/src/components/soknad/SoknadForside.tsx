@@ -80,7 +80,7 @@ const SoknadForside = () => {
             <SkjemaGruppe>
                 <Undertittel>{t("forside.samtykke.tittel")}</Undertittel>
 
-                <br/>
+                <Normaltekst>{t("forside.samtykke.innhold")}</Normaltekst>
 
                 <BekreftCheckboksPanel
                     label={t("forside.samtykke.bekreftelse", { navn: innloggetBrukerNavn })}
@@ -92,8 +92,6 @@ const SoknadForside = () => {
                         })
                     }
                 >
-                    <Normaltekst>{t("forside.samtykke.innhold")}</Normaltekst>
-
                     <Normaltekst>
                         {t("forside.samtykke.harLest")}&nbsp;
                         <Lenke href={t("forside.samtykke.lenke.href")}>
