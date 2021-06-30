@@ -6,7 +6,7 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
-import { Innholdstittel, Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
+import { Innholdstittel, Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { Hovedknapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
 import Lenke from "nav-frontend-lenker";
