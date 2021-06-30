@@ -53,7 +53,7 @@
       "harLest": "Jeg har lest og forstått det som står om",
       "lenke": {
         "tekst": "mine plikter på nav.no",
-        "href": "nav.no/rettogplikt"
+        "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger"
       },
       "bekreftelse": "Jeg, {{navn}}, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
     }
