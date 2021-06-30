@@ -6,7 +6,7 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
-import { Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
+import { Innholdstittel, Normaltekst, Sidetittel, Undertittel } from "nav-frontend-typografi";
 import { Hovedknapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
 import Lenke from "nav-frontend-lenker";
@@ -42,13 +42,13 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Sidetittel>{t("forside.tittel")}</Sidetittel>
+                <Innholdstittel>{t("forside.tittel")}</Innholdstittel>
 
                 <Normaltekst>{t("forside.omYtelsene.innhold")}</Normaltekst>
 
                 <Normaltekst>
-                    <Lenke href={"https://www.nav.no/no/person/familie/har-du-mistet-noen-i-naer-familie/har-du-mistet-ektefellen-samboeren-eller-partneren-din"}>
-                        {t("forside.omYtelsene.lenke")}
+                    <Lenke href={t("forside.omYtelsene.lenke.href")}>
+                        {t("forside.omYtelsene.lenke.tekst")}
                     </Lenke>
                 </Normaltekst>
             </SkjemaGruppe>
@@ -60,27 +60,21 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Undertittel>{t("forside.riktigeOpplysninger.tittel")}</Undertittel>
-
-                <Normaltekst>{t("forside.riktigeOpplysninger.innhold")}</Normaltekst>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
                 <Undertittel>{t("forside.uthentingAvInfo.tittel")}</Undertittel>
 
                 <Normaltekst>{t("forside.uthentingAvInfo.innhold")}</Normaltekst>
 
                 <Normaltekst>
-                    <Lenke href={"https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten"}>
-                        {t("forside.uthentingAvInfo.lenke")}
+                    <Lenke href={t("forside.uthentingAvInfo.lenke1.href")}>
+                        {t("forside.uthentingAvInfo.lenke1.tekst")}
                     </Lenke>
                 </Normaltekst>
-            </SkjemaGruppe>
 
-            <SkjemaGruppe>
-                <Undertittel>{t("forside.slikSoekerDu.tittel")}</Undertittel>
-
-                <Normaltekst>{t("forside.slikSoekerDu.innhold")}</Normaltekst>
+                <Normaltekst>
+                    <Lenke href={t("forside.uthentingAvInfo.lenke2.href")}>
+                        {t("forside.uthentingAvInfo.lenke2.tekst")}
+                    </Lenke>
+                </Normaltekst>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -101,8 +95,10 @@ const SoknadForside = () => {
                     <Normaltekst>{t("forside.samtykke.innhold")}</Normaltekst>
 
                     <Normaltekst>
-                        {t("forside.samtykke.harLest")}:&nbsp;
-                        <Lenke href={"https://www.nav.no/rettogplikt"}>nav.no/rettogplikt</Lenke>
+                        {t("forside.samtykke.harLest")}&nbsp;
+                        <Lenke href={t("forside.samtykke.lenke.href")}>
+                            {t("forside.samtykke.lenke.tekst")}
+                        </Lenke>
                     </Normaltekst>
                 </BekreftCheckboksPanel>
             </SkjemaGruppe>
