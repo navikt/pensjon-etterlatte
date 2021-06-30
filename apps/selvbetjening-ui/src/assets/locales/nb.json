@@ -37,7 +37,14 @@
     },
     "uthentingAvInfo": {
       "tittel": "Vi vil hente informasjon om deg",
-      "innhold": "For at vi skal kunne behandle søknaden din, må vi også hente informasjon om deg, avdøde og eventuelle barn. \n\nVi henter:\n- Personinformasjon fra Folkeregisteret\n- Inntektsinformasjon fra Skatteetaten\n- Opplysninger om arbeidsforhold fra arbeidsgiver- og arbeidstakerregisteret\n- Opplysninger om andre ytelser fra NAV\n- Eventuelt informasjon fra utenlandske trygdemyndigheter\n",
+      "innhold": "For at vi skal kunne behandle søknaden din, må vi også hente informasjon om deg, avdøde og eventuelle barn. \n\nVi henter:\n",
+      "innholdListe": {
+        "li1": "<strong>Personinformasjon</strong> fra Folkeregisteret",
+        "li2": "<strong>Inntektsinformasjon</strong> fra Skatteetaten",
+        "li3": "Opplysninger om <strong>arbeidsforhold</strong> fra arbeidsgiver- og arbeidstakerregisteret",
+        "li4": "Opplysninger om <strong>andre ytelser fra NAV</strong>",
+        "li5": "Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>"
+      },
       "lenke1": {
         "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten",
         "tekst": "Slik behandler vi personopplysningene dine"

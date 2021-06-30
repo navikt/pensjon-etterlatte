@@ -1,6 +1,6 @@
 import "./SoknadForside.less";
 import { useHistory } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
@@ -62,7 +62,16 @@ const SoknadForside = () => {
             <SkjemaGruppe>
                 <Undertittel>{t("forside.uthentingAvInfo.tittel")}</Undertittel>
 
-                <Normaltekst>{t("forside.uthentingAvInfo.innhold")}</Normaltekst>
+                <Normaltekst>
+                    <Trans i18nKey={"forside.uthentingAvInfo.innhold"} />
+                    <ul>
+                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li1"} /></li>
+                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li2"} /></li>
+                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li3"} /></li>
+                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li4"} /></li>
+                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li5"} /></li>
+                    </ul>
+                </Normaltekst>
 
                 <Normaltekst>
                     <Lenke href={t("forside.uthentingAvInfo.lenke1.href")}>
