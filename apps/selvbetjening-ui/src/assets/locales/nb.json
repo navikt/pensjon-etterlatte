@@ -36,7 +36,7 @@
       "innhold": "Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om gjenlevendepensjon og barnepensjon i denne søknaden."
     },
     "uthentingAvInfo": {
-      "tittel": "Vi vil hente informasjon om deg",
+      "tittel": "Vi vil hente informasjon",
       "innhold": "For at vi skal kunne behandle søknaden din, må vi hente informasjon om deg, avdøde og eventuelle barn. \n\nVi henter:\n",
       "innholdListe": {
         "li1": "<strong>Personinformasjon</strong> fra Folkeregisteret",
@@ -56,7 +56,7 @@
     },
     "samtykke": {
       "tittel": "Vi stoler på deg",
-      "innhold": "For at vi skal kunne behandle søknaden din, må du gi oss riktige opplysninger. \n\nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n",
+      "innhold": "Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \n\nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n",
       "harLest": "Jeg har lest og forstått det som står om",
       "lenke": {
         "tekst": "mine plikter på nav.no",
