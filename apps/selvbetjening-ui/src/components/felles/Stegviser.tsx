@@ -2,7 +2,6 @@ import Stegindikator from "nav-frontend-stegindikator/lib/stegindikator";
 import { useStegContext } from "../../context/steg/StegContext";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
-import { IStegElement } from "../../context/steg/steg";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const Stegviser = () => {
@@ -16,12 +15,14 @@ const Stegviser = () => {
         return { index, label: t(`steg.${label}`), disabled };
     });
 
-    const finnAktivtSteg = (value: IStegElement) => location.pathname.includes(value.path);
+    const matchAktivtSteg = location.pathname.match(/[^/]+$/) || []
+
+    const finnAktivtSteg = () => steg.findIndex(value => value.path === matchAktivtSteg[0]);
 
     return (
         <SkjemaGruppe>
             <Stegindikator
-                aktivtSteg={steg.findIndex(finnAktivtSteg)}
+                aktivtSteg={finnAktivtSteg()}
                 steg={alleSteg}
             />
         </SkjemaGruppe>

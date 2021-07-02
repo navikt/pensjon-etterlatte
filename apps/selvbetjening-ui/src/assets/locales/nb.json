@@ -1,8 +1,9 @@
 {
   "steg": {
-    "DinSituasjon":  "Din situasjon",
-    "OmSoekeren": "Om deg",
+    "OmDeg": "Om deg",
+    "OmDegOgAvdoed": "Om deg og avdøde",
     "OmAvdoed":  "Opplysninger om den avdøde",
+    "DinSituasjon":  "Din situasjon",
     "OmBarn": "Opplysninger om barn",
     "TidlArbeidsforhold":  "Om tidligere arbeidsforhold",
     "Arbeidsforhold": "Om nåværende arbeidsforhold",

@@ -1,7 +1,7 @@
 import AlertStripe from "nav-frontend-alertstriper";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
-import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
+import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const InnloggetBruker = () => {

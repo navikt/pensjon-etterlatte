@@ -2,7 +2,7 @@ import "./OmDeg.less";
 import { Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
-import InnloggetBruker from "./fragmenter/InnloggetBruker";
+import InnloggetBruker from "./InnloggetBruker";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
@@ -15,7 +15,6 @@ import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/RHF
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
-import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 
 const OmDeg: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -88,57 +87,55 @@ const OmDeg: SoknadSteg = ({ neste, forrige }) => {
                         </div>
                     </div>
 
-                    {/* 2.8 */}
-                    {/* TODO: Automatisk fylle inn kontonummer vi har, men gi bruker mulighet til å endre. */}
-                    <SkjemaGruppe>
-                        <RHFKontonummerInput
-                            name={"kontonummer"}
-                            label={t("omSoekeren.kontonummer")}
-                            rules={{pattern: /^\d{4}\.\d{2}\.\d{5}$/}}
-                        />
-                    </SkjemaGruppe>
-
-                    {skalSjekkeFlyktningStatus && (
-                        <RHFToValgRadio
-                            name={"flyktning"}
-                            legend={<>Har du status som flyktning? <i>(gjelder alle født før 1960)</i></>}
-                        />
-                    )}
-
-
                     {/* 2.7 */}
                     <RHFToValgRadio
                         name={"oppholderSegINorge"}
                         legend={t("omSoekeren.oppholderSegINorge")}
                     />
 
-                    {oppholderSegINorge === IValg.NEI && (
+                    {oppholderSegINorge === IValg.JA && (
                         <SkjemaGruppe>
-                            <RHFInput
-                                name={"oppholdsland"}
-                                label={t("omSoekeren.oppgiLand")}
-                                rules={{pattern: /^[\w|\s]+$/}}
+                            <RHFKontonummerInput
+                                name={"kontonummer"}
+                                label={t("Oppgi norsk kontonummer for utbetaling")}
+                                rules={{pattern: /^\d{4}\.\d{2}\.\d{5}$/}}
+                                placeholder={"11 siffer"}
                             />
+                        </SkjemaGruppe>
+                    )}
+
+                    {oppholderSegINorge === IValg.NEI && (
+                        <>
+                            <SkjemaGruppe>
+                                <RHFInput
+                                    name={"oppholdsland"}
+                                    label={t("omSoekeren.oppgiLand")}
+                                    rules={{pattern: /^[\w|\s]+$/}}
+                                />
+                            </SkjemaGruppe>
 
                             <RHFToValgRadio
                                 name={"medlemFolketrygdenUtland"}
                                 legend={t("omSoekeren.medlemFolketrygdenUtland")}
                             />
-                        </SkjemaGruppe>
+                        </>
                     )}
 
-                    {/* 2.9 */}
-                    <ForholdTilAvdoedeSkjema />
+
+                    {skalSjekkeFlyktningStatus && (
+                        <SkjemaGruppe>
+                            <RHFToValgRadio
+                                name={"flyktning"}
+                                legend={<>Har du status som flyktning? <i>(gjelder alle født før 1960)</i></>}
+                            />
+                        </SkjemaGruppe>
+                    )}
 
                     <br />
 
                     <Feilmeldinger errors={errors} />
 
                     <SkjemaGruppe className={"navigasjon-rad"}>
-                        <Knapp htmlType={"button"} onClick={forrige}>
-                            {t("knapp.tilbake")}
-                        </Knapp>
-
                         <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
                             {t("knapp.neste")}
                         </Hovedknapp>
