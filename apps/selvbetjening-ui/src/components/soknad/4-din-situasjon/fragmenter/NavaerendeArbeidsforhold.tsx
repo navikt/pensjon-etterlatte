@@ -1,14 +1,14 @@
 import React from "react";
-import "../../../App.less";
+import "../../../../App.less";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
-import Datovelger from "../../felles/Datovelger";
-import { RHFInput } from "../../felles/RHFInput";
-import { RHFToValgRadio } from "../../felles/RHFRadio";
-import { StillingType } from "../../../typer/arbeidsforhold";
-import { ISituasjon } from "../../../typer/situasjon";
-import { RHFSelect } from "../../felles/RHFSelect";
+import Datovelger from "../../../felles/Datovelger";
+import { RHFInput } from "../../../felles/RHFInput";
+import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { StillingType } from "../../../../typer/arbeidsforhold";
+import { ISituasjon } from "../../../../typer/situasjon";
+import { RHFSelect } from "../../../felles/RHFSelect";
 
 const NavaerendeArbeidsforhold = () => {
     const { t } = useTranslation();

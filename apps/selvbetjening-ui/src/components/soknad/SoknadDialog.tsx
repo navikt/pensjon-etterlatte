@@ -2,10 +2,10 @@ import { Route, useRouteMatch } from "react-router";
 import { useStegContext } from "../../context/steg/StegContext";
 import { useHistory, useLocation } from "react-router-dom";
 import { StegPath } from "../../context/steg/steg";
-import OmSoeknaden from "./1-intro/OmSoeknaden";
-import OmDeg from "./2-omdeg/OmDeg";
+import OmDeg from "./1-omdeg/OmDeg";
+import OmDegOgAvdoed from "./2-omdegogavdoed/OmDegOgAvdoed";
 import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
-import OpplysningerOmBarn from "../../components/soknad/4-barn/OpplysningerOmBarn";
+import OpplysningerOmBarn from "./5-barn/OpplysningerOmBarn";
 import Stegviser from "../felles/Stegviser";
 import Oppsummering from "./8-oppsummering/Oppsummering";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
@@ -26,7 +26,9 @@ const SoknadDialog = () => {
     }
 
     const settSteg = (retning: -1 | 1) => {
-        const index = steg.findIndex((value) => location.pathname.includes(value.path))
+        const matchAktivtSteg = location.pathname.match(/[^/]+$/) || []
+        const index = steg.findIndex(value => value.path === matchAktivtSteg[0]);
+
         const nesteSteg = steg[index + retning]
 
         history.push(`/soknad/steg/${nesteSteg.path}`)
@@ -40,8 +42,8 @@ const SoknadDialog = () => {
             <Stegviser />
 
             <>
-                <Route path={`${path}/${StegPath.OmSoeknaden}`} render={() => <OmSoeknaden neste={neste} />} />
-                <Route path={`${path}/${StegPath.OmDeg}`} render={() => <OmDeg neste={neste} forrige={forrige} />} />
+                <Route path={`${path}/${StegPath.OmDeg}`} render={() => <OmDeg neste={neste} />} />
+                <Route path={`${path}/${StegPath.OmDegOgAvdoed}`} render={() => <OmDegOgAvdoed neste={neste} forrige={forrige} />} />
                 <Route path={`${path}/${StegPath.OmAvdoed}`} render={() => <OmDenAvdode neste={neste} forrige={forrige} />} />
                 <Route path={`${path}/${StegPath.DinSituasjon}`} render={() => <DinSituasjon neste={neste} forrige={forrige} />} />
                 <Route path={`${path}/${StegPath.OmBarn}`} render={() => <OpplysningerOmBarn neste={neste} forrige={forrige} />} />

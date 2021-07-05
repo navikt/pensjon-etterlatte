@@ -3,7 +3,7 @@ import { Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
+import { Hovedknapp } from "nav-frontend-knapper";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
 import { IValg } from "../../../typer/Spoersmaal";
@@ -15,6 +15,7 @@ import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/RHF
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
+import React from "react";
 
 const OmDeg: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();

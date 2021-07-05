@@ -1,10 +1,5 @@
 import { IValg } from "./Spoersmaal";
 
-export interface IOmSoeknaden {
-    barnepensjon?: IValg;
-    datoForDoedsfallet?: Date;
-}
-
 export interface IAndreYtelser {
     mottarAndreYtelser?: IValg;
     kravOmAnnenStonad?: {

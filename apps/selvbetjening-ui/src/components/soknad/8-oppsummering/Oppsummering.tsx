@@ -15,7 +15,6 @@ import NavFrontendSpinner from "nav-frontend-spinner";
 import AlertStripe from "nav-frontend-alertstriper";
 import classNames from "classnames";
 import OppsummeringOmDeg from "./fragmenter/OppsummeringOmDeg";
-import OppsummeringOmSoeknaden from "./fragmenter/OppsummeringOmSoeknaden";
 
 const Oppsummering: SoknadSteg = ({ forrige }) => {
     const history = useHistory();
@@ -23,7 +22,6 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
     const { state, dispatch } = useSoknadContext();
 
     const {
-        omSoeknaden,
         omDeg,
         omDenAvdoede,
         opplysningerOmBarn,
@@ -64,8 +62,6 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
                 <Normaltekst>Les gjennom oppsummeringen av din søknad før du sender.</Normaltekst>
                 <Normaltekst>Hvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det. </Normaltekst>
             </SkjemaGruppe>
-
-            <OppsummeringOmSoeknaden state={omSoeknaden} />
 
             <OppsummeringOmDeg state={omDeg!!} />
 

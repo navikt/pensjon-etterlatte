@@ -9,6 +9,7 @@ import { FieldPath } from "react-hook-form/dist/types";
 import classnames from "classnames";
 import { get } from "lodash";
 import { getTransKey } from "../../utils/Utils";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface DatovelgerProps {
     name: FieldPath<any>;

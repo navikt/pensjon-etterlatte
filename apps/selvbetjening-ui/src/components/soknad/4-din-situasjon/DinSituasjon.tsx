@@ -8,7 +8,7 @@ import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import NavaerendeArbeidsforhold from "../6-arbeidsforhold/NavaerendeArbeidsforhold";
+import NavaerendeArbeidsforhold from "./fragmenter/NavaerendeArbeidsforhold";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import AndreYtelser from "./fragmenter/AndreYtelser";

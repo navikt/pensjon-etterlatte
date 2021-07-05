@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { IOmSoeknaden } from "../../../../typer/ytelser";
 import { useTranslation } from "react-i18next";
 import { StegPath } from "../../../../context/steg/steg";
 import { EditFilled } from "@navikt/ds-icons";
@@ -8,13 +7,14 @@ import TekstGruppe from "./TekstGruppe";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import Lenke from "nav-frontend-lenker";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
+import { ISituasjon } from "../../../../typer/situasjon";
 
-const OppsummeringSituasjon = memo(({ state }: { state: IOmSoeknaden }) => {
+const OppsummeringSituasjon = memo(({ state }: { state: ISituasjon }) => {
     const { t, i18n } = useTranslation();
 
     const ot = new ObjectTreeReader(i18n)
 
-    const tekster = ot.traverse<IOmSoeknaden>(state, "situasjon")
+    const tekster = ot.traverse<ISituasjon>(state, "situasjon")
 
     return (
         <Ekspanderbartpanel tittel={"Din situasjon"} className={"oppsummering"} apen={true}>

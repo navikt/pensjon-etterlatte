@@ -1,6 +1,6 @@
 export enum StegPath {
-    OmSoeknaden = "om-soeknaden",
     OmDeg = "om-deg",
+    OmDegOgAvdoed = "om-deg-og-avdoed",
     OmAvdoed = "om-den-avdoede",
     DinSituasjon = "din-situasjon",
     OmBarn = "om-barn",
@@ -8,8 +8,8 @@ export enum StegPath {
 }
 
 export enum StegLabelKey {
-    OmSoeknaden = "OmSoeknaden",
     OmDeg = "OmDeg",
+    OmDegOgAvdoed = "OmDegOgAvdoed",
     OmAvdoed = "OmAvdoed",
     DinSituasjon = "DinSituasjon",
     OmBarn = "OmBarn",
@@ -18,13 +18,13 @@ export enum StegLabelKey {
 
 export const MuligeSteg: IStegElement[] = [
     {
-        path: StegPath.OmSoeknaden,
-        label: StegLabelKey.OmSoeknaden,
+        path: StegPath.OmDeg,
+        label: StegLabelKey.OmDeg,
         disabled: false,
     },
     {
-        path: StegPath.OmDeg,
-        label: StegLabelKey.OmDeg,
+        path: StegPath.OmDegOgAvdoed,
+        label: StegLabelKey.OmDegOgAvdoed,
         disabled: false,
     },
     {
