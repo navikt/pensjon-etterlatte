@@ -51,3 +51,6 @@ spec:
     - team: etterlatte
       application: bpc-explorer
       access: read
+    - team: etterlatte
+      application: etterlatte-notifikasjoner
+      access: read
