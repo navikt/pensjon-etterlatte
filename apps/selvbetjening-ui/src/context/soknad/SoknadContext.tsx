@@ -4,13 +4,11 @@ import mockJson from "../../assets/dummy-soeknad.json";
 
 const tomSoeknad = {
     harSamtykket: false,
-    situasjon: {},
-    opplysningerOmSoekeren: {},
-    opplysningerOmDenAvdoede: {},
-    opplysningerOmBarn: [],
-    tidligereArbeidsforhold: [],
-    naavaerendeArbeidsforhold: {},
-    andreYtelser: {},
+    omDeg: {},
+    omDegOgAvdoed: {},
+    omDenAvdoede: {},
+    dinSituasjon: {},
+    opplysningerOmBarn: []
 };
 
 const STORAGE_KEY = "etterlatte-store";
@@ -28,12 +26,14 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
             return tomSoeknad;
         case ActionTypes.OPPDATER_SAMTYKKE:
             return { ...state, harSamtykket: action.payload }
-        case ActionTypes.OPPDATER_SITUASJON:
-            return { ...state, situasjon: action.payload };
-        case ActionTypes.OPPDATER_SOEKER:
-            return { ...state, opplysningerOmSoekeren: action.payload };
+        case ActionTypes.OPPDATER_OM_DEG:
+            return { ...state, omDeg: action.payload };
+        case ActionTypes.OPPDATER_OM_DEG_OG_AVDOED:
+            return { ...state, omDegOgAvdoed: action.payload };
         case ActionTypes.OPPDATER_AVDOED:
-            return { ...state, opplysningerOmDenAvdoede: action.payload };
+            return { ...state, omDenAvdoede: action.payload };
+        case ActionTypes.OPPDATER_DIN_SITUASJON:
+            return { ...state, dinSituasjon: action.payload };
         case ActionTypes.LEGG_TIL_BARN: {
             const { opplysningerOmBarn } = state;
 
@@ -50,22 +50,6 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
 
             return { ...state, opplysningerOmBarn };
         }
-        case ActionTypes.LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD: {
-            return { ...state, tidligereArbeidsforhold: [...state.tidligereArbeidsforhold, action.payload] };
-        }
-        case ActionTypes.FJERN_TIDLIGERE_ARBEIDSFORHOLD: {
-            const indexToDelete: number = action.payload;
-
-            const tidligereArbeidsforhold = [
-                ...state.tidligereArbeidsforhold.filter((_: any, index: number) => index !== indexToDelete),
-            ];
-
-            return { ...state, tidligereArbeidsforhold };
-        }
-        case ActionTypes.OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD:
-            return { ...state, naavaerendeArbeidsforhold: action.payload };
-        case ActionTypes.OPPDATER_ANDRE_YTELSER:
-            return { ...state, andreYtelser: action.payload };
         default:
             return state;
     }

@@ -1,8 +1,9 @@
 {
   "steg": {
-    "DinSituasjon":  "Din situasjon",
-    "OmSoekeren": "Om deg",
+    "OmDeg": "Om deg",
+    "OmDegOgAvdoed": "Om deg og avdøde",
     "OmAvdoed":  "Opplysninger om den avdøde",
+    "DinSituasjon":  "Din situasjon",
     "OmBarn": "Opplysninger om barn",
     "TidlArbeidsforhold":  "Om tidligere arbeidsforhold",
     "Arbeidsforhold": "Om nåværende arbeidsforhold",
@@ -75,7 +76,7 @@
     }
   },
   "omSoekeren": {
-    "tittel": "Opplysninger om søkeren",
+    "tittel": "Om deg",
     "advarsel": "Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.",
     "borPaaAdresse": "Bor du på denne adressen?",
     "oppholderSegINorge": "Oppholder du deg i Norge?",
@@ -170,17 +171,16 @@
     }
   },
   "tidligereArbeidsforhold": {
-    "tittel": "Opplysninger om søkers tidligere arbeidsforhold",
-    "beskrivelse": "Skoler utover grunnskolen, yrkesrettede kurs o.l. og tidligere arbeidsforhold",
-    "fraDato": "Fra dato",
-    "tilDato": "Til dato"
+    "tittel": "Dine tidligere arbeidsforhold (siste 10 år)",
+    "beskrivelse": "Navn på arbeidsplass",
+    "fraDato": "Fra",
+    "tilDato": "Til"
   },
   "naavaerendeArbeidsforhold": {
     "tittel": "Søkers nåværende arbeids- og inntektsforhold",
     "yrke": "Yrke",
     "stilling": "Stilling",
-    "startDato": "Startdato",
-    "sluttDato": "Eventuell sluttdato",
+    "startDato": "Når startet du?",
     "ansettelsesforhold": "Oppgi type arbeidsforhold",
     "fast": "Fast",
     "midlertidig": "Midlertidig",
@@ -313,6 +313,11 @@
     "inntekt": {
       "bruttoArbeidsinntektPrMd.required": "Brutto arbeidsinntekt må fylles ut",
       "personinntektFraNaeringPrAr.required": "Personinntekt fra næring må fylles ut"
+    },
+    "tidligereArbeidsforhold": {
+      "fraDato.required": "Fra dato må fylles ut",
+      "tilDato.required": "Til dato må fylles ut",
+      "beskrivelse.required": "Beskrivelse må fylles ut"
     }
   }
 }

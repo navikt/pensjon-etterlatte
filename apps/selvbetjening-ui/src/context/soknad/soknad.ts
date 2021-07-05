@@ -1,38 +1,25 @@
-import { IAvdoed, IBarn, ISoeker } from "../../typer/person";
-import { IArbeidsforhold, ITidligereArbeidsforhold } from "../../typer/arbeidsforhold";
-import { IAndreYtelser, ISituasjon } from "../../typer/ytelser";
+import { IAvdoed, IBarn, ISoeker, ISoekerOgAvdoed } from "../../typer/person";
+import { ISituasjon } from "../../typer/situasjon";
 
 export interface ISoeknad {
     harSamtykket: boolean;
-    // 1 Hva søker du?
-    situasjon: ISituasjon;
-    // 2 Opplysninger om søkeren
-    opplysningerOmSoekeren: ISoeker;
-    // 3 Opplysninger om den avdøde
-    opplysningerOmDenAvdoede: IAvdoed;
-    // 4 Opplysninger om barn
+    omDeg: ISoeker;
+    omDegOgAvdoed: ISoekerOgAvdoed;
+    omDenAvdoede: IAvdoed;
+    dinSituasjon: ISituasjon;
     opplysningerOmBarn: IBarn[];
-    // 5 Opplysninger om tidligere arbeidsforhold
-    tidligereArbeidsforhold: ITidligereArbeidsforhold[];
-    // 6 Søkers nåværende arbeids- og inntektsforhold
-    naavaerendeArbeidsforhold: IArbeidsforhold;
-    // 7 Opplysninger om andre ytelser
-    andreYtelser: IAndreYtelser;
 }
 
 export enum ActionTypes {
     MOCK_SOEKNAD = "MOCK_SOEKNAD",
     TILBAKESTILL = "TILBAKESTILL",
     OPPDATER_SAMTYKKE = "OPPDATER_SAMTYKKE",
-    OPPDATER_SITUASJON = "OPPDATER_SITUASJON",
-    OPPDATER_SOEKER = "OPPDATER_SOEKER",
+    OPPDATER_OM_DEG = "OPPDATER_OM_DEG",
+    OPPDATER_OM_DEG_OG_AVDOED = "OPPDATER_OM_DEG_OG_AVDOED",
     OPPDATER_AVDOED = "OPPDATER_AVDOED",
+    OPPDATER_DIN_SITUASJON = "OPPDATER_DIN_SITUASJON",
     LEGG_TIL_BARN = "LEGG_TIL_BARN",
     FJERN_BARN = "FJERN_BARN",
-    LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD = "LEGG_TIL_TIDLIGERE_ARBEIDSFORHOLD",
-    FJERN_TIDLIGERE_ARBEIDSFORHOLD = "FJERN_TIDLIGERE_ARBEIDSFORHOLD",
-    OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD = "OPPDATER_NAAVAERENDE_ARBEIDSFORHOLD",
-    OPPDATER_ANDRE_YTELSER = "OPPDATER_ANDRE_YTELSER",
 }
 
 export interface ISoeknadAction {

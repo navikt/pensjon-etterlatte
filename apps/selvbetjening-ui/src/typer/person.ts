@@ -43,13 +43,9 @@ export interface IBarn {
 }
 
 export interface IAvdoed {
-    fornavn?: string;
-    etternavn?: string;
     foedselsnummer?: string;
-    doedsdato?: Date | null;
     statsborgerskap?: string;
     bosetning?: IValg;
-    doedsfallAarsak?: IValg;
     boddEllerJobbetUtland?: IValg;
     haddePensjonsgivendeInntekt?: {
         svar?: IValg;
@@ -93,10 +89,9 @@ export interface INySivilstatus {
         svar?: string;
         dato?: Date;
     };
-    opploest?: {
-        svar?: IValg;
-        dato?: Date;
-    }
+    fremdelesGift?: IValg;
+    opploestDato?: Date;
+    aarsakForOpploesningen?: string;
 }
 
 export interface IForholdAvdoede {
@@ -123,4 +118,14 @@ export interface ISoeker {
     forholdTilAvdoede?: IForholdAvdoede;
     nySivilstatus?: INySivilstatus;
     samboer?: ISamboer; // 2.16
+}
+
+export interface ISoekerOgAvdoed {
+    avdoed?: {
+        fornavn?: string;
+        etternavn?: string;
+        datoForDoedsfallet?: Date;
+        doedsfallAarsak?: string;
+    }
+    forholdTilAvdoed?: IForholdAvdoede;
 }

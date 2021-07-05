@@ -1,16 +1,5 @@
 import { IValg } from "./Spoersmaal";
 
-export enum Ytelse {
-    etterlatte = "etterlatte",
-    gjenlevendetillegg = "gjenlevendetillegg",
-}
-
-export interface ISituasjon {
-    hovedytelse?: Ytelse;
-    barnepensjon?: IValg;
-    fraDato?: Date;
-}
-
 export interface IAndreYtelser {
     mottarAndreYtelser?: IValg;
     kravOmAnnenStonad?: {

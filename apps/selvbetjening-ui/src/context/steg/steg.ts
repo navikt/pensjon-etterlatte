@@ -1,34 +1,30 @@
 export enum StegPath {
-    DinSituasjon = "din-situasjon",
-    OmSoekeren = "om-deg",
+    OmDeg = "om-deg",
+    OmDegOgAvdoed = "om-deg-og-avdoed",
     OmAvdoed = "om-den-avdoede",
+    DinSituasjon = "din-situasjon",
     OmBarn = "om-barn",
-    TidlArbeidsforhold = "tidligere-arbeidsforhold",
-    Arbeidsforhold = "naavaerende-arbeidsforhold",
-    AndreYtelser = "andre-ytelser",
     Oppsummering = "oppsummering",
 }
 
 export enum StegLabelKey {
-    DinSituasjon = "DinSituasjon",
-    OmSoekeren = "OmSoekeren",
+    OmDeg = "OmDeg",
+    OmDegOgAvdoed = "OmDegOgAvdoed",
     OmAvdoed = "OmAvdoed",
+    DinSituasjon = "DinSituasjon",
     OmBarn = "OmBarn",
-    TidlArbeidsforhold = "TidlArbeidsforhold",
-    Arbeidsforhold = "Arbeidsforhold",
-    AndreYtelser = "AndreYtelser",
     Oppsummering = "Oppsummering"
 }
 
 export const MuligeSteg: IStegElement[] = [
     {
-        path: StegPath.DinSituasjon,
-        label: StegLabelKey.DinSituasjon,
+        path: StegPath.OmDeg,
+        label: StegLabelKey.OmDeg,
         disabled: false,
     },
     {
-        path: StegPath.OmSoekeren,
-        label: StegLabelKey.OmSoekeren,
+        path: StegPath.OmDegOgAvdoed,
+        label: StegLabelKey.OmDegOgAvdoed,
         disabled: false,
     },
     {
@@ -37,23 +33,13 @@ export const MuligeSteg: IStegElement[] = [
         disabled: false,
     },
     {
+        path: StegPath.DinSituasjon,
+        label: StegLabelKey.DinSituasjon,
+        disabled: false,
+    },
+    {
         path: StegPath.OmBarn,
         label: StegLabelKey.OmBarn,
-        disabled: false,
-    },
-    {
-        path: StegPath.TidlArbeidsforhold,
-        label: StegLabelKey.TidlArbeidsforhold,
-        disabled: false,
-    },
-    {
-        path: StegPath.Arbeidsforhold,
-        label: StegLabelKey.Arbeidsforhold,
-        disabled: false,
-    },
-    {
-        path: StegPath.AndreYtelser,
-        label: StegLabelKey.AndreYtelser,
         disabled: false,
     },
     {

@@ -1,11 +1,19 @@
+import { IValg } from "./Spoersmaal";
+
+export enum StillingType {
+    Fast = "Fast",
+    Midlertidig = "Midlertidig",
+    Sesongarbeid = "Sesongarbeid"
+}
+
 export interface IArbeidsforhold {
-    yrke?: string;
-    stilling?: string;
+    stillingEllerYrke?: string;
     startDato?: Date;
     sluttDato?: Date;
-    ansettelsesforhold?: string; // låse valg til type?
+    ansettelsesforhold?: StillingType; // låse valg til type?
     heltidDeltid?: string;
     stillingsprosent?: number;
+    forventerEndretInntekt?: IValg;
     arbeidsgiver?: {
         navn?: string;
         adresse?: string;

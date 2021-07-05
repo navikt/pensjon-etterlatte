@@ -8,6 +8,8 @@ import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath } from "react-hook-form/dist/types";
 import classnames from "classnames";
 import { get } from "lodash";
+import { getTransKey } from "../../utils/Utils";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface DatovelgerProps {
     name: FieldPath<any>;
@@ -38,12 +40,12 @@ const Datovelger = ({ name, label, minDate, maxDate }: DatovelgerProps) => {
     }, [i18n.language]);
 
     const error: FieldError = get(errors, name)
-    const feil = error && t(`feil.${error.ref?.name}.${error.type}`)
+    const feilmelding = t(getTransKey(error) || "")
 
     const classNames = classnames(
         "skjemaelement__input",
         "input--fullbredde",
-        feil && "skjemaelement__input--harFeil"
+        feilmelding && "skjemaelement__input--harFeil"
     );
 
     return (
@@ -71,7 +73,7 @@ const Datovelger = ({ name, label, minDate, maxDate }: DatovelgerProps) => {
                     )}
                 />
 
-                {feil && <SkjemaelementFeilmelding>{feil}</SkjemaelementFeilmelding>}
+                {feilmelding && <SkjemaelementFeilmelding>{feilmelding}</SkjemaelementFeilmelding>}
             </section>
         </SkjemaGruppe>
     );

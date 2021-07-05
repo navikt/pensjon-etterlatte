@@ -7,20 +7,18 @@ import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
-import Datovelger from "../../felles/Datovelger";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
-import { RHFInput } from "../../felles/RHFInput";
+import { RHFFoedselsnummerInput, RHFInput } from "../../felles/RHFInput";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
-import { fnr } from "@navikt/fnrvalidator";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     const methods = useForm<IAvdoed>({
-        defaultValues: state.opplysningerOmDenAvdoede || {},
+        defaultValues: state.omDenAvdoede || {},
         shouldUnregister: true
     });
 
@@ -42,42 +40,42 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     return (
         <FormProvider {...methods}>
             {/* Steg 3 */}
-            <Systemtittel className={"center"}>{t("omDenAvdoede.tittel")}</Systemtittel>
+            <SkjemaGruppe>
+                <Systemtittel className={"center"}>{t("omDenAvdoede.tittel")}</Systemtittel>
+            </SkjemaGruppe>
 
             <form>
                 {/* 3.1 */}
-                <SkjemaGruppe>
+                <div className={"rad skjemagruppe"}>
                     <RHFInput
+                        className={"kol-50"}
                         name={"fornavn"}
                         label={t("omDenAvdoede.fornavn")}
                     />
 
                     <RHFInput
+                        className={"kol-50"}
                         name={"etternavn"}
                         label={t("omDenAvdoede.etternavn")}
                     />
+                </div>
 
+                <div className={"rad skjemagruppe"}>
                     {/* 3.2 */}
-                    <RHFInput
+                    <RHFFoedselsnummerInput
+                        className={"kol-50"}
                         type={"number"}
                         name={"foedselsnummer"}
                         label={t("omDenAvdoede.foedselsnummer")}
-                        rules={{ validate: (value) => (fnr(value).status === 'valid') }}
-                    />
-
-                    {/* 3.3 */}
-                    <Datovelger
-                        name={"doedsdato"}
-                        label={t("omDenAvdoede.doedsdato")}
-                        maxDate={new Date()}
                     />
 
                     {/* 3.4 */}
                     <RHFInput
+                        className={"kol-50"}
                         name={"statsborgerskap"}
                         label={t("omDenAvdoede.statsborgerskap")}
                     />
-                </SkjemaGruppe>
+                </div>
 
                 {/* 3.5 fjernes. Ikke lenger gyldig. */}
                 {/* 3.6 */}

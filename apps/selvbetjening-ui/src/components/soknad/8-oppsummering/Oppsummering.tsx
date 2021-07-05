@@ -5,20 +5,16 @@ import { Ingress, Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import React, { useState } from "react";
 import { Fareknapp, Flatknapp, Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import OppsummeringSoeker from "./fragmenter/OppsummeringSoeker";
-import OppsummeringSituasjon from "./fragmenter/OppsummeringSituasjon";
 import OppsummeringAvdoed from "./fragmenter/OppsummeringAvdoed";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
 import OppsummeringBarn from "./fragmenter/OppsummeringBarn";
-import OppsummeringTidlArbeid from "./fragmenter/OppsummeringTidlArbeid";
-import OppsummeringArbeidsforhold from "./fragmenter/OppsummeringArbeidsforhold";
-import OppsummeringAndreYtelser from "./fragmenter/OppsummeringAndreYtelser";
 import { default as Modal } from "nav-frontend-modal";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import NavFrontendSpinner from "nav-frontend-spinner";
 import AlertStripe from "nav-frontend-alertstriper";
 import classNames from "classnames";
+import OppsummeringOmDeg from "./fragmenter/OppsummeringOmDeg";
 
 const Oppsummering: SoknadSteg = ({ forrige }) => {
     const history = useHistory();
@@ -26,13 +22,9 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
     const { state, dispatch } = useSoknadContext();
 
     const {
-        situasjon,
-        opplysningerOmSoekeren,
-        opplysningerOmDenAvdoede,
+        omDeg,
+        omDenAvdoede,
         opplysningerOmBarn,
-        tidligereArbeidsforhold,
-        naavaerendeArbeidsforhold,
-        andreYtelser
     } = state;
 
     const [isOpen, setIsOpen] = useState(false);
@@ -71,19 +63,11 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
                 <Normaltekst>Hvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det. </Normaltekst>
             </SkjemaGruppe>
 
-            <OppsummeringSituasjon state={situasjon!!} />
+            <OppsummeringOmDeg state={omDeg!!} />
 
-            <OppsummeringSoeker state={opplysningerOmSoekeren!!} />
-
-            <OppsummeringAvdoed state={opplysningerOmDenAvdoede!!} />
+            <OppsummeringAvdoed state={omDenAvdoede!!} />
 
             <OppsummeringBarn state={opplysningerOmBarn} />
-
-            <OppsummeringTidlArbeid state={tidligereArbeidsforhold} />
-
-            <OppsummeringArbeidsforhold state={naavaerendeArbeidsforhold!!} />
-
-            <OppsummeringAndreYtelser state={andreYtelser!!} />
 
             <br />
 
