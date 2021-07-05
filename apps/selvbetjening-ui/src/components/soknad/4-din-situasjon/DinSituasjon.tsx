@@ -3,7 +3,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import React from "react";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
-import { useForm, FormProvider } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
@@ -14,7 +14,7 @@ import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import AndreYtelser from "./fragmenter/AndreYtelser";
 import HoeyesteUtdanning from "./fragmenter/HoeyesteUtdanning";
 import TidligereArbeidsforhold from "./fragmenter/TidligereArbeidsforhold";
-import { Undertittel } from "nav-frontend-typografi";
+import { Systemtittel } from "nav-frontend-typografi";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -43,9 +43,9 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         <FormProvider {...methods}>
             <form>
                 <SkjemaGruppe>
-                    <Undertittel>
+                    <Systemtittel className={"center"}>
                         Arbeid og utdanning
-                    </Undertittel>
+                    </Systemtittel>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>

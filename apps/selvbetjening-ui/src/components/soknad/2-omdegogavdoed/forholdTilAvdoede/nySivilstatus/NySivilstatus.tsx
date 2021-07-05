@@ -26,15 +26,11 @@ const harGyldigVarighet = (inngaattDato?: Date, opploestDato?: Date) => {
 }
 
 const NySivilstatus = () => {
-
     const { watch } = useFormContext<ISoeker>()
 
     const sivilstatus = watch("nySivilstatus.inngaatt.svar")
     const inngaattDato = watch("nySivilstatus.inngaatt.dato")
-    const fremdelesGift = watch("nySivilstatus.fremdelesGift")
     const opploestDato = watch("nySivilstatus.opploestDato")
-    const aarsakForOpploesningen = watch("nySivilstatus.aarsakForOpploesningen")
-    const hattBarnEllerVaertGift = watch("samboer.hattBarnEllerVaertGift")
 
     let gyldigVarighet = harGyldigVarighet(inngaattDato, opploestDato);
 
@@ -65,19 +61,11 @@ const NySivilstatus = () => {
             />
 
             {sivilstatus === Sivilstatus.ekteskap && (
-                <NyttEkteskap
-                    fremdelesGift={fremdelesGift}
-                    gyldigVarighet={gyldigVarighet}
-                    aarsakForOpploesningen={aarsakForOpploesningen}
-                />
+                <NyttEkteskap gyldigVarighet={gyldigVarighet} />
             )}
 
             {sivilstatus === Sivilstatus.samboerskap && (
-                <NyttSamboerskap
-                    hattBarnEllerVaertGift={hattBarnEllerVaertGift}
-                    gyldigVarighet={gyldigVarighet}
-                    fremdelesGift={fremdelesGift}
-                />
+                <NyttSamboerskap gyldigVarighet={gyldigVarighet} />
             )}
         </>
     );

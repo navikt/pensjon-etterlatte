@@ -3,17 +3,17 @@ import { RHFRadio, RHFToValgRadio } from "../../../../felles/RHFRadio";
 import { IValg } from "../../../../../typer/Spoersmaal";
 import SamboerSkjema from "./SamboerSkjema";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
-import { OpploesningAarsak } from "../../../../../typer/person";
+import { ISoeker, OpploesningAarsak } from "../../../../../typer/person";
 import { useTranslation } from "react-i18next";
+import { useFormContext } from "react-hook-form";
 
-interface Props {
-    hattBarnEllerVaertGift?: IValg;
-    gyldigVarighet?: IValg;
-    fremdelesGift?: IValg;
-}
-
-const NyttSamboerskap = ({ hattBarnEllerVaertGift, gyldigVarighet, fremdelesGift }: Props) => {
+const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
     const { t } = useTranslation();
+
+    const { watch } = useFormContext<ISoeker>()
+
+    const fremdelesGift = watch("nySivilstatus.fremdelesGift")
+    const hattBarnEllerVaertGift = watch("samboer.hattBarnEllerVaertGift")
 
     return (
         <>

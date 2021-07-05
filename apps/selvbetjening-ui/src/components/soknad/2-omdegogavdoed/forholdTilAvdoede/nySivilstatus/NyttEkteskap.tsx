@@ -3,16 +3,16 @@ import { RHFRadio, RHFToValgRadio } from "../../../../felles/RHFRadio";
 import { IValg } from "../../../../../typer/Spoersmaal";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { useTranslation } from "react-i18next";
-import { OpploesningAarsak } from "../../../../../typer/person";
+import { ISoeker, OpploesningAarsak } from "../../../../../typer/person";
+import { useFormContext } from "react-hook-form";
 
-interface Props {
-    fremdelesGift?: IValg;
-    gyldigVarighet?: IValg;
-    aarsakForOpploesningen?: string;
-}
-
-const NyttEkteskap = ({ fremdelesGift, gyldigVarighet, aarsakForOpploesningen }: Props) => {
+const NyttEkteskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
     const { t } = useTranslation();
+
+    const { watch } = useFormContext<ISoeker>()
+
+    const fremdelesGift = watch("nySivilstatus.fremdelesGift")
+    const aarsakForOpploesningen = watch("nySivilstatus.aarsakForOpploesningen")
 
     return (
         <>

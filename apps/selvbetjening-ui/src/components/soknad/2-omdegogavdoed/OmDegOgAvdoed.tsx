@@ -50,9 +50,11 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     return (
         <>
             {/* Steg 2 */}
-            <Systemtittel className={"center"}>
-                Om deg og avdøde
-            </Systemtittel>
+            <SkjemaGruppe>
+                <Systemtittel className={"center"}>
+                    Om deg og avdøde
+                </Systemtittel>
+            </SkjemaGruppe>
 
             {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <FormProvider {...methods}>
