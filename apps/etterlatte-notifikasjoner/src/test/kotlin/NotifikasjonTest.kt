@@ -5,7 +5,7 @@ import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class FinnFnrSoeknadTest {
+class NotifikasjonTest {
 
     //@Test
     fun test1() {
