@@ -15,6 +15,7 @@ dependencies {
     implementation("io.ktor:ktor-client-logging-jvm:$ktorversion")
     implementation("io.ktor:ktor-client-auth:$ktorversion")
     implementation("io.ktor:ktor-client-jackson:$ktorversion")
+    implementation("com.github.navikt:brukernotifikasjon-schemas:1.2021.06.21-08.21-7998a39f216a")
     implementation(project(":libs:ktorclient-auth-clientcredentials"))
     implementation ("com.nfeld.jsonpathkt:jsonpathkt:2.0.0")
     testImplementation("io.ktor:ktor-client-mock:$ktorversion")
