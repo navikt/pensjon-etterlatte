@@ -13,7 +13,8 @@ import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.route
-import no.nav.etterlatte.ThreadBoundSecCtx
+import no.nav.etterlatte.common.unsafeRetry
+import no.nav.etterlatte.ktortokenexchange.ThreadBoundSecCtx
 import java.time.LocalDate
 import java.time.ZoneId
 
@@ -23,10 +24,10 @@ fun Route.soknadApi(innsendtSoeknadEndpint: HttpClient) {
             val fnr = ThreadBoundSecCtx.get().user()!!
             call.application.environment.log.info("Mottatt søknad for $fnr")
 
-            val soknadId = innsendtSoeknadEndpint.post<String> {
+            val soknadId = unsafeRetry{ innsendtSoeknadEndpint.post<String> {
                 contentType(ContentType.Application.Json)
                 body = call.receive<JsonNode>().also(::addMottattDato)
-            }
+            }}
 
             if (soknadId.isBlank())
                 call.respond(HttpStatusCode.InternalServerError)

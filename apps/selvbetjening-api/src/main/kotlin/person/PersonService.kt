@@ -11,6 +11,7 @@ import io.ktor.http.ContentType.Application.Json
 import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.common.typeRefs
+import no.nav.etterlatte.common.unsafeRetry
 import no.nav.etterlatte.person.model.GraphqlRequest
 import no.nav.etterlatte.person.model.PersonResponse
 import no.nav.etterlatte.person.model.Variables
@@ -36,11 +37,13 @@ class PersonService(
 
         val request = GraphqlRequest(query, Variables(ident = fnr)).toJson()
 
-        val responseNode = httpClient.post<ObjectNode> {
+        val responseNode = unsafeRetry{
+            httpClient.post<ObjectNode> {
             header("Tema", TEMA)
             accept(Json)
             body = TextContent(request, Json)
         }
+    }
 
         logger.info(responseNode.toPrettyString())
 
