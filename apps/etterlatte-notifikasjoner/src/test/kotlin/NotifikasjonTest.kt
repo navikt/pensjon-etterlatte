@@ -3,7 +3,6 @@ package no.nav.etterlatte
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
@@ -11,8 +10,6 @@ class NotifikasjonTest {
 
     @Test
     fun test1() {
-        //val json = getTestResource("/FinnFnrSoeknadTest1.json")
-
         val inspector = TestRapid()
             .apply { Notifikasjon(this) }
             .apply {
@@ -36,8 +33,5 @@ class NotifikasjonTest {
         assertEquals("SMS", inspector.message(0).get("@notifikasjon").get("prefererteKanaler")[0].asText())
 
 
-    }
-    fun getTestResource( file: String): String {
-        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
     }
 }
