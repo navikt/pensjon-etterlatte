@@ -1,5 +1,3 @@
-import "../../../../App.less";
-
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Undertittel } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";

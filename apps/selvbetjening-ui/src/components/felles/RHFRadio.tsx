@@ -45,7 +45,7 @@ export const RHFInlineRadio = ({ name, legend, radios }: {
                 name={name}
                 control={control}
                 rules={{required: true}}
-                render={({ field: { value, onChange, name: TName } }) => (
+                render={({ field: { value, onChange, name } }) => (
                     <RadioPanelGruppe
                         name={name}
                         feil={error && t(`feil.${error.ref?.name}.${error.type}`)}

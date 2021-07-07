@@ -1,5 +1,3 @@
-import React from "react";
-import "../../../../App.less";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";

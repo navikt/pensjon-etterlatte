@@ -1,4 +1,3 @@
-import "../../../App.less";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
@@ -13,8 +12,7 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import AlertStripe from "nav-frontend-alertstriper";
-import { RHFRadio } from "../../felles/RHFRadio";
-import { IValg } from "../../../typer/Spoersmaal";
+import { RHFToValgRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./forholdTilAvdoede/nySivilstatus/NySivilstatus";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
@@ -60,24 +58,19 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
             <FormProvider {...methods}>
                 <form>
                     <Element>Hvem er det som er død?</Element>
-                    <div className={"rad skjemagruppe"}>
-                        <div className={"kol-50"}>
+                    <SkjemaGruppe className={"inline"}>
                             <RHFInput
                                 name={"avdoed.fornavn"}
                                 label={"Fornavn"}
                                 // TODO: Validere telefon ... ?
                             />
-                        </div>
 
-                        <div className={"kol-50"}>
-                            {/* 2.5 */}
                             <RHFInput
                                 name={"avdoed.etternavn"}
                                 label={"Etternavn"}
                                 // TODO: Validere e-post
                             />
-                        </div>
-                    </div>
+                    </SkjemaGruppe>
 
                     <SkjemaGruppe>
                         <Element>Når skjedde dødsfallet</Element>
@@ -98,14 +91,10 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaGruppe>
 
                     <SkjemaGruppe>
-                        <RHFRadio
+                        <RHFToValgRadio
                             name={"avdoed.doedsfallAarsak"}
                             legend={"Skyldes dødsfallet yrkesskade/yrkessykdom?"}
-                            radios={[
-                                { label: IValg.JA, value: IValg.JA },
-                                { label: IValg.NEI, value: IValg.NEI },
-                                { label: IValg.VET_IKKE, value: IValg.VET_IKKE }
-                            ]}
+                            vetIkke
                         />
                     </SkjemaGruppe>
 

@@ -1,5 +1,4 @@
 import { Route, Switch } from "react-router";
-import "./App.less";
 import SideIkkeFunnet from "./components/SideIkkeFunnet";
 import DevLabs from "./components/dev/DevLabs";
 import Banner from "./components/felles/Banner";

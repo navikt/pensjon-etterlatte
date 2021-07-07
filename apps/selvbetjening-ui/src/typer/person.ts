@@ -42,11 +42,25 @@ export interface IBarn {
     };
 }
 
+export interface IOppholdUtland {
+    land?: string;
+    fraDato?: Date;
+    tilDato?: Date;
+    beskrivelse?: string[];
+}
+
 export interface IAvdoed {
     foedselsnummer?: string;
     statsborgerskap?: string;
-    bosetning?: IValg;
-    boddEllerJobbetUtland?: IValg;
+    boddEllerJobbetUtland?: {
+        svar?: IValg;
+        oppholdUtland?: IOppholdUtland[];
+    }
+    selvstendigNaeringsdrivende?: {
+        svar?: IValg;
+        beskrivelse?: string;
+    }
+    medlemFolketrygdUtland?: IValg;
     haddePensjonsgivendeInntekt?: {
         svar?: IValg;
         beskrivelse?: string;

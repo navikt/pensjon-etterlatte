@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../../App.less";
 import "../../felles/Infokort.less";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import { Systemtittel } from "nav-frontend-typografi";

@@ -1,26 +1,21 @@
 import { useTranslation } from "react-i18next";
-import { CheckboksPanelGruppe, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ISoeker, SamboerInntekt } from "../../../../../typer/person";
 import { Undertittel } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
-import { Controller, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { RHFInput } from "../../../../felles/RHFInput";
 import { RHFToValgRadio } from "../../../../felles/RHFRadio";
 import { IValg } from "../../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
+import { RHFCheckboksPanelGruppe } from "../../../../felles/RHFCheckboksPanelGruppe";
 
 const SamboerSkjema = () => {
     const { t } = useTranslation();
 
-    const { control, watch } = useFormContext<ISoeker>();
+    const { watch } = useFormContext<ISoeker>();
 
     const samboerHarInntekt = watch("samboer.harInntekt.svar")
-
-    const handleSelect = (inntektstype: SamboerInntekt[], name: SamboerInntekt) => {
-        return inntektstype?.includes(name)
-            ? inntektstype?.filter(value => value !== name)
-            : [...(inntektstype ?? []), name];
-    }
 
     return (
         <Panel border>
@@ -50,26 +45,15 @@ const SamboerSkjema = () => {
 
             {samboerHarInntekt === IValg.JA && (
                 <>
-                    <SkjemaGruppe className={"inputPanelGruppe"}>
-                        <Controller
-                            name={"samboer.harInntekt.inntektstype"}
-                            control={control}
-                            render={({ field: { onChange, value } }) => (
-                                <CheckboksPanelGruppe
-                                    checkboxes={Object.values(SamboerInntekt).map((type) => {
-                                        return {
-                                            name: type,
-                                            label: t(`omSoekeren.harSamboerInntekt.${type}`),
-                                            checked: (value as SamboerInntekt[])?.includes(type)
-                                        }
-                                    })}
-                                    onChange={(e) => onChange(
-                                        handleSelect(value, ((e.target as HTMLInputElement).name as SamboerInntekt))
-                                    )}
-                                />
-                            )}
-                        />
-                    </SkjemaGruppe>
+                    <RHFCheckboksPanelGruppe
+                        name={"samboer.harInntekt.inntektstype"}
+                        checkboxes={Object.values(SamboerInntekt).map((type) => {
+                            return {
+                                value: type,
+                                label: t(`omSoekeren.harSamboerInntekt.${type}`),
+                            }
+                        })}
+                    />
 
                     <SkjemaGruppe>
                         <RHFInput

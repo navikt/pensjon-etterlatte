@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-import "../App.less";
+import { FC } from "react";
 import Panel from "nav-frontend-paneler";
 import { Systemtittel } from "nav-frontend-typografi";
 import AlertStripe from "nav-frontend-alertstriper";

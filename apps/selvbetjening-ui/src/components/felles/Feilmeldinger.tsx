@@ -20,7 +20,7 @@ const konverterFeilmeldinger = (errors: FieldErrors, t: TFunction<"translation">
         .map(error => {
             return {
                 skjemaelementId: error.ref!!.name,
-                feilmelding: t(getTransKey(error) || "")
+                feilmelding: t(getTransKey(error))
             }
         })
 }

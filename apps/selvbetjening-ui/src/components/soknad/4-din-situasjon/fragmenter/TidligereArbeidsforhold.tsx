@@ -1,4 +1,3 @@
-import "../../../../App.less";
 import "../../../felles/Infokort.less";
 import { Undertittel } from "nav-frontend-typografi";
 import { Flatknapp } from "nav-frontend-knapper";
@@ -10,6 +9,7 @@ import { DeleteFilled } from "@navikt/ds-icons";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { ISituasjon } from "../../../../typer/situasjon";
 import { useEffect } from "react";
+import classNames from "classnames";
 
 const TidligereArbeidsforhold = () => {
     const { t } = useTranslation();
@@ -38,8 +38,8 @@ const TidligereArbeidsforhold = () => {
             <SkjemaGruppe>
                 {fields.map((field: FieldArrayWithId, index) => (
                     <div key={field.id} className={"luft-under"}>
-                        <div className={"rad"}>
-                            <div className={"kol-75"}>
+                        <div className={classNames(fields.length > 1 && "rad")}>
+                            <div className={classNames(fields.length > 1 && "kol-75")}>
                                 <RHFInput
                                     // bredde={"XL"}
                                     name={`tidligereArbeidsforhold[${index}].beskrivelse` as const}
@@ -76,42 +76,6 @@ const TidligereArbeidsforhold = () => {
                             </div>
                         </div>
                     </div>
-                    /*<Panel border key={field.id} className={"luft-under"}>
-                        <div className={"rad"}>
-                            <div className={"kolonne"}>
-                                <RHFInput
-                                    bredde={"XL"}
-                                    name={`tidligereArbeidsforhold[${index}].beskrivelse` as const}
-                                    label={"Beskrivelse"}
-                                />
-                            </div>
-
-                            <div className={"kolonne"}>
-                                <Flatknapp
-                                    htmlType={"button"}
-                                    className={"pull-right"}
-                                    onClick={() => remove(index)}
-                                >
-                                    <DeleteFilled />
-                                </Flatknapp>
-                            </div>
-                        </div>
-
-                        <div className={"rad"}>
-                            <div className={"kolonne"}>
-                                <Datovelger
-                                    name={`tidligereArbeidsforhold[${index}].fraDato` as const}
-                                    label={"Fra"}
-                                />
-                            </div>
-                            <div className={"kolonne"}>
-                                <Datovelger
-                                    name={`tidligereArbeidsforhold[${index}].tilDato` as const}
-                                    label={"Til"}
-                                />
-                            </div>
-                        </div>
-                    </Panel>*/
                 ))}
 
                 {/* @ts-ignore */}

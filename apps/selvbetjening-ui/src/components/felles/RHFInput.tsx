@@ -20,7 +20,7 @@ export const RHFInput = ({name, rules, ...rest}: RHFProps) => {
 
     const error: FieldError = get(errors, name)
 
-    const feilmelding = t(getTransKey(error) || "")
+    const feilmelding = t(getTransKey(error))
 
     return (
         <Controller
@@ -46,7 +46,7 @@ export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
 
     const error: FieldError = get(errors, name)
 
-    const feilmelding = t(getTransKey(error) || "")
+    const feilmelding = t(getTransKey(error))
 
     const format = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value
@@ -89,7 +89,7 @@ export const RHFTelefonInput = ({name, rules, ...rest}: RHFProps) => {
 
     const error: FieldError = get(errors, name)
 
-    const feilmelding = t(getTransKey(error) || "")
+    const feilmelding = t(getTransKey(error))
 
     const format = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value

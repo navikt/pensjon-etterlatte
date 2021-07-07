@@ -16,6 +16,7 @@ interface DatovelgerProps {
     label: ReactNode;
     minDate?: Date | string;
     maxDate?: Date | string;
+    valgfri?: boolean;
 }
 
 const parseDate = (dato?: Date | string) => {
@@ -27,7 +28,7 @@ const parseDate = (dato?: Date | string) => {
 /*
 * TODO: Ikke mulig å enkelt tabbe gjennom datovelgeren... må fikses!
 */
-const Datovelger = ({ name, label, minDate, maxDate }: DatovelgerProps) => {
+const Datovelger = ({ name, label, minDate, maxDate, valgfri }: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
     const { control, formState: { errors } } = useFormContext();
 
@@ -40,7 +41,7 @@ const Datovelger = ({ name, label, minDate, maxDate }: DatovelgerProps) => {
     }, [i18n.language]);
 
     const error: FieldError = get(errors, name)
-    const feilmelding = t(getTransKey(error) || "")
+    const feilmelding = t(getTransKey(error))
 
     const classNames = classnames(
         "skjemaelement__input",
@@ -57,7 +58,7 @@ const Datovelger = ({ name, label, minDate, maxDate }: DatovelgerProps) => {
                     name={name}
                     control={control}
                     defaultValue={undefined}
-                    rules={{required: true}}
+                    rules={{required: !valgfri}}
                     render={({ field: { onChange, onBlur, value } }) => (
                         <DatePicker
                             id={name}
