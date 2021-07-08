@@ -29,6 +29,8 @@ spec:
   env:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
+    - name: KAFKA_RESET_POLICY
+      value: none
     - name: PDF_URL
       value: "http://ey-pdfgen/api/v1/genpdf/eypdfgen"
     - name: DOKARKIV_URL
