@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-//@Serializable
 class ProduceBeskjedDto(val tekst: String,
                         val link: String?,
                         val grupperingsid: String,
