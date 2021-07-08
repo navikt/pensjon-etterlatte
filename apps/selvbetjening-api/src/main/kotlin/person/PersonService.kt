@@ -10,7 +10,6 @@ import io.ktor.features.NotFoundException
 import io.ktor.http.ContentType.Application.Json
 import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
-import no.nav.etterlatte.common.typeRefs
 import no.nav.etterlatte.common.unsafeRetry
 import no.nav.etterlatte.person.model.GraphqlRequest
 import no.nav.etterlatte.person.model.PersonResponse
@@ -48,7 +47,7 @@ class PersonService(
         logger.info(responseNode.toPrettyString())
 
         val response = try {
-            mapJsonToAny(responseNode.toJson(), typeRefs<PersonResponse>())
+            mapJsonToAny<PersonResponse>(responseNode.toJson())
         } catch (e: Exception) {
             logger.error("Error under deserialisering av pdl repons", e)
             throw e

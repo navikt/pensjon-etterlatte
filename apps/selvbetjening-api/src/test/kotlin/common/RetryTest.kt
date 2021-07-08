@@ -10,14 +10,14 @@ import kotlin.test.assertNull
 class RetryTest {
 
     @Test
-    fun `skal forsøke på nytt`(){
+    fun `unsafe retry skal gi resultatet om det gikk bra`(){
         assertEquals("OK", runBlocking {
             unsafeRetry(2, ustabilMetode(listOf(true, true, false)))
         })
     }
 
     @Test
-    fun `skal feile etter et visst antall retries`(){
+    fun `unsafe retry skal kaste feil etter et visst antall retries`(){
         assertThrows(IllegalStateException::class.java){
             runBlocking {
                 unsafeRetry(2, ustabilMetode(listOf(true, true, true, false)))
@@ -26,7 +26,7 @@ class RetryTest {
     }
 
     @Test
-    fun `skal forsøke på nytt2`(){
+    fun `skal forsøke på nytt`(){
         runBlocking {
             retry(2, ustabilMetode(listOf(true, true, false)))
         }.also {

@@ -1,12 +1,5 @@
 package no.nav.etterlatte.common
 
-import io.ktor.application.ApplicationCall
-import io.ktor.application.call
-import io.ktor.auth.principal
-import io.ktor.util.pipeline.PipelineContext
-import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
+import no.nav.etterlatte.ktortokenexchange.ThreadBoundSecCtx
 
-fun PipelineContext<Unit, ApplicationCall>.innloggetBrukerFnr(): String =
-    call.principal<TokenValidationContextPrincipal>()?.context!!
-        .getClaims("tokenx")
-        .getStringClaim("pid")
+fun innloggetBrukerFnr(): String = ThreadBoundSecCtx.get().user()!!
