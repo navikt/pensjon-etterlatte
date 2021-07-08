@@ -1,6 +1,6 @@
 import "../../../felles/Infokort.less";
 import { Undertittel } from "nav-frontend-typografi";
-import { Flatknapp } from "nav-frontend-knapper";
+import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";
@@ -8,8 +8,8 @@ import Datovelger from "../../../felles/Datovelger";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { ISituasjon } from "../../../../typer/situasjon";
-import { useEffect } from "react";
-import classNames from "classnames";
+import AlertStripe from "nav-frontend-alertstriper";
+import Panel from "nav-frontend-paneler";
 
 const TidligereArbeidsforhold = () => {
     const { t } = useTranslation();
@@ -21,61 +21,59 @@ const TidligereArbeidsforhold = () => {
         shouldUnregister: true
     });
 
-    useEffect(() => {
-        if (fields.length === 0) {
-            // @ts-ignore
-            append({});
-        }
-    })
-
     return (
         <>
             {/* Steg 4 */}
             <SkjemaGruppe>
                 <Undertittel>{t("tidligereArbeidsforhold.tittel")}</Undertittel>
+
+                <br />
+
+                <AlertStripe type={"info"} form={"inline"}>
+                    Dersom du de siste 10 årene har vært i arbeid (deltid, heltid, vikariat, osv) er det viktig at du
+                    oppgir dette. Klikk på "Legg til" under for å legge til tidligere arbeidsforhold.
+                </AlertStripe>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 {fields.map((field: FieldArrayWithId, index) => (
-                    <div key={field.id} className={"luft-under"}>
-                        <div className={classNames(fields.length > 1 && "rad")}>
-                            <div className={classNames(fields.length > 1 && "kol-75")}>
+                    <Panel border key={field.id} className={"luft-under"}>
+                        <div className={"rad"}>
+                            <div className={"kol"}>
                                 <RHFInput
                                     // bredde={"XL"}
                                     name={`tidligereArbeidsforhold[${index}].beskrivelse` as const}
                                     label={"Beskrivelse"}
                                 />
                             </div>
-
-                            {fields.length > 1 && (
-                                <div className={"kol-25"}>
-                                    <Flatknapp
-                                        htmlType={"button"}
-                                        className={"pull-right"}
-                                        onClick={() => remove(index)}
-                                    >
-                                        <DeleteFilled />
-                                    </Flatknapp>
-                                </div>
-                            )}
                         </div>
 
                         <div className={"rad"}>
-                            <div className={"kol-25"}>
+                            <div className={"kol"}>
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].fraDato` as const}
                                     label={"Fra"}
                                 />
                             </div>
 
-                            <div className={"kol-25"}>
+                            <div className={"kol"}>
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].tilDato` as const}
                                     label={"Til"}
                                 />
                             </div>
+
+                            <div className={"kol"}>
+                                <Fareknapp
+                                    htmlType={"button"}
+                                    className={"skjemaelement"}
+                                    onClick={() => remove(index)}
+                                >
+                                    <DeleteFilled />&nbsp; Fjern
+                                </Fareknapp>
+                            </div>
                         </div>
-                    </div>
+                    </Panel>
                 ))}
 
                 {/* @ts-ignore */}

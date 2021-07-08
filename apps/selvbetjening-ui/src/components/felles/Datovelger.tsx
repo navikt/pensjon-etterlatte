@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from "react";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
-import { Label, SkjemaelementFeilmelding, SkjemaGruppe } from "nav-frontend-skjema";
+import { Label, SkjemaelementFeilmelding } from "nav-frontend-skjema";
 import { parseISO } from "date-fns";
 import { enUS as en, nb, nn } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
@@ -45,12 +45,11 @@ const Datovelger = ({ name, label, minDate, maxDate, valgfri }: DatovelgerProps)
 
     const classNames = classnames(
         "skjemaelement__input",
-        "input--fullbredde",
         feilmelding && "skjemaelement__input--harFeil"
     );
 
     return (
-        <SkjemaGruppe>
+        <>
             <section className={"skjemaelement"}>
                 <Label htmlFor={name}>{label}</Label>
 
@@ -76,7 +75,7 @@ const Datovelger = ({ name, label, minDate, maxDate, valgfri }: DatovelgerProps)
 
                 {feilmelding && <SkjemaelementFeilmelding>{feilmelding}</SkjemaelementFeilmelding>}
             </section>
-        </SkjemaGruppe>
+        </>
     );
 };
 

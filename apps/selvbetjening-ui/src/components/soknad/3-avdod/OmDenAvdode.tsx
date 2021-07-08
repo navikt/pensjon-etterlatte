@@ -6,14 +6,14 @@ import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { RHFFoedselsnummerInput, RHFInput } from "../../felles/RHFInput";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
-import SkjemaLinje from "../../felles/SkjemaLinje";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
+import Navigasjon from "../../felles/Navigasjon";
+import React from "react";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -41,11 +41,11 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     return (
         <FormProvider {...methods}>
-            <SkjemaLinje>
+            <SkjemaGruppe className={"center"}>
                 <Systemtittel>
                     Om avdøde
                 </Systemtittel>
-            </SkjemaLinje>
+            </SkjemaGruppe>
 
             <form>
                 <div className={"rad skjemagruppe"}>
@@ -154,15 +154,10 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 <Feilmeldinger errors={errors}/>
 
-                <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Knapp htmlType={"button"} onClick={forrige}>
-                        {t("knapp.tilbake")}
-                    </Knapp>
-
-                    <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
-                        {t("knapp.neste")}
-                    </Hovedknapp>
-                </SkjemaGruppe>
+                <Navigasjon
+                    forrige={forrige}
+                    neste={handleSubmit(lagre)}
+                />
             </form>
         </FormProvider>
     );

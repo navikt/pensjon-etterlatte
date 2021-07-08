@@ -6,19 +6,16 @@ import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
 import { FormProvider, useForm } from "react-hook-form";
 import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
-import { useTranslation } from "react-i18next";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import NavaerendeArbeidsforhold from "./fragmenter/NavaerendeArbeidsforhold";
 import Feilmeldinger from "../../felles/Feilmeldinger";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import AndreYtelser from "./fragmenter/AndreYtelser";
 import HoeyesteUtdanning from "./fragmenter/HoeyesteUtdanning";
 import TidligereArbeidsforhold from "./fragmenter/TidligereArbeidsforhold";
 import { Systemtittel } from "nav-frontend-typografi";
+import Navigasjon from "../../felles/Navigasjon";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
-    const { t } = useTranslation();
-
     const { state, dispatch } = useSoknadContext();
 
     const methods = useForm<ISituasjon>({
@@ -80,15 +77,10 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
 
                 <Feilmeldinger errors={errors}/>
 
-                <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Knapp htmlType={"button"} onClick={forrige}>
-                        {t("knapp.tilbake")}
-                    </Knapp>
-
-                    <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
-                        {t("knapp.neste")}
-                    </Hovedknapp>
-                </SkjemaGruppe>
+                <Navigasjon
+                    forrige={forrige}
+                    neste={handleSubmit(lagre)}
+                />
             </form>
         </FormProvider>
     )

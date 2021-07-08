@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../felles/Infokort.less";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import { Systemtittel } from "nav-frontend-typografi";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
+import { Knapp } from "nav-frontend-knapper";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { default as Modal } from "nav-frontend-modal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
@@ -13,6 +13,7 @@ import BarnInfokort from "./BarnInfokort";
 import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
+import Navigasjon from "../../felles/Navigasjon";
 
 Modal.setAppElement("#root");
 
@@ -84,10 +85,10 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaGruppe>
             )}
 
-            <SkjemaGruppe className={"navigasjon-rad"}>
-                <Knapp htmlType={"button"} onClick={forrige}>{t("knapp.tilbake")}</Knapp>
-                <Hovedknapp onClick={neste}>{t("knapp.neste")}</Hovedknapp>
-            </SkjemaGruppe>
+            <Navigasjon
+                forrige={forrige}
+                neste={neste}
+            />
         </>
     );
 };

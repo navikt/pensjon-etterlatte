@@ -3,22 +3,19 @@ import { sendSoeknad } from "../../../api";
 import { useHistory } from "react-router-dom";
 import { Ingress, Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import React, { useState } from "react";
-import { Fareknapp, Flatknapp, Hovedknapp, Knapp } from "nav-frontend-knapper";
+import { Fareknapp, Hovedknapp } from "nav-frontend-knapper";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import OppsummeringAvdoed from "./fragmenter/OppsummeringAvdoed";
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { useTranslation } from "react-i18next";
 import OppsummeringBarn from "./fragmenter/OppsummeringBarn";
 import { default as Modal } from "nav-frontend-modal";
 import { ActionTypes } from "../../../context/soknad/soknad";
-import NavFrontendSpinner from "nav-frontend-spinner";
 import AlertStripe from "nav-frontend-alertstriper";
-import classNames from "classnames";
 import OppsummeringOmDeg from "./fragmenter/OppsummeringOmDeg";
+import Navigasjon from "../../felles/Navigasjon";
 
 const Oppsummering: SoknadSteg = ({ forrige }) => {
     const history = useHistory();
-    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     const {
@@ -104,23 +101,11 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
                 </SkjemaGruppe>
             )}
 
-            <SkjemaGruppe className={classNames("navigasjon-rad", senderSoeknad && "disabled")} >
-                <Knapp htmlType={"button"} onClick={forrige}>
-                    {t("knapp.tilbake")}
-                </Knapp>
-
-                <Hovedknapp htmlType={"button"} onClick={send}>
-                    {t("knapp.sendSoeknad")} {senderSoeknad && (
-                        <NavFrontendSpinner />
-                    )}
-                </Hovedknapp>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe className={classNames("navigasjon-rad", senderSoeknad && "disabled")}>
-                <Flatknapp htmlType={"button"} onClick={() => setIsOpen(true)}>
-                    Avbryt
-                </Flatknapp>
-            </SkjemaGruppe>
+            <Navigasjon
+                forrige={forrige}
+                send={send}
+                disabled={senderSoeknad}
+            />
         </>
     );
 };

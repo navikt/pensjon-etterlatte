@@ -10,13 +10,14 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import AlertStripe from "nav-frontend-alertstriper";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./forholdTilAvdoede/nySivilstatus/NySivilstatus";
+import Navigasjon from "../../felles/Navigasjon";
+import React from "react";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     const lagre = (data: ISoekerOgAvdoed) => {
@@ -59,17 +60,17 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                 <form>
                     <Element>Hvem er det som er død?</Element>
                     <SkjemaGruppe className={"inline"}>
-                            <RHFInput
-                                name={"avdoed.fornavn"}
-                                label={"Fornavn"}
-                                // TODO: Validere telefon ... ?
-                            />
+                        <RHFInput
+                            name={"avdoed.fornavn"}
+                            label={"Fornavn"}
+                            // TODO: Validere telefon ... ?
+                        />
 
-                            <RHFInput
-                                name={"avdoed.etternavn"}
-                                label={"Etternavn"}
-                                // TODO: Validere e-post
-                            />
+                        <RHFInput
+                            name={"avdoed.etternavn"}
+                            label={"Etternavn"}
+                            // TODO: Validere e-post
+                        />
                     </SkjemaGruppe>
 
                     <SkjemaGruppe>
@@ -81,22 +82,17 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                         />
 
                         {foersteFraDato && (
-                            <AlertStripe
-                                type={"info"}
-                                form={"inline"}
-                            >
+                            <AlertStripe type={"info"} form={"inline"}>
                                 Du kan ha rett på gjenlevendepensjon fra {foersteFraDato}
                             </AlertStripe>
                         )}
                     </SkjemaGruppe>
 
-                    <SkjemaGruppe>
-                        <RHFToValgRadio
-                            name={"avdoed.doedsfallAarsak"}
-                            legend={"Skyldes dødsfallet yrkesskade/yrkessykdom?"}
-                            vetIkke
-                        />
-                    </SkjemaGruppe>
+                    <RHFToValgRadio
+                        name={"avdoed.doedsfallAarsak"}
+                        legend={"Skyldes dødsfallet yrkesskade/yrkessykdom?"}
+                        vetIkke
+                    />
 
                     {/* 2.9 */}
                     <ForholdTilAvdoedeSkjema />
@@ -107,15 +103,10 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
                     <Feilmeldinger errors={errors} />
 
-                    <SkjemaGruppe className={"navigasjon-rad"}>
-                        <Knapp htmlType={"button"} onClick={forrige}>
-                            {t("knapp.tilbake")}
-                        </Knapp>
-
-                        <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
-                            {t("knapp.neste")}
-                        </Hovedknapp>
-                    </SkjemaGruppe>
+                    <Navigasjon
+                        forrige={forrige}
+                        neste={handleSubmit(lagre)}
+                    />
                 </form>
             </FormProvider>
         </>

@@ -24,11 +24,13 @@ const NavaerendeArbeidsforhold = () => {
                 />
             </SkjemaGruppe>
 
-            <Datovelger
-                name={"arbeidsforhold.startDato"}
-                label={t("naavaerendeArbeidsforhold.startDato")}
-                maxDate={watch("arbeidsforhold.sluttDato")}
-            />
+            <SkjemaGruppe>
+                <Datovelger
+                    name={"arbeidsforhold.startDato"}
+                    label={t("naavaerendeArbeidsforhold.startDato")}
+                    maxDate={watch("arbeidsforhold.sluttDato")}
+                />
+            </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <RHFSelect
