@@ -27,10 +27,10 @@ spec:
     max: 1
     min: 1
   env:
-    - name: KAFKA_CONSUMER_GROUP_ID
-      value: sjekkalderetterlatte
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
+    - name: KAFKA_RESET_POLICY
+      value: none
     - name: PDL_URL
       value: "https://etterlatte-proxy.dev-fss-pub.nais.io/pdl"
   accessPolicy:
