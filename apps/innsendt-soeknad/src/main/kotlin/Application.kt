@@ -12,7 +12,10 @@ fun main() {
     val datasourceBuilder = DataSourceBuilder(System.getenv())
     val db = PostgresSoeknadRepository.using(datasourceBuilder.getDataSource())
 
-    val rapidApplication = RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(System.getenv()))
+    val env = System.getenv().toMutableMap().apply {
+        put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))
+    }
+    val rapidApplication = RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
         .withKtorModule { apiModule { soeknadApi(db) } }
         .build().also { rapidConnection ->
             rapidConnection.register(object: RapidsConnection.StatusListener{
