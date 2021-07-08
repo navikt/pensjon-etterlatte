@@ -3,11 +3,9 @@ import { Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";
-import { Hovedknapp } from "nav-frontend-knapper";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
 import { IValg } from "../../../typer/Spoersmaal";
-import AlertStripe from "nav-frontend-alertstriper";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { ISoeker } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
@@ -16,8 +14,9 @@ import { RHFToValgRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import React from "react";
+import Navigasjon from "../../felles/Navigasjon";
 
-const OmDeg: SoknadSteg = ({ neste, forrige }) => {
+const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
     const brukerState = useBrukerContext().state;
@@ -65,12 +64,15 @@ const OmDeg: SoknadSteg = ({ neste, forrige }) => {
 
                     {borPaaRegistrertAdresse === IValg.NEI && (
                         <SkjemaGruppe>
-                            <AlertStripe type="advarsel">{t("omSoekeren.infoFolkeregisteret")}</AlertStripe>
+                            <RHFInput
+                                name={"alternativAdresse"}
+                                label={"Oppgi nåværende bostedsadresse"}
+                            />
                         </SkjemaGruppe>
                     )}
 
                     <div className={"rad skjemagruppe"}>
-                        <div className={"kol-50"}>
+                        <div className={"kol"}>
                             <RHFTelefonInput
                                 name={"kontaktinfo.telefonnummer"}
                                 label={t("omSoekeren.kontaktinfo.telefon")}
@@ -78,7 +80,7 @@ const OmDeg: SoknadSteg = ({ neste, forrige }) => {
                             />
                         </div>
 
-                        <div className={"kol-50"}>
+                        <div className={"kol"}>
                             {/* 2.5 */}
                             <RHFInput
                                 name={"kontaktinfo.epost"}
@@ -136,11 +138,7 @@ const OmDeg: SoknadSteg = ({ neste, forrige }) => {
 
                     <Feilmeldinger errors={errors} />
 
-                    <SkjemaGruppe className={"navigasjon-rad"}>
-                        <Hovedknapp htmlType={"button"} onClick={handleSubmit(lagre)}>
-                            {t("knapp.neste")}
-                        </Hovedknapp>
-                    </SkjemaGruppe>
+                    <Navigasjon neste={handleSubmit(lagre)} />
                 </form>
             </FormProvider>
         </>

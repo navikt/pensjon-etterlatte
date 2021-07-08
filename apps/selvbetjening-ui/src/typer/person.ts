@@ -123,6 +123,7 @@ export interface IForholdAvdoede {
 
 export interface ISoeker {
     bostedsadresseBekreftet?: IValg;
+    alternativAdresse?: string;
     kontaktinfo?: IKontaktinfo;
     kontonummer?: string; // 2.8
     flyktning?: IValg;
