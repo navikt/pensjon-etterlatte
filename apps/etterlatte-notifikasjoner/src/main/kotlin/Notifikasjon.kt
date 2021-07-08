@@ -33,7 +33,6 @@ internal class Notifikasjon(rapidsConnection: RapidsConnection) :
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
 
-
         runBlocking {
             val dto = ProduceBeskjedDto(
                  tekst = "Vi bekrefter å ha mottat din søknad om Etterlatteytelse",
