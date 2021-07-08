@@ -1,4 +1,4 @@
-package no.nav.etterlatte.ktor.tokenexchange
+package no.nav.etterlatte.ktortokenexchange
 
 import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.auth.AuthProvider

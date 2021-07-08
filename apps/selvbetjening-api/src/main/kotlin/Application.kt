@@ -13,7 +13,7 @@ import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.takeFrom
 import io.ktor.util.KtorExperimentalAPI
-import no.nav.etterlatte.ktor.tokenexchange.bearerToken
+import no.nav.etterlatte.ktortokenexchange.bearerToken
 import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
 import no.nav.etterlatte.person.PersonService
 
