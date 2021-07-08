@@ -27,8 +27,6 @@ spec:
     max: 1
     min: 1
   env:
-    - name: KAFKA_CONSUMER_GROUP_ID
-      value: journalfoersoeknad
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
     - name: PDF_URL
