@@ -116,19 +116,15 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <SkjemaGruppe>
                         <RHFInput
                             name={"haddePensjonsgivendeInntekt.beskrivelse"}
-                            label={t("omDenAvdoede.haddePensjonsgivendeInntekt.beskrivelse")}
+                            label={"Oppgi næringsinntekt fra kalenderåret før dødsfallet"}
                         />
                     </SkjemaGruppe>
                 )}
 
                 <RHFRadio
                     name={"haddePensjonsgivendeInntekt.svar"}
-                    legend={(<div style={{ display: "flex" }}>
-                        Hadde han/hun inntekt når dødsfallet skjedde?
-                        <Hjelpetekst>
-                            TODO: Litt informasjon rundt hva vi mener med "selvstendig næringsdrivende", "arbeidstaker", osv.
-                        </Hjelpetekst>
-                    </div>)}
+                    legend={"Hadde han/hun inntekt når dødsfallet skjedde?"}
+                    description={"TODO: Litt informasjon rundt hva vi mener med \"selvstendig næringsdrivende\", \"arbeidstaker\", osv."}
                     radios={[
                         { label: "Ja, inntekt som selvstendig næringsdrivende", value: "Ja, inntekt som selvstendig næringsdrivende" },
                         { label: "Ja, inntekt som arbeidstaker", value: "Ja, inntekt som arbeidstaker" },

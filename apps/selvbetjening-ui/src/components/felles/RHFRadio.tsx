@@ -6,6 +6,7 @@ import { FieldPath, FieldValues } from "react-hook-form/dist/types";
 import { get } from "lodash";
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
+import { RadioPanelGruppeProps } from "nav-frontend-skjema/lib/radio-panel-gruppe";
 
 /* TODO: Rename to RHFSpoersmaalRadio */
 export const RHFToValgRadio = ({ name, legend, vetIkke }: {
@@ -61,12 +62,14 @@ export const RHFInlineRadio = ({ name, legend, radios }: {
     );
 };
 
-export const RHFRadio = ({ name, legend, radios, rules }: {
+interface RHFRadioProps extends Omit<RadioPanelGruppeProps, 'onChange'> {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
     radios: RadioPanelProps[];
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>;
-}) => {
+}
+
+export const RHFRadio = ({ name, legend, radios, rules, ...rest }: RHFRadioProps) => {
     const { t } = useTranslation();
     const { control, formState: { errors } } = useFormContext();
 
@@ -80,6 +83,7 @@ export const RHFRadio = ({ name, legend, radios, rules }: {
                 rules={{required: true, ...rules}}
                 render={({ field: { value, onChange, name } }) => (
                     <RadioPanelGruppe
+                        {...rest}
                         name={name}
                         feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
                         legend={legend}
