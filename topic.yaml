@@ -53,4 +53,4 @@ spec:
       access: read
     - team: etterlatte
       application: etterlatte-notifikasjoner
-      access: read
+      access: readwrite
