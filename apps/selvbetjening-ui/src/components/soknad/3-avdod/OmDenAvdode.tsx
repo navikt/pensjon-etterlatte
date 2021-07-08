@@ -11,7 +11,6 @@ import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
 import Navigasjon from "../../felles/Navigasjon";
 import React from "react";
 
