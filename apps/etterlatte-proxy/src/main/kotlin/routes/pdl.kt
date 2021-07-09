@@ -16,6 +16,7 @@ import no.nav.etterlatte.StsClient
 import no.nav.etterlatte.httpClient
 import no.nav.etterlatte.pipeRequest
 import no.nav.etterlatte.pipeResponse
+import org.slf4j.LoggerFactory
 import java.util.*
 
 val HttpHeaders.Tema: String get() = "Tema"
@@ -23,10 +24,8 @@ val HttpHeaders.NavConsumerToken: String get() = "Nav-Consumer-Token"
 val HttpHeaders.XCorrelationID: String get() = "X-Correlation-ID"
 
 @KtorExperimentalAPI
-fun Route.pdl(
-    config: Config,
-    stsClient: StsClient,
-) {
+fun Route.pdl(config: Config, stsClient: StsClient) {
+    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     route("/pdl") {
         val httpClient = httpClient()
         val pdlUrl = config.pdl.url
@@ -44,7 +43,7 @@ fun Route.pdl(
                 }
                 call.pipeResponse(response)
             } catch (cause: Throwable) {
-                println("Feil i kall mot PDL: $cause")
+                logger.error("Feil i kall mot PDL: $cause")
                 cause.printStackTrace()
             }
         }

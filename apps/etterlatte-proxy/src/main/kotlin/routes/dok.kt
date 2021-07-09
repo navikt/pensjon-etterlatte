@@ -18,13 +18,12 @@ import no.nav.etterlatte.StsClient
 import no.nav.etterlatte.httpClient
 import no.nav.etterlatte.pipeRequest
 import no.nav.etterlatte.pipeResponse
+import org.slf4j.LoggerFactory
 
 
 @KtorExperimentalAPI
-fun Route.dok(
-    config: Config,
-    stsClient: StsClient,
-) {
+fun Route.dok(config: Config, stsClient: StsClient) {
+    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     route("/dok") {
         val httpClient = httpClient()
         val dokUrl = config.dok.url
@@ -41,12 +40,12 @@ fun Route.dok(
                 }
                 call.pipeResponse(response)
             } catch (cause: ResponseException) {
-                println("Feil i kall mot Dokarkiv: $cause")
+                logger.error("Feil i kall mot Dokarkiv: $cause")
                 cause.printStackTrace()
                 //call.respondText(status = cause.response.status) { cause.message!! }
                 call.pipeResponse(cause.response)
             } catch (cause: Throwable) {
-                println("Feil i kall mot Dokarkiv: $cause")
+                logger.error("Feil i kall mot Dokarkiv: $cause")
                 cause.printStackTrace()
                 call.respondText(status = HttpStatusCode.InternalServerError) { cause.message ?: "Intern feil" }
             }
