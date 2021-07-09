@@ -5,13 +5,14 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
+import org.slf4j.LoggerFactory
 import java.time.LocalDate
 import java.time.Period
 
 
 internal class SjekkAlderEtterlatte(rapidsConnection: RapidsConnection, private val pdl: SjekkAlderForEtterlatte) :
     River.PacketListener {
-
+    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "etterlatt_barn_identifisert") }
@@ -21,7 +22,7 @@ internal class SjekkAlderEtterlatte(rapidsConnection: RapidsConnection, private 
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        println(packet["@etterlatt_ident"].asText())
+        logger.info(packet["@etterlatt_ident"].asText())
 
         runBlocking {
             packet["@alder_ved_dodsfall"] = Period.between(
