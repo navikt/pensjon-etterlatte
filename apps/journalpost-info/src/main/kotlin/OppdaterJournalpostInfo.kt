@@ -13,11 +13,12 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
+import org.slf4j.LoggerFactory
 
 
 internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
     River.PacketListener {
-
+    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
@@ -32,6 +33,7 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
 
         runBlocking {
             packet["@journalpostInfo"] = lagJournalpostInfo(packet)
+            logger.info("Lagt til journalpostInfo")
             context.publish(packet.toJson())
             }
     }
