@@ -24,7 +24,7 @@ internal class FinnEtterlatte(rapidsConnection: RapidsConnection, private val pd
 
         runBlocking {
             pdl.finnEtterlatteForPerson(packet["@avdod_ident"].asText()).forEach {
-                logger.info("Fant en etterlatt" + packet["@etterlatt_ident"].asText())
+                logger.info("Fant en etterlatte")
                 context.publish(JsonMessage(packet.toJson(), MessageProblems("{}")).apply {
                     set("@etterlatt_ident", it)
                     set("@event_name", "etterlatt_barn_identifisert")
