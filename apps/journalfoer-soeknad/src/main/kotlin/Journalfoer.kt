@@ -24,10 +24,12 @@ import no.nav.etterlatte.libs.common.journalpost.JournalpostDokument
 import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
 import no.nav.etterlatte.libs.common.journalpost.JournalpostRequest
 import no.nav.helse.rapids_rivers.JsonMessage
+import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import java.util.*
 
 class Journalfoer(private val client: HttpClient, private val baseUrl: String) : JournalfoerDok {
+    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     private val objectMapper = jacksonObjectMapper()
         .registerModule(JavaTimeModule())
         .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
@@ -82,13 +84,13 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
             return retur.receive()
         } catch (cause: ResponseException) {
             if (cause.response.status.value == 409) {
-                println("Duplikat journalpost: $cause")
+                logger.error("Duplikat journalpost: $cause")
 
             }
             return cause.response.receive()
 
         } catch (cause: Throwable) {
-            println("Feil i kall mot Dokarkiv: $cause")
+            logger.error("Feil i kall mot Dokarkiv: $cause")
             cause.printStackTrace()
             return objectMapper.readTree(cause.message)
 

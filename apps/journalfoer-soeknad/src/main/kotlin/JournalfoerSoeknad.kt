@@ -8,6 +8,7 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
+import org.slf4j.LoggerFactory
 
 internal class JournalfoerSoeknad(
     rapidsConnection: RapidsConnection,
@@ -15,7 +16,7 @@ internal class JournalfoerSoeknad(
     private val dok: JournalfoerDok
 ) :
     River.PacketListener {
-
+    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
@@ -33,14 +34,14 @@ internal class JournalfoerSoeknad(
                 packet["@dokarkivRetur"] = dok.journalfoerDok(
                     packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
                 )
-                println("Journalført en ny PDF med journalpostId: " + packet["@dokarkivRetur"])
+                logger.info("Journalført en ny PDF med journalpostId: " + packet["@dokarkivRetur"])
                 context.publish(packet.toJson())
             }
         }catch (err: ResponseException){
-            println("duplikat: $err")
-            println(packet["@dokarkivRetur"])
+            logger.error("duplikat: $err")
+            logger.error(packet["@dokarkivRetur"].asText())
         } catch (err: Exception) {
-            println("Fillern, dette klarte jeg ikke: $err")
+            logger.error("Uhaandtert feilsituasjon: $err")
 
         }
     }
