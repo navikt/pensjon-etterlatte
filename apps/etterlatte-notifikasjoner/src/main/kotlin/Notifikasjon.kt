@@ -12,6 +12,8 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.net.URL
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -21,6 +23,7 @@ import java.time.temporal.ChronoUnit
 internal class Notifikasjon(rapidsConnection: RapidsConnection) :
 
     River.PacketListener {
+    val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
     init {
         River(rapidsConnection).apply {
@@ -50,6 +53,7 @@ internal class Notifikasjon(rapidsConnection: RapidsConnection) :
             val notifikasjonJson = objectMapper.readTree(opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(),dto).toString())
             packet["@notifikasjon"] = notifikasjonJson
             context.publish(packet.toJson())
+            logger.info("Notifikasjon til bruker opprettet")
             }
     }
     
