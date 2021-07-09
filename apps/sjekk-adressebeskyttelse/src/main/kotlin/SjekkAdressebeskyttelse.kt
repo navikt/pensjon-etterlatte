@@ -9,6 +9,7 @@ import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import no.nav.helse.rapids_rivers.isMissingOrNull
+import org.slf4j.LoggerFactory
 
 
 internal class SjekkAdressebeskyttelse(
@@ -16,7 +17,7 @@ internal class SjekkAdressebeskyttelse(
     private val pdl: FinnAdressebeskyttelseForFnr
 ) :
     River.PacketListener {
-
+    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
@@ -39,12 +40,12 @@ internal class SjekkAdressebeskyttelse(
                     .minByOrNull { it.ordinal } ?: Graderinger.INGEN_BESKYTTELSE
 
                 packet["@adressebeskyttelse"] = beskyttelse.name
-                println("vurdert adressebeskyttelse til ${beskyttelse.name}")
+                logger.info("vurdert adressebeskyttelse til ${beskyttelse.name}")
                 context.publish(packet.toJson())
             }
         } else {
             packet["@adressebeskyttelse"] = INGENBESKYTTELSE
-            println("hvabehager? Jeg kan ikke sjekke adressebeskyttelse uten å ha FNR")
+            logger.error("hvabehager? Jeg kan ikke sjekke adressebeskyttelse uten å ha FNR")
         }
     }
 }
