@@ -49,23 +49,16 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
                         SELECT MIN(s.opprettet)
                         FROM soeknad s 
                         where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}')""".trimIndent()
-        val SELECT_RAPPORT = """
-                        SELECT 'opprettet', count(1) 
-                        FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status in ('${Status.sendt}', '${Status.arkivert}'))
-                        UNION
-                        SELECT 'sendt', count(1) 
-                        FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status in ('${Status.arkivert}', '${Status.arkiveringsfeil}'))
-                        AND exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.sendt}')
-                        UNION
-                        SELECT 'arkivert', count(1) 
-                        FROM soeknad s 
-                        where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}')
-                        UNION
-                        SELECT 'arkiveringsfeil', count(1) 
-                        FROM soeknad s 
-                        where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkiveringsfeil}')""".trimIndent()
+        val SELECT_RAPPORT = """with status_rang as (
+                        |select 'opprettet' "status", 1 "rang"
+                        |union select 'sendt' "status", 2 "rang"
+                        |union select 'arkivert' "status", 3 "rang"
+                        |union select 'arkiveringsfeil' "status", 4 "rang"
+                        |) select status, count(1) from 
+                        |(select soeknad, max(rang) "rang" from hendelse h inner join status_rang using(status) group by soeknad) valgtstatus
+                        |inner join status_rang using(rang)
+                        |group by status
+                        |union select 'opprettet', count(1) from soeknad s where s.id not in (select soeknad from hendelse )""".trimMargin()
         val DELETE_ARKIVERTE_SOEKNADER = """
             DELETE FROM soeknad s where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}') 
         """.trimIndent()
@@ -146,7 +139,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             }.asSingle)
         }
     }
-    override fun rapport(): Map<String, Long> = using(sessionOf(dataSource)) { session ->
+    override fun rapport(): Map<String, Long> = listOf("opprettet", "sendt", "arkivert", "arkiveringsfeil").associateWith { 0L } + using(sessionOf(dataSource)) { session ->
         session.transaction {
             it.run(queryOf(
                 SELECT_RAPPORT, emptyMap()).map { row ->
