@@ -1,4 +1,4 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
 import { Hovedknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
@@ -82,17 +82,9 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                 <RHFRadio
                     name={"relasjon"}
                     legend={t("omBarn.relasjon")}
-                    radios={[
-                        {
-                            label: t("omBarn.fellesbarnMedAvdoed"),
-                            value: BarnRelasjon.fellesbarnMedAvdoede
-                        },
-                        {
-                            label: t("omBarn.avdoedesSaerkullsbarn"),
-                            value: BarnRelasjon.avdoedesSaerkullsbarn
-                        },
-                        { label: t("omBarn.egneSaerkullsbarn"), value: BarnRelasjon.egneSaerkullsbarn },
-                    ]}
+                    radios={Object.values(BarnRelasjon).map(value => {
+                        return { label: t(value), value } as RadioProps
+                    })}
                 />
 
                 <SkjemaGruppe>

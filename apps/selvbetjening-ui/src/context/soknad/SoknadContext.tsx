@@ -4,6 +4,7 @@ import mockJson from "../../assets/dummy-soeknad.json";
 
 const tomSoeknad = {
     harSamtykket: false,
+    sistLagretDato: undefined,
     omDeg: {},
     omDegOgAvdoed: {},
     omDenAvdoede: {},
@@ -16,6 +17,8 @@ const json = localStorage.getItem(STORAGE_KEY);
 const initialState: ISoeknad = json ? JSON.parse(json) : tomSoeknad;
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
+    const sistLagretDato = new Date();
+
     switch (action.type) {
         case ActionTypes.MOCK_SOEKNAD: {
             const json = JSON.stringify(mockJson)
@@ -25,21 +28,45 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
         case ActionTypes.TILBAKESTILL:
             return tomSoeknad;
         case ActionTypes.OPPDATER_SAMTYKKE:
-            return { ...state, harSamtykket: action.payload }
+            return {
+                ...state,
+                sistLagretDato,
+                harSamtykket: action.payload
+            };
         case ActionTypes.OPPDATER_OM_DEG:
-            return { ...state, omDeg: action.payload };
+            return {
+                ...state,
+                sistLagretDato,
+                omDeg: action.payload
+            };
         case ActionTypes.OPPDATER_OM_DEG_OG_AVDOED:
-            return { ...state, omDegOgAvdoed: action.payload };
+            return {
+                ...state,
+                sistLagretDato,
+                omDegOgAvdoed: action.payload
+            };
         case ActionTypes.OPPDATER_AVDOED:
-            return { ...state, omDenAvdoede: action.payload };
+            return {
+                ...state,
+                sistLagretDato,
+                omDenAvdoede: action.payload
+            };
         case ActionTypes.OPPDATER_DIN_SITUASJON:
-            return { ...state, dinSituasjon: action.payload };
+            return {
+                ...state,
+                sistLagretDato,
+                dinSituasjon: action.payload
+            };
         case ActionTypes.LEGG_TIL_BARN: {
             const { opplysningerOmBarn } = state;
 
             opplysningerOmBarn.push(action.payload);
 
-            return { ...state, opplysningerOmBarn };
+            return {
+                ...state,
+                sistLagretDato,
+                opplysningerOmBarn
+            };
         }
         case ActionTypes.FJERN_BARN: {
             const indexToDelete: number = action.payload;
@@ -48,7 +75,11 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 ...state.opplysningerOmBarn.filter((_: any, index: number) => index !== indexToDelete),
             ];
 
-            return { ...state, opplysningerOmBarn };
+            return {
+                ...state,
+                sistLagretDato,
+                opplysningerOmBarn
+            };
         }
         default:
             return state;

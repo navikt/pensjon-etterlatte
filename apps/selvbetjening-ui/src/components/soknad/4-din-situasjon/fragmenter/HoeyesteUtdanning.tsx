@@ -1,9 +1,9 @@
 import { RHFRadio } from "../../../felles/RHFRadio";
 import { useTranslation } from "react-i18next";
 import { RHFSelect } from "../../../felles/RHFSelect";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import React from "react";
-import { ISituasjon } from "../../../../typer/situasjon";
+import { ISituasjon, Utdanning } from "../../../../typer/situasjon";
 import { useFormContext } from "react-hook-form";
 
 
@@ -19,24 +19,9 @@ const HoeyesteUtdanning = () => {
             <RHFRadio
                 name={"utdanning.hoyesteFullfoerteUtdanning"}
                 legend={"Hva er din høyeste fullførte utdanning?"}
-                radios={[
-                    {
-                        label: "Grunnskole",
-                        value: "Grunnskole"
-                    },
-                    {
-                        label: "Videregående",
-                        value: "Videregående"
-                    },
-                    {
-                        label: "Universitet/høyskole",
-                        value: "Universitet/høyskole"
-                    },
-                    {
-                        label: "Har ingen utdanning",
-                        value: "Har ingen utdanning"
-                    }
-                ]}
+                radios={Object.values(Utdanning).map(value => {
+                    return { label: t(value), value } as RadioProps
+                })}
             />
 
             {(utdanning === "Universitet/høyskole") && (

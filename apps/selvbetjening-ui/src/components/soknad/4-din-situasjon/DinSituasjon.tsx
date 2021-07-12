@@ -1,10 +1,9 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import React from "react";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
 import { FormProvider, useForm } from "react-hook-form";
-import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import NavaerendeArbeidsforhold from "./fragmenter/NavaerendeArbeidsforhold";
@@ -14,8 +13,11 @@ import HoeyesteUtdanning from "./fragmenter/HoeyesteUtdanning";
 import TidligereArbeidsforhold from "./fragmenter/TidligereArbeidsforhold";
 import { Systemtittel } from "nav-frontend-typografi";
 import Navigasjon from "../../felles/Navigasjon";
+import { useTranslation } from "react-i18next";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
+    const { t } = useTranslation();
+
     const { state, dispatch } = useSoknadContext();
 
     const methods = useForm<ISituasjon>({
@@ -29,7 +31,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         watch
     } = methods;
 
-    const lagre = (data: IAvdoed) => {
+    const lagre = (data: ISituasjon) => {
         dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: data });
         neste!!();
     };
@@ -49,11 +51,9 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                     <RHFRadio
                         name={"status"}
                         legend={"Er du for tiden i arbeid?"}
-                        radios={[
-                            { label: "Ja", value: JobbStatus.Arbeidstaker },
-                            { label: "Nei, er arbeidsledig", value: JobbStatus.Arbeidsledig },
-                            { label: "Nei, er under utdanning", value: JobbStatus.UnderUtdanning },
-                        ]}
+                        radios={Object.values(JobbStatus).map(value => {
+                            return { label: t(value), value } as RadioProps;
+                        })}
                     />
                 </SkjemaGruppe>
 
@@ -64,9 +64,8 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                     />
                 </SkjemaGruppe>
 
-                {status === JobbStatus.Arbeidstaker && (
+                {status === JobbStatus.arbeidstaker && (
                     <NavaerendeArbeidsforhold />
-                    // Mulig tidligere arbeidsforhold må inn i komp over...
                 )}
 
                 <HoeyesteUtdanning />

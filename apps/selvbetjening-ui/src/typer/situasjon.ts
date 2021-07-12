@@ -7,10 +7,17 @@ export interface IUtdanning {
     antallAarUniversitetHoyskole?: string;
 }
 
+export enum Utdanning {
+    grunnskole = "utdanning.grunnskole",
+    videregående = "utdanning.videregående",
+    universitetHoeyskole = "utdanning.universitetHoeyskole",
+    harIngenUtdanning = "utdanning.harIngenUtdanning"
+}
+
 export enum JobbStatus {
-    Arbeidstaker = "Arbeidstaker",
-    Arbeidsledig = "Arbeidsledig",
-    UnderUtdanning = "UnderUtdanning"
+    arbeidstaker = "jobbStatus.arbeidstaker",
+    arbeidsledig = "jobbStatus.arbeidsledig",
+    underUtdanning = "jobbStatus.underUtdanning"
 }
 
 export interface ISituasjon {

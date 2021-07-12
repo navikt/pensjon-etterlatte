@@ -3,6 +3,7 @@ import { ISituasjon } from "../../typer/situasjon";
 
 export interface ISoeknad {
     harSamtykket: boolean;
+    sistLagretDato?: Date;
     omDeg: ISoeker;
     omDegOgAvdoed: ISoekerOgAvdoed;
     omDenAvdoede: IAvdoed;

@@ -1,6 +1,6 @@
-import { Flatknapp, Hovedknapp, Knapp } from "nav-frontend-knapper";
+import { Fareknapp, Flatknapp, Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import NavFrontendSpinner from "nav-frontend-spinner";
@@ -8,7 +8,9 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { ActionTypes as BrukerAction } from "../../context/bruker/bruker";
 import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
-
+import { default as Modal } from "nav-frontend-modal";
+import { Ingress, Undertekst } from "nav-frontend-typografi";
+import { erDato } from "../../utils/dato";
 
 const Navigasjon = ({ neste, forrige, send, disabled }: {
     neste?: () => void;
@@ -16,9 +18,28 @@ const Navigasjon = ({ neste, forrige, send, disabled }: {
     send?: () => void;
     disabled?: boolean;
 }) => {
-    const { t } = useTranslation();
-    const { dispatch: soknadDispatch } = useSoknadContext();
+    const { t, i18n } = useTranslation();
+    const {
+        state: { sistLagretDato },
+        dispatch: soknadDispatch
+    } = useSoknadContext();
+
     const { dispatch: brukerDispatch } = useBrukerContext();
+
+    const dtf = Intl.DateTimeFormat(i18n.language, {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
+    let sistLagret;
+    if (!!sistLagretDato && erDato(sistLagretDato)) {
+        sistLagret = dtf.format(new Date(sistLagretDato))
+    }
+
+    const [isOpen, setIsOpen] = useState(false);
 
     const avbryt = () => {
         soknadDispatch({ type: SoknadAction.TILBAKESTILL })
@@ -29,31 +50,64 @@ const Navigasjon = ({ neste, forrige, send, disabled }: {
 
     return (
         <>
-            <SkjemaGruppe className={classNames("navigasjon-rad", disabled && "disabled")} >
-                {!!forrige && (
-                    <Knapp htmlType={"button"} onClick={forrige}>
-                        {t("knapp.tilbake")}
-                    </Knapp>
-                )}
+            <SkjemaGruppe>
+                <div className={classNames("navigasjon-rad", disabled && "disabled")} >
+                    {!!forrige && (
+                        <Knapp htmlType={"button"} onClick={forrige}>
+                            {t("knapp.tilbake")}
+                        </Knapp>
+                    )}
 
-                {!!neste && (
-                    <Hovedknapp onClick={neste}>
-                        {t("knapp.neste")}
-                    </Hovedknapp>
-                )}
+                    {!!neste && (
+                        <Hovedknapp htmlType={"button"} onClick={neste}>
+                            {t("knapp.neste")}
+                        </Hovedknapp>
+                    )}
 
-                {!!send && (
-                    <Hovedknapp htmlType={"button"} onClick={send}>
-                        {t("knapp.sendSoeknad")} {disabled && (<NavFrontendSpinner />)}
-                    </Hovedknapp>
+                    {!!send && (
+                        <Hovedknapp htmlType={"button"} onClick={send}>
+                            {t("knapp.sendSoeknad")} {disabled && (<NavFrontendSpinner />)}
+                        </Hovedknapp>
+                    )}
+                </div>
+
+                {!!sistLagret && (
+                    <Undertekst className={"center"}>
+                        Sist lagret: {sistLagret}
+                    </Undertekst>
                 )}
             </SkjemaGruppe>
 
             <SkjemaGruppe className={classNames("navigasjon-rad", disabled && "disabled")}>
-                <Flatknapp htmlType={"button"} onClick={avbryt}>
+                <Flatknapp htmlType={"button"} onClick={() => setIsOpen(true)}>
                     Avbryt
                 </Flatknapp>
             </SkjemaGruppe>
+
+            <Modal
+                isOpen={isOpen}
+                onRequestClose={() => setIsOpen(false)}
+                closeButton={true}
+                contentLabel={"aasdfsdf"}
+            >
+                <SkjemaGruppe>
+                    <Ingress>
+                        Er du helt sikker på at du vil avbryte søknaden?
+                    </Ingress>
+                </SkjemaGruppe>
+
+                <SkjemaGruppe>
+                    <Hovedknapp htmlType={"button"} onClick={() => setIsOpen(false)}>
+                        Nei, jeg vil fortsette søknaden
+                    </Hovedknapp>
+                </SkjemaGruppe>
+
+                <SkjemaGruppe>
+                    <Fareknapp htmlType={"button"} onClick={avbryt}>
+                        Ja, avbryt søknaden
+                    </Fareknapp>
+                </SkjemaGruppe>
+            </Modal>
         </>
     );
 };

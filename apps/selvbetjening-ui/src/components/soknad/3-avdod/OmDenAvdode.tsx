@@ -1,8 +1,8 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { Element, Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { IAvdoed } from "../../../typer/person";
+import { AvdoedInntekt, IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
@@ -124,12 +124,9 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     name={"haddePensjonsgivendeInntekt.svar"}
                     legend={"Hadde han/hun inntekt når dødsfallet skjedde?"}
                     description={"TODO: Litt informasjon rundt hva vi mener med \"selvstendig næringsdrivende\", \"arbeidstaker\", osv."}
-                    radios={[
-                        { label: "Ja, inntekt som selvstendig næringsdrivende", value: "Ja, inntekt som selvstendig næringsdrivende" },
-                        { label: "Ja, inntekt som arbeidstaker", value: "Ja, inntekt som arbeidstaker" },
-                        { label: "Ja, begge deler", value: "Ja, begge deler" },
-                        { label: "Nei, ingen inntekt", value: "Nei, ingen inntekt" }
-                    ]}
+                    radios={Object.values(AvdoedInntekt).map(value => {
+                        return { label: t(value), value } as RadioProps
+                    })}
                 />
 
                 <RHFToValgRadio

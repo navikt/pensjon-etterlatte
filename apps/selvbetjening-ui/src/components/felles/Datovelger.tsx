@@ -17,6 +17,7 @@ interface DatovelgerProps {
     minDate?: Date | string;
     maxDate?: Date | string;
     valgfri?: boolean;
+    className?: string;
 }
 
 const parseDate = (dato?: Date | string) => {
@@ -28,7 +29,7 @@ const parseDate = (dato?: Date | string) => {
 /*
 * TODO: Ikke mulig å enkelt tabbe gjennom datovelgeren... må fikses!
 */
-const Datovelger = ({ name, label, minDate, maxDate, valgfri }: DatovelgerProps) => {
+const Datovelger = ({ name, label, minDate, maxDate, valgfri, className }: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
     const { control, formState: { errors } } = useFormContext();
 
@@ -43,14 +44,14 @@ const Datovelger = ({ name, label, minDate, maxDate, valgfri }: DatovelgerProps)
     const error: FieldError = get(errors, name)
     const feilmelding = t(getTransKey(error))
 
-    const classNames = classnames(
+    const dateInputCls = classnames(
         "skjemaelement__input",
         feilmelding && "skjemaelement__input--harFeil"
     );
 
     return (
         <>
-            <section className={"skjemaelement"}>
+            <section className={`skjemaelement ${className}`}>
                 <Label htmlFor={name}>{label}</Label>
 
                 <Controller
@@ -61,10 +62,10 @@ const Datovelger = ({ name, label, minDate, maxDate, valgfri }: DatovelgerProps)
                     render={({ field: { onChange, onBlur, value } }) => (
                         <DatePicker
                             id={name}
-                            className={classNames}
+                            className={dateInputCls}
                             selected={parseDate(value)}
-                            dateFormat={"dd.MM.yy"}
-                            placeholderText={"dd.mm.åå"}
+                            dateFormat={"dd.MM.yyyy"}
+                            placeholderText={"dd.mm.åååå"}
                             onChange={onChange}
                             onBlur={onBlur}
                             minDate={parseDate(minDate)}
