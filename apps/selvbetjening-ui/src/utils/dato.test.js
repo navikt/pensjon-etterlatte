@@ -1,4 +1,4 @@
-import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "./dato";
+import { erDato, ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "./dato";
 
 describe("Verifiser gyldighet av periode mellom samlivsbrudd og dødsfall", () => {
     it("Mer enn fem år mellom samlivsbrudd og dødsfall", () => {
@@ -51,5 +51,55 @@ describe("Verifiser gyldighet av periode mellom samlivsbrudd og dødsfall", () =
         const resultat = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(samlivsbrudd.toDateString(), doedsfall);
 
         expect(resultat).toBe(false)
+    })
+})
+
+describe("Funksjon fraDato fungerer som forventet", () => {
+    it("Standard ISO er gyldig", () => {
+        const isoDate = "2021-07-12T07:53:21.107Z"
+
+        expect(erDato(isoDate)).toBeTruthy();
+
+        const dato = new Date(isoDate);
+
+        expect(dato.getDate()).toBe(12)
+        expect(dato.getMonth()).toBe(6) // juli
+        expect(dato.getFullYear()).toBe(2021)
+    })
+
+    it("Forenklet format er gyldig", () => {
+        const forenkletDato = "2021-07-12"
+
+        expect(erDato(forenkletDato)).toBeTruthy();
+
+        const dato = new Date(forenkletDato);
+
+        expect(dato.getDate()).toBe(12)
+        expect(dato.getMonth()).toBe(6) // juli
+        expect(dato.getFullYear()).toBe(2021)
+    })
+
+    it("Måned som ord format er gyldig", () => {
+        const datoString = "2. mars 2020"
+
+        expect(erDato(datoString)).toBeTruthy();
+
+        const dato = new Date(datoString);
+
+        expect(dato.getDate()).toBe(2)
+        expect(dato.getMonth()).toBe(2) // mars
+        expect(dato.getFullYear()).toBe(2020)
+    })
+
+    it("undefined er ikke gyldig", () => {
+        expect(erDato(undefined)).toBeFalsy();
+    })
+
+    it("tilfeldig streng er ikke gyldig", () => {
+        expect(erDato("første i syvende")).toBeFalsy();
+    })
+
+    it("tilfeldige tall er ikke gyldig", () => {
+        expect(erDato("1531531908")).toBeFalsy();
     })
 })
