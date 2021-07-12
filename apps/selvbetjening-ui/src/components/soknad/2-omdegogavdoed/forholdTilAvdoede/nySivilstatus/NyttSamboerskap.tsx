@@ -6,21 +6,26 @@ import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { ISoeker, OpploesningAarsak } from "../../../../../typer/person";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoeker>()
 
-    const fremdelesGift = watch("nySivilstatus.fremdelesGift")
+    const samboerskapOpploest = watch("nySivilstatus.samboerskapOpploest")
+    const aarsakForOpploesningen = watch("nySivilstatus.aarsakForOpploesningen")
     const hattBarnEllerVaertGift = watch("samboer.hattBarnEllerVaertGift")
 
     return (
         <>
-            <Datovelger
-                name={"nySivilstatus.inngaatt.dato"}
-                label={"Dato for inngått samboerskap"}
-            />
+            <SkjemaGruppe>
+                <Datovelger
+                    name={"nySivilstatus.inngaatt.dato"}
+                    label={"Dato for inngått samboerskap"}
+                    maxDate={new Date()}
+                />
+            </SkjemaGruppe>
 
             <RHFToValgRadio
                 name={"samboer.hattBarnEllerVaertGift"}
@@ -34,11 +39,11 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
             {hattBarnEllerVaertGift === IValg.JA && (
                 <>
                     <RHFToValgRadio
-                        name={"nySivilstatus.fremdelesGift"}
+                        name={"nySivilstatus.samboerskapOpploest"}
                         legend={"Er dette samboerskapet oppløst?"}
                     />
 
-                    {fremdelesGift === IValg.NEI && (
+                    {samboerskapOpploest === IValg.JA && (
                         <RHFRadio
                             name={"nySivilstatus.aarsakForOpploesningen"}
                             legend={t("omSoekeren.aarsakOpploesning.tittel")}
@@ -55,6 +60,16 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                         />
                     )}
                 </>
+            )}
+
+            {aarsakForOpploesningen === OpploesningAarsak.samlivsbrudd && (
+                <SkjemaGruppe>
+                    <Datovelger
+                        name={"nySivilstatus.opploestDato"}
+                        label={"Dato for inngått samboerskap"}
+                        maxDate={new Date()}
+                    />
+                </SkjemaGruppe>
             )}
 
             {gyldigVarighet === IValg.NEI && (

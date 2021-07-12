@@ -1,19 +1,18 @@
 import Datovelger from "../../../felles/Datovelger";
 import { useFormContext } from "react-hook-form";
-import { ISoeker } from "../../../../typer/person";
-import { hentAlder } from "../../../../utils/Utils";
+import { ISoekerOgAvdoed } from "../../../../typer/person";
+import { hentAlder } from "../../../../utils/dato";
 import { RHFToValgRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
+import { useTranslation } from "react-i18next";
 
 const GiftMedAvdoede = () => {
+    const { t } = useTranslation();
 
-    const { watch } = useFormContext<ISoeker>();
+    const { watch } = useFormContext<ISoekerOgAvdoed>();
 
     const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap")
-    let partnerskapMindreEnnFemAar = false;
-    if (!!datoInngaattPartnerskap) {
-        partnerskapMindreEnnFemAar = hentAlder(datoInngaattPartnerskap) < 5;
-    }
+    const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
 
     const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
 
@@ -21,14 +20,14 @@ const GiftMedAvdoede = () => {
         <>
             <Datovelger
                 name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
-                label={"Når ble dere gift?"}
+                label={t("forholdTilAvdoede.datoForInngaattPartnerskap")}
             />
 
             {(partnerskapMindreEnnFemAar) && (
                 <>
                     <RHFToValgRadio
                         name={"forholdTilAvdoede.fellesBarn"}
-                        legend={"Har eller hadde dere felles barn?"}
+                        legend={t("forholdTilAvdoede.fellesBarn")}
                     />
 
                     {ingenFellesBarn && (

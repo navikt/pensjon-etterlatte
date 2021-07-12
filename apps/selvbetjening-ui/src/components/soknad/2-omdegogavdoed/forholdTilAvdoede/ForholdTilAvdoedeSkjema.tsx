@@ -1,53 +1,29 @@
 import { RHFRadio } from "../../../felles/RHFRadio";
 import { useFormContext } from "react-hook-form";
-import { ISoeker } from "../../../../typer/person";
+import { ForholdTilAvdoede, ISoekerOgAvdoed } from "../../../../typer/person";
 import GiftMedAvdoede from "./GiftMedAvdoede";
 import SamboerMedAvdoede from "./SamboerMedAvdoede";
 import SkiltFraAvdoede from "./SkiltFraAvdoede";
 import TidligereSamboerMedAvdoede from "./TidligereSamboerMedAvdoede";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
-import { SkjemaGruppe } from "nav-frontend-skjema";
-
-enum ForholdTilAvdoede {
-    gift = "gift",
-    samboer = "samboer",
-    skilt = "skilt",
-    tidligereSamboer = "tidligereSamboer",
-    ingen = "ingen"
-}
+import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
+import { useTranslation } from "react-i18next";
 
 const ForholdTilAvdoedeSkjema = () => {
-    const { watch } = useFormContext<ISoeker>();
+    const { t } = useTranslation();
 
-    const forholdTilAvdoede = watch("forholdTilAvdoede.forholdTilAvdoede");
+    const { watch } = useFormContext<ISoekerOgAvdoed>();
+
+    const forholdTilAvdoede = watch("forholdTilAvdoede.relasjon");
 
     return (
         <>
             <RHFRadio
-                name={"forholdTilAvdoede.forholdTilAvdoede"}
-                legend={"Når dødsfallet skjedde var dere ..."}
-                radios={[
-                    {
-                        label: "Gift",
-                        value: ForholdTilAvdoede.gift
-                    },
-                    {
-                        label: "Samboere",
-                        value: ForholdTilAvdoede.samboer
-                    },
-                    {
-                        label: "Skilt",
-                        value: ForholdTilAvdoede.skilt
-                    },
-                    {
-                        label: "Tidligere samboere",
-                        value: ForholdTilAvdoede.tidligereSamboer
-                    },
-                    {
-                        label: "Ingen av delene",
-                        value: ForholdTilAvdoede.ingen
-                    },
-                ]}
+                name={"forholdTilAvdoede.relasjon"}
+                legend={t("forholdTilAvdoede.relasjon")}
+                radios={Object.values(ForholdTilAvdoede).map(value => {
+                    return { label: t(value), value } as RadioProps
+                })}
             />
 
             {forholdTilAvdoede === ForholdTilAvdoede.gift && (

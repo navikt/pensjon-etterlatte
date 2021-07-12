@@ -1,29 +1,36 @@
 import { IValg } from "./Spoersmaal";
 
-export enum NySivilstatus {
-    ekteskap = "ekteskap",
-    partnerskap = "partnerskap",
-    samboerskap = "samboerskap",
-    ingen = "ingen"
+export enum Sivilstatus {
+    ekteskap = "nySivilstatus.ekteskap",
+    samboerskap = "nySivilstatus.samboerskap",
+    ingen = "nySivilstatus.ingen"
 }
 
 export enum OpploesningAarsak {
-    doedsfall = "Dødsfall",
-    skilsmisse = "Skilsmisse",
-    samlivsbrudd = "Samlivsbrudd",
+    doedsfall = "opploesningAarsak.doedsfall",
+    skilsmisse = "opploesningAarsak.skilsmisse",
+    samlivsbrudd = "opploesningAarsak.samlivsbrudd",
 }
 
-export enum ForholdTilAvdoed {
-    gjenlevendeEktefelle = "Gjenlevende ektefelle",
-    gjenlevendePartner = "Gjenlevende partner",
-    gjenlevendeSamboer = "Gjenlevende samboer",
-    ugiftMenForsoerget = "Ugift, men ble forsørget av den avdøde",
+export enum ForholdTilAvdoede {
+    gift = "avdoede.relasjon.gift",
+    samboer = "avdoede.relasjon.samboer",
+    skilt = "avdoede.relasjon.skilt",
+    tidligereSamboer = "avdoede.relasjon.tidligereSamboer",
+    ingen = "avdoede.relasjon.ingen"
+}
+
+export enum AvdoedInntekt {
+    selvstendigNaeringsdrivende = "avdoedInntekt.selvstendigNaeringsdrivende",
+    arbeidstaker = "avdoedInntekt.arbeidstaker",
+    selvstendigOgArbeidstaker = "avdoedInntekt.selvstendigOgArbeidstaker",
+    ingenInntekt = "avdoedInntekt.ingenInntekt"
 }
 
 export enum BarnRelasjon {
-    fellesbarnMedAvdoede = "Fellesbarn m/avdøde",
-    avdoedesSaerkullsbarn = "Avdødes særkullsbarn",
-    egneSaerkullsbarn = "Egne særkullsbarn",
+    fellesbarnMedAvdoede = "barn.relasjon.fellesbarnMedAvdoede",
+    avdoedesSaerkullsbarn = "barn.relasjon.avdoedesSaerkullsbarn",
+    egneSaerkullsbarn = "barn.relasjon.egneSaerkullsbarn",
 }
 
 export interface IBarn {
@@ -104,17 +111,17 @@ export interface INySivilstatus {
         dato?: Date;
     };
     fremdelesGift?: IValg;
+    samboerskapOpploest?: IValg;
     opploestDato?: Date;
     aarsakForOpploesningen?: string;
 }
 
 export interface IForholdAvdoede {
-    forholdTilAvdoede?: string; // 2.9
+    relasjon?: string; // 2.9
     datoForInngaattPartnerskap?: Date;
     datoForSkilsmisse?: Date;
     datoForInngaattSamboerskap?: Date;
     datoForSamlivsbrudd?: Date;
-    datoForDoedsfallet?: Date;
     fellesBarn?: IValg;
     omsorgForBarn?: IValg;
     tidligereGift?: IValg;
@@ -130,7 +137,6 @@ export interface ISoeker {
     oppholderSegINorge?: IValg; // 2.7
     oppholdsland?: string; // 2.7
     medlemFolketrygdenUtland?: IValg;
-    forholdTilAvdoede?: IForholdAvdoede;
     nySivilstatus?: INySivilstatus;
     samboer?: ISamboer; // 2.16
 }
@@ -142,5 +148,5 @@ export interface ISoekerOgAvdoed {
         datoForDoedsfallet?: Date;
         doedsfallAarsak?: string;
     }
-    forholdTilAvdoed?: IForholdAvdoede;
+    forholdTilAvdoede?: IForholdAvdoede;
 }

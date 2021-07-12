@@ -1,25 +1,21 @@
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
-import { ISoeker } from "../../../../typer/person";
+import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { RHFToValgRadio } from "../../../felles/RHFRadio";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
-import { antallAarMellom } from "../../../../utils/Utils";
 import Datovelger from "../../../felles/Datovelger";
+import { SkjemaGruppe } from "nav-frontend-skjema";
+import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
 
 const  TidligereSamboerMedAvdoede = () => {
 
-    const { watch } = useFormContext<ISoeker>();
+    const { watch } = useFormContext<ISoekerOgAvdoed>();
 
     const datoForSamlivsbrudd = watch("forholdTilAvdoede.datoForSamlivsbrudd")
-    const datoForDoedsfallet = watch("forholdTilAvdoede.datoForDoedsfallet")
+    const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet")
     const fellesBarn = watch("forholdTilAvdoede.fellesBarn");
-    const mottokBidrag = watch("forholdTilAvdoede.mottokBidrag");
 
-    // TODO: Fikse logikk
-    let ugyldigIntervall = false;
-    if (!!datoForSamlivsbrudd && !!datoForDoedsfallet) {
-        ugyldigIntervall = antallAarMellom(datoForSamlivsbrudd, datoForDoedsfallet) < 5;
-    }
+    const bidragMaaUtfylles  = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet);
 
     return (
         <>
@@ -37,30 +33,29 @@ const  TidligereSamboerMedAvdoede = () => {
             {fellesBarn === IValg.JA && (
                 <>
                     {/* TODO: Burde være eget felt for inngått samboerskap? */}
-                    <Datovelger
-                        name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
-                        label={"Dato for inngått samboerskap"}
-                    />
+                    <SkjemaGruppe className={"rad"}>
+                        <div className={"kol"}>
+                            <Datovelger
+                                name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
+                                label={"Dato for inngått samboerskap"}
+                                maxDate={datoForDoedsfallet}
+                            />
+                        </div>
 
-                    <Datovelger
-                        name={"forholdTilAvdoede.datoForSamlivsbrudd"}
-                        label={"Dato for samlivsbruddet (ikke separasjon)"}
-                    />
+                        <div className={"kol"}>
+                            <Datovelger
+                                name={"forholdTilAvdoede.datoForSamlivsbrudd"}
+                                label={"Dato for samlivsbruddet (ikke separasjon)"}
+                                maxDate={datoForDoedsfallet}
+                            />
+                        </div>
+                    </SkjemaGruppe>
 
-                    <Datovelger
-                        name={"forholdTilAvdoede.datoForDoedsfallet"}
-                        label={"Dato for dødsfallet"}
-                    />
-
-                    {ugyldigIntervall && (
+                    {bidragMaaUtfylles && (
                         <RHFToValgRadio
                             name={"forholdTilAvdoede.mottokBidrag"}
                             legend={"Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?"}
                         />
-                    )}
-
-                    {mottokBidrag === IValg.NEI && (
-                        <AlertStripeAdvarsel>Ikke rett</AlertStripeAdvarsel>
                     )}
                 </>
             )}

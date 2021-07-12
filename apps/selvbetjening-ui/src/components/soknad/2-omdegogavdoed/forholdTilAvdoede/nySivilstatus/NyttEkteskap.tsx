@@ -5,6 +5,7 @@ import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { useTranslation } from "react-i18next";
 import { ISoeker, OpploesningAarsak } from "../../../../../typer/person";
 import { useFormContext } from "react-hook-form";
+import { RadioProps } from "nav-frontend-skjema";
 
 const NyttEkteskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
     const { t } = useTranslation();
@@ -28,14 +29,14 @@ const NyttEkteskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                         legend={t("omSoekeren.aarsakOpploesning.tittel")}
                         radios={[
                             {
-                                label: t("omSoekeren.aarsakOpploesning.dødsfall"),
+                                label: t(OpploesningAarsak.doedsfall),
                                 value: OpploesningAarsak.doedsfall
                             },
                             {
-                                label: t("omSoekeren.aarsakOpploesning.skilsmisse"),
+                                label: t(OpploesningAarsak.skilsmisse),
                                 value: OpploesningAarsak.skilsmisse
                             }
-                        ]}
+                        ] as RadioProps[]}
                     />
                 </>
             )}

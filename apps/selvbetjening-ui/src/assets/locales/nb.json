@@ -127,6 +127,17 @@
       "bruttoinntekt": "Samlet bruttoinntekt pr. år"
     }
   },
+  "omDegOgAvdoed": {
+    "rettPaaGjenlevendepensjon": "Du kan ha rett på gjenlevendepensjon fra {{dato}}"
+  },
+  "avdoed": {
+    "datoForDoedsfallet": "Dato",
+    "naarSkjeddeDoedsfallet": "Når skjedde dødsfallet",
+    "doedsfallAarsak": "Skyldes dødsfallet yrkesskade/yrkessykdom?"
+  },
+  "forholdTilAvdoede": {
+    "relasjon": "Når dødsfallet skjedde var dere ..."
+  },
   "omDenAvdoede": {
     "tittel": "Opplysninger om den avdøde",
     "fornavn": "Fornavn",
@@ -212,6 +223,37 @@
       "bruttobeloepPrAar": "Bruttobeløp pr. år i landets valuta",
       "landetsValuta": "Oppgi landets valuta"
     }
+  },
+  "avdoede": {
+    "relasjon": {
+      "gift":"Gift",
+      "samboer":"Samboere",
+      "skilt": "Skilt",
+      "tidligereSamboer":"Tidligere samboere",
+      "ingen": "Ingen av delene"
+    }
+  },
+  "jobbStatus": {
+    "arbeidstaker": "Ja",
+    "arbeidsledig": "Nei, er arbeidsledig",
+    "underUtdanning":  "Nei, er under utdanning"
+  },
+  "avdoedInntekt": {
+    "selvstendigNaeringsdrivende": "Ja, inntekt som selvstendig næringsdrivende",
+    "arbeidstaker": "Ja, inntekt som arbeidstaker",
+    "selvstendigOgArbeidstaker": "Ja, begge deler",
+    "ingenInntekt": "Nei, ingen inntekt"
+  },
+  "nySivilstatus": {
+    "ekteskap": "Ja, jeg har giftet meg på nytt",
+    "samboerskap": "Ja, jeg har fått samboer",
+    "ingen": "Nei, ingen av delene"
+  },
+  "utdanning": {
+    "grunnskole":  "Grunnskole",
+    "videregående": "Videregående",
+    "universitetHoeyskole":  "Universitet/høyskole",
+    "harIngenUtdanning": "Har ingen utdanning"
   },
   "felles": {
     "fnrDnr": "Fødselsnummer / d-nummer",

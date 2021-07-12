@@ -6,7 +6,8 @@ import { Route } from "react-router";
 import SoknadForside from "./SoknadForside";
 import SoknadDialog from "./SoknadDialog";
 import SoknadKvittering from "./SoknadKvittering";
-import { gyldigAlder, hentAlder } from "../../utils/Utils";
+import { hentAlder } from "../../utils/dato";
+import { gyldigAlder } from "../../utils/Utils";
 import { useHistory } from "react-router-dom";
 
 const Soeknad = () => {

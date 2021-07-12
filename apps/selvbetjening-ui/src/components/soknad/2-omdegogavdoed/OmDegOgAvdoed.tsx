@@ -15,9 +15,10 @@ import { RHFToValgRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./forholdTilAvdoede/nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
 import React from "react";
+import { erDato } from "../../../utils/dato";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     const lagre = (data: ISoekerOgAvdoed) => {
@@ -41,7 +42,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet") || undefined;
 
     let foersteFraDato;
-    if (!!datoForDoedsfallet) {
+    if (erDato(datoForDoedsfallet)) {
         const dato = new Date(datoForDoedsfallet)
         foersteFraDato = dtf.format(new Date(dato.getFullYear(), dato.getMonth() + 1, 1))
     }
@@ -59,38 +60,39 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
             <FormProvider {...methods}>
                 <form>
                     <Element>Hvem er det som er død?</Element>
-                    <SkjemaGruppe className={"inline"}>
+                    <SkjemaGruppe className={"rad"}>
                         <RHFInput
+                            className={"kol"}
                             name={"avdoed.fornavn"}
-                            label={"Fornavn"}
-                            // TODO: Validere telefon ... ?
+                            label={t("avdoed.fornavn")}
                         />
 
                         <RHFInput
+                            className={"kol"}
                             name={"avdoed.etternavn"}
-                            label={"Etternavn"}
-                            // TODO: Validere e-post
+                            label={t("avdoed.etternavn")}
                         />
                     </SkjemaGruppe>
 
                     <SkjemaGruppe>
-                        <Element>Når skjedde dødsfallet</Element>
+                        <Element>{t("avdoed.naarSkjeddeDoedsfallet")}</Element>
 
                         <Datovelger
                             name={"avdoed.datoForDoedsfallet"}
-                            label={"Dato"}
+                            label={t("avdoed.datoForDoedsfallet")}
+                            maxDate={new Date()}
                         />
 
                         {foersteFraDato && (
                             <AlertStripe type={"info"} form={"inline"}>
-                                Du kan ha rett på gjenlevendepensjon fra {foersteFraDato}
+                                {t("omDegOgAvdoed.rettPaaGjenlevendepensjon", { dato: foersteFraDato })}
                             </AlertStripe>
                         )}
                     </SkjemaGruppe>
 
                     <RHFToValgRadio
                         name={"avdoed.doedsfallAarsak"}
-                        legend={"Skyldes dødsfallet yrkesskade/yrkessykdom?"}
+                        legend={t("avdoed.doedsfallAarsak")}
                         vetIkke
                     />
 

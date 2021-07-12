@@ -1,15 +1,15 @@
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
-import { ISoeker } from "../../../../typer/person";
+import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { RHFToValgRadio } from "../../../felles/RHFRadio";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
-import { hentAlder } from "../../../../utils/Utils";
+import { hentAlder } from "../../../../utils/dato";
 import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const SamboerMedAvdoede = () => {
 
-    const { watch } = useFormContext<ISoeker>();
+    const { watch } = useFormContext<ISoekerOgAvdoed>();
 
     const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap")
     const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
