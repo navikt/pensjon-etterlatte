@@ -5,6 +5,7 @@ import { hentAlder } from "../../../../utils/dato";
 import { RHFToValgRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useTranslation } from "react-i18next";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 
 const GiftMedAvdoede = () => {
     const { t } = useTranslation();
@@ -18,10 +19,12 @@ const GiftMedAvdoede = () => {
 
     return (
         <>
-            <Datovelger
-                name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
-                label={t("forholdTilAvdoede.datoForInngaattPartnerskap")}
-            />
+            <SkjemaGruppe>
+                <Datovelger
+                    name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
+                    label={t("forholdTilAvdoede.datoForInngaattPartnerskap")}
+                />
+            </SkjemaGruppe>
 
             {(partnerskapMindreEnnFemAar) && (
                 <>

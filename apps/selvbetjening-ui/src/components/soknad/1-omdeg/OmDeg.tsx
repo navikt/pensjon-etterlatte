@@ -13,9 +13,9 @@ import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/RHF
 import { RHFToValgRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
-import React from "react";
 import Navigasjon from "../../felles/Navigasjon";
 import { emailMatcher } from "../../../utils/matchers";
+import { Cell, Grid } from "@navikt/ds-react";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
@@ -72,24 +72,25 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         </SkjemaGruppe>
                     )}
 
-                    <div className={"rad skjemagruppe"}>
-                        <div className={"kol"}>
-                            <RHFTelefonInput
-                                name={"kontaktinfo.telefonnummer"}
-                                label={t("omSoekeren.kontaktinfo.telefon")}
-                                // TODO: Validere telefon ... ?
-                            />
-                        </div>
+                    <SkjemaGruppe>
+                        <Grid>
+                            <Cell xs={12} md={6} className={"kol"}>
+                                <RHFTelefonInput
+                                    name={"kontaktinfo.telefonnummer"}
+                                    label={t("omSoekeren.kontaktinfo.telefon")}
+                                    // TODO: Validere telefon ... ?
+                                />
+                            </Cell>
 
-                        <div className={"kol"}>
-                            {/* 2.5 */}
-                            <RHFInput
-                                name={"kontaktinfo.epost"}
-                                label={t("omSoekeren.kontaktinfo.epost")}
-                                rules={{ pattern: emailMatcher }}
-                            />
-                        </div>
-                    </div>
+                            <Cell xs={12} md={6} className={"kol"}>
+                                <RHFInput
+                                    name={"kontaktinfo.epost"}
+                                    label={t("omSoekeren.kontaktinfo.epost")}
+                                    rules={{ pattern: emailMatcher }}
+                                />
+                            </Cell>
+                        </Grid>
+                    </SkjemaGruppe>
 
                     {/* 2.7 */}
                     <RHFToValgRadio

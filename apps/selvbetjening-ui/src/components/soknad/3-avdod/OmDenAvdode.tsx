@@ -12,7 +12,6 @@ import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
-import React from "react";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();

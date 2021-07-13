@@ -43,10 +43,12 @@ const SamboerMedAvdoede = () => {
 
             {tidligereGift === IValg.JA && (
               <>
-                  <Datovelger
-                      name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
-                      label={"Dato for inngått samboerskap"}
-                  />
+                  <SkjemaGruppe>
+                      <Datovelger
+                          name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
+                          label={"Dato for inngått samboerskap"}
+                      />
+                  </SkjemaGruppe>
 
                   {partnerskapMindreEnnFemAar && (
                       // TODO: Sjekke om denne kan ha lik tittel som tilsvarende element under GiftMedAvdoede.tsx

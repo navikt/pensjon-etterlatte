@@ -1,9 +1,9 @@
-import Datovelger from "../../../../felles/Datovelger";
-import { RHFRadio, RHFToValgRadio } from "../../../../felles/RHFRadio";
-import { IValg } from "../../../../../typer/Spoersmaal";
+import Datovelger from "../../../felles/Datovelger";
+import { RHFRadio, RHFToValgRadio } from "../../../felles/RHFRadio";
+import { IValg } from "../../../../typer/Spoersmaal";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { useTranslation } from "react-i18next";
-import { ISoeker, OpploesningAarsak } from "../../../../../typer/person";
+import { ISoeker, OpploesningAarsak } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { RadioProps } from "nav-frontend-skjema";
 

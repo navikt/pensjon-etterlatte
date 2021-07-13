@@ -12,10 +12,11 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
 import AlertStripe from "nav-frontend-alertstriper";
 import { RHFToValgRadio } from "../../felles/RHFRadio";
-import NySivilstatus from "./forholdTilAvdoede/nySivilstatus/NySivilstatus";
+import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
 import React from "react";
 import { erDato } from "../../../utils/dato";
+import { Cell, Grid } from "@navikt/ds-react";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t, i18n } = useTranslation();
@@ -59,19 +60,24 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
             {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <FormProvider {...methods}>
                 <form>
-                    <Element>Hvem er det som er død?</Element>
-                    <SkjemaGruppe className={"rad"}>
-                        <RHFInput
-                            className={"kol"}
-                            name={"avdoed.fornavn"}
-                            label={t("avdoed.fornavn")}
-                        />
+                    <SkjemaGruppe>
+                        <Element>Hvem er det som er død?</Element>
 
-                        <RHFInput
-                            className={"kol"}
-                            name={"avdoed.etternavn"}
-                            label={t("avdoed.etternavn")}
-                        />
+                        <Grid>
+                            <Cell xs={12} md={6}>
+                                <RHFInput
+                                    name={"avdoed.fornavn"}
+                                    label={t("avdoed.fornavn")}
+                                />
+                            </Cell>
+
+                            <Cell xs={12} md={6}>
+                                <RHFInput
+                                    name={"avdoed.etternavn"}
+                                    label={t("avdoed.etternavn")}
+                                />
+                            </Cell>
+                        </Grid>
                     </SkjemaGruppe>
 
                     <SkjemaGruppe>

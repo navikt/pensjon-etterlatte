@@ -5,13 +5,14 @@ import Banner from "./components/felles/Banner";
 import UgyldigSoeker from "./components/UgyldigSoeker";
 import Soeknad from "./components/soknad/Soeknad";
 import Lenke from "nav-frontend-lenker";
+import { ContentContainer } from "@navikt/ds-react";
 
 const App = () => {
     return (
         <>
             <Banner tekst={"Søknad om gjenlevendepensjon"}/>
 
-            <div className={"soeknad"}>
+            <ContentContainer className={"soeknad"}>
                 <Switch>
                     {/* TODO: Kun støtte i dev og Q, ikke prod. Krever litt endringer i appen. */}
                     <Route path={"/labs"} component={DevLabs} />
@@ -22,7 +23,7 @@ const App = () => {
 
                     <Route component={SideIkkeFunnet} />
                 </Switch>
-            </div>
+            </ContentContainer>
 
             {/* TODO: Kun være synlig i dev/localhost */}
             <Lenke className={"labs-lenke"} href={"/labs"} />

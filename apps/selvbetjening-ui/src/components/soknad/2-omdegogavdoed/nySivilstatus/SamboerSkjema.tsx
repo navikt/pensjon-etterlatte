@@ -1,14 +1,14 @@
 import { useTranslation } from "react-i18next";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { ISoeker, SamboerInntekt } from "../../../../../typer/person";
+import { ISoeker, SamboerInntekt } from "../../../../typer/person";
 import { Undertittel } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
 import { useFormContext } from "react-hook-form";
-import { RHFInput } from "../../../../felles/RHFInput";
-import { RHFToValgRadio } from "../../../../felles/RHFRadio";
-import { IValg } from "../../../../../typer/Spoersmaal";
+import { RHFInput } from "../../../felles/RHFInput";
+import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { IValg } from "../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
-import { RHFCheckboksPanelGruppe } from "../../../../felles/RHFCheckboksPanelGruppe";
+import { RHFCheckboksPanelGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
 
 const SamboerSkjema = () => {
     const { t } = useTranslation();

@@ -3,6 +3,7 @@ import { Element, Normaltekst } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import { SkjemaGruppe } from "nav-frontend-skjema";
+import { Cell, Grid } from "@navikt/ds-react";
 
 const InnloggetBruker = () => {
     const { t } = useTranslation();
@@ -16,8 +17,8 @@ const InnloggetBruker = () => {
             <AlertStripe type="advarsel">{t("omSoekeren.advarsel")}</AlertStripe>
             <br />
 
-            <div className={"opplysninger rad"}>
-                <div className={"kolonne"}>
+            <Grid className={"opplysninger"}>
+                <Cell xs={6}>
                     <div>
                         <Element>{t("felles.navn")}</Element>
                         <Normaltekst>
@@ -34,9 +35,9 @@ const InnloggetBruker = () => {
                         <Element>{t("felles.adresse")}</Element>
                         <Normaltekst>{state.adresse}</Normaltekst>
                     </div>
-                </div>
+                </Cell>
 
-                <div className={"kolonne"}>
+                <Cell xs={6}>
                     <div>
                         <Element>{t("felles.sivilstatus")}</Element>
                         <Normaltekst>{state.sivilstatus}</Normaltekst>
@@ -46,8 +47,8 @@ const InnloggetBruker = () => {
                         <Element>{t("felles.statsborgerskap")}</Element>
                         <Normaltekst>{state.statsborgerskap}</Normaltekst>
                     </div>
-                </div>
-            </div>
+                </Cell>
+            </Grid>
         </SkjemaGruppe>
     );
 };

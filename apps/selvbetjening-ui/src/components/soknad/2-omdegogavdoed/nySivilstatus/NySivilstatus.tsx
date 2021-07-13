@@ -1,8 +1,8 @@
-import { RHFRadio } from "../../../../felles/RHFRadio";
-import { ISoeker, Sivilstatus } from "../../../../../typer/person";
+import { RHFRadio } from "../../../felles/RHFRadio";
+import { ISoeker, Sivilstatus } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
-import { IValg } from "../../../../../typer/Spoersmaal";
-import { antallAarMellom } from "../../../../../utils/dato";
+import { IValg } from "../../../../typer/Spoersmaal";
+import { antallAarMellom } from "../../../../utils/dato";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import NyttEkteskap from "./NyttEkteskap";
 import NyttSamboerskap from "./NyttSamboerskap";
