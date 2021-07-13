@@ -1,7 +1,6 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
-import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
-import React from "react";
+import { RHFRadio } from "../../felles/RHFRadio";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
 import { FormProvider, useForm } from "react-hook-form";
 import { ActionTypes } from "../../../context/soknad/soknad";
@@ -11,9 +10,11 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import AndreYtelser from "./fragmenter/AndreYtelser";
 import HoeyesteUtdanning from "./fragmenter/HoeyesteUtdanning";
 import TidligereArbeidsforhold from "./fragmenter/TidligereArbeidsforhold";
-import { Systemtittel } from "nav-frontend-typografi";
+import { Systemtittel, Undertittel } from "nav-frontend-typografi";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
+import Utdanning from "./fragmenter/Utdanning";
+import { RHFInput } from "../../felles/RHFInput";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -43,34 +44,44 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
             <form>
                 <SkjemaGruppe>
                     <Systemtittel className={"center"}>
-                        Arbeid og utdanning
+                        Situasjonen din
                     </Systemtittel>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <RHFRadio
-                        name={"status"}
-                        legend={"Er du for tiden i arbeid?"}
-                        radios={Object.values(JobbStatus).map(value => {
-                            return { label: t(value), value } as RadioProps;
-                        })}
-                    />
+                    <Undertittel>
+                        Arbeid og utdanning
+                    </Undertittel>
                 </SkjemaGruppe>
 
-                <SkjemaGruppe>
-                    <RHFToValgRadio
-                        name={"selvstendigNaeringsdrivende"}
-                        legend={"Er du selvstendig næringsdrivende?"}
-                    />
-                </SkjemaGruppe>
+                <RHFRadio
+                    name={"status"}
+                    legend={"Er du for tiden i arbeid?"}
+                    radios={Object.values(JobbStatus).map(value => {
+                        return { label: t(value), value } as RadioProps;
+                    })}
+                />
 
                 {status === JobbStatus.arbeidstaker && (
                     <NavaerendeArbeidsforhold />
                 )}
 
-                <HoeyesteUtdanning />
+                {status === JobbStatus.underUtdanning && (
+                    <Utdanning />
+                )}
+
+                {status === JobbStatus.ingen && (
+                    <SkjemaGruppe>
+                        <RHFInput
+                            name={"beskrivelseIngen"}
+                            label={"Beskrivelse"}
+                        />
+                    </SkjemaGruppe>
+                )}
 
                 <TidligereArbeidsforhold />
+
+                <HoeyesteUtdanning />
 
                 <AndreYtelser />
 

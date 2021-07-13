@@ -1,11 +1,10 @@
 import { RHFRadio } from "../../../felles/RHFRadio";
 import { useTranslation } from "react-i18next";
-import { RHFSelect } from "../../../felles/RHFSelect";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import React from "react";
 import { ISituasjon, Utdanning } from "../../../../typer/situasjon";
 import { useFormContext } from "react-hook-form";
-
+import { RHFInput } from "../../../felles/RHFInput";
 
 const HoeyesteUtdanning = () => {
     const { t } = useTranslation();
@@ -24,16 +23,12 @@ const HoeyesteUtdanning = () => {
                 })}
             />
 
-            {(utdanning === "Universitet/høyskole") && (
+            {(utdanning === Utdanning.annen) && (
                 <SkjemaGruppe>
-                    <RHFSelect
-                        name={"utdanning.antallAarUniversitetHoyskole"}
-                        label={t("utdanning.antallAarUniversitetHoyskole")}
-                        selectOptions={[
-                            { label: "Velg ...", value: undefined },
-                            { label: "1-3 år", value: "1-3 år" },
-                            { label: "3-5 år", value: "3-5 år" }
-                        ]}
+                    <RHFInput
+                        name={"utdanning.annenUtdanning"}
+                        label={"Annen utdanning"}
+                        placeholder={"F.eks. kurs, enkeltår på universitet eller høyskole"}
                     />
                 </SkjemaGruppe>
             )}

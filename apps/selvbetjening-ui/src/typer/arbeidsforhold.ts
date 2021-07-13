@@ -1,27 +1,34 @@
 import { IValg } from "./Spoersmaal";
 
 export enum StillingType {
-    Fast = "Fast",
-    Midlertidig = "Midlertidig",
-    Sesongarbeid = "Sesongarbeid"
+    fast = "stillingType.fast",
+    midlertidig = "stillingType.midlertidig",
+    sesongarbeid = "stillingType.sesongarbeid"
 }
 
 export interface IArbeidsforhold {
-    stillingEllerYrke?: string;
+    arbeidsgiver?: string;
+    stilling?: string;
     startDato?: Date;
     sluttDato?: Date;
     ansettelsesforhold?: StillingType; // låse valg til type?
-    heltidDeltid?: string;
     stillingsprosent?: number;
-    forventerEndretInntekt?: IValg;
-    arbeidsgiver?: {
-        navn?: string;
-        adresse?: string;
-    };
+    forventerEndretInntekt?: {
+        svar?: IValg;
+        beskrivelse?: string;
+    }
     inntekt?: {
         bruttoArbeidsinntektPrMd?: string;
         personinntektFraNaeringPrAr?: string;
     };
+}
+
+export interface ISelvstendigNaeringsdrivende {
+    // que pasa, se tegninger... her er det noe muffens
+    beskrivelse?: string;
+    startDato?: Date;
+    type?: string;
+    endringIfmDoedsfall?: string;
 }
 
 export interface ITidligereArbeidsforhold {

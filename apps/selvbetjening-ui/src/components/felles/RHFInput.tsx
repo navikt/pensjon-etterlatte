@@ -40,29 +40,40 @@ export const RHFInput = ({name, rules, ...rest}: RHFProps) => {
     )
 };
 
+const match = (value: any, matcher: RegExp, separator: string) => {
+    const match = value.match(matcher)
+
+    if (!!match) {
+        const del1 = match[1]
+        const del2 = match[2] ? `${separator}${match[2]}` : ""
+        const del3 = match[3] ? `${separator}${match[3]}` : ""
+
+        return `${del1}${del2}${del3}`;
+    }
+
+    return undefined;
+}
+
+const format = (
+    e: ChangeEvent<HTMLInputElement>,
+    matcher: RegExp,
+    separator: string = " "
+): string => {
+    const value = e.target.value
+
+    const result = match(value, matcher, separator)
+
+    return result || value.substring(0, (value.length - 1))
+};
+
 export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
     const { t } = useTranslation();
     const { control, formState: { errors }} = useFormContext();
 
     const error: FieldError = get(errors, name)
-
     const feilmelding = t(getTransKey(error))
 
-    const format = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value
-
-        const match = value.match(/^([1-9]\d{0,3})\.?(\d{0,2})\.?(\d{0,5})$/)
-
-        if (match) {
-            const bankreg = match[1]
-            const kontogruppe = match[2] ? `.${match[2]}` : ""
-            const kundenummer = match[3] ? `.${match[3]}` : ""
-
-            return `${bankreg}${kontogruppe}${kundenummer}`;
-        }
-
-        return value.substring(0, (value.length - 1))
-    }
+    const matcher = /^([1-9]\d{0,3})\.?(\d{0,2})\.?(\d{0,5})$/
 
     return (
         <Controller
@@ -73,9 +84,35 @@ export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
                 <Input
                     id={name}
                     value={value || ""}
-                    onChange={(e) => onChange(format(e))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, matcher, "."))}
                     feil={feilmelding}
-                    maxLength={13}
+                    {...rest}
+                />
+            )}
+        />
+    )
+};
+
+export const RHFValutaInput = ({name, rules, ...rest}: RHFProps) => {
+    const { t } = useTranslation();
+    const { control, formState: { errors }} = useFormContext();
+
+    const error: FieldError = get(errors, name)
+    const feilmelding = t(getTransKey(error))
+
+    const matcher = /^([1-9]\d{0,2})\s?(\d{0,3})\s?(\d{0,3})$/
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            rules={{required: true, ...rules}}
+            render={({ field: { value, onChange } }) => (
+                <Input
+                    id={name}
+                    value={value || ""}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, matcher))}
+                    feil={feilmelding}
                     {...rest}
                 />
             )}
@@ -88,24 +125,9 @@ export const RHFTelefonInput = ({name, rules, ...rest}: RHFProps) => {
     const { control, formState: { errors }} = useFormContext();
 
     const error: FieldError = get(errors, name)
-
     const feilmelding = t(getTransKey(error))
 
-    const format = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value
-
-        const match = value.match(/^([1-9]\d{0,2})\s?(\d{0,2})\s?(\d{0,3})$/)
-
-        if (match) {
-            const gruppe1 = match[1]
-            const gruppe2 = match[2] ? ` ${match[2]}` : ""
-            const gruppe3 = match[3] ? ` ${match[3]}` : ""
-
-            return `${gruppe1}${gruppe2}${gruppe3}`;
-        }
-
-        return value.substring(0, (value.length - 1))
-    }
+    const matcher = /^([1-9]\d{0,2})\s?(\d{0,2})\s?(\d{0,3})$/
 
     return (
         <Controller
@@ -116,9 +138,8 @@ export const RHFTelefonInput = ({name, rules, ...rest}: RHFProps) => {
                 <Input
                     id={name}
                     value={value || ""}
-                    onChange={(e) => onChange(format(e))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, matcher))}
                     feil={feilmelding}
-                    maxLength={13}
                     {...rest}
                 />
             )}

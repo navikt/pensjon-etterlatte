@@ -6,7 +6,7 @@ import { AvdoedInntekt, IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
-import { RHFFoedselsnummerInput, RHFInput } from "../../felles/RHFInput";
+import { RHFFoedselsnummerInput, RHFInput, RHFValutaInput } from "../../felles/RHFInput";
 import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
@@ -97,10 +97,9 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 {mottokPensjonAndreLand === IValg.JA && (
                     <SkjemaGruppe>
-                        <RHFInput
+                        <RHFValutaInput
                             name={"mottokPensjonAndreLand.beskrivelse"}
                             label={t("omDenAvdoede.mottokPensjonAndreLand.beskrivelse")}
-                            rules={{ pattern: /^\d+$/ }}
                         />
                     </SkjemaGruppe>
                 )}
@@ -113,7 +112,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 {selvstendigNaeringsdrivende === IValg.JA && (
                     <SkjemaGruppe>
-                        <RHFInput
+                        <RHFValutaInput
                             name={"haddePensjonsgivendeInntekt.beskrivelse"}
                             label={"Oppgi næringsinntekt fra kalenderåret før dødsfallet"}
                         />

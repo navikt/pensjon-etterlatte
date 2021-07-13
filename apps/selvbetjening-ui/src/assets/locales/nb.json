@@ -233,10 +233,16 @@
       "ingen": "Ingen av delene"
     }
   },
+  "arbeidsforholdType": {
+    "selvstendig": "Ja, er selvstendig næringsdrivende",
+    "arbeidstaker": "Nei, er arbeidstaker",
+    "begge": "Jeg er selvstendig næringsdrivende og arbeidstaker"
+  },
   "jobbStatus": {
     "arbeidstaker": "Ja",
     "arbeidsledig": "Nei, er arbeidsledig",
-    "underUtdanning":  "Nei, er under utdanning"
+    "underUtdanning":  "Nei, er under utdanning",
+    "ingen": "Nei, ingen av delene"
   },
   "avdoedInntekt": {
     "selvstendigNaeringsdrivende": "Ja, inntekt som selvstendig næringsdrivende",
@@ -252,8 +258,10 @@
   "utdanning": {
     "grunnskole":  "Grunnskole",
     "videregående": "Videregående",
-    "universitetHoeyskole":  "Universitet/høyskole",
-    "harIngenUtdanning": "Har ingen utdanning"
+    "bachelorgrad": "Bachelorgrad",
+    "mastergrad": "Mastergrad",
+    "ingen": "Har ingen utdanning",
+    "annen": "Annen utdanning"
   },
   "felles": {
     "fnrDnr": "Fødselsnummer / d-nummer",

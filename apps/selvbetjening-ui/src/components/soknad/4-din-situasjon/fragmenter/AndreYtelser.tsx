@@ -24,64 +24,52 @@ const AndreYtelser = () => {
                 </Undertittel>
             </SkjemaGruppe>
 
-            <SkjemaGruppe>
-                <RHFToValgRadio
-                    name={"andreYtelser.kravOmAnnenStonad.svar"}
-                    legend={t("andreYtelser.kravOmAnnenStonad.svar")}
-                />
-            </SkjemaGruppe>
+            <RHFToValgRadio
+                name={"andreYtelser.kravOmAnnenStonad.svar"}
+                legend={"Har du søkt om andre ytelser fra NAV som du ikke har fått svar på?"}
+            />
 
             {kravOmAnnenStonad === IValg.JA && (
                 <SkjemaGruppe>
                     <RHFInput
-                        bredde={"L"}
+                        bredde={"XXL"}
                         name={"andreYtelser.kravOmAnnenStonad.beskrivelse"}
-                        label={t("andreYtelser.kravOmAnnenStonad.beskrivelse")}
+                        label={"Hva har du søkt om?"}
                     />
                 </SkjemaGruppe>
             )}
 
-            <SkjemaGruppe>
-                <RHFToValgRadio
-                    name={"andreYtelser.mottarPensjonUtland.svar"}
-                    legend={t("andreYtelser.mottarPensjonUtland.svar")}
-                />
-            </SkjemaGruppe>
+            <RHFToValgRadio
+                name={"andreYtelser.mottarPensjonUtland.svar"}
+                legend={"Får du pensjon fra utlandet?"}
+            />
 
             {mottarPensjonUtland === IValg.JA && (
-                <div>
-                    <fieldset className={"rad skjemagruppe"}>
+                <>
+                    <SkjemaGruppe>
                         <RHFInput
-                            bredde={"L"}
-                            className={"kolonne"}
+                            bredde={"XXL"}
                             name={"andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"}
                             label={t("andreYtelser.mottarPensjonUtland.hvaSlagsPensjon")}
                         />
+                    </SkjemaGruppe>
 
+                    <SkjemaGruppe>
                         <RHFInput
-                            bredde={"S"}
-                            className={"kolonne"}
+                            bredde={"L"}
                             name={"andreYtelser.mottarPensjonUtland.fraHvilketLand"}
                             label={t("andreYtelser.mottarPensjonUtland.fraHvilketLand")}
                         />
-                    </fieldset>
+                    </SkjemaGruppe>
 
-                    <fieldset className={"rad skjemagruppe"}>
+                    <SkjemaGruppe>
                         <RHFInput
-                            bredde={"M"}
-                            className={"kolonne"}
+                            bredde={"L"}
                             name={"andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"}
                             label={t("andreYtelser.mottarPensjonUtland.bruttobeloepPrAar")}
                         />
-
-                        <RHFInput
-                            bredde={"M"}
-                            className={"kolonne"}
-                            name={"andreYtelser.mottarPensjonUtland.landetsValuta"}
-                            label={t("andreYtelser.mottarPensjonUtland.landetsValuta")}
-                        />
-                    </fieldset>
-                </div>
+                    </SkjemaGruppe>
+                </>
             )}
         </div>
     );
