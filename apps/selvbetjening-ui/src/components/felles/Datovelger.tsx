@@ -8,7 +8,7 @@ import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath } from "react-hook-form/dist/types";
 import classnames from "classnames";
 import { get } from "lodash";
-import { getTransKey } from "../../utils/Utils";
+import { getTransKey } from "../../utils/translation";
 import "react-datepicker/dist/react-datepicker.css";
 
 interface DatovelgerProps {

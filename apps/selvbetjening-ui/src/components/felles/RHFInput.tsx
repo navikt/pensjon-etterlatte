@@ -5,8 +5,9 @@ import { Input, InputProps } from "nav-frontend-skjema";
 import { get } from "lodash"
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
-import { getTransKey } from "../../utils/Utils";
+import { getTransKey } from "../../utils/translation";
 import { fnr } from "@navikt/fnrvalidator";
+import { kontonrMatcher, telefonnrMatcher } from "../../utils/matchers";
 
 interface RHFProps extends Omit<InputProps, 'name'> {
     name: FieldPath<FieldValues>;
@@ -73,8 +74,6 @@ export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
     const error: FieldError = get(errors, name)
     const feilmelding = t(getTransKey(error))
 
-    const matcher = /^([1-9]\d{0,3})\.?(\d{0,2})\.?(\d{0,5})$/
-
     return (
         <Controller
             name={name}
@@ -84,7 +83,7 @@ export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
                 <Input
                     id={name}
                     value={value || ""}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, matcher, "."))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, kontonrMatcher, "."))}
                     feil={feilmelding}
                     {...rest}
                 />
@@ -93,25 +92,23 @@ export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
     )
 };
 
-export const RHFValutaInput = ({name, rules, ...rest}: RHFProps) => {
+export const RHFValutaInput = ({name, ...rest}: RHFProps) => {
     const { t } = useTranslation();
     const { control, formState: { errors }} = useFormContext();
 
     const error: FieldError = get(errors, name)
     const feilmelding = t(getTransKey(error))
 
-    const matcher = /^([1-9]\d{0,2})\s?(\d{0,3})\s?(\d{0,3})$/
-
     return (
         <Controller
             name={name}
             control={control}
-            rules={{required: true, ...rules}}
+            rules={{required: true, pattern: /^\d[0-9\s]*$/}}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
                     value={value || ""}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, matcher))}
+                    onChange={onChange}
                     feil={feilmelding}
                     {...rest}
                 />
@@ -127,8 +124,6 @@ export const RHFTelefonInput = ({name, rules, ...rest}: RHFProps) => {
     const error: FieldError = get(errors, name)
     const feilmelding = t(getTransKey(error))
 
-    const matcher = /^([1-9]\d{0,2})\s?(\d{0,2})\s?(\d{0,3})$/
-
     return (
         <Controller
             name={name}
@@ -138,7 +133,7 @@ export const RHFTelefonInput = ({name, rules, ...rest}: RHFProps) => {
                 <Input
                     id={name}
                     value={value || ""}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, matcher))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, telefonnrMatcher))}
                     feil={feilmelding}
                     {...rest}
                 />

@@ -15,6 +15,7 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import React from "react";
 import Navigasjon from "../../felles/Navigasjon";
+import { emailMatcher } from "../../../utils/matchers";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
@@ -85,7 +86,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             <RHFInput
                                 name={"kontaktinfo.epost"}
                                 label={t("omSoekeren.kontaktinfo.epost")}
-                                // TODO: Validere e-post
+                                rules={{ pattern: emailMatcher }}
                             />
                         </div>
                     </div>
@@ -101,7 +102,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             <RHFKontonummerInput
                                 name={"kontonummer"}
                                 label={t("Oppgi norsk kontonummer for utbetaling")}
-                                rules={{pattern: /^\d{4}\.\d{2}\.\d{5}$/}}
                                 placeholder={"11 siffer"}
                             />
                         </SkjemaGruppe>

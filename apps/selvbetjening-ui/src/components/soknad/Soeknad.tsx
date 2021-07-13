@@ -7,7 +7,7 @@ import SoknadForside from "./SoknadForside";
 import SoknadDialog from "./SoknadDialog";
 import SoknadKvittering from "./SoknadKvittering";
 import { hentAlder } from "../../utils/dato";
-import { gyldigAlder } from "../../utils/Utils";
+import { gyldigAlder } from "../../utils/alder";
 import { useHistory } from "react-router-dom";
 
 const Soeknad = () => {

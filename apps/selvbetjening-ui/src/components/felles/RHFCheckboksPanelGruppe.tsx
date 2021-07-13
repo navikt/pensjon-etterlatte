@@ -9,7 +9,7 @@ import { Controller, FieldPath, FieldValues } from "react-hook-form";
 import { CheckboxProps } from "nav-frontend-skjema/lib/checkbox";
 import { get } from "lodash";
 import { useTranslation } from "react-i18next";
-import { getTransKey } from "../../utils/Utils";
+import { getTransKey } from "../../utils/translation";
 
 const handleSelect = (array: any[], addOrRemove: any) => {
     return array?.includes(addOrRemove)

@@ -3,7 +3,7 @@ import { TFunction, useTranslation } from "react-i18next";
 import { FieldError, FieldErrors } from "react-hook-form/dist/types/errors";
 import { FeiloppsummeringFeil } from "nav-frontend-skjema/src/feiloppsummering";
 import { v4 as uuid } from "uuid";
-import { getTransKey } from "../../utils/Utils";
+import { getTransKey } from "../../utils/translation";
 
 const getFieldErrors = (obj: FieldErrors): FieldError[] => {
     return Object.values(obj)
