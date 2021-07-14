@@ -17,11 +17,13 @@ repositories {
     mavenCentral()
     maven("https://packages.confluent.io/maven/")
 }
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("com.azure.spring:azure-spring-boot-starter-active-directory:3.6.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -30,6 +32,13 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
 
+}
+extra["azureVersion"] = "3.6.0"
+
+dependencyManagement {
+    imports {
+        mavenBom("com.azure.spring:azure-spring-boot-bom:${property("azureVersion")}")
+    }
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
