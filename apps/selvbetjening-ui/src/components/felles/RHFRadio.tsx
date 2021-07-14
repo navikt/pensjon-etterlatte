@@ -13,7 +13,7 @@ import HvorforSpoerVi from "./HvorforSpoerVi";
 export const RHFToValgRadio = ({ name, hjelpetekst, legend, vetIkke }: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
-    hjelpetekst?: string;
+    hjelpetekst?: ReactNode;
     vetIkke?: boolean;
 }) => {
     const defaultRadios = [
@@ -36,7 +36,7 @@ export const RHFToValgRadio = ({ name, hjelpetekst, legend, vetIkke }: {
 export const RHFInlineRadio = ({ name, legend, hjelpetekst, radios }: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
-    hjelpetekst?: string;
+    hjelpetekst?: ReactNode;
     radios: RadioPanelProps[];
 }) => {
     const { t } = useTranslation();
@@ -70,7 +70,7 @@ export const RHFInlineRadio = ({ name, legend, hjelpetekst, radios }: {
 interface RHFRadioProps extends Omit<RadioPanelGruppeProps, 'onChange'> {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
-    hjelpetekst?: string;
+    hjelpetekst?: ReactNode;
     radios: RadioPanelProps[];
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>;
 }

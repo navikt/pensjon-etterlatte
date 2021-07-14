@@ -1,7 +1,7 @@
 import "./OmDeg.less";
 import { Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
@@ -47,7 +47,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
         <>
             {/* Steg 2 */}
             <Systemtittel className={"center"}>
-                {t("omSoekeren.tittel")}
+                <Trans i18nKey={"omSoekeren.tittel"} />
             </Systemtittel>
 
             {/* Informasjon om den innloggede brukeren */}
@@ -60,14 +60,14 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                 <form>
                     <RHFToValgRadio
                         name={"bostedsadresseBekreftet"}
-                        legend={t("omSoekeren.borPaaAdresse")}
+                        legend={<Trans i18nKey={"omSoekeren.bostedsadresseBekreftet"} />}
                     />
 
                     {borPaaRegistrertAdresse === IValg.NEI && (
                         <SkjemaGruppe>
                             <RHFInput
                                 name={"alternativAdresse"}
-                                label={"Oppgi nåværende bostedsadresse"}
+                                label={<Trans i18nKey={"omSoekeren.alternativAdresse"}/>}
                             />
                         </SkjemaGruppe>
                     )}
@@ -96,6 +96,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                     <RHFToValgRadio
                         name={"oppholderSegINorge"}
                         legend={t("omSoekeren.oppholderSegINorge")}
+                        hjelpetekst={t("omSoekeren.oppholdHvorfor")}
                     />
 
                     {oppholderSegINorge === IValg.JA && (
@@ -125,12 +126,12 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         </>
                     )}
 
-
                     {skalSjekkeFlyktningStatus && (
                         <SkjemaGruppe>
                             <RHFToValgRadio
                                 name={"flyktning"}
-                                legend={<>Har du status som flyktning? <i>(gjelder alle født før 1960)</i></>}
+                                legend={<Trans i18nKey={"omSoekeren.flyktning"} />}
+                                hjelpetekst={t("omSoekeren.flyktningHvorfor")}
                             />
                         </SkjemaGruppe>
                     )}

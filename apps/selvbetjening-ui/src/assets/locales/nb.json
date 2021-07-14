@@ -105,11 +105,15 @@
   "omSoekeren": {
     "tittel": "Om deg",
     "advarsel": "Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.",
-    "borPaaAdresse": "Bor du på denne adressen?",
+    "bostedsadresseBekreftet": "Bor du på denne adressen?",
+    "alternativAdresse": "Oppgi nåværende bostedsadresse",
     "oppholderSegINorge": "Oppholder du deg i Norge?",
+    "oppholdHvorfor": "Vi må vite hvor du oppholder deg for å vurdere retten til å ta med deg pensjonen til utlandet.",
     "oppgiLand": "Oppgi land",
     "infoFolkeregisteret": "Saksbehandler vil ta kontakt med deg for å oppdrive korrekt adresse.",
     "medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i utlandet?",
+    "flyktning": "Har du status som flyktning? <i>(gjelder alle født før 1960)</i>",
+    "flyktningHvorfor":  "Hvis du er registrert som flyktning hos UDI kan vi vurdere søknaden din ut fra spesielle bestemmelser.",
     "kontaktinfo": {
       "telefon": "Telefonnummer",
       "epost": "E-post"
