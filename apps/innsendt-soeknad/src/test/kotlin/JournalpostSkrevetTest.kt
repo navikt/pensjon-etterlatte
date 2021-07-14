@@ -58,7 +58,7 @@ fun testMessage(journalpost: Long, soeknad: Long, dokumentInfoId: Long? = null) 
             it.put("journalpostferdigstilt", false)
             it.put("journalpostId", journalpost)
             dokumentInfoId?.also { dii ->
-                it.putArray("dokumenter").addObject().put("dokumentInfoId", dokumentInfoId)
+                it.putArray("dokumenter").addObject().put("dokumentInfoId", dii)
 
             }
         }

@@ -95,7 +95,7 @@ class Fodselsnummer private constructor(@JsonValue val value: String) {
      * Brukes av helsevesenet i tilfeller hvor de har behov for unikt å identifisere pasienter
      * som ikke har et kjent fødselsnummer eller D-nummer.
      */
-    private fun isFhNumber(): Boolean = value[0].toInt() in 8..9
+    private fun isFhNumber(): Boolean = Character.getNumericValue(value[0]) in 8..9
 
     /**
      * Validate control digits.
@@ -125,7 +125,7 @@ class Fodselsnummer private constructor(@JsonValue val value: String) {
      */
     private fun mod(arr: IntArray): Int {
         val sum = arr.withIndex()
-            .sumBy { (i, m) -> m * Character.getNumericValue(value[i]) }
+            .sumOf { (i, m) -> m * Character.getNumericValue(value[i]) }
 
         val result = 11 - (sum % 11)
         return if (result == 11) 0 else result

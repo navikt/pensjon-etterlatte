@@ -9,7 +9,6 @@ import io.ktor.request.header
 import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.route
-import io.ktor.util.KtorExperimentalAPI
 import no.nav.etterlatte.Config
 import no.nav.etterlatte.NavCallId
 import no.nav.etterlatte.StsClient
@@ -23,7 +22,6 @@ val HttpHeaders.Tema: String get() = "Tema"
 val HttpHeaders.NavConsumerToken: String get() = "Nav-Consumer-Token"
 val HttpHeaders.XCorrelationID: String get() = "X-Correlation-ID"
 
-@KtorExperimentalAPI
 fun Route.pdl(config: Config, stsClient: StsClient) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     route("/pdl") {

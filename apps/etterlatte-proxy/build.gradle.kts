@@ -10,10 +10,6 @@ plugins {
     kotlin("jvm")
 }
 
-application {
-    mainClassName = "io.ktor.server.netty.EngineMain"
-}
-
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinversion")
     implementation("io.ktor:ktor-server-netty:$ktorversion")

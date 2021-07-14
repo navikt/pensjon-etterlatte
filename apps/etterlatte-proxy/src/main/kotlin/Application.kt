@@ -10,7 +10,6 @@ import io.ktor.jackson.JacksonConverter
 import io.ktor.request.path
 import io.ktor.routing.route
 import io.ktor.routing.routing
-import io.ktor.util.KtorExperimentalAPI
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.routes.dok
 import no.nav.etterlatte.routes.internal
@@ -19,7 +18,6 @@ import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
-@KtorExperimentalAPI
 @Suppress("unused") // Referenced in application.conf
 fun Application.module() {
     val config = runBlocking { environment.config.load() }

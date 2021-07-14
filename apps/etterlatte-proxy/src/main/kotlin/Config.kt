@@ -3,7 +3,6 @@ package no.nav.etterlatte
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.ktor.client.request.get
 import io.ktor.config.ApplicationConfig
-import io.ktor.util.KtorExperimentalAPI
 
 data class Config(
     val sts: Sts,
@@ -55,7 +54,6 @@ data class Config(
 
 }
 
-@KtorExperimentalAPI
 suspend fun ApplicationConfig.load() = Config(
     pdl = Config.PDL(url = property("pdl.url").getString()),
     dok = Config.DOK(url = property("dok.url").getString()),

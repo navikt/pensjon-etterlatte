@@ -21,7 +21,6 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.http.content.OutgoingContent
 import io.ktor.request.receiveChannel
 import io.ktor.response.respond
-import io.ktor.util.KtorExperimentalAPI
 import io.ktor.util.filter
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.ByteWriteChannel
@@ -29,7 +28,6 @@ import io.ktor.utils.io.copyAndClose
 import org.apache.http.impl.conn.SystemDefaultRoutePlanner
 import java.net.ProxySelector
 
-@KtorExperimentalAPI
 fun jsonClient() =  HttpClient(Apache) {
     install(JsonFeature) {
         serializer = JacksonSerializer { configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false) }
@@ -70,7 +68,7 @@ class ProxiedContent(val proxiedHeaders: Headers, val content: ByteReadChannel, 
     override val contentType: ContentType? = proxiedHeaders[HttpHeaders.ContentType]?.let { ContentType.parse(it) }
     override val headers: Headers = Headers.build {
         appendAll(proxiedHeaders.filter { key, _ ->
-            ignoredHeaders.none { it.equals(it, ignoreCase = true) }
+            ignoredHeaders.none { it.equals(key, ignoreCase = true) }
         })
     }
     override suspend fun writeTo(channel: ByteWriteChannel) {

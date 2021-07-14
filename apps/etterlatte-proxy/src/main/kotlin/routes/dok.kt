@@ -12,7 +12,6 @@ import io.ktor.response.respondText
 import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.route
-import io.ktor.util.KtorExperimentalAPI
 import no.nav.etterlatte.Config
 import no.nav.etterlatte.StsClient
 import no.nav.etterlatte.httpClient
@@ -21,7 +20,6 @@ import no.nav.etterlatte.pipeResponse
 import org.slf4j.LoggerFactory
 
 
-@KtorExperimentalAPI
 fun Route.dok(config: Config, stsClient: StsClient) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     route("/dok") {

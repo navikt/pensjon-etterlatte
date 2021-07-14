@@ -6,10 +6,6 @@ plugins {
     kotlin("jvm")
 }
 
-repositories {
-    jcenter()
-}
-
 dependencies {
     implementation("io.ktor:ktor-server-core:$ktorversion")
     implementation("io.ktor:ktor-server-netty:$ktorversion")

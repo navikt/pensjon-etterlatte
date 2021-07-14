@@ -32,7 +32,7 @@ class LivetErEnStroemAvHendelser(env: Map<String, String>) : ILivetErEnStroemAvH
                             clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString(),
                             username = env["srvuser"],
                             password = env["srvpwd"],
-                            autoCommit = env["KAFKA_AUTO_COMMIT"]?.let { "true" == it.toLowerCase() },
+                            autoCommit = env["KAFKA_AUTO_COMMIT"]?.let { "true" == it.lowercase() },
                             schemaRegistryUrl = env["LEESAH_KAFKA_SCHEMA_REGISTRY"],
                             autoOffsetResetConfig = "latest"
                     ).consumerConfig())

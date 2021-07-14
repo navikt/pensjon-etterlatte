@@ -1,11 +1,9 @@
 import com.nimbusds.jwt.SignedJWT
-import io.ktor.util.KtorExperimentalAPI
 import no.nav.etterlatte.ApplicationContext
 import no.nav.etterlatte.Server
 import no.nav.security.mock.oauth2.MockOAuth2Server
 import no.nav.security.mock.oauth2.token.DefaultOAuth2TokenCallback
 
-@KtorExperimentalAPI
 fun main() {
     mockOautServer()
     val ctx = ApplicationContext("application-lokal.conf")

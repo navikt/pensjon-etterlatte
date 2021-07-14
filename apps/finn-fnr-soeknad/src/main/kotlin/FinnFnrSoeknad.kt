@@ -63,7 +63,7 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
     }
     private fun mod(arr: IntArray, value:String): Int {
         val sum = arr.withIndex()
-            .sumBy { (i, m) -> m * Character.getNumericValue(value[i]) }
+            .sumOf { (i, m) -> m * Character.getNumericValue(value[i]) }
 
         val result = 11 - (sum % 11)
         return if (result == 11) 0 else result

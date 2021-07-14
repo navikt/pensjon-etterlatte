@@ -12,9 +12,8 @@ import io.ktor.client.features.defaultRequest
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.takeFrom
-import io.ktor.util.KtorExperimentalAPI
-import no.nav.etterlatte.ktortokenexchange.bearerToken
 import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
+import no.nav.etterlatte.ktortokenexchange.bearerToken
 import no.nav.etterlatte.person.PersonService
 
 class ApplicationContext(configLocation: String? = null) {
@@ -60,7 +59,6 @@ class ApplicationContext(configLocation: String? = null) {
     }
 }
 
-@KtorExperimentalAPI
 suspend fun main() {
     ApplicationContext()
         .also { Server(it).run() }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.apache.Apache
 import io.ktor.client.features.auth.Auth
+import io.ktor.client.features.auth.providers.BasicAuthCredentials
 import io.ktor.client.features.auth.providers.basic
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
@@ -17,9 +18,11 @@ class StsClient(private val config: Config.Sts) {
     private val httpClient = HttpClient(Apache) {
         install(Auth) {
             basic {
-                username = config.serviceuser.name
-                password = config.serviceuser.password
-                sendWithoutRequest = true
+                credentials {
+                    BasicAuthCredentials(config.serviceuser.name, config.serviceuser.password)
+                }
+
+                sendWithoutRequest { true }
             }
         }
         install(JsonFeature) {
