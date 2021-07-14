@@ -1,3 +1,3 @@
 FROM navikt/java:16
-COPY build/libs/*.jar ./
+COPY build/libs/bpc-explorer.jar ./app.jar
 
