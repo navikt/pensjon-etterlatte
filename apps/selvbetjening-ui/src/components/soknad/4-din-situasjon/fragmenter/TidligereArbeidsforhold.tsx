@@ -2,7 +2,7 @@ import "../../../felles/Infokort.less";
 import { Undertittel } from "nav-frontend-typografi";
 import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { Label, SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { DeleteFilled } from "@navikt/ds-icons";
@@ -10,6 +10,7 @@ import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form
 import { ISituasjon } from "../../../../typer/situasjon";
 import AlertStripe from "nav-frontend-alertstriper";
 import Panel from "nav-frontend-paneler";
+import { Cell, Grid } from "@navikt/ds-react";
 
 const TidligereArbeidsforhold = () => {
     const { t } = useTranslation();
@@ -27,7 +28,7 @@ const TidligereArbeidsforhold = () => {
             <SkjemaGruppe>
                 <Undertittel>{t("tidligereArbeidsforhold.tittel")}</Undertittel>
 
-                <br />
+                <br/>
 
                 <AlertStripe type={"info"} form={"inline"}>
                     Dersom du de siste 10 årene har vært i arbeid (deltid, heltid, vikariat, osv) er det viktig at du
@@ -38,41 +39,39 @@ const TidligereArbeidsforhold = () => {
             <SkjemaGruppe>
                 {fields.map((field: FieldArrayWithId, index) => (
                     <Panel border key={field.id} className={"luft-under"}>
-                        <div className={"rad"}>
-                            <div className={"kol"}>
-                                <RHFInput
-                                    // bredde={"XL"}
-                                    name={`tidligereArbeidsforhold[${index}].beskrivelse` as const}
-                                    label={"Beskrivelse"}
-                                />
-                            </div>
-                        </div>
+                        <RHFInput
+                            name={`tidligereArbeidsforhold[${index}].beskrivelse` as const}
+                            label={"Beskrivelse"}
+                        />
 
-                        <div className={"rad"}>
-                            <div className={"kol"}>
+                        <Grid>
+                            <Cell xs={12} md={4}>
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].fraDato` as const}
                                     label={"Fra"}
                                 />
-                            </div>
+                            </Cell>
 
-                            <div className={"kol"}>
+                            <Cell xs={12} md={4}>
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].tilDato` as const}
                                     label={"Til"}
                                 />
-                            </div>
+                            </Cell>
 
-                            <div className={"kol"}>
-                                <Fareknapp
-                                    htmlType={"button"}
-                                    className={"skjemaelement"}
-                                    onClick={() => remove(index)}
-                                >
-                                    <DeleteFilled />&nbsp; Fjern
-                                </Fareknapp>
-                            </div>
-                        </div>
+                            <Cell xs={12} md={4}>
+                                <div className={"skjemaelement"}>
+                                    <Label htmlFor={""}>&nbsp; {/* Liten hack for å fikse styling */}</Label>
+                                    <Fareknapp
+                                        htmlType={"button"}
+                                        className={"skjemaelement"}
+                                        onClick={() => remove(index)}
+                                    >
+                                        <DeleteFilled/>&nbsp; Fjern
+                                    </Fareknapp>
+                                </div>
+                            </Cell>
+                        </Grid>
                     </Panel>
                 ))}
 
