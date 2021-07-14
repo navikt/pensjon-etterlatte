@@ -1,34 +1,49 @@
 val ktorversion: String by project
 
 plugins {
-    application
+    id("org.springframework.boot") version "2.5.2"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm")
+    kotlin("plugin.spring") version "1.5.20"
 }
+
+configurations {
+    compileOnly {
+        extendsFrom(configurations.annotationProcessor.get())
+    }
+}
+
 repositories {
+    mavenCentral()
     maven("https://packages.confluent.io/maven/")
 }
 dependencies {
-    implementation("io.ktor:ktor-server-core:$ktorversion")
-    implementation("io.ktor:ktor-metrics-micrometer:$ktorversion")
-    implementation("io.ktor:ktor-jackson:$ktorversion")
-    implementation("io.micrometer:micrometer-registry-prometheus:1.6.1")
-    implementation("com.fasterxml:jackson-xml-databind:0.6.2")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.0")
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.0")
-    implementation("org.apache.kafka:kafka-clients:2.5.0")
-    implementation("ch.qos.logback:logback-classic:1.2.1")
-
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
-    testImplementation("io.ktor:ktor-server-tests:$ktorversion")
-    testImplementation("no.nav:kafka-embedded-env:2.7.0")
-    implementation("io.ktor:ktor-server-cio:$ktorversion")
-
-    //testImplementation("org.scala-lang:scala-library:2.12.11")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-test")
 
 }
 
-tasks.named<Jar>("jar") {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+        jvmTarget = "11"
+    }
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
+}
+
+/*tasks.named<Jar>("jar") {
     archiveBaseName.set("app")
 
     manifest {
@@ -45,4 +60,10 @@ tasks.named<Jar>("jar") {
                 it.copyTo(file)
         }
     }
+
+
+
+
 }
+
+ */
