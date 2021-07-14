@@ -11,13 +11,13 @@ spec:
   ingresses:
     - "https://etterlatte-bpc-explorer.dev.intern.nav.no"
   liveness:
-    path: "isalive"
+    path: "internal/isalive"
     initialDelay: 20
     timeout: 1
     periodSeconds: 5
     failureThreshold: 10
   readiness:
-    path: "isready"
+    path: "internal/isready"
     initialDelay: 20
     timeout: 1
   replicas:

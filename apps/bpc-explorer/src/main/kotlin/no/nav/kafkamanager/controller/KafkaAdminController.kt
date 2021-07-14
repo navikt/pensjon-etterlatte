@@ -17,7 +17,7 @@ class KafkaAdminController {
         return principal.name
     }
 
-    @GetMapping("/name")
+    @GetMapping("/subject")
     fun subject(@AuthenticationPrincipal principal: Jwt): String {
         return principal.getClaimAsString("sub")
     }
