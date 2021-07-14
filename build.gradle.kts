@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.4.20" apply false
+    kotlin("jvm") version "1.5.21" apply false
 }
 
 
@@ -24,9 +24,9 @@ allprojects {
 
 subprojects {
     ext {
-        set("ktorversion", "1.5.1")
-        set("kotlinversion", "1.4.20")
-        set("junitJupiterVersion", "5.6.2")
+        set("ktorversion", "1.6.1")
+        set("kotlinversion", "1.5.21")
+        set("junitJupiterVersion", "5.7.2")
         set("tokensupportversion", "1.3.3")
         set("rapidsandriversversion", "1.6535123")
         set("logbackversion", "1.2.1")

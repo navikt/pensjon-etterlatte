@@ -1,4 +1,5 @@
 val rapidsandriversversion: String by project
+val ktorversion: String by project
 
 plugins {
     application
@@ -11,10 +12,10 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core:1.4.3")
-    implementation("io.ktor:ktor-server-netty:1.4.3")
-    implementation("io.ktor:ktor-metrics-micrometer:1.4.3")
-    implementation("io.ktor:ktor-jackson:1.4.3")
+    implementation("io.ktor:ktor-server-core:$ktorversion")
+    implementation("io.ktor:ktor-server-netty:$ktorversion")
+    implementation("io.ktor:ktor-metrics-micrometer:$ktorversion")
+    implementation("io.ktor:ktor-jackson:$ktorversion")
     implementation("io.micrometer:micrometer-registry-prometheus:1.6.1")
     implementation("com.fasterxml:jackson-xml-databind:0.6.2")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.0")
