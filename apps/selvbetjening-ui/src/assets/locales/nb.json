@@ -66,13 +66,40 @@
       "bekreftelse": "Jeg, {{navn}}, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
     }
   },
-  "situasjon": {
-    "hovedytelse": "Valgt ytelse",
-    "barnepensjon": "Barnepensjon",
-    "fraDato": "Fra dato",
-    "etterbetaling": {
-      "tittel": "Etterbetaling",
-      "info": "Ytelser gis som regel ikke for lengre tid tilbake enn tre måneder før den kalendermåned da kravet blir satt fram. Barnepensjon etterbetales for opptil tre år før den kalendermåned da kravet blir satt fram."
+  "dinSituasjon": {
+    "status": "Er du for tiden i arbeid?",
+    "statusArbeidHvorfor": "Vi skal vurdere om du utnytter arbeidsevnen du har, eller om du har behov for bistand fra oss til å bli selvforsørget.",
+    "utdanning": {
+      "hoyesteFullfoerteUtdanning": "Hva er din høyeste fullførte utdanning?"
+    },
+    "selvstendigNaeringsdrivende": "Er du selvstendig næringsdrivende?",
+    "selvstendigHvorfor": "Næringsinntekt for det siste kalenderåret er ikke tilgjengelig fra Skatteetaten ennå. Du vil bli kontaktet for nærmere opplysninger om næringsvirksomheten.",
+    "selvstendig": {
+      "beskrivelse": "Hvilken næring driver du?",
+      "startDato": "Når startet du?",
+      "type": "Hvilken type næring er dette?",
+      "endringIfmDoedsfall": "Har det skjedd noen endring i næringen som følge av dødsfall?"
+    },
+    "arbeidsforhold": {
+      "forventerEndretInntekt": {
+        "beskrivelse": "Hva regner du med å få i samlet inntekt de neste 12 månedene?",
+        "hvorfor": "Det har betydning for hvor mye gjenlevendepensjon du får."
+      }
+    },
+    "andreYtelser": {
+      "kravOmAnnenStonad": {
+        "svar": "Har du søkt om andre ytelser fra NAV som du ikke har fått svar på?",
+        "hvorfor": "Noen ytelser fra NAV blir regnet som inntekt som har betydning for hvor mye gjenlevendepensjon du får. Uføretrygd, alderspensjon og AFP kan ikke kombineres med gjenlevendepensjon.",
+        "beskrivelse": "Hva har du søkt om?"
+      },
+      "mottarPensjonUtland": {
+        "svar": "Mottar du pensjon fra utlandet?",
+        "hvorfor": "Dette trenger vi for å vurdere medlemskapet ditt i folketrygden.",
+        "hvaSlagsPensjon": "Hva slags pensjon?",
+        "fraHvilketLand": "Fra hvilket land?",
+        "bruttobeloepPrAar": "Bruttobeløp pr. år i landets valuta",
+        "landetsValuta": "Oppgi landets valuta"
+      }
     }
   },
   "omSoekeren": {
@@ -207,21 +234,6 @@
     "inntekt": {
       "bruttoArbeidsinntektPrMd": "Brutto arbeidsinntekt pr. måned",
       "personinntektFraNaeringPrAr": "Beregnet personinntekt fra næring pr. år"
-    }
-  },
-  "andreYtelser": {
-    "tittel": "Opplysninger om andre ytelser",
-    "mottarAndreYtelser": "Mottar du ytelser til livsopphold fra folketrygden som dagpenger under arbeidsledighet, sykepenger, stønad ved barns og andre nære pårørendes sykdom, arbeidsavklaringspenger, svangerskapspenger, foreldrepenger, AFP, uføretrygd eller alderspensjon?",
-    "kravOmAnnenStonad": {
-      "svar": "Har du satt fram krav om annen stønad/pensjon som ikke er avgjort?",
-      "beskrivelse": "Hva slags stønad/pensjon?"
-    },
-    "mottarPensjonUtland": {
-      "svar": "Mottar du pensjon fra utlandet?",
-      "hvaSlagsPensjon": "Hva slags pensjon?",
-      "fraHvilketLand": "Fra hvilket land?",
-      "bruttobeloepPrAar": "Bruttobeløp pr. år i landets valuta",
-      "landetsValuta": "Oppgi landets valuta"
     }
   },
   "avdoede": {

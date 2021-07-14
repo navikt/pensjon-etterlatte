@@ -8,14 +8,16 @@ import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { getTransKey } from "../../utils/translation";
 import { fnr } from "@navikt/fnrvalidator";
 import { kontonrMatcher, telefonnrMatcher } from "../../utils/matchers";
+import HvorforSpoerVi from "./HvorforSpoerVi";
 
 interface RHFProps extends Omit<InputProps, 'name'> {
     name: FieldPath<FieldValues>;
     label: ReactNode;
+    hjelpetekst?: string;
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>;
 }
 
-export const RHFInput = ({name, rules, ...rest}: RHFProps) => {
+export const RHFInput = ({name, hjelpetekst, rules, ...rest}: RHFProps) => {
     const { t } = useTranslation();
     const { control, formState: { errors }} = useFormContext();
 
@@ -32,6 +34,7 @@ export const RHFInput = ({name, rules, ...rest}: RHFProps) => {
                 <Input
                     id={name}
                     value={value || ""}
+                    description={hjelpetekst && (<HvorforSpoerVi>{hjelpetekst}</HvorforSpoerVi>)}
                     onChange={onChange}
                     feil={feilmelding}
                     {...rest}

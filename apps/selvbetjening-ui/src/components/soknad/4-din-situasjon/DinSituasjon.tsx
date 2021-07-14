@@ -13,7 +13,7 @@ import TidligereArbeidsforhold from "./fragmenter/TidligereArbeidsforhold";
 import { Systemtittel, Undertittel } from "nav-frontend-typografi";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
-import Utdanning from "./fragmenter/Utdanning";
+import UnderUtdanning from "./fragmenter/UnderUtdanning";
 import { RHFInput } from "../../felles/RHFInput";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
@@ -56,7 +56,8 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
 
                 <RHFRadio
                     name={"status"}
-                    legend={"Er du for tiden i arbeid?"}
+                    legend={t("dinSituasjon.status")}
+                    hjelpetekst={t("dinSituasjon.statusArbeidHvorfor")}
                     radios={Object.values(JobbStatus).map(value => {
                         return { label: t(value), value } as RadioProps;
                     })}
@@ -67,7 +68,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 )}
 
                 {status === JobbStatus.underUtdanning && (
-                    <Utdanning />
+                    <UnderUtdanning />
                 )}
 
                 {status === JobbStatus.ingen && (

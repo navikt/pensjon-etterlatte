@@ -7,11 +7,13 @@ import { get } from "lodash";
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { RadioPanelGruppeProps } from "nav-frontend-skjema/lib/radio-panel-gruppe";
+import HvorforSpoerVi from "./HvorforSpoerVi";
 
 /* TODO: Rename to RHFSpoersmaalRadio */
-export const RHFToValgRadio = ({ name, legend, vetIkke }: {
+export const RHFToValgRadio = ({ name, hjelpetekst, legend, vetIkke }: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
+    hjelpetekst?: string;
     vetIkke?: boolean;
 }) => {
     const defaultRadios = [
@@ -25,14 +27,16 @@ export const RHFToValgRadio = ({ name, legend, vetIkke }: {
         <RHFInlineRadio
             name={name}
             legend={legend}
+            hjelpetekst={hjelpetekst}
             radios={defaultRadios}
         />
     )
 }
 
-export const RHFInlineRadio = ({ name, legend, radios }: {
+export const RHFInlineRadio = ({ name, legend, hjelpetekst, radios }: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
+    hjelpetekst?: string;
     radios: RadioPanelProps[];
 }) => {
     const { t } = useTranslation();
@@ -52,6 +56,7 @@ export const RHFInlineRadio = ({ name, legend, radios }: {
                         feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
                         legend={legend}
                         className={"inline"}
+                        description={hjelpetekst && (<HvorforSpoerVi>{hjelpetekst}</HvorforSpoerVi>)}
                         radios={radios}
                         checked={value}
                         onChange={(e) => onChange((e.target as HTMLInputElement).value as IValg)}
@@ -65,15 +70,20 @@ export const RHFInlineRadio = ({ name, legend, radios }: {
 interface RHFRadioProps extends Omit<RadioPanelGruppeProps, 'onChange'> {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
+    hjelpetekst?: string;
     radios: RadioPanelProps[];
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>;
 }
 
-export const RHFRadio = ({ name, legend, radios, rules, ...rest }: RHFRadioProps) => {
+export const RHFRadio = ({ name, legend, hjelpetekst, radios, rules, ...rest }: RHFRadioProps) => {
     const { t } = useTranslation();
     const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
+
+    const description = hjelpetekst && (
+        <HvorforSpoerVi>{hjelpetekst}</HvorforSpoerVi>
+    );
 
     return (
         <div id={name}>
@@ -86,6 +96,7 @@ export const RHFRadio = ({ name, legend, radios, rules, ...rest }: RHFRadioProps
                         {...rest}
                         name={name}
                         feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
+                        description={description}
                         legend={legend}
                         radios={radios}
                         checked={value}

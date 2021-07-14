@@ -18,7 +18,8 @@ const NavaerendeArbeidsforhold = () => {
         <>
             <RHFRadio
                 name={"selvstendigNaeringsdrivende"}
-                legend={"Er du selvstendig næringsdrivende?"}
+                legend={t("dinSituasjon.selvstendigNaeringsdrivende")}
+                hjelpetekst={t("dinSituasjon.selvstendigHvorfor")}
                 radios={Object.values(ArbeidsforholdType).map(value => {
                     return { label: t(value), value } as RadioProps;
                 })}

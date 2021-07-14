@@ -3,8 +3,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 
-
-const Utdanning = () => {
+const UnderUtdanning = () => {
     return (
         <>
             <SkjemaGruppe>
@@ -35,4 +34,4 @@ const Utdanning = () => {
     )
 }
 
-export default Utdanning;
+export default UnderUtdanning;

@@ -26,7 +26,8 @@ const AndreYtelser = () => {
 
             <RHFToValgRadio
                 name={"andreYtelser.kravOmAnnenStonad.svar"}
-                legend={"Har du søkt om andre ytelser fra NAV som du ikke har fått svar på?"}
+                legend={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.svar")}
+                hjelpetekst={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.hvorfor")}
             />
 
             {kravOmAnnenStonad === IValg.JA && (
@@ -34,14 +35,15 @@ const AndreYtelser = () => {
                     <RHFInput
                         bredde={"XXL"}
                         name={"andreYtelser.kravOmAnnenStonad.beskrivelse"}
-                        label={"Hva har du søkt om?"}
+                        label={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.beskrivelse")}
                     />
                 </SkjemaGruppe>
             )}
 
             <RHFToValgRadio
                 name={"andreYtelser.mottarPensjonUtland.svar"}
-                legend={"Får du pensjon fra utlandet?"}
+                legend={t("dinSituasjon.andreYtelser.mottarPensjonUtland.svar")}
+                hjelpetekst={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvorfor")}
             />
 
             {mottarPensjonUtland === IValg.JA && (
@@ -50,7 +52,7 @@ const AndreYtelser = () => {
                         <RHFInput
                             bredde={"XXL"}
                             name={"andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"}
-                            label={t("andreYtelser.mottarPensjonUtland.hvaSlagsPensjon")}
+                            label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon")}
                         />
                     </SkjemaGruppe>
 
@@ -58,7 +60,7 @@ const AndreYtelser = () => {
                         <RHFInput
                             bredde={"L"}
                             name={"andreYtelser.mottarPensjonUtland.fraHvilketLand"}
-                            label={t("andreYtelser.mottarPensjonUtland.fraHvilketLand")}
+                            label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand")}
                         />
                     </SkjemaGruppe>
 
@@ -66,7 +68,7 @@ const AndreYtelser = () => {
                         <RHFInput
                             bredde={"L"}
                             name={"andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"}
-                            label={t("andreYtelser.mottarPensjonUtland.bruttobeloepPrAar")}
+                            label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar")}
                         />
                     </SkjemaGruppe>
                 </>

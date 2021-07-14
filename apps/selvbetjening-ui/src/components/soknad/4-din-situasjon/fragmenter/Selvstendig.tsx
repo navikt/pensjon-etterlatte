@@ -15,26 +15,26 @@ const Selvstendig = () => {
                 <RHFInput
                     className={"kol-75"}
                     name={"selvstendig.beskrivelse"}
-                    label={"Hvilken næring driver du?"}
+                    label={"dinSituasjon.selvstendig.beskrivelse"}
                 />
 
                 <Datovelger
                     name={"selvstendig.startDato"}
-                    label={"Når startet du?"}
+                    label={"dinSituasjon.selvstendig.startDato"}
                 />
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <RHFInput
                     name={"selvstendig.type"}
-                    label={"Hvilken type næring er dette?"}
+                    label={"dinSituasjon.selvstendig.type"}
                 />
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <RHFInput
                     name={"selvstendig.endringIfmDoedsfall"}
-                    label={"Har det skjedd noen endring i næringen som følge av dødsfall?"}
+                    label={"dinSituasjon.selvstendig.endringIfmDoedsfall"}
                     placeholder={"F.eks. endring i forventet inntekt eller drift av næring"}
                 />
             </SkjemaGruppe>

@@ -73,7 +73,8 @@ const Arbeidstaker = () => {
                 <SkjemaGruppe>
                     <RHFValutaInput
                         name={"arbeidsforhold.forventerEndretInntekt.beskrivelse"}
-                        label={"Hva regner du med å få i samlet inntekt de neste 12 månedene?"}
+                        label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
+                        hjelpetekst={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.hvorfor")}
                     />
                 </SkjemaGruppe>
             )}
