@@ -17,7 +17,7 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
             .and()
             .csrf().disable() // Use SameSite=lax instead
             .oauth2Login()
-            .redirectionEndpoint { it.baseUri("/oauth2/callback") }
+            //.redirectionEndpoint { it.baseUri("/oauth2/callback") }
             .defaultSuccessUrl("/index.html")
     }
 
