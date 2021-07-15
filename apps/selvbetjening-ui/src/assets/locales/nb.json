@@ -70,7 +70,14 @@
     "status": "Er du for tiden i arbeid?",
     "statusArbeidHvorfor": "Vi skal vurdere om du utnytter arbeidsevnen du har, eller om du har behov for bistand fra oss til å bli selvforsørget.",
     "utdanning": {
-      "hoyesteFullfoerteUtdanning": "Hva er din høyeste fullførte utdanning?"
+      "hoyesteFullfoerteUtdanning": "Hva er din høyeste fullførte utdanning?",
+      "annenUtdanning": "Annen utdanning",
+      "annenUtdanningPlaceholder": "F.eks. kurs, enkeltår på universitet eller høyskole",
+      "naavaerendeUtdanning": {
+        "navn": "Navn på utdanning",
+        "startDato": "Fra dato",
+        "sluttDato": "Til dato"
+      }
     },
     "selvstendigNaeringsdrivende": "Er du selvstendig næringsdrivende?",
     "selvstendigHvorfor": "Næringsinntekt for det siste kalenderåret er ikke tilgjengelig fra Skatteetaten ennå. Du vil bli kontaktet for nærmere opplysninger om næringsvirksomheten.",
@@ -78,7 +85,8 @@
       "beskrivelse": "Hvilken næring driver du?",
       "startDato": "Når startet du?",
       "type": "Hvilken type næring er dette?",
-      "endringIfmDoedsfall": "Har det skjedd noen endring i næringen som følge av dødsfall?"
+      "endringIfmDoedsfall": "Har det skjedd noen endring i næringen som følge av dødsfall?",
+      "endringIfmDoedsfallPlaceholder": "F.eks. endring i forventet inntekt eller drift av næring"
     },
     "arbeidsforhold": {
       "forventerEndretInntekt": {
@@ -102,7 +110,7 @@
       }
     }
   },
-  "omSoekeren": {
+  "omDeg": {
     "tittel": "Om deg",
     "advarsel": "Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.",
     "bostedsadresseBekreftet": "Bor du på denne adressen?",
@@ -118,7 +126,7 @@
       "telefon": "Telefonnummer",
       "epost": "E-post"
     },
-    "kontonummer": "Norsk kontonummer som pensjonen blir overført til (11 siffer)",
+    "kontonummer": "Oppgi norsk kontonummer for utbetaling",
     "forholdTilAvdoede": {
       "tittel": "Ditt forhold til avdøde",
       "ektefelle": "Gjenlevende ektefelle",
@@ -139,14 +147,6 @@
       "samboerskap": "Samboerskap",
       "dato": "Dato for inngåelse"
     },
-    "nyInngaaelseOpploest": "Er dette ekteskapet/partnerskapet/ samboerskapet oppløst?",
-    "aarsakOpploesning": {
-      "tittel": "Oppgi årsak",
-      "dødsfall": "Dødsfall",
-      "skilsmisse": "Skilsmisse",
-      "samlivsbrudd": "Samlivsbrudd"
-    },
-    "nyInngaaelseOpploestDato": "Dato for oppløsning (dd.mm.åå)",
     "oppgiNavnSamboer": "Hvis du er samboer, oppgi etternavn og fornavn på samboer",
     "harHattBarnEllerVaertGiftMedSamboer": "Har eller har du hatt barn med eller vært gift med nåværende samboer?",
     "harSamboerInntekt": {
@@ -159,15 +159,34 @@
     }
   },
   "omDegOgAvdoed": {
-    "rettPaaGjenlevendepensjon": "Du kan ha rett på gjenlevendepensjon fra {{dato}}"
-  },
-  "avdoed": {
-    "datoForDoedsfallet": "Dato",
-    "naarSkjeddeDoedsfallet": "Når skjedde dødsfallet",
-    "doedsfallAarsak": "Skyldes dødsfallet yrkesskade/yrkessykdom?"
-  },
-  "forholdTilAvdoede": {
-    "relasjon": "Når dødsfallet skjedde var dere ..."
+    "avdoed": {
+      "hvem": "Hvem er det som er død?",
+      "fornavn": "Fornavn",
+      "etternavn": "Etternavn",
+      "dato": "Dato",
+      "doedsfallAarsak": "Skyldes dødsfallet yrkesskade/yrkessykdom?",
+      "doedsfallAarsakHvorfor": "Hvis NAV har godkjent dødsfallet som yrkesskade/yrkessykdom er det spesielle vilkår for beregning av gjenlevendepensjonen.",
+      "datoForDoedsfallet": "Når skjedde dødsfallet?"
+    },
+    "rettPaaGjenlevendepensjon": "Du kan ha rett på gjenlevendepensjon fra {{dato}}",
+    "forholdTilAvdoede": {
+      "relasjon": "Når dødsfallet skjedde var dere ...",
+      "relasjonHvorfor": "Ditt forhold til avdøde når dødsfallet skjedde har betydning for retten til gjenlevendepensjon.",
+      "datoForInngaattPartnerskap": "Når ble dere gift?",
+      "hvorforDatoForInngaattPartnerskap": "Registrert partnerskap er likestilt med ekteskap.",
+      "fellesBarn": "Hadde dere felles barn?",
+      "omsorgForBarn": "Hadde du omsorg for egne og/eller avdødes særkullsbarn på dødstidspunktet?"
+    },
+    "nySivilstatus": {
+      "tittel": "Nåværende sivilstand",
+      "beskrivelse": "Hvis sivilstanden din har endret seg så trenger vi informasjon om dette.",
+      "aarsakForOpploesningen": "Hva er grunnen til at dere ikke er gift lenger?",
+      "hvorforAarsakOpploesning": "Vi trenger opplysningene for å vurdere om du kan få gjenlevendepensjon.",
+      "inngaatt.dato": "Vi giftet oss",
+      "inngaatt.svar": "Har du giftet deg på nytt eller fått samboer?",
+      "opploest.dato": "Vi ble skilt",
+      "fremdelesGift": "Er dere fremdeles gift?"
+    }
   },
   "omDenAvdoede": {
     "tittel": "Opplysninger om den avdøde",
@@ -278,6 +297,10 @@
     "mastergrad": "Mastergrad",
     "ingen": "Har ingen utdanning",
     "annen": "Annen utdanning"
+  },
+  "opploesningAarsak": {
+    "doedsfall": "Dødsfall",
+    "skilsmisse": "Skilsmisse"
   },
   "felles": {
     "fnrDnr": "Fødselsnummer / d-nummer",

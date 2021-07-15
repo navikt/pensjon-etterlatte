@@ -22,7 +22,8 @@ const GiftMedAvdoede = () => {
             <SkjemaGruppe>
                 <Datovelger
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
-                    label={t("forholdTilAvdoede.datoForInngaattPartnerskap")}
+                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
+                    hjelpetekst={t("omDegOgAvdoed.forholdTilAvdoede.hvorforDatoForInngaattPartnerskap")}
                 />
             </SkjemaGruppe>
 
@@ -30,13 +31,13 @@ const GiftMedAvdoede = () => {
                 <>
                     <RHFToValgRadio
                         name={"forholdTilAvdoede.fellesBarn"}
-                        legend={t("forholdTilAvdoede.fellesBarn")}
+                        legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
                     />
 
                     {ingenFellesBarn && (
                         <RHFToValgRadio
                             name={"forholdTilAvdoede.omsorgForBarn"}
-                            legend={"Hadde du omsorg for egne og/eller avdødes særkullsbarn på dødstidspunktet?"}
+                            legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
                         />
                     )}
                 </>

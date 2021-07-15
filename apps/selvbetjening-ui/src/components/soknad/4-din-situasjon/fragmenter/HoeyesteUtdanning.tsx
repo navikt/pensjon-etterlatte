@@ -21,8 +21,8 @@ const HoeyesteUtdanning = () => {
             <SkjemaGruppe>
                 <RHFInput
                     name={"utdanning.annenUtdanning"}
-                    label={"Annen utdanning"}
-                    placeholder={"F.eks. kurs, enkeltår på universitet eller høyskole"}
+                    label={t("dinSituasjon.utdanning.annenUtdanning")}
+                    placeholder={t("dinSituasjon.utdanning.annenUtdanningPlaceholder")}
                 />
             </SkjemaGruppe>
         </>

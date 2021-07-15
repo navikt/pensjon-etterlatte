@@ -19,14 +19,15 @@ const NyttEkteskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
         <>
             <RHFToValgRadio
                 name={"nySivilstatus.fremdelesGift"}
-                legend={"Er dere fremdeles gift?"}
+                legend={t("omDegOgAvdoed.nySivilstatus.fremdelesGift")}
             />
 
             {fremdelesGift === IValg.NEI && (
                 <>
                     <RHFRadio
                         name={"nySivilstatus.aarsakForOpploesningen"}
-                        legend={t("omSoekeren.aarsakOpploesning.tittel")}
+                        legend={t("omDegOgAvdoed.nySivilstatus.aarsakForOpploesningen")}
+                        hjelpetekst={t("omDegOgAvdoed.nySivilstatus.hvorforAarsakOpploesning")}
                         radios={[
                             {
                                 label: t(OpploesningAarsak.doedsfall),
@@ -46,13 +47,13 @@ const NyttEkteskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                     <div className={"kolonne"}>
                         <Datovelger
                             name={"nySivilstatus.inngaatt.dato"}
-                            label={"Vi giftet oss"}
+                            label={t("omDegOgAvdoed.nySivilstatus.inngaatt.dato")}
                         />
                     </div>
                     <div className={"kolonne"}>
                         <Datovelger
                             name={"nySivilstatus.opploest.dato"}
-                            label={"Vi ble skilt"}
+                            label={t("omDegOgAvdoed.nySivilstatus.opploest.dato")}
                         />
                     </div>
                 </div>

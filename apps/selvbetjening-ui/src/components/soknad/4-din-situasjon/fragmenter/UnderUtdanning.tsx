@@ -2,8 +2,11 @@ import { Undertittel } from "nav-frontend-typografi";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
+import { useTranslation } from "react-i18next";
 
 const UnderUtdanning = () => {
+    const { t } = useTranslation();
+
     return (
         <>
             <SkjemaGruppe>
@@ -15,19 +18,19 @@ const UnderUtdanning = () => {
             <SkjemaGruppe>
                 <RHFInput
                     name={"utdanning.naavaerendeUtdanning.navn"}
-                    label={"Navn på utdanning"}
+                    label={t("dinSituasjon.utdanning.naavaerendeUtdanning.navn")}
                 />
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"rad"}>
                 <Datovelger
                     name={"utdanning.naavaerendeUtdanning.startDato"}
-                    label={"Fra dato"}
+                    label={t("dinSituasjon.utdanning.naavaerendeUtdanning.startDato")}
                 />
 
                 <Datovelger
                     name={"utdanning.naavaerendeUtdanning.sluttDato"}
-                    label={"Til dato"}
+                    label={t("dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato")}
                 />
             </SkjemaGruppe>
         </>

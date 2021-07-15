@@ -46,14 +46,14 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                     {samboerskapOpploest === IValg.JA && (
                         <RHFRadio
                             name={"nySivilstatus.aarsakForOpploesningen"}
-                            legend={t("omSoekeren.aarsakOpploesning.tittel")}
+                            legend={t("omDeg.aarsakOpploesning.tittel")}
                             radios={[
                                 {
-                                    label: t("omSoekeren.aarsakOpploesning.dødsfall"),
+                                    label: t("omDeg.aarsakOpploesning.dødsfall"),
                                     value: OpploesningAarsak.doedsfall
                                 },
                                 {
-                                    label: t("omSoekeren.aarsakOpploesning.samlivsbrudd"),
+                                    label: t("omDeg.aarsakOpploesning.samlivsbrudd"),
                                     value: OpploesningAarsak.samlivsbrudd
                                 },
                             ]}

@@ -20,7 +20,8 @@ const ForholdTilAvdoedeSkjema = () => {
         <>
             <RHFRadio
                 name={"forholdTilAvdoede.relasjon"}
-                legend={t("forholdTilAvdoede.relasjon")}
+                legend={t("omDegOgAvdoed.forholdTilAvdoede.relasjon")}
+                hjelpetekst={t("omDegOgAvdoed.forholdTilAvdoede.relasjonHvorfor")}
                 radios={Object.values(ForholdTilAvdoede).map(value => {
                     return { label: t(value), value } as RadioProps
                 })}

@@ -10,10 +10,12 @@ import classnames from "classnames";
 import { get } from "lodash";
 import { getTransKey } from "../../utils/translation";
 import "react-datepicker/dist/react-datepicker.css";
+import HvorforSpoerVi from "./HvorforSpoerVi";
 
 interface DatovelgerProps {
     name: FieldPath<any>;
     label: ReactNode;
+    hjelpetekst?: ReactNode;
     minDate?: Date | string;
     maxDate?: Date | string;
     valgfri?: boolean;
@@ -29,7 +31,7 @@ const parseDate = (dato?: Date | string) => {
 /*
 * TODO: Ikke mulig å enkelt tabbe gjennom datovelgeren... må fikses!
 */
-const Datovelger = ({ name, label, minDate, maxDate, valgfri, className }: DatovelgerProps) => {
+const Datovelger = ({ name, label, hjelpetekst, minDate, maxDate, valgfri, className }: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
     const { control, formState: { errors } } = useFormContext();
 
@@ -53,6 +55,12 @@ const Datovelger = ({ name, label, minDate, maxDate, valgfri, className }: Datov
         <>
             <section className={`skjemaelement ${className}`}>
                 <Label htmlFor={name}>{label}</Label>
+
+                {hjelpetekst && (
+                    <div className={"skjemaelement__description"}>
+                        <HvorforSpoerVi>{hjelpetekst}</HvorforSpoerVi>
+                    </div>
+                )}
 
                 <Controller
                     name={name}

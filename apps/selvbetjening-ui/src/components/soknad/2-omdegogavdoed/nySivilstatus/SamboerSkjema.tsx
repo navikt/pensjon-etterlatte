@@ -27,7 +27,7 @@ const SamboerSkjema = () => {
             <SkjemaGruppe>
                 <RHFInput
                     name={"samboer.navn"}
-                    label={t("omSoekeren.oppgiNavnSamboer")}
+                    label={t("omDeg.oppgiNavnSamboer")}
                 />
 
                 <RHFInput
@@ -40,7 +40,7 @@ const SamboerSkjema = () => {
             {/* 2.17 */}
             <RHFToValgRadio
                 name={"samboer.harInntekt.svar"}
-                legend={t("omSoekeren.harSamboerInntekt.tittel")}
+                legend={t("omDeg.harSamboerInntekt.tittel")}
             />
 
             {samboerHarInntekt === IValg.JA && (
@@ -50,7 +50,7 @@ const SamboerSkjema = () => {
                         checkboxes={Object.values(SamboerInntekt).map((type) => {
                             return {
                                 value: type,
-                                label: t(`omSoekeren.harSamboerInntekt.${type}`),
+                                label: t(`omDeg.harSamboerInntekt.${type}`),
                             }
                         })}
                     />
@@ -58,7 +58,7 @@ const SamboerSkjema = () => {
                     <SkjemaGruppe>
                         <RHFInput
                             name={"samboer.harInntekt.samletBruttoinntektPrAar"}
-                            label={t("omSoekeren.harSamboerInntekt.bruttoinntekt")}
+                            label={t("omDeg.harSamboerInntekt.bruttoinntekt")}
                         />
                     </SkjemaGruppe>
                 </>

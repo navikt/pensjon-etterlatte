@@ -36,13 +36,13 @@ const NySivilstatus = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>Nåværende sivilstand</Undertittel>
-                <Normaltekst>Hvis sivilstanden din har endret seg så trenger vi informasjon om dette.</Normaltekst>
+                <Undertittel>{t("omDegOgAvdoed.nySivilstatus.tittel")}</Undertittel>
+                <Normaltekst>{t("omDegOgAvdoed.nySivilstatus.beskrivelse")}</Normaltekst>
             </SkjemaGruppe>
 
             <RHFRadio
                 name={"nySivilstatus.inngaatt.svar"}
-                legend={"Har du giftet deg på nytt eller fått samboer?"}
+                legend={t("omDegOgAvdoed.nySivilstatus.inngaatt.svar")}
                 radios={Object.values(Sivilstatus).map(value => {
                     return { label: t(value), value } as RadioProps
                 })}

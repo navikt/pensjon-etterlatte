@@ -14,7 +14,7 @@ const InnloggetBruker = () => {
         <SkjemaGruppe>
             {/* TODO: Ikke lagre innlogget bruker? */}
             <br />
-            <AlertStripe type="advarsel">{t("omSoekeren.advarsel")}</AlertStripe>
+            <AlertStripe type="advarsel">{t("omDeg.advarsel")}</AlertStripe>
             <br />
 
             <Grid className={"opplysninger"}>

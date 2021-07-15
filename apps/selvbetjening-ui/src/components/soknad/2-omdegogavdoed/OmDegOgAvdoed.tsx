@@ -61,31 +61,31 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
             <FormProvider {...methods}>
                 <form>
                     <SkjemaGruppe>
-                        <Element>Hvem er det som er død?</Element>
+                        <Element>{t("omDegOgAvdoed.avdoed.hvem")}</Element>
 
                         <Grid>
                             <Cell xs={12} md={6}>
                                 <RHFInput
                                     name={"avdoed.fornavn"}
-                                    label={t("avdoed.fornavn")}
+                                    label={t("omDegOgAvdoed.avdoed.fornavn")}
                                 />
                             </Cell>
 
                             <Cell xs={12} md={6}>
                                 <RHFInput
                                     name={"avdoed.etternavn"}
-                                    label={t("avdoed.etternavn")}
+                                    label={t("omDegOgAvdoed.avdoed.etternavn")}
                                 />
                             </Cell>
                         </Grid>
                     </SkjemaGruppe>
 
                     <SkjemaGruppe>
-                        <Element>{t("avdoed.naarSkjeddeDoedsfallet")}</Element>
+                        <Element>{t("omDegOgAvdoed.avdoed.datoForDoedsfallet")}</Element>
 
                         <Datovelger
                             name={"avdoed.datoForDoedsfallet"}
-                            label={t("avdoed.datoForDoedsfallet")}
+                            label={t("omDegOgAvdoed.avdoed.dato")}
                             maxDate={new Date()}
                         />
 
@@ -98,7 +98,8 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
                     <RHFToValgRadio
                         name={"avdoed.doedsfallAarsak"}
-                        legend={t("avdoed.doedsfallAarsak")}
+                        legend={t("omDegOgAvdoed.avdoed.doedsfallAarsak")}
+                        hjelpetekst={t("omDegOgAvdoed.avdoed.doedsfallAarsakHvorfor")}
                         vetIkke
                     />
 

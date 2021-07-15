@@ -47,7 +47,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
         <>
             {/* Steg 2 */}
             <Systemtittel className={"center"}>
-                <Trans i18nKey={"omSoekeren.tittel"} />
+                <Trans i18nKey={"omDeg.tittel"} />
             </Systemtittel>
 
             {/* Informasjon om den innloggede brukeren */}
@@ -60,14 +60,14 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                 <form>
                     <RHFToValgRadio
                         name={"bostedsadresseBekreftet"}
-                        legend={<Trans i18nKey={"omSoekeren.bostedsadresseBekreftet"} />}
+                        legend={<Trans i18nKey={"omDeg.bostedsadresseBekreftet"} />}
                     />
 
                     {borPaaRegistrertAdresse === IValg.NEI && (
                         <SkjemaGruppe>
                             <RHFInput
                                 name={"alternativAdresse"}
-                                label={<Trans i18nKey={"omSoekeren.alternativAdresse"}/>}
+                                label={<Trans i18nKey={"omDeg.alternativAdresse"}/>}
                             />
                         </SkjemaGruppe>
                     )}
@@ -77,7 +77,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             <Cell xs={12} md={6} className={"kol"}>
                                 <RHFTelefonInput
                                     name={"kontaktinfo.telefonnummer"}
-                                    label={t("omSoekeren.kontaktinfo.telefon")}
+                                    label={t("omDeg.kontaktinfo.telefon")}
                                     // TODO: Validere telefon ... ?
                                 />
                             </Cell>
@@ -85,7 +85,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             <Cell xs={12} md={6} className={"kol"}>
                                 <RHFInput
                                     name={"kontaktinfo.epost"}
-                                    label={t("omSoekeren.kontaktinfo.epost")}
+                                    label={t("omDeg.kontaktinfo.epost")}
                                     rules={{ pattern: emailMatcher }}
                                 />
                             </Cell>
@@ -95,15 +95,15 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                     {/* 2.7 */}
                     <RHFToValgRadio
                         name={"oppholderSegINorge"}
-                        legend={t("omSoekeren.oppholderSegINorge")}
-                        hjelpetekst={t("omSoekeren.oppholdHvorfor")}
+                        legend={t("omDeg.oppholderSegINorge")}
+                        hjelpetekst={t("omDeg.oppholdHvorfor")}
                     />
 
                     {oppholderSegINorge === IValg.JA && (
                         <SkjemaGruppe>
                             <RHFKontonummerInput
                                 name={"kontonummer"}
-                                label={t("Oppgi norsk kontonummer for utbetaling")}
+                                label={t("omDeg.kontonummer")}
                                 placeholder={"11 siffer"}
                             />
                         </SkjemaGruppe>
@@ -114,14 +114,14 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             <SkjemaGruppe>
                                 <RHFInput
                                     name={"oppholdsland"}
-                                    label={t("omSoekeren.oppgiLand")}
+                                    label={t("omDeg.oppgiLand")}
                                     rules={{pattern: /^[\w|\s]+$/}}
                                 />
                             </SkjemaGruppe>
 
                             <RHFToValgRadio
                                 name={"medlemFolketrygdenUtland"}
-                                legend={t("omSoekeren.medlemFolketrygdenUtland")}
+                                legend={t("omDeg.medlemFolketrygdenUtland")}
                             />
                         </>
                     )}
@@ -130,8 +130,8 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         <SkjemaGruppe>
                             <RHFToValgRadio
                                 name={"flyktning"}
-                                legend={<Trans i18nKey={"omSoekeren.flyktning"} />}
-                                hjelpetekst={t("omSoekeren.flyktningHvorfor")}
+                                legend={<Trans i18nKey={"omDeg.flyktning"} />}
+                                hjelpetekst={t("omDeg.flyktningHvorfor")}
                             />
                         </SkjemaGruppe>
                     )}
