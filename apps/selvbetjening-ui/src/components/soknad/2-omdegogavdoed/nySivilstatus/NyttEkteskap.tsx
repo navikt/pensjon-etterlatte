@@ -6,28 +6,34 @@ import { useTranslation } from "react-i18next";
 import { ISoeker, OpploesningAarsak } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { RadioProps } from "nav-frontend-skjema";
+import { nySivilstatusHarGyldigVarighet } from "../../../../utils/dato";
 
-const NyttEkteskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
+const NyttEkteskap = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoeker>()
 
-    const fremdelesGift = watch("nySivilstatus.fremdelesGift")
-    const aarsakForOpploesningen = watch("nySivilstatus.aarsakForOpploesningen")
+    const fremdelesGift = watch("nySivilstatus.ekteskap.fremdelesGift")
+    const aarsakForOpploesningen = watch("nySivilstatus.ekteskap.aarsakForOpploesningen")
+
+    const inngaattDato = watch("nySivilstatus.ekteskap.inngaattDato")
+    const opploestDato = watch("nySivilstatus.ekteskap.opploestDato")
+
+    let gyldigVarighet = nySivilstatusHarGyldigVarighet(inngaattDato, opploestDato);
 
     return (
         <>
             <RHFToValgRadio
-                name={"nySivilstatus.fremdelesGift"}
-                legend={t("omDegOgAvdoed.nySivilstatus.fremdelesGift")}
+                name={"nySivilstatus.ekteskap.fremdelesGift"}
+                legend={t("omDegOgAvdoed.nySivilstatus.ekteskap.fremdelesGift")}
             />
 
             {fremdelesGift === IValg.NEI && (
                 <>
                     <RHFRadio
-                        name={"nySivilstatus.aarsakForOpploesningen"}
-                        legend={t("omDegOgAvdoed.nySivilstatus.aarsakForOpploesningen")}
-                        hjelpetekst={t("omDegOgAvdoed.nySivilstatus.hvorforAarsakOpploesning")}
+                        name={"nySivilstatus.ekteskap.aarsakForOpploesningen"}
+                        legend={t("omDegOgAvdoed.nySivilstatus.ekteskap.aarsakForOpploesningen")}
+                        hjelpetekst={t("omDegOgAvdoed.nySivilstatus.ekteskap.hvorforAarsakOpploesning")}
                         radios={[
                             {
                                 label: t(OpploesningAarsak.doedsfall),
@@ -46,14 +52,14 @@ const NyttEkteskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                 <div className={"rad"}>
                     <div className={"kolonne"}>
                         <Datovelger
-                            name={"nySivilstatus.inngaatt.dato"}
-                            label={t("omDegOgAvdoed.nySivilstatus.inngaatt.dato")}
+                            name={"nySivilstatus.ekteskap.inngaattDato"}
+                            label={t("omDegOgAvdoed.nySivilstatus.ekteskap.inngaattDato")}
                         />
                     </div>
                     <div className={"kolonne"}>
                         <Datovelger
-                            name={"nySivilstatus.opploest.dato"}
-                            label={t("omDegOgAvdoed.nySivilstatus.opploest.dato")}
+                            name={"nySivilstatus.ekteskap.opploestDato"}
+                            label={t("omDegOgAvdoed.nySivilstatus.ekteskap.opploestDato")}
                         />
                     </div>
                 </div>

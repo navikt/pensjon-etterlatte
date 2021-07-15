@@ -6,8 +6,10 @@ import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
+import { useTranslation } from "react-i18next";
 
 const  TidligereSamboerMedAvdoede = () => {
+    const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
 
@@ -21,7 +23,7 @@ const  TidligereSamboerMedAvdoede = () => {
         <>
             <RHFToValgRadio
                 name={"forholdTilAvdoede.fellesBarn"}
-                legend={"Har eller hadde dere felles barn?"}
+                legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
             />
 
             {fellesBarn === IValg.NEI && (
@@ -37,7 +39,7 @@ const  TidligereSamboerMedAvdoede = () => {
                         <div className={"kol"}>
                             <Datovelger
                                 name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
-                                label={"Dato for inngått samboerskap"}
+                                label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
                                 maxDate={datoForDoedsfallet}
                             />
                         </div>
@@ -45,7 +47,7 @@ const  TidligereSamboerMedAvdoede = () => {
                         <div className={"kol"}>
                             <Datovelger
                                 name={"forholdTilAvdoede.datoForSamlivsbrudd"}
-                                label={"Dato for samlivsbruddet (ikke separasjon)"}
+                                label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd")}
                                 maxDate={datoForDoedsfallet}
                             />
                         </div>
@@ -54,7 +56,7 @@ const  TidligereSamboerMedAvdoede = () => {
                     {bidragMaaUtfylles && (
                         <RHFToValgRadio
                             name={"forholdTilAvdoede.mottokBidrag"}
-                            legend={"Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?"}
+                            legend={t("omDegOgAvdoed.forholdTilAvdoede.mottokBidrag")}
                         />
                     )}
                 </>

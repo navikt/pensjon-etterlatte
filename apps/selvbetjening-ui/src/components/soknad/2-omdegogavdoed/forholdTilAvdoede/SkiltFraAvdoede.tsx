@@ -6,6 +6,7 @@ import { antallAarMellom, ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../.
 import { IValg } from "../../../../typer/Spoersmaal";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { SkjemaGruppe } from "nav-frontend-skjema";
+import { useTranslation } from "react-i18next";
 
 const gyldigVarighet = (
     datoPartnerskap?: Date,
@@ -24,6 +25,7 @@ const gyldigVarighet = (
 }
 
 const SkiltFraAvdoede = () => {
+    const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoekerOgAvdoed>()
 
@@ -45,14 +47,14 @@ const SkiltFraAvdoede = () => {
                 <Datovelger
                     className={"kol"}
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
-                    label={"Oppgi dato for inngått ekteskap"}
+                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
                     maxDate={datoForDoedsfallet}
                 />
 
                 <Datovelger
                     className={"kol"}
                     name={"forholdTilAvdoede.datoForSkilsmisse"}
-                    label={"Oppgi dato for skilsmisse (ikke seperasjon)"}
+                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse")}
                     minDate={datoForInngaattPartnerskap}
                     maxDate={datoForDoedsfallet}
                 />
@@ -60,13 +62,13 @@ const SkiltFraAvdoede = () => {
 
             <RHFToValgRadio
                 name={"forholdTilAvdoede.fellesBarn"}
-                legend={"Har eller hadde dere barn sammen?"}
+                legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
             />
 
             {bidragMaaUtfylles && (
                 <RHFToValgRadio
                     name={"forholdTilAvdoede.mottokBidrag"}
-                    legend={"Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?"}
+                    legend={t("omDegOgAvdoed.forholdTilAvdoede.mottokBidrag")}
                 />
             )}
 

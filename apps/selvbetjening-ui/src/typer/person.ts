@@ -83,16 +83,15 @@ export interface IAvdoed {
 }
 
 export enum SamboerInntekt {
-    arbeidsinntekt = "arbeidsinntekt",
-    pensjon = "pensjon",
-    kapitalinntekt = "kapitalinntekt",
-    andreYtelser = "andreYtelser",
+    arbeidsinntekt = "samboerInntekt.arbeidsinntekt",
+    pensjon = "samboerInntekt.pensjon",
+    kapitalinntekt = "samboerInntekt.kapitalinntekt",
+    andreYtelser = "samboerInntekt.andreYtelser",
 }
 
 export interface ISamboer {
     navn?: string;
     foedselsnummer?: string;
-    hattBarnEllerVaertGift?: IValg;
     harInntekt?: {
         svar?: IValg;
         inntektstype?: SamboerInntekt[];
@@ -106,14 +105,25 @@ export interface IKontaktinfo {
 }
 
 export interface INySivilstatus {
-    inngaatt?: {
-        svar?: string;
-        dato?: Date;
-    };
-    fremdelesGift?: IValg;
+    sivilstatus?: string;
+    ekteskap?: INyttEkteskap;
+    samboerskap?: INyttSamboerskap;
+}
+
+export interface INyttSamboerskap {
     samboerskapOpploest?: IValg;
-    opploestDato?: Date;
     aarsakForOpploesningen?: string;
+    hattBarnEllerVaertGift?: IValg;
+    inngaattDato?: Date;
+    opploestDato?: Date;
+    samboer?: ISamboer;
+}
+
+export interface INyttEkteskap {
+    fremdelesGift?: IValg;
+    aarsakForOpploesningen?: string;
+    inngaattDato?: Date;
+    opploestDato?: Date;
 }
 
 export interface IForholdAvdoede {
@@ -138,7 +148,6 @@ export interface ISoeker {
     oppholdsland?: string; // 2.7
     medlemFolketrygdenUtland?: IValg;
     nySivilstatus?: INySivilstatus;
-    samboer?: ISamboer; // 2.16
 }
 
 export interface ISoekerOgAvdoed {

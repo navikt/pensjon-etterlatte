@@ -26,13 +26,12 @@ const TidligereArbeidsforhold = () => {
         <>
             {/* Steg 4 */}
             <SkjemaGruppe>
-                <Undertittel>{t("tidligereArbeidsforhold.tittel")}</Undertittel>
+                <Undertittel>{t("dinSituasjon.tidligereArbeidsforhold.tittel")}</Undertittel>
 
                 <br/>
 
                 <AlertStripe type={"info"} form={"inline"}>
-                    Dersom du de siste 10 årene har vært i arbeid (deltid, heltid, vikariat, osv) er det viktig at du
-                    oppgir dette. Klikk på "Legg til" under for å legge til tidligere arbeidsforhold.
+                    {t("dinSituasjon.tidligereArbeidsforhold.info")}
                 </AlertStripe>
             </SkjemaGruppe>
 
@@ -41,21 +40,21 @@ const TidligereArbeidsforhold = () => {
                     <Panel border key={field.id} className={"luft-under"}>
                         <RHFInput
                             name={`tidligereArbeidsforhold[${index}].beskrivelse` as const}
-                            label={"Beskrivelse"}
+                            label={t("dinSituasjon.tidligereArbeidsforhold.beskrivelse")}
                         />
 
                         <Grid>
                             <Cell xs={12} md={4}>
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].fraDato` as const}
-                                    label={"Fra"}
+                                    label={t("dinSituasjon.tidligereArbeidsforhold.fra")}
                                 />
                             </Cell>
 
                             <Cell xs={12} md={4}>
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].tilDato` as const}
-                                    label={"Til"}
+                                    label={t("dinSituasjon.tidligereArbeidsforhold.til")}
                                 />
                             </Cell>
 

@@ -13,13 +13,10 @@
   "knapp": {
     "tilbake": "Tilbake",
     "neste": "Neste",
-    "tilOppsummering": "Til oppsummering",
     "sendSoeknad": "Send søknad",
     "leggTil": "Legg til",
-    "leggTilOgLukk": "Legg til og lukk",
     "fjernElement": "Fjern element",
-    "leggTilBarn": "+ Legg til barn",
-    "leggTilArbeidsforhold": "+ Legg til arbeidsforhold"
+    "leggTilBarn": "+ Legg til barn"
   },
   "forside": {
     "tittel": "Søknad om gjenlevendepensjon",
@@ -67,8 +64,8 @@
     }
   },
   "dinSituasjon": {
-    "status": "Er du for tiden i arbeid?",
-    "statusArbeidHvorfor": "Vi skal vurdere om du utnytter arbeidsevnen du har, eller om du har behov for bistand fra oss til å bli selvforsørget.",
+    "jobbStatus": "Er du for tiden i arbeid?",
+    "jobbStatusHvorfor": "Vi skal vurdere om du utnytter arbeidsevnen du har, eller om du har behov for bistand fra oss til å bli selvforsørget.",
     "utdanning": {
       "hoyesteFullfoerteUtdanning": "Hva er din høyeste fullførte utdanning?",
       "annenUtdanning": "Annen utdanning",
@@ -87,6 +84,13 @@
       "type": "Hvilken type næring er dette?",
       "endringIfmDoedsfall": "Har det skjedd noen endring i næringen som følge av dødsfall?",
       "endringIfmDoedsfallPlaceholder": "F.eks. endring i forventet inntekt eller drift av næring"
+    },
+    "tidligereArbeidsforhold": {
+      "tittel": "Dine tidligere arbeidsforhold (siste 10 år)",
+      "info": "Dersom du de siste 10 årene har vært i arbeid (deltid, heltid, vikariat, osv) er det viktig at du oppgir dette. Klikk på \"Legg til\" under for å legge til tidligere arbeidsforhold.",
+      "beskrivelse": "Beskrivelse",
+      "fra": "Fra",
+      "til": "Til"
     },
     "arbeidsforhold": {
       "forventerEndretInntekt": {
@@ -126,37 +130,7 @@
       "telefon": "Telefonnummer",
       "epost": "E-post"
     },
-    "kontonummer": "Oppgi norsk kontonummer for utbetaling",
-    "forholdTilAvdoede": {
-      "tittel": "Ditt forhold til avdøde",
-      "ektefelle": "Gjenlevende ektefelle",
-      "partner": "Gjenlevende partner",
-      "samboer": "Gjenlevende samboer",
-      "ugift": "Ugift, men ble forsørget av den avdøde",
-      "datoForPartnerskap": "Dato for inngått ekteskap/partnerskap/ samboerforhold (dd.mm.åå)"
-    },
-    "hattBarnEllerVaertGift": "Hvis gjenlevende samboer, har/har du hatt barn med eller vært gift med den avdøde samboeren?",
-    "varSkiltFraAvdoede": "Var du skilt fra avdød ektefelle/partner eller opplevde samlivsbrudd før samboeren døde?",
-    "datoForSamlivsbrudd": "Dato for skilsmisse/samlivsbrudd (dd.mm.åå)",
-    "mottokBidragFraAvdoede": "Mottok du bidrag fra avdøde?",
-    "bidragBeloep": "Oppgi beløp pr. år på dødsfallstidspunktet",
-    "nyInngaaelse": {
-      "tittel": "Har du etter dødsfallet/ skillsmissen/samlivsbruddet inngått",
-      "ekteskap": "Ekteskap",
-      "partnerskap": "Partnerskap",
-      "samboerskap": "Samboerskap",
-      "dato": "Dato for inngåelse"
-    },
-    "oppgiNavnSamboer": "Hvis du er samboer, oppgi etternavn og fornavn på samboer",
-    "harHattBarnEllerVaertGiftMedSamboer": "Har eller har du hatt barn med eller vært gift med nåværende samboer?",
-    "harSamboerInntekt": {
-      "tittel": "Har samboer inntekt?",
-      "arbeidsinntekt": "Arbeidsinntekt",
-      "pensjon": "Pensjon",
-      "kapitalinntekt": "Kapitalinntekt",
-      "andreYtelser": "Andre ytelser",
-      "bruttoinntekt": "Samlet bruttoinntekt pr. år"
-    }
+    "kontonummer": "Oppgi norsk kontonummer for utbetaling"
   },
   "omDegOgAvdoed": {
     "avdoed": {
@@ -174,18 +148,39 @@
       "relasjonHvorfor": "Ditt forhold til avdøde når dødsfallet skjedde har betydning for retten til gjenlevendepensjon.",
       "datoForInngaattPartnerskap": "Når ble dere gift?",
       "hvorforDatoForInngaattPartnerskap": "Registrert partnerskap er likestilt med ekteskap.",
-      "fellesBarn": "Hadde dere felles barn?",
-      "omsorgForBarn": "Hadde du omsorg for egne og/eller avdødes særkullsbarn på dødstidspunktet?"
+      "fellesBarn": "Har eller hadde dere felles barn?",
+      "tidligereGift": "Var du tidligere gift med avdøde?",
+      "datoForInngaattSamboerskap": "Dato for inngått samboerskap",
+      "omsorgForBarn": "Hadde du omsorg for avdødes barn på dødstidspunktet?",
+      "datoForSkilsmisse": "Oppgi dato for skilsmisse (ikke seperasjon)",
+      "datoForSamlivsbrudd": "Dato for samlivsbruddet (ikke separasjon)",
+      "mottokBidrag": "Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?"
     },
     "nySivilstatus": {
       "tittel": "Nåværende sivilstand",
       "beskrivelse": "Hvis sivilstanden din har endret seg så trenger vi informasjon om dette.",
-      "aarsakForOpploesningen": "Hva er grunnen til at dere ikke er gift lenger?",
       "hvorforAarsakOpploesning": "Vi trenger opplysningene for å vurdere om du kan få gjenlevendepensjon.",
       "inngaatt.dato": "Vi giftet oss",
-      "inngaatt.svar": "Har du giftet deg på nytt eller fått samboer?",
-      "opploest.dato": "Vi ble skilt",
-      "fremdelesGift": "Er dere fremdeles gift?"
+      "sivilstatus": "Har du giftet deg på nytt eller fått samboer?",
+      "ekteskap": {
+        "inngaattDato": "Vi giftet oss",
+        "opploestDato": "Vi ble skilt",
+        "fremdelesGift": "Er dere fremdeles gift?",
+        "aarsakForOpploesningen": "Hva er grunnen til at dere ikke er gift lenger?",
+        "hattBarnEllerVaertGift": "Har/hadde dere barn sammen eller var dere tidligere gift?"
+      },
+      "samboerskap": {
+        "inngaattDato": "Vi ble samboere",
+        "opploestDato": "",
+        "aarsakForOpploesningen": "Hva er grunnen til at dere ikke er samboere lenger?",
+        "hattBarnEllerVaertGift": "Har/hadde dere barn sammen eller var dere tidligere gift?",
+        "samboerskapOpploest": "Er dette samboerskapet oppløst?",
+        "samboer": {
+          "navn": "Navn",
+          "harInntekt.svar": "Har samboer inntekt?",
+          "harInntekt.samletBruttoinntektPrAar": "Samlet bruttoinntekt per år"
+        }
+      }
     }
   },
   "omDenAvdoede": {
@@ -231,34 +226,6 @@
       "statsborgerskap": "Statsborgerskap"
     }
   },
-  "tidligereArbeidsforhold": {
-    "tittel": "Dine tidligere arbeidsforhold (siste 10 år)",
-    "beskrivelse": "Navn på arbeidsplass",
-    "fraDato": "Fra",
-    "tilDato": "Til"
-  },
-  "naavaerendeArbeidsforhold": {
-    "tittel": "Søkers nåværende arbeids- og inntektsforhold",
-    "yrke": "Yrke",
-    "stilling": "Stilling",
-    "startDato": "Når startet du?",
-    "ansettelsesforhold": "Oppgi type arbeidsforhold",
-    "fast": "Fast",
-    "midlertidig": "Midlertidig",
-    "sesongarbeid": "Sesongarbeid",
-    "heltidDeltid": "Er arbeidsforholdet heltid eller deltid?",
-    "heltid": "Heltid",
-    "deltid": "Deltid",
-    "stillingsprosent": "Oppgi stillingsprosent",
-    "arbeidsgiver": {
-      "navn": "Arbeidsgivers navn (Virksomhetens navn)",
-      "adresse": "Arbeidsgivers adresse (Virksomhetens adresse)"
-    },
-    "inntekt": {
-      "bruttoArbeidsinntektPrMd": "Brutto arbeidsinntekt pr. måned",
-      "personinntektFraNaeringPrAr": "Beregnet personinntekt fra næring pr. år"
-    }
-  },
   "avdoede": {
     "relasjon": {
       "gift":"Gift",
@@ -267,6 +234,12 @@
       "tidligereSamboer":"Tidligere samboere",
       "ingen": "Ingen av delene"
     }
+  },
+  "samboerInntekt": {
+    "arbeidsinntekt":  "Arbeidsinntekt",
+    "pensjon": "Pensjon",
+    "kapitalinntekt":  "Kapitalinntekt",
+    "andreYtelser": "Andre ytelser"
   },
   "arbeidsforholdType": {
     "selvstendig": "Ja, er selvstendig næringsdrivende",

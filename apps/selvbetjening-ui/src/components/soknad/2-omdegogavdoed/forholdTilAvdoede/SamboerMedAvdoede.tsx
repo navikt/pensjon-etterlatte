@@ -6,8 +6,10 @@ import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { hentAlder } from "../../../../utils/dato";
 import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
+import { useTranslation } from "react-i18next";
 
 const SamboerMedAvdoede = () => {
+    const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
 
@@ -16,22 +18,19 @@ const SamboerMedAvdoede = () => {
     const tidligereGift = watch("forholdTilAvdoede.tidligereGift");
     const omsorgForBarn = watch("forholdTilAvdoede.omsorgForBarn");
 
-    let partnerskapMindreEnnFemAar = false;
-    if (!!datoInngaattPartnerskap) {
-        partnerskapMindreEnnFemAar = hentAlder(datoInngaattPartnerskap) < 5;
-    }
+    let partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
 
     return (
         <>
             <RHFToValgRadio
                 name={"forholdTilAvdoede.fellesBarn"}
-                legend={"Har eller hadde dere felles barn?"}
+                legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
             />
 
             {ingenFellesBarn && (
                 <RHFToValgRadio
                     name={"forholdTilAvdoede.tidligereGift"}
-                    legend={"Var du tidligere gift med avdøde?"}
+                    legend={t("omDegOgAvdoed.forholdTilAvdoede.tidligereGift")}
                 />
             )}
 
@@ -46,7 +45,7 @@ const SamboerMedAvdoede = () => {
                   <SkjemaGruppe>
                       <Datovelger
                           name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
-                          label={"Dato for inngått samboerskap"}
+                          label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
                       />
                   </SkjemaGruppe>
 
@@ -54,7 +53,7 @@ const SamboerMedAvdoede = () => {
                       // TODO: Sjekke om denne kan ha lik tittel som tilsvarende element under GiftMedAvdoede.tsx
                       <RHFToValgRadio
                           name={"forholdTilAvdoede.omsorgForBarn"}
-                          legend={"Hadde du omsorg for avdødes barn på dødstidspunktet?"}
+                          legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
                       />
                   )}
 

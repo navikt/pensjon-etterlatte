@@ -34,7 +34,7 @@ export enum ArbeidsforholdType {
 }
 
 export interface ISituasjon {
-    status?: JobbStatus;
+    jobbStatus?: JobbStatus;
     beskrivelseIngen?: string;
     arbeidsforholdType?: ArbeidsforholdType;
     utdanning?: IUtdanning;

@@ -1,11 +1,5 @@
-import { FieldError, useFormContext } from "react-hook-form";
-import {
-    Checkbox,
-    CheckboxGruppe,
-    SkjemaGruppe,
-    SkjemaGruppeProps, CheckboksPanel
-} from "nav-frontend-skjema";
-import { Controller, FieldPath, FieldValues } from "react-hook-form";
+import { Controller, FieldError, FieldPath, FieldValues, useFormContext } from "react-hook-form";
+import { CheckboksPanel, Checkbox, CheckboxGruppe, SkjemaGruppeProps } from "nav-frontend-skjema";
 import { CheckboxProps } from "nav-frontend-skjema/lib/checkbox";
 import { get } from "lodash";
 import { useTranslation } from "react-i18next";
@@ -31,32 +25,30 @@ export const RHFCheckboksPanelGruppe = ({ name, checkboxes, ...rest }: RHFCheckb
     const feilmelding = t(getTransKey(error))
 
     return (
-        <SkjemaGruppe>
-            <Controller
-                name={name}
-                control={control}
-                rules={{required: true}}
-                render={({ field: { value, onChange } }) => (
-                    <CheckboxGruppe
-                        {...rest}
-                        feil={feilmelding}
-                        className={"inputPanelGruppe"}
-                    >
-                        {checkboxes.map((checkbox: CheckboxProps) => (
-                            <CheckboksPanel
-                                key={checkbox.value as string}
-                                label={checkbox.label}
-                                value={checkbox.value}
-                                checked={(value as any[])?.includes(checkbox.value)}
-                                onChange={(e) => onChange(
-                                    handleSelect(value, ((e.target as HTMLInputElement).value as any))
-                                )}
-                            />
-                        ))}
-                    </CheckboxGruppe>
-                )}
-            />
-        </SkjemaGruppe>
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: true }}
+            render={({ field: { value, onChange } }) => (
+                <CheckboxGruppe
+                    {...rest}
+                    feil={feilmelding}
+                    className={"inputPanelGruppe"}
+                >
+                    {checkboxes.map((checkbox: CheckboxProps) => (
+                        <CheckboksPanel
+                            key={checkbox.value as string}
+                            label={checkbox.label}
+                            value={checkbox.value}
+                            checked={(value as any[])?.includes(checkbox.value)}
+                            onChange={(e) => onChange(
+                                handleSelect(value, ((e.target as HTMLInputElement).value as any))
+                            )}
+                        />
+                    ))}
+                </CheckboxGruppe>
+            )}
+        />
     )
 };
 
@@ -74,34 +66,32 @@ export const RHFCheckboksGruppe = ({ name, checkboxes, ...rest }: RHFCheckboksGr
     const feilmelding = t(getTransKey(error))
 
     return (
-        <>
-            <Controller
-                name={name}
-                control={control}
-                rules={{required: true}}
-                render={({ field: { value, onChange } }) => {
-                    console.log(value)
+        <Controller
+            name={name}
+            control={control}
+            rules={{required: true}}
+            render={({ field: { value, onChange } }) => {
+                console.log(value)
 
-                    return (
-                        <CheckboxGruppe
-                            {...rest}
-                            feil={feilmelding}
-                        >
-                            {checkboxes.map((checkbox: CheckboxProps) => (
-                                <Checkbox
-                                    key={checkbox.value as string}
-                                    label={checkbox.label}
-                                    value={checkbox.value}
-                                    checked={(value as any[])?.includes(checkbox.value)}
-                                    onChange={(e) => onChange(
-                                        handleSelect(value, ((e.target as HTMLInputElement).value as any))
-                                    )}
-                                />
-                            ))}
-                        </CheckboxGruppe>
-                    )
-                }}
-            />
-        </>
+                return (
+                    <CheckboxGruppe
+                        {...rest}
+                        feil={feilmelding}
+                    >
+                        {checkboxes.map((checkbox: CheckboxProps) => (
+                            <Checkbox
+                                key={checkbox.value as string}
+                                label={checkbox.label}
+                                value={checkbox.value}
+                                checked={(value as any[])?.includes(checkbox.value)}
+                                onChange={(e) => onChange(
+                                    handleSelect(value, ((e.target as HTMLInputElement).value as any))
+                                )}
+                            />
+                        ))}
+                    </CheckboxGruppe>
+                )
+            }}
+        />
     )
 };

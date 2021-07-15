@@ -13,23 +13,23 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
 
     const { watch } = useFormContext<ISoeker>()
 
-    const samboerskapOpploest = watch("nySivilstatus.samboerskapOpploest")
-    const aarsakForOpploesningen = watch("nySivilstatus.aarsakForOpploesningen")
-    const hattBarnEllerVaertGift = watch("samboer.hattBarnEllerVaertGift")
+    const samboerskapOpploest = watch("nySivilstatus.samboerskap.samboerskapOpploest")
+    const aarsakForOpploesningen = watch("nySivilstatus.samboerskap.aarsakForOpploesningen")
+    const hattBarnEllerVaertGift = watch("nySivilstatus.samboerskap.hattBarnEllerVaertGift")
 
     return (
         <>
             <SkjemaGruppe>
                 <Datovelger
-                    name={"nySivilstatus.inngaatt.dato"}
-                    label={"Dato for inngått samboerskap"}
+                    name={"nySivilstatus.samboerskap.inngaattDato"}
+                    label={t("omDegOgAvdoed.nySivilstatus.samboerskap.inngaattDato")}
                     maxDate={new Date()}
                 />
             </SkjemaGruppe>
 
             <RHFToValgRadio
-                name={"samboer.hattBarnEllerVaertGift"}
-                legend={"Har/hadde dere barn sammen eller var dere tidligere gift?"}
+                name={"nySivilstatus.samboerskap.hattBarnEllerVaertGift"}
+                legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
             />
 
             {hattBarnEllerVaertGift === IValg.NEI && (
@@ -39,17 +39,19 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
             {hattBarnEllerVaertGift === IValg.JA && (
                 <>
                     <RHFToValgRadio
-                        name={"nySivilstatus.samboerskapOpploest"}
-                        legend={"Er dette samboerskapet oppløst?"}
+                        name={"nySivilstatus.samboerskap.samboerskapOpploest"}
+                        legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboerskapOpploest")}
                     />
+                    {/*"Er dette samboerskapet oppløst?"*/}
 
+                    {/* TODO: Fix radio keys */}
                     {samboerskapOpploest === IValg.JA && (
                         <RHFRadio
-                            name={"nySivilstatus.aarsakForOpploesningen"}
-                            legend={t("omDeg.aarsakOpploesning.tittel")}
+                            name={"nySivilstatus.samboerskap.aarsakForOpploesningen"}
+                            legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.aarsakForOpploesningen")}
                             radios={[
                                 {
-                                    label: t("omDeg.aarsakOpploesning.dødsfall"),
+                                    label: t("aarsakOpploesning.dødsfall"),
                                     value: OpploesningAarsak.doedsfall
                                 },
                                 {
@@ -65,8 +67,8 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
             {aarsakForOpploesningen === OpploesningAarsak.samlivsbrudd && (
                 <SkjemaGruppe>
                     <Datovelger
-                        name={"nySivilstatus.opploestDato"}
-                        label={"Dato for inngått samboerskap"}
+                        name={"nySivilstatus.samboerskap.opploestDato"}
+                        label={t("omDegOgAvdoed.nySivilstatus.samboerskap.opploestDato")}
                         maxDate={new Date()}
                     />
                 </SkjemaGruppe>

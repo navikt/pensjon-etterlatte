@@ -37,7 +37,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         neste!!();
     };
 
-    const status = watch("status")
+    const jobbStatus = watch("jobbStatus")
 
     return (
         <FormProvider {...methods}>
@@ -55,23 +55,23 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaGruppe>
 
                 <RHFRadio
-                    name={"status"}
-                    legend={t("dinSituasjon.status")}
-                    hjelpetekst={t("dinSituasjon.statusArbeidHvorfor")}
+                    name={"jobbStatus"}
+                    legend={t("dinSituasjon.jobbStatus")}
+                    hjelpetekst={t("dinSituasjon.jobbStatusHvorfor")}
                     radios={Object.values(JobbStatus).map(value => {
                         return { label: t(value), value } as RadioProps;
                     })}
                 />
 
-                {status === JobbStatus.arbeidstaker && (
+                {jobbStatus === JobbStatus.arbeidstaker && (
                     <NavaerendeArbeidsforhold />
                 )}
 
-                {status === JobbStatus.underUtdanning && (
+                {jobbStatus === JobbStatus.underUtdanning && (
                     <UnderUtdanning />
                 )}
 
-                {status === JobbStatus.ingen && (
+                {jobbStatus === JobbStatus.ingen && (
                     <SkjemaGruppe>
                         <RHFInput
                             name={"beskrivelseIngen"}

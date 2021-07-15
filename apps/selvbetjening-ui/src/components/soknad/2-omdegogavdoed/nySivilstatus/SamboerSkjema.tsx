@@ -15,7 +15,7 @@ const SamboerSkjema = () => {
 
     const { watch } = useFormContext<ISoeker>();
 
-    const samboerHarInntekt = watch("samboer.harInntekt.svar")
+    const samboerHarInntekt = watch("nySivilstatus.samboerskap.samboer.harInntekt.svar")
 
     return (
         <Panel border>
@@ -26,12 +26,12 @@ const SamboerSkjema = () => {
             {/* 2.16 */}
             <SkjemaGruppe>
                 <RHFInput
-                    name={"samboer.navn"}
-                    label={t("omDeg.oppgiNavnSamboer")}
+                    name={"nySivilstatus.samboerskap.samboer.navn"}
+                    label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
                 />
 
                 <RHFInput
-                    name={"samboer.foedselsnummer"}
+                    name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
                     label={t("felles.fnr")}
                     rules={{ validate: (value) => (fnr(value).status === 'valid') }}
                 />
@@ -39,26 +39,26 @@ const SamboerSkjema = () => {
 
             {/* 2.17 */}
             <RHFToValgRadio
-                name={"samboer.harInntekt.svar"}
-                legend={t("omDeg.harSamboerInntekt.tittel")}
+                name={"nySivilstatus.samboerskap.samboer.harInntekt.svar"}
+                legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar")}
             />
 
             {samboerHarInntekt === IValg.JA && (
                 <>
                     <RHFCheckboksPanelGruppe
-                        name={"samboer.harInntekt.inntektstype"}
+                        name={"nySivilstatus.samboerskap.samboer.harInntekt.inntektstype"}
                         checkboxes={Object.values(SamboerInntekt).map((type) => {
                             return {
                                 value: type,
-                                label: t(`omDeg.harSamboerInntekt.${type}`),
+                                label: t(type),
                             }
                         })}
                     />
 
                     <SkjemaGruppe>
                         <RHFInput
-                            name={"samboer.harInntekt.samletBruttoinntektPrAar"}
-                            label={t("omDeg.harSamboerInntekt.bruttoinntekt")}
+                            name={"nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"}
+                            label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar")}
                         />
                     </SkjemaGruppe>
                 </>
