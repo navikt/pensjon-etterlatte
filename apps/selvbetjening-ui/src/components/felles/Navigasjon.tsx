@@ -78,14 +78,14 @@ const Navigasjon = ({ neste, forrige, send, disabled }: {
 
                 {!!sistLagret && (
                     <Undertekst className={"center"}>
-                        Sist lagret: {sistLagret}
+                        {t("felles.sistLagret")}: {sistLagret}
                     </Undertekst>
                 )}
             </SkjemaGruppe>
 
             <SkjemaGruppe className={classNames("navigasjon-rad", disabled && "disabled")}>
                 <Flatknapp htmlType={"button"} onClick={() => setIsOpen(true)}>
-                    Avbryt
+                    {t("knapp.avbryt")}
                 </Flatknapp>
             </SkjemaGruppe>
 

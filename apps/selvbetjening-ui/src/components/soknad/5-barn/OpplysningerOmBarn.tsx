@@ -11,7 +11,7 @@ import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import BarnInfokort from "./BarnInfokort";
 import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
-import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
 
@@ -31,8 +31,6 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
 
     const fjern = (index: number) =>
         dispatch({ type: ActionTypes.FJERN_BARN, payload: index, });
-
-    const [soekerBarnep, setSoekerBarnep] = useState<boolean>(false);
 
     return (
         <>
@@ -72,18 +70,6 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                     <LeggTilBarnSkjema lagre={leggTilBarn} />
                 </Modal>
             </SkjemaGruppe>
-
-            {state.opplysningerOmBarn.length > 0 && (
-                <SkjemaGruppe>
-                    <BekreftCheckboksPanel
-                        label={"Ja, jeg ønsker å søke om barnepensjon."}
-                        checked={soekerBarnep}
-                        onChange={(e) => setSoekerBarnep((e.target as HTMLInputElement).checked)}
-                    >
-                        Hvis du har felles barn med avdøde, som er under 18 år, kan de ha rett til barnepensjon.
-                    </BekreftCheckboksPanel>
-                </SkjemaGruppe>
-            )}
 
             <Navigasjon
                 forrige={{ callback: forrige }}

@@ -14,6 +14,7 @@
     "tilbake": "Tilbake",
     "neste": "Neste",
     "hoppOver": "Hopp over dette steget",
+    "avbryt": "Avbryt",
     "sendSoeknad": "Send søknad",
     "leggTil": "Legg til",
     "fjernElement": "Fjern element",
@@ -315,7 +316,8 @@
     "sivilstatus": "Sivilstatus",
     "statsborgerskap": "Statsborgerskap",
     "ingenInfo": "Ingen informasjon",
-    "endreSvar": "Endre svar"
+    "endreSvar": "Endre svar",
+    "sistLagret": "Sist lagret"
   },
   "feil": {
     "hovedytelse": {
