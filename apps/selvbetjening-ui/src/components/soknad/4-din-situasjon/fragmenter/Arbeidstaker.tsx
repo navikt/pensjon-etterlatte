@@ -27,11 +27,11 @@ const Arbeidstaker = () => {
                 <RHFInput
                     className={"kol-75"}
                     name={"arbeidsforhold.arbeidsgiver"}
-                    label={"Hvor jobber du nå?"}
+                    label={t("dinSituasjon.arbeidsforhold.arbeidsgiver")}
                 />
                 <Datovelger
                     name={"arbeidsforhold.startDato"}
-                    label={t("naavaerendeArbeidsforhold.startDato")}
+                    label={t("dinSituasjon.arbeidsforhold.startDato")}
                     maxDate={watch("arbeidsforhold.sluttDato")}
                 />
             </SkjemaGruppe>
@@ -39,14 +39,14 @@ const Arbeidstaker = () => {
             <SkjemaGruppe>
                 <RHFInput
                     name={"arbeidsforhold.stilling"}
-                    label={"Hvilken stilling har du?"}
+                    label={t("dinSituasjon.arbeidsforhold.stilling")}
                 />
             </SkjemaGruppe>
 
             <div className={"rad skjemagruppe"}>
                 <RHFSelect
                     name={"arbeidsforhold.ansettelsesforhold"}
-                    label={"Type ansettelse"}
+                    label={t("dinSituasjon.arbeidsforhold.ansettelsesforhold")}
                     selectOptions={[
                         { label: "Velg ...", value: undefined },
                         { label: t("naavaerendeArbeidsforhold.fast"), value: StillingType.fast },
@@ -57,7 +57,7 @@ const Arbeidstaker = () => {
 
                 <RHFInput
                     name={"arbeidsforhold.stillingsprosent"}
-                    label={"Hvor mye jobber du?"}
+                    label={t("dinSituasjon.arbeidsforhold.stillingsprosent")}
                     placeholder={"eks. 80%"}
                     rules={{ pattern: /\d/ }}
                 />
@@ -65,7 +65,7 @@ const Arbeidstaker = () => {
 
             <RHFToValgRadio
                 name={"arbeidsforhold.forventerEndretInntekt.svar"}
-                legend={"Regner du med at inntekten din endrer seg de neste 12 månedene?"}
+                legend={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar")}
                 vetIkke
             />
 

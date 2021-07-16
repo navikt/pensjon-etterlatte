@@ -41,7 +41,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         <FormProvider {...methods}>
             <SkjemaGruppe className={"center"}>
                 <Systemtittel>
-                    Om avdøde
+                    {t("omDenAvdoede.tittel")}
                 </Systemtittel>
             </SkjemaGruppe>
 
@@ -49,7 +49,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <div className={"rad skjemagruppe"}>
                     <div className={"kolonne"}>
                         <Element>
-                            Fornavn
+                            {t("omDenAvdoede.fornavn")}
                         </Element>
                         <Normaltekst>
                             {state.omDegOgAvdoed.avdoed?.fornavn}
@@ -57,7 +57,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     </div>
                     <div className={"kolonne"}>
                         <Element>
-                            Etternavn
+                            {t("omDenAvdoede.etternavn")}
                         </Element>
                         <Normaltekst>
                             {state.omDegOgAvdoed.avdoed?.etternavn}
@@ -84,13 +84,13 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 <RHFToValgRadio
                     name={"medlemFolketrygdUtland"}
-                    legend={"Var han/hun medlem av folketrygden under oppholdet i et annet land?"}
+                    legend={t("omDenAvdoede.medlemFolketrygdUtland")}
                     vetIkke
                 />
 
                 <RHFToValgRadio
                     name={"mottokPensjonAndreLand.svar"}
-                    legend={"Fikk han/hun pensjon fra andre land enn Norge?"}
+                    legend={t("omDenAvdoede.mottokPensjonAndreLand.svar")}
                     vetIkke
                 />
 
@@ -105,22 +105,23 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 <RHFToValgRadio
                     name={"selvstendigNaeringsdrivende.svar"}
-                    legend={"Var han/hun selvstendig næringsdrivende året før dødsfallet?"}
+                    legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
                     vetIkke
                 />
 
+                {/* TODO: Rename? */}
                 {selvstendigNaeringsdrivende === IValg.JA && (
                     <SkjemaGruppe>
                         <RHFValutaInput
-                            name={"haddePensjonsgivendeInntekt.beskrivelse"}
-                            label={"Oppgi næringsinntekt fra kalenderåret før dødsfallet"}
+                            name={"selvstendigNaeringsdrivende.beskrivelse"}
+                            label={t("omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse")}
                         />
                     </SkjemaGruppe>
                 )}
 
                 <RHFRadio
                     name={"haddePensjonsgivendeInntekt.svar"}
-                    legend={"Hadde han/hun inntekt når dødsfallet skjedde?"}
+                    legend={t("omDenAvdoede.haddePensjonsgivendeInntekt.svar")}
                     description={"TODO: Litt informasjon rundt hva vi mener med \"selvstendig næringsdrivende\", \"arbeidstaker\", osv."}
                     radios={Object.values(AvdoedInntekt).map(value => {
                         return { label: t(value), value } as RadioProps
@@ -129,7 +130,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 <RHFToValgRadio
                     name={"harAvtjentMilitaerTjeneste.svar"}
-                    legend={"Gjennomførte han/hun militær eller sivil førstegangstjeneste som varte minst 30 dager?"}
+                    legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
                     vetIkke
                 />
 
@@ -137,7 +138,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <SkjemaGruppe>
                         <RHFInput
                             name={"harAvtjentMilitaerTjeneste.beskrivelse"}
-                            label={"Hvilke(t) år?"}
+                            label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
                         />
                     </SkjemaGruppe>
                 )}

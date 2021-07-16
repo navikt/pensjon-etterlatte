@@ -77,7 +77,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             <Cell xs={12} md={6} className={"kol"}>
                                 <RHFTelefonInput
                                     name={"kontaktinfo.telefonnummer"}
-                                    label={t("omDeg.kontaktinfo.telefon")}
+                                    label={t("omDeg.kontaktinfo.telefonnummer")}
                                     // TODO: Validere telefon ... ?
                                 />
                             </Cell>

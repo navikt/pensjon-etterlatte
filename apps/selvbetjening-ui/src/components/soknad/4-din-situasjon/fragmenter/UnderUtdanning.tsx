@@ -11,7 +11,7 @@ const UnderUtdanning = () => {
         <>
             <SkjemaGruppe>
                 <Undertittel>
-                    Hvilken utdanning holder du på med?
+                    {t("dinSituasjon.utdanning.tittel")}
                 </Undertittel>
             </SkjemaGruppe>
 

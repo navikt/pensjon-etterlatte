@@ -64,9 +64,13 @@
     }
   },
   "dinSituasjon": {
+    "tittel": "Situasjonen din",
+    "undertittel": "Arbeid og utdanning",
     "jobbStatus": "Er du for tiden i arbeid?",
     "jobbStatusHvorfor": "Vi skal vurdere om du utnytter arbeidsevnen du har, eller om du har behov for bistand fra oss til å bli selvforsørget.",
+    "ingenJobbBeskrivelse": "Beskrivelse",
     "utdanning": {
+      "tittel": "Hvilken utdanning holder du på med?",
       "hoyesteFullfoerteUtdanning": "Hva er din høyeste fullførte utdanning?",
       "annenUtdanning": "Annen utdanning",
       "annenUtdanningPlaceholder": "F.eks. kurs, enkeltår på universitet eller høyskole",
@@ -93,7 +97,13 @@
       "til": "Til"
     },
     "arbeidsforhold": {
+      "arbeidsgiver": "Hvor jobber du nå?",
+      "stilling": "Hvilken stilling har du?",
+      "ansettelsesforhold": "Type ansettelse",
+      "stillingsprosent": "Hvor mye jobber du?",
+      "startDato": "Når startet du?",
       "forventerEndretInntekt": {
+        "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
         "beskrivelse": "Hva regner du med å få i samlet inntekt de neste 12 månedene?",
         "hvorfor": "Det har betydning for hvor mye gjenlevendepensjon du får."
       }
@@ -127,12 +137,13 @@
     "flyktning": "Har du status som flyktning? <i>(gjelder alle født før 1960)</i>",
     "flyktningHvorfor":  "Hvis du er registrert som flyktning hos UDI kan vi vurdere søknaden din ut fra spesielle bestemmelser.",
     "kontaktinfo": {
-      "telefon": "Telefonnummer",
+      "telefonnummer": "Telefonnummer",
       "epost": "E-post"
     },
     "kontonummer": "Oppgi norsk kontonummer for utbetaling"
   },
   "omDegOgAvdoed": {
+    "tittel": "Om deg og avdøde",
     "avdoed": {
       "hvem": "Hvem er det som er død?",
       "fornavn": "Fornavn",
@@ -184,7 +195,7 @@
     }
   },
   "omDenAvdoede": {
-    "tittel": "Opplysninger om den avdøde",
+    "tittel": "Om den avdøde",
     "fornavn": "Fornavn",
     "etternavn": "Etternavn",
     "foedselsnummer": "Fødselsnummer",
@@ -192,22 +203,34 @@
     "statsborgerskap": "Statsborgerskap",
     "bosetning": "Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?",
     "doedsfallAarsak": "Kan dødsfallet være en følge av yrkesskade/yrkessykdom?",
-    "boddEllerJobbetUtland": "Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?",
+    "boddEllerJobbetUtland": {
+      "svar": "Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?",
+      "hjelpetekst": "Bodde eller arbeidet han/hun i et annet land enn Norge etter fylte 16 år?",
+      "oppholdUtland.land": "Land",
+      "oppholdUtland.beskrivelse": "Bodd og/eller arbeidet?",
+      "oppholdUtland.fraDato": "Fra dato",
+      "oppholdUtland.tilDato": "Til dato"
+    },
+    "medlemFolketrygdUtland": "Var han/hun medlem av folketrygden under oppholdet i et annet land?",
     "haddePensjonsgivendeInntekt": {
-      "svar": "Hadde den avdøde pensjonsgivende inntekt (arbeidsinntekt eller næringsinntekt) på tidspunktet før dødsfallet?",
+      "svar": "Hadde han/hun inntekt når dødsfallet skjedde?",
       "beskrivelse": "Oppgi bruttobeløp pr. år (kr)"
     },
     "mottokPensjonAndreLand": {
-      "svar": "Mottok den avdøde pensjon fra andre land enn Norge?",
+      "svar": "Fikk han/hun pensjon fra andre land enn Norge?",
       "beskrivelse": "Oppgi bruttobeløp pr. år (kr)"
     },
+    "selvstendigNaeringsdrivende": {
+      "svar": "Var han/hun selvstendig næringsdrivende året før dødsfallet?",
+      "beskrivelse": "Oppgi næringsinntekt fra kalenderåret før dødsfallet"
+    },
     "harAvtjentMilitaerTjeneste": {
-      "svar": "Har den avdøde etter 1966 avtjent militær eller sivil førstegangstjeneste som varte minst 30 dager?",
-      "beskrivelse": "Oppgi årstall"
+      "svar": "Gjennomførte han/hun militær eller sivil førstegangstjeneste som varte minst 30 dager?",
+      "beskrivelse": "Hvilke(t) år?"
     }
   },
   "omBarn": {
-    "tittel": "Opplysninger om barn",
+    "tittel": "Om barn",
     "fornavn": "Fornavn",
     "etternavn": "Etternavn",
     "foedselsnummer": "Barnets fødselsnummer / d-nummer",
@@ -225,6 +248,11 @@
       "land": "Land",
       "statsborgerskap": "Statsborgerskap"
     }
+  },
+  "oppsummering": {
+    "tittel": "Oppsummering",
+    "beskrivelse": "Les gjennom oppsummeringen av din søknad før du sender.\nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.",
+    "feilVedSending": "En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du kontakte kundeservice."
   },
   "avdoede": {
     "relasjon": {
@@ -278,18 +306,12 @@
   "felles": {
     "fnrDnr": "Fødselsnummer / d-nummer",
     "fnr": "Fødselsnummer (11 siffer)",
-    "doedsdato": "Dødsdato",
     "navn": "Navn",
-    "fornavn": "Fornavn",
-    "etternavn": "Etternavn",
     "adresse": "Bostedsadresse",
     "sivilstatus": "Sivilstatus",
     "statsborgerskap": "Statsborgerskap",
-    "land": "Land",
-    "fraDato": "Fra dato",
-    "tilDato": "Til dato",
-    "startDato": "Startdato",
-    "sluttDato": "Fremtidig sluttdato"
+    "ingenInfo": "Ingen informasjon",
+    "endreSvar": "Endre svar"
   },
   "feil": {
     "hovedytelse": {

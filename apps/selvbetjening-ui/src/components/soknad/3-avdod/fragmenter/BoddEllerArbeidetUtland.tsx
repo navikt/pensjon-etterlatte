@@ -10,8 +10,10 @@ import { Flatknapp } from "nav-frontend-knapper";
 import Panel from "nav-frontend-paneler";
 import SkjemaLinje from "../../../felles/SkjemaLinje";
 import { SkjemaGruppe } from "nav-frontend-skjema";
+import { useTranslation } from "react-i18next";
 
 const BoddEllerArbeidetUtland = () => {
+    const { t } = useTranslation();
 
     const { control, watch } = useFormContext<IAvdoed>();
 
@@ -35,7 +37,8 @@ const BoddEllerArbeidetUtland = () => {
         <>
             <RHFToValgRadio
                 name={"boddEllerJobbetUtland.svar"}
-                legend={"Bodde eller arbeidet han/hun i et annet land enn Norge etter fylte 16 år?"}
+                legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
+                hjelpetekst={t("omDenAvdoede.boddEllerJobbetUtland.hjelpetekst")}
                 vetIkke
             />
 
@@ -48,11 +51,11 @@ const BoddEllerArbeidetUtland = () => {
                                     className={"kol"}
                                     bredde={"XL"}
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].land` as const}
-                                    label={"Land"}
+                                    label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land")}
                                 />
                                 <RHFCheckboksGruppe
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].beskrivelse` as const}
-                                    legend={"Bodd og/eller arbeidet?"}
+                                    legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse")}
                                     className={"kol inline"}
                                     checkboxes={[
                                         { label: "Bodd", value: "Bodd" },
@@ -76,14 +79,14 @@ const BoddEllerArbeidetUtland = () => {
                                     <div className={"kol"}>
                                         <Datovelger
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
-                                            label={"Fra dato"}
+                                            label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato")}
                                             valgfri
                                         />
                                     </div>
                                     <div className={"kol"}>
                                         <Datovelger
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].tilDato` as const}
-                                            label={"Til dato"}
+                                            label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato")}
                                             valgfri
                                         />
                                     </div>
@@ -94,7 +97,7 @@ const BoddEllerArbeidetUtland = () => {
 
                     {/* @ts-ignore */}
                     <Flatknapp htmlType={"button"} onClick={() => append({}, { shouldFocus: true })}>
-                        + Legg til
+                        {t("knapp.leggTil")}
                     </Flatknapp>
                 </SkjemaLinje>
             )}

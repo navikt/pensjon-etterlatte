@@ -6,6 +6,7 @@ import { get } from "lodash";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { useTranslation } from "react-i18next";
 import { v4 as uuid } from "uuid";
+import { getTransKey } from "../../utils/translation";
 
 interface SelectOption {
     value?: string;
@@ -25,6 +26,7 @@ export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: Select
     const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
+    const feilmelding = t(getTransKey(error))
 
     return (
         <div id={name}>
@@ -41,7 +43,7 @@ export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: Select
                         onBlur={onBlur}
                         label={label}
                         bredde={"l"}
-                        feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
+                        feil={feilmelding}
                     >
                         {selectOptions.map(option => (
                             <option key={uuid()} value={option.value}>{option.label}</option>

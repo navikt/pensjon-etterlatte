@@ -52,7 +52,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         <Ekspanderbartpanel tittel={tittel} className={"oppsummering"} apen={true}>
             {!tekster.length && (
                 <SkjemaGruppe>
-                    <Normaltekst>Ingen informasjon</Normaltekst>
+                    <Normaltekst>{t("felles.ingenInfo")}</Normaltekst>
                 </SkjemaGruppe>
             )}
 
@@ -62,7 +62,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
             <Lenke href={`/soknad/steg/${path}`}>
                 <EditFilled/>
-                <span>Endre svar</span>
+                <span>{t("felles.endreSvar")}</span>
             </Lenke>
         </Ekspanderbartpanel>
     );
@@ -70,30 +70,33 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     return (
         <>
             <SkjemaGruppe>
-                <Systemtittel className={"center"}>Oppsummering</Systemtittel>
+                <Systemtittel className={"center"}>
+                    {t("oppsummering.tittel")}
+                </Systemtittel>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Normaltekst>Les gjennom oppsummeringen av din søknad før du sender.</Normaltekst>
-                <Normaltekst>Hvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det. </Normaltekst>
+                <Normaltekst>
+                    {t("oppsummering.beskrivelse")}
+                </Normaltekst>
             </SkjemaGruppe>
 
-            {ekspanderbartPanel("Om deg", omDeg, StegPath.OmDeg)}
+            {ekspanderbartPanel(t("omDeg.tittel"), omDeg, StegPath.OmDeg)}
 
-            {ekspanderbartPanel("Om deg og avdøde", omDegOgAvdoed, StegPath.OmDegOgAvdoed)}
+            {ekspanderbartPanel(t("omDegOgAvdoed.tittel"), omDegOgAvdoed, StegPath.OmDegOgAvdoed)}
 
-            {ekspanderbartPanel("Om den avdøde", omDenAvdoede, StegPath.OmAvdoed)}
+            {ekspanderbartPanel(t("omDenAvdoede.tittel"), omDenAvdoede, StegPath.OmAvdoed)}
 
-            {ekspanderbartPanel("Din situasjon", dinSituasjon, StegPath.DinSituasjon)}
+            {ekspanderbartPanel(t("dinSituasjon.tittel"), dinSituasjon, StegPath.DinSituasjon)}
 
-            {ekspanderbartPanel("Om barn", opplysningerOmBarn, StegPath.OmBarn)}
+            {ekspanderbartPanel(t("omBarn.tittel"), opplysningerOmBarn, StegPath.OmBarn)}
 
             <br />
 
             {error && (
                 <SkjemaGruppe>
                     <AlertStripe type={"feil"}>
-                        En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du kontakte kundeservice.
+                        {t("oppsummering.feilVedSending")}
                     </AlertStripe>
                 </SkjemaGruppe>
             )}

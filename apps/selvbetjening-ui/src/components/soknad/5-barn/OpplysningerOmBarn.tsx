@@ -39,7 +39,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
             {/* Steg 4 */}
             <SkjemaGruppe>
                 <Systemtittel className={"center"}>
-                    Om barn
+                    {t("omBarn.tittel")}
                 </Systemtittel>
             </SkjemaGruppe>
 

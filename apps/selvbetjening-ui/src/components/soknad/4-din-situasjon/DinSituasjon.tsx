@@ -44,13 +44,13 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
             <form>
                 <SkjemaGruppe>
                     <Systemtittel className={"center"}>
-                        Situasjonen din
+                        {t("dinSituasjon.tittel")}
                     </Systemtittel>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
                     <Undertittel>
-                        Arbeid og utdanning
+                        {t("dinSituasjon.undertittel")}
                     </Undertittel>
                 </SkjemaGruppe>
 
@@ -74,8 +74,8 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 {jobbStatus === JobbStatus.ingen && (
                     <SkjemaGruppe>
                         <RHFInput
-                            name={"beskrivelseIngen"}
-                            label={"Beskrivelse"}
+                            name={"ingenJobbBeskrivelse"}
+                            label={t("dinSituasjon.ingenJobbBeskrivelse")}
                         />
                     </SkjemaGruppe>
                 )}
