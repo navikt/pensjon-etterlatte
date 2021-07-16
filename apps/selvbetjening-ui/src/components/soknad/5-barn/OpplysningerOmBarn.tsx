@@ -72,9 +72,9 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
             </SkjemaGruppe>
 
             <Navigasjon
-                forrige={{ callback: forrige }}
+                forrige={{ onClick: forrige }}
                 neste={{
-                    callback: neste,
+                    onClick: neste,
                     label: !state.opplysningerOmBarn.length ? t("knapp.hoppOver") : undefined
                 }}
             />

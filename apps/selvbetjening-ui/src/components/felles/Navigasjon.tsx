@@ -14,7 +14,7 @@ import { erDato } from "../../utils/dato";
 
 interface KnappProps {
     label?: string;
-    callback?: () => void;
+    onClick?: () => void;
 }
 
 const Navigasjon = ({ neste, forrige, send, disabled }: {
@@ -58,19 +58,19 @@ const Navigasjon = ({ neste, forrige, send, disabled }: {
             <SkjemaGruppe>
                 <div className={classNames("navigasjon-rad", disabled && "disabled")} >
                     {!!forrige && (
-                        <Knapp htmlType={"button"} onClick={forrige.callback}>
+                        <Knapp htmlType={"button"} onClick={forrige.onClick}>
                             {forrige.label || t("knapp.tilbake")}
                         </Knapp>
                     )}
 
                     {!!neste && (
-                        <Hovedknapp htmlType={"button"} onClick={neste.callback}>
+                        <Hovedknapp htmlType={"button"} onClick={neste.onClick}>
                             {neste.label || t("knapp.neste")}
                         </Hovedknapp>
                     )}
 
                     {!!send && (
-                        <Hovedknapp htmlType={"button"} onClick={send.callback}>
+                        <Hovedknapp htmlType={"button"} onClick={send.onClick}>
                             {send.label || t("knapp.sendSoeknad")} {disabled && (<NavFrontendSpinner />)}
                         </Hovedknapp>
                     )}

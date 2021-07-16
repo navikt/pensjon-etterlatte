@@ -140,7 +140,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
                     <Feilmeldinger errors={errors} />
 
-                    <Navigasjon neste={{callback: handleSubmit(lagre)}} />
+                    <Navigasjon neste={{onClick: handleSubmit(lagre)}} />
                 </form>
             </FormProvider>
         </>

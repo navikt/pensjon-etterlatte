@@ -149,8 +149,8 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <Feilmeldinger errors={errors}/>
 
                 <Navigasjon
-                    forrige={{ callback: forrige }}
-                    neste={{ callback: handleSubmit(lagre) }}
+                    forrige={{ onClick: forrige }}
+                    neste={{ onClick: handleSubmit(lagre) }}
                 />
             </form>
         </FormProvider>
