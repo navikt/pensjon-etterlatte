@@ -13,6 +13,7 @@
   "knapp": {
     "tilbake": "Tilbake",
     "neste": "Neste",
+    "hoppOver": "Hopp over dette steget",
     "sendSoeknad": "Send søknad",
     "leggTil": "Legg til",
     "fjernElement": "Fjern element",
@@ -205,23 +206,26 @@
     "doedsfallAarsak": "Kan dødsfallet være en følge av yrkesskade/yrkessykdom?",
     "boddEllerJobbetUtland": {
       "svar": "Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?",
-      "hjelpetekst": "Bodde eller arbeidet han/hun i et annet land enn Norge etter fylte 16 år?",
+      "hjelpetekst": "Ved arbeid og opphold i utlandet kan du ha rettigheter til pensjon fra dette landet.",
       "oppholdUtland.land": "Land",
       "oppholdUtland.beskrivelse": "Bodd og/eller arbeidet?",
       "oppholdUtland.fraDato": "Fra dato",
       "oppholdUtland.tilDato": "Til dato"
     },
     "medlemFolketrygdUtland": "Var han/hun medlem av folketrygden under oppholdet i et annet land?",
+    "medlemFolketrygdUtlandHjelpetekst": "Perioder i utlandet kan tas med i beregningen hvis han/hun var medlem i folketrygden.",
     "haddePensjonsgivendeInntekt": {
       "svar": "Hadde han/hun inntekt når dødsfallet skjedde?",
       "beskrivelse": "Oppgi bruttobeløp pr. år (kr)"
     },
     "mottokPensjonAndreLand": {
       "svar": "Fikk han/hun pensjon fra andre land enn Norge?",
+      "hjelpetekst": "Dette trenger vi for å vurdere avdødes medlemskap i folketrygden.",
       "beskrivelse": "Oppgi bruttobeløp pr. år (kr)"
     },
     "selvstendigNaeringsdrivende": {
       "svar": "Var han/hun selvstendig næringsdrivende året før dødsfallet?",
+      "hjelpetekst": null,
       "beskrivelse": "Oppgi næringsinntekt fra kalenderåret før dødsfallet"
     },
     "harAvtjentMilitaerTjeneste": {

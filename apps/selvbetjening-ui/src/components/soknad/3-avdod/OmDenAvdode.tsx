@@ -85,12 +85,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <RHFToValgRadio
                     name={"medlemFolketrygdUtland"}
                     legend={t("omDenAvdoede.medlemFolketrygdUtland")}
+                    hjelpetekst={t("omDenAvdoede.medlemFolketrygdUtlandHjelpetekst")}
                     vetIkke
                 />
 
                 <RHFToValgRadio
                     name={"mottokPensjonAndreLand.svar"}
                     legend={t("omDenAvdoede.mottokPensjonAndreLand.svar")}
+                    hjelpetekst={t("omDenAvdoede.mottokPensjonAndreLand.hjelpetekst")}
                     vetIkke
                 />
 
@@ -106,6 +108,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <RHFToValgRadio
                     name={"selvstendigNaeringsdrivende.svar"}
                     legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
+                    hjelpetekst={t("omDenAvdoede.selvstendigNaeringsdrivende.hjelpetekst")}
                     vetIkke
                 />
 
@@ -146,8 +149,8 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <Feilmeldinger errors={errors}/>
 
                 <Navigasjon
-                    forrige={forrige}
-                    neste={handleSubmit(lagre)}
+                    forrige={{ callback: forrige }}
+                    neste={{ callback: handleSubmit(lagre) }}
                 />
             </form>
         </FormProvider>

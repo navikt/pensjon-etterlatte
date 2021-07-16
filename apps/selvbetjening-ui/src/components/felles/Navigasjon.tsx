@@ -12,10 +12,15 @@ import { default as Modal } from "nav-frontend-modal";
 import { Ingress, Undertekst } from "nav-frontend-typografi";
 import { erDato } from "../../utils/dato";
 
+interface KnappProps {
+    label?: string;
+    callback?: () => void;
+}
+
 const Navigasjon = ({ neste, forrige, send, disabled }: {
-    neste?: () => void;
-    forrige?: () => void;
-    send?: () => void;
+    neste?: KnappProps;
+    forrige?: KnappProps;
+    send?: KnappProps;
     disabled?: boolean;
 }) => {
     const { t, i18n } = useTranslation();
@@ -53,20 +58,20 @@ const Navigasjon = ({ neste, forrige, send, disabled }: {
             <SkjemaGruppe>
                 <div className={classNames("navigasjon-rad", disabled && "disabled")} >
                     {!!forrige && (
-                        <Knapp htmlType={"button"} onClick={forrige}>
-                            {t("knapp.tilbake")}
+                        <Knapp htmlType={"button"} onClick={forrige.callback}>
+                            {forrige.label || t("knapp.tilbake")}
                         </Knapp>
                     )}
 
                     {!!neste && (
-                        <Hovedknapp htmlType={"button"} onClick={neste}>
-                            {t("knapp.neste")}
+                        <Hovedknapp htmlType={"button"} onClick={neste.callback}>
+                            {neste.label || t("knapp.neste")}
                         </Hovedknapp>
                     )}
 
                     {!!send && (
-                        <Hovedknapp htmlType={"button"} onClick={send}>
-                            {t("knapp.sendSoeknad")} {disabled && (<NavFrontendSpinner />)}
+                        <Hovedknapp htmlType={"button"} onClick={send.callback}>
+                            {send.label || t("knapp.sendSoeknad")} {disabled && (<NavFrontendSpinner />)}
                         </Hovedknapp>
                     )}
                 </div>

@@ -102,8 +102,8 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             )}
 
             <Navigasjon
-                forrige={forrige}
-                send={send}
+                forrige={{ callback: forrige }}
+                send={{ callback: send }}
                 disabled={senderSoeknad}
             />
         </>

@@ -86,8 +86,11 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
             )}
 
             <Navigasjon
-                forrige={forrige}
-                neste={neste}
+                forrige={{ callback: forrige }}
+                neste={{
+                    callback: neste,
+                    label: !state.opplysningerOmBarn.length ? t("knapp.hoppOver") : undefined
+                }}
             />
         </>
     );

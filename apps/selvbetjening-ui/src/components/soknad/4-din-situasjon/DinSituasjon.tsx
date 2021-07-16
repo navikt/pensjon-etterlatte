@@ -89,8 +89,8 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 <Feilmeldinger errors={errors}/>
 
                 <Navigasjon
-                    forrige={forrige}
-                    neste={handleSubmit(lagre)}
+                    forrige={{ callback: forrige }}
+                    neste={{ callback: handleSubmit(lagre) }}
                 />
             </form>
         </FormProvider>
