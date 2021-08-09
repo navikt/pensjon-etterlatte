@@ -15,8 +15,12 @@ export default class ObjectTreeReader {
     traverse<T>(objectToTraverse: T, baseKey?: string): Tekst[] {
         return Object.entries(objectToTraverse)
             .flatMap(value => {
-                const key = baseKey ? baseKey.concat(".").concat(value[0]) : value[0]
                 const val = value[1]
+
+                if (!Number.isNaN(Number(value[0])))
+                    return this.traverse(val, baseKey)
+
+                const key = baseKey ? baseKey.concat(".").concat(value[0]) : value[0]
 
                 if (typeof val === "object") return this.traverse(val, key)
                 else return { key, val: this.stringify(val) }

@@ -8,13 +8,16 @@
     .infokort {
         .typo-normal,
         .typo-element {
-            font-size: 18px;
+            margin: .3rem 0;
         }
+
         background-color: #e7e9e9;
-        flex: auto;
+        display: flex;
+        flex-direction: column;
 
         margin-bottom: 1rem;
-        max-width: 50%;
+        flex-grow: 1;
+        max-width: 49%;
 
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
@@ -22,6 +25,7 @@
         &.legg-til {
             height: 230px;
         }
+
         &__header {
             box-sizing: border-box;
             height: 128px;
@@ -33,12 +37,21 @@
             align-items: flex-end;
 
             img {
-                display: block;
                 margin: 0 auto;
             }
+
             &.gjennomsiktig {
                 opacity: 0.4;
             }
+        }
+
+        &__footer {
+          display: flex;
+          justify-content: center;
+          flex-grow: 1;
+          align-items: flex-end;
+          text-align: center;
+          margin: 1rem 0;
         }
 
         .infokort-knapper {
@@ -47,15 +60,9 @@
 
         &__informasjonsboks {
             padding: 2rem 2rem;
-            .informasjonsboks-innhold {
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
 
-                .informasjonselement {
-                    margin: 10px 0 10px 0;
-                }
+            .informasjonselement {
+                margin: 10px 0 10px 0;
             }
         }
 

@@ -46,6 +46,8 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const omDegOgAvdoed = otr.traverse<ISoekerOgAvdoed>(state.omDegOgAvdoed, "omDegOgAvdoed")
     const omDenAvdoede = otr.traverse<IAvdoed>(state.omDenAvdoede, "omDenAvdoede")
     const dinSituasjon = otr.traverse<ISituasjon>(state.dinSituasjon, "dinSituasjon")
+
+    // TODO: Fikse måten barn og tidligere arbeidsforhold vises.
     const opplysningerOmBarn = otr.traverse<IBarn[]>(state.opplysningerOmBarn, "omBarn")
 
     const ekspanderbartPanel = (tittel: string, tekster: any[], path: StegPath) => (

@@ -244,14 +244,17 @@
     "egneSaerkullsbarn": "Egne særkullsbarn",
     "relasjon": "Hvilken relasjon har du til barnet?",
     "brukeAnnenKonto": {
-      "svar": "Ønsker du å bruke et annet kontonummer for barnet? Hvis du velger \"Nei\" vil kontonummeret du tidligere har oppgitt bli benyttet.",
+      "svar": "Vil du bruke et annet kontonummer for barnet?",
       "kontonummer": "Barnets kontonummer"
     },
+    "statsborgerskap": "Statsborgerskap",
     "borUtenlands": "Bosatt i utlandet",
+    "dagligOmsorg": "Har du daglig omsorg for dette barnet?",
+    "soekerBarnepensjon": "Ønsker du å søke om barnepensjon for barnet?",
     "bosattUtland": {
       "svar": "Bor barnet i utlandet?",
       "land": "Land",
-      "statsborgerskap": "Statsborgerskap"
+      "adresse": "Adresse i utlandet"
     }
   },
   "oppsummering": {
@@ -267,6 +270,11 @@
       "tidligereSamboer":"Tidligere samboere",
       "ingen": "Ingen av delene"
     }
+  },
+  "barnRelasjon": {
+    "fellesbarnMedAvdoede": "Fellesbarn med avdøde",
+    "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
+    "egneSaerkullsbarn":  "Egne særkullsbarn"
   },
   "samboerInntekt": {
     "arbeidsinntekt":  "Arbeidsinntekt",

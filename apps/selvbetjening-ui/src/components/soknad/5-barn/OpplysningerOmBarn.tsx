@@ -14,6 +14,7 @@ import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
+import AlertStripe from "nav-frontend-alertstriper";
 
 Modal.setAppElement("#root");
 
@@ -39,6 +40,19 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                 <Systemtittel className={"center"}>
                     {t("omBarn.tittel")}
                 </Systemtittel>
+            </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                <AlertStripe type={"info"} form={"inline"}>
+                    Her kan du legge inn informasjon om alle barn uansett alder:
+                    <ul>
+                        <li>Felles barn med avdøde</li>
+                        <li>Avdødes særkullsbarn</li>
+                        <li>Egne særkullsbarn</li>
+                    </ul>
+
+                    Felles barn med avdøde under 18 år kan ha rett på barnepensjon.
+                </AlertStripe>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

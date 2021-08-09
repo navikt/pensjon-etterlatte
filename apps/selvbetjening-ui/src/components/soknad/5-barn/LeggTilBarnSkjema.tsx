@@ -7,6 +7,7 @@ import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import { RHFInput, RHFKontonummerInput } from "../../felles/RHFInput";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
+import { Undertittel } from "nav-frontend-typografi";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -33,11 +34,18 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
     const bosattUtland = watch("bosattUtland.svar")
     const brukeAnnenKonto = watch("brukeAnnenKonto.svar")
-
+    const relasjon = watch("relasjon")
+    const soekerBarnepensjon = watch("soekerBarnepensjon")
 
     return (
         <FormProvider {...methods}>
             <form style={{ padding: "2rem 2.5rem" }}>
+                <SkjemaGruppe>
+                    <Undertittel className={"center"}>
+                        Legg til barn
+                    </Undertittel>
+                </SkjemaGruppe>
+
                 <SkjemaGruppe>
                     <div className={"rad"}>
                         <div className={"kol-50"}>
@@ -57,27 +65,35 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                         </div>
                     </div>
 
-                    <div className={"rad"}>
-                        <RHFInput
-                            name={"foedselsnummer"}
-                            label={t("omBarn.foedselsnummer")}
-                        />
-                    </div>
-                </SkjemaGruppe>
-
-                <SkjemaGruppe>
-                    <RHFToValgRadio
-                        name={"brukeAnnenKonto.svar"}
-                        legend={t("omBarn.brukeAnnenKonto.svar")}
+                    <RHFInput
+                        name={"foedselsnummer"}
+                        label={t("omBarn.foedselsnummer")}
                     />
 
-                    {brukeAnnenKonto === IValg.JA && (
-                        <RHFKontonummerInput
-                            name={"brukeAnnenKonto.kontonummer"}
-                            label={t("omBarn.brukeAnnenKonto.kontonummer")}
-                        />
-                    )}
+                    <RHFInput
+                        name={"statsborgerskap"}
+                        label={t("omBarn.statsborgerskap")}
+                    />
                 </SkjemaGruppe>
+
+                <RHFToValgRadio
+                    name={"bosattUtland.svar"}
+                    legend={t("omBarn.bosattUtland.svar")}
+                />
+
+                {bosattUtland === IValg.JA && (
+                    <SkjemaGruppe>
+                        <RHFInput
+                            name={"bosattUtland.land"}
+                            label={t("omBarn.bosattUtland.land")}
+                        />
+
+                        <RHFInput
+                            name={"bosattUtland.adresse"}
+                            label={t("omBarn.bosattUtland.adresse")}
+                        />
+                    </SkjemaGruppe>
+                )}
 
                 <RHFRadio
                     name={"relasjon"}
@@ -87,33 +103,39 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                     })}
                 />
 
-                <SkjemaGruppe>
-                    <RHFToValgRadio
-                        name={"bosattUtland.svar"}
-                        legend={t("omBarn.bosattUtland.svar")}
-                    />
-                </SkjemaGruppe>
+                {relasjon === BarnRelasjon.fellesbarnMedAvdoede && (
+                    <>
+                        <RHFToValgRadio
+                            name={"soekerBarnepensjon"}
+                            legend={t("omBarn.soekerBarnepensjon")}
+                        />
 
-                {bosattUtland === IValg.JA && (
-                    <SkjemaGruppe>
-                        <div className={"rad"}>
-                            <div className={"kol-50"}>
-                                <RHFInput
-                                    name={"bosattUtland.statsborgerskap"}
-                                    label={t("omBarn.bosattUtland.statsborgerskap")}
+                        {soekerBarnepensjon === IValg.JA && (
+                            <>
+                                <RHFToValgRadio
+                                    name={"brukeAnnenKonto.svar"}
+                                    legend={t("omBarn.brukeAnnenKonto.svar")}
                                 />
-                            </div>
 
-                            <div className={"kol-50"}>
-                                <RHFInput
-                                    name={"bosattUtland.land"}
-                                    label={t("omBarn.bosattUtland.land")}
-                                />
-                            </div>
-                        </div>
-                    </SkjemaGruppe>
+                                {brukeAnnenKonto === IValg.JA && (
+                                    <SkjemaGruppe>
+                                        <RHFKontonummerInput
+                                            name={"brukeAnnenKonto.kontonummer"}
+                                            label={t("omBarn.brukeAnnenKonto.kontonummer")}
+                                        />
+                                    </SkjemaGruppe>
+                                )}
+                            </>
+                        )}
+                    </>
                 )}
 
+                {(relasjon === BarnRelasjon.avdoedesSaerkullsbarn || relasjon === BarnRelasjon.egneSaerkullsbarn) && (
+                    <RHFToValgRadio
+                        name={"dagligOmsorg"}
+                        legend={t("omBarn.dagligOmsorg")}
+                    />
+                )}
 
                 <Feilmeldinger errors={errors}/>
 

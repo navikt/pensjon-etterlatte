@@ -28,9 +28,9 @@ export enum AvdoedInntekt {
 }
 
 export enum BarnRelasjon {
-    fellesbarnMedAvdoede = "barn.relasjon.fellesbarnMedAvdoede",
-    avdoedesSaerkullsbarn = "barn.relasjon.avdoedesSaerkullsbarn",
-    egneSaerkullsbarn = "barn.relasjon.egneSaerkullsbarn",
+    fellesbarnMedAvdoede = "barnRelasjon.fellesbarnMedAvdoede",
+    avdoedesSaerkullsbarn = "barnRelasjon.avdoedesSaerkullsbarn",
+    egneSaerkullsbarn = "barnRelasjon.egneSaerkullsbarn",
 }
 
 export interface IBarn {
@@ -42,11 +42,14 @@ export interface IBarn {
         kontonummer?: string;
     };
     relasjon?: string;
+    statsborgerskap?: string;
     bosattUtland?: {
         svar?: IValg;
-        statsborgerskap?: string;
         land?: string;
+        adresse?: string;
     };
+    dagligOmsorg?: IValg;
+    soekerBarnepensjon?: IValg;
 }
 
 export interface IOppholdUtland {
