@@ -17,9 +17,6 @@ export default class ObjectTreeReader {
             .flatMap(value => {
                 const val = value[1]
 
-                if (!Number.isNaN(Number(value[0])))
-                    return this.traverse(val, baseKey)
-
                 const key = baseKey ? baseKey.concat(".").concat(value[0]) : value[0]
 
                 if (typeof val === "object") return this.traverse(val, key)

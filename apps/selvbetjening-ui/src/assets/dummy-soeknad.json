@@ -1,145 +1,116 @@
 {
   "harSamtykket": true,
-  "situasjon": {
-    "hovedytelse": "etterlatte",
-    "barnepensjon": "Ja",
-    "fraDato": "2021-06-08T22:00:00.000Z"
-  },
+  "sistLagretDato": "2021-08-10T08:55:28.330Z",
   "omDeg": {
+    "bostedsadresseBekreftet": "Nei",
     "kontaktinfo": {
       "telefonnummer": "999 88 777",
       "epost": "test@nav.no"
     },
-    "kontonummer": "2010.11.51223",
-    "flyktning": "Ja",
-    "bostedsadresseBekreftet": "Ja",
-    "oppholderSegINorge": "Nei",
-    "oppholdsland": "Polen",
-    "medlemFolketrygdenUtland": "Ja",
-    "forholdTilAvdoed": {
-      "forholdTilAvdoede": "Gjenlevende ektefelle",
-      "datoForInngaattPartnerskap": "2021-06-01T22:00:00.000Z",
-      "varSkiltFoerDoedsfall": "Ja",
-      "datoForSkilsmisse": "2021-05-31T22:00:00.000Z",
-      "mottokBidragFraAvdoede": "Ja",
-      "bidragBeloepPrAar": "500000"
+    "oppholderSegINorge": "Ja",
+    "alternativAdresse": "Testveien 123, 0594 Oslo",
+    "kontonummer": "1351.35.13513"
+  },
+  "omDegOgAvdoed": {
+    "avdoed": {
+      "fornavn": "Død",
+      "etternavn": "Testperson",
+      "datoForDoedsfallet": "2021-07-26T08:52:27.000Z",
+      "doedsfallAarsak": "Ja"
+    },
+    "forholdTilAvdoede": {
+      "relasjon": "avdoede.relasjon.ingen"
     },
     "nySivilstatus": {
-      "nySivilstatusEtterDoedsfallet": "samboerskap",
-      "datoForInngaaelse": "2021-05-31T22:00:00.000Z",
-      "nySivilstatusOpploest": "Ja",
-      "aarsakForOpploesningen": "Dødsfall",
-      "datoForOpploesningen": "2021-05-31T22:00:00.000Z"
-    },
-    "samboer": {
-      "navn": "Sam Samboersen",
-      "foedselsnummer": "24014021406",
-      "hattBarnEllerVaertGift": "Ja",
-      "harInntekt": {
-        "svar": "Ja",
-        "inntektstype": [
-          "arbeidsinntekt",
-          "pensjon",
-          "kapitalinntekt",
-          "andreYtelser"
-        ],
-        "samletBruttoinntektPrAar": "150000"
-      }
+      "sivilstatus": "nySivilstatus.ingen"
     }
   },
   "omDenAvdoede": {
-    "fornavn": "Død ",
-    "etternavn": "Dødesen",
     "foedselsnummer": "24014021406",
-    "doedsdato": "2021-06-03T12:51:20.776Z",
-    "statsborgerskap": "Polsk",
-    "bosetning": "Ja",
-    "doedsfallAarsak": "Ja",
-    "boddEllerJobbetUtland": "Ja",
-    "haddePensjonsgivendeInntekt": {
+    "statsborgerskap": "Norsk",
+    "boddEllerJobbetUtland": {
       "svar": "Ja",
-      "beskrivelse": "200000"
+      "oppholdUtland": [
+        {
+          "land": "Kongo",
+          "beskrivelse": [
+            "Bodd",
+            "Arbeidet"
+          ],
+          "fraDato": "2002-08-10T22:00:00.000Z",
+          "tilDato": "2003-08-10T08:53:16.000Z"
+        }
+      ]
     },
+    "medlemFolketrygdUtland": "Nei",
     "mottokPensjonAndreLand": {
       "svar": "Ja",
-      "beskrivelse": "10000"
+      "beskrivelse": "50 000"
+    },
+    "selvstendigNaeringsdrivende": {
+      "svar": "Ja",
+      "beskrivelse": "150 000"
+    },
+    "haddePensjonsgivendeInntekt": {
+      "svar": "avdoedInntekt.arbeidstaker"
     },
     "harAvtjentMilitaerTjeneste": {
       "svar": "Ja",
       "beskrivelse": "1984"
     }
   },
-  "opplysningerOmBarn": [
-    {
-      "fornavn": "Liten",
-      "etternavn": "Gutt",
-      "foedselsnummer": "24014021406",
-      "relasjon": "Fellesbarn m/avdøde",
-      "brukeAnnenKonto": {
+  "dinSituasjon": {
+    "jobbStatus": "jobbStatus.arbeidstaker",
+    "utdanning": {
+      "hoyesteFullfoerteUtdanning": "utdanning.mastergrad",
+      "annenUtdanning": "Kurs i potetskrelling"
+    },
+    "andreYtelser": {
+      "kravOmAnnenStonad": {
         "svar": "Ja",
-        "kontonummer": "1112.22.31231"
+        "beskrivelse": "Bjarnepensjon"
       },
-      "bosattUtland": {
+      "mottarPensjonUtland": {
         "svar": "Ja",
-        "statsborgerskap": "Polsk",
-        "land": "Polen"
+        "hvaSlagsPensjon": "Polsk Uførepensjon",
+        "fraHvilketLand": "Polen",
+        "bruttobeloepPrAar": "4000 PLN"
       }
     },
-    {
-      "fornavn": "Stor",
-      "etternavn": "Jente",
-      "foedselsnummer": "24014021406",
-      "brukeAnnenKonto": {
+    "tidligereArbeidsforhold": [],
+    "selvstendigNaeringsdrivende": "arbeidsforholdType.begge",
+    "selvstendig": {
+      "beskrivelse": "Potetskreller",
+      "startDato": "2015-08-10T08:54:00.000Z",
+      "type": "Mat",
+      "endringIfmDoedsfall": "Nei"
+    },
+    "arbeidsforhold": {
+      "arbeidsgiver": "Potetskreller AS",
+      "startDato": "2021-08-10T08:54:21.726Z",
+      "stilling": "Gjett",
+      "ansettelsesforhold": "stillingType.midlertidig",
+      "stillingsprosent": "100%",
+      "forventerEndretInntekt": {
         "svar": "Ja",
-        "kontonummer": "5555.44.33333"
-      },
-      "relasjon": "Fellesbarn m/avdøde",
+        "beskrivelse": "150 000"
+      }
+    }
+  },
+  "opplysningerOmBarn": [
+    {
+      "fornavn": "Barn",
+      "etternavn": "Testbarn",
+      "foedselsnummer": "24014021406",
+      "statsborgerskap": "Norsk",
       "bosattUtland": {
+        "svar": "Nei"
+      },
+      "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
+      "soekerBarnepensjon": "Ja",
+      "brukeAnnenKonto": {
         "svar": "Nei"
       }
     }
-  ],
-  "tidligereArbeidsforhold": [
-    {
-      "beskrivelse": "Livets harde skole",
-      "fraDato": "2021-05-31T22:00:00.000Z",
-      "tilDato": "2021-06-02T22:00:00.000Z"
-    },
-    {
-      "beskrivelse": "Ungdomskolen",
-      "fraDato": "2021-06-18T12:17:34.543Z",
-      "tilDato": "2021-06-18T12:17:35.971Z"
-    }
-  ],
-  "naavaerendeArbeidsforhold": {
-    "yrke": "Snekker",
-    "stilling": "Tømrer",
-    "startDato": "2021-06-07T22:00:00.000Z",
-    "sluttDato": "2021-06-24T22:00:00.000Z",
-    "ansettelsesforhold": "Midlertidig",
-    "heltidDeltid": "Deltid",
-    "stillingsprosent": "50",
-    "arbeidsgiver": {
-      "navn": "Tømmer og Sånt AS",
-      "adresse": "Skogveien 12, 1342 Snarøya"
-    },
-    "inntekt": {
-      "bruttoArbeidsinntektPrMd": "20000",
-      "personinntektFraNaeringPrAr": "0"
-    }
-  },
-  "andreYtelser": {
-    "mottarAndreYtelser": "Ja",
-    "kravOmAnnenStonad": {
-      "svar": "Ja",
-      "beskrivelse": "Husker ikke"
-    },
-    "mottarPensjonUtland": {
-      "svar": "Ja",
-      "hvaSlagsPensjon": "Polsk Uførepensjon",
-      "fraHvilketLand": "Polen",
-      "bruttobeloepPrAar": "100",
-      "landetsValuta": "PLN"
-    }
-  }
+  ]
 }

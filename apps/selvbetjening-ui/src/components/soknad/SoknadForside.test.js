@@ -2,19 +2,8 @@ import ReactDOM from "react-dom";
 import { act, screen, fireEvent } from "@testing-library/react";
 import SoknadForside from "./SoknadForside";
 import { SoknadProvider } from "../../context/soknad/SoknadContext";
-
-jest.mock('react-i18next', () => ({
-    // this mock makes sure any components using the translate hook can use it without a warning being shown
-    useTranslation: () => {
-        return {
-            t: (str) => str,
-            i18n: {
-                changeLanguage: () => new Promise(() => {
-                }),
-            },
-        };
-    },
-}));
+import i18n from "../../i18n";
+import { I18nextProvider } from "react-i18next";
 
 jest.mock("../../context/bruker/BrukerContext", () => ({
     useBrukerContext: () => {
@@ -35,9 +24,11 @@ beforeEach(() => {
 
     act(() => {
         ReactDOM.render((
-                <SoknadProvider>
-                    <SoknadForside/>
-                </SoknadProvider>
+                <I18nextProvider i18n={i18n}>
+                    <SoknadProvider>
+                        <SoknadForside/>
+                    </SoknadProvider>
+                </I18nextProvider>
         ), container)
     });
 });
@@ -49,7 +40,7 @@ afterEach(() => {
 
 describe("Samtykke", () => {
     it("Knapp vises ikke hvis samtykke mangler", async () => {
-        const bekreftSjekkboks = screen.getByLabelText("forside.samtykke.bekreftelse");
+        const bekreftSjekkboks = screen.getByLabelText("Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger.");
         expect(bekreftSjekkboks).toBeVisible()
         expect(bekreftSjekkboks).not.toBeChecked()
 
@@ -58,7 +49,7 @@ describe("Samtykke", () => {
     })
 
     it("Knapp vises hvis samtykke er huket av", async () => {
-        const bekreftSjekkboks = screen.getByLabelText("forside.samtykke.bekreftelse");
+        const bekreftSjekkboks = screen.getByLabelText("Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger.");
         expect(bekreftSjekkboks).toBeVisible()
 
         await act(async () => {
@@ -66,15 +57,15 @@ describe("Samtykke", () => {
         })
         expect(bekreftSjekkboks).toBeChecked()
 
-        const startKnapp = await screen.findByText("forside.startSoeknad")
+        const startKnapp = await screen.findByText("Start søknad")
         expect(startKnapp).toBeVisible()
     })
 })
 
 describe("Velkomstmelding", () => {
     it("Velkomstmelding med brukers navn vises", async () => {
-        const velkomstmelding = await screen.findByText(/forside.hei/)
+        const velkomstmelding = await screen.findByText("Hei, STERK BUSK")
 
-        expect(velkomstmelding.textContent).toBe("forside.hei, STERK BUSK")
+        expect(velkomstmelding).toBeVisible()
     })
 })

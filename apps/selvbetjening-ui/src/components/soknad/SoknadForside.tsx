@@ -64,14 +64,35 @@ const SoknadForside = () => {
 
                 <Normaltekst>
                     <Trans i18nKey={"forside.uthentingAvInfo.innhold"} />
-                    <ul>
-                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li1"} /></li>
-                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li2"} /></li>
-                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li3"} /></li>
-                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li4"} /></li>
-                        <li><Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li5"} /></li>
-                    </ul>
                 </Normaltekst>
+
+                <ul>
+                    <li>
+                        <Normaltekst>
+                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li1"} />
+                        </Normaltekst>
+                    </li>
+                    <li>
+                        <Normaltekst>
+                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li2"} />
+                        </Normaltekst>
+                    </li>
+                    <li>
+                        <Normaltekst>
+                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li3"} />
+                        </Normaltekst>
+                    </li>
+                    <li>
+                        <Normaltekst>
+                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li4"} />
+                        </Normaltekst>
+                    </li>
+                    <li>
+                        <Normaltekst>
+                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li5"} />
+                        </Normaltekst>
+                    </li>
+                </ul>
 
                 <Normaltekst>
                     <Lenke href={t("forside.uthentingAvInfo.lenke1.href")}>
