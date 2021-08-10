@@ -27,10 +27,10 @@ import java.util.*
 internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsConnection) :
 
     River.PacketListener {
-    val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
-    val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
-    private var producer: KafkaProducer<String, Beskjed>? = null;
+    private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
+    private var producer: KafkaProducer<String, Beskjed>? = null
 
     init {
         River(rapidsConnection).apply {
@@ -42,7 +42,7 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
 
         val startuptask = {
             producer = KafkaProducer(
-                KafkaConfig(
+                ProducerConfig(
                     bootstrapServers = env["BRUKERNOTIFIKASJON_KAFKA_BROKERS"]!!,
                     clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID()
                         .toString(),
@@ -87,7 +87,7 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
         }
     }
 
-    fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {
+    private fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {
         val now = LocalDateTime.now(ZoneOffset.UTC)
         val weekFromNow = now.plus(7, ChronoUnit.DAYS)
         val build = BeskjedBuilder()
