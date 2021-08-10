@@ -19,8 +19,7 @@ spec:
     initialDelay: 60
     timeout: 1
   prometheus:
-    enabled: true
-    path: /metrics
+    enabled: false
   replicas:
     min: 1
     max: 1
@@ -35,6 +34,8 @@ spec:
       value: "dev-fss:etterlatte:etterlatte-proxy"
     - name: INNSENDTSOEKNAD_AUDIENCE
       value: "dev-gcp:etterlatte:innsendt-soeknad"
+    - name: ROOT_LOGLEVEL
+      value: "INFO"
   ingresses:
     - "https://etterlatte-selvbetjening-api.dev.adeo.no"
   accessPolicy:

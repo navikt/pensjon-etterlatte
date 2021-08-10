@@ -9,11 +9,10 @@
         <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
     </appender>
 
-    <root level="INFO">
+    <root level="${ROOT_LOGLEVEL:-WARN}">
         <appender-ref ref="STDOUT_JSON"/>
     </root>
 
-    <logger name="org.eclipse.jetty" level="INFO"/>
-    <logger name="org.apache.kafka" level="INFO"/>
-    <logger name="io.netty" level="INFO"/>
+    <logger name="Application" level="INFO"/>
+
 </configuration>

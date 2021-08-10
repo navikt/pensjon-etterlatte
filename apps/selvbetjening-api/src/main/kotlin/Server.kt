@@ -15,7 +15,6 @@ import no.nav.etterlatte.ktortokenexchange.installAuthUsing
 import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
-import org.slf4j.event.Level
 
 class Server(private val applicationContext: ApplicationContext) {
     private val personService = applicationContext.personService
@@ -27,7 +26,6 @@ class Server(private val applicationContext: ApplicationContext) {
             installAuthUsing(securityContext)
 
             install(CallLogging) {
-                level = Level.INFO
                 filter { call -> !call.request.path().startsWith("/internal") }
             }
 

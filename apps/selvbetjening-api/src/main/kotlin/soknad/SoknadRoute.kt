@@ -23,7 +23,7 @@ import java.time.ZoneId
 fun Route.soknadApi(innsendtSoeknadEndpint: HttpClient) {
     route("/api/soeknad") {
         post {
-            call.application.environment.log.info("Mottatt søknad for ${innloggetBrukerFnr()}")
+            call.application.environment.log.debug("Mottatt søknad for ${innloggetBrukerFnr()}")
             retry { videresendSoeknad(innsendtSoeknadEndpint) }.also { svarKlient(it) }
         }
     }

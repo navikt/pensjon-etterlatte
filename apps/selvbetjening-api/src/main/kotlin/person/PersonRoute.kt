@@ -16,7 +16,7 @@ fun Route.personApi(service: PersonService) {
         get("innlogget") {
             val fnr = innloggetBrukerFnr()
 
-            call.application.environment.log.info("Henter innlogget person med fnr: $fnr")
+            call.application.environment.log.debug("Henter innlogget person med fnr: $fnr")
 
             val person = service.hentPerson(fnr)
 
