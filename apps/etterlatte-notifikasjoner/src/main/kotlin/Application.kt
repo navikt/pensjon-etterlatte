@@ -7,6 +7,6 @@ fun main() {
         put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))
     }
     RapidApplication.create(env).also {
-        Notifikasjon(it)
+        Notifikasjon(System.getenv(),it)
     }.start()
 }

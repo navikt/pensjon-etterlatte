@@ -12,18 +12,25 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerRecord
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.net.InetAddress
 import java.net.URL
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.temporal.ChronoUnit
+import java.util.*
 
 
-internal class Notifikasjon(rapidsConnection: RapidsConnection) :
+internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsConnection) :
 
     River.PacketListener {
     val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+
+    val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
+    private var producer: KafkaProducer<String, Beskjed>? = null;
 
     init {
         River(rapidsConnection).apply {
@@ -32,31 +39,54 @@ internal class Notifikasjon(rapidsConnection: RapidsConnection) :
             validate { it.requireKey("@fnr_soeker") }
             validate { it.rejectKey("@notifikasjon") }
         }.register(this)
+
+        val startuptask = {
+            producer = KafkaProducer(
+                KafkaConfig(
+                    bootstrapServers = env["BRUKERNOTIFIKASJON_KAFKA_BROKERS"]!!,
+                    clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID()
+                        .toString(),
+                    username = env["srvuser"],
+                    password = env["srvpwd"],
+                    schemaRegistryUrl = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"]
+                ).producerConfig()
+            )
+        }
+        startuptask()
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
 
+
         runBlocking {
             val dto = ProduceBeskjedDto(
-                 tekst = "Vi bekrefter å ha mottat din søknad om Etterlatteytelse",
-                 link = null,
-                 grupperingsid = "ETTERLATTE",
-                 eksternVarsling = true,
-                 prefererteKanaler  = listOf("SMS", "EPOST")
-                 //prefererteKanaler = emptyList()
+                tekst = "Vi bekrefter å ha mottat din søknad om Etterlatteytelse",
+                link = null,
+                grupperingsid = "ETTERLATTE",
+                eksternVarsling = true,
+                prefererteKanaler = listOf("SMS", "EPOST")
+                //prefererteKanaler = emptyList()
 
             )
             val objectMapper = jacksonObjectMapper()
                 .registerModule(JavaTimeModule())
                 .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
                 .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            val notifikasjonJson = objectMapper.readTree(opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(),dto).toString())
-            packet["@notifikasjon"] = notifikasjonJson
-            context.publish(packet.toJson())
-            logger.info("Notifikasjon til bruker opprettet")
+
+            val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
+            val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
+
+            ProducerRecord(brukernotifikasjontopic, "bah", notifikasjon).let { producerRecord ->
+                producer?.send(producerRecord)
+
+
+                packet["@notifikasjon"] = notifikasjonJson
+                context.publish(packet.toJson())
+                logger.info("Notifikasjon til bruker opprettet")
             }
+        }
     }
-    
+
     fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {
         val now = LocalDateTime.now(ZoneOffset.UTC)
         val weekFromNow = now.plus(7, ChronoUnit.DAYS)
@@ -69,7 +99,7 @@ internal class Notifikasjon(rapidsConnection: RapidsConnection) :
             .withSikkerhetsnivaa(4)
             .withEksternVarsling(true)
             .withPrefererteKanaler(PreferertKanal.SMS)
-        if(!dto.link.isNullOrBlank()) {
+        if (!dto.link.isNullOrBlank()) {
             build.withLink(URL(dto.link))
         }
         return build.build()

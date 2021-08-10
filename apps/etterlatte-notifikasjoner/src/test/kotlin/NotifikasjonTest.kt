@@ -4,14 +4,33 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Test
 
 class NotifikasjonTest {
 
-    @Test
+
+  /*  private val embeddedKafkaEnvironment = KafkaEnvironment(
+        autoStart = false,
+        noOfBrokers = 1,
+        topicInfos = listOf(topicname).map { KafkaEnvironment.TopicInfo(it, partitions = 1) },
+        withSchemaRegistry = false,
+        withSecurity = false
+    )
+
+    private fun producerProperties() =
+        Properties().apply {
+            put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, embeddedKafkaEnvironment.brokersURL)
+            put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "PLAINTEXT")
+            put(ProducerConfig.ACKS_CONFIG, "all")
+            put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1")
+            put(ProducerConfig.LINGER_MS_CONFIG, "0")
+            put(ProducerConfig.RETRIES_CONFIG, "0")
+            put(SaslConfigs.SASL_MECHANISM, "PLAIN")
+        }
+*/
+    //@Test
     fun test1() {
         val inspector = TestRapid()
-            .apply { Notifikasjon(this) }
+            .apply { Notifikasjon(mapOf(Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", "aapen-brukernotifikasjon-nyBeskjed-v1")),this) }
             .apply {
                 sendTestMessage(
                     JsonMessage.newMessage(
