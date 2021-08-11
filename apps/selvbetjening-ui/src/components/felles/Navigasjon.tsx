@@ -3,7 +3,6 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-import NavFrontendSpinner from "nav-frontend-spinner";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { ActionTypes as BrukerAction } from "../../context/bruker/bruker";
@@ -70,8 +69,8 @@ const Navigasjon = ({ neste, forrige, send, disabled }: {
                     )}
 
                     {!!send && (
-                        <Hovedknapp htmlType={"button"} onClick={send.onClick}>
-                            {send.label || t("knapp.sendSoeknad")} {disabled && (<NavFrontendSpinner />)}
+                        <Hovedknapp htmlType={"button"} onClick={send.onClick} spinner={disabled}>
+                            {send.label || t("knapp.sendSoeknad")}
                         </Hovedknapp>
                     )}
                 </div>

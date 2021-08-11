@@ -28,6 +28,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     const send = () => {
         setSenderSoeknad(true);
+        setError(false)
 
         sendSoeknad(state)
             .then((soknadId) => {
@@ -62,7 +63,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 <TekstGruppe key={uuid()} tittel={t(key)} innhold={val}/>
             ))}
 
-            <Lenke href={`/soknad/steg/${path}`}>
+            <Lenke href={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>
                 <EditFilled/>
                 <span>{t("felles.endreSvar")}</span>
             </Lenke>
