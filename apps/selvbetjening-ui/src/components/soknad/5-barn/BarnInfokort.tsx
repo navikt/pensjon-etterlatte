@@ -15,6 +15,8 @@ interface Props {
 const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
     const { t } = useTranslation();
 
+    const foedselsnummer = barn.foedselsnummer?.replace(/(\d{6})(.*)/, "$1 $2")
+
     return (
         <div className={"infokort"}>
             <div className={"infokort__header"}>
@@ -28,7 +30,7 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
                     </Undertittel>
                 </div>
                 <div className="informasjonselement">
-                    <Normaltekst>{barn.foedselsnummer}</Normaltekst>
+                    <Normaltekst>{foedselsnummer}</Normaltekst>
                     <Normaltekst>{t(`${barn.relasjon}`)}</Normaltekst>
                     <Normaltekst>{barn.statsborgerskap} statsborger</Normaltekst>
 

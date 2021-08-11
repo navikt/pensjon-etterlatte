@@ -57,6 +57,11 @@ export interface IOppholdUtland {
     fraDato?: Date;
     tilDato?: Date;
     beskrivelse?: string[];
+    medlemFolketrygd?: IValg;
+    mottokPensjon?: {
+        svar?: IValg;
+        beskrivelse?: string;
+    }
 }
 
 export interface IAvdoed {
@@ -70,12 +75,7 @@ export interface IAvdoed {
         svar?: IValg;
         beskrivelse?: string;
     }
-    medlemFolketrygdUtland?: IValg;
     haddePensjonsgivendeInntekt?: {
-        svar?: IValg;
-        beskrivelse?: string;
-    }
-    mottokPensjonAndreLand?: {
         svar?: IValg;
         beskrivelse?: string;
     }

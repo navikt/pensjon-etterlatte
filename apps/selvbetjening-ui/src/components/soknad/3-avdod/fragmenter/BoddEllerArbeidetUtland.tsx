@@ -11,6 +11,7 @@ import Panel from "nav-frontend-paneler";
 import SkjemaLinje from "../../../felles/SkjemaLinje";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
+import { DeleteFilled } from "@navikt/ds-icons";
 
 const BoddEllerArbeidetUtland = () => {
     const { t } = useTranslation();
@@ -20,7 +21,7 @@ const BoddEllerArbeidetUtland = () => {
     const boddEllerArbeidetUtland = watch("boddEllerJobbetUtland.svar")
 
     // TODO: støtte fjerning av element
-    const { fields, append } = useFieldArray({
+    const { fields, append, remove } = useFieldArray({
         control,
         name: "boddEllerJobbetUtland.oppholdUtland",
         shouldUnregister: true
@@ -64,16 +65,6 @@ const BoddEllerArbeidetUtland = () => {
                                 />
                             </div>
 
-                            {/*{fields.length > 1 && (
-                                <Flatknapp
-                                    htmlType={"button"}
-                                    className={"sletteknapp"}
-                                    onClick={() => remove(index)}
-                                >
-                                    <DeleteFilled/>
-                                </Flatknapp>
-                            )}*/}
-
                             <SkjemaGruppe description={"Fra og til dato er ikke påkrevd"}>
                                 <div className={"rad"}>
                                     <div className={"kol"}>
@@ -92,17 +83,38 @@ const BoddEllerArbeidetUtland = () => {
                                     </div>
                                 </div>
                             </SkjemaGruppe>
+
+                            <RHFToValgRadio
+                                name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygdUtland` as const}
+                                legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtland")}
+                                hjelpetekst={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtlandHjelpetekst")}
+                                vetIkke
+                            />
+
+                            <RHFInput
+                                name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const}
+                                label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
+                                hjelpetekst={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.hjelpetekst")}
+                            />
+
+                            {fields.length > 1 && (
+                                <div style={{textAlign: "right"}}>
+                                    <Flatknapp onClick={() => remove(index)}>
+                                        <DeleteFilled /> &nbsp;Fjern
+                                    </Flatknapp>
+                                </div>
+                            )}
                         </Panel>
                     ))}
 
                     {/* @ts-ignore */}
                     <Flatknapp htmlType={"button"} onClick={() => append({}, { shouldFocus: true })}>
-                        {t("knapp.leggTil")}
+                        + {t("knapp.leggTil")}
                     </Flatknapp>
                 </SkjemaLinje>
             )}
         </>
-    )
+    );
 };
 
 export default BoddEllerArbeidetUtland;

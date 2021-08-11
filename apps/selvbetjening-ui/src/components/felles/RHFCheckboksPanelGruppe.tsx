@@ -70,28 +70,24 @@ export const RHFCheckboksGruppe = ({ name, checkboxes, ...rest }: RHFCheckboksGr
             name={name}
             control={control}
             rules={{required: true}}
-            render={({ field: { value, onChange } }) => {
-                console.log(value)
-
-                return (
-                    <CheckboxGruppe
-                        {...rest}
-                        feil={feilmelding}
-                    >
-                        {checkboxes.map((checkbox: CheckboxProps) => (
-                            <Checkbox
-                                key={checkbox.value as string}
-                                label={checkbox.label}
-                                value={checkbox.value}
-                                checked={(value as any[])?.includes(checkbox.value)}
-                                onChange={(e) => onChange(
-                                    handleSelect(value, ((e.target as HTMLInputElement).value as any))
-                                )}
-                            />
-                        ))}
-                    </CheckboxGruppe>
-                )
-            }}
+            render={({ field: { value, onChange } }) => (
+                <CheckboxGruppe
+                    {...rest}
+                    feil={feilmelding}
+                >
+                    {checkboxes.map((checkbox: CheckboxProps) => (
+                        <Checkbox
+                            key={checkbox.value as string}
+                            label={checkbox.label}
+                            value={checkbox.value}
+                            checked={(value as any[])?.includes(checkbox.value)}
+                            onChange={(e) => onChange(
+                                handleSelect(value, ((e.target as HTMLInputElement).value as any))
+                            )}
+                        />
+                    ))}
+                </CheckboxGruppe>
+            )}
         />
     )
 };

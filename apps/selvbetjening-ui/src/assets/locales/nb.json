@@ -208,20 +208,21 @@
     "boddEllerJobbetUtland": {
       "svar": "Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?",
       "hjelpetekst": "Ved arbeid og opphold i utlandet kan du ha rettigheter til pensjon fra dette landet.",
-      "oppholdUtland.land": "Land",
-      "oppholdUtland.beskrivelse": "Bodd og/eller arbeidet?",
-      "oppholdUtland.fraDato": "Fra dato",
-      "oppholdUtland.tilDato": "Til dato"
+      "oppholdUtland": {
+        "land": "Land",
+        "beskrivelse": "Bodd og/eller arbeidet?",
+        "fraDato": "Fra dato",
+        "tilDato": "Til dato",
+        "medlemFolketrygdUtland": "Var han/hun medlem av folketrygden under oppholdet?",
+        "medlemFolketrygdUtlandHjelpetekst": "Perioder i utlandet kan tas med i beregningen hvis han/hun var medlem i folketrygden.",
+        "mottokPensjon": {
+          "hjelpetekst": "Dette trenger vi for å vurdere avdødes medlemskap i folketrygden.",
+          "beskrivelse": "Oppgi eventuell pensjon han/hun mottok fra dette landet (per år i kr.)"
+        }
+      }
     },
-    "medlemFolketrygdUtland": "Var han/hun medlem av folketrygden under oppholdet i et annet land?",
-    "medlemFolketrygdUtlandHjelpetekst": "Perioder i utlandet kan tas med i beregningen hvis han/hun var medlem i folketrygden.",
     "haddePensjonsgivendeInntekt": {
       "svar": "Hadde han/hun inntekt når dødsfallet skjedde?",
-      "beskrivelse": "Oppgi bruttobeløp pr. år (kr)"
-    },
-    "mottokPensjonAndreLand": {
-      "svar": "Fikk han/hun pensjon fra andre land enn Norge?",
-      "hjelpetekst": "Dette trenger vi for å vurdere avdødes medlemskap i folketrygden.",
       "beskrivelse": "Oppgi bruttobeløp pr. år (kr)"
     },
     "selvstendigNaeringsdrivende": {
