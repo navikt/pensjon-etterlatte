@@ -13,7 +13,7 @@ import HvorforSpoerVi from "./HvorforSpoerVi";
 interface RHFProps extends Omit<InputProps, 'name'> {
     name: FieldPath<FieldValues>;
     label: ReactNode;
-    hjelpetekst?: string;
+    hjelpetekst?: ReactNode;
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>;
 }
 

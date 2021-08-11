@@ -34,7 +34,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     };
 
     const selvstendigNaeringsdrivende = watch("selvstendigNaeringsdrivende.svar")
-    const mottokPensjonAndreLand = watch("mottokPensjonAndreLand.svar")
     const harAvtjentMilitaerTjeneste = watch("harAvtjentMilitaerTjeneste.svar")
 
     return (
@@ -81,29 +80,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 </div>
 
                 <BoddEllerArbeidetUtland />
-
-                <RHFToValgRadio
-                    name={"medlemFolketrygdUtland"}
-                    legend={t("omDenAvdoede.medlemFolketrygdUtland")}
-                    hjelpetekst={t("omDenAvdoede.medlemFolketrygdUtlandHjelpetekst")}
-                    vetIkke
-                />
-
-                <RHFToValgRadio
-                    name={"mottokPensjonAndreLand.svar"}
-                    legend={t("omDenAvdoede.mottokPensjonAndreLand.svar")}
-                    hjelpetekst={t("omDenAvdoede.mottokPensjonAndreLand.hjelpetekst")}
-                    vetIkke
-                />
-
-                {mottokPensjonAndreLand === IValg.JA && (
-                    <SkjemaGruppe>
-                        <RHFValutaInput
-                            name={"mottokPensjonAndreLand.beskrivelse"}
-                            label={t("omDenAvdoede.mottokPensjonAndreLand.beskrivelse")}
-                        />
-                    </SkjemaGruppe>
-                )}
 
                 <RHFToValgRadio
                     name={"selvstendigNaeringsdrivende.svar"}

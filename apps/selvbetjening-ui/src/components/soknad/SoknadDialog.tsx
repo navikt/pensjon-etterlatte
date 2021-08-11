@@ -7,7 +7,7 @@ import OmDegOgAvdoed from "./2-omdegogavdoed/OmDegOgAvdoed";
 import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
 import OpplysningerOmBarn from "./5-barn/OpplysningerOmBarn";
 import Stegviser from "../felles/Stegviser";
-import Oppsummering from "./8-oppsummering/Oppsummering";
+import Oppsummering from "./6-oppsummering/Oppsummering";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import DinSituasjon from "./4-din-situasjon/DinSituasjon";
 
