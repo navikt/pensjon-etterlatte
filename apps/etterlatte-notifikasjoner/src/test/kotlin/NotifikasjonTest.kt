@@ -1,14 +1,22 @@
 package no.nav.etterlatte
 
+import no.nav.common.KafkaEnvironment
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
+import org.apache.kafka.clients.CommonClientConfigs
+import org.apache.kafka.clients.producer.ProducerConfig
+import org.apache.kafka.common.config.SaslConfigs
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.Test
+import java.util.*
 
 class NotifikasjonTest {
 
 
-  /*  private val embeddedKafkaEnvironment = KafkaEnvironment(
+    private val topicname: String = "test_topic"
+    private val embeddedKafkaEnvironment = KafkaEnvironment(
         autoStart = false,
         noOfBrokers = 1,
         topicInfos = listOf(topicname).map { KafkaEnvironment.TopicInfo(it, partitions = 1) },
@@ -16,7 +24,9 @@ class NotifikasjonTest {
         withSecurity = false
     )
 
-    private fun producerProperties() =
+
+
+ /*   private fun producerProperties() =
         Properties().apply {
             put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, embeddedKafkaEnvironment.brokersURL)
             put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "PLAINTEXT")
@@ -27,10 +37,21 @@ class NotifikasjonTest {
             put(SaslConfigs.SASL_MECHANISM, "PLAIN")
         }
 */
-    //@Test
+
+
+    @Test
     fun test1() {
+        embeddedKafkaEnvironment.start()
         val inspector = TestRapid()
-            .apply { Notifikasjon(mapOf(Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", "aapen-brukernotifikasjon-nyBeskjed-v1")),this) }
+            .apply { Notifikasjon(mapOf(
+                Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
+                Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS","testbroker"),
+                Pair("NAIS_APP_NAME","notifikasjon_test"),
+                Pair("srvuser","user"),
+                Pair("srvpwd","pwd"),
+                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY","test_registry")
+            ),
+            this) }
             .apply {
                 sendTestMessage(
                     JsonMessage.newMessage(
@@ -50,7 +71,7 @@ class NotifikasjonTest {
         assertEquals("ETTERLATTE", inspector.message(0).get("@notifikasjon").get("grupperingsId").asText())
         assertTrue(inspector.message(0).get("@notifikasjon").get("eksternVarsling").asBoolean())
         assertEquals("SMS", inspector.message(0).get("@notifikasjon").get("prefererteKanaler")[0].asText())
-
+        embeddedKafkaEnvironment.tearDown()
 
     }
 }

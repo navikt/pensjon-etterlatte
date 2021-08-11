@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory
 import java.io.File
 import java.util.*
 
-class ProducerConfig(
+class KafkaConfig(
     private val bootstrapServers: String,
     private val clientId: String? = null,
     private val username: String? = null,
@@ -17,6 +17,7 @@ class ProducerConfig(
     private val truststore: String? = null,
     private val truststorePassword: String? = null,
     private val schemaRegistryUrl: String? = null,
+    private val acksConfig: String? = null,
 
 ) {
 
@@ -27,6 +28,10 @@ class ProducerConfig(
     internal fun producerConfig() = Properties().apply {
         putAll(kafkaBaseConfig())
         put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
+        put(ProducerConfig.ACKS_CONFIG, acksConfig)
+        put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1")
+        put(ProducerConfig.LINGER_MS_CONFIG, "0")
+        put(ProducerConfig.RETRIES_CONFIG, "0")
         clientId?.also { put(ProducerConfig.CLIENT_ID_CONFIG, "consumer-$it") }
 
         schemaRegistryUrl?.apply {

@@ -42,13 +42,14 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
 
         val startuptask = {
             producer = KafkaProducer(
-                ProducerConfig(
+                KafkaConfig(
                     bootstrapServers = env["BRUKERNOTIFIKASJON_KAFKA_BROKERS"]!!,
                     clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID()
                         .toString(),
                     username = env["srvuser"],
                     password = env["srvpwd"],
-                    schemaRegistryUrl = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"]
+                    schemaRegistryUrl = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"],
+                    acksConfig = "all"
                 ).producerConfig()
             )
         }
