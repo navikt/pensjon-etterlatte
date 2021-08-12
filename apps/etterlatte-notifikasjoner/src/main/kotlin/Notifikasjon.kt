@@ -77,7 +77,7 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
             val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
             val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
 
-            ProducerRecord(brukernotifikasjontopic, "bah", notifikasjon).let { producerRecord ->
+            ProducerRecord(brukernotifikasjontopic, null, notifikasjon).let { producerRecord ->
                 producer?.send(producerRecord)
 
 
