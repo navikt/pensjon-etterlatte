@@ -13,6 +13,12 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
+    implementation("org.apache.kafka:kafka-clients"){
+        version {
+            strictly("2.7.1")
+        }
+    }
+
     implementation("com.github.navikt:rapids-and-rivers:$rapidsandriversversion")
     implementation("io.ktor:ktor-client-okhttp:$ktorversion")
     implementation("io.ktor:ktor-client-core:$ktorversion")
