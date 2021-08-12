@@ -9,13 +9,12 @@ import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Undertittel } from "nav-frontend-typografi";
 
-
 const Arbeidstaker = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext();
 
-    const forventerEndretInntekt = watch("arbeidsforhold.forventerEndretInntekt.svar")
+    const forventerEndretInntekt = watch("arbeidsforhold.forventerEndretInntekt.svar");
 
     return (
         <>
@@ -37,10 +36,7 @@ const Arbeidstaker = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <RHFInput
-                    name={"arbeidsforhold.stilling"}
-                    label={t("dinSituasjon.arbeidsforhold.stilling")}
-                />
+                <RHFInput name={"arbeidsforhold.stilling"} label={t("dinSituasjon.arbeidsforhold.stilling")} />
             </SkjemaGruppe>
 
             <div className={"rad skjemagruppe"}>
@@ -49,9 +45,18 @@ const Arbeidstaker = () => {
                     label={t("dinSituasjon.arbeidsforhold.ansettelsesforhold")}
                     selectOptions={[
                         { label: "Velg ...", value: undefined },
-                        { label: t("naavaerendeArbeidsforhold.fast"), value: StillingType.fast },
-                        { label: t("naavaerendeArbeidsforhold.midlertidig"), value: StillingType.midlertidig },
-                        { label: t("naavaerendeArbeidsforhold.sesongarbeid"), value: StillingType.sesongarbeid },
+                        {
+                            label: t("dinSituasjon.arbeidsforhold.naavaerendeArbeidsforhold.fast"),
+                            value: StillingType.fast,
+                        },
+                        {
+                            label: t("dinSituasjon.arbeidsforhold.naavaerendeArbeidsforhold.midlertidig"),
+                            value: StillingType.midlertidig,
+                        },
+                        {
+                            label: t("dinSituasjon.arbeidsforhold.naavaerendeArbeidsforhold.sesongarbeid"),
+                            value: StillingType.sesongarbeid,
+                        },
                     ]}
                 />
 
@@ -79,7 +84,7 @@ const Arbeidstaker = () => {
                 </SkjemaGruppe>
             )}
         </>
-    )
-}
+    );
+};
 
 export default Arbeidstaker;

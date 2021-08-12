@@ -108,6 +108,11 @@
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
         "beskrivelse": "Hva regner du med å få i samlet inntekt de neste 12 månedene?",
         "hvorfor": "Det har betydning for hvor mye gjenlevendepensjon du får."
+      },
+      "naavaerendeArbeidsforhold": {
+        "fast": "Fast ansatt",
+        "midlertidig": "Midlertidig ansatt",
+        "sesongarbeid": "Sesongansatt"
       }
     },
     "andreYtelser": {
