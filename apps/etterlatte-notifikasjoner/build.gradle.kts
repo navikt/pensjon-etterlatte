@@ -22,7 +22,7 @@ dependencies {
     implementation("com.github.navikt:brukernotifikasjon-schemas:1.2021.06.21-08.21-7998a39f216a")
     implementation(project(":libs:ktorclient-auth-clientcredentials"))
     implementation ("com.nfeld.jsonpathkt:jsonpathkt:2.0.0")
-    implementation("io.confluent:kafka-avro-serializer:5.0.0") {
+    implementation("io.confluent:kafka-avro-serializer:5.3.0") {
         exclude(group = "org.slf4j", module = "slf4j-log4j12")
     }
     testImplementation("io.ktor:ktor-client-mock:$ktorversion")

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import java.util.*
 
-class NotifikasjonTest {
+internal class NotifikasjonTest {
 
 
     private val topicname: String = "test_topic"
