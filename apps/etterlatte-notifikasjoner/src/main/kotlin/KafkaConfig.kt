@@ -50,7 +50,7 @@ class KafkaConfig(
             put(SaslConfigs.SASL_MECHANISM, "PLAIN")
         //uglyhack tror vi gjør noe galt her
         if (username != null && username != "user") {
-            put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL")
+            put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "PLAINTEXT")
 
             put(
                     SaslConfigs.SASL_JAAS_CONFIG,
