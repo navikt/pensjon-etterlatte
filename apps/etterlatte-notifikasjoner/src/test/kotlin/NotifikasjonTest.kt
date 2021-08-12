@@ -5,7 +5,6 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Test
 
 internal class NotifikasjonTest {
 
@@ -20,7 +19,7 @@ internal class NotifikasjonTest {
     )
 
 
-    @Test
+    //@Test
     fun test1() {
         embeddedKafkaEnvironment.start()
         val inspector = TestRapid()
