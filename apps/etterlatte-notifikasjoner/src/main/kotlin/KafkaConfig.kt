@@ -5,6 +5,7 @@ import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.config.SaslConfigs
 import org.apache.kafka.common.config.SslConfigs
+import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.io.File
 import java.util.*
@@ -22,7 +23,7 @@ class KafkaConfig(
     ) {
 
 
-    private val log = LoggerFactory.getLogger(this::class.java)
+    private val log: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
     internal fun producerConfig() = Properties().apply {
         putAll(kafkaBaseConfig())
