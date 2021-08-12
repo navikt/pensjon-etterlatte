@@ -32,6 +32,7 @@ class KafkaConfig(
         put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1")
         put(ProducerConfig.LINGER_MS_CONFIG, "0")
         put(ProducerConfig.RETRIES_CONFIG, "0")
+        put(ProducerConfig.BATCH_SIZE_CONFIG, "1")
         clientId?.also { put(ProducerConfig.CLIENT_ID_CONFIG, "consumer-$it") }
 
         schemaRegistryUrl?.apply {
