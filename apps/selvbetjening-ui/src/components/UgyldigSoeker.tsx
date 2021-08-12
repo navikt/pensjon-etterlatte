@@ -6,9 +6,18 @@ import { Normaltekst } from "nav-frontend-typografi";
 import { Hovedknapp } from "nav-frontend-knapper";
 import { ActionTypes } from "../context/bruker/bruker";
 import Lenke from "nav-frontend-lenker";
+import { hentAlder } from "../utils/dato";
+import { erForUng } from "../utils/alder";
 
 const UgyldigSoeker = () => {
-    const { dispatch } = useBrukerContext();
+    const { state, dispatch } = useBrukerContext();
+
+    const alder = hentAlder(state.foedselsdato!!);
+    const brukerErForUng = erForUng(alder);
+
+    const heiTekst = brukerErForUng
+        ? "Hei, du kan ikke søke om gjenlevende- eller barnepensjon fordi du er under 18 år."
+        : "Hei, du kan dessverre ikke søke om gjenlevendepensjon";
 
     const tilbake = () => {
         dispatch({ type: ActionTypes.TILBAKESTILL });
@@ -19,19 +28,33 @@ const UgyldigSoeker = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Veileder tekst={"Hei, du kan dessverre ikke søke om gjenlevendepensjon"} posisjon="høyre">
-                    <img alt="veileder" src={ikon}/>
-                </Veileder>
+                {brukerErForUng ? (
+                    <Veileder tekst={heiTekst} posisjon="høyre">
+                        <img alt="veileder" src={ikon}/>
+                    </Veileder>
+                ) : (
+                    <Veileder tekst={heiTekst} posisjon="høyre">
+                        <img alt="veileder" src={ikon}/>
+                    </Veileder>
+                )}
+            </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                {brukerErForUng ? (
+                    <Normaltekst>
+                        For å søke om gjenlevendepensjon, eller søke barnepensjon på vegne av et barn, må du være over 18 år.
+                    </Normaltekst>
+                ) : (
+                    <Normaltekst>
+                        For å få gjenlevendepensjon må du være mellom 18 og 66 år.
+                    </Normaltekst>
+                )}
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <Normaltekst>
-                    For å få gjenlevendepensjon må du være mellom 18 og 66 år.
-                </Normaltekst>
-
-                <Normaltekst>
-                    <Lenke href={""}>
-                        Les mer om hvem som kan søke.
+                    <Lenke href={"https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon#chapter-3"}>
+                        Her kan du lese mer om hvem som kan få barnepensjon og hvordan du søker.
                     </Lenke>
                 </Normaltekst>
             </SkjemaGruppe>
