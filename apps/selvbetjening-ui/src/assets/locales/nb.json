@@ -2,12 +2,12 @@
   "steg": {
     "OmDeg": "Om deg",
     "OmDegOgAvdoed": "Om deg og avdøde",
-    "OmAvdoed":  "Opplysninger om den avdøde",
-    "DinSituasjon":  "Din situasjon",
+    "OmAvdoed": "Opplysninger om den avdøde",
+    "DinSituasjon": "Din situasjon",
     "OmBarn": "Opplysninger om barn",
-    "TidlArbeidsforhold":  "Om tidligere arbeidsforhold",
+    "TidlArbeidsforhold": "Om tidligere arbeidsforhold",
     "Arbeidsforhold": "Om nåværende arbeidsforhold",
-    "AndreYtelser":  "Andre ytelser",
+    "AndreYtelser": "Andre ytelser",
     "Oppsummering": "Oppsummering"
   },
   "knapp": {
@@ -137,7 +137,7 @@
     "infoFolkeregisteret": "Saksbehandler vil ta kontakt med deg for å oppdrive korrekt adresse.",
     "medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i utlandet?",
     "flyktning": "Har du status som flyktning? <i>(gjelder alle født før 1960)</i>",
-    "flyktningHvorfor":  "Hvis du er registrert som flyktning hos UDI kan vi vurdere søknaden din ut fra spesielle bestemmelser.",
+    "flyktningHvorfor": "Hvis du er registrert som flyktning hos UDI kan vi vurdere søknaden din ut fra spesielle bestemmelser.",
     "kontaktinfo": {
       "telefonnummer": "Telefonnummer",
       "epost": "E-post"
@@ -265,22 +265,22 @@
   },
   "avdoede": {
     "relasjon": {
-      "gift":"Gift",
-      "samboer":"Samboere",
+      "gift": "Gift",
+      "samboer": "Samboere",
       "skilt": "Skilt",
-      "tidligereSamboer":"Tidligere samboere",
+      "tidligereSamboer": "Tidligere samboere",
       "ingen": "Ingen av delene"
     }
   },
   "barnRelasjon": {
     "fellesbarnMedAvdoede": "Fellesbarn med avdøde",
     "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
-    "egneSaerkullsbarn":  "Egne særkullsbarn"
+    "egneSaerkullsbarn": "Egne særkullsbarn"
   },
   "samboerInntekt": {
-    "arbeidsinntekt":  "Arbeidsinntekt",
+    "arbeidsinntekt": "Arbeidsinntekt",
     "pensjon": "Pensjon",
-    "kapitalinntekt":  "Kapitalinntekt",
+    "kapitalinntekt": "Kapitalinntekt",
     "andreYtelser": "Andre ytelser"
   },
   "arbeidsforholdType": {
@@ -291,7 +291,7 @@
   "jobbStatus": {
     "arbeidstaker": "Ja",
     "arbeidsledig": "Nei, er arbeidsledig",
-    "underUtdanning":  "Nei, er under utdanning",
+    "underUtdanning": "Nei, er under utdanning",
     "ingen": "Nei, ingen av delene"
   },
   "avdoedInntekt": {
@@ -306,7 +306,7 @@
     "ingen": "Nei, ingen av delene"
   },
   "utdanning": {
-    "grunnskole":  "Grunnskole",
+    "grunnskole": "Grunnskole",
     "videregående": "Videregående",
     "bachelorgrad": "Bachelorgrad",
     "mastergrad": "Mastergrad",
@@ -340,6 +340,26 @@
     },
     "bostedsadresseBekreftet": {
       "required": "Bostedsadresse må bekreftes/avkreftes"
+    },
+    "boddEllerJobbetUtland": {
+      "svar": {
+        "required": "Oppgi om den avdøde har bodd eller jobbet i utlandet"
+      }
+    },
+    "selvstendigNaeringsdrivende": {
+      "svar": {
+        "required": "Oppgi om avdøde var selvstendig næringsdrivende"
+      }
+    },
+    "haddePensjonsgivendeInntekt": {
+      "svar": {
+        "required": "Oppgi om avdøde hadde pensjonsgivende inntekt"
+      }
+    },
+    "harAvtjentMilitaerTjeneste": {
+      "svar": {
+        "required": "Oppgi om avdøde har gjennomført verneplikt"
+      }
     },
     "kontaktinfo": {
       "telefonnummer": {
@@ -375,6 +395,13 @@
         "required": "Beløp/bidrag mottatt må fylles ut"
       }
     },
+    "foedselsnummer": {
+      "validate": "Ugyldig fødselsnummer",
+      "required": "Oppgi fødselsnummer"
+    },
+    "statsborgerskap": {
+      "required": "Oppgi statsborgerskap"
+    },
     "nySivilstatus": {
       "nySivilstatusEtterDoedsfallet": {
         "required": "Endret sivilstatus må besvares"
@@ -384,30 +411,30 @@
       }
     },
     "yrke": {
-      "required":  "Yrke må besvares"
+      "required": "Yrke må besvares"
     },
     "stilling": {
-      "required":  "Stilling må besvares"
+      "required": "Stilling må besvares"
     },
     "startDato": {
-      "required":  "Startdato må besvares"
+      "required": "Startdato må besvares"
     },
     "sluttDato": {
-      "required":  "Sluttdato må besvares"
+      "required": "Sluttdato må besvares"
     },
     "ansettelsesforhold": {
-      "required":  "Ansettelsesforhold må besvares"
+      "required": "Ansettelsesforhold må besvares"
     },
     "heltidDeltid": {
-      "required":  "Du må oppgi om stillingen er heltid eller deltid"
+      "required": "Du må oppgi om stillingen er heltid eller deltid"
     },
     "stillingsprosent": {
       "required": "Stillingsprosent må fylles ut",
       "pattern": "Stillingsprosent må oppgis i siffer (0-99)"
     },
     "arbeidsgiver": {
-      "navn.required":  "Arbeidsgivers navn må fylles ut",
-      "adresse.required":  "Arbeidsgivers adresse må fylles ut"
+      "navn.required": "Arbeidsgivers navn må fylles ut",
+      "adresse.required": "Arbeidsgivers adresse må fylles ut"
     },
     "inntekt": {
       "bruttoArbeidsinntektPrMd.required": "Brutto arbeidsinntekt må fylles ut",
