@@ -5,6 +5,7 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 internal class NotifikasjonTest {
 
@@ -14,22 +15,22 @@ internal class NotifikasjonTest {
         autoStart = false,
         noOfBrokers = 1,
         topicInfos = listOf(topicname).map { KafkaEnvironment.TopicInfo(it, partitions = 1) },
-        withSchemaRegistry = false,
+        withSchemaRegistry = true,
         withSecurity = false
     )
 
 
-    //@Test
+    @Test
     fun test1() {
         embeddedKafkaEnvironment.start()
         val inspector = TestRapid()
             .apply { Notifikasjon(mapOf(
                 Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
-                Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS","localhost:30001"),
+                Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS", embeddedKafkaEnvironment.brokersURL),
                 Pair("NAIS_APP_NAME","notifikasjon_test"),
                 Pair("srvuser","user"),
                 Pair("srvpwd","pwd"),
-                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY","test_registry")
+                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", embeddedKafkaEnvironment.schemaRegistry?.url!!)
             ),
             this) }
             .apply {

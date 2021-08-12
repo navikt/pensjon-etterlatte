@@ -38,7 +38,7 @@ class KafkaConfig(
             put("schema.registry.url", this)
             put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
             put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
-            put("specific.avro.writer", true)
+            //put("specific.avro.writer", true)
 
         }
 
