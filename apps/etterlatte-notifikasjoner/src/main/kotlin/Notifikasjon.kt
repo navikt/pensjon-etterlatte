@@ -76,9 +76,9 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
                 .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
                 .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
 
-            //val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
+            val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
             //val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
-            val notifikasjonJson2 = objectMapper.readTree(opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(),dto).toString())
+            //val notifikasjonJson2 = objectMapper.readTree(opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(),dto).toString())
 
 
            /* ProducerRecord(
@@ -91,7 +91,7 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
             }
 
             */
-            packet["@notifikasjon"] = notifikasjonJson2
+            packet["@notifikasjon"] = "notifikasjon opprettet"
             context.publish(packet.toJson())
             logger.info("Notifikasjon til bruker opprettet")
         }
