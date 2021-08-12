@@ -3,14 +3,9 @@ package no.nav.etterlatte
 import no.nav.common.KafkaEnvironment
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
-import org.apache.kafka.clients.CommonClientConfigs
-import org.apache.kafka.clients.producer.ProducerConfig
-import org.apache.kafka.common.config.SaslConfigs
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
-import java.util.*
 
 internal class NotifikasjonTest {
 
@@ -45,7 +40,7 @@ internal class NotifikasjonTest {
         val inspector = TestRapid()
             .apply { Notifikasjon(mapOf(
                 Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
-                Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS","testbroker"),
+                Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS","localhost:2181"),
                 Pair("NAIS_APP_NAME","notifikasjon_test"),
                 Pair("srvuser","user"),
                 Pair("srvpwd","pwd"),

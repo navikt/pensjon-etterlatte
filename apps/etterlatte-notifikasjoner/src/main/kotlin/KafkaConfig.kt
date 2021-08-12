@@ -1,6 +1,6 @@
 package no.nav.etterlatte
 
-import io.confluent.kafka.serializers.KafkaAvroDeserializer
+import io.confluent.kafka.serializers.KafkaAvroSerializer
 import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.config.SaslConfigs
@@ -36,9 +36,9 @@ class KafkaConfig(
 
         schemaRegistryUrl?.apply {
             put("schema.registry.url", this)
-            put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer::class.java)
-            put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer::class.java)
-            put("specific.avro.reader", true)
+            put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
+            put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
+            put("specific.avro.writer", true)
 
         }
 

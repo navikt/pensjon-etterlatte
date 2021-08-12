@@ -25,6 +25,7 @@ dependencies {
     implementation("io.confluent:kafka-avro-serializer:5.3.0") {
         exclude(group = "org.slf4j", module = "slf4j-log4j12")
     }
+
     testImplementation("io.ktor:ktor-client-mock:$ktorversion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
