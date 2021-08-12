@@ -82,8 +82,8 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
 
 
             ProducerRecord(brukernotifikasjontopic, createKeyForEvent(systembruker), notifikasjon).let { producerRecord ->
-                producer?.send(producerRecord)?.get()
-
+                val test = producer?.send(producerRecord)?.get()
+                println(test)
 
                 packet["@notifikasjon"] = notifikasjonJson
                 context.publish(packet.toJson())
