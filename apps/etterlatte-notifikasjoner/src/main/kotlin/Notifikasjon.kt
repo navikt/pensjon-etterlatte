@@ -81,43 +81,47 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
             val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
 
 
-            ProducerRecord(brukernotifikasjontopic, createKeyForEvent(systembruker), notifikasjon).let { producerRecord ->
+            ProducerRecord(
+                brukernotifikasjontopic,
+                createKeyForEvent(systembruker),
+                notifikasjon
+            ).let { producerRecord ->
                 val test = producer?.send(producerRecord)?.get()
-                println(test)
-
-                packet["@notifikasjon"] = notifikasjonJson
-                context.publish(packet.toJson())
-                logger.info("Notifikasjon til bruker opprettet")
+                println(test.toString())
             }
+            packet["@notifikasjon"] = notifikasjonJson
+            context.publish(packet.toJson())
+            logger.info("Notifikasjon til bruker opprettet")
         }
     }
-
-    private fun createKeyForEvent(systemUserName: String?): Nokkel {
-        return NokkelBuilder()
-            .withSystembruker(systemUserName)
-            .withEventId(UUID.randomUUID().toString())
-            .build()
-    }
-
-    private fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {
-        val now = LocalDateTime.now(ZoneOffset.UTC)
-        val weekFromNow = now.plus(7, ChronoUnit.DAYS)
-        val build = BeskjedBuilder()
-            .withFodselsnummer(fnr)
-            .withGrupperingsId(dto.grupperingsid)
-            .withTekst(dto.tekst)
-            .withTidspunkt(now)
-            .withSynligFremTil(weekFromNow)
-            .withSikkerhetsnivaa(4)
-            .withEksternVarsling(true)
-            .withPrefererteKanaler(PreferertKanal.SMS)
-        if (!dto.link.isNullOrBlank()) {
-            build.withLink(URL(dto.link))
-        }
-        return build.build()
-    }
-
 }
+
+private fun createKeyForEvent(systemUserName: String?): Nokkel {
+    return NokkelBuilder()
+        .withSystembruker(systemUserName)
+        .withEventId(UUID.randomUUID().toString())
+        .build()
+}
+
+private fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {
+    val now = LocalDateTime.now(ZoneOffset.UTC)
+    val weekFromNow = now.plus(7, ChronoUnit.DAYS)
+    val build = BeskjedBuilder()
+        .withFodselsnummer(fnr)
+        .withGrupperingsId(dto.grupperingsid)
+        .withTekst(dto.tekst)
+        .withTidspunkt(now)
+        .withSynligFremTil(weekFromNow)
+        .withSikkerhetsnivaa(4)
+        .withEksternVarsling(true)
+        .withPrefererteKanaler(PreferertKanal.SMS)
+    if (!dto.link.isNullOrBlank()) {
+        build.withLink(URL(dto.link))
+    }
+    return build.build()
+}
+
+
 
 
 
