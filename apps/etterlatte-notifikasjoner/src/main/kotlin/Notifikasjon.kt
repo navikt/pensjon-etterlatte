@@ -14,10 +14,8 @@ import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
-import org.apache.kafka.clients.producer.KafkaProducer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.net.InetAddress
 import java.net.URL
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -32,7 +30,7 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
 
     private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
     private val systembruker = env["srvuser"]
-    private var producer: KafkaProducer<Nokkel, Beskjed>? = null
+    //private var producer: KafkaProducer<Nokkel, Beskjed>? = null
 
     init {
         River(rapidsConnection).apply {
@@ -42,7 +40,7 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
             validate { it.rejectKey("@notifikasjon") }
         }.register(this)
 
-        val startuptask = {
+      /*  val startuptask = {
             producer = KafkaProducer(
                 KafkaConfig(
                     bootstrapServers = env["BRUKERNOTIFIKASJON_KAFKA_BROKERS"]!!,
@@ -56,6 +54,8 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
             )
         }
         startuptask()
+
+       */
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
