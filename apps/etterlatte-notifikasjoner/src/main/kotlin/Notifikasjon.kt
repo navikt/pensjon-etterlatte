@@ -15,7 +15,6 @@ import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import org.apache.kafka.clients.producer.KafkaProducer
-import org.apache.kafka.clients.producer.ProducerRecord
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.net.InetAddress
@@ -81,14 +80,16 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
             val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
 
 
-            ProducerRecord(
+           /* ProducerRecord(
                 brukernotifikasjontopic,
                 createKeyForEvent(systembruker),
                 notifikasjon
             ).let { producerRecord ->
                 val test = producer?.send(producerRecord)?.get()
-                println(test.toString())
+                println("fdsfsdfsdfds" + test.toString())
             }
+
+            */
             packet["@notifikasjon"] = notifikasjonJson
             context.publish(packet.toJson())
             logger.info("Notifikasjon til bruker opprettet")
