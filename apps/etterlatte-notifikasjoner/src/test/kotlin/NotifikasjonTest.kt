@@ -16,6 +16,8 @@ internal class NotifikasjonTest {
         noOfBrokers = 1,
         topicInfos = listOf(topicname).map { KafkaEnvironment.TopicInfo(it, partitions = 1) },
         withSchemaRegistry = true,
+        //withSecurity = true,
+        //users = listOf(JAASCredential("user", "pwd")),
         withSecurity = false
     )
 
