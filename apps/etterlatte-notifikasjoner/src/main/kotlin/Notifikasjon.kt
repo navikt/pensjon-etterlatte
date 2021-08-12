@@ -6,7 +6,9 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import kotlinx.coroutines.runBlocking
 import no.nav.brukernotifikasjon.schemas.Beskjed
+import no.nav.brukernotifikasjon.schemas.Nokkel
 import no.nav.brukernotifikasjon.schemas.builders.BeskjedBuilder
+import no.nav.brukernotifikasjon.schemas.builders.NokkelBuilder
 import no.nav.brukernotifikasjon.schemas.builders.domain.PreferertKanal
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
@@ -30,7 +32,8 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
     private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
-    private var producer: KafkaProducer<String, Beskjed>? = null
+    private val systembruker = env["srvuser"]
+    private var producer: KafkaProducer<Nokkel, Beskjed>? = null
 
     init {
         River(rapidsConnection).apply {
@@ -46,7 +49,7 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
                     bootstrapServers = env["BRUKERNOTIFIKASJON_KAFKA_BROKERS"]!!,
                     clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID()
                         .toString(),
-                    username = env["srvuser"],
+                    username = systembruker,
                     password = env["srvpwd"],
                     schemaRegistryUrl = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"],
                     acksConfig = "all"
@@ -77,8 +80,9 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
             val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
             val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
 
-            ProducerRecord(brukernotifikasjontopic, null, notifikasjon).let { producerRecord ->
-                producer?.send(producerRecord)
+
+            ProducerRecord(brukernotifikasjontopic, createKeyForEvent(systembruker), notifikasjon).let { producerRecord ->
+                producer?.send(producerRecord)?.get()
 
 
                 packet["@notifikasjon"] = notifikasjonJson
@@ -86,6 +90,13 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
                 logger.info("Notifikasjon til bruker opprettet")
             }
         }
+    }
+
+    private fun createKeyForEvent(systemUserName: String?): Nokkel {
+        return NokkelBuilder()
+            .withSystembruker(systemUserName)
+            .withEventId(UUID.randomUUID().toString())
+            .build()
     }
 
     private fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {

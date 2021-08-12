@@ -20,27 +20,13 @@ internal class NotifikasjonTest {
     )
 
 
-
- /*   private fun producerProperties() =
-        Properties().apply {
-            put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, embeddedKafkaEnvironment.brokersURL)
-            put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "PLAINTEXT")
-            put(ProducerConfig.ACKS_CONFIG, "all")
-            put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1")
-            put(ProducerConfig.LINGER_MS_CONFIG, "0")
-            put(ProducerConfig.RETRIES_CONFIG, "0")
-            put(SaslConfigs.SASL_MECHANISM, "PLAIN")
-        }
-*/
-
-
     @Test
     fun test1() {
         embeddedKafkaEnvironment.start()
         val inspector = TestRapid()
             .apply { Notifikasjon(mapOf(
                 Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
-                Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS","localhost:2181"),
+                Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS","localhost:30001"),
                 Pair("NAIS_APP_NAME","notifikasjon_test"),
                 Pair("srvuser","user"),
                 Pair("srvpwd","pwd"),
