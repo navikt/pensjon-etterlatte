@@ -28,9 +28,9 @@ class KafkaConfig(
         putAll(kafkaBaseConfig())
         put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
         //put(ProducerConfig.ACKS_CONFIG, acksConfig)
-        put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1")
-        put(ProducerConfig.LINGER_MS_CONFIG, "0")
-        put(ProducerConfig.RETRIES_CONFIG, "0")
+        //put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1")
+        //put(ProducerConfig.LINGER_MS_CONFIG, "0")
+        //put(ProducerConfig.RETRIES_CONFIG, "0")
         put(ProducerConfig.BATCH_SIZE_CONFIG, "1")
         clientId?.also { put(ProducerConfig.CLIENT_ID_CONFIG, "consumer-$it") }
 
