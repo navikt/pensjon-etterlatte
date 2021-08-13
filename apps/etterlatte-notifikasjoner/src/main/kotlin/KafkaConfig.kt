@@ -36,6 +36,8 @@ class KafkaConfig(
         put("schema.registry.url", schemaRegistryUrl)
         put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT")
         put(SaslConfigs.SASL_MECHANISM, "PLAIN")
+        put(SaslConfigs.DEFAULT_SASL_MECHANISM, "PLAIN")
+
         put(
             SaslConfigs.SASL_JAAS_CONFIG,
             "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"$username\" password=\"$password\";"

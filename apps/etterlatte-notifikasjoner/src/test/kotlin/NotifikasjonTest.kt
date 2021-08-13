@@ -31,11 +31,11 @@ internal class NotifikasjonTest {
     )
 
 
-    //@Test
+    @Test
     fun test1() {
         embeddedKafkaEnvironment.start()
         println("verdier:")
-        //println(embeddedKafkaEnvironment.schemaRegistry?.url)
+        println(embeddedKafkaEnvironment.schemaRegistry?.url)
         println(embeddedKafkaEnvironment.brokersURL )
         val inspector = TestRapid()
             .apply { Notifikasjon(mapOf(
@@ -44,7 +44,7 @@ internal class NotifikasjonTest {
                 Pair("NAIS_APP_NAME","notifikasjon_test"),
                 Pair("srvuser",user),
                 Pair("srvpwd",pass),
-                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", embeddedKafkaEnvironment.schemaRegistry?.url!!)
+                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", embeddedKafkaEnvironment.schemaRegistry?.url!!.substringAfterLast("/"))
             ),
             this) }
             .apply {
