@@ -34,12 +34,15 @@ export enum BarnRelasjon {
     egneSaerkullsbarn = "barnRelasjon.egneSaerkullsbarn",
 }
 
+export enum GravidEllerNyligFoedt {
+    venterBarn = "gravidEllerNyligFoedt.venterBarn",
+    harNyligFoedt = "gravidEllerNyligFoedt.harNyligFoedt",
+    ingen = "gravidEllerNyligFoedt.ingen"
+}
+
 export interface IOmBarn {
-    gravidEllerNyligFoedt?: {
-        svar?: IValg;
-        beskrivelse?: string;
-    }
     barn?: IBarn[];
+    gravidEllerNyligFoedt?: IValg;
 }
 
 export interface IBarn {

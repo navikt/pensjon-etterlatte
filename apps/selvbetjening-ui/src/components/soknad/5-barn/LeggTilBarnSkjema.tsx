@@ -108,6 +108,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                         <RHFToValgRadio
                             name={"soekerBarnepensjon"}
                             legend={t("omBarn.soekerBarnepensjon")}
+
                         />
 
                         {soekerBarnepensjon === IValg.JA && (

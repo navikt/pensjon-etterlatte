@@ -101,10 +101,7 @@
     }
   },
   "opplysningerOmBarn": {
-    "gravidEllerNyligFoedt": {
-      "svar": "Ja",
-      "beskrivelse": "Bla bla bla..."
-    },
+    "gravidEllerNyligFoedt":  "Ja",
     "barn": [
       {
         "fornavn": "Treg",

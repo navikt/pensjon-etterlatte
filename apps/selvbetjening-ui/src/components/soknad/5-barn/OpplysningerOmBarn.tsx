@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import "../../felles/Infokort.less";
 import ikon from "../../../assets/ikoner/barn1.svg";
-import { Systemtittel } from "nav-frontend-typografi";
+import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import { Knapp } from "nav-frontend-knapper";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { default as Modal } from "nav-frontend-modal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { IBarn, IOmBarn } from "../../../typer/person";
+import { GravidEllerNyligFoedt, IBarn, IOmBarn } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import BarnInfokort from "./BarnInfokort";
 import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
 import AlertStripe from "nav-frontend-alertstriper";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { RHFToValgRadio } from "../../felles/RHFRadio";
-import { RHFInput } from "../../felles/RHFInput";
-import { IValg } from "../../../typer/Spoersmaal";
+import { RHFRadio } from "../../felles/RHFRadio";
+import Panel from "nav-frontend-paneler";
 
 Modal.setAppElement("#root");
 
@@ -49,9 +48,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         neste!!();
     }
 
-    const { handleSubmit, watch } = methods;
-
-    const gravidEllerNyligFoedt = watch("gravidEllerNyligFoedt.svar")
+    const { handleSubmit } = methods;
 
     return (
         <FormProvider {...methods}>
@@ -63,16 +60,18 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <AlertStripe type={"info"} form={"inline"}>
-                        Her kan du legge inn informasjon om alle barn uansett alder:
-                        <ul>
-                            <li>Felles barn med avdøde</li>
-                            <li>Avdødes særkullsbarn</li>
-                            <li>Egne særkullsbarn</li>
-                        </ul>
-
-                        Felles barn med avdøde under 18 år kan ha rett på barnepensjon.
-                    </AlertStripe>
+                    <Panel border>
+                        <AlertStripe type={"info"} form={"inline"}>
+                            <Normaltekst>
+                                Dersom du har eller har hatt barn er det viktig at du legger de til – uavhengig av alder –
+                                da dette kan påvirke din rett til gjenlevendepensjon. Dette gjelder felles barn med avdøde, avdødes særkullsbarn, og egne særkullsbarn.
+                            </Normaltekst>
+                            <br/>
+                            <Normaltekst>
+                                Felles barn med avdøde under 18 år kan ha rett på barnepensjon.
+                            </Normaltekst>
+                        </AlertStripe>
+                    </Panel>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
@@ -96,6 +95,10 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                                         {t("knapp.leggTilBarn")}
                                     </Knapp>
                                 </div>
+
+                                <Normaltekst className={"center mute"}>
+                                    Dette er valgfritt
+                                </Normaltekst>
                             </div>
                         </div>
                     </div>
@@ -110,27 +113,17 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                     </Modal>
                 </SkjemaGruppe>
 
-                <SkjemaGruppe>
-                    <RHFToValgRadio
-                        name={"gravidEllerNyligFoedt.svar"}
-                        legend={t("omBarn.gravidEllerNyligFoedt.svar")}
-                    />
-
-                    {gravidEllerNyligFoedt === IValg.JA && (
-                        <RHFInput
-                            name={"gravidEllerNyligFoedt.beskrivelse"}
-                            label={t("omBarn.gravidEllerNyligFoedt.beskrivelse")}
-                            placeholder={t("omBarn.gravidEllerNyligFoedt.placeholder")}
-                        />
-                    )}
-                </SkjemaGruppe>
+                <RHFRadio
+                    name={"gravidEllerNyligFoedt"}
+                    legend={t("omBarn.gravidEllerNyligFoedt")}
+                    radios={Object.values(GravidEllerNyligFoedt).map(value => {
+                        return { label: t(value), value } as RadioProps
+                    })}
+                />
 
                 <Navigasjon
                     forrige={{ onClick: forrige }}
-                    neste={{
-                        onClick: handleSubmit(lagre),
-                        label: !fields.length ? t("knapp.hoppOver") : undefined
-                    }}
+                    neste={{ onClick: handleSubmit(lagre) }}
                 />
             </form>
         </FormProvider>

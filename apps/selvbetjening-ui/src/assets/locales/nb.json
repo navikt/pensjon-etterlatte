@@ -272,11 +272,7 @@
       "land": "Land",
       "adresse": "Adresse i utlandet"
     },
-    "gravidEllerNyligFoedt": {
-      "svar": "Er du gravid eller har du nylig fått barn som foreløpig ikke er registrert i Folkeregisteret?",
-      "beskrivelse": "Si litt om situasjonen til barnet",
-      "placeholder": "F.eks. termindato, fødselsdato, eller personnummer hvis barnet har fått"
-    }
+    "gravidEllerNyligFoedt": "Venter du eller har du nylig fått barn som foreløpig ikke er registrert i Folkeregisteret?"
   },
   "oppsummering": {
     "tittel": "Oppsummering",
@@ -302,6 +298,11 @@
     "pensjon": "Pensjon",
     "kapitalinntekt": "Kapitalinntekt",
     "andreYtelser": "Andre ytelser"
+  },
+  "gravidEllerNyligFoedt": {
+    "venterBarn": "Ja, venter barn",
+    "harNyligFoedt": "Ja, har nylig fått barn som ikke er registrert enda",
+    "ingen": "Nei, ingen av delene / ikke relevant"
   },
   "arbeidsforholdType": {
     "selvstendig": "Ja, er selvstendig næringsdrivende",
