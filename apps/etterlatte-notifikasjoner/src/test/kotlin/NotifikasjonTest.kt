@@ -20,7 +20,7 @@ internal class NotifikasjonTest {
         noOfBrokers = 1,
         //topicInfos = listOf(topicname).map { KafkaEnvironment.TopicInfo(it, partitions = 1) },
         topicInfos = listOf(KafkaEnvironment.TopicInfo(name = topicname, partitions = 1)),
-        withSchemaRegistry = false,
+        withSchemaRegistry = true,
         withSecurity = true,
         users = listOf(JAASCredential(user, pass)),
         brokerConfigOverrides = Properties().apply {
@@ -31,7 +31,7 @@ internal class NotifikasjonTest {
     )
 
 
-    @Test
+    //@Test
     fun test1() {
         embeddedKafkaEnvironment.start()
         println("verdier:")
@@ -40,11 +40,11 @@ internal class NotifikasjonTest {
         val inspector = TestRapid()
             .apply { Notifikasjon(mapOf(
                 Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
-                Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS", embeddedKafkaEnvironment.brokersURL),
+                Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS", embeddedKafkaEnvironment.brokersURL.substringAfterLast("/")),
                 Pair("NAIS_APP_NAME","notifikasjon_test"),
                 Pair("srvuser",user),
                 Pair("srvpwd",pass),
-                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", "tjoho")//embeddedKafkaEnvironment.schemaRegistry?.url!!)
+                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", embeddedKafkaEnvironment.schemaRegistry?.url!!)
             ),
             this) }
             .apply {
