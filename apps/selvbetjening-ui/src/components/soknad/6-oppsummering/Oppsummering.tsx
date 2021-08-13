@@ -28,28 +28,32 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     const send = () => {
         setSenderSoeknad(true);
-        setError(false)
+        setError(false);
 
         sendSoeknad(state)
             .then((soknadId) => {
                 history.push(`/soknad/sendt/${soknadId}`);
             })
             .catch((error) => {
-                console.log(error)
+                console.log(error);
                 setSenderSoeknad(false);
-                setError(true)
+                setError(true);
             });
+    };
+
+    const translateValues = (obj: any) => {
+        return obj.map((el: any) => ({ key: el.key, val: t(el.val) }));
     };
 
     const otr = new ObjectTreeReader(i18n);
 
-    const omDeg = otr.traverse<ISoeker>(state.omDeg, "omDeg")
-    const omDegOgAvdoed = otr.traverse<ISoekerOgAvdoed>(state.omDegOgAvdoed, "omDegOgAvdoed")
-    const omDenAvdoede = otr.traverse<IAvdoed>(state.omDenAvdoede, "omDenAvdoede")
-    const dinSituasjon = otr.traverse<ISituasjon>(state.dinSituasjon, "dinSituasjon")
+    const omDeg = translateValues(otr.traverse<ISoeker>(state.omDeg, "omDeg"));
+    const omDegOgAvdoed = translateValues(otr.traverse<ISoekerOgAvdoed>(state.omDegOgAvdoed, "omDegOgAvdoed"));
+    const omDenAvdoede = translateValues(otr.traverse<IAvdoed>(state.omDenAvdoede, "omDenAvdoede"));
+    const dinSituasjon = translateValues(otr.traverse<ISituasjon>(state.dinSituasjon, "dinSituasjon"));
 
     // TODO: Fikse måten barn og tidligere arbeidsforhold vises.
-    const opplysningerOmBarn = otr.traverse<IBarn[]>(state.opplysningerOmBarn, "omBarn")
+    const opplysningerOmBarn = otr.traverse<IBarn[]>(state.opplysningerOmBarn, "omBarn");
 
     const ekspanderbartPanel = (tittel: string, tekster: any[], path: StegPath) => (
         <Ekspanderbartpanel tittel={tittel} className={"oppsummering"} apen={true}>
@@ -60,11 +64,11 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             )}
 
             {tekster.map(({ key, val }) => (
-                <TekstGruppe key={uuid()} tittel={t(key)} innhold={val}/>
+                <TekstGruppe key={uuid()} tittel={t(key)} innhold={val} />
             ))}
 
             <Lenke href={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>
-                <EditFilled/>
+                <EditFilled />
                 <span>{t("felles.endreSvar")}</span>
             </Lenke>
         </Ekspanderbartpanel>
@@ -73,15 +77,11 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     return (
         <>
             <SkjemaGruppe>
-                <Systemtittel className={"center"}>
-                    {t("oppsummering.tittel")}
-                </Systemtittel>
+                <Systemtittel className={"center"}>{t("oppsummering.tittel")}</Systemtittel>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Normaltekst>
-                    {t("oppsummering.beskrivelse")}
-                </Normaltekst>
+                <Normaltekst>{t("oppsummering.beskrivelse")}</Normaltekst>
             </SkjemaGruppe>
 
             {ekspanderbartPanel(t("omDeg.tittel"), omDeg, StegPath.OmDeg)}
@@ -98,17 +98,11 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
             {error && (
                 <SkjemaGruppe>
-                    <AlertStripe type={"feil"}>
-                        {t("oppsummering.feilVedSending")}
-                    </AlertStripe>
+                    <AlertStripe type={"feil"}>{t("oppsummering.feilVedSending")}</AlertStripe>
                 </SkjemaGruppe>
             )}
 
-            <Navigasjon
-                forrige={{ onClick: forrige }}
-                send={{ onClick: send }}
-                disabled={senderSoeknad}
-            />
+            <Navigasjon forrige={{ onClick: forrige }} send={{ onClick: send }} disabled={senderSoeknad} />
         </>
     );
 });
