@@ -41,19 +41,19 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             });
     };
 
-    const translateValues = (obj: any) => {
-        return obj.map((el: any) => ({ key: el.key, val: t(el.val) }));
+    const getBaseKey = (string: string) => {
+        return string.replace(/(.\d+)/g, "");
     };
 
     const otr = new ObjectTreeReader(i18n);
 
-    const omDeg = translateValues(otr.traverse<ISoeker>(state.omDeg, "omDeg"));
-    const omDegOgAvdoed = translateValues(otr.traverse<ISoekerOgAvdoed>(state.omDegOgAvdoed, "omDegOgAvdoed"));
-    const omDenAvdoede = translateValues(otr.traverse<IAvdoed>(state.omDenAvdoede, "omDenAvdoede"));
-    const dinSituasjon = translateValues(otr.traverse<ISituasjon>(state.dinSituasjon, "dinSituasjon"));
+    const omDeg = otr.traverse<ISoeker>(state.omDeg, "omDeg");
+    const omDegOgAvdoed = otr.traverse<ISoekerOgAvdoed>(state.omDegOgAvdoed, "omDegOgAvdoed");
+    const omDenAvdoede = otr.traverse<IAvdoed>(state.omDenAvdoede, "omDenAvdoede");
+    const dinSituasjon = otr.traverse<ISituasjon>(state.dinSituasjon, "dinSituasjon");
 
     // TODO: Fikse måten barn og tidligere arbeidsforhold vises.
-    const opplysningerOmBarn = otr.traverse<IOmBarn>(state.opplysningerOmBarn, "omBarn")
+    const opplysningerOmBarn = otr.traverse<IOmBarn>(state.opplysningerOmBarn, "omBarn");
 
     const ekspanderbartPanel = (tittel: string, tekster: any[], path: StegPath) => (
         <Ekspanderbartpanel tittel={tittel} className={"oppsummering"} apen={true}>
@@ -64,7 +64,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             )}
 
             {tekster.map(({ key, val }) => (
-                <TekstGruppe key={uuid()} tittel={t(key)} innhold={val} />
+                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} />
             ))}
 
             <Lenke href={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>
