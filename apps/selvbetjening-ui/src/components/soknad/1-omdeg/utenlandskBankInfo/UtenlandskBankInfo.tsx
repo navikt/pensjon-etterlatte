@@ -10,36 +10,36 @@ const UtenlandskBankInfo = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>{t("Oppgi bankopplysninger")}</Undertittel>
+                <Undertittel>{t("omDeg.utbetalingsInformasjon.tittel")}</Undertittel>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <RHFInput
                     name={"utbetalingsInformasjon.utenlandskBankNavn"}
-                    label={t("Bankens navn")}
+                    label={t("omDeg.utbetalingsInformasjon.utenlandskBankNavn")}
                 />
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <RHFInput
                     name={"utbetalingsInformasjon.utenlandskBankAdresse"}
-                    label={t("Bankens fulle adresse")}
+                    label={t("omDeg.utbetalingsInformasjon.utenlandskBankAdresse")}
                 />
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <RHFIbanInput
                     name={"utbetalingsInformasjon.iban"}
-                    label={t("IBAN-nummer")}
-                    hjelpetekstIkon={"IBAN står for International Bank Account Number og er en internasjonal standard for kontonummer."}
+                    label={t("omDeg.utbetalingsInformasjon.iban")}
+                    hjelpetekstIkon={t("omDeg.utbetalingsInformasjon.ibanHjelpetekst")}
                 />
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <RHFBicInput
                     name={"utbetalingsInformasjon.swift"}
-                    label={t("Bankens S.W.I.F.T (BIC) adresse")}
-                    hjelpetekstIkon={"BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land, og alltid når man bruker IBAN."}
+                    label={t("omDeg.utbetalingsInformasjon.swift")}
+                    hjelpetekstIkon={t("omDeg.utbetalingsInformasjon.swiftHjelpetekst")}
                 />
             </SkjemaGruppe>
         </>

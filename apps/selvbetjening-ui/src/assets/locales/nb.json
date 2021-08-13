@@ -147,7 +147,17 @@
       "telefonnummer": "Telefonnummer",
       "epost": "E-post"
     },
-    "kontonummer": "Oppgi norsk kontonummer for utbetaling"
+    "utbetalingsInformasjon": {
+      "tittel": "Oppgi bankopplysninger",
+      "bankkontoType": "Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?",
+      "kontonummer": "Oppgi norsk kontonummer for utbetaling",
+      "utenlandskBankNavn": "Bankens navn",
+      "utenlandskBankAdresse": "Bankens fulle adresse",
+      "iban": "IBAN-nummer",
+      "ibanHjelpetekst": "IBAN står for International Bank Account Number og er en internasjonal standard for kontonummer.",
+      "swift": "Bankens S.W.I.F.T (BIC) adresse",
+      "swiftHjelpetekst": "BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land."
+    }
   },
   "omDegOgAvdoed": {
     "tittel": "Om deg og avdøde",
@@ -454,6 +464,20 @@
       "fraDato.required": "Fra dato må fylles ut",
       "tilDato.required": "Til dato må fylles ut",
       "beskrivelse.required": "Beskrivelse må fylles ut"
+    },
+    "utbetalingsInformasjon": {
+      "bankkontoType.required": "Du må velge mellom norsk eller utenlandsk bankkonto for utbetaling",
+      "kontonummer.required": "Norsk kontonummer må fylles ut",
+      "utenlandskBankNavn.required": "Navnet på den utenlandske banken må fylles ut",
+      "utenlandskBankAdresse.required": "Adressen til den utenlandske banken må fylles ut",
+      "iban": {
+        "required": "IBAN-nummer må fylles ut",
+        "validate": "Ugyldig IBAN-nummer"
+      },
+      "swift": {
+        "required": "Bankens S.W.I.F.T (BIC) adresse må fylles ut",
+        "validate": "Ugyldig SWIFT/BIC kode"
+      }
     }
   }
 }

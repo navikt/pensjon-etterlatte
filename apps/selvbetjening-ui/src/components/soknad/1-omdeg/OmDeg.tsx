@@ -107,7 +107,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         <SkjemaGruppe>
                             <RHFKontonummerInput
                                 name={"utbetalingsInformasjon.kontonummer"}
-                                label={t("omDeg.kontonummer")}
+                                label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                 placeholder={"11 siffer"}
                             />
                         </SkjemaGruppe>
@@ -130,7 +130,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
                             <RHFInlineRadio
                                 name={"utbetalingsInformasjon.bankkontoType"}
-                                legend={t("Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?")}
+                                legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
                                 radios={Object.values(BankkontoType).map(value => {
                                     return { label: t(value), value } as RadioProps
                                 })}
@@ -140,7 +140,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 <SkjemaGruppe>
                                     <RHFKontonummerInput
                                         name={"utbetalingsInformasjon.kontonummer"}
-                                        label={t("omDeg.kontonummer")}
+                                        label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                         placeholder={"11 siffer"}
                                     />
                                 </SkjemaGruppe>

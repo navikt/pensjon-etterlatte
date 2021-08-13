@@ -9,7 +9,10 @@
     },
     "oppholderSegINorge": "Ja",
     "alternativAdresse": "Testveien 123, 0594 Oslo",
-    "kontonummer": "1351.35.13513"
+    "utbetalingsInformasjon": {
+      "bankkontoType": "Norsk",
+      "kontonummer": "1351.35.13513"
+    }
   },
   "omDegOgAvdoed": {
     "avdoed": {
