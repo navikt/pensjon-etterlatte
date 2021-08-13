@@ -4,8 +4,10 @@ import io.confluent.kafka.serializers.KafkaAvroSerializer
 import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.config.SaslConfigs
+import org.apache.kafka.common.config.SslConfigs
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.io.File
 import java.util.*
 
 class KafkaConfig(
@@ -44,5 +46,16 @@ class KafkaConfig(
         )
         println("gfsdjklgjdfkl")
         println(username)
+
+        if (!truststore.isNullOrBlank()) {
+            try {
+                put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL")
+                put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, File(truststore).absolutePath)
+                put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, truststorePassword)
+                log.info("Configured '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location ")
+            } catch (ex: Exception) {
+                log.error("Failed to set '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location", ex)
+            }
+        }
     }
 }

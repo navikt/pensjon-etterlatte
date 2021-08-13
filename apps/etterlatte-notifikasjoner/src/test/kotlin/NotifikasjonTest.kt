@@ -13,8 +13,8 @@ internal class NotifikasjonTest {
 
 
     private val topicname: String = "test_topic"
-    private val user = "bruker"
-    private val pass = "hohoho"
+    private val user = "srvkafkaclient"
+    private val pass = "kafkaclient"
     private val embeddedKafkaEnvironment = KafkaEnvironment(
         autoStart = false,
         noOfBrokers = 1,
@@ -44,7 +44,7 @@ internal class NotifikasjonTest {
                 Pair("NAIS_APP_NAME","notifikasjon_test"),
                 Pair("srvuser",user),
                 Pair("srvpwd",pass),
-                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", embeddedKafkaEnvironment.schemaRegistry?.url!!.substringAfterLast("/"))
+                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", embeddedKafkaEnvironment.schemaRegistry!!.url)
             ),
             this) }
             .apply {
