@@ -10,6 +10,7 @@ import { fnr } from "@navikt/fnrvalidator";
 import { kontonrMatcher, telefonnrMatcher } from "../../utils/matchers";
 import HvorforSpoerVi from "./HvorforSpoerVi";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
+import { isValidBIC, isValidIBAN } from "ibantools";
 
 interface RHFProps extends Omit<InputProps, 'name'> {
     name: FieldPath<FieldValues>;
@@ -164,6 +165,24 @@ export const RHFFoedselsnummerInput = ({ ...rest }: RHFProps) => {
             {...rest}
             type={"number"}
             rules={{ validate: (value) => (fnr(value).status === 'valid') }}
+        />
+    )
+}
+
+export const RHFIbanInput = ({ ...rest }: RHFProps) => {
+    return (
+        <RHFInput
+            {...rest}
+            rules={{ validate: (value) => isValidIBAN(value) }}
+        />
+    )
+}
+
+export const RHFBicInput = ({ ...rest }: RHFProps) => {
+    return (
+        <RHFInput
+            {...rest}
+            rules={{ validate: (value) => isValidBIC(value) }}
         />
     )
 }
