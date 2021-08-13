@@ -1,4 +1,5 @@
 import { IValg } from "./Spoersmaal";
+import { IUtbetalingsInformasjon } from "./utbetaling";
 
 export enum Sivilstatus {
     ekteskap = "nySivilstatus.ekteskap",
@@ -153,7 +154,7 @@ export interface ISoeker {
     bostedsadresseBekreftet?: IValg;
     alternativAdresse?: string;
     kontaktinfo?: IKontaktinfo;
-    kontonummer?: string; // 2.8
+    utbetalingsInformasjon?: IUtbetalingsInformasjon;
     flyktning?: IValg;
     oppholderSegINorge?: IValg; // 2.7
     oppholdsland?: string; // 2.7

@@ -3,19 +3,22 @@ import { Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { Trans, useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
 import { IValg } from "../../../typer/Spoersmaal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { ISoeker } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/RHFInput";
-import { RHFToValgRadio } from "../../felles/RHFRadio";
+import { RHFInlineRadio, RHFToValgRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
 import { emailMatcher } from "../../../utils/matchers";
 import { Cell, Grid } from "@navikt/ds-react";
+import React from "react";
+import { BankkontoType } from "../../../typer/utbetaling";
+import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
@@ -42,16 +45,17 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
     const borPaaRegistrertAdresse = watch("bostedsadresseBekreftet")
     const oppholderSegINorge = watch("oppholderSegINorge")
+    const bankkontoType = watch("utbetalingsInformasjon.bankkontoType")
 
     return (
         <>
             {/* Steg 2 */}
             <Systemtittel className={"center"}>
-                <Trans i18nKey={"omDeg.tittel"} />
+                <Trans i18nKey={"omDeg.tittel"}/>
             </Systemtittel>
 
             {/* Informasjon om den innloggede brukeren */}
-            <InnloggetBruker />
+            <InnloggetBruker/>
 
             {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <FormProvider {...methods}>
@@ -60,7 +64,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                 <form>
                     <RHFToValgRadio
                         name={"bostedsadresseBekreftet"}
-                        legend={<Trans i18nKey={"omDeg.bostedsadresseBekreftet"} />}
+                        legend={<Trans i18nKey={"omDeg.bostedsadresseBekreftet"}/>}
                     />
 
                     {borPaaRegistrertAdresse === IValg.NEI && (
@@ -102,7 +106,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                     {oppholderSegINorge === IValg.JA && (
                         <SkjemaGruppe>
                             <RHFKontonummerInput
-                                name={"kontonummer"}
+                                name={"utbetalingsInformasjon.kontonummer"}
                                 label={t("omDeg.kontonummer")}
                                 placeholder={"11 siffer"}
                             />
@@ -115,7 +119,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 <RHFInput
                                     name={"oppholdsland"}
                                     label={t("omDeg.oppgiLand")}
-                                    rules={{pattern: /^[\w|\s]+$/}}
+                                    rules={{ pattern: /^[\w|\s]+$/ }}
                                 />
                             </SkjemaGruppe>
 
@@ -123,6 +127,28 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 name={"medlemFolketrygdenUtland"}
                                 legend={t("omDeg.medlemFolketrygdenUtland")}
                             />
+
+                            <RHFInlineRadio
+                                name={"utbetalingsInformasjon.bankkontoType"}
+                                legend={t("Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?")}
+                                radios={Object.values(BankkontoType).map(value => {
+                                    return { label: t(value), value } as RadioProps
+                                })}
+                            />
+
+                            {bankkontoType === BankkontoType.norsk && (
+                                <SkjemaGruppe>
+                                    <RHFKontonummerInput
+                                        name={"utbetalingsInformasjon.kontonummer"}
+                                        label={t("omDeg.kontonummer")}
+                                        placeholder={"11 siffer"}
+                                    />
+                                </SkjemaGruppe>
+                            )}
+
+                            {bankkontoType === BankkontoType.utenlandsk && (
+                                <UtenlandskBankInfo/>
+                            )}
                         </>
                     )}
 
@@ -130,17 +156,17 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         <SkjemaGruppe>
                             <RHFToValgRadio
                                 name={"flyktning"}
-                                legend={<Trans i18nKey={"omDeg.flyktning"} />}
+                                legend={<Trans i18nKey={"omDeg.flyktning"}/>}
                                 hjelpetekst={t("omDeg.flyktningHvorfor")}
                             />
                         </SkjemaGruppe>
                     )}
 
-                    <br />
+                    <br/>
 
-                    <Feilmeldinger errors={errors} />
+                    <Feilmeldinger errors={errors}/>
 
-                    <Navigasjon neste={{onClick: handleSubmit(lagre)}} />
+                    <Navigasjon neste={{ onClick: handleSubmit(lagre) }}/>
                 </form>
             </FormProvider>
         </>
