@@ -1,4 +1,4 @@
-import { IAvdoed, IBarn, ISoeker, ISoekerOgAvdoed } from "../../typer/person";
+import { IAvdoed, IOmBarn, ISoeker, ISoekerOgAvdoed } from "../../typer/person";
 import { ISituasjon } from "../../typer/situasjon";
 
 export interface ISoeknad {
@@ -8,7 +8,7 @@ export interface ISoeknad {
     omDegOgAvdoed: ISoekerOgAvdoed;
     omDenAvdoede: IAvdoed;
     dinSituasjon: ISituasjon;
-    opplysningerOmBarn: IBarn[];
+    opplysningerOmBarn: IOmBarn;
 }
 
 export enum ActionTypes {
@@ -19,8 +19,7 @@ export enum ActionTypes {
     OPPDATER_OM_DEG_OG_AVDOED = "OPPDATER_OM_DEG_OG_AVDOED",
     OPPDATER_AVDOED = "OPPDATER_AVDOED",
     OPPDATER_DIN_SITUASJON = "OPPDATER_DIN_SITUASJON",
-    LEGG_TIL_BARN = "LEGG_TIL_BARN",
-    FJERN_BARN = "FJERN_BARN",
+    OPPDATER_OM_BARN = "OPPDATER_OM_BARN",
 }
 
 export interface ISoeknadAction {

@@ -33,6 +33,14 @@ export enum BarnRelasjon {
     egneSaerkullsbarn = "barnRelasjon.egneSaerkullsbarn",
 }
 
+export interface IOmBarn {
+    gravidEllerNyligFoedt?: {
+        svar?: IValg;
+        beskrivelse?: string;
+    }
+    barn?: IBarn[];
+}
+
 export interface IBarn {
     fornavn?: string;
     etternavn?: string;

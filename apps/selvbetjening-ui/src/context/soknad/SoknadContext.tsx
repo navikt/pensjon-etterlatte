@@ -9,7 +9,7 @@ const tomSoeknad = {
     omDegOgAvdoed: {},
     omDenAvdoede: {},
     dinSituasjon: {},
-    opplysningerOmBarn: []
+    opplysningerOmBarn: {}
 };
 
 const STORAGE_KEY = "etterlatte-store";
@@ -57,28 +57,11 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 sistLagretDato,
                 dinSituasjon: action.payload
             };
-        case ActionTypes.LEGG_TIL_BARN: {
-            const { opplysningerOmBarn } = state;
-
-            opplysningerOmBarn.push(action.payload);
-
+        case ActionTypes.OPPDATER_OM_BARN: {
             return {
                 ...state,
                 sistLagretDato,
-                opplysningerOmBarn
-            };
-        }
-        case ActionTypes.FJERN_BARN: {
-            const indexToDelete: number = action.payload;
-
-            const opplysningerOmBarn = [
-                ...state.opplysningerOmBarn.filter((_: any, index: number) => index !== indexToDelete),
-            ];
-
-            return {
-                ...state,
-                sistLagretDato,
-                opplysningerOmBarn
+                opplysningerOmBarn: action.payload
             };
         }
         default:

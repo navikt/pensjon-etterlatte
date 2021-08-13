@@ -8,7 +8,7 @@ import SoknadSteg from "../../../typer/SoknadSteg";
 import AlertStripe from "nav-frontend-alertstriper";
 import Navigasjon from "../../felles/Navigasjon";
 import ObjectTreeReader from "../../../utils/ObjectTreeReader";
-import { IAvdoed, IBarn, ISoeker, ISoekerOgAvdoed } from "../../../typer/person";
+import { IAvdoed, IOmBarn, ISoeker, ISoekerOgAvdoed } from "../../../typer/person";
 import TekstGruppe from "./fragmenter/TekstGruppe";
 import { v4 as uuid } from "uuid";
 import { useTranslation } from "react-i18next";
@@ -53,7 +53,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const dinSituasjon = translateValues(otr.traverse<ISituasjon>(state.dinSituasjon, "dinSituasjon"));
 
     // TODO: Fikse måten barn og tidligere arbeidsforhold vises.
-    const opplysningerOmBarn = otr.traverse<IBarn[]>(state.opplysningerOmBarn, "omBarn");
+    const opplysningerOmBarn = otr.traverse<IOmBarn>(state.opplysningerOmBarn, "omBarn")
 
     const ekspanderbartPanel = (tittel: string, tekster: any[], path: StegPath) => (
         <Ekspanderbartpanel tittel={tittel} className={"oppsummering"} apen={true}>

@@ -261,6 +261,11 @@
       "svar": "Bor barnet i utlandet?",
       "land": "Land",
       "adresse": "Adresse i utlandet"
+    },
+    "gravidEllerNyligFoedt": {
+      "svar": "Er du gravid eller har du nylig fått barn som foreløpig ikke er registrert i Folkeregisteret?",
+      "beskrivelse": "Si litt om situasjonen til barnet",
+      "placeholder": "F.eks. termindato, fødselsdato, eller personnummer hvis barnet har fått"
     }
   },
   "oppsummering": {

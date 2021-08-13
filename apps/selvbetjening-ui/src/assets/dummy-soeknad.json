@@ -97,20 +97,37 @@
       }
     }
   },
-  "opplysningerOmBarn": [
-    {
-      "fornavn": "Barn",
-      "etternavn": "Testbarn",
-      "foedselsnummer": "24014021406",
-      "statsborgerskap": "Norsk",
-      "bosattUtland": {
-        "svar": "Nei"
+  "opplysningerOmBarn": {
+    "gravidEllerNyligFoedt": {
+      "svar": "Ja",
+      "beskrivelse": "Bla bla bla..."
+    },
+    "barn": [
+      {
+        "fornavn": "Treg",
+        "etternavn": "Snøfreser",
+        "foedselsnummer": "24014021406",
+        "statsborgerskap": "Norsk",
+        "bosattUtland": {
+          "svar": "Nei"
+        },
+        "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
+        "soekerBarnepensjon": "Ja",
+        "brukeAnnenKonto": {
+          "svar": "Nei"
+        }
       },
-      "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
-      "soekerBarnepensjon": "Ja",
-      "brukeAnnenKonto": {
-        "svar": "Nei"
+      {
+        "fornavn": "Smålig",
+        "etternavn": "Sykkel",
+        "foedselsnummer": "24014021406",
+        "statsborgerskap": "Norsk",
+        "bosattUtland": {
+          "svar": "Nei"
+        },
+        "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
+        "soekerBarnepensjon": "Nei"
       }
-    }
-  ]
+    ]
+  }
 }
