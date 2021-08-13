@@ -33,6 +33,7 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
 
     private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
     private val systembruker = env["srvuser"]
+    private val passord = env["srvpwd"]
     private var producer: KafkaProducer<Nokkel, Beskjed>? = null
 
     init {
@@ -50,7 +51,7 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
                     clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID()
                         .toString(),
                     username = systembruker,
-                    password = env["srvpwd"],
+                    password = passord,
                     schemaRegistryUrl = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"],
                     acksConfig = "all"
                 ).producerConfig()
@@ -89,8 +90,8 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
                 createKeyForEvent(systembruker),
                 notifikasjon
             ).let { producerRecord ->
-                val test = producer?.send(producerRecord)?.get()
-                println("fdsfsdfsdfds" + test.toString())
+                producer?.send(producerRecord)?.get()
+
             }
 
 

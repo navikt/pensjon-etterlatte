@@ -1,38 +1,50 @@
 package no.nav.etterlatte
 
+import no.nav.common.JAASCredential
 import no.nav.common.KafkaEnvironment
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import java.util.*
 
 internal class NotifikasjonTest {
 
 
     private val topicname: String = "test_topic"
+    private val user = "bruker"
+    private val pass = "hohoho"
     private val embeddedKafkaEnvironment = KafkaEnvironment(
         autoStart = false,
         noOfBrokers = 1,
-        topicInfos = listOf(topicname).map { KafkaEnvironment.TopicInfo(it, partitions = 1) },
-        withSchemaRegistry = true,
-        //withSecurity = true,
-        //users = listOf(JAASCredential("user", "pwd")),
-        withSecurity = false
+        //topicInfos = listOf(topicname).map { KafkaEnvironment.TopicInfo(it, partitions = 1) },
+        topicInfos = listOf(KafkaEnvironment.TopicInfo(name = topicname, partitions = 1)),
+        withSchemaRegistry = false,
+        withSecurity = true,
+        users = listOf(JAASCredential(user, pass)),
+        brokerConfigOverrides = Properties().apply {
+            this["auto.leader.rebalance.enable"] = "false"
+            this["group.initial.rebalance.delay.ms"] = "1" //Avoid waiting for new consumers to join group before first rebalancing (default 3000ms)
+        }
+        //withSecurity = false
     )
 
 
     @Test
     fun test1() {
         embeddedKafkaEnvironment.start()
+        println("verdier:")
+        //println(embeddedKafkaEnvironment.schemaRegistry?.url)
+        println(embeddedKafkaEnvironment.brokersURL )
         val inspector = TestRapid()
             .apply { Notifikasjon(mapOf(
                 Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
                 Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS", embeddedKafkaEnvironment.brokersURL),
                 Pair("NAIS_APP_NAME","notifikasjon_test"),
-                Pair("srvuser","user"),
-                Pair("srvpwd","pwd"),
-                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", embeddedKafkaEnvironment.schemaRegistry?.url!!)
+                Pair("srvuser",user),
+                Pair("srvpwd",pass),
+                Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", "tjoho")//embeddedKafkaEnvironment.schemaRegistry?.url!!)
             ),
             this) }
             .apply {
