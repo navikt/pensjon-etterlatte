@@ -1,7 +1,7 @@
 import { ChangeEvent, ReactNode } from "react";
 import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath, FieldValues } from "react-hook-form/dist/types";
-import { Input, InputProps } from "nav-frontend-skjema";
+import { Input, InputProps, Label } from "nav-frontend-skjema";
 import { get } from "lodash"
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
@@ -9,17 +9,19 @@ import { getTransKey } from "../../utils/translation";
 import { fnr } from "@navikt/fnrvalidator";
 import { kontonrMatcher, telefonnrMatcher } from "../../utils/matchers";
 import HvorforSpoerVi from "./HvorforSpoerVi";
+import Hjelpetekst from "nav-frontend-hjelpetekst";
 
 interface RHFProps extends Omit<InputProps, 'name'> {
     name: FieldPath<FieldValues>;
     label: ReactNode;
     hjelpetekst?: ReactNode;
+    hjelpetekstIkon?: ReactNode;
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>;
 }
 
-export const RHFInput = ({name, hjelpetekst, rules, ...rest}: RHFProps) => {
+export const RHFInput = ({ name, label, hjelpetekst, hjelpetekstIkon, rules, className, ...rest }: RHFProps) => {
     const { t } = useTranslation();
-    const { control, formState: { errors }} = useFormContext();
+    const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
 
@@ -29,16 +31,27 @@ export const RHFInput = ({name, hjelpetekst, rules, ...rest}: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{required: true, ...rules}}
+            rules={{ required: true, ...rules }}
             render={({ field: { value, onChange } }) => (
-                <Input
-                    id={name}
-                    value={value || ""}
-                    description={hjelpetekst && (<HvorforSpoerVi>{hjelpetekst}</HvorforSpoerVi>)}
-                    onChange={onChange}
-                    feil={feilmelding}
-                    {...rest}
-                />
+                <div className={className}>
+                    <Label htmlFor={name}>
+                        {label}
+                        {hjelpetekstIkon && (
+                            <>
+                                &nbsp;<Hjelpetekst>{hjelpetekstIkon}</Hjelpetekst>
+                            </>
+                        )}
+                    </Label>
+
+                    <Input
+                        id={name}
+                        value={value || ""}
+                        description={hjelpetekst && (<HvorforSpoerVi>{hjelpetekst}</HvorforSpoerVi>)}
+                        onChange={onChange}
+                        feil={feilmelding}
+                        {...rest}
+                    />
+                </div>
             )}
         />
     )
@@ -70,9 +83,9 @@ const format = (
     return result || value.substring(0, (value.length - 1))
 };
 
-export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
+export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
     const { t } = useTranslation();
-    const { control, formState: { errors }} = useFormContext();
+    const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
     const feilmelding = t(getTransKey(error))
@@ -81,7 +94,7 @@ export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{required: true, ...rules}}
+            rules={{ required: true, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
@@ -95,9 +108,9 @@ export const RHFKontonummerInput = ({name, rules, ...rest}: RHFProps) => {
     )
 };
 
-export const RHFValutaInput = ({name, ...rest}: RHFProps) => {
+export const RHFValutaInput = ({ name, ...rest }: RHFProps) => {
     const { t } = useTranslation();
-    const { control, formState: { errors }} = useFormContext();
+    const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
     const feilmelding = t(getTransKey(error))
@@ -106,7 +119,7 @@ export const RHFValutaInput = ({name, ...rest}: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{required: true, pattern: /^\d[0-9\s]*$/}}
+            rules={{ required: true, pattern: /^\d[0-9\s]*$/ }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
@@ -120,9 +133,9 @@ export const RHFValutaInput = ({name, ...rest}: RHFProps) => {
     )
 };
 
-export const RHFTelefonInput = ({name, rules, ...rest}: RHFProps) => {
+export const RHFTelefonInput = ({ name, rules, ...rest }: RHFProps) => {
     const { t } = useTranslation();
-    const { control, formState: { errors }} = useFormContext();
+    const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
     const feilmelding = t(getTransKey(error))
@@ -131,7 +144,7 @@ export const RHFTelefonInput = ({name, rules, ...rest}: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{required: true, ...rules}}
+            rules={{ required: true, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
