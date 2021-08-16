@@ -42,7 +42,7 @@ export enum GravidEllerNyligFoedt {
 
 export interface IOmBarn {
     barn?: IBarn[];
-    gravidEllerNyligFoedt?: IValg;
+    gravidEllerNyligFoedt?: string;
 }
 
 export interface IBarn {
