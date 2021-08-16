@@ -57,12 +57,10 @@ const SamboerMedAvdoede = () => {
                       />
                   )}
 
-                  {/* TODO: Tekster må ferdigstilles */}
                   {omsorgForBarn === IValg.NEI && (
                       <SkjemaGruppe>
                           <AlertStripeAdvarsel>
-                              Ingen rett på overgangsstønad...
-                              Oppgi beløp pr. år... skal dette være et felt som må fylles ut?
+                              {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
                           </AlertStripeAdvarsel>
                       </SkjemaGruppe>
                   )}
