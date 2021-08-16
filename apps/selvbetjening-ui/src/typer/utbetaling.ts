@@ -8,6 +8,6 @@ export interface IUtbetalingsInformasjon {
 }
 
 export enum BankkontoType {
-    norsk = "Norsk",
-    utenlandsk = "Utenlansk"
+    norsk = "bankkontoType.norsk",
+    utenlandsk = "bankkontoType.utenlandsk"
 }

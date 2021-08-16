@@ -309,6 +309,10 @@
     "arbeidstaker": "Nei, er arbeidstaker",
     "begge": "Jeg er selvstendig næringsdrivende og arbeidstaker"
   },
+  "bankkontoType": {
+    "norsk": "Norsk",
+    "utenlandsk": "Utenlandsk"
+  },
   "jobbStatus": {
     "arbeidstaker": "Ja",
     "arbeidsledig": "Nei, er arbeidsledig",
