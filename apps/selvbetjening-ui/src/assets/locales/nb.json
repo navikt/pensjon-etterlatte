@@ -394,6 +394,18 @@
     "forholdTilAvdoede": {
       "relasjon": {
         "required": "Oppgi din relasjon til avdøde"
+      },
+      "datoForInngaattPartnerskap": {
+        "required": "Oppgi dato for inngått parnterskap"
+      },
+      "datoForSkilsmisse": {
+        "required": "Oppgi dato for skilsmisse (ikke seperasjon)"
+      },
+      "fellesBarn": {
+        "required": "Oppgi om dere har eller hadde, felles barn"
+      },
+      "tidligereGift": {
+        "required": "Oppgi om du var tidligere gift med avdøde"
       }
     },
     "selvstendigNaeringsdrivende": {
@@ -435,6 +447,12 @@
       "datoForInngaattPartnerskap": {
         "required": "Dato må oppgis"
       },
+      "datoForInngaattSamboerskap": {
+        "required": "Dato må oppgis"
+      },
+      "datoForSamlivsbrudd": {
+        "required": "Dato må oppgis"
+      },
       "varSkiltFoerDoedsfall": {
         "required": "Skilsmisse/samlivsbrudd må besvares"
       },
@@ -461,6 +479,14 @@
       },
       "aarsakForOpploesningen": {
         "required": "Årsak for oppløsningen må oppgis"
+      },
+      "samboerskap": {
+        "inngaattDato": {
+          "required": "Oppgi når dere ble samboere"
+        },
+        "hattBarnEllerVaertGift": {
+          "required": "Oppgi om dere har har hatt barn sammen eller om dere har vært gift"
+        }
       }
     },
     "yrke": {
