@@ -20,7 +20,7 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
     return (
         <div className={"infokort"}>
             <div className={"infokort__header"}>
-                <img alt="barn" className="barneikon" src={ikon} />
+                <img alt="barn" className="barneikon" src={ikon}/>
             </div>
 
             <div className={"infokort__informasjonsboks center"}>
@@ -32,21 +32,22 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
                 <div className="informasjonselement">
                     <Normaltekst>{foedselsnummer}</Normaltekst>
                     <Normaltekst>{t(`${barn.relasjon}`)}</Normaltekst>
-                    <Normaltekst>{barn.statsborgerskap} statsborger</Normaltekst>
+                    <Normaltekst>{barn.statsborgerskap} {t("omBarn.statsborger")}</Normaltekst>
 
-                    {barn.bosattUtland?.svar === IValg.JA ? (
-                        <Normaltekst>Bor i {barn.bosattUtland?.land}</Normaltekst>
-                    ) : (
-                        <Normaltekst>Bor i Norge</Normaltekst>
-                    )}
+                    <Normaltekst>
+                        {t("omBarn.borI")}&nbsp;
+                        {barn.bosattUtland?.svar === IValg.JA ? barn.bosattUtland?.land : t("felles.norge")}
+                    </Normaltekst>
 
-                    <Undertekst className={"mute"}>{barn.soekerBarnepensjon === IValg.JA && "Søkt om barnepensjon"}</Undertekst>
+                    <Undertekst className={"mute"}>
+                        {barn.soekerBarnepensjon === IValg.JA && t("omBarn.soektOmBarnepensjon")}
+                    </Undertekst>
                 </div>
             </div>
 
             <div className={"infokort__footer"}>
                 <Lenke href={"#"} onClick={() => fjern(index)}>
-                    Fjern fra søknad
+                    {t("knapp.fjernFraSoeknad")}
                 </Lenke>
             </div>
         </div>

@@ -63,12 +63,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                     <Panel border>
                         <AlertStripe type={"info"} form={"inline"}>
                             <Normaltekst>
-                                Dersom du har eller har hatt barn er det viktig at du legger de til – uavhengig av alder –
-                                da dette kan påvirke din rett til gjenlevendepensjon. Dette gjelder felles barn med avdøde, avdødes særkullsbarn, og egne særkullsbarn.
-                            </Normaltekst>
-                            <br/>
-                            <Normaltekst>
-                                Felles barn med avdøde under 18 år kan ha rett på barnepensjon.
+                                {t("omBarn.informasjon")}
                             </Normaltekst>
                         </AlertStripe>
                     </Panel>
@@ -97,7 +92,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                                 </div>
 
                                 <Normaltekst className={"center mute"}>
-                                    Dette er valgfritt
+                                    {t("omBarn.valgfritt")}
                                 </Normaltekst>
                             </div>
                         </div>

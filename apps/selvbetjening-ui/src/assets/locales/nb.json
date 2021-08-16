@@ -17,8 +17,10 @@
     "avbryt": "Avbryt",
     "sendSoeknad": "Send søknad",
     "leggTil": "Legg til",
+    "leggTilBarn": "+ Legg til barn",
+    "fjern": "Fjern",
     "fjernElement": "Fjern element",
-    "leggTilBarn": "+ Legg til barn"
+    "fjernFraSoeknad": "Fjern fra søknad"
   },
   "forside": {
     "tittel": "Søknad om gjenlevendepensjon",
@@ -97,9 +99,7 @@
       "info": "Dersom du de siste 10 årene har vært i arbeid (deltid, heltid, vikariat, osv) er det viktig at du oppgir dette. Klikk på \"Legg til\" under for å legge til tidligere arbeidsforhold.",
       "beskrivelse": "Beskrivelse",
       "fra": "Fra",
-      "til": "Til",
-      "fjern": "Fjern",
-      "leggTil": "Legg til"
+      "til": "Til"
     },
     "arbeidsforhold": {
       "tittel": "Info om arbeidsgiver",
@@ -261,6 +261,7 @@
   },
   "omBarn": {
     "tittel": "Om barn",
+    "informasjon": "Dersom du har eller har hatt barn er det viktig at du legger de til – uavhengig av alder – da dette kan påvirke din rett til gjenlevendepensjon. Dette gjelder felles barn med avdøde, avdødes særkullsbarn, og egne særkullsbarn. \n\nFelles barn med avdøde under 18 år kan ha rett på barnepensjon.",
     "fornavn": "Fornavn",
     "etternavn": "Etternavn",
     "foedselsnummer": "Barnets fødselsnummer / d-nummer",
@@ -273,8 +274,11 @@
       "kontonummer": "Barnets kontonummer"
     },
     "statsborgerskap": "Statsborgerskap",
+    "statsborger": "statsborger",
+    "borI": "Bor i",
     "borUtenlands": "Bosatt i utlandet",
     "dagligOmsorg": "Har du daglig omsorg for dette barnet?",
+    "soektOmBarnepensjon": "Søkt om barnepensjon",
     "soekerBarnepensjon": "Ønsker du å søke om barnepensjon for barnet?",
     "soekerBarnepensjonInfo": "Barn over 18 år må selv søke om barnepensjon",
     "bosattUtland": {
@@ -282,7 +286,8 @@
       "land": "Land",
       "adresse": "Adresse i utlandet"
     },
-    "gravidEllerNyligFoedt": "Venter du eller har du nylig fått barn som foreløpig ikke er registrert i Folkeregisteret?"
+    "gravidEllerNyligFoedt": "Venter du eller har du nylig fått barn som foreløpig ikke er registrert i Folkeregisteret?",
+    "valgfritt": "Dette er valgfritt"
   },
   "oppsummering": {
     "tittel": "Oppsummering",
@@ -364,6 +369,7 @@
     "adresse": "Bostedsadresse",
     "sivilstatus": "Sivilstatus",
     "statsborgerskap": "Statsborgerskap",
+    "norge": "Norge",
     "ingenInfo": "Ingen informasjon",
     "ikkePaakrevd": "(ikke påkrevd)",
     "endreSvar": "Endre svar",

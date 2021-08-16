@@ -66,7 +66,7 @@ const TidligereArbeidsforhold = () => {
                                         className={"skjemaelement"}
                                         onClick={() => remove(index)}
                                     >
-                                        <DeleteFilled/>&nbsp; {t("dinSituasjon.tidligereArbeidsforhold.fjern")}
+                                        <DeleteFilled/>&nbsp; {t("knapp.fjern")}
                                     </Fareknapp>
                                 </div>
                             </Cell>
@@ -76,7 +76,7 @@ const TidligereArbeidsforhold = () => {
 
                 {/* @ts-ignore */}
                 <Flatknapp htmlType={"button"} onClick={() => append({}, { shouldFocus: true })}>
-                    + {t("dinSituasjon.tidligereArbeidsforhold.leggTil")}
+                    + {t("knapp.leggTil")}
                 </Flatknapp>
             </SkjemaGruppe>
         </>

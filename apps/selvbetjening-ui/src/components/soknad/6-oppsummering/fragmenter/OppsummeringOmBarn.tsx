@@ -32,14 +32,15 @@ const OppsummeringOmBarn = ({ opplysningerOmBarn, senderSoeknad }: {
                     <SkjemaGruppe legend={`${barn.fornavn} ${barn.etternavn}`}>
                         <Panel border>
                             {tekster.map(({ key, val }) => (
-                                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} />
+                                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)}/>
                             ))}
                         </Panel>
                     </SkjemaGruppe>
                 )
             })}
 
-            <TekstGruppe tittel={t("omBarn.gravidEllerNyligFoedt")} innhold={opplysningerOmBarn.gravidEllerNyligFoedt} />
+            <TekstGruppe tittel={t("omBarn.gravidEllerNyligFoedt")}
+                         innhold={t(opplysningerOmBarn.gravidEllerNyligFoedt!)}/>
 
             <Lenke href={`/soknad/steg/${StegPath.OmBarn}`} className={senderSoeknad ? "disabled" : ""}>
                 <EditFilled/>
