@@ -7,6 +7,7 @@ import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import java.util.*
 
 internal class NotifikasjonTest {
 
@@ -21,10 +22,10 @@ internal class NotifikasjonTest {
         withSchemaRegistry = true,
         withSecurity = true,
         users = listOf(JAASCredential(user, pass)),
-        //brokerConfigOverrides = Properties().apply {
-        //    this["auto.leader.rebalance.enable"] = "false"
-         //   this["group.initial.rebalance.delay.ms"] = "1" //Avoid waiting for new consumers to join group before first rebalancing (default 3000ms)
-        //}
+        brokerConfigOverrides = Properties().apply {
+            this["auto.leader.rebalance.enable"] = "false"
+            this["group.initial.rebalance.delay.ms"] = "1" //Avoid waiting for new consumers to join group before first rebalancing (default 3000ms)
+        }
     )
 
 
@@ -32,14 +33,14 @@ internal class NotifikasjonTest {
     fun test1() {
         embeddedKafkaEnvironment.start()
         val inspector = TestRapid()
-            .apply { Notifikasjon(mapOf(
+            .apply { Notifikasjon(SendNotifikasjon(mapOf(
                 Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
                 Pair("BRUKERNOTIFIKASJON_KAFKA_BROKERS", embeddedKafkaEnvironment.brokersURL.substringAfterLast("/")),
                 Pair("NAIS_APP_NAME","etterlatte-notifikasjoner"),
                 Pair("srvuser",user),
                 Pair("srvpwd",pass),
                 Pair("BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY", embeddedKafkaEnvironment.schemaRegistry!!.url)
-            ),
+            )),
             this) }
             .apply {
                 sendTestMessage(

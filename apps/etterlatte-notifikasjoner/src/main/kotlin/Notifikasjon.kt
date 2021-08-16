@@ -9,68 +9,43 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import no.nav.brukernotifikasjon.schemas.Beskjed
-import no.nav.brukernotifikasjon.schemas.Nokkel
 import no.nav.brukernotifikasjon.schemas.builders.BeskjedBuilder
-import no.nav.brukernotifikasjon.schemas.builders.NokkelBuilder
 import no.nav.brukernotifikasjon.schemas.builders.domain.PreferertKanal
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
-import org.apache.kafka.clients.producer.KafkaProducer
-import org.apache.kafka.clients.producer.ProducerRecord
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.net.InetAddress
 import java.net.URL
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.temporal.ChronoUnit
-import java.util.*
 
 
-internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsConnection) :
+class Notifikasjon(sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsConnection) :
 
     River.PacketListener {
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
-    private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
-    private val systembruker = env["srvuser"]
-    private val passord = env["srvpwd"]
-    private var producer: KafkaProducer<Nokkel, Beskjed>? = null
+
+    //private var producer: KafkaProducer<Nokkel, Beskjed>? = null
 
     init {
-
-        val minRiver = River(rapidsConnection).apply {
+        River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@fnr_soeker") }
             validate { it.rejectKey("@notifikasjon") }
-        }
+        }.register(this)
 
-        val startuptask = {
-            producer = KafkaProducer(
-                KafkaConfig(
-                    bootstrapServers = env["BRUKERNOTIFIKASJON_KAFKA_BROKERS"]!!,
-                    clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID()
-                        .toString(),
-                    username = systembruker,
-                    password = passord,
-                    schemaRegistryUrl = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"],
-                    acksConfig = "all"
-                ).producerConfig()
-            )
-
-        }
         GlobalScope.launch {
             logger.info("venter 30s for sidecars")
             delay(30L * 1000L)
             logger.info("starter kafka producer")
-            startuptask()
-            rapidsConnection.register(minRiver)
+            sendNotifikasjon.startuptask()
+
         }
-
-
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
@@ -96,28 +71,11 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
 
 
 
-            ProducerRecord(
-                brukernotifikasjontopic,
-                createKeyForEvent(systembruker),
-                notifikasjon
-            ).let { producerRecord ->
-                producer?.send(producerRecord)?.get()
-
-            }
-
-
             packet["@notifikasjon"] = notifikasjonJson
             context.publish(packet.toJson())
             logger.info("Notifikasjon til bruker opprettet")
         }
     }
-}
-
-private fun createKeyForEvent(systemUserName: String?): Nokkel {
-    return NokkelBuilder()
-        .withSystembruker(systemUserName)
-        .withEventId(UUID.randomUUID().toString())
-        .build()
 }
 
 private fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {
