@@ -210,6 +210,10 @@
           "harInntekt.svar": "Har samboer inntekt?",
           "harInntekt.samletBruttoinntektPrAar": "Samlet bruttoinntekt per år"
         }
+      },
+      "aarsakOpploesning": {
+        "dødsfall": "Dødsfall",
+        "samlivsbrudd": "Samlivsbrudd"
       }
     }
   },
@@ -380,6 +384,9 @@
     "oppholdsland": {
       "required": "Oppgi nåværende oppholdsland"
     },
+    "medlemFolketrygdenUtland": {
+      "required": "Oppgi om du er medlem i folketrygden under opphold i utlandet"
+    },
     "avdoed": {
       "fornavn": {
         "required": "Oppgi avdødes fornavn"
@@ -483,12 +490,52 @@
       "aarsakForOpploesningen": {
         "required": "Årsak for oppløsningen må oppgis"
       },
+      "ekteskap": {
+        "inngaattDato": {
+          "required": "Oppgi når dere ble gift"
+        },
+        "opploestDato": { "required": "Oppgi når dere ble skilt" },
+        "fremdelesGift": {
+          "required": "Oppgi om dere fremdeles er gift"
+        },
+        "aarsakForOpploesningen": {
+          "required": "Årsak for oppløsningen må oppgis"
+        }
+      },
       "samboerskap": {
         "inngaattDato": {
           "required": "Oppgi når dere ble samboere"
         },
         "hattBarnEllerVaertGift": {
           "required": "Oppgi om dere har har hatt barn sammen eller om dere har vært gift"
+        },
+        "aarsakForOpploesningen": {
+          "required": "Årsak for oppløsningen må oppgis"
+        },
+        "samboerskapOpploest": {
+          "required": "Oppgi om samboerskapet er oppløst"
+        },
+        "opploestDato": {
+          "required": "Oppgi når samboerskapet opphørte"
+        },
+        "samboer": {
+          "navn": {
+            "required": "Oppgi samboers navn"
+          },
+          "foedselsnummer": {
+            "required": "Oppgi sammboers fødselsnummer"
+          },
+          "harInntekt": {
+            "samletBruttoinntektPrAar": {
+              "required": "Oppgi samlet bruttoinntekt"
+            },
+            "inntektstype": {
+              "required": "Oppgi inntektstype"
+            },
+            "svar": {
+              "required": "Oppgi om samboer har inntekt"
+            }
+          }
         }
       }
     },

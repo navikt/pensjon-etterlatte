@@ -11,11 +11,11 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
     const { t } = useTranslation();
 
-    const { watch } = useFormContext<ISoeker>()
+    const { watch } = useFormContext<ISoeker>();
 
-    const samboerskapOpploest = watch("nySivilstatus.samboerskap.samboerskapOpploest")
-    const aarsakForOpploesningen = watch("nySivilstatus.samboerskap.aarsakForOpploesningen")
-    const hattBarnEllerVaertGift = watch("nySivilstatus.samboerskap.hattBarnEllerVaertGift")
+    const samboerskapOpploest = watch("nySivilstatus.samboerskap.samboerskapOpploest");
+    const aarsakForOpploesningen = watch("nySivilstatus.samboerskap.aarsakForOpploesningen");
+    const hattBarnEllerVaertGift = watch("nySivilstatus.samboerskap.hattBarnEllerVaertGift");
 
     return (
         <>
@@ -32,9 +32,7 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                 legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
             />
 
-            {hattBarnEllerVaertGift === IValg.NEI && (
-                <SamboerSkjema/>
-            )}
+            {hattBarnEllerVaertGift === IValg.NEI && <SamboerSkjema />}
 
             {hattBarnEllerVaertGift === IValg.JA && (
                 <>
@@ -51,12 +49,12 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                             legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.aarsakForOpploesningen")}
                             radios={[
                                 {
-                                    label: t("aarsakOpploesning.dødsfall"),
-                                    value: OpploesningAarsak.doedsfall
+                                    label: t("omDegOgAvdoed.nySivilstatus.aarsakOpploesning.dødsfall"),
+                                    value: OpploesningAarsak.doedsfall,
                                 },
                                 {
-                                    label: t("omDeg.aarsakOpploesning.samlivsbrudd"),
-                                    value: OpploesningAarsak.samlivsbrudd
+                                    label: t("omDegOgAvdoed.nySivilstatus.aarsakOpploesning.samlivsbrudd"),
+                                    value: OpploesningAarsak.samlivsbrudd,
                                 },
                             ]}
                         />
@@ -74,13 +72,9 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                 </SkjemaGruppe>
             )}
 
-            {gyldigVarighet === IValg.NEI && (
-                <AlertStripeAdvarsel>
-                    Ikke rett
-                </AlertStripeAdvarsel>
-            )}
+            {gyldigVarighet === IValg.NEI && <AlertStripeAdvarsel>Ikke rett</AlertStripeAdvarsel>}
         </>
-    )
+    );
 };
 
 export default NyttSamboerskap;
