@@ -77,10 +77,14 @@ internal class MessageContextStub : MessageContext {
 
 class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
 
-    override fun nySoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+    override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
         op()
-        return LagretSoeknad(soeknad.fnr, soeknad.soeknad, 0L)
+        return LagretSoeknad(soeknad.fnr, soeknad.soeknad, 0L)    }
+
+    override fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad {
+        TODO("Not yet implemented")
     }
+
     override fun soeknadSendt(soeknad: LagretSoeknad) = op()
     override fun soeknadArkivert(soeknad: LagretSoeknad) = op()
     override fun soeknadFeiletArkivering(soeknad: LagretSoeknad, jsonFeil: String)  = op()
@@ -91,6 +95,14 @@ class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
 
     override fun slettArkiverteSoeknader() {
         op()
+    }
+
+    override fun soeknadFerdigstilt(soeknad: LagretSoeknad) {
+        TODO("Not yet implemented")
+    }
+
+    override fun finnKladd(fnr: String): LagretSoeknad? {
+        TODO("Not yet implemented")
     }
 
 }

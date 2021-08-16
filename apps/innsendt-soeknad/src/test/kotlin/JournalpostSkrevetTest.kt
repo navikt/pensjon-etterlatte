@@ -70,7 +70,12 @@ fun testMessage(journalpost: Long, soeknad: Long, dokumentInfoId: Long? = null) 
 class TestRepo: SoeknadRepository {
     val arkiveringOk = mutableListOf<LagretSoeknad>()
     val arkiveringFeilet = mutableListOf<LagretSoeknad>()
-    override fun nySoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+
+    override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+        TODO("Not yet implemented")
+    }
+
+    override fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad {
         TODO("Not yet implemented")
     }
 
@@ -92,6 +97,14 @@ class TestRepo: SoeknadRepository {
     }
 
     override fun slettArkiverteSoeknader() {
+        TODO("Not yet implemented")
+    }
+
+    override fun soeknadFerdigstilt(soeknad: LagretSoeknad) {
+        TODO("Not yet implemented")
+    }
+
+    override fun finnKladd(fnr: String): LagretSoeknad? {
         TODO("Not yet implemented")
     }
 

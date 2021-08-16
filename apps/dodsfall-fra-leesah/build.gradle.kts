@@ -12,9 +12,6 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core:$ktorversion")
-    implementation("io.ktor:ktor-server-netty:$ktorversion")
-    implementation("io.ktor:ktor-metrics-micrometer:$ktorversion")
     implementation("io.ktor:ktor-jackson:$ktorversion")
     implementation("io.micrometer:micrometer-registry-prometheus:1.6.1")
     implementation("com.fasterxml:jackson-xml-databind:0.6.2")
