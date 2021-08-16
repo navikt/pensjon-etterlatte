@@ -18,6 +18,7 @@ class SendNotifikasjon (env: Map<String, String>){
     private val clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString()
     private val schemaRegistry = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"]
 
+
     fun startuptask() {
         producer = KafkaProducer(
             KafkaConfig(
