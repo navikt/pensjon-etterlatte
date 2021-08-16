@@ -6,24 +6,23 @@ import { v4 as uuid } from "uuid";
 import { getTransKey } from "../../utils/translation";
 
 const getFieldErrors = (obj: FieldErrors): FieldError[] => {
-    return Object.values(obj)
-        .flatMap((value?: any) => {
-            if (!value) return undefined;
-            if ((value as FieldError)?.type) return value
-            else return getFieldErrors(value)
-        });
-}
+    return Object.values(obj).flatMap((value?: any) => {
+        if (!value) return undefined;
+        if ((value as FieldError)?.type && typeof value.type !== "object") return value;
+        else return getFieldErrors(value);
+    });
+};
 
-const konverterFeilmeldinger = (errors: FieldErrors, t: TFunction<"translation">): FeiloppsummeringFeil[] => {
+export const konverterFeilmeldinger = (errors: FieldErrors, t: TFunction<"translation">): FeiloppsummeringFeil[] => {
     return getFieldErrors(errors)
-        .filter(error => !!error)
-        .map(error => {
+        .filter((error) => !!error)
+        .map((error) => {
             return {
                 skjemaelementId: error.ref!!.name,
-                feilmelding: t(getTransKey(error))
-            }
-        })
-}
+                feilmelding: t(getTransKey(error)),
+            };
+        });
+};
 
 const Feilmeldinger = ({ errors }: { errors: FieldErrors }) => {
     const { t } = useTranslation();
@@ -39,7 +38,7 @@ const Feilmeldinger = ({ errors }: { errors: FieldErrors }) => {
                 </SkjemaGruppe>
             )}
         </>
-    )
-}
+    );
+};
 
 export default Feilmeldinger;

@@ -469,6 +469,9 @@
       },
       "type": {
         "required": "Oppgi næringstype"
+      },
+      "endringIfmDoedsfall": {
+        "required": "Oppgi om det har skjedd en endring i næringen som følge av dødsfall"
       }
     },
     "haddePensjonsgivendeInntekt": {
