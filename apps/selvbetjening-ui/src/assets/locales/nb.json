@@ -376,6 +376,19 @@
     "boddEllerJobbetUtland": {
       "svar": {
         "required": "Oppgi om den avdøde har bodd eller jobbet i utlandet"
+      },
+      "oppholdUtland": {
+        "land": {
+          "required": "Oppgi land"
+        },
+        "beskrivelse": {
+          "required": "Velg et eller begge alternativ"
+        },
+        "mottokPensjon": {
+          "beskrivelse": {
+            "required": "Oppgi hvor mye pensjon som ble mottatt"
+          }
+        }
       }
     },
     "alternativAdresse": {
@@ -421,6 +434,9 @@
     "selvstendigNaeringsdrivende": {
       "svar": {
         "required": "Oppgi om avdøde var selvstendig næringsdrivende"
+      },
+      "beskrivelse": {
+        "required": "Oppgi næringsinntekt"
       }
     },
     "haddePensjonsgivendeInntekt": {
@@ -431,6 +447,9 @@
     "harAvtjentMilitaerTjeneste": {
       "svar": {
         "required": "Oppgi om avdøde har gjennomført verneplikt"
+      },
+      "beskrivelse": {
+        "required": "Oppgi gjeldende år"
       }
     },
     "kontaktinfo": {
@@ -523,7 +542,7 @@
             "required": "Oppgi samboers navn"
           },
           "foedselsnummer": {
-            "required": "Oppgi sammboers fødselsnummer"
+            "required": "Oppgi samboers fødselsnummer"
           },
           "harInntekt": {
             "samletBruttoinntektPrAar": {
