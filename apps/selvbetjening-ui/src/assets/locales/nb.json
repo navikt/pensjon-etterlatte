@@ -114,9 +114,7 @@
         "hvorfor": "Det har betydning for hvor mye gjenlevendepensjon du får."
       },
       "naavaerendeArbeidsforhold": {
-        "fast": "Fast ansatt",
-        "midlertidig": "Midlertidig ansatt",
-        "sesongarbeid": "Sesongansatt"
+        "velg": "Velg ..."
       }
     },
     "andreYtelser": {
@@ -319,6 +317,11 @@
     "selvstendig": "Ja, er selvstendig næringsdrivende",
     "arbeidstaker": "Nei, er arbeidstaker",
     "begge": "Jeg er selvstendig næringsdrivende og arbeidstaker"
+  },
+  "stillingType": {
+    "fast": "Fast ansatt",
+    "midlertidig": "Midlertidig ansatt",
+    "sesongarbeid": "Sesongansatt"
   },
   "bankkontoType": {
     "norsk": "Norsk",
