@@ -1,5 +1,5 @@
 import Datovelger from "../../../felles/Datovelger";
-import { RHFRadio, RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFRadio, RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import SamboerSkjema from "./SamboerSkjema";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
@@ -27,7 +27,7 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                 />
             </SkjemaGruppe>
 
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"nySivilstatus.samboerskap.hattBarnEllerVaertGift"}
                 legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
             />
@@ -36,7 +36,7 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
 
             {hattBarnEllerVaertGift === IValg.JA && (
                 <>
-                    <RHFToValgRadio
+                    <RHFSpoersmaalRadio
                         name={"nySivilstatus.samboerskap.samboerskapOpploest"}
                         legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboerskapOpploest")}
                     />

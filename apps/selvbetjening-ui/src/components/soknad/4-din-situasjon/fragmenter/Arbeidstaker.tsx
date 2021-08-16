@@ -3,7 +3,7 @@ import { RHFInput, RHFValutaInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { RHFSelect } from "../../../felles/RHFSelect";
 import { StillingType } from "../../../../typer/arbeidsforhold";
-import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -69,7 +69,7 @@ const Arbeidstaker = () => {
                 />
             </div>
 
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"arbeidsforhold.forventerEndretInntekt.svar"}
                 legend={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar")}
                 vetIkke

@@ -1,4 +1,4 @@
-import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import Datovelger from "../../../felles/Datovelger";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
@@ -60,13 +60,13 @@ const SkiltFraAvdoede = () => {
                 />
             </SkjemaGruppe>
 
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
             />
 
             {bidragMaaUtfylles && (
-                <RHFToValgRadio
+                <RHFSpoersmaalRadio
                     name={"forholdTilAvdoede.mottokBidrag"}
                     legend={t("omDegOgAvdoed.forholdTilAvdoede.mottokBidrag")}
                 />

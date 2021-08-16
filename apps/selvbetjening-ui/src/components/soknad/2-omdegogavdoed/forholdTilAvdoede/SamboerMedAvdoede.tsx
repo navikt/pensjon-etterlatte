@@ -1,7 +1,7 @@
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
-import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { hentAlder } from "../../../../utils/dato";
 import Datovelger from "../../../felles/Datovelger";
@@ -22,13 +22,13 @@ const SamboerMedAvdoede = () => {
 
     return (
         <>
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
             />
 
             {ingenFellesBarn && (
-                <RHFToValgRadio
+                <RHFSpoersmaalRadio
                     name={"forholdTilAvdoede.tidligereGift"}
                     legend={t("omDegOgAvdoed.forholdTilAvdoede.tidligereGift")}
                 />
@@ -51,7 +51,7 @@ const SamboerMedAvdoede = () => {
 
                   {partnerskapMindreEnnFemAar && (
                       // TODO: Sjekke om denne kan ha lik tittel som tilsvarende element under GiftMedAvdoede.tsx
-                      <RHFToValgRadio
+                      <RHFSpoersmaalRadio
                           name={"forholdTilAvdoede.omsorgForBarn"}
                           legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
                       />

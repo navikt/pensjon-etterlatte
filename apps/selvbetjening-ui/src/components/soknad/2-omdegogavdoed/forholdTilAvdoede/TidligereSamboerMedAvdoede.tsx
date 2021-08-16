@@ -1,7 +1,7 @@
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
-import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
@@ -21,7 +21,7 @@ const  TidligereSamboerMedAvdoede = () => {
 
     return (
         <>
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
             />
@@ -54,7 +54,7 @@ const  TidligereSamboerMedAvdoede = () => {
                     </SkjemaGruppe>
 
                     {bidragMaaUtfylles && (
-                        <RHFToValgRadio
+                        <RHFSpoersmaalRadio
                             name={"forholdTilAvdoede.mottokBidrag"}
                             legend={t("omDegOgAvdoed.forholdTilAvdoede.mottokBidrag")}
                         />

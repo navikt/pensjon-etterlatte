@@ -8,8 +8,7 @@ import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { RadioPanelGruppeProps } from "nav-frontend-skjema/lib/radio-panel-gruppe";
 
-/* TODO: Rename to RHFSpoersmaalRadio */
-export const RHFToValgRadio = ({ name, description, legend, vetIkke }: {
+export const RHFSpoersmaalRadio = ({ name, description, legend, vetIkke }: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
     description?: ReactNode;

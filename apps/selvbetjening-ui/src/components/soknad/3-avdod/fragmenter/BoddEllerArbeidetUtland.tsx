@@ -1,4 +1,4 @@
-import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { IAvdoed } from "../../../../typer/person";
@@ -37,7 +37,7 @@ const BoddEllerArbeidetUtland = () => {
 
     return (
         <>
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"boddEllerJobbetUtland.svar"}
                 legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
                 description={<HvorforSpoerVi>t("omDenAvdoede.boddEllerJobbetUtland.hjelpetekst")</HvorforSpoerVi>}
@@ -87,7 +87,7 @@ const BoddEllerArbeidetUtland = () => {
                                 </div>
                             </SkjemaGruppe>
 
-                            <RHFToValgRadio
+                            <RHFSpoersmaalRadio
                                 name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygdUtland` as const}
                                 legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtland")}
                                 description={

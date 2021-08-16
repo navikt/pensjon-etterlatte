@@ -11,7 +11,7 @@ import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
 import AlertStripe from "nav-frontend-alertstriper";
-import { RHFToValgRadio } from "../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
 import React from "react";
@@ -97,7 +97,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                         )}
                     </SkjemaGruppe>
 
-                    <RHFToValgRadio
+                    <RHFSpoersmaalRadio
                         name={"avdoed.doedsfallAarsak"}
                         legend={t("omDegOgAvdoed.avdoed.doedsfallAarsak")}
                         description={<HvorforSpoerVi>{t("omDegOgAvdoed.avdoed.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}

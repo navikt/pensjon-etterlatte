@@ -3,7 +3,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { Hovedknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
-import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
+import { RHFRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import { RHFInput, RHFKontonummerInput } from "../../felles/RHFInput";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
@@ -77,7 +77,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                     />
                 </SkjemaGruppe>
 
-                <RHFToValgRadio
+                <RHFSpoersmaalRadio
                     name={"bosattUtland.svar"}
                     legend={t("omBarn.bosattUtland.svar")}
                 />
@@ -106,7 +106,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                 {relasjon === BarnRelasjon.fellesbarnMedAvdoede && (
                     <>
-                        <RHFToValgRadio
+                        <RHFSpoersmaalRadio
                             name={"soekerBarnepensjon"}
                             legend={t("omBarn.soekerBarnepensjon")}
                             description={
@@ -118,7 +118,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                         {soekerBarnepensjon === IValg.JA && (
                             <>
-                                <RHFToValgRadio
+                                <RHFSpoersmaalRadio
                                     name={"brukeAnnenKonto.svar"}
                                     legend={t("omBarn.brukeAnnenKonto.svar")}
                                 />
@@ -137,7 +137,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                 )}
 
                 {(relasjon === BarnRelasjon.avdoedesSaerkullsbarn || relasjon === BarnRelasjon.egneSaerkullsbarn) && (
-                    <RHFToValgRadio
+                    <RHFSpoersmaalRadio
                         name={"dagligOmsorg"}
                         legend={t("omBarn.dagligOmsorg")}
                     />

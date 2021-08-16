@@ -2,7 +2,7 @@ import Datovelger from "../../../felles/Datovelger";
 import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { hentAlder } from "../../../../utils/dato";
-import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useTranslation } from "react-i18next";
 import { SkjemaGruppe } from "nav-frontend-skjema";
@@ -34,13 +34,13 @@ const GiftMedAvdoede = () => {
 
             {(partnerskapMindreEnnFemAar) && (
                 <>
-                    <RHFToValgRadio
+                    <RHFSpoersmaalRadio
                         name={"forholdTilAvdoede.fellesBarn"}
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
                     />
 
                     {ingenFellesBarn && (
-                        <RHFToValgRadio
+                        <RHFSpoersmaalRadio
                             name={"forholdTilAvdoede.omsorgForBarn"}
                             legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
                         />

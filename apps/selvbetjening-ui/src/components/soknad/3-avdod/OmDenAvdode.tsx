@@ -7,7 +7,7 @@ import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
 import { RHFFoedselsnummerInput, RHFInput, RHFValutaInput } from "../../felles/RHFInput";
-import { RHFRadio, RHFToValgRadio } from "../../felles/RHFRadio";
+import { RHFRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
@@ -82,7 +82,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 <BoddEllerArbeidetUtland />
 
-                <RHFToValgRadio
+                <RHFSpoersmaalRadio
                     name={"selvstendigNaeringsdrivende.svar"}
                     legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
                     description={
@@ -110,7 +110,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     })}
                 />
 
-                <RHFToValgRadio
+                <RHFSpoersmaalRadio
                     name={"harAvtjentMilitaerTjeneste.svar"}
                     legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
                     vetIkke

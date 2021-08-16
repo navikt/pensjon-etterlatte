@@ -5,7 +5,7 @@ import { Undertittel } from "nav-frontend-typografi";
 import Panel from "nav-frontend-paneler";
 import { useFormContext } from "react-hook-form";
 import { RHFInput } from "../../../felles/RHFInput";
-import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
 import { RHFCheckboksPanelGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
@@ -38,7 +38,7 @@ const SamboerSkjema = () => {
             </SkjemaGruppe>
 
             {/* 2.17 */}
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"nySivilstatus.samboerskap.samboer.harInntekt.svar"}
                 legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar")}
             />

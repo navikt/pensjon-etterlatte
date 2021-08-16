@@ -1,5 +1,5 @@
 import Datovelger from "../../../felles/Datovelger";
-import { RHFRadio, RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFRadio, RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { useTranslation } from "react-i18next";
@@ -24,7 +24,7 @@ const NyttEkteskap = () => {
 
     return (
         <>
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"nySivilstatus.ekteskap.fremdelesGift"}
                 legend={t("omDegOgAvdoed.nySivilstatus.ekteskap.fremdelesGift")}
             />

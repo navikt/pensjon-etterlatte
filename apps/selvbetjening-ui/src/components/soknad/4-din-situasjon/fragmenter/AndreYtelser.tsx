@@ -2,7 +2,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Undertittel } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
-import { RHFToValgRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { RHFInput } from "../../../felles/RHFInput";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { ISituasjon } from "../../../../typer/situasjon";
@@ -25,7 +25,7 @@ const AndreYtelser = () => {
                 </Undertittel>
             </SkjemaGruppe>
 
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"andreYtelser.kravOmAnnenStonad.svar"}
                 legend={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.svar")}
                 description={
@@ -43,7 +43,7 @@ const AndreYtelser = () => {
                 </SkjemaGruppe>
             )}
 
-            <RHFToValgRadio
+            <RHFSpoersmaalRadio
                 name={"andreYtelser.mottarPensjonUtland.svar"}
                 legend={t("dinSituasjon.andreYtelser.mottarPensjonUtland.svar")}
                 description={

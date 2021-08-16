@@ -10,7 +10,7 @@ import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { ISoeker } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/RHFInput";
-import { RHFInlineRadio, RHFToValgRadio } from "../../felles/RHFRadio";
+import { RHFInlineRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
@@ -63,7 +63,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
                 <form>
-                    <RHFToValgRadio
+                    <RHFSpoersmaalRadio
                         name={"bostedsadresseBekreftet"}
                         legend={<Trans i18nKey={"omDeg.bostedsadresseBekreftet"}/>}
                     />
@@ -98,7 +98,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                     </SkjemaGruppe>
 
                     {/* 2.7 */}
-                    <RHFToValgRadio
+                    <RHFSpoersmaalRadio
                         name={"oppholderSegINorge"}
                         legend={t("omDeg.oppholderSegINorge")}
                         description={<HvorforSpoerVi>{t("omDeg.oppholdHvorfor")}</HvorforSpoerVi>}
@@ -124,7 +124,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 />
                             </SkjemaGruppe>
 
-                            <RHFToValgRadio
+                            <RHFSpoersmaalRadio
                                 name={"medlemFolketrygdenUtland"}
                                 legend={t("omDeg.medlemFolketrygdenUtland")}
                             />
@@ -155,7 +155,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
                     {skalSjekkeFlyktningStatus && (
                         <SkjemaGruppe>
-                            <RHFToValgRadio
+                            <RHFSpoersmaalRadio
                                 name={"flyktning"}
                                 legend={<Trans i18nKey={"omDeg.flyktning"}/>}
                                 description={<HvorforSpoerVi>{t("omDeg.flyktningHvorfor")}</HvorforSpoerVi>}
