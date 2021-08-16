@@ -53,7 +53,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
             {/* Steg 2 */}
             <SkjemaGruppe>
                 <Systemtittel className={"center"}>
-                    Om deg og avdøde
+                    {t("omDegOgAvdoed.tittel")}
                 </Systemtittel>
             </SkjemaGruppe>
 

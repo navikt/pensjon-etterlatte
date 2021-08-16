@@ -182,7 +182,8 @@
       "omsorgForBarn": "Hadde du omsorg for avdødes barn på dødstidspunktet?",
       "datoForSkilsmisse": "Oppgi dato for skilsmisse (ikke seperasjon)",
       "datoForSamlivsbrudd": "Dato for samlivsbruddet (ikke separasjon)",
-      "mottokBidrag": "Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?"
+      "mottokBidrag": "Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?",
+      "ingenRettighetAdvarsel": "Da ser det ikke ut som du har rett til ytelse"
     },
     "nySivilstatus": {
       "tittel": "Nåværende sivilstand",
@@ -204,6 +205,7 @@
         "hattBarnEllerVaertGift": "Har/hadde dere barn sammen eller var dere tidligere gift?",
         "samboerskapOpploest": "Er dette samboerskapet oppløst?",
         "samboer": {
+          "tittel": "Opplysninger om samboer",
           "navn": "Navn",
           "harInntekt.svar": "Har samboer inntekt?",
           "harInntekt.samletBruttoinntektPrAar": "Samlet bruttoinntekt per år"

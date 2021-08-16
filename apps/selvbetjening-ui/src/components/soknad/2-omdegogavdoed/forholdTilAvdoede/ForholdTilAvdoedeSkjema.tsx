@@ -46,7 +46,7 @@ const ForholdTilAvdoedeSkjema = () => {
             {forholdTilAvdoede === ForholdTilAvdoede.ingen && (
                 <SkjemaGruppe>
                     <AlertStripeAdvarsel>
-                        Da ser det ikke ut som du har rett til ytelse
+                        {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
                     </AlertStripeAdvarsel>
                 </SkjemaGruppe>
             )}

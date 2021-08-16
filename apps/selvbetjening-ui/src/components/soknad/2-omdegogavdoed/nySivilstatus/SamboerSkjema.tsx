@@ -19,7 +19,7 @@ const SamboerSkjema = () => {
 
     return (
         <Panel border>
-            <Undertittel>Opplysninger om samboer</Undertittel>
+            <Undertittel>{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}</Undertittel>
 
             <br/>
 
