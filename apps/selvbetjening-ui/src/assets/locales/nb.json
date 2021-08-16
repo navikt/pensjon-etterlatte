@@ -377,6 +377,25 @@
     "oppholdsland": {
       "required": "Oppgi nåværende oppholdsland"
     },
+    "avdoed": {
+      "fornavn": {
+        "required": "Oppgi avdødes fornavn"
+      },
+      "etternavn": {
+        "required": "Oppgi avdødes etternavn"
+      },
+      "datoForDoedsfallet": {
+        "required": "Oppgi når dødsfallet skjedde"
+      },
+      "doedsfallAarsak": {
+        "required": "Oppgi årsaken til dødsfallet"
+      }
+    },
+    "forholdTilAvdoede": {
+      "relasjon": {
+        "required": "Oppgi din relasjon til avdøde"
+      }
+    },
     "selvstendigNaeringsdrivende": {
       "svar": {
         "required": "Oppgi om avdøde var selvstendig næringsdrivende"
@@ -434,6 +453,9 @@
       "required": "Oppgi statsborgerskap"
     },
     "nySivilstatus": {
+      "sivilstatus": {
+        "required": "Oppgi din nåværende sivilstand"
+      },
       "nySivilstatusEtterDoedsfallet": {
         "required": "Endret sivilstatus må besvares"
       },
