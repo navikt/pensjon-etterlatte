@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import no.nav.brukernotifikasjon.schemas.Beskjed
 import no.nav.brukernotifikasjon.schemas.Nokkel
@@ -57,7 +60,12 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
                 ).producerConfig()
             )
         }
-        startuptask()
+        GlobalScope.launch {
+            logger.info("venter 30s for sidecars")
+            delay(30L * 1000L)
+            logger.info("starter kafka producer")
+        }
+            startuptask()
 
 
     }
