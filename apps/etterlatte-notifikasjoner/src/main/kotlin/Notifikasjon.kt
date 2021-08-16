@@ -40,12 +40,13 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
     private var producer: KafkaProducer<Nokkel, Beskjed>? = null
 
     init {
-        River(rapidsConnection).apply {
+
+        val minRiver = River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@fnr_soeker") }
             validate { it.rejectKey("@notifikasjon") }
-        }.register(this)
+        }
 
         val startuptask = {
             producer = KafkaProducer(
@@ -59,13 +60,16 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
                     acksConfig = "all"
                 ).producerConfig()
             )
+
         }
         GlobalScope.launch {
             logger.info("venter 30s for sidecars")
             delay(30L * 1000L)
             logger.info("starter kafka producer")
             startuptask()
+            rapidsConnection.register(minRiver)
         }
+
 
     }
 
