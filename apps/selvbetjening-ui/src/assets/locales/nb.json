@@ -369,6 +369,12 @@
     "sistLagret": "Sist lagret"
   },
   "feil": {
+    "fornavn": {
+      "required": "Oppgi fornavn"
+    },
+    "etternavn": {
+      "required": "Oppgi etternavn"
+    },
     "hovedytelse": {
       "required": "Hovedytelse må være valgt"
     },
@@ -509,6 +515,17 @@
       },
       "annenUtdanning": {
         "required": "Oppgi annen utdanning"
+      },
+      "naavaerendeUtdanning": {
+        "navn": {
+          "required": "Oppgi navn på utdanning"
+        },
+        "startDato": {
+          "required": "Oppgi utdanningens oppstartsdato"
+        },
+        "sluttDato": {
+          "required": "Oppgi utdanningens sluttdato"
+        }
       }
     },
     "ingenJobbBeskrivelse": {
@@ -603,6 +620,17 @@
           }
         }
       }
+    },
+    "bosattUtland": {
+      "svar": {
+        "required": "Oppgi om personen er bosatt i utlandet"
+      }
+    },
+    "gravidEllerNyligFoedt": {
+      "required": "Oppgi om du venter/har barn som ikke er oppgitt i folkeregisteret"
+    },
+    "relasjon": {
+      "required": "Oppgi relasjon"
     },
     "yrke": {
       "required": "Yrke må besvares"
