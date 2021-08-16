@@ -454,6 +454,17 @@
         "required": "Oppgi næringsinntekt"
       }
     },
+    "selvstendig": {
+      "beskrivelse": {
+        "required": "Oppgi næring"
+      },
+      "startDato": {
+        "required": "Oppgi oppstartsdato"
+      },
+      "type": {
+        "required": "Oppgi næringstype"
+      }
+    },
     "haddePensjonsgivendeInntekt": {
       "svar": {
         "required": "Oppgi om avdøde hadde pensjonsgivende inntekt"
@@ -662,6 +673,31 @@
     "inntekt": {
       "bruttoArbeidsinntektPrMd.required": "Brutto arbeidsinntekt må fylles ut",
       "personinntektFraNaeringPrAr.required": "Personinntekt fra næring må fylles ut"
+    },
+    "arbeidsforhold": {
+      "arbeidsgiver": {
+        "required": "Oppgi arbeidsgiver"
+      },
+      "startDato": {
+        "required": "Oppstartsdato må fylles ut"
+      },
+      "stilling": {
+        "required": "Oppgi hvilken stilling du har"
+      },
+      "ansettelsesforhold": {
+        "required": "Oppgi type ansettelse"
+      },
+      "stillingsprosent": {
+        "required": "Oppgi stillingsprosent"
+      },
+      "forventerEndretInntekt": {
+        "svar": {
+          "required": "Oppgi om du forventer endringer i inntekt"
+        },
+        "beskrivelse": {
+          "required": "Beskrivelse må fylles ut"
+        }
+      }
     },
     "tidligereArbeidsforhold": {
       "fraDato.required": "Fra dato må fylles ut",
