@@ -20,7 +20,7 @@ const Arbeidstaker = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>Info om arbeidsgiver</Undertittel>
+                <Undertittel>{t("dinSituasjon.arbeidsforhold.tittel")}</Undertittel>
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"rad"}>
@@ -47,15 +47,15 @@ const Arbeidstaker = () => {
                     selectOptions={[
                         { label: "Velg ...", value: undefined },
                         {
-                            label: t("dinSituasjon.arbeidsforhold.naavaerendeArbeidsforhold.fast"),
+                            label: t("stillingType.fast"),
                             value: StillingType.fast,
                         },
                         {
-                            label: t("dinSituasjon.arbeidsforhold.naavaerendeArbeidsforhold.midlertidig"),
+                            label: t("stillingType.midlertidig"),
                             value: StillingType.midlertidig,
                         },
                         {
-                            label: t("dinSituasjon.arbeidsforhold.naavaerendeArbeidsforhold.sesongarbeid"),
+                            label: t("stillingType.sesongarbeid"),
                             value: StillingType.sesongarbeid,
                         },
                     ]}

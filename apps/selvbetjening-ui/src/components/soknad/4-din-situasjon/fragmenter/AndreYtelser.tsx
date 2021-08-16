@@ -21,7 +21,7 @@ const AndreYtelser = () => {
             {/* Steg 7 */}
             <SkjemaGruppe>
                 <Undertittel>
-                    Ytelser
+                    {t("dinSituasjon.andreYtelser.tittel")}
                 </Undertittel>
             </SkjemaGruppe>
 
