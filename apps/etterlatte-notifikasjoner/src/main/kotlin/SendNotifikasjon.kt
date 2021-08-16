@@ -17,6 +17,8 @@ class SendNotifikasjon (env: Map<String, String>){
     private var producer: KafkaProducer<Nokkel, Beskjed>? = null
     private val clientId = if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString()
     private val schemaRegistry = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"]
+    private val trustStorePassword = env["NAV_TRUSTSTORE_PASSWORD"]
+    private val trustStore = env["NAV_TRUSTSTORE_PATH"]
 
 
     fun startuptask() {
@@ -27,6 +29,8 @@ class SendNotifikasjon (env: Map<String, String>){
                 username = systembruker,
                 password = passord,
                 schemaRegistryUrl = schemaRegistry,
+                truststorePassword = trustStorePassword,
+                truststore = trustStore,
                 acksConfig = "all"
             ).producerConfig()
         )
