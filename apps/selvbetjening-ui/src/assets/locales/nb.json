@@ -371,6 +371,12 @@
         "required": "Oppgi om den avdøde har bodd eller jobbet i utlandet"
       }
     },
+    "alternativAdresse": {
+      "required": "Oppgi nåværende bostedsadresse"
+    },
+    "oppholdsland": {
+      "required": "Oppgi nåværende oppholdsland"
+    },
     "selvstendigNaeringsdrivende": {
       "svar": {
         "required": "Oppgi om avdøde var selvstendig næringsdrivende"
