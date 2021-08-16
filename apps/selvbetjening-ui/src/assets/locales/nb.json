@@ -85,6 +85,7 @@
     "selvstendigNaeringsdrivende": "Er du selvstendig næringsdrivende?",
     "selvstendigHvorfor": "Næringsinntekt for det siste kalenderåret er ikke tilgjengelig fra Skatteetaten ennå. Du vil bli kontaktet for nærmere opplysninger om næringsvirksomheten.",
     "selvstendig": {
+      "tittel": "Info om næring",
       "beskrivelse": "Hvilken næring driver du?",
       "startDato": "Når startet du?",
       "type": "Hvilken type næring er dette?",
@@ -96,9 +97,12 @@
       "info": "Dersom du de siste 10 årene har vært i arbeid (deltid, heltid, vikariat, osv) er det viktig at du oppgir dette. Klikk på \"Legg til\" under for å legge til tidligere arbeidsforhold.",
       "beskrivelse": "Beskrivelse",
       "fra": "Fra",
-      "til": "Til"
+      "til": "Til",
+      "fjern": "Fjern",
+      "leggTil": "Legg til"
     },
     "arbeidsforhold": {
+      "tittel": "Info om arbeidsgiver",
       "arbeidsgiver": "Hvor jobber du nå?",
       "stilling": "Hvilken stilling har du?",
       "ansettelsesforhold": "Type ansettelse",
@@ -116,6 +120,7 @@
       }
     },
     "andreYtelser": {
+      "tittel": "Ytelser",
       "kravOmAnnenStonad": {
         "svar": "Har du søkt om andre ytelser fra NAV som du ikke har fått svar på?",
         "hvorfor": "Noen ytelser fra NAV blir regnet som inntekt som har betydning for hvor mye gjenlevendepensjon du får. Uføretrygd, alderspensjon og AFP kan ikke kombineres med gjenlevendepensjon.",

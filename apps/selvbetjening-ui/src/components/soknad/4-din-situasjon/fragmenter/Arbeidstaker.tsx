@@ -20,7 +20,7 @@ const Arbeidstaker = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>Info om arbeidsgiver</Undertittel>
+                <Undertittel>{t("dinSituasjon.arbeidsforhold.tittel")}</Undertittel>
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"rad"}>

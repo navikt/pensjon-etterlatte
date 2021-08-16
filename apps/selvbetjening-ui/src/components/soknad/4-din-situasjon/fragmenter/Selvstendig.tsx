@@ -10,7 +10,7 @@ const Selvstendig = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>Info om næring</Undertittel>
+                <Undertittel>{t("dinSituasjon.selvstendig.tittel")}</Undertittel>
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"rad"}>
