@@ -64,9 +64,8 @@ internal class Notifikasjon(env: Map<String, String>, rapidsConnection: RapidsCo
             logger.info("venter 30s for sidecars")
             delay(30L * 1000L)
             logger.info("starter kafka producer")
-        }
             startuptask()
-
+        }
 
     }
 
