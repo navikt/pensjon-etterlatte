@@ -276,6 +276,7 @@
     "borUtenlands": "Bosatt i utlandet",
     "dagligOmsorg": "Har du daglig omsorg for dette barnet?",
     "soekerBarnepensjon": "Ønsker du å søke om barnepensjon for barnet?",
+    "soekerBarnepensjonInfo": "Barn over 18 år må selv søke om barnepensjon",
     "bosattUtland": {
       "svar": "Bor barnet i utlandet?",
       "land": "Land",

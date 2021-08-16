@@ -8,6 +8,7 @@ import { RHFInput, RHFKontonummerInput } from "../../felles/RHFInput";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { Undertittel } from "nav-frontend-typografi";
+import AlertStripe from "nav-frontend-alertstriper";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -108,7 +109,11 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                         <RHFToValgRadio
                             name={"soekerBarnepensjon"}
                             legend={t("omBarn.soekerBarnepensjon")}
-
+                            description={
+                                <AlertStripe type={"advarsel"} form={"inline"}>
+                                    {t("omBarn.soekerBarnepensjonInfo")}
+                                </AlertStripe>
+                            }
                         />
 
                         {soekerBarnepensjon === IValg.JA && (
