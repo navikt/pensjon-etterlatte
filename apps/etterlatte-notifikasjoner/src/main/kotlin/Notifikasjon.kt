@@ -28,9 +28,6 @@ class Notifikasjon(sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsC
     River.PacketListener {
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
-
-    //private var producer: KafkaProducer<Nokkel, Beskjed>? = null
-
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
