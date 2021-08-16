@@ -46,16 +46,23 @@ const UgyldigSoeker = () => {
                     </Normaltekst>
                 ) : (
                     <Normaltekst>
-                        For å få gjenlevendepensjon må du være mellom 18 og 66 år.
+                        For å få gjenlevendepensjon må du være mellom 18 og 67 år.
+                        Ønsker du å søke om gjenlevendetillegg i alderspensjon? Du kan lese mer om dette på sidene om alderspensjon.
                     </Normaltekst>
                 )}
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <Normaltekst>
-                    <Lenke href={"https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon#chapter-3"}>
-                        Her kan du lese mer om hvem som kan få barnepensjon og hvordan du søker.
-                    </Lenke>
+                    {brukerErForUng ? (
+                        <Lenke href={"https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon#chapter-3"}>
+                            Her kan du lese mer om hvem som kan få barnepensjon og hvordan du søker.
+                        </Lenke>
+                    ) : (
+                        <Lenke href={"https://www.nav.no/no/person/pensjon/alderspensjon"}>
+                            Her kan du lese mer om hvem som kan få alderspensjon og hvordan du søker.
+                        </Lenke>
+                    )}
                 </Normaltekst>
             </SkjemaGruppe>
 
