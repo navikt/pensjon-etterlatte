@@ -7,13 +7,12 @@ import { get } from "lodash";
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { RadioPanelGruppeProps } from "nav-frontend-skjema/lib/radio-panel-gruppe";
-import HvorforSpoerVi from "./HvorforSpoerVi";
 
 /* TODO: Rename to RHFSpoersmaalRadio */
-export const RHFToValgRadio = ({ name, hjelpetekst, legend, vetIkke }: {
+export const RHFToValgRadio = ({ name, description, legend, vetIkke }: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
-    hjelpetekst?: ReactNode;
+    description?: ReactNode;
     vetIkke?: boolean;
 }) => {
     const defaultRadios = [
@@ -27,16 +26,16 @@ export const RHFToValgRadio = ({ name, hjelpetekst, legend, vetIkke }: {
         <RHFInlineRadio
             name={name}
             legend={legend}
-            hjelpetekst={hjelpetekst}
+            description={description}
             radios={defaultRadios}
         />
     )
 }
 
-export const RHFInlineRadio = ({ name, legend, hjelpetekst, radios }: {
+export const RHFInlineRadio = ({ name, legend, description, radios }: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
-    hjelpetekst?: ReactNode;
+    description?: ReactNode;
     radios: RadioPanelProps[];
 }) => {
     const { t } = useTranslation();
@@ -56,7 +55,7 @@ export const RHFInlineRadio = ({ name, legend, hjelpetekst, radios }: {
                         feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
                         legend={legend}
                         className={"inline"}
-                        description={hjelpetekst && (<HvorforSpoerVi>{hjelpetekst}</HvorforSpoerVi>)}
+                        description={description}
                         radios={radios}
                         checked={value}
                         onChange={(e) => onChange((e.target as HTMLInputElement).value as IValg)}
@@ -70,20 +69,16 @@ export const RHFInlineRadio = ({ name, legend, hjelpetekst, radios }: {
 interface RHFRadioProps extends Omit<RadioPanelGruppeProps, 'onChange'> {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
-    hjelpetekst?: ReactNode;
+    description?: ReactNode;
     radios: RadioPanelProps[];
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>;
 }
 
-export const RHFRadio = ({ name, legend, hjelpetekst, radios, rules, ...rest }: RHFRadioProps) => {
+export const RHFRadio = ({ name, legend, description, radios, rules, ...rest }: RHFRadioProps) => {
     const { t } = useTranslation();
     const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
-
-    const description = hjelpetekst && (
-        <HvorforSpoerVi>{hjelpetekst}</HvorforSpoerVi>
-    );
 
     return (
         <div id={name}>

@@ -6,6 +6,7 @@ import { RHFToValgRadio } from "../../../felles/RHFRadio";
 import { RHFInput } from "../../../felles/RHFInput";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { ISituasjon } from "../../../../typer/situasjon";
+import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 
 const AndreYtelser = () => {
     const { t } = useTranslation();
@@ -27,7 +28,9 @@ const AndreYtelser = () => {
             <RHFToValgRadio
                 name={"andreYtelser.kravOmAnnenStonad.svar"}
                 legend={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.svar")}
-                hjelpetekst={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.hvorfor")}
+                description={
+                    <HvorforSpoerVi>{t("dinSituasjon.andreYtelser.kravOmAnnenStonad.hvorfor")}</HvorforSpoerVi>
+                }
             />
 
             {kravOmAnnenStonad === IValg.JA && (
@@ -43,7 +46,9 @@ const AndreYtelser = () => {
             <RHFToValgRadio
                 name={"andreYtelser.mottarPensjonUtland.svar"}
                 legend={t("dinSituasjon.andreYtelser.mottarPensjonUtland.svar")}
-                hjelpetekst={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvorfor")}
+                description={
+                    <HvorforSpoerVi>{t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvorfor")}</HvorforSpoerVi>
+                }
             />
 
             {mottarPensjonUtland === IValg.JA && (

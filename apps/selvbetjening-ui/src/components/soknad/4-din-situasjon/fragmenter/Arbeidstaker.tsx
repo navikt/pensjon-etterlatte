@@ -8,6 +8,7 @@ import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Undertittel } from "nav-frontend-typografi";
+import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 
 const Arbeidstaker = () => {
     const { t } = useTranslation();
@@ -79,7 +80,7 @@ const Arbeidstaker = () => {
                     <RHFValutaInput
                         name={"arbeidsforhold.forventerEndretInntekt.beskrivelse"}
                         label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
-                        hjelpetekst={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.hvorfor")}
+                        description={<HvorforSpoerVi>{t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.hvorfor")}</HvorforSpoerVi>}
                     />
                 </SkjemaGruppe>
             )}

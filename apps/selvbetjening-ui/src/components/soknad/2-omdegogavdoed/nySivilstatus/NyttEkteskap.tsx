@@ -7,6 +7,7 @@ import { ISoeker, OpploesningAarsak } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { RadioProps } from "nav-frontend-skjema";
 import { nySivilstatusHarGyldigVarighet } from "../../../../utils/dato";
+import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 
 const NyttEkteskap = () => {
     const { t } = useTranslation();
@@ -33,7 +34,11 @@ const NyttEkteskap = () => {
                     <RHFRadio
                         name={"nySivilstatus.ekteskap.aarsakForOpploesningen"}
                         legend={t("omDegOgAvdoed.nySivilstatus.ekteskap.aarsakForOpploesningen")}
-                        hjelpetekst={t("omDegOgAvdoed.nySivilstatus.ekteskap.hvorforAarsakOpploesning")}
+                        description={
+                            <HvorforSpoerVi>
+                                {t("omDegOgAvdoed.nySivilstatus.ekteskap.hvorforAarsakOpploesning")}
+                            </HvorforSpoerVi>
+                        }
                         radios={[
                             {
                                 label: t(OpploesningAarsak.doedsfall),

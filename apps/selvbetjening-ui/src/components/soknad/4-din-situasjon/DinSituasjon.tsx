@@ -15,6 +15,7 @@ import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import UnderUtdanning from "./fragmenter/UnderUtdanning";
 import { RHFInput } from "../../felles/RHFInput";
+import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -57,7 +58,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 <RHFRadio
                     name={"jobbStatus"}
                     legend={t("dinSituasjon.jobbStatus")}
-                    hjelpetekst={t("dinSituasjon.jobbStatusHvorfor")}
+                    description={<HvorforSpoerVi>{t("dinSituasjon.jobbStatusHvorfor")}</HvorforSpoerVi>}
                     radios={Object.values(JobbStatus).map(value => {
                         return { label: t(value), value } as RadioProps;
                     })}
@@ -95,6 +96,6 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
-}
+};
 
 export default DinSituasjon;

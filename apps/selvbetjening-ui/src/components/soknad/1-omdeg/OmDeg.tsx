@@ -19,6 +19,7 @@ import { Cell, Grid } from "@navikt/ds-react";
 import React from "react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
+import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
@@ -100,7 +101,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                     <RHFToValgRadio
                         name={"oppholderSegINorge"}
                         legend={t("omDeg.oppholderSegINorge")}
-                        hjelpetekst={t("omDeg.oppholdHvorfor")}
+                        description={<HvorforSpoerVi>{t("omDeg.oppholdHvorfor")}</HvorforSpoerVi>}
                     />
 
                     {oppholderSegINorge === IValg.JA && (
@@ -157,7 +158,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             <RHFToValgRadio
                                 name={"flyktning"}
                                 legend={<Trans i18nKey={"omDeg.flyktning"}/>}
-                                hjelpetekst={t("omDeg.flyktningHvorfor")}
+                                description={<HvorforSpoerVi>{t("omDeg.flyktningHvorfor")}</HvorforSpoerVi>}
                             />
                         </SkjemaGruppe>
                     )}

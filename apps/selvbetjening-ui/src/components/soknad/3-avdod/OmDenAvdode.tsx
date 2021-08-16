@@ -12,6 +12,7 @@ import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
+import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -84,7 +85,9 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <RHFToValgRadio
                     name={"selvstendigNaeringsdrivende.svar"}
                     legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
-                    hjelpetekst={t("omDenAvdoede.selvstendigNaeringsdrivende.hjelpetekst")}
+                    description={
+                        <HvorforSpoerVi>{t("omDenAvdoede.selvstendigNaeringsdrivende.hjelpetekst")}</HvorforSpoerVi>
+                    }
                     vetIkke
                 />
 

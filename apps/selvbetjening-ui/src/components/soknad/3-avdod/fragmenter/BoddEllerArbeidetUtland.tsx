@@ -12,6 +12,7 @@ import SkjemaLinje from "../../../felles/SkjemaLinje";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { DeleteFilled } from "@navikt/ds-icons";
+import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 
 const BoddEllerArbeidetUtland = () => {
     const { t } = useTranslation();
@@ -39,7 +40,7 @@ const BoddEllerArbeidetUtland = () => {
             <RHFToValgRadio
                 name={"boddEllerJobbetUtland.svar"}
                 legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
-                hjelpetekst={t("omDenAvdoede.boddEllerJobbetUtland.hjelpetekst")}
+                description={<HvorforSpoerVi>t("omDenAvdoede.boddEllerJobbetUtland.hjelpetekst")</HvorforSpoerVi>}
                 vetIkke
             />
 
@@ -65,12 +66,13 @@ const BoddEllerArbeidetUtland = () => {
                                 />
                             </div>
 
-                            <SkjemaGruppe description={"Fra og til dato er ikke påkrevd"}>
+                            <SkjemaGruppe>
                                 <div className={"rad"}>
                                     <div className={"kol"}>
                                         <Datovelger
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
                                             label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato")}
+                                            description={t("felles.ikkePaakrevd")}
                                             valgfri
                                         />
                                     </div>
@@ -78,6 +80,7 @@ const BoddEllerArbeidetUtland = () => {
                                         <Datovelger
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].tilDato` as const}
                                             label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato")}
+                                            description={t("felles.ikkePaakrevd")}
                                             valgfri
                                         />
                                     </div>
@@ -87,14 +90,16 @@ const BoddEllerArbeidetUtland = () => {
                             <RHFToValgRadio
                                 name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygdUtland` as const}
                                 legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtland")}
-                                hjelpetekst={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtlandHjelpetekst")}
+                                description={
+                                    <HvorforSpoerVi>t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtlandHjelpetekst")</HvorforSpoerVi>
+                                }
                                 vetIkke
                             />
 
                             <RHFInput
                                 name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const}
                                 label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
-                                hjelpetekst={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.hjelpetekst")}
+                                description={<HvorforSpoerVi>{t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.hjelpetekst")}</HvorforSpoerVi>}
                             />
 
                             {fields.length > 1 && (

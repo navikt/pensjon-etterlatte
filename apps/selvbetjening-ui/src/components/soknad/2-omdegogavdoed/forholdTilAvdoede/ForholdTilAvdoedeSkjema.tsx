@@ -8,6 +8,7 @@ import TidligereSamboerMedAvdoede from "./TidligereSamboerMedAvdoede";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
+import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 
 const ForholdTilAvdoedeSkjema = () => {
     const { t } = useTranslation();
@@ -21,7 +22,11 @@ const ForholdTilAvdoedeSkjema = () => {
             <RHFRadio
                 name={"forholdTilAvdoede.relasjon"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.relasjon")}
-                hjelpetekst={t("omDegOgAvdoed.forholdTilAvdoede.relasjonHvorfor")}
+                description={
+                    <HvorforSpoerVi>
+                        {t("omDegOgAvdoed.forholdTilAvdoede.relasjonHvorfor")}
+                    </HvorforSpoerVi>
+                }
                 radios={Object.values(ForholdTilAvdoede).map(value => {
                     return { label: t(value), value } as RadioProps
                 })}

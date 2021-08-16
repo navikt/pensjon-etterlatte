@@ -6,6 +6,7 @@ import { ISituasjon, ArbeidsforholdType } from "../../../../typer/situasjon";
 import React from "react";
 import Arbeidstaker from "./Arbeidstaker";
 import Selvstendig from "./Selvstendig";
+import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 
 const NavaerendeArbeidsforhold = () => {
     const { t } = useTranslation();
@@ -19,7 +20,7 @@ const NavaerendeArbeidsforhold = () => {
             <RHFRadio
                 name={"selvstendigNaeringsdrivende"}
                 legend={t("dinSituasjon.selvstendigNaeringsdrivende")}
-                hjelpetekst={t("dinSituasjon.selvstendigHvorfor")}
+                description={<HvorforSpoerVi>{t("dinSituasjon.selvstendigHvorfor")}</HvorforSpoerVi>}
                 radios={Object.values(ArbeidsforholdType).map(value => {
                     return { label: t(value), value } as RadioProps;
                 })}

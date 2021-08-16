@@ -3,6 +3,7 @@ import { Undertittel } from "nav-frontend-typografi";
 import { RHFBicInput, RHFIbanInput, RHFInput } from "../../../felles/RHFInput";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import Hjelpetekst from "nav-frontend-hjelpetekst";
 
 const UtenlandskBankInfo = () => {
     const { t } = useTranslation()
@@ -30,16 +31,24 @@ const UtenlandskBankInfo = () => {
             <SkjemaGruppe>
                 <RHFIbanInput
                     name={"utbetalingsInformasjon.iban"}
-                    label={t("omDeg.utbetalingsInformasjon.iban")}
-                    hjelpetekstIkon={t("omDeg.utbetalingsInformasjon.ibanHjelpetekst")}
+                    label={(
+                        <>
+                            {t("omDeg.utbetalingsInformasjon.iban")}
+                            &nbsp;<Hjelpetekst>{t("omDeg.utbetalingsInformasjon.ibanHjelpetekst")}</Hjelpetekst>
+                        </>
+                    )}
                 />
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <RHFBicInput
                     name={"utbetalingsInformasjon.swift"}
-                    label={t("omDeg.utbetalingsInformasjon.swift")}
-                    hjelpetekstIkon={t("omDeg.utbetalingsInformasjon.swiftHjelpetekst")}
+                    label={(
+                        <>
+                            {t("omDeg.utbetalingsInformasjon.swift")}
+                            &nbsp;<Hjelpetekst>{t("omDeg.utbetalingsInformasjon.swiftHjelpetekst")}</Hjelpetekst>
+                        </>
+                    )}
                 />
             </SkjemaGruppe>
         </>

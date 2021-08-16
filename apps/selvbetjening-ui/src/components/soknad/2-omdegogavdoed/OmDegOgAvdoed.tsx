@@ -17,6 +17,7 @@ import Navigasjon from "../../felles/Navigasjon";
 import React from "react";
 import { erDato } from "../../../utils/dato";
 import { Cell, Grid } from "@navikt/ds-react";
+import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t, i18n } = useTranslation();
@@ -99,7 +100,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                     <RHFToValgRadio
                         name={"avdoed.doedsfallAarsak"}
                         legend={t("omDegOgAvdoed.avdoed.doedsfallAarsak")}
-                        hjelpetekst={t("omDegOgAvdoed.avdoed.doedsfallAarsakHvorfor")}
+                        description={<HvorforSpoerVi>{t("omDegOgAvdoed.avdoed.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
                         vetIkke
                     />
 

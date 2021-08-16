@@ -6,6 +6,7 @@ import { RHFToValgRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useTranslation } from "react-i18next";
 import { SkjemaGruppe } from "nav-frontend-skjema";
+import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 
 const GiftMedAvdoede = () => {
     const { t } = useTranslation();
@@ -23,7 +24,11 @@ const GiftMedAvdoede = () => {
                 <Datovelger
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
                     label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
-                    hjelpetekst={t("omDegOgAvdoed.forholdTilAvdoede.hvorforDatoForInngaattPartnerskap")}
+                    description={
+                        <HvorforSpoerVi>
+                            {t("omDegOgAvdoed.forholdTilAvdoede.hvorforDatoForInngaattPartnerskap")}
+                        </HvorforSpoerVi>
+                    }
                 />
             </SkjemaGruppe>
 
@@ -44,6 +49,6 @@ const GiftMedAvdoede = () => {
             )}
         </>
     )
-}
+};
 
 export default GiftMedAvdoede;
