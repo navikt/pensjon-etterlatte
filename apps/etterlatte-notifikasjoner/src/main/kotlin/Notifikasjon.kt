@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -23,10 +24,12 @@ import java.time.ZoneOffset
 import java.time.temporal.ChronoUnit
 
 
+@DelicateCoroutinesApi
 class Notifikasjon(sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsConnection) :
 
     River.PacketListener {
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val sendNotifikasjon = sendNotifikasjon
 
     init {
         River(rapidsConnection).apply {
@@ -66,7 +69,7 @@ class Notifikasjon(sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsC
             val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
             val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
 
-
+            sendNotifikasjon.sendMessage(notifikasjon)
 
             packet["@notifikasjon"] = notifikasjonJson
             context.publish(packet.toJson())
