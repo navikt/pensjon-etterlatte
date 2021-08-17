@@ -5,6 +5,8 @@ import no.nav.brukernotifikasjon.schemas.Nokkel
 import no.nav.brukernotifikasjon.schemas.builders.NokkelBuilder
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.net.InetAddress
 import java.util.*
 
@@ -19,7 +21,7 @@ class SendNotifikasjon (env: Map<String, String>){
     private val schemaRegistry = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"]
     private val trustStorePassword = env["NAV_TRUSTSTORE_PASSWORD"]
     private val trustStore = env["NAV_TRUSTSTORE_PATH"]
-
+    private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
     fun startuptask() {
         producer = KafkaProducer(
@@ -42,7 +44,7 @@ class SendNotifikasjon (env: Map<String, String>){
             notifikasjon
         ).let { producerRecord ->
             producer?.send(producerRecord)?.get()
-
+            println("melding sendt på ${producer.toString()} med ${systembruker.toString()} med $notifikasjon")
         }
     }
 

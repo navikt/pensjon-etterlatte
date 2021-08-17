@@ -5,9 +5,6 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import no.nav.brukernotifikasjon.schemas.Beskjed
 import no.nav.brukernotifikasjon.schemas.builders.BeskjedBuilder
@@ -25,13 +22,13 @@ import java.time.temporal.ChronoUnit
 
 
 @DelicateCoroutinesApi
-class Notifikasjon(sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsConnection) :
+class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsConnection) :
 
     River.PacketListener {
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
-    private val sendNotifikasjon = sendNotifikasjon
 
     init {
+        sendNotifikasjon.startuptask()
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@dokarkivRetur") }
@@ -39,13 +36,15 @@ class Notifikasjon(sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsC
             validate { it.rejectKey("@notifikasjon") }
         }.register(this)
 
-        GlobalScope.launch {
+        /*GlobalScope.launch {
             logger.info("venter 30s for sidecars")
             delay(30L * 1000L)
             logger.info("starter kafka producer")
-            sendNotifikasjon.startuptask()
+            println("--------------starta producer----------")
+            //sendNotifikasjon.startuptask()
 
-        }
+       }
+         */
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
@@ -69,8 +68,8 @@ class Notifikasjon(sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsC
             val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
             val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
 
+            logger.info("Prøver å sende en notifikasjon")
             sendNotifikasjon.sendMessage(notifikasjon)
-
             packet["@notifikasjon"] = notifikasjonJson
             context.publish(packet.toJson())
             logger.info("Notifikasjon til bruker opprettet")
