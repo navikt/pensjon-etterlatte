@@ -7,7 +7,7 @@ import Soeknad from "./components/soknad/Soeknad";
 import Lenke from "nav-frontend-lenker";
 import { ContentContainer } from "@navikt/ds-react";
 
-const isDevEnv = process.env.NODE_ENV !== "production";
+const isDevEnv = true; //process.env.NODE_ENV !== "production";
 
 const App = () => {
     return (
