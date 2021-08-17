@@ -98,11 +98,10 @@ const testErrors = {
     },
 };
 
-describe("Test konvertering", () => {
-    it("Feilmelding skal ikke feile på ordet type", () => {
+describe("Konverter feilmeldinger", () => {
+    it('Feilmelding skal konvertere seks feil, inkludert en med property "type"', () => {
         const { t } = useTranslation();
-
         const res = konverterFeilmeldinger(testErrors, t);
-        console.log(res);
+        expect(res.length).toBe(6);
     });
 });
