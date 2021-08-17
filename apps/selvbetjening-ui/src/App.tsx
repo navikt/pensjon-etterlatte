@@ -7,7 +7,7 @@ import Soeknad from "./components/soknad/Soeknad";
 import Lenke from "nav-frontend-lenker";
 import { ContentContainer } from "@navikt/ds-react";
 
-const isDevEnv = true; //process.env.NODE_ENV !== "production";
+const isDevEnv = true; //process.env.REACT_APP_ENVIRONMENT !== "production"; Må fikses når det skilles mellom prod/dev/qa
 
 const App = () => {
     return (

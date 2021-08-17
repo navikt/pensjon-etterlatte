@@ -104,7 +104,9 @@
     "winston": "3.3.3"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "env REACT_APP_ENVIRONMENT=development craco start",
+    "build:dev": "env REACT_APP_ENVIRONMENT=development craco build",
+    "build:prod": "env REACT_APP_ENVIRONMENT=production craco build",
     "build": "craco build",
     "server": "node ./server/server.js",
     "server:dev": "NODE_ENV=dev node ./server/server.js",
