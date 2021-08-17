@@ -7,15 +7,16 @@ import Soeknad from "./components/soknad/Soeknad";
 import Lenke from "nav-frontend-lenker";
 import { ContentContainer } from "@navikt/ds-react";
 
+const isDevEnv = process.env.NODE_ENV !== "production";
+
 const App = () => {
     return (
         <>
-            <Banner tekst={"Søknad om gjenlevendepensjon"}/>
-
+            <Banner tekst={"Søknad om gjenlevendepensjon"} />
             <ContentContainer className={"soeknad"}>
                 <Switch>
                     {/* TODO: Kun støtte i dev og Q, ikke prod. Krever litt endringer i appen. */}
-                    <Route path={"/labs"} component={DevLabs} />
+                    {isDevEnv && <Route path={"/labs"} component={DevLabs} />}
 
                     <Route path={"/ugyldig-alder"} component={UgyldigSoeker} />
 
@@ -24,9 +25,8 @@ const App = () => {
                     <Route component={SideIkkeFunnet} />
                 </Switch>
             </ContentContainer>
-
-            {/* TODO: Kun være synlig i dev/localhost */}
-            <Lenke className={"labs-lenke"} href={"/labs"} />
+            {/* Skal kun være synlig i dev/localhost */}
+            {isDevEnv && <Lenke className={"labs-lenke"} href={"/labs"} />}
         </>
     );
 };
