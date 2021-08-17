@@ -52,7 +52,7 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
 
         runBlocking {
             val dto = ProduceBeskjedDto(
-                tekst = "Vi bekrefter å ha mottat din søknad om Etterlatteytelse",
+                tekst = "Vi har mottatt søknaden din om gjenlevendepensjon",
                 link = null,
                 grupperingsid = "ETTERLATTE",
                 eksternVarsling = true,
