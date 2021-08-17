@@ -73,7 +73,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             SELECT s.id, s.data FROM soeknad s
             WHERE s.fnr = ? AND NOT EXISTS ( 
               select 1 from hendelse h where h.soeknad = s.id 
-              AND h.status = '${Status.ferdigstilt}')""".trimIndent()
+              AND h.status in ('${Status.ferdigstilt}', '${Status.arkiveringsfeil}','${Status.arkivert}' ,'${Status.sendt}'))""".trimIndent()
 
 
         fun using(datasource: DataSource): PostgresSoeknadRepository{
