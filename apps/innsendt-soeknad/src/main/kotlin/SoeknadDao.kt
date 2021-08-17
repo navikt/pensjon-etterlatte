@@ -24,6 +24,7 @@ interface StatistikkRepository {
     fun eldsteUsendte(): LocalDateTime?
     fun eldsteUarkiverte(): LocalDateTime?
     fun rapport(): Map<String, Long>
+    fun ukategorisert(): List<Long>
 }
 
 class PostgresSoeknadRepository private constructor (private val dataSource: DataSource): SoeknadRepository, StatistikkRepository {
@@ -195,6 +196,16 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             }.asList)
         }
     }.toMap()
+
+    override fun ukategorisert(): List<Long> {
+        return using(sessionOf(dataSource)) { session ->
+            session.transaction {
+                it.run(queryOf(
+                    """SELECT s.id FROM soeknad s where s.id not in (select soeknad from hendelse )""", emptyMap()).map {
+                    it.long("id")
+                }.asList)
+            }
+        }    }
 
     private fun Row.postgresLocalDate(columnIndex: Int) =
         localDateTimeOrNull(columnIndex)

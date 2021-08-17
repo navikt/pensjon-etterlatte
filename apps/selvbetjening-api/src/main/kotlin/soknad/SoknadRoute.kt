@@ -37,6 +37,9 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.videresendSoeknad(
 }
 
 private suspend fun PipelineContext<Unit, ApplicationCall>.svarKlient(resultat: Pair<String?, List<Exception>>) {
+    resultat.first?.also {
+        call.application.environment.log.info("Lagret ny søknad med id $it")
+    }
     call.respond(resultat.first ?: HttpStatusCode.InternalServerError.also { loggSisteFeil(resultat.second) })
 }
 
