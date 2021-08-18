@@ -4,9 +4,9 @@ env:
 extends:
   # Kan også bruke DISABLE_ESLINT_PLUGIN=true 
   #- 'eslint:recommended'
-  #- 'plugin:react/recommended'
-  #- 'plugin:@typescript-eslint/recommended'
-  - 'plugin:jsx-a11y/recommended'
+  - 'plugin:react/recommended'
+  - 'plugin:@typescript-eslint/recommended'
+  #- 'plugin:jsx-a11y/recommended'
   #- 'plugin:jest/recommended'
 ignorePatterns: 
   - 'node_modules/*'
@@ -29,7 +29,12 @@ rules: {
      'react/prop-types': 'off',
      '@typescript-eslint/explicit-module-boundary-types': 'off',
      '@typescript-eslint/no-var-requires': 'off',
-     '@typescript-eslint/no-empty-function': 'off'
+     '@typescript-eslint/no-empty-function': 'off',
+     'react/display-name': 'off',
+     '@typescript-eslint/no-empty-interface': 'off',
+     '@typescript-eslint/no-extra-non-null-assertion': 'off',
+     '@typescript-eslint/ban-types': 'off',
+     '@typescript-eslint/no-non-null-assertion': 'off'
 }
 globals: 
   'process': true

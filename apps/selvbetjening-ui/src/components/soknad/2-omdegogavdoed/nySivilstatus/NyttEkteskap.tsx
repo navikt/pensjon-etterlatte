@@ -12,15 +12,15 @@ import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 const NyttEkteskap = () => {
     const { t } = useTranslation();
 
-    const { watch } = useFormContext<ISoeker>()
+    const { watch } = useFormContext<ISoeker>();
 
-    const fremdelesGift = watch("nySivilstatus.ekteskap.fremdelesGift")
-    const aarsakForOpploesningen = watch("nySivilstatus.ekteskap.aarsakForOpploesningen")
+    const fremdelesGift = watch("nySivilstatus.ekteskap.fremdelesGift");
+    const aarsakForOpploesningen = watch("nySivilstatus.ekteskap.aarsakForOpploesningen");
 
-    const inngaattDato = watch("nySivilstatus.ekteskap.inngaattDato")
-    const opploestDato = watch("nySivilstatus.ekteskap.opploestDato")
+    const inngaattDato = watch("nySivilstatus.ekteskap.inngaattDato");
+    const opploestDato = watch("nySivilstatus.ekteskap.opploestDato");
 
-    let gyldigVarighet = nySivilstatusHarGyldigVarighet(inngaattDato, opploestDato);
+    const gyldigVarighet = nySivilstatusHarGyldigVarighet(inngaattDato, opploestDato);
 
     return (
         <>
@@ -39,16 +39,18 @@ const NyttEkteskap = () => {
                                 {t("omDegOgAvdoed.nySivilstatus.ekteskap.hvorforAarsakOpploesning")}
                             </HvorforSpoerVi>
                         }
-                        radios={[
-                            {
-                                label: t(OpploesningAarsak.doedsfall),
-                                value: OpploesningAarsak.doedsfall
-                            },
-                            {
-                                label: t(OpploesningAarsak.skilsmisse),
-                                value: OpploesningAarsak.skilsmisse
-                            }
-                        ] as RadioProps[]}
+                        radios={
+                            [
+                                {
+                                    label: t(OpploesningAarsak.doedsfall),
+                                    value: OpploesningAarsak.doedsfall,
+                                },
+                                {
+                                    label: t(OpploesningAarsak.skilsmisse),
+                                    value: OpploesningAarsak.skilsmisse,
+                                },
+                            ] as RadioProps[]
+                        }
                     />
                 </>
             )}
@@ -78,7 +80,7 @@ const NyttEkteskap = () => {
                 </SkjemaGruppe>
             )}
         </>
-    )
+    );
 };
 
 export default NyttEkteskap;

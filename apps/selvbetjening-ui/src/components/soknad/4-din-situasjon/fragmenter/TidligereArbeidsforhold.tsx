@@ -16,10 +16,10 @@ const TidligereArbeidsforhold = () => {
     const { t } = useTranslation();
 
     const { control } = useFormContext<ISituasjon>();
-    const { fields, append, remove } = useFieldArray({
+    const { fields, append, remove } = useFieldArray<any>({
         control,
         name: "tidligereArbeidsforhold",
-        shouldUnregister: true
+        shouldUnregister: true,
     });
 
     return (
@@ -28,7 +28,7 @@ const TidligereArbeidsforhold = () => {
             <SkjemaGruppe>
                 <Undertittel>{t("dinSituasjon.tidligereArbeidsforhold.tittel")}</Undertittel>
 
-                <br/>
+                <br />
 
                 <AlertStripe type={"info"} form={"inline"}>
                     {t("dinSituasjon.tidligereArbeidsforhold.info")}
@@ -66,7 +66,8 @@ const TidligereArbeidsforhold = () => {
                                         className={"skjemaelement"}
                                         onClick={() => remove(index)}
                                     >
-                                        <DeleteFilled/>&nbsp; {t("knapp.fjern")}
+                                        <DeleteFilled />
+                                        &nbsp; {t("knapp.fjern")}
                                     </Fareknapp>
                                 </div>
                             </Cell>
@@ -74,7 +75,6 @@ const TidligereArbeidsforhold = () => {
                     </Panel>
                 ))}
 
-                {/* @ts-ignore */}
                 <Flatknapp htmlType={"button"} onClick={() => append({}, { shouldFocus: true })}>
                     + {t("knapp.leggTil")}
                 </Flatknapp>

@@ -13,12 +13,12 @@ const SamboerMedAvdoede = () => {
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
 
-    const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap")
+    const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap");
     const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
     const tidligereGift = watch("forholdTilAvdoede.tidligereGift");
     const omsorgForBarn = watch("forholdTilAvdoede.omsorgForBarn");
 
-    let partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
+    const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
 
     return (
         <>
@@ -43,33 +43,33 @@ const SamboerMedAvdoede = () => {
             )}
 
             {tidligereGift === IValg.JA && (
-              <>
-                  <SkjemaGruppe>
-                      <Datovelger
-                          name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
-                          label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
-                      />
-                  </SkjemaGruppe>
+                <>
+                    <SkjemaGruppe>
+                        <Datovelger
+                            name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
+                            label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
+                        />
+                    </SkjemaGruppe>
 
-                  {partnerskapMindreEnnFemAar && (
-                      // TODO: Sjekke om denne kan ha lik tittel som tilsvarende element under GiftMedAvdoede.tsx
-                      <RHFSpoersmaalRadio
-                          name={"forholdTilAvdoede.omsorgForBarn"}
-                          legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
-                      />
-                  )}
+                    {partnerskapMindreEnnFemAar && (
+                        // TODO: Sjekke om denne kan ha lik tittel som tilsvarende element under GiftMedAvdoede.tsx
+                        <RHFSpoersmaalRadio
+                            name={"forholdTilAvdoede.omsorgForBarn"}
+                            legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
+                        />
+                    )}
 
-                  {omsorgForBarn === IValg.NEI && (
-                      <SkjemaGruppe>
-                          <AlertStripeAdvarsel>
-                              {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                          </AlertStripeAdvarsel>
-                      </SkjemaGruppe>
-                  )}
-              </>
+                    {omsorgForBarn === IValg.NEI && (
+                        <SkjemaGruppe>
+                            <AlertStripeAdvarsel>
+                                {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
+                            </AlertStripeAdvarsel>
+                        </SkjemaGruppe>
+                    )}
+                </>
             )}
         </>
-    )
+    );
 };
 
 export default SamboerMedAvdoede;

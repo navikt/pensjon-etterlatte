@@ -19,28 +19,27 @@ const BoddEllerArbeidetUtland = () => {
 
     const { control, watch } = useFormContext<IAvdoed>();
 
-    const boddEllerArbeidetUtland = watch("boddEllerJobbetUtland.svar")
+    const boddEllerArbeidetUtland = watch("boddEllerJobbetUtland.svar");
 
     // TODO: støtte fjerning av element
-    const { fields, append, remove } = useFieldArray({
+    const { fields, append, remove } = useFieldArray<any>({
         control,
         name: "boddEllerJobbetUtland.oppholdUtland",
-        shouldUnregister: true
+        shouldUnregister: true,
     });
 
     useEffect(() => {
         if (fields.length === 0) {
-            // @ts-ignore
             append({});
         }
-    })
+    });
 
     return (
         <>
             <RHFSpoersmaalRadio
                 name={"boddEllerJobbetUtland.svar"}
                 legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
-                description={<HvorforSpoerVi>t("omDenAvdoede.boddEllerJobbetUtland.hjelpetekst")</HvorforSpoerVi>}
+                description={<HvorforSpoerVi>{t("omDenAvdoede.boddEllerJobbetUtland.hjelpetekst")}</HvorforSpoerVi>}
                 vetIkke
             />
 
@@ -61,7 +60,7 @@ const BoddEllerArbeidetUtland = () => {
                                     className={"kol inline"}
                                     checkboxes={[
                                         { label: "Bodd", value: "Bodd" },
-                                        { label: "Arbeidet", value: "Arbeidet" }
+                                        { label: "Arbeidet", value: "Arbeidet" },
                                     ]}
                                 />
                             </div>
@@ -91,19 +90,31 @@ const BoddEllerArbeidetUtland = () => {
                                 name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygdUtland` as const}
                                 legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtland")}
                                 description={
-                                    <HvorforSpoerVi>t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtlandHjelpetekst")</HvorforSpoerVi>
+                                    <HvorforSpoerVi>
+                                        {t(
+                                            "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtlandHjelpetekst"
+                                        )}
+                                    </HvorforSpoerVi>
                                 }
                                 vetIkke
                             />
 
                             <RHFInput
-                                name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const}
+                                name={
+                                    `boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const
+                                }
                                 label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
-                                description={<HvorforSpoerVi>{t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.hjelpetekst")}</HvorforSpoerVi>}
+                                description={
+                                    <HvorforSpoerVi>
+                                        {t(
+                                            "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.hjelpetekst"
+                                        )}
+                                    </HvorforSpoerVi>
+                                }
                             />
 
                             {fields.length > 1 && (
-                                <div style={{textAlign: "right"}}>
+                                <div style={{ textAlign: "right" }}>
                                     <Flatknapp onClick={() => remove(index)}>
                                         <DeleteFilled /> &nbsp;Fjern
                                     </Flatknapp>
@@ -112,7 +123,6 @@ const BoddEllerArbeidetUtland = () => {
                         </Panel>
                     ))}
 
-                    {/* @ts-ignore */}
                     <Flatknapp htmlType={"button"} onClick={() => append({}, { shouldFocus: true })}>
                         + {t("knapp.leggTil")}
                     </Flatknapp>

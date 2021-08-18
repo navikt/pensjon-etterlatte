@@ -11,7 +11,10 @@ import { IBarn, IOmBarn } from "../../../../typer/person";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
 import { Panel } from "@navikt/ds-react";
 
-const OppsummeringOmBarn = ({ opplysningerOmBarn, senderSoeknad }: {
+const OppsummeringOmBarn = ({
+    opplysningerOmBarn,
+    senderSoeknad,
+}: {
     opplysningerOmBarn: IOmBarn;
     senderSoeknad: boolean;
 }) => {
@@ -25,29 +28,31 @@ const OppsummeringOmBarn = ({ opplysningerOmBarn, senderSoeknad }: {
 
     return (
         <Ekspanderbartpanel tittel={t("omBarn.tittel")} className={"oppsummering"} apen={true}>
-            {opplysningerOmBarn.barn?.map((barn) => {
+            {opplysningerOmBarn.barn?.map((barn, i: number) => {
                 const tekster: any[] = otr.traverse<IBarn>(barn, "omBarn");
 
                 return (
-                    <SkjemaGruppe legend={`${barn.fornavn} ${barn.etternavn}`}>
+                    <SkjemaGruppe key={`${barn.foedselsnummer}_${i}`} legend={`${barn.fornavn} ${barn.etternavn}`}>
                         <Panel border>
                             {tekster.map(({ key, val }) => (
-                                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)}/>
+                                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} />
                             ))}
                         </Panel>
                     </SkjemaGruppe>
-                )
+                );
             })}
 
-            <TekstGruppe tittel={t("omBarn.gravidEllerNyligFoedt")}
-                         innhold={t(opplysningerOmBarn.gravidEllerNyligFoedt!)}/>
+            <TekstGruppe
+                tittel={t("omBarn.gravidEllerNyligFoedt")}
+                innhold={t(opplysningerOmBarn.gravidEllerNyligFoedt!)}
+            />
 
             <Lenke href={`/soknad/steg/${StegPath.OmBarn}`} className={senderSoeknad ? "disabled" : ""}>
-                <EditFilled/>
+                <EditFilled />
                 <span>{t("felles.endreSvar")}</span>
             </Lenke>
         </Ekspanderbartpanel>
-    )
-}
+    );
+};
 
 export default OppsummeringOmBarn;
