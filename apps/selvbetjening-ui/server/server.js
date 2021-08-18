@@ -5,7 +5,7 @@ const logger = require("./logger");
 const proxy = require("./proxy");
 const config = require("./config");
 const auth = require("./auth");
-const { setupSession } = require("./session");
+const { appSession } = require("./session");
 const { generators, TokenSet } = require("openid-client");
 
 const buildPath = path.resolve(__dirname, "../build");
@@ -13,7 +13,7 @@ const basePath = config.basePath;
 const app = express();
 
 app.set("trust proxy", 1);
-app.use(setupSession());
+app.use(appSession);
 app.use(basePath, express.static(buildPath, { index: false }));
 
 app.get(`${basePath}/login`, async (req, res) => {
@@ -23,8 +23,10 @@ app.get(`${basePath}/login`, async (req, res) => {
     res.redirect(auth.authUrl(session));
 });
 
-// TODO: Logout og slette sesjon
-// app.get(`${basePath}/logout`)
+app.get(`${basePath}/logout`, async (req, res) => {
+    appSession.destroySessionBySid(req.query.sid);
+    res.sendStatus(200);
+});
 
 app.get(`${basePath}/oauth2/callback`, async (req, res) => {
     const session = req.session;

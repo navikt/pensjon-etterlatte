@@ -39,6 +39,27 @@ const setupRedis = () => {
     });
 };
 
+const appSession = setupSession();
+
+appSession.destroySessionBySid = (sid) => {
+    return new Promise((resolve, reject) => {
+        options.store.all((err, result) => {
+            if (err) {
+                return reject(err)
+            }
+
+            const sessionToDestroy = result.find((session) => {
+                return session.idportenSid && session.idportenSid === sid
+            })
+
+            if (sessionToDestroy) {
+                options.store.destroy(sessionToDestroy.id)
+            }
+            return resolve()
+        })
+    })
+}
+
 module.exports = {
-    setupSession,
+    appSession,
 };
