@@ -37,8 +37,7 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    redirectURI: "https://etterlatteytelser.dev.nav.no/oauth2/callback"
-    frontchannelLogoutURI: "https://etterlatteytelser.dev.nav.no/logout"
+    frontchannelLogoutPath: "/logout"
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
