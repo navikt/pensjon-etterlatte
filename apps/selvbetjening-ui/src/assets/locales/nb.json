@@ -432,7 +432,7 @@
         "required": "Oppgi når dødsfallet skjedde"
       },
       "doedsfallAarsak": {
-        "required": "Oppgi årsaken til dødsfallet"
+        "required": "Oppgi om dødsfallet skyldes yrkesskade/yrkessykdom"
       }
     },
     "forholdTilAvdoede": {
