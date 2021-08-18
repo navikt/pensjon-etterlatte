@@ -14,7 +14,7 @@ export const hentAlder = (foedselsdato: Date | string): number => {
 
 // Støtter også D-nummer.
 export const hentAlderFraFoedselsnummer = (foedselsnummer: string): number => {
-    let foedselsDato = navFaker.personIdentifikator.getFødselsdato(foedselsnummer)
+    const foedselsDato = navFaker.personIdentifikator.getFødselsdato(foedselsnummer)
 
     return hentAlder(foedselsDato)
 }
