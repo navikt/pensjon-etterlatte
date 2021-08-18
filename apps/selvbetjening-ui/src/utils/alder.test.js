@@ -1,4 +1,4 @@
-import { erForGammel, erForUng, gyldigAlder } from "./alder";
+import { erForGammel, erForUng, erMyndig, gyldigAlder } from "./alder";
 
 describe("Test at funksjoner for alder fungerer", () => {
     it("Sjekk at alder er gyldig", () => {
@@ -41,4 +41,13 @@ describe("Test at funksjoner for alder fungerer", () => {
         // Alt over 68 skal være true
         expect(erForGammel(68)).toBeTruthy();
     });
+
+    it("Sjekk om alderen regnes som myndig", () => {
+        // Alt under 17 skal være false
+        expect(erMyndig(17)).toBeFalsy()
+
+        // Alt f.o.m 18 skal være true
+        expect(erMyndig(18)).toBeTruthy()
+        expect(erMyndig(20)).toBeTruthy()
+    })
 });

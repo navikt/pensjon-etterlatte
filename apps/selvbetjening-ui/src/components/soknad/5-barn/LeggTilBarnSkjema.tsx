@@ -8,7 +8,9 @@ import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from "../../fel
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { Undertittel } from "nav-frontend-typografi";
-import AlertStripe from "nav-frontend-alertstriper";
+import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
+import { erMyndig } from "../../../utils/alder";
+import { fnr } from "@navikt/fnrvalidator";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -36,7 +38,17 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
     const bosattUtland = watch("bosattUtland.svar")
     const brukeAnnenKonto = watch("brukeAnnenKonto.svar")
     const relasjon = watch("relasjon")
+    const foedselsnummer = watch("foedselsnummer")
     const soekerBarnepensjon = watch("soekerBarnepensjon")
+
+    const kanSoekeOmBarnepensjon = (): boolean => {
+        if (foedselsnummer && (fnr(foedselsnummer).status === 'valid')) {
+            const alder = hentAlderFraFoedselsnummer(foedselsnummer)
+            return !erMyndig(alder)
+        }
+
+        return false
+    }
 
     return (
         <FormProvider {...methods}>
@@ -106,15 +118,12 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                 {relasjon === BarnRelasjon.fellesbarnMedAvdoede && (
                     <>
-                        <RHFSpoersmaalRadio
-                            name={"soekerBarnepensjon"}
-                            legend={t("omBarn.soekerBarnepensjon")}
-                            description={
-                                <AlertStripe type={"advarsel"} form={"inline"}>
-                                    {t("omBarn.soekerBarnepensjonInfo")}
-                                </AlertStripe>
-                            }
-                        />
+                        {kanSoekeOmBarnepensjon() && (
+                            <RHFSpoersmaalRadio
+                                name={"soekerBarnepensjon"}
+                                legend={t("omBarn.soekerBarnepensjon")}
+                            />
+                        )}
 
                         {soekerBarnepensjon === IValg.JA && (
                             <>
