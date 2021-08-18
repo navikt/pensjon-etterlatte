@@ -4,7 +4,7 @@ import { Hovedknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
-import { RHFInput, RHFKontonummerInput } from "../../felles/RHFInput";
+import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from "../../felles/RHFInput";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { Undertittel } from "nav-frontend-typografi";
@@ -66,7 +66,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                         </div>
                     </div>
 
-                    <RHFInput
+                    <RHFFoedselsnummerInput
                         name={"foedselsnummer"}
                         label={t("omBarn.foedselsnummer")}
                     />
