@@ -56,11 +56,7 @@ internal class NotifikasjonTest {
             }.inspektør
 
         assertEquals("07106123912", inspector.message(0).get("@fnr_soeker").asText())
-        assertEquals("Vi bekrefter å ha mottat din søknad om Etterlatteytelse", inspector.message(0).get("@notifikasjon").get("tekst").asText())
-        assertEquals("", inspector.message(0).get("@notifikasjon").get("link").asText())
-        assertEquals("ETTERLATTE", inspector.message(0).get("@notifikasjon").get("grupperingsId").asText())
-        assertTrue(inspector.message(0).get("@notifikasjon").get("eksternVarsling").asBoolean())
-        assertEquals("SMS", inspector.message(0).get("@notifikasjon").get("prefererteKanaler")[0].asText())
+        assertEquals("Notifikasjon sendt til bruker", inspector.message(0).get("@notifikasjon").asText())
         embeddedKafkaEnvironment.tearDown()
 
     }

@@ -21,7 +21,7 @@ class SendNotifikasjon (env: Map<String, String>){
     private val schemaRegistry = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"]
     private val trustStorePassword = env["NAV_TRUSTSTORE_PASSWORD"]
     private val trustStore = env["NAV_TRUSTSTORE_PATH"]
-    private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val acksConfig = "all"
 
     fun startuptask() {
         producer = KafkaProducer(
@@ -33,7 +33,7 @@ class SendNotifikasjon (env: Map<String, String>){
                 schemaRegistryUrl = schemaRegistry,
                 truststorePassword = trustStorePassword,
                 truststore = trustStore,
-                acksConfig = "all"
+                acksConfig = acksConfig
             ).producerConfig()
         )
     }
@@ -44,7 +44,6 @@ class SendNotifikasjon (env: Map<String, String>){
             notifikasjon
         ).let { producerRecord ->
             producer?.send(producerRecord)?.get()
-            //logger.info("melding sendt på ${producer.toString()} med ${systembruker.toString()} på $brukernotifikasjontopic med følgende record: $notifikasjon")
         }
     }
 

@@ -1,10 +1,5 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import no.nav.brukernotifikasjon.schemas.Beskjed
 import no.nav.brukernotifikasjon.schemas.builders.BeskjedBuilder
@@ -23,9 +18,14 @@ import java.time.temporal.ChronoUnit
 
 @DelicateCoroutinesApi
 class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsConnection) :
-
     River.PacketListener {
+
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val notifikasjonsTekst = "Vi har mottatt søknaden din om gjenlevendepensjon"
+    private val notifikasjonsUrl  = null
+    private val grupperingsId = "ETTERLATTE"
+    private val eksternVarsling = true
+    private val prefererteKanaler = listOf("SMS", "EPOST")
 
     init {
         sendNotifikasjon.startuptask()
@@ -36,15 +36,6 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             validate { it.rejectKey("@notifikasjon") }
         }.register(this)
 
-        /*GlobalScope.launch {
-            logger.info("venter 30s for sidecars")
-            delay(30L * 1000L)
-            logger.info("starter kafka producer")
-            println("--------------starta producer----------")
-            //sendNotifikasjon.startuptask()
-
-       }
-         */
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
@@ -52,18 +43,12 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
 
         runBlocking {
             val dto = ProduceBeskjedDto(
-                tekst = "Vi har mottatt søknaden din om gjenlevendepensjon",
-                link = null,
-                grupperingsid = "ETTERLATTE",
-                eksternVarsling = true,
-                prefererteKanaler = listOf("SMS", "EPOST")
-                //prefererteKanaler = emptyList()
-
+                tekst = notifikasjonsTekst,
+                link = notifikasjonsUrl,
+                grupperingsid = grupperingsId,
+                eksternVarsling = eksternVarsling,
+                prefererteKanaler = prefererteKanaler
             )
-            val objectMapper = jacksonObjectMapper()
-                .registerModule(JavaTimeModule())
-                .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-                .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
 
             val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
             val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
@@ -72,7 +57,7 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             packet["@notifikasjon"] = notifikasjonJson
             context.publish(packet.toJson())
             logger.info("Notifikasjon til bruker opprettet")
-        }
+        }   
     }
 }
 
