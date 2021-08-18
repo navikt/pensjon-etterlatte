@@ -125,7 +125,7 @@
         "beskrivelse": "Hva har du søkt om?"
       },
       "mottarPensjonUtland": {
-        "svar": "Mottar du pensjon fra utlandet?",
+        "svar": "Mottar du pensjon fra et annet land enn Norge?",
         "hvorfor": "Dette trenger vi for å vurdere medlemskapet ditt i folketrygden.",
         "hvaSlagsPensjon": "Hva slags pensjon?",
         "fraHvilketLand": "Fra hvilket land?",
@@ -140,10 +140,10 @@
     "bostedsadresseBekreftet": "Bor du på denne adressen?",
     "alternativAdresse": "Oppgi nåværende bostedsadresse",
     "oppholderSegINorge": "Oppholder du deg for tiden i Norge?",
-    "oppholdHvorfor": "Vi må vite hvor du oppholder deg for å vurdere retten til å ta med deg pensjonen til utlandet.",
+    "oppholdHvorfor": "Vi må vite hvor du oppholder deg for å vurdere retten til å ta med deg pensjonen til et annet land enn Norge.",
     "oppgiLand": "Oppgi land",
     "infoFolkeregisteret": "Saksbehandler vil ta kontakt med deg for å oppdrive korrekt adresse.",
-    "medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i utlandet?",
+    "medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i et annet land enn Norge?",
     "flyktning": "Har du status som flyktning? <i>(gjelder alle født før 1960)</i>",
     "flyktningHvorfor": "Hvis du er registrert som flyktning hos UDI kan vi vurdere søknaden din ut fra spesielle bestemmelser.",
     "kontaktinfo": {
@@ -230,15 +230,15 @@
     "bosetning": "Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?",
     "doedsfallAarsak": "Kan dødsfallet være en følge av yrkesskade/yrkessykdom?",
     "boddEllerJobbetUtland": {
-      "svar": "Hadde den avdøde bodd eller arbeidet i utlandet etter fylte 16 år?",
-      "hjelpetekst": "Ved arbeid og opphold i utlandet kan du ha rettigheter til pensjon fra dette landet.",
+      "svar": "Hadde den avdøde bodd eller arbeidet i et annet land enn Norge etter fylte 16 år?",
+      "hjelpetekst": "Ved arbeid og opphold i andre land enn Norge kan du ha rettigheter til pensjon fra dette landet.",
       "oppholdUtland": {
         "land": "Land",
         "beskrivelse": "Bodd og/eller arbeidet?",
         "fraDato": "Fra dato",
         "tilDato": "Til dato",
         "medlemFolketrygdUtland": "Var han/hun medlem av folketrygden under oppholdet?",
-        "medlemFolketrygdUtlandHjelpetekst": "Perioder i utlandet kan tas med i beregningen hvis han/hun var medlem i folketrygden.",
+        "medlemFolketrygdUtlandHjelpetekst": "Perioder i andre land enn Norge kan tas med i beregningen hvis han/hun var medlem i folketrygden.",
         "mottokPensjon": {
           "hjelpetekst": "Dette trenger vi for å vurdere avdødes medlemskap i folketrygden.",
           "beskrivelse": "Oppgi eventuell pensjon han/hun mottok fra dette landet (per år i kr.)"
@@ -276,15 +276,15 @@
     "statsborgerskap": "Statsborgerskap",
     "statsborger": "statsborger",
     "borI": "Bor i",
-    "borUtenlands": "Bosatt i utlandet",
+    "borUtenlands": "Bosatt i et annet land enn Norge",
     "dagligOmsorg": "Har du daglig omsorg for dette barnet?",
     "soektOmBarnepensjon": "Søkt om barnepensjon",
     "soekerBarnepensjon": "Ønsker du å søke om barnepensjon for barnet?",
     "soekerBarnepensjonInfo": "Barn over 18 år må selv søke om barnepensjon",
     "bosattUtland": {
-      "svar": "Bor barnet i utlandet?",
+      "svar": "Bor barnet i et annet land enn Norge?",
       "land": "Land",
-      "adresse": "Adresse i utlandet"
+      "adresse": "Adresse"
     },
     "gravidEllerNyligFoedt": "Venter du eller har du nylig fått barn som foreløpig ikke er registrert i Folkeregisteret?",
     "valgfritt": "Dette er valgfritt"
@@ -396,7 +396,7 @@
     },
     "boddEllerJobbetUtland": {
       "svar": {
-        "required": "Oppgi om den avdøde har bodd eller jobbet i utlandet"
+        "required": "Oppgi om den avdøde har bodd eller jobbet i et annet land enn Norge"
       },
       "oppholdUtland": {
         "land": {
@@ -419,7 +419,7 @@
       "required": "Oppgi nåværende oppholdsland"
     },
     "medlemFolketrygdenUtland": {
-      "required": "Oppgi om du er medlem i folketrygden under opphold i utlandet"
+      "required": "Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge"
     },
     "avdoed": {
       "fornavn": {
@@ -563,7 +563,7 @@
       },
       "mottarPensjonUtland": {
         "svar": {
-          "required": "Oppgi om du mottar pensjon fra utlandet"
+          "required": "Oppgi om du mottar pensjon fra et annet land enn Norge"
         },
         "hvaSlagsPensjon": {
           "required": "Oppgi hva slags pensjon"
@@ -644,7 +644,7 @@
     },
     "bosattUtland": {
       "svar": {
-        "required": "Oppgi om personen er bosatt i utlandet"
+        "required": "Oppgi om personen er bosatt i et annet land enn Norge"
       }
     },
     "gravidEllerNyligFoedt": {
