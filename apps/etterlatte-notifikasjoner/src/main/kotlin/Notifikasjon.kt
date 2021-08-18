@@ -20,11 +20,17 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
     River.PacketListener {
 
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+
+    // notifikasjon
     private val notifikasjonsTekst = "Vi har mottatt søknaden din om gjenlevendepensjon"
-    private val notifikasjonsUrl  = null
+    private val notifikasjonsUrl = null
     private val grupperingsId = "ETTERLATTE"
-    private val eksternVarsling = true
     private val prefererteKanaler = listOf("SMS", "EPOST")
+
+    // opprettNotifikasjon
+    private val sikkerhetsNivaa = 4
+    private val eksternVarsling = true
+
 
     init {
         sendNotifikasjon.startuptask()
@@ -54,26 +60,28 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             packet["@notifikasjon"] = "Notifikasjon sendt til bruker"
             context.publish(packet.toJson())
             logger.info("Notifikasjon til bruker opprettet")
-        }   
+        }
     }
-}
 
-private fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {
-    val now = LocalDateTime.now(ZoneOffset.UTC)
-    val weekFromNow = now.plus(7, ChronoUnit.DAYS)
-    val build = BeskjedBuilder()
-        .withFodselsnummer(fnr)
-        .withGrupperingsId(dto.grupperingsid)
-        .withTekst(dto.tekst)
-        .withTidspunkt(now)
-        .withSynligFremTil(weekFromNow)
-        .withSikkerhetsnivaa(4)
-        .withEksternVarsling(true)
-        .withPrefererteKanaler(PreferertKanal.SMS)
-    if (!dto.link.isNullOrBlank()) {
-        build.withLink(URL(dto.link))
+
+    private fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {
+        val now = LocalDateTime.now(ZoneOffset.UTC)
+        val weekFromNow = now.plus(7, ChronoUnit.DAYS)
+        val build = BeskjedBuilder()
+            .withFodselsnummer(fnr)
+            .withGrupperingsId(dto.grupperingsid)
+            .withTekst(dto.tekst)
+            .withTidspunkt(now)
+            .withSynligFremTil(weekFromNow)
+            .withSikkerhetsnivaa(sikkerhetsNivaa)
+            .withEksternVarsling(eksternVarsling)
+            .withPrefererteKanaler(null)
+            //.withPrefererteKanaler(PreferertKanal.SMS)
+        if (!dto.link.isNullOrBlank()) {
+            build.withLink(URL(dto.link))
+        }
+        return build.build()
     }
-    return build.build()
 }
 
 
