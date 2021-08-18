@@ -27,9 +27,11 @@ const  TidligereSamboerMedAvdoede = () => {
             />
 
             {fellesBarn === IValg.NEI && (
-                <AlertStripeAdvarsel>
-                    Ingen rett!
-                </AlertStripeAdvarsel>
+                <SkjemaGruppe>
+                    <AlertStripeAdvarsel>
+                        {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
+                    </AlertStripeAdvarsel>
+                </SkjemaGruppe>
             )}
 
             {fellesBarn === IValg.JA && (

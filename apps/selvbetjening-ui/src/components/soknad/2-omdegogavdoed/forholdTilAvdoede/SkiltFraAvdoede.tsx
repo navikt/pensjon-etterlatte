@@ -73,9 +73,11 @@ const SkiltFraAvdoede = () => {
             )}
 
             {mottokBidrag === IValg.NEI && (
-                <AlertStripeAdvarsel>
-                    Ikke rett!
-                </AlertStripeAdvarsel>
+                <SkjemaGruppe>
+                    <AlertStripeAdvarsel>
+                        {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
+                    </AlertStripeAdvarsel>
+                </SkjemaGruppe>
             )}
         </>
     )

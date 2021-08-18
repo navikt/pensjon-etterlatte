@@ -5,7 +5,7 @@ import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { useTranslation } from "react-i18next";
 import { ISoeker, OpploesningAarsak } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
-import { RadioProps } from "nav-frontend-skjema";
+import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { nySivilstatusHarGyldigVarighet } from "../../../../utils/dato";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 
@@ -71,9 +71,11 @@ const NyttEkteskap = () => {
             )}
 
             {gyldigVarighet === IValg.NEI && (
-                <AlertStripeAdvarsel>
-                    Ikke rett!
-                </AlertStripeAdvarsel>
+                <SkjemaGruppe>
+                    <AlertStripeAdvarsel>
+                        {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
+                    </AlertStripeAdvarsel>
+                </SkjemaGruppe>
             )}
         </>
     )

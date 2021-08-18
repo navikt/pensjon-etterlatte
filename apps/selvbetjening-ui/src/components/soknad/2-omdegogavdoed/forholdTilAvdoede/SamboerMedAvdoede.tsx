@@ -35,9 +35,11 @@ const SamboerMedAvdoede = () => {
             )}
 
             {tidligereGift === IValg.NEI && (
-                <AlertStripeAdvarsel>
-                    Ikke rett
-                </AlertStripeAdvarsel>
+                <SkjemaGruppe>
+                    <AlertStripeAdvarsel>
+                        {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
+                    </AlertStripeAdvarsel>
+                </SkjemaGruppe>
             )}
 
             {tidligereGift === IValg.JA && (
