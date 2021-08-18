@@ -43,8 +43,6 @@ class KafkaConfig(
             SaslConfigs.SASL_JAAS_CONFIG,
             "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"$username\" password=\"$password\";"
         )
-        println("gfsdjklgjdfkl")
-        println(username)
 
         if (!truststore.isNullOrBlank()) {
             try {

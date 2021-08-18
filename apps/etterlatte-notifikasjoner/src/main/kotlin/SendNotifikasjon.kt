@@ -44,7 +44,7 @@ class SendNotifikasjon (env: Map<String, String>){
             notifikasjon
         ).let { producerRecord ->
             producer?.send(producerRecord)?.get()
-            logger.info("melding sendt på ${producer.toString()} med ${systembruker.toString()} på $brukernotifikasjontopic med følgende record: $notifikasjon")
+            //logger.info("melding sendt på ${producer.toString()} med ${systembruker.toString()} på $brukernotifikasjontopic med følgende record: $notifikasjon")
         }
     }
 

@@ -68,7 +68,6 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
             val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
 
-            logger.info("Prøver å sende en notifikasjon")
             sendNotifikasjon.sendMessage(notifikasjon)
             packet["@notifikasjon"] = notifikasjonJson
             context.publish(packet.toJson())
