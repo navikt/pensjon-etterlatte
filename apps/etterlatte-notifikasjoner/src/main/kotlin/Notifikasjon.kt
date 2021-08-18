@@ -1,36 +1,18 @@
 package no.nav.etterlatte
 
 import kotlinx.coroutines.runBlocking
-import no.nav.brukernotifikasjon.schemas.Beskjed
-import no.nav.brukernotifikasjon.schemas.builders.BeskjedBuilder
-import no.nav.brukernotifikasjon.schemas.builders.domain.PreferertKanal
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.net.URL
-import java.time.LocalDateTime
-import java.time.ZoneOffset
-import java.time.temporal.ChronoUnit
 
 
 class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsConnection) :
     River.PacketListener {
 
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
-
-    // notifikasjon
-    private val notifikasjonsTekst = "Vi har mottatt søknaden din om gjenlevendepensjon"
-    private val notifikasjonsUrl = null
-    private val grupperingsId = "ETTERLATTE"
-    private val prefererteKanaler = listOf("SMS", "EPOST")
-
-    // opprettNotifikasjon
-    private val sikkerhetsNivaa = 4
-    private val eksternVarsling = true
-
 
     init {
         sendNotifikasjon.startuptask()
@@ -46,41 +28,12 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
 
         runBlocking {
-            val dto = ProduceBeskjedDto(
-                tekst = notifikasjonsTekst,
-                link = notifikasjonsUrl,
-                grupperingsid = grupperingsId,
-                eksternVarsling = eksternVarsling,
-                prefererteKanaler = prefererteKanaler
-            )
 
-            val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
-
-            sendNotifikasjon.sendMessage(notifikasjon)
+            sendNotifikasjon.sendMessage(packet["@fnr_soeker"].textValue())
             packet["@notifikasjon"] = "Notifikasjon sendt til bruker"
             context.publish(packet.toJson())
             logger.info("Notifikasjon til bruker opprettet")
         }
-    }
-
-
-    private fun opprettNotifikasjonForIdent(fnr: String, dto: ProduceBeskjedDto): Beskjed {
-        val now = LocalDateTime.now(ZoneOffset.UTC)
-        val weekFromNow = now.plus(7, ChronoUnit.DAYS)
-        val build = BeskjedBuilder()
-            .withFodselsnummer(fnr)
-            .withGrupperingsId(dto.grupperingsid)
-            .withTekst(dto.tekst)
-            .withTidspunkt(now)
-            .withSynligFremTil(weekFromNow)
-            .withSikkerhetsnivaa(sikkerhetsNivaa)
-            .withEksternVarsling(eksternVarsling)
-            .withPrefererteKanaler(null)
-            //.withPrefererteKanaler(PreferertKanal.SMS)
-        if (!dto.link.isNullOrBlank()) {
-            build.withLink(URL(dto.link))
-        }
-        return build.build()
     }
 }
 
