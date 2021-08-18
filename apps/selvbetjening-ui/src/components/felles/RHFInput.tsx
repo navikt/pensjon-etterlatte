@@ -144,12 +144,36 @@ export const RHFTelefonInput = ({ name, rules, ...rest }: RHFProps) => {
     )
 };
 
-export const RHFFoedselsnummerInput = ({ ...rest }: RHFProps) => {
+export const RHFFoedselsnummerInput = ({ name, ...rest }: RHFProps) => {
+    const { t } = useTranslation();
+    const { control, formState: { errors } } = useFormContext();
+
+    const error: FieldError = get(errors, name)
+
+    const feilmelding = t(getTransKey(error))
+
+    const isValid = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+
+        return !isNaN(Number(value)) && value.length <= 11;
+    }
+
     return (
-        <RHFInput
-            {...rest}
-            type={"number"}
-            rules={{ validate: (value) => (fnr(value).status === 'valid') }}
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: true, validate: (value) => (fnr(value).status === 'valid') }}
+            render={({ field: { value, onChange } }) => (
+                <Input
+                    id={name}
+                    value={value || ""}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        if (isValid(e)) onChange(e)
+                    }}
+                    feil={feilmelding}
+                    {...rest}
+                />
+            )}
         />
     )
 }
