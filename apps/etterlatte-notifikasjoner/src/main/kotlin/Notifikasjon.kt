@@ -16,7 +16,6 @@ import java.time.ZoneOffset
 import java.time.temporal.ChronoUnit
 
 
-@DelicateCoroutinesApi
 class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsConnection) :
     River.PacketListener {
 
@@ -40,7 +39,6 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
 
-
         runBlocking {
             val dto = ProduceBeskjedDto(
                 tekst = notifikasjonsTekst,
@@ -51,10 +49,9 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             )
 
             val notifikasjon = opprettNotifikasjonForIdent(packet["@fnr_soeker"].textValue(), dto)
-            val notifikasjonJson = objectMapper.readTree(notifikasjon.toString())
 
             sendNotifikasjon.sendMessage(notifikasjon)
-            packet["@notifikasjon"] = notifikasjonJson
+            packet["@notifikasjon"] = "Notifikasjon sendt til bruker"
             context.publish(packet.toJson())
             logger.info("Notifikasjon til bruker opprettet")
         }   
