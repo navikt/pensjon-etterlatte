@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { hentInnloggetPerson } from "../../api";
 import { ActionTypes, IBruker } from "../../context/bruker/bruker";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
@@ -9,37 +9,43 @@ import SoknadKvittering from "./SoknadKvittering";
 import { hentAlder } from "../../utils/dato";
 import { gyldigAlder } from "../../utils/alder";
 import { useHistory } from "react-router-dom";
+import Spinner from "../felles/Spinner";
 
 const Soeknad = () => {
     const history = useHistory();
 
-    const {
-        state: brukerState,
-        dispatch: brukerDispatch
-    } = useBrukerContext();
+    const { dispatch } = useBrukerContext();
+
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (!!brukerState?.foedselsnummer) {
-            const alder = hentAlder(brukerState.foedselsdato!!);
+        setLoading(true);
 
-            if (!gyldigAlder(alder)) {
-                history.push("/ugyldig-alder")
-            }
-        } else {
-            hentInnloggetPerson()
-                .then((person: IBruker) => {
-                    brukerDispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
-                })
-                .catch(() => {
-                    if (process.env.NODE_ENV === "development") {
-                        brukerDispatch({ type: ActionTypes.INIT_TEST_BRUKER });
-                    }
-                });
-        }
-    });
+        hentInnloggetPerson()
+            .then((person: IBruker) => {
+                const alder = hentAlder(person.foedselsdato!!);
+
+                if (!gyldigAlder(alder)) {
+                    history.push("/ugyldig-alder")
+                } else {
+                    dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
+                }
+            })
+            .catch((e) => {
+                if (process.env.NODE_ENV === "development") {
+                    // TODO: Dette må fjernes før appen går i prod. Finne bedre alternativ for kjøring lokalt.
+                    dispatch({ type: ActionTypes.INIT_TEST_BRUKER });
+                } else {
+                    console.error(e)
+                }
+            })
+            .finally(() => setLoading(false));
+    }, [dispatch, history]);
 
     return (
         <>
+            <Spinner visible={loading} label={"Henter brukerinformasjon ..."}/>
+
             <Route path={"/soknad/steg"} component={SoknadDialog} />
 
             <Route path={"/soknad/sendt/:id"} component={SoknadKvittering} />
