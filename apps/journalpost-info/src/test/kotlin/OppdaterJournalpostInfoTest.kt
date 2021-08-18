@@ -2,6 +2,7 @@ package no.nav.etterlatte
 
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 class OppdaterJournalpostInfoTest {
@@ -51,7 +52,7 @@ class OppdaterJournalpostInfoTest {
                 )
             }.inspektør
 
-        assertEquals("4817", inspector.message(0).get("@journalpostInfo").get("journalfoerendeEnhet").asText())
+        assertTrue(inspector.message(0).get("@journalpostInfo").get("journalfoerendeEnhet").isNull)
     }
     @Test
     fun testFortroligUtland() {
@@ -77,7 +78,7 @@ class OppdaterJournalpostInfoTest {
                 )
             }.inspektør
 
-        assertEquals("4817", inspector.message(0).get("@journalpostInfo").get("journalfoerendeEnhet").asText())
+        assertTrue(inspector.message(0).get("@journalpostInfo").get("journalfoerendeEnhet").isNull)
     }
 }
 
