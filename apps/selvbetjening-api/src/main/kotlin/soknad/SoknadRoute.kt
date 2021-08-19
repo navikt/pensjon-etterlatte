@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.application.ApplicationCall
 import io.ktor.application.call
 import io.ktor.client.HttpClient
+import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
@@ -12,6 +13,7 @@ import io.ktor.http.contentType
 import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.routing.Route
+import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.util.pipeline.PipelineContext
@@ -24,19 +26,29 @@ fun Route.soknadApi(innsendtSoeknadEndpint: HttpClient) {
     route("/api/soeknad") {
         post {
             call.application.environment.log.debug("Mottatt søknad for ${innloggetBrukerFnr()}")
-            retry { videresendSoeknad(innsendtSoeknadEndpint) }.also { svarKlient(it) }
+            retry { videresendSoeknad(innsendtSoeknadEndpint, "soeknad") }.also { svarKlient(it) }
+        }
+    }
+    route("/api/kladd") {
+        post {
+            call.application.environment.log.debug("Mottatt kladd for ${innloggetBrukerFnr()}")
+            retry { videresendSoeknad(innsendtSoeknadEndpint, "kladd") }.also { svarKlient(it) }
+        }
+        get {
+            retry { innsendtSoeknadEndpint.get<JsonNode>("kladd") }.also { svarKlient(it) }
         }
     }
 }
 
 private suspend fun PipelineContext<Unit, ApplicationCall>.videresendSoeknad(
-    innsendtSoeknadEndpint: HttpClient
-) = innsendtSoeknadEndpint.post<String> {
+    innsendtSoeknadEndpint: HttpClient,
+    endpoint: String
+) = innsendtSoeknadEndpint.post<String> (endpoint){
     contentType(ContentType.Application.Json)
     body = call.receive<JsonNode>().also(::addMottattDato)
 }
 
-private suspend fun PipelineContext<Unit, ApplicationCall>.svarKlient(resultat: Pair<String?, List<Exception>>) {
+private suspend fun PipelineContext<Unit, ApplicationCall>.svarKlient(resultat: Pair<Any?, List<Exception>>) {
     resultat.first?.also {
         call.application.environment.log.info("Lagret ny søknad med id $it")
     }
