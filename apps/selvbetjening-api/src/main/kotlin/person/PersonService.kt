@@ -8,9 +8,11 @@ import io.ktor.client.request.post
 import io.ktor.content.TextContent
 import io.ktor.features.NotFoundException
 import io.ktor.http.ContentType.Application.Json
+import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.common.unsafeRetry
+import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.person.model.GraphqlRequest
 import no.nav.etterlatte.person.model.PersonResponse
 import no.nav.etterlatte.person.model.Variables
@@ -21,7 +23,8 @@ interface PersonKlient {
 }
 
 class PersonService(
-    private val httpClient: HttpClient
+    private val httpClient: HttpClient,
+    private val kodeverkService: KodeverkService
 ): PersonKlient {
     private val logger = LoggerFactory.getLogger(PersonService::class.java)
 
@@ -56,7 +59,7 @@ class PersonService(
         return response.tilPerson(fnr)
     }
 
-    private fun PersonResponse.tilPerson(fnr: String): Person {
+    private suspend fun PersonResponse.tilPerson(fnr: String): Person {
         val hentPerson = this.data?.hentPerson
         if (hentPerson === null) {
             logger.error("Kunne ikke hente person fra PDL")
@@ -77,6 +80,9 @@ class PersonService(
         val foedsel = hentPerson.foedsel
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
+        val poststed = kodeverkService.hentPoststed(bostedsadresse?.vegadresse?.postnummer)
+
+
         return Person(
             fornavn = navn.fornavn,
             etternavn = navn.etternavn,
@@ -87,6 +93,7 @@ class PersonService(
             husnummer = bostedsadresse?.vegadresse?.husnummer,
             husbokstav = bostedsadresse?.vegadresse?.husbokstav,
             postnummer = bostedsadresse?.vegadresse?.postnummer,
+            poststed = poststed,
             statsborgerskap = statsborgerskap?.land,
             sivilstatus = sivilstand?.type?.name
         )
