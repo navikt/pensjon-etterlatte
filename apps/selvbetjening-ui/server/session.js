@@ -43,9 +43,12 @@ const setupRedis = () => {
 const appSession = setupSession();
 
 appSession.destroySessionBySid = (sid) => {
+    console.log(`Destroying session by SID: ${sid}`)
+
     return new Promise((resolve, reject) => {
         options.store.all((err, result) => {
             if (err) {
+                console.error("Error during session destruction", err)
                 return reject(err)
             }
 
@@ -55,6 +58,7 @@ appSession.destroySessionBySid = (sid) => {
 
             if (sessionToDestroy) {
                 options.store.destroy(sessionToDestroy.id)
+                console.log("Successfully destroyed session")
             }
             return resolve()
         })
