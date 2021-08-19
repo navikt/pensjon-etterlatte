@@ -17,6 +17,7 @@ app.use(appSession);
 app.use(basePath, express.static(buildPath, { index: false }));
 
 app.get(`${basePath}/login`, async (req, res) => {
+    console.log("Initiating login");
     const session = req.session;
     session.nonce = generators.nonce();
     session.state = generators.state();
