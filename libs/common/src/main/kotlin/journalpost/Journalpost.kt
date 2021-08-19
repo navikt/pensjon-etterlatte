@@ -4,7 +4,7 @@ data class JournalpostInfo(
     val tittel: String,
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,
-    val journalfoerendeEnhet: String
+    val journalfoerendeEnhet: String?
 )
 
 data class JournalpostRequest(
@@ -13,7 +13,7 @@ data class JournalpostRequest(
     val tema: String,
     val kanal: String?,
     val behandlingstema: String,
-    val journalfoerendeEnhet: String,
+    val journalfoerendeEnhet: String?,
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,
     val eksternReferanseId: String,

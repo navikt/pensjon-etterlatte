@@ -48,14 +48,14 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
         )
     }
 
-    private fun finnEnhet(adressebeskyttelse: JsonNode): String {
+    private fun finnEnhet(adressebeskyttelse: JsonNode): String? {
 
         return when (adressebeskyttelse.textValue()){
             KODE6 -> "2103"
             KODE19 -> "2103"
-            KODE7 -> "4817"
-            INGENBESKYTTELSE -> "4817"
-            else -> "4817"
+            KODE7 -> null
+            INGENBESKYTTELSE -> null
+            else -> null
         }
     }
 }

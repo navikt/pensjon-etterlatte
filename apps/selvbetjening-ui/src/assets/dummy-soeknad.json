@@ -49,11 +49,6 @@
         }
       ]
     },
-    "medlemFolketrygdUtland": "Nei",
-    "mottokPensjonAndreLand": {
-      "svar": "Ja",
-      "beskrivelse": "50 000"
-    },
     "selvstendigNaeringsdrivende": {
       "svar": "Ja",
       "beskrivelse": "150 000"

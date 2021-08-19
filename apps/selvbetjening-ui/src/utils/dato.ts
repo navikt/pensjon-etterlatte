@@ -1,5 +1,6 @@
 // 365.25 = antall dager i året + 0.25 for å ta høyde for skuddår
 import { IValg } from "../typer/Spoersmaal";
+import { default as navFaker } from "nav-faker";
 
 const millisPrAar = (365.25 * 24 * 60 * 60 * 1000)
 
@@ -9,6 +10,13 @@ export const erDato = (dato: Date | string | undefined) => {
 
 export const hentAlder = (foedselsdato: Date | string): number => {
     return Math.floor((Date.now() - new Date(foedselsdato).getTime()) / millisPrAar)
+}
+
+// Støtter også D-nummer.
+export const hentAlderFraFoedselsnummer = (foedselsnummer: string): number => {
+    const foedselsDato = navFaker.personIdentifikator.getFødselsdato(foedselsnummer)
+
+    return hentAlder(foedselsDato)
 }
 
 export const antallAarMellom = (

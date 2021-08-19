@@ -16,6 +16,7 @@ import no.nav.etterlatte.libs.common.objectMapper
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.nio.file.Paths
 
@@ -36,7 +37,7 @@ class JournalfoerSoeknadTest {
                 )
             }.inspektør
         assertEquals("true", inspector.message(0).get("@dokarkivRetur").get("journalpostferdigstilt").asText())
-        assertEquals("4817", inspector.message(0).get("@journalpostInfo").get("journlanfoerendeEnhet").asText())
+        assertTrue(inspector.message(0).get("@journalpostInfo").get("journlanfoerendeEnhet").isNull)
         assertEquals("123", inspector.message(0).get("@dokarkivRetur").get("dokumenter")[0].get("dokumentInfoId").asText())
         assertEquals("467010363", inspector.message(0).get("@dokarkivRetur").get("journalpostId").asText())
 

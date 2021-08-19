@@ -58,7 +58,7 @@ class ApplicationContext(configLocation: String? = null) {
             }
         }
         defaultRequest {
-            url.takeFrom(endpointConfig.getString("url"))
+            url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
         }
     }
 

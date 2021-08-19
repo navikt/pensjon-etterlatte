@@ -3,25 +3,26 @@ const redis = require("redis");
 const config = require("./config");
 const RedisStore = require("connect-redis");
 
+const options = {
+    cookie: {
+        maxAge: config.session.maxAgeMs,
+        sameSite: "lax",
+        httpOnly: true,
+    },
+    secret: config.session.secret,
+    name: "selvbetjening-ui",
+    resave: false,
+    saveUninitialized: false,
+    unset: "destroy",
+};
+
 const setupSession = () => {
-    const options = {
-        cookie: {
-            maxAge: config.session.maxAgeMs,
-            sameSite: "lax",
-            httpOnly: true,
-        },
-        secret: config.session.secret,
-        name: "selvbetjening-ui",
-        resave: false,
-        saveUninitialized: false,
-        unset: "destroy",
-    };
     if (process.env.NODE_ENV === "production") {
         options.cookie.secure = true;
         options.store = setupRedis();
     }
     return session(options);
-};
+}
 
 const setupRedis = () => {
     const store = RedisStore(session);
@@ -32,19 +33,22 @@ const setupRedis = () => {
     });
     client.unref();
     client.on("debug", console.log);
-
     return new store({
         client: client,
         disableTouch: true,
     });
+
 };
 
 const appSession = setupSession();
 
 appSession.destroySessionBySid = (sid) => {
+    console.log(`Destroying session by SID: ${sid}`)
+
     return new Promise((resolve, reject) => {
         options.store.all((err, result) => {
             if (err) {
+                console.error("Error during session destruction", err)
                 return reject(err)
             }
 
@@ -54,6 +58,7 @@ appSession.destroySessionBySid = (sid) => {
 
             if (sessionToDestroy) {
                 options.store.destroy(sessionToDestroy.id)
+                console.log("Successfully destroyed session")
             }
             return resolve()
         })

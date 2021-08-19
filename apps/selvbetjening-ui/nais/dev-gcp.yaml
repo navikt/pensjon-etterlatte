@@ -37,7 +37,6 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    frontchannelLogoutPath: "/logout"
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
