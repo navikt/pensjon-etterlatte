@@ -177,10 +177,58 @@ export const RHFFoedselsnummerInput = ({ name, ...rest }: RHFProps) => {
     );
 };
 
-export const RHFIbanInput = ({ ...rest }: RHFProps) => {
-    return <RHFInput {...rest} rules={{ validate: (value) => isValidIBAN(value) }} />;
+export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
+    const { t } = useTranslation();
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
+
+    const error: FieldError = get(errors, name);
+    const feilmelding = t(getTransKey(error));
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: true, validate: (value) => isValidIBAN(value) }}
+            render={({ field: { value, onChange } }) => (
+                <Input
+                    id={name}
+                    value={value || ""}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value.toUpperCase())}
+                    feil={feilmelding}
+                    {...rest}
+                />
+            )}
+        />
+    );
 };
 
-export const RHFBicInput = ({ ...rest }: RHFProps) => {
-    return <RHFInput {...rest} rules={{ validate: (value) => isValidBIC(value) }} />;
+export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
+    const { t } = useTranslation();
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
+
+    const error: FieldError = get(errors, name);
+    const feilmelding = t(getTransKey(error));
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: true, validate: (value) => isValidBIC(value) }}
+            render={({ field: { value, onChange } }) => (
+                <Input
+                    id={name}
+                    value={value || ""}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value.toUpperCase())}
+                    feil={feilmelding}
+                    {...rest}
+                />
+            )}
+        />
+    );
 };
