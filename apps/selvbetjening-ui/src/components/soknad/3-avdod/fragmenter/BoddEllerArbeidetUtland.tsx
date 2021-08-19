@@ -103,6 +103,7 @@ const BoddEllerArbeidetUtland = () => {
                                 name={
                                     `boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const
                                 }
+                                valgfri
                                 label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
                                 description={
                                     <HvorforSpoerVi>

@@ -13,9 +13,10 @@ import { isValidBIC, isValidIBAN } from "ibantools";
 interface RHFProps extends Omit<InputProps, "name"> {
     name: FieldPath<FieldValues>;
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, "required">;
+    valgfri?: boolean;
 }
 
-export const RHFInput = ({ name, rules, className, ...rest }: RHFProps) => {
+export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps) => {
     const { t } = useTranslation();
     const {
         control,
@@ -30,7 +31,7 @@ export const RHFInput = ({ name, rules, className, ...rest }: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{ required: true, ...rules }}
+            rules={{ required: !valgfri, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <div className={className}>
                     <Input id={name} value={value || ""} onChange={onChange} feil={feilmelding} {...rest} />
