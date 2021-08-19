@@ -14,7 +14,7 @@ import java.nio.file.Paths
 class JournalfoerSoeknadIntegrasjonsTestTest {
 
     //Krever at man kjører opp run_development i ey-pdfgen!
-    //@Test
+    //Test
     fun integrasjonstestPDFGen() {
 
         val message = JsonMessage(
@@ -44,7 +44,7 @@ class JournalfoerSoeknadIntegrasjonsTestTest {
         runBlocking {
             PdfGenerator(httpClient, "http://0.0.0.0:8081/api/v1/genpdf/eypdfgen").genererPdf(
                 message["@skjema_info"],
-                "soknad"
+                "soeknad"
             ).also {
                 Paths.get("pdf.pdf").toFile().writeBytes(it)
                 assertEquals(String(it).substring(0, 8), "%PDF-1.4")

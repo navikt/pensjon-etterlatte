@@ -48,6 +48,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                 tema = "PEN",
                 eksternReferanseId = journalpostInfo.tittel + lagretSoeknadId,
                 kanal = "NAV_NO",
+                //må kanskje endres?
                 behandlingstema = "ab0255",
                 avsenderMottaker = AvsenderMottaker(
                     id = journalpostInfo.avsenderMottaker.id,
