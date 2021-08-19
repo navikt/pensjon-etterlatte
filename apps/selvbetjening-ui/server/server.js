@@ -24,7 +24,7 @@ app.get(`${basePath}/login`, async (req, res) => {
     res.redirect(auth.authUrl(session));
 });
 
-app.get(`${basePath}/logout`, async (req, res) => {
+app.get(`${basePath}/oauth2/logout`, async (req, res) => {
     console.log("Initiating logout")
     console.log("Cookies: ", req.cookies)
     appSession.destroySessionBySid(req.query.sid);
