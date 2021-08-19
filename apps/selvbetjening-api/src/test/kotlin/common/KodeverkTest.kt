@@ -10,14 +10,21 @@ import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.takeFrom
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.kodeverk.KodeverkService
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 import kotlin.test.assertEquals
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Disabled
 class KodeverkTest {
 
-    @Test
-    fun hentPostnummere() {
-        val httpClient = HttpClient(CIO) {
+    lateinit var httpClient: HttpClient
+
+    @BeforeAll
+    fun setupClient() {
+        httpClient = HttpClient(CIO) {
             install(JsonFeature) {
                 serializer = JacksonSerializer {
                     configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
@@ -29,10 +36,16 @@ class KodeverkTest {
                 headers["Nav-Consumer-Id"] = "srvbarnepensjon"
             }
         }
+    }
 
+    @Test
+    fun hentPostnummere() {
         runBlocking {
-            val poststed = KodeverkService(httpClient).hentPoststed("2730")
+            val client = KodeverkService(httpClient)
+            val poststed = client.hentPoststed("2730")
+            val poststed2 = client.hentPoststed("0000")
             assertEquals("LUNNER", poststed)
+            assertEquals("", poststed2)
         }
     }
 
