@@ -83,7 +83,10 @@ class PersonService(
             foedselsnummer = fnr,
             foedselsdato = foedsel?.foedselsdato?.toString(),
             foedselsaar = foedsel?.foedselsaar,
-            adresse = bostedsadresse?.vegadresse?.toString(),
+            adresse = bostedsadresse?.vegadresse?.adressenavn,
+            husnummer = bostedsadresse?.vegadresse?.husnummer,
+            husbokstav = bostedsadresse?.vegadresse?.husbokstav,
+            postnummer = bostedsadresse?.vegadresse?.postnummer,
             statsborgerskap = statsborgerskap?.land,
             sivilstatus = sivilstand?.type?.name
         )
