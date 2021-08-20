@@ -49,7 +49,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                 eksternReferanseId = journalpostInfo.tittel + lagretSoeknadId,
                 kanal = "NAV_NO",
                 //må kanskje endres?
-                behandlingstema = "ab0167",
+                behandlingstema = "ab0011",
                 avsenderMottaker = AvsenderMottaker(
                     id = journalpostInfo.avsenderMottaker.id,
                     navn = journalpostInfo.avsenderMottaker.navn,
