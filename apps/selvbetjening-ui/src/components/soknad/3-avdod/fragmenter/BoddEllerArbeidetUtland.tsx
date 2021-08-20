@@ -106,11 +106,14 @@ const BoddEllerArbeidetUtland = () => {
                                 valgfri
                                 label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
                                 description={
-                                    <HvorforSpoerVi>
-                                        {t(
-                                            "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.hjelpetekst"
-                                        )}
-                                    </HvorforSpoerVi>
+                                    <>
+                                        {t("felles.ikkePaakrevd")}
+                                        <HvorforSpoerVi>
+                                            {t(
+                                                "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.hjelpetekst"
+                                            )}
+                                        </HvorforSpoerVi>
+                                    </>
                                 }
                             />
 
