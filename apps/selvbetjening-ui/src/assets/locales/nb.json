@@ -180,12 +180,14 @@
       "datoForInngaattPartnerskap": "Når ble dere gift?",
       "hvorforDatoForInngaattPartnerskap": "Registrert partnerskap er likestilt med ekteskap.",
       "fellesBarn": "Har eller hadde dere felles barn?",
+      "samboereMedFellesBarn": "Var dere samboere med felles barn før dere giftet dere?",
       "tidligereGift": "Var du tidligere gift med avdøde?",
       "datoForInngaattSamboerskap": "Dato for inngått samboerskap",
       "omsorgForBarn": "Hadde du omsorg for avdødes barn på dødstidspunktet?",
       "datoForSkilsmisse": "Oppgi dato for skilsmisse (ikke seperasjon)",
       "datoForSamlivsbrudd": "Dato for samlivsbruddet (ikke separasjon)",
       "mottokBidrag": "Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?",
+      "mottokEktefelleBidrag": "Mottok du ektefellebidrag?",
       "ingenRettighetAdvarsel": "Det kan se ut som du ikke har rett på gjenlevendepensjon"
     },
     "nySivilstatus": {

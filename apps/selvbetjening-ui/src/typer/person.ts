@@ -4,7 +4,7 @@ import { IUtbetalingsInformasjon } from "./utbetaling";
 export enum Sivilstatus {
     ekteskap = "nySivilstatus.ekteskap",
     samboerskap = "nySivilstatus.samboerskap",
-    ingen = "nySivilstatus.ingen"
+    ingen = "nySivilstatus.ingen",
 }
 
 export enum OpploesningAarsak {
@@ -18,14 +18,14 @@ export enum ForholdTilAvdoede {
     samboer = "avdoede.relasjon.samboer",
     skilt = "avdoede.relasjon.skilt",
     tidligereSamboer = "avdoede.relasjon.tidligereSamboer",
-    ingen = "avdoede.relasjon.ingen"
+    ingen = "avdoede.relasjon.ingen",
 }
 
 export enum AvdoedInntekt {
     selvstendigNaeringsdrivende = "avdoedInntekt.selvstendigNaeringsdrivende",
     arbeidstaker = "avdoedInntekt.arbeidstaker",
     selvstendigOgArbeidstaker = "avdoedInntekt.selvstendigOgArbeidstaker",
-    ingenInntekt = "avdoedInntekt.ingenInntekt"
+    ingenInntekt = "avdoedInntekt.ingenInntekt",
 }
 
 export enum BarnRelasjon {
@@ -37,7 +37,7 @@ export enum BarnRelasjon {
 export enum GravidEllerNyligFoedt {
     venterBarn = "gravidEllerNyligFoedt.venterBarn",
     harNyligFoedt = "gravidEllerNyligFoedt.harNyligFoedt",
-    ingen = "gravidEllerNyligFoedt.ingen"
+    ingen = "gravidEllerNyligFoedt.ingen",
 }
 
 export interface IOmBarn {
@@ -73,7 +73,7 @@ export interface IOppholdUtland {
     mottokPensjon?: {
         svar?: IValg;
         beskrivelse?: string;
-    }
+    };
 }
 
 export interface IAvdoed {
@@ -82,19 +82,19 @@ export interface IAvdoed {
     boddEllerJobbetUtland?: {
         svar?: IValg;
         oppholdUtland?: IOppholdUtland[];
-    }
+    };
     selvstendigNaeringsdrivende?: {
         svar?: IValg;
         beskrivelse?: string;
-    }
+    };
     haddePensjonsgivendeInntekt?: {
         svar?: IValg;
         beskrivelse?: string;
-    }
+    };
     harAvtjentMilitaerTjeneste?: {
         svar?: IValg;
         beskrivelse?: string;
-    }
+    };
 }
 
 export enum SamboerInntekt {
@@ -111,7 +111,7 @@ export interface ISamboer {
         svar?: IValg;
         inntektstype?: SamboerInntekt[];
         samletBruttoinntektPrAar?: string;
-    }
+    };
 }
 
 export interface IKontaktinfo {
@@ -148,9 +148,11 @@ export interface IForholdAvdoede {
     datoForInngaattSamboerskap?: Date;
     datoForSamlivsbrudd?: Date;
     fellesBarn?: IValg;
+    samboereMedFellesBarn?: IValg;
     omsorgForBarn?: IValg;
     tidligereGift?: IValg;
     mottokBidrag?: IValg;
+    mottokEktefelleBidrag?: IValg;
 }
 
 export interface ISoeker {
@@ -171,6 +173,6 @@ export interface ISoekerOgAvdoed {
         etternavn?: string;
         datoForDoedsfallet?: Date;
         doedsfallAarsak?: string;
-    }
+    };
     forholdTilAvdoede?: IForholdAvdoede;
 }
