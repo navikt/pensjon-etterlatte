@@ -408,6 +408,9 @@
           "beskrivelse": {
             "required": "Oppgi hvor mye pensjon som ble mottatt"
           }
+        },
+        "medlemFolketrygdUtland": {
+          "required": "Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge"
         }
       }
     },

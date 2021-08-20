@@ -7,8 +7,14 @@ import { get } from "lodash";
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { RadioPanelGruppeProps } from "nav-frontend-skjema/lib/radio-panel-gruppe";
+import { getTransKey } from "../../utils/translation";
 
-export const RHFSpoersmaalRadio = ({ name, description, legend, vetIkke }: {
+export const RHFSpoersmaalRadio = ({
+    name,
+    description,
+    legend,
+    vetIkke,
+}: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
     description?: ReactNode;
@@ -19,39 +25,40 @@ export const RHFSpoersmaalRadio = ({ name, description, legend, vetIkke }: {
         { label: IValg.NEI, value: IValg.NEI },
     ];
 
-    if (vetIkke) defaultRadios.push({ label: IValg.VET_IKKE, value: IValg.VET_IKKE })
+    if (vetIkke) defaultRadios.push({ label: IValg.VET_IKKE, value: IValg.VET_IKKE });
 
-    return (
-        <RHFInlineRadio
-            name={name}
-            legend={legend}
-            description={description}
-            radios={defaultRadios}
-        />
-    )
-}
+    return <RHFInlineRadio name={name} legend={legend} description={description} radios={defaultRadios} />;
+};
 
-export const RHFInlineRadio = ({ name, legend, description, radios }: {
+export const RHFInlineRadio = ({
+    name,
+    legend,
+    description,
+    radios,
+}: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
     description?: ReactNode;
     radios: RadioPanelProps[];
 }) => {
     const { t } = useTranslation();
-    const { control, formState: { errors } } = useFormContext();
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
 
-    const error: FieldError = get(errors, name)
-
+    const error: FieldError = get(errors, name);
+    const errorTekst = getTransKey(error);
     return (
         <div id={name}>
             <Controller
                 name={name}
                 control={control}
-                rules={{required: true}}
+                rules={{ required: true }}
                 render={({ field: { value, onChange, name } }) => (
                     <RadioPanelGruppe
                         name={name}
-                        feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
+                        feil={error && t(errorTekst)}
                         legend={legend}
                         className={"inline"}
                         description={description}
@@ -65,26 +72,29 @@ export const RHFInlineRadio = ({ name, legend, description, radios }: {
     );
 };
 
-interface RHFRadioProps extends Omit<RadioPanelGruppeProps, 'onChange'> {
+interface RHFRadioProps extends Omit<RadioPanelGruppeProps, "onChange"> {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
     description?: ReactNode;
     radios: RadioPanelProps[];
-    rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>;
+    rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, "required">;
 }
 
 export const RHFRadio = ({ name, legend, description, radios, rules, ...rest }: RHFRadioProps) => {
     const { t } = useTranslation();
-    const { control, formState: { errors } } = useFormContext();
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
 
-    const error: FieldError = get(errors, name)
+    const error: FieldError = get(errors, name);
 
     return (
         <div id={name}>
             <Controller
                 name={name}
                 control={control}
-                rules={{required: true, ...rules}}
+                rules={{ required: true, ...rules }}
                 render={({ field: { value, onChange, name } }) => (
                     <RadioPanelGruppe
                         {...rest}
