@@ -15,6 +15,7 @@ import no.nav.etterlatte.routes.dok
 import no.nav.etterlatte.routes.internal
 import no.nav.etterlatte.routes.pdl
 import org.slf4j.event.Level
+import io.ktor.routing.IgnoreTrailingSlash
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
@@ -27,6 +28,7 @@ fun Application.module() {
     install(ContentNegotiation) {
         register(ContentType.Application.Json, JacksonConverter())
     }
+    install(IgnoreTrailingSlash)
 
     install(CallLogging) {
         level = Level.INFO
