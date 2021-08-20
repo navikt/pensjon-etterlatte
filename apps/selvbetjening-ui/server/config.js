@@ -27,6 +27,7 @@ const idporten = {
     clientID: process.env.IDPORTEN_CLIENT_ID || "debugger",
     clientJwk: process.env.IDPORTEN_CLIENT_JWK,
     redirectUri: process.env.IDPORTEN_REDIRECT_URI || "http://localhost:8080/oauth2/callback",
+    postLogoutRedirectUri: process.env.IDPORTEN_POST_LOGOUT_REDIRECT_URI,
     domain: process.env.NAIS_CLUSTER_NAME === "prod-gcp" ? "nav.no" : "dev.nav.no",
     responseType: ["code"],
     scope: "openid profile",

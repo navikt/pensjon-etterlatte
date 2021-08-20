@@ -37,6 +37,13 @@ const authUrl = (session) => {
     });
 };
 
+const endSession = (idToken) => {
+    return idportenClient.endSessionUrl({
+        id_token_hint: idToken,
+        post_logout_redirect_uri: idportenClient.postLogoutRedirectUri
+    });
+};
+
 const validateOidcCallback = async (req) => {
     const params = idportenClient.callbackParams(req);
 
@@ -167,6 +174,7 @@ module.exports = {
     setup,
     authUrl,
     validateOidcCallback,
+    endSession,
     exchangeToken,
     refresh,
 };
