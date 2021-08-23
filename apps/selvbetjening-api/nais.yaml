@@ -36,6 +36,10 @@ spec:
       value: "dev-gcp:etterlatte:innsendt-soeknad"
     - name: ROOT_LOGLEVEL
       value: "INFO"
+    - name: KODEVERK_URL
+      value: "https://kodeverk.dev.adeo.no/api/v1/kodeverk/Postnummer/koder/betydninger?spraak=nb"
+    - name: NAV_CONSUMER_ID
+      value: "srvbarnepensjon"
   ingresses:
     - "https://etterlatte-selvbetjening-api.dev.adeo.no"
   accessPolicy:

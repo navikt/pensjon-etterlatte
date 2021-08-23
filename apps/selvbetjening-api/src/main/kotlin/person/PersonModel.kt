@@ -7,6 +7,10 @@ data class Person(
     val foedselsaar: Int?,
     val foedselsdato: String?,
     val adresse: String?,
+    val husnummer: String?,
+    val husbokstav: String?,
+    val postnummer: String?,
+    val poststed: String?,
     val statsborgerskap: String?,
     val sivilstatus: String?
 )

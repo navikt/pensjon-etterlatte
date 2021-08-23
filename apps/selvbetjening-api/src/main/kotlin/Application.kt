@@ -12,6 +12,7 @@ import io.ktor.client.features.defaultRequest
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.takeFrom
+import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
 import no.nav.etterlatte.ktortokenexchange.bearerToken
 import no.nav.etterlatte.person.PersonService
@@ -26,19 +27,22 @@ class ApplicationContext(configLocation: String? = null) {
     }
 
     val personService: PersonService
+    val kodeverkService: KodeverkService
     val innsendtSoeknadEndpoint: HttpClient
     val securityMediator = SecurityContextMediatorFactory.from(config)
 
     init {
+        kodeverkService = KodeverkService(kodeverkEndpoint(config.getConfig("no.nav.etterlatte.tjenester.kodeverk")))
         personService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
             .let {
                 closables.add(it::close)
-                PersonService(it)
+                PersonService(it, kodeverkService)
             }
         innsendtSoeknadEndpoint = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
             .also {
                 closables.add(it::close)
             }
+
     }
     private fun tokenSecuredEndpoint(endpointConfig:Config) = HttpClient(CIO) {
         install(JsonFeature) {
@@ -55,6 +59,18 @@ class ApplicationContext(configLocation: String? = null) {
         }
         defaultRequest {
             url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
+        }
+    }
+
+    private fun kodeverkEndpoint(endpointConfig: Config) = HttpClient(CIO) {
+        install(JsonFeature) {
+            serializer = JacksonSerializer {
+                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            }
+        }
+        defaultRequest {
+            url.takeFrom(endpointConfig.getString("url"))
+            headers["Nav-Consumer-Id"] = endpointConfig.getString("navconsumerid")
         }
     }
 }
