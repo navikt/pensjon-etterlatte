@@ -59,7 +59,7 @@ class PersonService(
         return response.tilPerson(fnr)
     }
 
-    private suspend fun PersonResponse.tilPerson(fnr: String): Person {
+    private fun PersonResponse.tilPerson(fnr: String): Person {
         val hentPerson = this.data?.hentPerson
         if (hentPerson === null) {
             logger.error("Kunne ikke hente person fra PDL")
@@ -80,7 +80,7 @@ class PersonService(
         val foedsel = hentPerson.foedsel
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
-        val poststed = kodeverkService.hentPoststed(bostedsadresse?.vegadresse?.postnummer)
+        val poststed = "poststed-dummy" // kodeverkService.hentPoststed(bostedsadresse?.vegadresse?.postnummer)
 
         return Person(
             fornavn = navn.fornavn,
