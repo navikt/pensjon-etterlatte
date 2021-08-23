@@ -5,6 +5,8 @@ export interface IBruker {
     foedselsaar?: number;
     foedselsdato?: Date;
     adresse?: string;
+    postnummer?: string;
+    poststed?: string;
     statsborgerskap?: string;
     sivilstatus?: string;
 }
