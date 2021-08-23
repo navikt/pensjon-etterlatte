@@ -34,7 +34,9 @@ const InnloggetBruker = () => {
                     <div>
                         <Element>{t("felles.adresse")}</Element>
                         <Normaltekst>
-                            {state.adresse}, {state.postnummer} {state.poststed}
+                            {state.adresse}
+                            {state.husnummer ? ` ${state.husnummer}` : ""}
+                            {state.husbokstav ? ` ${state.husbokstav}` : ""}, {state.postnummer} {state.poststed}
                         </Normaltekst>
                     </div>
                 </Cell>
