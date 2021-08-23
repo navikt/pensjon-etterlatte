@@ -20,21 +20,23 @@ const gyldigVarighet = (datoPartnerskap?: Date, datoSkilsmisse?: Date, fellesBar
     return undefined;
 };
 
-const ugyldigVarighetOgTidSidenSkillsmisse = (
+export const giftMindreEnnFemtenOgDodsfallInnenfemAarEtterSkilsmisse = (
     datoForInngaattPartnerskap: string,
     datoForDoedsfallet: string,
     datoForSkilsmisse: string
 ): IValg => {
-    const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForDoedsfallet) || 0;
+    const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0;
     const antallAarMellomSkillsmisseDodsfall = antallAarMellom(datoForSkilsmisse, datoForDoedsfallet) || 0;
 
-    if (antallAarPartnerskap >= 15 && antallAarMellomSkillsmisseDodsfall > 5) {
-        return IValg.JA;
-    } else if (antallAarPartnerskap >= 15 && antallAarMellomSkillsmisseDodsfall <= 5) {
+    if (antallAarPartnerskap > 15) {
         return IValg.NEI;
-    } else {
-        return IValg.JA;
     }
+    if (antallAarPartnerskap < 15) {
+        if (antallAarMellomSkillsmisseDodsfall < 5) {
+            return IValg.NEI;
+        }
+    }
+    return IValg.JA;
 };
 
 const SkiltFraAvdoede = () => {
@@ -54,7 +56,7 @@ const SkiltFraAvdoede = () => {
     const gyldigVarihetEkteskap = gyldigVarighet(datoForInngaattPartnerskap, datoForSkilsmisse, fellesBarn);
 
     /* Dersom gift i mindre enn 15 år og dødsfall mer/opp til 5 år siden skillsmisse */
-    const forMangeAarsidenSkillsmisse = ugyldigVarighetOgTidSidenSkillsmisse(
+    const skalViseSporsmaal = giftMindreEnnFemtenOgDodsfallInnenfemAarEtterSkilsmisse(
         datoForInngaattPartnerskap, // Må sjekke om 25 år gjelder her også
         datoForDoedsfallet,
         datoForSkilsmisse
@@ -95,7 +97,7 @@ const SkiltFraAvdoede = () => {
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn")}
                     />
                     {/*Arnt-regler - EY-90 */}
-                    {forMangeAarsidenSkillsmisse === IValg.JA && samboereMedFellesBarn === IValg.NEI && (
+                    {skalViseSporsmaal === IValg.JA && samboereMedFellesBarn === IValg.NEI && (
                         <SkjemaGruppe>
                             <AlertStripeAdvarsel>
                                 {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
@@ -104,7 +106,7 @@ const SkiltFraAvdoede = () => {
                     )}
 
                     {/* Mottok du ektefellebidrag? */}
-                    {forMangeAarsidenSkillsmisse === IValg.JA && samboereMedFellesBarn === IValg.JA && (
+                    {skalViseSporsmaal === IValg.JA && samboereMedFellesBarn === IValg.JA && (
                         <>
                             <RHFSpoersmaalRadio
                                 name={"forholdTilAvdoede.mottokEktefelleBidrag"}
@@ -121,7 +123,7 @@ const SkiltFraAvdoede = () => {
                     )}
                 </>
             )}
-            {fellesBarn === IValg.NEI && forMangeAarsidenSkillsmisse === IValg.JA && (
+            {fellesBarn === IValg.NEI && skalViseSporsmaal === IValg.JA && (
                 <SkjemaGruppe>
                     <AlertStripeAdvarsel>
                         {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
