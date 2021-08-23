@@ -33,9 +33,10 @@ app.get(`${basePath}/logout`, async (req, res) => {
     console.log("req.user: ", req.user);
 
     const idToken = new TokenSet(req.session.tokens).id_token
+    console.log("idToken: ", idToken)
 
+    appSession.destroySessionBySid(req.sessionID);
     req.session.destroy();
-    appSession.destroySessionBySid(req.query.sid);
 
     res.cookie("selvbetjening-idtoken", "", {
         expires: new Date(0),
