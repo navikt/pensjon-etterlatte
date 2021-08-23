@@ -31,6 +31,7 @@ const UtenlandskBankInfo = () => {
             <SkjemaGruppe>
                 <RHFIbanInput
                     name={"utbetalingsInformasjon.iban"}
+                    bredde={"XL"}
                     label={(
                         <>
                             {t("omDeg.utbetalingsInformasjon.iban")}
@@ -43,6 +44,7 @@ const UtenlandskBankInfo = () => {
             <SkjemaGruppe>
                 <RHFBicInput
                     name={"utbetalingsInformasjon.swift"}
+                    bredde={"M"}
                     label={(
                         <>
                             {t("omDeg.utbetalingsInformasjon.swift")}

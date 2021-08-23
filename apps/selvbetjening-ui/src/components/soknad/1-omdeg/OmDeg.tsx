@@ -79,11 +79,11 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
                     <SkjemaGruppe>
                         <Grid>
-                            <Cell xs={12} md={6} className={"kol"}>
+                            <Cell xs={12} md={3} className={"kol"}>
                                 <RHFTelefonInput
+                                    bredde={"S"}
                                     name={"kontaktinfo.telefonnummer"}
                                     label={t("omDeg.kontaktinfo.telefonnummer")}
-                                    // TODO: Validere telefon ... ?
                                 />
                             </Cell>
 
@@ -107,6 +107,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                     {oppholderSegINorge === IValg.JA && (
                         <SkjemaGruppe>
                             <RHFKontonummerInput
+                                bredde={"S"}
                                 name={"utbetalingsInformasjon.kontonummer"}
                                 label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                 placeholder={"11 siffer"}
@@ -118,6 +119,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         <>
                             <SkjemaGruppe>
                                 <RHFInput
+                                    bredde={"XL"}
                                     name={"oppholdsland"}
                                     label={t("omDeg.oppgiLand")}
                                     rules={{ pattern: /^[\w|\s]+$/ }}
@@ -140,6 +142,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             {bankkontoType === BankkontoType.norsk && (
                                 <SkjemaGruppe>
                                     <RHFKontonummerInput
+                                        bredde={"S"}
                                         name={"utbetalingsInformasjon.kontonummer"}
                                         label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                         placeholder={"11 siffer"}

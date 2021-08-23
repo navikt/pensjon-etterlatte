@@ -27,11 +27,13 @@ const SamboerSkjema = () => {
             <SkjemaGruppe>
                 <RHFInput
                     name={"nySivilstatus.samboerskap.samboer.navn"}
+                    bredde={"XL"}
                     label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
                 />
 
                 <RHFInput
                     name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
+                    bredde={"S"}
                     label={t("felles.fnr")}
                     rules={{ validate: (value) => (fnr(value).status === 'valid') }}
                 />
@@ -58,6 +60,7 @@ const SamboerSkjema = () => {
                     <SkjemaGruppe>
                         <RHFInput
                             name={"nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"}
+                            bredde={"S"}
                             label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar")}
                         />
                     </SkjemaGruppe>

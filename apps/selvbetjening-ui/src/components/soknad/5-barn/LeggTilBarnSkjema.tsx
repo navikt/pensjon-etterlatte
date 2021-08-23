@@ -80,11 +80,13 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                     <RHFFoedselsnummerInput
                         name={"foedselsnummer"}
+                        bredde={"S"}
                         label={t("omBarn.foedselsnummer")}
                     />
 
                     <RHFInput
                         name={"statsborgerskap"}
+                        bredde={"XL"}
                         label={t("omBarn.statsborgerskap")}
                     />
                 </SkjemaGruppe>
@@ -98,6 +100,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                     <SkjemaGruppe>
                         <RHFInput
                             name={"bosattUtland.land"}
+                            bredde={"XL"}
                             label={t("omBarn.bosattUtland.land")}
                         />
 
@@ -136,7 +139,9 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                                     <SkjemaGruppe>
                                         <RHFKontonummerInput
                                             name={"brukeAnnenKonto.kontonummer"}
+                                            bredde={"S"}
                                             label={t("omBarn.brukeAnnenKonto.kontonummer")}
+                                            placeholder={"11 siffer"}
                                         />
                                     </SkjemaGruppe>
                                 )}

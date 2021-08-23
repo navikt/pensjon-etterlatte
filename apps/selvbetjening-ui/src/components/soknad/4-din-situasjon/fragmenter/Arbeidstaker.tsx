@@ -37,7 +37,11 @@ const Arbeidstaker = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <RHFInput name={"arbeidsforhold.stilling"} label={t("dinSituasjon.arbeidsforhold.stilling")} />
+                <RHFInput
+                    name={"arbeidsforhold.stilling"}
+                    bredde={"L"}
+                    label={t("dinSituasjon.arbeidsforhold.stilling")}
+                />
             </SkjemaGruppe>
 
             <div className={"rad skjemagruppe"}>
@@ -79,6 +83,7 @@ const Arbeidstaker = () => {
                 <SkjemaGruppe>
                     <RHFValutaInput
                         name={"arbeidsforhold.forventerEndretInntekt.beskrivelse"}
+                        bredde={"S"}
                         label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
                         description={<HvorforSpoerVi>{t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.hvorfor")}</HvorforSpoerVi>}
                     />
