@@ -8,7 +8,7 @@ import SoknadSteg from "../../../typer/SoknadSteg";
 import AlertStripe from "nav-frontend-alertstriper";
 import Navigasjon from "../../felles/Navigasjon";
 import ObjectTreeReader from "../../../utils/ObjectTreeReader";
-import { IAvdoed, ISoeker, ISoekerOgAvdoed } from "../../../typer/person";
+import { ISoeker, ISoekerOgAvdoed } from "../../../typer/person";
 import TekstGruppe from "./fragmenter/TekstGruppe";
 import { v4 as uuid } from "uuid";
 import { useTranslation } from "react-i18next";
@@ -18,6 +18,7 @@ import { EditFilled } from "@navikt/ds-icons";
 import Lenke from "nav-frontend-lenker";
 import { ISituasjon } from "../../../typer/situasjon";
 import OppsummeringOmBarn from "./fragmenter/OppsummeringOmBarn";
+import OppsummeringOmAvdoede from "./fragmenter/OppsummeringOmAvdoede";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const { t, i18n } = useTranslation();
@@ -50,7 +51,6 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     const omDeg = otr.traverse<ISoeker>(state.omDeg, "omDeg");
     const omDegOgAvdoed = otr.traverse<ISoekerOgAvdoed>(state.omDegOgAvdoed, "omDegOgAvdoed");
-    const omDenAvdoede = otr.traverse<IAvdoed>(state.omDenAvdoede, "omDenAvdoede");
     const dinSituasjon = otr.traverse<ISituasjon>(state.dinSituasjon, "dinSituasjon");
 
     const ekspanderbartPanel = (tittel: string, tekster: any[], path: StegPath) => (
@@ -86,7 +86,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
             {ekspanderbartPanel(t("omDegOgAvdoed.tittel"), omDegOgAvdoed, StegPath.OmDegOgAvdoed)}
 
-            {ekspanderbartPanel(t("omDenAvdoede.tittel"), omDenAvdoede, StegPath.OmAvdoed)}
+            <OppsummeringOmAvdoede opplysningerOmAvdoede={state.omDenAvdoede} senderSoeknad={senderSoeknad} />
 
             {ekspanderbartPanel(t("dinSituasjon.tittel"), dinSituasjon, StegPath.DinSituasjon)}
 
