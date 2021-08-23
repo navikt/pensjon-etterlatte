@@ -50,7 +50,7 @@ spec:
     - name: NODE_LOG_LEVEL
       value: info
     - name: IDPORTEN_POST_LOGOUT_REDIRECT_URI
-      value: https://etterlatteytelser.dev.nav.no/oauth2/logout/callback
+      value: https://etterlatteytelser.dev.nav.no/logout/callback
     - name: LOGINSERVICE_URL
       value: https://loginservice.dev.nav.no/login?redirect=https://etterlatteytelser.dev.nav.no
     - name: LOGINSERVICE_LOGOUT_URL

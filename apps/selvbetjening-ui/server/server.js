@@ -23,20 +23,20 @@ app.get(`${basePath}/login`, async (req, res) => {
     res.redirect(auth.authUrl(session));
 });
 
-app.get(`${basePath}/oauth2/logout/callback`, async (req, res) => {
+app.get(`${basePath}/logout/callback`, async (req, res) => {
     console.log("Loginservice slo");
     res.redirect(process.env.LOGINSERVICE_LOGOUT_URL)
 })
 
-app.get(`${basePath}/oauth2/logout`, async (req, res) => {
+app.get(`${basePath}/logout`, async (req, res) => {
     console.log("Initiating logout");
     console.log("req.user: ", req.user);
-    const tokenSets = req.user?.tokenSets;
 
-    const idToken = !!tokenSets ? tokenSets.IDPORTEN_TOKEN_SET_KEY.id_token : '';
+    const idToken = new TokenSet(req.session.tokens).id_token
 
     req.session.destroy();
-    req.logout();
+    appSession.destroySessionBySid(req.query.sid);
+
     res.cookie("selvbetjening-idtoken", "", {
         expires: new Date(0),
     });
@@ -45,9 +45,7 @@ app.get(`${basePath}/oauth2/logout`, async (req, res) => {
         auth.endSession(idToken);
     }
 
-    // appSession.destroySessionBySid(req.query.sid);
-
-    res.redirect(process.env.IDPORTEN_POST_LOGOUT_REDIRECT_URI)
+    res.redirect(config.idporten.postLogoutRedirectUri)
 });
 
 app.get(`${basePath}/oauth2/callback`, async (req, res) => {

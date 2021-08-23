@@ -9,7 +9,7 @@ const authProps = {
     enforceLogin: true,
     redirectToApp: true,
     level: "Level4",
-    logoutUrl: "/oauth2/logout"
+    logoutUrl: "/logout"
 };
 
 const props = {
