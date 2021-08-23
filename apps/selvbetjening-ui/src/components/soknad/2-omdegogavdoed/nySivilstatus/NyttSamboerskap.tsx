@@ -72,7 +72,11 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                 </SkjemaGruppe>
             )}
 
-            {gyldigVarighet === IValg.NEI && <AlertStripeAdvarsel>Ikke rett</AlertStripeAdvarsel>}
+            {gyldigVarighet === IValg.NEI && (
+                <AlertStripeAdvarsel>
+                    {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
+                </AlertStripeAdvarsel>
+            )}
         </>
     );
 };
