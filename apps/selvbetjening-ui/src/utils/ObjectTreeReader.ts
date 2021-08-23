@@ -19,7 +19,7 @@ export default class ObjectTreeReader {
 
                 const key = baseKey ? baseKey.concat(".").concat(value[0]) : value[0]
 
-                if (typeof val === "object") return this.traverse(val, key)
+                if (!!val && typeof val === "object") return this.traverse(val, key)
                 else return { key, val: this.stringify(val) }
             })
     }
