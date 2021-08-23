@@ -69,9 +69,7 @@ class ApplicationContext(configLocation: String? = null) {
             }
         }
         defaultRequest {
-            println(endpointConfig.getString("url"))
             url.takeFrom(endpointConfig.getString("url"))
-            headers["Nav-Consumer-Id"] = endpointConfig.getString("navconsumerid")
         }
     }
 }

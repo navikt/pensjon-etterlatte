@@ -80,7 +80,7 @@ class PersonService(
         val foedsel = hentPerson.foedsel
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
-        val poststed = "poststed" //kodeverkService.hentPoststed(bostedsadresse?.vegadresse?.postnummer)
+        val poststed = kodeverkService.hentPoststed(bostedsadresse?.vegadresse?.postnummer)
 
         return Person(
             fornavn = navn.fornavn,

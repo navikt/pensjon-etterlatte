@@ -19,11 +19,11 @@ class KodeverkService(private val httpClient: HttpClient) {
             // Todo: cache postnummerliste?
             val result = httpClient.get<String>() {
                 header("Nav-Call-Id", "1")
+                header("Nav-Consumer-Id", "test")
                 accept(Json)
             }
             logger.info(result);
             val current = LocalDateTime.now()
-
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             val now = current.format(formatter)
 
