@@ -47,6 +47,8 @@ spec:
       rules:
         - application: etterlatte-proxy
         - application: innsendt-soeknad
+      external:
+        - host: "https://kodeverk.dev.adeo.no"
     inbound:
       rules:
         - application: selvbetjening-ui
