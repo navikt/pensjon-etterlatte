@@ -37,8 +37,8 @@
         {
           "land": "Kongo",
           "beskrivelse": [
-            "Bodd",
-            "Arbeidet"
+            "oppholdUtlandType.bodd",
+            "oppholdUtlandType.arbeidet"
           ],
           "fraDato": "2002-08-10T22:00:00.000Z",
           "tilDato": "2003-08-10T08:53:16.000Z",

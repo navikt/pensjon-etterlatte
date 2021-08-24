@@ -40,6 +40,11 @@ export enum GravidEllerNyligFoedt {
     ingen = "gravidEllerNyligFoedt.ingen",
 }
 
+export enum OppholdUtlandType {
+    bodd = "oppholdUtlandType.bodd",
+    arbeidet = "oppholdUtlandType.arbeidet",
+}
+
 export interface IOmBarn {
     barn?: IBarn[];
     gravidEllerNyligFoedt?: string;
@@ -68,7 +73,7 @@ export interface IOppholdUtland {
     land?: string;
     fraDato?: Date;
     tilDato?: Date;
-    beskrivelse?: string[];
+    beskrivelse?: OppholdUtlandType[];
     medlemFolketrygd?: IValg;
     mottokPensjon?: {
         svar?: IValg;

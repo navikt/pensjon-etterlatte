@@ -363,6 +363,10 @@
     "doedsfall": "Dødsfall",
     "skilsmisse": "Skilsmisse"
   },
+  "oppholdUtlandType": {
+    "bodd": "Bodd",
+    "arbeidet": "Arbeidet"
+  },
   "felles": {
     "fnrDnr": "Fødselsnummer / d-nummer",
     "fnr": "Fødselsnummer (11 siffer)",

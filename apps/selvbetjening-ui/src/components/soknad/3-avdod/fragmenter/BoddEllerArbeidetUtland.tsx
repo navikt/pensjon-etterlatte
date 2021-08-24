@@ -1,7 +1,7 @@
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
-import { IAvdoed } from "../../../../typer/person";
+import { IAvdoed, OppholdUtlandType } from "../../../../typer/person";
 import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useEffect } from "react";
@@ -59,8 +59,14 @@ const BoddEllerArbeidetUtland = () => {
                                     legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse")}
                                     className={"kol inline"}
                                     checkboxes={[
-                                        { label: "Bodd", value: "Bodd" },
-                                        { label: "Arbeidet", value: "Arbeidet" },
+                                        {
+                                            label: t(OppholdUtlandType.bodd.valueOf()),
+                                            value: OppholdUtlandType.bodd
+                                        },
+                                        {
+                                            label: t(OppholdUtlandType.arbeidet.valueOf()),
+                                            value: OppholdUtlandType.arbeidet
+                                        },
                                     ]}
                                 />
                             </div>
@@ -121,7 +127,7 @@ const BoddEllerArbeidetUtland = () => {
                             {fields.length > 1 && (
                                 <div style={{ textAlign: "right" }}>
                                     <Flatknapp onClick={() => remove(index)}>
-                                        <DeleteFilled /> &nbsp;Fjern
+                                        <DeleteFilled/> &nbsp;Fjern
                                     </Flatknapp>
                                 </div>
                             )}
