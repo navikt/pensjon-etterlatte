@@ -52,11 +52,13 @@ appSession.destroySessionBySid = (sid) => {
                 return reject(err)
             }
 
+            console.log(`Found ${result.length} sessions`);
+
             const sessionToDestroy = result.find((session) => {
-                console.log("Found session: ", session)
-                return session.idportenSid && session.idportenSid === sid
+                return session.id && session.id === sid
             });
 
+            console.log("Session to destroy: ", sessionToDestroy)
             if (sessionToDestroy) {
                 options.store.destroy(sessionToDestroy.id)
                 console.log("Successfully destroyed session")

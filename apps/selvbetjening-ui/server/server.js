@@ -26,7 +26,7 @@ app.get(`${basePath}/login`, async (req, res) => {
 app.get(`${basePath}/logout/callback`, async (req, res) => {
     console.log("Loginservice slo");
     res.redirect(process.env.LOGINSERVICE_LOGOUT_URL)
-})
+});
 
 app.get(`${basePath}/logout`, async (req, res) => {
     console.log("Initiating logout");
@@ -42,10 +42,15 @@ app.get(`${basePath}/logout`, async (req, res) => {
     });
 
     if (!!idToken) {
-        auth.endSession(idToken);
+        console.log("Attempting to end session with idToken: ", idToken)
+        const endSessionUrl = auth.endSessionUrl(idToken);
+
+        res.redirect(endSessionUrl);
+    } else {
+        console.error("Error during logout")
     }
 
-    res.redirect(config.idporten.postLogoutRedirectUri)
+    // res.redirect(config.idporten.postLogoutRedirectUri)
 });
 
 app.get(`${basePath}/oauth2/callback`, async (req, res) => {
