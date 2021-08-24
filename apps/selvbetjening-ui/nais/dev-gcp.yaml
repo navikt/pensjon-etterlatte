@@ -37,6 +37,9 @@ spec:
     enabled: true
   idporten:
     enabled: true
+    clientUri: https://etterlatteytelser.dev.nav.no
+    postLogoutRedirectURIs:
+      - https://etterlatteytelser.dev.nav.no/logout/callback
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
