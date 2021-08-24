@@ -16,12 +16,10 @@ class KodeverkService(private val httpClient: HttpClient) {
     suspend fun hentPoststed(postnr: String?): String {
         if(postnr == null) return "";
         try{
-            logger.info("Postnummer $postnr");
             // Todo: cache postnummerliste?
             val result = httpClient.get<String>() {
                 accept(Json)
             }
-            logger.info(result);
             val current = LocalDateTime.now()
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             val now = current.format(formatter)
