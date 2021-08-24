@@ -31,7 +31,7 @@ class PdlAdressebeskyttelse(private val client: HttpClient, private val apiUrl: 
         return it
         }
     }
-    fun getGraphqlResource(file: String): String =
+    private fun getGraphqlResource(file: String): String =
         javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
 
     data class GraphqlRequest(
