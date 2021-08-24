@@ -29,7 +29,7 @@ import org.slf4j.MDC
 import java.util.*
 
 class Journalfoer(private val client: HttpClient, private val baseUrl: String) : JournalfoerDok {
-    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     private val objectMapper = jacksonObjectMapper()
         .registerModule(JavaTimeModule())
         .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
@@ -48,7 +48,6 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                 tema = "PEN",
                 eksternReferanseId = journalpostInfo.tittel + lagretSoeknadId,
                 kanal = "NAV_NO",
-                //må kanskje endres?
                 behandlingstema = "ab0011",
                 avsenderMottaker = AvsenderMottaker(
                     id = journalpostInfo.avsenderMottaker.id,
