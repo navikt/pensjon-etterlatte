@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory
 
 internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
     River.PacketListener {
-    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
