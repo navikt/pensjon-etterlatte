@@ -39,7 +39,7 @@ spec:
     - name: KODEVERK_URL
       value: "https://etterlatte-proxy.dev-fss-pub.nais.io/tokenx/kodeverk"
     - name: KODEVERK_AUDIENCE
-      value: "dev-gcp:etterlatte:etterlatte-proxy"
+      value: "dev-fss:etterlatte:etterlatte-proxy"
     - name: NAV_CONSUMER_ID
       value: "srvbarnepensjon"
   ingresses:
