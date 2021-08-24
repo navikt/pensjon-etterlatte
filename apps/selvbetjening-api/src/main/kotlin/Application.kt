@@ -32,7 +32,7 @@ class ApplicationContext(configLocation: String? = null) {
     val securityMediator = SecurityContextMediatorFactory.from(config)
 
     init {
-        kodeverkService = KodeverkService(kodeverkEndpoint(config.getConfig("no.nav.etterlatte.tjenester.kodeverk")))
+        kodeverkService = KodeverkService(tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.kodeverk")))
         personService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
             .let {
                 closables.add(it::close)
@@ -59,17 +59,6 @@ class ApplicationContext(configLocation: String? = null) {
         }
         defaultRequest {
             url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
-        }
-    }
-
-    private fun kodeverkEndpoint(endpointConfig: Config) = HttpClient(CIO) {
-        install(JsonFeature) {
-            serializer = JacksonSerializer {
-                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            }
-        }
-        defaultRequest {
-            url.takeFrom(endpointConfig.getString("url"))
         }
     }
 }

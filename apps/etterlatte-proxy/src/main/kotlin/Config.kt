@@ -7,6 +7,7 @@ import io.ktor.config.ApplicationConfig
 data class Config(
     val sts: Sts,
     val pdl: PDL,
+    val kodeverk: KODEVERK,
     val dok: DOK,
     val aad: AAD,
     val tokenX: TokenX
@@ -15,6 +16,9 @@ data class Config(
         val url: String
     )
     data class DOK(
+        val url: String
+    )
+    data class KODEVERK(
         val url: String
     )
 
@@ -57,6 +61,7 @@ data class Config(
 suspend fun ApplicationConfig.load() = Config(
     pdl = Config.PDL(url = property("pdl.url").getString()),
     dok = Config.DOK(url = property("dok.url").getString()),
+    kodeverk = Config.KODEVERK(url = property("kodeverk.url").getString()),
     sts = Config.Sts(
         url = property("sts.url").getString(),
         serviceuser = Config.Sts.ServiceUser(

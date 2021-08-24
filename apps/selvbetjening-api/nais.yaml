@@ -37,7 +37,9 @@ spec:
     - name: ROOT_LOGLEVEL
       value: "INFO"
     - name: KODEVERK_URL
-      value: "https://kodeverk.dev.adeo.no/api/v1/kodeverk/Postnummer/koder/betydninger?spraak=nb"
+      value: "https://etterlatte-proxy.dev-fss-pub.nais.io/tokenx/kodeverk"
+    - name: KODEVERK_AUDIENCE
+      value: "dev-gcp:etterlatte:etterlatte-proxy"
     - name: NAV_CONSUMER_ID
       value: "srvbarnepensjon"
   ingresses:
@@ -47,8 +49,6 @@ spec:
       rules:
         - application: etterlatte-proxy
         - application: innsendt-soeknad
-      external:
-        - host: "kodeverk.dev.adeo.no"
     inbound:
       rules:
         - application: selvbetjening-ui

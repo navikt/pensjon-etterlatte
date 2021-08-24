@@ -16,10 +16,9 @@ class KodeverkService(private val httpClient: HttpClient) {
     suspend fun hentPoststed(postnr: String?): String {
         if(postnr == null) return "";
         try{
+            logger.info("Postnummer $postnr");
             // Todo: cache postnummerliste?
             val result = httpClient.get<String>() {
-                header("Nav-Call-Id", "1")
-                header("Nav-Consumer-Id", "test")
                 accept(Json)
             }
             logger.info(result);
