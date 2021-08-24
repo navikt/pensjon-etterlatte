@@ -48,9 +48,8 @@ app.get(`${basePath}/logout`, async (req, res) => {
         res.redirect(endSessionUrl);
     } else {
         console.error("Error during logout")
+        res.redirect(config.idporten.postLogoutRedirectUri)
     }
-
-    // res.redirect(config.idporten.postLogoutRedirectUri)
 });
 
 app.get(`${basePath}/oauth2/callback`, async (req, res) => {
