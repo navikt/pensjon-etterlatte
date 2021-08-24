@@ -8,7 +8,7 @@
     "@navikt/ds-icons": "0.3.1",
     "@navikt/ds-react": "^0.6.5",
     "@navikt/fnrvalidator": "1.1.4",
-    "@navikt/nav-dekoratoren-moduler": "1.4.0",
+    "@navikt/nav-dekoratoren-moduler": "1.2.10",
     "@testing-library/jest-dom": "5.12.0",
     "@testing-library/react": "11.2.7",
     "@testing-library/user-event": "13.1.9",
