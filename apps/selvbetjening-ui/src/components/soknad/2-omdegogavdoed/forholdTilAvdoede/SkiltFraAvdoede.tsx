@@ -90,14 +90,15 @@ const SkiltFraAvdoede = () => {
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
             />
 
+            {/* Dersom felles barn */}
             {fellesBarn === IValg.JA && (
                 <>
                     <RHFSpoersmaalRadio
                         name={"forholdTilAvdoede.samboereMedFellesBarn"}
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn")}
                     />
-                    {/*Arnt-regler - EY-90 */}
-                    {skalViseSporsmaal === IValg.JA && samboereMedFellesBarn === IValg.NEI && (
+
+                    {samboereMedFellesBarn === IValg.NEI && (
                         <SkjemaGruppe>
                             <AlertStripeAdvarsel>
                                 {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
@@ -123,6 +124,7 @@ const SkiltFraAvdoede = () => {
                     )}
                 </>
             )}
+            {/* Dersom ikke felles barn */}
             {fellesBarn === IValg.NEI && skalViseSporsmaal === IValg.JA && (
                 <SkjemaGruppe>
                     <AlertStripeAdvarsel>
