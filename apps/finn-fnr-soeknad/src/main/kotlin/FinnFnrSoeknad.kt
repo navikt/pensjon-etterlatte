@@ -1,17 +1,17 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
-import org.slf4j.LoggerFactory
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
+import org.slf4j.LoggerFactory
 
 
 internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
     River.PacketListener {
-    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
