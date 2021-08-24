@@ -53,8 +53,9 @@ appSession.destroySessionBySid = (sid) => {
             }
 
             const sessionToDestroy = result.find((session) => {
+                console.log("Found session: ", session)
                 return session.idportenSid && session.idportenSid === sid
-            })
+            });
 
             if (sessionToDestroy) {
                 options.store.destroy(sessionToDestroy.id)

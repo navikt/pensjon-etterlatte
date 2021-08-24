@@ -30,7 +30,6 @@ app.get(`${basePath}/logout/callback`, async (req, res) => {
 
 app.get(`${basePath}/logout`, async (req, res) => {
     console.log("Initiating logout");
-    console.log("req.user: ", req.user);
 
     const idToken = new TokenSet(req.session.tokens).id_token
     console.log("idToken: ", idToken)
