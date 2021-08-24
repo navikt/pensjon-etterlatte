@@ -47,14 +47,14 @@ const TidligereArbeidsforhold = () => {
                             <Cell xs={12} md={4}>
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].fraDato` as const}
-                                    label={t("dinSituasjon.tidligereArbeidsforhold.fra")}
+                                    label={t("dinSituasjon.tidligereArbeidsforhold.fraDato")}
                                 />
                             </Cell>
 
                             <Cell xs={12} md={4}>
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].tilDato` as const}
-                                    label={t("dinSituasjon.tidligereArbeidsforhold.til")}
+                                    label={t("dinSituasjon.tidligereArbeidsforhold.tilDato")}
                                 />
                             </Cell>
 

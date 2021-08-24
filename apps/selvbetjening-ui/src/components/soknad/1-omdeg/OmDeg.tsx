@@ -121,7 +121,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 <RHFInput
                                     bredde={"XL"}
                                     name={"oppholdsland"}
-                                    label={t("omDeg.oppgiLand")}
+                                    label={t("omDeg.oppholdsland")}
                                     rules={{ pattern: /^[\w|\s]+$/ }}
                                 />
                             </SkjemaGruppe>

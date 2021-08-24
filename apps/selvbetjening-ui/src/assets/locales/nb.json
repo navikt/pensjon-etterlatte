@@ -98,8 +98,8 @@
       "tittel": "Dine tidligere arbeidsforhold (siste 10 år)",
       "info": "Dersom du de siste 10 årene har vært i arbeid (deltid, heltid, vikariat, osv) er det viktig at du oppgir dette. Klikk på \"Legg til\" under for å legge til tidligere arbeidsforhold.",
       "beskrivelse": "Beskrivelse",
-      "fra": "Fra",
-      "til": "Til"
+      "fraDato": "Fra",
+      "tilDato": "Til"
     },
     "arbeidsforhold": {
       "tittel": "Info om arbeidsgiver",
@@ -141,7 +141,7 @@
     "alternativAdresse": "Oppgi nåværende bostedsadresse",
     "oppholderSegINorge": "Oppholder du deg for tiden i Norge?",
     "oppholdHvorfor": "Vi må vite hvor du oppholder deg for å vurdere retten til å ta med deg pensjonen til et annet land enn Norge.",
-    "oppgiLand": "Oppgi land",
+    "oppholdsland": "Oppgi land",
     "infoFolkeregisteret": "Saksbehandler vil ta kontakt med deg for å oppdrive korrekt adresse.",
     "medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i et annet land enn Norge?",
     "flyktning": "Har du status som flyktning? <i>(gjelder alle født før 1960)</i>",
