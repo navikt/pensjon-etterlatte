@@ -127,7 +127,7 @@ const BoddEllerArbeidetUtland = () => {
                             {fields.length > 1 && (
                                 <div style={{ textAlign: "right" }}>
                                     <Flatknapp onClick={() => remove(index)}>
-                                        <DeleteFilled/> &nbsp;Fjern
+                                        <DeleteFilled/> &nbsp;{t("knapp.fjern")}
                                     </Flatknapp>
                                 </div>
                             )}
