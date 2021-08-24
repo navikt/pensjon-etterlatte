@@ -9,7 +9,7 @@ export default class ObjectTreeReader {
     private dtf: Intl.DateTimeFormat;
 
     constructor(i18n: i18n) {
-        this.dtf = Intl.DateTimeFormat(i18n.language, { month: "short", year: "numeric" });
+        this.dtf = Intl.DateTimeFormat(i18n.language, { day: "2-digit", month: "2-digit", year: "numeric" });
     }
 
     traverse<T>(objectToTraverse: T, baseKey?: string): Tekst[] {
