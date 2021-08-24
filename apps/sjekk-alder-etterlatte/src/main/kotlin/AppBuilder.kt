@@ -9,12 +9,12 @@ import no.nav.etterlatte.security.ktor.clientCredential
 
 class AppBuilder(private val props: Map<String, String>) {
     companion object {
-        val CONFIG_PDL_URL = "PDL_URL"
+        const val CONFIG_PDL_URL = "PDL_URL"
     }
 
     fun pdlService() = PdlAlder(pdlhttpclient(), props[CONFIG_PDL_URL]!!)
 
-    fun pdlhttpclient() = HttpClient(OkHttp) {
+    private fun pdlhttpclient() = HttpClient(OkHttp) {
         install(JsonFeature) { serializer = JacksonSerializer() }
         install(Auth) {
             clientCredential {
