@@ -43,7 +43,9 @@ app.get(`${basePath}/logout`, async (req, res) => {
 
     if (!!idToken) {
         console.log("Attempting to end session with idToken: ", idToken)
-        const endSessionUrl = auth.endSessionUrl(idToken);
+        const endSessionUrl = auth.endSessionUrl(idToken, config.idporten.postLogoutRedirectUri);
+
+        console.log("endSessionUrl: ", endSessionUrl)
 
         res.redirect(endSessionUrl);
     } else {

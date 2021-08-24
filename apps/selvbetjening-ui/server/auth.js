@@ -37,10 +37,10 @@ const authUrl = (session) => {
     });
 };
 
-const endSessionUrl = (idToken) => {
+const endSessionUrl = (idToken, postLogoutRedirectUri) => {
     return idportenClient.endSessionUrl({
         id_token_hint: idToken,
-        post_logout_redirect_uri: idportenClient.postLogoutRedirectUri
+        post_logout_redirect_uri: postLogoutRedirectUri
     });
 };
 
