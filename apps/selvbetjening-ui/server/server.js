@@ -29,27 +29,29 @@ app.get(`${basePath}/logout/callback`, async (req, res) => {
 });
 
 app.get(`${basePath}/logout`, async (req, res) => {
+    const idToken = new TokenSet(req.session.tokens).id_token
+
     console.log("Initiating logout");
 
-    const idToken = new TokenSet(req.session.tokens).id_token
-    console.log("idToken: ", idToken)
-
+    console.log("Destroying session")
     appSession.destroySessionBySid(req.sessionID);
-    req.session.destroy();
+    req.session.destroy((err) => {
+        if (err) console.error(err);
+        else console.log("Session destroyed")
+    });
 
     res.cookie("selvbetjening-idtoken", "", {
         expires: new Date(0),
     });
 
     if (!!idToken) {
-        console.log("Attempting to end session with idToken: ", idToken)
+        console.log("Ending idporten session")
         const endSessionUrl = auth.endSessionUrl(idToken, config.idporten.postLogoutRedirectUri);
-
-        console.log("endSessionUrl: ", endSessionUrl)
 
         res.redirect(endSessionUrl);
     } else {
         console.error("Error during logout")
+        // TODO: Hvor skal vi redirecte brukeren dersom utlogging feiler?
         res.redirect(config.idporten.postLogoutRedirectUri)
     }
 });

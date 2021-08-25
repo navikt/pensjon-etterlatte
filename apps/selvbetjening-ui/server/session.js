@@ -32,7 +32,15 @@ const setupRedis = () => {
         port: config.session.redisPort,
     });
     client.unref();
-    client.on("debug", console.log);
+
+    client.on("error", (err) => {
+        console.error("Unable to establish connection with Redis: ", err);
+    });
+
+    client.on("connect", () => {
+        console.log("Successfully connected to Redis!");
+    });
+
     return new store({
         client: client,
         disableTouch: true,

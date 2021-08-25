@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@hookform/resolvers": "2.8.0",
     "@navikt/ds-css": "^0.6.8",
     "@navikt/ds-icons": "0.5.2",
     "@navikt/ds-react": "^0.7.4",
@@ -13,7 +12,6 @@
     "@testing-library/react": "12.0.0",
     "@testing-library/user-event": "13.2.1",
     "@types/jest": "27.0.1",
-    "@types/node": "16.7.1",
     "@types/react": "17.0.19",
     "@types/react-collapse": "5.0.1",
     "@types/react-datepicker": "4.1.4",
@@ -60,16 +58,11 @@
     "nav-frontend-spinner-style": "1.0.2",
     "nav-frontend-stegindikator": "2.0.1",
     "nav-frontend-stegindikator-style": "2.0.1",
-    "nav-frontend-tekstomrade": "3.0.1",
     "nav-frontend-typografi": "4.0.1",
     "nav-frontend-typografi-style": "2.0.1",
     "nav-frontend-veileder": "3.0.1",
     "nav-frontend-veileder-style": "3.0.1",
-    "nav-frontend-veilederpanel": "2.0.1",
-    "nav-frontend-veilederpanel-style": "2.0.1",
-    "prop-types": "15.7.2",
     "react": "17.0.2",
-    "react-collapse": "5.1.0",
     "react-datepicker": "4.2.1",
     "react-dom": "17.0.2",
     "react-hook-form": "7.13.0",
@@ -79,8 +72,7 @@
     "react-router-dom": "5.2.0",
     "typescript": "4.3.5",
     "uuid": "8.3.2",
-    "web-vitals": "2.1.0",
-    "yup": "0.32.9"
+    "web-vitals": "2.1.0"
   },
   "devDependencies": {
     "@craco/craco": "6.2.0",
