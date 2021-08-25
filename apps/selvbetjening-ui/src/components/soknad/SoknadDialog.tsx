@@ -10,6 +10,7 @@ import Stegviser from "../felles/Stegviser";
 import Oppsummering from "./6-oppsummering/Oppsummering";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import DinSituasjon from "./4-din-situasjon/DinSituasjon";
+import { lagreSoeknad } from "../../api";
 
 const SoknadDialog = () => {
     const history = useHistory();
@@ -19,11 +20,7 @@ const SoknadDialog = () => {
 
     const { state: { steg } } = useStegContext();
 
-    const { state: { harSamtykket }} = useSoknadContext();
-
-    if (!harSamtykket) {
-        history.push("/")
-    }
+    const { state } = useSoknadContext();
 
     const settSteg = (retning: -1 | 1) => {
         const matchAktivtSteg = location.pathname.match(/[^/]+$/) || []
@@ -35,7 +32,11 @@ const SoknadDialog = () => {
     }
 
     const forrige = () => settSteg(-1)
-    const neste = () => settSteg(1)
+    const neste = () => {
+        lagreSoeknad(state)
+            .then(() => settSteg(1))
+            .catch((err) => console.error(err));
+    }
 
     return (
         <>

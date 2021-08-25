@@ -30,7 +30,7 @@ export const hentInnloggetPerson = () => {
  * Henter søknad fra APIet basert på innlogget bruker sitt fnr.
  */
 export const hentSoeknad = () => {
-    return api.get("/api/soeknad")
+    return api.get("/api/kladd")
         .then((response) => {
             if (response.status !== 200) {
                 throw new Error()
@@ -46,7 +46,7 @@ export const hentSoeknad = () => {
  * Skal gi Søknad ID i retur ved lagring ok
  */
 export const lagreSoeknad = (soeknad: object) => {
-    return api.post("/api/soeknad", soeknad)
+    return api.post("/api/kladd", soeknad)
         .then((response) => {
             if (response.status !== 200) {
                 throw new Error()

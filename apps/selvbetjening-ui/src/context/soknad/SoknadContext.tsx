@@ -12,9 +12,7 @@ const tomSoeknad = {
     opplysningerOmBarn: {}
 };
 
-const STORAGE_KEY = "etterlatte-store";
-const json = localStorage.getItem(STORAGE_KEY);
-const initialState: ISoeknad = json ? JSON.parse(json) : tomSoeknad;
+const initialState: ISoeknad = tomSoeknad;
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     const sistLagretDato = new Date();
@@ -27,6 +25,8 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
         }
         case ActionTypes.TILBAKESTILL:
             return tomSoeknad;
+        case ActionTypes.HENT_SOEKNAD:
+            return action.payload;
         case ActionTypes.OPPDATER_SAMTYKKE:
             return {
                 ...state,
@@ -78,8 +78,6 @@ const useSoknadContext = () => useContext(SoknadContext);
 
 const SoknadProvider: FC = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 
     return <SoknadContext.Provider value={{ state, dispatch }}>{children}</SoknadContext.Provider>;
 };
