@@ -184,7 +184,7 @@
       "tidligereGift": "Var du tidligere gift med avdøde?",
       "datoForInngaattSamboerskap": "Dato for inngått samboerskap",
       "omsorgForBarn": "Hadde du omsorg for avdødes barn på dødstidspunktet?",
-      "datoForSkilsmisse": "Oppgi dato for skilsmisse (ikke seperasjon)",
+      "datoForSkilsmisse": "Oppgi dato for skilsmisse (ikke separasjon)",
       "datoForSamlivsbrudd": "Dato for samlivsbruddet (ikke separasjon)",
       "mottokBidrag": "Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?",
       "mottokEktefelleBidrag": "Mottok du ektefellebidrag?",
@@ -451,7 +451,7 @@
         "required": "Oppgi dato for inngått parnterskap"
       },
       "datoForSkilsmisse": {
-        "required": "Oppgi dato for skilsmisse (ikke seperasjon)"
+        "required": "Oppgi dato for skilsmisse (ikke separasjon)"
       },
       "fellesBarn": {
         "required": "Oppgi om dere har eller hadde, felles barn"
