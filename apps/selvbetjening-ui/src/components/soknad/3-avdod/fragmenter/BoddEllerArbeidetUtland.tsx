@@ -21,7 +21,6 @@ const BoddEllerArbeidetUtland = () => {
 
     const boddEllerArbeidetUtland = watch("boddEllerJobbetUtland.svar");
 
-    // TODO: støtte fjerning av element
     const { fields, append, remove } = useFieldArray<any>({
         control,
         name: "boddEllerJobbetUtland.oppholdUtland",
