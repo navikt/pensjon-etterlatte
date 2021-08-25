@@ -1,5 +1,6 @@
 import axios from "axios";
 import axiosRetry from 'axios-retry';
+import { ISoeknad } from "./context/soknad/soknad";
 
 const api = axios.create({
     withCredentials: true,
@@ -32,11 +33,13 @@ export const hentInnloggetPerson = () => {
 export const hentSoeknad = () => {
     return api.get("/api/kladd")
         .then((response) => {
+            console.log(response);
+
             if (response.status !== 200) {
                 throw new Error()
             }
 
-            return response.data;
+            return response.data?.soeknad as ISoeknad;
         });
 };
 
