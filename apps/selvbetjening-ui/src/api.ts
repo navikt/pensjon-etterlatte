@@ -39,7 +39,12 @@ export const hentSoeknad = () => {
                 throw new Error()
             }
 
-            return response.data?.soeknad as ISoeknad;
+            return response.data;
+        })
+        .then((data) => {
+            const soeknad = JSON.parse(data?.soeknad) as ISoeknad;
+            console.log(soeknad);
+            return soeknad;
         });
 };
 
