@@ -35,7 +35,7 @@ const OppsummeringOmBarn = ({
                     <SkjemaGruppe key={`${barn.foedselsnummer}_${i}`} legend={`${barn.fornavn} ${barn.etternavn}`}>
                         <Panel border>
                             {tekster.map(({ key, val }) => (
-                                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} />
+                                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key}/>
                             ))}
                         </Panel>
                     </SkjemaGruppe>
@@ -43,6 +43,7 @@ const OppsummeringOmBarn = ({
             })}
 
             <TekstGruppe
+                id={"omBarn.gravidEllerNyligFoedt"}
                 tittel={t("omBarn.gravidEllerNyligFoedt")}
                 innhold={t(opplysningerOmBarn.gravidEllerNyligFoedt!)}
             />

@@ -40,7 +40,7 @@ const OppsummeringOmAvdoed = ({
             >
                 <Panel border>
                     {oppholdUtlandTekster.map(({ key, val }) => (
-                        <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)}/>
+                        <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key}/>
                     ))}
                 </Panel>
             </SkjemaGruppe>
@@ -51,7 +51,7 @@ const OppsummeringOmAvdoed = ({
         <Ekspanderbartpanel tittel={t("omDenAvdoede.tittel")} className={"oppsummering"} apen={true}>
             {teksterUtenOppholdUtland.map(({ key, val }) => (
                 <div key={uuid()}>
-                    <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)}/>
+                    <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key}/>
                     {key === "omDenAvdoede.boddEllerJobbetUtland.svar" && oppholdUtlandPanel}
                 </div>
             ))}

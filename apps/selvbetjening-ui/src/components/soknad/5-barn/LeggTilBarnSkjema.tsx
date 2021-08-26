@@ -160,7 +160,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                 <Feilmeldinger errors={errors}/>
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Hovedknapp htmlType={"button"} onClick={handleSubmit(leggTilOgLukk)}>
+                    <Hovedknapp htmlType={"button"} onClick={handleSubmit(leggTilOgLukk)} id={"leggTilBarn"}>
                         {t("knapp.leggTil")}
                     </Hovedknapp>
                 </SkjemaGruppe>
