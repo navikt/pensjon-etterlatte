@@ -3,10 +3,9 @@ import 'cypress-wait-until'
 describe('Skal gå igjennom hele søknaden uten feil', () => {
 
     it('Skal åpne startsiden og starte en søknad', () => {
+        cy.intercept('GET', '/api/person/innlogget', {fixture: 'testbruker'}).as('hentInnloggetPerson')
         cy.visit('localhost:3000')
-
-        // Vent med godkjenning til brukerinformasjon er hentet inn
-        cy.get(".spinner-overlay").should('not.exist')
+        cy.wait(['@hentInnloggetPerson'])
 
         // Bekreft riktige opplysninger
         cy.get('[type="checkbox"]').check({force: true})
@@ -135,11 +134,22 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         cy.get('[id="omBarn.relasjon"]').contains("Fellesbarn med avdøde")
         cy.get('[id="omBarn.gravidEllerNyligFoedt"]').contains("Nei, ingen av delene / ikke relevant")
 
+
+    })
+
+    it('Skal bli sendt til kvitteringssiden ved suksessfull søknad', () => {
+        cy.intercept('POST', '/api/api/soeknad', "13").as('postSoeknad')
+
         // Send inn søknad
         cy.get('[type="button"]').contains("Send søknad").click()
-        cy.get('[type="button"]').contains("Send søknad").should('be.disabled')
+
+        // Verifiser søknad mottatt
+        cy.wait(['@postSoeknad'])
+        cy.url().should('include', '/soknad/sendt/13')
+        cy.get('.alertstripe').should('be.visible')
+        cy.contains('Takk for søknaden')
+        cy.contains('Saksnummer: 13')
     })
 })
 
-let gaaTilNesteSide = () => cy.get('[type="button"]').contains("Neste").click()
-
+let gaaTilNesteSide = () => cy.get('.knapp--hoved').click()
