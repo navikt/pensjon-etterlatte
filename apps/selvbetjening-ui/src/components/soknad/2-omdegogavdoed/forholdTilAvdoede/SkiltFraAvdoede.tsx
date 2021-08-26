@@ -50,7 +50,7 @@ const SkiltFraAvdoede = () => {
 
     return (
         <>
-            <SkjemaGruppe className={"rad"}>
+            <SkjemaGruppe className={"rad col-mobile"}>
                 <Datovelger
                     className={"kol"}
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}

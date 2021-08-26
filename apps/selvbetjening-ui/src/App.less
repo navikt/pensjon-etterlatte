@@ -104,6 +104,12 @@
   .kol-25 {
     flex-basis: 25%;
   }
+
+  @media screen and (max-width: @width) {
+    &.col-mobile {
+      flex-direction: column;
+    }
+  }
 }
 
 .tekstgruppe {
