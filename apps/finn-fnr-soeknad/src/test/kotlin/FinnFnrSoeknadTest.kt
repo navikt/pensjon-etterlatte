@@ -19,6 +19,7 @@ class FinnFnrSoeknadTest {
                         mapOf(
                             "@event_name" to "soeknad_innsendt",
                             "@skjema_info" to json,
+                            "@fnr_soeker" to "98765432101"
                         )
                     )
                         .toJson()
@@ -31,8 +32,8 @@ class FinnFnrSoeknadTest {
         assertEquals("61929750062", inspector.message(0).get("@fnr_liste")[3].asText())
         assertEquals("61483601467", inspector.message(0).get("@fnr_liste")[4].asText())
         assertEquals("29507030252", inspector.message(0).get("@fnr_liste")[5].asText())
-
-        assertEquals(6,inspector.message(0).get("@fnr_liste").size())
+        assertEquals("98765432101", inspector.message(0).get("@fnr_liste")[6].asText())
+        assertEquals(7,inspector.message(0).get("@fnr_liste").size())
     }
     fun getTestResource( file: String): String {
         return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
