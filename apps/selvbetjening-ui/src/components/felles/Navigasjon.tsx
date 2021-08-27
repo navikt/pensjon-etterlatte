@@ -59,7 +59,7 @@ const Navigasjon = ({
 
     return (
         <>
-            <SkjemaGruppe>
+            <SkjemaGruppe className="navigasjon-footer">
                 <div className={classNames("navigasjon-rad", disabled && "disabled")}>
                     {!!forrige && (
                         <Knapp htmlType={"button"} onClick={forrige.onClick}>
