@@ -20,7 +20,6 @@ internal class SjekkAdressebeskyttelse(
     private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@fnr_liste") }
             validate { it.rejectKey("@adressebeskyttelse") }
         }.register(this)
