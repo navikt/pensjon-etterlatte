@@ -25,6 +25,9 @@ const OppsummeringOmBarn = ({
     const getBaseKey = (string: string) => {
         return string.replace(/(.\d+)/g, "");
     };
+    const unikBarnId = (key: string, i: number): string => {
+        return `opplysningerOmBarn.barn.${i}.${key.split('omBarn.').pop()}`
+    }
 
     return (
         <Ekspanderbartpanel tittel={t("omBarn.tittel")} className={"oppsummering"} apen={true}>
@@ -35,7 +38,7 @@ const OppsummeringOmBarn = ({
                     <SkjemaGruppe key={`${barn.foedselsnummer}_${i}`} legend={`${barn.fornavn} ${barn.etternavn}`}>
                         <Panel border>
                             {tekster.map(({ key, val }) => (
-                                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key}/>
+                                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={unikBarnId(key, i)}/>
                             ))}
                         </Panel>
                     </SkjemaGruppe>
@@ -43,7 +46,7 @@ const OppsummeringOmBarn = ({
             })}
 
             <TekstGruppe
-                id={"omBarn.gravidEllerNyligFoedt"}
+                id={"opplysningerOmBarn.gravidEllerNyligFoedt"}
                 tittel={t("omBarn.gravidEllerNyligFoedt")}
                 innhold={t(opplysningerOmBarn.gravidEllerNyligFoedt!)}
             />

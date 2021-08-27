@@ -24,8 +24,11 @@ const OppsummeringOmAvdoed = ({
 
     const getBaseKey = (string: string) => string.replace(/(.\d+)/g, "")
     const formatDate = (date?: Date) => date ? formatter.format(new Date(date)) : ""
-
     const oppholdUtlandTeksterPrefix = "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland"
+
+    const unikOppholdUtlandId = (key: string, i: number): string => {
+        return `${oppholdUtlandTeksterPrefix}.${i}${key.split(oppholdUtlandTeksterPrefix).pop()}`
+    }
     const teksterUtenOppholdUtland: any[] = otr
         .traverse<IAvdoed>(opplysningerOmAvdoede, "omDenAvdoede")
         .filter(({ key }) => !key.startsWith(oppholdUtlandTeksterPrefix))
@@ -40,7 +43,7 @@ const OppsummeringOmAvdoed = ({
             >
                 <Panel border>
                     {oppholdUtlandTekster.map(({ key, val }) => (
-                        <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key}/>
+                        <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={unikOppholdUtlandId(key, i)}/>
                     ))}
                 </Panel>
             </SkjemaGruppe>
