@@ -65,7 +65,7 @@
     "react": "17.0.2",
     "react-datepicker": "4.2.1",
     "react-dom": "17.0.2",
-    "react-hook-form": "7.13.0",
+    "react-hook-form": "7.6.3",
     "react-i18next": "11.11.4",
     "react-modal": "3.14.3",
     "react-router": "5.2.0",
@@ -76,6 +76,7 @@
   },
   "devDependencies": {
     "@craco/craco": "6.2.0",
+    "@types/lodash": "^4.14.172",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
     "connect-redis": "6.0.0",

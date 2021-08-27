@@ -19,7 +19,7 @@ export default class ObjectTreeReader {
 
                 const key = baseKey ? baseKey.concat(".").concat(value[0]) : value[0]
 
-                if (!!val && typeof val === "object") return this.traverse(val, key)
+                if (!!val && typeof val === "object" && !(val instanceof Date)) return this.traverse(val, key)
                 else return { key, val: this.stringify(val) }
             })
     }
@@ -30,7 +30,7 @@ export default class ObjectTreeReader {
     }
 
     private stringify = (val: any): string => {
-        if (this.isDateString(val)) return this.dtf.format(new Date(val))
+        if (this.isDateString(val) || val instanceof Date) return this.dtf.format(new Date(val))
         else return val?.toString()
     }
 

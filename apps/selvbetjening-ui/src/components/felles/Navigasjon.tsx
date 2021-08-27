@@ -16,7 +16,12 @@ interface KnappProps {
     onClick?: () => void;
 }
 
-const Navigasjon = ({ neste, forrige, send, disabled }: {
+const Navigasjon = ({
+    neste,
+    forrige,
+    send,
+    disabled,
+}: {
     neste?: KnappProps;
     forrige?: KnappProps;
     send?: KnappProps;
@@ -25,7 +30,7 @@ const Navigasjon = ({ neste, forrige, send, disabled }: {
     const { t, i18n } = useTranslation();
     const {
         state: { sistLagretDato },
-        dispatch: soknadDispatch
+        dispatch: soknadDispatch,
     } = useSoknadContext();
 
     const { dispatch: brukerDispatch } = useBrukerContext();
@@ -35,27 +40,27 @@ const Navigasjon = ({ neste, forrige, send, disabled }: {
         month: "long",
         year: "numeric",
         hour: "2-digit",
-        minute: "2-digit"
+        minute: "2-digit",
     });
 
     let sistLagret;
     if (!!sistLagretDato && erDato(sistLagretDato)) {
-        sistLagret = dtf.format(new Date(sistLagretDato))
+        sistLagret = dtf.format(new Date(sistLagretDato));
     }
 
     const [isOpen, setIsOpen] = useState(false);
 
     const avbryt = () => {
-        soknadDispatch({ type: SoknadAction.TILBAKESTILL })
-        brukerDispatch({ type: BrukerAction.TILBAKESTILL })
+        soknadDispatch({ type: SoknadAction.TILBAKESTILL });
+        brukerDispatch({ type: BrukerAction.TILBAKESTILL });
 
-        window.location.href = "https://www.nav.no"
-    }
+        window.location.href = "https://www.nav.no";
+    };
 
     return (
         <>
             <SkjemaGruppe>
-                <div className={classNames("navigasjon-rad", disabled && "disabled")} >
+                <div className={classNames("navigasjon-rad", disabled && "disabled")}>
                     {!!forrige && (
                         <Knapp htmlType={"button"} onClick={forrige.onClick}>
                             {forrige.label || t("knapp.tilbake")}
@@ -93,11 +98,10 @@ const Navigasjon = ({ neste, forrige, send, disabled }: {
                 onRequestClose={() => setIsOpen(false)}
                 closeButton={true}
                 contentLabel={"aasdfsdf"}
+                className="avbryt-modal"
             >
                 <SkjemaGruppe>
-                    <Ingress>
-                        Er du helt sikker på at du vil avbryte søknaden?
-                    </Ingress>
+                    <Ingress>Er du helt sikker på at du vil avbryte søknaden?</Ingress>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
