@@ -19,6 +19,11 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.nio.file.Paths
+import java.time.Clock
+import java.time.LocalDateTime
+import java.time.Month
+import java.time.ZoneId
+import java.time.ZoneOffset
 
 class JournalfoerSoeknadTest {
 
@@ -28,9 +33,10 @@ class JournalfoerSoeknadTest {
     }
     @Test
     fun journalfoer() {
+        val clock: Clock = Clock.fixed(LocalDateTime.of(2020, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
         val message = getTestResource("/fullMessage.json")
         val inspector = TestRapid()
-            .apply { JournalfoerSoeknad(this, GenererPdfMock(), JournalfoerDokMock("/journalfoerResponse.json")) }
+            .apply { JournalfoerSoeknad(this, GenererPdfMock(), JournalfoerDokMock("/journalfoerResponse.json"), clock) }
             .apply {
                 sendTestMessage(
                     message
@@ -41,6 +47,21 @@ class JournalfoerSoeknadTest {
         assertEquals("123", inspector.message(0).get("@dokarkivRetur").get("dokumenter")[0].get("dokumentInfoId").asText())
         assertEquals("467010363", inspector.message(0).get("@dokarkivRetur").get("journalpostId").asText())
 
+    }
+
+    @Test
+    fun testAvbruttPgaTid() {
+        val clock: Clock = Clock.fixed(LocalDateTime.of(2023, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
+        val message = getTestResource("/fullMessage.json")
+        val inspector = TestRapid()
+            .apply { JournalfoerSoeknad(this, GenererPdfMock(), JournalfoerDokMock("/journalfoerResponse.json"), clock) }
+            .apply {
+                sendTestMessage(
+                    message
+                )
+            }.inspektør
+
+        assertEquals(0, inspector.size )
     }
 
     @Test
