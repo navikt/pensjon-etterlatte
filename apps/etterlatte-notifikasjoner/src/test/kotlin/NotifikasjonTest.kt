@@ -5,7 +5,6 @@ import no.nav.common.KafkaEnvironment
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.util.*
 
@@ -48,15 +47,21 @@ internal class NotifikasjonTest {
                         mapOf(
                             "@event_name" to "soeknad_innsendt",
                             "@dokarkivRetur" to "123456",
-                            "@fnr_soeker" to "07106123912"
+                            "@fnr_soeker" to "07106123912",
+                            "@lagret_soeknad_id" to "4",
+                            "@dokarkivRetur" to (mapOf("journalpostId" to "3"))
+
+
                         )
                     )
                         .toJson()
                 )
             }.inspektør
 
-        assertEquals("07106123912", inspector.message(0).get("@fnr_soeker").asText())
-        assertEquals("Notifikasjon sendt til bruker", inspector.message(0).get("@notifikasjon").asText())
+        assertEquals("notifikasjon_sendt", inspector.message(0).get("@event_name").asText())
+        assertEquals("Notifikasjon sendt", inspector.message(0).get("@notifikasjon").asText())
+        assertEquals("3", inspector.message(0).get("@journalpostId").asText())
+        assertEquals("4", inspector.message(0).get("@lagret_soeknad_id").asText())
         embeddedKafkaEnvironment.tearDown()
 
     }
