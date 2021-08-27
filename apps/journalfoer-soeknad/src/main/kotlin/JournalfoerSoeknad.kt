@@ -39,7 +39,7 @@ internal class JournalfoerSoeknad(
             runBlocking(Dispatchers.IO) {
                 OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
                     if (it.isBefore(OffsetDateTime.now(klokke))) {
-                        logger.error("Avbrutt journalføring da hendelsen er utløpt")
+                        logger.error("Avbrutt journalføring da hendelsen ikke er gyldig lengre")
                     } else {
                         packet["@dokarkivRetur"] = dok.journalfoerDok(
                             packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
