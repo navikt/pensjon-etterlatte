@@ -14,7 +14,7 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
 
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
-    val rapid = rapidsConnection
+    private val rapid = rapidsConnection
     init {
         sendNotifikasjon.startuptask()
         River(rapidsConnection).apply {
@@ -22,8 +22,6 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@fnr_soeker") }
             validate { it.requireKey("@lagret_soeknad_id") }
-            validate { it.requireKey("@dokarkivRetur") }
-            validate { it.rejectKey("@notifikasjon") }
         }.register(this)
 
     }
@@ -35,7 +33,6 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             sendNotifikasjon.sendMessage(packet["@fnr_soeker"].textValue())
 
             val journalpostId = packet["@dokarkivRetur"]["journalpostId"]
-            println(packet["@dokarkivRetur"])
             JsonMessage.newMessage(mapOf(
                 "@event_name" to "notifikasjon_sendt",
                 "@lagret_soeknad_id" to packet["@lagret_soeknad_id"],
@@ -44,8 +41,6 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             )).apply {
                 rapid.publish("SendNotifikasjon " + journalpostId.textValue(), toJson())
             }
-            //packet["@notifikasjon"] = "Notifikasjon sendt til bruker"
-            //context.publish(packet.toJson())
             logger.info("Notifikasjon til bruker opprettet")
         }
     }
