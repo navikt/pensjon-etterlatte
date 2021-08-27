@@ -63,7 +63,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             oppholdUtland.beskrivelse.map((utlandType) => selectValue(utlandType)) // Bodd/Arbeidet checkbox
             getById(baseId + "fraDato").type(oppholdUtland.fraDato)
             getById(baseId + "tilDato").type(oppholdUtland.tilDato)
-            selectValueForId(baseId + "medlemFolketrygdUtland", oppholdUtland.medlemFolketrygdUtland)
+            selectValueForId(baseId + "medlemFolketrygd", oppholdUtland.medlemFolketrygd)
             getById(baseId + "mottokPensjon.beskrivelse").type(oppholdUtland.mottokPensjon.beskrivelse)
         })
 

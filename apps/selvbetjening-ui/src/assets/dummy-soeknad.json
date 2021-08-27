@@ -41,7 +41,7 @@
           ],
           "fraDato": "2002-08-10T22:00:00.000Z",
           "tilDato": "2003-08-10T22:00:00.000Z",
-          "medlemFolketrygdUtland": "Ja",
+          "medlemFolketrygd": "Ja",
           "mottokPensjon": {
             "beskrivelse": "150.000"
           }

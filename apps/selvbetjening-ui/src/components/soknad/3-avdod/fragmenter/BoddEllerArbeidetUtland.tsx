@@ -92,12 +92,12 @@ const BoddEllerArbeidetUtland = () => {
                             </SkjemaGruppe>
 
                             <RHFSpoersmaalRadio
-                                name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygdUtland` as const}
-                                legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtland")}
+                                name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygd` as const}
+                                legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd")}
                                 description={
                                     <HvorforSpoerVi>
                                         {t(
-                                            "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdUtlandHjelpetekst"
+                                            "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst"
                                         )}
                                     </HvorforSpoerVi>
                                 }

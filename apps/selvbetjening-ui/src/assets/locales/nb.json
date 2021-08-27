@@ -239,8 +239,8 @@
         "beskrivelse": "Bodd og/eller arbeidet?",
         "fraDato": "Fra dato",
         "tilDato": "Til dato",
-        "medlemFolketrygdUtland": "Var han/hun medlem av folketrygden under oppholdet?",
-        "medlemFolketrygdUtlandHjelpetekst": "Perioder i andre land enn Norge kan tas med i beregningen hvis han/hun var medlem i folketrygden.",
+        "medlemFolketrygd": "Var han/hun medlem av folketrygden under oppholdet?",
+        "medlemFolketrygdHjelpetekst": "Perioder i andre land enn Norge kan tas med i beregningen hvis han/hun var medlem i folketrygden.",
         "mottokPensjon": {
           "hjelpetekst": "Dette trenger vi for å vurdere avdødes medlemskap i folketrygden.",
           "beskrivelse": "Oppgi eventuell pensjon han/hun mottok fra dette landet (per år i kr.)"
@@ -415,7 +415,7 @@
             "required": "Oppgi hvor mye pensjon som ble mottatt"
           }
         },
-        "medlemFolketrygdUtland": {
+        "medlemFolketrygd": {
           "required": "Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge"
         }
       }
