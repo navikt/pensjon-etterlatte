@@ -1,3 +1,4 @@
+import "./BarnInfoKort.less";
 import { IBarn } from "../../../typer/person";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import { Normaltekst, Undertekst, Undertittel } from "nav-frontend-typografi";
@@ -15,12 +16,12 @@ interface Props {
 const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
     const { t } = useTranslation();
 
-    const foedselsnummer = barn.foedselsnummer?.replace(/(\d{6})(.*)/, "$1 $2")
+    const foedselsnummer = barn.foedselsnummer?.replace(/(\d{6})(.*)/, "$1 $2");
 
     return (
         <div className={"infokort"}>
             <div className={"infokort__header"}>
-                <img alt="barn" className="barneikon" src={ikon}/>
+                <img alt="barn" className="barneikon" src={ikon} />
             </div>
 
             <div className={"infokort__informasjonsboks center"}>
@@ -32,7 +33,9 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
                 <div className="informasjonselement">
                     <Normaltekst>{foedselsnummer}</Normaltekst>
                     <Normaltekst>{t(`${barn.relasjon}`)}</Normaltekst>
-                    <Normaltekst>{barn.statsborgerskap} {t("omBarn.statsborger")}</Normaltekst>
+                    <Normaltekst>
+                        {barn.statsborgerskap} {t("omBarn.statsborger")}
+                    </Normaltekst>
 
                     <Normaltekst>
                         {t("omBarn.borI")}&nbsp;
