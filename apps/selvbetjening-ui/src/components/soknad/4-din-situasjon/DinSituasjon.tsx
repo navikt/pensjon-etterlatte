@@ -16,6 +16,8 @@ import { useTranslation } from "react-i18next";
 import UnderUtdanning from "./fragmenter/UnderUtdanning";
 import { RHFInput } from "../../felles/RHFInput";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
+import { useEffectOnce } from "../../../utils/extensions";
+import _ from "lodash";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -26,6 +28,10 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         defaultValues: state.dinSituasjon || {},
         shouldUnregister: true
     });
+
+    useEffectOnce(() => {
+        methods.reset(state.dinSituasjon)
+    }, !_.isEmpty(state.dinSituasjon));
 
     const {
         handleSubmit,

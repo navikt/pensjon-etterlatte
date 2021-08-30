@@ -41,7 +41,9 @@ const DevLabs = () => {
 
     return (
         <Panel>
-            <div className={"navigasjon-rad"}>
+            Midlertidig ute av drift...
+
+            {/*<div className={"navigasjon-rad"}>
                 <Hovedknapp onClick={mockSoeknad}>
                     Mock Søknad
                 </Hovedknapp>
@@ -49,7 +51,7 @@ const DevLabs = () => {
                 <Fareknapp onClick={tilbakestill}>
                     Tilbakestill søknad
                 </Fareknapp>
-            </div>
+            </div>*/}
 
             {state.mocked && (
                 <AlertStripe type={"suksess"}>

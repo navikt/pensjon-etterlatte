@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { hentInnloggetPerson, hentSoeknad } from "../../api";
-import { IBruker, ActionTypes as BrukerActionTypes } from "../../context/bruker/bruker";
+import { hentInnloggetPerson, hentSoeknad, lagreSoeknad } from "../../api";
+import { ActionTypes as BrukerActionTypes, IBruker } from "../../context/bruker/bruker";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { Route } from "react-router";
 import SoknadForside from "./SoknadForside";
@@ -10,14 +10,14 @@ import { hentAlder } from "../../utils/dato";
 import { gyldigAlder } from "../../utils/alder";
 import { useHistory } from "react-router-dom";
 import Spinner from "../felles/Spinner";
-import { ISoeknad, ActionTypes as SoeknadActionTypes } from "../../context/soknad/soknad";
+import { ActionTypes as SoeknadActionTypes, ISoeknad } from "../../context/soknad/soknad";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 
 const Soeknad = () => {
     const history = useHistory();
 
     const { dispatch: brukerDispatch } = useBrukerContext();
-    const { dispatch: soeknadDispatch } = useSoknadContext();
+    const { state, dispatch: soeknadDispatch } = useSoknadContext();
 
     const [loading, setLoading] = useState(false);
 
@@ -34,32 +34,41 @@ const Soeknad = () => {
                     brukerDispatch({ type: BrukerActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
                 }
             })
-            .catch((e) => {
-                if (process.env.NODE_ENV === "development") {
-                    // TODO: Dette må fjernes før appen går i prod. Finne bedre alternativ for kjøring lokalt.
-                    brukerDispatch({ type: BrukerActionTypes.INIT_TEST_BRUKER });
-                } else {
-                    console.error(e)
-                }
-            })
+            .catch((e) => console.error(e))
             .finally(() => setLoading(false));
+    }, []);
 
+    useEffect(() => {
         setLoading(true);
 
         hentSoeknad()
-            .then((soeknad: ISoeknad) => {
-                if (!soeknad.harSamtykket) {
+            .then((soeknad: ISoeknad | undefined) => {
+                if (!soeknad?.harSamtykket) {
                     history.push("/");
+                } else {
+                    soeknadDispatch({ type: SoeknadActionTypes.HENT_SOEKNAD, payload: soeknad });
                 }
-
-                soeknadDispatch({ type: SoeknadActionTypes.HENT_SOEKNAD, payload: soeknad });
             })
             .catch((err) => {
                 console.error("Klarte ikke hente eksisterende søknad fra NAV sine systemer.", err);
                 history.push("/"); // Sende brukeren til forsiden
             })
             .finally(() => setLoading(false));
-    }, [brukerDispatch, soeknadDispatch, history]);
+    }, []);
+
+    useEffect(() => {
+        // TODO: Finne bedre løsning
+        //  En mulig løsning kan være at bruker alltid sendes til start ved refresh, men får info om pågående søknad
+        //  og mulighet til å fortsette der de slapp. Deretter kan vi sende personen til det steget de stoppet på.
+
+        if (state.klarForLagring) {
+            const now = new Date();
+
+            lagreSoeknad({ ...state, sistLagretDato: now })
+                .then(() => soeknadDispatch({ type: SoeknadActionTypes.LAGRE_SOEKNAD, payload: now }))
+                .catch((err) => console.error(err));
+        }
+    }, [state]);
 
     return (
         <>

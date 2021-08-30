@@ -16,10 +16,11 @@ import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
 import { emailMatcher } from "../../../utils/matchers";
 import { Cell, Grid } from "@navikt/ds-react";
-import React from "react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
+import _ from "lodash";
+import { useEffectOnce } from "../../../utils/extensions";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
@@ -35,6 +36,10 @@ const OmDeg: SoknadSteg = ({ neste }) => {
         defaultValues: state.omDeg || {},
         shouldUnregister: true
     });
+
+    useEffectOnce(() => {
+        methods.reset(state.omDeg)
+    }, !_.isEmpty(state.omDeg));
 
     const {
         handleSubmit,

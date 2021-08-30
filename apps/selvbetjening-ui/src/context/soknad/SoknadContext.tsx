@@ -1,22 +1,10 @@
 import { createContext, FC, useContext, useReducer } from "react";
-import { ActionTypes, ISoeknad, ISoeknadAction, SoeknadProps } from "./soknad";
+import { ActionTypes, ISoeknad, ISoeknadAction, SoeknadProps, tomSoeknad } from "./soknad";
 import mockJson from "../../assets/dummy-soeknad.json";
-
-const tomSoeknad = {
-    harSamtykket: false,
-    sistLagretDato: undefined,
-    omDeg: {},
-    omDegOgAvdoed: {},
-    omDenAvdoede: {},
-    dinSituasjon: {},
-    opplysningerOmBarn: {}
-};
 
 const initialState: ISoeknad = tomSoeknad;
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
-    const sistLagretDato = new Date();
-
     switch (action.type) {
         case ActionTypes.MOCK_SOEKNAD: {
             const json = JSON.stringify(mockJson)
@@ -26,41 +14,56 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
         case ActionTypes.TILBAKESTILL:
             return tomSoeknad;
         case ActionTypes.HENT_SOEKNAD:
-            return action.payload;
+            return {
+                ...action.payload,
+                klarForLagring: false,
+                hentetFraBackend: true
+            };
+        case ActionTypes.LAGRE_SOEKNAD:
+            return {
+                ...state,
+                sistLagretDato: action.payload
+            }
         case ActionTypes.OPPDATER_SAMTYKKE:
             return {
                 ...state,
-                sistLagretDato,
+                // sistLagretDato,
+                klarForLagring: true,
                 harSamtykket: action.payload
             };
         case ActionTypes.OPPDATER_OM_DEG:
             return {
                 ...state,
-                sistLagretDato,
+                // sistLagretDato,
+                klarForLagring: true,
                 omDeg: action.payload
             };
         case ActionTypes.OPPDATER_OM_DEG_OG_AVDOED:
             return {
                 ...state,
-                sistLagretDato,
+                // sistLagretDato,
+                klarForLagring: true,
                 omDegOgAvdoed: action.payload
             };
         case ActionTypes.OPPDATER_AVDOED:
             return {
                 ...state,
-                sistLagretDato,
+                // sistLagretDato,
+                klarForLagring: true,
                 omDenAvdoede: action.payload
             };
         case ActionTypes.OPPDATER_DIN_SITUASJON:
             return {
                 ...state,
-                sistLagretDato,
+                // sistLagretDato,
+                klarForLagring: true,
                 dinSituasjon: action.payload
             };
         case ActionTypes.OPPDATER_OM_BARN: {
             return {
                 ...state,
-                sistLagretDato,
+                // sistLagretDato,
+                klarForLagring: true,
                 opplysningerOmBarn: action.payload
             };
         }

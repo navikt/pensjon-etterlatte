@@ -13,6 +13,8 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
+import { useEffectOnce } from "../../../utils/extensions";
+import _ from "lodash";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -22,6 +24,10 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         defaultValues: state.omDenAvdoede || {},
         shouldUnregister: true
     });
+
+    useEffectOnce(() => {
+        methods.reset(state.omDenAvdoede)
+    }, (!_.isEmpty(state.omDenAvdoede)));
 
     const {
         handleSubmit,

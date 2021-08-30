@@ -14,10 +14,11 @@ import AlertStripe from "nav-frontend-alertstriper";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
-import React from "react";
 import { erDato } from "../../../utils/dato";
 import { Cell, Grid } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
+import _ from "lodash";
+import { useEffectOnce } from "../../../utils/extensions";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t, i18n } = useTranslation();
@@ -32,6 +33,10 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         defaultValues: state.omDegOgAvdoed || {},
         shouldUnregister: true
     });
+
+    useEffectOnce(() => {
+        methods.reset(state.omDegOgAvdoed);
+    }, (!_.isEmpty(state.omDegOgAvdoed)));
 
     const {
         handleSubmit,

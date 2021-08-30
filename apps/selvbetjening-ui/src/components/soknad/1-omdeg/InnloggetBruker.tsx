@@ -4,11 +4,15 @@ import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Cell, Grid } from "@navikt/ds-react";
+import _ from "lodash";
+import { memo } from "react";
 
-const InnloggetBruker = () => {
+const InnloggetBruker = memo(() => {
     const { t } = useTranslation();
 
     const { state } = useBrukerContext();
+
+    if (_.isEmpty(state)) return null;
 
     return (
         <SkjemaGruppe>
@@ -55,6 +59,6 @@ const InnloggetBruker = () => {
             </Grid>
         </SkjemaGruppe>
     );
-};
+});
 
 export default InnloggetBruker;
