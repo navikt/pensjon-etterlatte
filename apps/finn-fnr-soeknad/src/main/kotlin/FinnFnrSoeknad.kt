@@ -14,7 +14,6 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
     private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
-            //validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@fnr_soeker") }
             validate { it.rejectKey("@fnr_liste") }
