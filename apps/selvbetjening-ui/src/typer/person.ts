@@ -35,8 +35,7 @@ export enum BarnRelasjon {
 }
 
 export enum GravidEllerNyligFoedt {
-    venterBarn = "gravidEllerNyligFoedt.venterBarn",
-    harNyligFoedt = "gravidEllerNyligFoedt.harNyligFoedt",
+    venterEllerHarNyligFoedt = "gravidEllerNyligFoedt.venterEllerHarNyligFoedt",
     ingen = "gravidEllerNyligFoedt.ingen",
 }
 

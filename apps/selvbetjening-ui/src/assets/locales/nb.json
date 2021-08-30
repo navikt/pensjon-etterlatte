@@ -381,9 +381,8 @@
     "andreYtelser": "Andre ytelser"
   },
   "gravidEllerNyligFoedt": {
-    "venterBarn": "Ja, venter barn",
-    "harNyligFoedt": "Ja, har nylig fått barn som ikke er registrert enda",
-    "ingen": "Nei, ingen av delene / ikke relevant"
+    "venterEllerHarNyligFoedt": "Ja",
+    "ingen": "Nei"
   },
   "arbeidsforholdType": {
     "selvstendig": "Ja, er selvstendig næringsdrivende",
