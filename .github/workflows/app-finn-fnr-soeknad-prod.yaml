@@ -1,0 +1,50 @@
+name: finn-fnr-soeknad - Build, release and deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - apps/finn-fnr-soeknad/**
+      - libs/ktorclient-auth-clientcredentials/**
+
+jobs:
+  build-release-deploy:
+    name: Build, release and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '16.x'
+
+      # Build
+      - name: Build
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :apps:finn-fnr-soeknad:test :apps:finn-fnr-soeknad:build
+      # Release
+      - name: Create docker tag
+        run: |
+          echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/finn-fnr-soeknad > .docker_image
+          echo "$(date "+%Y.%m.%d")-$(git rev-parse --short HEAD)" > .docker_tag
+      - name: Build Docker image
+        run: docker build -t $(cat .docker_image):$(cat .docker_tag) apps/finn-fnr-soeknad
+      - name: Login to Github Package Registry
+        env:
+          DOCKER_USERNAME: x-access-token
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin docker.pkg.github.com
+          echo "IMAGE=$(cat .docker_image):$(cat .docker_tag)" >> $GITHUB_ENV
+      - name: Release docker image
+        run: docker push $(cat .docker_image):$(cat .docker_tag)
+
+      # Deploy
+      - name: Deploy prod
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: apps/finn-fnr-soeknad/nais-prod.yaml
+          IMAGE: ${{ env.IMAGE }}
