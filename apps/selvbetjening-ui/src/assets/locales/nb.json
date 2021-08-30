@@ -801,6 +801,14 @@
         "required": "Bankens S.W.I.F.T (BIC) adresse må fylles ut",
         "validate": "Ugyldig SWIFT/BIC kode"
       }
+    },
+    "soekerBarnepensjon": {
+      "required": "Oppgi om du ønsker å søke om barnepensjon"
+    },
+    "brukeAnnenKonto": {
+      "svar": {
+        "required": "Oppgi om du vil bruke et annet kontonummer"
+      }
     }
   }
 }
