@@ -8,6 +8,10 @@ on:
       - apps/selvbetjening-ui/**
       - '!apps/selvbetjening-ui/nais/redis-dev-gcp.yaml'
 
+defaults:
+  run:
+    working-directory: apps/selvbetjening-ui
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
