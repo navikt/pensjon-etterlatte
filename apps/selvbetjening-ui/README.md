@@ -27,6 +27,10 @@ Kjører prosjektet lokalt.\
 Teste prosjektet:\
 `yarn test`
 
+Kjøre cypress tester (krever at prosjektet kjører lokalt først):\
+- `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
+- `yarn cy:test` Kjører testene headless fra CLI.
+
 ### Koble til APIet lokalt
 
 For å koble til `selvbetjening-api` kan du bruke port forwarding: 

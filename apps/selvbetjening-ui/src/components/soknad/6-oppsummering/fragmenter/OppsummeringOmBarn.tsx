@@ -25,6 +25,7 @@ const OppsummeringOmBarn = ({
     const getBaseKey = (string: string) => {
         return string.replace(/(.\d+)/g, "");
     };
+    // Nødvendig med en ID på dette formatet for å enkelt kunne verifisere med e2e tester.
     const unikBarnId = (key: string, i: number): string => {
         return `opplysningerOmBarn.barn.${i}.${key.split('omBarn.').pop()}`
     }

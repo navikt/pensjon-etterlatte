@@ -26,6 +26,7 @@ const OppsummeringOmAvdoed = ({
     const formatDate = (date?: Date) => date ? formatter.format(new Date(date)) : ""
     const oppholdUtlandTeksterPrefix = "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland"
 
+    // Nødvendig med en ID på dette formatet for å enkelt kunne verifisere med e2e tester.
     const unikOppholdUtlandId = (key: string, i: number): string => {
         return `${oppholdUtlandTeksterPrefix}.${i}${key.split(oppholdUtlandTeksterPrefix).pop()}`
     }
