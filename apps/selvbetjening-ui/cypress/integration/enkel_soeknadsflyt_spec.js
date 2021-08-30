@@ -136,7 +136,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal verifisere at oppsummeringen er i henhold til utfyllingen', () => {
         cy.url().should('include', 'steg/oppsummering')
 
-        i18n.language = "no"
+        i18n.language = "nb"
         const tekster = new ObjectTreeReader(i18n).traverse(mockSoeknad)
         tekster.filter(tekst => !["harSamtykket", "sistLagretDato"].includes(tekst.key))
                 // ToDo: Burde også sjekke at innhold er korrekt, men sliter med å få oversatt verdiene.
