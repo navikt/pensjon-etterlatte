@@ -14,7 +14,7 @@ import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { useEffectOnce } from "../../../utils/extensions";
-import _ from "lodash";
+import { isEmpty } from "lodash";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -27,7 +27,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     useEffectOnce(() => {
         methods.reset(state.omDenAvdoede)
-    }, (!_.isEmpty(state.omDenAvdoede)));
+    }, !isEmpty(state.omDenAvdoede));
 
     const {
         handleSubmit,

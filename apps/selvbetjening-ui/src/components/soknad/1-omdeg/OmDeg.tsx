@@ -19,7 +19,7 @@ import { Cell, Grid } from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
-import _ from "lodash";
+import { isEmpty } from "lodash";
 import { useEffectOnce } from "../../../utils/extensions";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
@@ -39,7 +39,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
     useEffectOnce(() => {
         methods.reset(state.omDeg)
-    }, !_.isEmpty(state.omDeg));
+    }, !isEmpty(state.omDeg));
 
     const {
         handleSubmit,

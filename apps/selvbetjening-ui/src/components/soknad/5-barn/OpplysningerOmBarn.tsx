@@ -19,7 +19,7 @@ import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-ho
 import { RHFRadio } from "../../felles/RHFRadio";
 import Panel from "nav-frontend-paneler";
 import { useEffectOnce } from "../../../utils/extensions";
-import _ from "lodash";
+import { isEmpty } from "lodash";
 
 Modal.setAppElement("#root");
 
@@ -33,7 +33,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
 
     useEffectOnce(() => {
         methods.reset(state.opplysningerOmBarn)
-    }, (!_.isEmpty(state.opplysningerOmBarn)));
+    }, !isEmpty(state.opplysningerOmBarn));
 
     const { fields, append, remove } = useFieldArray({
         name: "barn",

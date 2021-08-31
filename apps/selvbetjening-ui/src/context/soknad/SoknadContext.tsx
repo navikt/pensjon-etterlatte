@@ -27,42 +27,36 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
         case ActionTypes.OPPDATER_SAMTYKKE:
             return {
                 ...state,
-                // sistLagretDato,
                 klarForLagring: true,
                 harSamtykket: action.payload
             };
         case ActionTypes.OPPDATER_OM_DEG:
             return {
                 ...state,
-                // sistLagretDato,
                 klarForLagring: true,
                 omDeg: action.payload
             };
         case ActionTypes.OPPDATER_OM_DEG_OG_AVDOED:
             return {
                 ...state,
-                // sistLagretDato,
                 klarForLagring: true,
                 omDegOgAvdoed: action.payload
             };
         case ActionTypes.OPPDATER_AVDOED:
             return {
                 ...state,
-                // sistLagretDato,
                 klarForLagring: true,
                 omDenAvdoede: action.payload
             };
         case ActionTypes.OPPDATER_DIN_SITUASJON:
             return {
                 ...state,
-                // sistLagretDato,
                 klarForLagring: true,
                 dinSituasjon: action.payload
             };
         case ActionTypes.OPPDATER_OM_BARN: {
             return {
                 ...state,
-                // sistLagretDato,
                 klarForLagring: true,
                 opplysningerOmBarn: action.payload
             };

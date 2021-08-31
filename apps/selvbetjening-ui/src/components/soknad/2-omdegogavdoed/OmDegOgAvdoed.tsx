@@ -17,7 +17,7 @@ import Navigasjon from "../../felles/Navigasjon";
 import { erDato } from "../../../utils/dato";
 import { Cell, Grid } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
-import _ from "lodash";
+import { isEmpty } from "lodash";
 import { useEffectOnce } from "../../../utils/extensions";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
@@ -36,7 +36,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
     useEffectOnce(() => {
         methods.reset(state.omDegOgAvdoed);
-    }, (!_.isEmpty(state.omDegOgAvdoed)));
+    }, !isEmpty(state.omDegOgAvdoed));
 
     const {
         handleSubmit,
