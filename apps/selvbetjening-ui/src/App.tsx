@@ -1,6 +1,5 @@
-import { Route, Switch } from "react-router";
+import { Redirect, Route, Switch } from "react-router";
 import SideIkkeFunnet from "./components/SideIkkeFunnet";
-import DevLabs from "./components/dev/DevLabs";
 import Banner from "./components/felles/Banner";
 import UgyldigSoeker from "./components/UgyldigSoeker";
 import Soeknad from "./components/soknad/Soeknad";
@@ -15,8 +14,7 @@ const App = () => {
             <Banner tekst={"Søknad om gjenlevendepensjon"} />
             <ContentContainer className={"soeknad"}>
                 <Switch>
-                    {/* TODO: Kun støtte i dev og Q, ikke prod. Krever litt endringer i appen. */}
-                    {isDevEnv && <Route path={"/labs"} component={DevLabs} />}
+                    <Redirect from={"/labs"} to={"/soknad/admin"} />
 
                     <Route path={"/ugyldig-alder"} component={UgyldigSoeker} />
 

@@ -6,7 +6,7 @@ import Panel from "nav-frontend-paneler";
 import AlertStripe from "nav-frontend-alertstriper";
 import { useHistory } from "react-router-dom";
 
-const DevLabs = () => {
+const Admin = () => {
     const history = useHistory();
 
     const { dispatch } = useSoknadContext();
@@ -41,9 +41,7 @@ const DevLabs = () => {
 
     return (
         <Panel>
-            Midlertidig ute av drift...
-
-            {/*<div className={"navigasjon-rad"}>
+            <div className={"navigasjon-rad"}>
                 <Hovedknapp onClick={mockSoeknad}>
                     Mock Søknad
                 </Hovedknapp>
@@ -51,7 +49,7 @@ const DevLabs = () => {
                 <Fareknapp onClick={tilbakestill}>
                     Tilbakestill søknad
                 </Fareknapp>
-            </div>*/}
+            </div>
 
             {state.mocked && (
                 <AlertStripe type={"suksess"}>
@@ -68,4 +66,4 @@ const DevLabs = () => {
     )
 }
 
-export default DevLabs;
+export default Admin;

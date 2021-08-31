@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 import Spinner from "../felles/Spinner";
 import { ActionTypes as SoeknadActionTypes, ISoeknad } from "../../context/soknad/soknad";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
+import Admin from "../dev/Admin";
 
 const Soeknad = () => {
     const history = useHistory();
@@ -73,6 +74,9 @@ const Soeknad = () => {
     return (
         <>
             <Spinner visible={loading} label={"Henter informasjon ..."}/>
+
+            {/* TODO: Kun i dev/qa*/}
+            <Route path={"/soknad/admin"} component={Admin} />
 
             <Route path={"/soknad/steg"} component={SoknadDialog} />
 
