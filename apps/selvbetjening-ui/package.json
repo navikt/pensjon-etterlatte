@@ -79,6 +79,7 @@
     "@types/lodash": "^4.14.172",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
+    "concurrently": "^6.2.1",
     "connect-redis": "6.0.0",
     "craco": "0.0.3",
     "craco-less": "1.18.0",
@@ -105,6 +106,7 @@
   },
   "scripts": {
     "start": "env REACT_APP_ENVIRONMENT=development craco start",
+    "start:mock": "concurrently \"node ./server/localhost/mock-server.js\" \"craco start\"",
     "build:dev": "env REACT_APP_ENVIRONMENT=development craco build",
     "build:prod": "env REACT_APP_ENVIRONMENT=production craco build",
     "build": "craco build",
