@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-release-deploy:
-    name: Deploy Dev
+    name: Deploy Prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -45,6 +45,6 @@ jobs:
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-gcp
-          RESOURCE: apps/journalpost-info/nais.yaml
+          CLUSTER: prod-gcp
+          RESOURCE: apps/journalpost-info/nais-prod.yaml
           IMAGE: ${{ env.IMAGE }}
