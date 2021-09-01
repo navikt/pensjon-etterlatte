@@ -16,8 +16,7 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
         case ActionTypes.HENT_SOEKNAD:
             return {
                 ...action.payload,
-                klarForLagring: false,
-                hentetFraBackend: true
+                klarForLagring: false
             };
         case ActionTypes.LAGRE_SOEKNAD:
             return {

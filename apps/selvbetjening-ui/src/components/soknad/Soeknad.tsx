@@ -47,7 +47,7 @@ const Soeknad = () => {
                 .then(() => dispatch({ type: ActionTypes.LAGRE_SOEKNAD, payload: now }))
                 .catch((err) => console.error(err));
         }
-    }, [state]);
+    }, [state.klarForLagring]);
 
     return (
         <>
