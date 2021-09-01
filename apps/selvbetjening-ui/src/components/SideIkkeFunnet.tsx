@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Panel from "nav-frontend-paneler";
 import { Systemtittel } from "nav-frontend-typografi";
-import AlertStripe from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 
 const SideIkkeFunnet: FC = () => {
     return (
@@ -9,7 +9,7 @@ const SideIkkeFunnet: FC = () => {
             <Systemtittel>Oi, her var det noe rusk</Systemtittel>
 
             <br />
-            <AlertStripe type="feil">Siden du har etterspurt finnes ikke.</AlertStripe>
+            <Alert variant={"warning"}>Siden du har etterspurt finnes ikke.</Alert>
         </Panel>
     );
 };

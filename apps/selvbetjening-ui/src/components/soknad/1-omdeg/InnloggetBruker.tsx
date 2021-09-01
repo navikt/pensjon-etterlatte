@@ -1,4 +1,4 @@
-import AlertStripe from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
@@ -18,7 +18,7 @@ const InnloggetBruker = memo(() => {
         <SkjemaGruppe>
             {/* TODO: Ikke lagre innlogget bruker? */}
             <br />
-            <AlertStripe type="advarsel">{t("omDeg.advarsel")}</AlertStripe>
+            <Alert variant={"warning"}>{t("omDeg.advarsel")}</Alert>
             <br />
 
             <Grid className={"opplysninger"}>

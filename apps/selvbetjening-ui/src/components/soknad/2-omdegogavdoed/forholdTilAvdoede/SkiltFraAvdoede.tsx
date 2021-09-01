@@ -4,7 +4,7 @@ import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { antallAarMellom } from "../../../../utils/dato";
 import { IValg } from "../../../../typer/Spoersmaal";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 
@@ -81,9 +81,9 @@ const SkiltFraAvdoede = () => {
 
                     {samboereMedFellesBarn === IValg.NEI && merEnn25aar === IValg.NEI && (
                         <SkjemaGruppe>
-                            <AlertStripeAdvarsel>
+                            <Alert variant={"warning"}>
                                 {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                            </AlertStripeAdvarsel>
+                            </Alert>
                         </SkjemaGruppe>
                     )}
                 </>
@@ -91,9 +91,9 @@ const SkiltFraAvdoede = () => {
 
             {fellesBarn === IValg.NEI && mindreEnn15aar === IValg.JA && merEnn25aar === IValg.NEI && (
                 <SkjemaGruppe>
-                    <AlertStripeAdvarsel>
+                    <Alert variant={"warning"}>
                         {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                    </AlertStripeAdvarsel>
+                    </Alert>
                 </SkjemaGruppe>
             )}
 
@@ -105,9 +105,9 @@ const SkiltFraAvdoede = () => {
                     />
                     {mottokEktefelleBidrag === IValg.NEI && (
                         <SkjemaGruppe>
-                            <AlertStripeAdvarsel>
+                            <Alert variant={"warning"}>
                                 {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                            </AlertStripeAdvarsel>
+                            </Alert>
                         </SkjemaGruppe>
                     )}
                 </>

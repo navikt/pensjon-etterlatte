@@ -3,7 +3,7 @@ import { Fareknapp, Hovedknapp } from "nav-frontend-knapper";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useState } from "react";
 import Panel from "nav-frontend-paneler";
-import AlertStripe from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import { useHistory } from "react-router-dom";
 
 const Admin = () => {
@@ -52,15 +52,15 @@ const Admin = () => {
             </div>
 
             {state.mocked && (
-                <AlertStripe type={"suksess"}>
+                <Alert variant={"success"}>
                     Søknad mocket! Tar deg til oppsummering ...
-                </AlertStripe>
+                </Alert>
             )}
 
             {state.reset && (
-                <AlertStripe type={"advarsel"}>
+                <Alert variant={"warning"}>
                     Søknad tilbakestilt!
-                </AlertStripe>
+                </Alert>
             )}
         </Panel>
     )

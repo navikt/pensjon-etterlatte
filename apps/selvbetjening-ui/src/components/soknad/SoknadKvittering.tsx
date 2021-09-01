@@ -8,7 +8,7 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import AlertStripe from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 
 const SoknadKvittering = () => {
@@ -33,9 +33,9 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <AlertStripe type={"suksess"}>
+                <Alert variant={"success"}>
                     {t("soeknadKvittering.alertMottattSoeknad")}
-                </AlertStripe>
+                </Alert>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

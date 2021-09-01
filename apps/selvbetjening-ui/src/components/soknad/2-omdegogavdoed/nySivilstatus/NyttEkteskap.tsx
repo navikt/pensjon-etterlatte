@@ -1,7 +1,7 @@
 import Datovelger from "../../../felles/Datovelger";
 import { RHFRadio, RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { ISoeker, OpploesningAarsak } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
@@ -74,9 +74,9 @@ const NyttEkteskap = () => {
 
             {gyldigVarighet === IValg.NEI && (
                 <SkjemaGruppe>
-                    <AlertStripeAdvarsel>
+                    <Alert variant={"warning"}>
                         {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                    </AlertStripeAdvarsel>
+                    </Alert>
                 </SkjemaGruppe>
             )}
         </>

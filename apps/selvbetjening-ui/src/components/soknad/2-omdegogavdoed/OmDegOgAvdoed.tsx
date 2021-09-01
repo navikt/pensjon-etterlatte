@@ -10,7 +10,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
-import AlertStripe from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
@@ -96,9 +96,9 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                         />
 
                         {foersteFraDato && (
-                            <AlertStripe type={"info"} form={"inline"}>
+                            <Alert variant={"info"} className={"navds-alert--inline"}>
                                 {t("omDegOgAvdoed.rettPaaGjenlevendepensjon", { dato: foersteFraDato })}
-                            </AlertStripe>
+                            </Alert>
                         )}
                     </SkjemaGruppe>
 

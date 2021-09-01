@@ -14,7 +14,7 @@ import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
-import AlertStripe from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFRadio } from "../../felles/RHFRadio";
 import Panel from "nav-frontend-paneler";
@@ -66,11 +66,11 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
 
                 <SkjemaGruppe>
                     <Panel border>
-                        <AlertStripe type={"info"} form={"inline"}>
+                        <Alert variant={"info"} className={"navds-alert--inline"}>
                             <Normaltekst>
                                 {t("omBarn.informasjon")}
                             </Normaltekst>
-                        </AlertStripe>
+                        </Alert>
                     </Panel>
                 </SkjemaGruppe>
 

@@ -5,7 +5,7 @@ import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import React, { memo, useState } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import SoknadSteg from "../../../typer/SoknadSteg";
-import AlertStripe from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import Navigasjon from "../../felles/Navigasjon";
 import ObjectTreeReader from "../../../utils/ObjectTreeReader";
 import { ISoeker, ISoekerOgAvdoed } from "../../../typer/person";
@@ -95,7 +95,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
             {error && (
                 <SkjemaGruppe>
-                    <AlertStripe type={"feil"}>{t("oppsummering.feilVedSending")}</AlertStripe>
+                    <Alert variant={"error"}>{t("oppsummering.feilVedSending")}</Alert>
                 </SkjemaGruppe>
             )}
 

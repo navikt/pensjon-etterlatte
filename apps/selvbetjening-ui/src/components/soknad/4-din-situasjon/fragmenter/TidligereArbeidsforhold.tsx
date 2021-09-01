@@ -8,7 +8,7 @@ import Datovelger from "../../../felles/Datovelger";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { ISituasjon } from "../../../../typer/situasjon";
-import AlertStripe from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import Panel from "nav-frontend-paneler";
 import { Cell, Grid } from "@navikt/ds-react";
 
@@ -30,9 +30,9 @@ const TidligereArbeidsforhold = () => {
 
                 <br />
 
-                <AlertStripe type={"info"} form={"inline"}>
+                <Alert variant={"info"} className={"navds-alert--inline"}>
                     {t("dinSituasjon.tidligereArbeidsforhold.info")}
-                </AlertStripe>
+                </Alert>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

@@ -2,7 +2,7 @@ import Datovelger from "../../../felles/Datovelger";
 import { RHFRadio, RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import SamboerSkjema from "./SamboerSkjema";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import { ISoeker, OpploesningAarsak } from "../../../../typer/person";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
@@ -73,9 +73,9 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
             )}
 
             {gyldigVarighet === IValg.NEI && (
-                <AlertStripeAdvarsel>
+                <Alert variant={"warning"}>
                     {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                </AlertStripeAdvarsel>
+                </Alert>
             )}
         </>
     );
