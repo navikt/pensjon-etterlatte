@@ -32,11 +32,9 @@ const reducer = (state: ISteg, action: IStegAction) => {
             };
         }
         case StegActionTypes.SETT_STEG: {
-            const aktivtSteg = state.steg[action.payload].path;
-
             return {
                 ...state,
-                aktivtSteg,
+                aktivtSteg: action.payload
             };
         }
         case StegActionTypes.FORRIGE: {

@@ -21,8 +21,9 @@ import OppsummeringOmBarn from "./fragmenter/OppsummeringOmBarn";
 import OppsummeringOmAvdoede from "./fragmenter/OppsummeringOmAvdoede";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
-    const { t, i18n } = useTranslation();
     const history = useHistory();
+
+    const { t, i18n } = useTranslation();
     const { state } = useSoknadContext();
 
     const [senderSoeknad, setSenderSoeknad] = useState(false);
@@ -33,9 +34,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         setError(false);
 
         sendSoeknad(state)
-            .then((soknadId) => {
-                history.push(`/soknad/sendt/${soknadId}`);
-            })
+            .then(() => history.push(`/soknad/sendt`))
             .catch((error) => {
                 console.log(error);
                 setSenderSoeknad(false);

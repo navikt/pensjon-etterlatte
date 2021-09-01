@@ -8,25 +8,8 @@ const reducer = (state: IBruker, action: IBrukerAction) => {
         case ActionTypes.TILBAKESTILL: {
             return {};
         }
-        case ActionTypes.INIT_TEST_BRUKER: {
-            return {
-                fornavn: "STOR",
-                etternavn: "SNERK",
-                foedselsnummer: "11057523044",
-                foedselsaar: 1975,
-                foedselsdato: new Date(1975, 4, 11),
-                adresse: "Testveien 12, 0539 Oslo",
-                statsborgerskap: "Norsk",
-                sivilstatus: "Gift",
-            };
-        }
         case ActionTypes.HENT_INNLOGGET_BRUKER: {
-            const innloggetBruker = action.payload;
-
-            // TODO: Håndtere manglende person på en god måte
-            if (!innloggetBruker) return state;
-
-            return { ...innloggetBruker };
+            return action.payload as IBruker;
         }
         default:
             return { ...state };

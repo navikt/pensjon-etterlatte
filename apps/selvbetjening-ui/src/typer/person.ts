@@ -46,7 +46,7 @@ export enum OppholdUtlandType {
 
 export interface IOmBarn {
     barn?: IBarn[];
-    gravidEllerNyligFoedt?: string;
+    gravidEllerNyligFoedt?: GravidEllerNyligFoedt;
 }
 
 export interface IBarn {

@@ -8,7 +8,6 @@ import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
 import OpplysningerOmBarn from "./5-barn/OpplysningerOmBarn";
 import Stegviser from "../felles/Stegviser";
 import Oppsummering from "./6-oppsummering/Oppsummering";
-import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import DinSituasjon from "./4-din-situasjon/DinSituasjon";
 
 const SoknadDialog = () => {
@@ -18,12 +17,6 @@ const SoknadDialog = () => {
     const location = useLocation();
 
     const { state: { steg } } = useStegContext();
-
-    const { state: { harSamtykket }} = useSoknadContext();
-
-    if (!harSamtykket) {
-        history.push("/")
-    }
 
     const settSteg = (retning: -1 | 1) => {
         const matchAktivtSteg = location.pathname.match(/[^/]+$/) || []
@@ -35,7 +28,7 @@ const SoknadDialog = () => {
     }
 
     const forrige = () => settSteg(-1)
-    const neste = () => settSteg(1)
+    const neste = () => settSteg(1);
 
     return (
         <>

@@ -1,6 +1,6 @@
 import "./SoknadForside.less";
 import Lenke from "nav-frontend-lenker";
-import { Ingress, Normaltekst, Systemtittel } from "nav-frontend-typografi";
+import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
@@ -8,16 +8,10 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { useParams } from "react-router";
 import AlertStripe from "nav-frontend-alertstriper";
 import { useTranslation } from "react-i18next";
 
-interface KvitteringProps {
-    id: string;
-}
-
 const SoknadKvittering = () => {
-    const { id } = useParams<KvitteringProps>();
     const { t } = useTranslation();
 
     const { dispatch } = useSoknadContext();
@@ -42,12 +36,6 @@ const SoknadKvittering = () => {
                 <AlertStripe type={"suksess"}>
                     {t("soeknadKvittering.alertMottattSoeknad")}
                 </AlertStripe>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <Ingress>
-                    {t("soeknadKvittering.saksnummer")} <b>{id}</b>
-                </Ingress>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
