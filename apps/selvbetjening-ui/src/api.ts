@@ -48,7 +48,12 @@ export const hentSoeknad = () => {
  * Skal gi Søknad ID i retur ved lagring ok
  */
 export const lagreSoeknad = (soeknad: ISoeknad) => {
-    return api.post("/api/kladd", soeknad)
+    const body: ISoeknad = {
+        ...soeknad,
+        klarForLagring: undefined
+    }
+
+    return api.post("/api/kladd", body)
         .then((response: AxiosResponse) => {
             if (response.status !== 200) {
                 throw new Error()

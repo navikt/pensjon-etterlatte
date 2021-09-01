@@ -22,7 +22,8 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
         case ActionTypes.LAGRE_SOEKNAD:
             return {
                 ...state,
-                sistLagretDato: action.payload
+                sistLagretDato: action.payload,
+                klarForLagring: false
             }
         case ActionTypes.OPPDATER_SAMTYKKE:
             return {

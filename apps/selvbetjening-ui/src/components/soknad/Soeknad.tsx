@@ -1,61 +1,39 @@
 import { useEffect, useState } from "react";
-import { hentInnloggetPerson, hentSoeknad, lagreSoeknad } from "../../api";
-import { ActionTypes as BrukerActionTypes, IBruker } from "../../context/bruker/bruker";
+import { hentSoeknad, lagreSoeknad } from "../../api";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { Route } from "react-router";
 import SoknadForside from "./SoknadForside";
 import SoknadDialog from "./SoknadDialog";
 import SoknadKvittering from "./SoknadKvittering";
-import { hentAlder } from "../../utils/dato";
-import { gyldigAlder } from "../../utils/alder";
 import { useHistory } from "react-router-dom";
-import Spinner from "../felles/Spinner";
-import { ActionTypes as SoeknadActionTypes, ISoeknad } from "../../context/soknad/soknad";
+import { ActionTypes, ISoeknad } from "../../context/soknad/soknad";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import Admin from "../dev/Admin";
+import Spinner from "../felles/Spinner";
 
 const Soeknad = () => {
     const history = useHistory();
 
-    const { dispatch: brukerDispatch } = useBrukerContext();
-    const { state, dispatch: soeknadDispatch } = useSoknadContext();
+    const { state: bruker } = useBrukerContext();
 
-    const [loading, setLoading] = useState(false);
+    const { state, dispatch } = useSoknadContext();
 
-    useEffect(() => {
-        setLoading(true);
-
-        hentInnloggetPerson()
-            .then((person: IBruker) => {
-                const alder = hentAlder(person.foedselsdato!!);
-
-                if (!gyldigAlder(alder)) {
-                    history.push("/ugyldig-alder")
-                } else {
-                    brukerDispatch({ type: BrukerActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
-                }
-            })
-            .catch((e) => console.error(e))
-            .finally(() => setLoading(false));
-    }, []);
+    const [lasterSoeknad, settLasterSoeknad] = useState(true);
 
     useEffect(() => {
-        setLoading(true);
+        if (!bruker.kanSoeke) return;
 
         hentSoeknad()
             .then((soeknad: ISoeknad | undefined) => {
                 if (!soeknad?.harSamtykket) {
                     history.push("/");
                 } else {
-                    soeknadDispatch({ type: SoeknadActionTypes.HENT_SOEKNAD, payload: soeknad });
+                    dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad });
                 }
             })
-            .catch((err) => {
-                console.error("Klarte ikke hente eksisterende søknad fra NAV sine systemer.", err);
-                history.push("/"); // Sende brukeren til forsiden
-            })
-            .finally(() => setLoading(false));
-    }, []);
+            .catch(() => history.push("/"))
+            .finally(() => settLasterSoeknad(false));
+    }, [bruker]);
 
     useEffect(() => {
         // TODO: Finne bedre løsning
@@ -66,21 +44,21 @@ const Soeknad = () => {
             const now = new Date();
 
             lagreSoeknad({ ...state, sistLagretDato: now })
-                .then(() => soeknadDispatch({ type: SoeknadActionTypes.LAGRE_SOEKNAD, payload: now }))
+                .then(() => dispatch({ type: ActionTypes.LAGRE_SOEKNAD, payload: now }))
                 .catch((err) => console.error(err));
         }
     }, [state]);
 
     return (
         <>
-            <Spinner visible={loading} label={"Henter informasjon ..."}/>
+            <Spinner visible={lasterSoeknad} label={"Henter informasjon ..."}/>
 
             {/* TODO: Kun i dev/qa*/}
             <Route path={"/soknad/admin"} component={Admin} />
 
             <Route path={"/soknad/steg"} component={SoknadDialog} />
 
-            <Route path={"/soknad/sendt/:id"} component={SoknadKvittering} />
+            <Route path={"/soknad/sendt"} component={SoknadKvittering} />
 
             <Route exact path={"/"} component={SoknadForside} />
         </>

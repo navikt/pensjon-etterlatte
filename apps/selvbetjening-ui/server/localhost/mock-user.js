@@ -36,8 +36,29 @@ const STOR_SNERK = {
     ...personalia
 }
 
+// For ung til å søke
+const TRIVIELL_MIDTPUNKT = {
+    fornavn: "TRIVIELL",
+    etternavn: "MIDTPUNKT",
+    foedselsnummer: "19040550081",
+    foedselsaar: 2005,
+    foedselsdato: new Date(2005, 3, 19),
+    ...personalia
+};
+
+// For gammel til å søke
+const KRAFTIG_GAPAHAUK = {
+    fornavn: "KRAFTIG",
+    etternavn: "GAPAHAUK",
+    foedselsnummer: "26104500284",
+    foedselsaar: 1945,
+    foedselsdato: new Date(1945, 9, 26),
+    ...personalia
+}
+
 module.exports = {
     SEDAT_RIPSBÆRBUSK,
     NOBEL_TØFFELDYR,
-    STOR_SNERK
+    STOR_SNERK,
+    TRIVIELL_MIDTPUNKT
 };

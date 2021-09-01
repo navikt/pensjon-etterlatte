@@ -3,6 +3,8 @@ const parser = require("body-parser");
 const NodeCache = require("node-cache");
 const {
     SEDAT_RIPSBÆRBUSK,
+    TRIVIELL_MIDTPUNKT, // For ung til å søke
+    KRAFTIG_GAPAHAUK, // For gammel til å søke
     NOBEL_TØFFELDYR,
     STOR_SNERK
 } = require("./mock-user");
@@ -10,7 +12,7 @@ const {
 const app = express();
 const cache = new NodeCache();
 
-const innloggetBruker = SEDAT_RIPSBÆRBUSK;
+const innloggetBruker = STOR_SNERK;
 
 app.use(parser.json());
 

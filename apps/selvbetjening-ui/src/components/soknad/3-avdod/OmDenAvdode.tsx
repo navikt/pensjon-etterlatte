@@ -58,7 +58,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             {t("omDenAvdoede.fornavn")}
                         </Element>
                         <Normaltekst>
-                            {state.omDegOgAvdoed.avdoed?.fornavn}
+                            {state.omDegOgAvdoed.avdoed?.fornavn || ""}
                         </Normaltekst>
                     </div>
                     <div className={"kolonne"}>
@@ -66,7 +66,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             {t("omDenAvdoede.etternavn")}
                         </Element>
                         <Normaltekst>
-                            {state.omDegOgAvdoed.avdoed?.etternavn}
+                            {state.omDegOgAvdoed.avdoed?.etternavn || ""}
                         </Normaltekst>
                     </div>
                 </div>

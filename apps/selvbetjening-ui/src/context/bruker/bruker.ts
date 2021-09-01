@@ -4,6 +4,8 @@ export interface IBruker {
     foedselsnummer?: string;
     foedselsaar?: number;
     foedselsdato?: Date;
+    alder?: number;
+    kanSoeke?: boolean;
     adresse?: string;
     husnummer?: string;
     husbokstav?: string;
@@ -15,7 +17,6 @@ export interface IBruker {
 
 export enum ActionTypes {
     HENT_INNLOGGET_BRUKER = "HENT_INNLOGGET_BRUKER",
-    INIT_TEST_BRUKER = "INIT_TEST_BRUKER",
     TILBAKESTILL = "TILBAKESTILL",
 }
 
