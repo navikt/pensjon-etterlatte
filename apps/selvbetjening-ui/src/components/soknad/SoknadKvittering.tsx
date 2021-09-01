@@ -1,22 +1,18 @@
 import "./SoknadForside.less";
 import Lenke from "nav-frontend-lenker";
-import { Ingress, Normaltekst, Systemtittel } from "nav-frontend-typografi";
+import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { useParams } from "react-router";
 import AlertStripe from "nav-frontend-alertstriper";
-
-interface KvitteringProps {
-    id: string;
-}
+import { useTranslation } from "react-i18next";
 
 const SoknadKvittering = () => {
-    const { id } = useParams<KvitteringProps>();
+    const { t } = useTranslation();
 
     const { dispatch } = useSoknadContext();
 
@@ -33,91 +29,103 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"center"}>
-                <Systemtittel>Takk for søknaden</Systemtittel>
+                <Systemtittel>{t("soeknadKvittering.tittel")}</Systemtittel>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                {/* TODO: Fikse dato */}
                 <AlertStripe type={"suksess"}>
-                    Søknaden din om etterlatteytelser er mottatt [klokkeslett, dato]
+                    {t("soeknadKvittering.alertMottattSoeknad")}
                 </AlertStripe>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Ingress>
-                    Saksnummer: <b>{id}</b>
-                </Ingress>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
                 <Normaltekst>
-                    Spørsmålene i søknaden, sammen med eventuell dokumentasjon, gir oss svar på det vi trenger for å
-                    behandle søknaden din. Dersom vi har behov for mer infromasjon vil vi ta kontakt med deg.
+                    {t("soeknadKvittering.informasjon.kontakt")}
+                </Normaltekst>
+
+                <Normaltekst>
+                    {t("soeknadKvittering.informasjon.endring")}
+                </Normaltekst>
+
+                <Normaltekst>
+                    <ul>
+                        <li>
+                            {t("soeknadKvittering.informasjon.endringsListe.sivilstatus")}
+                        </li>
+                        <li>
+                            {t("soeknadKvittering.informasjon.endringsListe.inntekt")}
+                        </li>
+                        <li>
+                            {t("soeknadKvittering.informasjon.endringsListe.bosted")}
+                        </li>
+                    </ul>
                 </Normaltekst>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Systemtittel>Se saken i Ditt NAV</Systemtittel>
+                <Systemtittel>{t("soeknadKvittering.seSaken.tittel")}</Systemtittel>
 
                 <Normaltekst>
-                    Ved å logge inn i <Lenke href={"#"}>Ditt NAV</Lenke> finner du en bekreftelse på at søknaden din er
-                    sendt inn. Når vi starter å behandle søknaden din, kan du finne den i <Lenke href={"#"}>Dine
-                    saker</Lenke>.
+                    {t("soeknadKvittering.seSaken.informasjon.innhold1")}&nbsp;
+                    <Lenke href={t("soeknadKvittering.seSaken.informasjon.lenkeDittNAV.href")}>{t("soeknadKvittering.seSaken.informasjon.lenkeDittNAV.tekst")}</Lenke>&nbsp;
+                    {t("soeknadKvittering.seSaken.informasjon.innhold2")}&nbsp;
+                    <Lenke href={t("soeknadKvittering.seSaken.informasjon.lenkeDineSaker.href")}>{t("soeknadKvittering.seSaken.informasjon.lenkeDineSaker.tekst")}</Lenke>.
                 </Normaltekst>
 
                 <Normaltekst>
-                    <Lenke href={"#"}>Last ned kvitteringen</Lenke>
+                    <Lenke href={t("soeknadKvittering.seSaken.lenkeNedlastning.href")}>{t("soeknadKvittering.seSaken.lenkeNedlastning.tekst")}</Lenke>
                     <br/>
-                    <Lenke href={"#"}>Skriv ut kvitteringen</Lenke>
+                    <Lenke href={t("soeknadKvittering.seSaken.lenkeSkrivUt.href")}>{t("soeknadKvittering.seSaken.lenkeSkrivUt.tekst")}</Lenke>
                 </Normaltekst>
 
                 <Normaltekst>
-                    Saken din behandles manuelt. Du kan forvente at det tar xxx - xxx tid å behandle den. Finn
-                    <Lenke href={"#"}>saksbehandlingstiden</Lenke> for ditt fylke.
+                    {t("soeknadKvittering.seSaken.behandlingstidInfo.innhold")}&nbsp;
+                    <Lenke href={t("soeknadKvittering.seSaken.behandlingstidInfo.lenke.href")}>{t("soeknadKvittering.seSaken.behandlingstidInfo.lenke.tekst")}</Lenke>.
                 </Normaltekst>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <Systemtittel>
-                    Når du er etterlatt med barn og i arbeid, kan du ha rett til andre stønader
+                    {t("soeknadKvittering.andreStoenader.tittel")}
                 </Systemtittel>
 
                 <Normaltekst>
-                    Hvis du er i arbeid, har barn, eller er under utdanning, kan du også ha rett til andre stønader.
+                    {t("soeknadKvittering.andreStoenader.informasjon")}
                 </Normaltekst>
 
                 <Normaltekst>
                     <ul>
-                        <li>Utvidet barnetrygd</li>
-                        <li>Stønad til barnetilsyn</li>
-                        <li>Stønad til skolepenger</li>
-                        <li>Stønad til gravferd</li>
-                        <li>... andre ting?</li>
+                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.barnetrygd")}</li>
+                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn")}</li>
+                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.tilsyn")}</li>
+                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.tillegg")}</li>
+                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.skolepenger")}</li>
                     </ul>
-                    <Lenke href={"#"}>
-                        Les mer om stønader du kan ha rett på
+                    <br/>
+                    <Lenke href={t("soeknadKvittering.andreStoenader.lenke.href")}>
+                        {t("soeknadKvittering.andreStoenader.lenke.tekst")}
                     </Lenke>
                 </Normaltekst>
-
+                <br/>
                 <Knapp onClick={() => {
                 }}>
-                    Søk tilleggsstønader
+                    {t("soeknadKvittering.andreStoenader.knapp")}
                 </Knapp>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <Systemtittel>
-                    Lurer du på noe?
+                    {t("soeknadKvittering.spoersmaal.tittel")}
                 </Systemtittel>
 
                 <Normaltekst>
-                    Har du spørsmål eller noe er uklart kan du alltids ta kontakt med oss.
+                    {t("soeknadKvittering.spoersmaal.informasjon")}
                 </Normaltekst>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <section className={"navigasjon-rad"}>
-                    <Hovedknapp onClick={() => (window.location.href = "https://www.nav.no")}>Avslutt</Hovedknapp>
+                    <Hovedknapp onClick={() => (window.location.href = "https://www.nav.no")}>{t("soeknadKvittering.spoersmaal.knapp")}</Hovedknapp>
                 </section>
             </SkjemaGruppe>
         </div>

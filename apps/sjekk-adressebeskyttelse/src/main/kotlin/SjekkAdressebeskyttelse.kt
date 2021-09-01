@@ -20,16 +20,14 @@ internal class SjekkAdressebeskyttelse(
     private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@fnr_liste") }
-            validate { it.requireKey("@fnr_soeker") }
             validate { it.rejectKey("@adressebeskyttelse") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
 
-        val identer = packet["@fnr_liste"].map { it.asText() } + packet["@fnr_soeker"].textValue()
+        val identer = packet["@fnr_liste"].map { it.asText() }
         if (identer.isNotEmpty()) {
             runBlocking {
                 val beskyttelse = pdl.finnAdressebeskyttelseForFnr(identer)

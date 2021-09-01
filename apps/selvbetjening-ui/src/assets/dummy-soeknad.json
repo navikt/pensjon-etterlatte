@@ -98,7 +98,7 @@
     }
   },
   "opplysningerOmBarn": {
-    "gravidEllerNyligFoedt":  "gravidEllerNyligFoedt.venterBarn",
+    "gravidEllerNyligFoedt":  "gravidEllerNyligFoedt.venterEllerHarNyligFoedt",
     "barn": [
       {
         "fornavn": "Treg",

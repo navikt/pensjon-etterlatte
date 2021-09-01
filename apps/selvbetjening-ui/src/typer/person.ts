@@ -35,8 +35,7 @@ export enum BarnRelasjon {
 }
 
 export enum GravidEllerNyligFoedt {
-    venterBarn = "gravidEllerNyligFoedt.venterBarn",
-    harNyligFoedt = "gravidEllerNyligFoedt.harNyligFoedt",
+    venterEllerHarNyligFoedt = "gravidEllerNyligFoedt.venterEllerHarNyligFoedt",
     ingen = "gravidEllerNyligFoedt.ingen",
 }
 
@@ -47,7 +46,7 @@ export enum OppholdUtlandType {
 
 export interface IOmBarn {
     barn?: IBarn[];
-    gravidEllerNyligFoedt?: string;
+    gravidEllerNyligFoedt?: GravidEllerNyligFoedt;
 }
 
 export interface IBarn {

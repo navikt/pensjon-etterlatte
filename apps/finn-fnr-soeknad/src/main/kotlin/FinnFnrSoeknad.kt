@@ -14,8 +14,8 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
     private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     init {
         River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@fnr_soeker") }
             validate { it.rejectKey("@fnr_liste") }
         }.register(this)
     }
@@ -27,7 +27,8 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
 
             val brukere = finnFnrForSkjema(packet["@skjema_info"])
             logger.info("fant følgende brukere: $brukere")
-            packet["@fnr_liste"] = brukere
+            packet["@fnr_liste"] = brukere + packet["@fnr_soeker"].textValue()
+            println(packet["@fnr_liste"])
             context.publish(packet.toJson())
 
 

@@ -14,13 +14,14 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
 
     private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
+    private val rapid = rapidsConnection
     init {
         sendNotifikasjon.startuptask()
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@fnr_soeker") }
-            validate { it.rejectKey("@notifikasjon") }
+            validate { it.requireKey("@lagret_soeknad_id") }
         }.register(this)
 
     }
@@ -30,8 +31,16 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
         runBlocking {
 
             sendNotifikasjon.sendMessage(packet["@fnr_soeker"].textValue())
-            packet["@notifikasjon"] = "Notifikasjon sendt til bruker"
-            context.publish(packet.toJson())
+
+            val journalpostId = packet["@dokarkivRetur"]["journalpostId"]
+            JsonMessage.newMessage(mapOf(
+                "@event_name" to "notifikasjon_sendt",
+                "@lagret_soeknad_id" to packet["@lagret_soeknad_id"],
+                "@journalpostId" to journalpostId ,
+                "@notifikasjon" to "Notifikasjon sendt",
+            )).apply {
+                rapid.publish("SendNotifikasjon " + journalpostId.textValue(), toJson())
+            }
             logger.info("Notifikasjon til bruker opprettet")
         }
     }

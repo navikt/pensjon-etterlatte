@@ -54,8 +54,10 @@
   .radioPanel {
     margin-bottom: 0;
     width: 100%;
-    max-width: 33.3%;
     min-width: calc(33.3% - 1rem);
+    @media screen and (min-width: @width) {
+      max-width: 33.3%;
+    }
   }
 }
 
@@ -103,6 +105,12 @@
 
   .kol-25 {
     flex-basis: 25%;
+  }
+
+  @media screen and (max-width: @width) {
+    &.col-mobile {
+      flex-direction: column;
+    }
   }
 }
 
@@ -185,7 +193,7 @@
 .spinner-overlay {
   position: fixed;
   display: block;
-  width: 100vh;
+  width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
@@ -205,5 +213,33 @@
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+  }
+}
+/**
+Override av snodig oppførsel
+*/
+.skjemaelement__input {
+  width: 100%;
+}
+
+.avbryt-modal {
+  @media screen and (max-width: @width) {
+    .knapp {
+      font-size: 0.8em;
+      padding: 0 1em;
+    }
+  }
+  .skjemagruppe {
+    margin-bottom: 1rem !important;
+  }
+}
+
+.navigasjon-footer {
+  @media screen and (max-width: @width) {
+    .knapp {
+      font-size: 1rem;
+      padding: 0 1rem;
+      width: 50%;
+    }
   }
 }

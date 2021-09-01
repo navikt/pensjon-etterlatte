@@ -6,7 +6,7 @@ import Panel from "nav-frontend-paneler";
 import AlertStripe from "nav-frontend-alertstriper";
 import { useHistory } from "react-router-dom";
 
-const DevLabs = () => {
+const Admin = () => {
     const history = useHistory();
 
     const { dispatch } = useSoknadContext();
@@ -66,4 +66,4 @@ const DevLabs = () => {
     )
 }
 
-export default DevLabs;
+export default Admin;

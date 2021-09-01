@@ -13,6 +13,8 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
+import { useEffectOnce } from "../../../utils/extensions";
+import { isEmpty } from "lodash";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -22,6 +24,10 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         defaultValues: state.omDenAvdoede || {},
         shouldUnregister: true
     });
+
+    useEffectOnce(() => {
+        methods.reset(state.omDenAvdoede)
+    }, !isEmpty(state.omDenAvdoede));
 
     const {
         handleSubmit,
@@ -52,7 +58,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             {t("omDenAvdoede.fornavn")}
                         </Element>
                         <Normaltekst>
-                            {state.omDegOgAvdoed.avdoed?.fornavn}
+                            {state.omDegOgAvdoed.avdoed?.fornavn || ""}
                         </Normaltekst>
                     </div>
                     <div className={"kolonne"}>
@@ -60,7 +66,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             {t("omDenAvdoede.etternavn")}
                         </Element>
                         <Normaltekst>
-                            {state.omDegOgAvdoed.avdoed?.etternavn}
+                            {state.omDegOgAvdoed.avdoed?.etternavn || ""}
                         </Normaltekst>
                     </div>
                 </div>

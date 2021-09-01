@@ -18,6 +18,8 @@ import AlertStripe from "nav-frontend-alertstriper";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFRadio } from "../../felles/RHFRadio";
 import Panel from "nav-frontend-paneler";
+import { useEffectOnce } from "../../../utils/extensions";
+import { isEmpty } from "lodash";
 
 Modal.setAppElement("#root");
 
@@ -26,9 +28,12 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useSoknadContext();
 
     const methods = useForm<IOmBarn>({
-        defaultValues: state.opplysningerOmBarn || {},
-        shouldUnregister: true
+        defaultValues: state.opplysningerOmBarn || {}
     });
+
+    useEffectOnce(() => {
+        methods.reset(state.opplysningerOmBarn)
+    }, !isEmpty(state.opplysningerOmBarn));
 
     const { fields, append, remove } = useFieldArray({
         name: "barn",

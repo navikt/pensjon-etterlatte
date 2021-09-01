@@ -295,6 +295,71 @@
     "beskrivelse": "Les gjennom oppsummeringen av din søknad før du sender.\nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.",
     "feilVedSending": "En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du kontakte kundeservice."
   },
+  "soeknadKvittering": {
+    "tittel": "Takk for søknaden",
+    "alertMottattSoeknad": "Vi har mottatt søknaden din om gjenlevendepensjon",
+    "saksnummer": "Saksnummer:",
+    "informasjon": {
+      "kontakt": "Hvis vi trenger mer informasjon, kontakter vi deg.",
+      "endring": "\nDu må melde fra med en gang det skjer viktige endringer i livet ditt. Det kan for eksempel være hvis:\n",
+      "endringsListe": {
+        "sivilstatus": "du gifter deg, får samboer eller får barn med samboer",
+        "inntekt": "inntekten din endrer seg",
+        "bosted": "du skal flytte eller oppholde deg i et annet land over lengre tid"
+      }
+    },
+    "seSaken": {
+      "tittel": "Se saken din i Ditt NAV",
+      "informasjon": {
+        "innhold1": "\nHvis du logger inn i",
+        "lenkeDittNAV": {
+          "href": "#",
+          "tekst": "Ditt NAV"
+        },
+        "innhold2": "finner du en bekreftelse på at søknaden din er sendt inn. Når vi starter å behandle søknaden din, kan du finne den i",
+        "lenkeDineSaker": {
+          "href": "#",
+          "tekst": "Dine saker"
+        }
+      },
+      "lenkeNedlastning": {
+        "href": "#",
+        "tekst": "\nLast ned kvitteringen"
+      },
+      "lenkeSkrivUt": {
+        "href": "#",
+        "tekst": "Skriv ut kvitteringen"
+      },
+      "behandlingstidInfo": {
+        "innhold": "\nDu kan forvente at det tar xxx - xxx tid å behandle søknaden din.",
+        "lenke": {
+          "href": "#",
+          "tekst": "Les mer om saksbehandlingstid her"
+        }
+      }
+    },
+    "andreStoenader": {
+      "tittel": "Når du er etterlatt med barn kan du også ha rett til andre stønader",
+      "informasjon": "\nHvis du jobber, har barn, er reell arbeidssøker, går på skole eller studere, kan du også ha rett til andre stønader.",
+      "stoenadListe": {
+        "barnetrygd": "Utvidet barnetrygd",
+        "barnetilsyn": "Stønad til barnetilsyn",
+        "tilsyn": "Tilsyn av barn og andre familemedlemmer",
+        "tillegg": "Tilleggsstønader",
+        "skolepenger": "Stønad til skolepenger"
+      },
+      "lenke": {
+        "tekst": "Les mer om stønader du kan ha rett på",
+        "href": "#"
+      },
+      "knapp": "Søk tilleggsstønader"
+    },
+    "spoersmaal": {
+      "tittel": "Lurer du på noe?",
+      "informasjon": "\nHar du spørsmål eller noe er uklart kan du alltids ta kontakt med oss.",
+      "knapp": "Avslutt"
+    }
+  },
   "avdoede": {
     "relasjon": {
       "gift": "Gift",
@@ -316,9 +381,8 @@
     "andreYtelser": "Andre ytelser"
   },
   "gravidEllerNyligFoedt": {
-    "venterBarn": "Ja, venter barn",
-    "harNyligFoedt": "Ja, har nylig fått barn som ikke er registrert enda",
-    "ingen": "Nei, ingen av delene / ikke relevant"
+    "venterEllerHarNyligFoedt": "Ja",
+    "ingen": "Nei"
   },
   "arbeidsforholdType": {
     "selvstendig": "Ja, er selvstendig næringsdrivende",
@@ -605,7 +669,9 @@
         "inngaattDato": {
           "required": "Oppgi når dere ble gift"
         },
-        "opploestDato": { "required": "Oppgi når dere ble skilt" },
+        "opploestDato": {
+          "required": "Oppgi når dere ble skilt"
+        },
         "fremdelesGift": {
           "required": "Oppgi om dere fremdeles er gift"
         },
@@ -733,6 +799,14 @@
       "swift": {
         "required": "Bankens S.W.I.F.T (BIC) adresse må fylles ut",
         "validate": "Ugyldig SWIFT/BIC kode"
+      }
+    },
+    "soekerBarnepensjon": {
+      "required": "Oppgi om du ønsker å søke om barnepensjon"
+    },
+    "brukeAnnenKonto": {
+      "svar": {
+        "required": "Oppgi om du vil bruke et annet kontonummer"
       }
     }
   }

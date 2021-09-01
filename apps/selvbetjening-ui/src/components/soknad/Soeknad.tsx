@@ -1,54 +1,64 @@
 import { useEffect, useState } from "react";
-import { hentInnloggetPerson } from "../../api";
-import { ActionTypes, IBruker } from "../../context/bruker/bruker";
+import { hentSoeknad, lagreSoeknad } from "../../api";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { Route } from "react-router";
 import SoknadForside from "./SoknadForside";
 import SoknadDialog from "./SoknadDialog";
 import SoknadKvittering from "./SoknadKvittering";
-import { hentAlder } from "../../utils/dato";
-import { gyldigAlder } from "../../utils/alder";
 import { useHistory } from "react-router-dom";
+import { ActionTypes, ISoeknad } from "../../context/soknad/soknad";
+import { useSoknadContext } from "../../context/soknad/SoknadContext";
+import Admin from "../dev/Admin";
 import Spinner from "../felles/Spinner";
 
 const Soeknad = () => {
     const history = useHistory();
 
-    const { dispatch } = useBrukerContext();
+    const { state: bruker } = useBrukerContext();
 
-    const [loading, setLoading] = useState(false);
+    const { state, dispatch } = useSoknadContext();
+
+    const [lasterSoeknad, settLasterSoeknad] = useState(true);
 
     useEffect(() => {
-        setLoading(true);
+        if (!bruker.kanSoeke) return;
 
-        hentInnloggetPerson()
-            .then((person: IBruker) => {
-                const alder = hentAlder(person.foedselsdato!!);
-
-                if (!gyldigAlder(alder)) {
-                    history.push("/ugyldig-alder")
+        hentSoeknad()
+            .then((soeknad: ISoeknad | undefined) => {
+                if (!soeknad?.harSamtykket) {
+                    history.push("/");
                 } else {
-                    dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person });
+                    dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad });
                 }
             })
-            .catch((e) => {
-                if (process.env.NODE_ENV === "development") {
-                    // TODO: Dette må fjernes før appen går i prod. Finne bedre alternativ for kjøring lokalt.
-                    dispatch({ type: ActionTypes.INIT_TEST_BRUKER });
-                } else {
-                    console.error(e)
-                }
-            })
-            .finally(() => setLoading(false));
-    }, [dispatch, history]);
+            .catch(() => history.push("/"))
+            .finally(() => settLasterSoeknad(false));
+    }, [bruker]);
+
+    useEffect(() => {
+        // TODO: Finne bedre løsning
+        //  En mulig løsning kan være at bruker alltid sendes til start ved refresh, men får info om pågående søknad
+        //  og mulighet til å fortsette der de slapp. Deretter kan vi sende personen til det steget de stoppet på.
+
+        if (state.klarForLagring) {
+            const now = new Date();
+
+            lagreSoeknad({ ...state, sistLagretDato: now })
+                .then(() => dispatch({ type: ActionTypes.LAGRE_SOEKNAD, payload: now }))
+                .catch((err) => console.error(err));
+        }
+    }, [state.klarForLagring]);
 
     return (
         <>
-            <Spinner visible={loading} label={"Henter brukerinformasjon ..."}/>
+            <Spinner visible={lasterSoeknad} label={"Henter informasjon ..."}/>
+
+            {/* TODO: Kun i dev/qa*/}
+            <Route path={"/soknad/admin"} component={Admin} />
 
             <Route path={"/soknad/steg"} component={SoknadDialog} />
 
-            <Route path={"/soknad/sendt/:id"} component={SoknadKvittering} />
+            <Route path={"/soknad/sendt"} component={SoknadKvittering} />
 
             <Route exact path={"/"} component={SoknadForside} />
         </>
