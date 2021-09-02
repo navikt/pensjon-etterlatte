@@ -1,9 +1,8 @@
 import { ActionTypes as SoknadActionTypes } from "../../context/soknad/soknad";
-import { Fareknapp, Hovedknapp } from "nav-frontend-knapper";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useState } from "react";
 import Panel from "nav-frontend-paneler";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Button } from "@navikt/ds-react";
 import { useHistory } from "react-router-dom";
 
 const Admin = () => {
@@ -42,13 +41,13 @@ const Admin = () => {
     return (
         <Panel>
             <div className={"navigasjon-rad"}>
-                <Hovedknapp onClick={mockSoeknad}>
+                <Button variant={"action"} onClick={mockSoeknad}>
                     Mock Søknad
-                </Hovedknapp>
+                </Button>
 
-                <Fareknapp onClick={tilbakestill}>
+                <Button variant={"danger"} onClick={tilbakestill}>
                     Tilbakestill søknad
-                </Fareknapp>
+                </Button>
             </div>
 
             {state.mocked && (

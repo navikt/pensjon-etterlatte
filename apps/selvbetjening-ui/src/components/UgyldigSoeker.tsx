@@ -3,11 +3,11 @@ import Veileder from "nav-frontend-veileder";
 import ikon from "../assets/ikoner/veileder.svg";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Normaltekst } from "nav-frontend-typografi";
-import { Hovedknapp } from "nav-frontend-knapper";
 import { ActionTypes } from "../context/bruker/bruker";
 import Lenke from "nav-frontend-lenker";
 import { erForUng } from "../utils/alder";
 import { useHistory } from "react-router-dom";
+import { Button } from "@navikt/ds-react";
 
 const UgyldigSoeker = () => {
     const history = useHistory();
@@ -76,7 +76,7 @@ const UgyldigSoeker = () => {
 
             <SkjemaGruppe>
                 <section className={"navigasjon-rad"}>
-                    <Hovedknapp onClick={tilbake}>Tilbake</Hovedknapp>
+                    <Button variant={"action"} onClick={tilbake}>Tilbake</Button>
                 </section>
             </SkjemaGruppe>
         </>

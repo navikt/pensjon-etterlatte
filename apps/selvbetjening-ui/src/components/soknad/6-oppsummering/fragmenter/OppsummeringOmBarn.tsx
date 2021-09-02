@@ -3,13 +3,12 @@ import TekstGruppe from "./TekstGruppe";
 import { v4 as uuid } from "uuid";
 import Lenke from "nav-frontend-lenker";
 import { EditFilled } from "@navikt/ds-icons";
-import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { StegPath } from "../../../../context/steg/steg";
 import { IBarn, IOmBarn } from "../../../../typer/person";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
-import { Panel } from "@navikt/ds-react";
+import { Accordion, Panel } from "@navikt/ds-react";
 
 const OppsummeringOmBarn = ({
     opplysningerOmBarn,
@@ -27,7 +26,7 @@ const OppsummeringOmBarn = ({
     };
 
     return (
-        <Ekspanderbartpanel tittel={t("omBarn.tittel")} className={"oppsummering"} apen={true}>
+        <Accordion heading={t("omBarn.tittel")} className={"oppsummering"} open={true}>
             {opplysningerOmBarn.barn?.map((barn, i: number) => {
                 const tekster: any[] = otr.traverse<IBarn>(barn, "omBarn");
 
@@ -51,7 +50,7 @@ const OppsummeringOmBarn = ({
                 <EditFilled />
                 <span>{t("felles.endreSvar")}</span>
             </Lenke>
-        </Ekspanderbartpanel>
+        </Accordion>
     );
 };
 

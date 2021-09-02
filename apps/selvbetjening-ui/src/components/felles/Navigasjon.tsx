@@ -1,4 +1,3 @@
-import { Fareknapp, Flatknapp, Hovedknapp, Knapp } from "nav-frontend-knapper";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -10,6 +9,7 @@ import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
 import { default as Modal } from "nav-frontend-modal";
 import { Ingress, Undertekst } from "nav-frontend-typografi";
 import { erDato } from "../../utils/dato";
+import { Button, Loader } from "@navikt/ds-react";
 
 interface KnappProps {
     label?: string;
@@ -62,21 +62,21 @@ const Navigasjon = ({
             <SkjemaGruppe className="navigasjon-footer">
                 <div className={classNames("navigasjon-rad", disabled && "disabled")}>
                     {!!forrige && (
-                        <Knapp htmlType={"button"} onClick={forrige.onClick}>
+                        <Button variant={"primary"} type={"button"} onClick={forrige.onClick}>
                             {forrige.label || t("knapp.tilbake")}
-                        </Knapp>
+                        </Button>
                     )}
 
                     {!!neste && (
-                        <Hovedknapp htmlType={"button"} onClick={neste.onClick}>
+                        <Button variant={"action"} type={"button"} onClick={neste.onClick}>
                             {neste.label || t("knapp.neste")}
-                        </Hovedknapp>
+                        </Button>
                     )}
 
                     {!!send && (
-                        <Hovedknapp htmlType={"button"} onClick={send.onClick} spinner={disabled}>
-                            {send.label || t("knapp.sendSoeknad")}
-                        </Hovedknapp>
+                        <Button variant={"action"} type={"button"} onClick={send.onClick}>
+                            {send.label || t("knapp.sendSoeknad")} {disabled && <Loader />}
+                        </Button>
                     )}
                 </div>
 
@@ -88,9 +88,9 @@ const Navigasjon = ({
             </SkjemaGruppe>
 
             <SkjemaGruppe className={classNames("navigasjon-rad", disabled && "disabled")}>
-                <Flatknapp htmlType={"button"} onClick={() => setIsOpen(true)}>
+                <Button variant={"secondary"} type={"button"} onClick={() => setIsOpen(true)}>
                     {t("knapp.avbryt")}
-                </Flatknapp>
+                </Button>
             </SkjemaGruppe>
 
             <Modal
@@ -105,15 +105,15 @@ const Navigasjon = ({
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <Hovedknapp htmlType={"button"} onClick={() => setIsOpen(false)}>
+                    <Button variant={"action"} type={"button"} onClick={() => setIsOpen(false)}>
                         Nei, jeg vil fortsette søknaden
-                    </Hovedknapp>
+                    </Button>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <Fareknapp htmlType={"button"} onClick={avbryt}>
+                    <Button variant={"danger"} type={"button"} onClick={avbryt}>
                         Ja, avbryt søknaden
-                    </Fareknapp>
+                    </Button>
                 </SkjemaGruppe>
             </Modal>
         </>

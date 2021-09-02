@@ -3,13 +3,12 @@ import TekstGruppe from "./TekstGruppe";
 import { v4 as uuid } from "uuid";
 import Lenke from "nav-frontend-lenker";
 import { EditFilled } from "@navikt/ds-icons";
-import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { StegPath } from "../../../../context/steg/steg";
 import { IAvdoed, IOppholdUtland } from "../../../../typer/person";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
-import { Panel } from "@navikt/ds-react";
+import { Accordion, Panel } from "@navikt/ds-react";
 
 const OppsummeringOmAvdoed = ({
     opplysningerOmAvdoede,
@@ -48,7 +47,7 @@ const OppsummeringOmAvdoed = ({
     })
 
     return (
-        <Ekspanderbartpanel tittel={t("omDenAvdoede.tittel")} className={"oppsummering"} apen={true}>
+        <Accordion heading={t("omDenAvdoede.tittel")} className={"oppsummering"} open={true}>
             {teksterUtenOppholdUtland.map(({ key, val }) => (
                 <div key={uuid()}>
                     <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)}/>
@@ -60,7 +59,7 @@ const OppsummeringOmAvdoed = ({
                 <EditFilled/>
                 <span>{t("felles.endreSvar")}</span>
             </Lenke>
-        </Ekspanderbartpanel>
+        </Accordion>
     );
 };
 
