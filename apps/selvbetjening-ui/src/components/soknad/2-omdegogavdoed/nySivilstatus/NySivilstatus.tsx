@@ -17,7 +17,7 @@ const NySivilstatus = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Title size={"s"}>{t("omDegOgAvdoed.nySivilstatus.tittel")}</Title>
+                <Title size={"s"}>{t("omDegOgAvdoed.nySivilstatus.sivilstatus")}</Title>
 
                 <BodyLong>{t("omDegOgAvdoed.nySivilstatus.beskrivelse")}</BodyLong>
             </SkjemaGruppe>

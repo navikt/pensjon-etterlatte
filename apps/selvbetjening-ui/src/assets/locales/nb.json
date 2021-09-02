@@ -190,7 +190,7 @@
       "ingenRettighetAdvarsel": "Det kan se ut som du ikke har rett på gjenlevendepensjon"
     },
     "nySivilstatus": {
-      "tittel": "Sivilstanden din i dag",
+      "sivilstatus": "Sivilstanden din i dag",
       "beskrivelse": "Hvis du har giftet deg eller blitt samboer kan det avgjøre om du kan få gjenlevendepensjon og hvor mye du kan få.",
       "hvorforAarsakOpploesning": "Vi trenger opplysningene for å vurdere om du kan få gjenlevendepensjon.",
       "inngaatt.dato": "Vi giftet oss",
