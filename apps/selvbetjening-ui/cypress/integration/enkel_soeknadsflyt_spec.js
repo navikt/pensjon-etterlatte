@@ -168,9 +168,12 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 });
 
 const sammenlignRequestMedInputdata = (request) => {
-    // todo: Fjern datofelter fra sammenligning frem til en løsning for tidssoneproblematikk er klar...
+
     [mockSoeknad, request].forEach((soeknad) => {
         soeknad.sistLagretDato = undefined;
+        soeknad.klarForLagring = undefined;
+
+        // todo: Fjern datofelter fra sammenligning frem til en løsning for tidssoneproblematikk er klar...
         soeknad.omDegOgAvdoed.avdoed.datoForDoedsfallet = undefined;
         soeknad.omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.forEach((oppholdUtland) => {
             oppholdUtland.fraDato = undefined;
@@ -179,6 +182,7 @@ const sammenlignRequestMedInputdata = (request) => {
         soeknad.dinSituasjon.selvstendig.startDato = undefined;
         soeknad.dinSituasjon.arbeidsforhold.startDato = undefined;
     });
+
     expect(request).to.deep.equal(mockSoeknad);
 };
 
