@@ -6,8 +6,11 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
     it('Skal åpne startsiden og starte en søknad', () => {
         cy.intercept('GET', '/api/person/innlogget', {fixture: 'testbruker'}).as('hentInnloggetPerson')
+        cy.intercept('GET', '/api/api/kladd', {}).as('hentSoeknad') // Ingen kladd eksisterer
+        cy.intercept('POST', '/api/api/kladd', {})
         cy.visit('localhost:3000')
         cy.wait(['@hentInnloggetPerson'])
+        cy.wait(['@hentSoeknad'])
 
         // Bekreft riktige opplysninger
         cy.get('[type="checkbox"]').check({force: true})
@@ -16,7 +19,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         cy.get('[type="submit"]').click()
     })
 
-    it('Skal fylle ut siden "Om Deg" og gå til neste', function () {
+    it('Skal fylle ut siden "Om Deg" og gå til neste', () => {
         cy.url().should('include', 'steg/om-deg')
 
         // Verifiser felter og fyll ut skjema.
@@ -138,7 +141,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         i18n.language = "nb"
         const tekster = new ObjectTreeReader(i18n).traverse(mockSoeknad)
-        tekster.filter(tekst => !["harSamtykket", "sistLagretDato"].includes(tekst.key))
+        tekster.filter(tekst => !["harSamtykket", "sistLagretDato", "klarForLagring"].includes(tekst.key))
                 // ToDo: Burde også sjekke at innhold er korrekt, men sliter med å få oversatt verdiene.
                 .map(tekst => getById(tekst.key))
     })
@@ -151,24 +154,32 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         // Verifiser søknad mottatt
         cy.wait(['@postSoeknad']).then(xhr => {
-
             // Verifiser at innholdet i requesten består av dataen vi har populert skjema med.
-            const requestBody = xhr.request.body;
-            expect(requestBody.omDeg).to.deep.equal(mockSoeknad.omDeg)
-            expect(requestBody.omDegOgAvdoed).to.deep.equal(mockSoeknad.omDegOgAvdoed)
-            expect(requestBody.omDenAvdoede).to.deep.equal(mockSoeknad.omDenAvdoede)
-            expect(requestBody.dinSituasjon).to.deep.equal(mockSoeknad.dinSituasjon)
-            expect(requestBody.opplysningerOmBarn).to.deep.equal(mockSoeknad.opplysningerOmBarn)
-            expect(requestBody.harSamtykket).to.eq(true)
+            sammenlignRequestMedInputdata(xhr.request.body)
         })
 
         // Verifiser kvitteringsside
-        cy.url().should('include', '/soknad/sendt/13')
+        cy.url().should('include', '/soknad/sendt')
         cy.get('.alertstripe').should('be.visible')
         cy.contains('Takk for søknaden')
-        cy.contains('Saksnummer: 13')
     })
 })
+
+const sammenlignRequestMedInputdata = (request) => {
+    // todo: Fjern datofelter fra sammenligning frem til en løsning for tidssoneproblematikk er klar...
+    [mockSoeknad, request].forEach(soeknad => {
+        soeknad.sistLagretDato = undefined
+        soeknad.omDegOgAvdoed.avdoed.datoForDoedsfallet = undefined
+        soeknad.omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.forEach(oppholdUtland => {
+            oppholdUtland.fraDato = undefined
+            oppholdUtland.tilDato = undefined
+        })
+        soeknad.dinSituasjon.selvstendig.startDato = undefined
+        soeknad.dinSituasjon.arbeidsforhold.startDato = undefined
+
+    })
+    expect(request).to.deep.equal(mockSoeknad)
+}
 
 const gaaTilNesteSide = () => cy.get('.knapp--hoved').click()
 const getById = (id) => cy.get(`[id="${id}"]`)
