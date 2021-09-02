@@ -1,6 +1,5 @@
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
-import { Hovedknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
@@ -11,6 +10,7 @@ import { Undertittel } from "nav-frontend-typografi";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
+import { Button } from "@navikt/ds-react";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -160,9 +160,13 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                 <Feilmeldinger errors={errors}/>
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Hovedknapp htmlType={"button"} onClick={handleSubmit(leggTilOgLukk)}>
+                    <Button
+                        variant={"action"}
+                        type={"button"}
+                        onClick={handleSubmit(leggTilOgLukk)}
+                    >
                         {t("knapp.leggTil")}
-                    </Hovedknapp>
+                    </Button>
                 </SkjemaGruppe>
             </form>
         </FormProvider>

@@ -1,14 +1,13 @@
 import "./SoknadForside.less";
 import Lenke from "nav-frontend-lenker";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Button } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 
 const SoknadKvittering = () => {
@@ -107,10 +106,13 @@ const SoknadKvittering = () => {
                     </Lenke>
                 </Normaltekst>
                 <br/>
-                <Knapp onClick={() => {
-                }}>
+
+                <Button
+                    variant={"primary"}
+                    onClick={() => {}}
+                >
                     {t("soeknadKvittering.andreStoenader.knapp")}
-                </Knapp>
+                </Button>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -125,7 +127,13 @@ const SoknadKvittering = () => {
 
             <SkjemaGruppe>
                 <section className={"navigasjon-rad"}>
-                    <Hovedknapp onClick={() => (window.location.href = "https://www.nav.no")}>{t("soeknadKvittering.spoersmaal.knapp")}</Hovedknapp>
+                    <Button
+                        variant={"action"}
+                        type={"button"}
+                        onClick={() => (window.location.href = "https://www.nav.no")}
+                    >
+                        {t("soeknadKvittering.spoersmaal.knapp")}
+                    </Button>
                 </section>
             </SkjemaGruppe>
         </div>

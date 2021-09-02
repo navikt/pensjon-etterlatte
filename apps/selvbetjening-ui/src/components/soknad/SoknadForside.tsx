@@ -7,10 +7,10 @@ import { ActionTypes } from "../../context/soknad/soknad";
 import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import { Innholdstittel, Normaltekst, Undertittel } from "nav-frontend-typografi";
-import { Hovedknapp } from "nav-frontend-knapper";
 import Veileder from "nav-frontend-veileder";
 import Lenke from "nav-frontend-lenker";
 import ikon from "../../assets/ikoner/veileder.svg";
+import { Button } from "@navikt/ds-react";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -130,7 +130,12 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             {soknadState.harSamtykket && (
-                <Hovedknapp onClick={startSoeknad}>{t("forside.startSoeknad")}</Hovedknapp>
+                <Button
+                    variant={"action"}
+                    type={"button"}
+                    onClick={startSoeknad}>
+                    {t("forside.startSoeknad")}
+                </Button>
             )}
         </div>
     );

@@ -1,6 +1,5 @@
 import "../../../felles/Infokort.less";
 import { Undertittel } from "nav-frontend-typografi";
-import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
 import { useTranslation } from "react-i18next";
 import { Label, SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";
@@ -8,7 +7,7 @@ import Datovelger from "../../../felles/Datovelger";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { ISituasjon } from "../../../../typer/situasjon";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Button } from "@navikt/ds-react";
 import Panel from "nav-frontend-paneler";
 import { Cell, Grid } from "@navikt/ds-react";
 
@@ -61,23 +60,28 @@ const TidligereArbeidsforhold = () => {
                             <Cell xs={12} md={4}>
                                 <div className={"skjemaelement"}>
                                     <Label htmlFor={""}>&nbsp; {/* Liten hack for å fikse styling */}</Label>
-                                    <Fareknapp
-                                        htmlType={"button"}
+                                    <Button
+                                        variant={"danger"}
+                                        type={"button"}
                                         className={"skjemaelement"}
                                         onClick={() => remove(index)}
                                     >
                                         <DeleteFilled />
                                         &nbsp; {t("knapp.fjern")}
-                                    </Fareknapp>
+                                    </Button>
                                 </div>
                             </Cell>
                         </Grid>
                     </Panel>
                 ))}
 
-                <Flatknapp htmlType={"button"} onClick={() => append({}, { shouldFocus: true })}>
+                <Button
+                    variant={"secondary"}
+                    type={"button"}
+                    onClick={() => append({}, { shouldFocus: true })}
+                >
                     + {t("knapp.leggTil")}
-                </Flatknapp>
+                </Button>
             </SkjemaGruppe>
         </>
     );

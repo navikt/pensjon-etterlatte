@@ -6,13 +6,13 @@ import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useEffect } from "react";
 import { RHFCheckboksGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
-import { Flatknapp } from "nav-frontend-knapper";
 import Panel from "nav-frontend-paneler";
 import SkjemaLinje from "../../../felles/SkjemaLinje";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { DeleteFilled } from "@navikt/ds-icons";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
+import { Button } from "@navikt/ds-react";
 
 const BoddEllerArbeidetUtland = () => {
     const { t } = useTranslation();
@@ -125,17 +125,25 @@ const BoddEllerArbeidetUtland = () => {
 
                             {fields.length > 1 && (
                                 <div style={{ textAlign: "right" }}>
-                                    <Flatknapp onClick={() => remove(index)}>
+                                    <Button
+                                        variant={"secondary"}
+                                        type={"button"}
+                                        onClick={() => remove(index)}
+                                    >
                                         <DeleteFilled/> &nbsp;{t("knapp.fjern")}
-                                    </Flatknapp>
+                                    </Button>
                                 </div>
                             )}
                         </Panel>
                     ))}
 
-                    <Flatknapp htmlType={"button"} onClick={() => append({}, { shouldFocus: true })}>
+                    <Button
+                        variant={"secondary"}
+                        type={"button"}
+                        onClick={() => append({}, { shouldFocus: true })}
+                    >
                         + {t("knapp.leggTil")}
-                    </Flatknapp>
+                    </Button>
                 </SkjemaLinje>
             )}
         </>
