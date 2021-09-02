@@ -21,6 +21,7 @@ spec:
     pool: nav-dev
   tokenx:
     enabled: true
+  leaderElection: true
   gcp:
     sqlInstances:
       - type: POSTGRES_12

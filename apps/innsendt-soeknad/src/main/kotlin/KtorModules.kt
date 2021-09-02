@@ -16,6 +16,7 @@ import io.ktor.jackson.jackson
 import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.response.respondText
+import io.ktor.routing.IgnoreTrailingSlash
 import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.post
@@ -51,6 +52,7 @@ fun Application.apiModule(routes: Route.()->Unit){
     install(ContentNegotiation) {
         jackson()
     }
+    install(IgnoreTrailingSlash)
 
     routing {
         authenticate {

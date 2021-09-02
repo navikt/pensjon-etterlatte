@@ -27,6 +27,10 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
     implementation("io.ktor:ktor-jackson:$ktorversion")
 
+    implementation("io.ktor:ktor-client-core:$ktorversion")
+    implementation("io.ktor:ktor-client-jackson:$ktorversion")
+    implementation("io.ktor:ktor-client-cio-jvm:$ktorversion")
+
     testImplementation("org.testcontainers:junit-jupiter:1.15.3")
     testImplementation("org.testcontainers:postgresql:1.15.3")
 

@@ -1,9 +1,9 @@
 package no.nav.etterlatte
 
-
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import org.slf4j.LoggerFactory
+
 
 class TilstandsPusher(private val db: SoeknadRepository, private val publiserSoeknad: SoeknadPubliserer){
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
@@ -12,7 +12,7 @@ class TilstandsPusher(private val db: SoeknadRepository, private val publiserSoe
         while(!running.isCompleted) {
             cycle = cycle.step()
 
-            if(cycle.currentStep == 0){
+            if(cycle.currentStep == 0 && LeaderElection.isLeader()){
                 db.slettArkiverteSoeknader()
                 db.usendteSoeknader().also {
                     logger.info("Publiserer melding om søknader ${it.map(LagretSoeknad::id)} ut på kafka")
