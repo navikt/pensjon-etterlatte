@@ -15,19 +15,18 @@ const SoknadForside = () => {
 
     const { t } = useTranslation();
 
-    const {
-        state: soknadState,
-        dispatch: soknadDispatch
-    } = useSoknadContext();
+    const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext();
 
     const { state: brukerState } = useBrukerContext();
 
-    const { state: { steg } } = useStegContext();
+    const {
+        state: { steg },
+    } = useStegContext();
 
     const startSoeknad = () => {
-        const foersteSteg = steg[0]
-        history.push(`/soknad/steg/${foersteSteg.path}`)
-    }
+        const foersteSteg = steg[0];
+        history.push(`/soknad/steg/${foersteSteg.path}`);
+    };
 
     const innloggetBrukerNavn = `${brukerState?.fornavn} ${brukerState?.etternavn}`;
 
@@ -35,7 +34,7 @@ const SoknadForside = () => {
         <div className={"forside"}>
             <SkjemaGruppe>
                 <Veileder tekst={`${t("forside.hei", { navn: innloggetBrukerNavn })}`} posisjon="høyre">
-                    <img alt="veileder" src={ikon}/>
+                    <img alt="veileder" src={ikon} />
                 </Veileder>
             </SkjemaGruppe>
 
@@ -45,9 +44,7 @@ const SoknadForside = () => {
                 <BodyLong>{t("forside.omYtelsene.innhold")}</BodyLong>
 
                 <BodyLong>
-                    <Link href={t("forside.omYtelsene.lenke.href")}>
-                        {t("forside.omYtelsene.lenke.tekst")}
-                    </Link>
+                    <Link href={t("forside.omYtelsene.lenke.href")}>{t("forside.omYtelsene.lenke.tekst")}</Link>
                 </BodyLong>
             </SkjemaGruppe>
 
@@ -116,22 +113,14 @@ const SoknadForside = () => {
                     onChange={(e) =>
                         soknadDispatch({
                             type: ActionTypes.OPPDATER_SAMTYKKE,
-                            payload: (e.target as HTMLInputElement).checked
+                            payload: (e.target as HTMLInputElement).checked,
                         })
                     }
-                >
-                    {t("forside.samtykke.harLest")}&nbsp;
-                    <Link href={t("forside.samtykke.lenke.href")}>
-                        {t("forside.samtykke.lenke.tekst")}
-                    </Link>
-                </BekreftCheckboksPanel>
+                />
             </SkjemaGruppe>
 
             {soknadState.harSamtykket && (
-                <Button
-                    variant={"action"}
-                    type={"button"}
-                    onClick={startSoeknad}>
+                <Button variant={"action"} type={"button"} onClick={startSoeknad}>
                     {t("forside.startSoeknad")}
                 </Button>
             )}
