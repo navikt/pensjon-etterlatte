@@ -10,7 +10,6 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import AndreYtelser from "./fragmenter/AndreYtelser";
 import HoeyesteUtdanning from "./fragmenter/HoeyesteUtdanning";
 import TidligereArbeidsforhold from "./fragmenter/TidligereArbeidsforhold";
-import { Systemtittel, Undertittel } from "nav-frontend-typografi";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import UnderUtdanning from "./fragmenter/UnderUtdanning";
@@ -18,6 +17,7 @@ import { RHFInput } from "../../felles/RHFInput";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { useEffectOnce } from "../../../utils/extensions";
 import { isEmpty } from "lodash";
+import { Title } from "@navikt/ds-react";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -50,15 +50,15 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         <FormProvider {...methods}>
             <form>
                 <SkjemaGruppe>
-                    <Systemtittel className={"center"}>
+                    <Title size={"m"} className={"center"}>
                         {t("dinSituasjon.tittel")}
-                    </Systemtittel>
+                    </Title>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <Undertittel>
+                    <Title size={"s"}>
                         {t("dinSituasjon.undertittel")}
-                    </Undertittel>
+                    </Title>
                 </SkjemaGruppe>
 
                 <RHFRadio

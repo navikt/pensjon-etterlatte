@@ -1,11 +1,10 @@
 import "./BarnInfoKort.less";
 import { IBarn } from "../../../typer/person";
 import ikon from "../../../assets/ikoner/barn1.svg";
-import { Normaltekst, Undertekst, Undertittel } from "nav-frontend-typografi";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { IValg } from "../../../typer/Spoersmaal";
-import Lenke from "nav-frontend-lenker";
+import { BodyShort, Detail, Link, Title } from "@navikt/ds-react";
 
 interface Props {
     barn: IBarn;
@@ -26,32 +25,38 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
 
             <div className={"infokort__informasjonsboks center"}>
                 <div className={"informasjonsboks-innhold"}>
-                    <Undertittel tag="h3">
+                    <Title size={"s"}>
                         {barn.fornavn} {barn.etternavn}
-                    </Undertittel>
+                    </Title>
                 </div>
                 <div className="informasjonselement">
-                    <Normaltekst>{foedselsnummer}</Normaltekst>
-                    <Normaltekst>{t(`${barn.relasjon}`)}</Normaltekst>
-                    <Normaltekst>
-                        {barn.statsborgerskap} {t("omBarn.statsborger")}
-                    </Normaltekst>
+                    <BodyShort size={"s"} spacing>
+                        {foedselsnummer}
+                    </BodyShort>
 
-                    <Normaltekst>
+                    <BodyShort size={"s"} spacing>
+                        {t(`${barn.relasjon}`)}
+                    </BodyShort>
+
+                    <BodyShort size={"s"} spacing>
+                        {barn.statsborgerskap} {t("omBarn.statsborger")}
+                    </BodyShort>
+
+                    <BodyShort size={"s"} spacing>
                         {t("omBarn.borI")}&nbsp;
                         {barn.bosattUtland?.svar === IValg.JA ? barn.bosattUtland?.land : t("felles.norge")}
-                    </Normaltekst>
+                    </BodyShort>
 
-                    <Undertekst className={"mute"}>
+                    <Detail size={"s"} spacing className={"mute"}>
                         {barn.soekerBarnepensjon === IValg.JA && t("omBarn.soektOmBarnepensjon")}
-                    </Undertekst>
+                    </Detail>
                 </div>
             </div>
 
             <div className={"infokort__footer"}>
-                <Lenke href={"#"} onClick={() => fjern(index)}>
+                <Link href={"#"} onClick={() => fjern(index)}>
                     {t("knapp.fjernFraSoeknad")}
-                </Lenke>
+                </Link>
             </div>
         </div>
     );

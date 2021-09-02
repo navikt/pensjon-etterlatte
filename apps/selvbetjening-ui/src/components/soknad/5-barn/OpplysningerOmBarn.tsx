@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../felles/Infokort.less";
 import ikon from "../../../assets/ikoner/barn1.svg";
-import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { GravidEllerNyligFoedt, IBarn, IOmBarn } from "../../../typer/person";
@@ -12,14 +11,11 @@ import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
-import { Alert, Button, Modal } from "@navikt/ds-react";
+import { Alert, BodyShort, Button, Modal, Panel, Title } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFRadio } from "../../felles/RHFRadio";
-import Panel from "nav-frontend-paneler";
 import { useEffectOnce } from "../../../utils/extensions";
 import { isEmpty } from "lodash";
-
-// Modal.setAppElement("#root");
 
 const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -57,17 +53,17 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         <FormProvider {...methods}>
             <form>
                 <SkjemaGruppe>
-                    <Systemtittel className={"center"}>
+                    <Title size={"m"} className={"center"}>
                         {t("omBarn.tittel")}
-                    </Systemtittel>
+                    </Title>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
                     <Panel border>
                         <Alert variant={"info"} className={"navds-alert--inline"}>
-                            <Normaltekst>
+                            <BodyShort size={"s"}>
                                 {t("omBarn.informasjon")}
-                            </Normaltekst>
+                            </BodyShort>
                         </Alert>
                     </Panel>
                 </SkjemaGruppe>
@@ -97,9 +93,9 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                                     </Button>
                                 </div>
 
-                                <Normaltekst className={"center mute"}>
+                                <BodyShort size={"s"} className={"center mute"}>
                                     {t("omBarn.valgfritt")}
-                                </Normaltekst>
+                                </BodyShort>
                             </div>
                         </div>
                     </div>

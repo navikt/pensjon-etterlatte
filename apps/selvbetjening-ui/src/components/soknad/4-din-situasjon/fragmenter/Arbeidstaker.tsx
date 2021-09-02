@@ -7,8 +7,8 @@ import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Undertittel } from "nav-frontend-typografi";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
+import { Title } from "@navikt/ds-react";
 
 const Arbeidstaker = () => {
     const { t } = useTranslation();
@@ -20,7 +20,9 @@ const Arbeidstaker = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>{t("dinSituasjon.arbeidsforhold.tittel")}</Undertittel>
+                <Title size={"s"}>
+                    {t("dinSituasjon.arbeidsforhold.tittel")}
+                </Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"rad"}>

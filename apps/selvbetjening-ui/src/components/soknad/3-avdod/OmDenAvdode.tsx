@@ -1,5 +1,4 @@
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
-import { Element, Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { AvdoedInntekt, IAvdoed } from "../../../typer/person";
@@ -15,6 +14,7 @@ import Navigasjon from "../../felles/Navigasjon";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { useEffectOnce } from "../../../utils/extensions";
 import { isEmpty } from "lodash";
+import { BodyLong, Label, Title } from "@navikt/ds-react";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -46,28 +46,28 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     return (
         <FormProvider {...methods}>
             <SkjemaGruppe className={"center"}>
-                <Systemtittel>
+                <Title size={"m"}>
                     {t("omDenAvdoede.tittel")}
-                </Systemtittel>
+                </Title>
             </SkjemaGruppe>
 
             <form>
                 <div className={"rad skjemagruppe"}>
                     <div className={"kolonne"}>
-                        <Element>
+                        <Label>
                             {t("omDenAvdoede.fornavn")}
-                        </Element>
-                        <Normaltekst>
+                        </Label>
+                        <BodyLong>
                             {state.omDegOgAvdoed.avdoed?.fornavn || ""}
-                        </Normaltekst>
+                        </BodyLong>
                     </div>
                     <div className={"kolonne"}>
-                        <Element>
+                        <Label>
                             {t("omDenAvdoede.etternavn")}
-                        </Element>
-                        <Normaltekst>
+                        </Label>
+                        <BodyLong>
                             {state.omDegOgAvdoed.avdoed?.etternavn || ""}
-                        </Normaltekst>
+                        </BodyLong>
                     </div>
                 </div>
 

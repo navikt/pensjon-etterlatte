@@ -1,11 +1,10 @@
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { sendSoeknad } from "../../../api";
 import { useHistory } from "react-router-dom";
-import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import React, { memo, useState } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { Accordion, Alert } from "@navikt/ds-react";
+import { Accordion, Alert, BodyLong, Link, Title } from "@navikt/ds-react";
 import Navigasjon from "../../felles/Navigasjon";
 import ObjectTreeReader from "../../../utils/ObjectTreeReader";
 import { ISoeker, ISoekerOgAvdoed } from "../../../typer/person";
@@ -14,7 +13,6 @@ import { v4 as uuid } from "uuid";
 import { useTranslation } from "react-i18next";
 import { StegPath } from "../../../context/steg/steg";
 import { EditFilled } from "@navikt/ds-icons";
-import Lenke from "nav-frontend-lenker";
 import { ISituasjon } from "../../../typer/situasjon";
 import OppsummeringOmBarn from "./fragmenter/OppsummeringOmBarn";
 import OppsummeringOmAvdoede from "./fragmenter/OppsummeringOmAvdoede";
@@ -55,7 +53,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         <Accordion heading={tittel} className={"oppsummering"} open={true} id={path}>
             {!tekster.length && (
                 <SkjemaGruppe>
-                    <Normaltekst>{t("felles.ingenInfo")}</Normaltekst>
+                    <BodyLong>{t("felles.ingenInfo")}</BodyLong>
                 </SkjemaGruppe>
             )}
 
@@ -63,21 +61,21 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key}/>
             ))}
 
-            <Lenke href={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>
+            <Link href={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>
                 <EditFilled />
                 <span>{t("felles.endreSvar")}</span>
-            </Lenke>
+            </Link>
         </Accordion>
     );
 
     return (
         <>
             <SkjemaGruppe>
-                <Systemtittel className={"center"}>{t("oppsummering.tittel")}</Systemtittel>
+                <Title size={"m"} className={"center"}>{t("oppsummering.tittel")}</Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Normaltekst>{t("oppsummering.beskrivelse")}</Normaltekst>
+                <BodyLong>{t("oppsummering.beskrivelse")}</BodyLong>
             </SkjemaGruppe>
 
             {ekspanderbartPanel(t("omDeg.tittel"), omDeg, StegPath.OmDeg)}

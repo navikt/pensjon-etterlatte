@@ -1,5 +1,4 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { Undertittel } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
@@ -7,6 +6,7 @@ import { RHFInput } from "../../../felles/RHFInput";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { ISituasjon } from "../../../../typer/situasjon";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
+import { Title } from "@navikt/ds-react";
 
 const AndreYtelser = () => {
     const { t } = useTranslation();
@@ -20,9 +20,9 @@ const AndreYtelser = () => {
         <div>
             {/* Steg 7 */}
             <SkjemaGruppe>
-                <Undertittel>
+                <Title size={"s"}>
                     {t("dinSituasjon.andreYtelser.tittel")}
-                </Undertittel>
+                </Title>
             </SkjemaGruppe>
 
             <RHFSpoersmaalRadio

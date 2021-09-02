@@ -1,9 +1,9 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { Undertittel } from "nav-frontend-typografi";
 import { RHFBicInput, RHFIbanInput, RHFInput } from "../../../felles/RHFInput";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Hjelpetekst from "../../../felles/Hjelpetekst";
+import { Title } from "@navikt/ds-react";
 
 const UtenlandskBankInfo = () => {
     const { t } = useTranslation()
@@ -11,7 +11,7 @@ const UtenlandskBankInfo = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>{t("omDeg.utbetalingsInformasjon.tittel")}</Undertittel>
+                <Title size={"s"}>{t("omDeg.utbetalingsInformasjon.tittel")}</Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

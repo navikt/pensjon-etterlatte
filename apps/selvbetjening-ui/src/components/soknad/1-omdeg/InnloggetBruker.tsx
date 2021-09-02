@@ -1,5 +1,4 @@
-import { Alert } from "@navikt/ds-react";
-import { Element, Normaltekst } from "nav-frontend-typografi";
+import { Alert, BodyShort, Label } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import { SkjemaGruppe } from "nav-frontend-skjema";
@@ -24,36 +23,36 @@ const InnloggetBruker = memo(() => {
             <Grid className={"opplysninger"}>
                 <Cell xs={6}>
                     <div>
-                        <Element>{t("felles.navn")}</Element>
-                        <Normaltekst>
+                        <Label>{t("felles.navn")}</Label>
+                        <BodyShort spacing>
                             {state.fornavn} {state.etternavn}
-                        </Normaltekst>
+                        </BodyShort>
                     </div>
 
                     <div>
-                        <Element>{t("felles.fnrDnr")}</Element>
-                        <Normaltekst>{state.foedselsnummer}</Normaltekst>
+                        <Label>{t("felles.fnrDnr")}</Label>
+                        <BodyShort spacing>{state.foedselsnummer}</BodyShort>
                     </div>
 
                     <div>
-                        <Element>{t("felles.adresse")}</Element>
-                        <Normaltekst>
+                        <Label>{t("felles.adresse")}</Label>
+                        <BodyShort spacing>
                             {state.adresse}
                             {state.husnummer ? ` ${state.husnummer}` : ""}
                             {state.husbokstav ? ` ${state.husbokstav}` : ""}, {state.postnummer} {state.poststed}
-                        </Normaltekst>
+                        </BodyShort>
                     </div>
                 </Cell>
 
                 <Cell xs={6}>
                     <div>
-                        <Element>{t("felles.sivilstatus")}</Element>
-                        <Normaltekst>{state.sivilstatus}</Normaltekst>
+                        <Label>{t("felles.sivilstatus")}</Label>
+                        <BodyShort spacing>{state.sivilstatus}</BodyShort>
                     </div>
 
                     <div>
-                        <Element>{t("felles.statsborgerskap")}</Element>
-                        <Normaltekst>{state.statsborgerskap}</Normaltekst>
+                        <Label>{t("felles.statsborgerskap")}</Label>
+                        <BodyShort spacing>{state.statsborgerskap}</BodyShort>
                     </div>
                 </Cell>
             </Grid>

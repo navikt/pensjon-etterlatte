@@ -6,9 +6,8 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { ActionTypes as BrukerAction } from "../../context/bruker/bruker";
 import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
-import { Ingress, Undertekst } from "nav-frontend-typografi";
 import { erDato } from "../../utils/dato";
-import { Button, Loader, Modal } from "@navikt/ds-react";
+import { BodyShort, Button, Ingress, Loader, Modal } from "@navikt/ds-react";
 
 interface KnappProps {
     label?: string;
@@ -80,9 +79,9 @@ const Navigasjon = ({
                 </div>
 
                 {!!sistLagret && (
-                    <Undertekst className={"center"}>
+                    <BodyShort size={"s"} spacing className={"center mute"}>
                         {t("felles.sistLagret")}: {sistLagret}
-                    </Undertekst>
+                    </BodyShort>
                 )}
             </SkjemaGruppe>
 

@@ -1,4 +1,4 @@
-import { Element, Normaltekst } from "nav-frontend-typografi";
+import { BodyShort, Label } from "@navikt/ds-react";
 
 const stringify = (innhold?: any) => {
     if (!innhold) return "";
@@ -9,8 +9,8 @@ const stringify = (innhold?: any) => {
 const TekstGruppe = ({ tittel, innhold, id }: { tittel: string, innhold?: any, id?: string }) => {
     return (
         <div className={"tekstgruppe"}>
-            <Element>{tittel}</Element>
-            <Normaltekst id={id}>{stringify(innhold)}</Normaltekst>
+            <Label>{tittel}</Label>
+            <BodyShort id={id}>{stringify(innhold)}</BodyShort>
         </div>
     )
 };

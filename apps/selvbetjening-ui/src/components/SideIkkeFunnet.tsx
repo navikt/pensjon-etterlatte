@@ -1,12 +1,9 @@
-import { FC } from "react";
-import Panel from "nav-frontend-paneler";
-import { Systemtittel } from "nav-frontend-typografi";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Panel, Title } from "@navikt/ds-react";
 
-const SideIkkeFunnet: FC = () => {
+const SideIkkeFunnet = () => {
     return (
         <Panel>
-            <Systemtittel>Oi, her var det noe rusk</Systemtittel>
+            <Title size={"m"}>Oi, her var det noe rusk</Title>
 
             <br />
             <Alert variant={"warning"}>Siden du har etterspurt finnes ikke.</Alert>

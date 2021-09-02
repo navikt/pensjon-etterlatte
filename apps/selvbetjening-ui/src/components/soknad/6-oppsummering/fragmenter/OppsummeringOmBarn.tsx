@@ -1,14 +1,13 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import TekstGruppe from "./TekstGruppe";
 import { v4 as uuid } from "uuid";
-import Lenke from "nav-frontend-lenker";
 import { EditFilled } from "@navikt/ds-icons";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { StegPath } from "../../../../context/steg/steg";
 import { IBarn, IOmBarn } from "../../../../typer/person";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
-import { Accordion, Panel } from "@navikt/ds-react";
+import { Accordion, Link, Panel } from "@navikt/ds-react";
 
 const OppsummeringOmBarn = ({
     opplysningerOmBarn,
@@ -51,10 +50,10 @@ const OppsummeringOmBarn = ({
                 innhold={t(opplysningerOmBarn.gravidEllerNyligFoedt!)}
             />
 
-            <Lenke href={`/soknad/steg/${StegPath.OmBarn}`} className={senderSoeknad ? "disabled" : ""}>
+            <Link href={`/soknad/steg/${StegPath.OmBarn}`} className={senderSoeknad ? "disabled" : ""}>
                 <EditFilled />
                 <span>{t("felles.endreSvar")}</span>
-            </Lenke>
+            </Link>
         </Accordion>
     );
 };

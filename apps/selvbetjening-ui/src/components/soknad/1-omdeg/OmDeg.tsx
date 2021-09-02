@@ -1,5 +1,4 @@
 import "./OmDeg.less";
-import { Systemtittel } from "nav-frontend-typografi";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { Trans, useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";
@@ -15,7 +14,7 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
 import { emailMatcher } from "../../../utils/matchers";
-import { Cell, Grid } from "@navikt/ds-react";
+import { Cell, Grid, Title } from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
@@ -56,9 +55,9 @@ const OmDeg: SoknadSteg = ({ neste }) => {
     return (
         <>
             {/* Steg 2 */}
-            <Systemtittel className={"center"}>
+            <Title size={"m"} className={"center"}>
                 <Trans i18nKey={"omDeg.tittel"}/>
-            </Systemtittel>
+            </Title>
 
             {/* Informasjon om den innloggede brukeren */}
             <InnloggetBruker/>

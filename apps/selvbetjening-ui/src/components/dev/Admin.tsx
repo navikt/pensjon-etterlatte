@@ -1,8 +1,7 @@
 import { ActionTypes as SoknadActionTypes } from "../../context/soknad/soknad";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useState } from "react";
-import Panel from "nav-frontend-paneler";
-import { Alert, Button } from "@navikt/ds-react";
+import { Alert, Button, Panel } from "@navikt/ds-react";
 import { useHistory } from "react-router-dom";
 
 const Admin = () => {

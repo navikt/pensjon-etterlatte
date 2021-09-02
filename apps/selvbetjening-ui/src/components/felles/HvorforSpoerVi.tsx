@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { v4 as uuid } from "uuid";
-import { Normaltekst } from "nav-frontend-typografi";
 import { Collapse, Expand } from "@navikt/ds-icons"
+import { BodyLong } from "@navikt/ds-react"
 
 const HvorforSpoerVi: FC = ({ children }) => {
     const id = uuid();
@@ -24,9 +24,9 @@ const HvorforSpoerVi: FC = ({ children }) => {
 
             {erApen && (
                 <div className={"hvorforPanel__innhold"}>
-                    <Normaltekst>
+                    <BodyLong>
                         {children}
-                    </Normaltekst>
+                    </BodyLong>
                 </div>
             )}
         </div>

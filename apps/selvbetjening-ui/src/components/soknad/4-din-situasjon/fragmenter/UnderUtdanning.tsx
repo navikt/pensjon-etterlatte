@@ -1,8 +1,8 @@
-import { Undertittel } from "nav-frontend-typografi";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
+import { Title } from "@navikt/ds-react";
 
 const UnderUtdanning = () => {
     const { t } = useTranslation();
@@ -10,9 +10,9 @@ const UnderUtdanning = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>
+                <Title size={"s"}>
                     {t("dinSituasjon.utdanning.tittel")}
-                </Undertittel>
+                </Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

@@ -6,11 +6,10 @@ import { RHFRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from "../../felles/RHFInput";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
-import { Undertittel } from "nav-frontend-typografi";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
-import { Button } from "@navikt/ds-react";
+import { Button, Title } from "@navikt/ds-react";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -54,9 +53,9 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
         <FormProvider {...methods}>
             <form style={{ padding: "2rem 2.5rem" }}>
                 <SkjemaGruppe>
-                    <Undertittel className={"center"}>
+                    <Title size={"s"} className={"center"}>
                         Legg til barn
-                    </Undertittel>
+                    </Title>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>

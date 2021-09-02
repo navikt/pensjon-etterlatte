@@ -4,13 +4,12 @@ import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { ISoekerOgAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { FormProvider, useForm } from "react-hook-form";
-import { Element, Systemtittel } from "nav-frontend-typografi";
 import { RHFInput } from "../../felles/RHFInput";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Label, Title } from "@navikt/ds-react";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
@@ -58,16 +57,16 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         <>
             {/* Steg 2 */}
             <SkjemaGruppe>
-                <Systemtittel className={"center"}>
+                <Title size={"m"} className={"center"}>
                     {t("omDegOgAvdoed.tittel")}
-                </Systemtittel>
+                </Title>
             </SkjemaGruppe>
 
             {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <FormProvider {...methods}>
                 <form>
                     <SkjemaGruppe>
-                        <Element>{t("omDegOgAvdoed.avdoed.hvem")}</Element>
+                        <Label>{t("omDegOgAvdoed.avdoed.hvem")}</Label>
 
                         <Grid>
                             <Cell xs={12} md={6}>
@@ -87,7 +86,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaGruppe>
 
                     <SkjemaGruppe>
-                        <Element>{t("omDegOgAvdoed.avdoed.datoForDoedsfallet")}</Element>
+                        <Label>{t("omDegOgAvdoed.avdoed.datoForDoedsfallet")}</Label>
 
                         <Datovelger
                             name={"avdoed.datoForDoedsfallet"}

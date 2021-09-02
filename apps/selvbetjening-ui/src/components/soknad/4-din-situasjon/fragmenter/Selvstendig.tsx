@@ -1,8 +1,8 @@
 import { RHFInput } from "../../../felles/RHFInput";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import Datovelger from "../../../felles/Datovelger";
-import { Undertittel } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
+import { Title } from "@navikt/ds-react";
 
 const Selvstendig = () => {
     const { t } = useTranslation();
@@ -10,7 +10,9 @@ const Selvstendig = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>{t("dinSituasjon.selvstendig.tittel")}</Undertittel>
+                <Title size={"s"}>
+                    {t("dinSituasjon.selvstendig.tittel")}
+                </Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"rad"}>

@@ -1,5 +1,4 @@
 import "../../../felles/Infokort.less";
-import { Undertittel } from "nav-frontend-typografi";
 import { useTranslation } from "react-i18next";
 import { Label, SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";
@@ -7,9 +6,8 @@ import Datovelger from "../../../felles/Datovelger";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { ISituasjon } from "../../../../typer/situasjon";
-import { Alert, Button } from "@navikt/ds-react";
-import Panel from "nav-frontend-paneler";
-import { Cell, Grid } from "@navikt/ds-react";
+import { Alert, Button, Title } from "@navikt/ds-react";
+import { Cell, Grid, Panel } from "@navikt/ds-react";
 
 const TidligereArbeidsforhold = () => {
     const { t } = useTranslation();
@@ -25,7 +23,9 @@ const TidligereArbeidsforhold = () => {
         <>
             {/* Steg 4 */}
             <SkjemaGruppe>
-                <Undertittel>{t("dinSituasjon.tidligereArbeidsforhold.tittel")}</Undertittel>
+                <Title size={"s"}>
+                    {t("dinSituasjon.tidligereArbeidsforhold.tittel")}
+                </Title>
 
                 <br />
 

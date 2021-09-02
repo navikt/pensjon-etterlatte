@@ -1,14 +1,13 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import TekstGruppe from "./TekstGruppe";
 import { v4 as uuid } from "uuid";
-import Lenke from "nav-frontend-lenker";
 import { EditFilled } from "@navikt/ds-icons";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { StegPath } from "../../../../context/steg/steg";
 import { IAvdoed, IOppholdUtland } from "../../../../typer/person";
 import ObjectTreeReader from "../../../../utils/ObjectTreeReader";
-import { Accordion, Panel } from "@navikt/ds-react";
+import { Accordion, Link, Panel } from "@navikt/ds-react";
 
 const OppsummeringOmAvdoed = ({
     opplysningerOmAvdoede,
@@ -59,10 +58,10 @@ const OppsummeringOmAvdoed = ({
                 </div>
             ))}
 
-            <Lenke href={`/soknad/steg/${StegPath.OmAvdoed}`} className={senderSoeknad ? "disabled" : ""}>
+            <Link href={`/soknad/steg/${StegPath.OmAvdoed}`} className={senderSoeknad ? "disabled" : ""}>
                 <EditFilled/>
                 <span>{t("felles.endreSvar")}</span>
-            </Lenke>
+            </Link>
         </Accordion>
     );
 };

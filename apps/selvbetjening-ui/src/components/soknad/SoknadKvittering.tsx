@@ -1,13 +1,11 @@
 import "./SoknadForside.less";
-import Lenke from "nav-frontend-lenker";
-import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { Alert, Button } from "@navikt/ds-react";
+import { Alert, BodyLong, BodyShort, Button, Link, Title } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 
 const SoknadKvittering = () => {
@@ -28,7 +26,7 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"center"}>
-                <Systemtittel>{t("soeknadKvittering.tittel")}</Systemtittel>
+                <Title size={"m"}>{t("soeknadKvittering.tittel")}</Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -38,73 +36,101 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Normaltekst>
+                <BodyLong>
                     {t("soeknadKvittering.informasjon.kontakt")}
-                </Normaltekst>
+                </BodyLong>
 
-                <Normaltekst>
+                <BodyLong>
                     {t("soeknadKvittering.informasjon.endring")}
-                </Normaltekst>
+                </BodyLong>
 
-                <Normaltekst tag={"span"}>
-                    <ul>
-                        <li>
+                <ul>
+                    <li>
+                        <BodyShort>
                             {t("soeknadKvittering.informasjon.endringsListe.sivilstatus")}
-                        </li>
-                        <li>
+                        </BodyShort>
+                    </li>
+                    <li>
+                        <BodyShort>
                             {t("soeknadKvittering.informasjon.endringsListe.inntekt")}
-                        </li>
-                        <li>
+                        </BodyShort>
+                    </li>
+                    <li>
+                        <BodyShort>
                             {t("soeknadKvittering.informasjon.endringsListe.bosted")}
-                        </li>
-                    </ul>
-                </Normaltekst>
+                        </BodyShort>
+                    </li>
+                </ul>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Systemtittel>{t("soeknadKvittering.seSaken.tittel")}</Systemtittel>
+                <Title size={"m"}>{t("soeknadKvittering.seSaken.tittel")}</Title>
 
-                <Normaltekst>
+                <BodyLong>
                     {t("soeknadKvittering.seSaken.informasjon.innhold1")}&nbsp;
-                    <Lenke href={t("soeknadKvittering.seSaken.informasjon.lenkeDittNAV.href")}>{t("soeknadKvittering.seSaken.informasjon.lenkeDittNAV.tekst")}</Lenke>&nbsp;
+                    <Link href={t("soeknadKvittering.seSaken.informasjon.lenkeDittNAV.href")}>{t("soeknadKvittering.seSaken.informasjon.lenkeDittNAV.tekst")}</Link>&nbsp;
                     {t("soeknadKvittering.seSaken.informasjon.innhold2")}&nbsp;
-                    <Lenke href={t("soeknadKvittering.seSaken.informasjon.lenkeDineSaker.href")}>{t("soeknadKvittering.seSaken.informasjon.lenkeDineSaker.tekst")}</Lenke>.
-                </Normaltekst>
+                    <Link href={t("soeknadKvittering.seSaken.informasjon.lenkeDineSaker.href")}>{t("soeknadKvittering.seSaken.informasjon.lenkeDineSaker.tekst")}</Link>.
+                </BodyLong>
 
-                <Normaltekst>
-                    <Lenke href={t("soeknadKvittering.seSaken.lenkeNedlastning.href")}>{t("soeknadKvittering.seSaken.lenkeNedlastning.tekst")}</Lenke>
+                {/* TODO: Støtte print / nedlastning ? */}
+                <BodyLong>
+                    <Link href={t("soeknadKvittering.seSaken.lenkeNedlastning.href")}>{t("soeknadKvittering.seSaken.lenkeNedlastning.tekst")}</Link>
                     <br/>
-                    <Lenke href={t("soeknadKvittering.seSaken.lenkeSkrivUt.href")}>{t("soeknadKvittering.seSaken.lenkeSkrivUt.tekst")}</Lenke>
-                </Normaltekst>
+                    <Link href={t("soeknadKvittering.seSaken.lenkeSkrivUt.href")}>{t("soeknadKvittering.seSaken.lenkeSkrivUt.tekst")}</Link>
+                </BodyLong>
 
-                <Normaltekst>
+                {/* TODO: Fikse estimert tid for behandling */}
+                <BodyLong>
                     {t("soeknadKvittering.seSaken.behandlingstidInfo.innhold")}&nbsp;
-                    <Lenke href={t("soeknadKvittering.seSaken.behandlingstidInfo.lenke.href")}>{t("soeknadKvittering.seSaken.behandlingstidInfo.lenke.tekst")}</Lenke>.
-                </Normaltekst>
+                    <Link href={t("soeknadKvittering.seSaken.behandlingstidInfo.lenke.href")}>{t("soeknadKvittering.seSaken.behandlingstidInfo.lenke.tekst")}</Link>.
+                </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Systemtittel>
+                <Title size={"m"}>
                     {t("soeknadKvittering.andreStoenader.tittel")}
-                </Systemtittel>
+                </Title>
 
-                <Normaltekst>
+                <BodyLong>
                     {t("soeknadKvittering.andreStoenader.informasjon")}
-                </Normaltekst>
+                </BodyLong>
 
-                <Normaltekst tag={"span"}>
-                    <ul>
-                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.barnetrygd")}</li>
-                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn")}</li>
-                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.tilsyn")}</li>
-                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.tillegg")}</li>
-                        <li>{t("soeknadKvittering.andreStoenader.stoenadListe.skolepenger")}</li>
-                    </ul>
-                    <br/>
-                    <Lenke href={t("soeknadKvittering.andreStoenader.lenke.href")}>
+                <ul>
+                    <li>
+                        <BodyShort>
+                            {t("soeknadKvittering.andreStoenader.stoenadListe.barnetrygd")}
+                        </BodyShort>
+                    </li>
+                    <li>
+                        <BodyShort>
+                            {t("soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn")}
+                        </BodyShort>
+                    </li>
+                    <li>
+                        <BodyShort>
+                            {t("soeknadKvittering.andreStoenader.stoenadListe.tilsyn")}
+                        </BodyShort>
+                    </li>
+                    <li>
+                        <BodyShort>
+                            {t("soeknadKvittering.andreStoenader.stoenadListe.tillegg")}
+                        </BodyShort>
+                    </li>
+                    <li>
+                        <BodyShort>
+                            {t("soeknadKvittering.andreStoenader.stoenadListe.skolepenger")}
+                        </BodyShort>
+                    </li>
+                </ul>
+
+                <br/>
+
+                <BodyLong>
+                    <Link href={t("soeknadKvittering.andreStoenader.lenke.href")}>
                         {t("soeknadKvittering.andreStoenader.lenke.tekst")}
-                    </Lenke>
-                </Normaltekst>
+                    </Link>
+                </BodyLong>
                 <br/>
 
                 <Button
@@ -116,13 +142,13 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Systemtittel>
+                <Title size={"m"}>
                     {t("soeknadKvittering.spoersmaal.tittel")}
-                </Systemtittel>
+                </Title>
 
-                <Normaltekst>
+                <BodyLong>
                     {t("soeknadKvittering.spoersmaal.informasjon")}
-                </Normaltekst>
+                </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

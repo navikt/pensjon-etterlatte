@@ -1,11 +1,11 @@
 import { RHFRadio } from "../../../felles/RHFRadio";
 import { ISoeker, Sivilstatus } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import NyttEkteskap from "./NyttEkteskap";
 import NyttSamboerskap from "./NyttSamboerskap";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
+import { BodyLong, Title } from "@navikt/ds-react";
 
 const NySivilstatus = () => {
     const { t } = useTranslation();
@@ -17,8 +17,13 @@ const NySivilstatus = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Undertittel>{t("omDegOgAvdoed.nySivilstatus.tittel")}</Undertittel>
-                <Normaltekst>{t("omDegOgAvdoed.nySivilstatus.beskrivelse")}</Normaltekst>
+                <Title size={"s"}>
+                    {t("omDegOgAvdoed.nySivilstatus.tittel")}
+                </Title>
+
+                <BodyLong>
+                    {t("omDegOgAvdoed.nySivilstatus.beskrivelse")}
+                </BodyLong>
             </SkjemaGruppe>
 
             <RHFRadio

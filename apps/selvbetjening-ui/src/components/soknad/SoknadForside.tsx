@@ -6,11 +6,9 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
-import { Innholdstittel, Normaltekst, Undertittel } from "nav-frontend-typografi";
 import Veileder from "nav-frontend-veileder";
-import Lenke from "nav-frontend-lenker";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { Button } from "@navikt/ds-react";
+import { BodyLong, Button, Link, Title } from "@navikt/ds-react";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -42,75 +40,75 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Innholdstittel>{t("forside.tittel")}</Innholdstittel>
+                <Title size={"l"}>{t("forside.tittel")}</Title>
 
-                <Normaltekst>{t("forside.omYtelsene.innhold")}</Normaltekst>
+                <BodyLong>{t("forside.omYtelsene.innhold")}</BodyLong>
 
-                <Normaltekst>
-                    <Lenke href={t("forside.omYtelsene.lenke.href")}>
+                <BodyLong>
+                    <Link href={t("forside.omYtelsene.lenke.href")}>
                         {t("forside.omYtelsene.lenke.tekst")}
-                    </Lenke>
-                </Normaltekst>
+                    </Link>
+                </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Undertittel>{t("forside.barnepensjon.tittel")}</Undertittel>
+                <Title size={"s"}>{t("forside.barnepensjon.tittel")}</Title>
 
-                <Normaltekst>{t("forside.barnepensjon.innhold")}</Normaltekst>
+                <BodyLong>{t("forside.barnepensjon.innhold")}</BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Undertittel>{t("forside.uthentingAvInfo.tittel")}</Undertittel>
+                <Title size={"s"}>{t("forside.uthentingAvInfo.tittel")}</Title>
 
-                <Normaltekst>
+                <BodyLong>
                     <Trans i18nKey={"forside.uthentingAvInfo.innhold"} />
-                </Normaltekst>
+                </BodyLong>
 
                 <ul>
                     <li>
-                        <Normaltekst>
+                        <BodyLong>
                             <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li1"} />
-                        </Normaltekst>
+                        </BodyLong>
                     </li>
                     <li>
-                        <Normaltekst>
+                        <BodyLong>
                             <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li2"} />
-                        </Normaltekst>
+                        </BodyLong>
                     </li>
                     <li>
-                        <Normaltekst>
+                        <BodyLong>
                             <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li3"} />
-                        </Normaltekst>
+                        </BodyLong>
                     </li>
                     <li>
-                        <Normaltekst>
+                        <BodyLong>
                             <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li4"} />
-                        </Normaltekst>
+                        </BodyLong>
                     </li>
                     <li>
-                        <Normaltekst>
+                        <BodyLong>
                             <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li5"} />
-                        </Normaltekst>
+                        </BodyLong>
                     </li>
                 </ul>
 
-                <Normaltekst>
-                    <Lenke href={t("forside.uthentingAvInfo.lenke1.href")}>
+                <BodyLong>
+                    <Link href={t("forside.uthentingAvInfo.lenke1.href")}>
                         {t("forside.uthentingAvInfo.lenke1.tekst")}
-                    </Lenke>
-                </Normaltekst>
+                    </Link>
+                </BodyLong>
 
-                <Normaltekst>
-                    <Lenke href={t("forside.uthentingAvInfo.lenke2.href")}>
+                <BodyLong>
+                    <Link href={t("forside.uthentingAvInfo.lenke2.href")}>
                         {t("forside.uthentingAvInfo.lenke2.tekst")}
-                    </Lenke>
-                </Normaltekst>
+                    </Link>
+                </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Undertittel>{t("forside.samtykke.tittel")}</Undertittel>
+                <Title size={"s"}>{t("forside.samtykke.tittel")}</Title>
 
-                <Normaltekst>{t("forside.samtykke.innhold")}</Normaltekst>
+                <BodyLong>{t("forside.samtykke.innhold")}</BodyLong>
 
                 <BekreftCheckboksPanel
                     label={t("forside.samtykke.bekreftelse", { navn: innloggetBrukerNavn })}
@@ -123,9 +121,9 @@ const SoknadForside = () => {
                     }
                 >
                     {t("forside.samtykke.harLest")}&nbsp;
-                    <Lenke href={t("forside.samtykke.lenke.href")}>
+                    <Link href={t("forside.samtykke.lenke.href")}>
                         {t("forside.samtykke.lenke.tekst")}
-                    </Lenke>
+                    </Link>
                 </BekreftCheckboksPanel>
             </SkjemaGruppe>
 

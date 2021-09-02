@@ -1,9 +1,14 @@
-import { Feiloppsummering, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 import { TFunction, useTranslation } from "react-i18next";
 import { FieldError, FieldErrors } from "react-hook-form/dist/types/errors";
-import { FeiloppsummeringFeil } from "nav-frontend-skjema/src/feiloppsummering";
 import { v4 as uuid } from "uuid";
 import { getTransKey } from "../../utils/translation";
+import { ErrorSummary, ErrorSummaryItem } from "@navikt/ds-react";
+
+interface Feil {
+    skjemaelementId: string;
+    feilmelding: string;
+}
 
 const getFieldErrors = (obj: FieldErrors): FieldError[] => {
     return Object.values(obj).flatMap((value?: any) => {
@@ -13,7 +18,7 @@ const getFieldErrors = (obj: FieldErrors): FieldError[] => {
     });
 };
 
-export const konverterFeilmeldinger = (errors: FieldErrors, t: TFunction<"translation">): FeiloppsummeringFeil[] => {
+export const konverterFeilmeldinger = (errors: FieldErrors, t: TFunction<"translation">): Feil[] => {
     return getFieldErrors(errors)
         .filter((error) => !!error)
         .map((error) => {
@@ -31,10 +36,13 @@ const Feilmeldinger = ({ errors }: { errors: FieldErrors }) => {
         <>
             {!!Object.keys(errors).length && (
                 <SkjemaGruppe key={uuid()}>
-                    <Feiloppsummering
-                        tittel="For å gå videre må du rette opp følgende:"
-                        feil={konverterFeilmeldinger(errors, t)}
-                    />
+                    <ErrorSummary heading={"For å gå videre må du rette opp følgende:"}>
+                        {konverterFeilmeldinger(errors, t).map((feil) => (
+                            <ErrorSummaryItem key={feil.skjemaelementId} href={`#${feil.skjemaelementId}`}>
+                                {feil.feilmelding}
+                            </ErrorSummaryItem>
+                        ))}
+                    </ErrorSummary>
                 </SkjemaGruppe>
             )}
         </>

@@ -9054,16 +9054,6 @@ nav-frontend-core@6.0.1, nav-frontend-core@^6.0.1:
   resolved "https://registry.npmjs.org/nav-frontend-core/-/nav-frontend-core-6.0.1.tgz"
   integrity sha512-zFAPRXgmS3Nhu5SyafsTnCFg2/PEbrUF+g1xGo+pKIxGfJgCeLi47gPSe7Kjeh3IwIo0ex3cA7tfbUIWOY65dQ==
 
-nav-frontend-ikoner-assets@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/nav-frontend-ikoner-assets/-/nav-frontend-ikoner-assets-3.0.1.tgz"
-  integrity sha512-rRzdUl7w02xcX0ZljE3cmkow4haEePNP1gPuWRSvQt5ybL2eiE573l3lgsd4PuPuQp1T4fYFqFlPWjkUwpXVqw==
-
-nav-frontend-ikonknapper@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/nav-frontend-ikonknapper/-/nav-frontend-ikonknapper-2.0.2.tgz"
-  integrity sha512-utRZVgFKGrOX36WiM/zL1VqyQeyZ7Fbmu3p6+YCCMUWF8qN6eYAkFZswD9H6cB+FqZayPuVhvZDqHyor+YrtfQ==
-
 nav-frontend-js-utils@1.0.19:
   version "1.0.19"
   resolved "https://registry.npmjs.org/nav-frontend-js-utils/-/nav-frontend-js-utils-1.0.19.tgz"
@@ -9081,35 +9071,10 @@ nav-frontend-lenker@2.0.1:
   resolved "https://registry.npmjs.org/nav-frontend-lenker/-/nav-frontend-lenker-2.0.1.tgz"
   integrity sha512-OYHNKMZE6W2T1DvBdfeR7m6EWKYb27s013RhrmDT9P2j3paC6b0e/6nYuepftHyE4ydxv2GJUKTr6byRvVlmzg==
 
-nav-frontend-lesmerpanel-style@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/nav-frontend-lesmerpanel-style/-/nav-frontend-lesmerpanel-style-2.0.1.tgz"
-  integrity sha512-JBnmY60bLzt+yCh3jEDXqjXn/SVK/MFII3CFDryf1ywAUe3rLQzXpky54Jl4ZbJsOfIS8z1wRXRH6zByKLPNhQ==
-
-nav-frontend-lesmerpanel@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/nav-frontend-lesmerpanel/-/nav-frontend-lesmerpanel-2.0.1.tgz"
-  integrity sha512-fc9Xadm79uqSN2Zl9o1QQQb9ehlbVl9fJt8ZYYe5uIfMJvUZte9KzoUxefsHDV2qZfHhMjs3/BqAXXdb9HvJIw==
-
-nav-frontend-lukknapp-style@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/nav-frontend-lukknapp-style/-/nav-frontend-lukknapp-style-2.0.1.tgz"
-  integrity sha512-Yr/67E8v2hEGDWEqXwnZIOM79/02xfrGZws/gpSj8XV/gULL1rlWurskwrj8xt0Fa3ukVV0i+VoLqCvmxPkjLw==
-
-nav-frontend-lukknapp@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/nav-frontend-lukknapp/-/nav-frontend-lukknapp-2.0.1.tgz"
-  integrity sha512-i6Nh0D0wwTJdS9/Ygge3czCiOczZQBSyi2M9wO4GH8Dbbl99SoqRNSbV9SSMHWPuAW2A57vmsFoUILEia/toGA==
-
 nav-frontend-paneler-style@2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/nav-frontend-paneler-style/-/nav-frontend-paneler-style-2.0.1.tgz"
   integrity sha512-ggVdcEmaLJn4xNlnApcyVrK8Mz4SsG1iGYdEMgrvm/Nijwsk431tseizvXoUqdsg3+yhqSYvC55/Qix6w3npuQ==
-
-nav-frontend-paneler@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/nav-frontend-paneler/-/nav-frontend-paneler-3.0.1.tgz"
-  integrity sha512-FFV7fanUkIZ8X7vUUFXkX32KcFqTAxQNOOxrM52RSTvQy6TOOoYSMAALxXSMnzEQM3H0yCbq7/ctZzkZd29a6g==
 
 nav-frontend-skjema-style@3.0.1:
   version "3.0.1"

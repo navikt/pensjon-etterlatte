@@ -1,5 +1,5 @@
 import React from 'react';
-import { Innholdstittel } from 'nav-frontend-typografi';
+import { Title } from "@navikt/ds-react";
 
 const bannerStyle = {
     width: "100%",
@@ -15,9 +15,9 @@ const bannerStyle = {
 const Banner = ({ tekst }: { tekst: string }) => {
     return (
         <header style={bannerStyle}>
-            <Innholdstittel>
+            <Title size={"xl"}>
                 {tekst}
-            </Innholdstittel>
+            </Title>
         </header>
     );
 };
