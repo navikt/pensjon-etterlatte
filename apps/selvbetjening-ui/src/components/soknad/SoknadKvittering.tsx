@@ -46,7 +46,7 @@ const SoknadKvittering = () => {
                     {t("soeknadKvittering.informasjon.endring")}
                 </Normaltekst>
 
-                <Normaltekst>
+                <Normaltekst tag={"span"}>
                     <ul>
                         <li>
                             {t("soeknadKvittering.informasjon.endringsListe.sivilstatus")}
@@ -92,7 +92,7 @@ const SoknadKvittering = () => {
                     {t("soeknadKvittering.andreStoenader.informasjon")}
                 </Normaltekst>
 
-                <Normaltekst>
+                <Normaltekst tag={"span"}>
                     <ul>
                         <li>{t("soeknadKvittering.andreStoenader.stoenadListe.barnetrygd")}</li>
                         <li>{t("soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn")}</li>
