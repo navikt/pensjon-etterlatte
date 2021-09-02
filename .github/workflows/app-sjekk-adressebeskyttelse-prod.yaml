@@ -1,11 +1,11 @@
-name: finn-fnr-soeknad - Build, release and deploy
+name: sjekk-adressebeskyttelse - Build, release and deploy
 
 on:
   push:
     branches:
       - main
     paths:
-      - apps/finn-fnr-soeknad/**
+      - apps/sjekk-adressebeskyttelse/**
       - libs/ktorclient-auth-clientcredentials/**
 
 jobs:
@@ -22,14 +22,14 @@ jobs:
       - name: Build
         run: |
           chmod +x ./gradlew
-          ./gradlew :apps:finn-fnr-soeknad:test :apps:finn-fnr-soeknad:build
+          ./gradlew :apps:sjekk-adressebeskyttelse:test :apps:sjekk-adressebeskyttelse:build
       # Release
       - name: Create docker tag
         run: |
-          echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/finn-fnr-soeknad > .docker_image
+          echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/sjekk-adressebeskyttelse > .docker_image
           echo "$(date "+%Y.%m.%d")-$(git rev-parse --short HEAD)" > .docker_tag
       - name: Build Docker image
-        run: docker build -t $(cat .docker_image):$(cat .docker_tag) apps/finn-fnr-soeknad
+        run: docker build -t $(cat .docker_image):$(cat .docker_tag) apps/sjekk-adressebeskyttelse
       - name: Login to Github Package Registry
         env:
           DOCKER_USERNAME: x-access-token
@@ -46,5 +46,5 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: apps/finn-fnr-soeknad/nais-prod.yaml
+          RESOURCE: apps/sjekk-adressebeskyttelse/nais-prod.yaml
           IMAGE: ${{ env.IMAGE }}

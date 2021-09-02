@@ -11,6 +11,7 @@ import io.ktor.routing.post
 import io.ktor.routing.route
 import no.nav.etterlatte.Config
 import no.nav.etterlatte.NavCallId
+import no.nav.etterlatte.getTokenInfo
 import no.nav.etterlatte.pdlhttpclient
 import no.nav.etterlatte.pipeRequest
 import no.nav.etterlatte.pipeResponse
@@ -30,7 +31,7 @@ fun Route.pdl(config: Config) {
 
             val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
             val auth = call.request.header(HttpHeaders.Authorization)
-            val navToken = call.request.header(NavConsumerToken)
+            val navToken = call.getTokenInfo()
 
             try {
                 val response = httpClient.post<HttpResponse>(pdlUrl) {
