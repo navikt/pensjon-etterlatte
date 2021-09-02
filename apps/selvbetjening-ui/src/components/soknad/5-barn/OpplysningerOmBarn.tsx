@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../felles/Infokort.less";
+import "../../felles/Infokort.scss";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";

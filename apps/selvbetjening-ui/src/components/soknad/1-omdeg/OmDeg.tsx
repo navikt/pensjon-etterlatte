@@ -1,4 +1,4 @@
-import "./OmDeg.less";
+import "./OmDeg.scss";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { Trans, useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";

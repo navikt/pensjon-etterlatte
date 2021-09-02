@@ -1,4 +1,4 @@
-import "./BarnInfoKort.less";
+import "./BarnInfoKort.scss";
 import { IBarn } from "../../../typer/person";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import { memo } from "react";

@@ -1,4 +1,4 @@
-import "../../../felles/Infokort.less";
+import "../../../felles/Infokort.scss";
 import { useTranslation } from "react-i18next";
 import { Label, SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";

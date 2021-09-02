@@ -1,4 +1,4 @@
-import "./SoknadForside.less";
+import "./SoknadForside.scss";
 import { useHistory } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";

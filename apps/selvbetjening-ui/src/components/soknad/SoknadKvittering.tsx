@@ -1,4 +1,4 @@
-import "./SoknadForside.less";
+import "./SoknadForside.scss";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
