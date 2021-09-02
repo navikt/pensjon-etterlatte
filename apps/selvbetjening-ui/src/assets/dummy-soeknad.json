@@ -22,7 +22,8 @@
       "doedsfallAarsak": "Ja"
     },
     "forholdTilAvdoede": {
-      "relasjon": "avdoede.relasjon.ingen"
+      "relasjon": "avdoede.relasjon.separert",
+      "datoForInngaattPartnerskap": "2001-07-26T22:00:00.000Z"
     },
     "nySivilstatus": {
       "sivilstatus": "nySivilstatus.ingen"
@@ -36,10 +37,7 @@
       "oppholdUtland": [
         {
           "land": "Kongo",
-          "beskrivelse": [
-            "oppholdUtlandType.bodd",
-            "oppholdUtlandType.arbeidet"
-          ],
+          "beskrivelse": ["oppholdUtlandType.bodd", "oppholdUtlandType.arbeidet"],
           "fraDato": "2002-08-10T22:00:00.000Z",
           "tilDato": "2003-08-10T22:00:00.000Z",
           "medlemFolketrygd": "Ja",
@@ -54,7 +52,7 @@
       "beskrivelse": "150 000"
     },
     "haddePensjonsgivendeInntekt": {
-      "svar": "avdoedInntekt.arbeidstaker"
+      "svar": "Nei"
     },
     "harAvtjentMilitaerTjeneste": {
       "svar": "Ja",
@@ -99,7 +97,7 @@
     }
   },
   "opplysningerOmBarn": {
-    "gravidEllerNyligFoedt":  "gravidEllerNyligFoedt.venterEllerHarNyligFoedt",
+    "gravidEllerNyligFoedt": "gravidEllerNyligFoedt.venterEllerHarNyligFoedt",
     "barn": [
       {
         "fornavn": "Treg",
