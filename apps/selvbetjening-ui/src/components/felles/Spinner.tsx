@@ -1,5 +1,5 @@
-import NavFrontendSpinner from "nav-frontend-spinner";
 import { Normaltekst } from "nav-frontend-typografi";
+import { Loader } from "@navikt/ds-react";
 
 const Spinner = ({ visible, label }: {
     visible: boolean;
@@ -10,7 +10,7 @@ const Spinner = ({ visible, label }: {
     return (
         <div className={"spinner-overlay"}>
             <div className={"spinner-content"}>
-                <NavFrontendSpinner />
+                <Loader />
                 <Normaltekst>
                     {label}
                 </Normaltekst>

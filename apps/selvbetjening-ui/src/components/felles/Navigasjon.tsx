@@ -6,10 +6,9 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { ActionTypes as BrukerAction } from "../../context/bruker/bruker";
 import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
-import { default as Modal } from "nav-frontend-modal";
 import { Ingress, Undertekst } from "nav-frontend-typografi";
 import { erDato } from "../../utils/dato";
-import { Button, Loader } from "@navikt/ds-react";
+import { Button, Loader, Modal } from "@navikt/ds-react";
 
 interface KnappProps {
     label?: string;
@@ -94,10 +93,8 @@ const Navigasjon = ({
             </SkjemaGruppe>
 
             <Modal
-                isOpen={isOpen}
-                onRequestClose={() => setIsOpen(false)}
-                closeButton={true}
-                contentLabel={"aasdfsdf"}
+                open={isOpen}
+                onClose={() => setIsOpen(false)}
                 className="avbryt-modal"
             >
                 <SkjemaGruppe>
