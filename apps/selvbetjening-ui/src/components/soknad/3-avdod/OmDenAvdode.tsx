@@ -1,20 +1,20 @@
-import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { AvdoedInntekt, IAvdoed } from "../../../typer/person";
+import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
 import { RHFFoedselsnummerInput, RHFInput, RHFValutaInput } from "../../felles/RHFInput";
-import { RHFRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
-import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { useEffectOnce } from "../../../utils/extensions";
 import { isEmpty } from "lodash";
 import { BodyLong, Label, Title } from "@navikt/ds-react";
+import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -22,11 +22,11 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     const methods = useForm<IAvdoed>({
         defaultValues: state.omDenAvdoede || {},
-        shouldUnregister: true
+        shouldUnregister: true,
     });
 
     useEffectOnce(() => {
-        methods.reset(state.omDenAvdoede)
+        methods.reset(state.omDenAvdoede);
     }, !isEmpty(state.omDenAvdoede));
 
     const {
@@ -40,34 +40,24 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         neste!!();
     };
 
-    const selvstendigNaeringsdrivende = watch("selvstendigNaeringsdrivende.svar")
-    const harAvtjentMilitaerTjeneste = watch("harAvtjentMilitaerTjeneste.svar")
+    const selvstendigNaeringsdrivende = watch("selvstendigNaeringsdrivende.svar");
+    const harAvtjentMilitaerTjeneste = watch("harAvtjentMilitaerTjeneste.svar");
 
     return (
         <FormProvider {...methods}>
             <SkjemaGruppe className={"center"}>
-                <Title size={"m"}>
-                    {t("omDenAvdoede.tittel")}
-                </Title>
+                <Title size={"m"}>{t("omDenAvdoede.tittel")}</Title>
             </SkjemaGruppe>
 
             <form>
                 <div className={"rad skjemagruppe"}>
                     <div className={"kolonne"}>
-                        <Label>
-                            {t("omDenAvdoede.fornavn")}
-                        </Label>
-                        <BodyLong>
-                            {state.omDegOgAvdoed.avdoed?.fornavn || ""}
-                        </BodyLong>
+                        <Label>{t("omDenAvdoede.fornavn")}</Label>
+                        <BodyLong>{state.omDegOgAvdoed.avdoed?.fornavn || ""}</BodyLong>
                     </div>
                     <div className={"kolonne"}>
-                        <Label>
-                            {t("omDenAvdoede.etternavn")}
-                        </Label>
-                        <BodyLong>
-                            {state.omDegOgAvdoed.avdoed?.etternavn || ""}
-                        </BodyLong>
+                        <Label>{t("omDenAvdoede.etternavn")}</Label>
+                        <BodyLong>{state.omDegOgAvdoed.avdoed?.etternavn || ""}</BodyLong>
                     </div>
                 </div>
 
@@ -79,21 +69,19 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         label={t("omDenAvdoede.foedselsnummer")}
                     />
 
-                    <RHFInput
-                        className={"kol-50"}
-                        name={"statsborgerskap"}
-                        label={t("omDenAvdoede.statsborgerskap")}
-                    />
+                    <RHFInput className={"kol-50"} name={"statsborgerskap"} label={t("omDenAvdoede.statsborgerskap")} />
                 </div>
 
                 <BoddEllerArbeidetUtland />
 
+                <SkjemaGruppe className="ingress">
+                    <Title size="s">{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}</Title>
+                    <BodyLong>{t("omDenAvdoede.selvstendigNaeringsdrivende.ingress")}</BodyLong>
+                </SkjemaGruppe>
+
                 <RHFSpoersmaalRadio
                     name={"selvstendigNaeringsdrivende.svar"}
                     legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
-                    description={
-                        <HvorforSpoerVi>{t("omDenAvdoede.selvstendigNaeringsdrivende.hjelpetekst")}</HvorforSpoerVi>
-                    }
                     vetIkke
                 />
 
@@ -102,24 +90,28 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <SkjemaGruppe>
                         <RHFValutaInput
                             name={"selvstendigNaeringsdrivende.beskrivelse"}
-                            bredde={"S"}
+                            bredde={"L"}
+                            placeholder={t("omDenAvdoede.selvstendigNaeringsdrivende.placeholder")}
                             label={t("omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse")}
                         />
                     </SkjemaGruppe>
                 )}
 
-                <RHFRadio
+                <RHFSpoersmaalRadio
                     name={"haddePensjonsgivendeInntekt.svar"}
                     legend={t("omDenAvdoede.haddePensjonsgivendeInntekt.svar")}
-                    description={"TODO: Litt informasjon rundt hva vi mener med \"selvstendig næringsdrivende\", \"arbeidstaker\", osv."}
-                    radios={Object.values(AvdoedInntekt).map(value => {
-                        return { label: t(value), value } as RadioProps
-                    })}
                 />
+
+                <SkjemaGruppe className="ingress">
+                    <Title size="s">{t("omDenAvdoede.annenOpptjening.tittel")}</Title>
+                </SkjemaGruppe>
 
                 <RHFSpoersmaalRadio
                     name={"harAvtjentMilitaerTjeneste.svar"}
                     legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
+                    description={
+                        <HvorforSpoerVi>{t("omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst")}</HvorforSpoerVi>
+                    }
                     vetIkke
                 />
 
@@ -133,12 +125,9 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaGruppe>
                 )}
 
-                <Feilmeldinger errors={errors}/>
+                <Feilmeldinger errors={errors} />
 
-                <Navigasjon
-                    forrige={{ onClick: forrige }}
-                    neste={{ onClick: handleSubmit(lagre) }}
-                />
+                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }} />
             </form>
         </FormProvider>
     );

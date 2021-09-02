@@ -2,9 +2,9 @@ import { IValg } from "./Spoersmaal";
 import { IUtbetalingsInformasjon } from "./utbetaling";
 
 export enum Sivilstatus {
+    ingen = "nySivilstatus.ingen",
     ekteskap = "nySivilstatus.ekteskap",
     samboerskap = "nySivilstatus.samboerskap",
-    ingen = "nySivilstatus.ingen",
 }
 
 export enum OpploesningAarsak {
@@ -15,17 +15,15 @@ export enum OpploesningAarsak {
 
 export enum ForholdTilAvdoede {
     gift = "avdoede.relasjon.gift",
+    separert = "avdoede.relasjon.separert",
     samboer = "avdoede.relasjon.samboer",
     skilt = "avdoede.relasjon.skilt",
     tidligereSamboer = "avdoede.relasjon.tidligereSamboer",
-    ingen = "avdoede.relasjon.ingen",
 }
 
 export enum AvdoedInntekt {
-    selvstendigNaeringsdrivende = "avdoedInntekt.selvstendigNaeringsdrivende",
-    arbeidstaker = "avdoedInntekt.arbeidstaker",
-    selvstendigOgArbeidstaker = "avdoedInntekt.selvstendigOgArbeidstaker",
-    ingenInntekt = "avdoedInntekt.ingenInntekt",
+    Ja = "avdoedInntekt.ja",
+    nei = "avdoedInntekt.nei",
 }
 
 export enum BarnRelasjon {

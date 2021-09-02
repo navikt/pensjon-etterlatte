@@ -11,7 +11,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { DeleteFilled } from "@navikt/ds-icons";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
-import { Button, Panel } from "@navikt/ds-react";
+import { BodyLong, Button, Panel, Title } from "@navikt/ds-react";
 
 const BoddEllerArbeidetUtland = () => {
     const { t } = useTranslation();
@@ -34,6 +34,10 @@ const BoddEllerArbeidetUtland = () => {
 
     return (
         <>
+            <SkjemaGruppe className="ingress">
+                <Title size="s">{t("omDenAvdoede.boddEllerJobbetUtland.tittel")}</Title>
+                <BodyLong>{t("omDenAvdoede.boddEllerJobbetUtland.ingress")}</BodyLong>
+            </SkjemaGruppe>
             <RHFSpoersmaalRadio
                 name={"boddEllerJobbetUtland.svar"}
                 legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
@@ -59,11 +63,11 @@ const BoddEllerArbeidetUtland = () => {
                                     checkboxes={[
                                         {
                                             label: t(OppholdUtlandType.bodd.valueOf()),
-                                            value: OppholdUtlandType.bodd
+                                            value: OppholdUtlandType.bodd,
                                         },
                                         {
                                             label: t(OppholdUtlandType.arbeidet.valueOf()),
-                                            value: OppholdUtlandType.arbeidet
+                                            value: OppholdUtlandType.arbeidet,
                                         },
                                     ]}
                                 />
@@ -124,23 +128,15 @@ const BoddEllerArbeidetUtland = () => {
 
                             {fields.length > 1 && (
                                 <div style={{ textAlign: "right" }}>
-                                    <Button
-                                        variant={"secondary"}
-                                        type={"button"}
-                                        onClick={() => remove(index)}
-                                    >
-                                        <DeleteFilled/> &nbsp;{t("knapp.fjern")}
+                                    <Button variant={"secondary"} type={"button"} onClick={() => remove(index)}>
+                                        <DeleteFilled /> &nbsp;{t("knapp.fjern")}
                                     </Button>
                                 </div>
                             )}
                         </Panel>
                     ))}
 
-                    <Button
-                        variant={"secondary"}
-                        type={"button"}
-                        onClick={() => append({}, { shouldFocus: true })}
-                    >
+                    <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
                         + {t("knapp.leggTil")}
                     </Button>
                 </SkjemaLinje>
