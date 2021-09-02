@@ -3,7 +3,7 @@ import { Undertittel } from "nav-frontend-typografi";
 import { RHFBicInput, RHFIbanInput, RHFInput } from "../../../felles/RHFInput";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
+import Hjelpetekst from "../../../felles/Hjelpetekst";
 
 const UtenlandskBankInfo = () => {
     const { t } = useTranslation()

@@ -5,7 +5,7 @@ import GiftMedAvdoede from "./GiftMedAvdoede";
 import SamboerMedAvdoede from "./SamboerMedAvdoede";
 import SkiltFraAvdoede from "./SkiltFraAvdoede";
 import TidligereSamboerMedAvdoede from "./TidligereSamboerMedAvdoede";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
@@ -50,9 +50,9 @@ const ForholdTilAvdoedeSkjema = () => {
 
             {forholdTilAvdoede === ForholdTilAvdoede.ingen && (
                 <SkjemaGruppe>
-                    <AlertStripeAdvarsel>
+                    <Alert variant={"warning"}>
                         {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                    </AlertStripeAdvarsel>
+                    </Alert>
                 </SkjemaGruppe>
             )}
         </>

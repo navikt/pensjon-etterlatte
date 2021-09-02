@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { Normaltekst } from "nav-frontend-typografi";
-import { NedChevron, OppChevron } from "nav-frontend-chevron";
+import { Collapse, Expand } from "@navikt/ds-icons"
 
 const HvorforSpoerVi: FC = ({ children }) => {
     const id = uuid();
@@ -18,7 +18,7 @@ const HvorforSpoerVi: FC = ({ children }) => {
                     Hvorfor spør vi om dette?
                 </span>
                 <span>
-                    {erApen ? <OppChevron/> : <NedChevron/>}
+                    {erApen ? <Collapse/> : <Expand/>}
                 </span>
             </button>
 

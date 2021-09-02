@@ -16,7 +16,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         cy.get('[type="checkbox"]').check({force: true})
 
         // Start søknaden
-        cy.get('[type="submit"]').click()
+        cy.get('[type="button"]').click()
     })
 
     it('Skal fylle ut siden "Om Deg" og gå til neste', () => {
@@ -160,7 +160,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         // Verifiser kvitteringsside
         cy.url().should('include', '/soknad/sendt')
-        cy.get('.alertstripe').should('be.visible')
         cy.contains('Takk for søknaden')
     })
 })
@@ -181,7 +180,7 @@ const sammenlignRequestMedInputdata = (request) => {
     expect(request).to.deep.equal(mockSoeknad)
 }
 
-const gaaTilNesteSide = () => cy.get('.knapp--hoved').click()
+const gaaTilNesteSide = () => cy.get('[type="button"]').contains('Neste').click()
 const getById = (id) => cy.get(`[id="${id}"]`)
 const selectValue = (value) => cy.get(`[value="${value}"]`).check({force: true})
 const selectValueForId = (id, value) => getById(id).find(`[value="${value}"]`).check({force: true})

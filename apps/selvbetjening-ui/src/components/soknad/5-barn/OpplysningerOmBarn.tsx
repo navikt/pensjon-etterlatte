@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import "../../felles/Infokort.less";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
-import { Knapp } from "nav-frontend-knapper";
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { default as Modal } from "nav-frontend-modal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { GravidEllerNyligFoedt, IBarn, IOmBarn } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
@@ -14,14 +12,14 @@ import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
-import AlertStripe from "nav-frontend-alertstriper";
+import { Alert, Button, Modal } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFRadio } from "../../felles/RHFRadio";
 import Panel from "nav-frontend-paneler";
 import { useEffectOnce } from "../../../utils/extensions";
 import { isEmpty } from "lodash";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -66,11 +64,11 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
 
                 <SkjemaGruppe>
                     <Panel border>
-                        <AlertStripe type={"info"} form={"inline"}>
+                        <Alert variant={"info"} className={"navds-alert--inline"}>
                             <Normaltekst>
                                 {t("omBarn.informasjon")}
                             </Normaltekst>
-                        </AlertStripe>
+                        </Alert>
                     </Panel>
                 </SkjemaGruppe>
 
@@ -91,9 +89,12 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                             </div>
                             <div className={"infokort__informasjonsboks"}>
                                 <div className={"informasjonsboks-innhold"}>
-                                    <Knapp htmlType={"button"} onClick={() => setIsOpen(true)}>
+                                    <Button
+                                        variant={"primary"}
+                                        type={"button"}
+                                        onClick={() => setIsOpen(true)}>
                                         {t("knapp.leggTilBarn")}
-                                    </Knapp>
+                                    </Button>
                                 </div>
 
                                 <Normaltekst className={"center mute"}>
@@ -104,10 +105,8 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                     </div>
 
                     <Modal
-                        isOpen={isOpen}
-                        onRequestClose={() => setIsOpen(false)}
-                        closeButton={true}
-                        contentLabel={t("omBarn.tittel")}
+                        open={isOpen}
+                        onClose={() => setIsOpen(false)}
                     >
                         <LeggTilBarnSkjema lagre={leggTilBarn} />
                     </Modal>

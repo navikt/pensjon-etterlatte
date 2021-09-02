@@ -2,7 +2,7 @@ import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
@@ -28,9 +28,9 @@ const  TidligereSamboerMedAvdoede = () => {
 
             {fellesBarn === IValg.NEI && (
                 <SkjemaGruppe>
-                    <AlertStripeAdvarsel>
+                    <Alert variant={"warning"}>
                         {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                    </AlertStripeAdvarsel>
+                    </Alert>
                 </SkjemaGruppe>
             )}
 
