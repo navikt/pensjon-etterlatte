@@ -74,7 +74,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         selectValueForId("selvstendigNaeringsdrivende.svar", omDenAvdoede.selvstendigNaeringsdrivende.svar);
         getById("selvstendigNaeringsdrivende.beskrivelse").type(omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse);
-        selectValue(omDenAvdoede.haddePensjonsgivendeInntekt.svar);
+        selectValueForId("haddePensjonsgivendeInntekt.svar", omDenAvdoede.haddePensjonsgivendeInntekt.svar);
         selectValueForId("harAvtjentMilitaerTjeneste.svar", omDenAvdoede.harAvtjentMilitaerTjeneste.svar);
         getById("harAvtjentMilitaerTjeneste.beskrivelse").type(omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse);
 
