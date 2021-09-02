@@ -8,6 +8,8 @@ import io.ktor.auth.jwt.JWTPrincipal
 import io.ktor.client.HttpClient
 import io.ktor.client.call.receive
 import io.ktor.client.engine.apache.Apache
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.logging.LogLevel
@@ -25,6 +27,7 @@ import io.ktor.util.filter
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.ByteWriteChannel
 import io.ktor.utils.io.copyAndClose
+import no.nav.etterlatte.security.ktor.clientCredential
 import org.apache.http.impl.conn.SystemDefaultRoutePlanner
 import java.net.ProxySelector
 
@@ -50,6 +53,17 @@ fun httpClientWithProxy() = HttpClient(Apache) {
         }
     }
 }
+fun pdlhttpclient() = HttpClient(OkHttp) {
+    val env = System.getenv().toMutableMap()
+
+    install(JsonFeature) { serializer = JacksonSerializer() }
+    install(Auth) {
+        clientCredential {
+            config = env.toMutableMap()
+                .apply { put("AZURE_APP_OUTBOUND_SCOPE", "api://pdl-api.default.svc.nais.local/graphql") }
+        }
+    }
+}.also { Runtime.getRuntime().addShutdownHook(Thread { it.close() }) }
 
 val proxiedContenHeaders = listOf(
     HttpHeaders.ContentType,

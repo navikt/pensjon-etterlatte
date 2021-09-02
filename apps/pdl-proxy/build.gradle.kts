@@ -30,6 +30,9 @@ dependencies {
     implementation("org.json:json:$orgJsonVersion")
    // implementation("org.slf4j:slf4j-api:1.7.30")
 
+    implementation("io.ktor:ktor-client-okhttp:$ktorversion")
+    implementation(project(":libs:ktorclient-auth-clientcredentials"))
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
