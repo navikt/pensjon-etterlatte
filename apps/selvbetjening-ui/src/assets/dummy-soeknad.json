@@ -1,6 +1,7 @@
 {
   "harSamtykket": true,
   "sistLagretDato": "2021-08-10T08:55:28.330Z",
+  "klarForLagring": true,
   "omDeg": {
     "bostedsadresseBekreftet": "Nei",
     "kontaktinfo": {
@@ -10,7 +11,6 @@
     "oppholderSegINorge": "Ja",
     "alternativAdresse": "Testveien 123, 0594 Oslo",
     "utbetalingsInformasjon": {
-      "bankkontoType": "Norsk",
       "kontonummer": "1351.35.13513"
     }
   },
@@ -18,7 +18,7 @@
     "avdoed": {
       "fornavn": "Død",
       "etternavn": "Testperson",
-      "datoForDoedsfallet": "2021-07-26T08:52:27.000Z",
+      "datoForDoedsfallet": "2021-07-26T22:00:00.000Z",
       "doedsfallAarsak": "Ja"
     },
     "forholdTilAvdoede": {
@@ -41,8 +41,8 @@
             "oppholdUtlandType.arbeidet"
           ],
           "fraDato": "2002-08-10T22:00:00.000Z",
-          "tilDato": "2003-08-10T08:53:16.000Z",
-          "medlemFolketrygdUtland": "Ja",
+          "tilDato": "2003-08-10T22:00:00.000Z",
+          "medlemFolketrygd": "Ja",
           "mottokPensjon": {
             "beskrivelse": "150.000"
           }
@@ -64,8 +64,7 @@
   "dinSituasjon": {
     "jobbStatus": "jobbStatus.arbeidstaker",
     "utdanning": {
-      "hoyesteFullfoerteUtdanning": "utdanning.mastergrad",
-      "annenUtdanning": "Kurs i potetskrelling"
+      "hoyesteFullfoerteUtdanning": "utdanning.mastergrad"
     },
     "andreYtelser": {
       "kravOmAnnenStonad": {
@@ -83,13 +82,13 @@
     "selvstendigNaeringsdrivende": "arbeidsforholdType.begge",
     "selvstendig": {
       "beskrivelse": "Potetskreller",
-      "startDato": "2015-08-10T08:54:00.000Z",
+      "startDato": "2015-08-10T22:00:00.000Z",
       "type": "Mat",
       "endringIfmDoedsfall": "Nei"
     },
     "arbeidsforhold": {
       "arbeidsgiver": "Potetskreller AS",
-      "startDato": "2021-08-10T08:54:21.726Z",
+      "startDato": "2021-08-10T22:00:00.000Z",
       "stilling": "Gjett",
       "ansettelsesforhold": "stillingType.midlertidig",
       "stillingsprosent": "100%",
@@ -110,11 +109,7 @@
         "bosattUtland": {
           "svar": "Nei"
         },
-        "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
-        "soekerBarnepensjon": "Ja",
-        "brukeAnnenKonto": {
-          "svar": "Nei"
-        }
+        "relasjon": "barnRelasjon.fellesbarnMedAvdoede"
       },
       {
         "fornavn": "Smålig",
@@ -124,8 +119,7 @@
         "bosattUtland": {
           "svar": "Nei"
         },
-        "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
-        "soekerBarnepensjon": "Nei"
+        "relasjon": "barnRelasjon.fellesbarnMedAvdoede"
       }
     ]
   }

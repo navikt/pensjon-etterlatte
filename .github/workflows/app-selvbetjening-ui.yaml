@@ -28,6 +28,14 @@ jobs:
         run: |
           yarn install
           yarn build
+      - name: Start application
+        working-directory: apps/selvbetjening-ui
+        run: |
+          yarn start & npx wait-on http://localhost:3000
+      - name: Run e2e tests (Cypress)
+        working-directory: apps/selvbetjening-ui
+        run: |
+          yarn cy:test
       - name: Build and publish Docker image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -161,6 +161,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
                     <Button
+                        id={"leggTilBarn"}
                         variant={"action"}
                         type={"button"}
                         onClick={handleSubmit(leggTilOgLukk)}

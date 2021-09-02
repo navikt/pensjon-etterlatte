@@ -6,11 +6,11 @@ const stringify = (innhold?: any) => {
     else return innhold
 }
 
-const TekstGruppe = ({ tittel, innhold }: { tittel: string, innhold?: any }) => {
+const TekstGruppe = ({ tittel, innhold, id }: { tittel: string, innhold?: any, id?: string }) => {
     return (
         <div className={"tekstgruppe"}>
             <Element>{tittel}</Element>
-            <Normaltekst>{stringify(innhold)}</Normaltekst>
+            <Normaltekst id={id}>{stringify(innhold)}</Normaltekst>
         </div>
     )
 };

@@ -52,7 +52,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const dinSituasjon = otr.traverse<ISituasjon>(state.dinSituasjon, "dinSituasjon");
 
     const ekspanderbartPanel = (tittel: string, tekster: any[], path: StegPath) => (
-        <Accordion heading={tittel} className={"oppsummering"} open={true}>
+        <Accordion heading={tittel} className={"oppsummering"} open={true} id={path}>
             {!tekster.length && (
                 <SkjemaGruppe>
                     <Normaltekst>{t("felles.ingenInfo")}</Normaltekst>
@@ -60,7 +60,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             )}
 
             {tekster.map(({ key, val }) => (
-                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} />
+                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key}/>
             ))}
 
             <Lenke href={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>

@@ -23,8 +23,12 @@ const OppsummeringOmAvdoed = ({
 
     const getBaseKey = (string: string) => string.replace(/(.\d+)/g, "")
     const formatDate = (date?: Date) => date ? formatter.format(new Date(date)) : ""
-
     const oppholdUtlandTeksterPrefix = "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland"
+
+    // Nødvendig med en ID på dette formatet for å enkelt kunne verifisere med e2e tester.
+    const unikOppholdUtlandId = (key: string, i: number): string => {
+        return `${oppholdUtlandTeksterPrefix}.${i}${key.split(oppholdUtlandTeksterPrefix).pop()}`
+    }
     const teksterUtenOppholdUtland: any[] = otr
         .traverse<IAvdoed>(opplysningerOmAvdoede, "omDenAvdoede")
         .filter(({ key }) => !key.startsWith(oppholdUtlandTeksterPrefix))
@@ -39,7 +43,7 @@ const OppsummeringOmAvdoed = ({
             >
                 <Panel border>
                     {oppholdUtlandTekster.map(({ key, val }) => (
-                        <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)}/>
+                        <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={unikOppholdUtlandId(key, i)}/>
                     ))}
                 </Panel>
             </SkjemaGruppe>
@@ -50,7 +54,7 @@ const OppsummeringOmAvdoed = ({
         <Accordion heading={t("omDenAvdoede.tittel")} className={"oppsummering"} open={true}>
             {teksterUtenOppholdUtland.map(({ key, val }) => (
                 <div key={uuid()}>
-                    <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)}/>
+                    <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key}/>
                     {key === "omDenAvdoede.boddEllerJobbetUtland.svar" && oppholdUtlandPanel}
                 </div>
             ))}
