@@ -1,6 +1,5 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
-import { RHFRadio } from "../../felles/RHFRadio";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
 import { FormProvider, useForm } from "react-hook-form";
 import { ActionTypes } from "../../../context/soknad/soknad";
@@ -17,7 +16,8 @@ import { RHFInput } from "../../felles/RHFInput";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { useEffectOnce } from "../../../utils/extensions";
 import { isEmpty } from "lodash";
-import { Title } from "@navikt/ds-react";
+import { BodyLong, Title } from "@navikt/ds-react";
+import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -26,17 +26,17 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
 
     const methods = useForm<ISituasjon>({
         defaultValues: state.dinSituasjon || {},
-        shouldUnregister: true
+        shouldUnregister: true,
     });
 
     useEffectOnce(() => {
-        methods.reset(state.dinSituasjon)
+        methods.reset(state.dinSituasjon);
     }, !isEmpty(state.dinSituasjon));
 
     const {
         handleSubmit,
         formState: { errors },
-        watch
+        watch,
     } = methods;
 
     const lagre = (data: ISituasjon) => {
@@ -44,8 +44,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         neste!!();
     };
 
-    const jobbStatus = watch("jobbStatus")
-
+    const jobbStatus = watch("jobbStatus");
     return (
         <FormProvider {...methods}>
             <form>
@@ -56,34 +55,28 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <Title size={"s"}>
-                        {t("dinSituasjon.undertittel")}
-                    </Title>
+                    <Title size={"s"}>{t("dinSituasjon.undertittel")}</Title>
+                    <BodyLong>{t("dinSituasjon.ingress")}</BodyLong>
                 </SkjemaGruppe>
 
-                <RHFRadio
+                <RHFCheckboksPanelGruppe
                     name={"jobbStatus"}
                     legend={t("dinSituasjon.jobbStatus")}
                     description={<HvorforSpoerVi>{t("dinSituasjon.jobbStatusHvorfor")}</HvorforSpoerVi>}
-                    radios={Object.values(JobbStatus).map(value => {
+                    checkboxes={Object.values(JobbStatus).map((value) => {
                         return { label: t(value), value } as RadioProps;
                     })}
                 />
 
-                {jobbStatus === JobbStatus.arbeidstaker && (
+                {(jobbStatus?.includes(JobbStatus.selvstendig) || jobbStatus?.includes(JobbStatus.arbeidstaker)) && (
                     <NavaerendeArbeidsforhold />
                 )}
 
-                {jobbStatus === JobbStatus.underUtdanning && (
-                    <UnderUtdanning />
-                )}
+                {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
 
-                {jobbStatus === JobbStatus.ingen && (
+                {jobbStatus?.includes(JobbStatus.ingen) && (
                     <SkjemaGruppe>
-                        <RHFInput
-                            name={"ingenJobbBeskrivelse"}
-                            label={t("dinSituasjon.ingenJobbBeskrivelse")}
-                        />
+                        <RHFInput name={"ingenJobbBeskrivelse"} label={t("dinSituasjon.ingenJobbBeskrivelse")} />
                     </SkjemaGruppe>
                 )}
 
@@ -93,15 +86,12 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
 
                 <AndreYtelser />
 
-                <Feilmeldinger errors={errors}/>
+                <Feilmeldinger errors={errors} />
 
-                <Navigasjon
-                    forrige={{ onClick: forrige }}
-                    neste={{ onClick: handleSubmit(lagre) }}
-                />
+                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }} />
             </form>
         </FormProvider>
-    )
+    );
 };
 
 export default DinSituasjon;

@@ -63,7 +63,7 @@ export interface IBarn {
         adresse?: string;
     };
     dagligOmsorg?: IValg;
-    soekerBarnepensjon?: IValg;
+    soekerBarnepensjon?: IValg.JA | undefined;
 }
 
 export interface IOppholdUtland {
