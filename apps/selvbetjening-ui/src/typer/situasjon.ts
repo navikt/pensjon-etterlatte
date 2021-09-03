@@ -6,7 +6,7 @@ export interface IUtdanning {
         navn?: string;
         startDato?: Date;
         sluttDato?: Date;
-    }
+    };
     hoyesteFullfoerteUtdanning?: string;
     annenUtdanning?: string;
 }
@@ -17,26 +17,28 @@ export enum Utdanning {
     bachelorgrad = "utdanning.bachelorgrad",
     mastergrad = "utdanning.mastergrad",
     ingen = "utdanning.ingen",
-    annen = "utdanning.annen"
+    annen = "utdanning.annen",
 }
 
 export enum JobbStatus {
     arbeidstaker = "jobbStatus.arbeidstaker",
-    arbeidsledig = "jobbStatus.arbeidsledig",
+    selvstendig = "jobbStatus.selvstendig",
     underUtdanning = "jobbStatus.underUtdanning",
-    ingen = "jobbStatus.ingen"
+    ingen = "jobbStatus.ingen",
 }
 
+/*
 export enum ArbeidsforholdType {
     selvstendig = "arbeidsforholdType.selvstendig",
     arbeidstaker = "arbeidsforholdType.arbeidstaker",
-    begge = "arbeidsforholdType.begge"
+    begge = "arbeidsforholdType.begge",
 }
+*/
 
 export interface ISituasjon {
     jobbStatus?: JobbStatus;
     ingenJobbBeskrivelse?: string;
-    arbeidsforholdType?: ArbeidsforholdType;
+    //arbeidsforholdType?: ArbeidsforholdType;
     utdanning?: IUtdanning;
     selvstendigNaeringsdrivende?: ISelvstendigNaeringsdrivende;
     arbeidsforhold?: IArbeidsforhold;

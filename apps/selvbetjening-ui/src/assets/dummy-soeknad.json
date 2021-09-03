@@ -60,7 +60,7 @@
     }
   },
   "dinSituasjon": {
-    "jobbStatus": "jobbStatus.arbeidstaker",
+    "jobbStatus": ["jobbStatus.arbeidstaker"],
     "utdanning": {
       "hoyesteFullfoerteUtdanning": "utdanning.mastergrad"
     },
@@ -77,13 +77,6 @@
       }
     },
     "tidligereArbeidsforhold": [],
-    "selvstendigNaeringsdrivende": "arbeidsforholdType.begge",
-    "selvstendig": {
-      "beskrivelse": "Potetskreller",
-      "startDato": "2015-08-10T22:00:00.000Z",
-      "type": "Mat",
-      "endringIfmDoedsfall": "Nei"
-    },
     "arbeidsforhold": {
       "arbeidsgiver": "Potetskreller AS",
       "startDato": "2021-08-10T22:00:00.000Z",

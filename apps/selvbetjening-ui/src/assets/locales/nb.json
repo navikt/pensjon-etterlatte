@@ -70,7 +70,8 @@
   "dinSituasjon": {
     "tittel": "Situasjonen din",
     "undertittel": "Arbeid og utdanning",
-    "jobbStatus": "Er du for tiden i arbeid?",
+    "ingress": "Vi regner med at du har egen inntekt. Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten vi kan forvente at du får. Vi beregner den fremtidige inntekten din ut i fra arbeidssituasjonen din og tidligere utdanning.",
+    "jobbStatus": "Hva er situasjonen din nå?",
     "jobbStatusHvorfor": "Vi skal vurdere om du utnytter arbeidsevnen du har, eller om du har behov for bistand fra oss til å bli selvforsørget.",
     "ingenJobbBeskrivelse": "Beskrivelse",
     "utdanning": {
@@ -103,7 +104,7 @@
     },
     "arbeidsforhold": {
       "tittel": "Info om arbeidsgiver",
-      "arbeidsgiver": "Hvor jobber du nå?",
+      "arbeidsgiver": "Hva heter firmaet?",
       "stilling": "Hvilken stilling har du?",
       "ansettelsesforhold": "Type ansettelse",
       "stillingsprosent": "Hvor mye jobber du?",
@@ -405,10 +406,10 @@
     "utenlandsk": "Utenlandsk"
   },
   "jobbStatus": {
-    "arbeidstaker": "Ja",
-    "arbeidsledig": "Nei, er arbeidsledig",
-    "underUtdanning": "Nei, er under utdanning",
-    "ingen": "Nei, ingen av delene"
+    "arbeidstaker": "Jeg er arbeidstaker",
+    "selvstendig": "Jeg er selvstendig næringsdrivende",
+    "underUtdanning": "Jeg tar utdanning",
+    "ingen": "Annet"
   },
   "nySivilstatus": {
     "ekteskap": "Gift",
