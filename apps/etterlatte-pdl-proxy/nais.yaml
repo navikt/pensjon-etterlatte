@@ -2,7 +2,7 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: pdl-proxy
+  name: etterlatte-pdl-proxy
   namespace: etterlatte
   labels:
     team: etterlatte
