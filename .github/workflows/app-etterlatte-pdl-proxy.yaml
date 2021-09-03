@@ -1,11 +1,11 @@
-name: pdl-proxy - Build, release and deploy
+name: etterlatte-pdl-proxy - Build, release and deploy
 
 on:
   push:
     branches:
       - main
     paths:
-      - apps/pdl-proxy/**
+      - apps/etterlatte-pdl-proxy/**
 
 jobs:
   build-release-deploy:
@@ -21,14 +21,14 @@ jobs:
       - name: Build
         run: |
           chmod +x ./gradlew
-          ./gradlew :apps:pdl-proxy:clean :apps:pdl-proxy:build
+          ./gradlew :apps:etterlatte-pdl-proxy:clean :apps:etterlatte-pdl-proxy:build
       # Release
       - name: Create docker tag
         run: |
-          echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/pdl-proxy > .docker_image
+          echo "docker.pkg.github.com"/"$GITHUB_REPOSITORY"/etterlatte-pdl-proxy > .docker_image
           echo "$(date "+%Y.%m.%d")-$(git rev-parse --short HEAD)" > .docker_tag
       - name: Build Docker image
-        run: docker build -t $(cat .docker_image):$(cat .docker_tag) apps/pdl-proxy
+        run: docker build -t $(cat .docker_image):$(cat .docker_tag) apps/etterlatte-pdl-proxy
       - name: Login to Github Package Registry
         env:
           DOCKER_USERNAME: x-access-token
@@ -45,5 +45,5 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: apps/pdl-proxy/nais.yaml
+          RESOURCE: apps/etterlatte-pdl-proxy/nais.yaml
           IMAGE: ${{ env.IMAGE }}
