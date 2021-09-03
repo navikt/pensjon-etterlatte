@@ -10,6 +10,7 @@ import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
 import { Button, Title } from "@navikt/ds-react";
+import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -121,10 +122,19 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                 {relasjon === BarnRelasjon.fellesbarnMedAvdoede && (
                     <>
                         {kanSoekeOmBarnepensjon() && (
-                            <RHFSpoersmaalRadio
-                                name={"soekerBarnepensjon"}
-                                legend={t("omBarn.soekerBarnepensjon")}
-                            />
+                            <SkjemaGruppe>
+                                <RHFCheckboksPanel
+                                    name={"soekerBarnepensjon"}
+                                    legend={t("omBarn.soekerBarnepensjon")}
+                                    valgfri={true}
+                                    checkbox={
+                                        {
+                                            label: t("omBarn.soekerBarnepensjonCheckboks"),
+                                            value: IValg.JA
+                                        }
+                                    }
+                                />
+                            </SkjemaGruppe>
                         )}
 
                         {soekerBarnepensjon === IValg.JA && (

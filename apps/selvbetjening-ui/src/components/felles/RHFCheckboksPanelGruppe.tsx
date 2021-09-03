@@ -52,6 +52,36 @@ export const RHFCheckboksPanelGruppe = ({ name, checkboxes, ...rest }: RHFCheckb
     )
 };
 
+interface RHFCheckboksPanelProps extends Omit<SkjemaGruppeProps, 'onChange' | 'children'> {
+    name: FieldPath<FieldValues>;
+    checkbox: CheckboxProps;
+    valgfri?: boolean;
+}
+
+export const RHFCheckboksPanel = ({ name, checkbox, valgfri }: RHFCheckboksPanelProps) => {
+    const { t } = useTranslation();
+    const { control, formState: { errors } } = useFormContext();
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: !valgfri }}
+            render={({ field: { value, onChange } }) => (
+                <CheckboksPanel
+                    key={checkbox.value as string}
+                    label={checkbox.label}
+                    value={checkbox.value}
+                    checked={(value)?.includes(checkbox.value) || false}
+                    onChange={(e) => onChange(
+                        handleSelect(value, ((e.target as HTMLInputElement).value as any)).toString()
+                    )}
+                />
+            )}
+        />
+    )
+};
+
 interface RHFCheckboksGruppeProps extends Omit<SkjemaGruppeProps, 'onChange' | 'children'> {
     name: FieldPath<FieldValues>;
     checkboxes: CheckboxProps[];
