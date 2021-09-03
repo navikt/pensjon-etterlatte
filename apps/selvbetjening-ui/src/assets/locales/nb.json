@@ -240,8 +240,8 @@
         "beskrivelse": "Bodd og/eller arbeidet?",
         "fraDato": "Fra dato",
         "tilDato": "Til dato",
-        "medlemFolketrygd": "Var han/hun medlem av folketrygden under oppholdet?",
-        "medlemFolketrygdHjelpetekst": "Perioder i andre land enn Norge kan tas med i beregningen hvis han/hun var medlem i folketrygden.",
+        "medlemFolketrygd": "Var han eller hun medlem av folketrygden under oppholdet?",
+        "medlemFolketrygdHjelpetekst": "Vi må vite om avdøde var medlem av folketrygden for å avgjøre om du har rett til gjenlevendepensjon.",
         "mottokPensjon": {
           "hjelpetekst": "Dette trenger vi for å vurdere avdødes medlemskap i folketrygden.",
           "beskrivelse": "Oppgi eventuell pensjon han/hun mottok fra dette landet (per år i kr.)"
