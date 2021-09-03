@@ -59,8 +59,7 @@ interface RHFCheckboksPanelProps extends Omit<SkjemaGruppeProps, 'onChange' | 'c
 }
 
 export const RHFCheckboksPanel = ({ name, checkbox, valgfri }: RHFCheckboksPanelProps) => {
-    const { t } = useTranslation();
-    const { control, formState: { errors } } = useFormContext();
+    const { control } = useFormContext();
 
     return (
         <Controller
