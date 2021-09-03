@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get("/api/person/innlogget", (req, res) => res.json(innloggetBruker));
+app.get("/api/person/innlogget", (req, res) => setTimeout(() => res.json(innloggetBruker), 1500));
 
 app.post("/api/api/soeknad", (req, res) => {
     let id = cache.get("id");

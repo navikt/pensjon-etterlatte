@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 import UnderUtdanning from "./fragmenter/UnderUtdanning";
 import { RHFInput } from "../../felles/RHFInput";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
-import { useEffectOnce } from "../../../utils/extensions";
+import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
 import { BodyLong, Title } from "@navikt/ds-react";
 import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";

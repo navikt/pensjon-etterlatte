@@ -19,7 +19,7 @@ import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { isEmpty } from "lodash";
-import { useEffectOnce } from "../../../utils/extensions";
+import useEffectOnce from "../../../hooks/useEffectOnce";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();

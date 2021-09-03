@@ -122,6 +122,10 @@ $width: 650px;
   }
 }
 
+.blur-text {
+  filter: blur(5px);
+}
+
 .checkboxgruppe.inline {
   display: flex;
   column-gap: 2rem;

@@ -9,6 +9,8 @@ import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
 import { erDato } from "../../utils/dato";
 import { BodyShort, Button, Ingress, Loader, Modal } from "@navikt/ds-react";
 
+Modal.setAppElement!!("#root");
+
 interface KnappProps {
     label?: string;
     onClick?: () => void;

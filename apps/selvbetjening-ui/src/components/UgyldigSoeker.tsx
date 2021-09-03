@@ -6,15 +6,18 @@ import { ActionTypes } from "../context/bruker/bruker";
 import { erForUng } from "../utils/alder";
 import { useHistory } from "react-router-dom";
 import { BodyLong, Button, Link } from "@navikt/ds-react";
+import { useEffect } from "react";
 
 const UgyldigSoeker = () => {
     const history = useHistory();
 
     const { state, dispatch } = useBrukerContext();
 
-    if (state.kanSoeke) {
-        history.push("/");
-    }
+    useEffect(() => {
+        if (state.kanSoeke) {
+            history.push("/");
+        }
+    }, [state.kanSoeke])
 
     const brukerErForUng = erForUng(state.alder!!);
 

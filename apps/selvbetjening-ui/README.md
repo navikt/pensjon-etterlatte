@@ -21,6 +21,9 @@ Installere prosjektet:\
 Kjøre prosjektet:\
 `yarn start`
 
+Kjøre prosjektet med mock backend:\
+`yarn start:mock`
+
 Kjører prosjektet lokalt.\
 Åpne [http://localhost:3000](http://localhost:3000) i nettleseren.
 
@@ -33,21 +36,8 @@ Kjøre cypress tester (krever at prosjektet kjører lokalt først):\
 
 ### Koble til APIet lokalt
 
-For å koble til `selvbetjening-api` kan du bruke port forwarding: 
-
-`kubectl -n etterlatte port-forward svc/selvbetjening-api 8085:80`
-
-### Bygging for produksjon:
-
-`yarn install`
-
-`yarn build`
-
-For å kjøre build med `server.js` lokalt kan en av følgende brukes:
-
-`yarn server:localhost`\
-`yarn server:dev`\
-`yarn server:production`
+Grunnet manglende støtte for Token/IDporten lokalt er det ikke mulig å kjøre mot APIet lokalt. Vi bruker derfor 
+`mock-server.js` for å emulere backend. Dette er ikke en ideel løsning og burde på sikt forbedres. 
 
 
 ## Testmiljøet
@@ -69,17 +59,16 @@ https://github.com/navikt/nav-dekoratoren
 
 https://github.com/navikt/loginservice
 
-## NAV Frontend-moduler
+## NAV Frontend-moduler / Designsystemet
 
 Tar i bruk designsystemet til NAV.
 
 Les mer her: https://design.nav.no eller se [prosjektet sitt repo](https://github.com/navikt/nav-frontend-moduler).
 
+Vil på sikt gå helt over til [Designsystemet](https://navikt.github.io/Designsystemet) når det er ferdig. 
 
 # Annet
 
-Bruker pakken `Craco` https://www.npmjs.com/package/@craco/craco for å kunne extende Webpack-features uten å ta i bruk `eject`.
-
-Satt opp for å støtte lasting av `less` filer ved hjelp av `craco-less` https://github.com/DocSpring/craco-less#readme.
+Bruker `react-scripts`: https://www.npmjs.com/package/react-scripts med `SCSS`.
 
 Prosjektet kjører `pretty-quick` on-`git commit` for automatisk kjøring av prettier, samt linting av js/ts og less on-`git push`.

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const useEffectOnce = (
+const useEffectOnce = (
     callback: () => void,
     condition = true
 ) => {
@@ -13,3 +13,5 @@ export const useEffectOnce = (
         }
     }, [callback, condition]);
 };
+
+export default useEffectOnce;

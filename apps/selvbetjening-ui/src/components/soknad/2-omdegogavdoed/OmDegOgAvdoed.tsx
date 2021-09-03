@@ -17,7 +17,7 @@ import { erDato } from "../../../utils/dato";
 import { Cell, Grid } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { isEmpty } from "lodash";
-import { useEffectOnce } from "../../../utils/extensions";
+import useEffectOnce from "../../../hooks/useEffectOnce";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t, i18n } = useTranslation();

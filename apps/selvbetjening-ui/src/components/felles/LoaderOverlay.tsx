@@ -1,6 +1,6 @@
 import { BodyLong, Loader } from "@navikt/ds-react";
 
-const Spinner = ({ visible, label }: {
+const LoaderOverlay = ({ visible, label }: {
     visible: boolean;
     label: string;
 }) => {
@@ -15,7 +15,7 @@ const Spinner = ({ visible, label }: {
                 </BodyLong>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Spinner;
+export default LoaderOverlay;

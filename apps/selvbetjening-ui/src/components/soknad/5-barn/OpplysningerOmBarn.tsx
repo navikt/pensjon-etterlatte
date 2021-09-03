@@ -14,8 +14,10 @@ import Navigasjon from "../../felles/Navigasjon";
 import { Alert, BodyShort, Button, Modal, Panel, Title } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFRadio } from "../../felles/RHFRadio";
-import { useEffectOnce } from "../../../utils/extensions";
+import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
+
+Modal.setAppElement!!("#root");
 
 const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();

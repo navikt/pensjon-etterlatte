@@ -11,7 +11,7 @@ import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
-import { useEffectOnce } from "../../../utils/extensions";
+import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
 import { BodyLong, Label, Title } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";

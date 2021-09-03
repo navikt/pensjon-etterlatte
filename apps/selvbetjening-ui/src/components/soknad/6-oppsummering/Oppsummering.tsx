@@ -16,12 +16,14 @@ import { EditFilled } from "@navikt/ds-icons";
 import { ISituasjon } from "../../../typer/situasjon";
 import OppsummeringOmBarn from "./fragmenter/OppsummeringOmBarn";
 import OppsummeringOmAvdoede from "./fragmenter/OppsummeringOmAvdoede";
+import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
 
     const { t, i18n } = useTranslation();
     const { state } = useSoknadContext();
+    const { state: bruker } = useBrukerContext();
 
     const [senderSoeknad, setSenderSoeknad] = useState(false);
     const [error, setError] = useState(false);
@@ -30,7 +32,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         setSenderSoeknad(true);
         setError(false);
 
-        sendSoeknad(state)
+        sendSoeknad(state, bruker)
             .then(() => history.push(`/soknad/sendt`))
             .catch((error) => {
                 console.log(error);

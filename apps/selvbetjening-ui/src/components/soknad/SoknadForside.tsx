@@ -8,7 +8,7 @@ import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { BodyLong, Button, Link, Title } from "@navikt/ds-react";
+import { BodyLong, Button, Link, Loader, Title } from "@navikt/ds-react";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -19,9 +19,7 @@ const SoknadForside = () => {
 
     const { state: brukerState } = useBrukerContext();
 
-    const {
-        state: { steg },
-    } = useStegContext();
+    const { state: { steg } } = useStegContext();
 
     const startSoeknad = () => {
         const foersteSteg = steg[0];
@@ -30,32 +28,50 @@ const SoknadForside = () => {
 
     const innloggetBrukerNavn = `${brukerState?.fornavn} ${brukerState?.etternavn}`;
 
+    const heiTekst = (
+        <div className={!brukerState?.fornavn ? "blur-text" : ""}>
+            {t("forside.hei", { navn: innloggetBrukerNavn })}
+        </div>
+    );
+
     return (
         <div className={"forside"}>
             <SkjemaGruppe>
-                <Veileder tekst={`${t("forside.hei", { navn: innloggetBrukerNavn })}`} posisjon="høyre">
-                    <img alt="veileder" src={ikon} />
+                <Veileder tekst={heiTekst} posisjon='høyre'>
+                    <img alt='veileder' src={ikon} />
                 </Veileder>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Title size={"l"}>{t("forside.tittel")}</Title>
+                <Title spacing size={"l"}>
+                    {t("forside.tittel")}
+                </Title>
 
-                <BodyLong>{t("forside.omYtelsene.innhold")}</BodyLong>
+                <BodyLong spacing>
+                    {t("forside.omYtelsene.innhold")}
+                </BodyLong>
 
                 <BodyLong>
-                    <Link href={t("forside.omYtelsene.lenke.href")}>{t("forside.omYtelsene.lenke.tekst")}</Link>
+                    <Link href={t("forside.omYtelsene.lenke.href")}>
+                        {t("forside.omYtelsene.lenke.tekst")}
+                    </Link>
                 </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Title size={"s"}>{t("forside.barnepensjon.tittel")}</Title>
+                <Title size={"s"}>
+                    {t("forside.barnepensjon.tittel")}
+                </Title>
 
-                <BodyLong>{t("forside.barnepensjon.innhold")}</BodyLong>
+                <BodyLong>
+                    {t("forside.barnepensjon.innhold")}
+                </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Title size={"s"}>{t("forside.uthentingAvInfo.tittel")}</Title>
+                <Title size={"s"}>
+                    {t("forside.uthentingAvInfo.tittel")}
+                </Title>
 
                 <BodyLong>
                     <Trans i18nKey={"forside.uthentingAvInfo.innhold"} />
@@ -89,7 +105,7 @@ const SoknadForside = () => {
                     </li>
                 </ul>
 
-                <BodyLong>
+                <BodyLong spacing>
                     <Link href={t("forside.uthentingAvInfo.lenke1.href")}>
                         {t("forside.uthentingAvInfo.lenke1.tekst")}
                     </Link>
@@ -103,9 +119,13 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Title size={"s"}>{t("forside.samtykke.tittel")}</Title>
+                <Title size={"s"}>
+                    {t("forside.samtykke.tittel")}
+                </Title>
 
-                <BodyLong>{t("forside.samtykke.innhold")}</BodyLong>
+                <BodyLong>
+                    {t("forside.samtykke.innhold")}
+                </BodyLong>
 
                 <BekreftCheckboksPanel
                     label={t("forside.samtykke.bekreftelse", { navn: innloggetBrukerNavn })}
