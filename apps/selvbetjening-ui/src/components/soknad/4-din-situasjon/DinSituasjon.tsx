@@ -1,6 +1,5 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
-import { RHFRadio } from "../../felles/RHFRadio";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
 import { FormProvider, useForm } from "react-hook-form";
 import { ActionTypes } from "../../../context/soknad/soknad";
@@ -18,7 +17,7 @@ import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { useEffectOnce } from "../../../utils/extensions";
 import { isEmpty } from "lodash";
 import { BodyLong, Title } from "@navikt/ds-react";
-import { RHFCheckboksGruppe, RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
+import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();

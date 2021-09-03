@@ -8,7 +8,6 @@ const NavaerendeArbeidsforhold = () => {
     const { watch } = useFormContext<ISituasjon>();
     const jobbStatus = watch("jobbStatus");
 
-    console.log(jobbStatus);
     return (
         <>
             {jobbStatus?.includes(JobbStatus.selvstendig) && <Selvstendig />}
