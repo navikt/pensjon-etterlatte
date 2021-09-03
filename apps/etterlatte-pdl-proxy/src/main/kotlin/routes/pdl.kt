@@ -20,7 +20,6 @@ import org.slf4j.LoggerFactory
 import java.util.*
 
 val Tema: String get() = "Tema"
-val NavConsumerToken: String get() = "Nav-Consumer-Token"
 val XCorrelationID: String get() = "X-Correlation-ID"
 
 fun Route.pdl(config: Config) {
