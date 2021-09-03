@@ -97,5 +97,5 @@ suspend fun ApplicationCall.pipeResponse(response: HttpResponse) {
 
 val HttpHeaders.NavCallId: String
     get() = "Nav-Call-Id"
-val HttpHeaders.NavConsumerId: String
-    get() = "Nav-Consumer-Id"
+//val HttpHeaders.NavConsumerId: String
+ //   get() = "Nav-Consumer-Id"
