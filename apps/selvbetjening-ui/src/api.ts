@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import axiosRetry from 'axios-retry';
 import { ISoeknad } from "./context/soknad/soknad";
-import { IBruker } from "./context/bruker/bruker";
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -67,29 +66,8 @@ export const lagreSoeknad = (soeknad: ISoeknad) => {
 /**
  * Sender inn ferdigstilt søknad
  */
-export const sendSoeknad = (soeknad: ISoeknad, bruker: IBruker) => {
-    const {
-        harSamtykket,
-        omDeg,
-        omDegOgAvdoed,
-        omDenAvdoede,
-        dinSituasjon,
-        opplysningerOmBarn
-    } = soeknad;
-
-    const body = {
-        harSamtykket,
-        omDeg: {
-            personalia: bruker,
-            ...omDeg
-        },
-        omDegOgAvdoed,
-        omDenAvdoede,
-        dinSituasjon,
-        opplysningerOmBarn
-    };
-
-    return api.post("/api/soeknad", body)
+export const sendSoeknad = (soeknad: ISoeknad) => {
+    return api.post("/api/soeknad", soeknad)
         .then((response: AxiosResponse) => {
             if (response.status !== 200) {
                 throw new Error()
