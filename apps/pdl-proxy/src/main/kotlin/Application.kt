@@ -20,7 +20,8 @@ import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
-//@Suppress("unused") // Referenced in application.conf
+
+@Suppress("unused") // Referenced in application.conf
 fun Application.module() {
     val config = runBlocking { environment.config.load() }
     install(Authentication){

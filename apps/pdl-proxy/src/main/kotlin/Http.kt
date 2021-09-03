@@ -9,8 +9,6 @@ import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.features.logging.LogLevel
-import io.ktor.client.features.logging.Logging
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
@@ -33,12 +31,6 @@ fun jsonClient() =  HttpClient(Apache) {
         serializer = JacksonSerializer { configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false) }
     }
 }
-
-fun httpClient() = HttpClient(Apache){
-    install(Logging) {
-        level = LogLevel.HEADERS
-    }
-}.also { Runtime.getRuntime().addShutdownHook(Thread{it.close()}) }
 
 fun httpClientWithProxy() = HttpClient(Apache) {
     install(JsonFeature) {

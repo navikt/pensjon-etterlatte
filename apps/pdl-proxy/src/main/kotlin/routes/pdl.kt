@@ -1,7 +1,6 @@
 package no.nav.etterlatte.routes
 
 import io.ktor.application.call
-import io.ktor.auth.jwt.JWTPrincipal
 import io.ktor.auth.principal
 import io.ktor.client.request.header
 import io.ktor.client.request.post
@@ -36,19 +35,19 @@ fun Route.pdl(config: Config) {
             val azureToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken("azure")
 
 
-
-
-            try {
-                val response = clientCredentialHttpClient.post<HttpResponse>(pdlUrl) {
-
-                    //header(HttpHeaders.Authorization, auth)
-                    header(XCorrelationID, callId)
-                    pipeRequest(call, listOf(Tema))
+            if (azureToken != null) {
+                try {
+                    val response = clientCredentialHttpClient.post<HttpResponse>(pdlUrl) {
+                        header(XCorrelationID, callId)
+                        pipeRequest(call, listOf(Tema))
+                    }
+                    call.pipeResponse(response)
+                } catch (cause: Throwable) {
+                    logger.error("Feil i kall mot PDL: $cause")
+                    cause.printStackTrace()
                 }
-                call.pipeResponse(response)
-            } catch (cause: Throwable) {
-                logger.error("Feil i kall mot PDL: $cause")
-                cause.printStackTrace()
+            } else if (tokenxToken != null) {
+                //do something
             }
         }
     }
