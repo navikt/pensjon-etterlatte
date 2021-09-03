@@ -304,51 +304,53 @@
     "feilVedSending": "En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du kontakte kundeservice."
   },
   "soeknadKvittering": {
-    "tittel": "Takk for søknaden",
-    "alertMottattSoeknad": "Vi har mottatt søknaden din om gjenlevendepensjon",
-    "saksnummer": "Saksnummer:",
-    "informasjon": {
-      "kontakt": "Hvis vi trenger mer informasjon, kontakter vi deg.",
-      "endring": "\nDu må melde fra med en gang det skjer viktige endringer i livet ditt. Det kan for eksempel være hvis:\n",
+    "tittel": "Søknaden din er sendt til oss",
+    "lenkeNedlastning": {
+      "href": "#",
+      "tekst": "\nLast ned kvitteringen"
+    },
+    "kontakt": "Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.",
+    "endring": {
+      "tittel": "Du må melde fra om endringer",
+      "informasjon": "\nDu må melde fra med en gang det skjer viktige endringer i livet ditt. Det kan for eksempel være hvis:",
       "endringsListe": {
         "sivilstatus": "du gifter deg, får samboer eller får barn med samboer",
         "inntekt": "inntekten din endrer seg",
         "bosted": "du skal flytte eller oppholde deg i et annet land over lengre tid"
+      },
+      "rettigheter": {
+        "informasjon": "Du kan lese mer om dine rettigheter og plikter på",
+        "lenke": {
+          "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger",
+          "tekst": "nav.no/rettogplikt"
+        }
       }
     },
     "seSaken": {
-      "tittel": "Se saken din i Ditt NAV",
+      "tittel": "Sjekk saken din",
       "informasjon": {
         "innhold1": "\nHvis du logger inn i",
         "lenkeDittNAV": {
-          "href": "#",
+          "href": "https://www.nav.no/no/ditt-nav",
           "tekst": "Ditt NAV"
         },
-        "innhold2": "finner du en bekreftelse på at søknaden din er sendt inn. Når vi starter å behandle søknaden din, kan du finne den i",
+        "innhold2": "finner du en bekreftelse på at vi har fått søknaden din. Du kan alltid sjekke",
         "lenkeDineSaker": {
           "href": "#",
           "tekst": "Dine saker"
-        }
-      },
-      "lenkeNedlastning": {
-        "href": "#",
-        "tekst": "\nLast ned kvitteringen"
-      },
-      "lenkeSkrivUt": {
-        "href": "#",
-        "tekst": "Skriv ut kvitteringen"
+        },
+        "innhold3": "om søknaden din er behandlet."
       },
       "behandlingstidInfo": {
-        "innhold": "\nDu kan forvente at det tar xxx - xxx tid å behandle søknaden din.",
         "lenke": {
-          "href": "#",
-          "tekst": "Les mer om saksbehandlingstid her"
+          "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav",
+          "tekst": "Her kan du sjekke forventet saksbehandlingstid."
         }
       }
     },
     "andreStoenader": {
-      "tittel": "Når du er etterlatt med barn kan du også ha rett til andre stønader",
-      "informasjon": "\nHvis du jobber, har barn, er reell arbeidssøker, går på skole eller studere, kan du også ha rett til andre stønader.",
+      "tittel": "Du kan også ha rett til andre stønader",
+      "informasjon": "\nHvis du jobber, har barn, er reell arbeidssøker, går på skole eller studerer, kan du også ha rett til andre stønader.",
       "stoenadListe": {
         "barnetrygd": "Utvidet barnetrygd",
         "barnetilsyn": "Stønad til barnetilsyn",
@@ -357,14 +359,11 @@
         "skolepenger": "Stønad til skolepenger"
       },
       "lenke": {
-        "tekst": "Les mer om stønader du kan ha rett på",
-        "href": "#"
-      },
-      "knapp": "Søk tilleggsstønader"
+        "href": "https://www.nav.no/no/person/familie/har-du-mistet-noen-i-naer-familie/har-du-mistet-ektefellen-samboeren-eller-partneren-din",
+        "tekst": "Les mer om stønader du kan ha rett på"
+      }
     },
     "spoersmaal": {
-      "tittel": "Lurer du på noe?",
-      "informasjon": "\nHar du spørsmål eller noe er uklart kan du alltids ta kontakt med oss.",
       "knapp": "Avslutt"
     }
   },
