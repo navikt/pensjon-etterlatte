@@ -7,10 +7,6 @@ plugins {
     kotlin("jvm")
 }
 
-repositories {
-    maven("https://packages.confluent.io/maven/")
-}
-
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("org.apache.kafka:kafka-clients"){

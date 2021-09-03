@@ -4,6 +4,7 @@ val kotlinversion: String by project
 val micrometerversion: String by project
 val orgJsonVersion: String by project
 val junitJupiterVersion: String by project
+val tokensupportversion: String by project
 
 plugins {
     application
@@ -23,7 +24,6 @@ dependencies {
     implementation("io.ktor:ktor-client-logging:$ktorversion")
     implementation("io.ktor:ktor-server-core:$ktorversion")
     implementation("io.ktor:ktor-auth:$ktorversion")
-    implementation("io.ktor:ktor-auth-jwt:$ktorversion")
     implementation("io.ktor:ktor-jackson:$ktorversion")
     implementation("io.micrometer:micrometer-registry-prometheus:$micrometerversion")
     testImplementation("io.ktor:ktor-server-tests:$ktorversion")
@@ -41,6 +41,8 @@ dependencies {
     implementation("org.slf4j:slf4j-api:1.7.30")
     implementation("ch.qos.logback:logback-classic:1.2.3")
     implementation("net.logstash.logback:logstash-logback-encoder:6.6")
+    implementation("no.nav.security:token-client-core:$tokensupportversion")
+    implementation("no.nav.security:token-validation-ktor:$tokensupportversion")
 }
 
 java {

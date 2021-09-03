@@ -9,8 +9,10 @@ allprojects {
 
     repositories {
         mavenCentral()
-        maven("https://jitpack.io")
         maven("https://kotlin.bintray.com/ktor")
+        maven("https://packages.confluent.io/maven/")
+        maven("https://jitpack.io")
+
     }
 
     tasks.withType<Test> {

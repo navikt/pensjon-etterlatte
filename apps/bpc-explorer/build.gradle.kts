@@ -13,11 +13,6 @@ configurations {
     }
 }
 
-repositories {
-    mavenCentral()
-    maven("https://packages.confluent.io/maven/")
-}
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")

@@ -1,6 +1,8 @@
 package no.nav.etterlatte.routes
 
 import io.ktor.application.call
+import io.ktor.auth.jwt.JWTPrincipal
+import io.ktor.auth.principal
 import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.statement.HttpResponse
@@ -11,10 +13,10 @@ import io.ktor.routing.post
 import io.ktor.routing.route
 import no.nav.etterlatte.Config
 import no.nav.etterlatte.NavCallId
-import no.nav.etterlatte.getTokenInfo
 import no.nav.etterlatte.pdlhttpclient
 import no.nav.etterlatte.pipeRequest
 import no.nav.etterlatte.pipeResponse
+import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import org.slf4j.LoggerFactory
 import java.util.*
 
@@ -25,20 +27,21 @@ val XCorrelationID: String get() = "X-Correlation-ID"
 fun Route.pdl(config: Config) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     route("/pdl") {
-        val httpClient = pdlhttpclient()
+        val clientCredentialHttpClient = pdlhttpclient()
         val pdlUrl = config.pdl.url
         post {
 
             val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
-            val auth = call.request.header(HttpHeaders.Authorization)
-            val navToken = call.getTokenInfo()
+            val tokenxToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken("tokenx")
+            val azureToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken("azure")
+
+
+
 
             try {
-                val response = httpClient.post<HttpResponse>(pdlUrl) {
+                val response = clientCredentialHttpClient.post<HttpResponse>(pdlUrl) {
 
-                    //hvilken bearer skal jeg bruke her?
-                    header(HttpHeaders.Authorization, auth)
-                    header(NavConsumerToken, navToken)
+                    //header(HttpHeaders.Authorization, auth)
                     header(XCorrelationID, callId)
                     pipeRequest(call, listOf(Tema))
                 }
