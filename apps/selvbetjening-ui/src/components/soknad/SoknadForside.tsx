@@ -8,7 +8,7 @@ import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { BodyLong, Button, Link, Loader, Title } from "@navikt/ds-react";
+import { BodyLong, Button, Link, Title } from "@navikt/ds-react";
 
 const SoknadForside = () => {
     const history = useHistory();
