@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-//import no.nav.etterlatte.Config
 import com.auth0.jwk.JwkProviderBuilder
 import io.ktor.application.Application
 import io.ktor.application.install
