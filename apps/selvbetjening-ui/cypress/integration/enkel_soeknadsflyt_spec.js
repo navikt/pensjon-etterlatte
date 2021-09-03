@@ -163,7 +163,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         // Verifiser kvitteringsside
         cy.url().should("include", "/soknad/sendt");
-        cy.contains("Takk for søknaden");
+        cy.contains("Søknaden din er sendt til oss");
     });
 });
 
