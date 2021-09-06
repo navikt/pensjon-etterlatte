@@ -76,11 +76,9 @@
         "bruttobeloepPrAar": "4000 PLN"
       }
     },
-    "tidligereArbeidsforhold": [],
     "arbeidsforhold": {
       "arbeidsgiver": "Potetskreller AS",
       "startDato": "2021-08-10T22:00:00.000Z",
-      "stilling": "Gjett",
       "ansettelsesforhold": "stillingType.midlertidig",
       "stillingsprosent": "100%",
       "forventerEndretInntekt": {

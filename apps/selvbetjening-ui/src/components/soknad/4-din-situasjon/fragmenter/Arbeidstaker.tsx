@@ -4,11 +4,10 @@ import Datovelger from "../../../felles/Datovelger";
 import { RHFSelect } from "../../../felles/RHFSelect";
 import { StillingType } from "../../../../typer/arbeidsforhold";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
-import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { Title } from "@navikt/ds-react";
+import { IValg } from "../../../../typer/Spoersmaal";
 
 const Arbeidstaker = () => {
     const { t } = useTranslation();
@@ -20,9 +19,7 @@ const Arbeidstaker = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Title size={"s"}>
-                    {t("dinSituasjon.arbeidsforhold.tittel")}
-                </Title>
+                <Title size={"s"}>{t("dinSituasjon.arbeidsforhold.tittel")}</Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"rad"}>
@@ -35,14 +32,6 @@ const Arbeidstaker = () => {
                     name={"arbeidsforhold.startDato"}
                     label={t("dinSituasjon.arbeidsforhold.startDato")}
                     maxDate={watch("arbeidsforhold.sluttDato")}
-                />
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <RHFInput
-                    name={"arbeidsforhold.stilling"}
-                    bredde={"L"}
-                    label={t("dinSituasjon.arbeidsforhold.stilling")}
                 />
             </SkjemaGruppe>
 
@@ -87,7 +76,6 @@ const Arbeidstaker = () => {
                         name={"arbeidsforhold.forventerEndretInntekt.beskrivelse"}
                         bredde={"S"}
                         label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
-                        description={<HvorforSpoerVi>{t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.hvorfor")}</HvorforSpoerVi>}
                     />
                 </SkjemaGruppe>
             )}

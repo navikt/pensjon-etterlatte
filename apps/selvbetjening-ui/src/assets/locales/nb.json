@@ -96,8 +96,6 @@
       "endringIfmDoedsfallPlaceholder": "F.eks. endring i forventet inntekt eller drift av næring"
     },
     "tidligereArbeidsforhold": {
-      "tittel": "Dine tidligere arbeidsforhold (siste 10 år)",
-      "info": "Dersom du de siste 10 årene har vært i arbeid (deltid, heltid, vikariat, osv) er det viktig at du oppgir dette. Klikk på \"Legg til\" under for å legge til tidligere arbeidsforhold.",
       "beskrivelse": "Beskrivelse",
       "fraDato": "Fra",
       "tilDato": "Til"
@@ -105,13 +103,13 @@
     "arbeidsforhold": {
       "tittel": "Info om arbeidsgiver",
       "arbeidsgiver": "Hva heter firmaet?",
-      "stilling": "Hvilken stilling har du?",
+      "endring": "Forventer du endring i arbeidsforholdet/inntekten som følge av dødsfallet?",
       "ansettelsesforhold": "Type ansettelse",
       "stillingsprosent": "Hvor mye jobber du?",
       "startDato": "Når startet du?",
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
-        "beskrivelse": "Hva regner du med å få i samlet inntekt de neste 12 månedene?",
+        "beskrivelse": "Forventer du endring i arbeidsforholdet/inntekten som følge av dødsfallet?",
         "hvorfor": "Det har betydning for hvor mye gjenlevendepensjon du får."
       },
       "naavaerendeArbeidsforhold": {
@@ -419,9 +417,9 @@
   "utdanning": {
     "grunnskole": "Grunnskole",
     "videregående": "Videregående",
-    "bachelorgrad": "Bachelorgrad",
-    "mastergrad": "Mastergrad",
-    "ingen": "Har ingen utdanning",
+    "bachelorgrad": "Universitet eller høyskole til og med 4 år",
+    "mastergrad": "Universitet eller høyskole mer enn 4 år",
+    "ingen": "Ingen utdanning",
     "annen": "Annen utdanning"
   },
   "opploesningAarsak": {
@@ -764,9 +762,6 @@
       },
       "startDato": {
         "required": "Oppstartsdato må fylles ut"
-      },
-      "stilling": {
-        "required": "Oppgi hvilken stilling du har"
       },
       "ansettelsesforhold": {
         "required": "Oppgi type ansettelse"

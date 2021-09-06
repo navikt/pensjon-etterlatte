@@ -8,7 +8,6 @@ import NavaerendeArbeidsforhold from "./fragmenter/NavaerendeArbeidsforhold";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import AndreYtelser from "./fragmenter/AndreYtelser";
 import HoeyesteUtdanning from "./fragmenter/HoeyesteUtdanning";
-import TidligereArbeidsforhold from "./fragmenter/TidligereArbeidsforhold";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import UnderUtdanning from "./fragmenter/UnderUtdanning";
@@ -80,7 +79,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaGruppe>
                 )}
 
-                <TidligereArbeidsforhold />
+                {/* <TidligereArbeidsforhold />*/}
 
                 <HoeyesteUtdanning />
 

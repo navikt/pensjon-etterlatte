@@ -87,16 +87,10 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         // Verifiser felter og fyll ut skjema.
         const dinSituasjon = mockSoeknad.dinSituasjon;
         selectValue(dinSituasjon.jobbStatus);
-        //selectValue(dinSituasjon.selvstendigNaeringsdrivende);
-        //getById("selvstendig.beskrivelse").type(dinSituasjon.selvstendig.beskrivelse);
-        //getById("selvstendig.startDato").type(dinSituasjon.selvstendig.startDato);
-        //getById("selvstendig.type").type(dinSituasjon.selvstendig.type);
-        //getById("selvstendig.endringIfmDoedsfall").type(dinSituasjon.selvstendig.endringIfmDoedsfall);
 
         const arbeid = dinSituasjon.arbeidsforhold;
         getById("arbeidsforhold.arbeidsgiver").type(arbeid.arbeidsgiver);
         getById("arbeidsforhold.startDato").type(arbeid.startDato);
-        getById("arbeidsforhold.stilling").type(arbeid.stilling);
         getById("arbeidsforhold.ansettelsesforhold").find("select").select(arbeid.ansettelsesforhold);
         getById("arbeidsforhold.stillingsprosent").type(arbeid.stillingsprosent);
         selectValueForId("arbeidsforhold.forventerEndretInntekt.svar", arbeid.forventerEndretInntekt.svar);
@@ -178,7 +172,6 @@ const sammenlignRequestMedInputdata = (request) => {
             oppholdUtland.fraDato = undefined;
             oppholdUtland.tilDato = undefined;
         });
-        // soeknad.dinSituasjon.selvstendig.startDato = undefined;
         soeknad.dinSituasjon.arbeidsforhold.startDato = undefined;
     });
 
