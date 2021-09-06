@@ -58,7 +58,7 @@ interface RHFCheckboksPanelProps extends Omit<SkjemaGruppeProps, 'onChange' | 'c
     valgfri?: boolean;
 }
 
-export const RHFCheckboksPanel = ({ name, checkbox, valgfri }: RHFCheckboksPanelProps) => {
+export const RHFCheckboksPanel = ({ name, checkbox, valgfri, ...rest }: RHFCheckboksPanelProps) => {
     const { control } = useFormContext();
 
     return (
@@ -67,15 +67,20 @@ export const RHFCheckboksPanel = ({ name, checkbox, valgfri }: RHFCheckboksPanel
             control={control}
             rules={{ required: !valgfri }}
             render={({ field: { value, onChange } }) => (
-                <CheckboksPanel
-                    key={checkbox.value as string}
-                    label={checkbox.label}
-                    value={checkbox.value}
-                    checked={(value)?.includes(checkbox.value) || false}
-                    onChange={(e) => onChange(
-                        handleSelect(value, ((e.target as HTMLInputElement).value as any)).toString()
-                    )}
-                />
+                <CheckboxGruppe
+                    {...rest}
+                    className={"inputPanelGruppe"}
+                >
+                    <CheckboksPanel
+                        key={checkbox.value as string}
+                        label={checkbox.label}
+                        value={checkbox.value}
+                        checked={(value)?.includes(checkbox.value) || false}
+                        onChange={(e) => onChange(
+                            handleSelect(value, ((e.target as HTMLInputElement).value as any)).toString()
+                        )}
+                    />
+                </CheckboxGruppe>
             )}
         />
     )

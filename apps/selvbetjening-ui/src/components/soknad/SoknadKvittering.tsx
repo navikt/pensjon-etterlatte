@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Alert, BodyLong, BodyShort, Button, Link, Title } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
-
+import { Download } from "@navikt/ds-icons";
 const SoknadKvittering = () => {
     const { t } = useTranslation();
 
@@ -26,11 +26,14 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"center"}>
-                <Title size={"m"}>{t("soeknadKvittering.tittel")}</Title>
+                <Title size={"m"} spacing={true}>{t("soeknadKvittering.tittel")}</Title>
 
                 {/* TODO: Støtte nedlastning ? */}
                 <BodyLong>
-                    <Link href={t("soeknadKvittering.lenkeNedlastning.href")}>{t("soeknadKvittering.lenkeNedlastning.tekst")}</Link>
+                    <Link href={t("soeknadKvittering.lenkeNedlastning.href")}>
+                        <Download />
+                        <span>{t("soeknadKvittering.lenkeNedlastning.tekst")}</span>
+                    </Link>
                 </BodyLong>
             </SkjemaGruppe>
 

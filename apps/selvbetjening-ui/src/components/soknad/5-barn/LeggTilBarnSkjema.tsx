@@ -122,19 +122,18 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                 {relasjon === BarnRelasjon.fellesbarnMedAvdoede && (
                     <>
                         {kanSoekeOmBarnepensjon() && (
-                            <SkjemaGruppe>
-                                <RHFCheckboksPanel
-                                    name={"soekerBarnepensjon"}
-                                    legend={t("omBarn.soekerBarnepensjon")}
-                                    valgfri={true}
-                                    checkbox={
-                                        {
-                                            label: t("omBarn.soekerBarnepensjonCheckboks"),
-                                            value: IValg.JA
-                                        }
+                            <RHFCheckboksPanel
+                                name={"soekerBarnepensjon"}
+                                legend={t("omBarn.soekerBarnepensjon")}
+                                description={t("omBarn.soekerBarnepensjonInfo")}
+                                valgfri={true}
+                                checkbox={
+                                    {
+                                        label: t("omBarn.soekerBarnepensjonCheckboks"),
+                                        value: IValg.JA
                                     }
-                                />
-                            </SkjemaGruppe>
+                                }
+                            />
                         )}
 
                         {soekerBarnepensjon === IValg.JA && (

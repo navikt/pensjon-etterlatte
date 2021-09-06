@@ -268,14 +268,14 @@
   },
   "omBarn": {
     "tittel": "Om barn",
-    "informasjon": "Dersom du har eller har hatt barn er det viktig at du legger de til – uavhengig av alder – da dette kan påvirke din rett til gjenlevendepensjon. Dette gjelder felles barn med avdøde, avdødes særkullsbarn, og egne særkullsbarn. \n\nFelles barn med avdøde under 18 år kan ha rett på barnepensjon.",
+    "informasjon": "Dersom du har eller har hatt barn kan det påvirke retten din til gjenlevendepensjon. Derfor må du oppgi alle barn, uavhengig av hvor gamle de er. Dette gjelder barn du har felles med avdøde, avdødes egne barn, og dine egne barn. \n\nHvis du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her.",
     "fornavn": "Fornavn",
     "etternavn": "Etternavn",
     "foedselsnummer": "Barnets fødselsnummer / d-nummer",
-    "fellesbarnMedAvdoed": "Fellesbarn m/avdøde",
-    "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
-    "egneSaerkullsbarn": "Egne særkullsbarn",
-    "relasjon": "Hvilken relasjon har du til barnet?",
+    "fellesbarnMedAvdoed": "Jeg og avdøde",
+    "avdoedesSaerkullsbarn": "Avdøde",
+    "egneSaerkullsbarn": "Jeg",
+    "relasjon": "Hvem er foreldre til barnet?",
     "brukeAnnenKonto": {
       "svar": "Vil du bruke et annet kontonummer for barnet?",
       "kontonummer": "Barnets kontonummer"
@@ -286,14 +286,15 @@
     "borUtenlands": "Bosatt i et annet land enn Norge",
     "dagligOmsorg": "Har du daglig omsorg for dette barnet?",
     "soektOmBarnepensjon": "Søkt om barnepensjon",
-    "soekerBarnepensjon": "Ønsker du å søke om barnepensjon for barnet?",
+    "soekerBarnepensjon": "Søk om barnepensjon",
+    "soekerBarnepensjonInfo": "Fordi du har felles barn med avdøde under 18 år, kan barnet ha rett til barnepensjon.",
     "soekerBarnepensjonCheckboks": "Ja, jeg søker om barnepensjon",
     "bosattUtland": {
       "svar": "Bor barnet i et annet land enn Norge?",
       "land": "Land",
-      "adresse": "Adresse"
+      "adresse": "Adresse i utlandet"
     },
-    "gravidEllerNyligFoedt": "Venter du eller har du nylig fått barn som foreløpig ikke er registrert i Folkeregisteret?",
+    "gravidEllerNyligFoedt": "Venter du barn eller har du barn som enda ikke er registrert i folkeregisteret?",
     "valgfritt": "Dette er valgfritt"
   },
   "oppsummering": {
@@ -305,7 +306,7 @@
     "tittel": "Søknaden din er sendt til oss",
     "lenkeNedlastning": {
       "href": "#",
-      "tekst": "\nLast ned kvitteringen"
+      "tekst": "Last ned kvitteringen"
     },
     "kontakt": "Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.",
     "endring": {
@@ -334,7 +335,7 @@
         },
         "innhold2": "finner du en bekreftelse på at vi har fått søknaden din. Du kan alltid sjekke",
         "lenkeDineSaker": {
-          "href": "#",
+          "href": "https://tjenester.nav.no/saksoversikt",
           "tekst": "Dine saker"
         },
         "innhold3": "om søknaden din er behandlet."
