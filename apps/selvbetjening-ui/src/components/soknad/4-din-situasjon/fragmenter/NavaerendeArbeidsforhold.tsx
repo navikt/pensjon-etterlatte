@@ -10,9 +10,9 @@ const NavaerendeArbeidsforhold = () => {
 
     return (
         <>
-            {jobbStatus?.includes(JobbStatus.selvstendig) && <Selvstendig />}
-
             {jobbStatus?.includes(JobbStatus.arbeidstaker) && <Arbeidstaker />}
+
+            {jobbStatus?.includes(JobbStatus.selvstendig) && <Selvstendig />}
         </>
     );
 };

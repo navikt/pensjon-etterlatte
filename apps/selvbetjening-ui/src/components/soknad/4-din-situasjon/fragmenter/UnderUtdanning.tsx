@@ -2,19 +2,12 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
-import { Title } from "@navikt/ds-react";
 
 const UnderUtdanning = () => {
     const { t } = useTranslation();
 
     return (
         <>
-            <SkjemaGruppe>
-                <Title size={"s"}>
-                    {t("dinSituasjon.utdanning.tittel")}
-                </Title>
-            </SkjemaGruppe>
-
             <SkjemaGruppe>
                 <RHFInput
                     name={"utdanning.naavaerendeUtdanning.navn"}
@@ -34,7 +27,7 @@ const UnderUtdanning = () => {
                 />
             </SkjemaGruppe>
         </>
-    )
-}
+    );
+};
 
 export default UnderUtdanning;

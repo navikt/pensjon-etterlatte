@@ -73,14 +73,13 @@
     "ingress": "Vi regner med at du har egen inntekt. Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten vi kan forvente at du får. Vi beregner den fremtidige inntekten din ut i fra arbeidssituasjonen din og tidligere utdanning.",
     "jobbStatus": "Hva er situasjonen din nå?",
     "jobbStatusHvorfor": "Vi skal vurdere om du utnytter arbeidsevnen du har, eller om du har behov for bistand fra oss til å bli selvforsørget.",
-    "ingenJobbBeskrivelse": "Beskrivelse",
+    "ingenJobbBeskrivelse": "Annet",
     "utdanning": {
-      "tittel": "Hvilken utdanning holder du på med?",
       "hoyesteFullfoerteUtdanning": "Hva er din høyeste fullførte utdanning?",
       "annenUtdanning": "Annen utdanning",
       "annenUtdanningPlaceholder": "F.eks. kurs, enkeltår på universitet eller høyskole",
       "naavaerendeUtdanning": {
-        "navn": "Navn på utdanning",
+        "navn": "Navnet på utdanningen",
         "startDato": "Fra dato",
         "sluttDato": "Til dato"
       }
@@ -89,7 +88,7 @@
     "selvstendigHvorfor": "Næringsinntekt for det siste kalenderåret er ikke tilgjengelig fra Skatteetaten ennå. Du vil bli kontaktet for nærmere opplysninger om næringsvirksomheten.",
     "selvstendig": {
       "tittel": "Info om næring",
-      "beskrivelse": "Hvilken næring driver du?",
+      "beskrivelse": "Hva heter firmaet?",
       "startDato": "Når startet du?",
       "type": "Hvilken type næring er dette?",
       "endringIfmDoedsfall": "Har det skjedd noen endring i næringen som følge av dødsfall?",
