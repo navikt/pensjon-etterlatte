@@ -7,14 +7,9 @@ import io.ktor.client.request.post
 import io.ktor.http.ContentType.Application.Json
 import io.ktor.http.contentType
 import no.nav.etterlatte.common.RetryResult
-import no.nav.etterlatte.common.innloggetBrukerFnr
 import no.nav.etterlatte.common.retry
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
-    private val logger: Logger = LoggerFactory.getLogger(SoeknadService::class.java)
-
     suspend fun sendSoknad(json: JsonNode): RetryResult {
         return retry {
             innsendtSoeknadKlient.post<String> ("soeknad"){
