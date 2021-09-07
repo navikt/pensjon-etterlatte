@@ -33,13 +33,6 @@ const Selvstendig = () => {
                 <RHFInput name={"selvstendig.type"} label={t("dinSituasjon.selvstendig.type")} />
             </SkjemaGruppe>
 
-            <SkjemaGruppe>
-                <RHFInput
-                    name={"selvstendig.endringIfmDoedsfall"}
-                    label={t("dinSituasjon.selvstendig.endringIfmDoedsfall")}
-                    placeholder={t("dinSituasjon.selvstendig.endringIfmDoedsfallPlaceholder")}
-                />
-            </SkjemaGruppe>
             <RHFSpoersmaalRadio
                 name={"selvstendig.forventerEndretInntekt.svar"}
                 legend={t("dinSituasjon.selvstendig.forventerEndretInntekt.svar")}

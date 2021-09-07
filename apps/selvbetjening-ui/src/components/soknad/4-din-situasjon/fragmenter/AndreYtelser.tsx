@@ -6,23 +6,22 @@ import { RHFInput } from "../../../felles/RHFInput";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { ISituasjon } from "../../../../typer/situasjon";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
-import { Title } from "@navikt/ds-react";
+import { BodyLong, Title } from "@navikt/ds-react";
 
 const AndreYtelser = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISituasjon>();
 
-    const kravOmAnnenStonad = watch("andreYtelser.kravOmAnnenStonad.svar")
-    const mottarPensjonUtland = watch("andreYtelser.mottarPensjonUtland.svar")
+    const kravOmAnnenStonad = watch("andreYtelser.kravOmAnnenStonad.svar");
+    const mottarPensjonUtland = watch("andreYtelser.mottarPensjonUtland.svar");
 
     return (
         <div>
             {/* Steg 7 */}
             <SkjemaGruppe>
-                <Title size={"s"}>
-                    {t("dinSituasjon.andreYtelser.tittel")}
-                </Title>
+                <Title size={"s"}>{t("dinSituasjon.andreYtelser.tittel")}</Title>
+                <BodyLong>{t("dinSituasjon.andreYtelser.ingress")}</BodyLong>
             </SkjemaGruppe>
 
             <RHFSpoersmaalRadio
