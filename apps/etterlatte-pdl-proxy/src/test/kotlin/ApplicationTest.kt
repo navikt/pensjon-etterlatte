@@ -25,10 +25,10 @@ class ApplicationTest {
             }
         }
     }
-    //@Test
+    //@@Test
     fun testPDL() {
         withTestApplication({ module() }) {
-            handleRequest(HttpMethod.Get, "/pdl").apply {
+            handleRequest(HttpMethod.Post, "/tokenx/pdl").apply {
                 assertEquals(HttpStatusCode.OK, response.status())
                 assertEquals("HELLO WORLD!", response.content)
             }
