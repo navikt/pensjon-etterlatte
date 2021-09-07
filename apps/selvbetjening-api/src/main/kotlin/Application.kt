@@ -16,19 +16,20 @@ import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
 import no.nav.etterlatte.ktortokenexchange.bearerToken
 import no.nav.etterlatte.person.PersonService
+import no.nav.etterlatte.soknad.SoeknadService
 
 class ApplicationContext(configLocation: String? = null) {
     private val closables = mutableListOf<() -> Unit>()
 
-    val config: Config = configLocation?.let { ConfigFactory.load(it) } ?: ConfigFactory.load()
+    private val config: Config = configLocation?.let { ConfigFactory.load(it) } ?: ConfigFactory.load()
 
     fun close() {
         closables.forEach { it() }
     }
 
     val personService: PersonService
+    val soeknadService: SoeknadService
     val kodeverkService: KodeverkService
-    val innsendtSoeknadEndpoint: HttpClient
     val securityMediator = SecurityContextMediatorFactory.from(config)
 
     init {
@@ -38,12 +39,14 @@ class ApplicationContext(configLocation: String? = null) {
                 closables.add(it::close)
                 PersonService(it, kodeverkService)
             }
-        innsendtSoeknadEndpoint = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
-            .also {
-                closables.add(it::close)
-            }
 
+        soeknadService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
+            .let {
+                closables.add(it::close)
+                SoeknadService(it)
+            }
     }
+
     private fun tokenSecuredEndpoint(endpointConfig:Config) = HttpClient(CIO) {
         install(JsonFeature) {
             serializer = JacksonSerializer {
@@ -52,22 +55,22 @@ class ApplicationContext(configLocation: String? = null) {
                 registerModule(JavaTimeModule())
             }
         }
+
         install(Auth) {
             bearerToken {
                 tokenprovider = securityMediator.outgoingToken(endpointConfig.getString("audience"))
             }
         }
+
         defaultRequest {
             url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
         }
     }
 }
 
-suspend fun main() {
+fun main() {
     ApplicationContext()
         .also { Server(it).run() }
         .close()
 
 }
-
-

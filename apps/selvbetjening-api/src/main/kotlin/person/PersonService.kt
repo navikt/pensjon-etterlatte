@@ -1,5 +1,6 @@
 package no.nav.etterlatte.person
 
+import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.client.HttpClient
 import io.ktor.client.request.accept
@@ -39,15 +40,15 @@ class PersonService(
 
         val request = GraphqlRequest(query, Variables(ident = fnr)).toJson()
 
-        val responseNode = unsafeRetry{
+        val responseNode = unsafeRetry {
             httpClient.post<ObjectNode> {
-            header("Tema", TEMA)
-            accept(Json)
-            body = TextContent(request, Json)
+                header("Tema", TEMA)
+                accept(Json)
+                body = TextContent(request, Json)
+            }
         }
-    }
 
-        logger.info(responseNode.toPrettyString())
+        logger.info((responseNode as JsonNode).toPrettyString())
 
         val response = try {
             mapJsonToAny<PersonResponse>(responseNode.toJson())

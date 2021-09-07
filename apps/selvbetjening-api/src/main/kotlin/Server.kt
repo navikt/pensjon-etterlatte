@@ -16,9 +16,10 @@ import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
 
-class Server(private val applicationContext: ApplicationContext) {
+class Server(applicationContext: ApplicationContext) {
     private val personService = applicationContext.personService
     private val securityContext = applicationContext.securityMediator
+    private val soeknadService = applicationContext.soeknadService
 
     private val engine = embeddedServer(CIO, environment = applicationEngineEnvironment {
         module {
@@ -33,7 +34,7 @@ class Server(private val applicationContext: ApplicationContext) {
                 healthApi()
                 secureRoutUsing(securityContext){
                     personApi(personService)
-                    soknadApi(applicationContext.innsendtSoeknadEndpoint)
+                    soknadApi(soeknadService)
                 }
             }
         }
