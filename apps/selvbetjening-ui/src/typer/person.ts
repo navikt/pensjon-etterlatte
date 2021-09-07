@@ -51,9 +51,10 @@ export interface IBarn {
     fornavn?: string;
     etternavn?: string;
     foedselsnummer?: string;
-    brukeAnnenKonto?: {
+    harBarnetVerge?: {
         svar?: IValg;
-        kontonummer?: string;
+        navn?: string;
+        foedselsnummer?: string;
     };
     relasjon?: string;
     statsborgerskap?: string;

@@ -279,9 +279,12 @@
     "avdoedesSaerkullsbarn": "Avdøde",
     "egneSaerkullsbarn": "Jeg",
     "relasjon": "Hvem er foreldre til barnet?",
-    "brukeAnnenKonto": {
-      "svar": "Vil du bruke et annet kontonummer for barnet?",
-      "kontonummer": "Barnets kontonummer"
+    "harBarnetVerge": {
+      "svar": "Er det oppnevnt en verge for barnet?",
+      "navn": "Navn på verge",
+      "navnPlaceholder": "Skriv inn tekst",
+      "foedselsnummer": "Fødselsnummer til verge",
+      "foedselsnummerPlaceholder": "11 siffer"
     },
     "statsborgerskap": "Statsborgerskap",
     "statsborger": "statsborger",
@@ -352,7 +355,7 @@
     },
     "andreStoenader": {
       "tittel": "Du kan også ha rett til andre stønader",
-      "informasjon": "\nHvis du jobber, har barn, er reell arbeidssøker, går på skole eller studerer, kan du også ha rett til andre stønader.",
+      "informasjon": "\nHvis du jobber, har barn, er reell arbeidssøker, går på skole eller studerer, kan du også ha rett til andre stønader. For eksempel:",
       "stoenadListe": {
         "barnetrygd": "Utvidet barnetrygd",
         "barnetilsyn": "Stønad til barnetilsyn",
@@ -804,9 +807,15 @@
     "soekerBarnepensjon": {
       "required": "Oppgi om du ønsker å søke om barnepensjon"
     },
-    "brukeAnnenKonto": {
+    "harBarnetVerge": {
       "svar": {
-        "required": "Oppgi om du vil bruke et annet kontonummer"
+        "required": "Oppgi om det er oppnevnt en verge for barnet"
+      },
+      "navn": {
+        "required": "Oppgi verges navn"
+      },
+      "foedselsnummer": {
+        "required": "Oppgi verges fødselsnummer"
       }
     }
   }

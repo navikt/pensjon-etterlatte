@@ -3,7 +3,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
-import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from "../../felles/RHFInput";
+import { RHFFoedselsnummerInput, RHFInput } from "../../felles/RHFInput";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
@@ -36,7 +36,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
     };
 
     const bosattUtland = watch("bosattUtland.svar")
-    const brukeAnnenKonto = watch("brukeAnnenKonto.svar")
+    const harBarnetVerge = watch("harBarnetVerge.svar")
     const relasjon = watch("relasjon")
     const foedselsnummer = watch("foedselsnummer")
     const soekerBarnepensjon = watch("soekerBarnepensjon")
@@ -139,17 +139,23 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                         {soekerBarnepensjon === IValg.JA && (
                             <>
                                 <RHFSpoersmaalRadio
-                                    name={"brukeAnnenKonto.svar"}
-                                    legend={t("omBarn.brukeAnnenKonto.svar")}
+                                    name={"harBarnetVerge.svar"}
+                                    legend={t("omBarn.harBarnetVerge.svar")}
                                 />
 
-                                {brukeAnnenKonto === IValg.JA && (
+                                {harBarnetVerge === IValg.JA && (
                                     <SkjemaGruppe>
-                                        <RHFKontonummerInput
-                                            name={"brukeAnnenKonto.kontonummer"}
+                                        <RHFInput
+                                            name={"harBarnetVerge.navn"}
                                             bredde={"S"}
-                                            label={t("omBarn.brukeAnnenKonto.kontonummer")}
-                                            placeholder={"11 siffer"}
+                                            label={t("omBarn.harBarnetVerge.navn")}
+                                            placeholder={t("omBarn.harBarnetVerge.navnPlaceholder")}
+                                        />
+                                        <RHFFoedselsnummerInput
+                                            name={"harBarnetVerge.foedselsnummer"}
+                                            bredde={"S"}
+                                            label={t("omBarn.harBarnetVerge.foedselsnummer")}
+                                            placeholder={t("omBarn.harBarnetVerge.foedselsnummerPlaceholder")}
                                         />
                                     </SkjemaGruppe>
                                 )}
