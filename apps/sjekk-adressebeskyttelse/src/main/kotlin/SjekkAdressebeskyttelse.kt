@@ -58,7 +58,6 @@ fun finnGradering(nodes: JsonNode): Graderinger {
     } else try {
         Graderinger.valueOf(node.get("gradering").textValue())
     } catch (e: IllegalArgumentException) {
-        //Riktig default?
         Graderinger.STRENGT_FORTROLIG
     }
 }
