@@ -104,7 +104,6 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         }
     }
 
-
     override fun soeknadSendt(soeknad: LagretSoeknad){
         nyStatus(soeknad, Status.sendt, """{}""")
     }
