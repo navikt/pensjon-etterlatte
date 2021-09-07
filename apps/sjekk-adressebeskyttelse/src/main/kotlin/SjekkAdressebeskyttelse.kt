@@ -43,7 +43,7 @@ internal class SjekkAdressebeskyttelse(
             }
         } else {
             packet["@adressebeskyttelse"] = INGENBESKYTTELSE
-            logger.error("hvabehager? Jeg kan ikke sjekke adressebeskyttelse uten å ha FNR")
+            logger.error("Ingen fødselsnummer funnet i dokumentet")
         }
     }
 }
