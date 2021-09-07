@@ -1,7 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.5.21" apply false
+    kotlin("jvm") version "1.5.30" apply false
 }
-
 
 allprojects {
     group = "no.nav.etterlatte"
@@ -12,7 +11,6 @@ allprojects {
         maven("https://kotlin.bintray.com/ktor")
         maven("https://packages.confluent.io/maven/")
         maven("https://jitpack.io")
-
     }
 
     tasks.withType<Test> {
@@ -21,7 +19,6 @@ allprojects {
             events("passed", "skipped", "failed")
         }
     }
-
 }
 
 subprojects {
@@ -40,10 +37,8 @@ subprojects {
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = "16"
     }
-
 }
 
-
 tasks.withType<Wrapper> {
-    gradleVersion = "6.7"
+    gradleVersion = "7.2"
 }
