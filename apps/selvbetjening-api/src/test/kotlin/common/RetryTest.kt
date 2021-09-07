@@ -30,8 +30,8 @@ class RetryTest {
         runBlocking {
             retry(2, ustabilMetode(listOf(true, true, false)))
         }.also {
-            assertEquals("OK", it.first)
-            assertEquals(2, it.second.size)
+            assertEquals("OK", it.response)
+            assertEquals(2, it.exceptions.size)
         }
     }
 
@@ -40,8 +40,8 @@ class RetryTest {
         runBlocking {
             retry(2, ustabilMetode(listOf(true, true, true, false)))
         }.also {
-            assertNull(it.first)
-            assertEquals(3, it.second.size)
+            assertNull(it.response)
+            assertEquals(3, it.exceptions.size)
         }
 
     }
