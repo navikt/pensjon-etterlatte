@@ -91,6 +91,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <RHFValutaInput
                             name={"selvstendigNaeringsdrivende.beskrivelse"}
                             bredde={"L"}
+                            valgfri
                             placeholder={t("omDenAvdoede.selvstendigNaeringsdrivende.placeholder")}
                             label={t("omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse")}
                         />
@@ -120,6 +121,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <RHFInput
                             name={"harAvtjentMilitaerTjeneste.beskrivelse"}
                             bredde={"S"}
+                            valgfri
                             label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
                         />
                     </SkjemaGruppe>

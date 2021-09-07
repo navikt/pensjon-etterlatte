@@ -1,7 +1,6 @@
 import { RHFRadio } from "../../../felles/RHFRadio";
 import { ISoeker, Sivilstatus } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
-import NyttEkteskap from "./NyttEkteskap";
 import NyttSamboerskap from "./NyttSamboerskap";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
@@ -28,8 +27,6 @@ const NySivilstatus = () => {
                     return { label: t(value), value } as RadioProps;
                 })}
             />
-
-            {sivilstatus === Sivilstatus.ekteskap && <NyttEkteskap />}
 
             {sivilstatus === Sivilstatus.samboerskap && <NyttSamboerskap />}
         </>
