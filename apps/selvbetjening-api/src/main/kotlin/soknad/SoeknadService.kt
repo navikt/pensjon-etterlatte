@@ -16,8 +16,6 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
     private val logger: Logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
     suspend fun sendSoknad(json: JsonNode): RetryResult {
-        logger.info("Mottatt søknad for person: ${innloggetBrukerFnr()}")
-
         return retry {
             innsendtSoeknadKlient.post<String> ("soeknad"){
                 contentType(Json)
@@ -27,8 +25,6 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
     }
 
     suspend fun lagreKladd(json: JsonNode): RetryResult {
-        logger.info("Mottatt kladd for ${innloggetBrukerFnr()}")
-
         return retry {
             innsendtSoeknadKlient.post<String> ("kladd"){
                 contentType(Json)

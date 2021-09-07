@@ -2,10 +2,10 @@ package no.nav.etterlatte.common
 
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 import java.util.*
-import kotlin.test.assertNull
 
 class RetryTest {
 

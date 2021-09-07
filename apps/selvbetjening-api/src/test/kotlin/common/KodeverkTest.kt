@@ -10,11 +10,11 @@ import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.takeFrom
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.kodeverk.KodeverkService
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
-import kotlin.test.assertEquals
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Disabled

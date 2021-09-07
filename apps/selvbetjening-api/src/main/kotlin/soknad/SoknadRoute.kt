@@ -58,10 +58,6 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.svarKlient(resultat: 
 
 private fun addMottattDato(soeknad: JsonNode) {
     if (soeknad is ObjectNode) {
-        if (!soeknad.has("stoenadType")) {
-            soeknad.putObject("stoenadType")
-        } else {
-            soeknad.get("stoenadType") as ObjectNode
-        }.put("mottattDato", LocalDate.now(ZoneId.of("Europe/Oslo")).toString())
+       soeknad.put("mottattDato", LocalDate.now(ZoneId.of("Europe/Oslo")).toString())
     }
 }

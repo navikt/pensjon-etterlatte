@@ -31,8 +31,9 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
-    testImplementation("io.ktor:ktor-server-tests:1.4.3")
+    testImplementation("io.ktor:ktor-server-tests:$ktorversion")
     testImplementation("no.nav.security:mock-oauth2-server:0.3.1")
+    testImplementation("io.ktor:ktor-client-mock:$ktorversion")
 
     // Logging
     implementation("org.slf4j:slf4j-api:1.7.30")
