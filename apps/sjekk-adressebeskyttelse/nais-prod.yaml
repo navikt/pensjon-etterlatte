@@ -32,8 +32,8 @@ spec:
     - name: KAFKA_RESET_POLICY
       value: none
     - name: PDL_URL
-      value: http://pdl-proxy
+      value: http://etterlatte-pdl-proxy
   accessPolicy:
     outbound:
       rules:
-        - application: pdl-proxy
+        - application: etterlatte-pdl-proxy
