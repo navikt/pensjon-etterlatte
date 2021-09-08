@@ -6,6 +6,7 @@ import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.MockRequestHandleScope
 import io.ktor.client.engine.mock.respond
 import io.ktor.client.engine.mock.respondError
+import io.ktor.client.features.ClientRequestException
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.request.HttpResponseData
@@ -18,6 +19,7 @@ import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.soknad.SoeknadService
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 
 internal class SoeknadServiceTest {
@@ -38,7 +40,8 @@ internal class SoeknadServiceTest {
                         respond("OK", HttpStatusCode.OK, headers)
                     }
                     HttpMethod.Get -> {
-                        respond(mockSoeknad.toJson(), HttpStatusCode.OK, headers)
+                        (customresponses.pop()?:{ respond(mockSoeknad.toJson(), HttpStatusCode.OK, headers)})()
+
                     }
                     HttpMethod.Delete -> {
                         (customresponses.pop()?:{respond(ByteReadChannel.Empty, HttpStatusCode.NoContent)})()
@@ -72,6 +75,28 @@ internal class SoeknadServiceTest {
     }
 
     @Test
+    fun hentKladdFinnesIkke() {
+        customresponses.add{respondError(HttpStatusCode.NotFound)}
+        runBlocking {
+            val result = service.hentKladd()
+
+            assertEquals(HttpStatusCode.NotFound, result.response)
+        }
+    }
+
+    @Test
+    fun hentKladdUhandtertFeil() {
+        customresponses.add{respondError(HttpStatusCode.BadRequest)}
+        runBlocking {
+            val result = service.hentKladd()
+
+            assertNotNull(result.response)
+            assertEquals(1, result.exceptions.size)
+            assertEquals(HttpStatusCode.BadRequest, result.exceptions[0].let { it as ClientRequestException }.response.status )
+        }
+    }
+
+    @Test
     fun lagreKladd() {
         runBlocking {
             val result = service.lagreKladd(mockSoeknad)
@@ -92,16 +117,6 @@ internal class SoeknadServiceTest {
     @Test
     fun slettKladdOK() {
         runBlocking {
-            val result = service.slettKladd()
-
-            assertEquals(HttpStatusCode.NoContent, result.response)
-        }
-    }
-
-    @Test
-    fun slettKladdFinnesIkke() {
-        runBlocking {
-            customresponses.add{respondError(HttpStatusCode.Gone)}
             val result = service.slettKladd()
 
             assertEquals(HttpStatusCode.NoContent, result.response)
