@@ -30,7 +30,12 @@ const Selvstendig = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <RHFInput name={"selvstendig.type"} label={t("dinSituasjon.selvstendig.type")} />
+                <RHFInput
+                    name={"selvstendig.orgnr"}
+                    placeholder={t("dinSituasjon.selvstendig.orgnrplaceholder")}
+                    label={t("dinSituasjon.selvstendig.orgnr")}
+                    rules={{ pattern: /^\d[0-9\s]*$/ }}
+                />
             </SkjemaGruppe>
 
             <RHFSpoersmaalRadio
