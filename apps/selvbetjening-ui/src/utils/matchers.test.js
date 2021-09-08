@@ -33,3 +33,31 @@ describe("Verifiser at epost-matcher fungerer som tiltenkt", () => {
         )
     })
 })
+
+describe("Verifiser at kontonummer-matcher fungerer som tiltenkt", () => {
+    it("Skal matche på korrekte kontonummer", () => {
+        const validKontonummer = [
+            "1234.56.12345",
+            "9999.99.99999",
+        ]
+
+        validKontonummer.forEach(kontonummer =>
+                expect(kontonrMatcher.test(kontonummer)).toBe(true)
+        )
+    })
+
+    it("Skal ikke matche på ugyldige kontonummer", () => {
+        const invalidKontonummer = [
+            "1234.1.12345",
+            "1234.56.abcde",
+            "12345",
+            "12345.12",
+            "12345.12.12345",
+            "1234.12.1234",
+        ]
+
+        invalidKontonummer.forEach(kontonummer =>
+                expect(kontonrMatcher.test(kontonummer)).toBe(false)
+        )
+    })
+})

@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { getTransKey } from "../../utils/translation";
 import { fnr } from "@navikt/fnrvalidator";
-import { kontonrMatcher, telefonnrMatcher } from "../../utils/matchers";
+import { kontonrMatcher, partialKontonrMatcher, telefonnrMatcher } from "../../utils/matchers";
 import { isValidBIC, isValidIBAN } from "ibantools";
 
 interface RHFProps extends Omit<InputProps, "name"> {
@@ -77,12 +77,12 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{ required: true, ...rules }}
+            rules={{ required: true, pattern: kontonrMatcher, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
                     value={value || ""}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, kontonrMatcher, "."))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialKontonrMatcher, "."))}
                     feil={feilmelding}
                     {...rest}
                 />

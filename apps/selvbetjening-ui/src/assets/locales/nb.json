@@ -586,10 +586,6 @@
         "pattern": "E-post må være gyldig"
       }
     },
-    "kontonummer": {
-      "required": "Kontonummer må fylles ut (11 siffer)",
-      "pattern": "Kontonummer ikke gyldig. Må bestå av 11 siffer."
-    },
     "oppholderSegINorge": {
       "required": "Opphold må besvares"
     },
@@ -803,7 +799,10 @@
     },
     "utbetalingsInformasjon": {
       "bankkontoType.required": "Du må velge mellom norsk eller utenlandsk bankkonto for utbetaling",
-      "kontonummer.required": "Norsk kontonummer må fylles ut",
+      "kontonummer": {
+        "required": "Norsk kontonummer må fylles ut (11 siffer)",
+        "pattern": "Kontonummer ikke gyldig. Må bestå av 11 siffer."
+      },
       "utenlandskBankNavn.required": "Navnet på den utenlandske banken må fylles ut",
       "utenlandskBankAdresse.required": "Adressen til den utenlandske banken må fylles ut",
       "iban": {
