@@ -8,11 +8,14 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         cy.intercept("GET", "/api/api/kladd", {}).as("hentSoeknad"); // Ingen kladd eksisterer
         cy.intercept("POST", "/api/api/kladd", {});
         cy.visit("localhost:3000");
+        cy.injectAxe();
         cy.wait(["@hentInnloggetPerson"]);
         cy.wait(["@hentSoeknad"]);
 
         // Bekreft riktige opplysninger
         cy.get('[type="checkbox"]').check({ force: true });
+
+        // TODO ;) //cy.checkA11y();
 
         // Start søknaden
         cy.get('[type="button"]').click();
