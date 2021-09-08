@@ -1,4 +1,4 @@
-import { emailMatcher, kontonrMatcher } from "./matchers";
+import { emailMatcher, kontonrMatcher, telefonnrMatcher } from "./matchers";
 
 describe("Verifiser at epost-matcher fungerer som tiltenkt", () => {
     it("Skal matche på korrekte epost-adresser", () => {
@@ -36,10 +36,7 @@ describe("Verifiser at epost-matcher fungerer som tiltenkt", () => {
 
 describe("Verifiser at kontonummer-matcher fungerer som tiltenkt", () => {
     it("Skal matche på korrekte kontonummer", () => {
-        const validKontonummer = [
-            "1234.56.12345",
-            "9999.99.99999",
-        ]
+        const validKontonummer = ["1234.56.12345", "9999.99.99999"]
 
         validKontonummer.forEach(kontonummer =>
                 expect(kontonrMatcher.test(kontonummer)).toBe(true)
@@ -58,6 +55,24 @@ describe("Verifiser at kontonummer-matcher fungerer som tiltenkt", () => {
 
         invalidKontonummer.forEach(kontonummer =>
                 expect(kontonrMatcher.test(kontonummer)).toBe(false)
+        )
+    })
+})
+
+describe("Verifiser at telefonnummer-matcher fungerer som tiltenkt", () => {
+    it("Skal matche på korrekte telefonnummer", () => {
+        const validTelefonnr = ["123 45 678", "100 00 000", "999 99 999"]
+
+        validTelefonnr.forEach(telefonnummer =>
+                expect(telefonnrMatcher.test(telefonnummer)).toBe(true)
+        )
+    })
+
+    it("Skal ikke matche på ugyldige input", () => {
+        const invalidTelefonnr = ["12345678", "123.45.678", "123", "123 45 abc", "123 45 67", "000 00 000"]
+
+        invalidTelefonnr.forEach(telefonnummer =>
+                expect(telefonnrMatcher.test(telefonnummer)).toBe(false)
         )
     })
 })

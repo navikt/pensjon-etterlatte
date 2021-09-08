@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { getTransKey } from "../../utils/translation";
 import { fnr } from "@navikt/fnrvalidator";
-import { kontonrMatcher, partialKontonrMatcher, telefonnrMatcher } from "../../utils/matchers";
+import { kontonrMatcher, partialKontonrMatcher, partialTelefonnrMatcher, telefonnrMatcher } from "../../utils/matchers";
 import { isValidBIC, isValidIBAN } from "ibantools";
 
 interface RHFProps extends Omit<InputProps, "name"> {
@@ -127,12 +127,12 @@ export const RHFTelefonInput = ({ name, rules, ...rest }: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{ required: true, ...rules }}
+            rules={{ required: true, pattern: telefonnrMatcher, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
                     value={value || ""}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, telefonnrMatcher))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialTelefonnrMatcher))}
                     feil={feilmelding}
                     {...rest}
                 />
