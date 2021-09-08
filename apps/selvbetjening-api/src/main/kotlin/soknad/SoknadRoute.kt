@@ -8,6 +8,7 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.routing.Route
+import io.ktor.routing.delete
 import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.route
@@ -40,6 +41,9 @@ fun Route.soknadApi(service: SoeknadService) {
             val response = service.hentKladd()
 
             svarKlient(response)
+        }
+        delete {
+            svarKlient(service.slettKladd())
         }
     }
 }

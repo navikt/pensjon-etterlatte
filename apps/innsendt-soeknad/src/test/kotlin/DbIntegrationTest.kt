@@ -4,15 +4,15 @@ import no.nav.etterlatte.PostgresSoeknadRepository
 import no.nav.etterlatte.UlagretSoeknad
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
-import java.util.*
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class DbIntegrationTest {
@@ -36,26 +36,6 @@ class DbIntegrationTest {
     @AfterAll
     fun afterAll() {
         postgreSQLContainer.stop()
-    }
-
-    @Test @Disabled
-    fun test(){
-        val soekand1 = db.lagreKladd(UlagretSoeknad("abc", """{}"""))
-
-        db.lagreKladd(UlagretSoeknad("abc", """{}"""))
-
-        println(db.lagreKladd(UlagretSoeknad("abc", """{}""")).id)
-        println(db.lagreKladd(UlagretSoeknad("abc", """{}""")).id)
-
-        db.soeknadFerdigstilt(soekand1)
-
-        println(db.lagreKladd(UlagretSoeknad("abc", """{}""")).id)
-
-        db.rapport().also (::println)
-
-        println(db.rapport())
-        db.slettArkiverteSoeknader()
-        println(db.rapport())
     }
 
     @Test
@@ -120,5 +100,36 @@ class DbIntegrationTest {
         assertEquals(lagretKladd.id, lagretSoeknad.id)
         assertEquals(lagretKladd.fnr, lagretSoeknad.fnr)
         assertEquals(endretSoeknad.soeknad, lagretSoeknad.soeknad)
+    }
+
+    @Test
+    fun `Kladd skal kunne slettes`() {
+        val fnr = "44444444444"
+        val json = """{"harSamtykket":true}"""
+        val soeknad = UlagretSoeknad(fnr, json)
+
+        assertNull(db.finnKladd(fnr))
+        assertNotNull(db.lagreKladd(soeknad))
+
+        assertTrue(db.slettKladd(fnr))
+        assertNull(db.finnKladd(fnr))
+
+    }
+
+
+    @Test
+    fun `Ferdigstilte søknader skal ikke slettes som kladd`() {
+        val fnr = "55555555555"
+        val json = """{"harSamtykket":true}"""
+        val soeknad = UlagretSoeknad(fnr, json)
+
+        assertNull(db.finnKladd(fnr))
+
+        val lagretKladd = db.lagreKladd(soeknad)
+        assertNotNull(lagretKladd)
+
+        db.soeknadFerdigstilt(lagretKladd)
+        assertFalse(db.slettKladd(fnr))
+
     }
 }

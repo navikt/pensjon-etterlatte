@@ -108,4 +108,8 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
+    override fun slettKladd(fnr: String): Boolean {
+        TODO("Not yet implemented")
+    }
+
 }

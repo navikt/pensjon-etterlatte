@@ -3,13 +3,17 @@ package soknad
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
+import io.ktor.client.engine.mock.MockRequestHandleScope
 import io.ktor.client.engine.mock.respond
+import io.ktor.client.engine.mock.respondError
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.request.HttpResponseData
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.headersOf
+import io.ktor.utils.io.ByteReadChannel
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.soknad.SoeknadService
@@ -23,6 +27,9 @@ internal class SoeknadServiceTest {
 
     private val headers = headersOf(HttpHeaders.ContentType, "application/json")
 
+    private val customresponses = mutableListOf<MockRequestHandleScope.()->HttpResponseData>()
+
+
     private val mockEngine = MockEngine {
         when (it.url.encodedPath) {
             "/kladd" -> {
@@ -32,6 +39,10 @@ internal class SoeknadServiceTest {
                     }
                     HttpMethod.Get -> {
                         respond(mockSoeknad.toJson(), HttpStatusCode.OK, headers)
+                    }
+                    HttpMethod.Delete -> {
+                        (customresponses.pop()?:{respond(ByteReadChannel.Empty, HttpStatusCode.NoContent)})()
+
                     }
                     else -> {
                         error("Unhandled ${it.url.encodedPath}")
@@ -77,4 +88,26 @@ internal class SoeknadServiceTest {
             assertEquals("OK", result.response)
         }
     }
+
+    @Test
+    fun slettKladdOK() {
+        runBlocking {
+            val result = service.slettKladd()
+
+            assertEquals(HttpStatusCode.NoContent, result.response)
+        }
+    }
+
+    @Test
+    fun slettKladdFinnesIkke() {
+        runBlocking {
+            customresponses.add{respondError(HttpStatusCode.Gone)}
+            val result = service.slettKladd()
+
+            assertEquals(HttpStatusCode.NoContent, result.response)
+        }
+    }
+
 }
+
+private fun <E> MutableList<E>.pop(): E? = if(isEmpty()) null else removeAt(0)

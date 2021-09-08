@@ -18,6 +18,7 @@ interface SoeknadRepository {
     fun slettArkiverteSoeknader()
     fun soeknadFerdigstilt(soeknad: LagretSoeknad)
     fun finnKladd(fnr: String): LagretSoeknad?
+    fun slettKladd(fnr: String): Boolean
 }
 
 interface StatistikkRepository {
@@ -71,6 +72,11 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         """.trimIndent()
         val FINN_KLADD = """
             SELECT s.id, s.data FROM soeknad s
+            WHERE s.fnr = ? AND NOT EXISTS ( 
+              select 1 from hendelse h where h.soeknad = s.id 
+              AND h.status in ('${Status.ferdigstilt}', '${Status.arkiveringsfeil}','${Status.arkivert}' ,'${Status.sendt}'))""".trimIndent()
+        val SLETT_KLADD = """
+            DELETE FROM soeknad s
             WHERE s.fnr = ? AND NOT EXISTS ( 
               select 1 from hendelse h where h.soeknad = s.id 
               AND h.status in ('${Status.ferdigstilt}', '${Status.arkiveringsfeil}','${Status.arkivert}' ,'${Status.sendt}'))""".trimIndent()
@@ -149,6 +155,15 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             }
         }
     }
+
+    override fun slettKladd(fnr: String): Boolean {
+        return using(sessionOf(dataSource)) { session ->
+            session.transaction { tx ->
+                tx.run(queryOf(SLETT_KLADD,fnr).asUpdate)
+            }
+        } > 0
+    }
+
 
     override fun usendteSoeknader(): List<LagretSoeknad> {
         return using(sessionOf(dataSource)) { session ->
