@@ -1,4 +1,4 @@
-import { erDato, ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "./dato";
+import { antallAarMellom, erDato, ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "./dato";
 
 describe("Verifiser gyldighet av periode mellom samlivsbrudd og dødsfall", () => {
     it("Mer enn fem år mellom samlivsbrudd og dødsfall", () => {
@@ -101,5 +101,12 @@ describe("Funksjon fraDato fungerer som forventet", () => {
 
     it("tilfeldige tall er ikke gyldig", () => {
         expect(erDato("1531531908")).toBeFalsy();
+    })
+
+    it("Skal hente antall år i mellom to datoer", () => {
+        expect(antallAarMellom("2000-01-01", "2015-01-01")).toBe(15)
+        expect(antallAarMellom("2000-01-01", "2000-12-01")).toBe(0)
+        expect(antallAarMellom("2000-01-01", "2010-12-01")).toBe(10)
+        expect(antallAarMellom("2000-12-01", "2005-01-01")).toBe(4)
     })
 })
