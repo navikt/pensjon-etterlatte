@@ -7,6 +7,7 @@ import { ISoeker, OpploesningAarsak } from "../../../../typer/person";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
 import { SkjemaGruppe } from "nav-frontend-skjema";
+import { RHFFoedselsnummerInput, RHFInput } from "../../../felles/RHFInput";
 
 const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
     const { t } = useTranslation();
@@ -20,6 +21,14 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
     return (
         <>
             <SkjemaGruppe>
+                <RHFInput
+                    name={"nySivilstatus.samboerskap.samboer.navn"}
+                    label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
+                />
+                <RHFFoedselsnummerInput
+                    name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
+                    label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.foedselsnummer")}
+                />
                 <Datovelger
                     name={"nySivilstatus.samboerskap.inngaattDato"}
                     label={t("omDegOgAvdoed.nySivilstatus.samboerskap.inngaattDato")}
@@ -73,9 +82,7 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
             )}
 
             {gyldigVarighet === IValg.NEI && (
-                <Alert variant={"warning"}>
-                    {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                </Alert>
+                <Alert variant={"warning"}>{t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}</Alert>
             )}
         </>
     );

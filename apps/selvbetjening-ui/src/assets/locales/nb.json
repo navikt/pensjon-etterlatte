@@ -212,6 +212,7 @@
         "samboer": {
           "tittel": "Opplysninger om samboer",
           "navn": "Navn",
+          "foedselsnummer": "Fødselsnummer",
           "harInntekt.svar": "Har samboer inntekt?",
           "harInntekt.samletBruttoinntektPrAar": "Samlet bruttoinntekt per år"
         }
@@ -713,7 +714,8 @@
             "required": "Oppgi samboers navn"
           },
           "foedselsnummer": {
-            "required": "Oppgi samboers fødselsnummer"
+            "required": "Oppgi samboers fødselsnummer",
+            "validate": "Ugyldig fødselsnummer"
           },
           "harInntekt": {
             "samletBruttoinntektPrAar": {
