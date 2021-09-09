@@ -393,10 +393,6 @@
     "kapitalinntekt": "Kapitalinntekt",
     "andreYtelser": "Andre ytelser"
   },
-  "gravidEllerNyligFoedt": {
-    "venterEllerHarNyligFoedt": "Ja",
-    "ingen": "Nei"
-  },
   "arbeidsforholdType": {
     "selvstendig": "Ja, er selvstendig næringsdrivende",
     "arbeidstaker": "Nei, er arbeidstaker",

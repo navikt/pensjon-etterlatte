@@ -3,17 +3,17 @@ import "../../felles/Infokort.scss";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { GravidEllerNyligFoedt, IBarn, IOmBarn } from "../../../typer/person";
+import { IBarn, IOmBarn } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import BarnInfokort from "./BarnInfokort";
 import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
-import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
 import { Alert, BodyShort, Button, Modal, Panel, Title } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { RHFRadio } from "../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
 
@@ -110,12 +110,9 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                     </Modal>
                 </SkjemaGruppe>
 
-                <RHFRadio
+                <RHFSpoersmaalRadio
                     name={"gravidEllerNyligFoedt"}
                     legend={t("omBarn.gravidEllerNyligFoedt")}
-                    radios={Object.values(GravidEllerNyligFoedt).map(value => {
-                        return { label: t(value), value } as RadioProps
-                    })}
                 />
 
                 <Navigasjon

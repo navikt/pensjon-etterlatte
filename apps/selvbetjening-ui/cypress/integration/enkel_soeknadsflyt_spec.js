@@ -1,6 +1,7 @@
 import mockSoeknad from "../../src/assets/dummy-soeknad.json";
 import ObjectTreeReader from "../../src/utils/ObjectTreeReader";
 import i18n from "i18next";
+import { IValg } from "../../src/typer/Spoersmaal";
 
 describe("Skal gå igjennom hele søknaden uten feil", () => {
     it("Skal åpne startsiden og starte en søknad", () => {
@@ -130,7 +131,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             getById("leggTilBarn").click();
         });
 
-        selectValue(mockSoeknad.opplysningerOmBarn.gravidEllerNyligFoedt);
+        selectValue(IValg.JA);
 
         gaaTilNesteSide();
     });
