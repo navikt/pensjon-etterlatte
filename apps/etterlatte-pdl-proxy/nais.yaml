@@ -45,7 +45,8 @@ spec:
     - secret: barnepensjon-secrets
   env:
     - name: PDL_URL
-      value: https://pdl-api.nais.preprod.local/graphql
+      #value: https://pdl-api.nais.preprod.local/graphql
+      value: https://pdl-api.dev-fss.nais.io/graphql
   prometheus:
     enabled: true
     path: /internal/prometheus
@@ -64,3 +65,8 @@ spec:
         - application: sjekk-adressebeskyttelse
           namespace: etterlatte
           cluster: dev-gcp
+    outbound:
+      rules:
+        - application: pdl-api
+          namespace: pdl
+          cluster: dev-fss
