@@ -49,7 +49,7 @@ fun pdlhttpclient() = HttpClient(OkHttp) {
     install(Auth) {
         clientCredential {
             config = env.toMutableMap()
-                .apply { put("AZURE_APP_OUTBOUND_SCOPE", "api://pdl-api.default.svc.nais.local/graphql") }
+                .apply { put("AZURE_APP_OUTBOUND_SCOPE", "api://pdl-api.default.svc.nais.local/.default") }
         }
     }
 }.also { Runtime.getRuntime().addShutdownHook(Thread { it.close() }) }
