@@ -45,7 +45,7 @@ spec:
     - secret: barnepensjon-secrets
   env:
     - name: PDL_URL
-      value: http://pdl-api.default.svc.nais.local/graphql
+      value: https://pdl-api.nais.preprod.local/graphql
   prometheus:
     enabled: true
     path: /internal/prometheus
