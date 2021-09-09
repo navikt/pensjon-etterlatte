@@ -47,6 +47,7 @@ fun Route.pdl(config: Config) {
                 }
             } else if (tokenxToken != null) {
                 //do something
+                logger.info("Her skulle det vært håndtert tokenX")
             }
         }
     }
