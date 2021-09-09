@@ -7,17 +7,44 @@
 </head>
 <body>
 
-{{> eypdfgen/partials/stoenadType}}
+{{#each this}}
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2">
+                <h4>{{tittel}}</h4>
+            </th>
+        </tr>
+        </thead>
 
-{{> eypdfgen/partials/opplysningerOmSoekeren}}
+        {{#each elementer}}
+            <tbody>
+            <tr>
+                <td colspan="2">
+                    <table class="inner">
+                        {{#if this.tittel}}
+                            <thead>
+                            <tr>
+                                <th colspan="2">{{this.tittel}}</th>
+                            </tr>
+                            </thead>
+                        {{/if}}
 
-{{> eypdfgen/partials/opplysningerOmBarn}}
-
-{{> eypdfgen/partials/tidligereArbeidsforhold}}
-
-{{> eypdfgen/partials/naavaerendeArbeidsforhold}}
-
-{{> eypdfgen/partials/andreYtelser}}
+                        <tbody>
+                        {{#each innhold}}
+                            <tr>
+                                <td>{{this.spoersmaal}}</td>
+                                <td>{{this.svar}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        {{/each}}
+    </table>
+{{/each}}
 
 </body>
 </html>
