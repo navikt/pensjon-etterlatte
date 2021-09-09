@@ -50,6 +50,7 @@ const Selvstendig = () => {
                         name={"selvstendig.forventerEndretInntekt.beskrivelse"}
                         bredde={"S"}
                         label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
+                        placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.placeholder")}
                     />
                 </SkjemaGruppe>
             )}

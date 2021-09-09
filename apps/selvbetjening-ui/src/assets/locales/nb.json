@@ -94,8 +94,8 @@
       "orgnrplaceholder": "9 siffer",
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
-        "beskrivelse": "Forventer du noen endring i næringen som følge av dødsfall?",
-        "hvorfor": "Det har betydning for hvor mye gjenlevendepensjon du får."
+        "beskrivelse": "Hva er grunnen til endringene?",
+        "placeholder": "F.eks. endring i forventet inntekt eller drift av næring"
       }
     },
     "tidligereArbeidsforhold": {
