@@ -20,10 +20,11 @@ class AppBuilder(private val props: Map<String, String>) {
         install(Auth) {
             clientCredential {
                 config = props.toMutableMap()
-                    .apply { put("AZURE_APP_OUTBOUND_SCOPE", "api://dev-fss.etterlatte.etterlatte-proxy/.default") }
+                    .apply { put("AZURE_APP_OUTBOUND_SCOPE", "api://dev-gcp.etterlatte.etterlatte-pdl-proxy/pdl") }
             }
         }
     }.also { Runtime.getRuntime().addShutdownHook(Thread { it.close() }) }
 
 
 }
+
