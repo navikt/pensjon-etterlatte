@@ -7,7 +7,6 @@ import { ISoeker, OpploesningAarsak } from "../../../../typer/person";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { RHFFoedselsnummerInput, RHFInput } from "../../../felles/RHFInput";
 
 const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
     const { t } = useTranslation();
@@ -20,31 +19,19 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
 
     return (
         <>
-            <SkjemaGruppe>
-                <RHFInput
-                    name={"nySivilstatus.samboerskap.samboer.navn"}
-                    label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
-                />
-                <RHFFoedselsnummerInput
-                    name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
-                    label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.foedselsnummer")}
-                />
-                <Datovelger
-                    name={"nySivilstatus.samboerskap.inngaattDato"}
-                    label={t("omDegOgAvdoed.nySivilstatus.samboerskap.inngaattDato")}
-                    maxDate={new Date()}
-                />
-            </SkjemaGruppe>
-
             <RHFSpoersmaalRadio
                 name={"nySivilstatus.samboerskap.hattBarnEllerVaertGift"}
                 legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
             />
 
-            {hattBarnEllerVaertGift === IValg.NEI && <SamboerSkjema />}
+            {hattBarnEllerVaertGift === IValg.NEI && (
+                <SkjemaGruppe>
+                    <SamboerSkjema />
+                </SkjemaGruppe>
+            )}
 
-            {hattBarnEllerVaertGift === IValg.JA && (
-                <>
+            {hattBarnEllerVaertGift === IValg.NEI && (
+                <SkjemaGruppe>
                     <RHFSpoersmaalRadio
                         name={"nySivilstatus.samboerskap.samboerskapOpploest"}
                         legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboerskapOpploest")}
@@ -68,7 +55,7 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                             ]}
                         />
                     )}
-                </>
+                </SkjemaGruppe>
             )}
 
             {aarsakForOpploesningen === OpploesningAarsak.samlivsbrudd && (
