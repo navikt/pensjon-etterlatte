@@ -26,7 +26,11 @@ const Selvstendig = () => {
                     label={t("dinSituasjon.selvstendig.beskrivelse")}
                 />
 
-                <Datovelger name={"selvstendig.startDato"} label={t("dinSituasjon.selvstendig.startDato")} />
+                <Datovelger
+                    name={"selvstendig.startDato"}
+                    label={t("dinSituasjon.selvstendig.startDato")}
+                    maxDate={new Date()}
+                />
             </SkjemaGruppe>
 
             <SkjemaGruppe>
