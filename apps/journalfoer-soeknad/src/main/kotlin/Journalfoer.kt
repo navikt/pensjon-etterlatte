@@ -42,7 +42,7 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
         val journalpostrequest = journalpostInfo?.let {
 
             JournalpostRequest(
-                tittel = journalpostInfo.tittel + lagretSoeknadId,
+                tittel = journalpostInfo.tittel,
                 journalpostType = JournalPostType.INNGAAENDE,
                 journalfoerendeEnhet = journalpostInfo.journalfoerendeEnhet,
                 tema = "PEN",
