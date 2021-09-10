@@ -1,5 +1,7 @@
 package no.nav.etterlatte.soknad
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+
 data class Innhold(
     val spoersmaal: String,
     val svar: Any
@@ -10,6 +12,7 @@ data class Element(
     val innhold: List<Innhold>
 )
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class Gruppe(
     val tittel: String,
     val elementer: List<Element>
