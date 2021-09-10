@@ -132,10 +132,12 @@ internal class SoeknadServiceTest {
 
 private fun <E> MutableList<E>.pop(): E? = if(isEmpty()) null else removeAt(0)
 
-private fun opprettFer/*digSoeknad(val grupper: Int = 5): Soeknad {
+/*
+private fun opprettFerdigSoeknad(val grupper: Int = 5): Soeknad {
     return IntRange(0, grupper).map {
         Gruppe("Tittel $it", listOf(
             Element(innhold = )
         ))
     }.toMutableList()
-}*/
+}
+*/
