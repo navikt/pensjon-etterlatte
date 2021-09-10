@@ -280,6 +280,7 @@
     "avdoedesSaerkullsbarn": "Avdøde",
     "egneSaerkullsbarn": "Jeg",
     "relasjon": "Hvem er foreldre til barnet?",
+    "relasjonHjelpetekst": "Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.",
     "harBarnetVerge": {
       "svar": "Er det oppnevnt en verge for barnet?",
       "navn": "Navn på verge",
