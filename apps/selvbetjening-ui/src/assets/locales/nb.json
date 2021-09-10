@@ -95,7 +95,7 @@
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
         "beskrivelse": "Hva er grunnen til endringene?",
-        "beskrivelsePlaceholder": "F.eks. endringer i forventet inntekt eller drift av næring",
+        "beskrivelsePlaceholder": "F.eks. endring i forventet inntekt eller drift av næring"
       }
     },
     "tidligereArbeidsforhold": {
