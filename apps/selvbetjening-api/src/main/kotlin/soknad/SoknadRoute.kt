@@ -18,12 +18,15 @@ import io.ktor.routing.route
 import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.common.RetryResult
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneId
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
-            val soeknad = jacksonObjectMapper().treeToValue<Soeknad>(call.receive<JsonNode>())!!
+            val soeknad = call.receive<Soeknad>().apply {
+                mottattDato = LocalDateTime.now(ZoneId.of("Europe/Oslo")).toString()
+            }
 
             val response = service.sendSoknad(soeknad)
 
@@ -33,7 +36,7 @@ fun Route.soknadApi(service: SoeknadService) {
 
     route("/api/kladd") {
         post {
-            val soeknadJson = call.receive<JsonNode>().also(::addMottattDato)
+            val soeknadJson = call.receive<JsonNode>()
 
             val response = service.lagreKladd(soeknadJson)
 

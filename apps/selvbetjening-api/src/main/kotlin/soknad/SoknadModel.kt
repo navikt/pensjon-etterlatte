@@ -1,6 +1,7 @@
 package no.nav.etterlatte.soknad
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import java.time.LocalDateTime
 
 data class Innhold(
     val spoersmaal: String,
@@ -18,17 +19,23 @@ data class Gruppe(
     val elementer: List<Element>
 )
 
-typealias Soeknad = MutableList<Gruppe>
+@JsonIgnoreProperties(ignoreUnknown = true)
+data class Soeknad(
+    var mottattDato: String? = null,
+    val oppsummering: List<Gruppe>
+)
 
 fun Soeknad.validate() {
-    if (this.isEmpty())
+    val oppsummering = this.oppsummering
+
+    if (oppsummering.isEmpty())
         throw Exception("Søknad mangler grupper")
-    else if (this.size < 5)
+    else if (oppsummering.size < 5)
         throw Exception("Søknad inneholder færre grupper enn forventet")
-    else if (this.size > 5)
+    else if (oppsummering.size > 5)
         throw Exception("Søknad inneholder flere grupper enn forventet")
     else {
-        this.forEach { gruppe ->
+        oppsummering.forEach { gruppe ->
             if (gruppe.tittel.isBlank())
                 throw Exception("Søknad inneholder gruppe uten tittel")
             else if (gruppe.elementer.isEmpty())
