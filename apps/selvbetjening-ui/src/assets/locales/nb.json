@@ -313,10 +313,6 @@
   },
   "soeknadKvittering": {
     "tittel": "Søknaden din er sendt til oss",
-    "lenkeNedlastning": {
-      "href": "#",
-      "tekst": "Last ned kvitteringen"
-    },
     "kontakt": "Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.",
     "endring": {
       "tittel": "Du må melde fra om endringer",
