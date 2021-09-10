@@ -2,7 +2,7 @@ import amplitude from "amplitude-js";
 import { useEffect, useState } from "react";
 
 export enum LogEvents {
-    AAPNE_SOKNAD = "etterlatte.aapneSoknad",
+    AAPNE_SOKNAD = "skjema startet",
 }
 
 export const logEvent = (eventName: LogEvents, eventData?: any): void => {
