@@ -55,7 +55,7 @@ const SkiltFraAvdoede = () => {
                     className={"kol"}
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
                     label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
-                    maxDate={datoForDoedsfallet}
+                    maxDate={datoForDoedsfallet || new Date()}
                 />
 
                 <Datovelger
@@ -63,7 +63,7 @@ const SkiltFraAvdoede = () => {
                     name={"forholdTilAvdoede.datoForSkilsmisse"}
                     label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse")}
                     minDate={datoForInngaattPartnerskap}
-                    maxDate={datoForDoedsfallet}
+                    maxDate={datoForDoedsfallet || new Date()}
                 />
             </SkjemaGruppe>
 

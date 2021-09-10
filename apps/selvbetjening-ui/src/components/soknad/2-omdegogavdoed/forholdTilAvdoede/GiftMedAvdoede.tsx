@@ -17,6 +17,7 @@ const GiftMedAvdoede = () => {
     const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
 
     const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
+    const datoforDoedsfallet = watch("avdoed.datoForDoedsfallet")
 
     return (
         <>
@@ -24,6 +25,7 @@ const GiftMedAvdoede = () => {
                 <Datovelger
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
                     label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
+                    maxDate={datoforDoedsfallet || new Date()}
                     description={
                         <HvorforSpoerVi>
                             {t("omDegOgAvdoed.forholdTilAvdoede.hvorforDatoForInngaattPartnerskap")}

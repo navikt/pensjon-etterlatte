@@ -17,6 +17,7 @@ const SamboerMedAvdoede = () => {
     const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
     const tidligereGift = watch("forholdTilAvdoede.tidligereGift");
     const omsorgForBarn = watch("forholdTilAvdoede.omsorgForBarn");
+    const datoforDoedsfallet = watch("avdoed.datoForDoedsfallet")
 
     const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
 
@@ -48,6 +49,7 @@ const SamboerMedAvdoede = () => {
                         <Datovelger
                             name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
                             label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
+                            maxDate={datoforDoedsfallet || new Date()}
                         />
                     </SkjemaGruppe>
 
