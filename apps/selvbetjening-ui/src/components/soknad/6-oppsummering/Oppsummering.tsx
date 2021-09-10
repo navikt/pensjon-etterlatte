@@ -35,7 +35,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         setSenderSoeknad(true);
         setError(false);
 
-        sendSoeknad(soeknad)
+        sendSoeknad(soeknadOppsummering)
             .then(() => history.push(`/soknad/sendt`))
             .catch((error) => {
                 console.log(error);
