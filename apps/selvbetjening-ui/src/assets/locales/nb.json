@@ -95,7 +95,7 @@
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
         "beskrivelse": "Hva er grunnen til endringene?",
-        "placeholder": "F.eks. endring i forventet inntekt eller drift av næring"
+        "beskrivelsePlaceholder": "F.eks. endringer i forventet inntekt eller drift av næring",
       }
     },
     "tidligereArbeidsforhold": {
@@ -546,11 +546,9 @@
       "type": {
         "required": "Oppgi næringstype"
       },
-      "endringIfmDoedsfall": {
-        "required": "Oppgi om det har skjedd en endring i næringen som følge av dødsfall"
-      },
       "orgnr": {
-        "required": "Du må fylle ut gyldig organisasjonsnummer. 9 siffer"
+        "required": "Du må fylle ut gyldig organisasjonsnummer. 9 siffer",
+        "pattern": "Organisasjonsnummer skal være 9 siffer"
       },
       "forventerEndretInntekt": {
         "svar": {

@@ -24,11 +24,14 @@ export interface IArbeidsforhold {
 }
 
 export interface ISelvstendigNaeringsdrivende {
-    // que pasa, se tegninger... her er det noe muffens
     beskrivelse?: string;
     startDato?: Date;
+    orgnr?: string;
     type?: string;
-    endringIfmDoedsfall?: string;
+    forventerEndretInntekt?: {
+        svar?: IValg;
+        beskrivelse?: string;
+    }
 }
 
 export interface ITidligereArbeidsforhold {

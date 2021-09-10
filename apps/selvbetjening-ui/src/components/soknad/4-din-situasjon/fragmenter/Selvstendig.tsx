@@ -1,4 +1,4 @@
-import { RHFInput, RHFValutaInput } from "../../../felles/RHFInput";
+import { RHFInput } from "../../../felles/RHFInput";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
@@ -34,7 +34,7 @@ const Selvstendig = () => {
                     name={"selvstendig.orgnr"}
                     placeholder={t("dinSituasjon.selvstendig.orgnrplaceholder")}
                     label={t("dinSituasjon.selvstendig.orgnr")}
-                    rules={{ pattern: /^\d[0-9\s]*$/ }}
+                    rules={{ pattern: /^\d{9}$/ }}
                 />
             </SkjemaGruppe>
 
@@ -46,11 +46,10 @@ const Selvstendig = () => {
 
             {forventerEndretInntekt === IValg.JA && (
                 <SkjemaGruppe>
-                    <RHFValutaInput
+                    <RHFInput
                         name={"selvstendig.forventerEndretInntekt.beskrivelse"}
-                        bredde={"S"}
                         label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
-                        placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.placeholder")}
+                        placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
                     />
                 </SkjemaGruppe>
             )}
