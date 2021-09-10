@@ -17,6 +17,9 @@ import io.ktor.http.headersOf
 import io.ktor.utils.io.ByteReadChannel
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.common.toJson
+import no.nav.etterlatte.soknad.Element
+import no.nav.etterlatte.soknad.Gruppe
+import no.nav.etterlatte.soknad.Soeknad
 import no.nav.etterlatte.soknad.SoeknadService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
@@ -40,7 +43,7 @@ internal class SoeknadServiceTest {
                         respond("OK", HttpStatusCode.OK, headers)
                     }
                     HttpMethod.Get -> {
-                        (customresponses.pop()?:{ respond(mockSoeknad.toJson(), HttpStatusCode.OK, headers)})()
+                        (customresponses.removeFirstOrNull() ?: { respond(mockSoeknad.toJson(), HttpStatusCode.OK, headers)})()
 
                     }
                     HttpMethod.Delete -> {
@@ -105,14 +108,16 @@ internal class SoeknadServiceTest {
         }
     }
 
-    @Test
+    /*@Test
     fun sendSoeknad() {
         runBlocking {
-            val result = service.sendSoknad(mockSoeknad)
+            val soeknad = opprettFerdigSoeknad()
+
+            val result = service.sendSoknad(soeknad)
 
             assertEquals("OK", result.response)
         }
-    }
+    }*/
 
     @Test
     fun slettKladdOK() {
@@ -126,3 +131,11 @@ internal class SoeknadServiceTest {
 }
 
 private fun <E> MutableList<E>.pop(): E? = if(isEmpty()) null else removeAt(0)
+
+private fun opprettFer/*digSoeknad(val grupper: Int = 5): Soeknad {
+    return IntRange(0, grupper).map {
+        Gruppe("Tittel $it", listOf(
+            Element(innhold = )
+        ))
+    }.toMutableList()
+}*/

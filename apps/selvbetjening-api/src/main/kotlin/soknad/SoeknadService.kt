@@ -14,11 +14,13 @@ import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.retry
 
 class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
-    suspend fun sendSoknad(json: JsonNode): RetryResult {
+    suspend fun sendSoknad(soeknad: Soeknad): RetryResult {
+        soeknad.validate()
+
         return retry {
             innsendtSoeknadKlient.post<String> ("soeknad"){
                 contentType(Json)
-                body = json
+                body = soeknad
             }
         }
     }

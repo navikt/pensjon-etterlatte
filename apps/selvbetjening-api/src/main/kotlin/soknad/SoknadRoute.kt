@@ -20,9 +20,9 @@ import java.time.ZoneId
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
-            val soeknadJson = call.receive<JsonNode>().also(::addMottattDato)
+            val soeknad = call.receive<Soeknad>()
 
-            val response = service.sendSoknad(soeknadJson)
+            val response = service.sendSoknad(soeknad)
 
             svarKlient(response)
         }
