@@ -214,7 +214,8 @@
           "navn": "Navn",
           "foedselsnummer": "Fødselsnummer",
           "harInntekt.svar": "Har samboer inntekt?",
-          "harInntekt.samletBruttoinntektPrAar": "Samlet bruttoinntekt per år"
+          "harInntekt.samletBruttoinntektPrAar": "Samlet bruttoinntekt per år",
+          "harInntekt.inntektstype": "Inntektstype"
         }
       },
       "aarsakOpploesning": {
