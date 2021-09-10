@@ -2,6 +2,9 @@ package no.nav.etterlatte.soknad
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
+import com.fasterxml.jackson.module.kotlin.treeToValue
 import io.ktor.application.ApplicationCall
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
@@ -20,7 +23,7 @@ import java.time.ZoneId
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
-            val soeknad = call.receive<Soeknad>()
+            val soeknad = jacksonObjectMapper().treeToValue<Soeknad>(call.receive<JsonNode>())!!
 
             val response = service.sendSoknad(soeknad)
 
