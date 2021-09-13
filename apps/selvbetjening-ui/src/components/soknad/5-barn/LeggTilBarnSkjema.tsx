@@ -11,6 +11,8 @@ import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
 import { Button, Title } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
+import Hjelpetekst from "../../felles/Hjelpetekst";
+import "./LeggTilBarnSkjema.scss"
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -113,7 +115,13 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                 <RHFRadio
                     name={"relasjon"}
-                    legend={t("omBarn.relasjon")}
+                    legend={(
+                            <span className={"hjelpetekst-container"}>
+                                {t("omBarn.relasjon") }&nbsp;
+                                <Hjelpetekst eventType={"onHover"}>{t("omBarn.relasjonHjelpetekst")} </Hjelpetekst>
+                            </span>
+                        )}
+
                     radios={Object.values(BarnRelasjon).map(value => {
                         return { label: t(value), value } as RadioProps
                     })}

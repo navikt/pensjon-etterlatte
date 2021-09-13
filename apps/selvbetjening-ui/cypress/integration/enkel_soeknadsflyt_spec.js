@@ -182,6 +182,7 @@ const sammenlignRequestMedInputdata = (request) => {
             oppholdUtland.tilDato = undefined;
         });
         soeknad.dinSituasjon.arbeidsforhold.startDato = undefined;
+        soeknad.omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap = undefined
     });
 
     expect(request).to.deep.equal(mockSoeknad);

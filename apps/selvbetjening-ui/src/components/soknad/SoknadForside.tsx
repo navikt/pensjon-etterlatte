@@ -9,10 +9,11 @@ import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
 import { BodyLong, Button, Link, Title } from "@navikt/ds-react";
-import { logEvent, LogEvents } from "../../utils/amplitude";
+import { LogEvents, useAmplitude } from "../../utils/amplitude";
 
 const SoknadForside = () => {
     const history = useHistory();
+    const { logEvent } = useAmplitude();
 
     const { t } = useTranslation();
 
@@ -26,7 +27,7 @@ const SoknadForside = () => {
 
     const startSoeknad = () => {
         const foersteSteg = steg[0];
-        logEvent(LogEvents.AAPNE_SOKNAD, { data: "testverdi" });
+        logEvent(LogEvents.AAPNE_SOKNAD);
         history.push(`/soknad/steg/${foersteSteg.path}`);
     };
 

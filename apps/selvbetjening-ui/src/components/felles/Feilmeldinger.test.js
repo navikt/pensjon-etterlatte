@@ -81,20 +81,6 @@ const testErrors = {
                 name: "selvstendig.beskrivelse",
             },
         },
-        type: {
-            type: "required",
-            message: "",
-            ref: {
-                name: "selvstendig.type",
-            },
-        },
-        endringIfmDoedsfall: {
-            type: "required",
-            message: "",
-            ref: {
-                name: "selvstendig.endringIfmDoedsfall",
-            },
-        },
     },
 };
 

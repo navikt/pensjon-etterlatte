@@ -5,9 +5,11 @@ import UgyldigSoeker from "./components/UgyldigSoeker";
 import Soeknad from "./components/soknad/Soeknad";
 import { ContentContainer } from "@navikt/ds-react";
 import useInnloggetBruker from "./hooks/useInnloggetBruker";
+import { useAmplitude } from "./utils/amplitude";
 
 const App = () => {
     useInnloggetBruker();
+    useAmplitude();
 
     return (
         <>

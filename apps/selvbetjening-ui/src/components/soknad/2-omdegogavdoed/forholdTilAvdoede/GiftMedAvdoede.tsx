@@ -6,17 +6,17 @@ import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useTranslation } from "react-i18next";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 
 const GiftMedAvdoede = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
 
-    const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap")
+    const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap");
     const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
 
     const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
+    const datoforDoedsfallet = watch("avdoed.datoForDoedsfallet");
 
     return (
         <>
@@ -24,15 +24,11 @@ const GiftMedAvdoede = () => {
                 <Datovelger
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
                     label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
-                    description={
-                        <HvorforSpoerVi>
-                            {t("omDegOgAvdoed.forholdTilAvdoede.hvorforDatoForInngaattPartnerskap")}
-                        </HvorforSpoerVi>
-                    }
+                    maxDate={datoforDoedsfallet || new Date()}
                 />
             </SkjemaGruppe>
 
-            {(partnerskapMindreEnnFemAar) && (
+            {partnerskapMindreEnnFemAar && (
                 <>
                     <RHFSpoersmaalRadio
                         name={"forholdTilAvdoede.fellesBarn"}
@@ -48,7 +44,7 @@ const GiftMedAvdoede = () => {
                 </>
             )}
         </>
-    )
+    );
 };
 
 export default GiftMedAvdoede;

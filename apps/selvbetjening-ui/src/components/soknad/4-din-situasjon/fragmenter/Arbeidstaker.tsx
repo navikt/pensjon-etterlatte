@@ -31,7 +31,7 @@ const Arbeidstaker = () => {
                 <Datovelger
                     name={"arbeidsforhold.startDato"}
                     label={t("dinSituasjon.arbeidsforhold.startDato")}
-                    maxDate={watch("arbeidsforhold.sluttDato")}
+                    maxDate={new Date()}
                 />
             </SkjemaGruppe>
 

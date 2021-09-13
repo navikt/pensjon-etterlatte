@@ -1,29 +1,31 @@
 import amplitude from "amplitude-js";
+import { useEffect } from "react";
 
 export enum LogEvents {
-    AAPNE_SOKNAD = "etterlatte.aapneSoknad",
+    AAPNE_SOKNAD = "skjema startet",
 }
 
-export const initAmplitude = () => {
-    if (amplitude) {
-        amplitude.getInstance().init("default", "", {
+export const useAmplitude = () => {
+    useEffect(() => {
+        amplitude?.getInstance().init("default", "", {
             apiEndpoint: "amplitude.nav.no/collect-auto",
             saveEvents: false,
             includeUtm: true,
             includeReferrer: true,
             platform: window.location.toString(),
         });
-    }
-};
+    }, []);
 
-export const logEvent = (eventName: LogEvents, eventData?: any): void => {
-    setTimeout(() => {
-        try {
-            if (amplitude) {
-                amplitude.getInstance().logEvent(eventName, eventData);
+    const logEvent = (eventName: LogEvents, eventData?: any): void => {
+        setTimeout(() => {
+            try {
+                if (amplitude) {
+                    amplitude.getInstance().logEvent(eventName, eventData);
+                }
+            } catch (error) {
+                console.error(error);
             }
-        } catch (error) {
-            console.error(error);
-        }
-    }, 0);
+        }, 0);
+    };
+    return { logEvent };
 };

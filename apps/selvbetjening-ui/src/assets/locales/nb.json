@@ -95,7 +95,7 @@
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
         "beskrivelse": "Hva er grunnen til endringene?",
-        "placeholder": "F.eks. endring i forventet inntekt eller drift av næring"
+        "beskrivelsePlaceholder": "F.eks. endring i forventet inntekt eller drift av næring"
       }
     },
     "tidligereArbeidsforhold": {
@@ -214,7 +214,8 @@
           "navn": "Navn",
           "foedselsnummer": "Fødselsnummer",
           "harInntekt.svar": "Har samboer inntekt?",
-          "harInntekt.samletBruttoinntektPrAar": "Samlet bruttoinntekt per år"
+          "harInntekt.samletBruttoinntektPrAar": "Samlet bruttoinntekt per år",
+          "harInntekt.inntektstype": "Inntektstype"
         }
       },
       "aarsakOpploesning": {
@@ -280,6 +281,7 @@
     "avdoedesSaerkullsbarn": "Avdøde",
     "egneSaerkullsbarn": "Jeg",
     "relasjon": "Hvem er foreldre til barnet?",
+    "relasjonHjelpetekst": "Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.",
     "harBarnetVerge": {
       "svar": "Er det oppnevnt en verge for barnet?",
       "navn": "Navn på verge",
@@ -311,10 +313,6 @@
   },
   "soeknadKvittering": {
     "tittel": "Søknaden din er sendt til oss",
-    "lenkeNedlastning": {
-      "href": "#",
-      "tekst": "Last ned kvitteringen"
-    },
     "kontakt": "Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.",
     "endring": {
       "tittel": "Du må melde fra om endringer",
@@ -519,7 +517,7 @@
         "required": "Oppgi din relasjon til avdøde"
       },
       "datoForInngaattPartnerskap": {
-        "required": "Oppgi dato for inngått parnterskap"
+        "required": "Oppgi dato"
       },
       "datoForSkilsmisse": {
         "required": "Oppgi dato for skilsmisse (ikke separasjon)"
@@ -549,11 +547,9 @@
       "type": {
         "required": "Oppgi næringstype"
       },
-      "endringIfmDoedsfall": {
-        "required": "Oppgi om det har skjedd en endring i næringen som følge av dødsfall"
-      },
       "orgnr": {
-        "required": "Du må fylle ut gyldig organisasjonsnummer. 9 siffer"
+        "required": "Du må fylle ut gyldig organisasjonsnummer. 9 siffer",
+        "pattern": "Organisasjonsnummer skal være 9 siffer"
       },
       "forventerEndretInntekt": {
         "svar": {

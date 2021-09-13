@@ -13,6 +13,7 @@ const  TidligereSamboerMedAvdoede = () => {
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
 
+    const datoForInngaattSamboerskap = watch("forholdTilAvdoede.datoForInngaattSamboerskap")
     const datoForSamlivsbrudd = watch("forholdTilAvdoede.datoForSamlivsbrudd")
     const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet")
     const fellesBarn = watch("forholdTilAvdoede.fellesBarn");
@@ -42,7 +43,7 @@ const  TidligereSamboerMedAvdoede = () => {
                             <Datovelger
                                 name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
                                 label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
-                                maxDate={datoForDoedsfallet}
+                                maxDate={datoForDoedsfallet || new Date()}
                             />
                         </div>
 
@@ -50,7 +51,8 @@ const  TidligereSamboerMedAvdoede = () => {
                             <Datovelger
                                 name={"forholdTilAvdoede.datoForSamlivsbrudd"}
                                 label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd")}
-                                maxDate={datoForDoedsfallet}
+                                minDate={datoForInngaattSamboerskap}
+                                maxDate={datoForDoedsfallet || new Date()}
                             />
                         </div>
                     </SkjemaGruppe>
