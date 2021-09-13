@@ -36,13 +36,6 @@ jobs:
         working-directory: apps/selvbetjening-ui
         run: |
           yarn cy:test
-      - name: Build and publish Docker image
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          docker build --tag ${IMAGE} apps/selvbetjening-ui
-          docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
-          docker push ${IMAGE}
 
   deploy-to-labs-gcp:
     name: Deploy to labs-gcp
