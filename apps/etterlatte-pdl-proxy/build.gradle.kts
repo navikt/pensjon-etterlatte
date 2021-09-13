@@ -14,6 +14,7 @@ plugins {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinversion")
     implementation("io.ktor:ktor-server-netty:$ktorversion")
+    implementation("io.ktor:ktor-server-cio:$ktorversion")
     implementation("ch.qos.logback:logback-classic:$logbackversion")
 
     implementation("io.ktor:ktor-client-core:$ktorversion")
@@ -22,6 +23,8 @@ dependencies {
     implementation("io.ktor:ktor-client-apache:$ktorversion")
     implementation("io.ktor:ktor-client-jackson:$ktorversion")
     implementation("io.ktor:ktor-client-logging:$ktorversion")
+    implementation("io.ktor:ktor-client-cio-jvm:$ktorversion")
+
     implementation("io.ktor:ktor-server-core:$ktorversion")
     implementation("io.ktor:ktor-auth:$ktorversion")
     implementation("io.ktor:ktor-jackson:$ktorversion")
