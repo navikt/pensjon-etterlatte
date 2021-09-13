@@ -513,7 +513,7 @@
         "required": "Oppgi din relasjon til avdøde"
       },
       "datoForInngaattPartnerskap": {
-        "required": "Oppgi dato for inngått parnterskap"
+        "required": "Oppgi dato"
       },
       "datoForSkilsmisse": {
         "required": "Oppgi dato for skilsmisse (ikke separasjon)"
