@@ -88,6 +88,6 @@ describe("Konverter feilmeldinger", () => {
     it('Feilmelding skal konvertere seks feil, inkludert en med property "type"', () => {
         const { t } = useTranslation();
         const res = konverterFeilmeldinger(testErrors, t);
-        expect(res.length).toBe(6);
+        expect(res.length).toBe(4);
     });
 });
