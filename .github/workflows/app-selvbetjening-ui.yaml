@@ -36,12 +36,6 @@ jobs:
         working-directory: apps/selvbetjening-ui
         run: |
           yarn cy:test
-
-  deploy-to-labs-gcp:
-    name: Deploy to labs-gcp
-    needs: build-and-publish
-    runs-on: ubuntu-latest
-    steps:
       - name: Build and publish Docker image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -49,6 +43,12 @@ jobs:
           docker build --tag ${IMAGE} apps/selvbetjening-ui
           docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
           docker push ${IMAGE}
+
+  deploy-to-labs-gcp:
+    name: Deploy to labs-gcp
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
       - uses: nais/deploy/actions/deploy@v1
         env:
@@ -61,13 +61,6 @@ jobs:
     needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
-      - name: Build and publish Docker image
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          docker build --tag ${IMAGE} apps/selvbetjening-ui
-          docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
-          docker push ${IMAGE}
       - uses: actions/checkout@v2
       - uses: nais/deploy/actions/deploy@v1
         env:
