@@ -72,7 +72,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <RHFInput className={"kol-50"} name={"statsborgerskap"} label={t("omDenAvdoede.statsborgerskap")} />
                 </div>
 
-                <BoddEllerArbeidetUtland />
+                <BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet}/>
 
                 <SkjemaGruppe className="ingress">
                     <Title size="s">{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}</Title>

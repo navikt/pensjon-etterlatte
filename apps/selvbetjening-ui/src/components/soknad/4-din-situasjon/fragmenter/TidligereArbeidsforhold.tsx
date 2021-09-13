@@ -47,6 +47,7 @@ const TidligereArbeidsforhold = () => {
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].fraDato` as const}
                                     label={t("dinSituasjon.tidligereArbeidsforhold.fraDato")}
+                                    maxDate={new Date()}
                                 />
                             </Cell>
 
@@ -54,6 +55,7 @@ const TidligereArbeidsforhold = () => {
                                 <Datovelger
                                     name={`tidligereArbeidsforhold[${index}].tilDato` as const}
                                     label={t("dinSituasjon.tidligereArbeidsforhold.tilDato")}
+                                    maxDate={new Date()}
                                 />
                             </Cell>
 
