@@ -47,7 +47,7 @@ spec:
     - name: API_URL
       value: http://selvbetjening-api
     - name: REDIS_HOST
-      value: selvbetjening-redis.etterlatte.svc.cluster.local
+      value: selvbetjening-redis.dev.nais.io
     - name: SELVBETJENING_AUDIENCE
       value: dev-gcp:etterlatte:selvbetjening-api
     - name: NODE_LOG_LEVEL
