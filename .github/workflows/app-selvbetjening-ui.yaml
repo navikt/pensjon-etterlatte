@@ -44,18 +44,6 @@ jobs:
           docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
           docker push ${IMAGE}
 
-  deploy-to-labs-gcp:
-    name: Deploy to labs-gcp
-    needs: build-and-publish
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: labs-gcp
-          RESOURCE: apps/selvbetjening-ui/nais/labs-gcp.yaml
-
   deploy-to-dev-gcp:
     name: Deploy to dev-gcp
     needs: build-and-publish
