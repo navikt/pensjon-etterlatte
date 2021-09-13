@@ -16,12 +16,14 @@ import { EditFilled } from "@navikt/ds-icons";
 import { ISituasjon } from "../../../typer/situasjon";
 import OppsummeringOmBarn from "./fragmenter/OppsummeringOmBarn";
 import OppsummeringOmAvdoede from "./fragmenter/OppsummeringOmAvdoede";
+import { LogEvents, useAmplitude } from "../../../utils/amplitude";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
 
     const { t, i18n } = useTranslation();
     const { state } = useSoknadContext();
+    const { logEvent } = useAmplitude();
 
     const [senderSoeknad, setSenderSoeknad] = useState(false);
     const [error, setError] = useState(false);
@@ -31,7 +33,10 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         setError(false);
 
         sendSoeknad(state)
-            .then(() => history.push(`/soknad/sendt`))
+            .then(() => {
+                logEvent(LogEvents.SEND_SOKNAD);
+                history.push(`/soknad/sendt`);
+            })
             .catch((error) => {
                 console.log(error);
                 setSenderSoeknad(false);
@@ -58,7 +63,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             )}
 
             {tekster.map(({ key, val }) => (
-                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key}/>
+                <TekstGruppe key={uuid()} tittel={t(getBaseKey(key))} innhold={t(val)} id={key} />
             ))}
 
             <Link href={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>
@@ -71,7 +76,9 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     return (
         <>
             <SkjemaGruppe>
-                <Title size={"m"} className={"center"}>{t("oppsummering.tittel")}</Title>
+                <Title size={"m"} className={"center"}>
+                    {t("oppsummering.tittel")}
+                </Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

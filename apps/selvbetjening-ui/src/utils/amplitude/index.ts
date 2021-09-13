@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 export enum LogEvents {
     AAPNE_SOKNAD = "skjema startet",
+    SEND_SOKNAD = "send soknad",
 }
 
 export const useAmplitude = () => {
