@@ -55,3 +55,15 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: apps/selvbetjening-ui/nais/dev-gcp.yaml
+
+  deploy-to-labs-gcp:
+    name: Deploy to labs-gcp
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: labs-gcp
+          RESOURCE: apps/selvbetjening-ui/nais/labs-gcp.yaml
