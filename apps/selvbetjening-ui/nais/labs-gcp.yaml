@@ -66,4 +66,8 @@ spec:
         - host: tokendings.dev-gcp.nais.io
       rules:
         - application: selvbetjening-api
+          namespace: etterlatte
+          cluster: dev-gcp
         - application: selvbetjening-redis
+          namespace: etterlatte
+          cluster: dev-gcp
