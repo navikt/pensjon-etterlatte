@@ -123,7 +123,7 @@ export interface IKontaktinfo {
 }
 
 export interface INySivilstatus {
-    sivilstatus?: string;
+    sivilstatus?: Sivilstatus;
     ekteskap?: INyttEkteskap;
     samboerskap?: INyttSamboerskap;
 }

@@ -1,7 +1,6 @@
 package no.nav.etterlatte.soknad
 
 import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.application.ApplicationCall
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
@@ -14,15 +13,15 @@ import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.common.RetryResult
-import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneId
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
-            val soeknadJson = call.receive<JsonNode>().also(::addMottattDato)
+            val soeknad = call.receive<Soeknad>()
 
-            val response = service.sendSoknad(soeknadJson)
+            val response = service.sendSoknad(soeknad)
 
             svarKlient(response)
         }
@@ -30,7 +29,7 @@ fun Route.soknadApi(service: SoeknadService) {
 
     route("/api/kladd") {
         post {
-            val soeknadJson = call.receive<JsonNode>().also(::addMottattDato)
+            val soeknadJson = call.receive<JsonNode>()
 
             val response = service.lagreKladd(soeknadJson)
 
@@ -57,11 +56,5 @@ private suspend fun PipelineContext<Unit, ApplicationCall>.svarKlient(resultat: 
         call.application.environment.log.info("Lagret ny søknad med id ${resultat.response}")
 
         call.respond(resultat.response)
-    }
-}
-
-private fun addMottattDato(soeknad: JsonNode) {
-    if (soeknad is ObjectNode) {
-       soeknad.put("mottattDato", LocalDate.now(ZoneId.of("Europe/Oslo")).toString())
     }
 }

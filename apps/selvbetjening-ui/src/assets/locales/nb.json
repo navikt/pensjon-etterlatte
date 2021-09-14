@@ -434,6 +434,10 @@
     "arbeidet": "Arbeidet"
   },
   "felles": {
+    "fornavn": "Fornavn",
+    "etternavn": "Etternavn",
+    "foedselsnummer": "Fødselsnummer",
+    "foedselsaar": "Fødselsår",
     "fnrDnr": "Fødselsnummer / d-nummer",
     "fnr": "Fødselsnummer (11 siffer)",
     "navn": "Navn",

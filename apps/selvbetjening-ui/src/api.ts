@@ -66,7 +66,7 @@ export const lagreSoeknad = (soeknad: ISoeknad) => {
 /**
  * Sender inn ferdigstilt søknad
  */
-export const sendSoeknad = (soeknad: ISoeknad) => {
+export const sendSoeknad = (soeknad: any) => {
     return api.post("/api/soeknad", soeknad)
         .then((response: AxiosResponse) => {
             if (response.status !== 200) {
