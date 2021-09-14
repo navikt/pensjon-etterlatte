@@ -13,7 +13,11 @@ import { DeleteFilled } from "@navikt/ds-icons";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Button, Panel, Title } from "@navikt/ds-react";
 
-const BoddEllerArbeidetUtland = () => {
+interface Props {
+    datoForDoedsfallet?: Date
+}
+
+const BoddEllerArbeidetUtland = ({datoForDoedsfallet}: Props) => {
     const { t } = useTranslation();
 
     const { control, watch } = useFormContext<IAvdoed>();
@@ -80,6 +84,7 @@ const BoddEllerArbeidetUtland = () => {
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
                                             label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato")}
                                             description={t("felles.ikkePaakrevd")}
+                                            maxDate={datoForDoedsfallet}
                                             valgfri
                                         />
                                     </div>
@@ -88,6 +93,7 @@ const BoddEllerArbeidetUtland = () => {
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].tilDato` as const}
                                             label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato")}
                                             description={t("felles.ikkePaakrevd")}
+                                            maxDate={datoForDoedsfallet}
                                             valgfri
                                         />
                                     </div>

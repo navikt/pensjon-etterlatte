@@ -8,7 +8,7 @@ on:
       - apps/selvbetjening-ui/nais/redis-dev-gcp.yaml
 
 jobs:
-  deploy:
+  deploy-dev-gcp:
     name: Deploy to dev-gcp
     runs-on: ubuntu-latest
     steps:
@@ -20,4 +20,18 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CLUSTER: dev-gcp
+          RESOURCE: apps/selvbetjening-ui/nais/redis-dev-gcp.yaml
+
+  deploy-labs-gcp:
+    name: Deploy to labs-gcp
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy to labs-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLUSTER: labs-gcp
           RESOURCE: apps/selvbetjening-ui/nais/redis-dev-gcp.yaml

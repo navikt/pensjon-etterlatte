@@ -143,7 +143,16 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         i18n.language = "nb";
         const tekster = new ObjectTreeReader(i18n).traverse(mockSoeknad);
         tekster
-            .filter((tekst) => !["harSamtykket", "sistLagretDato", "klarForLagring"].includes(tekst.key))
+            .filter(
+                (tekst) =>
+                    ![
+                        "harSamtykket",
+                        "sistLagretDato",
+                        "klarForLagring",
+                        "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.0.fraDato",
+                        "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.0.tilDato",
+                    ].includes(tekst.key)
+            )
             // ToDo: Burde også sjekke at innhold er korrekt, men sliter med å få oversatt verdiene.
             .map((tekst) => getById(tekst.key));
         */
@@ -182,7 +191,7 @@ const sammenlignRequestMedInputdata = (request) => {
             oppholdUtland.tilDato = undefined;
         });
         soeknad.dinSituasjon.arbeidsforhold.startDato = undefined;
-        soeknad.omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap = undefined
+        soeknad.omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap = undefined;
     });
 
     expect(request).to.deep.equal(mockSoeknad);

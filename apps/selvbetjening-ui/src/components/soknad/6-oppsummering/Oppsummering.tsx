@@ -12,6 +12,7 @@ import SoeknadMapper from "../../../utils/SoeknadMapper";
 import { sendSoeknad } from "../../../api";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
+import { LogEvents, useAmplitude } from "../../../utils/amplitude";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
@@ -20,6 +21,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     const { state: soeknad } = useSoknadContext();
     const { state: bruker } = useBrukerContext();
+    const { logEvent } = useAmplitude();
 
     const [senderSoeknad, setSenderSoeknad] = useState(false);
     const [error, setError] = useState(false);
@@ -38,7 +40,10 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         const soeknadBody = { oppsummering: soeknadOppsummering }
 
         sendSoeknad(soeknadBody)
-            .then(() => history.push(`/soknad/sendt`))
+            .then(() => {
+                logEvent(LogEvents.SEND_SOKNAD);
+                history.push(`/soknad/sendt`);
+            })
             .catch((error) => {
                 console.log(error);
                 setSenderSoeknad(false);
@@ -49,7 +54,9 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     return (
         <>
             <SkjemaGruppe>
-                <Title size={"m"} className={"center"}>{t("oppsummering.tittel")}</Title>
+                <Title size={"m"} className={"center"}>
+                    {t("oppsummering.tittel")}
+                </Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

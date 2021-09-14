@@ -29,8 +29,8 @@ spec:
   env:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.etterlatteytelser
-    - name: KAFKA_RESET_POLICY
-      value: none
+  #  - name: KAFKA_RESET_POLICY
+  #    value: none
     - name: PDL_URL
       value: http://etterlatte-pdl-proxy
   accessPolicy:

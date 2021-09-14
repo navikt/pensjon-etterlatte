@@ -47,6 +47,8 @@ spec:
     - name: PDL_URL
       #value: https://pdl-api.nais.preprod.local/graphql
       value: https://pdl-api.dev-fss-pub.nais.io/graphql
+    - name: PDL_AUDIENCE
+      value: "dev-fss:pdl:pdl-api"
   prometheus:
     enabled: true
     path: /internal/prometheus
