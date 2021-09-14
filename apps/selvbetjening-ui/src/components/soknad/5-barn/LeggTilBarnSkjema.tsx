@@ -41,7 +41,6 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
     const harBarnetVerge = watch("harBarnetVerge.svar")
     const relasjon = watch("relasjon")
     const foedselsnummer = watch("foedselsnummer")
-    const soekerBarnepensjon = watch("soekerBarnepensjon")
 
     const kanSoekeOmBarnepensjon = (): boolean => {
         if (foedselsnummer && (fnr(foedselsnummer).status === 'valid')) {
