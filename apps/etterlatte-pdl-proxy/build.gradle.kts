@@ -46,6 +46,7 @@ dependencies {
     implementation("net.logstash.logback:logstash-logback-encoder:6.6")
     implementation("no.nav.security:token-client-core:$tokensupportversion")
     implementation("no.nav.security:token-validation-ktor:$tokensupportversion")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.0")
 }
 
 java {

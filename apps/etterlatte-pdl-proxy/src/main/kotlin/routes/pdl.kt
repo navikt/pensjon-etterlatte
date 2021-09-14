@@ -16,7 +16,7 @@ import no.nav.etterlatte.NavCallId
 import no.nav.etterlatte.pdlhttpclient
 import no.nav.etterlatte.pipeRequest
 import no.nav.etterlatte.pipeResponse
-import no.nav.etterlatte.secondTokenxHttpClient
+import no.nav.etterlatte.tokenSecuredEndpoint
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import org.slf4j.LoggerFactory
 import java.util.*
@@ -26,11 +26,11 @@ val XCorrelationID: String get() = "X-Correlation-ID"
 
 fun Route.pdl(config: Config) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+
     route("/pdl") {
         val clientCredentialHttpClient = pdlhttpclient()
-        //val conf: com.typesafe.config.Config = ConfigFactory.load(config as com.typesafe.config.Config)
         val conf: com.typesafe.config.Config = ConfigFactory.load()
-        val tokenXHttpClient = secondTokenxHttpClient(conf)
+        val tokenXHttpClient = tokenSecuredEndpoint(conf.getConfig("no.nav.etterlatte.tjenester.pdl"))
         val pdlUrl = config.pdl.url
         post {
 

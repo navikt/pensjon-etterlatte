@@ -2,6 +2,8 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.typesafe.config.Config
 import io.ktor.application.ApplicationCall
 import io.ktor.client.HttpClient
 import io.ktor.client.call.receive
@@ -38,7 +40,7 @@ fun jsonClient() =  HttpClient(Apache) {
     }
 }
 
-fun tokenxHttpClient() = HttpClient(CIO) {
+/*fun tokenxHttpClient() = HttpClient(CIO) {
     install(JsonFeature) {
         serializer = JacksonSerializer {
             configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
@@ -46,17 +48,17 @@ fun tokenxHttpClient() = HttpClient(CIO) {
         }
     }
 }
-fun secondTokenxHttpClient(endpointConfig: com.typesafe.config.Config) = HttpClient(CIO) {
 
+ */
+fun tokenSecuredEndpoint(endpointConfig: Config) = HttpClient(CIO) {
     val securityMediator = SecurityContextMediatorFactory.from(endpointConfig)
     install(JsonFeature) {
         serializer = JacksonSerializer {
             configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             setSerializationInclusion(JsonInclude.Include.NON_NULL)
-            //registerModule(JavaTimeModule())
+            registerModule(JavaTimeModule())
         }
     }
-
     install(Auth) {
         bearerToken {
             tokenprovider = securityMediator.outgoingToken(endpointConfig.getString("audience"))
