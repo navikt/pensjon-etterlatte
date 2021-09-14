@@ -98,7 +98,10 @@
         "bosattUtland": {
           "svar": "Nei"
         },
-        "relasjon": "barnRelasjon.fellesbarnMedAvdoede"
+        "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
+        "harBarnetVerge": {
+          "svar": "Nei"
+        }
       },
       {
         "fornavn": "Smålig",
@@ -108,7 +111,10 @@
         "bosattUtland": {
           "svar": "Nei"
         },
-        "relasjon": "barnRelasjon.fellesbarnMedAvdoede"
+        "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
+        "harBarnetVerge": {
+          "svar": "Nei"
+        }
       }
     ]
   }
