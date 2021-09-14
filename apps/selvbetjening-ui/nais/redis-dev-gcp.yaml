@@ -27,5 +27,3 @@ spec:
     inbound:
       rules:
         - application: selvbetjening-ui
-        - application: selvbetjening-ui
-          cluster: labs-gcp
