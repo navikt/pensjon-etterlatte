@@ -128,6 +128,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             getById("statsborgerskap").type(barn.statsborgerskap);
             selectValueForId("bosattUtland.svar", barn.bosattUtland.svar);
             selectValue("barnRelasjon.fellesbarnMedAvdoede");
+            selectValueForId("harBarnetVerge.svar", barn.harBarnetVerge.svar);
             getById("leggTilBarn").click();
         });
 
