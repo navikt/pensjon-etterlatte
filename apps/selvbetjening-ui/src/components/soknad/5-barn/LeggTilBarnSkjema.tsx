@@ -129,6 +129,31 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                 {relasjon === BarnRelasjon.fellesbarnMedAvdoede && (
                     <>
+                        <>
+                            <RHFSpoersmaalRadio
+                                name={"harBarnetVerge.svar"}
+                                legend={t("omBarn.harBarnetVerge.svar")}
+                            />
+
+                            {harBarnetVerge === IValg.JA && (
+                                <SkjemaGruppe>
+                                    <RHFInput
+                                        name={"harBarnetVerge.navn"}
+                                        bredde={"S"}
+                                        label={t("omBarn.harBarnetVerge.navn")}
+                                        placeholder={t("omBarn.harBarnetVerge.navnPlaceholder")}
+                                    />
+                                    <RHFFoedselsnummerInput
+                                        name={"harBarnetVerge.foedselsnummer"}
+                                        bredde={"S"}
+                                        label={t("omBarn.harBarnetVerge.foedselsnummer")}
+                                        placeholder={t("omBarn.harBarnetVerge.foedselsnummerPlaceholder")}
+                                    />
+                                </SkjemaGruppe>
+                            )}
+                        </>
+
+
                         {kanSoekeOmBarnepensjon() && (
                             <RHFCheckboksPanel
                                 name={"soekerBarnepensjon"}
@@ -144,31 +169,6 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
                             />
                         )}
 
-                        {soekerBarnepensjon === IValg.JA && (
-                            <>
-                                <RHFSpoersmaalRadio
-                                    name={"harBarnetVerge.svar"}
-                                    legend={t("omBarn.harBarnetVerge.svar")}
-                                />
-
-                                {harBarnetVerge === IValg.JA && (
-                                    <SkjemaGruppe>
-                                        <RHFInput
-                                            name={"harBarnetVerge.navn"}
-                                            bredde={"S"}
-                                            label={t("omBarn.harBarnetVerge.navn")}
-                                            placeholder={t("omBarn.harBarnetVerge.navnPlaceholder")}
-                                        />
-                                        <RHFFoedselsnummerInput
-                                            name={"harBarnetVerge.foedselsnummer"}
-                                            bredde={"S"}
-                                            label={t("omBarn.harBarnetVerge.foedselsnummer")}
-                                            placeholder={t("omBarn.harBarnetVerge.foedselsnummerPlaceholder")}
-                                        />
-                                    </SkjemaGruppe>
-                                )}
-                            </>
-                        )}
                     </>
                 )}
 
