@@ -120,7 +120,7 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
     );
 };
 
-export const RHFProsentInput = ({name, rules, ...rest}: RHFProps) => {
+export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
     const { t } = useTranslation();
     const {
         control,
@@ -261,6 +261,41 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
                     id={name}
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value.toUpperCase())}
+                    feil={feilmelding}
+                    {...rest}
+                />
+            )}
+        />
+    );
+};
+
+export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps) => {
+    const { t } = useTranslation();
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
+
+    const error: FieldError = get(errors, name);
+    const feilmelding = t(getTransKey(error));
+
+    const re = /^[0-9\b]+$/
+    const isValid = (e: ChangeEvent<HTMLInputElement>): boolean => {
+        return e.target.value === "" || (re.test(e.target.value) && (!maxLength || e.target.value.length <= maxLength));
+    }
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: true, minLength, maxLength }}
+            render={({ field: { value, onChange } }) => (
+                <Input
+                    id={name}
+                    value={value || ""}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        if (isValid(e)) onChange(e)
+                    }}
                     feil={feilmelding}
                     {...rest}
                 />

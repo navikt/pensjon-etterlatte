@@ -1,4 +1,4 @@
-import { RHFInput } from "../../../felles/RHFInput";
+import { RHFInput, RHFNumberInput } from "../../../felles/RHFInput";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
@@ -34,11 +34,12 @@ const Selvstendig = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <RHFInput
+                <RHFNumberInput
                     name={"selvstendig.orgnr"}
                     placeholder={t("dinSituasjon.selvstendig.orgnrplaceholder")}
                     label={t("dinSituasjon.selvstendig.orgnr")}
-                    rules={{ pattern: /^\d{9}$/ }}
+                    maxLength={9}
+                    minLength={9}
                 />
             </SkjemaGruppe>
 

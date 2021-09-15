@@ -550,7 +550,7 @@
       },
       "orgnr": {
         "required": "Du må fylle ut gyldig organisasjonsnummer. 9 siffer",
-        "pattern": "Organisasjonsnummer skal være 9 siffer"
+        "minLength": "Organisasjonsnummer skal være 9 siffer"
       },
       "forventerEndretInntekt": {
         "svar": {
