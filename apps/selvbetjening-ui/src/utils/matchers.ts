@@ -6,3 +6,6 @@ export const kontonrMatcher = /^[1-9]\d{3}\.\d{2}\.\d{5}$/
 
 export const partialTelefonnrMatcher = /^([1-9]\d{0,2})\s?(\d{0,2})\s?(\d{0,3})$/
 export const telefonnrMatcher = /^([1-9]\d{2})\s(\d{2})\s(\d{3})$/
+
+export const partialProsentMatcher = /^(100%?|[1-9]?\d%?)$/
+export const prosentMatcher = /^(100|[1-9]?\d)%?$/

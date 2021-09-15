@@ -7,7 +7,14 @@ import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { getTransKey } from "../../utils/translation";
 import { fnr } from "@navikt/fnrvalidator";
-import { kontonrMatcher, partialKontonrMatcher, partialTelefonnrMatcher, telefonnrMatcher } from "../../utils/matchers";
+import {
+    kontonrMatcher,
+    partialKontonrMatcher,
+    partialProsentMatcher,
+    partialTelefonnrMatcher,
+    prosentMatcher,
+    telefonnrMatcher
+} from "../../utils/matchers";
 import { isValidBIC, isValidIBAN } from "ibantools";
 
 interface RHFProps extends Omit<InputProps, "name"> {
@@ -112,6 +119,34 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
         />
     );
 };
+
+export const RHFProsentInput = ({name, rules, ...rest}: RHFProps) => {
+    const { t } = useTranslation();
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
+
+    const error: FieldError = get(errors, name);
+    const feilmelding = t(getTransKey(error));
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: true, pattern: prosentMatcher, ...rules }}
+            render={({ field: { value, onChange } }) => (
+                <Input
+                    id={name}
+                    value={value || ""}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialProsentMatcher))}
+                    feil={feilmelding}
+                    {...rest}
+                />
+            )}
+        />
+    );
+}
 
 export const RHFTelefonInput = ({ name, rules, ...rest }: RHFProps) => {
     const { t } = useTranslation();

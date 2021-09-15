@@ -1,5 +1,5 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { RHFInput, RHFValutaInput } from "../../../felles/RHFInput";
+import { RHFInput, RHFProsentInput, RHFValutaInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { RHFSelect } from "../../../felles/RHFSelect";
 import { StillingType } from "../../../../typer/arbeidsforhold";
@@ -56,11 +56,10 @@ const Arbeidstaker = () => {
                     ]}
                 />
 
-                <RHFInput
+                <RHFProsentInput
                     name={"arbeidsforhold.stillingsprosent"}
                     label={t("dinSituasjon.arbeidsforhold.stillingsprosent")}
                     placeholder={"eks. 80%"}
-                    rules={{ pattern: /\d/ }}
                 />
             </div>
 

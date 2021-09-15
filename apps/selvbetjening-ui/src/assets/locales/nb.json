@@ -780,7 +780,8 @@
         "required": "Oppgi type ansettelse"
       },
       "stillingsprosent": {
-        "required": "Oppgi stillingsprosent"
+        "required": "Oppgi stillingsprosent",
+        "pattern": "Oppgi en gyldig stillingsprosent"
       },
       "forventerEndretInntekt": {
         "svar": {
