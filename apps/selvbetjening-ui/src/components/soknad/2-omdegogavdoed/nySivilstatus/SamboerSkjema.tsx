@@ -14,17 +14,14 @@ const SamboerSkjema = () => {
 
     const { watch } = useFormContext<ISoeker>();
 
-    const samboerHarInntekt = watch("nySivilstatus.samboerskap.samboer.harInntekt.svar")
+    const samboerHarInntekt = watch("nySivilstatus.samboerskap.samboer.harInntekt.svar");
 
     return (
         <Panel border>
-            <Title size={"s"}>
-                {t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}
-            </Title>
+            <Title size={"s"}>{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}</Title>
 
-            <br/>
+            <br />
 
-            {/* 2.16 */}
             <SkjemaGruppe>
                 <RHFInput
                     name={"nySivilstatus.samboerskap.samboer.navn"}
@@ -36,11 +33,15 @@ const SamboerSkjema = () => {
                     name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
                     bredde={"S"}
                     label={t("felles.fnr")}
-                    rules={{ validate: (value) => (fnr(value).status === 'valid') }}
+                    rules={{ validate: (value) => fnr(value).status === "valid" }}
                 />
             </SkjemaGruppe>
 
-            {/* 2.17 */}
+            <RHFSpoersmaalRadio
+                name={"nySivilstatus.samboerskap.hattBarnEllerVaertGift"}
+                legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
+            />
+
             <RHFSpoersmaalRadio
                 name={"nySivilstatus.samboerskap.samboer.harInntekt.svar"}
                 legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar")}
@@ -54,7 +55,7 @@ const SamboerSkjema = () => {
                             return {
                                 value: type,
                                 label: t(type),
-                            }
+                            };
                         })}
                     />
 
@@ -62,7 +63,9 @@ const SamboerSkjema = () => {
                         <RHFInput
                             name={"nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"}
                             bredde={"S"}
-                            label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar")}
+                            label={t(
+                                "omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"
+                            )}
                         />
                     </SkjemaGruppe>
                 </>
