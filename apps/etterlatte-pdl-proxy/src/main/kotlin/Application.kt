@@ -11,7 +11,6 @@ import io.ktor.jackson.JacksonConverter
 import io.ktor.request.path
 import io.ktor.routing.IgnoreTrailingSlash
 import io.ktor.routing.routing
-import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.routes.internal
 import no.nav.etterlatte.routes.pdl
 import no.nav.security.token.support.ktor.tokenValidationSupport
@@ -23,9 +22,10 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused") // Referenced in application.conf
 fun Application.module() {
-    val config = runBlocking { environment.config.load() }
+    val config = this@module.environment.config
+
     install(Authentication){
-        tokenValidationSupport(config = this@module.environment.config)
+        tokenValidationSupport(config = config)
     }
 
     install(ContentNegotiation) {

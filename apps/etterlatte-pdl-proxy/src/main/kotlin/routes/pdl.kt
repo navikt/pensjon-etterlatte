@@ -1,17 +1,16 @@
 package no.nav.etterlatte.routes
 
-import com.typesafe.config.ConfigFactory
 import io.ktor.application.call
 import io.ktor.auth.principal
 import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.statement.HttpResponse
+import io.ktor.config.ApplicationConfig
 import io.ktor.http.HttpHeaders
 import io.ktor.request.header
 import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.route
-import no.nav.etterlatte.Config
 import no.nav.etterlatte.NavCallId
 import no.nav.etterlatte.pdlhttpclient
 import no.nav.etterlatte.pipeRequest
@@ -24,14 +23,14 @@ import java.util.*
 val Tema: String get() = "Tema"
 val XCorrelationID: String get() = "X-Correlation-ID"
 
-fun Route.pdl(config: Config) {
+fun Route.pdl(config: ApplicationConfig) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
     route("/pdl") {
         val clientCredentialHttpClient = pdlhttpclient()
-        val conf: com.typesafe.config.Config = ConfigFactory.load()
-        val tokenXHttpClient = tokenSecuredEndpoint(conf.getConfig("no.nav.etterlatte.tjenester.pdl"))
-        val pdlUrl = config.pdl.url
+        val tokenXHttpClient = tokenSecuredEndpoint(config.config("no.nav.etterlatte.tjenester.pdl"))
+        val pdlUrl = config.property("no.nav.etterlatte.tjenester.pdl.url").toString()  //.getString("no.nav.etterlatte.tjenester.pdl.url")
+
         post {
 
             val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()

@@ -25,7 +25,7 @@ class ApplicationTest {
             }
         }
     }
-    //@@Test
+    //@Test
     fun testPDL() {
         withTestApplication({ module() }) {
             handleRequest(HttpMethod.Post, "/tokenx/pdl").apply {

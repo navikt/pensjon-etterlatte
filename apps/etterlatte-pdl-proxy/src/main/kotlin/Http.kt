@@ -3,7 +3,6 @@ package no.nav.etterlatte
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.typesafe.config.Config
 import io.ktor.application.ApplicationCall
 import io.ktor.client.HttpClient
 import io.ktor.client.call.receive
@@ -16,6 +15,7 @@ import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.statement.HttpResponse
+import io.ktor.config.ApplicationConfig
 import io.ktor.http.ContentType
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
@@ -28,7 +28,7 @@ import io.ktor.util.filter
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.ByteWriteChannel
 import io.ktor.utils.io.copyAndClose
-import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
+import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
 import no.nav.etterlatte.ktortokenexchange.bearerToken
 import no.nav.etterlatte.security.ktor.clientCredential
 import org.apache.http.impl.conn.SystemDefaultRoutePlanner
@@ -50,8 +50,9 @@ fun jsonClient() =  HttpClient(Apache) {
 }
 
  */
-fun tokenSecuredEndpoint(endpointConfig: Config) = HttpClient(CIO) {
-    val securityMediator = SecurityContextMediatorFactory.from(endpointConfig)
+fun tokenSecuredEndpoint(endpointConfig: ApplicationConfig) = HttpClient(CIO) {
+    //val securityMediator = SecurityContextMediatorFactory.from(endpointConfig.)
+    val securityMediator = TokenSupportSecurityContextMediator(endpointConfig)
     install(JsonFeature) {
         serializer = JacksonSerializer {
             configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
@@ -61,12 +62,12 @@ fun tokenSecuredEndpoint(endpointConfig: Config) = HttpClient(CIO) {
     }
     install(Auth) {
         bearerToken {
-            tokenprovider = securityMediator.outgoingToken(endpointConfig.getString("audience"))
+            tokenprovider = securityMediator.outgoingToken(endpointConfig.propertyOrNull("audience").toString())
         }
     }
 
     defaultRequest {
-        url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
+        url.takeFrom(endpointConfig.propertyOrNull("url").toString() + url.encodedPath)
     }
 }
 
