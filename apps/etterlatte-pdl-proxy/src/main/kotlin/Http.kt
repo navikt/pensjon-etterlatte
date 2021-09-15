@@ -10,25 +10,23 @@ import io.ktor.client.engine.apache.Apache
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.features.auth.Auth
-import io.ktor.client.features.defaultRequest
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.logging.LogLevel
+import io.ktor.client.features.logging.Logging
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.statement.HttpResponse
-import io.ktor.config.ApplicationConfig
 import io.ktor.http.ContentType
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.content.OutgoingContent
-import io.ktor.http.takeFrom
 import io.ktor.request.receiveChannel
 import io.ktor.response.respond
 import io.ktor.util.filter
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.ByteWriteChannel
 import io.ktor.utils.io.copyAndClose
-import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
 import no.nav.etterlatte.ktortokenexchange.bearerToken
 import no.nav.etterlatte.security.ktor.clientCredential
 import org.apache.http.impl.conn.SystemDefaultRoutePlanner
@@ -39,20 +37,14 @@ fun jsonClient() =  HttpClient(Apache) {
         serializer = JacksonSerializer { configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false) }
     }
 }
-
-/*fun tokenxHttpClient() = HttpClient(CIO) {
-    install(JsonFeature) {
-        serializer = JacksonSerializer {
-            configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            setSerializationInclusion(JsonInclude.Include.NON_NULL)
-        }
+fun httpClient() = HttpClient(Apache){
+    install(Logging) {
+        level = LogLevel.HEADERS
     }
-}
+}.also { Runtime.getRuntime().addShutdownHook(Thread{it.close()}) }
 
- */
-fun tokenSecuredEndpoint(endpointConfig: ApplicationConfig) = HttpClient(CIO) {
-    //val securityMediator = SecurityContextMediatorFactory.from(endpointConfig.)
-    val securityMediator = TokenSupportSecurityContextMediator(endpointConfig)
+fun tokenSecuredEndpoint() = HttpClient(CIO) {
+
     install(JsonFeature) {
         serializer = JacksonSerializer {
             configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
@@ -60,16 +52,8 @@ fun tokenSecuredEndpoint(endpointConfig: ApplicationConfig) = HttpClient(CIO) {
             registerModule(JavaTimeModule())
         }
     }
-    install(Auth) {
-        bearerToken {
-            tokenprovider = securityMediator.outgoingToken(endpointConfig.propertyOrNull("audience").toString())
-        }
-    }
-
-    defaultRequest {
-        url.takeFrom(endpointConfig.propertyOrNull("url").toString() + url.encodedPath)
-    }
 }
+
 
 fun httpClientWithProxy() = HttpClient(Apache) {
     install(JsonFeature) {

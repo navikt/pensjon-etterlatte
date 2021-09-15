@@ -12,6 +12,8 @@ import io.ktor.routing.Route
 import io.ktor.routing.post
 import io.ktor.routing.route
 import no.nav.etterlatte.NavCallId
+import no.nav.etterlatte.httpClient
+import no.nav.etterlatte.oauth.ClientConfig
 import no.nav.etterlatte.pdlhttpclient
 import no.nav.etterlatte.pipeRequest
 import no.nav.etterlatte.pipeResponse
@@ -27,10 +29,10 @@ fun Route.pdl(config: ApplicationConfig) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
     route("/pdl") {
-        val clientCredentialHttpClient = pdlhttpclient()
-        val tokenXHttpClient = tokenSecuredEndpoint(config.config("no.nav.etterlatte.tjenester.pdl"))
-        val pdlUrl = config.property("no.nav.etterlatte.tjenester.pdl.url").toString()  //.getString("no.nav.etterlatte.tjenester.pdl.url")
 
+        val pdlUrl = config.property("no.nav.etterlatte.tjenester.pdl.url").toString()
+        val tokenXHttpClient = tokenSecuredEndpoint()
+        val clientCredentialHttpClient = pdlhttpclient()
         post {
 
             val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
@@ -49,9 +51,19 @@ fun Route.pdl(config: ApplicationConfig) {
                     cause.printStackTrace()
                 }
             } else if (tokenxToken != null) {
+                val tokenxKlient = ClientConfig(config, httpClient()).clients["tokenx"]
+
+                val returToken = tokenxKlient?.tokenExchange(
+                    tokenxToken.tokenAsString,
+                    config.propertyOrNull("no.nav.etterlatte.tjenester.pdl.audience").toString()
+                )?.accessToken
+
+
                 try {
+
                     val response = tokenXHttpClient.post<HttpResponse>(pdlUrl) {
                         header(XCorrelationID, callId)
+                        header(HttpHeaders.Authorization, "Bearer $returToken")
                         pipeRequest(call, listOf(Tema))
                     }
                     call.pipeResponse(response)
