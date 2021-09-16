@@ -14,10 +14,10 @@ import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Button, Panel, Title } from "@navikt/ds-react";
 
 interface Props {
-    datoForDoedsfallet?: Date
+    datoForDoedsfallet?: Date;
 }
 
-const BoddEllerArbeidetUtland = ({datoForDoedsfallet}: Props) => {
+const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     const { t } = useTranslation();
 
     const { control, watch } = useFormContext<IAvdoed>();
@@ -45,7 +45,6 @@ const BoddEllerArbeidetUtland = ({datoForDoedsfallet}: Props) => {
             <RHFSpoersmaalRadio
                 name={"boddEllerJobbetUtland.svar"}
                 legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
-                description={<HvorforSpoerVi>{t("omDenAvdoede.boddEllerJobbetUtland.hjelpetekst")}</HvorforSpoerVi>}
                 vetIkke
             />
 
@@ -120,16 +119,7 @@ const BoddEllerArbeidetUtland = ({datoForDoedsfallet}: Props) => {
                                 bredde={"S"}
                                 valgfri
                                 label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
-                                description={
-                                    <>
-                                        {t("felles.ikkePaakrevd")}
-                                        <HvorforSpoerVi>
-                                            {t(
-                                                "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.hjelpetekst"
-                                            )}
-                                        </HvorforSpoerVi>
-                                    </>
-                                }
+                                description={t("felles.ikkePaakrevd")}
                             />
 
                             {fields.length > 1 && (

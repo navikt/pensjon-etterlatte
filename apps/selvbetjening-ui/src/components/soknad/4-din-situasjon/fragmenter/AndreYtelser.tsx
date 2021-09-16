@@ -27,9 +27,6 @@ const AndreYtelser = () => {
             <RHFSpoersmaalRadio
                 name={"andreYtelser.kravOmAnnenStonad.svar"}
                 legend={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.svar")}
-                description={
-                    <HvorforSpoerVi>{t("dinSituasjon.andreYtelser.kravOmAnnenStonad.hvorfor")}</HvorforSpoerVi>
-                }
             />
 
             {kravOmAnnenStonad === IValg.JA && (

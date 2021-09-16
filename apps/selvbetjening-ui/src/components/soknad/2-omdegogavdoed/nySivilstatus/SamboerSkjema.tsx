@@ -14,6 +14,7 @@ const SamboerSkjema = () => {
 
     const { watch } = useFormContext<ISoeker>();
 
+    const harVaertGift = watch("nySivilstatus.samboerskap.hattBarnEllerVaertGift");
     const samboerHarInntekt = watch("nySivilstatus.samboerskap.samboer.harInntekt.svar");
 
     return (
@@ -42,10 +43,12 @@ const SamboerSkjema = () => {
                 legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
             />
 
-            <RHFSpoersmaalRadio
-                name={"nySivilstatus.samboerskap.samboer.harInntekt.svar"}
-                legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar")}
-            />
+            {harVaertGift === IValg.NEI && (
+                <RHFSpoersmaalRadio
+                    name={"nySivilstatus.samboerskap.samboer.harInntekt.svar"}
+                    legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar")}
+                />
+            )}
 
             {samboerHarInntekt === IValg.JA && (
                 <>

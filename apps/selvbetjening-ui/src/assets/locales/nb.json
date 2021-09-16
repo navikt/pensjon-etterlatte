@@ -107,7 +107,7 @@
     "arbeidsforhold": {
       "tittel": "Info om arbeidsgiver",
       "arbeidsgiver": "Hva heter firmaet?",
-      "endring": "Forventer du endring i arbeidsforholdet/inntekten som følge av dødsfallet?",
+      "endring": "Hva er grunnen til endringene?",
       "ansettelsesforhold": "Type ansettelse",
       "stillingsprosent": "Hvor mye jobber du?",
       "startDato": "Når startet du?",
@@ -122,10 +122,9 @@
     },
     "andreYtelser": {
       "tittel": "Ytelser",
-      "ingress": "Noen ytelser fra NAV blir regnet som inntekt og har betydning for hvor mye gjenlevendepensjon du får. Uføretrygd, alderspensjon og AFP kan ikke kombineres med gjenlevendepensjon.",
+      "ingress": "Noen ytelser fra NAV blir regnet som inntekt og har betydning for hvor mye gjenlevendepensjon du får. Uføretrygd, alderspensjon, avtalefestet pensjon (AFP) kan ikke kombineres med gjenlevendepensjon.",
       "kravOmAnnenStonad": {
         "svar": "Har du søkt om andre ytelser fra NAV som du ikke har fått svar på?",
-        "hvorfor": "Noen ytelser fra NAV blir regnet som inntekt som har betydning for hvor mye gjenlevendepensjon du får. Uføretrygd, alderspensjon og AFP kan ikke kombineres med gjenlevendepensjon.",
         "beskrivelse": "Hva har du søkt om?"
       },
       "mottarPensjonUtland": {
@@ -187,7 +186,7 @@
       "tidligereGift": "Var du tidligere gift med avdøde?",
       "datoForInngaattSamboerskap": "Vi ble samboere",
       "omsorgForBarn": "Hadde du omsorg for avdødes barn på dødstidspunktet?",
-      "datoForSkilsmisse": "Oppgi dato for skilsmisse (ikke separasjon)",
+      "datoForSkilsmisse": "Vi skilte oss (ikke separasjon)",
       "datoForSamlivsbrudd": "Dato for samlivsbruddet (ikke separasjon)",
       "mottokBidrag": "Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?",
       "mottokEktefelleBidrag": "Mottok du ektefellebidrag?",
@@ -195,7 +194,7 @@
     },
     "nySivilstatus": {
       "sivilstatus": "Sivilstanden din i dag",
-      "beskrivelse": "Hvis du har giftet deg eller blitt samboer kan det avgjøre om du kan få gjenlevendepensjon og hvor mye du kan få.",
+      "beskrivelse": "Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få gjenlevendepensjon og hvor mye du kan få.",
       "hvorforAarsakOpploesning": "Vi trenger opplysningene for å vurdere om du kan få gjenlevendepensjon.",
       "inngaatt.dato": "Vi giftet oss",
       "ekteskap": {
@@ -238,7 +237,6 @@
       "tittel": "Opphold utenfor Norge",
       "ingress": "Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke både hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.",
       "svar": "Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?",
-      "hjelpetekst": "Ved arbeid og opphold i andre land enn Norge kan du ha rettigheter til pensjon fra dette landet.",
       "oppholdUtland": {
         "land": "Land",
         "beskrivelse": "Bodd og/eller arbeidet?",
@@ -247,7 +245,6 @@
         "medlemFolketrygd": "Var han eller hun medlem av folketrygden under oppholdet?",
         "medlemFolketrygdHjelpetekst": "Vi må vite om avdøde var medlem av folketrygden for å avgjøre om du har rett til gjenlevendepensjon.",
         "mottokPensjon": {
-          "hjelpetekst": "Dette trenger vi for å vurdere avdødes medlemskap i folketrygden.",
           "beskrivelse": "Oppgi eventuell pensjon han eller hun mottok fra dette landet (per år i kr.)"
         }
       }
