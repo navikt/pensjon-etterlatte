@@ -10,11 +10,23 @@ jest.mock("../../context/bruker/BrukerContext", () => ({
         return {
             state: {
                 fornavn: "STERK",
-                etternavn: "BUSK"
-            }
-        }
-    }
-}))
+                etternavn: "BUSK",
+            },
+        };
+    },
+}));
+
+jest.mock("react-router", () => ({
+    ...jest.requireActual("react-router"),
+    useLocation: jest.fn().mockImplementation(() => {
+        return {
+            pathname: "/testroute",
+            search: "",
+            hash: "",
+            state: null,
+        };
+    }),
+}));
 
 let container;
 
@@ -23,13 +35,14 @@ beforeEach(() => {
     document.body.appendChild(container);
 
     act(() => {
-        ReactDOM.render((
-                <I18nextProvider i18n={i18n}>
-                    <SoknadProvider>
-                        <SoknadForside/>
-                    </SoknadProvider>
-                </I18nextProvider>
-        ), container)
+        ReactDOM.render(
+            <I18nextProvider i18n={i18n}>
+                <SoknadProvider>
+                    <SoknadForside />
+                </SoknadProvider>
+            </I18nextProvider>,
+            container
+        );
     });
 });
 
@@ -40,32 +53,36 @@ afterEach(() => {
 
 describe("Samtykke", () => {
     it("Knapp vises ikke hvis samtykke mangler", async () => {
-        const bekreftSjekkboks = screen.getByLabelText("Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger.");
-        expect(bekreftSjekkboks).toBeVisible()
-        expect(bekreftSjekkboks).not.toBeChecked()
+        const bekreftSjekkboks = screen.getByLabelText(
+            "Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
+        );
+        expect(bekreftSjekkboks).toBeVisible();
+        expect(bekreftSjekkboks).not.toBeChecked();
 
-        const startKnapp = screen.queryByText("forside.startSoeknad")
-        expect(startKnapp).toBeNull()
-    })
+        const startKnapp = screen.queryByText("forside.startSoeknad");
+        expect(startKnapp).toBeNull();
+    });
 
     it("Knapp vises hvis samtykke er huket av", async () => {
-        const bekreftSjekkboks = screen.getByLabelText("Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger.");
-        expect(bekreftSjekkboks).toBeVisible()
+        const bekreftSjekkboks = screen.getByLabelText(
+            "Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
+        );
+        expect(bekreftSjekkboks).toBeVisible();
 
         await act(async () => {
-            fireEvent.click(bekreftSjekkboks)
-        })
-        expect(bekreftSjekkboks).toBeChecked()
+            fireEvent.click(bekreftSjekkboks);
+        });
+        expect(bekreftSjekkboks).toBeChecked();
 
-        const startKnapp = await screen.findByText("Start søknad")
-        expect(startKnapp).toBeVisible()
-    })
-})
+        const startKnapp = await screen.findByText("Start søknad");
+        expect(startKnapp).toBeVisible();
+    });
+});
 
 describe("Velkomstmelding", () => {
     it("Velkomstmelding med brukers navn vises", async () => {
-        const velkomstmelding = await screen.findByText("Hei, STERK BUSK")
+        const velkomstmelding = await screen.findByText("Hei, STERK BUSK");
 
-        expect(velkomstmelding).toBeVisible()
-    })
-})
+        expect(velkomstmelding).toBeVisible();
+    });
+});

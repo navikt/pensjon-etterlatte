@@ -1,6 +1,6 @@
 import amplitude from "amplitude-js";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 
 export enum LogEvents {
     AAPNE_SOKNAD = "skjema startet",
