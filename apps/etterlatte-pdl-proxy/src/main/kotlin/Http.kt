@@ -27,7 +27,6 @@ import io.ktor.util.filter
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.ByteWriteChannel
 import io.ktor.utils.io.copyAndClose
-import no.nav.etterlatte.ktortokenexchange.bearerToken
 import no.nav.etterlatte.security.ktor.clientCredential
 import org.apache.http.impl.conn.SystemDefaultRoutePlanner
 import java.net.ProxySelector
@@ -72,6 +71,7 @@ fun pdlhttpclient() = HttpClient(OkHttp) {
     install(Auth) {
         clientCredential {
             config = env.toMutableMap()
+                //fjerne hardkoding
                 .apply { put("AZURE_APP_OUTBOUND_SCOPE", "api://dev-fss.pdl.pdl-api/.default") }
         }
     }
