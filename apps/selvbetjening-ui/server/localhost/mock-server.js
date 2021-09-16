@@ -55,6 +55,12 @@ app.post("/api/api/kladd", (req, res) => {
     res.sendStatus(200)
 });
 
+app.delete("/api/api/kladd", (req, res) => {
+    cache.del(innloggetBruker.foedselsnummer);
+
+    res.sendStatus(200);
+});
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log(`App listening on port: ${port}`);

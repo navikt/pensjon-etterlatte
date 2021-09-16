@@ -42,6 +42,17 @@ export const hentSoeknad = () => {
         });
 };
 
+export const slettSoeknad = () => {
+    return api.delete("/api/kladd")
+        .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                throw new Error();
+            }
+
+            return response.data;
+        });
+}
+
 /**
  * Lagrer søknad via APIet på innlogget bruker sitt fnr.
  *
