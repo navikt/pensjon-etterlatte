@@ -16,9 +16,10 @@ import "./LeggTilBarnSkjema.scss"
 
 interface Props {
     lagre: (data: IBarn) => void;
+    avbryt: () => void;
 }
 
-const LeggTilBarnSkjema = ({ lagre }: Props) => {
+const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
     const { t } = useTranslation();
 
     const methods = useForm<IBarn>({
@@ -56,7 +57,7 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
             <form style={{ padding: "2rem 2.5rem" }}>
                 <SkjemaGruppe>
                     <Title size={"s"} className={"center"}>
-                        Legg til barn
+                        {t("omBarn.tittel")}
                     </Title>
                 </SkjemaGruppe>
 
@@ -182,12 +183,21 @@ const LeggTilBarnSkjema = ({ lagre }: Props) => {
 
                 <SkjemaGruppe className={"navigasjon-rad"}>
                     <Button
+                        id={"avbrytLeggTilBarn"}
+                        variant={"secondary"}
+                        type={"button"}
+                        onClick={avbryt}
+                    >
+                        {t("knapp.avbryt")}
+
+                    </Button>
+                    <Button
                         id={"leggTilBarn"}
                         variant={"action"}
                         type={"button"}
                         onClick={handleSubmit(leggTilOgLukk)}
                     >
-                        {t("knapp.leggTil")}
+                        {t("knapp.lagre")}
                     </Button>
                 </SkjemaGruppe>
             </form>

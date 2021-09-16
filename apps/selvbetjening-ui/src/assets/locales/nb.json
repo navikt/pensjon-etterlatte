@@ -20,7 +20,8 @@
     "leggTilBarn": "+ Legg til barn",
     "fjern": "Fjern",
     "fjernElement": "Fjern element",
-    "fjernFraSoeknad": "Fjern fra søknad"
+    "fjernFraSoeknad": "Fjern fra søknad",
+    "lagre": "Lagre"
   },
   "forside": {
     "tittel": "Søknad om gjenlevendepensjon",
@@ -272,7 +273,7 @@
     }
   },
   "omBarn": {
-    "tittel": "Om barn",
+    "tittel": "Legg til barn",
     "informasjon": "Dersom du har eller har hatt barn kan det påvirke retten din til gjenlevendepensjon. Derfor må du oppgi alle barn, uavhengig av hvor gamle de er. Dette gjelder barn du har felles med avdøde, avdødes egne barn, og dine egne barn. \n\nHvis du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her.",
     "fornavn": "Fornavn",
     "etternavn": "Etternavn",
@@ -297,7 +298,7 @@
     "soektOmBarnepensjon": "Søkt om barnepensjon",
     "soekerBarnepensjon": "Søk om barnepensjon",
     "soekerBarnepensjonInfo": "Fordi du har felles barn med avdøde under 18 år, kan barnet ha rett til barnepensjon.",
-    "soekerBarnepensjonCheckboks": "Ja, jeg søker om barnepensjon",
+    "soekerBarnepensjonCheckboks": "Ja, jeg søker om barnepensjon for barnet",
     "bosattUtland": {
       "svar": "Bor barnet i et annet land enn Norge?",
       "land": "Land",

@@ -106,7 +106,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                         open={isOpen}
                         onClose={() => setIsOpen(false)}
                     >
-                        <LeggTilBarnSkjema lagre={leggTilBarn} />
+                        <LeggTilBarnSkjema lagre={leggTilBarn} avbryt={() => setIsOpen(false)} />
                     </Modal>
                 </SkjemaGruppe>
 
