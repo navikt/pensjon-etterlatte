@@ -31,6 +31,7 @@ fun Route.pdl(config: ApplicationConfig) {
     route("/pdl") {
 
         val pdlUrl = config.property("no.nav.etterlatte.tjenester.pdl.url").toString()
+        println("PDLURL + $pdlUrl")
         val tokenXHttpClient = tokenSecuredEndpoint()
         val clientCredentialHttpClient = pdlhttpclient()
         post {

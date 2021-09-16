@@ -40,7 +40,6 @@ spec:
       enabled: true
   tokenx:
     enabled: true
-  webproxy: true
   envFrom:
     - secret: barnepensjon-secrets
   env:

@@ -7,6 +7,7 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.TestApplicationEngine
 import io.ktor.server.testing.createTestEnvironment
 import io.ktor.server.testing.handleRequest
+import io.ktor.server.testing.withTestApplication
 import org.junit.BeforeClass
 import org.junit.jupiter.api.Assertions.assertEquals
 
@@ -27,9 +28,9 @@ class ApplicationTest {
 
 
     }
-    //private val testEnv = createTestEnvironment {
-    //    config = HoconApplicationConfig(ConfigFactory.load("applicationTest.conf"))
-   // }
+    private val testEnv = createTestEnvironment {
+        config = HoconApplicationConfig(ConfigFactory.load("applicationTest.conf"))
+    }
 
     //@Test
     fun testRoot() {
@@ -42,8 +43,8 @@ class ApplicationTest {
     }
     //@Test
     fun testPDL() {
-        with(engine) {
-            handleRequest(HttpMethod.Post, "/aad/pdl").apply {
+        withTestApplication({ module() }) {
+            handleRequest(HttpMethod.Post, "/tokenx/pdl").apply {
                 assertEquals(HttpStatusCode.OK, response.status())
                 assertEquals("HELLO WORLD!", response.content)
             }
