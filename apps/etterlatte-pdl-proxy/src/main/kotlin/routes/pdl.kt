@@ -47,7 +47,7 @@ fun Route.pdl(config: ApplicationConfig) {
                     }
                     call.pipeResponse(response)
                 } catch (cause: Throwable) {
-                    logger.error("Feil i kall mot PDL: $cause")
+                    logger.error("Feil i kall mot PDL med AAD: $cause")
                     cause.printStackTrace()
                 }
             } else if (tokenxToken != null) {
@@ -68,7 +68,7 @@ fun Route.pdl(config: ApplicationConfig) {
                     }
                     call.pipeResponse(response)
                 } catch (cause: Throwable) {
-                    logger.error("Feil i kall mot PDL: $cause")
+                    logger.error("Feil i kall mot PDL med TokenX: $cause")
                     cause.printStackTrace()
                 }
             }
