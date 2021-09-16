@@ -1,12 +1,17 @@
 import amplitude from "amplitude-js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 export enum LogEvents {
     AAPNE_SOKNAD = "skjema startet",
     SEND_SOKNAD = "send soknad",
+    SIDEVISNING = "sidevisning",
 }
 
 export const useAmplitude = () => {
+    const location = useLocation();
+    const [prevLocation, setPrevLocation] = useState<any>(null);
+
     useEffect(() => {
         amplitude?.getInstance().init("default", "", {
             apiEndpoint: "amplitude.nav.no/collect-auto",
@@ -16,6 +21,13 @@ export const useAmplitude = () => {
             platform: window.location.toString(),
         });
     }, []);
+
+    useEffect(() => {
+        if (prevLocation) {
+            logEvent(LogEvents.SIDEVISNING);
+        }
+        setPrevLocation(location);
+    }, [location]);
 
     const logEvent = (eventName: LogEvents, eventData?: any): void => {
         setTimeout(() => {
