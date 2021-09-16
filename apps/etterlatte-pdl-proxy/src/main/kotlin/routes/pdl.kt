@@ -30,7 +30,7 @@ fun Route.pdl(config: ApplicationConfig) {
 
     route("/pdl") {
 
-        val pdlUrl = config.property("no.nav.etterlatte.tjenester.pdl.url").toString()
+        val pdlUrl = config.property("no.nav.etterlatte.tjenester.pdl.url").getString()
         println("PDLURL + $pdlUrl")
         val tokenXHttpClient = tokenSecuredEndpoint()
         val clientCredentialHttpClient = pdlhttpclient()
@@ -54,10 +54,13 @@ fun Route.pdl(config: ApplicationConfig) {
             } else if (tokenxToken != null) {
                 val tokenxKlient = ClientConfig(config, httpClient()).clients["tokenx"]
 
-                val returToken = tokenxKlient?.tokenExchange(
-                    tokenxToken.tokenAsString,
-                    config.propertyOrNull("no.nav.etterlatte.tjenester.pdl.audience").toString()
-                )?.accessToken
+                val returToken =
+                    config.propertyOrNull("no.nav.etterlatte.tjenester.pdl.audience")?.getString()?.let { aud ->
+                        tokenxKlient?.tokenExchange(
+                            tokenxToken.tokenAsString,
+                            aud
+                        )?.accessToken
+                    }
 
 
                 try {
