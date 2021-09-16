@@ -1,12 +1,14 @@
 import { Alert, Panel, Title } from "@navikt/ds-react";
+import { useTranslation } from "react-i18next";
 
 const SideIkkeFunnet = () => {
+    const { t } = useTranslation();
     return (
         <Panel>
-            <Title size={"m"}>Oi, her var det noe rusk</Title>
+            <Title size={"m"}>{t("sideIkkeFunnet.tittel")}</Title>
 
             <br />
-            <Alert variant={"warning"}>Siden du har etterspurt finnes ikke.</Alert>
+            <Alert variant={"warning"}>{t("sideIkkeFunnet.alert")}</Alert>
         </Panel>
     );
 };

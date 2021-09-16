@@ -99,18 +99,18 @@ const Navigasjon = ({
                 className="avbryt-modal"
             >
                 <SkjemaGruppe>
-                    <Ingress>Er du helt sikker på at du vil avbryte søknaden?</Ingress>
+                    <Ingress>{t("avbrytModal.spoersmaal")}</Ingress>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
                     <Button variant={"action"} type={"button"} onClick={() => setIsOpen(false)}>
-                        Nei, jeg vil fortsette søknaden
+                        {t("avbrytModal.svarNei")}
                     </Button>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
                     <Button variant={"danger"} type={"button"} onClick={avbryt}>
-                        Ja, avbryt søknaden
+                        {t("avbrytModal.svarJa")}
                     </Button>
                 </SkjemaGruppe>
             </Modal>

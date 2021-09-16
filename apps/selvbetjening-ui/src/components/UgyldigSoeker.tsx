@@ -7,9 +7,11 @@ import { erForUng } from "../utils/alder";
 import { useHistory } from "react-router-dom";
 import { BodyLong, Button, Link } from "@navikt/ds-react";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const UgyldigSoeker = () => {
     const history = useHistory();
+    const { t } = useTranslation();
 
     const { state, dispatch } = useBrukerContext();
 
@@ -22,8 +24,8 @@ const UgyldigSoeker = () => {
     const brukerErForUng = erForUng(state.alder!!);
 
     const heiTekst = brukerErForUng
-        ? "Hei, du kan ikke søke om gjenlevende- eller barnepensjon fordi du er under 18 år."
-        : "Hei, du kan ikke søke om gjenlevendepensjon.";
+        ? t("ugyldigkSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon")
+        : t("ugyldigkSoeker.kanIkkeSoeke.gjenlevende");
 
     const tilbake = () => {
         dispatch({ type: ActionTypes.TILBAKESTILL });
@@ -48,14 +50,11 @@ const UgyldigSoeker = () => {
             <SkjemaGruppe>
                 {brukerErForUng ? (
                     <BodyLong>
-                        For å søke om gjenlevendepensjon, eller søke barnepensjon på vegne av et barn, må du være over
-                        18 år.
+                        {t("ugyldigkSoeker.info.gjenlevendeEllerBarnepensjon")}
                     </BodyLong>
                 ) : (
                     <BodyLong>
-                        For å få gjenlevendepensjon må du være mellom 18 og 67 år.
-                        Ønsker du å søke om gjenlevendetillegg i alderspensjon? Du kan lese mer om dette på sidene om
-                        alderspensjon.
+                        {t("ugyldigkSoeker.info.gjenlevende")}
                     </BodyLong>
                 )}
             </SkjemaGruppe>
@@ -63,21 +62,20 @@ const UgyldigSoeker = () => {
             <SkjemaGruppe>
                 <BodyLong>
                     {brukerErForUng ? (
-                        <Link
-                            href={"https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon#chapter-3"}>
-                            Her kan du lese mer om hvem som kan få barnepensjon og hvordan du søker.
+                        <Link href={t("ugyldigSoeker.infolenker.barnepensjon.href")}>
+                            {t("ugyldigSoeker.infolenker.barnepensjon.tekst")}
                         </Link>
                     ) : (
-                        <Link href={"https://www.nav.no/no/person/pensjon/alderspensjon"}>
-                            Her kan du lese mer om hvem som kan få alderspensjon og hvordan du søker.
+                        <Link href={t("ugyldigSoeker.infolenker.alderspensjon.href")}>
+                            {t("ugyldigSoeker.infolenker.alderspensjon.tekst")}
                         </Link>
-                    )}
+                    )}ﬂ
                 </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <section className={"navigasjon-rad"}>
-                    <Button variant={"action"} onClick={tilbake}>Tilbake</Button>
+                    <Button variant={"action"} onClick={tilbake}>{t("knapp.tilbake")}</Button>
                 </section>
             </SkjemaGruppe>
         </>

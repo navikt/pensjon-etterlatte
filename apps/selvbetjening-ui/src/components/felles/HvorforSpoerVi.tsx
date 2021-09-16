@@ -2,10 +2,12 @@ import { FC, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { Collapse, Expand } from "@navikt/ds-icons"
 import { BodyLong } from "@navikt/ds-react"
+import { useTranslation } from "react-i18next";
 
 const HvorforSpoerVi: FC = ({ children }) => {
     const id = uuid();
     const [erApen, setErApen] = useState(false);
+    const { t } = useTranslation();
 
     return (
         <div className={"hvorforPanel"} id={id}>
@@ -15,7 +17,7 @@ const HvorforSpoerVi: FC = ({ children }) => {
                 onClick={() => setErApen(!erApen)}
             >
                 <span>
-                    Hvorfor spør vi om dette?
+                    {t("hvorforSpoerVi")}
                 </span>
                 <span>
                     {erApen ? <Collapse/> : <Expand/>}

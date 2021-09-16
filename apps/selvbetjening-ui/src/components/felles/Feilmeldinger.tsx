@@ -36,7 +36,7 @@ const Feilmeldinger = ({ errors }: { errors: FieldErrors }) => {
         <>
             {!!Object.keys(errors).length && (
                 <SkjemaGruppe key={uuid()}>
-                    <ErrorSummary heading={"For å gå videre må du rette opp følgende:"}>
+                    <ErrorSummary heading={t("feil.tittel")}>
                         {konverterFeilmeldinger(errors, t).map((feil) => (
                             <ErrorSummaryItem key={feil.skjemaelementId} href={`#${feil.skjemaelementId}`}>
                                 {feil.feilmelding}
