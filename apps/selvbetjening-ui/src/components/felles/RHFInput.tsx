@@ -129,6 +129,11 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
 
     const error: FieldError = get(errors, name);
     const feilmelding = t(getTransKey(error));
+    const maxLength = 4;
+
+    const isValid = (e: ChangeEvent<HTMLInputElement>): boolean => {
+        return e.target.value === "" || (partialProsentMatcher.test(e.target.value) && (!maxLength || e.target.value.length <= maxLength));
+    }
 
     return (
         <Controller
@@ -139,7 +144,9 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
                 <Input
                     id={name}
                     value={value || ""}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialProsentMatcher))}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        if (isValid(e)) onChange(e)
+                    }}
                     feil={feilmelding}
                     {...rest}
                 />
