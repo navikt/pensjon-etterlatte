@@ -113,7 +113,7 @@
       "startDato": "Når startet du?",
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
-        "beskrivelse": "Forventer du endring i arbeidsforholdet/inntekten som følge av dødsfallet?",
+        "beskrivelse": "Hva er grunnen til endringene?",
         "hvorfor": "Det har betydning for hvor mye gjenlevendepensjon du får."
       },
       "naavaerendeArbeidsforhold": {
