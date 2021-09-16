@@ -181,16 +181,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
 
                 <Feilmeldinger errors={errors}/>
 
-                <SkjemaGruppe className={"navigasjon-rad"}>
-                    <Button
-                        id={"avbrytLeggTilBarn"}
-                        variant={"secondary"}
-                        type={"button"}
-                        onClick={avbryt}
-                    >
-                        {t("knapp.avbryt")}
-
-                    </Button>
+                <div className={"navigasjon-rad bottom-spacing-none"}>
                     <Button
                         id={"leggTilBarn"}
                         variant={"action"}
@@ -199,7 +190,17 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                     >
                         {t("knapp.lagre")}
                     </Button>
-                </SkjemaGruppe>
+                </div>
+                <div className={"navigasjon-rad"}>
+                    <Button
+                        id={"avbrytLeggTilBarn"}
+                        variant={"secondary"}
+                        type={"button"}
+                        onClick={avbryt}
+                    >
+                        {t("knapp.avbryt")}
+                    </Button>
+                </div>
             </form>
         </FormProvider>
     );
