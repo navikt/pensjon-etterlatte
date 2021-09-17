@@ -3,7 +3,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
 import { RHFRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
-import { RHFFoedselsnummerInput, RHFInput } from "../../felles/RHFInput";
+import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from "../../felles/RHFInput";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
@@ -42,6 +42,9 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
     const harBarnetVerge = watch("harBarnetVerge.svar")
     const relasjon = watch("relasjon")
     const foedselsnummer = watch("foedselsnummer")
+    const soekerBarnepensjon = watch("barnepensjon.soeker")
+    const annetKontonummerBarnepensjon = watch("barnepensjon.kontonummer.svar")
+    const forskuddstrekkBarnepensjon = watch("barnepensjon.forskuddstrekk.svar")
 
     const kanSoekeOmBarnepensjon = (): boolean => {
         if (foedselsnummer && (fnr(foedselsnummer).status === 'valid')) {
@@ -53,15 +56,15 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
     }
 
     return (
-        <FormProvider {...methods}>
+        <FormProvider {...methods} >
             <form style={{ padding: "2rem 2.5rem" }}>
-                <SkjemaGruppe>
+                <SkjemaGruppe className={"skjemagruppe-modal"}>
                     <Title size={"s"} className={"center"}>
                         {t("omBarn.tittel")}
                     </Title>
                 </SkjemaGruppe>
 
-                <SkjemaGruppe>
+                <SkjemaGruppe className={"skjemagruppe-modal"}>
                     <div className={"rad"}>
                         <div className={"kol-50"}>
                             <RHFInput
@@ -93,50 +96,55 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                     />
                 </SkjemaGruppe>
 
-                <RHFSpoersmaalRadio
-                    name={"bosattUtland.svar"}
-                    legend={t("omBarn.bosattUtland.svar")}
-                />
 
-                {bosattUtland === IValg.JA && (
-                    <SkjemaGruppe>
-                        <RHFInput
-                            name={"bosattUtland.land"}
-                            bredde={"XL"}
-                            label={t("omBarn.bosattUtland.land")}
-                        />
+                <SkjemaGruppe className={"skjemagruppe-modal"}>
+                    <RHFSpoersmaalRadio
+                        name={"bosattUtland.svar"}
+                        legend={t("omBarn.bosattUtland.svar")}
+                    />
 
-                        <RHFInput
-                            name={"bosattUtland.adresse"}
-                            label={t("omBarn.bosattUtland.adresse")}
-                        />
-                    </SkjemaGruppe>
-                )}
+                    {bosattUtland === IValg.JA && (
+                        <>
+                            <RHFInput
+                                name={"bosattUtland.land"}
+                                bredde={"XL"}
+                                label={t("omBarn.bosattUtland.land")}
+                            />
 
-                <RHFRadio
-                    name={"relasjon"}
-                    legend={(
+                            <RHFInput
+                                name={"bosattUtland.adresse"}
+                                label={t("omBarn.bosattUtland.adresse")}
+                            />
+                        </>
+                    )}
+                </SkjemaGruppe>
+
+
+                <SkjemaGruppe className={"skjemagruppe-modal"}>
+                    <RHFRadio
+                        name={"relasjon"}
+                        legend={(
                             <span className={"hjelpetekst-container"}>
-                                {t("omBarn.relasjon") }&nbsp;
+                                {t("omBarn.relasjon")}&nbsp;
                                 <Hjelpetekst eventType={"onHover"}>{t("omBarn.relasjonHjelpetekst")} </Hjelpetekst>
                             </span>
                         )}
 
-                    radios={Object.values(BarnRelasjon).map(value => {
-                        return { label: t(value), value } as RadioProps
-                    })}
-                />
-
+                        radios={Object.values(BarnRelasjon).map(value => {
+                            return { label: t(value), value } as RadioProps
+                        })}
+                    />
+                </SkjemaGruppe>
                 {relasjon === BarnRelasjon.fellesbarnMedAvdoede && (
                     <>
-                        <>
+                        <SkjemaGruppe className={"skjemagruppe-modal"}>
                             <RHFSpoersmaalRadio
                                 name={"harBarnetVerge.svar"}
                                 legend={t("omBarn.harBarnetVerge.svar")}
                             />
 
                             {harBarnetVerge === IValg.JA && (
-                                <SkjemaGruppe>
+                                <>
                                     <RHFInput
                                         name={"harBarnetVerge.navn"}
                                         bredde={"S"}
@@ -149,34 +157,77 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                                         label={t("omBarn.harBarnetVerge.foedselsnummer")}
                                         placeholder={t("omBarn.harBarnetVerge.foedselsnummerPlaceholder")}
                                     />
-                                </SkjemaGruppe>
+                                </>
                             )}
-                        </>
+                        </SkjemaGruppe>
 
 
                         {kanSoekeOmBarnepensjon() && (
-                            <RHFCheckboksPanel
-                                name={"soekerBarnepensjon"}
-                                legend={t("omBarn.soekerBarnepensjon")}
-                                description={t("omBarn.soekerBarnepensjonInfo")}
-                                valgfri={true}
-                                checkbox={
-                                    {
-                                        label: t("omBarn.soekerBarnepensjonCheckboks"),
-                                        value: IValg.JA
+                            <SkjemaGruppe className={"skjemagruppe-modal"}>
+                                <RHFCheckboksPanel
+                                    name={"barnepensjon.soeker"}
+                                    legend={t("omBarn.barnepensjon.soeker")}
+                                    description={t("omBarn.barnepensjon.soekerInfo")}
+                                    valgfri={true}
+                                    checkbox={
+                                        {
+                                            label: t("omBarn.barnepensjon.soekerCheckboks"),
+                                            value: IValg.JA
+                                        }
                                     }
-                                }
-                            />
-                        )}
+                                />
 
+                                {soekerBarnepensjon === IValg.JA && (
+                                    <>
+                                        <RHFSpoersmaalRadio
+                                            name={"barnepensjon.kontonummer.svar"}
+                                            legend={t("omBarn.barnepensjon.kontonummer.svar")}
+                                        />
+
+                                        {annetKontonummerBarnepensjon === IValg.JA && (
+                                            <>
+                                                <RHFKontonummerInput
+                                                    name={"barnepensjon.kontonummer.kontonummer"}
+                                                    bredde={"S"}
+                                                    label={t("omBarn.barnepensjon.kontonummer.kontonummer")}
+                                                    placeholder={t("omBarn.barnepensjon.kontonummer.placeholder")}
+                                                />
+
+                                                <RHFSpoersmaalRadio
+                                                    name={"barnepensjon.forskuddstrekk.svar"}
+                                                    legend={(
+                                                        <span className={"hjelpetekst-container"}>
+                                                           {t("omBarn.barnepensjon.forskuddstrekk.svar")}&nbsp;
+                                                            <Hjelpetekst
+                                                                eventType={"onHover"}>{t("omBarn.barnepensjon.forskuddstrekk.hjelpetekst")}
+                                                            </Hjelpetekst>
+                                                        </span>
+                                                    )}
+                                                />
+
+                                                {forskuddstrekkBarnepensjon === IValg.JA && (
+                                                    <RHFProsentInput
+                                                        name={"barnepensjon.forskuddstrekk.trekkprosent"}
+                                                        label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
+                                                        placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
+                                                    />
+                                                )}
+                                            </>
+                                        )}
+                                    </>
+                                )}
+                            </SkjemaGruppe>
+                        )}
                     </>
                 )}
 
                 {(relasjon === BarnRelasjon.avdoedesSaerkullsbarn || relasjon === BarnRelasjon.egneSaerkullsbarn) && (
-                    <RHFSpoersmaalRadio
-                        name={"dagligOmsorg"}
-                        legend={t("omBarn.dagligOmsorg")}
-                    />
+                    <SkjemaGruppe className={"skjemagruppe-modal"}>
+                        <RHFSpoersmaalRadio
+                            name={"dagligOmsorg"}
+                            legend={t("omBarn.dagligOmsorg")}
+                        />
+                    </SkjemaGruppe>
                 )}
 
                 <Feilmeldinger errors={errors}/>

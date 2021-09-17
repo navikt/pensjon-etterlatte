@@ -110,6 +110,7 @@
       "endring": "Hva er grunnen til endringene?",
       "ansettelsesforhold": "Type ansettelse",
       "stillingsprosent": "Hvor mye jobber du?",
+      "stillingsprosentPlaceholder": "eks. 80%",
       "startDato": "Når startet du?",
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
@@ -292,10 +293,24 @@
     "borI": "Bor i",
     "borUtenlands": "Bosatt i et annet land enn Norge",
     "dagligOmsorg": "Har du daglig omsorg for dette barnet?",
-    "soektOmBarnepensjon": "Søkt om barnepensjon",
-    "soekerBarnepensjon": "Søk om barnepensjon",
-    "soekerBarnepensjonInfo": "Fordi du har felles barn med avdøde under 18 år, kan barnet ha rett til barnepensjon.",
-    "soekerBarnepensjonCheckboks": "Ja, jeg søker om barnepensjon for barnet",
+    "barnepensjon": {
+      "soekt": "Søkt om barnepensjon",
+      "soeker": "Søk om barnepensjon",
+      "soekerInfo": "Fordi du har felles barn med avdøde under 18 år, kan barnet ha rett til barnepensjon.",
+      "soekerCheckboks": "Ja, jeg søker om barnepensjon for barnet",
+      "kontonummer": {
+        "svar": "Ønsker du at barnepensjonen utbetales til et annet kontonummer?",
+        "kontonummer": "Oppgi norsk kontonummer for utbetaling av barnepensjon",
+        "placeholder": "11 siffer"
+      },
+      "forskuddstrekk": {
+        "svar": "Ønsker du at vi legger inn et forskuddstrekk for barnepensjonen?",
+        "hjelpetekst": "Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.",
+        "trekkprosent": "Oppgi ønsket forskuddstrekkprosent",
+        "placeholder": "eks. 30%"
+      }
+    },
+
     "bosattUtland": {
       "svar": "Bor barnet i et annet land enn Norge?",
       "land": "Land",
@@ -843,8 +858,29 @@
         "validate": "Ugyldig SWIFT/BIC kode"
       }
     },
-    "soekerBarnepensjon": {
-      "required": "Oppgi om du ønsker å søke om barnepensjon"
+    "barnepensjon": {
+      "soeker": {
+        "required": "Oppgi om du ønsker å søke om barnepensjon"
+      },
+      "kontonummer": {
+        "svar": {
+          "required": "Oppgi om du ønsker et annet kontonummer for utbetaling av barnepensjon"
+        },
+        "kontonummer": {
+          "required": "Norsk kontonummer må fylles ut (11 siffer)"
+        }
+      },
+      "forskuddstrekk": {
+        "svar": {
+          "required": "Oppgi om du ønsker forskuddstrekk for barnepensjonen"
+        },
+        "trekkprosent": {
+          "required": "Oppgi en gyldig prosent"
+        }
+      }
+    },
+    "dagligOmsorg": {
+      "required": "Oppgi om du har daglig omsorg for barnet"
     },
     "harBarnetVerge": {
       "svar": {

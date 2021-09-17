@@ -64,7 +64,17 @@ export interface IBarn {
         adresse?: string;
     };
     dagligOmsorg?: IValg;
-    soekerBarnepensjon?: IValg.JA | undefined;
+    barnepensjon?: {
+        soeker?: IValg.JA | undefined;
+        kontonummer?: {
+            svar?: IValg;
+            kontonummer?: string;
+        };
+        forskuddstrekk?: {
+            svar?: IValg;
+            trekkprosent?: string;
+        }
+    }
 }
 
 export interface IOppholdUtland {

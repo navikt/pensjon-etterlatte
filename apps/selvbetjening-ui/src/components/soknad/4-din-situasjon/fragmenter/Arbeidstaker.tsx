@@ -59,7 +59,7 @@ const Arbeidstaker = () => {
                 <RHFProsentInput
                     name={"arbeidsforhold.stillingsprosent"}
                     label={t("dinSituasjon.arbeidsforhold.stillingsprosent")}
-                    placeholder={"eks. 80%"}
+                    placeholder={t("dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder")}
                 />
             </div>
 

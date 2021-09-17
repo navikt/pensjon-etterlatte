@@ -132,7 +132,21 @@ $width: 650px;
 }
 
 .modal {
-  width: $width;
+  max-width: $width;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .skjemagruppe {
+    margin-bottom: 1rem !important;
+  }
+
+  .skjemagruppe-modal {
+    margin-bottom: 2rem !important;
+  }
+
 }
 
 .navigasjon-rad {

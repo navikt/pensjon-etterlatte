@@ -48,7 +48,7 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
                     </BodyShort>
 
                     <Detail size={"s"} spacing className={"mute"}>
-                        {barn.soekerBarnepensjon === IValg.JA && t("omBarn.soektOmBarnepensjon")}
+                        {barn.barnepensjon?.soeker === IValg.JA && t("omBarn.barnepensjon.soekt")}
                     </Detail>
                 </div>
             </div>
