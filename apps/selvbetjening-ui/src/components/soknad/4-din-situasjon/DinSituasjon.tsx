@@ -61,7 +61,6 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 <RHFCheckboksPanelGruppe
                     name={"jobbStatus"}
                     legend={t("dinSituasjon.jobbStatus")}
-                    description={<HvorforSpoerVi>{t("dinSituasjon.jobbStatusHvorfor")}</HvorforSpoerVi>}
                     checkboxes={Object.values(JobbStatus).map((value) => {
                         return { label: t(value), value } as RadioProps;
                     })}
