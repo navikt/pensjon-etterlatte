@@ -3,6 +3,8 @@ const redis = require("redis");
 const config = require("./config");
 const RedisStore = require("connect-redis");
 
+const { isLabs, isProduction } = config.env;
+
 const options = {
     cookie: {
         maxAge: config.session.maxAgeMs,
@@ -17,12 +19,12 @@ const options = {
 };
 
 const setupSession = () => {
-    if (process.env.NODE_ENV === "production") {
+    if (isProduction && !isLabs) {
         options.cookie.secure = true;
         options.store = setupRedis();
     }
     return session(options);
-}
+};
 
 const setupRedis = () => {
     const store = RedisStore(session);

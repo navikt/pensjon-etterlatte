@@ -1,4 +1,5 @@
 const { injectDecoratorServerSide } = require("@navikt/nav-dekoratoren-moduler/ssr");
+const config = require("./config");
 
 // TODO: Ta i bruk <EnforceLoginLoader />
 // https://github.com/navikt/nav-dekoratoren-moduler#-enforceloginloader--
@@ -6,7 +7,7 @@ const { injectDecoratorServerSide } = require("@navikt/nav-dekoratoren-moduler/s
 const env = process.env.NAIS_CLUSTER_NAME === "prod-gcp" ? "prod" : "dev";
 
 const authProps = {
-    enforceLogin: true,
+    enforceLogin: !config.env.isLabs,
     redirectToApp: true,
     level: "Level4",
     logoutUrl: "/logout"
@@ -21,4 +22,20 @@ const props = {
 
 const getDecorator = (filePath) => injectDecoratorServerSide({ ...props, filePath });
 
-module.exports = getDecorator;
+const setup = (app, buildPath) => {
+    // Match everything except internal and static
+    app.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
+            getDecorator(`${buildPath}/index.html`)
+                    .then((html) => {
+                        res.send(html);
+                    })
+                    .catch((e) => {
+                        console.error(e);
+                        res.status(500).send(e);
+                    })
+    );
+};
+
+module.exports = {
+    setup
+};

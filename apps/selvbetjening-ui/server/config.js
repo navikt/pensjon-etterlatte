@@ -1,6 +1,3 @@
-// TODO: Sti til vårt endepunkt på NAV.no
-const basePath = "";
-const apiUrl = process.env.API_URL || "http://localhost:8085";
 const testJwk = JSON.stringify({
     p: '36qWbr6zTCe4xM3OLpT_x9mcSbNvnx9Sr-z9GHHS4aCQS7JWirw3ez-8vWM71jypLIbUUj7ym_Dbd98IJtc9S6o8j5QejC92Y5EJqtnmKEkKnD4HWLPruCIf8mPlWFPsQQxHeAB6vv1ki036cfaHnmlV7_Fsv2ftYKHfp86-ozE',
     kty: 'RSA',
@@ -16,11 +13,18 @@ const testJwk = JSON.stringify({
     n: 'vJRalsEoApXYdEFsrYo7QOcM36shQXTQvyXuiJPzqq-WpwOM7dCLUQJ7HRO07kKJAfdldwV7j1k1KELjwUozXQC_uGL28xByaP3BZ5JcTmBWz_X2tIRkxOcj8QYJYUaRBWF8gjISkbZC_Cli94NI5qkdSegGV4tjHYwGhk3qX1Pp0NULhxmfdiiMtkMj2PEGQGxl87tgUQrWjBZj1pcn-d7Tnw8uUNMt5tfqCzVXQcJefkuPTOetvFMSyMk8ismd1uxLie1sQ4I-KFnD9OMLVAHfuXNtLrQoPaYJVzqE7ix3f9y5kS8VMn8-UN42gxm6AMenJ0TXJFaAUnGAogoC9w',
 });
 
+const env = {
+    isProduction: process.env.NODE_ENV === "production",
+    isLabs: process.env.NAIS_CLUSTER_NAME === "labs-gcp"
+};
+
 const app = {
+    basePath: "", // TODO: Sti til vårt endepunkt på NAV.no
+    apiUrl: process.env.API_URL || "http://localhost:8085",
     useSecureCookies: !!process.env.NAIS_CLUSTER_NAME,
     port: process.env.PORT || 8080,
     targetAudience: process.env.SELVBETJENING_AUDIENCE || "local:selvbetjening-api",
-    cluster: process.env.NAIS_CLUSTER_NAME || "",
+    loginServiceLogoutUrl: process.env.LOGINSERVICE_LOGOUT_URL
 };
 
 const session = {
@@ -58,9 +62,8 @@ const tokenx = {
 };
 
 module.exports = {
-    basePath,
-    apiUrl,
     app,
+    env,
     session,
     idporten,
     tokenx,

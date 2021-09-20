@@ -1,3 +1,4 @@
+const config = require("./config");
 const { createLogger, format, transports } = require("winston");
 const { Console } = transports;
 const { colorize, combine, timestamp, simple, json } = format;
@@ -10,7 +11,7 @@ const dev = combine(colorize(), simple());
 
 const logger = createLogger({
     level: process.env.NODE_LOG_LEVEL || "warn",
-    format: process.env.NODE_ENV === "production" ? production : dev,
+    format: config.env.isProduction ? production : dev,
     transports: [new Console()],
 });
 

@@ -1,13 +1,15 @@
-const config = require("./config");
-const auth = require("./auth");
-const logger = require("./logger");
 const proxy = require("express-http-proxy");
+const config = require("./config");
+const TokenXClient = require("./auth/tokenx");
+const logger = require("./logger");
+
+const tokenx = new TokenXClient();
 
 const options = () => ({
     parseReqBody: false,
     proxyReqOptDecorator: (options, req) => {
         return new Promise((resolve, reject) => {
-            return auth.exchangeToken(req.session.tokens.access_token).then(
+            return tokenx.exchangeToken(req.session.tokens.access_token).then(
                 (accessToken) => {
                     options.headers.Authorization = `Bearer ${accessToken}`;
                     resolve(options);
@@ -21,14 +23,10 @@ const options = () => ({
     },
 });
 
+// TODO: Setup mock api routes
 const setup = (app) => {
-    auth.setup(config.idporten, config.tokenx, config.app).catch((err) => {
-        logger.error(`Error while setting up auth: ${err}`);
-        process.exit(1);
-    });
-
     // Proxy Selvbetjening API
-    app.use(`${config.basePath}/api`, proxy(config.apiUrl, options()));
+    app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl, options()));
 };
 
 module.exports = {
