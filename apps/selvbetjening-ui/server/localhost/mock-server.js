@@ -35,6 +35,7 @@ app.post("/api/api/soeknad", (req, res) => {
 
     const newID = Math.floor(Math.random() * 100)
     cache.set("id", newID);
+    cache.del(innloggetBruker.foedselsnummer);
 
     setTimeout(() => {
         res.json({id: newID})
