@@ -115,6 +115,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 name={"utbetalingsInformasjon.kontonummer"}
                                 label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                 placeholder={"11 siffer"}
+                                description={t("omDeg.utbetalingsInformasjon.informasjon")}
                             />
                         </SkjemaGruppe>
                     )}

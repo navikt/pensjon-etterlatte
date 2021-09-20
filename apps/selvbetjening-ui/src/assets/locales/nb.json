@@ -158,6 +158,7 @@
       "tittel": "Oppgi bankopplysninger",
       "bankkontoType": "Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?",
       "kontonummer": "Oppgi norsk kontonummer for utbetaling",
+      "informasjon": "Du kan bare ha ett kontonummer registrert hos NAV.",
       "utenlandskBankNavn": "Bankens navn",
       "utenlandskBankAdresse": "Bankens fulle adresse",
       "iban": "IBAN-nummer",
