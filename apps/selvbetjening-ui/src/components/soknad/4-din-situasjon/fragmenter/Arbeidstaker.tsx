@@ -8,6 +8,7 @@ import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Title } from "@navikt/ds-react";
 import { IValg } from "../../../../typer/Spoersmaal";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 const Arbeidstaker = () => {
     const { t } = useTranslation();
@@ -17,7 +18,7 @@ const Arbeidstaker = () => {
     const forventerEndretInntekt = watch("arbeidsforhold.forventerEndretInntekt.svar");
 
     return (
-        <>
+        <SkjemaGruppering>
             <SkjemaGruppe>
                 <Title size={"s"}>{t("dinSituasjon.arbeidsforhold.tittel")}</Title>
             </SkjemaGruppe>
@@ -35,7 +36,7 @@ const Arbeidstaker = () => {
                 />
             </SkjemaGruppe>
 
-            <div className={"rad skjemagruppe"}>
+            <SkjemaGruppe className={"rad"}>
                 <RHFSelect
                     name={"arbeidsforhold.ansettelsesforhold"}
                     label={t("dinSituasjon.arbeidsforhold.ansettelsesforhold")}
@@ -61,7 +62,7 @@ const Arbeidstaker = () => {
                     label={t("dinSituasjon.arbeidsforhold.stillingsprosent")}
                     placeholder={t("dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder")}
                 />
-            </div>
+            </SkjemaGruppe>
 
             <RHFSpoersmaalRadio
                 name={"arbeidsforhold.forventerEndretInntekt.svar"}
@@ -69,16 +70,18 @@ const Arbeidstaker = () => {
                 vetIkke
             />
 
+
             {forventerEndretInntekt === IValg.JA && (
-                <SkjemaGruppe>
-                    <RHFValutaInput
-                        name={"arbeidsforhold.forventerEndretInntekt.beskrivelse"}
-                        bredde={"S"}
-                        label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
-                    />
-                </SkjemaGruppe>
+
+                <RHFValutaInput
+                    name={"arbeidsforhold.forventerEndretInntekt.beskrivelse"}
+                    bredde={"S"}
+                    label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
+                />
+
             )}
-        </>
+
+        </SkjemaGruppering>
     );
 };
 

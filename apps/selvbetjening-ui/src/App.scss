@@ -131,6 +131,18 @@ $width: 650px;
   column-gap: 2rem;
 }
 
+.skjemagruppering {
+  margin-bottom: 3rem !important;
+
+  .skjemagruppe {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .skjemaelement {
+    margin-bottom: 0 !important;
+  }
+}
+
 .modal {
   max-width: $width;
   width: 100%;

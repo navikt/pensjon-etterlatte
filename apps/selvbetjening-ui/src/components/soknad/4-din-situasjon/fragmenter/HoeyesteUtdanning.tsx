@@ -5,6 +5,7 @@ import React from "react";
 import { ISituasjon, Utdanning } from "../../../../typer/situasjon";
 import { RHFInput } from "../../../felles/RHFInput";
 import { useFormContext } from "react-hook-form";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 const HoeyesteUtdanning = () => {
     const { t } = useTranslation();
@@ -14,7 +15,7 @@ const HoeyesteUtdanning = () => {
     const hoyesteFullfoerteUtdanning = watch("utdanning.hoyesteFullfoerteUtdanning")
 
     return (
-        <>
+        <SkjemaGruppering>
             <RHFRadio
                 name={"utdanning.hoyesteFullfoerteUtdanning"}
                 legend={t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning")}
@@ -24,15 +25,13 @@ const HoeyesteUtdanning = () => {
             />
 
             {hoyesteFullfoerteUtdanning === Utdanning.annen && (
-                <SkjemaGruppe>
-                    <RHFInput
-                        name={"utdanning.annenUtdanning"}
-                        label={t("dinSituasjon.utdanning.annenUtdanning")}
-                        placeholder={t("dinSituasjon.utdanning.annenUtdanningPlaceholder")}
-                    />
-                </SkjemaGruppe>
+                <RHFInput
+                    name={"utdanning.annenUtdanning"}
+                    label={t("dinSituasjon.utdanning.annenUtdanning")}
+                    placeholder={t("dinSituasjon.utdanning.annenUtdanningPlaceholder")}
+                />
             )}
-        </>
+        </SkjemaGruppering>
     )
 }
 

@@ -2,12 +2,12 @@ import { FC } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { SkjemaGruppeProps } from "nav-frontend-skjema/lib/skjema-gruppe";
 
-const SkjemaLinje: FC<SkjemaGruppeProps> = ({ children }) => {
+const SkjemaGruppering: FC<SkjemaGruppeProps> = ({ children }) => {
     return (
-        <SkjemaGruppe className={"skjemalinje"}>
+        <SkjemaGruppe className={"skjemagruppering"}>
             {children}
         </SkjemaGruppe>
     )
 }
 
-export default SkjemaLinje;
+export default SkjemaGruppering;

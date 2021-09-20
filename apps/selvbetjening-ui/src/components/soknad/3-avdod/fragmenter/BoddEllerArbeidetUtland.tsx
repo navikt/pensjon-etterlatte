@@ -6,12 +6,13 @@ import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useEffect } from "react";
 import { RHFCheckboksGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
-import SkjemaLinje from "../../../felles/SkjemaLinje";
+import SkjemaLinje from "../../../felles/SkjemaGruppering";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { DeleteFilled } from "@navikt/ds-icons";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Button, Panel, Title } from "@navikt/ds-react";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 interface Props {
     datoForDoedsfallet?: Date;
@@ -49,7 +50,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
             />
 
             {boddEllerArbeidetUtland === IValg.JA && (
-                <SkjemaLinje>
+                <SkjemaGruppering>
                     {fields.map((field: FieldArrayWithId, index: number) => (
                         <Panel border key={field.id} className={"luft-under"}>
                             <div className={"rad"}>
@@ -135,7 +136,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
                         + {t("knapp.leggTil")}
                     </Button>
-                </SkjemaLinje>
+                </SkjemaGruppering>
             )}
         </>
     );

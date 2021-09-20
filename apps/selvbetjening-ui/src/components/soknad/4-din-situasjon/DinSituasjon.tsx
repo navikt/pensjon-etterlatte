@@ -77,8 +77,6 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaGruppe>
                 )}
 
-                {/* <TidligereArbeidsforhold />*/}
-
                 <HoeyesteUtdanning />
 
                 <AndreYtelser />

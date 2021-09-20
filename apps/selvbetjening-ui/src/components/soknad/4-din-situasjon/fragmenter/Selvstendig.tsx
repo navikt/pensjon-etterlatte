@@ -6,6 +6,7 @@ import { Title } from "@navikt/ds-react";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { useFormContext } from "react-hook-form";
 import { IValg } from "../../../../typer/Spoersmaal";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 const Selvstendig = () => {
     const { t } = useTranslation();
@@ -14,7 +15,7 @@ const Selvstendig = () => {
     const forventerEndretInntekt = watch("selvstendig.forventerEndretInntekt.svar");
 
     return (
-        <>
+        <SkjemaGruppering>
             <SkjemaGruppe>
                 <Title size={"s"}>{t("dinSituasjon.selvstendig.tittel")}</Title>
             </SkjemaGruppe>
@@ -58,7 +59,7 @@ const Selvstendig = () => {
                     />
                 </SkjemaGruppe>
             )}
-        </>
+        </SkjemaGruppering>
     );
 };
 

@@ -2,12 +2,13 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 const UnderUtdanning = () => {
     const { t } = useTranslation();
 
     return (
-        <>
+        <SkjemaGruppering>
             <SkjemaGruppe>
                 <RHFInput
                     name={"utdanning.naavaerendeUtdanning.navn"}
@@ -26,7 +27,7 @@ const UnderUtdanning = () => {
                     label={t("dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato")}
                 />
             </SkjemaGruppe>
-        </>
+        </SkjemaGruppering>
     );
 };
 
