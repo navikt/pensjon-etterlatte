@@ -15,7 +15,7 @@ const App = () => {
         <>
             <Banner tekst={"Søknad om gjenlevendepensjon"} />
 
-            <ContentContainer className={"soeknad"}>
+            <ContentContainer className={"soeknad"} role="main">
                 <Switch>
                     <Redirect from={"/labs"} to={"/soknad/admin"} />
 

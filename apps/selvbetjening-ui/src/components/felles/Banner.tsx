@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Title } from "@navikt/ds-react";
 
 const bannerStyle = {
@@ -10,14 +10,12 @@ const bannerStyle = {
     backgroundColor: "#c1b5d0",
     alignItems: "center",
     justifyContent: "center",
-}
+};
 
 const Banner = ({ tekst }: { tekst: string }) => {
     return (
-        <header style={bannerStyle}>
-            <Title size={"xl"}>
-                {tekst}
-            </Title>
+        <header style={bannerStyle} role="banner">
+            <Title size={"xl"}>{tekst}</Title>
         </header>
     );
 };

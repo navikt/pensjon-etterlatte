@@ -16,7 +16,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         // Bekreft riktige opplysninger
         cy.get('[type="checkbox"]').check({ force: true });
 
-        // TODO ;) //cy.checkA11y();
+        cy.checkA11y();
 
         // Start søknaden
         cy.get('[type="button"]').click();
@@ -33,6 +33,8 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById("kontaktinfo.epost").type(omDeg.kontaktinfo.epost);
         selectValueForId("oppholderSegINorge", omDeg.oppholderSegINorge);
         getById("utbetalingsInformasjon.kontonummer").type(omDeg.utbetalingsInformasjon.kontonummer);
+
+        cy.checkA11y();
 
         gaaTilNesteSide();
     });
@@ -51,6 +53,8 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
         );
         selectValue(omDegOgAvdoed.nySivilstatus.sivilstatus);
+
+        cy.checkA11y();
 
         gaaTilNesteSide();
     });
@@ -82,6 +86,8 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         selectValueForId("harAvtjentMilitaerTjeneste.svar", omDenAvdoede.harAvtjentMilitaerTjeneste.svar);
         getById("harAvtjentMilitaerTjeneste.beskrivelse").type(omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse);
 
+        cy.checkA11y();
+
         gaaTilNesteSide();
     });
 
@@ -112,6 +118,8 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById("andreYtelser.mottarPensjonUtland.fraHvilketLand").type(mottarPensjonUtland.fraHvilketLand);
         getById("andreYtelser.mottarPensjonUtland.bruttobeloepPrAar").type(mottarPensjonUtland.bruttobeloepPrAar);
 
+        cy.checkA11y();
+
         gaaTilNesteSide();
     });
 
@@ -133,6 +141,8 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         });
 
         selectValue(IValg.JA);
+
+        cy.checkA11y();
 
         gaaTilNesteSide();
     });
@@ -167,7 +177,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         // Verifiser søknad mottatt
         // TODO: Vil ikke lenger fungere nå som sendt data er annerledes fra state
-/*
+        /*
         cy.wait(["@postSoeknad"]).then((xhr) => {
             // Verifiser at innholdet i requesten består av dataen vi har populert skjema med.
             sammenlignRequestMedInputdata(xhr.request.body);
