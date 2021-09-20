@@ -28,8 +28,6 @@ import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.ByteWriteChannel
 import io.ktor.utils.io.copyAndClose
 import no.nav.etterlatte.security.ktor.clientCredential
-import org.apache.http.impl.conn.SystemDefaultRoutePlanner
-import java.net.ProxySelector
 
 fun jsonClient() =  HttpClient(Apache) {
     install(JsonFeature) {
@@ -53,26 +51,14 @@ fun tokenSecuredEndpoint() = HttpClient(CIO) {
     }
 }
 
-
-fun httpClientWithProxy() = HttpClient(Apache) {
-    install(JsonFeature) {
-        serializer = JacksonSerializer { configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false) }
-    }
-    engine {
-        customizeClient {
-            setRoutePlanner(SystemDefaultRoutePlanner(ProxySelector.getDefault()))
-        }
-    }
-}
-fun pdlhttpclient() = HttpClient(OkHttp) {
+fun pdlhttpclient(outBound: String) = HttpClient(OkHttp,) {
     val env = System.getenv().toMutableMap()
 
     install(JsonFeature) { serializer = JacksonSerializer() }
     install(Auth) {
         clientCredential {
             config = env.toMutableMap()
-                //fjerne hardkoding
-                .apply { put("AZURE_APP_OUTBOUND_SCOPE", "api://dev-fss.pdl.pdl-api/.default") }
+                .apply { put("AZURE_APP_OUTBOUND_SCOPE", outBound) }
         }
     }
 }.also { Runtime.getRuntime().addShutdownHook(Thread { it.close() }) }
@@ -86,7 +72,7 @@ fun filterContenHeaders(requestHeaders: Headers): Headers{
     return Headers.build { appendAll(requestHeaders.filter { key, _ -> proxiedContenHeaders.any{it.equals(key, true)} }) }
 }
 
-class ProxiedContent(val proxiedHeaders: Headers, val content: ByteReadChannel, override val status: HttpStatusCode? = null): OutgoingContent.WriteChannelContent(){
+class ProxiedContent(private val proxiedHeaders: Headers, private val content: ByteReadChannel, override val status: HttpStatusCode? = null): OutgoingContent.WriteChannelContent(){
     companion object{
         private val ignoredHeaders = listOf(HttpHeaders.ContentType, HttpHeaders.ContentLength, HttpHeaders.TransferEncoding, HttpHeaders.Authorization)
     }
@@ -118,7 +104,6 @@ suspend fun ApplicationCall.pipeResponse(response: HttpResponse) {
     respond(ProxiedContent(response.headers, if(response.content.isClosedForRead) { response.receive() } else { response.content }, response.status))
 }
 
-val HttpHeaders.NavCallId: String
+val NavCallId: String
     get() = "Nav-Call-Id"
-//val HttpHeaders.NavConsumerId: String
- //   get() = "Nav-Consumer-Id"
+

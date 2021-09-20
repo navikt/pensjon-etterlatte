@@ -31,11 +31,12 @@ fun Route.pdl(config: ApplicationConfig) {
     route("/pdl") {
 
         val pdlUrl = config.property("no.nav.etterlatte.tjenester.pdl.url").getString()
+        val pdlOutbound = config.property("no.nav.etterlatte.tjenester.pdl.outbound").getString()
         val tokenXHttpClient = tokenSecuredEndpoint()
-        val clientCredentialHttpClient = pdlhttpclient()
+        val clientCredentialHttpClient = pdlhttpclient(pdlOutbound)
         post {
 
-            val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
+            val callId = call.request.header(NavCallId) ?: UUID.randomUUID().toString()
             val tokenxToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken("tokenx")
             val azureToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken("azure")
 
