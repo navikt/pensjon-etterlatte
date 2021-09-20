@@ -16,19 +16,21 @@ const useSoeknad = () => {
     useEffect(() => {
         if (!bruker.kanSoeke) return;
 
-        console.log("Henter soeknad");
-
-        hentSoeknad()
-            .then((soeknad: ISoeknad | undefined) => {
-                if (!soeknad?.harSamtykket) {
-                    history.push("/");
-                } else {
-                    dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad });
-                }
-            })
-            // TODO: Feilhåndtering ...
-            .catch(() => history.push("/"))
-            .finally(() => settLasterSoeknad(false));
+        if (history.location.pathname === "/soknad/admin") {
+            settLasterSoeknad(false)
+        } else {
+            hentSoeknad()
+                .then((soeknad: ISoeknad | undefined) => {
+                    if (!soeknad?.harSamtykket) {
+                        history.push("/");
+                    } else {
+                        dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad });
+                    }
+                })
+                // TODO: Feilhåndtering ...
+                .catch(() => history.push("/"))
+                .finally(() => settLasterSoeknad(false));
+        }
     }, [bruker]);
 
     useEffect(() => {
