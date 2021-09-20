@@ -16,8 +16,14 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
         case ActionTypes.HENT_SOEKNAD:
             return {
                 ...action.payload,
-                klarForLagring: false
+                klarForLagring: false,
+                visFortsettSoeknadModal: true
             };
+        case ActionTypes.VIS_FORTSETT_SOEKNAD_MODAL:
+            return {
+                ...state,
+                visFortsettSoeknadModal: action.payload
+            }
         case ActionTypes.LAGRE_SOEKNAD:
             return {
                 ...state,

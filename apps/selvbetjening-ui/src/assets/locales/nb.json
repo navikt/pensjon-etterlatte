@@ -494,6 +494,11 @@
     "endreSvar": "Endre svar",
     "sistLagret": "Sist lagret"
   },
+  "fortsettSoeknad": {
+    "beskrivelse": "Ønsker du å fortsette utfyllingen av påbegynt søknad?",
+    "fortsettSoeknad": "Ja, jeg vil fortsette der jeg slapp",
+    "startPaaNytt": "Nei, start på nytt"
+  },
   "feil": {
     "tittel": "For å gå videre må du rette opp følgende:",
     "fornavn": {

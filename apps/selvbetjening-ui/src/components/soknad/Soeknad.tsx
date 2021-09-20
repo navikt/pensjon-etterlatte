@@ -5,6 +5,7 @@ import SoknadKvittering from "./SoknadKvittering";
 import Admin from "../dev/Admin";
 import LoaderOverlay from "../felles/LoaderOverlay";
 import useSoeknad from "../../hooks/useSoeknad";
+import { FortsettSoeknadModal } from "./FortsettSoeknadModal";
 
 const Soeknad = () => {
     const lasterSoeknad = useSoeknad();
@@ -12,6 +13,8 @@ const Soeknad = () => {
     return (
         <>
             <LoaderOverlay visible={lasterSoeknad} label={"Henter søknadsinformasjon ..."} />
+
+            {!lasterSoeknad && <FortsettSoeknadModal />}
 
             {/* TODO: Kun i dev/qa*/}
             <Route path={"/soknad/admin"} component={Admin} />

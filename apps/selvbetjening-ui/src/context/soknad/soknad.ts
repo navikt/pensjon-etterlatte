@@ -5,6 +5,7 @@ export const tomSoeknad: ISoeknad = {
     harSamtykket: false,
     sistLagretDato: undefined,
     klarForLagring: false,
+    visFortsettSoeknadModal: false,
     omDeg: {},
     omDegOgAvdoed: {},
     omDenAvdoede: {},
@@ -16,6 +17,7 @@ export interface ISoeknad {
     harSamtykket: boolean;
     klarForLagring?: false;
     sistLagretDato?: Date;
+    visFortsettSoeknadModal: boolean;
     omDeg: ISoeker;
     omDegOgAvdoed: ISoekerOgAvdoed;
     omDenAvdoede: IAvdoed;
@@ -28,6 +30,7 @@ export enum ActionTypes {
     TILBAKESTILL = "TILBAKESTILL",
     HENT_SOEKNAD = "HENT_SOEKNAD",
     LAGRE_SOEKNAD = "LAGRE_SOEKNAD",
+    VIS_FORTSETT_SOEKNAD_MODAL = "VIS_FORTSETT_SOEKNAD_MODAL",
     OPPDATER_SAMTYKKE = "OPPDATER_SAMTYKKE",
     OPPDATER_OM_DEG = "OPPDATER_OM_DEG",
     OPPDATER_OM_DEG_OG_AVDOED = "OPPDATER_OM_DEG_OG_AVDOED",
