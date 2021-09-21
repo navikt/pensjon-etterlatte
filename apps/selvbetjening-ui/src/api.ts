@@ -12,9 +12,8 @@ const api = axios.create({
 axiosRetry(api, {
     retries: 3,
     retryDelay: (retryCount: number) => isDev ? 500 : retryCount * 2000,
-    // Foreløpig begrenset til kun å gjelde sendSoeknad.
     // Må ta stilling til om vi kan få problemer med idempotens/timeout.
-    retryCondition: () => true
+    retryCondition: (error) => error.response?.status !== 404
 });
 
 /**

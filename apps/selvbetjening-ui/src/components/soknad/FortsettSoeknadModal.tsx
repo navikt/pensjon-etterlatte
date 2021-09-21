@@ -48,6 +48,7 @@ export const FortsettSoeknadModal = () => {
         <Modal
             open={state.visFortsettSoeknadModal}
             onClose={startPaaNytt}
+            shouldCloseOnOverlayClick={false}
             className="avbryt-modal"
         >
             <SkjemaGruppe>

@@ -44,7 +44,8 @@ const mockApi = (app) => {
     app.get("/api/api/kladd", (req, res) => {
         const soeknad = cache.get(innloggetBruker.foedselsnummer);
 
-        res.json({soeknad})
+        if (!soeknad) res.sendStatus(404);
+        else res.json({soeknad})
     });
 
     app.post("/api/api/kladd", (req, res) => {
