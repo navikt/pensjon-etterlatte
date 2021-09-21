@@ -2,6 +2,7 @@ name: selvbetjening-ui - Build, release and deploy
 
 env:
   IMAGE: docker.pkg.github.com/${{ github.repository }}/selvbetjening-ui:${{ github.sha }}
+  SHA: ${{ github.sha }}
 
 on:
   push:
