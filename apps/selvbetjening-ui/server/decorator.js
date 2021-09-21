@@ -37,7 +37,7 @@ const setup = (app, filePath) => {
     // Match everything except internal and static
     // Ikke bruke dekoratøren i labs-gcp
     app.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) => {
-        if (isLabsCluster) res.send(filePath);
+        if (isLabsCluster) res.sendFile(filePath);
         else inject(res, filePath);
     });
 };
