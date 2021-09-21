@@ -6,11 +6,10 @@ const api = require("./api");
 const config = require("./config");
 
 const buildPath = path.resolve(__dirname, "../build");
-const basePath = config.app.basePath;
 const app = express();
 
 app.set("trust proxy", 1);
-app.use(basePath, express.static(buildPath, { index: false }));
+app.use(config.app.basePath, express.static(buildPath, { index: false }));
 
 if (config.env.isLabsCluster) {
     api.mock(app);
@@ -19,7 +18,7 @@ if (config.env.isLabsCluster) {
     api.setup(app);
 }
 
-decorator.setup(app, buildPath);
+decorator.setup(app, `${buildPath}/index.html`);
 
 // Endpoints to verify is app is ready/alive
 app.get(`/isAlive|isReady`, (req, res) => {

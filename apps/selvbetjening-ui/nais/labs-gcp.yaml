@@ -37,4 +37,3 @@ spec:
     outbound:
       external:
         - host: www.nav.no
-        - host: dekoratoren.dev.nav.no

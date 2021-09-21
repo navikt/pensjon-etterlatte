@@ -22,20 +22,24 @@ const props = {
     simple: true
 };
 
-const getDecorator = (filePath) => injectDecoratorServerSide({ ...props, filePath });
+const inject = (res, filePath) => {
+    injectDecoratorServerSide({...props, filePath})
+            .then((html) => {
+                res.send(html);
+            })
+            .catch((e) => {
+                console.error(e);
+                res.status(500).send(e);
+            });
+};
 
-const setup = (app, buildPath) => {
+const setup = (app, filePath) => {
     // Match everything except internal and static
-    app.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
-            getDecorator(`${buildPath}/index.html`)
-                    .then((html) => {
-                        res.send(html);
-                    })
-                    .catch((e) => {
-                        console.error(e);
-                        res.status(500).send(e);
-                    })
-    );
+    // Ikke bruke dekoratøren i labs-gcp
+    app.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) => {
+        if (isLabsCluster) res.send(filePath);
+        else inject(res, filePath);
+    });
 };
 
 module.exports = {
