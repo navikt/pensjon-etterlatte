@@ -30,7 +30,7 @@ spec:
   env:
     - name: PDL_URL
       #value: "https://etterlatte-proxy.dev-fss-pub.nais.io/tokenx/pdl"
-      value: http://etterlatte-pdl-proxy/pdl
+      value: http://etterlatte-pdl-proxy/tokenx/pdl
     - name: PDL_AUDIENCE
       #value: "dev-fss:etterlatte:etterlatte-proxy"
       value: "dev-gcp:etterlatte:etterlatte-pdl-proxy"
