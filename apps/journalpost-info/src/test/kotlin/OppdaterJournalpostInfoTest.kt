@@ -13,9 +13,9 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 class OppdaterJournalpostInfoTest {
-    fun getTestResource( file: String): String {
-            return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
-        }
+    fun getTestResource(file: String): String {
+        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
+    }
 
 
     @Test
@@ -29,12 +29,16 @@ class OppdaterJournalpostInfoTest {
                 )
             }.inspektør
 
-        assertEquals("12345678901", inspector.message(0).get("@journalpostInfo").get("avsenderMottaker").get("id").asText())
+        assertEquals(
+            "12345678901",
+            inspector.message(0).get("@journalpostInfo").get("avsenderMottaker").get("id").asText()
+        )
         assertEquals("FNR", inspector.message(0).get("@journalpostInfo").get("avsenderMottaker").get("idType").asText())
         assertEquals("", inspector.message(0).get("@journalpostInfo").get("avsenderMottaker").get("navn").asText())
         assertEquals("12345678901", inspector.message(0).get("@journalpostInfo").get("bruker").get("id").asText())
         assertEquals("FNR", inspector.message(0).get("@journalpostInfo").get("bruker").get("idType").asText())
     }
+
     @Test
     fun testStrengtFortrolig() {
         val json = getTestResource("/OppdaterJournalpostInfoTest1.json")
@@ -48,6 +52,7 @@ class OppdaterJournalpostInfoTest {
         println(inspector.message(0))
         assertEquals("2103", inspector.message(0).get("@journalpostInfo").get("journalfoerendeEnhet").asText())
     }
+
     @Test
     fun testFortrolig() {
         val json = getTestResource("/OppdaterJournalpostInfoTest2.json")
@@ -61,6 +66,7 @@ class OppdaterJournalpostInfoTest {
 
         assertTrue(inspector.message(0).get("@journalpostInfo").get("journalfoerendeEnhet").isNull)
     }
+
     @Test
     fun testFortroligUtland() {
         val json = getTestResource("/OppdaterJournalpostInfoTest3.json")
@@ -74,6 +80,7 @@ class OppdaterJournalpostInfoTest {
 
         assertEquals("2103", inspector.message(0).get("@journalpostInfo").get("journalfoerendeEnhet").asText())
     }
+
     @Test
     fun testIngenAdressebeskyttelse() {
         val json = getTestResource("/OppdaterJournalpostInfoTest4.json")
@@ -89,7 +96,7 @@ class OppdaterJournalpostInfoTest {
     }
 
     @Test
-    fun testLagJournalPostInfo() {
+    fun `skal lage JournalpostInfo`() {
         val rapidsConnection = TestRapid()
         val oppdaterJpI = OppdaterJournalpostInfo(rapidsConnection)
 
@@ -108,7 +115,7 @@ class OppdaterJournalpostInfoTest {
     }
 
     @Test
-    fun testFinnEnhet() {
+    fun `skal returnere riktig enhet`() {
         val rapidsConnection = TestRapid()
         val oppdaterJpI = OppdaterJournalpostInfo(rapidsConnection)
 
