@@ -28,7 +28,10 @@ const useSoeknad = () => {
                     }
                 })
                 // TODO: Feilhåndtering ...
-                .catch(() => history.push("/"))
+                .catch(() => {
+                    settLasterSoeknad(false);
+                    history.push("/");
+                })
                 .finally(() => settLasterSoeknad(false));
         }
     }, [bruker]);
