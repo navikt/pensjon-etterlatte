@@ -37,3 +37,4 @@ spec:
     outbound:
       external:
         - host: www.nav.no
+        - host: loginservice.dev.nav.no

@@ -12,7 +12,7 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(basePath, express.static(buildPath, { index: false }));
 
-if (config.env.isLabs) {
+if (config.env.isLabsCluster) {
     api.mock(app);
 } else {
     authRoutes.setup(app);

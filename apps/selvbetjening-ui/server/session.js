@@ -3,7 +3,7 @@ const redis = require("redis");
 const config = require("./config");
 const RedisStore = require("connect-redis");
 
-const { isLabs, isProduction } = config.env;
+const { isLabsCluster, isProduction } = config.env;
 
 const options = {
     cookie: {
@@ -19,7 +19,7 @@ const options = {
 };
 
 const setupSession = () => {
-    if (isProduction && !isLabs) {
+    if (isProduction && !isLabsCluster) {
         options.cookie.secure = true;
         options.store = setupRedis();
     }
