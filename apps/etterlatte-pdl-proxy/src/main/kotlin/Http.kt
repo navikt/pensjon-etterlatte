@@ -40,6 +40,15 @@ fun httpClient() = HttpClient(Apache){
     }
 }.also { Runtime.getRuntime().addShutdownHook(Thread{it.close()}) }
 
+fun defaultHttpClient() = HttpClient(CIO) {
+    install(JsonFeature) {
+        serializer = JacksonSerializer {
+            configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            setSerializationInclusion(JsonInclude.Include.NON_NULL)
+        }
+    }
+}
+
 fun tokenSecuredEndpoint() = HttpClient(CIO) {
 
     install(JsonFeature) {

@@ -70,3 +70,4 @@ spec:
     outbound:
       external:
         - host: pdl-api.dev-fss-pub.nais.io
+
