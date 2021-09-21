@@ -1,5 +1,12 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.ObjectMapper
+import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse
+import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger
+import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
+import no.nav.helse.rapids_rivers.JsonMessage
+import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -79,6 +86,43 @@ class OppdaterJournalpostInfoTest {
             }.inspektør
 
         assertTrue(inspector.message(0).get("@journalpostInfo").get("journalfoerendeEnhet").isNull)
+    }
+
+    @Test
+    fun testLagJournalPostInfo() {
+        val rapidsConnection = TestRapid()
+        val oppdaterJpI = OppdaterJournalpostInfo(rapidsConnection)
+
+        val method = oppdaterJpI::class.java.getDeclaredMethod("lagJournalpostInfo", JsonMessage::class.java)
+        method.isAccessible = true
+        val parameters = arrayOfNulls<Any>(1)
+
+        parameters[0] = JsonMessage("{}", MessageProblems("{}")).apply {
+            this["@fnr_soeker"] = "12345678975"
+            this["@adressebeskyttelse"] = Adressebeskyttelse.KODE19
+        }
+
+        val result = method.invoke(oppdaterJpI, *parameters) as JournalpostInfo
+        assertEquals(result.bruker.id, "12345678975")
+        assertEquals(result.journalfoerendeEnhet, "2103")
+    }
+
+    @Test
+    fun testFinnEnhet() {
+        val rapidsConnection = TestRapid()
+        val oppdaterJpI = OppdaterJournalpostInfo(rapidsConnection)
+
+        val method = oppdaterJpI::class.java.getDeclaredMethod("finnEnhet", JsonNode::class.java)
+        method.isAccessible = true
+        val parameters = arrayOfNulls<Any>(1)
+
+        parameters[0] = ObjectMapper().readTree("\"STRENGT_FORTROLIG\"");
+        val result = method.invoke(oppdaterJpI, *parameters) as String
+        assertEquals(result, Graderinger.STRENGT_FORTROLIG.ruting)
+
+        parameters[0] = ObjectMapper().readTree("\"STRENGT_FORTROLIG_UTLAND\"");
+        val result2 = method.invoke(oppdaterJpI, *parameters) as String
+        assertEquals(result2, Graderinger.STRENGT_FORTROLIG_UTLAND.ruting)
     }
 }
 

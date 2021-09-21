@@ -49,7 +49,6 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
     }
 
     private fun finnEnhet(adressebeskyttelse: JsonNode): String? {
-
         return when (adressebeskyttelse.textValue()){
             KODE6 -> "2103"
             KODE19 -> "2103"
