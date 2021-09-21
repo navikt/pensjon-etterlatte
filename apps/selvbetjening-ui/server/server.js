@@ -12,9 +12,10 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(basePath, express.static(buildPath, { index: false }));
 
-if (process.env.NAIS_CLUSTER_NAME === "labs-gcp") {
+if (config.env.isLabs) {
     // Fjerne autentisering i labs-gcp siden det p.t. ikke er støttet
     // TODO: Legge til mock API, osv.
+    api.mock(app);
 } else {
     authRoutes.setup(app);
     api.setup(app);

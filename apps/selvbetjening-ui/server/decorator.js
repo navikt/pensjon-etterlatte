@@ -4,7 +4,7 @@ const config = require("./config");
 // TODO: Ta i bruk <EnforceLoginLoader />
 // https://github.com/navikt/nav-dekoratoren-moduler#-enforceloginloader--
 
-const env = process.env.NAIS_CLUSTER_NAME === "prod-gcp" ? "prod" : "dev";
+const env = (config.env.isProduction || config.env.isLabs) ? "prod" : "dev";
 
 const authProps = {
     enforceLogin: !config.env.isLabs,

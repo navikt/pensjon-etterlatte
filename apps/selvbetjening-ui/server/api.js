@@ -2,6 +2,7 @@ const proxy = require("express-http-proxy");
 const config = require("./config");
 const TokenXClient = require("./auth/tokenx");
 const logger = require("./logger");
+const {mockApi} = require("./mock/mock-api");
 
 const tokenx = new TokenXClient();
 
@@ -29,6 +30,9 @@ const setup = (app) => {
     app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl, options()));
 };
 
+const mock = (app) => mockApi(app);
+
 module.exports = {
     setup,
+    mock,
 };

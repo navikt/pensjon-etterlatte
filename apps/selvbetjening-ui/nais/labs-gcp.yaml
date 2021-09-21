@@ -1,0 +1,39 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: selvbetjening-ui
+  namespace: etterlatte
+  labels:
+    team: etterlatte
+spec:
+  image: {{ image }}
+  port: 8080
+  replicas:
+    min: 1
+    max: 2
+    cpuThresholdPercentage: 90
+  ingresses:
+    - "https://etterlatteytelser.labs.nais.io"
+  liveness:
+    path: /isAlive
+    initialDelay: 10
+    timeout: 5
+    periodSeconds: 5
+    failureThreshold: 30
+  readiness:
+    path: /isReady
+    initialDelay: 30
+    periodSeconds: 5
+    timeout: 5
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 200m
+      memory: 256Mi
+  webproxy: true
+  accessPolicy:
+    outbound:
+      external:
+        - host: www.nav.no
