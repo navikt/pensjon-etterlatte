@@ -28,5 +28,5 @@ app.get(`/isAlive|isReady`, (req, res) => {
 const port = config.app.port;
 app.listen(port, () => {
     console.log(`App listening on port: ${port}`);
-    console.log(`Current Github SHA: ${process.env.GITHUB_SHA}`);
+    console.log(`Current Github SHA: ${process.env.GITHUB_SHA}`)
 });
