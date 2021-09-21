@@ -29,9 +29,11 @@ spec:
     pool: nav-dev
   env:
     - name: PDL_URL
-      value: "https://etterlatte-proxy.dev-fss-pub.nais.io/tokenx/pdl"
+      #value: "https://etterlatte-proxy.dev-fss-pub.nais.io/tokenx/pdl"
+      value: http://etterlatte-pdl-proxy/pdl
     - name: PDL_AUDIENCE
-      value: "dev-fss:etterlatte:etterlatte-proxy"
+      #value: "dev-fss:etterlatte:etterlatte-proxy"
+      value: "dev-gcp:etterlatte:etterlatte-pdl-proxy"
     - name: INNSENDTSOEKNAD_AUDIENCE
       value: "dev-gcp:etterlatte:innsendt-soeknad"
     - name: ROOT_LOGLEVEL
@@ -47,7 +49,8 @@ spec:
   accessPolicy:
     outbound:
       rules:
-        - application: etterlatte-proxy
+        #- application: etterlatte-proxy
+        - application: etterlatte-pdl-proxy
         - application: innsendt-soeknad
     inbound:
       rules:
