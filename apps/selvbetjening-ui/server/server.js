@@ -17,8 +17,9 @@ if (config.env.isLabs) {
 } else {
     authRoutes.setup(app);
     api.setup(app);
-    decorator.setup(app, buildPath);
 }
+
+decorator.setup(app, buildPath);
 
 // Endpoints to verify is app is ready/alive
 app.get(`/isAlive|isReady`, (req, res) => {
