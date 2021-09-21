@@ -1,6 +1,7 @@
 val junitJupiterVersion: String by project
 val ktorversion: String by project
 val rapidsandriversversion: String by project
+val kotestVersion: String by project
 
 plugins {
     application
@@ -21,6 +22,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 
     // Logging
     implementation("org.slf4j:slf4j-api:1.7.30")

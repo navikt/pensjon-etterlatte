@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory
 internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
     River.PacketListener {
     private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+
     init {
         River(rapidsConnection).apply {
             validate { it.requireKey("@skjema_info") }
@@ -20,22 +21,14 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
         }.register(this)
     }
 
-    override fun onPacket(packet: JsonMessage, context: MessageContext) {
-
-
-        runBlocking {
-
-            val brukere = finnFnrForSkjema(packet["@skjema_info"])
-            logger.info("fant følgende brukere: $brukere")
-            packet["@fnr_liste"] = brukere + packet["@fnr_soeker"].textValue()
-            println(packet["@fnr_liste"])
-            context.publish(packet.toJson())
-
-
-            }
+    override fun onPacket(packet: JsonMessage, context: MessageContext) = runBlocking {
+        val brukere = finnFnrForSkjema(packet["@skjema_info"])
+        logger.info("Fant følgende brukere: $brukere")
+        packet["@fnr_liste"] = brukere + packet["@fnr_soeker"].textValue()
+        context.publish(packet.toJson())
     }
 
-    private fun finnFnrForSkjema(skjemainfo: JsonNode ): List<String> {
+    private fun finnFnrForSkjema(skjemainfo: JsonNode): List<String> {
         val regex = """\b(\d{11})\b""".toRegex()
 
         return regex.findAll(skjemainfo.toString())
@@ -45,7 +38,7 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
             .distinct()
     }
 
-    private fun validateControlDigits(value:String): Boolean {
+    private fun validateControlDigits(value: String): Boolean {
         val controlDigits1 = intArrayOf(3, 7, 6, 1, 8, 9, 4, 5, 2)
         val controlDigits2 = intArrayOf(5, 4, 3, 2, 7, 6, 5, 4, 3, 2)
         val ks1 = Character.getNumericValue(value[9])
@@ -62,7 +55,8 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
 
         return true
     }
-    private fun mod(arr: IntArray, value:String): Int {
+
+    private fun mod(arr: IntArray, value: String): Int {
         val sum = arr.withIndex()
             .sumOf { (i, m) -> m * Character.getNumericValue(value[i]) }
 
@@ -70,6 +64,3 @@ internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
         return if (result == 11) 0 else result
     }
 }
-
-
-
