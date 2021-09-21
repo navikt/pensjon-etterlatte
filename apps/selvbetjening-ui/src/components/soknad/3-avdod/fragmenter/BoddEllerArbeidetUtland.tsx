@@ -6,7 +6,6 @@ import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useEffect } from "react";
 import { RHFCheckboksGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
-import SkjemaLinje from "../../../felles/SkjemaGruppering";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { DeleteFilled } from "@navikt/ds-icons";

@@ -60,7 +60,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
             <form style={{ padding: "2rem 2.5rem" }}>
                 <SkjemaGruppe className={"skjemagruppe-modal"}>
                     <Title size={"s"} className={"center"}>
-                        {t("omBarn.tittel")}
+                        {t("omBarn.tittelModal")}
                     </Title>
                 </SkjemaGruppe>
 
@@ -85,7 +85,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
 
                     <RHFFoedselsnummerInput
                         name={"foedselsnummer"}
-                        bredde={"S"}
+                        bredde={"L"}
                         label={t("omBarn.foedselsnummer")}
                     />
 
@@ -147,13 +147,13 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                                 <>
                                     <RHFInput
                                         name={"harBarnetVerge.navn"}
-                                        bredde={"S"}
+                                        bredde={"L"}
                                         label={t("omBarn.harBarnetVerge.navn")}
                                         placeholder={t("omBarn.harBarnetVerge.navnPlaceholder")}
                                     />
                                     <RHFFoedselsnummerInput
                                         name={"harBarnetVerge.foedselsnummer"}
-                                        bredde={"S"}
+                                        bredde={"L"}
                                         label={t("omBarn.harBarnetVerge.foedselsnummer")}
                                         placeholder={t("omBarn.harBarnetVerge.foedselsnummerPlaceholder")}
                                     />
@@ -184,35 +184,38 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                                             legend={t("omBarn.barnepensjon.kontonummer.svar")}
                                         />
 
-                                        {annetKontonummerBarnepensjon === IValg.JA && (
-                                            <>
-                                                <RHFKontonummerInput
-                                                    name={"barnepensjon.kontonummer.kontonummer"}
-                                                    bredde={"S"}
-                                                    label={t("omBarn.barnepensjon.kontonummer.kontonummer")}
-                                                    placeholder={t("omBarn.barnepensjon.kontonummer.placeholder")}
-                                                />
+                                        {annetKontonummerBarnepensjon === IValg.NEI && (
 
-                                                <RHFSpoersmaalRadio
-                                                    name={"barnepensjon.forskuddstrekk.svar"}
-                                                    legend={(
-                                                        <span className={"hjelpetekst-container"}>
+                                            <RHFKontonummerInput
+                                                name={"barnepensjon.kontonummer.kontonummer"}
+                                                bredde={"M"}
+                                                label={t("omBarn.barnepensjon.kontonummer.kontonummer")}
+                                                placeholder={t("omBarn.barnepensjon.kontonummer.placeholder")}
+                                                description={t("omBarn.barnepensjon.kontonummer.informasjon")}
+                                            />
+                                        )}
+
+                                        {annetKontonummerBarnepensjon !== IValg.VET_IKKE && (
+                                            <RHFSpoersmaalRadio
+                                                name={"barnepensjon.forskuddstrekk.svar"}
+                                                legend={(
+                                                    <span className={"hjelpetekst-container"}>
                                                            {t("omBarn.barnepensjon.forskuddstrekk.svar")}&nbsp;
-                                                            <Hjelpetekst
-                                                                eventType={"onHover"}>{t("omBarn.barnepensjon.forskuddstrekk.hjelpetekst")}
+                                                        <Hjelpetekst
+                                                            eventType={"onHover"}>{t("omBarn.barnepensjon.forskuddstrekk.hjelpetekst")}
                                                             </Hjelpetekst>
                                                         </span>
-                                                    )}
-                                                />
-
-                                                {forskuddstrekkBarnepensjon === IValg.JA && (
-                                                    <RHFProsentInput
-                                                        name={"barnepensjon.forskuddstrekk.trekkprosent"}
-                                                        label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
-                                                        placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
-                                                    />
                                                 )}
-                                            </>
+                                            />
+                                        )}
+
+                                        {forskuddstrekkBarnepensjon === IValg.JA && (
+                                            <RHFProsentInput
+                                                bredde={"M"}
+                                                name={"barnepensjon.forskuddstrekk.trekkprosent"}
+                                                label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
+                                                placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
+                                            />
                                         )}
                                     </>
                                 )}

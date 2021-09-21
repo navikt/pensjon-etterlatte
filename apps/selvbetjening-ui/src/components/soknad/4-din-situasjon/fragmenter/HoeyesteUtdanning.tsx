@@ -1,6 +1,6 @@
 import { RHFRadio } from "../../../felles/RHFRadio";
 import { useTranslation } from "react-i18next";
-import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps } from "nav-frontend-skjema";
 import React from "react";
 import { ISituasjon, Utdanning } from "../../../../typer/situasjon";
 import { RHFInput } from "../../../felles/RHFInput";
