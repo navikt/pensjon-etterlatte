@@ -13,15 +13,12 @@ app.set("trust proxy", 1);
 app.use(basePath, express.static(buildPath, { index: false }));
 
 if (config.env.isLabs) {
-    // Fjerne autentisering i labs-gcp siden det p.t. ikke er støttet
-    // TODO: Legge til mock API, osv.
     api.mock(app);
 } else {
     authRoutes.setup(app);
     api.setup(app);
+    decorator.setup(app, buildPath);
 }
-
-decorator.setup(app, buildPath);
 
 // Endpoints to verify is app is ready/alive
 app.get(`/isAlive|isReady`, (req, res) => {

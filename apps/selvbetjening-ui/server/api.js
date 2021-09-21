@@ -2,15 +2,15 @@ const proxy = require("express-http-proxy");
 const config = require("./config");
 const TokenXClient = require("./auth/tokenx");
 const logger = require("./logger");
-const {mockApi} = require("./mock/mock-api");
+const { mockApi } = require("./mock/mock-api");
 
-const tokenx = new TokenXClient();
+const { exchangeToken } = new TokenXClient();
 
 const options = () => ({
     parseReqBody: false,
     proxyReqOptDecorator: (options, req) => {
         return new Promise((resolve, reject) => {
-            return tokenx.exchangeToken(req.session.tokens.access_token).then(
+            return exchangeToken(req.session.tokens.access_token).then(
                 (accessToken) => {
                     options.headers.Authorization = `Bearer ${accessToken}`;
                     resolve(options);
@@ -24,7 +24,6 @@ const options = () => ({
     },
 });
 
-// TODO: Setup mock api routes
 const setup = (app) => {
     // Proxy Selvbetjening API
     app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl, options()));
