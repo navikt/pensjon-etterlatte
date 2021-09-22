@@ -307,3 +307,13 @@ Override av snodig oppførsel
   border-radius: 4px;
   padding: 1rem;
 }
+
+.global-alert-wrap {
+  position: fixed;
+  bottom: 2em;
+  left: 1em;
+  right: 1em;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+}

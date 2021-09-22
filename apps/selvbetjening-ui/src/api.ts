@@ -67,9 +67,6 @@ export const lagreSoeknad = async (soeknad: ISoeknad) => {
 
     try {
         const response = await api.post("/api/kladd", body);
-        if (response.status !== 200) {
-            throw new Error();
-        }
         return response.data;
     } catch (e) {
         throw new Error("Det skjedde en feil");

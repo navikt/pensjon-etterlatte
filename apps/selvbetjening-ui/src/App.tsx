@@ -27,7 +27,11 @@ const App = () => {
 
                     <Route component={SideIkkeFunnet} />
                 </Switch>
-                {soknadContext?.state?.error && <Alert variant="error">{soknadContext?.state?.error}</Alert>}
+                {soknadContext?.state?.error && (
+                    <div className="global-alert-wrap">
+                        <Alert variant="error">{soknadContext?.state?.error}</Alert>
+                    </div>
+                )}
             </ContentContainer>
         </>
     );

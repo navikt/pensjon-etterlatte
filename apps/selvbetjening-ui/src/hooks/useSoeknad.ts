@@ -13,6 +13,7 @@ const useSoeknad = () => {
     const { state, dispatch } = useSoknadContext();
     const { setError } = useError();
 
+    // TODO: loading-skjerm bør gjøres global og styres fra soknadskonteksten (p.g.a flere ting som laster data som også kan feile)
     const [lasterSoeknad, settLasterSoeknad] = useState(true);
 
     useEffect(() => {
@@ -48,8 +49,9 @@ const useSoeknad = () => {
 
             lagreSoeknad({ ...state, sistLagretDato: now })
                 .then(() => dispatch({ type: ActionTypes.LAGRE_SOEKNAD, payload: now }))
-                // TODO: Feilhåndtering ...
-                .catch((err) => console.error(err));
+                .catch(() => {
+                    setError("Det skjedde en feil. Prøv igjen senere.");
+                });
         }
     }, [state.klarForLagring]);
 
