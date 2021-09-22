@@ -89,7 +89,7 @@
   },
   "scripts": {
     "start": "env REACT_APP_ENVIRONMENT=development react-scripts start",
-    "start:mock": "concurrently \\\"node server/mock/mock-server.js\\\" \\\"react-scripts start\\\"",
+    "start:mock": "concurrently \"node server/mock/mock-server.js\" \"react-scripts start\"",
     "build:dev": "env REACT_APP_ENVIRONMENT=development react-scripts build",
     "build:prod": "env REACT_APP_ENVIRONMENT=production react-scripts build",
     "build": "react-scripts build",
