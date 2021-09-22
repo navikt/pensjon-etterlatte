@@ -130,7 +130,7 @@ const SoknadForside = () => {
                 />
             </SkjemaGruppe>
 
-            {soknadState.harSamtykket && (
+            {soknadState.harSamtykket && !soknadState?.error && (
                 <Button variant={"action"} type={"button"} onClick={startSoeknad}>
                     {t("forside.startSoeknad")}
                 </Button>

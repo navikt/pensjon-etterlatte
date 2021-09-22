@@ -3,12 +3,14 @@ import SideIkkeFunnet from "./components/SideIkkeFunnet";
 import Banner from "./components/felles/Banner";
 import UgyldigSoeker from "./components/UgyldigSoeker";
 import Soeknad from "./components/soknad/Soeknad";
-import { ContentContainer } from "@navikt/ds-react";
+import { ContentContainer, Alert } from "@navikt/ds-react";
 import useInnloggetBruker from "./hooks/useInnloggetBruker";
 import { useAmplitude } from "./utils/amplitude";
+import { useSoknadContext } from "./context/soknad/SoknadContext";
 
 const App = () => {
     useInnloggetBruker();
+    const soknadContext = useSoknadContext();
     useAmplitude();
 
     return (
@@ -25,6 +27,7 @@ const App = () => {
 
                     <Route component={SideIkkeFunnet} />
                 </Switch>
+                {soknadContext?.state?.error && <Alert variant="error">{soknadContext?.state?.error}</Alert>}
             </ContentContainer>
         </>
     );

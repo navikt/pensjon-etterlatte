@@ -7,7 +7,7 @@ const initialState: ISoeknad = tomSoeknad;
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
         case ActionTypes.MOCK_SOEKNAD: {
-            const json = JSON.stringify(mockJson)
+            const json = JSON.stringify(mockJson);
 
             return JSON.parse(json) as ISoeknad;
         }
@@ -17,54 +17,60 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
             return {
                 ...action.payload,
                 klarForLagring: false,
-                visFortsettSoeknadModal: true
+                visFortsettSoeknadModal: true,
             };
         case ActionTypes.VIS_FORTSETT_SOEKNAD_MODAL:
             return {
                 ...state,
-                visFortsettSoeknadModal: action.payload
-            }
+                visFortsettSoeknadModal: action.payload,
+            };
         case ActionTypes.LAGRE_SOEKNAD:
             return {
                 ...state,
                 sistLagretDato: action.payload,
-                klarForLagring: false
-            }
+                klarForLagring: false,
+            };
         case ActionTypes.OPPDATER_SAMTYKKE:
             return {
                 ...state,
                 klarForLagring: true,
-                harSamtykket: action.payload
+                harSamtykket: action.payload,
             };
         case ActionTypes.OPPDATER_OM_DEG:
             return {
                 ...state,
                 klarForLagring: true,
-                omDeg: action.payload
+                omDeg: action.payload,
             };
         case ActionTypes.OPPDATER_OM_DEG_OG_AVDOED:
             return {
                 ...state,
                 klarForLagring: true,
-                omDegOgAvdoed: action.payload
+                omDegOgAvdoed: action.payload,
             };
         case ActionTypes.OPPDATER_AVDOED:
             return {
                 ...state,
                 klarForLagring: true,
-                omDenAvdoede: action.payload
+                omDenAvdoede: action.payload,
             };
         case ActionTypes.OPPDATER_DIN_SITUASJON:
             return {
                 ...state,
                 klarForLagring: true,
-                dinSituasjon: action.payload
+                dinSituasjon: action.payload,
             };
         case ActionTypes.OPPDATER_OM_BARN: {
             return {
                 ...state,
                 klarForLagring: true,
-                opplysningerOmBarn: action.payload
+                opplysningerOmBarn: action.payload,
+            };
+        }
+        case ActionTypes.SET_ERROR: {
+            return {
+                ...state,
+                error: action.payload,
             };
         }
         default:

@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import { hentSoeknad, lagreSoeknad } from "../api";
 import { ActionTypes, ISoeknad } from "../context/soknad/soknad";
 import { useHistory } from "react-router-dom";
+import { useError } from "./useError";
 
 const useSoeknad = () => {
     const history = useHistory();
 
     const { state: bruker } = useBrukerContext();
     const { state, dispatch } = useSoknadContext();
+    const { setError } = useError();
 
     const [lasterSoeknad, settLasterSoeknad] = useState(true);
 
@@ -17,7 +19,7 @@ const useSoeknad = () => {
         if (!bruker.kanSoeke) return;
 
         if (history.location.pathname === "/soknad/admin") {
-            settLasterSoeknad(false)
+            settLasterSoeknad(false);
         } else {
             hentSoeknad()
                 .then((soeknad: ISoeknad | undefined) => {
@@ -27,8 +29,8 @@ const useSoeknad = () => {
                         dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad });
                     }
                 })
-                // TODO: Feilhåndtering ...
                 .catch(() => {
+                    setError("Det skjedde en feil. Prøv igjen senere.");
                     settLasterSoeknad(false);
                     history.push("/");
                 })
@@ -52,6 +54,6 @@ const useSoeknad = () => {
     }, [state.klarForLagring]);
 
     return lasterSoeknad;
-}
+};
 
 export default useSoeknad;

@@ -6,11 +6,12 @@ export const tomSoeknad: ISoeknad = {
     sistLagretDato: undefined,
     klarForLagring: false,
     visFortsettSoeknadModal: false,
+    error: null,
     omDeg: {},
     omDegOgAvdoed: {},
     omDenAvdoede: {},
     dinSituasjon: {},
-    opplysningerOmBarn: {}
+    opplysningerOmBarn: {},
 };
 
 export interface ISoeknad {
@@ -18,6 +19,7 @@ export interface ISoeknad {
     klarForLagring?: false;
     sistLagretDato?: Date;
     visFortsettSoeknadModal: boolean;
+    error: null | string;
     omDeg: ISoeker;
     omDegOgAvdoed: ISoekerOgAvdoed;
     omDenAvdoede: IAvdoed;
@@ -37,6 +39,7 @@ export enum ActionTypes {
     OPPDATER_AVDOED = "OPPDATER_AVDOED",
     OPPDATER_DIN_SITUASJON = "OPPDATER_DIN_SITUASJON",
     OPPDATER_OM_BARN = "OPPDATER_OM_BARN",
+    SET_ERROR = "SET_ERROR",
 }
 
 export interface ISoeknadAction {
