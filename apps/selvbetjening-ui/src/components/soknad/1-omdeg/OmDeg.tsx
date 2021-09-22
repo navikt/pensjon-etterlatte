@@ -20,6 +20,7 @@ import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { isEmpty } from "lodash";
 import useEffectOnce from "../../../hooks/useEffectOnce";
+import SkjemaGruppering from "../../felles/SkjemaGruppering";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
@@ -67,99 +68,103 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
                 <form>
-                    <RHFSpoersmaalRadio
-                        name={"bostedsadresseBekreftet"}
-                        legend={<Trans i18nKey={"omDeg.bostedsadresseBekreftet"}/>}
-                    />
+                    <SkjemaGruppering>
+                        <RHFSpoersmaalRadio
+                            name={"bostedsadresseBekreftet"}
+                            legend={<Trans i18nKey={"omDeg.bostedsadresseBekreftet"}/>}
+                        />
 
-                    {borPaaRegistrertAdresse === IValg.NEI && (
-                        <SkjemaGruppe>
-                            <RHFInput
-                                name={"alternativAdresse"}
-                                label={<Trans i18nKey={"omDeg.alternativAdresse"}/>}
-                            />
-                        </SkjemaGruppe>
-                    )}
-
-                    <SkjemaGruppe>
-                        <Grid>
-                            <Cell xs={12} md={3} className={"kol"}>
-                                <RHFTelefonInput
-                                    bredde={"S"}
-                                    name={"kontaktinfo.telefonnummer"}
-                                    label={t("omDeg.kontaktinfo.telefonnummer")}
-                                />
-                            </Cell>
-
-                            <Cell xs={12} md={6} className={"kol"}>
-                                <RHFInput
-                                    name={"kontaktinfo.epost"}
-                                    label={t("omDeg.kontaktinfo.epost")}
-                                    rules={{ pattern: emailMatcher }}
-                                />
-                            </Cell>
-                        </Grid>
-                    </SkjemaGruppe>
-
-                    {/* 2.7 */}
-                    <RHFSpoersmaalRadio
-                        name={"oppholderSegINorge"}
-                        legend={t("omDeg.oppholderSegINorge")}
-                        description={<HvorforSpoerVi>{t("omDeg.oppholdHvorfor")}</HvorforSpoerVi>}
-                    />
-
-                    {oppholderSegINorge === IValg.JA && (
-                        <SkjemaGruppe>
-                            <RHFKontonummerInput
-                                bredde={"S"}
-                                name={"utbetalingsInformasjon.kontonummer"}
-                                label={t("omDeg.utbetalingsInformasjon.kontonummer")}
-                                placeholder={"11 siffer"}
-                                description={t("omDeg.utbetalingsInformasjon.informasjon")}
-                            />
-                        </SkjemaGruppe>
-                    )}
-
-                    {oppholderSegINorge === IValg.NEI && (
-                        <>
+                        {borPaaRegistrertAdresse === IValg.NEI && (
                             <SkjemaGruppe>
                                 <RHFInput
-                                    bredde={"XL"}
-                                    name={"oppholdsland"}
-                                    label={t("omDeg.oppholdsland")}
-                                    rules={{ pattern: /^[\w|\s]+$/ }}
+                                    name={"alternativAdresse"}
+                                    label={<Trans i18nKey={"omDeg.alternativAdresse"}/>}
                                 />
                             </SkjemaGruppe>
+                        )}
 
-                            <RHFSpoersmaalRadio
-                                name={"medlemFolketrygdenUtland"}
-                                legend={t("omDeg.medlemFolketrygdenUtland")}
-                            />
+                        <SkjemaGruppe>
+                            <Grid>
+                                <Cell xs={12} md={3} className={"kol"}>
+                                    <RHFTelefonInput
+                                        bredde={"S"}
+                                        name={"kontaktinfo.telefonnummer"}
+                                        label={t("omDeg.kontaktinfo.telefonnummer")}
+                                    />
+                                </Cell>
 
-                            <RHFInlineRadio
-                                name={"utbetalingsInformasjon.bankkontoType"}
-                                legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
-                                radios={Object.values(BankkontoType).map(value => {
-                                    return { label: t(value), value } as RadioProps
-                                })}
-                            />
+                                <Cell xs={12} md={6} className={"kol"}>
+                                    <RHFInput
+                                        name={"kontaktinfo.epost"}
+                                        label={t("omDeg.kontaktinfo.epost")}
+                                        rules={{ pattern: emailMatcher }}
+                                    />
+                                </Cell>
+                            </Grid>
+                        </SkjemaGruppe>
+                    </SkjemaGruppering>
 
-                            {bankkontoType === BankkontoType.norsk && (
+                    {/* 2.7 */}
+                    <SkjemaGruppering>
+                        <RHFSpoersmaalRadio
+                            name={"oppholderSegINorge"}
+                            legend={t("omDeg.oppholderSegINorge")}
+                            description={<HvorforSpoerVi>{t("omDeg.oppholdHvorfor")}</HvorforSpoerVi>}
+                        />
+
+                        {oppholderSegINorge === IValg.JA && (
+                            <SkjemaGruppe>
+                                <RHFKontonummerInput
+                                    bredde={"S"}
+                                    name={"utbetalingsInformasjon.kontonummer"}
+                                    label={t("omDeg.utbetalingsInformasjon.kontonummer")}
+                                    placeholder={"11 siffer"}
+                                    description={t("omDeg.utbetalingsInformasjon.informasjon")}
+                                />
+                            </SkjemaGruppe>
+                        )}
+
+                        {oppholderSegINorge === IValg.NEI && (
+                            <>
                                 <SkjemaGruppe>
+                                    <RHFInput
+                                        bredde={"XL"}
+                                        name={"oppholdsland"}
+                                        label={t("omDeg.oppholdsland")}
+                                        rules={{ pattern: /^[\w|\s]+$/ }}
+                                    />
+                                </SkjemaGruppe>
+
+                                <RHFSpoersmaalRadio
+                                    name={"medlemFolketrygdenUtland"}
+                                    legend={t("omDeg.medlemFolketrygdenUtland")}
+                                />
+
+                                <RHFInlineRadio
+                                    name={"utbetalingsInformasjon.bankkontoType"}
+                                    legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
+                                    radios={Object.values(BankkontoType).map(value => {
+                                        return { label: t(value), value } as RadioProps
+                                    })}
+                                />
+
+                                {bankkontoType === BankkontoType.norsk && (
+
                                     <RHFKontonummerInput
                                         bredde={"S"}
                                         name={"utbetalingsInformasjon.kontonummer"}
                                         label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                         placeholder={"11 siffer"}
                                     />
-                                </SkjemaGruppe>
-                            )}
 
-                            {bankkontoType === BankkontoType.utenlandsk && (
-                                <UtenlandskBankInfo/>
-                            )}
-                        </>
-                    )}
+                                )}
+
+                                {bankkontoType === BankkontoType.utenlandsk && (
+                                    <UtenlandskBankInfo/>
+                                )}
+                            </>
+                        )}
+                    </SkjemaGruppering>
 
                     {skalSjekkeFlyktningStatus && (
                         <SkjemaGruppe>

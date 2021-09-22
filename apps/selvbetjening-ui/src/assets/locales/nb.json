@@ -278,9 +278,6 @@
     "fornavn": "Fornavn",
     "etternavn": "Etternavn",
     "foedselsnummer": "Barnets fødselsnummer / d-nummer",
-    "fellesbarnMedAvdoed": "Jeg og avdøde",
-    "avdoedesSaerkullsbarn": "Avdøde",
-    "egneSaerkullsbarn": "Jeg",
     "relasjon": "Hvem er foreldre til barnet?",
     "relasjonHjelpetekst": "Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.",
     "harBarnetVerge": {
@@ -427,9 +424,9 @@
     }
   },
   "barnRelasjon": {
-    "fellesbarnMedAvdoede": "Fellesbarn med avdøde",
-    "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
-    "egneSaerkullsbarn": "Egne særkullsbarn"
+    "fellesbarnMedAvdoede": "Jeg og avdøde",
+    "avdoedesSaerkullsbarn": "Avdøde",
+    "egneSaerkullsbarn": "Jeg"
   },
   "samboerInntekt": {
     "arbeidsinntekt": "Arbeidsinntekt",
@@ -775,6 +772,12 @@
     "bosattUtland": {
       "svar": {
         "required": "Oppgi om personen er bosatt i et annet land enn Norge"
+      },
+      "land": {
+        "required": "Oppgi land"
+      },
+      "adresse": {
+        "required": "Oppgi adresse"
       }
     },
     "gravidEllerNyligFoedt": {

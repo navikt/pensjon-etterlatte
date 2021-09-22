@@ -136,10 +136,14 @@ $width: 650px;
 
   .skjemagruppe {
     margin-bottom: 1.5rem !important;
+
+    .skjemaelement {
+      margin-bottom: 0 !important;
+    }
   }
 
   .skjemaelement {
-    margin-bottom: 0 !important;
+    margin-bottom: 1.5rem !important;
   }
 }
 
@@ -151,13 +155,23 @@ $width: 650px;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  .skjemagruppe {
-    margin-bottom: 1rem !important;
+  .skjemagruppering {
+    margin-bottom: 2rem !important;
+
+    .skjemagruppe {
+      margin-bottom: 1rem !important;
+
+      .skjemaelement {
+        margin-bottom: 0 !important;
+      }
+
+    }
+
+    .skjemaelement {
+      margin-bottom: 1rem !important;
+    }
   }
 
-  .skjemagruppe-modal {
-    margin-bottom: 2rem !important;
-  }
 }
 
 .navigasjon-rad {

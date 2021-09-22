@@ -15,6 +15,7 @@ import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
 import { BodyLong, Label, Title } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
+import SkjemaGruppering from "../../felles/SkjemaGruppering";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -50,86 +51,92 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
             </SkjemaGruppe>
 
             <form>
-                <div className={"rad skjemagruppe"}>
-                    <div className={"kolonne"}>
-                        <Label>{t("omDenAvdoede.fornavn")}</Label>
-                        <BodyLong>{state.omDegOgAvdoed.avdoed?.fornavn || ""}</BodyLong>
-                    </div>
-                    <div className={"kolonne"}>
-                        <Label>{t("omDenAvdoede.etternavn")}</Label>
-                        <BodyLong>{state.omDegOgAvdoed.avdoed?.etternavn || ""}</BodyLong>
-                    </div>
-                </div>
+                <SkjemaGruppering>
+                    <SkjemaGruppe className={"rad"}>
+                        <div className={"kolonne"}>
+                            <Label>{t("omDenAvdoede.fornavn")}</Label>
+                            <BodyLong>{state.omDegOgAvdoed.avdoed?.fornavn || ""}</BodyLong>
+                        </div>
+                        <div className={"kolonne"}>
+                            <Label>{t("omDenAvdoede.etternavn")}</Label>
+                            <BodyLong>{state.omDegOgAvdoed.avdoed?.etternavn || ""}</BodyLong>
+                        </div>
+                    </SkjemaGruppe>
 
-                <div className={"rad skjemagruppe"}>
-                    <RHFFoedselsnummerInput
-                        className={"kol-50"}
-                        type={"number"}
-                        name={"foedselsnummer"}
-                        label={t("omDenAvdoede.foedselsnummer")}
-                    />
+                    <SkjemaGruppe className={"rad"}>
+                        <RHFFoedselsnummerInput
+                            className={"kol-50"}
+                            name={"foedselsnummer"}
+                            label={t("omDenAvdoede.foedselsnummer")}
+                        />
 
-                    <RHFInput className={"kol-50"} name={"statsborgerskap"} label={t("omDenAvdoede.statsborgerskap")} />
-                </div>
+                        <RHFInput className={"kol-50"} name={"statsborgerskap"}
+                                  label={t("omDenAvdoede.statsborgerskap")}/>
+                    </SkjemaGruppe>
+                </SkjemaGruppering>
 
                 <BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet}/>
 
-                <SkjemaGruppe className="ingress">
-                    <Title size="s">{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}</Title>
-                    <BodyLong>{t("omDenAvdoede.selvstendigNaeringsdrivende.ingress")}</BodyLong>
-                </SkjemaGruppe>
-
-                <RHFSpoersmaalRadio
-                    name={"selvstendigNaeringsdrivende.svar"}
-                    legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
-                    vetIkke
-                />
-
-                {/* TODO: Rename? */}
-                {selvstendigNaeringsdrivende === IValg.JA && (
-                    <SkjemaGruppe>
-                        <RHFValutaInput
-                            name={"selvstendigNaeringsdrivende.beskrivelse"}
-                            bredde={"L"}
-                            valgfri
-                            placeholder={t("omDenAvdoede.selvstendigNaeringsdrivende.placeholder")}
-                            label={t("omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse")}
-                        />
+                <SkjemaGruppering>
+                    <SkjemaGruppe className="ingress">
+                        <Title size="s">{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}</Title>
+                        <BodyLong>{t("omDenAvdoede.selvstendigNaeringsdrivende.ingress")}</BodyLong>
                     </SkjemaGruppe>
-                )}
 
-                <RHFSpoersmaalRadio
-                    name={"haddePensjonsgivendeInntekt.svar"}
-                    legend={t("omDenAvdoede.haddePensjonsgivendeInntekt.svar")}
-                />
+                    <RHFSpoersmaalRadio
+                        name={"selvstendigNaeringsdrivende.svar"}
+                        legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
+                        vetIkke
+                    />
 
-                <SkjemaGruppe className="ingress">
-                    <Title size="s">{t("omDenAvdoede.annenOpptjening.tittel")}</Title>
-                </SkjemaGruppe>
+                    {/* TODO: Rename? */}
+                    {selvstendigNaeringsdrivende === IValg.JA && (
+                        <SkjemaGruppe>
+                            <RHFValutaInput
+                                name={"selvstendigNaeringsdrivende.beskrivelse"}
+                                bredde={"L"}
+                                valgfri
+                                placeholder={t("omDenAvdoede.selvstendigNaeringsdrivende.placeholder")}
+                                label={t("omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse")}
+                            />
+                        </SkjemaGruppe>
+                    )}
 
-                <RHFSpoersmaalRadio
-                    name={"harAvtjentMilitaerTjeneste.svar"}
-                    legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
-                    description={
-                        <HvorforSpoerVi>{t("omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst")}</HvorforSpoerVi>
-                    }
-                    vetIkke
-                />
+                    <RHFSpoersmaalRadio
+                        name={"haddePensjonsgivendeInntekt.svar"}
+                        legend={t("omDenAvdoede.haddePensjonsgivendeInntekt.svar")}
+                    />
+                </SkjemaGruppering>
 
-                {harAvtjentMilitaerTjeneste === IValg.JA && (
-                    <SkjemaGruppe>
-                        <RHFInput
-                            name={"harAvtjentMilitaerTjeneste.beskrivelse"}
-                            bredde={"S"}
-                            valgfri
-                            label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
-                        />
+                <SkjemaGruppering>
+                    <SkjemaGruppe className="ingress">
+                        <Title size="s">{t("omDenAvdoede.annenOpptjening.tittel")}</Title>
                     </SkjemaGruppe>
-                )}
 
-                <Feilmeldinger errors={errors} />
+                    <RHFSpoersmaalRadio
+                        name={"harAvtjentMilitaerTjeneste.svar"}
+                        legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
+                        description={
+                            <HvorforSpoerVi>{t("omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst")}</HvorforSpoerVi>
+                        }
+                        vetIkke
+                    />
 
-                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }} />
+                    {harAvtjentMilitaerTjeneste === IValg.JA && (
+                        <SkjemaGruppe>
+                            <RHFInput
+                                name={"harAvtjentMilitaerTjeneste.beskrivelse"}
+                                bredde={"S"}
+                                valgfri
+                                label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
+                            />
+                        </SkjemaGruppe>
+                    )}
+                </SkjemaGruppering>
+
+                <Feilmeldinger errors={errors}/>
+
+                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }}/>
             </form>
         </FormProvider>
     );

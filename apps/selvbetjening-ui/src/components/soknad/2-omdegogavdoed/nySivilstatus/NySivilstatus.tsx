@@ -5,6 +5,7 @@ import NyttSamboerskap from "./NyttSamboerskap";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { BodyLong, Title } from "@navikt/ds-react";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 const NySivilstatus = () => {
     const { t } = useTranslation();
@@ -14,7 +15,7 @@ const NySivilstatus = () => {
     const sivilstatus = watch("nySivilstatus.sivilstatus");
 
     return (
-        <>
+        <SkjemaGruppering>
             <SkjemaGruppe>
                 <Title size={"s"}>{t("omDegOgAvdoed.nySivilstatus.sivilstatus")}</Title>
 
@@ -29,7 +30,7 @@ const NySivilstatus = () => {
             />
 
             {sivilstatus === Sivilstatus.samboerskap && <NyttSamboerskap />}
-        </>
+        </SkjemaGruppering>
     );
 };
 

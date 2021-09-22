@@ -14,45 +14,38 @@ const UtenlandskBankInfo = () => {
                 <Title size={"s"}>{t("omDeg.utbetalingsInformasjon.tittel")}</Title>
             </SkjemaGruppe>
 
-            <SkjemaGruppe>
-                <RHFInput
-                    name={"utbetalingsInformasjon.utenlandskBankNavn"}
-                    label={t("omDeg.utbetalingsInformasjon.utenlandskBankNavn")}
-                />
-            </SkjemaGruppe>
+            <RHFInput
+                name={"utbetalingsInformasjon.utenlandskBankNavn"}
+                label={t("omDeg.utbetalingsInformasjon.utenlandskBankNavn")}
+            />
 
-            <SkjemaGruppe>
-                <RHFInput
-                    name={"utbetalingsInformasjon.utenlandskBankAdresse"}
-                    label={t("omDeg.utbetalingsInformasjon.utenlandskBankAdresse")}
-                />
-            </SkjemaGruppe>
+            <RHFInput
+                name={"utbetalingsInformasjon.utenlandskBankAdresse"}
+                label={t("omDeg.utbetalingsInformasjon.utenlandskBankAdresse")}
+            />
 
-            <SkjemaGruppe>
-                <RHFIbanInput
-                    name={"utbetalingsInformasjon.iban"}
-                    bredde={"XL"}
-                    label={(
-                        <>
-                            {t("omDeg.utbetalingsInformasjon.iban")}
-                            &nbsp;<Hjelpetekst>{t("omDeg.utbetalingsInformasjon.ibanHjelpetekst")}</Hjelpetekst>
-                        </>
-                    )}
-                />
-            </SkjemaGruppe>
+            <RHFIbanInput
+                name={"utbetalingsInformasjon.iban"}
+                bredde={"XL"}
+                label={(
+                    <>
+                        {t("omDeg.utbetalingsInformasjon.iban")}
+                        &nbsp;<Hjelpetekst>{t("omDeg.utbetalingsInformasjon.ibanHjelpetekst")}</Hjelpetekst>
+                    </>
+                )}
+            />
 
-            <SkjemaGruppe>
-                <RHFBicInput
-                    name={"utbetalingsInformasjon.swift"}
-                    bredde={"M"}
-                    label={(
-                        <>
-                            {t("omDeg.utbetalingsInformasjon.swift")}
-                            &nbsp;<Hjelpetekst>{t("omDeg.utbetalingsInformasjon.swiftHjelpetekst")}</Hjelpetekst>
-                        </>
-                    )}
-                />
-            </SkjemaGruppe>
+            <RHFBicInput
+                name={"utbetalingsInformasjon.swift"}
+                bredde={"M"}
+                label={(
+                    <>
+                        {t("omDeg.utbetalingsInformasjon.swift")}
+                        &nbsp;<Hjelpetekst>{t("omDeg.utbetalingsInformasjon.swiftHjelpetekst")}</Hjelpetekst>
+                    </>
+                )}
+            />
+
         </>
     )
 }

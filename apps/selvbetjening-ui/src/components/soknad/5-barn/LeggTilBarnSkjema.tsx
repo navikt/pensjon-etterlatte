@@ -13,6 +13,7 @@ import { Button, Title } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 import Hjelpetekst from "../../felles/Hjelpetekst";
 import "./LeggTilBarnSkjema.scss"
+import SkjemaGruppering from "../../felles/SkjemaGruppering";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -64,8 +65,8 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                     </Title>
                 </SkjemaGruppe>
 
-                <SkjemaGruppe className={"skjemagruppe-modal"}>
-                    <div className={"rad"}>
+                <SkjemaGruppering>
+                    <SkjemaGruppe className={"rad"}>
                         <div className={"kol-50"}>
                             <RHFInput
                                 name={"fornavn"}
@@ -81,7 +82,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                                 rules={{ pattern: /^\D+$/ }}
                             />
                         </div>
-                    </div>
+                    </SkjemaGruppe>
 
                     <RHFFoedselsnummerInput
                         name={"foedselsnummer"}
@@ -94,10 +95,9 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                         bredde={"XL"}
                         label={t("omBarn.statsborgerskap")}
                     />
-                </SkjemaGruppe>
+                </SkjemaGruppering>
 
-
-                <SkjemaGruppe className={"skjemagruppe-modal"}>
+                <SkjemaGruppering>
                     <RHFSpoersmaalRadio
                         name={"bosattUtland.svar"}
                         legend={t("omBarn.bosattUtland.svar")}
@@ -117,10 +117,9 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                             />
                         </>
                     )}
-                </SkjemaGruppe>
+                </SkjemaGruppering>
 
-
-                <SkjemaGruppe className={"skjemagruppe-modal"}>
+                <SkjemaGruppering >
                     <RHFRadio
                         name={"relasjon"}
                         legend={(
@@ -134,10 +133,10 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                             return { label: t(value), value } as RadioProps
                         })}
                     />
-                </SkjemaGruppe>
+                </SkjemaGruppering>
                 {relasjon === BarnRelasjon.fellesbarnMedAvdoede && (
                     <>
-                        <SkjemaGruppe className={"skjemagruppe-modal"}>
+                        <SkjemaGruppering>
                             <RHFSpoersmaalRadio
                                 name={"harBarnetVerge.svar"}
                                 legend={t("omBarn.harBarnetVerge.svar")}
@@ -159,11 +158,10 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                                     />
                                 </>
                             )}
-                        </SkjemaGruppe>
-
+                        </SkjemaGruppering>
 
                         {kanSoekeOmBarnepensjon() && (
-                            <SkjemaGruppe className={"skjemagruppe-modal"}>
+                            <SkjemaGruppering >
                                 <RHFCheckboksPanel
                                     name={"barnepensjon.soeker"}
                                     legend={t("omBarn.barnepensjon.soeker")}
@@ -219,7 +217,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                                         )}
                                     </>
                                 )}
-                            </SkjemaGruppe>
+                            </SkjemaGruppering>
                         )}
                     </>
                 )}

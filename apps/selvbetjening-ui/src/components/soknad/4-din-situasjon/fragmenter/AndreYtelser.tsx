@@ -32,13 +32,11 @@ const AndreYtelser = () => {
                 />
 
                 {kravOmAnnenStonad === IValg.JA && (
-                    <SkjemaGruppe>
-                        <RHFInput
-                            bredde={"XXL"}
-                            name={"andreYtelser.kravOmAnnenStonad.beskrivelse"}
-                            label={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.beskrivelse")}
-                        />
-                    </SkjemaGruppe>
+                    <RHFInput
+                        bredde={"XXL"}
+                        name={"andreYtelser.kravOmAnnenStonad.beskrivelse"}
+                        label={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.beskrivelse")}
+                    />
                 )}
             </SkjemaGruppering>
 
@@ -51,32 +49,26 @@ const AndreYtelser = () => {
                     }
                 />
 
-
                 {mottarPensjonUtland === IValg.JA && (
                     <>
-                        <SkjemaGruppe>
-                            <RHFInput
-                                bredde={"XXL"}
-                                name={"andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"}
-                                label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon")}
-                            />
-                        </SkjemaGruppe>
+                        <RHFInput
+                            bredde={"XXL"}
+                            name={"andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"}
+                            label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon")}
+                        />
 
-                        <SkjemaGruppe>
-                            <RHFInput
-                                bredde={"L"}
-                                name={"andreYtelser.mottarPensjonUtland.fraHvilketLand"}
-                                label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand")}
-                            />
-                        </SkjemaGruppe>
+                        <RHFInput
+                            bredde={"L"}
+                            name={"andreYtelser.mottarPensjonUtland.fraHvilketLand"}
+                            label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand")}
+                        />
 
-                        <SkjemaGruppe>
-                            <RHFInput
-                                bredde={"L"}
-                                name={"andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"}
-                                label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar")}
-                            />
-                        </SkjemaGruppe>
+                        <RHFInput
+                            bredde={"L"}
+                            name={"andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"}
+                            label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar")}
+                        />
+
                     </>
                 )}
             </SkjemaGruppering>
