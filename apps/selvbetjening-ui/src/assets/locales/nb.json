@@ -512,9 +512,6 @@
     "hovedytelse": {
       "required": "Hovedytelse må være valgt"
     },
-    "barnepensjon": {
-      "required": "Må besvares"
-    },
     "fraDato": {
       "required": "Fra dato må være valgt"
     },
@@ -867,6 +864,7 @@
       }
     },
     "barnepensjon": {
+      "required": "Må besvares",
       "soeker": {
         "required": "Oppgi om du ønsker å søke om barnepensjon"
       },
