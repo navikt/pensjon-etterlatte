@@ -39,7 +39,7 @@ const OppsummeringInnhold = memo(({ soeknadOppsummering, senderSoeknad }: {
                     {elementer.map(elementPanel)}
 
                     <Link to={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>
-                        <EditFilled/>
+                        <EditFilled className={"edit-svg"}/>
                         <span>{t("felles.endreSvar")}</span>
                     </Link>
                 </Accordion>

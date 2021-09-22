@@ -52,7 +52,7 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
                     </BodyShort>
 
                     <BodyShort size={"s"} >
-                        {t("omBarn.infokort.foedselsnummer")}
+                        {t("omBarn.infokort.bosted")}
                     </BodyShort>
                     <BodyShort size={"s"} spacing>
                         {t("omBarn.borI")}&nbsp;
