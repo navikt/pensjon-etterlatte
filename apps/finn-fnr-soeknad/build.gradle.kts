@@ -20,7 +20,7 @@ dependencies {
     implementation ("com.nfeld.jsonpathkt:jsonpathkt:2.0.0")
     testImplementation("io.ktor:ktor-client-mock:$ktorversion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+    //testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
     testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 

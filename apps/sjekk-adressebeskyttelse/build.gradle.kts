@@ -19,7 +19,7 @@ dependencies {
     implementation(project(":libs:common"))
     testImplementation("io.ktor:ktor-client-mock:$ktorversion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+    //testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 
     // Logging

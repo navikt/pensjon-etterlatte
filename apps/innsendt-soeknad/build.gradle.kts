@@ -23,7 +23,7 @@ dependencies {
     implementation("no.nav.security:token-validation-ktor:$tokensupportversion")
     testImplementation("com.h2database:h2:1.4.200")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+    //testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
     implementation("io.ktor:ktor-jackson:$ktorversion")
 
