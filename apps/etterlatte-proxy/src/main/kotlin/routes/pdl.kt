@@ -41,8 +41,7 @@ fun Route.pdl(config: Config, stsClient: StsClient) {
                 }
                 call.pipeResponse(response)
             } catch (cause: Throwable) {
-                logger.error("Feil i kall mot PDL: $cause")
-                cause.printStackTrace()
+                logger.error("Feil i kall mot PDL: ", cause)
             }
         }
     }

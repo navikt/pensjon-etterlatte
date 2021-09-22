@@ -17,9 +17,9 @@ internal class JournalfoerSoeknad(
     private val pdf: GenererPdf,
     private val dok: JournalfoerDok,
     private val klokke: Clock = Clock.systemUTC()
-) :
-    River.PacketListener {
-    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+) : River.PacketListener {
+    private val logger = LoggerFactory.getLogger(JournalfoerSoeknad::class.java)
+
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
@@ -50,10 +50,10 @@ internal class JournalfoerSoeknad(
                 }
             }
         }catch (err: ResponseException){
-            logger.error("duplikat: $err")
+            logger.error("duplikat: ", err)
             logger.error(packet["@dokarkivRetur"].asText())
         } catch (err: Exception) {
-            logger.error("Uhaandtert feilsituasjon: $err")
+            logger.error("Uhaandtert feilsituasjon: ", err)
 
         }
     }

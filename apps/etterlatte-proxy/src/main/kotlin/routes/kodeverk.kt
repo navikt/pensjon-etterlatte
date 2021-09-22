@@ -1,6 +1,5 @@
 package no.nav.etterlatte.routes
 
-
 import io.ktor.application.call
 import io.ktor.client.request.get
 import io.ktor.client.request.header
@@ -20,7 +19,7 @@ import no.nav.etterlatte.pipeResponse
 import org.slf4j.LoggerFactory
 import java.util.*
 
-fun Route.kodeverk(config: Config, stsClient: StsClient) {
+fun Route.kodeverk(config: Config) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
     route("/kodeverk") {
         val httpClient = httpClient()
@@ -37,8 +36,7 @@ fun Route.kodeverk(config: Config, stsClient: StsClient) {
                 }
                 call.pipeResponse(response)
             } catch (cause: Throwable) {
-                logger.error("Feil i kall mot Kodeverk: $cause")
-                cause.printStackTrace()
+                logger.error("Feil i kall mot Kodeverk: ", cause)
             }
         }
     }

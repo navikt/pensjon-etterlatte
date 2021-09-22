@@ -28,7 +28,6 @@ fun Route.dok(config: Config, stsClient: StsClient) {
 
         post {
             val stsToken = stsClient.getToken()
-            //val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
 
             try {
                 val response = httpClient.post<HttpResponse>(dokUrl) {
@@ -38,13 +37,10 @@ fun Route.dok(config: Config, stsClient: StsClient) {
                 }
                 call.pipeResponse(response)
             } catch (cause: ResponseException) {
-                logger.error("Feil i kall mot Dokarkiv: $cause")
-                cause.printStackTrace()
-                //call.respondText(status = cause.response.status) { cause.message!! }
+                logger.error("Feil i kall mot Dokarkiv: ", cause)
                 call.pipeResponse(cause.response)
             } catch (cause: Throwable) {
-                logger.error("Feil i kall mot Dokarkiv: $cause")
-                cause.printStackTrace()
+                logger.error("Feil i kall mot Dokarkiv: ", cause)
                 call.respondText(status = HttpStatusCode.InternalServerError) { cause.message ?: "Intern feil" }
             }
         }

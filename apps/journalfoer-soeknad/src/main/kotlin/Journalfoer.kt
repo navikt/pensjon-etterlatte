@@ -15,6 +15,9 @@ import io.ktor.client.request.post
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import no.nav.etterlatte.libs.common.journalpost.AvsenderMottaker
 import no.nav.etterlatte.libs.common.journalpost.Bruker
 import no.nav.etterlatte.libs.common.journalpost.DokumentKategori
@@ -29,7 +32,8 @@ import org.slf4j.MDC
 import java.util.*
 
 class Journalfoer(private val client: HttpClient, private val baseUrl: String) : JournalfoerDok {
-    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val logger = LoggerFactory.getLogger(Journalfoer::class.java)
+
     private val objectMapper = jacksonObjectMapper()
         .registerModule(JavaTimeModule())
         .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
@@ -81,19 +85,18 @@ class Journalfoer(private val client: HttpClient, private val baseUrl: String) :
                 header("X-Correlation-ID", MDC.get("X-Correlation-ID") ?: UUID.randomUUID().toString())
                 body = journalpostrequest!!
             }
+
             return retur.receive()
         } catch (cause: ResponseException) {
             if (cause.response.status.value == 409) {
-                logger.error("Duplikat journalpost: $cause")
-
+                logger.error("Duplikat journalpost: ", cause)
             }
+
             return cause.response.receive()
-
         } catch (cause: Throwable) {
-            logger.error("Feil i kall mot Dokarkiv: $cause")
-            cause.printStackTrace()
-            return objectMapper.readTree(cause.message)
+            logger.error("Feil i kall mot Dokarkiv: ", cause)
 
+            return objectMapper.readTree(cause.message)
         }
     }
 }

@@ -12,7 +12,9 @@ class TilstandsProbe(private val db: StatistikkRepository){
     private val usendtAlder = Gauge.build("alder_eldste_usendte", "Alder på elste usendte søknad").register()
     private val ikkeJournalfoertAlder = Gauge.build("alder_eldste_uarkiverte", "Alder på eldste ikke-arkiverte søknad").register()
     private val soknadTilstand = Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand").register()
-    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")!!
+
+    private val logger = LoggerFactory.getLogger(TilstandsProbe::class.java)
+
     private fun gatherMetrics(){
         db.eldsteUsendte()?.apply {
             usendtAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
@@ -21,11 +23,10 @@ class TilstandsProbe(private val db: StatistikkRepository){
             ikkeJournalfoertAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
         }
 
-        db.rapport().also{
-            logger.info(it.toString())
-        }.forEach{
-            soknadTilstand.labels(it.key).set(it.value.toDouble())
-        }
+        db.rapport()
+            .also { rapport -> logger.info(rapport.toString()) }
+            .forEach { (status, antall) -> soknadTilstand.labels(status).set(antall.toDouble()) }
+
         logger.info("Ukategoriserte søknader: " + db.ukategorisert().toString())
     }
 
@@ -38,8 +39,6 @@ class TilstandsProbe(private val db: StatistikkRepository){
             } else {
                 delay(10_000)
             }
-
-
         }
     }
 }

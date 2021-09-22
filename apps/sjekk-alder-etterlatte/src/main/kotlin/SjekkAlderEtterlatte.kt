@@ -10,9 +10,13 @@ import java.time.LocalDate
 import java.time.Period
 
 
-internal class SjekkAlderEtterlatte(rapidsConnection: RapidsConnection, private val pdl: SjekkAlderForEtterlatte) :
-    River.PacketListener {
-    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+internal class SjekkAlderEtterlatte(
+    rapidsConnection: RapidsConnection,
+    private val pdl: SjekkAlderForEtterlatte
+) : River.PacketListener {
+
+    private val logger = LoggerFactory.getLogger(SjekkAlderEtterlatte::class.java)
+
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "etterlatt_barn_identifisert") }

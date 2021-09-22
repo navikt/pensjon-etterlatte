@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory
 class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnection: RapidsConnection) :
     River.PacketListener {
 
-    private val logger: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val logger: Logger = LoggerFactory.getLogger(Notifikasjon::class.java)
 
     private val rapid = rapidsConnection
     init {

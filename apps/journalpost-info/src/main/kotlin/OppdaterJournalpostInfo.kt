@@ -16,9 +16,12 @@ import no.nav.helse.rapids_rivers.River
 import org.slf4j.LoggerFactory
 
 
-internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
-    River.PacketListener {
-    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+internal class OppdaterJournalpostInfo(
+    rapidsConnection: RapidsConnection
+) : River.PacketListener {
+
+    private val logger = LoggerFactory.getLogger(OppdaterJournalpostInfo::class.java)
+
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
@@ -29,17 +32,14 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-
-
         runBlocking {
             packet["@journalpostInfo"] = lagJournalpostInfo(packet)
             logger.info("Lagt til journalpostInfo")
             context.publish(packet.toJson())
-            }
+        }
     }
 
     private fun lagJournalpostInfo(packet: JsonMessage): JournalpostInfo {
-
         return JournalpostInfo(
             tittel = "Søknad om etterlatteytelser",
             avsenderMottaker = AvsenderMottaker(id = packet["@fnr_soeker"].asText(), idType = "FNR", navn = ""),
@@ -58,5 +58,3 @@ internal class OppdaterJournalpostInfo(rapidsConnection: RapidsConnection) :
         }
     }
 }
-
-

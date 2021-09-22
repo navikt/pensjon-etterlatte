@@ -92,13 +92,6 @@ suspend fun ApplicationCall.pipeResponse(response: HttpResponse) {
     respond(ProxiedContent(response.headers, if(response.content.isClosedForRead) { response.receive() } else { response.content }, response.status))
 }
 
-fun ApplicationCall.getTokenInfo(): Map<String, JsonNode> = authentication
-    .principal<JWTPrincipal>()
-    ?.let { principal ->
-        principal.payload.claims.entries
-            .associate { claim -> claim.key to claim.value.`as`(JsonNode::class.java) }
-    } ?: error("No JWT principal found in request")
-
 val HttpHeaders.NavCallId: String
     get() = "Nav-Call-Id"
 val HttpHeaders.NavConsumerId: String

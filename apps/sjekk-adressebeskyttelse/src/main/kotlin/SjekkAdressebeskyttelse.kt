@@ -15,9 +15,10 @@ import org.slf4j.LoggerFactory
 internal class SjekkAdressebeskyttelse(
     rapidsConnection: RapidsConnection,
     private val pdl: FinnAdressebeskyttelseForFnr
-) :
-    River.PacketListener {
-    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+) : River.PacketListener {
+
+    private val logger = LoggerFactory.getLogger(SjekkAdressebeskyttelse::class.java)
+
     init {
         River(rapidsConnection).apply {
             validate { it.requireKey("@fnr_liste") }

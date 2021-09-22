@@ -35,6 +35,7 @@ fun Route.soeknadApi(db: SoeknadRepository){
         db.soeknadFerdigstilt(lagretSoeknad)
         call.respondText(lagretSoeknad.id.toString(), ContentType.Text.Plain)
     }
+
     route("/api/kladd"){
         post {
             val soknad = call.receive<JsonNode>()
@@ -53,8 +54,8 @@ fun Route.soeknadApi(db: SoeknadRepository){
     }
 
 }
-fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() = call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
 
+fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() = call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
 
 fun Application.apiModule(routes: Route.()->Unit){
     install(Authentication) {

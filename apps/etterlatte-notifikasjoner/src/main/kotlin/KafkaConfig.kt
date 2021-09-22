@@ -23,7 +23,7 @@ class KafkaConfig(
     ) {
 
 
-    private val log: Logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val log: Logger = LoggerFactory.getLogger(KafkaConfig::class.java)
 
     internal fun producerConfig() = Properties().apply {
         put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)

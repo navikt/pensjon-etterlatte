@@ -9,9 +9,11 @@ import no.nav.helse.rapids_rivers.River
 import org.slf4j.LoggerFactory
 
 
-internal class FinnFnrSoeknad(rapidsConnection: RapidsConnection) :
-    River.PacketListener {
-    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+internal class FinnFnrSoeknad(
+    rapidsConnection: RapidsConnection
+) : River.PacketListener {
+
+    private val logger = LoggerFactory.getLogger(FinnFnrSoeknad::class.java)
 
     init {
         River(rapidsConnection).apply {

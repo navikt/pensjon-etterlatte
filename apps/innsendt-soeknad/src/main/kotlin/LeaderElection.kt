@@ -8,7 +8,8 @@ import org.slf4j.LoggerFactory
 import java.net.InetAddress
 
 object LeaderElection {
-    private val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val logger = LoggerFactory.getLogger(LeaderElection::class.java)
+
     private val electorPath: String? = System.getenv("ELECTOR_PATH")
     private val httpClient = HttpClient(CIO)
     private val objectMapper = jacksonObjectMapper()

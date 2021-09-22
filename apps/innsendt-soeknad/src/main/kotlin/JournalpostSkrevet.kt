@@ -8,9 +8,13 @@ import no.nav.helse.rapids_rivers.isMissingOrNull
 import org.slf4j.LoggerFactory
 import java.time.OffsetDateTime
 
-internal class JournalpostSkrevet(rapidsConnection: RapidsConnection, private val soeknader: SoeknadRepository) :
-    River.PacketListener {
-    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+internal class JournalpostSkrevet(
+    rapidsConnection: RapidsConnection,
+    private val soeknader: SoeknadRepository
+) : River.PacketListener {
+
+    private val logger = LoggerFactory.getLogger(JournalpostSkrevet::class.java)
+
     init {
         River(rapidsConnection).apply {
             validate { it.requireKey("@dokarkivRetur") }
@@ -23,7 +27,7 @@ internal class JournalpostSkrevet(rapidsConnection: RapidsConnection, private va
         if(packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong()?:0L != 0L){
             soeknader.soeknadArkivert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
         } else {
-            logger.error("Arkivering feilet: ${packet.toJson()}")
+            logger.error("Arkivering feilet: ", packet.toJson())
             soeknader.soeknadFeiletArkivering(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()), packet["@dokarkivRetur"].toJson())
         }
 

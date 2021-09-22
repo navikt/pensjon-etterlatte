@@ -31,24 +31,21 @@ fun Route.pdl(config: ApplicationConfig) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
     route("/pdl") {
-
         val tokenexchangeIssuer = "tokenx"
         val pdlUrl = config.property("no.nav.etterlatte.tjenester.pdl.url").getString()
         val pdlOutbound = config.property("no.nav.etterlatte.tjenester.pdl.outbound").getString()
         val tokenXHttpClient = tokenSecuredEndpoint()
         val clientCredentialHttpClient = pdlhttpclient(pdlOutbound)
-        //val tokenxKlient = ClientConfig(config, httpClient()).clients["tokenx"]
 
         val tokenxKlient = runBlocking {
             config.propertyOrNull("no.nav.etterlatte.app.ventmedutgaaendekall")?.getString()?.toLong()?.also {
-                println("Venter ${it} sekunder før kall til token-issuers")
+                logger.debug("Venter $it sekunder før kall til token-issuers")
                 delay(it * 1000)
             }
             checkNotNull(ClientConfig(config, defaultHttpClient()).clients[tokenexchangeIssuer])
         }
 
         post {
-
             val callId = call.request.header(NavCallId) ?: UUID.randomUUID().toString()
             val tokenxToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken("tokenx")
             val azureToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken("azure")
@@ -61,23 +58,18 @@ fun Route.pdl(config: ApplicationConfig) {
                     }
                     call.pipeResponse(response)
                 } catch (cause: Throwable) {
-                    logger.error("Feil i kall mot PDL med AAD: $cause")
-                    cause.printStackTrace()
+                    logger.error("Feil i kall mot PDL med AAD: ", cause)
                 }
             } else if (tokenxToken != null) {
-                //val tokenxKlient = ClientConfig(config, httpClient()).clients["tokenx"]
-
                 val returToken =
                     config.propertyOrNull("no.nav.etterlatte.tjenester.pdl.audience")?.getString()?.let { audience ->
-                        tokenxKlient?.tokenExchange(
+                        tokenxKlient.tokenExchange(
                             tokenxToken.tokenAsString,
                             audience
-                        )?.accessToken
+                        ).accessToken
                     }
 
-
                 try {
-
                     val response = tokenXHttpClient.post<HttpResponse>(pdlUrl) {
                         header(XCorrelationID, callId)
                         header(HttpHeaders.Authorization, "Bearer $returToken")
@@ -85,8 +77,7 @@ fun Route.pdl(config: ApplicationConfig) {
                     }
                     call.pipeResponse(response)
                 } catch (cause: Throwable) {
-                    logger.error("Feil i kall mot PDL med TokenX: $cause")
-                    cause.printStackTrace()
+                    logger.error("Feil i kall mot PDL med TokenX: ", cause)
                 }
             }
         }

@@ -14,25 +14,23 @@ import no.nav.etterlatte.FinnAdressebeskyttelseForFnr
 
 class PdlAdressebeskyttelse(private val client: HttpClient, private val apiUrl: String) : FinnAdressebeskyttelseForFnr {
 
-
     override suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): JsonNode {
-
-        val query = getGraphqlResource("/hentAdressebeskyttelse.graphql")
+        val query = hentQuery()
 
         val request = GraphqlRequest(query, Variables(identer = identer))
 
-        client.post<ObjectNode>(apiUrl) {
+        return client.post<ObjectNode>(apiUrl) {
             header("Tema", "PEN")
             accept(ContentType.Application.Json)
             contentType(ContentType.Application.Json)
             body = request
-        }.also {
-
-        return it
         }
     }
-    private fun getGraphqlResource(file: String): String =
-        javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
+
+    private fun hentQuery(): String =
+        javaClass.getResource("/hentAdressebeskyttelse.graphql")!!
+            .readText()
+            .replace(Regex("[\n\t]"), "")
 
     data class GraphqlRequest(
         val query: String,

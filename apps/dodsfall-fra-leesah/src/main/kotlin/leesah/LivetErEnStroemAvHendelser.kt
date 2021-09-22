@@ -17,9 +17,9 @@ interface ILivetErEnStroemAvHendelser {
 }
 
 class LivetErEnStroemAvHendelser(env: Map<String, String>) : ILivetErEnStroemAvHendelser {
-    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val logger = LoggerFactory.getLogger(LivetErEnStroemAvHendelser::class.java)
 
-    val leesahtopic = "aapen-person-pdl-leesah-v1"
+    private val leesahtopic = "aapen-person-pdl-leesah-v1"
     private var consumer:KafkaConsumer<String, Personhendelse>? = null;
 
     init {

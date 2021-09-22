@@ -9,9 +9,12 @@ import no.nav.helse.rapids_rivers.River
 import org.slf4j.LoggerFactory
 
 
-internal class FinnEtterlatte(rapidsConnection: RapidsConnection, private val pdl: FinnEtterlatteForPerson) :
-    River.PacketListener {
-    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+internal class FinnEtterlatte(
+    rapidsConnection: RapidsConnection,
+    private val pdl: FinnEtterlatteForPerson
+) : River.PacketListener {
+    private val logger = LoggerFactory.getLogger(FinnEtterlatte::class.java)
+
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "person_dod") }
@@ -20,8 +23,6 @@ internal class FinnEtterlatte(rapidsConnection: RapidsConnection, private val pd
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-
-
         runBlocking {
             pdl.finnEtterlatteForPerson(packet["@avdod_ident"].asText()).forEach {
                 logger.info("Fant etterlatte")

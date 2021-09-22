@@ -4,9 +4,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import org.slf4j.LoggerFactory
 
-
 class TilstandsPusher(private val db: SoeknadRepository, private val publiserSoeknad: SoeknadPubliserer){
-    val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
+    private val logger = LoggerFactory.getLogger(TilstandsPusher::class.java)
+
     suspend fun start(running: Job){
         var cycle = Cycle(12, 0)
         while(!running.isCompleted) {

@@ -48,7 +48,7 @@ fun Application.module() {
         authenticate("tokenX") {
             route("/tokenx") {
                 pdl(config, stsClient)
-                kodeverk(config, stsClient)
+                kodeverk(config)
             }
         }
     }
