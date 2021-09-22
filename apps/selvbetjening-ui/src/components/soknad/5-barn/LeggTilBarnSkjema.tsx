@@ -92,6 +92,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
 
                     <RHFInput
                         name={"statsborgerskap"}
+                        placeholder={t("omBarn.statsborgerskapPlaceholder")}
                         bredde={"XL"}
                         label={t("omBarn.statsborgerskap")}
                     />

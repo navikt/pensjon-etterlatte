@@ -30,18 +30,30 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
                     </Title>
                 </div>
                 <div className="informasjonselement">
+                    <BodyShort size={"s"} >
+                        {t("omBarn.infokort.foedselsnummer")}
+                    </BodyShort>
                     <BodyShort size={"s"} spacing>
                         {foedselsnummer}
                     </BodyShort>
 
+                    <BodyShort size={"s"} >
+                        {t("omBarn.infokort.foreldre")}
+                    </BodyShort>
                     <BodyShort size={"s"} spacing>
                         {t(`${barn.relasjon}`)}
                     </BodyShort>
 
+                    <BodyShort size={"s"} >
+                        {t("omBarn.infokort.statsborgerskap")}
+                    </BodyShort>
                     <BodyShort size={"s"} spacing>
                         {barn.statsborgerskap} {t("omBarn.statsborger")}
                     </BodyShort>
 
+                    <BodyShort size={"s"} >
+                        {t("omBarn.infokort.foedselsnummer")}
+                    </BodyShort>
                     <BodyShort size={"s"} spacing>
                         {t("omBarn.borI")}&nbsp;
                         {barn.bosattUtland?.svar === IValg.JA ? barn.bosattUtland?.land : t("felles.norge")}

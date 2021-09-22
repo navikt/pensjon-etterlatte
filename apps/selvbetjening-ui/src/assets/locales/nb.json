@@ -288,6 +288,7 @@
       "foedselsnummerPlaceholder": "11 siffer"
     },
     "statsborgerskap": "Statsborgerskap",
+    "statsborgerskapPlaceholder": "Eks. norsk",
     "statsborger": "statsborger",
     "borI": "Bor i",
     "borUtenlands": "Bosatt i et annet land enn Norge",
@@ -310,7 +311,12 @@
         "placeholder": "i prosent, eks. 20%"
       }
     },
-
+    "infokort": {
+      "foedselsnummer": "FØDSELSNUMMER",
+      "foreldre": "FORELDRE TIL BARNET",
+      "bosted": "BOSTED",
+      "statsborgerskap": "STATSBORGERSKAP"
+    },
     "bosattUtland": {
       "svar": "Bor barnet i et annet land enn Norge?",
       "land": "Land",
