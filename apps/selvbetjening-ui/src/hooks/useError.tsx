@@ -1,24 +1,30 @@
+import { useEffect, useState } from "react";
 import { ActionTypes } from "../context/soknad/soknad";
 import { useSoknadContext } from "../context/soknad/SoknadContext";
 
-// let timer: any = null;
+let timer: any = null;
 export const useError = () => {
+    const [message, setMessage] = useState<null | string>(null);
     const { dispatch } = useSoknadContext();
 
-    const setError = (errorMsg: string | null) => {
-        // TODO: Hvordan ønsker vi å vise globale feilmeldinger?
-        /* clearTimeout(timer);
-        timer = setTimeout(() => {
-            dispatch({
-                type: ActionTypes.SET_ERROR,
-                payload: null,
-            });
-        }, 10000);*/
-        dispatch({
-            type: ActionTypes.SET_ERROR,
-            payload: errorMsg,
-        });
+    const clearMessage = () => {
+        setMessage(null);
     };
 
-    return { setError };
+    useEffect(() => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            clearMessage();
+        }, 10000);
+        dispatch({
+            type: ActionTypes.SET_ERROR,
+            payload: message,
+        });
+    }, [message]);
+
+    const setError = (errorMsg: string | null) => {
+        setMessage(errorMsg);
+    };
+
+    return { setError, message };
 };
