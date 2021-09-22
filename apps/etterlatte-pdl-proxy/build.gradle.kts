@@ -14,8 +14,8 @@ plugins {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinversion")
     implementation("io.ktor:ktor-server-netty:$ktorversion")
-    implementation("io.ktor:ktor-server-cio:$ktorversion")
-    implementation("ch.qos.logback:logback-classic:$logbackversion")
+    //implementation("io.ktor:ktor-server-cio:$ktorversion")
+    //implementation("ch.qos.logback:logback-classic:$logbackversion")
 
     implementation("io.ktor:ktor-client-core:$ktorversion")
     implementation("io.ktor:ktor-client-core-jvm:$ktorversion")
@@ -24,14 +24,14 @@ dependencies {
     implementation("io.ktor:ktor-client-jackson:$ktorversion")
     implementation("io.ktor:ktor-client-logging:$ktorversion")
     implementation("io.ktor:ktor-client-cio-jvm:$ktorversion")
-
     implementation("io.ktor:ktor-server-core:$ktorversion")
     implementation("io.ktor:ktor-auth:$ktorversion")
     implementation("io.ktor:ktor-jackson:$ktorversion")
+    //Kan denne slettes?
     implementation("io.micrometer:micrometer-registry-prometheus:$micrometerversion")
     testImplementation("io.ktor:ktor-server-tests:$ktorversion")
-    implementation("org.json:json:$orgJsonVersion")
-   // implementation("org.slf4j:slf4j-api:1.7.30")
+    //implementation("org.json:json:$orgJsonVersion")
+
 
     implementation("io.ktor:ktor-client-okhttp:$ktorversion")
     implementation(project(":libs:ktorclient-auth-clientcredentials"))
@@ -42,16 +42,16 @@ dependencies {
 
     // Logging
     implementation("org.slf4j:slf4j-api:1.7.30")
-    implementation("ch.qos.logback:logback-classic:1.2.3")
-    implementation("net.logstash.logback:logstash-logback-encoder:6.6")
+    //implementation("ch.qos.logback:logback-classic:1.2.3")
+    //implementation("net.logstash.logback:logstash-logback-encoder:6.6")
     implementation("no.nav.security:token-client-core:$tokensupportversion")
     implementation("no.nav.security:token-validation-ktor:$tokensupportversion")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.0")
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_12
-    targetCompatibility = JavaVersion.VERSION_12
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
 }
 
 tasks.named<Jar>("jar") {

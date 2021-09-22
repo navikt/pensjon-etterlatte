@@ -1,18 +1,24 @@
 plugins {
     kotlin("jvm") version "1.5.30" apply false
+    id("ca.cutterslade.analyze") version "1.8.1" apply true
 }
 
 allprojects {
     group = "no.nav.etterlatte"
     version = "unspecified"
-
     repositories {
         mavenCentral()
         maven("https://kotlin.bintray.com/ktor")
         maven("https://packages.confluent.io/maven/")
         maven("https://jitpack.io")
     }
+    apply(plugin = "kotlin")
+    apply(plugin = "ca.cutterslade.analyze")
 
+    tasks.withType<ca.cutterslade.gradle.analyze.AnalyzeDependenciesTask> {
+        warnUsedUndeclared = true
+        warnUnusedDeclared = true
+    }
     tasks.withType<Test> {
         useJUnitPlatform()
         testLogging {
