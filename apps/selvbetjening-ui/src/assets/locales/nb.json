@@ -437,11 +437,6 @@
     "kapitalinntekt": "Kapitalinntekt",
     "andreYtelser": "Andre ytelser"
   },
-  "arbeidsforholdType": {
-    "selvstendig": "Ja, er selvstendig næringsdrivende",
-    "arbeidstaker": "Nei, er arbeidstaker",
-    "begge": "Jeg er selvstendig næringsdrivende og arbeidstaker"
-  },
   "stillingType": {
     "fast": "Fast ansatt",
     "midlertidig": "Midlertidig ansatt",

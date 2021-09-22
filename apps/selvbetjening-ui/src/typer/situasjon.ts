@@ -27,18 +27,9 @@ export enum JobbStatus {
     ingen = "jobbStatus.ingen",
 }
 
-/*
-export enum ArbeidsforholdType {
-    selvstendig = "arbeidsforholdType.selvstendig",
-    arbeidstaker = "arbeidsforholdType.arbeidstaker",
-    begge = "arbeidsforholdType.begge",
-}
-*/
-
 export interface ISituasjon {
     jobbStatus?: JobbStatus;
     ingenJobbBeskrivelse?: string;
-    //arbeidsforholdType?: ArbeidsforholdType;
     utdanning?: IUtdanning;
     selvstendigNaeringsdrivende?: ISelvstendigNaeringsdrivende;
     arbeidsforhold?: IArbeidsforhold;
