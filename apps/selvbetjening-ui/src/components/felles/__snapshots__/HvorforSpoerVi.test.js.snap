@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HvorforSpoerVi Skal åpne boksen og matche med innholdet vi legger inn 1`] = `
+<div>
+  <div
+    class="hvorforPanel"
+  >
+    <button
+      class="hvorforPanel__toggle"
+      data-testid="hvorforPanel_toggle"
+      type="button"
+    >
+      <span>
+        Hvorfor spør vi om dette
+      </span>
+      <span>
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 7l-9 8.571L4.5 17 12 9.857 19.5 17l1.5-1.429L12 7z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </span>
+    </button>
+    <div
+      class="hvorforPanel__innhold"
+    >
+      <p
+        class="navds-body-long"
+      >
+        <span
+          data-testid="test-tekst"
+        >
+          Diverse informasjon om hvorfor vi spør!
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`HvorforSpoerVi skal rendre hvorfor spør vi som lukket boks 1`] = `
+<div>
+  <div
+    class="hvorforPanel"
+  >
+    <button
+      class="hvorforPanel__toggle"
+      data-testid="hvorforPanel_toggle"
+      type="button"
+    >
+      <span>
+        Hvorfor spør vi om dette
+      </span>
+      <span>
+        <svg
+          fill="none"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 17L3 8.429 4.5 7l7.5 7.143L19.5 7 21 8.429 12 17z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
