@@ -20,8 +20,7 @@ const Hjelpetekst = ({eventType = "onClick", children }: PropsWithChildren<Hjelp
                     style={{padding: '2px 2px 2px 5px'}}
                     ref={ref}
                     className={"hvorforPanel__toggle"}
-                    onMouseEnter={() => setOpen(true)}
-                    onMouseLeave={() => setOpen(false)}
+                    onClick={() => setOpen(!open)}
                     aria-haspopup="dialog"
                     aria-expanded={open}
                     aria-controls={id}
