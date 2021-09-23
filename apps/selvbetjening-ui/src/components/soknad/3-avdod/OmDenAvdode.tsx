@@ -70,8 +70,12 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             label={t("omDenAvdoede.foedselsnummer")}
                         />
 
-                        <RHFInput className={"kol-50"} name={"statsborgerskap"}
-                                  label={t("omDenAvdoede.statsborgerskap")}/>
+                        <RHFInput
+                            className={"kol-50"}
+                            name={"statsborgerskap"}
+                            label={t("omDenAvdoede.statsborgerskap")}
+                            placeholder={t("omDenAvdoede.statsborgerskapPlaceholder")}
+                        />
                     </SkjemaGruppe>
                 </SkjemaGruppering>
 

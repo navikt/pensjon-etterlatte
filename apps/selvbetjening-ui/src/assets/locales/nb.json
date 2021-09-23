@@ -233,6 +233,7 @@
     "foedselsnummer": "Fødselsnummer",
     "doedsdato": "Dato for dødsfallet",
     "statsborgerskap": "Statsborgerskap",
+    "statsborgerskapPlaceholder": "Eks. norsk",
     "bosetning": "Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?",
     "doedsfallAarsak": "Kan dødsfallet være en følge av yrkesskade/yrkessykdom?",
     "boddEllerJobbetUtland": {

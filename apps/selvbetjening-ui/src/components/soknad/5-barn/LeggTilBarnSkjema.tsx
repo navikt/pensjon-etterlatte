@@ -120,7 +120,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                     )}
                 </SkjemaGruppering>
 
-                <SkjemaGruppering >
+                <SkjemaGruppering>
                     <RHFRadio
                         name={"relasjon"}
                         legend={(
@@ -135,7 +135,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                         })}
                     />
                 </SkjemaGruppering>
-                {relasjon === BarnRelasjon.fellesbarnMedAvdoede && (
+                {relasjon === BarnRelasjon.fellesbarnMedAvdoede && kanSoekeOmBarnepensjon() && (
                     <>
                         <SkjemaGruppering>
                             <RHFSpoersmaalRadio
@@ -161,65 +161,63 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                             )}
                         </SkjemaGruppering>
 
-                        {kanSoekeOmBarnepensjon() && (
-                            <SkjemaGruppering >
-                                <RHFCheckboksPanel
-                                    name={"barnepensjon.soeker"}
-                                    legend={t("omBarn.barnepensjon.soeker")}
-                                    description={t("omBarn.barnepensjon.soekerInfo")}
-                                    valgfri={true}
-                                    checkbox={
-                                        {
-                                            label: t("omBarn.barnepensjon.soekerCheckboks"),
-                                            value: IValg.JA
-                                        }
+                        <SkjemaGruppering>
+                            <RHFCheckboksPanel
+                                name={"barnepensjon.soeker"}
+                                legend={t("omBarn.barnepensjon.soeker")}
+                                description={t("omBarn.barnepensjon.soekerInfo")}
+                                valgfri={true}
+                                checkbox={
+                                    {
+                                        label: t("omBarn.barnepensjon.soekerCheckboks"),
+                                        value: IValg.JA
                                     }
-                                />
+                                }
+                            />
 
-                                {soekerBarnepensjon === IValg.JA && (
-                                    <>
-                                        <RHFSpoersmaalRadio
-                                            name={"barnepensjon.kontonummer.svar"}
-                                            legend={t("omBarn.barnepensjon.kontonummer.svar")}
+                            {soekerBarnepensjon === IValg.JA && (
+                                <>
+                                    <RHFSpoersmaalRadio
+                                        name={"barnepensjon.kontonummer.svar"}
+                                        legend={t("omBarn.barnepensjon.kontonummer.svar")}
+                                    />
+
+                                    {annetKontonummerBarnepensjon === IValg.NEI && (
+
+                                        <RHFKontonummerInput
+                                            name={"barnepensjon.kontonummer.kontonummer"}
+                                            bredde={"M"}
+                                            label={t("omBarn.barnepensjon.kontonummer.kontonummer")}
+                                            placeholder={t("omBarn.barnepensjon.kontonummer.placeholder")}
+                                            description={t("omBarn.barnepensjon.kontonummer.informasjon")}
                                         />
+                                    )}
 
-                                        {annetKontonummerBarnepensjon === IValg.NEI && (
-
-                                            <RHFKontonummerInput
-                                                name={"barnepensjon.kontonummer.kontonummer"}
-                                                bredde={"M"}
-                                                label={t("omBarn.barnepensjon.kontonummer.kontonummer")}
-                                                placeholder={t("omBarn.barnepensjon.kontonummer.placeholder")}
-                                                description={t("omBarn.barnepensjon.kontonummer.informasjon")}
-                                            />
-                                        )}
-
-                                        {annetKontonummerBarnepensjon !== IValg.VET_IKKE && (
-                                            <RHFSpoersmaalRadio
-                                                name={"barnepensjon.forskuddstrekk.svar"}
-                                                legend={(
-                                                    <span className={"hjelpetekst-container"}>
+                                    {annetKontonummerBarnepensjon !== IValg.VET_IKKE && (
+                                        <RHFSpoersmaalRadio
+                                            name={"barnepensjon.forskuddstrekk.svar"}
+                                            legend={(
+                                                <span className={"hjelpetekst-container"}>
                                                            {t("omBarn.barnepensjon.forskuddstrekk.svar")}&nbsp;
-                                                        <Hjelpetekst
-                                                            eventType={"onHover"}>{t("omBarn.barnepensjon.forskuddstrekk.hjelpetekst")}
+                                                    <Hjelpetekst
+                                                        eventType={"onHover"}>{t("omBarn.barnepensjon.forskuddstrekk.hjelpetekst")}
                                                             </Hjelpetekst>
                                                         </span>
-                                                )}
-                                            />
-                                        )}
+                                            )}
+                                        />
+                                    )}
 
-                                        {forskuddstrekkBarnepensjon === IValg.JA && (
-                                            <RHFProsentInput
-                                                bredde={"M"}
-                                                name={"barnepensjon.forskuddstrekk.trekkprosent"}
-                                                label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
-                                                placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
-                                            />
-                                        )}
-                                    </>
-                                )}
-                            </SkjemaGruppering>
-                        )}
+                                    {forskuddstrekkBarnepensjon === IValg.JA && (
+                                        <RHFProsentInput
+                                            bredde={"M"}
+                                            name={"barnepensjon.forskuddstrekk.trekkprosent"}
+                                            label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
+                                            placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
+                                        />
+                                    )}
+                                </>
+                            )}
+                        </SkjemaGruppering>
                     </>
                 )}
 
