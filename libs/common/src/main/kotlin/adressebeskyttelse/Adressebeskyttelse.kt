@@ -8,9 +8,9 @@ object Adressebeskyttelse {
     const val INGENBESKYTTELSE = "INGEN_BESKYTTELSE"
 }
 
-enum class Graderinger (val ruting: String) {
+enum class Graderinger (val ruting: String?) {
     STRENGT_FORTROLIG("2103"),
     STRENGT_FORTROLIG_UTLAND("2103"),
-    FORTROLIG("4817"),
-    INGEN_BESKYTTELSE ("4817")
+    FORTROLIG(null),
+    INGEN_BESKYTTELSE (null)
 }

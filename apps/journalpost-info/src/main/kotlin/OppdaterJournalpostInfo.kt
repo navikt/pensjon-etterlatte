@@ -6,6 +6,10 @@ import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.INGEN
 import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.KODE19
 import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.KODE6
 import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.KODE7
+import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger.FORTROLIG
+import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger.INGEN_BESKYTTELSE
+import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger.STRENGT_FORTROLIG
+import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger.STRENGT_FORTROLIG_UTLAND
 import no.nav.etterlatte.libs.common.journalpost.AvsenderMottaker
 import no.nav.etterlatte.libs.common.journalpost.Bruker
 import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
@@ -50,10 +54,10 @@ internal class OppdaterJournalpostInfo(
 
     private fun finnEnhet(adressebeskyttelse: JsonNode): String? {
         return when (adressebeskyttelse.textValue()){
-            KODE6 -> "2103"
-            KODE19 -> "2103"
-            KODE7 -> null
-            INGENBESKYTTELSE -> null
+            KODE6 -> STRENGT_FORTROLIG.ruting
+            KODE19 -> STRENGT_FORTROLIG_UTLAND.ruting
+            KODE7 -> FORTROLIG.ruting
+            INGENBESKYTTELSE -> INGEN_BESKYTTELSE.ruting
             else -> null
         }
     }
