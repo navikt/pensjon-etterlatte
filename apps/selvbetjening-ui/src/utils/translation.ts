@@ -10,20 +10,3 @@ export const getTransKey = (error?: FieldError): string => {
 
     return `feil.${name}.${error.type}`;
 };
-
-/**
- * Enkel funksjon for å fjerne firkantparentes fra error name
- */
-export const errorKey = (error?: FieldError, fieldIsArray = false): string => {
-    if (!error) return "";
-
-    const refName = error.ref?.name;
-
-    if (fieldIsArray) {
-        const name = refName?.replace(/\[\d]/, "");
-
-        return `${name}.${error.type}`;
-    }
-
-    return `${refName}.${error.type}`;
-};
