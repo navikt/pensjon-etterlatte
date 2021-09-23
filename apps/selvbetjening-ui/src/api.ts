@@ -84,3 +84,5 @@ export const sendSoeknad = async (soeknad: any) => {
         throw new Error("Det skjedde en feil");
     }
 };
+
+export default api;

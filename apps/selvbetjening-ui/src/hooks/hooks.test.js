@@ -1,6 +1,7 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import useEffectOnce from "./useEffectOnce";
 import { useError } from "./useError";
+import useInnloggetBruker from "./useInnloggetBruker";
 
 describe("useError", () => {
     it("Skal dispatche en error-action", () => {
@@ -20,5 +21,14 @@ describe("useEffectOnce", () => {
             useEffectOnce(fakeCallback, false);
         });
         expect(fakeCallback).toBeCalledTimes(1);
+    });
+
+    it("skal kjøre to ganger", () => {
+        const fakeCallback = jest.fn();
+        renderHook(() => {
+            useEffectOnce(fakeCallback, true);
+            useEffectOnce(fakeCallback, true);
+        });
+        expect(fakeCallback).toBeCalledTimes(2);
     });
 });
