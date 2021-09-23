@@ -49,7 +49,7 @@ export const FortsettSoeknadModal = () => {
             open={state.visFortsettSoeknadModal}
             onClose={startPaaNytt}
             shouldCloseOnOverlayClick={false}
-            className="avbryt-modal"
+            className="avbryt-modal modal"
         >
             <SkjemaGruppe>
                 <Ingress>{t("fortsettSoeknad.beskrivelse")}</Ingress>

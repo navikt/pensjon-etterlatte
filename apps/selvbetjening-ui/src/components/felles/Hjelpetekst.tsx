@@ -1,13 +1,11 @@
-import { Helptext, HelptextFilled } from "@navikt/ds-icons";
+import { HelptextFilled } from "@navikt/ds-icons";
 import { PropsWithChildren, useRef, useState } from "react";
 import { Button, Popover } from "@navikt/ds-react";
 import { v4 as uuid } from "uuid";
 
-interface HjelpetekstProps {
-    eventType?: "onHover" | "onClick";
-}
 
-const Hjelpetekst = ({eventType = "onClick", children }: PropsWithChildren<HjelpetekstProps & React.InputHTMLAttributes<HTMLInputElement>>) => {
+const Hjelpetekst = (
+    { children }: PropsWithChildren<React.InputHTMLAttributes<HTMLInputElement>>) => {
     const [open, setOpen] = useState(false);
 
     const ref = useRef(null);
@@ -15,34 +13,18 @@ const Hjelpetekst = ({eventType = "onClick", children }: PropsWithChildren<Hjelp
 
     return (
         <>
-            {eventType == "onHover" ?
-                <span
-                    style={{padding: '2px 2px 2px 5px'}}
-                    ref={ref}
-                    className={"hvorforPanel__toggle"}
-                    onClick={() => setOpen(!open)}
-                    aria-haspopup="dialog"
-                    aria-expanded={open}
-                    aria-controls={id}
-                >
-                    <HelptextFilled
-                        width={"1.5em"}
-                        height={"1.5em"}
-                    />
-                </span>
-                :
-                <Button
-                    ref={ref}
-                    variant={"secondary"}
-                    className={"hvorforPanel__toggle"}
-                    onClick={() => setOpen(!open)}
-                    type={"button"}
-                    aria-haspopup="dialog"
-                    aria-expanded={open}
-                    aria-controls={id}
-                >
-                    <Helptext/>
-                </Button>}
+            <Button
+                ref={ref}
+                variant={"secondary"}
+                className={"hvorforPanel__toggle"}
+                onClick={() => setOpen(!open)}
+                type={"button"}
+                aria-haspopup="dialog"
+                aria-expanded={open}
+                aria-controls={id}
+            >
+                <HelptextFilled/>
+            </Button>
 
             <Popover
                 anchorEl={ref.current}

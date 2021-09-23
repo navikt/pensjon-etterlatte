@@ -12,7 +12,6 @@ import { fnr } from "@navikt/fnrvalidator";
 import { Button, Title } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 import Hjelpetekst from "../../felles/Hjelpetekst";
-import "./LeggTilBarnSkjema.scss"
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 
 interface Props {
@@ -124,10 +123,10 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                     <RHFRadio
                         name={"relasjon"}
                         legend={(
-                            <span className={"hjelpetekst-container"}>
+                            <>
                                 {t("omBarn.relasjon")}&nbsp;
-                                <Hjelpetekst eventType={"onHover"}>{t("omBarn.relasjonHjelpetekst")} </Hjelpetekst>
-                            </span>
+                                <Hjelpetekst>{t("omBarn.relasjonHjelpetekst")} </Hjelpetekst>
+                            </>
                         )}
 
                         radios={Object.values(BarnRelasjon).map(value => {
@@ -197,12 +196,12 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                                         <RHFSpoersmaalRadio
                                             name={"barnepensjon.forskuddstrekk.svar"}
                                             legend={(
-                                                <span className={"hjelpetekst-container"}>
-                                                           {t("omBarn.barnepensjon.forskuddstrekk.svar")}&nbsp;
-                                                    <Hjelpetekst
-                                                        eventType={"onHover"}>{t("omBarn.barnepensjon.forskuddstrekk.hjelpetekst")}
-                                                            </Hjelpetekst>
-                                                        </span>
+                                                <>
+                                                    {t("omBarn.barnepensjon.forskuddstrekk.svar")}&nbsp;
+                                                    <Hjelpetekst>
+                                                        {t("omBarn.barnepensjon.forskuddstrekk.hjelpetekst")}
+                                                    </Hjelpetekst>
+                                                </>
                                             )}
                                         />
                                     )}
