@@ -98,6 +98,7 @@
     "server:dev": "NODE_ENV=dev node ./server/server.js",
     "server:prod": "NODE_ENV=production node ./server/server.js",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage .",
     "cy:test": "TZ=Europe/Oslo cypress run",
     "cy:open": "TZ=Europe/Oslo cypress open",
     "eject": "react-scripts eject",
