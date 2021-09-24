@@ -10,7 +10,7 @@ on:
       - libs/ktorclient-auth-clientcredentials/**
 
 jobs:
-  build-release-deploy:
+  build-and-publish:
     name: Bygg, test og push Docker image
     runs-on: ubuntu-latest
     steps:
