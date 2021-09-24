@@ -2,23 +2,25 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.INGENBESKYTTELSE
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.KODE19
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.KODE6
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.KODE7
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger.FORTROLIG
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger.INGEN_BESKYTTELSE
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger.STRENGT_FORTROLIG
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger.STRENGT_FORTROLIG_UTLAND
 import no.nav.etterlatte.libs.common.journalpost.AvsenderMottaker
 import no.nav.etterlatte.libs.common.journalpost.Bruker
 import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
+import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.common.pdl.Gradering.FORTROLIG
+import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
+import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
+import no.nav.etterlatte.libs.common.pdl.Gradering.UGRADERT
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
+import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import org.slf4j.LoggerFactory
+import kotlin.random.Random
 
+object Enhet {
+    const val VIKAFOSSEN = "2103"
+}
 
 internal class OppdaterJournalpostInfo(
     rapidsConnection: RapidsConnection
@@ -43,6 +45,10 @@ internal class OppdaterJournalpostInfo(
         }
     }
 
+    override fun onError(problems: MessageProblems, context: MessageContext) {
+        logger.error("Feil oppsto ved oppdatering av journalpostinfo: ", problems)
+    }
+
     private fun lagJournalpostInfo(packet: JsonMessage): JournalpostInfo {
         return JournalpostInfo(
             tittel = "Søknad om etterlatteytelser",
@@ -52,13 +58,11 @@ internal class OppdaterJournalpostInfo(
         )
     }
 
-    private fun finnEnhet(adressebeskyttelse: JsonNode): String? {
-        return when (adressebeskyttelse.textValue()){
-            KODE6 -> STRENGT_FORTROLIG.ruting
-            KODE19 -> STRENGT_FORTROLIG_UTLAND.ruting
-            KODE7 -> FORTROLIG.ruting
-            INGENBESKYTTELSE -> INGEN_BESKYTTELSE.ruting
-            else -> null
+    private fun finnEnhet(adressebeskyttelse: JsonNode): String? =
+        when (Gradering.fra(adressebeskyttelse.textValue())) {
+            STRENGT_FORTROLIG_UTLAND,
+            STRENGT_FORTROLIG -> Enhet.VIKAFOSSEN
+            FORTROLIG,
+            UGRADERT -> null
         }
-    }
 }

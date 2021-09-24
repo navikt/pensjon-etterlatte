@@ -14,6 +14,10 @@ dependencies {
     api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
     api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$jacksonVersion")
     api("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 }
 
 fun DependencyHandler.ktor(module: String){
@@ -23,4 +27,8 @@ fun DependencyHandler.ktor(module: String){
             exclude("org.jetbrains.kotlin:kotlin-reflect")
         }
     }
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

@@ -1,5 +1,5 @@
 {
   "@event_name": "soeknad_innsendt",
-  "@adressebeskyttelse": "UGRADERT",
+  "@adressebeskyttelse": null,
   "@fnr_soeker": "12345678901"
 }

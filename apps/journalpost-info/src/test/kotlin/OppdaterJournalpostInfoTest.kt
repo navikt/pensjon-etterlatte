@@ -2,21 +2,22 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger
 import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
+import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
+import no.nav.helse.rapids_rivers.isMissingOrNull
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
-class OppdaterJournalpostInfoTest {
+internal class OppdaterJournalpostInfoTest {
     fun getTestResource(file: String): String {
         return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
     }
-
 
     @Test
     fun testFeltMapping() {
@@ -96,6 +97,35 @@ class OppdaterJournalpostInfoTest {
     }
 
     @Test
+    fun testAdressebeskyttelseMangler() {
+        val json = getTestResource("/adressebeskyttelseErNull.json")
+        val inspector = TestRapid()
+            .apply { OppdaterJournalpostInfo(this) }
+            .apply {
+                sendTestMessage(
+                    json
+                )
+            }.inspektør
+
+        assertEquals(0, inspector.size, "Meldingslisten skulle vært tom når @adressebeskyttelse mangler")
+    }
+
+    @Test
+    fun testAdressebeskyttelseErUgyldig() {
+        val json = getTestResource("/adressebeskyttelseErUgyldig.json")
+
+        assertThrows<IllegalArgumentException> {
+            TestRapid()
+                .apply { OppdaterJournalpostInfo(this) }
+                .apply {
+                    sendTestMessage(
+                        json
+                    )
+                }
+        }
+    }
+
+    @Test
     fun `skal lage JournalpostInfo`() {
         val rapidsConnection = TestRapid()
         val oppdaterJpI = OppdaterJournalpostInfo(rapidsConnection)
@@ -106,7 +136,7 @@ class OppdaterJournalpostInfoTest {
 
         parameters[0] = JsonMessage("{}", MessageProblems("{}")).apply {
             this["@fnr_soeker"] = "12345678975"
-            this["@adressebeskyttelse"] = Adressebeskyttelse.KODE19
+            this["@adressebeskyttelse"] = Gradering.STRENGT_FORTROLIG_UTLAND
         }
 
         val result = method.invoke(oppdaterJpI, *parameters) as JournalpostInfo
@@ -123,13 +153,12 @@ class OppdaterJournalpostInfoTest {
         method.isAccessible = true
         val parameters = arrayOfNulls<Any>(1)
 
-        parameters[0] = ObjectMapper().readTree("\"STRENGT_FORTROLIG\"");
+        parameters[0] = ObjectMapper().readTree("\"${Gradering.STRENGT_FORTROLIG.name}\"")
         val result = method.invoke(oppdaterJpI, *parameters) as String
-        assertEquals(result, Graderinger.STRENGT_FORTROLIG.ruting)
+        assertEquals(result, Enhet.VIKAFOSSEN)
 
-        parameters[0] = ObjectMapper().readTree("\"STRENGT_FORTROLIG_UTLAND\"");
+        parameters[0] = ObjectMapper().readTree("\"${Gradering.STRENGT_FORTROLIG_UTLAND.name}\"")
         val result2 = method.invoke(oppdaterJpI, *parameters) as String
-        assertEquals(result2, Graderinger.STRENGT_FORTROLIG_UTLAND.ruting)
+        assertEquals(result2, Enhet.VIKAFOSSEN)
     }
 }
-

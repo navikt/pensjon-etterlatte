@@ -14,11 +14,7 @@
       {
         "ident": "12345678910",
         "person": {
-          "adressebeskyttelse": [
-            {
-              "gradering": ""
-            }
-          ]
+          "adressebeskyttelse": []
         }
       }
     ]

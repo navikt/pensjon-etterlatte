@@ -1,20 +1,17 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.JsonNode
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Adressebeskyttelse.INGENBESKYTTELSE
-import no.nav.etterlatte.libs.common.adressebeskyttelse.Graderinger
+import no.nav.etterlatte.libs.common.pdl.Gradering.UGRADERT
+import no.nav.etterlatte.pdl.AdressebeskyttelseService
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
-import no.nav.helse.rapids_rivers.isMissingOrNull
 import org.slf4j.LoggerFactory
-
 
 internal class SjekkAdressebeskyttelse(
     rapidsConnection: RapidsConnection,
-    private val pdl: FinnAdressebeskyttelseForFnr
+    private val adressebeskyttelseService: AdressebeskyttelseService
 ) : River.PacketListener {
 
     private val logger = LoggerFactory.getLogger(SjekkAdressebeskyttelse::class.java)
@@ -27,42 +24,20 @@ internal class SjekkAdressebeskyttelse(
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-
         val identer = packet["@fnr_liste"].map { it.asText() }
+
         if (identer.isNotEmpty()) {
             runBlocking {
-                val beskyttelse = pdl.finnAdressebeskyttelseForFnr(identer)
-                    .flatMap { it.get("hentPersonBolk") }
-                    .mapNotNull { it.get("person") }
-                    .mapNotNull { it.get("adressebeskyttelse") }
-                    .map { finnGradering(it) }
-                    .minByOrNull { it.ordinal } ?: Graderinger.INGEN_BESKYTTELSE
+                val gradering = adressebeskyttelseService.hentGradering(identer)
 
-                packet["@adressebeskyttelse"] = beskyttelse.name
-                logger.info("vurdert adressebeskyttelse til ${beskyttelse.name}")
+                packet["@adressebeskyttelse"] = gradering.name
+                logger.info("vurdert adressebeskyttelse til ${gradering.name}")
                 context.publish(packet.toJson())
             }
         } else {
-            packet["@adressebeskyttelse"] = INGENBESKYTTELSE
+            packet["@adressebeskyttelse"] = UGRADERT
             logger.error("Ingen fødselsnummer funnet i dokumentet")
         }
     }
-}
 
-fun finnGradering(nodes: JsonNode): Graderinger {
-
-    val node = nodes[0]
-    return if (nodes.isMissingOrNull() || nodes.toString() == "[]") {
-        Graderinger.INGEN_BESKYTTELSE
-    } else if (node.isMissingOrNull() || node.get("gradering").textValue() == "") {
-        Graderinger.INGEN_BESKYTTELSE
-    } else try {
-        Graderinger.valueOf(node.get("gradering").textValue())
-    } catch (e: IllegalArgumentException) {
-        Graderinger.STRENGT_FORTROLIG
-    }
-}
-
-interface FinnAdressebeskyttelseForFnr {
-    suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): JsonNode
 }
