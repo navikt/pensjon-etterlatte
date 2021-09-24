@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - main
+      - release/*
     paths:
       - apps/sjekk-adressebeskyttelse/**
       - libs/ktorclient-auth-clientcredentials/**
 
 jobs:
   build-release-deploy:
-    name: Deploy dev
+    name: Bygg, test og push Docker image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +24,7 @@ jobs:
         run: |
           chmod +x ./gradlew
           ./gradlew :apps:sjekk-adressebeskyttelse:test :apps:sjekk-adressebeskyttelse:build
+
       # Release
       - name: Create docker tag
         run: |
@@ -40,11 +42,28 @@ jobs:
       - name: Release docker image
         run: docker push $(cat .docker_image):$(cat .docker_tag)
 
-      # Deploy
-      - name: Deploy dev
-        uses: nais/deploy/actions/deploy@v1
+  deploy-to-dev-gcp:
+    name: Deploy to dev-gcp
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: apps/sjekk-adressebeskyttelse/nais.yaml
+          IMAGE: ${{ env.IMAGE }}
+
+  deploy-to-prod-gcp:
+    name: Deploy to prod-gcp
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: apps/sjekk-adressebeskyttelse/nais-prod.yaml
           IMAGE: ${{ env.IMAGE }}
