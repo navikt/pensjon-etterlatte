@@ -3,7 +3,7 @@ import { SoknadProvider, useSoknadContext } from "./SoknadContext";
 import { ActionTypes, tomSoeknad } from "./soknad";
 
 const setup = () => {
-    const wrapper = ({ children }) => <SoknadProvider>{children}</SoknadProvider>
+    const wrapper = ({ children }) => <SoknadProvider>{children}</SoknadProvider>;
 
     return renderHook(() => useSoknadContext(), { wrapper });
 };
@@ -26,7 +26,7 @@ describe("Reducer fungerer som forventet", () => {
         const { result } = setup();
 
         act(() => {
-            result.current.dispatch({type: ActionTypes.TILBAKESTILL});
+            result.current.dispatch({ type: ActionTypes.TILBAKESTILL });
         });
 
         expect(result.current.state).toBe(tomSoeknad);
@@ -38,8 +38,9 @@ describe("Reducer fungerer som forventet", () => {
         const soeknad = {
             ...tomSoeknad,
             harSamtykket: true,
-            sistLagretDato: new Date()
-        }
+            sistLagretDato: new Date(),
+            visFortsettSoeknadModal: true,
+        };
 
         act(() => {
             result.current.dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad });
@@ -47,5 +48,5 @@ describe("Reducer fungerer som forventet", () => {
 
         expect(result.current.state.klarForLagring).toBeFalsy();
         expect(result.current.state).toStrictEqual(soeknad);
-    })
+    });
 });
