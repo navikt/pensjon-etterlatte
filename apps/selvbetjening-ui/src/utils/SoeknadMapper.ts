@@ -16,8 +16,6 @@ export default class SoeknadMapper {
     }
 
     lagOppsummering(soeknad: ISoeknad, bruker: IBruker): Gruppe[] {
-        console.log("Lager oppsummering")
-
         return [
             this.mapOmDeg(soeknad.omDeg, bruker),
             this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
