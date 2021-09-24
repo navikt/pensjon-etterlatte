@@ -17,7 +17,6 @@ jest.mock("react-i18next", () => ({
 const testSteg = (number) => {
     const { container } = render(<Stegviser />);
     expect(container.querySelectorAll(".stegindikator__steg-inner--aktiv")[0].firstChild?.textContent).toEqual(number);
-    expect(container).toMatchSnapshot();
 };
 
 describe("Stegviser", () => {
