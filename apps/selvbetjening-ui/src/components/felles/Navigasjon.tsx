@@ -93,11 +93,7 @@ const Navigasjon = ({
                 </Button>
             </SkjemaGruppe>
 
-            <Modal
-                open={isOpen}
-                onClose={() => setIsOpen(false)}
-                className="avbryt-modal modal"
-            >
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} className="avbryt-modal modal">
                 <SkjemaGruppe>
                     <Ingress>{t("avbrytModal.spoersmaal")}</Ingress>
                 </SkjemaGruppe>

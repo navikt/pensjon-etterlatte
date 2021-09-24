@@ -18,6 +18,7 @@ describe("HvorforSpoerVi", () => {
                 <span data-testid="test-tekst">Diverse informasjon om hvorfor vi spør!</span>
             </HvorforSpoerVi>
         );
+
         fireEvent.click(getByTestId("hvorforPanel_toggle"));
         expect(getByTestId("test-tekst").innerHTML).toEqual("Diverse informasjon om hvorfor vi spør!");
         expect(container).toMatchSnapshot();
