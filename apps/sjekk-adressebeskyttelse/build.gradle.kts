@@ -21,7 +21,6 @@ dependencies {
     testImplementation("io.ktor:ktor-client-mock:$ktorversion")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    //testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 
     // Logging
