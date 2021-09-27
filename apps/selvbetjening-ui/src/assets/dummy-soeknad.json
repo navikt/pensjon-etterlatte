@@ -37,7 +37,10 @@
       "oppholdUtland": [
         {
           "land": "Kongo",
-          "beskrivelse": ["oppholdUtlandType.bodd", "oppholdUtlandType.arbeidet"],
+          "beskrivelse": [
+            "oppholdUtlandType.bodd",
+            "oppholdUtlandType.arbeidet"
+          ],
           "fraDato": "2002-08-10T22:00:00.000Z",
           "tilDato": "2003-08-10T22:00:00.000Z",
           "medlemFolketrygd": "Ja",
@@ -60,7 +63,9 @@
     }
   },
   "dinSituasjon": {
-    "jobbStatus": ["jobbStatus.arbeidstaker"],
+    "jobbStatus": [
+      "jobbStatus.arbeidstaker"
+    ],
     "utdanning": {
       "hoyesteFullfoerteUtdanning": "utdanning.mastergrad"
     },
@@ -76,16 +81,18 @@
         "bruttobeloepPrAar": "4000 PLN"
       }
     },
-    "arbeidsforhold": {
-      "arbeidsgiver": "Potetskreller AS",
-      "startDato": "2021-08-10T22:00:00.000Z",
-      "ansettelsesforhold": "stillingType.midlertidig",
-      "stillingsprosent": "100%",
-      "forventerEndretInntekt": {
-        "svar": "Ja",
-        "beskrivelse": "150 000"
+    "arbeidsforhold": [
+      {
+        "arbeidsgiver": "Potetskreller AS",
+        "startDato": "2021-08-10T22:00:00.000Z",
+        "ansettelsesforhold": "stillingType.midlertidig",
+        "stillingsprosent": "100%",
+        "forventerEndretInntekt": {
+          "svar": "Ja",
+          "beskrivelse": "150 000"
+        }
       }
-    }
+    ]
   },
   "opplysningerOmBarn": {
     "gravidEllerNyligFoedt": "Ja",

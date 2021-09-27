@@ -32,7 +32,7 @@ export interface ISituasjon {
     ingenJobbBeskrivelse?: string;
     utdanning?: IUtdanning;
     selvstendigNaeringsdrivende?: ISelvstendigNaeringsdrivende;
-    arbeidsforhold?: IArbeidsforhold;
+    arbeidsforhold?: IArbeidsforhold[];
     tidligereArbeidsforhold?: ITidligereArbeidsforhold[];
     andreYtelser?: IAndreYtelser;
 }
