@@ -16,7 +16,7 @@ const authProps = {
 };
 
 const props = {
-    ...authProps,
+    // ...authProps,
     env,
     context: "privatperson",
     simple: true
