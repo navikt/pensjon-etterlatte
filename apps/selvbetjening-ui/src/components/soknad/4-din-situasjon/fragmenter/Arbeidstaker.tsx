@@ -1,7 +1,7 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFInput, RHFProsentInput, RHFValutaInput } from "../../../felles/RHFInput";
 import { RHFSelect } from "../../../felles/RHFSelect";
-import { IArbeidsforhold, StillingType } from "../../../../typer/arbeidsforhold";
+import { StillingType } from "../../../../typer/arbeidsforhold";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -15,8 +15,6 @@ const Arbeidstaker = () => {
     const { t } = useTranslation();
 
     const { control, watch } = useFormContext();
-
-    const forventerEndretInntekt = watch("arbeidsforhold.forventerEndretInntekt.svar");
 
     const { fields, append, remove } = useFieldArray<any>({
         control,
@@ -80,15 +78,13 @@ const Arbeidstaker = () => {
                         vetIkke
                     />
 
-                    {forventerEndretInntekt === IValg.JA && (
-                        // trenger en måte å komme til riktig index her, eg {`dinSituasjon.arbeidsforhold[${index}].forventerEndretInntekt?.svar`
+                    {watch(`arbeidsforhold[${index}].forventerEndretInntekt.svar`) === IValg.JA && (
 
                         <RHFValutaInput
                             name={`arbeidsforhold[${index}].forventerEndretInntekt.beskrivelse` as const}
                             bredde={"S"}
                             label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
                         />
-
                     )}
 
                     {fields.length > 1 && (

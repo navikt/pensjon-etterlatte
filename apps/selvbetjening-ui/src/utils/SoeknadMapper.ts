@@ -5,6 +5,7 @@ import { i18n, TFunction } from "i18next";
 import { IBruker } from "../context/bruker/bruker";
 import { ISoeknad } from "../context/soknad/soknad";
 import { StegPath } from "../context/steg/steg";
+import { IArbeidsforhold } from "../typer/arbeidsforhold";
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader;
@@ -95,13 +96,42 @@ export default class SoeknadMapper {
     }
 
     private mapDinSituasjon(dinSituasjon: ISituasjon): Gruppe {
+        function mapArbeid(arbeid: IArbeidsforhold) {
+
+            const newArbeid = {
+                ansettelsesforhold: arbeid.ansettelsesforhold,
+                stillingsprosent: arbeid.stillingsprosent,
+                forventerEndretInntekt: {
+                    svar: arbeid.forventerEndretInntekt?.svar,
+                    beskrivelse: arbeid.forventerEndretInntekt?.beskrivelse
+                }
+            }
+
+            return (
+                newArbeid
+            )
+        }
+
+        const arbeidsforhold: Element[] = dinSituasjon.arbeidsforhold?.map(arbeid => {
+            return {
+                tittel: `${arbeid.arbeidsgiver}`,
+                innhold: this.otr.traverse(mapArbeid(arbeid), "dinSituasjon.arbeidsforhold")
+            } as Element
+        }) || [];
+
+
         return {
             tittel: this.t("dinSituasjon.tittel"),
             path: StegPath.DinSituasjon,
             elementer: [
                 {
-                    innhold: this.otr.traverse<ISituasjon>(dinSituasjon, "dinSituasjon")
-                }
+                    innhold: this.otr.traverse<ISituasjon>({
+                        ...dinSituasjon,
+                        arbeidsforhold: undefined
+                    }, "dinSituasjon")
+
+                },
+                ...arbeidsforhold
             ]
         };
     }
@@ -119,7 +149,7 @@ export default class SoeknadMapper {
             path: StegPath.OmBarn,
             elementer: [
                 {
-                    innhold: this.otr.traverse<IOmBarn>({...opplysningerOmBarn, barn: undefined}, "omBarn")
+                    innhold: this.otr.traverse<IOmBarn>({ ...opplysningerOmBarn, barn: undefined }, "omBarn")
                 },
                 ...barn
             ]

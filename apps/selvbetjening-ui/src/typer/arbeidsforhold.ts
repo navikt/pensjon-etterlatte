@@ -9,8 +9,6 @@ export enum StillingType {
 export interface IArbeidsforhold {
     arbeidsgiver?: string;
     stilling?: string;
-    startDato?: Date;
-    sluttDato?: Date;
     ansettelsesforhold?: StillingType; // låse valg til type?
     stillingsprosent?: number;
     forventerEndretInntekt?: {

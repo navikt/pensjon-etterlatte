@@ -102,14 +102,12 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             const baseId = `arbeidsforhold\[${idx}\].`;
 
             getById(baseId + "arbeidsgiver").type(arbeid.arbeidsgiver);
-            getById(baseId + "startDato").type(arbeid.startDato);
             getById(baseId + "ansettelsesforhold").find("select").select(arbeid.ansettelsesforhold);
             getById(baseId + "stillingsprosent").type(arbeid.stillingsprosent);
             selectValueForId(baseId + "forventerEndretInntekt.svar", arbeid.forventerEndretInntekt.svar);
             getById(baseId + "forventerEndretInntekt.beskrivelse").type(arbeid.forventerEndretInntekt.beskrivelse);
 
         })
-
 
         selectValue(dinSituasjon.utdanning.hoyesteFullfoerteUtdanning);
 
