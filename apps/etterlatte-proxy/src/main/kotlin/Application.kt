@@ -8,15 +8,14 @@ import io.ktor.features.ContentNegotiation
 import io.ktor.http.ContentType
 import io.ktor.jackson.JacksonConverter
 import io.ktor.request.path
+import io.ktor.routing.IgnoreTrailingSlash
 import io.ktor.routing.route
 import io.ktor.routing.routing
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.routes.dok
 import no.nav.etterlatte.routes.internal
-import no.nav.etterlatte.routes.pdl
-import org.slf4j.event.Level
-import io.ktor.routing.IgnoreTrailingSlash
 import no.nav.etterlatte.routes.kodeverk
+import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
@@ -39,15 +38,15 @@ fun Application.module() {
     routing {
         internal()
         authenticate("aad") {
-            pdl(config, stsClient)
+            //pdl(config, stsClient)
             route("/aad") {
-                pdl(config, stsClient)
+                //pdl(config, stsClient)
                 dok(config, stsClient)
             }
         }
         authenticate("tokenX") {
             route("/tokenx") {
-                pdl(config, stsClient)
+                //pdl(config, stsClient)
                 kodeverk(config)
             }
         }

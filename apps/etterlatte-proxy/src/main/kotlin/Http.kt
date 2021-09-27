@@ -1,10 +1,7 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.JsonNode
 import io.ktor.application.ApplicationCall
-import io.ktor.auth.authentication
-import io.ktor.auth.jwt.JWTPrincipal
 import io.ktor.client.HttpClient
 import io.ktor.client.call.receive
 import io.ktor.client.engine.apache.Apache
@@ -60,7 +57,7 @@ fun filterContenHeaders(requestHeaders: Headers): Headers{
     return Headers.build { appendAll(requestHeaders.filter { key, _ -> proxiedContenHeaders.any{it.equals(key, true)} }) }
 }
 
-class ProxiedContent(val proxiedHeaders: Headers, val content: ByteReadChannel, override val status: HttpStatusCode? = null): OutgoingContent.WriteChannelContent(){
+class ProxiedContent(private val proxiedHeaders: Headers, private val content: ByteReadChannel, override val status: HttpStatusCode? = null): OutgoingContent.WriteChannelContent(){
     companion object{
         private val ignoredHeaders = listOf(HttpHeaders.ContentType, HttpHeaders.ContentLength, HttpHeaders.TransferEncoding, HttpHeaders.Authorization)
     }

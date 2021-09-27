@@ -47,8 +47,6 @@ spec:
   env:
     - name: STS_URL
       value: http://security-token-service.default.svc.nais.local/rest/v1/sts/token
-    - name: PDL_URL
-      value: http://pdl-api.default.svc.nais.local/graphql
     - name: DOK_URL
       value: https://dokarkiv-q1.nais.preprod.local/rest/journalpostapi/v1/journalpost
     - name: KODEVERK_URL
@@ -59,12 +57,12 @@ spec:
   accessPolicy:
     inbound:
       rules:
-        - application: finn-etterlatte
-          namespace: etterlatte
-          cluster: dev-gcp
-        - application: sjekk-alder-etterlatte
-          namespace: etterlatte
-          cluster: dev-gcp
+       # - application: finn-etterlatte
+       #   namespace: etterlatte
+       #   cluster: dev-gcp
+       # - application: sjekk-alder-etterlatte
+       #   namespace: etterlatte
+       #   cluster: dev-gcp
         - application: selvbetjening-api
           namespace: etterlatte
           cluster: dev-gcp
