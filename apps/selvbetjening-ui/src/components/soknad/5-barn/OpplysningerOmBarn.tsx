@@ -17,37 +17,37 @@ import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
 
-Modal.setAppElement!!("#root");
+if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root"); //Denne er også definert i Navigasjon. Trenger vi den?
 
 const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     const methods = useForm<IOmBarn>({
-        defaultValues: state.opplysningerOmBarn || {}
+        defaultValues: state.opplysningerOmBarn || {},
     });
 
     useEffectOnce(() => {
-        methods.reset(state.opplysningerOmBarn)
+        methods.reset(state.opplysningerOmBarn);
     }, !isEmpty(state.opplysningerOmBarn));
 
     const { fields, append, remove } = useFieldArray({
         name: "barn",
-        control: methods.control
+        control: methods.control,
     });
 
     // Modal
     const [isOpen, setIsOpen] = useState(false);
 
     const leggTilBarn = (data: IBarn) => {
-        append(data as any)
+        append(data as any);
         setIsOpen(false);
     };
 
     const lagre = (data: IOmBarn) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: data });
         neste!!();
-    }
+    };
 
     const { handleSubmit } = methods;
 
@@ -63,9 +63,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <Panel border>
                         <Alert variant={"info"} className={"navds-alert--inline"}>
-                            <BodyShort size={"s"}>
-                                {t("omBarn.informasjon")}
-                            </BodyShort>
+                            <BodyShort size={"s"}>{t("omBarn.informasjon")}</BodyShort>
                         </Alert>
                     </Panel>
                 </SkjemaGruppe>
@@ -73,12 +71,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <div className={"infokort-wrapper"}>
                         {fields?.map((field: FieldArrayWithId, index: number) => (
-                            <BarnInfokort
-                                key={uuid()}
-                                barn={field as IBarn}
-                                index={index}
-                                fjern={remove}
-                            />
+                            <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={remove} />
                         ))}
 
                         <div className={"infokort"}>
@@ -87,10 +80,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                             </div>
                             <div className={"infokort__informasjonsboks"}>
                                 <div className={"informasjonsboks-innhold"}>
-                                    <Button
-                                        variant={"primary"}
-                                        type={"button"}
-                                        onClick={() => setIsOpen(true)}>
+                                    <Button variant={"primary"} type={"button"} onClick={() => setIsOpen(true)}>
                                         {t("knapp.leggTilBarn")}
                                     </Button>
                                 </div>
@@ -102,24 +92,14 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                         </div>
                     </div>
 
-                    <Modal
-                        open={isOpen}
-                        onClose={() => setIsOpen(false)}
-                        className={"modal"}
-                    >
+                    <Modal open={isOpen} onClose={() => setIsOpen(false)} className={"modal"}>
                         <LeggTilBarnSkjema lagre={leggTilBarn} avbryt={() => setIsOpen(false)} />
                     </Modal>
                 </SkjemaGruppe>
 
-                <RHFSpoersmaalRadio
-                    name={"gravidEllerNyligFoedt"}
-                    legend={t("omBarn.gravidEllerNyligFoedt")}
-                />
+                <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")} />
 
-                <Navigasjon
-                    forrige={{ onClick: forrige }}
-                    neste={{ onClick: handleSubmit(lagre) }}
-                />
+                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }} />
             </form>
         </FormProvider>
     );

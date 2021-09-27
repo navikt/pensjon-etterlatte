@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">14.29% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/28</span>
+                <span class='fraction'>4/28</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">14.29% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/28</span>
+                <span class='fraction'>4/28</span>
             </div>
         
             
@@ -186,22 +186,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -209,7 +201,15 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -305,14 +305,14 @@ import { Alert } from "@navikt/ds-react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 &nbsp;
-const giftMerEnn25aar = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(d</span>atoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg =&gt; {</span>
+const giftMerEnn25aar = <span class="fstat-no" title="function not covered" >(d</span>atoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg =&gt; {
     const antallAarPartnerskap = <span class="cstat-no" title="statement not covered" >antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0;</span>
 <span class="cstat-no" title="statement not covered" >    if (antallAarPartnerskap &gt;= 25) {</span>
 <span class="cstat-no" title="statement not covered" >        return IValg.JA;</span>
     }
 <span class="cstat-no" title="statement not covered" >    return IValg.NEI;</span>
 };
-const giftMindreEnn15aar = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(d</span>atoForInngaattPartnerskap: string, datoForSkilsmisse: string) =&gt; {</span>
+const giftMindreEnn15aar = <span class="fstat-no" title="function not covered" >(d</span>atoForInngaattPartnerskap: string, datoForSkilsmisse: string) =&gt; {
     const antallAarPartnerskap = <span class="cstat-no" title="statement not covered" >antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0;</span>
 <span class="cstat-no" title="statement not covered" >    if (antallAarPartnerskap &lt; 15) {</span>
 <span class="cstat-no" title="statement not covered" >        return IValg.JA;</span>
@@ -320,7 +320,7 @@ const giftMindreEnn15aar = <span class="cstat-no" title="statement not covered" 
 <span class="cstat-no" title="statement not covered" >    return IValg.NEI;</span>
 };
 &nbsp;
-const mindreEnnFemaarMellomSkillsmisseOgDodsfall = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(d</span>atoForSkilsmisse: string, datoForDoedsfallet: string) =&gt; {</span>
+const mindreEnnFemaarMellomSkillsmisseOgDodsfall = <span class="fstat-no" title="function not covered" >(d</span>atoForSkilsmisse: string, datoForDoedsfallet: string) =&gt; {
     const antallAarMellomSkillsmisseDodsfall = <span class="cstat-no" title="statement not covered" >antallAarMellom(datoForSkilsmisse, datoForDoedsfallet) || 0;</span>
 <span class="cstat-no" title="statement not covered" >    if (antallAarMellomSkillsmisseDodsfall &lt;= 5) {</span>
 <span class="cstat-no" title="statement not covered" >        return IValg.JA;</span>
@@ -328,7 +328,7 @@ const mindreEnnFemaarMellomSkillsmisseOgDodsfall = <span class="cstat-no" title=
 <span class="cstat-no" title="statement not covered" >    return IValg.NEI;</span>
 };
 &nbsp;
-const SkiltFraAvdoede = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+const SkiltFraAvdoede = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
     const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
 &nbsp;
     const { watch } = <span class="cstat-no" title="statement not covered" >useFormContext&lt;ISoekerOgAvdoed&gt;();</span>
@@ -421,7 +421,7 @@ export default SkiltFraAvdoede;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Sep 24 2021 13:27:01 GMT+0200 (Central European Summer Time)
+                at Mon Sep 27 2021 12:51:43 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>

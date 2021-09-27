@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Om den avdøde Snapshot 1`] = `
+<div>
+  <fieldset
+    aria-invalid="false"
+    class="skjemagruppe"
+  >
+    <h1
+      class="center navds-title navds-title--m"
+    >
+      oppsummering.tittel
+    </h1>
+    <div
+      aria-live="polite"
+    />
+  </fieldset>
+  <fieldset
+    aria-invalid="false"
+    class="skjemagruppe"
+  >
+    <p
+      class="navds-body-long"
+    >
+      oppsummering.beskrivelse
+    </p>
+    <div
+      aria-live="polite"
+    />
+  </fieldset>
+  <br />
+  <fieldset
+    aria-invalid="false"
+    class="skjemagruppe navigasjon-footer"
+  >
+    <div
+      class="navigasjon-rad"
+    >
+      <button
+        class="navds-button navds-button--primary navds-button--m navds-body-short"
+        type="button"
+      >
+        knapp.tilbake
+      </button>
+      <button
+        class="navds-button navds-button--action navds-button--m navds-body-short"
+        type="button"
+      >
+        knapp.sendSoeknad
+         
+      </button>
+    </div>
+    <div
+      aria-live="polite"
+    />
+  </fieldset>
+  <fieldset
+    aria-invalid="false"
+    class="skjemagruppe navigasjon-rad"
+  >
+    <button
+      class="navds-button navds-button--secondary navds-button--m navds-body-short"
+      type="button"
+    >
+      knapp.avbryt
+    </button>
+    <div
+      aria-live="polite"
+    />
+  </fieldset>
+</div>
+`;
