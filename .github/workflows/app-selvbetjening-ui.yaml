@@ -67,3 +67,16 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: labs-gcp
           RESOURCE: apps/selvbetjening-ui/nais/labs-gcp.yaml
+
+  deploy-to-prod-gcp:
+    name: Deploy to prod-gcp
+    if: ${{ false }}  # vente med aktivering
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: apps/selvbetjening-ui/nais/prod-gcp.yaml
