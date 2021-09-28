@@ -5,12 +5,12 @@ env:
   APP_NAME: ${{ github.workflow }}
 
 on:
+  workflow_dispatch: # Allow manually triggered workflow run
   push:
     branches:
       - main
     paths:
       - apps/etterlatte-proxy/**
-  workflow_dispatch:
 
 jobs:
   build-and-publish:

@@ -5,6 +5,7 @@ env:
   APP_NAME: ${{ github.workflow }}
 
 on:
+  workflow_dispatch: # Allow manually triggered workflow run
   push:
     branches:
       - main

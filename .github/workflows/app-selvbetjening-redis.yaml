@@ -1,6 +1,7 @@
 name: Deploy Redis to dev-gcp
 
 on:
+  workflow_dispatch: # Allow manually triggered workflow run
   push:
     branches:
       - main
