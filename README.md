@@ -53,6 +53,12 @@ Går gjennom en liste med fnr. og sjekker om noen av de har adressebeskyttelse.
 [sjekk-alder-etterlatte](apps/sjekk-alder-etterlatte) \
 `// TODO`
 
+# Bygg og deploy
+
+En app bygges og deployes automatisk når en endring legges til i `main`. 
+
+For å trigge **manuell deploy** kan du gå til `Actions -> (velg workflow) -> Run workflow from <branch>`
+
 
 # Henvendelser
 
