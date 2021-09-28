@@ -7,7 +7,7 @@ env:
 on:
   workflow_dispatch: # Allow manually triggered workflow run
     deploy-prod:
-      description: Deploy til produksjon
+      description: 'Deploy til produksjon'
       required: true
       default: 'true'
   push:
