@@ -10,6 +10,7 @@ on:
       - main
     paths:
       - apps/etterlatte-proxy/**
+  workflow_dispatch:
 
 jobs:
   build-and-publish:
