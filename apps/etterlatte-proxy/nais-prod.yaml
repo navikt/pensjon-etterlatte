@@ -51,7 +51,7 @@ spec:
       value: https://dokarkiv.nais.adeo.no/rest/journalpostapi/v1/journalpost
       #bytte til https://dokarkiv.prod-fss-pub.nais.io og unngå proxy?
     - name: KODEVERK_URL
-      value: https://kodeverk.dev.adeo.no/api/v1/kodeverk/Postnummer/koder/betydninger?spraak=nb
+      value: https://kodeverk.nais.adeo.no/api/v1/kodeverk/Postnummer/koder/betydninger?spraak=nb
   prometheus:
     enabled: true
     path: /internal/prometheus
