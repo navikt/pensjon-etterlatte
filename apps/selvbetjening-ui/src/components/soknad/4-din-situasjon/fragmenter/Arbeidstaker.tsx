@@ -3,9 +3,8 @@ import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form
 import { useTranslation } from "react-i18next";
 import { Button, Title } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
-import ArbeidstakerInfokort from "./ArbeidstakerInfokort"
+import ArbeidstakerInfokort from "./ArbeidstakerInfokort";
 import { useEffect } from "react";
-
 
 const Arbeidstaker = () => {
     const { t } = useTranslation();
@@ -14,7 +13,7 @@ const Arbeidstaker = () => {
 
     const { fields, append, remove } = useFieldArray<any>({
         control,
-        name: "dinSituasjon.arbeidsforhold",
+        name: "arbeidsforhold",
         shouldUnregister: true,
     });
 
@@ -31,7 +30,7 @@ const Arbeidstaker = () => {
             </SkjemaGruppe>
 
             {fields.map((field: FieldArrayWithId, index: number) => (
-                <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={remove}/>
+                <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={remove} />
             ))}
 
             <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
