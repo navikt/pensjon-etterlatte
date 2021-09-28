@@ -6,10 +6,11 @@ env:
 
 on:
   workflow_dispatch: # Allow manually triggered workflow run
-    deploy-prod:
-      description: 'Deploy til produksjon'
-      required: true
-      default: 'true'
+    inputs:
+      deploy-prod:
+        description: 'Deploy til produksjon'
+        required: false
+        default: 'false'
   push:
     branches:
       - main
@@ -54,8 +55,8 @@ jobs:
 
   deploy-to-prod-gcp:
     name: Deploy to prod-gcp
-    if: ${{ inputs.deploy-prod }}  # vente med aktivering
-    needs: build-and-publish
+    if: ${{ github.event.inputs.deploy-prod }}  # vente med aktivering
+    needs: deploy-to-dev-gcp
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
