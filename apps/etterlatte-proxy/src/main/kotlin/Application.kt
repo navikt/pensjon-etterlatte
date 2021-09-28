@@ -38,15 +38,12 @@ fun Application.module() {
     routing {
         internal()
         authenticate("aad") {
-            //pdl(config, stsClient)
             route("/aad") {
-                //pdl(config, stsClient)
                 dok(config, stsClient)
             }
         }
         authenticate("tokenX") {
             route("/tokenx") {
-                //pdl(config, stsClient)
                 kodeverk(config)
             }
         }
