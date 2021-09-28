@@ -17,7 +17,7 @@ const SamboerMedAvdoede = () => {
     const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
     const tidligereGift = watch("forholdTilAvdoede.tidligereGift");
     const omsorgForBarn = watch("forholdTilAvdoede.omsorgForBarn");
-    const datoforDoedsfallet = watch("avdoed.datoForDoedsfallet")
+    const datoforDoedsfallet = watch("avdoed.datoForDoedsfallet");
 
     const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
 
@@ -37,9 +37,7 @@ const SamboerMedAvdoede = () => {
 
             {tidligereGift === IValg.NEI && (
                 <SkjemaGruppe>
-                    <Alert variant={"warning"}>
-                        {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                    </Alert>
+                    <Alert variant={"warning"}>{t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}</Alert>
                 </SkjemaGruppe>
             )}
 

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">5.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>1/17</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">5.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>1/17</span>
             </div>
         
             
@@ -243,11 +243,7 @@
 <a name='L184'></a><a href='#L184'>184</a>
 <a name='L185'></a><a href='#L185'>185</a>
 <a name='L186'></a><a href='#L186'>186</a>
-<a name='L187'></a><a href='#L187'>187</a>
-<a name='L188'></a><a href='#L188'>188</a>
-<a name='L189'></a><a href='#L189'>189</a>
-<a name='L190'></a><a href='#L190'>190</a>
-<a name='L191'></a><a href='#L191'>191</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L187'></a><a href='#L187'>187</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -271,7 +267,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -394,10 +390,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -461,46 +453,46 @@ import { isEmpty } from "lodash";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 &nbsp;
-const OmDeg: SoknadSteg = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> neste }) =&gt; {</span>
+const OmDeg: SoknadSteg = <span class="fstat-no" title="function not covered" >({</span> neste }) =&gt; {
     const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
     const { state, dispatch } = <span class="cstat-no" title="statement not covered" >useSoknadContext();</span>
     const brukerState = <span class="cstat-no" title="statement not covered" >useBrukerContext().state;</span>
 &nbsp;
     const lagre = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(d</span>ata: ISoeker) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: data })</span>
-<span class="cstat-no" title="statement not covered" >        neste!!()</span>
+<span class="cstat-no" title="statement not covered" >        dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: data });</span>
+<span class="cstat-no" title="statement not covered" >        neste!!();</span>
     };
 &nbsp;
     const methods = <span class="cstat-no" title="statement not covered" >useForm&lt;ISoeker&gt;({</span>
         defaultValues: state.omDeg || {},
-        shouldUnregister: true
+        shouldUnregister: true,
     });
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    useEffectOnce(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        methods.reset(state.omDeg)</span>
+<span class="cstat-no" title="statement not covered" >        methods.reset(state.omDeg);</span>
     }, !isEmpty(state.omDeg));
 &nbsp;
     const {
         handleSubmit,
         watch,
-        formState: { errors }
+        formState: { errors },
     } = <span class="cstat-no" title="statement not covered" >methods;</span>
 &nbsp;
     const skalSjekkeFlyktningStatus = <span class="cstat-no" title="statement not covered" >brukerState.foedselsaar!! &lt; 1960;</span>
 &nbsp;
-    const borPaaRegistrertAdresse = <span class="cstat-no" title="statement not covered" >watch("bostedsadresseBekreftet")</span>
-    const oppholderSegINorge = <span class="cstat-no" title="statement not covered" >watch("oppholderSegINorge")</span>
-    const bankkontoType = <span class="cstat-no" title="statement not covered" >watch("utbetalingsInformasjon.bankkontoType")</span>
+    const borPaaRegistrertAdresse = <span class="cstat-no" title="statement not covered" >watch("bostedsadresseBekreftet");</span>
+    const oppholderSegINorge = <span class="cstat-no" title="statement not covered" >watch("oppholderSegINorge");</span>
+    const bankkontoType = <span class="cstat-no" title="statement not covered" >watch("utbetalingsInformasjon.bankkontoType");</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
         &lt;&gt;
             {/* Steg 2 */}
             &lt;Title size={"m"} className={"center"}&gt;
-                &lt;Trans i18nKey={"omDeg.tittel"}/&gt;
+                &lt;Trans i18nKey={"omDeg.tittel"} /&gt;
             &lt;/Title&gt;
 &nbsp;
             {/* Informasjon om den innloggede brukeren */}
-            &lt;InnloggetBruker/&gt;
+            &lt;InnloggetBruker /&gt;
 &nbsp;
             {/* Skjema for utfylling av info om innlogget bruker / søker */}
             &lt;FormProvider {...methods}&gt;
@@ -510,14 +502,14 @@ const OmDeg: SoknadSteg = <span class="cstat-no" title="statement not covered" >
                     &lt;SkjemaGruppering&gt;
                         &lt;RHFSpoersmaalRadio
                             name={"bostedsadresseBekreftet"}
-                            legend={&lt;Trans i18nKey={"omDeg.bostedsadresseBekreftet"}/&gt;}
+                            legend={&lt;Trans i18nKey={"omDeg.bostedsadresseBekreftet"} /&gt;}
                         /&gt;
 &nbsp;
                         {borPaaRegistrertAdresse === IValg.NEI &amp;&amp; (
                             &lt;SkjemaGruppe&gt;
                                 &lt;RHFInput
                                     name={"alternativAdresse"}
-                                    label={&lt;Trans i18nKey={"omDeg.alternativAdresse"}/&gt;}
+                                    label={&lt;Trans i18nKey={"omDeg.alternativAdresse"} /&gt;}
                                 /&gt;
                             &lt;/SkjemaGruppe&gt;
                         )}
@@ -582,25 +574,21 @@ const OmDeg: SoknadSteg = <span class="cstat-no" title="statement not covered" >
                                 &lt;RHFInlineRadio
                                     name={"utbetalingsInformasjon.bankkontoType"}
                                     legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
-                                    radios={Object.values(BankkontoType).map(<span class="fstat-no" title="function not covered" >va</span>lue =&gt; {
-<span class="cstat-no" title="statement not covered" >                                        return { label: t(value), value } as RadioProps</span>
+                                    radios={Object.values(BankkontoType).map(<span class="fstat-no" title="function not covered" >(v</span>alue) =&gt; {
+<span class="cstat-no" title="statement not covered" >                                        return { label: t(value), value } as RadioProps;</span>
                                     })}
                                 /&gt;
 &nbsp;
                                 {bankkontoType === BankkontoType.norsk &amp;&amp; (
-&nbsp;
                                     &lt;RHFKontonummerInput
                                         bredde={"S"}
                                         name={"utbetalingsInformasjon.kontonummer"}
                                         label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                         placeholder={"11 siffer"}
                                     /&gt;
-&nbsp;
                                 )}
 &nbsp;
-                                {bankkontoType === BankkontoType.utenlandsk &amp;&amp; (
-                                    &lt;UtenlandskBankInfo/&gt;
-                                )}
+                                {bankkontoType === BankkontoType.utenlandsk &amp;&amp; &lt;UtenlandskBankInfo /&gt;}
                             &lt;/&gt;
                         )}
                     &lt;/SkjemaGruppering&gt;
@@ -609,17 +597,17 @@ const OmDeg: SoknadSteg = <span class="cstat-no" title="statement not covered" >
                         &lt;SkjemaGruppe&gt;
                             &lt;RHFSpoersmaalRadio
                                 name={"flyktning"}
-                                legend={&lt;Trans i18nKey={"omDeg.flyktning"}/&gt;}
+                                legend={&lt;Trans i18nKey={"omDeg.flyktning"} /&gt;}
                                 description={&lt;HvorforSpoerVi&gt;{t("omDeg.flyktningHvorfor")}&lt;/HvorforSpoerVi&gt;}
                             /&gt;
                         &lt;/SkjemaGruppe&gt;
                     )}
 &nbsp;
-                    &lt;br/&gt;
+                    &lt;br /&gt;
 &nbsp;
-                    &lt;Feilmeldinger errors={errors}/&gt;
+                    &lt;Feilmeldinger errors={errors} /&gt;
 &nbsp;
-                    &lt;Navigasjon neste={{ onClick: handleSubmit(lagre) }}/&gt;
+                    &lt;Navigasjon neste={{ onClick: handleSubmit(lagre) }} /&gt;
                 &lt;/form&gt;
             &lt;/FormProvider&gt;
         &lt;/&gt;
@@ -634,7 +622,7 @@ export default OmDeg;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 27 2021 12:51:43 GMT+0200 (Central European Summer Time)
+                at Mon Sep 27 2021 14:13:52 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

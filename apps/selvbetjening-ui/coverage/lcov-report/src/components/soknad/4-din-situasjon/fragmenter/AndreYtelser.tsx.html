@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -148,15 +148,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,15 +228,15 @@ import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Title } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 &nbsp;
-const AndreYtelser = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-    const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
+const AndreYtelser = () =&gt; {
+    const { t } = useTranslation();
 &nbsp;
-    const { watch } = <span class="cstat-no" title="statement not covered" >useFormContext&lt;ISituasjon&gt;();</span>
+    const { watch } = useFormContext&lt;ISituasjon&gt;();
 &nbsp;
-    const kravOmAnnenStonad = <span class="cstat-no" title="statement not covered" >watch("andreYtelser.kravOmAnnenStonad.svar");</span>
-    const mottarPensjonUtland = <span class="cstat-no" title="statement not covered" >watch("andreYtelser.mottarPensjonUtland.svar");</span>
+    const kravOmAnnenStonad = watch("andreYtelser.kravOmAnnenStonad.svar");
+    const mottarPensjonUtland = watch("andreYtelser.mottarPensjonUtland.svar");
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;&gt;
             &lt;SkjemaGruppering&gt;
                 {/* Steg 7 */}
@@ -251,7 +251,7 @@ const AndreYtelser = <span class="cstat-no" title="statement not covered" ><span
                 /&gt;
 &nbsp;
                 {kravOmAnnenStonad === IValg.JA &amp;&amp; (
-                    &lt;RHFInput
+<span class="branch-1 cbranch-no" title="branch not covered" >                    &lt;RHFInput</span>
                         bredde={"XXL"}
                         name={"andreYtelser.kravOmAnnenStonad.beskrivelse"}
                         label={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.beskrivelse")}
@@ -269,7 +269,7 @@ const AndreYtelser = <span class="cstat-no" title="statement not covered" ><span
                 /&gt;
 &nbsp;
                 {mottarPensjonUtland === IValg.JA &amp;&amp; (
-                    &lt;&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >                    &lt;&gt;</span>
                         &lt;RHFInput
                             bredde={"XXL"}
                             name={"andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"}
@@ -304,7 +304,7 @@ export default AndreYtelser;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 27 2021 12:51:43 GMT+0200 (Central European Summer Time)
+                at Mon Sep 27 2021 14:13:52 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>

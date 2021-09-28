@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>9/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>9/12</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -220,26 +220,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -364,26 +364,26 @@ interface Props {
     datoForDoedsfallet?: Date;
 }
 &nbsp;
-const BoddEllerArbeidetUtland = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> datoForDoedsfallet }: Props) =&gt; {</span>
-    const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
+const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) =&gt; {
+    const { t } = useTranslation();
 &nbsp;
-    const { control, watch } = <span class="cstat-no" title="statement not covered" >useFormContext&lt;IAvdoed&gt;();</span>
+    const { control, watch } = useFormContext&lt;IAvdoed&gt;();
 &nbsp;
-    const boddEllerArbeidetUtland = <span class="cstat-no" title="statement not covered" >watch("boddEllerJobbetUtland.svar");</span>
+    const boddEllerArbeidetUtland = watch("boddEllerJobbetUtland.svar");
 &nbsp;
-    const { fields, append, remove } = <span class="cstat-no" title="statement not covered" >useFieldArray&lt;any&gt;({</span>
+    const { fields, append, remove } = useFieldArray&lt;any&gt;({
         control,
         name: "boddEllerJobbetUtland.oppholdUtland",
         shouldUnregister: true,
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (fields.length === 0) {</span>
-<span class="cstat-no" title="statement not covered" >            append({});</span>
+    useEffect(() =&gt; {
+        if (fields.length === 0) {
+            append({});
         }
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;&gt;
             &lt;SkjemaGruppe className="ingress"&gt;
                 &lt;Title size="s"&gt;{t("omDenAvdoede.boddEllerJobbetUtland.tittel")}&lt;/Title&gt;
@@ -396,7 +396,7 @@ const BoddEllerArbeidetUtland = <span class="cstat-no" title="statement not cove
             /&gt;
 &nbsp;
             {boddEllerArbeidetUtland === IValg.JA &amp;&amp; (
-                &lt;SkjemaGruppering&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;SkjemaGruppering&gt;</span>
                     {fields.map(<span class="fstat-no" title="function not covered" >(f</span>ield: FieldArrayWithId, index: number) =&gt; (
 <span class="cstat-no" title="statement not covered" >                        &lt;Panel border key={field.id} className={"luft-under"}&gt;</span>
                             &lt;div className={"rad"}&gt;
@@ -496,7 +496,7 @@ export default BoddEllerArbeidetUtland;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 27 2021 12:51:43 GMT+0200 (Central European Summer Time)
+                at Mon Sep 27 2021 14:13:52 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>

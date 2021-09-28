@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>7/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -225,34 +225,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -374,16 +374,16 @@ import { BodyLong, Label, Title } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 &nbsp;
-const OmDenAvdode: SoknadSteg = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> neste, forrige }) =&gt; {</span>
-    const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
-    const { state, dispatch } = <span class="cstat-no" title="statement not covered" >useSoknadContext();</span>
+const OmDenAvdode: SoknadSteg = ({ neste, forrige }) =&gt; {
+    const { t } = useTranslation();
+    const { state, dispatch } = useSoknadContext();
 &nbsp;
-    const methods = <span class="cstat-no" title="statement not covered" >useForm&lt;IAvdoed&gt;({</span>
-        defaultValues: state.omDenAvdoede || {},
+    const methods = useForm&lt;IAvdoed&gt;({
+        defaultValues: state.omDenAvdoede || <span class="branch-1 cbranch-no" title="branch not covered" >{},</span>
         shouldUnregister: true,
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    useEffectOnce(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+    useEffectOnce(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >        methods.reset(state.omDenAvdoede);</span>
     }, !isEmpty(state.omDenAvdoede));
 &nbsp;
@@ -391,17 +391,17 @@ const OmDenAvdode: SoknadSteg = <span class="cstat-no" title="statement not cove
         handleSubmit,
         watch,
         formState: { errors },
-    } = <span class="cstat-no" title="statement not covered" >methods;</span>
+    } = methods;
 &nbsp;
-    const lagre = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(d</span>ata: IAvdoed) =&gt; {</span>
+    const lagre = <span class="fstat-no" title="function not covered" >(d</span>ata: IAvdoed) =&gt; {
 <span class="cstat-no" title="statement not covered" >        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: data });</span>
 <span class="cstat-no" title="statement not covered" >        neste!!();</span>
     };
 &nbsp;
-    const selvstendigNaeringsdrivende = <span class="cstat-no" title="statement not covered" >watch("selvstendigNaeringsdrivende.svar");</span>
-    const harAvtjentMilitaerTjeneste = <span class="cstat-no" title="statement not covered" >watch("harAvtjentMilitaerTjeneste.svar");</span>
+    const selvstendigNaeringsdrivende = watch("selvstendigNaeringsdrivende.svar");
+    const harAvtjentMilitaerTjeneste = watch("harAvtjentMilitaerTjeneste.svar");
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;FormProvider {...methods}&gt;
             &lt;SkjemaGruppe className={"center"}&gt;
                 &lt;Title size={"m"}&gt;{t("omDenAvdoede.tittel")}&lt;/Title&gt;
@@ -452,7 +452,7 @@ const OmDenAvdode: SoknadSteg = <span class="cstat-no" title="statement not cove
 &nbsp;
                     {/* TODO: Rename? */}
                     {selvstendigNaeringsdrivende === IValg.JA &amp;&amp; (
-                        &lt;SkjemaGruppe&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >                        &lt;SkjemaGruppe&gt;</span>
                             &lt;RHFValutaInput
                                 name={"selvstendigNaeringsdrivende.beskrivelse"}
                                 bredde={"L"}
@@ -484,7 +484,7 @@ const OmDenAvdode: SoknadSteg = <span class="cstat-no" title="statement not cove
                     /&gt;
 &nbsp;
                     {harAvtjentMilitaerTjeneste === IValg.JA &amp;&amp; (
-                        &lt;SkjemaGruppe&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >                        &lt;SkjemaGruppe&gt;</span>
                             &lt;RHFInput
                                 name={"harAvtjentMilitaerTjeneste.beskrivelse"}
                                 bredde={"S"}
@@ -511,7 +511,7 @@ export default OmDenAvdode;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 27 2021 12:51:43 GMT+0200 (Central European Summer Time)
+                at Mon Sep 27 2021 14:13:52 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

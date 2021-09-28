@@ -27,7 +27,6 @@ const GiftMedAvdoede = () => {
                     maxDate={datoforDoedsfallet || new Date()}
                 />
             </SkjemaGruppe>
-
             {partnerskapMindreEnnFemAar && (
                 <>
                     <RHFSpoersmaalRadio

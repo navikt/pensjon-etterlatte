@@ -28,40 +28,40 @@ const OmDeg: SoknadSteg = ({ neste }) => {
     const brukerState = useBrukerContext().state;
 
     const lagre = (data: ISoeker) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: data })
-        neste!!()
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: data });
+        neste!!();
     };
 
     const methods = useForm<ISoeker>({
         defaultValues: state.omDeg || {},
-        shouldUnregister: true
+        shouldUnregister: true,
     });
 
     useEffectOnce(() => {
-        methods.reset(state.omDeg)
+        methods.reset(state.omDeg);
     }, !isEmpty(state.omDeg));
 
     const {
         handleSubmit,
         watch,
-        formState: { errors }
+        formState: { errors },
     } = methods;
 
     const skalSjekkeFlyktningStatus = brukerState.foedselsaar!! < 1960;
 
-    const borPaaRegistrertAdresse = watch("bostedsadresseBekreftet")
-    const oppholderSegINorge = watch("oppholderSegINorge")
-    const bankkontoType = watch("utbetalingsInformasjon.bankkontoType")
+    const borPaaRegistrertAdresse = watch("bostedsadresseBekreftet");
+    const oppholderSegINorge = watch("oppholderSegINorge");
+    const bankkontoType = watch("utbetalingsInformasjon.bankkontoType");
 
     return (
         <>
             {/* Steg 2 */}
             <Title size={"m"} className={"center"}>
-                <Trans i18nKey={"omDeg.tittel"}/>
+                <Trans i18nKey={"omDeg.tittel"} />
             </Title>
 
             {/* Informasjon om den innloggede brukeren */}
-            <InnloggetBruker/>
+            <InnloggetBruker />
 
             {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <FormProvider {...methods}>
@@ -71,14 +71,14 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                     <SkjemaGruppering>
                         <RHFSpoersmaalRadio
                             name={"bostedsadresseBekreftet"}
-                            legend={<Trans i18nKey={"omDeg.bostedsadresseBekreftet"}/>}
+                            legend={<Trans i18nKey={"omDeg.bostedsadresseBekreftet"} />}
                         />
 
                         {borPaaRegistrertAdresse === IValg.NEI && (
                             <SkjemaGruppe>
                                 <RHFInput
                                     name={"alternativAdresse"}
-                                    label={<Trans i18nKey={"omDeg.alternativAdresse"}/>}
+                                    label={<Trans i18nKey={"omDeg.alternativAdresse"} />}
                                 />
                             </SkjemaGruppe>
                         )}
@@ -143,25 +143,21 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 <RHFInlineRadio
                                     name={"utbetalingsInformasjon.bankkontoType"}
                                     legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
-                                    radios={Object.values(BankkontoType).map(value => {
-                                        return { label: t(value), value } as RadioProps
+                                    radios={Object.values(BankkontoType).map((value) => {
+                                        return { label: t(value), value } as RadioProps;
                                     })}
                                 />
 
                                 {bankkontoType === BankkontoType.norsk && (
-
                                     <RHFKontonummerInput
                                         bredde={"S"}
                                         name={"utbetalingsInformasjon.kontonummer"}
                                         label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                         placeholder={"11 siffer"}
                                     />
-
                                 )}
 
-                                {bankkontoType === BankkontoType.utenlandsk && (
-                                    <UtenlandskBankInfo/>
-                                )}
+                                {bankkontoType === BankkontoType.utenlandsk && <UtenlandskBankInfo />}
                             </>
                         )}
                     </SkjemaGruppering>
@@ -170,17 +166,17 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         <SkjemaGruppe>
                             <RHFSpoersmaalRadio
                                 name={"flyktning"}
-                                legend={<Trans i18nKey={"omDeg.flyktning"}/>}
+                                legend={<Trans i18nKey={"omDeg.flyktning"} />}
                                 description={<HvorforSpoerVi>{t("omDeg.flyktningHvorfor")}</HvorforSpoerVi>}
                             />
                         </SkjemaGruppe>
                     )}
 
-                    <br/>
+                    <br />
 
-                    <Feilmeldinger errors={errors}/>
+                    <Feilmeldinger errors={errors} />
 
-                    <Navigasjon neste={{ onClick: handleSubmit(lagre) }}/>
+                    <Navigasjon neste={{ onClick: handleSubmit(lagre) }} />
                 </form>
             </FormProvider>
         </>

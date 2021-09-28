@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">58.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/24</span>
+                <span class='fraction'>14/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">56.52% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/23</span>
+                <span class='fraction'>13/23</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -157,32 +157,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -194,7 +194,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -241,26 +241,26 @@ import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
 import { LogEvents, useAmplitude } from "../../../utils/amplitude";
 &nbsp;
-const Oppsummering: SoknadSteg = <span class="cstat-no" title="statement not covered" >memo(<span class="fstat-no" title="function not covered" >({</span> forrige }) =&gt; {</span>
-    const history = <span class="cstat-no" title="statement not covered" >useHistory();</span>
+const Oppsummering: SoknadSteg = memo(({ forrige }) =&gt; {
+    const history = useHistory();
 &nbsp;
-    const { t, i18n } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
+    const { t, i18n } = useTranslation();
 &nbsp;
-    const { state: soeknad } = <span class="cstat-no" title="statement not covered" >useSoknadContext();</span>
-    const { state: bruker } = <span class="cstat-no" title="statement not covered" >useBrukerContext();</span>
-    const { logEvent } = <span class="cstat-no" title="statement not covered" >useAmplitude();</span>
+    const { state: soeknad } = useSoknadContext();
+    const { state: bruker } = useBrukerContext();
+    const { logEvent } = useAmplitude();
 &nbsp;
-    const [senderSoeknad, setSenderSoeknad] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
-    const [error, setError] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+    const [senderSoeknad, setSenderSoeknad] = useState(false);
+    const [error, setError] = useState(false);
 &nbsp;
-    const mapper = <span class="cstat-no" title="statement not covered" >new SoeknadMapper(t, i18n);</span>
-    const soeknadOppsummering: Gruppe[] = <span class="cstat-no" title="statement not covered" >useMemo(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (isEmpty(soeknad) || isEmpty(bruker)) <span class="cstat-no" title="statement not covered" >return [];</span></span>
+    const mapper = new SoeknadMapper(t, i18n);
+    const soeknadOppsummering: Gruppe[] = useMemo(() =&gt; {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (isEmpty(soeknad) || isEmpty(bruker)) return [];
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        return mapper.lagOppsummering(soeknad, bruker)</span>
     }, [soeknad, bruker]);
 &nbsp;
-    const send = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+    const send = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >        setSenderSoeknad(true);</span>
 <span class="cstat-no" title="statement not covered" >        setError(false);</span>
 &nbsp;
@@ -278,7 +278,7 @@ const Oppsummering: SoknadSteg = <span class="cstat-no" title="statement not cov
             });
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;&gt;
             &lt;SkjemaGruppe&gt;
                 &lt;Title size={"m"} className={"center"}&gt;
@@ -298,7 +298,7 @@ const Oppsummering: SoknadSteg = <span class="cstat-no" title="statement not cov
             &lt;br /&gt;
 &nbsp;
             {error &amp;&amp; (
-                &lt;SkjemaGruppe&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;SkjemaGruppe&gt;</span>
                     &lt;Alert variant={"error"}&gt;{t("oppsummering.feilVedSending")}&lt;/Alert&gt;
                 &lt;/SkjemaGruppe&gt;
             )}
@@ -316,7 +316,7 @@ export default Oppsummering;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 27 2021 12:51:43 GMT+0200 (Central European Summer Time)
+                at Mon Sep 27 2021 14:13:52 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

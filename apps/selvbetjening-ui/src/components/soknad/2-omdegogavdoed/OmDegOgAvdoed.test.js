@@ -1,6 +1,4 @@
 import { render } from "@testing-library/react";
-import uuid from "uuid";
-import lodash from "lodash";
 import * as JSutils from "nav-frontend-js-utils";
 import OmDegOgAvdoed from "./OmDegOgAvdoed";
 

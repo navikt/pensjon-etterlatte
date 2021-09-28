@@ -24,7 +24,6 @@ const ForholdTilAvdoedeSkjema = () => {
                     return { label: t(value), value } as RadioProps;
                 })}
             />
-
             {/** Gift og Separert gir samme etterfølgende spørsmål */}
             {forholdTilAvdoede === ForholdTilAvdoede.gift && <GiftMedAvdoede />}
 

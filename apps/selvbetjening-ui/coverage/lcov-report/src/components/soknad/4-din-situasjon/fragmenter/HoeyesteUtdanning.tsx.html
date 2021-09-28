@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -104,20 +104,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,25 +142,25 @@ import { RHFInput } from "../../../felles/RHFInput";
 import { useFormContext } from "react-hook-form";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 &nbsp;
-const HoeyesteUtdanning = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-    const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
+const HoeyesteUtdanning = () =&gt; {
+    const { t } = useTranslation();
 &nbsp;
-    const { watch } = <span class="cstat-no" title="statement not covered" >useFormContext&lt;ISituasjon&gt;()</span>
+    const { watch } = useFormContext&lt;ISituasjon&gt;()
 &nbsp;
-    const hoyesteFullfoerteUtdanning = <span class="cstat-no" title="statement not covered" >watch("utdanning.hoyesteFullfoerteUtdanning")</span>
+    const hoyesteFullfoerteUtdanning = watch("utdanning.hoyesteFullfoerteUtdanning")
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;SkjemaGruppering&gt;
             &lt;RHFRadio
                 name={"utdanning.hoyesteFullfoerteUtdanning"}
                 legend={t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning")}
-                radios={Object.values(Utdanning).map(<span class="fstat-no" title="function not covered" >va</span>lue =&gt; {
-<span class="cstat-no" title="statement not covered" >                    return { label: t(value), value } as RadioProps</span>
+                radios={Object.values(Utdanning).map(value =&gt; {
+                    return { label: t(value), value } as RadioProps
                 })}
             /&gt;
 &nbsp;
             {hoyesteFullfoerteUtdanning === Utdanning.annen &amp;&amp; (
-                &lt;RHFInput
+<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;RHFInput</span>
                     name={"utdanning.annenUtdanning"}
                     label={t("dinSituasjon.utdanning.annenUtdanning")}
                     placeholder={t("dinSituasjon.utdanning.annenUtdanningPlaceholder")}
@@ -178,7 +178,7 @@ export default HoeyesteUtdanning;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 27 2021 12:51:43 GMT+0200 (Central European Summer Time)
+                at Mon Sep 27 2021 14:13:52 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>
