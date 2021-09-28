@@ -51,9 +51,11 @@ jobs:
     if: ${{ true }}  # vente med aktivering
     needs: build-and-publish
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
       - uses: actions/checkout@v2
       - uses: nais/deploy/actions/deploy@v1
+        continue-on-error: true
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-fss
