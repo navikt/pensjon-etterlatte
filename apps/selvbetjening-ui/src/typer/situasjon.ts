@@ -1,4 +1,4 @@
-import { IArbeidsforhold, ISelvstendigNaeringsdrivende, ITidligereArbeidsforhold } from "./arbeidsforhold";
+import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "./arbeidsforhold";
 import { IAndreYtelser } from "./ytelser";
 
 export interface IUtdanning {
@@ -31,8 +31,7 @@ export interface ISituasjon {
     jobbStatus?: JobbStatus;
     ingenJobbBeskrivelse?: string;
     utdanning?: IUtdanning;
-    selvstendigNaeringsdrivende?: ISelvstendigNaeringsdrivende;
+    selvstendigNaeringsdrivende?: ISelvstendigNaeringsdrivende[];
     arbeidsforhold?: IArbeidsforhold[];
-    tidligereArbeidsforhold?: ITidligereArbeidsforhold[];
     andreYtelser?: IAndreYtelser;
 }

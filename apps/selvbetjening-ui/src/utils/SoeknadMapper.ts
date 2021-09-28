@@ -5,7 +5,7 @@ import { i18n, TFunction } from "i18next";
 import { IBruker } from "../context/bruker/bruker";
 import { ISoeknad } from "../context/soknad/soknad";
 import { StegPath } from "../context/steg/steg";
-import { IArbeidsforhold } from "../typer/arbeidsforhold";
+import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "../typer/arbeidsforhold";
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader;
@@ -96,29 +96,25 @@ export default class SoeknadMapper {
     }
 
     private mapDinSituasjon(dinSituasjon: ISituasjon): Gruppe {
-        function mapArbeid(arbeid: IArbeidsforhold) {
-
-            const newArbeid = {
-                ansettelsesforhold: arbeid.ansettelsesforhold,
-                stillingsprosent: arbeid.stillingsprosent,
-                forventerEndretInntekt: {
-                    svar: arbeid.forventerEndretInntekt?.svar,
-                    beskrivelse: arbeid.forventerEndretInntekt?.beskrivelse
-                }
-            }
-
-            return (
-                newArbeid
-            )
-        }
-
         const arbeidsforhold: Element[] = dinSituasjon.arbeidsforhold?.map(arbeid => {
             return {
                 tittel: `${arbeid.arbeidsgiver}`,
-                innhold: this.otr.traverse(mapArbeid(arbeid), "dinSituasjon.arbeidsforhold")
+                innhold: this.otr.traverse<IArbeidsforhold>({
+                    ...arbeid,
+                    arbeidsgiver: undefined
+                }, "dinSituasjon.arbeidsforhold")
             } as Element
         }) || [];
 
+        const selvstendigNaeringsdrivende: Element[] = dinSituasjon.selvstendigNaeringsdrivende?.map(arbeid => {
+            return {
+                tittel: `${arbeid.beskrivelse}`,
+                innhold: this.otr.traverse<ISelvstendigNaeringsdrivende>({
+                    ...arbeid,
+                    beskrivelse: undefined,
+                }, "dinSituasjon.selvstendig")
+            } as Element
+        }) || [];
 
         return {
             tittel: this.t("dinSituasjon.tittel"),
@@ -127,11 +123,14 @@ export default class SoeknadMapper {
                 {
                     innhold: this.otr.traverse<ISituasjon>({
                         ...dinSituasjon,
-                        arbeidsforhold: undefined
+                        utdanning: undefined,
+                        arbeidsforhold: undefined,
+                        selvstendigNaeringsdrivende: undefined,
                     }, "dinSituasjon")
 
                 },
-                ...arbeidsforhold
+                ...arbeidsforhold,
+                ...selvstendigNaeringsdrivende
             ]
         };
     }
