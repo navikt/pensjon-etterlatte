@@ -1,2 +1,1 @@
-# etterlatte-proxy
-
+# etterlatte-pdl-proxy

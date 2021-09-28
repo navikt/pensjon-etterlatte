@@ -1,7 +1,8 @@
-name: selvbetjening-ui - Build, release and deploy
+name: selvbetjening-ui
 
 env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/selvbetjening-ui:${{ github.sha }}
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+  APP_NAME: ${{ github.workflow }}
 
 on:
   push:
@@ -14,7 +15,7 @@ on:
 
 jobs:
   build-and-publish:
-    name: Bygg, test og push Docker image
+    name: Build, test and publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,24 +25,24 @@ jobs:
         with:
           node-version: '14.x'
       - name: Install and build
-        working-directory: apps/selvbetjening-ui
+        working-directory: apps/${{ env.APP_NAME }}
         run: |
           yarn install
           yarn build
       - name: Start application
-        working-directory: apps/selvbetjening-ui
+        working-directory: apps/${{ env.APP_NAME }}
         run: |
           yarn start & npx wait-on http://localhost:3000
       - name: Run e2e tests (Cypress)
-        working-directory: apps/selvbetjening-ui
+        working-directory: apps/${{ env.APP_NAME }}
         run: |
           yarn cy:test
       - name: Build and publish Docker image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          docker build --tag ${IMAGE} apps/selvbetjening-ui
           docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
+          docker build --tag ${IMAGE} apps/${APP_NAME}
           docker push ${IMAGE}
 
   deploy-to-dev-gcp:
@@ -54,7 +55,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: apps/selvbetjening-ui/nais/dev-gcp.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/nais/dev-gcp.yaml
 
   deploy-to-labs-gcp:
     name: Deploy to labs-gcp
@@ -66,7 +67,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: labs-gcp
-          RESOURCE: apps/selvbetjening-ui/nais/labs-gcp.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/nais/labs-gcp.yaml
 
   deploy-to-prod-gcp:
     name: Deploy to prod-gcp
@@ -79,4 +80,4 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: apps/selvbetjening-ui/nais/prod-gcp.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/nais/prod-gcp.yaml

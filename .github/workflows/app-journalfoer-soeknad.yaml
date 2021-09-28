@@ -1,7 +1,8 @@
-name: journalfoer-soeknad - Build, release and deploy
+name: journalfoer-soeknad
 
 env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/journalfoer-soeknad:${{ github.sha }}
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+  APP_NAME: ${{ github.workflow }}
 
 on:
   push:
@@ -12,36 +13,49 @@ on:
       - libs/ktorclient-auth-clientcredentials/**
 
 jobs:
-  build-release-deploy:
-    name: Build, release and deploy
+  build-and-publish:
+    name: Build, test, and publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Java v16.x
+        uses: actions/setup-java@v1
+        with:
+          java-version: '16.x'
+      - name: Gradle test and build
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :apps:${APP_NAME}:test :apps:${APP_NAME}:build
+      - name: Build and publish docker image
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
+          docker build --tag ${IMAGE} apps/${APP_NAME}
+          docker push ${IMAGE}
+
+  deploy-to-dev-gcp:
+    name: Deploy to dev-gcp
+    needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-        with:
-          java-version: '16.x'
-
-      # Build
-      - name: Build
-        run: |
-          chmod +x ./gradlew
-          ./gradlew :apps:journalfoer-soeknad:test :apps:journalfoer-soeknad:build
-      # Release
-      - name: Build Docker image
-        run: docker build -t ${IMAGE} apps/journalfoer-soeknad
-      - name: Login to Github Package Registry
-        env:
-          DOCKER_USERNAME: x-access-token
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin docker.pkg.github.com
-      - name: Release docker image
-        run: docker push ${IMAGE}
-
-      # Deploy
-      - name: Deploy dev
-        uses: nais/deploy/actions/deploy@v1
+      - uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: apps/journalfoer-soeknad/nais.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/nais.yaml
+
+  deploy-to-prod-gcp:
+    name: Deploy to prod-gcp
+    if: ${{ false }}  # vente med aktivering
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: apps/${{ env.APP_NAME }}/nais-prod.yaml

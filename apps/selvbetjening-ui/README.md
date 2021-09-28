@@ -1,4 +1,4 @@
-# Selvbetjening UI
+# selvbetjening-ui
 
 ## Kom i gang
 

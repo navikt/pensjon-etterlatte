@@ -22,16 +22,17 @@ jobs:
           CLUSTER: dev-gcp
           RESOURCE: apps/selvbetjening-ui/nais/redis-dev-gcp.yaml
 
-  deploy-labs-gcp:
-    name: Deploy to labs-gcp
+  deploy-prod-gcp:
+    name: Deploy to prod-gcp
+    if: ${{ false }}  # vente med aktivering
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Deploy to labs-gcp
+      - name: Deploy to prod-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CLUSTER: labs-gcp
-          RESOURCE: apps/selvbetjening-ui/nais/redis-dev-gcp.yaml
+          CLUSTER: prod-gcp
+          RESOURCE: apps/selvbetjening-ui/nais/redis-prod-gcp.yaml

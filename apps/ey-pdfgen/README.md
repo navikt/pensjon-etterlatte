@@ -1,4 +1,4 @@
-# su-pdfgen
+# ey-pdfgen
 PDF generator for Etterlatte og barnepensjon. Kjør lokalt docker image med  `./run_development.sh`
 
 For å trigge PDF-gen må du gå til følgende url (`HTTP_GET`):
