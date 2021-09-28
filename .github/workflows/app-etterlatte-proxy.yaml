@@ -35,7 +35,7 @@ jobs:
           docker push ${IMAGE}
 
   deploy-to-dev-gcp:
-    name: Deploy to dev-gcp
+    name: Deploy to dev-fss
     needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
@@ -47,8 +47,8 @@ jobs:
           RESOURCE: apps/${{ env.APP_NAME }}/nais.yaml
 
   deploy-to-prod-gcp:
-    name: Deploy to prod-gcp
-    if: ${{ false }}  # vente med aktivering
+    name: Deploy to prod-fss
+    if: ${{ true }}  # vente med aktivering
     needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
