@@ -1,4 +1,3 @@
-import { IArbeidsforhold } from "../../../../typer/arbeidsforhold";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Panel } from "@navikt/ds-react";
@@ -13,7 +12,6 @@ interface Props {
     lengde: number;
     index: number;
     fjern: (index: number) => void;
-
 }
 
 const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {

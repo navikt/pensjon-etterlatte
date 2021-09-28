@@ -8,7 +8,7 @@ import SelvstendigInfokort from "./SelvstendigInfokort";
 
 const Selvstendig = () => {
     const { t } = useTranslation();
-    const { control, watch } = useFormContext();
+    const { control } = useFormContext();
 
     const { fields, append, remove } = useFieldArray<any>({
         control,
