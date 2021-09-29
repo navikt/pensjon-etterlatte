@@ -14,6 +14,43 @@ jest.mock("react-i18next", () => ({
     },
 }));
 
+const defaultValues = {
+    jobbStatus: ["jobbStatus.arbeidstaker"],
+    utdanning: {
+        hoyesteFullfoerteUtdanning: "utdanning.mastergrad",
+    },
+    andreYtelser: {
+        kravOmAnnenStonad: {
+            svar: "Ja",
+            beskrivelse: "Barnepensjon",
+        },
+        mottarPensjonUtland: {
+            svar: "Ja",
+            hvaSlagsPensjon: "Polsk Uførepensjon",
+            fraHvilketLand: "Polen",
+            bruttobeloepPrAar: "4000 PLN",
+        },
+    },
+    arbeidsforhold: [
+        {
+            arbeidsgiver: "Potetskreller AS",
+            ansettelsesforhold: "stillingType.midlertidig",
+            stillingsprosent: "100%",
+            forventerEndretInntekt: {
+                svar: "Ja",
+                beskrivelse: "150 000",
+            },
+        },
+    ],
+};
+
+jest.mock("../../../context/soknad/SoknadContext", () => ({
+    useSoknadContext: () => ({
+        state: { dinSituasjon: defaultValues },
+        dispatch: jest.fn(),
+    }),
+}));
+
 JSutils.guid = jest.fn(() => "123");
 describe("Om den avdøde", () => {
     it("Snapshot", () => {

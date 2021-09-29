@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>8/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -139,19 +139,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,19 +211,19 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
 import { useTranslation } from "react-i18next";
 &nbsp;
-const  TidligereSamboerMedAvdoede = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-    const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
+const  TidligereSamboerMedAvdoede = () =&gt; {
+    const { t } = useTranslation();
 &nbsp;
-    const { watch } = <span class="cstat-no" title="statement not covered" >useFormContext&lt;ISoekerOgAvdoed&gt;();</span>
+    const { watch } = useFormContext&lt;ISoekerOgAvdoed&gt;();
 &nbsp;
-    const datoForInngaattSamboerskap = <span class="cstat-no" title="statement not covered" >watch("forholdTilAvdoede.datoForInngaattSamboerskap")</span>
-    const datoForSamlivsbrudd = <span class="cstat-no" title="statement not covered" >watch("forholdTilAvdoede.datoForSamlivsbrudd")</span>
-    const datoForDoedsfallet = <span class="cstat-no" title="statement not covered" >watch("avdoed.datoForDoedsfallet")</span>
-    const fellesBarn = <span class="cstat-no" title="statement not covered" >watch("forholdTilAvdoede.fellesBarn");</span>
+    const datoForInngaattSamboerskap = watch("forholdTilAvdoede.datoForInngaattSamboerskap")
+    const datoForSamlivsbrudd = watch("forholdTilAvdoede.datoForSamlivsbrudd")
+    const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet")
+    const fellesBarn = watch("forholdTilAvdoede.fellesBarn");
 &nbsp;
-    const bidragMaaUtfylles  = <span class="cstat-no" title="statement not covered" >ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet);</span>
+    const bidragMaaUtfylles  = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;&gt;
             &lt;RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
@@ -231,7 +231,7 @@ const  TidligereSamboerMedAvdoede = <span class="fstat-no" title="function not c
             /&gt;
 &nbsp;
             {fellesBarn === IValg.NEI &amp;&amp; (
-                &lt;SkjemaGruppe&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;SkjemaGruppe&gt;</span>
                     &lt;Alert variant={"warning"}&gt;
                         {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
                     &lt;/Alert&gt;
@@ -261,7 +261,7 @@ const  TidligereSamboerMedAvdoede = <span class="fstat-no" title="function not c
                     &lt;/SkjemaGruppe&gt;
 &nbsp;
                     {bidragMaaUtfylles &amp;&amp; (
-                        &lt;RHFSpoersmaalRadio
+<span class="branch-1 cbranch-no" title="branch not covered" >                        &lt;RHFSpoersmaalRadio</span>
                             name={"forholdTilAvdoede.mottokBidrag"}
                             legend={t("omDegOgAvdoed.forholdTilAvdoede.mottokBidrag")}
                         /&gt;
@@ -280,7 +280,7 @@ export default TidligereSamboerMedAvdoede;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 27 2021 14:13:52 GMT+0200 (Central European Summer Time)
+                at Wed Sep 29 2021 09:22:00 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>

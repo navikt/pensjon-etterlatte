@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">88.89% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">88.89% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -136,32 +136,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,33 +191,33 @@ interface SelectProps extends SelectHTMLAttributes&lt;HTMLSelectElement&gt; {
     rules?: Omit&lt;RegisterOptions&lt;FieldValues, FieldPath&lt;FieldValues&gt;&gt;, 'required'&gt;;
 }
 &nbsp;
-export const RHFSelect = <span class="fstat-no" title="function not covered" >({</span> name, label, selectOptions, rules, ...rest }: SelectProps) =&gt; {
-    const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
+export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: SelectProps) =&gt; {
+    const { t } = useTranslation();
 &nbsp;
-    const { control, formState: { errors } } = <span class="cstat-no" title="statement not covered" >useFormContext();</span>
+    const { control, formState: { errors } } = useFormContext();
 &nbsp;
-    const error: FieldError = <span class="cstat-no" title="statement not covered" >get(errors, name)</span>
-    const feilmelding = <span class="cstat-no" title="statement not covered" >t(getTransKey(error))</span>
+    const error: FieldError = get(errors, name)
+    const feilmelding = t(getTransKey(error))
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;div id={name}&gt;
             &lt;Controller
                 name={name}
                 control={control}
                 rules={{required: true, ...rules}}
-                render={<span class="fstat-no" title="function not covered" >({</span> field: { value, onChange, onBlur } }) =&gt; (
-<span class="cstat-no" title="statement not covered" >                    &lt;Select</span>
+                render={({ field: { value, onChange, onBlur } }) =&gt; (
+                    &lt;Select
                         {...rest}
-                        value={value || ""}
-                        selected={value || ""}
+                        value={value || <span class="branch-1 cbranch-no" title="branch not covered" >""}</span>
+                        selected={value || <span class="branch-1 cbranch-no" title="branch not covered" >""}</span>
                         onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >onChange((e.target as HTMLSelectElement).value)}</span>
                         onBlur={onBlur}
                         label={label}
                         bredde={"l"}
                         feil={feilmelding}
                     &gt;
-                        {selectOptions.map(<span class="fstat-no" title="function not covered" >op</span>tion =&gt; (
-<span class="cstat-no" title="statement not covered" >                            &lt;option key={uuid()} value={option.value}&gt;{option.label}&lt;/option&gt;</span>
+                        {selectOptions.map(option =&gt; (
+                            &lt;option key={uuid()} value={option.value}&gt;{option.label}&lt;/option&gt;
                         ))}
                     &lt;/Select&gt;
                 )}
@@ -232,7 +232,7 @@ export const RHFSelect = <span class="fstat-no" title="function not covered" >({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 27 2021 14:13:52 GMT+0200 (Central European Summer Time)
+                at Wed Sep 29 2021 09:22:00 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

@@ -44,11 +44,12 @@ exports[`Om den avdøde Snapshot 1`] = `
         dinSituasjon.jobbStatus
       </legend>
       <label
-        class="inputPanel checkboksPanel"
+        class="inputPanel checkboksPanel inputPanel--checked"
       >
         <input
-          aria-checked="false"
+          aria-checked="true"
           aria-invalid="false"
+          checked=""
           class="inputPanel__field"
           type="checkbox"
           value="jobbStatus.arbeidstaker"
@@ -107,6 +108,215 @@ exports[`Om den avdøde Snapshot 1`] = `
           jobbStatus.ingen
         </span>
       </label>
+      <div
+        aria-live="polite"
+      />
+    </fieldset>
+    <fieldset
+      aria-invalid="false"
+      class="skjemagruppe skjemagruppering"
+    >
+      <fieldset
+        aria-invalid="false"
+        class="skjemagruppe"
+      >
+        <h1
+          class="navds-title navds-title--s"
+        >
+          dinSituasjon.arbeidsforhold.tittel
+        </h1>
+        <div
+          aria-live="polite"
+        />
+      </fieldset>
+      <div
+        class="navds-panel luft-under navds-panel--border"
+      >
+        <div
+          class="kol-75"
+        >
+          <div
+            class="skjemaelement"
+          >
+            <label
+              class="skjemaelement__label"
+              for="arbeidsforhold[0].arbeidsgiver"
+            >
+              dinSituasjon.arbeidsforhold.arbeidsgiver
+            </label>
+            <input
+              aria-invalid="false"
+              class="skjemaelement__input input--fullbredde"
+              id="arbeidsforhold[0].arbeidsgiver"
+              type="text"
+              value="Potetskreller AS"
+            />
+          </div>
+        </div>
+        <fieldset
+          aria-invalid="false"
+          class="skjemagruppe rad"
+        >
+          <div
+            id="arbeidsforhold[0].ansettelsesforhold"
+          >
+            <div
+              class="skjemaelement"
+            >
+              <label
+                class="skjemaelement__label"
+              >
+                dinSituasjon.arbeidsforhold.ansettelsesforhold
+              </label>
+              <div
+                class="selectContainer input--l"
+              >
+                <select
+                  aria-invalid="false"
+                  class="skjemaelement__input"
+                >
+                  <option>
+                    Velg ...
+                  </option>
+                  <option
+                    value="stillingType.fast"
+                  >
+                    stillingType.fast
+                  </option>
+                  <option
+                    value="stillingType.midlertidig"
+                  >
+                    stillingType.midlertidig
+                  </option>
+                  <option
+                    value="stillingType.sesongarbeid"
+                  >
+                    stillingType.sesongarbeid
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div
+            class="skjemaelement"
+          >
+            <label
+              class="skjemaelement__label"
+              for="arbeidsforhold[0].stillingsprosent"
+            >
+              dinSituasjon.arbeidsforhold.stillingsprosent
+            </label>
+            <input
+              aria-invalid="false"
+              class="skjemaelement__input input--fullbredde"
+              id="arbeidsforhold[0].stillingsprosent"
+              placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
+              type="text"
+              value="100%"
+            />
+          </div>
+          <div
+            aria-live="polite"
+          />
+        </fieldset>
+        <div
+          id="arbeidsforhold[0].forventerEndretInntekt.svar"
+        >
+          <fieldset
+            aria-invalid="false"
+            class="skjemagruppe inputPanelGruppe inline"
+          >
+            <legend
+              class="skjemagruppe__legend"
+            >
+              dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar
+            </legend>
+            <div
+              class="inputPanelGruppe__inner"
+            >
+              <label
+                class="inputPanel radioPanel inputPanel--checked"
+              >
+                <input
+                  aria-checked="true"
+                  aria-invalid="false"
+                  checked=""
+                  class="inputPanel__field"
+                  name="arbeidsforhold[0].forventerEndretInntekt.svar"
+                  type="radio"
+                  value="Ja"
+                />
+                <span
+                  class="inputPanel__label"
+                >
+                  Ja
+                </span>
+              </label>
+              <label
+                class="inputPanel radioPanel"
+              >
+                <input
+                  aria-checked="false"
+                  aria-invalid="false"
+                  class="inputPanel__field"
+                  name="arbeidsforhold[0].forventerEndretInntekt.svar"
+                  type="radio"
+                  value="Nei"
+                />
+                <span
+                  class="inputPanel__label"
+                >
+                  Nei
+                </span>
+              </label>
+              <label
+                class="inputPanel radioPanel"
+              >
+                <input
+                  aria-checked="false"
+                  aria-invalid="false"
+                  class="inputPanel__field"
+                  name="arbeidsforhold[0].forventerEndretInntekt.svar"
+                  type="radio"
+                  value="Vet ikke"
+                />
+                <span
+                  class="inputPanel__label"
+                >
+                  Vet ikke
+                </span>
+              </label>
+            </div>
+            <div
+              aria-live="polite"
+            />
+          </fieldset>
+        </div>
+        <div
+          class="skjemaelement"
+        >
+          <label
+            class="skjemaelement__label"
+            for="arbeidsforhold[0].forventerEndretInntekt.beskrivelse"
+          >
+            dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse
+          </label>
+          <input
+            aria-invalid="false"
+            class="skjemaelement__input input--s"
+            id="arbeidsforhold[0].forventerEndretInntekt.beskrivelse"
+            type="text"
+            value="150 000"
+          />
+        </div>
+      </div>
+      <button
+        class="navds-button navds-button--secondary navds-button--m navds-body-short"
+        type="button"
+      >
+        + 
+        knapp.leggTil
+      </button>
       <div
         aria-live="polite"
       />
@@ -182,11 +392,12 @@ exports[`Om den avdøde Snapshot 1`] = `
               </span>
             </label>
             <label
-              class="inputPanel radioPanel"
+              class="inputPanel radioPanel inputPanel--checked"
             >
               <input
-                aria-checked="false"
+                aria-checked="true"
                 aria-invalid="false"
+                checked=""
                 class="inputPanel__field"
                 name="utdanning.hoyesteFullfoerteUtdanning"
                 type="radio"
@@ -280,11 +491,12 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="inputPanelGruppe__inner"
           >
             <label
-              class="inputPanel radioPanel"
+              class="inputPanel radioPanel inputPanel--checked"
             >
               <input
-                aria-checked="false"
+                aria-checked="true"
                 aria-invalid="false"
+                checked=""
                 class="inputPanel__field"
                 name="andreYtelser.kravOmAnnenStonad.svar"
                 type="radio"
@@ -318,6 +530,25 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-live="polite"
           />
         </fieldset>
+      </div>
+      <div>
+        <div
+          class="skjemaelement"
+        >
+          <label
+            class="skjemaelement__label"
+            for="andreYtelser.kravOmAnnenStonad.beskrivelse"
+          >
+            dinSituasjon.andreYtelser.kravOmAnnenStonad.beskrivelse
+          </label>
+          <input
+            aria-invalid="false"
+            class="skjemaelement__input input--xxl"
+            id="andreYtelser.kravOmAnnenStonad.beskrivelse"
+            type="text"
+            value="Barnepensjon"
+          />
+        </div>
       </div>
       <div
         aria-live="polite"
@@ -376,11 +607,12 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="inputPanelGruppe__inner"
           >
             <label
-              class="inputPanel radioPanel"
+              class="inputPanel radioPanel inputPanel--checked"
             >
               <input
-                aria-checked="false"
+                aria-checked="true"
                 aria-invalid="false"
+                checked=""
                 class="inputPanel__field"
                 name="andreYtelser.mottarPensjonUtland.svar"
                 type="radio"
@@ -414,6 +646,63 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-live="polite"
           />
         </fieldset>
+      </div>
+      <div>
+        <div
+          class="skjemaelement"
+        >
+          <label
+            class="skjemaelement__label"
+            for="andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"
+          >
+            dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon
+          </label>
+          <input
+            aria-invalid="false"
+            class="skjemaelement__input input--xxl"
+            id="andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"
+            type="text"
+            value="Polsk Uførepensjon"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="skjemaelement"
+        >
+          <label
+            class="skjemaelement__label"
+            for="andreYtelser.mottarPensjonUtland.fraHvilketLand"
+          >
+            dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand
+          </label>
+          <input
+            aria-invalid="false"
+            class="skjemaelement__input input--l"
+            id="andreYtelser.mottarPensjonUtland.fraHvilketLand"
+            type="text"
+            value="Polen"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="skjemaelement"
+        >
+          <label
+            class="skjemaelement__label"
+            for="andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"
+          >
+            dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar
+          </label>
+          <input
+            aria-invalid="false"
+            class="skjemaelement__input input--l"
+            id="andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"
+            type="text"
+            value="4000 PLN"
+          />
+        </div>
       </div>
       <div
         aria-live="polite"

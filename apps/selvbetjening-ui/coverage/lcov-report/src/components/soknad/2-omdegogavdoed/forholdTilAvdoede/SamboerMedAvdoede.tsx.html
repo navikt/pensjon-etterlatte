@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">35.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>5/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -132,9 +132,7 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,23 +141,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,20 +217,20 @@ import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 &nbsp;
-const SamboerMedAvdoede = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-    const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
+const SamboerMedAvdoede = () =&gt; {
+    const { t } = useTranslation();
 &nbsp;
-    const { watch } = <span class="cstat-no" title="statement not covered" >useFormContext&lt;ISoekerOgAvdoed&gt;();</span>
+    const { watch } = useFormContext&lt;ISoekerOgAvdoed&gt;();
 &nbsp;
-    const datoInngaattPartnerskap = <span class="cstat-no" title="statement not covered" >watch("forholdTilAvdoede.datoForInngaattPartnerskap");</span>
-    const ingenFellesBarn = <span class="cstat-no" title="statement not covered" >watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;</span>
-    const tidligereGift = <span class="cstat-no" title="statement not covered" >watch("forholdTilAvdoede.tidligereGift");</span>
-    const omsorgForBarn = <span class="cstat-no" title="statement not covered" >watch("forholdTilAvdoede.omsorgForBarn");</span>
-    const datoforDoedsfallet = <span class="cstat-no" title="statement not covered" >watch("avdoed.datoForDoedsfallet")</span>
+    const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap");
+    const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
+    const tidligereGift = watch("forholdTilAvdoede.tidligereGift");
+    const omsorgForBarn = watch("forholdTilAvdoede.omsorgForBarn");
+    const datoforDoedsfallet = watch("avdoed.datoForDoedsfallet");
 &nbsp;
-    const partnerskapMindreEnnFemAar = <span class="cstat-no" title="statement not covered" >!!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) &lt; 5 : false;</span>
+    const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? <span class="branch-0 cbranch-no" title="branch not covered" >hentAlder(datoInngaattPartnerskap) &lt; 5 </span>: false;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;&gt;
             &lt;RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
@@ -249,15 +245,13 @@ const SamboerMedAvdoede = <span class="fstat-no" title="function not covered" >(
             )}
 &nbsp;
             {tidligereGift === IValg.NEI &amp;&amp; (
-                &lt;SkjemaGruppe&gt;
-                    &lt;Alert variant={"warning"}&gt;
-                        {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                    &lt;/Alert&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;SkjemaGruppe&gt;</span>
+                    &lt;Alert variant={"warning"}&gt;{t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}&lt;/Alert&gt;
                 &lt;/SkjemaGruppe&gt;
             )}
 &nbsp;
             {tidligereGift === IValg.JA &amp;&amp; (
-                &lt;&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;&gt;</span>
                     &lt;SkjemaGruppe&gt;
                         &lt;Datovelger
                             name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
@@ -295,7 +289,7 @@ export default SamboerMedAvdoede;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 27 2021 14:13:52 GMT+0200 (Central European Summer Time)
+                at Wed Sep 29 2021 09:22:00 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>
