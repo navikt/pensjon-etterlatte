@@ -53,7 +53,7 @@ const SoknadForside = () => {
                 </Veileder>
             </SkjemaGruppe>
 
-            <SkjemaGruppe>
+            <SkjemaGruppe id="language-selector">
                 <Select onChange={changeLanguage} value={currentLanguage} label="Velg språk">
                     <option value={Language.NORSK_BOKMAAL}>Bokmål</option>
                     <option value={Language.NORSK_NYNORSK}>Nynorsk</option>
