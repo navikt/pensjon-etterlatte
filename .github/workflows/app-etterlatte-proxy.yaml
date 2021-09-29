@@ -50,7 +50,7 @@ jobs:
   deploy-to-prod-gcp:
     name: Deploy to prod-fss
     if: ${{ true }}  # vente med aktivering
-    needs: build-and-publish
+    needs: deploy-to-dev-gcp
     runs-on: ubuntu-latest
     timeout-minutes: 3
     continue-on-error: true

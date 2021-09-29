@@ -51,7 +51,7 @@ jobs:
   deploy-to-prod-gcp:
     name: Deploy to prod-gcp
     if: ${{ true }}
-    needs: build-and-publish
+    needs: deploy-to-dev-gcp
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
