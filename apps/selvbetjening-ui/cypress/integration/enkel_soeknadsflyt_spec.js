@@ -5,16 +5,21 @@ import { IValg } from "../../src/typer/Spoersmaal";
 
 describe("Skal gå igjennom hele søknaden uten feil", () => {
     it("Skal åpne startsiden og starte en søknad", () => {
-        cy.intercept("GET", "/api/person/innlogget", {fixture: "testbruker"}).as("hentInnloggetPerson");
+        cy.intercept("GET", "/api/person/innlogget", { fixture: "testbruker" }).as("hentInnloggetPerson");
         cy.intercept("GET", "/api/api/kladd", {}).as("hentSoeknad"); // Ingen kladd eksisterer
         cy.intercept("POST", "/api/api/kladd", {});
-        cy.visit("localhost:3000");
+        cy.visit("localhost:3000", {
+            onBeforeLoad: (obj) => {
+                Object.defineProperty(obj.navigator, "language", { value: "nb-NO" });
+            },
+        });
         cy.injectAxe();
         cy.wait(["@hentInnloggetPerson"]);
         cy.wait(["@hentSoeknad"]);
 
+        cy.set;
         // Bekreft riktige opplysninger
-        cy.get('[type="checkbox"]').check({force: true});
+        cy.get('[type="checkbox"]').check({ force: true });
 
         cy.checkA11y();
 
@@ -50,7 +55,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         selectValueForId("avdoed.doedsfallAarsak", omDegOgAvdoed.avdoed.doedsfallAarsak);
         selectValue(omDegOgAvdoed.forholdTilAvdoede.relasjon);
         getById("forholdTilAvdoede.datoForInngaattPartnerskap").type(
-                omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
+            omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
         );
         selectValue(omDegOgAvdoed.nySivilstatus.sivilstatus);
 
@@ -102,12 +107,13 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             const baseId = `arbeidsforhold\[${idx}\].`;
 
             getById(baseId + "arbeidsgiver").type(arbeid.arbeidsgiver);
-            getById(baseId + "ansettelsesforhold").find("select").select(arbeid.ansettelsesforhold);
+            getById(baseId + "ansettelsesforhold")
+                .find("select")
+                .select(arbeid.ansettelsesforhold);
             getById(baseId + "stillingsprosent").type(arbeid.stillingsprosent);
             selectValueForId(baseId + "forventerEndretInntekt.svar", arbeid.forventerEndretInntekt.svar);
             getById(baseId + "forventerEndretInntekt.beskrivelse").type(arbeid.forventerEndretInntekt.beskrivelse);
-
-        })
+        });
 
         selectValue(dinSituasjon.utdanning.hoyesteFullfoerteUtdanning);
 
@@ -212,5 +218,5 @@ const sammenlignRequestMedInputdata = (request) => {
 
 const gaaTilNesteSide = () => cy.get('[type="button"]').contains("Neste").click();
 const getById = (id) => cy.get(`[id="${id}"]`);
-const selectValue = (value) => cy.get(`[value="${value}"]`).check({force: true});
-const selectValueForId = (id, value) => getById(id).find(`[value="${value}"]`).check({force: true});
+const selectValue = (value) => cy.get(`[value="${value}"]`).check({ force: true });
+const selectValueForId = (id, value) => getById(id).find(`[value="${value}"]`).check({ force: true });

@@ -28,6 +28,13 @@ jest.mock("react-router", () => ({
     }),
 }));
 
+// Hacker til språk, Kan påvirke andre steder som bruker navigator
+const navigator = { language: "nb-NO" };
+Object.defineProperty(window, "navigator", {
+    value: navigator,
+    writable: true,
+});
+
 let container;
 
 beforeEach(() => {

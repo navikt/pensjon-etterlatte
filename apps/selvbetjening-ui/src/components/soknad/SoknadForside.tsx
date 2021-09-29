@@ -8,12 +8,14 @@ import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { BodyLong, Button, Link, Title } from "@navikt/ds-react";
+import { BodyLong, Button, Link, Title, Select } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
+import { Language, useLanguage } from "../../hooks/useLanguage";
 
 const SoknadForside = () => {
     const history = useHistory();
     const { logEvent } = useAmplitude();
+    const { setLanguage, currentLanguage } = useLanguage();
 
     const { t } = useTranslation();
 
@@ -29,6 +31,10 @@ const SoknadForside = () => {
         const foersteSteg = steg[0];
         logEvent(LogEvents.AAPNE_SOKNAD);
         history.push(`/soknad/steg/${foersteSteg.path}`);
+    };
+
+    const changeLanguage = (e: any) => {
+        setLanguage(e.target.value);
     };
 
     const innloggetBrukerNavn = `${brukerState?.fornavn} ${brukerState?.etternavn}`;
@@ -48,6 +54,14 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
+                <Select onChange={changeLanguage} value={currentLanguage} label="Velg språk">
+                    <option value={Language.NORSK_BOKMAAL}>Bokmål</option>
+                    <option value={Language.NORSK_NYNORSK}>Nynorsk</option>
+                    <option value={Language.ENGELSK}>English</option>
+                </Select>
+            </SkjemaGruppe>
+
+            <SkjemaGruppe>
                 <Title spacing size={"l"}>
                     {t("forside.tittel")}
                 </Title>
@@ -58,13 +72,11 @@ const SoknadForside = () => {
                     <Link href={t("forside.omYtelsene.lenke.href")}>{t("forside.omYtelsene.lenke.tekst")}</Link>
                 </BodyLong>
             </SkjemaGruppe>
-
             <SkjemaGruppe>
                 <Title size={"s"}>{t("forside.barnepensjon.tittel")}</Title>
 
                 <BodyLong>{t("forside.barnepensjon.innhold")}</BodyLong>
             </SkjemaGruppe>
-
             <SkjemaGruppe>
                 <Title size={"s"}>{t("forside.uthentingAvInfo.tittel")}</Title>
 
@@ -112,7 +124,6 @@ const SoknadForside = () => {
                     </Link>
                 </BodyLong>
             </SkjemaGruppe>
-
             <SkjemaGruppe>
                 <Title size={"s"}>{t("forside.samtykke.tittel")}</Title>
 
@@ -129,7 +140,6 @@ const SoknadForside = () => {
                     }
                 />
             </SkjemaGruppe>
-
             {soknadState.harSamtykket && !soknadState?.error && (
                 <Button variant={"action"} type={"button"} onClick={startSoeknad}>
                     {t("forside.startSoeknad")}
