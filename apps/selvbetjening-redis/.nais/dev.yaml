@@ -5,6 +5,9 @@ metadata:
   namespace: etterlatte
   labels:
     team: etterlatte
+  annotations:
+    nais.io/run-as-group: "0"
+    nais.io/read-only-file-system: "false"
 spec:
   image: bitnami/redis:latest
   port: 6379
