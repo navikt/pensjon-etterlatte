@@ -8,9 +8,9 @@ import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { BodyLong, Button, Link, Title, Select } from "@navikt/ds-react";
+import { BodyLong, Button, Link, Title } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
-import { Language, useLanguage } from "../../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 import { Dropdown } from "../felles/Dropdown";
 
 const SoknadForside = () => {
