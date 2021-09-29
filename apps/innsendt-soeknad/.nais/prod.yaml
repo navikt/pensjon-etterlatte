@@ -34,7 +34,7 @@ spec:
     min: 1
   env:
     - name: KAFKA_RAPID_TOPIC
-      value: etterlatte.dodsmelding
+      value: etterlatte.etterlatteytelser
   accessPolicy:
     inbound:
       rules:
