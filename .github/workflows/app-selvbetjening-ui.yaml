@@ -56,7 +56,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: apps/${{ env.APP_NAME }}/nais/dev-gcp.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/.nais/dev.yaml
 
   deploy-to-labs-gcp:
     name: Deploy to labs-gcp
@@ -68,7 +68,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: labs-gcp
-          RESOURCE: apps/${{ env.APP_NAME }}/nais/labs-gcp.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/.nais/labs.yaml
 
   deploy-to-prod-gcp:
     name: Deploy to prod-gcp
@@ -81,4 +81,4 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: apps/${{ env.APP_NAME }}/nais/prod-gcp.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/.nais/prod.yaml

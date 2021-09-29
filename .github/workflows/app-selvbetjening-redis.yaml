@@ -21,7 +21,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CLUSTER: dev-gcp
-          RESOURCE: apps/selvbetjening-ui/nais/redis-dev-gcp.yaml
+          RESOURCE: apps/selvbetjening-ui/.nais/redis-dev.yaml
 
   deploy-prod-gcp:
     name: Deploy to prod-gcp
@@ -36,4 +36,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CLUSTER: prod-gcp
-          RESOURCE: apps/selvbetjening-ui/nais/redis-prod-gcp.yaml
+          RESOURCE: apps/selvbetjening-ui/.nais/redis-prod.yaml
