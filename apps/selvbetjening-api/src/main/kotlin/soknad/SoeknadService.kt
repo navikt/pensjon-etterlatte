@@ -38,7 +38,7 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
     }
 
     suspend fun hentKladd(): RetryResult = retry {
-        logger.info("Current environment", System.getenv())
+        logger.info("Current environment ${System.getenv()}")
 
         try {
             innsendtSoeknadKlient.get<JsonNode>("kladd")
