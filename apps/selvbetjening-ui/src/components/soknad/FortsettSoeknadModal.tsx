@@ -1,4 +1,4 @@
-import { Button, Ingress, Modal } from "@navikt/ds-react";
+import { Button, Modal, Title } from "@navikt/ds-react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -49,10 +49,10 @@ export const FortsettSoeknadModal = () => {
             open={state.visFortsettSoeknadModal}
             onClose={startPaaNytt}
             shouldCloseOnOverlayClick={false}
-            className="avbryt-modal modal"
+            className="spoersmaal-modal skjul-modal-knapp modal"
         >
             <SkjemaGruppe>
-                <Ingress>{t("fortsettSoeknad.beskrivelse")}</Ingress>
+                <Title size={"m"}>{t("fortsettSoeknad.beskrivelse")}</Title>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -62,11 +62,10 @@ export const FortsettSoeknadModal = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Button variant={"danger"} type={"button"} onClick={startPaaNytt}>
+                <Button variant={"primary"} type={"button"} onClick={startPaaNytt}>
                     {t("fortsettSoeknad.startPaaNytt")}
                 </Button>
             </SkjemaGruppe>
         </Modal>
-
     )
 }

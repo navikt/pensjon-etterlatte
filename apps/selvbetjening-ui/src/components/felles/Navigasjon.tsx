@@ -7,7 +7,7 @@ import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { ActionTypes as BrukerAction } from "../../context/bruker/bruker";
 import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
 import { erDato } from "../../utils/dato";
-import { BodyShort, Button, Ingress, Loader, Modal } from "@navikt/ds-react";
+import { BodyShort, Button, Loader, Modal, Title } from "@navikt/ds-react";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root");
 
@@ -93,9 +93,9 @@ const Navigasjon = ({
                 </Button>
             </SkjemaGruppe>
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)} className="avbryt-modal modal">
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} className="spoersmaal-modal modal">
                 <SkjemaGruppe>
-                    <Ingress>{t("avbrytModal.spoersmaal")}</Ingress>
+                    <Title size={"m"}>{t("avbrytModal.spoersmaal")}</Title>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>

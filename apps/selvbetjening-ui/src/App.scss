@@ -270,7 +270,10 @@ Override av snodig oppførsel
   width: 100%;
 }
 
-.avbryt-modal {
+.spoersmaal-modal {
+  text-align: center;
+  padding: 3rem;
+
   @media screen and (max-width: $width) {
     .knapp {
       font-size: 0.8em;
@@ -279,7 +282,13 @@ Override av snodig oppførsel
   }
 
   .skjemagruppe {
-    margin-bottom: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
+.skjul-modal-knapp {
+  .navds-modal__button {
+    visibility: hidden;
   }
 }
 
