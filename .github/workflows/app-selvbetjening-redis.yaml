@@ -14,7 +14,7 @@ on:
     branches:
       - main
     paths:
-      - apps/selvbetjening-redis/.nais/dev.yaml
+      - apps/selvbetjening-redis/**
 
 jobs:
   deploy-dev-gcp:
@@ -33,7 +33,7 @@ jobs:
 
   deploy-prod-gcp:
     name: Deploy to prod-gcp
-    if: ${{ false }}  # vente med aktivering
+    if: ${{ github.event.inputs.deploy-prod }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
