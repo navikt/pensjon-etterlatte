@@ -8,6 +8,7 @@ export const Dropdown = (props: { onChange: any; value: string }) => {
 
     const toggle = (e: any) => {
         e.stopPropagation();
+        e.preventDefault();
         setOpen(!open);
     };
 
