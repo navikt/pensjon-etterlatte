@@ -6,6 +6,10 @@ export interface IAndreYtelser {
         svar?: IValg;
         beskrivelse?: string;
     };
+    annenPensjon?: {
+        svar?: IValg;
+        beskrivelse: string;
+    };
     mottarPensjonUtland?: {
         svar?: IValg;
         hvaSlagsPensjon?: string;

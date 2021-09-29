@@ -24,6 +24,10 @@ const defaultValues = {
             svar: "Ja",
             beskrivelse: "Barnepensjon",
         },
+        annenPensjon: {
+            svar: "Ja",
+            beskrivelse: "Skandia",
+        },
         mottarPensjonUtland: {
             svar: "Ja",
             hvaSlagsPensjon: "Polsk Uførepensjon",

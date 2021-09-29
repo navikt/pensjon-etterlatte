@@ -1,6 +1,4 @@
 import mockSoeknad from "../../src/assets/dummy-soeknad.json";
-import ObjectTreeReader from "../../src/utils/ObjectTreeReader";
-import i18n from "i18next";
 import { IValg } from "../../src/typer/Spoersmaal";
 
 describe("Skal gå igjennom hele søknaden uten feil", () => {
@@ -121,6 +119,10 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         selectValueForId("andreYtelser.kravOmAnnenStonad.svar", kravOmAnnenStonad.svar);
         getById("andreYtelser.kravOmAnnenStonad.beskrivelse").type(kravOmAnnenStonad.beskrivelse);
 
+        const annenPensjon = dinSituasjon.andreYtelser.annenPensjon;
+        selectValueForId("andreYtelser.annenPensjon.svar", annenPensjon.svar);
+        getById("andreYtelser.annenPensjon.beskrivelse").type(annenPensjon.beskrivelse);
+
         const mottarPensjonUtland = dinSituasjon.andreYtelser.mottarPensjonUtland;
         selectValueForId("andreYtelser.mottarPensjonUtland.svar", mottarPensjonUtland.svar);
         getById("andreYtelser.mottarPensjonUtland.hvaSlagsPensjon").type(mottarPensjonUtland.hvaSlagsPensjon);
@@ -198,6 +200,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
     });
 });
 
+// noinspection JSUnusedLocalSymbols
 const sammenlignRequestMedInputdata = (request) => {
     [mockSoeknad, request].forEach((soeknad) => {
         soeknad.sistLagretDato = undefined;

@@ -1,4 +1,3 @@
-import { t } from "i18next";
 import i18n from "../i18n";
 import SoeknadMapper from "./SoeknadMapper";
 import mockJson from "../assets/dummy-soeknad.json";
@@ -193,6 +192,14 @@ const oppsummeringAvDummy = [
                     {
                         spoersmaal: "Hva har du søkt om?",
                         svar: "Barnepensjon",
+                    },
+                    {
+                        spoersmaal: "Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?",
+                        svar: "Ja",
+                    },
+                    {
+                        spoersmaal: "Hvilken pensjonsordning?",
+                        svar: "Skandia",
                     },
                     {
                         spoersmaal: "Mottar du pensjon fra et annet land enn Norge?",

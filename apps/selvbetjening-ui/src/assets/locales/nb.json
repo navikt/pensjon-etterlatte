@@ -126,7 +126,13 @@
       "ingress": "Noen ytelser fra NAV blir regnet som inntekt og har betydning for hvor mye gjenlevendepensjon du får. Uføretrygd, alderspensjon, avtalefestet pensjon (AFP) kan ikke kombineres med gjenlevendepensjon.",
       "kravOmAnnenStonad": {
         "svar": "Har du søkt om andre ytelser fra NAV som du ikke har fått svar på?",
-        "beskrivelse": "Hva har du søkt om?"
+        "beskrivelse": "Hva har du søkt om?",
+        "placeholder": "Eks. sykepenger, dagpenger, pensjon, stønad til livsopphold"
+      },
+      "annenPensjon": {
+        "svar":  "Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?",
+        "beskrivelse": "Hvilken pensjonsordning?",
+        "placeholder":  "Eks. Skandia, KLP, SPK, Oslo pensjonsforsikring"
       },
       "mottarPensjonUtland": {
         "svar": "Mottar du pensjon fra et annet land enn Norge?",
@@ -690,6 +696,14 @@
         },
         "beskrivelse": {
           "required": "Oppgi ytelser du har søkt om"
+        }
+      },
+      "annenPensjon": {
+        "svar": {
+          "required": "Oppgi om du har søkt om AFP eller pensjon fra andre"
+        },
+        "beskrivelse": {
+          "required": "Oppgi pensjonsordning"
         }
       },
       "mottarPensjonUtland": {

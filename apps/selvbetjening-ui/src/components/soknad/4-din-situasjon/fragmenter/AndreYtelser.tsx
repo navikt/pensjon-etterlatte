@@ -15,6 +15,7 @@ const AndreYtelser = () => {
     const { watch } = useFormContext<ISituasjon>();
 
     const kravOmAnnenStonad = watch("andreYtelser.kravOmAnnenStonad.svar");
+    const annenPensjon = watch("andreYtelser.annenPensjon.svar");
     const mottarPensjonUtland = watch("andreYtelser.mottarPensjonUtland.svar");
 
     return (
@@ -36,6 +37,23 @@ const AndreYtelser = () => {
                         bredde={"XXL"}
                         name={"andreYtelser.kravOmAnnenStonad.beskrivelse"}
                         label={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.beskrivelse")}
+                        placeholder={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.placeholder")}
+                    />
+                )}
+            </SkjemaGruppering>
+
+            <SkjemaGruppering>
+                <RHFSpoersmaalRadio
+                    name={"andreYtelser.annenPensjon.svar"}
+                    legend={t("dinSituasjon.andreYtelser.annenPensjon.svar")}
+                />
+
+                {annenPensjon === IValg.JA && (
+                    <RHFInput
+                        bredde={"XXL"}
+                        name={"andreYtelser.annenPensjon.beskrivelse"}
+                        label={t("dinSituasjon.andreYtelser.annenPensjon.beskrivelse")}
+                        placeholder={t("dinSituasjon.andreYtelser.annenPensjon.placeholder")}
                     />
                 )}
             </SkjemaGruppering>

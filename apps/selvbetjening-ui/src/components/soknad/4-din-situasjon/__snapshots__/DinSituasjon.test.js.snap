@@ -545,8 +545,93 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-invalid="false"
             class="skjemaelement__input input--xxl"
             id="andreYtelser.kravOmAnnenStonad.beskrivelse"
+            placeholder="dinSituasjon.andreYtelser.kravOmAnnenStonad.placeholder"
             type="text"
             value="Barnepensjon"
+          />
+        </div>
+      </div>
+      <div
+        aria-live="polite"
+      />
+    </fieldset>
+    <fieldset
+      aria-invalid="false"
+      class="skjemagruppe skjemagruppering"
+    >
+      <div
+        id="andreYtelser.annenPensjon.svar"
+      >
+        <fieldset
+          aria-invalid="false"
+          class="skjemagruppe inputPanelGruppe inline"
+        >
+          <legend
+            class="skjemagruppe__legend"
+          >
+            dinSituasjon.andreYtelser.annenPensjon.svar
+          </legend>
+          <div
+            class="inputPanelGruppe__inner"
+          >
+            <label
+              class="inputPanel radioPanel inputPanel--checked"
+            >
+              <input
+                aria-checked="true"
+                aria-invalid="false"
+                checked=""
+                class="inputPanel__field"
+                name="andreYtelser.annenPensjon.svar"
+                type="radio"
+                value="Ja"
+              />
+              <span
+                class="inputPanel__label"
+              >
+                Ja
+              </span>
+            </label>
+            <label
+              class="inputPanel radioPanel"
+            >
+              <input
+                aria-checked="false"
+                aria-invalid="false"
+                class="inputPanel__field"
+                name="andreYtelser.annenPensjon.svar"
+                type="radio"
+                value="Nei"
+              />
+              <span
+                class="inputPanel__label"
+              >
+                Nei
+              </span>
+            </label>
+          </div>
+          <div
+            aria-live="polite"
+          />
+        </fieldset>
+      </div>
+      <div>
+        <div
+          class="skjemaelement"
+        >
+          <label
+            class="skjemaelement__label"
+            for="andreYtelser.annenPensjon.beskrivelse"
+          >
+            dinSituasjon.andreYtelser.annenPensjon.beskrivelse
+          </label>
+          <input
+            aria-invalid="false"
+            class="skjemaelement__input input--xxl"
+            id="andreYtelser.annenPensjon.beskrivelse"
+            placeholder="dinSituasjon.andreYtelser.annenPensjon.placeholder"
+            type="text"
+            value="Skandia"
           />
         </div>
       </div>
