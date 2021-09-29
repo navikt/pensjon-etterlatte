@@ -71,7 +71,7 @@
     "express": "4.17.1",
     "express-http-proxy": "1.6.2",
     "express-session": "1.17.2",
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "jsonwebtoken": "8.5.1",
     "node-cache": "5.1.2",
     "node-fetch": "2.6.1",
