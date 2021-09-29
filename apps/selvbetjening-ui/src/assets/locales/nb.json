@@ -878,7 +878,8 @@
           "required": "Oppgi om du ønsker et annet kontonummer for utbetaling av barnepensjon"
         },
         "kontonummer": {
-          "required": "Norsk kontonummer må fylles ut (11 siffer)"
+          "required": "Norsk kontonummer må fylles ut (11 siffer)",
+          "pattern": "Kontonummer ikke gyldig. Må bestå av 11 siffer."
         }
       },
       "forskuddstrekk": {
