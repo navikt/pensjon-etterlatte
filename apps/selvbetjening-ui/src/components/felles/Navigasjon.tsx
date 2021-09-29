@@ -105,7 +105,7 @@ const Navigasjon = ({
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <Button variant={"danger"} type={"button"} onClick={avbryt}>
+                    <Button variant={"primary"} type={"button"} onClick={avbryt}>
                         {t("avbrytModal.svarJa")}
                     </Button>
                 </SkjemaGruppe>
