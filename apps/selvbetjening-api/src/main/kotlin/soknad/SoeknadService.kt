@@ -12,8 +12,11 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.retry
+import org.slf4j.LoggerFactory
 
 class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
+    private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
+
     suspend fun sendSoknad(soeknad: Soeknad): RetryResult {
         soeknad.validate()
 
@@ -35,6 +38,8 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
     }
 
     suspend fun hentKladd(): RetryResult = retry {
+        logger.info("Current environment", System.getenv())
+
         try {
             innsendtSoeknadKlient.get<JsonNode>("kladd")
         } catch (ex: ClientRequestException){
