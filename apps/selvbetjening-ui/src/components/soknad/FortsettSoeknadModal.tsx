@@ -47,7 +47,7 @@ export const FortsettSoeknadModal = () => {
     return (
         <Modal
             open={state.visFortsettSoeknadModal}
-            onClose={startPaaNytt}
+            onClose={() => {}}
             shouldCloseOnOverlayClick={false}
             className="spoersmaal-modal skjul-modal-knapp modal"
         >
