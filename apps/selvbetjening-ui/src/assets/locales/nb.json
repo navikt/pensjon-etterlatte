@@ -243,8 +243,8 @@
       "oppholdUtland": {
         "land": "Land",
         "beskrivelse": "Bodd og/eller arbeidet?",
-        "fraDato": "Fra dato",
-        "tilDato": "Til dato",
+        "fraDato": "Fra dato (Valgfri)",
+        "tilDato": "Til dato (Valgfri)",
         "medlemFolketrygd": "Var han eller hun medlem av folketrygden under oppholdet?",
         "medlemFolketrygdHjelpetekst": "Vi må vite om avdøde var medlem av folketrygden for å avgjøre om du har rett til gjenlevendepensjon.",
         "mottokPensjon": {
@@ -269,7 +269,7 @@
     "harAvtjentMilitaerTjeneste": {
       "svar": "Gjennomførte han eller hun militær eller sivil førstegangstjeneste som varte minst 30 dager?",
       "hjelpetekst": "Dette kan gi opptjening som tas med i beregningen av gjenlevendepensjonen din",
-      "beskrivelse": "Hvilke(-t) år? (Valgfritt)"
+      "beskrivelse": "Hvilke(-t) år? (Valgfri)"
     }
   },
   "omBarn": {
@@ -611,7 +611,7 @@
     },
     "haddePensjonsgivendeInntekt": {
       "svar": {
-        "required": "Oppgi om avdøde hadde pensjonsgivende inntekt (Valgfritt)"
+        "required": "Oppgi om avdøde hadde pensjonsgivende inntekt (Valgfri)"
       }
     },
     "harAvtjentMilitaerTjeneste": {
