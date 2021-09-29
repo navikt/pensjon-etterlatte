@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1632900120958" clover="3.2.0">
-  <project timestamp="1632900120958" name="All files">
-    <metrics statements="925" coveredstatements="467" conditionals="476" coveredconditionals="194" methods="292" coveredmethods="117" elements="1693" coveredelements="778" complexity="0" loc="925" ncloc="925" packages="25" files="81" classes="81"/>
+<coverage generated="1632914136709" clover="3.2.0">
+  <project timestamp="1632914136710" name="All files">
+    <metrics statements="940" coveredstatements="481" conditionals="480" coveredconditionals="197" methods="297" coveredmethods="121" elements="1717" coveredelements="799" complexity="0" loc="940" ncloc="940" packages="25" files="82" classes="82"/>
     <package name="src">
       <metrics statements="95" coveredstatements="9" conditionals="46" coveredconditionals="1" methods="27" coveredmethods="0"/>
       <file name="App.tsx" path="/Users/glennwedin/Desktop/projects/pensjon-etterlatte/apps/selvbetjening-ui/src/App.tsx">
@@ -431,7 +431,7 @@
       </file>
     </package>
     <package name="src.components.soknad">
-      <metrics statements="70" coveredstatements="12" conditionals="19" coveredconditionals="4" methods="23" coveredmethods="2"/>
+      <metrics statements="73" coveredstatements="14" conditionals="19" coveredconditionals="4" methods="24" coveredmethods="2"/>
       <file name="FortsettSoeknadModal.tsx" path="/Users/glennwedin/Desktop/projects/pensjon-etterlatte/apps/selvbetjening-ui/src/components/soknad/FortsettSoeknadModal.tsx">
         <metrics statements="26" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="12" count="0" type="stmt"/>
@@ -490,22 +490,25 @@
         <line num="43" count="0" type="stmt"/>
       </file>
       <file name="SoknadForside.tsx" path="/Users/glennwedin/Desktop/projects/pensjon-etterlatte/apps/selvbetjening-ui/src/components/soknad/SoknadForside.tsx">
-        <metrics statements="15" coveredstatements="12" conditionals="5" coveredconditionals="4" methods="3" coveredmethods="2"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="7" type="stmt"/>
-        <line num="16" count="7" type="stmt"/>
-        <line num="18" count="7" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
-        <line num="22" count="7" type="stmt"/>
-        <line num="26" count="7" type="stmt"/>
-        <line num="28" count="7" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <metrics statements="18" coveredstatements="14" conditionals="5" coveredconditionals="4" methods="4" coveredmethods="2"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="18" count="10" type="stmt"/>
+        <line num="20" count="10" type="stmt"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="24" count="10" type="stmt"/>
+        <line num="28" count="10" type="stmt"/>
+        <line num="30" count="10" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="34" count="7" type="stmt"/>
-        <line num="37" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="42" count="7" type="stmt"/>
-        <line num="125" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="10" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="43" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="48" count="10" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
       </file>
       <file name="SoknadKvittering.tsx" path="/Users/glennwedin/Desktop/projects/pensjon-etterlatte/apps/selvbetjening-ui/src/components/soknad/SoknadKvittering.tsx">
         <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -982,7 +985,7 @@
         <line num="71" count="0" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
         <line num="81" count="8" type="stmt"/>
-        <line num="86" count="24" type="stmt"/>
+        <line num="86" count="27" type="stmt"/>
         <line num="88" count="8" type="stmt"/>
         <line num="89" count="9" type="stmt"/>
         <line num="91" count="9" type="stmt"/>
@@ -1015,7 +1018,7 @@
         <line num="52" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
         <line num="63" count="2" type="stmt"/>
-        <line num="68" count="13" type="stmt"/>
+        <line num="68" count="16" type="stmt"/>
         <line num="70" count="2" type="stmt"/>
         <line num="71" count="0" type="stmt"/>
         <line num="73" count="0" type="stmt"/>
@@ -1027,7 +1030,7 @@
       </file>
     </package>
     <package name="src.hooks">
-      <metrics statements="62" coveredstatements="19" conditionals="15" coveredconditionals="4" methods="20" coveredmethods="5"/>
+      <metrics statements="74" coveredstatements="31" conditionals="19" coveredconditionals="7" methods="24" coveredmethods="9"/>
       <file name="useEffectOnce.tsx" path="/Users/glennwedin/Desktop/projects/pensjon-etterlatte/apps/selvbetjening-ui/src/hooks/useEffectOnce.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="3" count="6" type="stmt"/>
@@ -1073,6 +1076,21 @@
         <line num="36" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
+      </file>
+      <file name="useLanguage.tsx" path="/Users/glennwedin/Desktop/projects/pensjon-etterlatte/apps/selvbetjening-ui/src/hooks/useLanguage.tsx">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="15" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="23" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="26" count="8" type="stmt"/>
+        <line num="29" count="15" type="stmt"/>
       </file>
       <file name="useSoeknad.ts" path="/Users/glennwedin/Desktop/projects/pensjon-etterlatte/apps/selvbetjening-ui/src/hooks/useSoeknad.ts">
         <metrics statements="25" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
@@ -1228,21 +1246,21 @@
       <file name="index.ts" path="/Users/glennwedin/Desktop/projects/pensjon-etterlatte/apps/selvbetjening-ui/src/utils/amplitude/index.ts">
         <metrics statements="16" coveredstatements="10" conditionals="4" coveredconditionals="1" methods="5" coveredmethods="3"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="12" count="9" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="15" count="12" type="stmt"/>
         <line num="16" count="4" type="stmt"/>
-        <line num="25" count="9" type="stmt"/>
+        <line num="25" count="12" type="stmt"/>
         <line num="26" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="0" type="stmt"/>
         <line num="29" count="4" type="stmt"/>
-        <line num="32" count="9" type="stmt"/>
+        <line num="32" count="12" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="36" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
-        <line num="43" count="9" type="stmt"/>
+        <line num="43" count="12" type="stmt"/>
       </file>
     </package>
   </project>
