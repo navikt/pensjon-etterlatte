@@ -11,6 +11,7 @@ import ikon from "../../assets/ikoner/veileder.svg";
 import { BodyLong, Button, Link, Title, Select } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { Language, useLanguage } from "../../hooks/useLanguage";
+import { Dropdown } from "../felles/Dropdown";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -33,10 +34,6 @@ const SoknadForside = () => {
         history.push(`/soknad/steg/${foersteSteg.path}`);
     };
 
-    const changeLanguage = (e: any) => {
-        setLanguage(e.target.value);
-    };
-
     const innloggetBrukerNavn = `${brukerState?.fornavn} ${brukerState?.etternavn}`;
 
     const heiTekst = (
@@ -54,11 +51,7 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe id="language-selector">
-                <Select onChange={changeLanguage} value={currentLanguage} label="Velg språk">
-                    <option value={Language.NORSK_BOKMAAL}>Bokmål</option>
-                    <option value={Language.NORSK_NYNORSK}>Nynorsk</option>
-                    <option value={Language.ENGELSK}>English</option>
-                </Select>
+                <Dropdown onChange={setLanguage} value={currentLanguage} />
             </SkjemaGruppe>
 
             <SkjemaGruppe>
