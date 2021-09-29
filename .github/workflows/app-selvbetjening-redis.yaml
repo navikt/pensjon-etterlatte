@@ -1,12 +1,20 @@
-name: Deploy Redis to dev-gcp
+name: selvbetjening-redis
+
+env:
+  APP_NAME: ${{ github.workflow }}
 
 on:
   workflow_dispatch: # Allow manually triggered workflow run
+    inputs:
+      deploy-prod:
+        description: 'Deploy til produksjon'
+        required: false
+        default: 'false'
   push:
     branches:
       - main
     paths:
-      - apps/selvbetjening-ui/nais/redis-dev-gcp.yaml
+      - apps/${{ env.APP_NAME }}/.nais/dev.yaml
 
 jobs:
   deploy-dev-gcp:
@@ -21,7 +29,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CLUSTER: dev-gcp
-          RESOURCE: apps/selvbetjening-ui/.nais/redis-dev.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/.nais/dev.yaml
 
   deploy-prod-gcp:
     name: Deploy to prod-gcp
@@ -36,4 +44,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CLUSTER: prod-gcp
-          RESOURCE: apps/selvbetjening-ui/.nais/redis-prod.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/.nais/prod.yaml
