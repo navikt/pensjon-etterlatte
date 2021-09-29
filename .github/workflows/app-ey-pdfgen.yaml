@@ -6,6 +6,11 @@ env:
 
 on:
   workflow_dispatch: # Allow manually triggered workflow run
+    inputs:
+      deploy-prod:
+        description: 'Deploy til produksjon'
+        required: false
+        default: 'false'
   push:
     branches:
       - main
@@ -38,4 +43,17 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: apps/${{ env.APP_NAME }}/nais.yaml
+          RESOURCE: apps/${{ env.APP_NAME }}/.nais/dev.yaml
+
+  deploy-to-prod-gcp:
+    name: Deploy to prod-gcp
+    if: ${{ github.event.inputs.deploy-prod }}
+    needs: deploy-to-dev-gcp
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: apps/${{ env.APP_NAME }}/.nais/prod.yaml
