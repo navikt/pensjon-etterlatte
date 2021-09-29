@@ -9,7 +9,7 @@ metadata:
     nais.io/run-as-group: "0"
     nais.io/read-only-file-system: "false"
 spec:
-  image: bitnami/redis:latest
+  image: bitnami/redis:6.2
   port: 6379
   replicas: # A single Redis-app doesn't scale
     min: 1
