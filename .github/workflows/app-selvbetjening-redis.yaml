@@ -14,7 +14,7 @@ on:
     branches:
       - main
     paths:
-      - apps/${{ env.APP_NAME }}/.nais/dev.yaml
+      - apps/selvbetjening-redis/.nais/dev.yaml
 
 jobs:
   deploy-dev-gcp:
