@@ -6,6 +6,11 @@ env:
 
 on:
   workflow_dispatch: # Allow manually triggered workflow run
+    inputs:
+      deploy-prod:
+        description: 'Deploy til produksjon'
+        required: false
+        default: 'false'
   push:
     branches:
       - main
@@ -49,7 +54,7 @@ jobs:
 
   deploy-to-prod-gcp:
     name: Deploy to prod-fss
-    if: ${{ true }}  # vente med aktivering
+    if: ${{ github.event.inputs.deploy-prod }}
     needs: deploy-to-dev-gcp
     runs-on: ubuntu-latest
     timeout-minutes: 3
