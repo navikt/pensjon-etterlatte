@@ -15,11 +15,10 @@ const InnloggetBruker = memo(() => {
 
     return (
         <SkjemaGruppe>
-            {/* TODO: Ikke lagre innlogget bruker? */}
             <br />
             <Alert variant={"warning"}>{t("omDeg.advarsel")}</Alert>
+            <p className="mute">{t("omDeg.valgfritt")}</p>
             <br />
-
             <Grid className={"opplysninger"}>
                 <Cell xs={6}>
                     <div>

@@ -147,6 +147,7 @@
   "omDeg": {
     "tittel": "Om deg",
     "advarsel": "Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.",
+    "valgfritt": "Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.",
     "bostedsadresseBekreftet": "Bor du på denne adressen?",
     "alternativAdresse": "Oppgi nåværende bostedsadresse",
     "oppholderSegINorge": "Oppholder du deg for tiden i Norge?",
