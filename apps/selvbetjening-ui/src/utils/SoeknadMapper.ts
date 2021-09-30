@@ -1,6 +1,6 @@
-import ObjectTreeReader, { Gruppe, Element } from "./ObjectTreeReader";
+import ObjectTreeReader, { Element, Gruppe } from "./ObjectTreeReader";
 import { ISituasjon } from "../typer/situasjon";
-import { IAvdoed, IOmBarn, ISoeker, ISoekerOgAvdoed } from "../typer/person";
+import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed } from "../typer/person";
 import { i18n, TFunction } from "i18next";
 import { IBruker } from "../context/bruker/bruker";
 import { ISoeknad } from "../context/soknad/soknad";
@@ -70,7 +70,16 @@ export default class SoeknadMapper {
     }
 
     private mapOmDenAvdoede(omDenAvdoede: IAvdoed): Gruppe {
-        const oppholdUtland: Element[] = omDenAvdoede.boddEllerJobbetUtland?.oppholdUtland?.map((opphold) => {
+        const oppholdUtland: Element[] = omDenAvdoede.boddEllerJobbetUtland?.oppholdUtland?.map((oppholdUtland) => {
+            const opphold: IOppholdUtland = {
+                land: oppholdUtland.land,
+                beskrivelse: oppholdUtland.beskrivelse,
+                fraDato: oppholdUtland.fraDato,
+                tilDato: oppholdUtland.tilDato,
+                medlemFolketrygd: oppholdUtland.medlemFolketrygd,
+                mottokPensjon: oppholdUtland.mottokPensjon,
+            };
+
             return {
                 tittel: `Opphold i ${opphold.land}`,
                 innhold: this.otr.traverse({
