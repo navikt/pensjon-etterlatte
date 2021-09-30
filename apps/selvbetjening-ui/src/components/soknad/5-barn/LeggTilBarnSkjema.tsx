@@ -87,6 +87,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                         name={"foedselsnummer"}
                         bredde={"L"}
                         label={t("omBarn.foedselsnummer")}
+                        placeholder={t("felles.fnrPlaceholder")}
                     />
 
                     <RHFInput

@@ -69,6 +69,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-invalid="false"
             class="skjemaelement__input input--fullbredde"
             id="foedselsnummer"
+            placeholder="felles.fnrPlaceholder"
             type="text"
             value=""
           />

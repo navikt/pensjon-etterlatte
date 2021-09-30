@@ -746,6 +746,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-invalid="false"
             class="skjemaelement__input input--xxl"
             id="andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"
+            placeholder="dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder"
             type="text"
             value="Polsk Uførepensjon"
           />

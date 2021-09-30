@@ -73,6 +73,7 @@ const AndreYtelser = () => {
                             bredde={"XXL"}
                             name={"andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"}
                             label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon")}
+                            placeholder={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder")}
                         />
 
                         <RHFInput

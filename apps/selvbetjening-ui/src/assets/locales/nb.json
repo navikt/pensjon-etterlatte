@@ -110,7 +110,7 @@
       "endring": "Hva er grunnen til endringene?",
       "ansettelsesforhold": "Type ansettelse",
       "stillingsprosent": "Hvor mye jobber du?",
-      "stillingsprosentPlaceholder": "eks. 80%",
+      "stillingsprosentPlaceholder": "Eks. 80%",
       "startDato": "Når startet du?",
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
@@ -138,8 +138,9 @@
         "svar": "Mottar du pensjon fra et annet land enn Norge?",
         "hvorfor": "Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden",
         "hvaSlagsPensjon": "Hva slags pensjon?",
+        "hvaSlagsPensjonPlaceholder": "Eks. alderspensjon, gjenlevendepensjon",
         "fraHvilketLand": "Fra hvilket land?",
-        "bruttobeloepPrAar": "Bruttobeløp pr. år i landets valuta",
+        "bruttobeloepPrAar": "Årlig beløp før skatt i landets valuta",
         "landetsValuta": "Oppgi landets valuta"
       }
     }
@@ -508,7 +509,7 @@
     "startPaaNytt": "Nei, start på nytt"
   },
   "feil": {
-    "tittel": "For å gå videre må du rette opp følgende:",
+    "tittel": "For å gå videre må du rette opp i dette:",
     "fornavn": {
       "required": "Oppgi fornavn"
     },
