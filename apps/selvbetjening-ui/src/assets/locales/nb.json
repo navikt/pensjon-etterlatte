@@ -130,9 +130,9 @@
         "placeholder": "Eks. sykepenger, dagpenger, pensjon, stønad til livsopphold"
       },
       "annenPensjon": {
-        "svar":  "Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?",
+        "svar": "Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?",
         "beskrivelse": "Hvilken pensjonsordning?",
-        "placeholder":  "Eks. Skandia, KLP, SPK, Oslo pensjonsforsikring"
+        "placeholder": "Eks. Skandia, KLP, SPK, Oslo pensjonsforsikring"
       },
       "mottarPensjonUtland": {
         "svar": "Mottar du pensjon fra et annet land enn Norge?",
@@ -266,7 +266,7 @@
       "tittel": "Næringsinntekt",
       "ingress": "Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i gjenlevendepensjon. Vi henter informasjon om andre inntekter.",
       "svar": "Var han eller hun selvstendig næringsdrivende?",
-      "beskrivelse": "Oppgi næringsinntekt fra kalenderåret før dødsfallet",
+      "beskrivelse": "Oppgi næringsinntekt fra kalenderåret før dødsfallet (Valgfri)",
       "placeholder": "Oppgi samlet årsinntekt før skatt"
     },
     "annenOpptjening": {
@@ -591,6 +591,15 @@
       "beskrivelse": {
         "pattern": "Oppgi gyldig næringsinntekt (kun siffer)",
         "required": "Oppgi næringsinntekt"
+      },
+      "forventerEndretInntekt": {
+        "svar": {
+          "required": "Oppgi om du forventer endringer i inntekt"
+        }
+      },
+      "orgnr": {
+        "required": "Du må fylle ut gyldig organisasjonsnummer. 9 siffer",
+        "minLength": "Organisasjonsnummer skal være 9 siffer"
       }
     },
     "selvstendig": {
