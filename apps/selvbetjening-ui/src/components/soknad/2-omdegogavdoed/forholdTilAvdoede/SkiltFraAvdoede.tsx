@@ -4,7 +4,6 @@ import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { antallAarMellom } from "../../../../utils/dato";
 import { IValg } from "../../../../typer/Spoersmaal";
-//import { Alert } from "@navikt/ds-react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 
@@ -40,9 +39,7 @@ const SkiltFraAvdoede = () => {
     const datoForSkilsmisse = watch("forholdTilAvdoede.datoForSkilsmisse");
     const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet");
 
-    //const mottokEktefelleBidrag = watch("forholdTilAvdoede.mottokEktefelleBidrag");
     const fellesBarn = watch("forholdTilAvdoede.fellesBarn");
-    //const samboereMedFellesBarn = watch("forholdTilAvdoede.samboereMedFellesBarn");
 
     const mindreEnn15aar = giftMindreEnn15aar(datoForInngaattPartnerskap, datoForSkilsmisse);
     const merEnn25aar = giftMerEnn25aar(datoForInngaattPartnerskap, datoForSkilsmisse);
@@ -78,22 +75,8 @@ const SkiltFraAvdoede = () => {
                         name={"forholdTilAvdoede.samboereMedFellesBarn"}
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn")}
                     />
-
-                    {/*samboereMedFellesBarn === IValg.NEI && merEnn25aar === IValg.NEI && (
-                        <SkjemaGruppe>
-                            <Alert variant={"warning"}>
-                                {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                            </Alert>
-                        </SkjemaGruppe>
-                    )*/}
                 </>
             )}
-
-            {/*fellesBarn === IValg.NEI && mindreEnn15aar === IValg.JA && merEnn25aar === IValg.NEI && (
-                <SkjemaGruppe>
-                    <Alert variant={"warning"}>{t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}</Alert>
-                </SkjemaGruppe>
-            )*/}
 
             {(mindreEnnFemAar === IValg.NEI && merEnn25aar === IValg.JA) ||
             (fellesBarn === IValg.JA && mindreEnn15aar === IValg.NEI && mindreEnnFemAar === IValg.NEI) ? (
@@ -102,13 +85,6 @@ const SkiltFraAvdoede = () => {
                         name={"forholdTilAvdoede.mottokEktefelleBidrag"}
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag")}
                     />
-                    {/*mottokEktefelleBidrag === IValg.NEI && (
-                        <SkjemaGruppe>
-                            <Alert variant={"warning"}>
-                                {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                            </Alert>
-                        </SkjemaGruppe>
-                    )*/}
                 </>
             ) : null}
         </>

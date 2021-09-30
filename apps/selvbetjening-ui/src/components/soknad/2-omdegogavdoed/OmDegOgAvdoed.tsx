@@ -9,18 +9,16 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
-import { Alert, Label, Title } from "@navikt/ds-react";
+import { Cell, Grid, Label, Title } from "@navikt/ds-react";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
-import { erDato } from "../../../utils/dato";
-import { Cell, Grid } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { isEmpty } from "lodash";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
     const lagre = (data: ISoekerOgAvdoed) => {
@@ -39,19 +37,8 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
     const {
         handleSubmit,
-        watch,
         formState: { errors }
     } = methods;
-
-    const dtf = Intl.DateTimeFormat(i18n.language, { day: "numeric", month: "long", year: "numeric" });
-
-    const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet") || undefined;
-
-    let foersteFraDato;
-    if (erDato(datoForDoedsfallet)) {
-        const dato = new Date(datoForDoedsfallet)
-        foersteFraDato = dtf.format(new Date(dato.getFullYear(), dato.getMonth() + 1, 1))
-    }
 
     return (
         <>
@@ -93,29 +80,24 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                             label={t("omDegOgAvdoed.avdoed.dato")}
                             maxDate={new Date()}
                         />
-
-                        {foersteFraDato && (
-                            <Alert variant={"info"} className={"navds-alert--inline"}>
-                                {t("omDegOgAvdoed.rettPaaGjenlevendepensjon", { dato: foersteFraDato })}
-                            </Alert>
-                        )}
                     </SkjemaGruppe>
 
                     <RHFSpoersmaalRadio
                         name={"avdoed.doedsfallAarsak"}
                         legend={t("omDegOgAvdoed.avdoed.doedsfallAarsak")}
-                        description={<HvorforSpoerVi>{t("omDegOgAvdoed.avdoed.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
+                        description={
+                            <HvorforSpoerVi>{t("omDegOgAvdoed.avdoed.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
                         vetIkke
                     />
 
                     {/* 2.9 */}
-                    <ForholdTilAvdoedeSkjema />
+                    <ForholdTilAvdoedeSkjema/>
 
-                    <NySivilstatus />
+                    <NySivilstatus/>
 
-                    <br />
+                    <br/>
 
-                    <Feilmeldinger errors={errors} />
+                    <Feilmeldinger errors={errors}/>
 
                     <Navigasjon
                         forrige={{ onClick: forrige }}

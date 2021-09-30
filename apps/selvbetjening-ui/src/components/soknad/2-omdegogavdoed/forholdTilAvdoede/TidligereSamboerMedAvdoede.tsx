@@ -2,13 +2,12 @@ import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
-import { Alert } from "@navikt/ds-react";
 import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
 import { useTranslation } from "react-i18next";
 
-const  TidligereSamboerMedAvdoede = () => {
+const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
@@ -18,7 +17,7 @@ const  TidligereSamboerMedAvdoede = () => {
     const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet")
     const fellesBarn = watch("forholdTilAvdoede.fellesBarn");
 
-    const bidragMaaUtfylles  = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet);
+    const bidragMaaUtfylles = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet);
 
     return (
         <>
@@ -26,14 +25,6 @@ const  TidligereSamboerMedAvdoede = () => {
                 name={"forholdTilAvdoede.fellesBarn"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
             />
-
-            {fellesBarn === IValg.NEI && (
-                <SkjemaGruppe>
-                    <Alert variant={"warning"}>
-                        {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                    </Alert>
-                </SkjemaGruppe>
-            )}
 
             {fellesBarn === IValg.JA && (
                 <>

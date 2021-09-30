@@ -185,7 +185,6 @@
       "doedsfallAarsakHvorfor": "Hvis dødsfallet skyldes godkjent yrkesskade eller yrkessykdom kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.",
       "datoForDoedsfallet": "Når skjedde dødsfallet?"
     },
-    "rettPaaGjenlevendepensjon": "Du kan ha rett på gjenlevendepensjon fra {{dato}}",
     "forholdTilAvdoede": {
       "relasjon": "Relasjonen din til avdøde da dødsfallet skjedde",
       "datoForInngaattPartnerskap": "Vi giftet oss",
@@ -198,8 +197,7 @@
       "datoForSkilsmisse": "Vi skilte oss (ikke separasjon)",
       "datoForSamlivsbrudd": "Dato for samlivsbruddet (ikke separasjon)",
       "mottokBidrag": "Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?",
-      "mottokEktefelleBidrag": "Mottok du ektefellebidrag?",
-      "ingenRettighetAdvarsel": "Det kan se ut som du ikke har rett på gjenlevendepensjon"
+      "mottokEktefelleBidrag": "Mottok du ektefellebidrag?"
     },
     "nySivilstatus": {
       "sivilstatus": "Sivilstanden din i dag",

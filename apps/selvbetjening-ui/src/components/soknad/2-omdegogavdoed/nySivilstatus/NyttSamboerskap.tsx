@@ -1,13 +1,11 @@
 import Datovelger from "../../../felles/Datovelger";
-import { IValg } from "../../../../typer/Spoersmaal";
 import SamboerSkjema from "./SamboerSkjema";
-import { Alert } from "@navikt/ds-react";
 import { ISoeker, OpploesningAarsak } from "../../../../typer/person";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 
-const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
+const NyttSamboerskap = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoeker>();
@@ -17,7 +15,7 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
     return (
         <>
             <SkjemaGruppe>
-                <SamboerSkjema />
+                <SamboerSkjema/>
             </SkjemaGruppe>
 
             {aarsakForOpploesningen === OpploesningAarsak.samlivsbrudd && (
@@ -28,10 +26,6 @@ const NyttSamboerskap = ({ gyldigVarighet }: { gyldigVarighet?: IValg }) => {
                         maxDate={new Date()}
                     />
                 </SkjemaGruppe>
-            )}
-
-            {gyldigVarighet === IValg.NEI && (
-                <Alert variant={"warning"}>{t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}</Alert>
             )}
         </>
     );
