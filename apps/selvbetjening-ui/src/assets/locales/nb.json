@@ -589,6 +589,7 @@
         "required": "Oppgi om avdøde var selvstendig næringsdrivende"
       },
       "beskrivelse": {
+        "pattern": "Oppgi gyldig næringsinntekt (kun siffer)",
         "required": "Oppgi næringsinntekt"
       }
     },
