@@ -34,6 +34,7 @@ const SamboerSkjema = () => {
                     name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
                     bredde={"S"}
                     label={t("felles.fnr")}
+                    placeholder={t("felles.fnrPlaceholder")}
                     rules={{ validate: (value) => fnr(value).status === "valid" }}
                 />
             </SkjemaGruppe>

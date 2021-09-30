@@ -195,8 +195,8 @@
       "datoForInngaattSamboerskap": "Vi ble samboere",
       "omsorgForBarn": "Hadde du omsorg for avdødes barn på dødstidspunktet?",
       "datoForSkilsmisse": "Vi skilte oss (ikke separasjon)",
-      "datoForSamlivsbrudd": "Dato for samlivsbruddet (ikke separasjon)",
-      "mottokBidrag": "Mottok du bidrag fra avdøde/ ble du forsørget av avdøde på dødstidstidspunktet?",
+      "datoForSamlivsbrudd": "Vi flyttet fra hverandre",
+      "mottokBidrag": "Ble du forsørget av avdøde på dødstidspunktet?",
       "mottokEktefelleBidrag": "Mottok du ektefellebidrag?"
     },
     "nySivilstatus": {
@@ -214,14 +214,14 @@
         "inngaattDato": "Vi ble samboere",
         "opploestDato": "Samboerskapet opphørte",
         "aarsakForOpploesningen": "Hva er grunnen til at dere ikke er samboere lenger?",
-        "hattBarnEllerVaertGift": "Har/hadde dere barn sammen eller var dere tidligere gift?",
+        "hattBarnEllerVaertGift": "Har eller hadde dere barn sammen eller var dere tidligere gift?",
         "samboerskapOpploest": "Er dette samboerskapet oppløst?",
         "samboer": {
           "tittel": "Opplysninger om samboer",
           "navn": "Navn",
           "foedselsnummer": "Fødselsnummer",
           "harInntekt.svar": "Har samboer inntekt?",
-          "harInntekt.samletBruttoinntektPrAar": "Samlet bruttoinntekt per år",
+          "harInntekt.samletBruttoinntektPrAar": "Samlet årsinntekt før skatt",
           "harInntekt.inntektstype": "Inntektstype"
         }
       },
@@ -489,7 +489,8 @@
     "foedselsnummer": "Fødselsnummer",
     "foedselsaar": "Fødselsår",
     "fnrDnr": "Fødselsnummer / d-nummer",
-    "fnr": "Fødselsnummer (11 siffer)",
+    "fnr": "Fødselsnummer",
+    "fnrPlaceholder": "11 siffer",
     "navn": "Navn",
     "adresse": "Bostedsadresse",
     "sivilstatus": "Sivilstatus",
