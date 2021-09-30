@@ -164,7 +164,7 @@ const oppsummeringAvDummy = [
                         svar: "Ja",
                     },
                     {
-                        spoersmaal: "Oppgi eventuell pensjon han eller hun mottok fra dette landet (per år i kr.)",
+                        spoersmaal: "Oppgi eventuell pensjon han eller hun mottok fra dette landet",
                         svar: "150.000",
                     },
                 ],
@@ -211,7 +211,7 @@ const oppsummeringAvDummy = [
                         svar: "Polen",
                     },
                     {
-                        spoersmaal: "Bruttobeløp pr. år i landets valuta",
+                        spoersmaal: "Årlig beløp før skatt i landets valuta",
                         svar: "4000 PLN",
                     },
                 ],
