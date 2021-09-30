@@ -2,7 +2,7 @@ import { memo } from "react";
 import { StillingType } from "../../../../typer/arbeidsforhold";
 import { useTranslation } from "react-i18next";
 import { Button, Panel } from "@navikt/ds-react";
-import { RHFInput, RHFProsentInput, RHFValutaInput } from "../../../felles/RHFInput";
+import { RHFInput, RHFProsentInput } from "../../../felles/RHFInput";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFSelect } from "../../../felles/RHFSelect";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
@@ -20,12 +20,10 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext();
-    const endretInntekt = watch(`arbeidsforhold[${index}].forventerEndretInntekt.svar`)
+    const endretInntekt = watch(`arbeidsforhold[${index}].forventerEndretInntekt.svar`);
 
     return (
-
         <Panel border className={"luft-under"}>
-
             <RHFInput
                 className={"kol-75"}
                 name={`arbeidsforhold[${index}].arbeidsgiver` as const}
@@ -67,8 +65,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             />
 
             {endretInntekt === IValg.JA && (
-
-                <RHFValutaInput
+                <RHFInput
                     name={`arbeidsforhold[${index}].forventerEndretInntekt.beskrivelse` as const}
                     bredde={"S"}
                     label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
@@ -78,14 +75,12 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             {lengde > 1 && (
                 <div style={{ textAlign: "right" }}>
                     <Button variant={"secondary"} type={"button"} onClick={() => fjern(index)}>
-                        <DeleteFilled/> &nbsp;{t("knapp.fjern")}
+                        <DeleteFilled /> &nbsp;{t("knapp.fjern")}
                     </Button>
                 </div>
             )}
-
         </Panel>
-
-    )
-})
+    );
+});
 
 export default ArbeidstakerInfokort;
