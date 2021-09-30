@@ -68,6 +68,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             className={"kol-50"}
                             name={"foedselsnummer"}
                             label={t("omDenAvdoede.foedselsnummer")}
+                            placeholder={t("felles.fnrPlaceholder")}
                         />
 
                         <RHFInput

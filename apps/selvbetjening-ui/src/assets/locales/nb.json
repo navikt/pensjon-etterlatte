@@ -253,7 +253,8 @@
         "medlemFolketrygd": "Var han eller hun medlem av folketrygden under oppholdet?",
         "medlemFolketrygdHjelpetekst": "Vi må vite om avdøde var medlem av folketrygden for å avgjøre om du har rett til gjenlevendepensjon.",
         "mottokPensjon": {
-          "beskrivelse": "Oppgi eventuell pensjon han eller hun mottok fra dette landet (per år i kr.)"
+          "beskrivelse": "Oppgi eventuell pensjon han eller hun mottok fra dette landet",
+          "beskrivelsePlaceholder": "Per år i landets valuta"
         }
       }
     },
@@ -266,7 +267,7 @@
       "ingress": "Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i gjenlevendepensjon. Vi henter informasjon om andre inntekter.",
       "svar": "Var han eller hun selvstendig næringsdrivende?",
       "beskrivelse": "Oppgi næringsinntekt fra kalenderåret før dødsfallet (Valgfri)",
-      "placeholder": "Oppgi samlet årsinntekt før skatt"
+      "placeholder": "Samlet årsinntekt før skatt"
     },
     "annenOpptjening": {
       "tittel": "Annen opptjening"
