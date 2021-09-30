@@ -30,7 +30,7 @@ spec:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.etterlatteytelser
     - name: KAFKA_RESET_POLICY
-      value: none
+      value: latest
     - name: PDF_URL
       value: "http://ey-pdfgen/api/v1/genpdf/eypdfgen"
     - name: DOKARKIV_URL
