@@ -1,5 +1,4 @@
-import { render, fireEvent } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
+import { render, fireEvent, act } from "@testing-library/react";
 import Hjelpetekst from "./Hjelpetekst";
 
 describe("Hjelpetekst", () => {
@@ -18,6 +17,7 @@ describe("Hjelpetekst", () => {
                 <div data-testid="test-tekst">Dette er hjelpetekst</div>
             </Hjelpetekst>
         );
+
         act(() => {
             fireEvent.click(getByTestId("hjelpetekst-button"));
         });

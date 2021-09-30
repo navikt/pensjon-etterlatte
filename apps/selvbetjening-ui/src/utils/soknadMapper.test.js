@@ -122,7 +122,7 @@ const oppsummeringAvDummy = [
                         svar: "Ja",
                     },
                     {
-                        spoersmaal: "Oppgi næringsinntekt fra kalenderåret før dødsfallet",
+                        spoersmaal: "Oppgi næringsinntekt fra kalenderåret før dødsfallet (Valgfri)",
                         svar: "150 000",
                     },
                     {
@@ -135,7 +135,7 @@ const oppsummeringAvDummy = [
                         svar: "Ja",
                     },
                     {
-                        spoersmaal: "Hvilke(-t) år? (Valgfritt)",
+                        spoersmaal: "Hvilke(-t) år? (Valgfri)",
                         svar: "1984",
                     },
                 ],
@@ -152,11 +152,11 @@ const oppsummeringAvDummy = [
                         svar: "Bodd, Arbeidet",
                     },
                     {
-                        spoersmaal: "Fra dato",
+                        spoersmaal: "Fra dato (Valgfri)",
                         svar: "11.08.2002",
                     },
                     {
-                        spoersmaal: "Til dato",
+                        spoersmaal: "Til dato (Valgfri)",
                         svar: "11.08.2003",
                     },
                     {
@@ -182,10 +182,6 @@ const oppsummeringAvDummy = [
                         svar: "Jeg er arbeidstaker",
                     },
                     {
-                        spoersmaal: "Hva er din høyeste fullførte utdanning?",
-                        svar: "Universitet eller høyskole mer enn 4 år",
-                    },
-                    {
                         spoersmaal: "Har du søkt om andre ytelser fra NAV som du ikke har fått svar på?",
                         svar: "Ja",
                     },
@@ -194,7 +190,8 @@ const oppsummeringAvDummy = [
                         svar: "Barnepensjon",
                     },
                     {
-                        spoersmaal: "Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?",
+                        spoersmaal:
+                            "Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?",
                         svar: "Ja",
                     },
                     {
@@ -217,14 +214,11 @@ const oppsummeringAvDummy = [
                         spoersmaal: "Bruttobeløp pr. år i landets valuta",
                         svar: "4000 PLN",
                     },
-                    {
-                        spoersmaal: "Hva heter firmaet?",
-                        svar: "Potetskreller AS",
-                    },
-                    {
-                        spoersmaal: "Når startet du?",
-                        svar: "11.08.2021",
-                    },
+                ],
+            },
+            {
+                tittel: "Potetskreller AS",
+                innhold: [
                     {
                         spoersmaal: "Type ansettelse",
                         svar: "Midlertidig ansatt",
