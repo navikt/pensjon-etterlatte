@@ -928,7 +928,8 @@
         "required": "Oppgi verges navn"
       },
       "foedselsnummer": {
-        "required": "Oppgi verges fødselsnummer"
+        "required": "Oppgi verges fødselsnummer",
+        "validate": "Ugyldig fødselsnummer"
       }
     }
   }
