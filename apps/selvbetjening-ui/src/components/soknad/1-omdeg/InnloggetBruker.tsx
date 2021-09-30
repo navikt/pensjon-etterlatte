@@ -17,8 +17,9 @@ const InnloggetBruker = memo(() => {
         <SkjemaGruppe>
             <br />
             <Alert variant={"warning"}>{t("omDeg.advarsel")}</Alert>
-            <p className="mute">{t("omDeg.valgfritt")}</p>
-            <br />
+            <div className="mute" style={{ margin: "2em 0" }}>
+                {t("omDeg.valgfritt")}
+            </div>
             <Grid className={"opplysninger"}>
                 <Cell xs={6}>
                     <div>

@@ -117,8 +117,9 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                 bredde={"S"}
                                 valgfri
                                 label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
-                                placeholder={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder")}
-                                description={t("felles.ikkePaakrevd")}
+                                placeholder={t(
+                                    "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder"
+                                )}
                             />
 
                             {fields.length > 1 && (
