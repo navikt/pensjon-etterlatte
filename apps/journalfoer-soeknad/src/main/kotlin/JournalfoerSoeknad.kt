@@ -1,9 +1,12 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.module.kotlin.treeToValue
 import io.ktor.client.features.ResponseException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
+import no.nav.etterlatte.libs.common.objectMapper
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
@@ -15,7 +18,7 @@ import java.time.OffsetDateTime
 internal class JournalfoerSoeknad(
     rapidsConnection: RapidsConnection,
     private val pdf: GenererPdf,
-    private val dok: JournalfoerDok,
+    private val journalfoeringService: JournalfoeringService,
     private val klokke: Clock = Clock.systemUTC()
 ) : River.PacketListener {
     private val logger = LoggerFactory.getLogger(JournalfoerSoeknad::class.java)
@@ -33,36 +36,35 @@ internal class JournalfoerSoeknad(
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
+        val gyldigTilDato = OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText())
 
-        //denne ble stygg, må skrives om
+        if (gyldigTilDato.isBefore(OffsetDateTime.now(klokke))) {
+            logger.error("Avbrutt journalføring da hendelsen ikke er gyldig lengre")
+            return
+        }
+
         try {
-            runBlocking(Dispatchers.IO) {
-                OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
-                    if (it.isBefore(OffsetDateTime.now(klokke))) {
-                        logger.error("Avbrutt journalføring da hendelsen ikke er gyldig lengre")
-                    } else {
-                        packet["@dokarkivRetur"] = dok.journalfoerDok(
-                            packet, pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
-                        )
-                        logger.info("Journalført en ny PDF med journalpostId: " + packet["@dokarkivRetur"])
-                        context.publish(packet.toJson())
-                    }
-                }
-            }
-        }catch (err: ResponseException){
+            val dokarkivResponse = journalfoer(packet)
+
+            packet["@dokarkivRetur"] = dokarkivResponse
+
+            context.publish(packet.toJson())
+        } catch (err: ResponseException) {
             logger.error("duplikat: ", err)
             logger.error(packet["@dokarkivRetur"].asText())
         } catch (err: Exception) {
             logger.error("Uhaandtert feilsituasjon: ", err)
-
         }
     }
-}
 
-interface GenererPdf {
-    suspend fun genererPdf(input: JsonNode, template: String): ByteArray
-}
+    private fun journalfoer(packet: JsonMessage): JsonNode {
+        val soknadId = packet["@lagret_soeknad_id"].asText()
+        val journalpostInfo = objectMapper.treeToValue<JournalpostInfo>(packet["@journalpostInfo"])!!
+        val skjemaInfo = objectMapper.writeValueAsBytes(packet["@skjema_info"])
+        val pdf = runBlocking(Dispatchers.IO) {
+            pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
+        }
 
-interface JournalfoerDok {
-    suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): JsonNode
+        return journalfoeringService.journalfoer(soknadId, journalpostInfo, skjemaInfo, pdf)
+    }
 }

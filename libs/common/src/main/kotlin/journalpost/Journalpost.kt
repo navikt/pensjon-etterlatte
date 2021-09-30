@@ -17,7 +17,6 @@ data class JournalpostRequest(
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,
     val eksternReferanseId: String,
-    //val sak: Fagsak?,
     var dokumenter: List<JournalpostDokument>
 )
 
@@ -30,12 +29,6 @@ data class AvsenderMottaker(
 data class Bruker(
     val id: String,
     val idType: String = "FNR"
-)
-
-data class Fagsak(
-    val fagsakId: String,
-    val fagsaksystem: String = "SUPSTONAD",
-    val sakstype: String = "FAGSAK"
 )
 
 data class JournalpostDokument(

@@ -9,14 +9,14 @@ import no.nav.etterlatte.security.ktor.clientCredential
 
 class AppBuilder(private val props: Map<String, String>) {
     companion object {
-        const val CONFIG_PDF_URL = "PDF_URL"
-        const val CONFIG_DOKARKIV_URL = "DOKARKIV_URL"
+        private const val CONFIG_PDF_URL = "PDF_URL"
+        private const val CONFIG_DOKARKIV_URL = "DOKARKIV_URL"
     }
 
     fun genererPdf() = PdfGenerator(pdfhttpclient(), props[CONFIG_PDF_URL]!!)
-    fun journalfoerDok() = Journalfoer(jourhttpclient(), props[CONFIG_DOKARKIV_URL]!! )
+    fun journalfoerDok() = JournalfoeringService(opprettJournalfoeringKlient())
 
-    private fun jourhttpclient() = HttpClient(OkHttp) {
+    private fun opprettJournalfoeringKlient() = HttpClient(OkHttp) {
         install(JsonFeature) { serializer = JacksonSerializer() }
         install(Auth) {
             clientCredential {
@@ -27,6 +27,8 @@ class AppBuilder(private val props: Map<String, String>) {
         }
     }.also {
         Runtime.getRuntime().addShutdownHook(Thread { it.close() })
+    }.let {
+        DokarkivKlient(it, props[CONFIG_DOKARKIV_URL]!!)
     }
 
     private fun pdfhttpclient() = HttpClient(OkHttp) {

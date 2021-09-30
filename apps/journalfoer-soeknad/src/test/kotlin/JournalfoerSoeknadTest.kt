@@ -12,8 +12,8 @@ import io.ktor.http.ContentType
 import io.ktor.http.fullPath
 import io.ktor.http.headersOf
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.libs.common.journalpost.JournalpostRequest
 import no.nav.etterlatte.libs.common.objectMapper
-import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -25,18 +25,20 @@ import java.time.Month
 import java.time.ZoneId
 import java.time.ZoneOffset
 
-class JournalfoerSoeknadTest {
+internal class JournalfoerSoeknadTest {
 
+    private val journalfoeringService = JournalfoeringService(JournalfoerDokMock("/journalfoerResponse.json"))
 
-    fun getTestResource( file: String): String {
+    private fun getTestResource(file: String): String {
         return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
     }
+
     @Test
     fun journalfoer() {
         val clock: Clock = Clock.fixed(LocalDateTime.of(2020, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
         val message = getTestResource("/fullMessage.json")
         val inspector = TestRapid()
-            .apply { JournalfoerSoeknad(this, GenererPdfMock(), JournalfoerDokMock("/journalfoerResponse.json"), clock) }
+            .apply { JournalfoerSoeknad(this, GenererPdfMock(), journalfoeringService, clock) }
             .apply {
                 sendTestMessage(
                     message
@@ -54,7 +56,7 @@ class JournalfoerSoeknadTest {
         val clock: Clock = Clock.fixed(LocalDateTime.of(2023, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
         val message = getTestResource("/fullMessage.json")
         val inspector = TestRapid()
-            .apply { JournalfoerSoeknad(this, GenererPdfMock(), JournalfoerDokMock("/journalfoerResponse.json"), clock) }
+            .apply { JournalfoerSoeknad(this, GenererPdfMock(), journalfoeringService, clock) }
             .apply {
                 sendTestMessage(
                     message
@@ -65,9 +67,7 @@ class JournalfoerSoeknadTest {
     }
 
     @Test
-
     fun testPdfGen() {
-
         val message = objectMapper.readTree(getTestResource("/fullMessage.json"))
         val httpClient = HttpClient(MockEngine) {
             engine {
@@ -103,12 +103,11 @@ class JournalfoerSoeknadTest {
 
 }
 
-class JournalfoerDokMock(val file: String) : JournalfoerDok {
-    override suspend fun journalfoerDok(dokumentInnhold: JsonMessage, pdf: ByteArray): JsonNode {
-        return objectMapper.readTree(getTestResource(file))
-    }
-    fun getTestResource( file: String): String {
-        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
+private class JournalfoerDokMock(val file: String) : Dokarkiv {
+    override suspend fun journalfoerDok(request: JournalpostRequest): JsonNode {
+        val json = javaClass.getResource(file)!!.readText().replace(Regex("[\n\t]"), "")
+
+        return objectMapper.readTree(json)
     }
 }
 
@@ -117,10 +116,3 @@ class GenererPdfMock : GenererPdf {
         return Paths.get("src/test/resources/pdf.pdf").toFile().readBytes()
     }
 }
-
-
-
-
-
-
-

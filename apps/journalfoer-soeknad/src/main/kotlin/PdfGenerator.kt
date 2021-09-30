@@ -7,6 +7,10 @@ import io.ktor.client.request.post
 import org.slf4j.MDC
 import java.util.*
 
+interface GenererPdf {
+    suspend fun genererPdf(input: JsonNode, template: String): ByteArray
+}
+
 class PdfGenerator(private val client: HttpClient, private val apiUrl: String) : GenererPdf {
     override suspend fun genererPdf(input: JsonNode, template: String): ByteArray {
         val pdfUrl = "$apiUrl/$template"
