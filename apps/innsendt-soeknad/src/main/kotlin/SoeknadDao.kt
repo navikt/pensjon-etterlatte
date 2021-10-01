@@ -28,18 +28,20 @@ interface StatistikkRepository {
     fun ukategorisert(): List<Long>
 }
 
-class PostgresSoeknadRepository private constructor (private val dataSource: DataSource): SoeknadRepository, StatistikkRepository {
-    companion object{
-        object Status{
-            val sendt = "sendt"
-            val arkivert = "arkivert"
-            val arkiveringsfeil = "arkiveringsfeil"
-            val lagretkladd = "lagretkladd"
-            val ferdigstilt = "ferdigstilt"
+class PostgresSoeknadRepository private constructor(private val dataSource: DataSource) : SoeknadRepository,
+    StatistikkRepository {
+    companion object {
+        object Status {
+            const val sendt = "sendt"
+            const val arkivert = "arkivert"
+            const val arkiveringsfeil = "arkiveringsfeil"
+            const val lagretkladd = "lagretkladd"
+            const val ferdigstilt = "ferdigstilt"
         }
 
-        val CREATE_SOEKNAD = "INSERT INTO soeknad(id, fnr, data) VALUES(?, ?, (to_json(?::json)))"
-        val CREATE_HENDELSE = "INSERT INTO hendelse(id, soeknad, status, data) VALUES(?, ?, ?, (to_json(?::json)))"
+        const val CREATE_SOEKNAD = "INSERT INTO soeknad(id, fnr, data) VALUES(?, ?, (to_json(?::json)))"
+        const val CREATE_HENDELSE =
+            "INSERT INTO hendelse(id, soeknad, status, data) VALUES(?, ?, ?, (to_json(?::json)))"
         val SELECT_OLD = """
                         SELECT *
                         FROM soeknad s 
@@ -81,22 +83,28 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
               select 1 from hendelse h where h.soeknad = s.id 
               AND h.status in ('${Status.ferdigstilt}', '${Status.arkiveringsfeil}','${Status.arkivert}' ,'${Status.sendt}'))""".trimIndent()
 
-
-        fun using(datasource: DataSource): PostgresSoeknadRepository{
+        fun using(datasource: DataSource): PostgresSoeknadRepository {
             return PostgresSoeknadRepository(datasource)
         }
     }
 
     private val postgresTimeZone = ZoneId.of("UTC")
-    override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad{
+    override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
         return using(sessionOf(dataSource)) { session ->
             session.transaction {
                 val kladd = finnKladd(soeknad.fnr)
-                if(kladd != null){
-                    it.run(queryOf("""UPDATE soeknad SET data = (to_json(?::json)) where id = ?""", soeknad.soeknad, kladd.id).asUpdate)
+                if (kladd != null) {
+                    it.run(
+                        queryOf(
+                            """UPDATE soeknad SET data = (to_json(?::json)) where id = ?""",
+                            soeknad.soeknad,
+                            kladd.id
+                        ).asUpdate
+                    )
                     LagretSoeknad(kladd.fnr, soeknad.soeknad, kladd.id)
-                } else{
-                    val id = it.run(queryOf("select nextval('soeknad_id')", emptyMap()).map { it.long(1) }.asSingle)!!
+                } else {
+                    val id =
+                        it.run(queryOf("select nextval('soeknad_id')", emptyMap()).map { id -> id.long(1) }.asSingle)!!
                     it.run(queryOf(CREATE_SOEKNAD, id, soeknad.fnr, soeknad.soeknad).asExecute)
                     LagretSoeknad(soeknad.fnr, soeknad.soeknad, id)
                 }
@@ -110,11 +118,11 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         }
     }
 
-    override fun soeknadSendt(soeknad: LagretSoeknad){
+    override fun soeknadSendt(soeknad: LagretSoeknad) {
         nyStatus(soeknad, Status.sendt, """{}""")
     }
 
-    override fun soeknadArkivert(soeknad: LagretSoeknad){
+    override fun soeknadArkivert(soeknad: LagretSoeknad) {
         nyStatus(soeknad, Status.arkivert, "{}")
     }
 
@@ -122,16 +130,17 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         nyStatus(soeknad, Status.arkiveringsfeil, jsonFeil)
     }
 
-    private fun nyStatus(soeknad: LagretSoeknad, status: String, data: String = """{}"""){
+    private fun nyStatus(soeknad: LagretSoeknad, status: String, data: String = """{}""") {
         using(sessionOf(dataSource)) { session ->
             session.transaction {
-                val id = it.run(queryOf("select nextval('hendelse_id')", emptyMap()).map { it.long(1) }.asSingle)!!
+                val id =
+                    it.run(queryOf("select nextval('hendelse_id')", emptyMap()).map { id -> id.long(1) }.asSingle)!!
                 it.run(queryOf(CREATE_HENDELSE, id, soeknad.id, status, data).asExecute)
             }
         }
     }
 
-    override fun slettArkiverteSoeknader(){
+    override fun slettArkiverteSoeknader() {
         using(sessionOf(dataSource)) { session ->
             session.transaction {
                 it.run(queryOf(DELETE_ARKIVERTE_SOEKNADER).asUpdate)
@@ -146,12 +155,13 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
     override fun finnKladd(fnr: String): LagretSoeknad? {
         return using(sessionOf(dataSource)) { session ->
             session.transaction { tx ->
-                tx.run(queryOf(FINN_KLADD,fnr).map {
+                tx.run(queryOf(FINN_KLADD, fnr).map {
                     LagretSoeknad(
-                    fnr = fnr,
-                    soeknad = it.string("data"),
-                    id = it.long("id")
-                ) }.asSingle)
+                        fnr = fnr,
+                        soeknad = it.string("data"),
+                        id = it.long("id")
+                    )
+                }.asSingle)
             }
         }
     }
@@ -159,7 +169,7 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
     override fun slettKladd(fnr: String): Boolean {
         return using(sessionOf(dataSource)) { session ->
             session.transaction { tx ->
-                tx.run(queryOf(SLETT_KLADD,fnr).asUpdate)
+                tx.run(queryOf(SLETT_KLADD, fnr).asUpdate)
             }
         } > 0
     }
@@ -169,13 +179,15 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         return using(sessionOf(dataSource)) { session ->
             session.transaction {
                 it.run(queryOf(
-                    SELECT_OLD, emptyMap()).map {
+                    SELECT_OLD, emptyMap()
+                ).map { row ->
                     LagretSoeknad(
-                        fnr = it.string("fnr"),
-                        soeknad = it.string("data"),
-                        id = it.long("id")
+                        fnr = row.string("fnr"),
+                        soeknad = row.string("data"),
+                        id = row.long("id")
                     )
-                }.asList)
+                }.asList
+                )
             }
         }
     }
@@ -183,19 +195,25 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
     override fun eldsteUsendte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
         session.transaction {
             it.run(queryOf(
-                SELECT_OLDEST_UNSENT, emptyMap()).map { row ->
+                SELECT_OLDEST_UNSENT, emptyMap()
+            ).map { row ->
                 row.postgresLocalDate(1)
-            }.asSingle)
+            }.asSingle
+            )
         }
     }
+
     override fun eldsteUarkiverte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
         session.transaction {
             it.run(queryOf(
-                SELECT_OLDEST_UNARCHIVED, emptyMap()).map { row ->
+                SELECT_OLDEST_UNARCHIVED, emptyMap()
+            ).map { row ->
                 row.postgresLocalDate(1)
-            }.asSingle)
+            }.asSingle
+            )
         }
     }
+
     override fun rapport(): Map<String, Long> = listOf(
         Status.lagretkladd,
         Status.ferdigstilt,
@@ -205,9 +223,11 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
     ).associateWith { 0L } + using(sessionOf(dataSource)) { session ->
         session.transaction {
             it.run(queryOf(
-                SELECT_RAPPORT, emptyMap()).map { row ->
+                SELECT_RAPPORT, emptyMap()
+            ).map { row ->
                 Pair(row.string(1), row.long(2))
-            }.asList)
+            }.asList
+            )
         }
     }.toMap()
 
@@ -215,11 +235,14 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
         return using(sessionOf(dataSource)) { session ->
             session.transaction {
                 it.run(queryOf(
-                    """SELECT s.id FROM soeknad s where s.id not in (select soeknad from hendelse )""", emptyMap()).map {
-                    it.long("id")
-                }.asList)
+                    """SELECT s.id FROM soeknad s where s.id not in (select soeknad from hendelse )""", emptyMap()
+                ).map { id ->
+                    id.long("id")
+                }.asList
+                )
             }
-        }    }
+        }
+    }
 
     private fun Row.postgresLocalDate(columnIndex: Int) =
         localDateTimeOrNull(columnIndex)
@@ -228,13 +251,11 @@ class PostgresSoeknadRepository private constructor (private val dataSource: Dat
             ?.toLocalDateTime()
 }
 
-
 data class LagretSoeknad(
     val fnr: String,
     val soeknad: String,
     val id: Long
 )
-
 
 data class UlagretSoeknad(
     val fnr: String,
