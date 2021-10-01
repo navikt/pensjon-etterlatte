@@ -66,24 +66,25 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 />
 
                 {(jobbStatus?.includes(JobbStatus.selvstendig) || jobbStatus?.includes(JobbStatus.arbeidstaker)) && (
-                    <NavaerendeArbeidsforhold />
+                    <NavaerendeArbeidsforhold/>
                 )}
 
-                {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
+                {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning/>}
 
                 {jobbStatus?.includes(JobbStatus.ingen) && (
                     <SkjemaGruppe>
-                        <RHFInput name={"ingenJobbBeskrivelse"} label={t("dinSituasjon.ingenJobbBeskrivelse")} />
+                        <RHFInput name={"ingenJobbBeskrivelse"} label={t("dinSituasjon.ingenJobbBeskrivelse")}
+                                  maxLength={200}/>
                     </SkjemaGruppe>
                 )}
 
-                <HoeyesteUtdanning />
+                <HoeyesteUtdanning/>
 
-                <AndreYtelser />
+                <AndreYtelser/>
 
-                <Feilmeldinger errors={errors} />
+                <Feilmeldinger errors={errors}/>
 
-                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }} />
+                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }}/>
             </form>
         </FormProvider>
     );

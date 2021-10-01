@@ -3,18 +3,23 @@ import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
+import { Title } from "@navikt/ds-react";
 
 const UnderUtdanning = () => {
     const { t } = useTranslation();
 
     return (
         <SkjemaGruppering>
+
             <SkjemaGruppe>
-                <RHFInput
-                    name={"utdanning.naavaerendeUtdanning.navn"}
-                    label={t("dinSituasjon.utdanning.naavaerendeUtdanning.navn")}
-                />
+                <Title size={"s"}>{t("dinSituasjon.utdanning.tittel")}</Title>
             </SkjemaGruppe>
+
+            <RHFInput
+                name={"utdanning.naavaerendeUtdanning.navn"}
+                label={t("dinSituasjon.utdanning.naavaerendeUtdanning.navn")}
+                placeholder={t("dinSituasjon.utdanning.naavaerendeUtdanning.navnPlaceholder")}
+            />
 
             <SkjemaGruppe className={"rad"}>
                 <Datovelger

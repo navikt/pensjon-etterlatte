@@ -70,6 +70,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     bredde={"S"}
                     label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
                     placeholder={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelsePlaceholder")}
+                    maxLength={200}
                 />
             )}
 

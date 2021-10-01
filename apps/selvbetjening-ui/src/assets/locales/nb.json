@@ -76,11 +76,13 @@
     "jobbStatusHvorfor": "Vi skal vurdere om du utnytter arbeidsevnen du har, eller om du har behov for bistand fra oss til å bli selvforsørget.",
     "ingenJobbBeskrivelse": "Annet",
     "utdanning": {
-      "hoyesteFullfoerteUtdanning": "Hva er din høyeste fullførte utdanning?",
+      "tittel": "Om utdanningen",
+      "hoyesteFullfoerteUtdanning": "Hvilken utdanning har du?",
       "annenUtdanning": "Annen utdanning",
       "annenUtdanningPlaceholder": "F.eks. kurs, enkeltår på universitet eller høyskole",
       "naavaerendeUtdanning": {
         "navn": "Navnet på utdanningen",
+        "navnPlaceholder": "Eks. videregående, lærling, sykepleierstudiet",
         "startDato": "Fra dato",
         "sluttDato": "Til dato"
       }
@@ -105,7 +107,7 @@
       "tilDato": "Til"
     },
     "arbeidsforhold": {
-      "tittel": "Info om arbeidsgiver",
+      "tittel": "Om arbeidsgiver",
       "arbeidsgiver": "Hva heter firmaet?",
       "endring": "Hva er grunnen til endringene?",
       "ansettelsesforhold": "Type ansettelse",
@@ -471,6 +473,7 @@
   },
   "utdanning": {
     "grunnskole": "Grunnskole",
+    "fagbrev": "Fagbrev",
     "videregående": "Videregående",
     "bachelorgrad": "Universitet eller høyskole til og med 4 år",
     "mastergrad": "Universitet eller høyskole mer enn 4 år",

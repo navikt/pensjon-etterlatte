@@ -48,8 +48,10 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
             {endretInntekt === IValg.JA && (
                 <RHFInput
                     name={`selvstendig[${index}].forventerEndretInntekt.beskrivelse` as const}
+                    bredde={"S"}
                     label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
                     placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
+                    maxLength={200}
                 />
 
             )}

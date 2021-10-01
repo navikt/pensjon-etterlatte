@@ -13,6 +13,7 @@ export interface IUtdanning {
 
 export enum Utdanning {
     grunnskole = "utdanning.grunnskole",
+    fagbrev = "utdanning.fagbrev",
     videregående = "utdanning.videregående",
     bachelorgrad = "utdanning.bachelorgrad",
     mastergrad = "utdanning.mastergrad",
