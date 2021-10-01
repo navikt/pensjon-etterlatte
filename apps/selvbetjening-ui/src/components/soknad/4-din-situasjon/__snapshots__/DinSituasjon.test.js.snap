@@ -306,6 +306,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               class="skjemaelement__input input--s"
               id="arbeidsforhold[0].forventerEndretInntekt.beskrivelse"
+              placeholder="dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelsePlaceholder"
               type="text"
               value="150 000"
             />
