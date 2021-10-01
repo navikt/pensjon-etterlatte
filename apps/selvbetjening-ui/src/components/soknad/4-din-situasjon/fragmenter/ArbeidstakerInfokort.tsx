@@ -69,6 +69,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     name={`arbeidsforhold[${index}].forventerEndretInntekt.beskrivelse` as const}
                     bredde={"S"}
                     label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
+                    placeholder={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelsePlaceholder")}
                 />
             )}
 

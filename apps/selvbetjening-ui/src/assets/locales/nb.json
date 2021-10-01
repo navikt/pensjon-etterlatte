@@ -96,7 +96,7 @@
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
         "beskrivelse": "Hva er grunnen til endringene?",
-        "beskrivelsePlaceholder": "F.eks. endring i forventet inntekt eller drift av næring"
+        "beskrivelsePlaceholder": "Eks. endring i forventet inntekt eller drift av næring"
       }
     },
     "tidligereArbeidsforhold": {
@@ -115,6 +115,7 @@
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
         "beskrivelse": "Hva er grunnen til endringene?",
+        "beskrivelsePlaceholder": "Eks. økning eller reduksjon i inntekt",
         "hvorfor": "Det har betydning for hvor mye gjenlevendepensjon du får."
       },
       "naavaerendeArbeidsforhold": {

@@ -25,13 +25,13 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
 
             <RHFInput
                 className={"kol-75"}
-                name={`selvstendigNaeringsdrivende[${index}].beskrivelse` as const}
+                name={`selvstendig[${index}].beskrivelse` as const}
                 label={t("dinSituasjon.selvstendig.beskrivelse")}
             />
 
             <SkjemaGruppe>
                 <RHFNumberInput
-                    name={`selvstendigNaeringsdrivende[${index}].orgnr` as const}
+                    name={`selvstendig[${index}].orgnr` as const}
                     placeholder={t("dinSituasjon.selvstendig.orgnrplaceholder")}
                     label={t("dinSituasjon.selvstendig.orgnr")}
                     maxLength={9}
@@ -40,19 +40,18 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
             </SkjemaGruppe>
 
             <RHFSpoersmaalRadio
-                name={`selvstendigNaeringsdrivende[${index}].forventerEndretInntekt.svar` as const}
+                name={`selvstendig[${index}].forventerEndretInntekt.svar` as const}
                 legend={t("dinSituasjon.selvstendig.forventerEndretInntekt.svar")}
                 vetIkke
             />
 
-            { endretInntekt === IValg.JA && (
-                <SkjemaGruppe>
-                    <RHFInput
-                        name={`selvstendigNaeringsdrivende[${index}].forventerEndretInntekt.beskrivelse` as const}
-                        label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
-                        placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
-                    />
-                </SkjemaGruppe>
+            {endretInntekt === IValg.JA && (
+                <RHFInput
+                    name={`selvstendig[${index}].forventerEndretInntekt.beskrivelse` as const}
+                    label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
+                    placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
+                />
+
             )}
 
             {lengde > 1 && (

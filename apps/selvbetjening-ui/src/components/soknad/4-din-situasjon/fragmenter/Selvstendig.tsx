@@ -12,7 +12,7 @@ const Selvstendig = () => {
 
     const { fields, append, remove } = useFieldArray<any>({
         control,
-        name: "selvstendigNaeringsdrivende",
+        name: "selvstendig",
         shouldUnregister: true,
     });
 

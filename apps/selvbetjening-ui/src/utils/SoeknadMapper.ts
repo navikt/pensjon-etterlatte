@@ -115,7 +115,7 @@ export default class SoeknadMapper {
             } as Element
         }) || [];
 
-        const selvstendigNaeringsdrivende: Element[] = dinSituasjon.selvstendigNaeringsdrivende?.map(arbeid => {
+        const selvstendigNaeringsdrivende: Element[] = dinSituasjon.selvstendig?.map(arbeid => {
             return {
                 tittel: `${arbeid.beskrivelse}`,
                 innhold: this.otr.traverse<ISelvstendigNaeringsdrivende>({
@@ -134,7 +134,7 @@ export default class SoeknadMapper {
                         ...dinSituasjon,
                         utdanning: undefined,
                         arbeidsforhold: undefined,
-                        selvstendigNaeringsdrivende: undefined,
+                        selvstendig: undefined,
                     }, "dinSituasjon")
 
                 },

@@ -31,7 +31,7 @@ export interface ISituasjon {
     jobbStatus?: JobbStatus;
     ingenJobbBeskrivelse?: string;
     utdanning?: IUtdanning;
-    selvstendigNaeringsdrivende?: ISelvstendigNaeringsdrivende[];
+    selvstendig?: ISelvstendigNaeringsdrivende[];
     arbeidsforhold?: IArbeidsforhold[];
     andreYtelser?: IAndreYtelser;
 }
