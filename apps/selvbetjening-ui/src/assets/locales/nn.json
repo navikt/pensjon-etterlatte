@@ -1,1 +1,903 @@
-{}
+{
+  "steg": {
+    "OmDeg": "Om deg",
+    "OmDegOgAvdoed": "Om deg og avdøde",
+    "OmAvdoed": "Opplysingar om den avdøde",
+    "DinSituasjon": "Din situasjon",
+    "OmBarn": "Opplysingar om barn",
+    "TidlArbeidsforhold": "Om tidlegare arbeidsforhold",
+    "Arbeidsforhold": "Om noverande arbeidsforhold",
+    "AndreYtelser": "Andre ytingar",
+    "Oppsummering": "Oppsummering"
+  },
+  "knapp": {
+    "tilbake": "Tilbake",
+    "neste": "Neste",
+    "hoppOver": "Hopp over dette steget",
+    "avbryt": "Avbryt",
+    "sendSoeknad": "Send søknad",
+    "leggTil": "Legg til",
+    "leggTilBarn": "+ Legg til barn",
+    "fjern": "Fjern",
+    "fjernElement": "Fjern element",
+    "fjernFraSoeknad": "Fjern frå søknad",
+    "lagre": "Lagre"
+  },
+  "forside": {
+    "tittel": "Søknad om attlevandepensjon",
+    "hei": "Hei, {{navn}}",
+    "startSoeknad": "Start søknad",
+    "omYtelsene": {
+      "innhold": "Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til attlevandepensjon eller overgangsstønad. Du kan også ha rett til attlevandepensjon viss du tidlegare har vore gift, partnar eller sambuar med avdøde. \n\nInntekta di avgjer kor mykje pengar du kan få.",
+      "lenke": {
+        "href": "https://www.nav.no/no/person/familie/har-du-mistet-noen-i-naer-familie/har-du-mistet-ektefellen-samboeren-eller-partneren-din",
+        "tekst": "Meir om ytingar til attlevande"
+      }
+    },
+    "barnepensjon": {
+      "tittel": "Du kan også søke om barnepensjon",
+      "innhold": "Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om attlevandepensjon og barnepensjon i denne søknaden."
+    },
+    "uthentingAvInfo": {
+      "tittel": "Vi vil hente informasjon",
+      "innhold": "For at vi skal kunne behandle søknaden din, må vi hente informasjon om deg, avdøde og eventuelle barn. \n\nVi hentar:\n",
+      "innholdListe": {
+        "li1": "<strong>Personinformasjon</strong> frå Folkeregisteret",
+        "li2": "<strong>Inntektsinformasjon</strong> frå Skatteetaten",
+        "li3": "Opplysingar om <strong>arbeidsforhold</strong> frå arbeidsgivar- og arbeidstakarregisteret",
+        "li4": "Opplysingar om <strong>andre ytingar frå NAV</strong>",
+        "li5": "Eventuelt informasjon frå <strong>utanlandske trygdemyndigheiter</strong>"
+      },
+      "lenke1": {
+        "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten",
+        "tekst": "Slik behandlar vi personopplysingane dine"
+      },
+      "lenke2": {
+        "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3",
+        "tekst": "Om personvern og sikkerheit på nav.no"
+      }
+    },
+    "samtykke": {
+      "tittel": "Vi stoler på deg",
+      "innhold": "Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din. \n\nViss du får pengar du ikkje har rett til fordi du har gitt feil opplysingar, må du vanlegvis betale tilbake.\n\n",
+      "harLest": "Eg har lese og forstått det som står om",
+      "lenke": {
+        "tekst": "mine plikter på nav.no",
+        "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger"
+      },
+      "bekreftelse": "Eg, {{navn}}, bekreftar at eg vil gi riktige og fullstendige opplysingar."
+    }
+  },
+  "dinSituasjon": {
+    "tittel": "Situasjonen din",
+    "undertittel": "Arbeid og utdanning",
+    "ingress": "Kor mykje du kan få i attlevandepensjon er avhengig av arbeidsinntekta vi kan forvente at du får. Vi bereknar forventa inntekt på grunnlag av arbeidssituasjonen og tidligare utdanning.",
+    "jobbStatus": "Kva er situasjonen din no?",
+    "jobbStatusHvorfor": "Vi skal vurdere om du utnyttar arbeidsevna du har, eller om du har behov for bistand frå oss til å bli sjølvforsørga.",
+    "ingenJobbBeskrivelse": "Anna",
+    "utdanning": {
+      "hoyesteFullfoerteUtdanning": "Kva er di høgaste fullførte utdanning?",
+      "annenUtdanning": "Anna utdanning",
+      "annenUtdanningPlaceholder": "Eks. kurs, enkeltår på universitet eller høgskule",
+      "naavaerendeUtdanning": {
+        "navn": "Namnet på utdanninga",
+        "startDato": "Frå dato",
+        "sluttDato": "Til dato"
+      }
+    },
+    "selvstendigNaeringsdrivende": "Er du sjølvstendig næringsdrivande?",
+    "selvstendigHvorfor": "Næringsinntekt for det siste kalenderåret er ikkje tilgjengeleg frå Skatteetaten enno. Du vil bli kontakta for nærare opplysingar om næringsverksemda.",
+    "selvstendig": {
+      "tittel": "Om næringa",
+      "beskrivelse": "Kva heiter firmaet?",
+      "startDato": "Når starta du?",
+      "orgnr": "Organisasjonsnummer",
+      "orgnrplaceholder": "9 siffer",
+      "forventerEndretInntekt": {
+        "svar": "Reknar du med at inntekta di endrar seg dei neste 12 månadene?",
+        "beskrivelse": "Kva er grunnen til endringene?",
+        "beskrivelsePlaceholder": "Eks. endring i forventet inntekt eller drift av næring"
+      }
+    },
+    "tidligereArbeidsforhold": {
+      "beskrivelse": "Skildring",
+      "fraDato": "Frå",
+      "tilDato": "Til"
+    },
+    "arbeidsforhold": {
+      "tittel": "Info om arbeidsgivar",
+      "arbeidsgiver": "Kva heiter firmaet?",
+      "endring": "Kva er grunnen til endringane?",
+      "ansettelsesforhold": "Type tilsetting",
+      "stillingsprosent": "Kor mykje jobbar du?",
+      "stillingsprosentPlaceholder": "Eks. 80%",
+      "startDato": "Når starta du?",
+      "forventerEndretInntekt": {
+        "svar": "Reknar du med at inntekta di endrar seg dei neste 12 månadene?",
+        "beskrivelse": "Kva er årsaka til endringane?",
+        "hvorfor": "Det har betydning for kor mykje attlevandepensjon du får."
+      },
+      "naavaerendeArbeidsforhold": {
+        "velg": "Vel ..."
+      }
+    },
+    "andreYtelser": {
+      "tittel": "Ytingar",
+      "ingress": "Nokre ytingar frå NAV vert rekna som inntekt og har betydning for kor mykje attlevandepensjon du får. Uføretrygd, alderspensjon, avtalefesta pensjon (AFP) kan ikkje kombinerast med attlevandepensjon.",
+      "kravOmAnnenStonad": {
+        "svar": "Har du søkt om andre ytingar frå NAV som du ikkje har fått svar på?",
+        "beskrivelse": "Kva har du søkt om?"
+      },
+      "mottarPensjonUtland": {
+        "svar": "Mottar du pensjon frå eit anna land enn Noreg?",
+        "hvorfor": "Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden",
+        "hvaSlagsPensjon": "Kva slags pensjon?",
+        "fraHvilketLand": "Frå kva for land?",
+        "bruttobeloepPrAar": "Årleg beløp før skatt i landets valuta",
+        "landetsValuta": "Oppgi landets valuta"
+      }
+    }
+  },
+  "omDeg": {
+    "tittel": "Om deg",
+    "advarsel": "Viss opplysingane vi har om deg ikkje stemmer, må du endre desse hos Folkeregisteret.",
+    "bostedsadresseBekreftet": "Bur du på denne adressa?",
+    "alternativAdresse": "Oppgi noverande bustadsadresse",
+    "oppholderSegINorge": "Oppheld du deg for tida i Noreg?",
+    "oppholdHvorfor": "Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
+    "oppholdsland": "Oppgi land",
+    "infoFolkeregisteret": "Saksbehandlar vil ta kontakt med deg for å oppdrive korrekt adresse.",
+    "medlemFolketrygdenUtland": "Er du medlem i folketrygda under opphald i eit anna land enn Noreg?",
+    "flyktning": "Har du status som flyktning?",
+    "flyktningHvorfor": "Hvis du er registrert som flyktning hos UDI kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
+    "kontaktinfo": {
+      "telefonnummer": "Telefonnummer",
+      "epost": "E-post"
+    },
+    "utbetalingsInformasjon": {
+      "tittel": "Oppgi bankopplysingar",
+      "bankkontoType": "Ønsker du å motta utbetalinga på norsk eller utanlandsk bankkonto?",
+      "kontonummer": "Oppgi norsk kontonummer for utbetaling",
+      "informasjon": "Du kan berre ha eitt kontonummer registrert hos NAV.",
+      "utenlandskBankNavn": "Bankens navn",
+      "utenlandskBankAdresse": "Bankens fulle adresse",
+      "iban": "IBAN-nummer",
+      "ibanHjelpetekst": "IBAN står for International Bank Account Number og er ein internasjonal standard for kontonummer.",
+      "swift": "Bankens S.W.I.F.T (BIC) adresse",
+      "swiftHjelpetekst": "BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kallast også SWIFT, og er påkrevd ved betaling til ei rekke land."
+    }
+  },
+  "omDegOgAvdoed": {
+    "tittel": "Om deg og avdøde",
+    "avdoed": {
+      "hvem": "Kvem er det som er død?",
+      "fornavn": "Førenamn",
+      "etternavn": "Etternamn",
+      "dato": "Dato",
+      "doedsfallAarsak": "Skuldast dødsfallet yrkesskade/yrkessjukdom?",
+      "doedsfallAarsakHvorfor": "Viss dødsfallet skuldast godkjent yrkesskade eller yrkessjukdom kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
+      "datoForDoedsfallet": "Når skjedde dødsfallet?"
+    },
+    "rettPaaGjenlevendepensjon": "Du kan ha rett på attlevandepensjon frå {{dato}}",
+    "forholdTilAvdoede": {
+      "relasjon": "Relasjonen din til avdøde då dødsfallet skjedde",
+      "datoForInngaattPartnerskap": "Vi gifta oss",
+      "hvorforDatoForInngaattPartnerskap": "Registrert partnarskap er likestilt med ekteskap.",
+      "fellesBarn": "Har eller hadde de felles barn?",
+      "samboereMedFellesBarn": "Var de sambuarar med felles barn før de gifta dykk?",
+      "tidligereGift": "Var du tidlegare gift med avdøde?",
+      "datoForInngaattSamboerskap": "Vi vart sambuarar",
+      "omsorgForBarn": "Hadde du omsorg for avdødes barn på dødstidspunktet?",
+      "datoForSkilsmisse": "Vi skilte oss (ikkje separasjon)",
+      "datoForSamlivsbrudd": "Vi flytta frå kvarandre",
+      "mottokBidrag": "Vart du forsørga av avdøde på dødstidstidspunktet?",
+      "mottokEktefelleBidrag": "Mottok du ektefellebidrag?",
+      "ingenRettighetAdvarsel": "Det kan sjå ut som du ikkje har rett på attlevendepensjon"
+    },
+    "nySivilstatus": {
+      "sivilstatus": "Sivilstanden din i dag",
+      "beskrivelse": "Viss du har gifta deg eller blitt sambuar på nytt kan det avgjere om du kan få attlevandepensjon og kor mykje du kan få.",
+      "hvorforAarsakOpploesning": "Vi treng opplysingane for å vurdere om du kan få attlevandepensjon.",
+      "inngaatt.dato": "Vi gifta oss",
+      "ekteskap": {
+        "inngaattDato": "Vi gifta oss",
+        "opploestDato": "Vi vart skilt",
+        "aarsakForOpploesningen": "Kva er grunnen til at de ikkje er gift lenger?",
+        "hattBarnEllerVaertGift": "Har eller hadde de barn saman eller var de tidlegare gift?"
+      },
+      "samboerskap": {
+        "inngaattDato": "Vi vart sambuarar",
+        "opploestDato": "Sambuarskapet tok slutt",
+        "aarsakForOpploesningen": "Kva er årsaka til at de ikkje er sambuarar lenger?",
+        "hattBarnEllerVaertGift": "Har eller hadde de barn saman eller var de tidlegare gift?",
+        "samboerskapOpploest": "Er dette sambuarskapet oppløyst?",
+        "samboer": {
+          "tittel": "Opplysingar om sambuar",
+          "navn": "Namn",
+          "foedselsnummer": "Fødselsnummer",
+          "harInntekt.svar": "Har sambuar inntekt?",
+          "harInntekt.samletBruttoinntektPrAar": "Årsinntekt før skatt per år",
+          "harInntekt.inntektstype": "Inntektstype"
+        }
+      },
+      "aarsakOpploesning": {
+        "dødsfall": "Dødsfall",
+        "samlivsbrudd": "Samlivsbrot"
+      }
+    }
+  },
+  "omDenAvdoede": {
+    "tittel": "Om avdøde",
+    "fornavn": "Førenamn",
+    "etternavn": "Etternamn",
+    "foedselsnummer": "Fødselsnummer",
+    "doedsdato": "Dato for dødsfallet",
+    "statsborgerskap": "Statsborgarskap",
+    "bosetning": "Var den avdøde busett i Noreg samanhengande dei siste fem åra før dødsfallet?",
+    "doedsfallAarsak": "Kan dødsfallet vere ei følge av yrkesskade/yrkessjukdom?",
+    "boddEllerJobbetUtland": {
+      "tittel": "Opphald utanfor Noreg",
+      "ingress": "Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan ha påverknad både på kor mykje du kan få i attlevandepensjon og gi deg pensjonsrettar frå andre land.",
+      "svar": "Budde eller arbeidde han eller ho i eit anna land enn Noreg etter fylte 16 år?",
+      "oppholdUtland": {
+        "land": "Land",
+        "beskrivelse": "Budd og/eller arbeidd?",
+        "fraDato": "Frå dato",
+        "tilDato": "Til dato",
+        "medlemFolketrygd": "Var han eller ho medlem av folketrygda under opphaldet?",
+        "medlemFolketrygdHjelpetekst": "Vi må vite om avdøde var medlem av folketrygda for å avgjere om du har rett til attlevandepensjon.",
+        "mottokPensjon": {
+          "beskrivelse": "Oppgi eventuell pensjon han eller ho fekk frå dette landet"
+        }
+      }
+    },
+    "haddePensjonsgivendeInntekt": {
+      "svar": "Hadde han eller ho næringsinntekt då dødsfallet skjedde?",
+      "beskrivelse": "Årsinntekt før skatt per år"
+    },
+    "selvstendigNaeringsdrivende": {
+      "tittel": "Næringsinntekt",
+      "ingress": "Vi treng å vite om avdøde hadde inntekt som sjølvstendig næringsdrivande. Dette er viktig når vi skal rekne ut kor mykje du kan få i attlevandepensjon. Vi hentar informasjon om andre inntekter.",
+      "svar": "Var han eller ho sjølvstendig næringsdrivande?",
+      "beskrivelse": "Oppgi næringsinntekt frå kalenderåret før dødsfallet",
+      "placeholder": "Samla årsinntekt før skatt"
+    },
+    "annenOpptjening": {
+      "tittel": "Anna opptening"
+    },
+    "harAvtjentMilitaerTjeneste": {
+      "svar": "Gjennomførte han eller ho militær eller sivil førstegongsteneste som varte minst 30 dagar?",
+      "hjelpetekst": "Dette kan gi opptening som blir teke med i utrekninga av attlevandepensjonen din",
+      "beskrivelse": "Kva for år? (Valfritt)"
+    }
+  },
+  "omBarn": {
+    "tittel": "Om barn",
+    "informasjon": "Dersom du har eller har hatt barn kan det påverke retten din til attlevandepensjon. Du må difor oppgi alle barn, uavhengig av kor gamle dei er. Dette gjeld barn du har felles med avdøde, avdøde sine eigne barn, og dine eigne barn. \n\nViss du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her.",
+    "fornavn": "Førenamn",
+    "etternavn": "Etternamn",
+    "foedselsnummer": "Barnet sitt fødselsnummer / d-nummer",
+    "fellesbarnMedAvdoed": "Eg og avdøde",
+    "avdoedesSaerkullsbarn": "Avdøde",
+    "egneSaerkullsbarn": "Eg",
+    "relasjon": "Kven er foreldre til barnet?",
+    "relasjonHjelpetekst": "Vi må vite om dette er eit barn du har felles med avdøde, avdøde sitt eige barn, eller ditt eige barn.",
+    "harBarnetVerge": {
+      "svar": "Er det oppnemnt verje for barnet?",
+      "navn": "Namn på verje",
+      "navnPlaceholder": "Skriv inn tekst",
+      "foedselsnummer": "Fødselsnummer til verje",
+      "foedselsnummerPlaceholder": "11 siffer"
+    },
+    "statsborgerskap": "Statsborgarskap",
+    "statsborger": "statsborgar",
+    "borI": "Bur i",
+    "borUtenlands": "Busett i eit anna land enn Noreg",
+    "dagligOmsorg": "Har du dagleg omsorg for dette barnet?",
+    "barnepensjon": {
+      "soekt": "Søkt om barnepensjon",
+      "soeker": "Søk om barnepensjon",
+      "soekerInfo": "Fordi du har felles barn med avdøde under 18 år, kan barnet ha rett til barnepensjon.",
+      "soekerCheckboks": "Ja, eg søker om barnepensjon for barnet",
+      "kontonummer": {
+        "svar": "Ønsker du at barnepensjonen skal utbetalast til eit anna kontonummer?",
+        "kontonummer": "Oppgi norsk kontonummer for utbetaling av barnepensjon",
+        "placeholder": "11 siffer"
+      },
+      "forskuddstrekk": {
+        "svar": "Ønsker du at vi legg inn eit forskotstrekk for barnepensjonen?",
+        "hjelpetekst": "Barnepensjon er skattepliktig, men vi trekk ikkje skatt av beløpet utan at vi får beskjed om det. Viss du har spørsmål om skatt må du ta kontakt med Skatteetaten.",
+        "trekkprosent": "Oppgi ønskt forskotstrekkprosent",
+        "placeholder": "Eks. 30%"
+      }
+    },
+
+    "bosattUtland": {
+      "svar": "Bur barnet i eit anna land enn Noreg?",
+      "land": "Land",
+      "adresse": "Adresse i utlandet"
+    },
+    "gravidEllerNyligFoedt": "Ventar du barn eller har du barn som framleis ikkje er registrert i folkeregisteret?",
+    "valgfritt": "Dette er valfritt"
+  },
+  "oppsummering": {
+    "tittel": "Oppsummering",
+    "beskrivelse": "Les gjennom oppsummeringa av søknaden din før du sender.\nViss du vil endre noko, kan du gå tilbake og gjere det.",
+    "feilVedSending": "Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du kontakte kundeservice."
+  },
+  "soeknadKvittering": {
+    "tittel": "Søknaden din er sendt til oss",
+    "kontakt": "Viss vi manglar informasjon for å behandle søknaden din, kontaktar vi deg.",
+    "endring": {
+      "tittel": "Du må melde frå om endringar",
+      "informasjon": "\nDu må melde frå med ein gong det skjer viktige endringar i livet ditt. Det kan for eksempel vere viss:",
+      "endringsListe": {
+        "sivilstatus": "du gifter deg, får sambuar eller får barn med sambuar",
+        "inntekt": "inntekta di endrar seg",
+        "bosted": "du skal flytte eller opphalde deg i eit anna land over lenger tid"
+      },
+      "rettigheter": {
+        "informasjon": "Du kan lese meir om dine rettar og plikter på",
+        "lenke": {
+          "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger",
+          "tekst": "nav.no/rettogplikt"
+        }
+      }
+    },
+    "seSaken": {
+      "tittel": "Sjekk saka di",
+      "informasjon": {
+        "innhold1": "\nHvis du loggar inn i",
+        "lenkeDittNAV": {
+          "href": "https://www.nav.no/no/ditt-nav",
+          "tekst": "Ditt NAV"
+        },
+        "innhold2": "finn du ei bekrefting på at vi har fått søknaden din. Du kan alltid sjekke",
+        "lenkeDineSaker": {
+          "href": "https://tjenester.nav.no/saksoversikt",
+          "tekst": "Dine saker"
+        },
+        "innhold3": "om søknaden din er behandla."
+      },
+      "behandlingstidInfo": {
+        "lenke": {
+          "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav",
+          "tekst": "Her kan du sjekke forventa saksbehandlingstid."
+        }
+      }
+    },
+    "andreStoenader": {
+      "tittel": "Du kan også ha rett til andre stønader",
+      "informasjon": "\nViss du jobbar, har barn, er reell arbeidssøkar, går på skule eller studerer, kan du også ha rett til andre stønader. For eksempel:",
+      "stoenadListe": {
+        "barnetrygd": "Utvida barnetrygd",
+        "barnetilsyn": "Stønad til barnetilsyn",
+        "tilsyn": "Tilsyn av barn og andre familemedlemmer",
+        "tillegg": "Tilleggsstønader",
+        "skolepenger": "Stønad til skulepengar"
+      },
+      "lenke": {
+        "href": "https://www.nav.no/no/person/familie/har-du-mistet-noen-i-naer-familie/har-du-mistet-ektefellen-samboeren-eller-partneren-din",
+        "tekst": "Les meir om stønader du kan ha rett på"
+      }
+    },
+    "spoersmaal": {
+      "knapp": "Avslutt"
+    }
+  },
+  "sideIkkeFunnet": {
+    "tittel": "Oi, her var det noe rusk",
+    "alert": "Siden du har etterspurt finnes ikke."
+  },
+  "ugyldigSoeker": {
+    "kanIkkeSoeke": {
+      "gjenlevendeEllerBarnepensjon": "Hei, du kan ikkje søke om attlevande- eller barnepensjon fordi du er under 18 år.",
+      "gjenlevende": "Hei, du kan ikkje søke om attlevandepensjon."
+    },
+    "info": {
+      "gjenlevendeEllerBarnepensjon": "For å søke om attlevandepensjon, eller søke barnepensjon på vegne av eit barn, må du vere over 18 år.",
+      "gjenlevende": "For å få attlevandepensjon må du være mellom 18 og 67 år. Ønsker du å søke om attlevandetillegg i alderspensjon? Du kan lese mer om dette på sidene om alderspensjon."
+    },
+    "infolenker": {
+      "barnepensjon": {
+        "href": "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon#chapter-3",
+        "tekst": "Her kan du lese meir om kven som kan få barnepensjon og korleis du søker."
+      },
+      "alderspensjon": {
+        "href": "https://www.nav.no/no/person/pensjon/alderspensjon",
+        "tekst": "Her kan du lese meir om kven som kan få alderspensjon og korleis du søker."
+      }
+    }
+  },
+  "avbrytModal": {
+    "spoersmaal": "Er du heilt sikker på at du vil avbryte søknaden?",
+    "svarNei": "Nei, eg vil halde fram med søknaden",
+    "svarJa": "Ja, avbryt søknaden"
+  },
+  "hvorforSpoerVi": "Kvifor spør vi om dette",
+  "avdoede": {
+    "relasjon": {
+      "gift": "Gift eller registrert partnar",
+      "separert": "Separert",
+      "samboer": "Sambuar",
+      "skilt": "Skilt",
+      "tidligereSamboer": "Tidlegare sambuarar"
+    }
+  },
+  "barnRelasjon": {
+    "fellesbarnMedAvdoede": "Fellesbarn med avdøde",
+    "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
+    "egneSaerkullsbarn": "Eigne særkullsbarn"
+  },
+  "samboerInntekt": {
+    "arbeidsinntekt": "Arbeidsinntekt",
+    "pensjon": "Pensjon",
+    "kapitalinntekt": "Kapitalinntekt",
+    "andreYtelser": "Andre ytingar"
+  },
+  "arbeidsforholdType": {
+    "selvstendig": "Ja, er sjølvstendig næringsdrivande",
+    "arbeidstaker": "Nei, er arbeidstakar",
+    "begge": "Eg er sjølvstendig næringsdrivande og arbeidstakar"
+  },
+  "stillingType": {
+    "fast": "Fast ansatt",
+    "midlertidig": "Midlertidig ansatt",
+    "sesongarbeid": "Sesongansatt"
+  },
+  "bankkontoType": {
+    "norsk": "Norsk",
+    "utenlandsk": "Utanlandsk"
+  },
+  "jobbStatus": {
+    "arbeidstaker": "Eg er arbeidstaker",
+    "selvstendig": "Eg er sjølstendig næringsdrivande",
+    "underUtdanning": "Eg tek utdanning",
+    "ingen": "Anna"
+  },
+  "nySivilstatus": {
+    "ekteskap": "Gift",
+    "samboerskap": "Sambuar",
+    "ingen": "Einsleg"
+  },
+  "utdanning": {
+    "grunnskole": "Grunnskule",
+    "videregående": "Vidaregåande skule",
+    "bachelorgrad": "Universitet eller høgskole til og med 4 år",
+    "mastergrad": "Universitet eller høgskole mer enn 4 år",
+    "ingen": "Inga utdanning",
+    "annen": "Anna utdanning"
+  },
+  "opploesningAarsak": {
+    "doedsfall": "Dødsfall",
+    "skilsmisse": "Skilsmisse",
+    "samlivsbrudd": "Samlivsbrot"
+  },
+  "oppholdUtlandType": {
+    "bodd": "Budd",
+    "arbeidet": "Arbeidd"
+  },
+  "felles": {
+    "fornavn": "Førenamn",
+    "etternavn": "Etternamn",
+    "foedselsnummer": "Fødselsnummer",
+    "foedselsaar": "Fødselsår",
+    "fnrDnr": "Fødselsnummer / d-nummer",
+    "fnr": "Fødselsnummer",
+    "navn": "Namn",
+    "adresse": "Bustadsadresse",
+    "sivilstatus": "Sivilstatus",
+    "statsborgerskap": "Statsborgarskap",
+    "norge": "Noreg",
+    "ingenInfo": "Ingen informasjon",
+    "ikkePaakrevd": "(valfritt)",
+    "endreSvar": "Endre svar",
+    "sistLagret": "Sist lagra"
+  },
+  "fortsettSoeknad": {
+    "beskrivelse": "Ønsker du å halde fram med utfyllinga av påbegynt søknad?",
+    "fortsettSoeknad": "Ja, eg vil halde fram der eg slapp",
+    "startPaaNytt": "Nei, start på nytt"
+  },
+  "feil": {
+    "tittel": "For å gå vidare må du rette opp i dette:",
+    "fornavn": {
+      "required": "Oppgi førenamn"
+    },
+    "etternavn": {
+      "required": "Oppgi etternamn"
+    },
+    "hovedytelse": {
+      "required": "Hovedytinga må være valt"
+    },
+    "barnepensjon": {
+      "required": "Må svarast på"
+    },
+    "fraDato": {
+      "required": "Frå dato må vere valt"
+    },
+    "bostedsadresseBekreftet": {
+      "required": "Bustadsadresse må bekreftast/avkreftast"
+    },
+    "boddEllerJobbetUtland": {
+      "svar": {
+        "required": "Oppgi om den avdøde har budd eller arbeidd i eit anna land enn Noreg"
+      },
+      "oppholdUtland": {
+        "land": {
+          "required": "Oppgi land"
+        },
+        "beskrivelse": {
+          "required": "Vel eit eller begge alternativ"
+        },
+        "mottokPensjon": {
+          "beskrivelse": {
+            "required": "Oppgi kor mykje pensjon som vart mottatt"
+          }
+        },
+        "medlemFolketrygd": {
+          "required": "Oppgi om du er medlem i folketrygda under opphald i eit anna land enn Noreg"
+        }
+      }
+    },
+    "alternativAdresse": {
+      "required": "Oppgi noverande bustadsadresse"
+    },
+    "oppholdsland": {
+      "required": "Oppgi noverande opphaldsland"
+    },
+    "medlemFolketrygdenUtland": {
+      "required": "Oppgi om du er medlem i folketrygda under opphald i eit anna land enn Noreg"
+    },
+    "avdoed": {
+      "fornavn": {
+        "required": "Oppgi avdøde sitt førenamn"
+      },
+      "etternavn": {
+        "required": "Oppgi avdøde sitt etternamn"
+      },
+      "datoForDoedsfallet": {
+        "required": "Oppgi når dødsfallet skjedde"
+      },
+      "doedsfallAarsak": {
+        "required": "Oppgi om dødsfallet skuldast yrkesskade/yrkessjukdom"
+      }
+    },
+    "forholdTilAvdoede": {
+      "relasjon": {
+        "required": "Oppgi din relasjon til avdøde"
+      },
+      "datoForInngaattPartnerskap": {
+        "required": "Oppgi dato"
+      },
+      "datoForSkilsmisse": {
+        "required": "Oppgi dato for skilsmisse (ikkje separasjon)"
+      },
+      "fellesBarn": {
+        "required": "Oppgi om de har eller hadde, felles barn"
+      },
+      "tidligereGift": {
+        "required": "Oppgi om du var tidlegare gift med avdøde"
+      }
+    },
+    "selvstendigNaeringsdrivende": {
+      "svar": {
+        "required": "Oppgi om avdøde var sjølvstendig næringsdrivande"
+      },
+      "beskrivelse": {
+        "required": "Oppgi næringsinntekt"
+      }
+    },
+    "selvstendig": {
+      "beskrivelse": {
+        "required": "Oppgi næring"
+      },
+      "startDato": {
+        "required": "Oppgi oppstartsdato"
+      },
+      "type": {
+        "required": "Oppgi næringstype"
+      },
+      "orgnr": {
+        "required": "Du må fylle ut gyldig organisasjonsnummer. 9 siffer",
+        "minLength": "Organisasjonsnummer skal vere 9 siffer"
+      },
+      "forventerEndretInntekt": {
+        "svar": {
+          "required": "Oppgi om du forventar endringar i inntekt"
+        },
+        "beskrivelse": {
+          "required": "Fyll ut skildring av inntektsendringa"
+        }
+      }
+    },
+    "haddePensjonsgivendeInntekt": {
+      "svar": {
+        "required": "Oppgi om avdøde hadde pensjonsgivande inntekt (Valfritt)"
+      }
+    },
+    "harAvtjentMilitaerTjeneste": {
+      "svar": {
+        "required": "Oppgi om avdøde har gjennomført sivil eller militær førstegongsteneste"
+      },
+      "beskrivelse": {
+        "required": "Oppgi gjeldande år"
+      }
+    },
+    "kontaktinfo": {
+      "telefonnummer": {
+        "required": "Telefonnummer må fyllast ut",
+        "pattern": "Telefonnummer kan berre bestå av siffer (0-9)"
+      },
+      "epost": {
+        "required": "E-post må fyllast ut",
+        "pattern": "E-post må vere gyldig"
+      }
+    },
+    "oppholderSegINorge": {
+      "required": "Opphald i Noreg må svarast på"
+    },
+    "forholdTilAvdoed": {
+      "forholdTilAvdoede": {
+        "required": "Forhold til den avdøde må svarast på"
+      },
+      "datoForInngaattPartnerskap": {
+        "required": "Du må oppgi dato"
+      },
+      "datoForInngaattSamboerskap": {
+        "required": "Du må oppgi dato"
+      },
+      "datoForSamlivsbrudd": {
+        "required": "Du må oppgi dato"
+      },
+      "varSkiltFoerDoedsfall": {
+        "required": "Skilsmisse/samlivsbrot må svarast på"
+      },
+      "mottokBidragFraAvdoede": {
+        "required": "Spørsmål om bidrag må svarast på"
+      },
+      "forholdTilAvdoed.bidragBeloepPrAar": {
+        "required": "Bidrag mottatt må fyllast ut"
+      }
+    },
+    "jobbStatus": {
+      "required": "Oppgi om du er i arbeid"
+    },
+    "utdanning": {
+      "hoyesteFullfoerteUtdanning": {
+        "required": "Oppgi høgaste fullførte utdanning"
+      },
+      "annenUtdanning": {
+        "required": "Oppgi anna utdanning"
+      },
+      "naavaerendeUtdanning": {
+        "navn": {
+          "required": "Oppgi namn på utdanninga"
+        },
+        "startDato": {
+          "required": "Oppgi startdato på utdanninga"
+        },
+        "sluttDato": {
+          "required": "Oppgi sluttdato på utdanninga"
+        }
+      }
+    },
+    "ingenJobbBeskrivelse": {
+      "required": "Gi ei nærare skildring av situasjonen"
+    },
+    "andreYtelser": {
+      "kravOmAnnenStonad": {
+        "svar": {
+          "required": "Oppgi om du ventar svar på andre ytingar"
+        },
+        "beskrivelse": {
+          "required": "Oppgi ytingar du har søkt om"
+        }
+      },
+      "mottarPensjonUtland": {
+        "svar": {
+          "required": "Oppgi om du får pensjon fra eit anna land enn Noreg"
+        },
+        "hvaSlagsPensjon": {
+          "required": "Oppgi kva slags pensjon"
+        },
+        "fraHvilketLand": {
+          "required": "Oppgi land"
+        },
+        "bruttobeloepPrAar": {
+          "required": "Oppgi bruttobeløp i landets valuta"
+        }
+      }
+    },
+    "foedselsnummer": {
+      "validate": "Ugyldig fødselsnummer",
+      "required": "Oppgi fødselsnummer"
+    },
+    "statsborgerskap": {
+      "required": "Oppgi statsborgarskap"
+    },
+    "nySivilstatus": {
+      "sivilstatus": {
+        "required": "Oppgi noverande sivilstand"
+      },
+      "nySivilstatusEtterDoedsfallet": {
+        "required": "Endra sivilstatus må svarast på"
+      },
+      "aarsakForOpploesningen": {
+        "required": "Årsak for oppløysinga må oppgis"
+      },
+      "ekteskap": {
+        "inngaattDato": {
+          "required": "Oppgi når de vart gift"
+        },
+        "opploestDato": {
+          "required": "Oppgi når de vart skilt"
+        },
+        "fremdelesGift": {
+          "required": "Oppgi om de framleis er gift"
+        },
+        "aarsakForOpploesningen": {
+          "required": "Årsak for oppløysinga må oppgis"
+        }
+      },
+      "samboerskap": {
+        "inngaattDato": {
+          "required": "Oppgi når de vart sambuarar"
+        },
+        "hattBarnEllerVaertGift": {
+          "required": "Oppgi om de har eller har hatt barn saman eller om de har vore gift"
+        },
+        "aarsakForOpploesningen": {
+          "required": "Årsak for oppløysinga må oppgis"
+        },
+        "samboerskapOpploest": {
+          "required": "Oppgi om sambuarskapet er oppløyst"
+        },
+        "opploestDato": {
+          "required": "Oppgi når sambuarskapet tok slutt"
+        },
+        "samboer": {
+          "navn": {
+            "required": "Oppgi samboeren sitt navn"
+          },
+          "foedselsnummer": {
+            "required": "Oppgi sambuaren sitt fødselsnummer",
+            "validate": "Ugyldig fødselsnummer"
+          },
+          "harInntekt": {
+            "samletBruttoinntektPrAar": {
+              "required": "Oppgi samla inntekt før skatt"
+            },
+            "inntektstype": {
+              "required": "Oppgi inntektstype"
+            },
+            "svar": {
+              "required": "Oppgi om sambuar har inntekt"
+            }
+          }
+        }
+      }
+    },
+    "bosattUtland": {
+      "svar": {
+        "required": "Oppgi om personen er busett i eit anna land enn Noreg"
+      }
+    },
+    "gravidEllerNyligFoedt": {
+      "required": "Oppgi om du ventar eller har barn som ikkje er oppgitt i folkeregisteret"
+    },
+    "relasjon": {
+      "required": "Oppgi relasjon"
+    },
+    "yrke": {
+      "required": "Yrke må svarast på"
+    },
+    "stilling": {
+      "required": "Stilling må svarast på"
+    },
+    "startDato": {
+      "required": "Startdato må svarast på"
+    },
+    "sluttDato": {
+      "required": "Sluttdato må svarast på"
+    },
+    "ansettelsesforhold": {
+      "required": "Tilsettingsforhold må svarast på"
+    },
+    "heltidDeltid": {
+      "required": "Du må oppgi om stilling er heiltid eller deltid"
+    },
+    "stillingsprosent": {
+      "required": "Stillingsprosent må fyllast ut",
+      "pattern": "Stillingsprosent må oppgis i siffer (0-99)"
+    },
+    "arbeidsgiver": {
+      "navn.required": "Arbeidsgivaren sitt namn må fyllast ut",
+      "adresse.required": "Arbeidsgivaren si adresse må fyllast ut"
+    },
+    "inntekt": {
+      "bruttoArbeidsinntektPrMd.required": "Inntekt før skatt må fyllast ut",
+      "personinntektFraNaeringPrAr.required": "Personinntekt frå næring må fyllast ut"
+    },
+    "arbeidsforhold": {
+      "arbeidsgiver": {
+        "required": "Oppgi arbeidsgivar"
+      },
+      "startDato": {
+        "required": "Oppstartsdato må fyllast ut"
+      },
+      "ansettelsesforhold": {
+        "required": "Oppgi type tilsetting"
+      },
+      "stillingsprosent": {
+        "required": "Oppgi stillingsprosent",
+        "pattern": "Oppgi ein gyldig stillingsprosent"
+      },
+      "forventerEndretInntekt": {
+        "svar": {
+          "required": "Oppgi om du forventar endringar i inntekt"
+        },
+        "beskrivelse": {
+          "required": "Gi ei kort skildring av endringane"
+        }
+      }
+    },
+    "tidligereArbeidsforhold": {
+      "fraDato.required": "Frå dato må fyllast ut",
+      "tilDato.required": "Til dato må fyllast ut",
+      "beskrivelse.required": "Beskrivelse må fylles ut"
+    },
+    "utbetalingsInformasjon": {
+      "bankkontoType.required": "Du må velje mellom norsk eller utanlandsk bankkonto for utbetaling",
+      "kontonummer": {
+        "required": "Norsk kontonummer må fyllast ut (11 siffer)",
+        "pattern": "Kontonummeret ikkje gyldig. Må ha 11 siffer."
+      },
+      "utenlandskBankNavn.required": "Namnet på den utanlandske banken må fylles ut",
+      "utenlandskBankAdresse.required": "Adressa til den utanlandske banken må fyllast ut",
+      "iban": {
+        "required": "IBAN-nummer må fyllast ut",
+        "validate": "Ugyldig IBAN-nummer"
+      },
+      "swift": {
+        "required": "Bankens S.W.I.F.T (BIC) adresse må fylles ut",
+        "validate": "Ugyldig SWIFT/BIC kode"
+      }
+    },
+    "barnepensjon": {
+      "soeker": {
+        "required": "Oppgi om du ønsker å søke om barnepensjon"
+      },
+      "kontonummer": {
+        "svar": {
+          "required": "Oppgi om du ønsker eit anna kontonummer for utbetaling av barnepensjon"
+        },
+        "kontonummer": {
+          "required": "Norsk kontonummer må fyllast ut (11 siffer)"
+        }
+      },
+      "forskuddstrekk": {
+        "svar": {
+          "required": "Oppgi om du ønsker forskotstrekk for barnepensjonen"
+        },
+        "trekkprosent": {
+          "required": "Oppgi ein gyldig prosent"
+        }
+      }
+    },
+    "dagligOmsorg": {
+      "required": "Oppgi om du har dagleg omsorg for barnet"
+    },
+    "harBarnetVerge": {
+      "svar": {
+        "required": "Oppgi om det er oppnemnt ei verje for barnet"
+      },
+      "navn": {
+        "required": "Oppgi verja sitt namn"
+      },
+      "foedselsnummer": {
+        "required": "Oppgi verja sitt fødselsnummer"
+      }
+    }
+  }
+}
