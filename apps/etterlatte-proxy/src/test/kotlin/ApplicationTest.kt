@@ -7,6 +7,7 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.createTestEnvironment
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.withApplication
+import org.junit.Test
 import org.junit.jupiter.api.Assertions.assertEquals
 
 class ApplicationTest {
@@ -15,7 +16,7 @@ class ApplicationTest {
         config = HoconApplicationConfig(ConfigFactory.load())
     }
 
-    //@Test
+    @Test
     fun testRoot() {
         withApplication(testEnv) {
             handleRequest(HttpMethod.Get, "internal/is_alive").apply {
@@ -24,12 +25,19 @@ class ApplicationTest {
             }
         }
     }
-    //@Test
-    fun testPDL() {
+    @Test
+    fun testKodeverk() {
         withApplication(testEnv) {
-            handleRequest(HttpMethod.Post, "/tokenx/pdl").apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("HELLO WORLD!", response.content)
+            handleRequest(HttpMethod.Get, "tokenx/kodeverk").apply {
+                assertEquals(HttpStatusCode.Unauthorized, response.status())
+            }
+        }
+    }
+    @Test
+    fun testDok() {
+        withApplication(testEnv) {
+            handleRequest(HttpMethod.Post, "aad/dok").apply {
+                assertEquals(HttpStatusCode.Unauthorized, response.status())
             }
         }
     }
