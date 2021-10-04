@@ -99,11 +99,6 @@
         "beskrivelsePlaceholder": "Eks. endring i forventet inntekt eller drift av næring"
       }
     },
-    "tidligereArbeidsforhold": {
-      "beskrivelse": "Skildring",
-      "fraDato": "Frå",
-      "tilDato": "Til"
-    },
     "arbeidsforhold": {
       "tittel": "Info om arbeidsgivar",
       "arbeidsgiver": "Kva heiter firmaet?",
@@ -178,11 +173,9 @@
       "doedsfallAarsakHvorfor": "Viss dødsfallet skuldast godkjent yrkesskade eller yrkessjukdom kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
       "datoForDoedsfallet": "Når skjedde dødsfallet?"
     },
-    "rettPaaGjenlevendepensjon": "Du kan ha rett på attlevandepensjon frå {{dato}}",
     "forholdTilAvdoede": {
       "relasjon": "Relasjonen din til avdøde då dødsfallet skjedde",
       "datoForInngaattPartnerskap": "Vi gifta oss",
-      "hvorforDatoForInngaattPartnerskap": "Registrert partnarskap er likestilt med ekteskap.",
       "fellesBarn": "Har eller hadde de felles barn?",
       "samboereMedFellesBarn": "Var de sambuarar med felles barn før de gifta dykk?",
       "tidligereGift": "Var du tidlegare gift med avdøde?",
@@ -191,26 +184,13 @@
       "datoForSkilsmisse": "Vi skilte oss (ikkje separasjon)",
       "datoForSamlivsbrudd": "Vi flytta frå kvarandre",
       "mottokBidrag": "Vart du forsørga av avdøde på dødstidstidspunktet?",
-      "mottokEktefelleBidrag": "Mottok du ektefellebidrag?",
-      "ingenRettighetAdvarsel": "Det kan sjå ut som du ikkje har rett på attlevendepensjon"
+      "mottokEktefelleBidrag": "Mottok du ektefellebidrag?"
     },
     "nySivilstatus": {
       "sivilstatus": "Sivilstanden din i dag",
       "beskrivelse": "Viss du har gifta deg eller blitt sambuar på nytt kan det avgjere om du kan få attlevandepensjon og kor mykje du kan få.",
-      "hvorforAarsakOpploesning": "Vi treng opplysingane for å vurdere om du kan få attlevandepensjon.",
-      "inngaatt.dato": "Vi gifta oss",
-      "ekteskap": {
-        "inngaattDato": "Vi gifta oss",
-        "opploestDato": "Vi vart skilt",
-        "aarsakForOpploesningen": "Kva er grunnen til at de ikkje er gift lenger?",
-        "hattBarnEllerVaertGift": "Har eller hadde de barn saman eller var de tidlegare gift?"
-      },
       "samboerskap": {
-        "inngaattDato": "Vi vart sambuarar",
-        "opploestDato": "Sambuarskapet tok slutt",
-        "aarsakForOpploesningen": "Kva er årsaka til at de ikkje er sambuarar lenger?",
         "hattBarnEllerVaertGift": "Har eller hadde de barn saman eller var de tidlegare gift?",
-        "samboerskapOpploest": "Er dette sambuarskapet oppløyst?",
         "samboer": {
           "tittel": "Opplysingar om sambuar",
           "navn": "Namn",
@@ -219,10 +199,6 @@
           "harInntekt.samletBruttoinntektPrAar": "Årsinntekt før skatt per år",
           "harInntekt.inntektstype": "Inntektstype"
         }
-      },
-      "aarsakOpploesning": {
-        "dødsfall": "Dødsfall",
-        "samlivsbrudd": "Samlivsbrot"
       }
     }
   },
@@ -468,11 +444,6 @@
     "ingen": "Inga utdanning",
     "annen": "Anna utdanning"
   },
-  "opploesningAarsak": {
-    "doedsfall": "Dødsfall",
-    "skilsmisse": "Skilsmisse",
-    "samlivsbrudd": "Samlivsbrot"
-  },
   "oppholdUtlandType": {
     "bodd": "Budd",
     "arbeidet": "Arbeidd"
@@ -576,8 +547,26 @@
       "fellesBarn": {
         "required": "Oppgi om de har eller hadde, felles barn"
       },
+      "omsorgForBarn": {
+        "required": "Oppgi om du hadde omsorg for avdødes barn på dødstidspunktet"
+      },
       "tidligereGift": {
         "required": "Oppgi om du var tidlegare gift med avdøde"
+      },
+      "samboereMedFellesBarn": {
+        "required": "Oppgi om de var sambuarar med felles barn før de gifta dykk?"
+      },
+      "datoForInngaattSamboerskap": {
+        "required": "Oppgi når de vart sambuarar"
+      },
+      "datoForSamlivsbrudd": {
+        "required": "Oppgi når de flytta frå kvarandre"
+      },
+      "mottokBidrag": {
+        "required": "Oppgi om du vart forsørga av avdøde på dødstidstidspunktet?"
+      },
+      "mottokEktefelleBidrag": {
+        "required": "Oppgi om du mottok ektefellebidrag"
       }
     },
     "selvstendigNaeringsdrivende": {
@@ -636,29 +625,6 @@
     },
     "oppholderSegINorge": {
       "required": "Opphald i Noreg må svarast på"
-    },
-    "forholdTilAvdoed": {
-      "forholdTilAvdoede": {
-        "required": "Forhold til den avdøde må svarast på"
-      },
-      "datoForInngaattPartnerskap": {
-        "required": "Du må oppgi dato"
-      },
-      "datoForInngaattSamboerskap": {
-        "required": "Du må oppgi dato"
-      },
-      "datoForSamlivsbrudd": {
-        "required": "Du må oppgi dato"
-      },
-      "varSkiltFoerDoedsfall": {
-        "required": "Skilsmisse/samlivsbrot må svarast på"
-      },
-      "mottokBidragFraAvdoede": {
-        "required": "Spørsmål om bidrag må svarast på"
-      },
-      "forholdTilAvdoed.bidragBeloepPrAar": {
-        "required": "Bidrag mottatt må fyllast ut"
-      }
     },
     "jobbStatus": {
       "required": "Oppgi om du er i arbeid"
@@ -723,38 +689,9 @@
       "nySivilstatusEtterDoedsfallet": {
         "required": "Endra sivilstatus må svarast på"
       },
-      "aarsakForOpploesningen": {
-        "required": "Årsak for oppløysinga må oppgis"
-      },
-      "ekteskap": {
-        "inngaattDato": {
-          "required": "Oppgi når de vart gift"
-        },
-        "opploestDato": {
-          "required": "Oppgi når de vart skilt"
-        },
-        "fremdelesGift": {
-          "required": "Oppgi om de framleis er gift"
-        },
-        "aarsakForOpploesningen": {
-          "required": "Årsak for oppløysinga må oppgis"
-        }
-      },
       "samboerskap": {
-        "inngaattDato": {
-          "required": "Oppgi når de vart sambuarar"
-        },
         "hattBarnEllerVaertGift": {
           "required": "Oppgi om de har eller har hatt barn saman eller om de har vore gift"
-        },
-        "aarsakForOpploesningen": {
-          "required": "Årsak for oppløysinga må oppgis"
-        },
-        "samboerskapOpploest": {
-          "required": "Oppgi om sambuarskapet er oppløyst"
-        },
-        "opploestDato": {
-          "required": "Oppgi når sambuarskapet tok slutt"
         },
         "samboer": {
           "navn": {
@@ -841,11 +778,6 @@
           "required": "Gi ei kort skildring av endringane"
         }
       }
-    },
-    "tidligereArbeidsforhold": {
-      "fraDato.required": "Frå dato må fyllast ut",
-      "tilDato.required": "Til dato må fyllast ut",
-      "beskrivelse.required": "Beskrivelse må fylles ut"
     },
     "utbetalingsInformasjon": {
       "bankkontoType.required": "Du må velje mellom norsk eller utanlandsk bankkonto for utbetaling",

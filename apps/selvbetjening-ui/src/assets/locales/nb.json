@@ -101,11 +101,6 @@
         "beskrivelsePlaceholder": "Eks. endring i forventet inntekt eller drift av næring"
       }
     },
-    "tidligereArbeidsforhold": {
-      "beskrivelse": "Beskrivelse",
-      "fraDato": "Fra",
-      "tilDato": "Til"
-    },
     "arbeidsforhold": {
       "tittel": "Om arbeidsgiver",
       "arbeidsgiver": "Hva heter firmaet?",
@@ -192,7 +187,6 @@
     "forholdTilAvdoede": {
       "relasjon": "Relasjonen din til avdøde da dødsfallet skjedde",
       "datoForInngaattPartnerskap": "Vi giftet oss",
-      "hvorforDatoForInngaattPartnerskap": "Registrert partnerskap er likestilt med ekteskap.",
       "fellesBarn": "Har eller hadde dere felles barn?",
       "samboereMedFellesBarn": "Var dere samboere med felles barn før dere giftet dere?",
       "tidligereGift": "Var du tidligere gift med avdøde?",
@@ -206,20 +200,8 @@
     "nySivilstatus": {
       "sivilstatus": "Sivilstanden din i dag",
       "beskrivelse": "Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få gjenlevendepensjon og hvor mye du kan få.",
-      "hvorforAarsakOpploesning": "Vi trenger opplysningene for å vurdere om du kan få gjenlevendepensjon.",
-      "inngaatt.dato": "Vi giftet oss",
-      "ekteskap": {
-        "inngaattDato": "Vi giftet oss",
-        "opploestDato": "Vi ble skilt",
-        "aarsakForOpploesningen": "Hva er grunnen til at dere ikke er gift lenger?",
-        "hattBarnEllerVaertGift": "Har/hadde dere barn sammen eller var dere tidligere gift?"
-      },
       "samboerskap": {
-        "inngaattDato": "Vi ble samboere",
-        "opploestDato": "Samboerskapet opphørte",
-        "aarsakForOpploesningen": "Hva er grunnen til at dere ikke er samboere lenger?",
         "hattBarnEllerVaertGift": "Har eller hadde dere barn sammen eller var dere tidligere gift?",
-        "samboerskapOpploest": "Er dette samboerskapet oppløst?",
         "samboer": {
           "tittel": "Opplysninger om samboer",
           "navn": "Navn",
@@ -228,10 +210,6 @@
           "harInntekt.samletBruttoinntektPrAar": "Samlet årsinntekt før skatt",
           "harInntekt.inntektstype": "Inntektstype"
         }
-      },
-      "aarsakOpploesning": {
-        "dødsfall": "Dødsfall",
-        "samlivsbrudd": "Samlivsbrudd"
       }
     }
   },
@@ -480,11 +458,6 @@
     "ingen": "Ingen utdanning",
     "annen": "Annen utdanning"
   },
-  "opploesningAarsak": {
-    "doedsfall": "Dødsfall",
-    "skilsmisse": "Skilsmisse",
-    "samlivsbrudd": "Samlivsbrudd"
-  },
   "oppholdUtlandType": {
     "bodd": "Bodd",
     "arbeidet": "Arbeidet"
@@ -586,8 +559,26 @@
       "fellesBarn": {
         "required": "Oppgi om dere har eller hadde, felles barn"
       },
+      "omsorgForBarn": {
+        "required": "Oppgi om du hadde omsorg for avdødes barn på dødstidspunktet"
+      },
       "tidligereGift": {
         "required": "Oppgi om du var tidligere gift med avdøde"
+      },
+      "samboereMedFellesBarn": {
+        "required": "Oppgi om dere var samboere med felles barn før dere giftet dere"
+      },
+      "datoForInngaattSamboerskap": {
+        "required": "Oppgi når dere ble samboere"
+      },
+      "datoForSamlivsbrudd": {
+        "required": "Oppgi når dere flyttet fra hverandre"
+      },
+      "mottokBidrag": {
+        "required": "Oppgi om du ble forsørget av avdøde på dødstidspunktet"
+      },
+      "mottokEktefelleBidrag": {
+        "required": "Oppgi om du mottok ektefellebidrag"
       }
     },
     "selvstendigNaeringsdrivende": {
@@ -656,29 +647,6 @@
     },
     "oppholderSegINorge": {
       "required": "Opphold må besvares"
-    },
-    "forholdTilAvdoed": {
-      "forholdTilAvdoede": {
-        "required": "Forhold til den avdøde må besvares"
-      },
-      "datoForInngaattPartnerskap": {
-        "required": "Dato må oppgis"
-      },
-      "datoForInngaattSamboerskap": {
-        "required": "Dato må oppgis"
-      },
-      "datoForSamlivsbrudd": {
-        "required": "Dato må oppgis"
-      },
-      "varSkiltFoerDoedsfall": {
-        "required": "Skilsmisse/samlivsbrudd må besvares"
-      },
-      "mottokBidragFraAvdoede": {
-        "required": "Spørsmål om bidrag må besvares"
-      },
-      "forholdTilAvdoed.bidragBeloepPrAar": {
-        "required": "Beløp/bidrag mottatt må fylles ut"
-      }
     },
     "jobbStatus": {
       "required": "Oppgi om du er i arbeid"
@@ -751,38 +719,9 @@
       "nySivilstatusEtterDoedsfallet": {
         "required": "Endret sivilstatus må besvares"
       },
-      "aarsakForOpploesningen": {
-        "required": "Årsak for oppløsningen må oppgis"
-      },
-      "ekteskap": {
-        "inngaattDato": {
-          "required": "Oppgi når dere ble gift"
-        },
-        "opploestDato": {
-          "required": "Oppgi når dere ble skilt"
-        },
-        "fremdelesGift": {
-          "required": "Oppgi om dere fremdeles er gift"
-        },
-        "aarsakForOpploesningen": {
-          "required": "Årsak for oppløsningen må oppgis"
-        }
-      },
       "samboerskap": {
-        "inngaattDato": {
-          "required": "Oppgi når dere ble samboere"
-        },
         "hattBarnEllerVaertGift": {
           "required": "Oppgi om dere har har hatt barn sammen eller om dere har vært gift"
-        },
-        "aarsakForOpploesningen": {
-          "required": "Årsak for oppløsningen må oppgis"
-        },
-        "samboerskapOpploest": {
-          "required": "Oppgi om samboerskapet er oppløst"
-        },
-        "opploestDato": {
-          "required": "Oppgi når samboerskapet opphørte"
         },
         "samboer": {
           "navn": {
@@ -875,11 +814,6 @@
           "required": "Beskrivelse må fylles ut"
         }
       }
-    },
-    "tidligereArbeidsforhold": {
-      "fraDato.required": "Fra dato må fylles ut",
-      "tilDato.required": "Til dato må fylles ut",
-      "beskrivelse.required": "Beskrivelse må fylles ut"
     },
     "utbetalingsInformasjon": {
       "bankkontoType.required": "Du må velge mellom norsk eller utenlandsk bankkonto for utbetaling",

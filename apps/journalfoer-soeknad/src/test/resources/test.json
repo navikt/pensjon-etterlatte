@@ -19,7 +19,6 @@
       "forholdTilAvdoed": {
         "forholdTilAvdoede": "Gjenlevende ektefelle",
         "datoForInngaattPartnerskap": "2021-05-11T22:00:00.000Z",
-        "varSkiltFoerDoedsfall": "Nei",
         "mottokBidragFraAvdoede": "Nei"
       },
       "nySivilstatus": {
@@ -47,13 +46,6 @@
         "foedselsnummer": "26104500284",
         "foreldre": "Fellesbarn m/avdøde",
         "bosattUtland": "Nei"
-      }
-    ],
-    "tidligereArbeidsforhold": [
-      {
-        "beskrivelse": "livets harde skole",
-        "fraDato": "2070-04-29T22:00:00.000Z",
-        "tilDato": "2070-04-30T22:00:00.000Z"
       }
     ],
     "naavaerendeArbeidsforhold": {

@@ -7,12 +7,6 @@ export enum Sivilstatus {
     samboerskap = "nySivilstatus.samboerskap",
 }
 
-export enum OpploesningAarsak {
-    doedsfall = "opploesningAarsak.doedsfall",
-    skilsmisse = "opploesningAarsak.skilsmisse",
-    samlivsbrudd = "opploesningAarsak.samlivsbrudd",
-}
-
 export enum ForholdTilAvdoede {
     gift = "avdoede.relasjon.gift",
     separert = "avdoede.relasjon.separert",
@@ -110,11 +104,19 @@ export interface IAvdoed {
     };
 }
 
-export enum SamboerInntekt {
-    arbeidsinntekt = "samboerInntekt.arbeidsinntekt",
-    pensjon = "samboerInntekt.pensjon",
-    kapitalinntekt = "samboerInntekt.kapitalinntekt",
-    andreYtelser = "samboerInntekt.andreYtelser",
+export interface IKontaktinfo {
+    telefonnummer?: string;
+    epost?: string;
+}
+
+export interface INySivilstatus {
+    sivilstatus?: Sivilstatus;
+    samboerskap?: INyttSamboerskap;
+}
+
+export interface INyttSamboerskap {
+    hattBarnEllerVaertGift?: IValg;
+    samboer?: ISamboer;
 }
 
 export interface ISamboer {
@@ -127,31 +129,11 @@ export interface ISamboer {
     };
 }
 
-export interface IKontaktinfo {
-    telefonnummer?: string;
-    epost?: string;
-}
-
-export interface INySivilstatus {
-    sivilstatus?: Sivilstatus;
-    ekteskap?: INyttEkteskap;
-    samboerskap?: INyttSamboerskap;
-}
-
-export interface INyttSamboerskap {
-    samboerskapOpploest?: IValg;
-    aarsakForOpploesningen?: string;
-    hattBarnEllerVaertGift?: IValg;
-    inngaattDato?: Date;
-    opploestDato?: Date;
-    samboer?: ISamboer;
-}
-
-export interface INyttEkteskap {
-    fremdelesGift?: IValg;
-    aarsakForOpploesningen?: string;
-    inngaattDato?: Date;
-    opploestDato?: Date;
+export enum SamboerInntekt {
+    arbeidsinntekt = "samboerInntekt.arbeidsinntekt",
+    pensjon = "samboerInntekt.pensjon",
+    kapitalinntekt = "samboerInntekt.kapitalinntekt",
+    andreYtelser = "samboerInntekt.andreYtelser",
 }
 
 export interface IForholdAvdoede {

@@ -95,8 +95,6 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
                     <NySivilstatus/>
 
-                    <br/>
-
                     <Feilmeldinger errors={errors}/>
 
                     <Navigasjon

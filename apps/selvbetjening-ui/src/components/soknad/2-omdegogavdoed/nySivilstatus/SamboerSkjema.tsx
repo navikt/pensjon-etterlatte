@@ -19,30 +19,29 @@ const SamboerSkjema = () => {
 
     return (
         <Panel border>
-            <Title size={"s"}>{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}</Title>
-
-            <br />
-
             <SkjemaGruppe>
-                <RHFInput
-                    name={"nySivilstatus.samboerskap.samboer.navn"}
-                    bredde={"XL"}
-                    label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
-                />
-
-                <RHFInput
-                    name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
-                    bredde={"S"}
-                    label={t("felles.fnr")}
-                    placeholder={t("felles.fnrPlaceholder")}
-                    rules={{ validate: (value) => fnr(value).status === "valid" }}
-                />
+                <Title size={"s"}>{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}</Title>
             </SkjemaGruppe>
+
+            <RHFInput
+                name={"nySivilstatus.samboerskap.samboer.navn"}
+                bredde={"XL"}
+                label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
+            />
+
+            <RHFInput
+                name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
+                bredde={"S"}
+                label={t("felles.fnr")}
+                placeholder={t("felles.fnrPlaceholder")}
+                rules={{ validate: (value) => fnr(value).status === "valid" }}
+            />
 
             <RHFSpoersmaalRadio
                 name={"nySivilstatus.samboerskap.hattBarnEllerVaertGift"}
                 legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
             />
+
 
             {harVaertGift === IValg.NEI && (
                 <RHFSpoersmaalRadio
@@ -75,6 +74,7 @@ const SamboerSkjema = () => {
                 </>
             )}
         </Panel>
+
     );
 };
 

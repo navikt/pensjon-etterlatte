@@ -6,6 +6,7 @@ import { antallAarMellom } from "../../../../utils/dato";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 const giftMerEnn25aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0;
@@ -46,7 +47,7 @@ const SkiltFraAvdoede = () => {
     const mindreEnnFemAar = mindreEnnFemaarMellomSkillsmisseOgDodsfall(datoForSkilsmisse, datoForDoedsfallet);
 
     return (
-        <>
+        <SkjemaGruppering>
             <SkjemaGruppe className={"rad col-mobile"}>
                 <Datovelger
                     className={"kol"}
@@ -87,7 +88,7 @@ const SkiltFraAvdoede = () => {
                     />
                 </>
             ) : null}
-        </>
+        </SkjemaGruppering>
     );
 };
 

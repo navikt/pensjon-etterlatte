@@ -1,11 +1,11 @@
 import { RHFRadio } from "../../../felles/RHFRadio";
 import { ISoeker, Sivilstatus } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
-import NyttSamboerskap from "./NyttSamboerskap";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { BodyLong, Title } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
+import SamboerSkjema from "./SamboerSkjema";
 
 const NySivilstatus = () => {
     const { t } = useTranslation();
@@ -29,7 +29,7 @@ const NySivilstatus = () => {
                 })}
             />
 
-            {sivilstatus === Sivilstatus.samboerskap && <NyttSamboerskap />}
+            {sivilstatus === Sivilstatus.samboerskap &&  <SamboerSkjema/>}
         </SkjemaGruppering>
     );
 };

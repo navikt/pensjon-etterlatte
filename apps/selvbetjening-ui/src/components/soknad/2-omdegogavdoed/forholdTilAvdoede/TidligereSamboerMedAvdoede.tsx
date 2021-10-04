@@ -6,6 +6,7 @@ import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
 import { useTranslation } from "react-i18next";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation();
@@ -20,7 +21,7 @@ const TidligereSamboerMedAvdoede = () => {
     const bidragMaaUtfylles = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet);
 
     return (
-        <>
+        <SkjemaGruppering>
             <RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
@@ -56,7 +57,7 @@ const TidligereSamboerMedAvdoede = () => {
                     )}
                 </>
             )}
-        </>
+        </SkjemaGruppering>
     )
 }
 

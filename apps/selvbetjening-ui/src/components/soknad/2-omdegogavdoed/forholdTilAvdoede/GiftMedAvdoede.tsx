@@ -6,6 +6,7 @@ import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useTranslation } from "react-i18next";
 import { SkjemaGruppe } from "nav-frontend-skjema";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 const GiftMedAvdoede = () => {
     const { t } = useTranslation();
@@ -19,7 +20,7 @@ const GiftMedAvdoede = () => {
     const datoforDoedsfallet = watch("avdoed.datoForDoedsfallet");
 
     return (
-        <>
+        <SkjemaGruppering>
             <SkjemaGruppe>
                 <Datovelger
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
@@ -42,7 +43,7 @@ const GiftMedAvdoede = () => {
                     )}
                 </>
             )}
-        </>
+        </SkjemaGruppering>
     );
 };
 
