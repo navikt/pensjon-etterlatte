@@ -52,6 +52,7 @@ class JournalpostSkrevetTest {
 
     }
 }
+
 fun testMessage(journalpost: Long, soeknad: Long, dokumentInfoId: Long? = null) =
     JsonMessage("{}", MessageProblems("{}")).apply {
         this["@dokarkivRetur"] = mapper.createObjectNode().also {
@@ -109,6 +110,10 @@ class TestRepo: SoeknadRepository {
     }
 
     override fun slettKladd(fnr: String): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun slettUtgaatteKladder(): Int {
         TODO("Not yet implemented")
     }
 

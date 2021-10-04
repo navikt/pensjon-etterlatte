@@ -15,7 +15,6 @@ import java.time.ZoneOffset
 
 class SoeknadPublisererTest {
 
-
     @Test
     fun `soeknad skal sendes på rapid og det skal lagres hendelse om at den er sendt`() {
         val rapidStub = MessageContextStub()
@@ -39,6 +38,7 @@ class SoeknadPublisererTest {
         Assertions.assertEquals(soeknadSomSkalPubliseres, publieserteSoeknader[0])
 
     }
+
     @Test
     fun `meldingen som publiseres skal ha riktig format`() {
         val rapidStub = MessageContextStub()
@@ -109,4 +109,7 @@ class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
         TODO("Not yet implemented")
     }
 
+    override fun slettUtgaatteKladder(): Int {
+        TODO("Not yet implemented")
+    }
 }

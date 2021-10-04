@@ -14,6 +14,7 @@ class TilstandsPusher(private val db: SoeknadRepository, private val publiserSoe
 
             if (cycle.currentStep == 0 && LeaderElection.isLeader()) {
                 db.slettArkiverteSoeknader()
+                db.slettUtgaatteKladder()
                 db.usendteSoeknader().also {
                     logger.info("Publiserer melding om søknader ${it.map(LagretSoeknad::id)} ut på kafka")
                 }.forEach {
