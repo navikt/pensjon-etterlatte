@@ -1,6 +1,6 @@
 
 const personalia = {
-    adresse: "Fyrstikkaléen 1",
+    adresse: "Fyrstikkaléen",
     husnummer: 1,
     husbokstav: null,
     postnummer: "0758",
