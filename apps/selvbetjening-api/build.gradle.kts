@@ -7,6 +7,8 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":libs:common"))
+
     implementation("io.ktor:ktor-server-core:$ktorversion")
     implementation("io.ktor:ktor-server-cio:$ktorversion")
     implementation("io.ktor:ktor-server-core:$ktorversion")
@@ -29,6 +31,8 @@ dependencies {
     implementation("no.nav.security:token-client-core:$tokensupportversion")
     implementation("no.nav.security:token-validation-ktor:$tokensupportversion")
 
+    testImplementation("io.mockk:mockk:1.12.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
     testImplementation("io.ktor:ktor-server-tests:$ktorversion")

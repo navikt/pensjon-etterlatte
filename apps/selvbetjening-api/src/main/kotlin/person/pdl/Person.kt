@@ -1,20 +1,21 @@
-package no.nav.etterlatte.person.model
+package no.nav.etterlatte.person.pdl
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import no.nav.etterlatte.libs.common.pdl.ResponseError
 import java.time.LocalDate
 import java.time.LocalDateTime
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-internal data class PersonResponse(
+data class PersonResponse(
     val data: PersonResponseData? = null,
     val errors: List<ResponseError>? = null
 )
 
-internal data class PersonResponseData(
+data class PersonResponseData(
     val hentPerson: HentPerson? = null
 )
 
-internal data class HentPerson(
+data class HentPerson(
     val bostedsadresse: List<Bostedsadresse>,
     val navn: List<Navn>,
     val statsborgerskap: List<Statsborgerskap>,

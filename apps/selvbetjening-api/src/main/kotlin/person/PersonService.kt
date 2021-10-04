@@ -1,72 +1,35 @@
 package no.nav.etterlatte.person
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.node.ObjectNode
-import io.ktor.client.HttpClient
-import io.ktor.client.request.accept
-import io.ktor.client.request.header
-import io.ktor.client.request.post
-import io.ktor.content.TextContent
 import io.ktor.features.NotFoundException
-import io.ktor.http.ContentType.Application.Json
-import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.common.mapJsonToAny
-import no.nav.etterlatte.common.toJson
-import no.nav.etterlatte.common.unsafeRetry
 import no.nav.etterlatte.kodeverk.KodeverkService
-import no.nav.etterlatte.person.model.GraphqlRequest
-import no.nav.etterlatte.person.model.PersonResponse
-import no.nav.etterlatte.person.model.Variables
+import no.nav.etterlatte.libs.common.pdl.ResponseError
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.person.pdl.HentPerson
 import org.slf4j.LoggerFactory
 
-interface PersonKlient {
-    suspend fun hentPerson(fnr: String): Person
-}
-
 class PersonService(
-    private val httpClient: HttpClient,
+    private val klient: PersonKlient,
     private val kodeverkService: KodeverkService
-): PersonKlient {
+) {
     private val logger = LoggerFactory.getLogger(PersonService::class.java)
 
-    companion object {
-        private const val TEMA = "PEN"
-    }
+    suspend fun hentPerson(fnr: Foedselsnummer): Person {
+        val response = klient.hentPerson(fnr)
 
-    override suspend fun hentPerson(fnr: String): Person {
-        val query = javaClass.getResource("/pdl/hentPerson.graphql")
-            .readText()
-            .replace(Regex("[\n\t]"), "")
+        val hentPerson = response.data?.hentPerson
 
-        val request = GraphqlRequest(query, Variables(ident = fnr)).toJson()
-
-        val responseNode = unsafeRetry {
-            httpClient.post<ObjectNode> {
-                header("Tema", TEMA)
-                accept(Json)
-                body = TextContent(request, Json)
-            }
-        }
-
-        logger.info((responseNode as JsonNode).toPrettyString())
-
-        val response = try {
-            mapJsonToAny<PersonResponse>(responseNode.toJson())
-        } catch (e: Exception) {
-            logger.error("Error under deserialisering av pdl repons", e)
-            throw e
-        }
-
-        return response.tilPerson(fnr)
-    }
-
-    private suspend fun PersonResponse.tilPerson(fnr: String): Person {
-        val hentPerson = this.data?.hentPerson
-        if (hentPerson === null) {
-            logger.error("Kunne ikke hente person fra PDL")
+        if (hentPerson == null) {
+            loggfoerFeilmeldinger(response.errors)
             throw NotFoundException()
         }
 
+        return opprettPerson(fnr, hentPerson)
+    }
+
+    private suspend fun opprettPerson(
+        fnr: Foedselsnummer,
+        hentPerson: HentPerson
+    ): Person {
         val navn = hentPerson.navn.singleOrNull()!!
 
         val bostedsadresse = hentPerson.bostedsadresse
@@ -77,6 +40,7 @@ class PersonService(
 
         val sivilstand = hentPerson.sivilstand
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
+            ?.type
 
         val foedsel = hentPerson.foedsel
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
@@ -95,7 +59,15 @@ class PersonService(
             postnummer = bostedsadresse?.vegadresse?.postnummer,
             poststed = poststed,
             statsborgerskap = statsborgerskap?.land,
-            sivilstatus = sivilstand?.type?.name
+            sivilstatus = sivilstand?.name
         )
+    }
+
+    private fun loggfoerFeilmeldinger(errors: List<ResponseError>?) {
+        logger.error("Kunne ikke hente person fra PDL")
+
+        errors?.forEach {
+            logger.error(it.message)
+        }
     }
 }

@@ -1,4 +1,4 @@
-package no.nav.etterlatte.person.model
+package no.nav.etterlatte.person.pdl
 
 import java.time.LocalDateTime
 
@@ -17,12 +17,7 @@ data class Vegadresse(
         val postnummer: String? = null,
         val kommunenummer: String? = null,
         val bydelsnummer: String? = null
-) {
-    override fun toString(): String {
-        return listOfNotNull(adressenavn, (husnummer + husbokstav), postnummer)
-            .joinToString(separator = " ")
-    }
-}
+)
 
 data class UtenlandskAdresse(
         val adressenavnNummer: String? = null,

@@ -15,6 +15,7 @@ import io.ktor.http.takeFrom
 import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
 import no.nav.etterlatte.ktortokenexchange.bearerToken
+import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.soknad.SoeknadService
 
@@ -35,16 +36,12 @@ class ApplicationContext(configLocation: String? = null) {
     init {
         kodeverkService = KodeverkService(tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.kodeverk")))
         personService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
-            .let {
-                closables.add(it::close)
-                PersonService(it, kodeverkService)
-            }
+            .also { closables.add(it::close) }
+            .let { PersonService(PersonKlient(it), kodeverkService) }
 
         soeknadService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
-            .let {
-                closables.add(it::close)
-                SoeknadService(it)
-            }
+            .also { closables.add(it::close) }
+            .let { SoeknadService(it) }
     }
 
     private fun tokenSecuredEndpoint(endpointConfig:Config) = HttpClient(CIO) {
@@ -72,5 +69,4 @@ fun main() {
     ApplicationContext()
         .also { Server(it).run() }
         .close()
-
 }

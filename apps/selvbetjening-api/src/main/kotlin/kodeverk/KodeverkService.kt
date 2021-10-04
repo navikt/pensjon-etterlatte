@@ -14,10 +14,11 @@ class KodeverkService(private val httpClient: HttpClient) {
     private val logger = LoggerFactory.getLogger(KodeverkService::class.java)
 
     suspend fun hentPoststed(postnr: String?): String {
-        if(postnr == null) return "";
-        try{
+        if (postnr.isNullOrBlank()) return ""
+
+        try {
             // Todo: cache postnummerliste?
-            val result = httpClient.get<String>() {
+            val result = httpClient.get<String> {
                 accept(Json)
             }
             val current = LocalDateTime.now()
@@ -26,12 +27,12 @@ class KodeverkService(private val httpClient: HttpClient) {
 
             val postnummere = mapJsonToAny<PostnummerResponse>(result)
             val gjeldendePoststed = postnummere.betydninger[postnr]?.find { postnummerInfo -> postnummerInfo.gyldigTil > now  }
+
             return gjeldendePoststed?.beskrivelser?.get("nb")?.tekst.orEmpty()
         } catch (e: Exception) {
             logger.error("Henting av postnummere feilet", e)
             throw e
         }
-
     }
 
 }

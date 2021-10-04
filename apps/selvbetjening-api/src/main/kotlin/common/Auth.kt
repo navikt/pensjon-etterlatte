@@ -1,5 +1,6 @@
 package no.nav.etterlatte.common
 
 import no.nav.etterlatte.ktortokenexchange.ThreadBoundSecCtx
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 
-fun innloggetBrukerFnr(): String = ThreadBoundSecCtx.get().user()!!
+fun innloggetBrukerFnr() = Foedselsnummer.of(ThreadBoundSecCtx.get().user())
