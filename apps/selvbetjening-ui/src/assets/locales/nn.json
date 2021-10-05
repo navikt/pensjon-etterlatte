@@ -465,6 +465,13 @@
     "endreSvar": "Endre svar",
     "sistLagret": "Sist lagra"
   },
+  "endreSvarOppsummering": {
+    "om-deg": "Endre svar om deg",
+    "om-deg-og-avdoed": "Endre svar om deg og avdøde",
+    "om-den-avdoede": "Endre svar om avdøde",
+    "din-situasjon": "Endre svar om situasjonen din",
+    "om-barn": "Endre svar om barn"
+  },
   "fortsettSoeknad": {
     "beskrivelse": "Ønsker du å halde fram med utfyllinga av påbegynt søknad?",
     "fortsettSoeknad": "Ja, eg vil halde fram der eg slapp",
