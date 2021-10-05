@@ -24,8 +24,8 @@ const UgyldigSoeker = () => {
     const brukerErForUng = erForUng(state.alder!!);
 
     const heiTekst = brukerErForUng
-        ? t("ugyldigkSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon")
-        : t("ugyldigkSoeker.kanIkkeSoeke.gjenlevende");
+        ? t("ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon")
+        : t("ugyldigSoeker.kanIkkeSoeke.gjenlevende");
 
     const tilbake = () => {
         dispatch({ type: ActionTypes.TILBAKESTILL });
@@ -50,11 +50,11 @@ const UgyldigSoeker = () => {
             <SkjemaGruppe>
                 {brukerErForUng ? (
                     <BodyLong>
-                        {t("ugyldigkSoeker.info.gjenlevendeEllerBarnepensjon")}
+                        {t("ugyldigSoeker.info.gjenlevendeEllerBarnepensjon")}
                     </BodyLong>
                 ) : (
                     <BodyLong>
-                        {t("ugyldigkSoeker.info.gjenlevende")}
+                        {t("ugyldigSoeker.info.gjenlevende")}
                     </BodyLong>
                 )}
             </SkjemaGruppe>

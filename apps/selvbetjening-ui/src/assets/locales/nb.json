@@ -5,21 +5,16 @@
     "OmAvdoed": "Opplysninger om den avdøde",
     "DinSituasjon": "Din situasjon",
     "OmBarn": "Opplysninger om barn",
-    "TidlArbeidsforhold": "Om tidligere arbeidsforhold",
-    "Arbeidsforhold": "Om nåværende arbeidsforhold",
-    "AndreYtelser": "Andre ytelser",
     "Oppsummering": "Oppsummering"
   },
   "knapp": {
     "tilbake": "Tilbake",
     "neste": "Neste",
-    "hoppOver": "Hopp over dette steget",
     "avbryt": "Avbryt",
     "sendSoeknad": "Send søknad",
     "leggTil": "Legg til",
     "leggTilBarn": "+ Legg til barn",
     "fjern": "Fjern",
-    "fjernElement": "Fjern element",
     "fjernFraSoeknad": "Fjern fra søknad",
     "lagre": "Lagre"
   },
@@ -60,7 +55,6 @@
     "samtykke": {
       "tittel": "Vi stoler på deg",
       "innhold": "Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \n\nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n",
-      "harLest": "Jeg har lest og forstått det som står om",
       "lenke": {
         "tekst": "mine plikter på nav.no",
         "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger"
@@ -73,7 +67,6 @@
     "undertittel": "Arbeid og utdanning",
     "ingress": "Vi tar utgangspunkt i at du har egen inntekt. Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten vi kan forvente at du får. Vi beregner forventet inntekt på grunnlag av din arbeidssituasjon og tidligere utdanning.",
     "jobbStatus": "Hva er situasjonen din nå?",
-    "jobbStatusHvorfor": "Vi skal vurdere om du utnytter arbeidsevnen du har, eller om du har behov for bistand fra oss til å bli selvforsørget.",
     "ingenJobbBeskrivelse": "Annet",
     "utdanning": {
       "tittel": "Om utdanningen",
@@ -87,12 +80,9 @@
         "sluttDato": "Til dato"
       }
     },
-    "selvstendigNaeringsdrivende": "Er du selvstendig næringsdrivende?",
-    "selvstendigHvorfor": "Næringsinntekt for det siste kalenderåret er ikke tilgjengelig fra Skatteetaten ennå. Du vil bli kontaktet for nærmere opplysninger om næringsvirksomheten.",
     "selvstendig": {
       "tittel": "Om næringen",
       "beskrivelse": "Hva heter firmaet?",
-      "startDato": "Når startet du?",
       "orgnr": "Organisasjonsnummer",
       "orgnrplaceholder": "9 siffer",
       "forventerEndretInntekt": {
@@ -104,19 +94,13 @@
     "arbeidsforhold": {
       "tittel": "Om arbeidsgiver",
       "arbeidsgiver": "Hva heter firmaet?",
-      "endring": "Hva er grunnen til endringene?",
       "ansettelsesforhold": "Type ansettelse",
       "stillingsprosent": "Hvor mye jobber du?",
       "stillingsprosentPlaceholder": "Eks. 80%",
-      "startDato": "Når startet du?",
       "forventerEndretInntekt": {
         "svar": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
         "beskrivelse": "Hva er grunnen til endringene?",
-        "beskrivelsePlaceholder": "Eks. økning eller reduksjon i inntekt",
-        "hvorfor": "Det har betydning for hvor mye gjenlevendepensjon du får."
-      },
-      "naavaerendeArbeidsforhold": {
-        "velg": "Velg ..."
+        "beskrivelsePlaceholder": "Eks. økning eller reduksjon i inntekt"
       }
     },
     "andreYtelser": {
@@ -138,8 +122,7 @@
         "hvaSlagsPensjon": "Hva slags pensjon?",
         "hvaSlagsPensjonPlaceholder": "Eks. alderspensjon, gjenlevendepensjon",
         "fraHvilketLand": "Fra hvilket land?",
-        "bruttobeloepPrAar": "Årlig beløp før skatt i landets valuta",
-        "landetsValuta": "Oppgi landets valuta"
+        "bruttobeloepPrAar": "Årlig beløp før skatt i landets valuta"
       }
     }
   },
@@ -152,7 +135,6 @@
     "oppholderSegINorge": "Oppholder du deg for tiden i Norge?",
     "oppholdHvorfor": "Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.",
     "oppholdsland": "Oppgi land",
-    "infoFolkeregisteret": "Saksbehandler vil ta kontakt med deg for å oppdrive korrekt adresse.",
     "medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i et annet land enn Norge?",
     "flyktning": "Har du status som flyktning?",
     "flyktningHvorfor": "Hvis du er registrert som flyktning hos UDI kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.",
@@ -205,7 +187,6 @@
         "samboer": {
           "tittel": "Opplysninger om samboer",
           "navn": "Navn",
-          "foedselsnummer": "Fødselsnummer",
           "harInntekt.svar": "Har samboer inntekt?",
           "harInntekt.samletBruttoinntektPrAar": "Samlet årsinntekt før skatt",
           "harInntekt.inntektstype": "Inntektstype"
@@ -218,11 +199,8 @@
     "fornavn": "Fornavn",
     "etternavn": "Etternavn",
     "foedselsnummer": "Fødselsnummer",
-    "doedsdato": "Dato for dødsfallet",
     "statsborgerskap": "Statsborgerskap",
     "statsborgerskapPlaceholder": "Eks. norsk",
-    "bosetning": "Var den avdøde bosatt i Norge sammenhengende siste tre år før dødsfallet?",
-    "doedsfallAarsak": "Kan dødsfallet være en følge av yrkesskade/yrkessykdom?",
     "boddEllerJobbetUtland": {
       "tittel": "Opphold utenfor Norge",
       "ingress": "Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke både hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.",
@@ -241,8 +219,7 @@
       }
     },
     "haddePensjonsgivendeInntekt": {
-      "svar": "Hadde han eller hun næringsinntekt når dødsfallet skjedde?",
-      "beskrivelse": "Oppgi bruttobeløp pr. år (kr)"
+      "svar": "Hadde han eller hun næringsinntekt når dødsfallet skjedde?"
     },
     "selvstendigNaeringsdrivende": {
       "tittel": "Næringsinntekt",
@@ -280,7 +257,6 @@
     "statsborgerskapPlaceholder": "Eks. norsk",
     "statsborger": "statsborger",
     "borI": "Bor i",
-    "borUtenlands": "Bosatt i et annet land enn Norge",
     "dagligOmsorg": "Har du daglig omsorg for dette barnet?",
     "barnepensjon": {
       "soekt": "Søkt om barnepensjon",
@@ -463,10 +439,6 @@
     "arbeidet": "Arbeidet"
   },
   "felles": {
-    "fornavn": "Fornavn",
-    "etternavn": "Etternavn",
-    "foedselsnummer": "Fødselsnummer",
-    "foedselsaar": "Fødselsår",
     "fnrDnr": "Fødselsnummer / d-nummer",
     "fnr": "Fødselsnummer",
     "fnrPlaceholder": "11 siffer",
@@ -477,7 +449,6 @@
     "norge": "Norge",
     "ingenInfo": "Ingen informasjon",
     "ikkePaakrevd": "(ikke påkrevd)",
-    "endreSvar": "Endre svar",
     "sistLagret": "Sist lagret"
   },
   "endreSvarOppsummering": {
@@ -841,9 +812,6 @@
     },
     "barnepensjon": {
       "required": "Må besvares",
-      "soeker": {
-        "required": "Oppgi om du ønsker å søke om barnepensjon"
-      },
       "kontonummer": {
         "svar": {
           "required": "Oppgi om du ønsker et annet kontonummer for utbetaling av barnepensjon"
