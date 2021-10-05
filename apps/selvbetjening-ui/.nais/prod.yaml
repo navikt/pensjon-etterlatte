@@ -50,7 +50,7 @@ spec:
     - name: REDIS_HOST
       value: selvbetjening-redis.etterlatte.svc.cluster.local
     - name: SELVBETJENING_AUDIENCE
-      value: dev-gcp:etterlatte:selvbetjening-api
+      value: prod-gcp:etterlatte:selvbetjening-api
     - name: NODE_LOG_LEVEL
       value: info
     - name: IDPORTEN_POST_LOGOUT_REDIRECT_URI
