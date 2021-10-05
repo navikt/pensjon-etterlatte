@@ -13,7 +13,7 @@ import {
     partialProsentMatcher,
     partialTelefonnrMatcher,
     prosentMatcher,
-    telefonnrMatcher
+    telefonnrMatcher,
 } from "../../utils/matchers";
 import { isValidBIC, isValidIBAN } from "ibantools";
 
@@ -41,7 +41,14 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
             rules={{ required: !valgfri, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <div className={className}>
-                    <Input id={name} value={value || ""} onChange={onChange} feil={feilmelding} {...rest} />
+                    <Input
+                        id={name}
+                        value={value || ""}
+                        required={!valgfri}
+                        onChange={onChange}
+                        feil={feilmelding}
+                        {...rest}
+                    />
                 </div>
             )}
         />
@@ -89,6 +96,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
                 <Input
                     id={name}
                     value={value || ""}
+                    required
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialKontonrMatcher, "."))}
                     feil={feilmelding}
                     {...rest}
@@ -114,7 +122,14 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
             control={control}
             rules={{ required: !valgfri, pattern: /^\d[0-9\s]*$/ }}
             render={({ field: { value, onChange } }) => (
-                <Input id={name} value={value || ""} onChange={onChange} feil={feilmelding} {...rest} />
+                <Input
+                    id={name}
+                    value={value || ""}
+                    required={!valgfri}
+                    onChange={onChange}
+                    feil={feilmelding}
+                    {...rest}
+                />
             )}
         />
     );
@@ -132,8 +147,11 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
     const maxLength = 4;
 
     const isValid = (e: ChangeEvent<HTMLInputElement>): boolean => {
-        return e.target.value === "" || (partialProsentMatcher.test(e.target.value) && (!maxLength || e.target.value.length <= maxLength));
-    }
+        return (
+            e.target.value === "" ||
+            (partialProsentMatcher.test(e.target.value) && (!maxLength || e.target.value.length <= maxLength))
+        );
+    };
 
     return (
         <Controller
@@ -143,9 +161,10 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
+                    required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                        if (isValid(e)) onChange(e)
+                        if (isValid(e)) onChange(e);
                     }}
                     feil={feilmelding}
                     {...rest}
@@ -153,7 +172,7 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
             )}
         />
     );
-}
+};
 
 export const RHFTelefonInput = ({ name, rules, ...rest }: RHFProps) => {
     const { t } = useTranslation();
@@ -173,6 +192,7 @@ export const RHFTelefonInput = ({ name, rules, ...rest }: RHFProps) => {
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
+                    required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialTelefonnrMatcher))}
                     feil={feilmelding}
@@ -208,6 +228,7 @@ export const RHFFoedselsnummerInput = ({ name, ...rest }: RHFProps) => {
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
+                    required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         if (isValid(e)) onChange(e);
@@ -238,6 +259,7 @@ export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
+                    required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value.toUpperCase())}
                     feil={feilmelding}
@@ -266,6 +288,7 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
+                    required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value.toUpperCase())}
                     feil={feilmelding}
@@ -286,10 +309,10 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
     const error: FieldError = get(errors, name);
     const feilmelding = t(getTransKey(error));
 
-    const re = /^[0-9\b]+$/
+    const re = /^[0-9\b]+$/;
     const isValid = (e: ChangeEvent<HTMLInputElement>): boolean => {
         return e.target.value === "" || (re.test(e.target.value) && (!maxLength || e.target.value.length <= maxLength));
-    }
+    };
 
     return (
         <Controller
@@ -299,9 +322,10 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
+                    required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                        if (isValid(e)) onChange(e)
+                        if (isValid(e)) onChange(e);
                     }}
                     feil={feilmelding}
                     {...rest}

@@ -28,11 +28,14 @@ const parseDate = (dato?: Date | string) => {
 };
 
 /*
-* TODO: Ikke mulig å enkelt tabbe gjennom datovelgeren... må fikses!
-*/
+ * TODO: Ikke mulig å enkelt tabbe gjennom datovelgeren... må fikses!
+ */
 const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, className }: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
-    const { control, formState: { errors } } = useFormContext();
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext();
 
     registerLocale("nb", nb);
     registerLocale("nn", nn);
@@ -42,33 +45,27 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
         setDefaultLocale(i18n.language);
     }, [i18n.language]);
 
-    const error: FieldError = get(errors, name)
-    const feilmelding = t(getTransKey(error))
+    const error: FieldError = get(errors, name);
+    const feilmelding = t(getTransKey(error));
 
-    const dateInputCls = classnames(
-        "skjemaelement__input",
-        feilmelding && "skjemaelement__input--harFeil"
-    );
+    const dateInputCls = classnames("skjemaelement__input", feilmelding && "skjemaelement__input--harFeil");
 
     return (
         <>
             <section className={`skjemaelement ${className}`}>
                 <Label htmlFor={name}>{label}</Label>
 
-                {description && (
-                    <div className={"skjemaelement__description"}>
-                        {description}
-                    </div>
-                )}
+                {description && <div className={"skjemaelement__description"}>{description}</div>}
 
                 <Controller
                     name={name}
                     control={control}
                     defaultValue={undefined}
-                    rules={{required: !valgfri}}
+                    rules={{ required: !valgfri }}
                     render={({ field: { onChange, onBlur, value } }) => (
                         <DatePicker
                             id={name}
+                            required={!valgfri}
                             className={dateInputCls}
                             selected={parseDate(value)}
                             dateFormat={"dd.MM.yyyy"}
