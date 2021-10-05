@@ -45,6 +45,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 aria-invalid="false"
                 class="skjemaelement__input input--fullbredde"
                 id="avdoed.fornavn"
+                required=""
                 type="text"
                 value=""
               />
@@ -68,6 +69,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 aria-invalid="false"
                 class="skjemaelement__input input--fullbredde"
                 id="avdoed.etternavn"
+                required=""
                 type="text"
                 value=""
               />
@@ -107,6 +109,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               class="skjemaelement__input"
               id="avdoed.datoForDoedsfallet"
               placeholder="dd.mm.åååå"
+              required=""
               type="text"
               value=""
             />
@@ -422,7 +425,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
         aria-live="polite"
       />
     </fieldset>
-    <br />
     <fieldset
       aria-invalid="false"
       class="skjemagruppe navigasjon-footer"

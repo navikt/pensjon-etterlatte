@@ -148,6 +148,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               class="skjemaelement__input input--fullbredde"
               id="arbeidsforhold[0].arbeidsgiver"
+              required=""
               type="text"
               value="Potetskreller AS"
             />
@@ -211,6 +212,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               class="skjemaelement__input input--fullbredde"
               id="arbeidsforhold[0].stillingsprosent"
               placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
+              required=""
               type="text"
               value="100%"
             />
@@ -306,7 +308,9 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               class="skjemaelement__input input--s"
               id="arbeidsforhold[0].forventerEndretInntekt.beskrivelse"
+              maxlength="200"
               placeholder="dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelsePlaceholder"
+              required=""
               type="text"
               value="150 000"
             />
@@ -358,6 +362,23 @@ exports[`Om den avdøde Snapshot 1`] = `
                 class="inputPanel__label"
               >
                 utdanning.grunnskole
+              </span>
+            </label>
+            <label
+              class="inputPanel radioPanel"
+            >
+              <input
+                aria-checked="false"
+                aria-invalid="false"
+                class="inputPanel__field"
+                name="utdanning.hoyesteFullfoerteUtdanning"
+                type="radio"
+                value="utdanning.fagbrev"
+              />
+              <span
+                class="inputPanel__label"
+              >
+                utdanning.fagbrev
               </span>
             </label>
             <label
@@ -549,6 +570,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="skjemaelement__input input--xxl"
             id="andreYtelser.kravOmAnnenStonad.beskrivelse"
             placeholder="dinSituasjon.andreYtelser.kravOmAnnenStonad.placeholder"
+            required=""
             type="text"
             value="Barnepensjon"
           />
@@ -633,6 +655,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="skjemaelement__input input--xxl"
             id="andreYtelser.annenPensjon.beskrivelse"
             placeholder="dinSituasjon.andreYtelser.annenPensjon.placeholder"
+            required=""
             type="text"
             value="Skandia"
           />
@@ -750,6 +773,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="skjemaelement__input input--xxl"
             id="andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"
             placeholder="dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder"
+            required=""
             type="text"
             value="Polsk Uførepensjon"
           />
@@ -769,6 +793,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-invalid="false"
             class="skjemaelement__input input--l"
             id="andreYtelser.mottarPensjonUtland.fraHvilketLand"
+            required=""
             type="text"
             value="Polen"
           />
@@ -788,6 +813,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-invalid="false"
             class="skjemaelement__input input--l"
             id="andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"
+            required=""
             type="text"
             value="4000 PLN"
           />
