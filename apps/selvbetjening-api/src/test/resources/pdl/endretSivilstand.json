@@ -35,7 +35,21 @@
           "fornavn": "ABSURD",
           "mellomnavn": null,
           "etternavn": "BÆREPOSE",
-          "forkortetNavn": "BÆREPOSE ABSURD"
+          "forkortetNavn": "BÆREPOSE ABSURD",
+          "metadata": {
+            "endringer": [
+              {
+                "kilde": "Dolly",
+                "registrert": "2021-08-23T15:52:27",
+                "registrertAv": "Folkeregisteret",
+                "systemkilde": "FREG",
+                "type": "OPPRETT"
+              }
+            ],
+            "master": "FREG",
+            "opplysningsId": "679a83aa-8ede-4a57-917c-e7ac1ea6f187",
+            "historisk": false
+          }
         }
       ],
       "statsborgerskap": [

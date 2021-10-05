@@ -40,7 +40,7 @@ class PersonService(
             .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
 
         val sivilstand = hentPerson.sivilstand
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
         val foedsel = hentPerson.foedsel
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
@@ -59,7 +59,7 @@ class PersonService(
             postnummer = bostedsadresse.vegadresse?.postnummer,
             poststed = poststed,
             statsborgerskap = statsborgerskap.land,
-            sivilstatus = sivilstand.type.name
+            sivilstatus = sivilstand?.type?.name
         )
     }
 
