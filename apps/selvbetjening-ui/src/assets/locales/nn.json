@@ -75,7 +75,7 @@
       "annenUtdanningPlaceholder": "Eks. kurs, enkeltår på universitet eller høgskule",
       "naavaerendeUtdanning": {
         "navn": "Namnet på utdanninga",
-        "navnPlaceholder": "Eks. videregående, lærling, sykepleierstudiet",
+        "navnPlaceholder": "Eks. vidaregåande, lærling, sjukepleiarstudiet",
         "startDato": "Frå dato",
         "sluttDato": "Til dato"
       }
@@ -88,7 +88,7 @@
       "forventerEndretInntekt": {
         "svar": "Reknar du med at inntekta di endrar seg dei neste 12 månadene?",
         "beskrivelse": "Kva er årsaka til endringane?",
-        "beskrivelsePlaceholder": ""
+        "beskrivelsePlaceholder": "Eks. endring i forventa inntekt eller drift av næring"
       }
     },
     "arbeidsforhold": {
@@ -109,18 +109,18 @@
       "kravOmAnnenStonad": {
         "svar": "Har du søkt om andre ytingar frå NAV som du ikkje har fått svar på?",
         "beskrivelse": "Kva har du søkt om?",
-        "placeholder": ""
+        "placeholder": "Eks. sjukepengar, dagpengar, pensjon, stønad til livsopphald"
       },
       "annenPensjon": {
-        "svar": "",
-        "beskrivelse": "",
+        "svar": "Får du eller har du søkt om avtalefesta pensjon (AFP) eller annan pensjon frå andre enn NAV?",
+        "beskrivelse": "Kva for pensjonsordning?",
         "placeholder": "Eks. Skandia, KLP, SPK, Oslo pensjonsforsikring"
       },
       "mottarPensjonUtland": {
         "svar": "Mottar du pensjon frå eit anna land enn Noreg?",
         "hvorfor": "Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden",
         "hvaSlagsPensjon": "Kva slags pensjon?",
-        "hvaSlagsPensjonPlaceholder": "",
+        "hvaSlagsPensjonPlaceholder": "Eks. alderspensjon, attlevandepensjon",
         "fraHvilketLand": "Frå kva for land?",
         "bruttobeloepPrAar": "Årleg beløp før skatt i landets valuta"
       }
@@ -129,7 +129,7 @@
   "omDeg": {
     "tittel": "Om deg",
     "advarsel": "Viss opplysingane vi har om deg ikkje stemmer, må du endre desse hos Folkeregisteret.",
-    "valgfritt": "",
+    "valgfritt": "Alle felt må fyllast ut, bortsett frå dei som er markerte som valfrie.",
     "bostedsadresseBekreftet": "Bur du på denne adressa?",
     "alternativAdresse": "Oppgi noverande bustadsadresse",
     "oppholderSegINorge": "Oppheld du deg for tida i Noreg?",
@@ -214,7 +214,7 @@
         "medlemFolketrygdHjelpetekst": "Vi må vite om avdøde var medlem av folketrygda for å avgjere om du har rett til attlevandepensjon.",
         "mottokPensjon": {
           "beskrivelse": "Oppgi eventuell pensjon han eller ho fekk frå dette landet",
-          "beskrivelsePlaceholder": ""
+          "beskrivelsePlaceholder": "Per år i landets valuta"
         }
       }
     },
@@ -265,7 +265,7 @@
       "soekerCheckboks": "Ja, eg søker om barnepensjon for barnet",
       "kontonummer": {
         "svar": "Ønsker du at barnepensjonen skal utbetalast til eit anna kontonummer?",
-        "informasjon": "",
+        "informasjon": "Du kan legge til eige kontonummer for barnet",
         "kontonummer": "Oppgi norsk kontonummer for utbetaling av barnepensjon",
         "placeholder": "11 siffer"
       },
