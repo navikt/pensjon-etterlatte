@@ -9,6 +9,7 @@ import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.takeFrom
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
@@ -18,7 +19,7 @@ import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Disabled
-class KodeverkTest {
+class KodeverkKlientTest {
 
     lateinit var httpClient: HttpClient
 
@@ -41,7 +42,7 @@ class KodeverkTest {
     @Test
     fun hentPostnummere() {
         runBlocking {
-            val client = KodeverkService(httpClient)
+            val client = KodeverkKlient(httpClient)
             val poststed = client.hentPoststed("2730")
             val poststed2 = client.hentPoststed("0000")
             assertEquals("LUNNER", poststed)

@@ -12,6 +12,7 @@ import io.ktor.client.features.defaultRequest
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.takeFrom
+import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
 import no.nav.etterlatte.ktortokenexchange.bearerToken
@@ -34,7 +35,10 @@ class ApplicationContext(configLocation: String? = null) {
     val securityMediator = SecurityContextMediatorFactory.from(config)
 
     init {
-        kodeverkService = KodeverkService(tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.kodeverk")))
+        kodeverkService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.kodeverk"))
+            .also { closables.add(it::close) }
+            .let { KodeverkService(KodeverkKlient(it)) }
+
         personService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
             .also { closables.add(it::close) }
             .let { PersonService(PersonKlient(it), kodeverkService) }
