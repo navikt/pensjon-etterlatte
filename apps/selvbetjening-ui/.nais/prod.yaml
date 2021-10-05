@@ -32,12 +32,13 @@ spec:
     requests:
       cpu: 200m
       memory: 256Mi
-  webproxy: true
   tokenx:
     enabled: true
   idporten:
     enabled: true
     clientUri: https://etterlatteytelser.intern.nav.no
+    redirectPath: /oauth2/callback
+    frontchannelLogoutPath: /oauth2/logout
     postLogoutRedirectURIs:
       - https://etterlatteytelser.intern.nav.no/logout/callback
   envFrom:
