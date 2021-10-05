@@ -30,22 +30,22 @@ class PersonService(
         fnr: Foedselsnummer,
         hentPerson: HentPerson
     ): Person {
-        val navn = hentPerson.navn.singleOrNull()!!
+        val navn = hentPerson.navn
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
 
         val bostedsadresse = hentPerson.bostedsadresse
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
 
         val statsborgerskap = hentPerson.statsborgerskap
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
 
         val sivilstand = hentPerson.sivilstand
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }
-            ?.type
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
 
         val foedsel = hentPerson.foedsel
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
-        val poststed = kodeverkService.hentPoststed(bostedsadresse?.vegadresse?.postnummer)
+        val poststed = kodeverkService.hentPoststed(bostedsadresse.vegadresse?.postnummer)
 
         return Person(
             fornavn = navn.fornavn,
@@ -53,13 +53,13 @@ class PersonService(
             foedselsnummer = fnr,
             foedselsdato = foedsel?.foedselsdato?.toString(),
             foedselsaar = foedsel?.foedselsaar,
-            adresse = bostedsadresse?.vegadresse?.adressenavn,
-            husnummer = bostedsadresse?.vegadresse?.husnummer,
-            husbokstav = bostedsadresse?.vegadresse?.husbokstav,
-            postnummer = bostedsadresse?.vegadresse?.postnummer,
+            adresse = bostedsadresse.vegadresse?.adressenavn,
+            husnummer = bostedsadresse.vegadresse?.husnummer,
+            husbokstav = bostedsadresse.vegadresse?.husbokstav,
+            postnummer = bostedsadresse.vegadresse?.postnummer,
             poststed = poststed,
-            statsborgerskap = statsborgerskap?.land,
-            sivilstatus = sivilstand?.name
+            statsborgerskap = statsborgerskap.land,
+            sivilstatus = sivilstand.type.name
         )
     }
 

@@ -18,6 +18,9 @@ query($ident: ID!) {
             mellomnavn
             etternavn
             forkortetNavn
+            metadata {
+                ...metadataDetails
+            }
         }
         statsborgerskap {
             land
