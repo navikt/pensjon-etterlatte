@@ -71,7 +71,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             id="foedselsnummer"
             placeholder="felles.fnrPlaceholder"
             required=""
-            type="text"
+            type="tel"
             value=""
           />
         </div>

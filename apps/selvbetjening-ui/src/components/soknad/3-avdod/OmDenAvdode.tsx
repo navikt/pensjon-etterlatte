@@ -80,7 +80,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaGruppe>
                 </SkjemaGruppering>
 
-                <BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet}/>
+                <BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet} />
 
                 <SkjemaGruppering>
                     <SkjemaGruppe className="ingress">
@@ -101,6 +101,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                                 name={"selvstendigNaeringsdrivende.beskrivelse"}
                                 bredde={"L"}
                                 valgfri
+                                type="tel"
                                 placeholder={t("omDenAvdoede.selvstendigNaeringsdrivende.placeholder")}
                                 label={t("omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse")}
                             />
@@ -139,9 +140,9 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     )}
                 </SkjemaGruppering>
 
-                <Feilmeldinger errors={errors}/>
+                <Feilmeldinger errors={errors} />
 
-                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }}/>
+                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }} />
             </form>
         </FormProvider>
     );

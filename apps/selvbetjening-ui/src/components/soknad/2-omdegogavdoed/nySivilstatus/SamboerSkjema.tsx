@@ -42,7 +42,6 @@ const SamboerSkjema = () => {
                 legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
             />
 
-
             {harVaertGift === IValg.NEI && (
                 <RHFSpoersmaalRadio
                     name={"nySivilstatus.samboerskap.samboer.harInntekt.svar"}
@@ -65,6 +64,7 @@ const SamboerSkjema = () => {
                     <SkjemaGruppe>
                         <RHFNumberInput
                             name={"nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"}
+                            type="tel"
                             bredde={"S"}
                             label={t(
                                 "omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"
@@ -75,7 +75,6 @@ const SamboerSkjema = () => {
                 </>
             )}
         </Panel>
-
     );
 };
 

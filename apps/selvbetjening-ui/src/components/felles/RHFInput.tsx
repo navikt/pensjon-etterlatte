@@ -228,6 +228,7 @@ export const RHFFoedselsnummerInput = ({ name, ...rest }: RHFProps) => {
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
+                    type="tel"
                     required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
