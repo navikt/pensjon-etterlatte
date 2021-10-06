@@ -620,7 +620,7 @@
     "kontaktinfo": {
       "telefonnummer": {
         "required": "Telefonnummer må fyllast ut",
-        "pattern": "Telefonnummer må vere gyldig"
+        "pattern": "Telefonnummer må vere 8 siffer"
       },
       "epost": {
         "required": "E-post må fyllast ut",
