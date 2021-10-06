@@ -33,7 +33,7 @@ const Selvstendig = () => {
             ))}
 
             <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
-                + {t("knapp.leggTil")}
+                + {t("knapp.leggTilNaeringer")}
             </Button>
         </SkjemaGruppering>
     );

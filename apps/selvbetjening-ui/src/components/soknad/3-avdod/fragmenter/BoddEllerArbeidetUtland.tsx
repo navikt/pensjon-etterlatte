@@ -133,7 +133,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     ))}
 
                     <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
-                        + {t("knapp.leggTil")}
+                        + {t("knapp.leggTilLand")}
                     </Button>
                 </SkjemaGruppering>
             )}

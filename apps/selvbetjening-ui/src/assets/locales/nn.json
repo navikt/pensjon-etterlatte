@@ -12,7 +12,9 @@
     "neste": "Neste",
     "avbryt": "Avbryt",
     "sendSoeknad": "Send søknad",
-    "leggTil": "Legg til",
+    "leggTilLand": "Legg til fleire land",
+    "leggTilArbeidstakere": "Legg til fleire arbeidstakare",
+    "leggTilNaeringer": "Legg til fleire næringar",
     "leggTilBarn": "+ Legg til barn",
     "fjern": "Fjern",
     "fjernFraSoeknad": "Fjern frå søknad",
@@ -68,6 +70,7 @@
     "ingress": "Kor mykje du kan få i attlevandepensjon er avhengig av arbeidsinntekta vi kan forvente at du får. Vi bereknar forventa inntekt på grunnlag av arbeidssituasjonen og tidligare utdanning.",
     "jobbStatus": "Kva er situasjonen din no?",
     "ingenJobbBeskrivelse": "Anna",
+    "ingenJobbBeskrivelsePlaceholder": "Beskriv situasjonen nærare",
     "utdanning": {
       "tittel": "Om utdanninga",
       "hoyesteFullfoerteUtdanning": "Kva er di høgaste fullførte utdanning?",
@@ -140,6 +143,7 @@
     "flyktningHvorfor": "Hvis du er registrert som flyktning hos UDI kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
     "kontaktinfo": {
       "telefonnummer": "Telefonnummer",
+      "telefonnummerPlaceholder": "8 siffer",
       "epost": "E-post"
     },
     "utbetalingsInformasjon": {
@@ -391,7 +395,7 @@
       "separert": "Separert",
       "samboer": "Sambuar",
       "skilt": "Skilt",
-      "tidligereSamboer": "Tidlegare sambuarar"
+      "tidligereSamboer": "Tidlegare sambuar"
     }
   },
   "barnRelasjon": {
@@ -497,7 +501,7 @@
           }
         },
         "medlemFolketrygd": {
-          "required": "Oppgi om du er medlem i folketrygda under opphald i eit anna land enn Noreg"
+          "required": "Oppgi om avdøde var medlem i folketrygda under opphald i eit anna land enn Noreg"
         }
       }
     },
@@ -616,7 +620,7 @@
     "kontaktinfo": {
       "telefonnummer": {
         "required": "Telefonnummer må fyllast ut",
-        "pattern": "Telefonnummer kan berre bestå av siffer (0-9)"
+        "pattern": "Telefonnummer må vere gyldig"
       },
       "epost": {
         "required": "E-post må fyllast ut",

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ISoeker, SamboerInntekt } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
-import { RHFInput } from "../../../felles/RHFInput";
+import { RHFFoedselsnummerInput, RHFInput, RHFNumberInput } from "../../../felles/RHFInput";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
@@ -29,7 +29,7 @@ const SamboerSkjema = () => {
                 label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
             />
 
-            <RHFInput
+            <RHFFoedselsnummerInput
                 name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
                 bredde={"S"}
                 label={t("felles.fnr")}
@@ -63,12 +63,13 @@ const SamboerSkjema = () => {
                     />
 
                     <SkjemaGruppe>
-                        <RHFInput
+                        <RHFNumberInput
                             name={"nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"}
                             bredde={"S"}
                             label={t(
                                 "omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"
                             )}
+                            placeholder={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar")}
                         />
                     </SkjemaGruppe>
                 </>

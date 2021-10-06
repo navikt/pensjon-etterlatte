@@ -73,8 +73,11 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
 
                 {jobbStatus?.includes(JobbStatus.ingen) && (
                     <SkjemaGruppe>
-                        <RHFInput name={"ingenJobbBeskrivelse"} label={t("dinSituasjon.ingenJobbBeskrivelse")}
-                                  maxLength={200}/>
+                        <RHFInput
+                            name={"ingenJobbBeskrivelse"}
+                            label={t("dinSituasjon.ingenJobbBeskrivelse")}
+                            placeholder={t("dinSituasjon.ingenJobbBeskrivelsePlaceholder")}
+                            maxLength={200}/>
                     </SkjemaGruppe>
                 )}
 

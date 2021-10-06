@@ -12,7 +12,9 @@
     "neste": "Neste",
     "avbryt": "Avbryt",
     "sendSoeknad": "Send søknad",
-    "leggTil": "Legg til",
+    "leggTilLand": "Legg til flere land",
+    "leggTilArbeidstakere": "Legg til flere arbeidstakere",
+    "leggTilNaeringer": "Legg til flere næringer",
     "leggTilBarn": "+ Legg til barn",
     "fjern": "Fjern",
     "fjernFraSoeknad": "Fjern fra søknad",
@@ -68,6 +70,7 @@
     "ingress": "Vi tar utgangspunkt i at du har egen inntekt. Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten vi kan forvente at du får. Vi beregner forventet inntekt på grunnlag av din arbeidssituasjon og tidligere utdanning.",
     "jobbStatus": "Hva er situasjonen din nå?",
     "ingenJobbBeskrivelse": "Annet",
+    "ingenJobbBeskrivelsePlaceholder": "Beskriv situasjonen nærmere",
     "utdanning": {
       "tittel": "Om utdanningen",
       "hoyesteFullfoerteUtdanning": "Hvilken utdanning har du?",
@@ -140,6 +143,7 @@
     "flyktningHvorfor": "Hvis du er registrert som flyktning hos UDI kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.",
     "kontaktinfo": {
       "telefonnummer": "Telefonnummer",
+      "telefonnummerPlaceholder": "8 siffer",
       "epost": "E-post"
     },
     "utbetalingsInformasjon": {
@@ -391,7 +395,7 @@
       "separert": "Separert",
       "samboer": "Samboer",
       "skilt": "Skilt",
-      "tidligereSamboer": "Tidligere samboere"
+      "tidligereSamboer": "Tidligere samboer"
     }
   },
   "barnRelasjon": {
@@ -497,7 +501,7 @@
           }
         },
         "medlemFolketrygd": {
-          "required": "Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge"
+          "required": "Oppgi om avdøde var medlem i folketrygden under opphold i et annet land enn Norge"
         }
       }
     },
@@ -616,7 +620,7 @@
     "kontaktinfo": {
       "telefonnummer": {
         "required": "Telefonnummer må fylles ut",
-        "pattern": "Telefonnummer kan kun bestå av siffer (0-9)"
+        "pattern": "Telefonnummer må være gyldig"
       },
       "epost": {
         "required": "E-post må fylles ut",

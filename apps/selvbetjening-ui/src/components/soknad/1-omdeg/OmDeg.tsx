@@ -90,6 +90,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                         bredde={"S"}
                                         name={"kontaktinfo.telefonnummer"}
                                         label={t("omDeg.kontaktinfo.telefonnummer")}
+                                        placeholder={t("omDeg.kontaktinfo.telefonnummerPlaceholder")}
                                     />
                                 </Cell>
 
