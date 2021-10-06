@@ -16,6 +16,7 @@ const HvorforSpoerVi: FC = ({ children }) => {
                 type={"button"}
                 className={"hvorforPanel__toggle"}
                 onClick={() => setErApen(!erApen)}
+                aria-expanded={erApen}
             >
                 <span>{t("hvorforSpoerVi")}</span>
                 <span>{erApen ? <Collapse /> : <Expand />}</span>
