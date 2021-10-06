@@ -24,16 +24,19 @@ internal class JournalpostSkrevet(
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        if(packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong()?:0L != 0L){
+        if (packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L != 0L) {
             soeknader.soeknadArkivert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
         } else {
             logger.error("Arkivering feilet: ", packet.toJson())
-            soeknader.soeknadFeiletArkivering(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()), packet["@dokarkivRetur"].toJson())
+            soeknader.soeknadFeiletArkivering(
+                LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()),
+                packet["@dokarkivRetur"].toJson()
+            )
         }
 
-        if(!packet["@hendelse_gyldig_til"].isMissingOrNull()){
+        if (!packet["@hendelse_gyldig_til"].isMissingOrNull()) {
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
-                if(it.isBefore(OffsetDateTime.now())){
+                if (it.isBefore(OffsetDateTime.now())) {
                     logger.info("${OffsetDateTime.now()}: Fikk melding om at søknad ${packet["@lagret_soeknad_id"].asLong()} er arkivert, men hendelsen gikk ut på dato $it")
                 }
             }

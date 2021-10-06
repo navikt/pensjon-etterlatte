@@ -18,7 +18,7 @@ fun main() {
     val rapidApplication = RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
         .withKtorModule { apiModule { soeknadApi(db) } }
         .build().also { rapidConnection ->
-            rapidConnection.register(object: RapidsConnection.StatusListener{
+            rapidConnection.register(object : RapidsConnection.StatusListener {
                 val running = Job()
                 val workers = mutableListOf<Job>()
                 override fun onStartup(rapidsConnection: RapidsConnection) {
@@ -35,7 +35,7 @@ fun main() {
                     running.complete()
                     runBlocking {
                         GlobalScope.launch {
-                            workers.forEach{
+                            workers.forEach {
                                 it.join()
                             }
                         }.join()

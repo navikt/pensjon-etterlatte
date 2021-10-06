@@ -28,36 +28,36 @@ import io.ktor.util.pipeline.PipelineContext
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import no.nav.security.token.support.ktor.tokenValidationSupport
 
-fun Route.soeknadApi(db: SoeknadRepository){
+// todo: testFnr burde ikke være nødvendig her, men sliter med å få testet/kjørt opp dette med autentisering.
+fun Route.soeknadApi(db: SoeknadRepository, testFnr: String? = null) {
     post("/api/soeknad") {
         val soknad = call.receive<JsonNode>()
-        val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(fnrFromToken(), soknad.toJson()))
+        val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(testFnr ?: fnrFromToken(), soknad.toJson()))
         db.soeknadFerdigstilt(lagretSoeknad)
         call.respondText(lagretSoeknad.id.toString(), ContentType.Text.Plain)
     }
 
-    route("/api/kladd"){
+    route("/api/kladd") {
         post {
             val soknad = call.receive<JsonNode>()
-            val lagretkladd = db.lagreKladd(UlagretSoeknad(fnrFromToken(), soknad.toJson()))
+            val lagretkladd = db.lagreKladd(UlagretSoeknad(testFnr ?: fnrFromToken(), soknad.toJson()))
             call.respondText(lagretkladd.id.toString(), ContentType.Text.Plain)
         }
 
         delete {
-            db.slettKladd(fnrFromToken())
+            db.slettKladd(testFnr ?: fnrFromToken())
             call.respond(HttpStatusCode)
         }
 
         get {
-            call.respond(db.finnKladd(fnrFromToken())?:HttpStatusCode.NotFound)
+            call.respond(db.finnKladd(testFnr ?: fnrFromToken()) ?: HttpStatusCode.NotFound)
         }
     }
-
 }
 
 fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() = call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
 
-fun Application.apiModule(routes: Route.()->Unit){
+fun Application.apiModule(routes: Route.() -> Unit) {
     install(Authentication) {
         tokenValidationSupport(config = HoconApplicationConfig(ConfigFactory.load()))
     }

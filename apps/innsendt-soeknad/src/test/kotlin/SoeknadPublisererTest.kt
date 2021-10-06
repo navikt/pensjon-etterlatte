@@ -4,7 +4,8 @@ import no.nav.etterlatte.SoeknadPubliserer
 import no.nav.etterlatte.SoeknadRepository
 import no.nav.etterlatte.UlagretSoeknad
 import no.nav.helse.rapids_rivers.MessageContext
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
 import java.time.Clock
 import java.time.LocalDateTime
@@ -20,7 +21,7 @@ class SoeknadPublisererTest {
         val rapidStub = MessageContextStub()
         val publieserteSoeknader = mutableListOf<LagretSoeknad>()
 
-        val dbStub = object : SoeknadRepository by SoeknadRepositoryNoOp({Assertions.fail()}) {
+        val dbStub = object : SoeknadRepository by SoeknadRepositoryNoOp({ fail() }) {
             override fun soeknadSendt(soeknad: LagretSoeknad) {
                 publieserteSoeknader += soeknad
             }
@@ -32,10 +33,10 @@ class SoeknadPublisererTest {
 
         subject.publiser(soeknadSomSkalPubliseres)
 
-        Assertions.assertEquals(1, publieserteSoeknader.size)
-        Assertions.assertEquals(1, rapidStub.publishedMessages.size)
-        Assertions.assertEquals(123.toString(), rapidStub.publishedMessages[0].first)
-        Assertions.assertEquals(soeknadSomSkalPubliseres, publieserteSoeknader[0])
+        assertEquals(1, publieserteSoeknader.size)
+        assertEquals(1, rapidStub.publishedMessages.size)
+        assertEquals(123.toString(), rapidStub.publishedMessages[0].first)
+        assertEquals(soeknadSomSkalPubliseres, publieserteSoeknader[0])
 
     }
 
@@ -48,16 +49,16 @@ class SoeknadPublisererTest {
         val soeknadSomSkalPubliseres = LagretSoeknad("1", "{}", 123)
         subject.publiser(soeknadSomSkalPubliseres)
 
-        Assertions.assertEquals(1, rapidStub.publishedMessages.size)
-        Assertions.assertEquals(123.toString(), rapidStub.publishedMessages[0].first)
+        assertEquals(1, rapidStub.publishedMessages.size)
+        assertEquals(123.toString(), rapidStub.publishedMessages[0].first)
         println(rapidStub.publishedMessages[0].second)
         val message = jacksonObjectMapper().readTree(rapidStub.publishedMessages[0].second)
 
-        Assertions.assertEquals("soeknad_innsendt", message["@event_name"].textValue())
-        Assertions.assertEquals(jacksonObjectMapper().readTree(soeknadSomSkalPubliseres.soeknad), message["@skjema_info"])
-        Assertions.assertEquals(soeknadSomSkalPubliseres.id, message["@lagret_soeknad_id"].longValue())
-        Assertions.assertEquals(soeknadSomSkalPubliseres.fnr, message["@fnr_soeker"].textValue())
-        Assertions.assertEquals(OffsetDateTime.of(LocalDateTime.of(2020, Month.MAY, 5, 14, 35, 2), ZoneOffset.UTC), OffsetDateTime.parse(message["@hendelse_gyldig_til"].textValue()))
+        assertEquals("soeknad_innsendt", message["@event_name"].textValue())
+        assertEquals(jacksonObjectMapper().readTree(soeknadSomSkalPubliseres.soeknad), message["@skjema_info"])
+        assertEquals(soeknadSomSkalPubliseres.id, message["@lagret_soeknad_id"].longValue())
+        assertEquals(soeknadSomSkalPubliseres.fnr, message["@fnr_soeker"].textValue())
+        assertEquals(OffsetDateTime.of(LocalDateTime.of(2020, Month.MAY, 5, 14, 35, 2), ZoneOffset.UTC), OffsetDateTime.parse(message["@hendelse_gyldig_til"].textValue()))
 
     }
 

@@ -5,6 +5,7 @@ val kotliqueryVersion = "1.3.1"
 val flywayVersion = "6.5.0"
 val hikariVersion = "3.4.5"
 val tokensupportversion: String by project
+val kotestVersion: String by project
 
 
 plugins {
@@ -23,7 +24,6 @@ dependencies {
     implementation("no.nav.security:token-validation-ktor:$tokensupportversion")
     testImplementation("com.h2database:h2:1.4.200")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    //testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
     implementation("io.ktor:ktor-jackson:$ktorversion")
 
@@ -33,6 +33,8 @@ dependencies {
 
     testImplementation("org.testcontainers:junit-jupiter:1.15.3")
     testImplementation("org.testcontainers:postgresql:1.15.3")
+    testImplementation("io.ktor:ktor-server-tests:$ktorversion")
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 
     // Logging
     implementation("org.slf4j:slf4j-api:1.7.30")
