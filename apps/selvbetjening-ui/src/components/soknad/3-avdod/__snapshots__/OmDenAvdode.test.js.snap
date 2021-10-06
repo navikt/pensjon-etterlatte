@@ -7,7 +7,7 @@ exports[`Om den avdøde Snapshot 1`] = `
     class="skjemagruppe center"
   >
     <h1
-      class="navds-title navds-title--m"
+      class="navds-heading navds-heading--medium"
     >
       omDenAvdoede.tittel
     </h1>
@@ -111,7 +111,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="skjemagruppe ingress"
     >
       <h1
-        class="navds-title navds-title--s"
+        class="navds-heading navds-heading--small"
       >
         omDenAvdoede.boddEllerJobbetUtland.tittel
       </h1>
@@ -205,7 +205,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="skjemagruppe ingress"
       >
         <h1
-          class="navds-title navds-title--s"
+          class="navds-heading navds-heading--small"
         >
           omDenAvdoede.selvstendigNaeringsdrivende.tittel
         </h1>
@@ -358,7 +358,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="skjemagruppe ingress"
       >
         <h1
-          class="navds-title navds-title--s"
+          class="navds-heading navds-heading--small"
         >
           omDenAvdoede.annenOpptjening.tittel
         </h1>
@@ -385,6 +385,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               class="hvorforPanel"
             >
               <button
+                aria-expanded="false"
                 class="hvorforPanel__toggle"
                 data-testid="hvorforPanel_toggle"
                 type="button"
@@ -483,16 +484,24 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="navigasjon-rad"
       >
         <button
-          class="navds-button navds-button--primary navds-button--m navds-body-short"
+          class="navds-button navds-button--primary navds-button--medium"
           type="button"
         >
-          knapp.tilbake
+          <span
+            class="navds-button__inner navds-body-short"
+          >
+            knapp.tilbake
+          </span>
         </button>
         <button
-          class="navds-button navds-button--action navds-button--m navds-body-short"
+          class="navds-button navds-button--primary navds-button--medium"
           type="button"
         >
-          knapp.neste
+          <span
+            class="navds-button__inner navds-body-short"
+          >
+            knapp.neste
+          </span>
         </button>
       </div>
       <div
@@ -504,10 +513,14 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="skjemagruppe navigasjon-rad"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--m navds-body-short"
+        class="navds-button navds-button--secondary navds-button--medium"
         type="button"
       >
-        knapp.avbryt
+        <span
+          class="navds-button__inner navds-body-short"
+        >
+          knapp.avbryt
+        </span>
       </button>
       <div
         aria-live="polite"

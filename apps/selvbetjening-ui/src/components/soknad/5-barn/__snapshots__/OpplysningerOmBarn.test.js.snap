@@ -8,7 +8,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="skjemagruppe"
     >
       <h1
-        class="center navds-title navds-title--m"
+        class="center navds-heading navds-heading--medium"
       >
         omBarn.tittel
       </h1>
@@ -24,35 +24,32 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="navds-panel navds-panel--border"
       >
         <div
-          class="navds-alert--inline navds-alert navds-alert--info navds-alert--m navds-body-long"
+          class="navds-alert--inline navds-alert navds-alert--info navds-alert--medium"
         >
-          <span>
-            <span
-              class="sr-only"
-            >
-              info-ikon
-            </span>
-            <svg
-              aria-label="info-ikon"
-              fill="none"
-              focusable="false"
-              height="1em"
-              role="img"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0zM9 19v-2h2v-5H9v-2h4v7h2v2H9zm3-14a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"
-                fill="currentColor"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-          <div>
+          <svg
+            alt="info-ikon"
+            aria-label="info-ikon"
+            class="navds-alert__icon"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0zM9 19v-2h2v-5H9v-2h4v7h2v2H9zm3-14a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <div
+            class="navds-alert__wrapper navds-body-long"
+          >
             <p
-              class="navds-body-short navds-body--s"
+              class="navds-body-short navds-body-short--small"
             >
               omBarn.informasjon
             </p>
@@ -89,14 +86,18 @@ exports[`Om den avdøde Snapshot 1`] = `
               class="informasjonsboks-innhold"
             >
               <button
-                class="navds-button navds-button--primary navds-button--m navds-body-short"
+                class="navds-button navds-button--primary navds-button--medium"
                 type="button"
               >
-                knapp.leggTilBarn
+                <span
+                  class="navds-button__inner navds-body-short"
+                >
+                  knapp.leggTilBarn
+                </span>
               </button>
             </div>
             <p
-              class="center mute navds-body-short navds-body--s"
+              class="center mute navds-body-short navds-body-short--small"
             >
               omBarn.valgfritt
             </p>
@@ -170,16 +171,24 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="navigasjon-rad"
       >
         <button
-          class="navds-button navds-button--primary navds-button--m navds-body-short"
+          class="navds-button navds-button--primary navds-button--medium"
           type="button"
         >
-          knapp.tilbake
+          <span
+            class="navds-button__inner navds-body-short"
+          >
+            knapp.tilbake
+          </span>
         </button>
         <button
-          class="navds-button navds-button--action navds-button--m navds-body-short"
+          class="navds-button navds-button--primary navds-button--medium"
           type="button"
         >
-          knapp.neste
+          <span
+            class="navds-button__inner navds-body-short"
+          >
+            knapp.neste
+          </span>
         </button>
       </div>
       <div
@@ -191,10 +200,14 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="skjemagruppe navigasjon-rad"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--m navds-body-short"
+        class="navds-button navds-button--secondary navds-button--medium"
         type="button"
       >
-        knapp.avbryt
+        <span
+          class="navds-button__inner navds-body-short"
+        >
+          knapp.avbryt
+        </span>
       </button>
       <div
         aria-live="polite"

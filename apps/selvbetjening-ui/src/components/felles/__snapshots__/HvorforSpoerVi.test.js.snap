@@ -6,6 +6,7 @@ exports[`HvorforSpoerVi Skal åpne boksen og matche med innholdet vi legger inn 
     class="hvorforPanel"
   >
     <button
+      aria-expanded="true"
       class="hvorforPanel__toggle"
       data-testid="hvorforPanel_toggle"
       type="button"
@@ -53,6 +54,7 @@ exports[`HvorforSpoerVi skal rendre hvorfor spør vi som lukket boks 1`] = `
     class="hvorforPanel"
   >
     <button
+      aria-expanded="false"
       class="hvorforPanel__toggle"
       data-testid="hvorforPanel_toggle"
       type="button"

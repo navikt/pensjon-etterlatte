@@ -8,7 +8,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="skjemagruppe"
     >
       <h1
-        class="center navds-title navds-title--m"
+        class="center navds-heading navds-heading--medium"
       >
         dinSituasjon.tittel
       </h1>
@@ -21,7 +21,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="skjemagruppe"
     >
       <h1
-        class="navds-title navds-title--s"
+        class="navds-heading navds-heading--small"
       >
         dinSituasjon.undertittel
       </h1>
@@ -121,7 +121,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="skjemagruppe"
       >
         <h1
-          class="navds-title navds-title--s"
+          class="navds-heading navds-heading--small"
         >
           dinSituasjon.arbeidsforhold.tittel
         </h1>
@@ -318,11 +318,15 @@ exports[`Om den avdøde Snapshot 1`] = `
         </div>
       </div>
       <button
-        class="navds-button navds-button--secondary navds-button--m navds-body-short"
+        class="navds-button navds-button--secondary navds-button--medium"
         type="button"
       >
-        + 
-        knapp.leggTilArbeidstakere
+        <span
+          class="navds-button__inner navds-body-short"
+        >
+          + 
+          knapp.leggTilArbeidstakere
+        </span>
       </button>
       <div
         aria-live="polite"
@@ -486,7 +490,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="skjemagruppe"
       >
         <h1
-          class="navds-title navds-title--s"
+          class="navds-heading navds-heading--small"
         >
           dinSituasjon.andreYtelser.tittel
         </h1>
@@ -688,6 +692,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               class="hvorforPanel"
             >
               <button
+                aria-expanded="false"
                 class="hvorforPanel__toggle"
                 data-testid="hvorforPanel_toggle"
                 type="button"
@@ -831,16 +836,24 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="navigasjon-rad"
       >
         <button
-          class="navds-button navds-button--primary navds-button--m navds-body-short"
+          class="navds-button navds-button--primary navds-button--medium"
           type="button"
         >
-          knapp.tilbake
+          <span
+            class="navds-button__inner navds-body-short"
+          >
+            knapp.tilbake
+          </span>
         </button>
         <button
-          class="navds-button navds-button--action navds-button--m navds-body-short"
+          class="navds-button navds-button--primary navds-button--medium"
           type="button"
         >
-          knapp.neste
+          <span
+            class="navds-button__inner navds-body-short"
+          >
+            knapp.neste
+          </span>
         </button>
       </div>
       <div
@@ -852,10 +865,14 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="skjemagruppe navigasjon-rad"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--m navds-body-short"
+        class="navds-button navds-button--secondary navds-button--medium"
         type="button"
       >
-        knapp.avbryt
+        <span
+          class="navds-button__inner navds-body-short"
+        >
+          knapp.avbryt
+        </span>
       </button>
       <div
         aria-live="polite"

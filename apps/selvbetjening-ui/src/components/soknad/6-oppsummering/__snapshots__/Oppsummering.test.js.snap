@@ -7,7 +7,7 @@ exports[`Om den avdøde Snapshot 1`] = `
     class="skjemagruppe"
   >
     <h1
-      class="center navds-title navds-title--m"
+      class="center navds-heading navds-heading--medium"
     >
       oppsummering.tittel
     </h1>
@@ -28,6 +28,9 @@ exports[`Om den avdøde Snapshot 1`] = `
       aria-live="polite"
     />
   </fieldset>
+  <div
+    class="navds-accordion"
+  />
   <br />
   <fieldset
     aria-invalid="false"
@@ -37,17 +40,25 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="navigasjon-rad"
     >
       <button
-        class="navds-button navds-button--primary navds-button--m navds-body-short"
+        class="navds-button navds-button--primary navds-button--medium"
         type="button"
       >
-        knapp.tilbake
+        <span
+          class="navds-button__inner navds-body-short"
+        >
+          knapp.tilbake
+        </span>
       </button>
       <button
-        class="navds-button navds-button--action navds-button--m navds-body-short"
+        class="navds-button navds-button--primary navds-button--medium"
         type="button"
       >
-        knapp.sendSoeknad
-         
+        <span
+          class="navds-button__inner navds-body-short"
+        >
+          knapp.sendSoeknad
+           
+        </span>
       </button>
     </div>
     <div
@@ -59,10 +70,14 @@ exports[`Om den avdøde Snapshot 1`] = `
     class="skjemagruppe navigasjon-rad"
   >
     <button
-      class="navds-button navds-button--secondary navds-button--m navds-body-short"
+      class="navds-button navds-button--secondary navds-button--medium"
       type="button"
     >
-      knapp.avbryt
+      <span
+        class="navds-button__inner navds-body-short"
+      >
+        knapp.avbryt
+      </span>
     </button>
     <div
       aria-live="polite"

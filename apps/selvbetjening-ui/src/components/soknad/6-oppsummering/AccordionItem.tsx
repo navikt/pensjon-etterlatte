@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export const AccordionItem = ({ tittel, children, defaultOpen = true }: any) => {
     const [open, setOpen] = useState(defaultOpen)
-    console.log(open)
 
     return (
         <Accordion.Item open={open} aria-expanded={open}>
