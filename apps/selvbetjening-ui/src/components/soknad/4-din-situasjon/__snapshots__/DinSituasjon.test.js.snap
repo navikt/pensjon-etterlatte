@@ -322,7 +322,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         type="button"
       >
         + 
-        knapp.leggTil
+        knapp.leggTilArbeidstakere
       </button>
       <div
         aria-live="polite"
