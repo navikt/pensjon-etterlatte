@@ -62,12 +62,9 @@ export const lagreSoeknad = async (soeknad: ISoeknad) => {
  * Sender inn ferdigstilt søknad
  */
 export const sendSoeknad = async (soeknad: any) => {
-    console.log(`process.env.NAIS_APP_IMAGE: ${process.env.NAIS_APP_IMAGE}`);
-
     const body = {
         ...soeknad,
-        klarForLagring: undefined,
-        imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*(selvbetjening-ui.*)/, "$1") || "",
+        klarForLagring: undefined
     };
 
     try {

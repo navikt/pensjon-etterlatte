@@ -12,6 +12,7 @@ const options = () => ({
         return new Promise((resolve, reject) => {
             return exchangeToken(req.session.tokens.access_token).then(
                 (accessToken) => {
+                    options.headers.ImageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1")
                     options.headers.Authorization = `Bearer ${accessToken}`;
                     resolve(options);
                 },

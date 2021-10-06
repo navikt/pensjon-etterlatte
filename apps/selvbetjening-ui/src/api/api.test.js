@@ -5,8 +5,6 @@ jest.mock("./axios");
 
 describe("Test sending av søknad", () => {
     it("Søknadsobjekt fylles ut korrekt", async () => {
-        process.env = { NAIS_APP_IMAGE: "docker.pkg.github.com/navikt/pensjon-etterlatte/selvbetjening-ui:02c77cfce65041d5261115dcc94179dffe04cae1" }
-
         const soeknad = {
             harSamtykket: true,
             klarForLagring: true,
@@ -22,8 +20,7 @@ describe("Test sending av søknad", () => {
                 `/api/soeknad`,
                 {
                     ...soeknad,
-                    klarForLagring: undefined,
-                    imageTag: "selvbetjening-ui:02c77cfce65041d5261115dcc94179dffe04cae1"
+                    klarForLagring: undefined
                 }
         );
 

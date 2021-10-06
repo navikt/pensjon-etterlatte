@@ -13,13 +13,12 @@ import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.common.RetryResult
-import java.time.LocalDateTime
-import java.time.ZoneId
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
             val soeknad = call.receive<Soeknad>()
+                .apply { imageTag = call.request.headers["ImageTag"] }
 
             val response = service.sendSoknad(soeknad)
 

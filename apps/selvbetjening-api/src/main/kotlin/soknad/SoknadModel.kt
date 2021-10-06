@@ -1,6 +1,5 @@
 package no.nav.etterlatte.soknad
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -23,7 +22,7 @@ data class Gruppe(
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Soeknad(
-    val imageTag: String,
+    var imageTag: String?,
     val mottattDato: String = LocalDateTime.now(ZoneId.of("Europe/Oslo")).toString(),
     val oppsummering: List<Gruppe>
 )
