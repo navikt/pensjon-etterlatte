@@ -4,7 +4,7 @@ import i18next from "i18next";
 export enum Language {
     NORSK_BOKMAAL = "nb",
     NORSK_NYNORSK = "nn",
-    ENGELSK = "en",
+    // ENGELSK = "en",
 }
 
 export const useLanguage = () => {
@@ -14,8 +14,9 @@ export const useLanguage = () => {
     // Slått av inntil vi har språkene
     useEffect(() => {
         const preferredLang = window.localStorage.getItem("preferredLang") as Language;
-        const lng = navigator.language.slice(0, 2) as Language;
-        setCurrentLanguage(preferredLang || lng);
+        //const lng = navigator.language.slice(0, 2) as Language;
+        //setCurrentLanguage(preferredLang || lng);
+        setCurrentLanguage(preferredLang || Language.NORSK_BOKMAAL);
     }, []);
 
     useEffect(() => {
