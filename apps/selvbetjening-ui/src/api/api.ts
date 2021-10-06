@@ -1,20 +1,5 @@
-import axios from "axios";
-import axiosRetry from "axios-retry";
-import { ISoeknad } from "./context/soknad/soknad";
-
-const isDev = process.env.NODE_ENV === "development";
-
-const api = axios.create({
-    withCredentials: true,
-    baseURL: isDev ? "http://localhost:8080/api" : "/api",
-});
-
-axiosRetry(api, {
-    retries: 3,
-    retryDelay: (retryCount: number) => (isDev ? 500 : retryCount * 2000),
-    // Må ta stilling til om vi kan få problemer med idempotens/timeout.
-    retryCondition: (error) => error.response?.status !== 404,
-});
+import { axiosInstance as api } from "./axios";
+import { ISoeknad } from "../context/soknad/soknad";
 
 /**
  * Henter personalia for innlogget person
@@ -77,6 +62,12 @@ export const lagreSoeknad = async (soeknad: ISoeknad) => {
  * Sender inn ferdigstilt søknad
  */
 export const sendSoeknad = async (soeknad: any) => {
+    soeknad = {
+        ...soeknad,
+        klarForLagring: undefined,
+        imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*(selvbetjening-ui.*)/, "$1"),
+    };
+
     try {
         const response = await api.post("/api/soeknad", soeknad);
         return response.data;
@@ -84,5 +75,3 @@ export const sendSoeknad = async (soeknad: any) => {
         throw new Error("Det skjedde en feil");
     }
 };
-
-export default api;

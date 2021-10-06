@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { hentInnloggetPerson } from "../api";
+import { hentInnloggetPerson } from "../api/api";
 import { ActionTypes as BrukerActionTypes, IBruker } from "../context/bruker/bruker";
 import { hentAlder } from "../utils/dato";
 import { gyldigAlder } from "../utils/alder";

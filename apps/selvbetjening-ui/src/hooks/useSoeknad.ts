@@ -1,7 +1,7 @@
 import { useBrukerContext } from "../context/bruker/BrukerContext";
 import { useSoknadContext } from "../context/soknad/SoknadContext";
 import { useEffect, useState } from "react";
-import { hentSoeknad, lagreSoeknad } from "../api";
+import { hentSoeknad, lagreSoeknad } from "../api/api";
 import { ActionTypes, ISoeknad } from "../context/soknad/soknad";
 import { useHistory } from "react-router-dom";
 import { useError } from "./useError";

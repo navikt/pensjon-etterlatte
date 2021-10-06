@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import { Gruppe } from "../../../utils/ObjectTreeReader";
 import SoeknadMapper from "../../../utils/SoeknadMapper";
-import { sendSoeknad } from "../../../api";
+import { sendSoeknad } from "../../../api/api";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
 import { LogEvents, useAmplitude } from "../../../utils/amplitude";
