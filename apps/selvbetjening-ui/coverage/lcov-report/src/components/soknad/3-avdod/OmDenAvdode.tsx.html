@@ -206,7 +206,9 @@
 <a name='L147'></a><a href='#L147'>147</a>
 <a name='L148'></a><a href='#L148'>148</a>
 <a name='L149'></a><a href='#L149'>149</a>
-<a name='L150'></a><a href='#L150'>150</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -253,6 +255,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -370,7 +374,7 @@ import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
-import { BodyLong, Label, Title } from "@navikt/ds-react";
+import { BodyLong, Label, Heading } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 &nbsp;
@@ -404,7 +408,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) =&gt; {
     return (
         &lt;FormProvider {...methods}&gt;
             &lt;SkjemaGruppe className={"center"}&gt;
-                &lt;Title size={"m"}&gt;{t("omDenAvdoede.tittel")}&lt;/Title&gt;
+                &lt;Heading size={"medium"}&gt;{t("omDenAvdoede.tittel")}&lt;/Heading&gt;
             &lt;/SkjemaGruppe&gt;
 &nbsp;
             &lt;form&gt;
@@ -425,6 +429,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) =&gt; {
                             className={"kol-50"}
                             name={"foedselsnummer"}
                             label={t("omDenAvdoede.foedselsnummer")}
+                            placeholder={t("felles.fnrPlaceholder")}
                         /&gt;
 &nbsp;
                         &lt;RHFInput
@@ -436,11 +441,11 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) =&gt; {
                     &lt;/SkjemaGruppe&gt;
                 &lt;/SkjemaGruppering&gt;
 &nbsp;
-                &lt;BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet}/&gt;
+                &lt;BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet} /&gt;
 &nbsp;
                 &lt;SkjemaGruppering&gt;
                     &lt;SkjemaGruppe className="ingress"&gt;
-                        &lt;Title size="s"&gt;{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}&lt;/Title&gt;
+                        &lt;Heading size="small"&gt;{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}&lt;/Heading&gt;
                         &lt;BodyLong&gt;{t("omDenAvdoede.selvstendigNaeringsdrivende.ingress")}&lt;/BodyLong&gt;
                     &lt;/SkjemaGruppe&gt;
 &nbsp;
@@ -457,6 +462,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) =&gt; {
                                 name={"selvstendigNaeringsdrivende.beskrivelse"}
                                 bredde={"L"}
                                 valgfri
+                                type="tel"
                                 placeholder={t("omDenAvdoede.selvstendigNaeringsdrivende.placeholder")}
                                 label={t("omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse")}
                             /&gt;
@@ -471,7 +477,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) =&gt; {
 &nbsp;
                 &lt;SkjemaGruppering&gt;
                     &lt;SkjemaGruppe className="ingress"&gt;
-                        &lt;Title size="s"&gt;{t("omDenAvdoede.annenOpptjening.tittel")}&lt;/Title&gt;
+                        &lt;Heading size="small"&gt;{t("omDenAvdoede.annenOpptjening.tittel")}&lt;/Heading&gt;
                     &lt;/SkjemaGruppe&gt;
 &nbsp;
                     &lt;RHFSpoersmaalRadio
@@ -495,9 +501,9 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) =&gt; {
                     )}
                 &lt;/SkjemaGruppering&gt;
 &nbsp;
-                &lt;Feilmeldinger errors={errors}/&gt;
+                &lt;Feilmeldinger errors={errors} /&gt;
 &nbsp;
-                &lt;Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }}/&gt;
+                &lt;Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }} /&gt;
             &lt;/form&gt;
         &lt;/FormProvider&gt;
     );
@@ -511,7 +517,7 @@ export default OmDenAvdode;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Sep 29 2021 13:15:36 GMT+0200 (Central European Summer Time)
+                at Wed Oct 06 2021 15:48:28 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

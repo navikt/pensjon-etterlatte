@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>4/10</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -117,22 +117,7 @@
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,25 +136,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,11 +181,11 @@
 import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
-import { Alert } from "@navikt/ds-react";
 import { hentAlder } from "../../../../utils/dato";
 import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
+import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 &nbsp;
 const SamboerMedAvdoede = () =&gt; {
     const { t } = useTranslation();
@@ -225,13 +195,12 @@ const SamboerMedAvdoede = () =&gt; {
     const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap");
     const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
     const tidligereGift = watch("forholdTilAvdoede.tidligereGift");
-    const omsorgForBarn = watch("forholdTilAvdoede.omsorgForBarn");
     const datoforDoedsfallet = watch("avdoed.datoForDoedsfallet");
 &nbsp;
     const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? <span class="branch-0 cbranch-no" title="branch not covered" >hentAlder(datoInngaattPartnerskap) &lt; 5 </span>: false;
 &nbsp;
     return (
-        &lt;&gt;
+        &lt;SkjemaGruppering&gt;
             &lt;RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
@@ -242,12 +211,6 @@ const SamboerMedAvdoede = () =&gt; {
                     name={"forholdTilAvdoede.tidligereGift"}
                     legend={t("omDegOgAvdoed.forholdTilAvdoede.tidligereGift")}
                 /&gt;
-            )}
-&nbsp;
-            {tidligereGift === IValg.NEI &amp;&amp; (
-<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;SkjemaGruppe&gt;</span>
-                    &lt;Alert variant={"warning"}&gt;{t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}&lt;/Alert&gt;
-                &lt;/SkjemaGruppe&gt;
             )}
 &nbsp;
             {tidligereGift === IValg.JA &amp;&amp; (
@@ -267,17 +230,9 @@ const SamboerMedAvdoede = () =&gt; {
                             legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
                         /&gt;
                     )}
-&nbsp;
-                    {omsorgForBarn === IValg.NEI &amp;&amp; (
-                        &lt;SkjemaGruppe&gt;
-                            &lt;Alert variant={"warning"}&gt;
-                                {t("omDegOgAvdoed.forholdTilAvdoede.ingenRettighetAdvarsel")}
-                            &lt;/Alert&gt;
-                        &lt;/SkjemaGruppe&gt;
-                    )}
                 &lt;/&gt;
             )}
-        &lt;/&gt;
+        &lt;/SkjemaGruppering&gt;
     );
 };
 &nbsp;
@@ -289,7 +244,7 @@ export default SamboerMedAvdoede;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Sep 29 2021 13:15:36 GMT+0200 (Central European Summer Time)
+                at Wed Oct 06 2021 15:48:28 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>

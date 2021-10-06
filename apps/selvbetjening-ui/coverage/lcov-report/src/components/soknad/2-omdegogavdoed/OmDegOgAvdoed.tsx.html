@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.75% </span>
+                <span class="strong">72.73% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/16</span>
+                <span class='fraction'>8/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.75% </span>
+                <span class="strong">72.73% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/16</span>
+                <span class='fraction'>8/11</span>
             </div>
         
             
@@ -167,29 +167,7 @@
 <a name='L108'></a><a href='#L108'>108</a>
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a>
-<a name='L118'></a><a href='#L118'>118</a>
-<a name='L119'></a><a href='#L119'>119</a>
-<a name='L120'></a><a href='#L120'>120</a>
-<a name='L121'></a><a href='#L121'>121</a>
-<a name='L122'></a><a href='#L122'>122</a>
-<a name='L123'></a><a href='#L123'>123</a>
-<a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a>
-<a name='L130'></a><a href='#L130'>130</a>
-<a name='L131'></a><a href='#L131'>131</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L111'></a><a href='#L111'>111</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -229,27 +207,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -328,18 +288,16 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
-import { Alert, Label, Title } from "@navikt/ds-react";
+import { Cell, Grid, Label, Heading } from "@navikt/ds-react";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
-import { erDato } from "../../../utils/dato";
-import { Cell, Grid } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { isEmpty } from "lodash";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 &nbsp;
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) =&gt; {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 &nbsp;
     const lagre = <span class="fstat-no" title="function not covered" >(d</span>ata: ISoekerOgAvdoed) =&gt; {
@@ -358,27 +316,16 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) =&gt; {
 &nbsp;
     const {
         handleSubmit,
-        watch,
         formState: { errors }
     } = methods;
-&nbsp;
-    const dtf = Intl.DateTimeFormat(i18n.language, { day: "numeric", month: "long", year: "numeric" });
-&nbsp;
-    const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet") || undefined;
-&nbsp;
-    let foersteFraDato;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (erDato(datoForDoedsfallet)) {
-        const dato = <span class="cstat-no" title="statement not covered" >new Date(datoForDoedsfallet)</span>
-<span class="cstat-no" title="statement not covered" >        foersteFraDato = dtf.format(new Date(dato.getFullYear(), dato.getMonth() + 1, 1))</span>
-    }
 &nbsp;
     return (
         &lt;&gt;
             {/* Steg 2 */}
             &lt;SkjemaGruppe&gt;
-                &lt;Title size={"m"} className={"center"}&gt;
+                &lt;Heading size={"medium"} className={"center"}&gt;
                     {t("omDegOgAvdoed.tittel")}
-                &lt;/Title&gt;
+                &lt;/Heading&gt;
             &lt;/SkjemaGruppe&gt;
 &nbsp;
             {/* Skjema for utfylling av info om innlogget bruker / søker */}
@@ -412,29 +359,22 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) =&gt; {
                             label={t("omDegOgAvdoed.avdoed.dato")}
                             maxDate={new Date()}
                         /&gt;
-&nbsp;
-                        {foersteFraDato &amp;&amp; (
-<span class="branch-1 cbranch-no" title="branch not covered" >                            &lt;Alert variant={"info"} className={"navds-alert--inline"}&gt;</span>
-                                {t("omDegOgAvdoed.rettPaaGjenlevendepensjon", { dato: foersteFraDato })}
-                            &lt;/Alert&gt;
-                        )}
                     &lt;/SkjemaGruppe&gt;
 &nbsp;
                     &lt;RHFSpoersmaalRadio
                         name={"avdoed.doedsfallAarsak"}
                         legend={t("omDegOgAvdoed.avdoed.doedsfallAarsak")}
-                        description={&lt;HvorforSpoerVi&gt;{t("omDegOgAvdoed.avdoed.doedsfallAarsakHvorfor")}&lt;/HvorforSpoerVi&gt;}
+                        description={
+                            &lt;HvorforSpoerVi&gt;{t("omDegOgAvdoed.avdoed.doedsfallAarsakHvorfor")}&lt;/HvorforSpoerVi&gt;}
                         vetIkke
                     /&gt;
 &nbsp;
                     {/* 2.9 */}
-                    &lt;ForholdTilAvdoedeSkjema /&gt;
+                    &lt;ForholdTilAvdoedeSkjema/&gt;
 &nbsp;
-                    &lt;NySivilstatus /&gt;
+                    &lt;NySivilstatus/&gt;
 &nbsp;
-                    &lt;br /&gt;
-&nbsp;
-                    &lt;Feilmeldinger errors={errors} /&gt;
+                    &lt;Feilmeldinger errors={errors}/&gt;
 &nbsp;
                     &lt;Navigasjon
                         forrige={{ onClick: forrige }}
@@ -454,7 +394,7 @@ export default OmDegOgAvdoed;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Sep 29 2021 13:15:36 GMT+0200 (Central European Summer Time)
+                at Wed Oct 06 2021 15:48:28 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

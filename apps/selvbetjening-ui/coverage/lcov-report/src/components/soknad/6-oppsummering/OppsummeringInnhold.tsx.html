@@ -118,9 +118,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,8 +128,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,7 +136,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,7 +160,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Element, Gruppe } from "../../../utils/ObjectTreeReader";
-import { Accordion, BodyLong, Panel, Title } from "@navikt/ds-react";
+import { Accordion, BodyLong, Panel, Heading } from "@navikt/ds-react";
 import { v4 as uuid } from "uuid";
 import TekstGruppe from "./fragmenter/TekstGruppe";
 import { SkjemaGruppe } from "nav-frontend-skjema";
@@ -168,46 +168,46 @@ import { EditFilled } from "@navikt/ds-icons";
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { AccordionItem } from "./AccordionItem";
 &nbsp;
-const OppsummeringInnhold = memo(({ soeknadOppsummering, senderSoeknad }: {
-    soeknadOppsummering: Gruppe[];
-    senderSoeknad: boolean;
-}) =&gt; {
-    const { t } = useTranslation();
+const OppsummeringInnhold = memo(
+    ({ soeknadOppsummering, senderSoeknad }: { soeknadOppsummering: Gruppe[]; senderSoeknad: boolean }) =&gt; {
+        const { t } = useTranslation();
 &nbsp;
-    const elementPanel = <span class="fstat-no" title="function not covered" >({</span> tittel, innhold }: Element) =&gt; (
-<span class="cstat-no" title="statement not covered" >        &lt;Panel key={uuid()}&gt;</span>
-            {tittel &amp;&amp; (
-                &lt;Title size={"s"}&gt;{tittel}&lt;/Title&gt;
-            )}
+        const elementPanel = <span class="fstat-no" title="function not covered" >({</span> tittel, innhold }: Element) =&gt; (
+<span class="cstat-no" title="statement not covered" >            &lt;Panel key={uuid()}&gt;</span>
+                {tittel &amp;&amp; &lt;Heading size={"small"}&gt;{tittel}&lt;/Heading&gt;}
 &nbsp;
-            {innhold.map(<span class="fstat-no" title="function not covered" >({</span> spoersmaal, svar }) =&gt; (
-<span class="cstat-no" title="statement not covered" >                &lt;TekstGruppe key={uuid()} tittel={spoersmaal} innhold={svar}/&gt;</span>
-            ))}
-        &lt;/Panel&gt;
-    );
+                {innhold.map(<span class="fstat-no" title="function not covered" >({</span> spoersmaal, svar }) =&gt; (
+<span class="cstat-no" title="statement not covered" >                    &lt;TekstGruppe key={uuid()} tittel={spoersmaal} innhold={svar} /&gt;</span>
+                ))}
+            &lt;/Panel&gt;
+        );
 &nbsp;
-    return (
-        &lt;&gt;
-            {soeknadOppsummering.map(<span class="fstat-no" title="function not covered" >({</span> tittel, elementer, path }: Gruppe) =&gt; (
-<span class="cstat-no" title="statement not covered" >                &lt;Accordion heading={tittel} className={"oppsummering"} open={true} id={path} key={uuid()}&gt;</span>
-                    {!elementer.length &amp;&amp; (
-                        &lt;SkjemaGruppe&gt;
-                            &lt;BodyLong&gt;{t("felles.ingenInfo")}&lt;/BodyLong&gt;
-                        &lt;/SkjemaGruppe&gt;
-                    )}
+        return (
+            &lt;&gt;
+                &lt;Accordion&gt;
+                    {soeknadOppsummering.map(<span class="fstat-no" title="function not covered" >({</span> tittel, elementer, path }: Gruppe) =&gt; (
+<span class="cstat-no" title="statement not covered" >                        &lt;AccordionItem key={uuid()} tittel={tittel}&gt;</span>
+                                {!elementer.length &amp;&amp; (
+                                    &lt;SkjemaGruppe&gt;
+                                        &lt;BodyLong&gt;{t("felles.ingenInfo")}&lt;/BodyLong&gt;
+                                    &lt;/SkjemaGruppe&gt;
+                                )}
 &nbsp;
-                    {elementer.map(elementPanel)}
+                                {elementer.map(elementPanel)}
 &nbsp;
-                    &lt;Link to={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}&gt;
-                        &lt;EditFilled className={"edit-svg"}/&gt;
-                        &lt;span&gt;{t("felles.endreSvar")}&lt;/span&gt;
-                    &lt;/Link&gt;
+                                &lt;Link to={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}&gt;
+                                    &lt;EditFilled className={"edit-svg"} /&gt;
+                                    &lt;span&gt;{t(`endreSvarOppsummering.${path}`)}&lt;/span&gt;
+                                &lt;/Link&gt;
+                            &lt;/AccordionItem&gt;
+                    ))}
                 &lt;/Accordion&gt;
-            ))}
-        &lt;/&gt;
-    )
-});
+            &lt;/&gt;
+        );
+    }
+);
 &nbsp;
 export default OppsummeringInnhold;
 &nbsp;</pre></td></tr></table></pre>
@@ -217,7 +217,7 @@ export default OppsummeringInnhold;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Sep 29 2021 13:15:36 GMT+0200 (Central European Summer Time)
+                at Wed Oct 06 2021 15:48:28 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

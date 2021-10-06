@@ -137,7 +137,8 @@
 <a name='L78'></a><a href='#L78'>78</a>
 <a name='L79'></a><a href='#L79'>79</a>
 <a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -193,8 +194,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,12 +223,12 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ISoeker, SamboerInntekt } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
-import { RHFInput } from "../../../felles/RHFInput";
+import { RHFFoedselsnummerInput, RHFInput, RHFNumberInput } from "../../../felles/RHFInput";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
 import { RHFCheckboksPanelGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
-import { Panel, Title } from "@navikt/ds-react";
+import { Panel, Heading } from "@navikt/ds-react";
 &nbsp;
 const SamboerSkjema = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
     const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
@@ -238,24 +240,23 @@ const SamboerSkjema = <span class="fstat-no" title="function not covered" >()</s
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
         &lt;Panel border&gt;
-            &lt;Title size={"s"}&gt;{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}&lt;/Title&gt;
-&nbsp;
-            &lt;br /&gt;
-&nbsp;
             &lt;SkjemaGruppe&gt;
-                &lt;RHFInput
-                    name={"nySivilstatus.samboerskap.samboer.navn"}
-                    bredde={"XL"}
-                    label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
-                /&gt;
-&nbsp;
-                &lt;RHFInput
-                    name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
-                    bredde={"S"}
-                    label={t("felles.fnr")}
-                    rules={{ validate: <span class="fstat-no" title="function not covered" >(v</span>alue) =&gt; <span class="cstat-no" title="statement not covered" >fnr(value).status === "valid" </span>}}
-                /&gt;
+                &lt;Heading size={"small"}&gt;{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}&lt;/Heading&gt;
             &lt;/SkjemaGruppe&gt;
+&nbsp;
+            &lt;RHFInput
+                name={"nySivilstatus.samboerskap.samboer.navn"}
+                bredde={"XL"}
+                label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
+            /&gt;
+&nbsp;
+            &lt;RHFFoedselsnummerInput
+                name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
+                bredde={"S"}
+                label={t("felles.fnr")}
+                placeholder={t("felles.fnrPlaceholder")}
+                rules={{ validate: <span class="fstat-no" title="function not covered" >(v</span>alue) =&gt; <span class="cstat-no" title="statement not covered" >fnr(value).status === "valid" </span>}}
+            /&gt;
 &nbsp;
             &lt;RHFSpoersmaalRadio
                 name={"nySivilstatus.samboerskap.hattBarnEllerVaertGift"}
@@ -282,12 +283,14 @@ const SamboerSkjema = <span class="fstat-no" title="function not covered" >()</s
                     /&gt;
 &nbsp;
                     &lt;SkjemaGruppe&gt;
-                        &lt;RHFInput
+                        &lt;RHFNumberInput
                             name={"nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"}
+                            type="tel"
                             bredde={"S"}
                             label={t(
                                 "omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"
                             )}
+                            placeholder={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar")}
                         /&gt;
                     &lt;/SkjemaGruppe&gt;
                 &lt;/&gt;
@@ -304,7 +307,7 @@ export default SamboerSkjema;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Sep 29 2021 13:15:36 GMT+0200 (Central European Summer Time)
+                at Wed Oct 06 2021 15:48:28 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>

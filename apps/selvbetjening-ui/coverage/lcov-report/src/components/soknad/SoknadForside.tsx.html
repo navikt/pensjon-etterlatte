@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.78% </span>
+                <span class="strong">81.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/18</span>
+                <span class='fraction'>13/16</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.78% </span>
+                <span class="strong">81.25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/18</span>
+                <span class='fraction'>13/16</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -202,14 +202,8 @@
 <a name='L143'></a><a href='#L143'>143</a>
 <a name='L144'></a><a href='#L144'>144</a>
 <a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a>
-<a name='L147'></a><a href='#L147'>147</a>
-<a name='L148'></a><a href='#L148'>148</a>
-<a name='L149'></a><a href='#L149'>149</a>
-<a name='L150'></a><a href='#L150'>150</a>
-<a name='L151'></a><a href='#L151'>151</a>
-<a name='L152'></a><a href='#L152'>152</a>
-<a name='L153'></a><a href='#L153'>153</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L146'></a><a href='#L146'>146</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -245,10 +239,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -257,10 +247,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -371,9 +357,10 @@ import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { BodyLong, Button, Link, Title, Select } from "@navikt/ds-react";
+import { BodyLong, Button, Link, Heading } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
-import { Language, useLanguage } from "../../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
+import { Dropdown } from "../felles/Dropdown";
 &nbsp;
 const SoknadForside = () =&gt; {
     const history = useHistory();
@@ -396,10 +383,6 @@ const SoknadForside = () =&gt; {
 <span class="cstat-no" title="statement not covered" >        history.push(`/soknad/steg/${foersteSteg.path}`);</span>
     };
 &nbsp;
-    const changeLanguage = <span class="fstat-no" title="function not covered" >(e</span>: any) =&gt; {
-<span class="cstat-no" title="statement not covered" >        setLanguage(e.target.value);</span>
-    };
-&nbsp;
     const innloggetBrukerNavn = `${brukerState?.fornavn} ${brukerState?.etternavn}`;
 &nbsp;
     const heiTekst = (
@@ -417,17 +400,13 @@ const SoknadForside = () =&gt; {
             &lt;/SkjemaGruppe&gt;
 &nbsp;
             &lt;SkjemaGruppe id="language-selector"&gt;
-                &lt;Select onChange={changeLanguage} value={currentLanguage} label="Velg språk"&gt;
-                    &lt;option value={Language.NORSK_BOKMAAL}&gt;Bokmål&lt;/option&gt;
-                    &lt;option value={Language.NORSK_NYNORSK}&gt;Nynorsk&lt;/option&gt;
-                    &lt;option value={Language.ENGELSK}&gt;English&lt;/option&gt;
-                &lt;/Select&gt;
+                &lt;Dropdown onChange={setLanguage} value={currentLanguage} /&gt;
             &lt;/SkjemaGruppe&gt;
 &nbsp;
             &lt;SkjemaGruppe&gt;
-                &lt;Title spacing size={"l"}&gt;
+                &lt;Heading spacing size={"large"}&gt;
                     {t("forside.tittel")}
-                &lt;/Title&gt;
+                &lt;/Heading&gt;
 &nbsp;
                 &lt;BodyLong spacing&gt;{t("forside.omYtelsene.innhold")}&lt;/BodyLong&gt;
 &nbsp;
@@ -436,12 +415,12 @@ const SoknadForside = () =&gt; {
                 &lt;/BodyLong&gt;
             &lt;/SkjemaGruppe&gt;
             &lt;SkjemaGruppe&gt;
-                &lt;Title size={"s"}&gt;{t("forside.barnepensjon.tittel")}&lt;/Title&gt;
+                &lt;Heading size={"small"}&gt;{t("forside.barnepensjon.tittel")}&lt;/Heading&gt;
 &nbsp;
                 &lt;BodyLong&gt;{t("forside.barnepensjon.innhold")}&lt;/BodyLong&gt;
             &lt;/SkjemaGruppe&gt;
             &lt;SkjemaGruppe&gt;
-                &lt;Title size={"s"}&gt;{t("forside.uthentingAvInfo.tittel")}&lt;/Title&gt;
+                &lt;Heading size={"small"}&gt;{t("forside.uthentingAvInfo.tittel")}&lt;/Heading&gt;
 &nbsp;
                 &lt;BodyLong&gt;
                     &lt;Trans i18nKey={"forside.uthentingAvInfo.innhold"} /&gt;
@@ -488,7 +467,7 @@ const SoknadForside = () =&gt; {
                 &lt;/BodyLong&gt;
             &lt;/SkjemaGruppe&gt;
             &lt;SkjemaGruppe&gt;
-                &lt;Title size={"s"}&gt;{t("forside.samtykke.tittel")}&lt;/Title&gt;
+                &lt;Heading size={"small"}&gt;{t("forside.samtykke.tittel")}&lt;/Heading&gt;
 &nbsp;
                 &lt;BodyLong&gt;{t("forside.samtykke.innhold")}&lt;/BodyLong&gt;
 &nbsp;
@@ -504,7 +483,7 @@ const SoknadForside = () =&gt; {
                 /&gt;
             &lt;/SkjemaGruppe&gt;
             {soknadState.harSamtykket &amp;&amp; !soknadState?.error &amp;&amp; (
-                &lt;Button variant={"action"} type={"button"} onClick={startSoeknad}&gt;
+                &lt;Button variant={"primary"} type={"button"} onClick={startSoeknad}&gt;
                     {t("forside.startSoeknad")}
                 &lt;/Button&gt;
             )}
@@ -520,7 +499,7 @@ export default SoknadForside;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Sep 29 2021 13:15:36 GMT+0200 (Central European Summer Time)
+                at Wed Oct 06 2021 15:48:28 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
