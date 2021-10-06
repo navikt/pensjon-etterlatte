@@ -62,16 +62,18 @@ export const lagreSoeknad = async (soeknad: ISoeknad) => {
  * Sender inn ferdigstilt søknad
  */
 export const sendSoeknad = async (soeknad: any) => {
-    soeknad = {
+    console.log(`process.env.NAIS_APP_IMAGE: ${process.env.NAIS_APP_IMAGE}`);
+
+    const body = {
         ...soeknad,
         klarForLagring: undefined,
-        imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*(selvbetjening-ui.*)/, "$1"),
+        imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*(selvbetjening-ui.*)/, "$1") || "",
     };
 
     try {
-        const response = await api.post("/api/soeknad", soeknad);
+        const response = await api.post("/api/soeknad", body);
         return response.data;
     } catch (e) {
-        throw new Error("Det skjedde en feil");
+        throw new Error(`Det skjedde en feil: ${e.message}`);
     }
 };
