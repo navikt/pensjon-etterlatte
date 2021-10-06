@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import { Label, SkjemaelementFeilmelding } from "nav-frontend-skjema";
 import { parseISO } from "date-fns";
@@ -10,6 +10,7 @@ import classnames from "classnames";
 import { get } from "lodash";
 import { getTransKey } from "../../utils/translation";
 import "react-datepicker/dist/react-datepicker.css";
+import "./Datovelger.scss";
 
 interface DatovelgerProps {
     name: FieldPath<any>;
@@ -32,6 +33,7 @@ const parseDate = (dato?: Date | string) => {
  */
 const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, className }: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
+    const datepickerRef: any = useRef(null);
     const {
         control,
         formState: { errors },
@@ -45,10 +47,15 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
         setDefaultLocale(i18n.language);
     }, [i18n.language]);
 
+    const toggleDatepicker = () => {
+        datepickerRef.current.setOpen(true);
+        datepickerRef.current.setFocus();
+    };
+
     const error: FieldError = get(errors, name);
     const feilmelding = t(getTransKey(error));
 
-    const dateInputCls = classnames("skjemaelement__input", feilmelding && "skjemaelement__input--harFeil");
+    const dateInputCls = classnames("skjemaelement__input dato-input", feilmelding && "skjemaelement__input--harFeil");
 
     return (
         <>
@@ -57,26 +64,54 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
 
                 {description && <div className={"skjemaelement__description"}>{description}</div>}
 
-                <Controller
-                    name={name}
-                    control={control}
-                    defaultValue={undefined}
-                    rules={{ required: !valgfri }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <DatePicker
-                            id={name}
-                            required={!valgfri}
-                            className={dateInputCls}
-                            selected={parseDate(value)}
-                            dateFormat={"dd.MM.yyyy"}
-                            placeholderText={"dd.mm.åååå"}
-                            onChange={onChange}
-                            onBlur={onBlur}
-                            minDate={parseDate(minDate)}
-                            maxDate={parseDate(maxDate)}
-                        />
-                    )}
-                />
+                <div className="datovelger">
+                    <Controller
+                        name={name}
+                        control={control}
+                        defaultValue={undefined}
+                        rules={{ required: !valgfri }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <>
+                                <DatePicker
+                                    autoComplete="off"
+                                    ref={datepickerRef}
+                                    id={name}
+                                    required={!valgfri}
+                                    preventOpenOnFocus={true}
+                                    className={dateInputCls}
+                                    selected={parseDate(value)}
+                                    dateFormat={"dd.MM.yyyy"}
+                                    placeholderText={"dd.mm.åååå"}
+                                    onChange={onChange}
+                                    onBlur={onBlur}
+                                    minDate={parseDate(minDate)}
+                                    maxDate={parseDate(maxDate)}
+                                    popperPlacement="bottom"
+                                />
+                                <div
+                                    className="kalender-ikon"
+                                    tabIndex={0}
+                                    onKeyPress={toggleDatepicker}
+                                    onClick={toggleDatepicker}
+                                >
+                                    <svg
+                                        height="30px"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            clipRule="evenodd"
+                                            d="M6 7V5H2v5h20V5h-4v2a1 1 0 11-2 0V5H8v2a1 1 0 11-2 0zm10-4H8V1a1 1 0 10-2 0v2H2a2 2 0 00-2 2v17a2 2 0 002 2h20a2 2 0 002-2V5a2 2 0 00-2-2h-4V1a1 1 0 10-2 0v2zM2 12v10h20V12H2zm6 3a1 1 0 00-1-1H5a1 1 0 100 2h2a1 1 0 001-1zm-1 3a1 1 0 110 2H5a1 1 0 110-2h2zm6-4h-2a1 1 0 100 2h2a1 1 0 100-2zm-2 4h2a1 1 0 110 2h-2a1 1 0 110-2zm9-3a1 1 0 00-1-1h-2a1 1 0 100 2h2a1 1 0 001-1zm-4 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z"
+                                            fill="currentColor"
+                                        ></path>
+                                    </svg>
+                                </div>
+                            </>
+                        )}
+                    />
+                </div>
 
                 {feilmelding && <SkjemaelementFeilmelding>{feilmelding}</SkjemaelementFeilmelding>}
             </section>

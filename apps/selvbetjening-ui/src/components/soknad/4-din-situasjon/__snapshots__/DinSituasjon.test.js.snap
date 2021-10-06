@@ -373,12 +373,12 @@ exports[`Om den avdøde Snapshot 1`] = `
                 class="inputPanel__field"
                 name="utdanning.hoyesteFullfoerteUtdanning"
                 type="radio"
-                value="utdanning.fagbrev"
+                value="utdanning.videregående"
               />
               <span
                 class="inputPanel__label"
               >
-                utdanning.fagbrev
+                utdanning.videregående
               </span>
             </label>
             <label
@@ -390,12 +390,12 @@ exports[`Om den avdøde Snapshot 1`] = `
                 class="inputPanel__field"
                 name="utdanning.hoyesteFullfoerteUtdanning"
                 type="radio"
-                value="utdanning.videregående"
+                value="utdanning.fagbrev"
               />
               <span
                 class="inputPanel__label"
               >
-                utdanning.videregående
+                utdanning.fagbrev
               </span>
             </label>
             <label
