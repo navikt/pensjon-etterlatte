@@ -1,3 +1,6 @@
+import io.kotest.matchers.collections.shouldContain
+import io.kotest.matchers.collections.shouldContainExactly
+import io.kotest.matchers.shouldBe
 import kotliquery.queryOf
 import kotliquery.sessionOf
 import kotliquery.using
@@ -21,7 +24,7 @@ import java.time.ZoneOffset
 import java.time.ZonedDateTime
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class DbIntegrationTest {
+class SoeknadDaoIntegrationTest {
     @Container
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
 
@@ -163,32 +166,94 @@ class DbIntegrationTest {
         val utgaatt = ZonedDateTime.now(ZoneOffset.UTC).minusDays(2)
         val soeknad = SoeknadTest(1000, "aaaaaaa", """{}""", utgaatt)
         lagreSoeknaderMedOpprettetTidspunkt(listOf(soeknad))
+        val lagretSoeknad = LagretSoeknad(soeknad.fnr, soeknad.data, soeknad.id)
         assertNotNull(db.finnKladd(soeknad.fnr))
 
         // Skal ikke slette soeknader med hendelse "arkivert"
         slettHendelserForSoeknad(soeknad.id)
-        db.soeknadArkivert(LagretSoeknad(soeknad.fnr, soeknad.data, soeknad.id))
+        db.soeknadArkivert(lagretSoeknad)
         assertEquals(0, db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "arkiveringsfeil"
         slettHendelserForSoeknad(soeknad.id)
-        db.soeknadFeiletArkivering(LagretSoeknad(soeknad.fnr, soeknad.data, soeknad.id), """{}""")
+        db.soeknadFeiletArkivering(lagretSoeknad, """{}""")
         assertEquals(0, db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "ferdigstillt"
         slettHendelserForSoeknad(soeknad.id)
-        db.soeknadFerdigstilt(LagretSoeknad(soeknad.fnr, soeknad.data, soeknad.id))
+        db.soeknadFerdigstilt(lagretSoeknad)
         assertEquals(0, db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "sendt"
         slettHendelserForSoeknad(soeknad.id)
-        db.soeknadSendt(LagretSoeknad(soeknad.fnr, soeknad.data, soeknad.id))
+        db.soeknadSendt(lagretSoeknad)
         assertEquals(0, db.slettUtgaatteKladder())
 
         // Skal slette utgåtte soeknader med hendelse "lagretkladd"
         slettHendelserForSoeknad(soeknad.id)
         assertEquals(1, db.slettUtgaatteKladder())
         assertNull(db.finnKladd(soeknad.fnr))
+    }
+
+    @Test
+    fun `Usendte søknader skal plukkes opp`() {
+        val soeknad1 = LagretSoeknad("Usendt-1", "{}", 2001)
+        val soeknad2 = LagretSoeknad("Usendt-2", "{}", 2002)
+        val soeknad3 = LagretSoeknad("Usendt-3", "{}", 2003)
+        lagreSoeknaderMedOpprettetTidspunkt(
+            listOf(
+                SoeknadTest(soeknad1.id, soeknad1.fnr, soeknad1.soeknad, ZonedDateTime.now().minusHours(6)),
+                SoeknadTest(soeknad2.id, soeknad2.fnr, soeknad2.soeknad, ZonedDateTime.now()),
+                SoeknadTest(soeknad3.id, soeknad3.fnr, soeknad3.soeknad, ZonedDateTime.now().minusHours(12))
+            )
+        )
+        db.soeknadFerdigstilt(soeknad1)
+        db.soeknadFerdigstilt(soeknad2)
+        db.soeknadFerdigstilt(soeknad3)
+
+        db.usendteSoeknader() shouldContainExactly listOf(soeknad1, soeknad3)
+    }
+
+    @Test
+    fun `Ukategoriserte søknader skal plukkes opp`() {
+        val soeknad = LagretSoeknad("Ukategorisert", "{}", 2004)
+        lagreSoeknaderMedOpprettetTidspunkt(
+            listOf(SoeknadTest(soeknad.id, soeknad.fnr, soeknad.soeknad, ZonedDateTime.now()))
+        )
+
+        db.ukategorisert() shouldContain soeknad.id
+    }
+
+    @Test
+    fun `Alle hendelser skal lagres i hendelsestabellen`() {
+        val soeknad = UlagretSoeknad("AlleHendelser", """{"harSamtykket":"true"}""")
+
+        db.lagreKladd(soeknad)
+        val lagretSoeknad = db.lagreSoeknad(soeknad)
+        db.soeknadSendt(lagretSoeknad)
+        db.soeknadFerdigstilt(lagretSoeknad)
+        db.soeknadFeiletArkivering(lagretSoeknad, """{"error":"test"}""")
+        db.soeknadArkivert(lagretSoeknad)
+
+        finnHendelser(lagretSoeknad.id) shouldContainExactly listOf(
+            Status.lagretkladd,
+            Status.sendt,
+            Status.ferdigstilt,
+            Status.arkiveringsfeil,
+            Status.arkivert
+        )
+    }
+
+    @Test
+    fun `Arkiverte søknader skal slettes`() {
+        val soeknad = UlagretSoeknad("SlettArkivert", """{"harSamtykket":"true"}""")
+        val lagretSoeknad = db.lagreSoeknad(soeknad)
+        db.soeknadArkivert(lagretSoeknad)
+        finnSoeknad(lagretSoeknad.fnr) shouldBe lagretSoeknad
+
+        db.slettArkiverteSoeknader()
+
+        finnSoeknad(lagretSoeknad.fnr) shouldBe null
     }
 
     private fun lagreSoeknaderMedOpprettetTidspunkt(soeknader: List<SoeknadTest>) {
@@ -213,6 +278,26 @@ class DbIntegrationTest {
         using(sessionOf(dsb.getDataSource())) { session ->
             session.transaction {
                 it.run(queryOf("DELETE FROM hendelse WHERE soeknad = ?", soeknadId).asExecute)
+            }
+        }
+    }
+
+    private fun finnHendelser(soeknadId: Long): List<String> {
+        return using(sessionOf(dsb.getDataSource())) { session ->
+            session.transaction {
+                it.run(queryOf("SELECT * FROM HENDELSE WHERE SOEKNAD = ?", soeknadId).map { row ->
+                    row.string("status")
+                }.asList)
+            }
+        }
+    }
+
+    private fun finnSoeknad(fnr: String): LagretSoeknad? {
+        return using(sessionOf(dsb.getDataSource())) { session ->
+            session.transaction {
+                it.run(queryOf("SELECT * FROM SOEKNAD WHERE FNR = ?", fnr).map { row ->
+                    LagretSoeknad(row.string("fnr"), row.string("data"), row.long("id"))
+                }.asSingle)
             }
         }
     }
