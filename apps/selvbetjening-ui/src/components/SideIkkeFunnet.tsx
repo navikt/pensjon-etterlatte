@@ -1,11 +1,11 @@
-import { Alert, Panel, Title } from "@navikt/ds-react";
+import { Alert, Panel, Heading } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 
 const SideIkkeFunnet = () => {
     const { t } = useTranslation();
     return (
         <Panel>
-            <Title size={"m"}>{t("sideIkkeFunnet.tittel")}</Title>
+            <Heading size={"medium"}>{t("sideIkkeFunnet.tittel")}</Heading>
 
             <br />
             <Alert variant={"warning"}>{t("sideIkkeFunnet.alert")}</Alert>

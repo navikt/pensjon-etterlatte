@@ -40,7 +40,7 @@ const Admin = () => {
     return (
         <Panel>
             <div className={"navigasjon-rad"}>
-                <Button variant={"action"} onClick={mockSoeknad}>
+                <Button variant={"primary"} onClick={mockSoeknad}>
                     Mock Søknad
                 </Button>
 

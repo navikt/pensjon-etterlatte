@@ -7,7 +7,7 @@ import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { ActionTypes as BrukerAction } from "../../context/bruker/bruker";
 import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
 import { erDato } from "../../utils/dato";
-import { BodyShort, Button, Loader, Modal, Title } from "@navikt/ds-react";
+import { BodyShort, Button, Loader, Modal, Heading } from "@navikt/ds-react";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root");
 
@@ -68,20 +68,20 @@ const Navigasjon = ({
                     )}
 
                     {!!neste && (
-                        <Button variant={"action"} type={"button"} onClick={neste.onClick}>
+                        <Button variant={"primary"} type={"button"} onClick={neste.onClick}>
                             {neste.label || t("knapp.neste")}
                         </Button>
                     )}
 
                     {!!send && (
-                        <Button variant={"action"} type={"button"} onClick={send.onClick}>
+                        <Button variant={"primary"} type={"button"} onClick={send.onClick}>
                             {send.label || t("knapp.sendSoeknad")} {disabled && <Loader />}
                         </Button>
                     )}
                 </div>
 
                 {!!sistLagret && (
-                    <BodyShort size={"s"} spacing className={"center mute"}>
+                    <BodyShort size={"small"} spacing className={"center mute"}>
                         {t("felles.sistLagret")}: {sistLagret}
                     </BodyShort>
                 )}
@@ -95,11 +95,11 @@ const Navigasjon = ({
 
             <Modal open={isOpen} onClose={() => setIsOpen(false)} className="spoersmaal-modal modal">
                 <SkjemaGruppe>
-                    <Title size={"m"}>{t("avbrytModal.spoersmaal")}</Title>
+                    <Heading size={"medium"}>{t("avbrytModal.spoersmaal")}</Heading>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <Button variant={"action"} type={"button"} onClick={() => setIsOpen(false)}>
+                    <Button variant={"primary"} type={"button"} onClick={() => setIsOpen(false)}>
                         {t("avbrytModal.svarNei")}
                     </Button>
                 </SkjemaGruppe>

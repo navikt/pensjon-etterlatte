@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@navikt/ds-css": "^0.6.8",
+    "@navikt/ds-css": "^0.9.0",
     "@navikt/ds-icons": "0.5.2",
-    "@navikt/ds-react": "^0.7.4",
+    "@navikt/ds-react": "^0.10.1",
     "@navikt/fnrvalidator": "1.1.4",
     "@navikt/nav-dekoratoren-moduler": "1.4.1",
     "@types/react": "17.0.19",

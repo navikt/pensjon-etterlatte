@@ -1,7 +1,7 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Button, Title } from "@navikt/ds-react";
+import { Button, Heading } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import ArbeidstakerInfokort from "./ArbeidstakerInfokort";
 import { useEffect } from "react";
@@ -26,7 +26,7 @@ const Arbeidstaker = () => {
     return (
         <SkjemaGruppering>
             <SkjemaGruppe>
-                <Title size={"s"}>{t("dinSituasjon.arbeidsforhold.tittel")}</Title>
+                <Heading size={"small"}>{t("dinSituasjon.arbeidsforhold.tittel")}</Heading>
             </SkjemaGruppe>
 
             {fields.map((field: FieldArrayWithId, index: number) => (

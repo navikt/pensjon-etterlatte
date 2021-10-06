@@ -1,5 +1,5 @@
 import React from "react";
-import { Title } from "@navikt/ds-react";
+import { Heading } from "@navikt/ds-react";
 
 const bannerStyle = {
     width: "100%",
@@ -15,7 +15,7 @@ const bannerStyle = {
 const Banner = ({ tekst }: { tekst: string }) => {
     return (
         <header style={bannerStyle} role="banner">
-            <Title size={"xl"}>{tekst}</Title>
+            <Heading size={"xlarge"}>{tekst}</Heading>
         </header>
     );
 };

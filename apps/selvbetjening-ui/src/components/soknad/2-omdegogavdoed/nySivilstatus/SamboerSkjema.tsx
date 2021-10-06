@@ -7,7 +7,7 @@ import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
 import { RHFCheckboksPanelGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
-import { Panel, Title } from "@navikt/ds-react";
+import { Panel, Heading } from "@navikt/ds-react";
 
 const SamboerSkjema = () => {
     const { t } = useTranslation();
@@ -20,7 +20,7 @@ const SamboerSkjema = () => {
     return (
         <Panel border>
             <SkjemaGruppe>
-                <Title size={"s"}>{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}</Title>
+                <Heading size={"small"}>{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}</Heading>
             </SkjemaGruppe>
 
             <RHFInput

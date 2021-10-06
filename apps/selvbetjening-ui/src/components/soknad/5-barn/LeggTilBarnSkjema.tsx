@@ -9,7 +9,7 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
-import { Button, Title } from "@navikt/ds-react";
+import { Button, Heading } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 import Hjelpetekst from "../../felles/Hjelpetekst";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
@@ -59,9 +59,9 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
         <FormProvider {...methods} >
             <form style={{ padding: "2rem 2.5rem" }}>
                 <SkjemaGruppe className={"skjemagruppe-modal"}>
-                    <Title size={"s"} className={"center"}>
+                    <Heading size={"small"} className={"center"}>
                         {t("omBarn.tittelModal")}
-                    </Title>
+                    </Heading>
                 </SkjemaGruppe>
 
                 <SkjemaGruppering>
@@ -235,7 +235,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
                 <div className={"navigasjon-rad bottom-spacing-none"}>
                     <Button
                         id={"leggTilBarn"}
-                        variant={"action"}
+                        variant={"primary"}
                         type={"button"}
                         onClick={handleSubmit(leggTilOgLukk)}
                     >

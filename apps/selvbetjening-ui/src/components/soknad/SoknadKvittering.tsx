@@ -5,7 +5,7 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { Alert, BodyLong, BodyShort, Button, Link, Title } from "@navikt/ds-react";
+import { Alert, BodyLong, BodyShort, Button, Link, Heading } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 const SoknadKvittering = () => {
     const { t } = useTranslation();
@@ -25,7 +25,7 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"center"}>
-                <Title size={"m"} spacing={true}>{t("soeknadKvittering.tittel")}</Title>
+                <Heading size={"medium"} spacing={true}>{t("soeknadKvittering.tittel")}</Heading>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -35,7 +35,7 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Title size={"m"}>{t("soeknadKvittering.endring.tittel")}</Title>
+                <Heading size={"medium"}>{t("soeknadKvittering.endring.tittel")}</Heading>
 
                 <BodyLong>
                     {t("soeknadKvittering.endring.informasjon")}
@@ -66,7 +66,7 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Title size={"m"}>{t("soeknadKvittering.seSaken.tittel")}</Title>
+                <Heading size={"medium"}>{t("soeknadKvittering.seSaken.tittel")}</Heading>
 
                 {/* TODO: Sett inn riktig lenke for Dine saker */}
                 <BodyLong>
@@ -83,9 +83,9 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Title size={"m"}>
+                <Heading size={"medium"}>
                     {t("soeknadKvittering.andreStoenader.tittel")}
-                </Title>
+                </Heading>
 
                 <BodyLong>
                     {t("soeknadKvittering.andreStoenader.informasjon")}
@@ -132,7 +132,7 @@ const SoknadKvittering = () => {
             <SkjemaGruppe>
                 <section className={"navigasjon-rad"}>
                     <Button
-                        variant={"action"}
+                        variant={"primary"}
                         type={"button"}
                         onClick={() => (window.location.href = "https://www.nav.no")}
                     >

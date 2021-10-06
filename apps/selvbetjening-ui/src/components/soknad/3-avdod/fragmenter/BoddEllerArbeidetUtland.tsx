@@ -10,7 +10,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { DeleteFilled } from "@navikt/ds-icons";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
-import { BodyLong, Button, Panel, Title } from "@navikt/ds-react";
+import { BodyLong, Button, Panel, Heading } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 interface Props {
@@ -39,7 +39,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     return (
         <>
             <SkjemaGruppe className="ingress">
-                <Title size="s">{t("omDenAvdoede.boddEllerJobbetUtland.tittel")}</Title>
+                <Heading size="small">{t("omDenAvdoede.boddEllerJobbetUtland.tittel")}</Heading>
                 <BodyLong>{t("omDenAvdoede.boddEllerJobbetUtland.ingress")}</BodyLong>
             </SkjemaGruppe>
             <RHFSpoersmaalRadio

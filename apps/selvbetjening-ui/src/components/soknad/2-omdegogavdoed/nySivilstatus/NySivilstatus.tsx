@@ -3,7 +3,7 @@ import { ISoeker, Sivilstatus } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
-import { BodyLong, Title } from "@navikt/ds-react";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import SamboerSkjema from "./SamboerSkjema";
 
@@ -17,7 +17,7 @@ const NySivilstatus = () => {
     return (
         <SkjemaGruppering>
             <SkjemaGruppe>
-                <Title size={"s"}>{t("omDegOgAvdoed.nySivilstatus.sivilstatus")}</Title>
+                <Heading size={"small"}>{t("omDegOgAvdoed.nySivilstatus.sivilstatus")}</Heading>
 
                 <BodyLong>{t("omDegOgAvdoed.nySivilstatus.beskrivelse")}</BodyLong>
             </SkjemaGruppe>

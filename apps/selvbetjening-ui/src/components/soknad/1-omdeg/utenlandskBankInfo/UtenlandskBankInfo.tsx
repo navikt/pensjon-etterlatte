@@ -3,7 +3,7 @@ import { RHFBicInput, RHFIbanInput, RHFInput } from "../../../felles/RHFInput";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Hjelpetekst from "../../../felles/Hjelpetekst";
-import { Title } from "@navikt/ds-react";
+import { Heading } from "@navikt/ds-react";
 
 const UtenlandskBankInfo = () => {
     const { t } = useTranslation()
@@ -11,7 +11,7 @@ const UtenlandskBankInfo = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Title size={"s"}>{t("omDeg.utbetalingsInformasjon.tittel")}</Title>
+                <Heading size={"small"}>{t("omDeg.utbetalingsInformasjon.tittel")}</Heading>
             </SkjemaGruppe>
 
             <RHFInput

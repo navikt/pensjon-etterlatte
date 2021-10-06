@@ -13,7 +13,7 @@ import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
-import { BodyLong, Label, Title } from "@navikt/ds-react";
+import { BodyLong, Label, Heading } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 
@@ -47,7 +47,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     return (
         <FormProvider {...methods}>
             <SkjemaGruppe className={"center"}>
-                <Title size={"m"}>{t("omDenAvdoede.tittel")}</Title>
+                <Heading size={"medium"}>{t("omDenAvdoede.tittel")}</Heading>
             </SkjemaGruppe>
 
             <form>
@@ -84,7 +84,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 <SkjemaGruppering>
                     <SkjemaGruppe className="ingress">
-                        <Title size="s">{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}</Title>
+                        <Heading size="small">{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}</Heading>
                         <BodyLong>{t("omDenAvdoede.selvstendigNaeringsdrivende.ingress")}</BodyLong>
                     </SkjemaGruppe>
 
@@ -116,7 +116,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 <SkjemaGruppering>
                     <SkjemaGruppe className="ingress">
-                        <Title size="s">{t("omDenAvdoede.annenOpptjening.tittel")}</Title>
+                        <Heading size="small">{t("omDenAvdoede.annenOpptjening.tittel")}</Heading>
                     </SkjemaGruppe>
 
                     <RHFSpoersmaalRadio

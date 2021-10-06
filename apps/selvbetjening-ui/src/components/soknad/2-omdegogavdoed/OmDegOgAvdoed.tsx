@@ -9,7 +9,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
-import { Cell, Grid, Label, Title } from "@navikt/ds-react";
+import { Cell, Grid, Label, Heading } from "@navikt/ds-react";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
@@ -44,9 +44,9 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         <>
             {/* Steg 2 */}
             <SkjemaGruppe>
-                <Title size={"m"} className={"center"}>
+                <Heading size={"medium"} className={"center"}>
                     {t("omDegOgAvdoed.tittel")}
-                </Title>
+                </Heading>
             </SkjemaGruppe>
 
             {/* Skjema for utfylling av info om innlogget bruker / søker */}

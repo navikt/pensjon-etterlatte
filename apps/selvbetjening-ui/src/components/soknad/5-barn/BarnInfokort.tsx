@@ -4,7 +4,7 @@ import ikon from "../../../assets/ikoner/barn1.svg";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { IValg } from "../../../typer/Spoersmaal";
-import { BodyShort, Detail, Link, Title } from "@navikt/ds-react";
+import { BodyShort, Detail, Link, Heading } from "@navikt/ds-react";
 
 interface Props {
     barn: IBarn;
@@ -25,41 +25,41 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
 
             <div className={"infokort__informasjonsboks center"}>
                 <div className={"informasjonsboks-innhold"}>
-                    <Title size={"s"}>
+                    <Heading size={"small"}>
                         {barn.fornavn} {barn.etternavn}
-                    </Title>
+                    </Heading>
                 </div>
                 <div className="informasjonselement">
-                    <BodyShort size={"s"} >
+                    <BodyShort size={"small"} >
                         {t("omBarn.infokort.foedselsnummer")}
                     </BodyShort>
-                    <BodyShort size={"s"} spacing>
+                    <BodyShort size={"small"} spacing>
                         {foedselsnummer}
                     </BodyShort>
 
-                    <BodyShort size={"s"} >
+                    <BodyShort size={"small"} >
                         {t("omBarn.infokort.foreldre")}
                     </BodyShort>
-                    <BodyShort size={"s"} spacing>
+                    <BodyShort size={"small"} spacing>
                         {t(`${barn.relasjon}`)}
                     </BodyShort>
 
-                    <BodyShort size={"s"} >
+                    <BodyShort size={"small"} >
                         {t("omBarn.infokort.statsborgerskap")}
                     </BodyShort>
-                    <BodyShort size={"s"} spacing>
+                    <BodyShort size={"small"} spacing>
                         {barn.statsborgerskap} {t("omBarn.statsborger")}
                     </BodyShort>
 
-                    <BodyShort size={"s"} >
+                    <BodyShort size={"small"} >
                         {t("omBarn.infokort.bosted")}
                     </BodyShort>
-                    <BodyShort size={"s"} spacing>
+                    <BodyShort size={"small"} spacing>
                         {t("omBarn.borI")}&nbsp;
                         {barn.bosattUtland?.svar === IValg.JA ? barn.bosattUtland?.land : t("felles.norge")}
                     </BodyShort>
 
-                    <Detail size={"s"} spacing className={"mute"}>
+                    <Detail size={"small"} spacing className={"mute"}>
                         {barn.barnepensjon?.soeker === IValg.JA && t("omBarn.barnepensjon.soekt")}
                     </Detail>
                 </div>

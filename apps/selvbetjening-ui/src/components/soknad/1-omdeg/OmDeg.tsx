@@ -14,7 +14,7 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
 import { emailMatcher } from "../../../utils/matchers";
-import { Cell, Grid, Title } from "@navikt/ds-react";
+import { Cell, Grid, Heading } from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
@@ -56,9 +56,9 @@ const OmDeg: SoknadSteg = ({ neste }) => {
     return (
         <>
             {/* Steg 2 */}
-            <Title size={"m"} className={"center"}>
+            <Heading size={"medium"} className={"center"}>
                 <Trans i18nKey={"omDeg.tittel"} />
-            </Title>
+            </Heading>
 
             {/* Informasjon om den innloggede brukeren */}
             <InnloggetBruker />

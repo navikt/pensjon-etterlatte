@@ -8,7 +8,7 @@ import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { BodyLong, Button, Link, Title } from "@navikt/ds-react";
+import { BodyLong, Button, Link, Heading } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Dropdown } from "../felles/Dropdown";
@@ -55,9 +55,9 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Title spacing size={"l"}>
+                <Heading spacing size={"large"}>
                     {t("forside.tittel")}
-                </Title>
+                </Heading>
 
                 <BodyLong spacing>{t("forside.omYtelsene.innhold")}</BodyLong>
 
@@ -66,12 +66,12 @@ const SoknadForside = () => {
                 </BodyLong>
             </SkjemaGruppe>
             <SkjemaGruppe>
-                <Title size={"s"}>{t("forside.barnepensjon.tittel")}</Title>
+                <Heading size={"small"}>{t("forside.barnepensjon.tittel")}</Heading>
 
                 <BodyLong>{t("forside.barnepensjon.innhold")}</BodyLong>
             </SkjemaGruppe>
             <SkjemaGruppe>
-                <Title size={"s"}>{t("forside.uthentingAvInfo.tittel")}</Title>
+                <Heading size={"small"}>{t("forside.uthentingAvInfo.tittel")}</Heading>
 
                 <BodyLong>
                     <Trans i18nKey={"forside.uthentingAvInfo.innhold"} />
@@ -118,7 +118,7 @@ const SoknadForside = () => {
                 </BodyLong>
             </SkjemaGruppe>
             <SkjemaGruppe>
-                <Title size={"s"}>{t("forside.samtykke.tittel")}</Title>
+                <Heading size={"small"}>{t("forside.samtykke.tittel")}</Heading>
 
                 <BodyLong>{t("forside.samtykke.innhold")}</BodyLong>
 
@@ -134,7 +134,7 @@ const SoknadForside = () => {
                 />
             </SkjemaGruppe>
             {soknadState.harSamtykket && !soknadState?.error && (
-                <Button variant={"action"} type={"button"} onClick={startSoeknad}>
+                <Button variant={"primary"} type={"button"} onClick={startSoeknad}>
                     {t("forside.startSoeknad")}
                 </Button>
             )}

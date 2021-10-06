@@ -1,6 +1,6 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
-import { Button, Title } from "@navikt/ds-react";
+import { Button, Heading } from "@navikt/ds-react";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useEffect } from "react";
@@ -25,7 +25,7 @@ const Selvstendig = () => {
     return (
         <SkjemaGruppering>
             <SkjemaGruppe>
-                <Title size={"s"}>{t("dinSituasjon.selvstendig.tittel")}</Title>
+                <Heading size={"small"}>{t("dinSituasjon.selvstendig.tittel")}</Heading>
             </SkjemaGruppe>
 
             {fields.map((field: FieldArrayWithId, index: number) => (

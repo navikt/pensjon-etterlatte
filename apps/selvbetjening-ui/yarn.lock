@@ -1548,9 +1548,9 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@material-ui/core@^4.12.2":
+"@material-ui/core@^4.12.3":
   version "4.12.3"
-  resolved "https://registry.npmjs.org/@material-ui/core/-/core-4.12.3.tgz"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.12.3.tgz#80d665caf0f1f034e52355c5450c0e38b099d3ca"
   integrity sha512-sdpgI/PL56QVsEJldwEe4FFaFTLUqN+rd7sSZiRCdx2E/C7z5yK0y/khAWVBH24tXwto7I1hCzNWfJGZIYJKnw==
   dependencies:
     "@babel/runtime" "^7.4.4"
@@ -1612,31 +1612,36 @@
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
 
-"@navikt/ds-css@^0.6.8":
-  version "0.6.20"
-  resolved "https://registry.npmjs.org/@navikt/ds-css/-/ds-css-0.6.20.tgz"
-  integrity sha512-4pu+HkSD63ea4yYntJE4lPjniF/PEwrOEJwNoC66BA8MjCGXuIoGRkoLXPGrC/Eu/eqsRUVmQB+cJkKPN67NBQ==
+"@navikt/ds-css@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-0.9.0.tgz#dda6e1e904bc09524bb5a4980bb0ffc11f48325e"
+  integrity sha512-C5imBxUepufd0cvz3FH6mIS3CJQ4vU53Ar0RwPxKopsylRoYOwYQ95JF9TXP1JrPah4uQvoFzmPHKN1x16PN+A==
 
-"@navikt/ds-icons@0.5.2", "@navikt/ds-icons@^0.5.2":
+"@navikt/ds-icons@0.5.2":
   version "0.5.2"
   resolved "https://registry.npmjs.org/@navikt/ds-icons/-/ds-icons-0.5.2.tgz"
   integrity sha512-e4bqKbUaWNQ8UewrmJPM1Z43ylMD+uYZJwo3+DOWQKUW1Y5U7ucvVSO0lNtYO1gADXgGiTF2LjCPZbw7BhmdSQ==
 
-"@navikt/ds-react@^0.7.4":
-  version "0.7.4"
-  resolved "https://registry.npmjs.org/@navikt/ds-react/-/ds-react-0.7.4.tgz"
-  integrity sha512-86FeGv7o9tGjRq56yO20XuubQZrC62IJS7HHifDXpLhZFnmEp2xTrC9WZFjucv8loPQYGVSmJ8giwH9Ax4WOIA==
+"@navikt/ds-icons@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-0.5.4.tgz#5b00f98f84da5cdb01f7b0dac9e4004d7d4bed0a"
+  integrity sha512-4lk4CTKZtNkqGJ2wAtJPheaCcwD6hILh6zWICO7071Lu/O+O+qSmxJSGFJmPh4pTAUuPONp6p8jOUqQwTi4yhw==
+
+"@navikt/ds-react@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-0.10.1.tgz#96c3747d7cd20e1c6ea7cc3dcca41681cca8e30c"
+  integrity sha512-SueMSJ9xO9T5duA0IS8MiMBQm5GsAyNZXDfu/zyJ8pKn1QXZFH0MYBtZP+VmoFFG+K+jN2mkZzb2/WnpBF5cTw==
   dependencies:
-    "@material-ui/core" "^4.12.2"
-    "@navikt/ds-icons" "^0.5.2"
-    "@popperjs/core" "^2.5.4"
+    "@material-ui/core" "^4.12.3"
+    "@navikt/ds-icons" "^0.5.4"
+    "@popperjs/core" "^2.10.1"
     classnames "^2.2.6"
     copy-to-clipboard "^3.3.1"
     react-collapse "^5.1.0"
     react-merge-refs "^1.1.0"
-    react-modal "3.12.1"
-    react-popper "^2.2.4"
-    short-uuid "^4.2.0"
+    react-modal "3.14.3"
+    react-popper "^2.2.5"
+    uuid "^8.3.2"
 
 "@navikt/fnrvalidator@1.1.4":
   version "1.1.4"
@@ -1837,7 +1842,12 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@popperjs/core@^2.5.4", "@popperjs/core@^2.9.2":
+"@popperjs/core@^2.10.1":
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.10.2.tgz#0798c03351f0dea1a5a4cabddf26a55a7cbee590"
+  integrity sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==
+
+"@popperjs/core@^2.9.2":
   version "2.9.3"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.9.3.tgz"
   integrity sha512-xDu17cEfh7Kid/d95kB6tZsLOmSWKCZKtprnhVepjsSaCij+lM3mItSJDuuHDMbCWTh8Ejmebwb+KONcCJ0eXQ==
@@ -2938,11 +2948,6 @@ ansistyles@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/ansistyles/-/ansistyles-0.1.3.tgz#5de60415bda071bb37127854c864f41b23254539"
   integrity sha1-XeYEFb2gcbs3EnhUyGT0GyMlRTk=
-
-any-base@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/any-base/-/any-base-1.1.0.tgz"
-  integrity sha512-uMgjozySS8adZZYePpaWs8cxB9/kdzmpX6SgJZ+wbz1K5eYk5QMYDVJaZKhxyIHUdnnJkfR7SVgStgH7LkGUyg==
 
 anymatch@^2.0.0:
   version "2.0.0"
@@ -11696,7 +11701,7 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
-prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -12022,16 +12027,6 @@ react-merge-refs@^1.1.0:
   resolved "https://registry.npmjs.org/react-merge-refs/-/react-merge-refs-1.1.0.tgz"
   integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
-react-modal@3.12.1:
-  version "3.12.1"
-  resolved "https://registry.npmjs.org/react-modal/-/react-modal-3.12.1.tgz"
-  integrity sha512-WGuXn7Fq31PbFJwtWmOk+jFtGC7E9tJVbFX0lts8ZoS5EPi9+WWylUJWLKKVm3H4GlQ7ZxY7R6tLlbSIBQ5oZA==
-  dependencies:
-    exenv "^1.2.0"
-    prop-types "^15.5.10"
-    react-lifecycles-compat "^3.0.0"
-    warning "^4.0.3"
-
 react-modal@3.14.3:
   version "3.14.3"
   resolved "https://registry.npmjs.org/react-modal/-/react-modal-3.14.3.tgz"
@@ -12047,7 +12042,7 @@ react-onclickoutside@^6.10.0:
   resolved "https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-6.11.2.tgz"
   integrity sha512-640486eSwU/t5iD6yeTlefma8dI3bxPXD93hM9JGKyYITAd0P1JFkkcDeyHZRqNpY/fv1YW0Fad9BXr44OY8wQ==
 
-react-popper@^2.2.4, react-popper@^2.2.5:
+react-popper@^2.2.5:
   version "2.2.5"
   resolved "https://registry.npmjs.org/react-popper/-/react-popper-2.2.5.tgz"
   integrity sha512-kxGkS80eQGtLl18+uig1UIf9MKixFSyPxglsgLBxlYnyDf65BiY9B3nZSc6C9XUNDgStROB0fMQlTEz1KxGddw==
@@ -13024,14 +13019,6 @@ shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npmjs.org/shellwords/-/shellwords-0.1.1.tgz"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
-
-short-uuid@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.npmjs.org/short-uuid/-/short-uuid-4.2.0.tgz"
-  integrity sha512-r3cxuPPZSuF0QkKsK9bBR7u+7cwuCRzWzgjPh07F5N2iIUNgblnMHepBY16xgj5t1lG9iOP9k/TEafY1qhRzaw==
-  dependencies:
-    any-base "^1.1.0"
-    uuid "^8.3.2"
 
 side-channel@^1.0.4:
   version "1.0.4"

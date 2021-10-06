@@ -11,7 +11,7 @@ import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
-import { Alert, BodyShort, Button, Modal, Panel, Title } from "@navikt/ds-react";
+import { Alert, BodyShort, Button, Modal, Panel, Heading } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import useEffectOnce from "../../../hooks/useEffectOnce";
@@ -55,15 +55,15 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         <FormProvider {...methods}>
             <form>
                 <SkjemaGruppe>
-                    <Title size={"m"} className={"center"}>
+                    <Heading size={"medium"} className={"center"}>
                         {t("omBarn.tittel")}
-                    </Title>
+                    </Heading>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
                     <Panel border>
                         <Alert variant={"info"} className={"navds-alert--inline"}>
-                            <BodyShort size={"s"}>{t("omBarn.informasjon")}</BodyShort>
+                            <BodyShort size={"small"}>{t("omBarn.informasjon")}</BodyShort>
                         </Alert>
                     </Panel>
                 </SkjemaGruppe>
@@ -85,7 +85,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                                     </Button>
                                 </div>
 
-                                <BodyShort size={"s"} className={"center mute"}>
+                                <BodyShort size={"small"} className={"center mute"}>
                                     {t("omBarn.valgfritt")}
                                 </BodyShort>
                             </div>

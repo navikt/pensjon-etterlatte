@@ -6,7 +6,7 @@ import { RHFInput } from "../../../felles/RHFInput";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { ISituasjon } from "../../../../typer/situasjon";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
-import { BodyLong, Title } from "@navikt/ds-react";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 
 const AndreYtelser = () => {
@@ -23,7 +23,7 @@ const AndreYtelser = () => {
             <SkjemaGruppering>
                 {/* Steg 7 */}
                 <SkjemaGruppe>
-                    <Title size={"s"}>{t("dinSituasjon.andreYtelser.tittel")}</Title>
+                    <Heading size={"small"}>{t("dinSituasjon.andreYtelser.tittel")}</Heading>
                     <BodyLong>{t("dinSituasjon.andreYtelser.ingress")}</BodyLong>
                 </SkjemaGruppe>
 

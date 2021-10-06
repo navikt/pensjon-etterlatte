@@ -14,7 +14,7 @@ import UnderUtdanning from "./fragmenter/UnderUtdanning";
 import { RHFInput } from "../../felles/RHFInput";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
-import { BodyLong, Title } from "@navikt/ds-react";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
@@ -47,13 +47,13 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         <FormProvider {...methods}>
             <form>
                 <SkjemaGruppe>
-                    <Title size={"m"} className={"center"}>
+                    <Heading size={"medium"} className={"center"}>
                         {t("dinSituasjon.tittel")}
-                    </Title>
+                    </Heading>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <Title size={"s"}>{t("dinSituasjon.undertittel")}</Title>
+                    <Heading size={"small"}>{t("dinSituasjon.undertittel")}</Heading>
                     <BodyLong>{t("dinSituasjon.ingress")}</BodyLong>
                 </SkjemaGruppe>
 

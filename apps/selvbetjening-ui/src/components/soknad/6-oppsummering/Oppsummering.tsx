@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import React, { memo, useMemo, useState } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { Alert, BodyLong, Title } from "@navikt/ds-react";
+import { Alert, BodyLong, Heading } from "@navikt/ds-react";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
@@ -54,9 +54,9 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     return (
         <>
             <SkjemaGruppe>
-                <Title size={"m"} className={"center"}>
+                <Heading size={"medium"} className={"center"}>
                     {t("oppsummering.tittel")}
-                </Title>
+                </Heading>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

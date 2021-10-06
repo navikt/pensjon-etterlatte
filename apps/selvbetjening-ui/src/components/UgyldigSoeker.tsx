@@ -75,7 +75,7 @@ const UgyldigSoeker = () => {
 
             <SkjemaGruppe>
                 <section className={"navigasjon-rad"}>
-                    <Button variant={"action"} onClick={tilbake}>{t("knapp.tilbake")}</Button>
+                    <Button variant={"primary"} onClick={tilbake}>{t("knapp.tilbake")}</Button>
                 </section>
             </SkjemaGruppe>
         </>
