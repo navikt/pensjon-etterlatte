@@ -5,8 +5,8 @@ export const AccordionItem = ({ tittel, children, defaultOpen = true }: any) => 
     const [open, setOpen] = useState(defaultOpen)
 
     return (
-        <Accordion.Item open={open} aria-expanded={open}>
-            <Accordion.Header onClick={() => setOpen(!open)}>{tittel}</Accordion.Header>
+        <Accordion.Item open={open}>
+            <Accordion.Header onClick={() => setOpen(!open)} aria-expanded={open}>{tittel}</Accordion.Header>
             <Accordion.Content>{children}</Accordion.Content>
         </Accordion.Item>
     );
