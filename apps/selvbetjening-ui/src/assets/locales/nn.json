@@ -18,7 +18,8 @@
     "leggTilBarn": "+ Legg til barn",
     "fjern": "Fjern",
     "fjernFraSoeknad": "Fjern frå søknad",
-    "lagre": "Lagre"
+    "lagre": "Lagre",
+    "slett": "Slett søknad"
   },
   "forside": {
     "tittel": "Søknad om attlevandepensjon",
@@ -386,7 +387,8 @@
   "avbrytModal": {
     "spoersmaal": "Er du heilt sikker på at du vil avbryte søknaden?",
     "svarNei": "Nei, eg vil halde fram med søknaden",
-    "svarJa": "Ja, avbryt søknaden"
+    "svarJa": "Ja, avbryt søknaden",
+    "informasjon": "Søknaden din lagres i 24 timer hvis du ønsker å halde fram seinare."
   },
   "hvorforSpoerVi": "Kvifor spør vi om dette",
   "avdoede": {
