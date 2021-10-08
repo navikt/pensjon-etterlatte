@@ -7,13 +7,21 @@
     "OmBarn": "Opplysingar om barn",
     "Oppsummering": "Oppsummering"
   },
+  "banner": {
+    "tittel": "Søknad om attlevandepensjon"
+  },
+  "radiobuttons": {
+    "ja": "Ja",
+    "nei": "Nei",
+    "vetIkke": "Veit ikkje"
+  },
   "knapp": {
     "tilbake": "Tilbake",
     "neste": "Neste",
     "avbryt": "Avbryt",
     "sendSoeknad": "Send søknad",
     "leggTilLand": "Legg til fleire land",
-    "leggTilArbeidstakere": "Legg til fleire arbeidstakare",
+    "leggTilArbeidstakere": "Legg til fleire arbeidsforhold",
     "leggTilNaeringer": "Legg til fleire næringar",
     "leggTilBarn": "+ Legg til barn",
     "fjern": "Fjern",
@@ -75,7 +83,7 @@
     "ingenJobbBeskrivelsePlaceholder": "Beskriv situasjonen nærare",
     "utdanning": {
       "tittel": "Om utdanninga",
-      "hoyesteFullfoerteUtdanning": "Kva er di høgaste fullførte utdanning?",
+      "hoyesteFullfoerteUtdanning": "Kva er utdanninga di?",
       "annenUtdanning": "Anna utdanning",
       "annenUtdanningPlaceholder": "Eks. kurs, enkeltår på universitet eller høgskule",
       "naavaerendeUtdanning": {
@@ -97,8 +105,8 @@
       }
     },
     "arbeidsforhold": {
-      "tittel": "Info om arbeidsgivar",
-      "arbeidsgiver": "Kva heiter firmaet?",
+      "tittel": "Om arbeidsforhold",
+      "arbeidsgiver": "Kva heiter arbeidsgivar?",
       "ansettelsesforhold": "Type tilsetting",
       "stillingsprosent": "Kor mykje jobbar du?",
       "stillingsprosentPlaceholder": "Eks. 80%",
@@ -194,7 +202,7 @@
           "tittel": "Opplysingar om sambuar",
           "navn": "Namn",
           "harInntekt.svar": "Har sambuar inntekt?",
-          "harInntekt.samletBruttoinntektPrAar": "Årsinntekt før skatt per år",
+          "harInntekt.samletBruttoinntektPrAar": "Samla årsinntekt før skatt",
           "harInntekt.inntektstype": "Inntektstype"
         }
       }
@@ -214,12 +222,12 @@
       "oppholdUtland": {
         "land": "Land",
         "beskrivelse": "Budd og/eller arbeidd?",
-        "fraDato": "Frå dato",
-        "tilDato": "Til dato",
+        "fraDato": "Frå dato (valfri)",
+        "tilDato": "Til dato (valfri)",
         "medlemFolketrygd": "Var han eller ho medlem av folketrygda under opphaldet?",
         "medlemFolketrygdHjelpetekst": "Vi må vite om avdøde var medlem av folketrygda for å avgjere om du har rett til attlevandepensjon.",
         "mottokPensjon": {
-          "beskrivelse": "Oppgi eventuell pensjon han eller ho fekk frå dette landet",
+          "beskrivelse": "Oppgi eventuell pensjon han eller ho fekk frå dette landet (valfri)",
           "beskrivelsePlaceholder": "Per år i landets valuta"
         }
       }
@@ -231,7 +239,7 @@
       "tittel": "Næringsinntekt",
       "ingress": "Vi treng å vite om avdøde hadde inntekt som sjølvstendig næringsdrivande. Dette er viktig når vi skal rekne ut kor mykje du kan få i attlevandepensjon. Vi hentar informasjon om andre inntekter.",
       "svar": "Var han eller ho sjølvstendig næringsdrivande?",
-      "beskrivelse": "Oppgi næringsinntekt frå kalenderåret før dødsfallet",
+      "beskrivelse": "Oppgi næringsinntekt frå kalenderåret før dødsfallet (valfri)",
       "placeholder": "Samla årsinntekt før skatt"
     },
     "annenOpptjening": {
@@ -240,7 +248,7 @@
     "harAvtjentMilitaerTjeneste": {
       "svar": "Gjennomførte han eller ho militær eller sivil førstegongsteneste som varte minst 30 dagar?",
       "hjelpetekst": "Dette kan gi opptening som blir teke med i utrekninga av attlevandepensjonen din",
-      "beskrivelse": "Kva for år? (Valfritt)"
+      "beskrivelse": "Kva for år? (valfri)"
     }
   },
   "omBarn": {
@@ -270,7 +278,7 @@
       "soekerInfo": "Fordi du har felles barn med avdøde under 18 år, kan barnet ha rett til barnepensjon.",
       "soekerCheckboks": "Ja, eg søker om barnepensjon for barnet",
       "kontonummer": {
-        "svar": "Ønsker du at barnepensjonen skal utbetalast til eit anna kontonummer?",
+        "svar": "Skal barnepensjonen utbetalast til same kontonummer som opgitt tidlegare?",
         "informasjon": "Du kan legge til eige kontonummer for barnet",
         "kontonummer": "Oppgi norsk kontonummer for utbetaling av barnepensjon",
         "placeholder": "11 siffer"
@@ -402,9 +410,9 @@
     }
   },
   "barnRelasjon": {
-    "fellesbarnMedAvdoede": "Fellesbarn med avdøde",
-    "avdoedesSaerkullsbarn": "Avdødes særkullsbarn",
-    "egneSaerkullsbarn": "Eigne særkullsbarn"
+    "fellesbarnMedAvdoede": "Eg og avdøde",
+    "avdoedesSaerkullsbarn": "Avdøde",
+    "egneSaerkullsbarn": "Eg"
   },
   "samboerInntekt": {
     "arbeidsinntekt": "Arbeidsinntekt",

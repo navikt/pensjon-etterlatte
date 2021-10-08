@@ -7,15 +7,17 @@ import { ContentContainer, Alert } from "@navikt/ds-react";
 import useInnloggetBruker from "./hooks/useInnloggetBruker";
 import { useAmplitude } from "./utils/amplitude";
 import { useSoknadContext } from "./context/soknad/SoknadContext";
+import { useTranslation } from "react-i18next";
 
 const App = () => {
     useInnloggetBruker();
     const soknadContext = useSoknadContext();
     useAmplitude();
+    const { t } = useTranslation();
 
     return (
         <>
-            <Banner tekst={"Søknad om gjenlevendepensjon"} />
+            <Banner tekst={t("banner.tittel")} />
 
             <ContentContainer className={"soeknad"} role="main">
                 <Switch>

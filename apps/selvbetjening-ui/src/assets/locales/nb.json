@@ -7,6 +7,14 @@
     "OmBarn": "Opplysninger om barn",
     "Oppsummering": "Oppsummering"
   },
+  "banner": {
+    "tittel": "Søknad om gjenlevendepensjon"
+  },
+  "radiobuttons": {
+    "ja": "Ja",
+    "nei": "nei",
+    "vetIkke": "Vet ikke"
+  },
   "knapp": {
     "tilbake": "Tilbake",
     "neste": "Neste",

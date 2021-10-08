@@ -20,12 +20,13 @@ export const RHFSpoersmaalRadio = ({
     description?: ReactNode;
     vetIkke?: boolean;
 }) => {
+    const { t } = useTranslation();
     const defaultRadios = [
-        { label: IValg.JA, value: IValg.JA },
-        { label: IValg.NEI, value: IValg.NEI },
+        { label: t("radiobuttons.ja"), value: IValg.JA },
+        { label: t("radiobuttons.nei"), value: IValg.NEI },
     ];
 
-    if (vetIkke) defaultRadios.push({ label: IValg.VET_IKKE, value: IValg.VET_IKKE });
+    if (vetIkke) defaultRadios.push({ label: t("radiobuttons.vetIkke"), value: IValg.VET_IKKE });
 
     return <RHFInlineRadio name={name} legend={legend} description={description} radios={defaultRadios} />;
 };
