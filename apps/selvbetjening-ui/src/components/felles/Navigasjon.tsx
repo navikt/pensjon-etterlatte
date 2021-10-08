@@ -100,7 +100,8 @@ const Navigasjon = ({
                 </Button>
             </SkjemaGruppe>
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)} className="spoersmaal-modal modal">
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} className="spoersmaal-modal skjul-modal-knapp modal">
+
                 <SkjemaGruppe>
                     <Heading size={"medium"}>{t("avbrytModal.spoersmaal")}</Heading>
                 </SkjemaGruppe>
@@ -111,21 +112,18 @@ const Navigasjon = ({
                     </Button>
                 </SkjemaGruppe>
 
-                <SkjemaGruppe>
-                    <Button variant={"secondary"} type={"button"} onClick={avbryt}>
-                        {t("avbrytModal.svarJa")}
+                <Button variant={"secondary"} type={"button"} onClick={avbryt}>
+                    {t("avbrytModal.svarJa")}
+                </Button>
+                <BodyShort className="mute avbryt-text">
+                    {t("avbrytModal.informasjon")}
+                </BodyShort>
+
+                <div style={{ textAlign: "right", marginBottom: "0px" }}>
+                    <Button variant={"danger"} type={"button"} onClick={slettSoeknad}>
+                        <DeleteFilled/> &nbsp;{t("knapp.slett")}
                     </Button>
-                    <BodyShort className="mute" style={{ margin: "1em 0" }}>
-                        {t("avbrytModal.informasjon")}
-                    </BodyShort>
-
-                    <div style={{ textAlign: "right" }}>
-                        <Button variant={"danger"} type={"button"} onClick={slettSoeknad}>
-                            <DeleteFilled/> &nbsp;{t("knapp.slett")}
-                        </Button>
-                    </div>
-
-                </SkjemaGruppe>
+                </div>
             </Modal>
         </>
     );
