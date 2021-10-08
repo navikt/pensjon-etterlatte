@@ -57,7 +57,7 @@ const Navigasjon = ({
         soknadDispatch({ type: SoknadAction.TILBAKESTILL });
         brukerDispatch({ type: BrukerAction.TILBAKESTILL });
 
-        window.location.href = "https://www.nav.no";
+        history.push("/")
     };
 
     const avbryt = () => {
