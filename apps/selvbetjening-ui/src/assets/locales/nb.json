@@ -46,6 +46,7 @@
         "li4": "Opplysninger om <strong>andre ytelser fra NAV</strong>",
         "li5": "Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>"
       },
+      "infotekst": "Vi jobber med å forbedre denne søknaden. Inntil videre må du legge inn de fleste opplysningene manuelt.",
       "lenke1": {
         "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten",
         "tekst": "Slik behandler vi personopplysningene dine"

@@ -8,7 +8,7 @@ import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { BodyLong, Button, Link, Heading } from "@navikt/ds-react";
+import { BodyLong, Button, Link, Heading, Alert } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Dropdown } from "../felles/Dropdown";
@@ -104,6 +104,10 @@ const SoknadForside = () => {
                         </BodyLong>
                     </li>
                 </ul>
+
+                <BodyLong spacing>
+                    <Alert inline={true} variant={"info"}><b>{t("forside.uthentingAvInfo.infotekst")}</b></Alert>
+                </BodyLong>
 
                 <BodyLong spacing>
                     <Link href={t("forside.uthentingAvInfo.lenke1.href")}>
