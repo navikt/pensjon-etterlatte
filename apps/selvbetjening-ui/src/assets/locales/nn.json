@@ -79,19 +79,21 @@
     "undertittel": "Arbeid og utdanning",
     "ingress": "Kor mykje du kan få i attlevandepensjon er avhengig av arbeidsinntekta vi kan forvente at du får. Vi bereknar forventa inntekt på grunnlag av arbeidssituasjonen og tidligare utdanning.",
     "jobbStatus": "Kva er situasjonen din no?",
-    "ingenJobbBeskrivelse": "Anna",
+    "ingenJobbTittel": "Anna",
+    "ingenJobbBeskrivelse": "Gi en beskrivelse av situasjonen din",
     "ingenJobbBeskrivelsePlaceholder": "Beskriv situasjonen nærare",
     "utdanning": {
       "tittel": "Om utdanninga",
-      "hoyesteFullfoerteUtdanning": "Kva er utdanninga di?",
-      "annenUtdanning": "Anna utdanning",
-      "annenUtdanningPlaceholder": "Eks. kurs, enkeltår på universitet eller høgskule",
       "naavaerendeUtdanning": {
         "navn": "Namnet på utdanninga",
         "navnPlaceholder": "Eks. vidaregåande, lærling, sjukepleiarstudiet",
         "startDato": "Frå dato",
         "sluttDato": "Til dato"
-      }
+      },
+      "tittelFullfoert": "Fullført utdanning",
+      "hoyesteFullfoerteUtdanning": "Kva er utdanninga di?",
+      "annenUtdanning": "Anna utdanning",
+      "annenUtdanningPlaceholder": "Eks. kurs, enkeltår på universitet eller høgskule"
     },
     "selvstendig": {
       "tittel": "Om næringa",

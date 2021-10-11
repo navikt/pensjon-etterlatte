@@ -16,6 +16,7 @@ import useEffectOnce from "../../../hooks/useEffectOnce";
 import { isEmpty } from "lodash";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
+import SkjemaGruppering from "../../felles/SkjemaGruppering";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -72,13 +73,16 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning/>}
 
                 {jobbStatus?.includes(JobbStatus.ingen) && (
-                    <SkjemaGruppe>
+                    <SkjemaGruppering>
+                        <SkjemaGruppe>
+                            <Heading size={"small"}>{t("dinSituasjon.ingenJobbTittel")}</Heading>
+                        </SkjemaGruppe>
                         <RHFInput
                             name={"ingenJobbBeskrivelse"}
                             label={t("dinSituasjon.ingenJobbBeskrivelse")}
                             placeholder={t("dinSituasjon.ingenJobbBeskrivelsePlaceholder")}
                             maxLength={200}/>
-                    </SkjemaGruppe>
+                    </SkjemaGruppering>
                 )}
 
                 <HoeyesteUtdanning/>

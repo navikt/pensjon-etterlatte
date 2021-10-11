@@ -79,19 +79,21 @@
     "undertittel": "Arbeid og utdanning",
     "ingress": "Vi tar utgangspunkt i at du har egen inntekt. Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten vi kan forvente at du får. Vi beregner forventet inntekt på grunnlag av din arbeidssituasjon og tidligere utdanning.",
     "jobbStatus": "Hva er situasjonen din nå?",
-    "ingenJobbBeskrivelse": "Annet",
+    "ingenJobbTittel": "Annet",
+    "ingenJobbBeskrivelse": " Gi en beskrivelse av situasjonen din",
     "ingenJobbBeskrivelsePlaceholder": "Beskriv situasjonen nærmere",
     "utdanning": {
       "tittel": "Om utdanningen",
-      "hoyesteFullfoerteUtdanning": "Hvilken utdanning har du?",
-      "annenUtdanning": "Annen utdanning",
-      "annenUtdanningPlaceholder": "F.eks. kurs, enkeltår på universitet eller høyskole",
       "naavaerendeUtdanning": {
         "navn": "Navnet på utdanningen",
         "navnPlaceholder": "Eks. videregående, lærling, sykepleierstudiet",
         "startDato": "Fra dato",
         "sluttDato": "Til dato"
-      }
+      },
+      "tittelFullfoert": "Fullført utdanning",
+      "hoyesteFullfoerteUtdanning": "Hvilken utdanning har du?",
+      "annenUtdanning": "Annen utdanning",
+      "annenUtdanningPlaceholder": "F.eks. kurs, enkeltår på universitet eller høyskole"
     },
     "selvstendig": {
       "tittel": "Om næringen",
