@@ -12,7 +12,7 @@
   },
   "radiobuttons": {
     "ja": "Ja",
-    "nei": "nei",
+    "nei": "Nei",
     "vetIkke": "Vet ikke"
   },
   "knapp": {
@@ -21,7 +21,7 @@
     "avbryt": "Avbryt",
     "sendSoeknad": "Send søknad",
     "leggTilLand": "Legg til flere land",
-    "leggTilArbeidstakere": "Legg til flere arbeidstakere",
+    "leggTilArbeidstakere": "Legg til flere arbeidsgivere",
     "leggTilNaeringer": "Legg til flere næringer",
     "leggTilBarn": "+ Legg til barn",
     "fjern": "Fjern",
