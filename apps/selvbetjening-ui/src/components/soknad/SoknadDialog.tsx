@@ -9,12 +9,14 @@ import OpplysningerOmBarn from "./5-barn/OpplysningerOmBarn";
 import Stegviser from "../felles/Stegviser";
 import Oppsummering from "./6-oppsummering/Oppsummering";
 import DinSituasjon from "./4-din-situasjon/DinSituasjon";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const SoknadDialog = () => {
     const history = useHistory();
 
     const { path } = useRouteMatch();
     const location = useLocation();
+    useLanguage();
 
     const { state: { steg } } = useStegContext();
 

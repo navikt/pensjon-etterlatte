@@ -7,9 +7,10 @@ import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Alert, BodyLong, BodyShort, Button, Link, Heading } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../hooks/useLanguage";
 const SoknadKvittering = () => {
     const { t } = useTranslation();
-
+    useLanguage();
     const { dispatch } = useSoknadContext();
 
     useEffect(() => {

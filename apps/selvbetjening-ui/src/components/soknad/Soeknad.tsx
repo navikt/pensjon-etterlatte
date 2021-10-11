@@ -9,7 +9,7 @@ import { FortsettSoeknadModal } from "./FortsettSoeknadModal";
 
 const Soeknad = () => {
     const lasterSoeknad = useSoeknad();
-
+    
     return (
         <>
             <LoaderOverlay visible={lasterSoeknad} label={"Henter søknadsinformasjon ..."} />
