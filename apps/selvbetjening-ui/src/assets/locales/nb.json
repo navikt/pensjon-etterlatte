@@ -263,7 +263,7 @@
     "harBarnetVerge": {
       "svar": "Er det oppnevnt en verge for barnet?",
       "navn": "Navn på verge",
-      "navnPlaceholder": "Skriv inn tekst",
+      "navnPlaceholder": "Fornavn, etternavn",
       "foedselsnummer": "Fødselsnummer til verge",
       "foedselsnummerPlaceholder": "11 siffer"
     },

@@ -263,7 +263,7 @@
     "harBarnetVerge": {
       "svar": "Er det oppnemnt verje for barnet?",
       "navn": "Namn på verje",
-      "navnPlaceholder": "Skriv inn tekst",
+      "navnPlaceholder": "Førenamn, etternamn",
       "foedselsnummer": "Fødselsnummer til verje",
       "foedselsnummerPlaceholder": "11 siffer"
     },
