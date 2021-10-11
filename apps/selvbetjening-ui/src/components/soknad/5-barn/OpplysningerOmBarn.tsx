@@ -92,7 +92,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                         </div>
                     </div>
 
-                    <Modal open={isOpen} onClose={() => setIsOpen(false)} className={"modal"}>
+                    <Modal open={isOpen} onClose={() => setIsOpen(false)} className={"ey-modal"}>
                         <LeggTilBarnSkjema lagre={leggTilBarn} avbryt={() => setIsOpen(false)} />
                     </Modal>
                 </SkjemaGruppe>

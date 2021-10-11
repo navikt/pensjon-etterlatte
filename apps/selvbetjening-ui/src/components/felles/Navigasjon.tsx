@@ -100,7 +100,7 @@ const Navigasjon = ({
                 </Button>
             </SkjemaGruppe>
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)} className="spoersmaal-modal skjul-modal-knapp modal">
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} className="spoersmaal-modal skjul-modal-knapp ey-modal">
 
                 <SkjemaGruppe>
                     <Heading size={"medium"}>{t("avbrytModal.spoersmaal")}</Heading>

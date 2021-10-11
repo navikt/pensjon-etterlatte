@@ -49,7 +49,7 @@ export const FortsettSoeknadModal = () => {
             open={state.visFortsettSoeknadModal}
             onClose={() => {}}
             shouldCloseOnOverlayClick={false}
-            className="spoersmaal-modal skjul-modal-knapp modal"
+            className="spoersmaal-modal skjul-modal-knapp ey-modal"
         >
             <SkjemaGruppe>
                 <Heading size={"medium"}>{t("fortsettSoeknad.beskrivelse")}</Heading>
