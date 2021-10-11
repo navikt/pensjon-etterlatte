@@ -25,7 +25,7 @@ const NySivilstatus = () => {
             <RHFRadio
                 name={"nySivilstatus.sivilstatus"}
                 radios={Object.values(Sivilstatus).map((value) => {
-                    return { label: t(value), value } as RadioProps;
+                    return { label: t(value), value, required: true } as RadioProps;
                 })}
             />
 

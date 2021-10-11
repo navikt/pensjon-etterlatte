@@ -40,6 +40,7 @@ export const RHFCheckboksPanelGruppe = ({ name, checkboxes, ...rest }: RHFCheckb
                             key={checkbox.value as string}
                             label={checkbox.label}
                             value={checkbox.value}
+                            required={checkbox.required}
                             checked={(value as any[])?.includes(checkbox.value)}
                             onChange={(e) => onChange(
                                 handleSelect(value, ((e.target as HTMLInputElement).value as any))
@@ -114,6 +115,7 @@ export const RHFCheckboksGruppe = ({ name, checkboxes, ...rest }: RHFCheckboksGr
                             key={checkbox.value as string}
                             label={checkbox.label}
                             value={checkbox.value}
+                            required={checkbox.required}
                             checked={(value as any[])?.includes(checkbox.value)}
                             onChange={(e) => onChange(
                                 handleSelect(value, ((e.target as HTMLInputElement).value as any))

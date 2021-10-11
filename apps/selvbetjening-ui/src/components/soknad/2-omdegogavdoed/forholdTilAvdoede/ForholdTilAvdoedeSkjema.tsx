@@ -21,7 +21,7 @@ const ForholdTilAvdoedeSkjema = () => {
                 name={"forholdTilAvdoede.relasjon"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.relasjon")}
                 radios={Object.values(ForholdTilAvdoede).map((value) => {
-                    return { label: t(value), value } as RadioProps;
+                    return { label: t(value), value, required: true } as RadioProps;
                 })}
             />
             {/** Gift og Separert gir samme etterfølgende spørsmål */}

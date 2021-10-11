@@ -131,13 +131,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="gravidEllerNyligFoedt"
+              required=""
               type="radio"
               value="Ja"
             />
             <span
               class="inputPanel__label"
             >
-              Ja
+              radiobuttons.ja
             </span>
           </label>
           <label
@@ -148,13 +149,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="gravidEllerNyligFoedt"
+              required=""
               type="radio"
               value="Nei"
             />
             <span
               class="inputPanel__label"
             >
-              Nei
+              radiobuttons.nei
             </span>
           </label>
         </div>

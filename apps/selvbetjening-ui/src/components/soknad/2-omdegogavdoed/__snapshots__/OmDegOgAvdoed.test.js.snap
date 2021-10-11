@@ -201,13 +201,14 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="avdoed.doedsfallAarsak"
+              required=""
               type="radio"
               value="Ja"
             />
             <span
               class="inputPanel__label"
             >
-              Ja
+              radiobuttons.ja
             </span>
           </label>
           <label
@@ -218,13 +219,14 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="avdoed.doedsfallAarsak"
+              required=""
               type="radio"
               value="Nei"
             />
             <span
               class="inputPanel__label"
             >
-              Nei
+              radiobuttons.nei
             </span>
           </label>
           <label
@@ -235,13 +237,14 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="avdoed.doedsfallAarsak"
+              required=""
               type="radio"
               value="Vet ikke"
             />
             <span
               class="inputPanel__label"
             >
-              Vet ikke
+              radiobuttons.vetIkke
             </span>
           </label>
         </div>
@@ -273,6 +276,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="forholdTilAvdoede.relasjon"
+              required=""
               type="radio"
               value="avdoede.relasjon.gift"
             />
@@ -290,6 +294,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="forholdTilAvdoede.relasjon"
+              required=""
               type="radio"
               value="avdoede.relasjon.separert"
             />
@@ -307,6 +312,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="forholdTilAvdoede.relasjon"
+              required=""
               type="radio"
               value="avdoede.relasjon.samboer"
             />
@@ -324,6 +330,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="forholdTilAvdoede.relasjon"
+              required=""
               type="radio"
               value="avdoede.relasjon.skilt"
             />
@@ -341,6 +348,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="forholdTilAvdoede.relasjon"
+              required=""
               type="radio"
               value="avdoede.relasjon.tidligereSamboer"
             />
@@ -396,6 +404,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 aria-invalid="false"
                 class="inputPanel__field"
                 name="nySivilstatus.sivilstatus"
+                required=""
                 type="radio"
                 value="nySivilstatus.ingen"
               />
@@ -413,6 +422,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 aria-invalid="false"
                 class="inputPanel__field"
                 name="nySivilstatus.sivilstatus"
+                required=""
                 type="radio"
                 value="nySivilstatus.ekteskap"
               />
@@ -430,6 +440,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 aria-invalid="false"
                 class="inputPanel__field"
                 name="nySivilstatus.sivilstatus"
+                required=""
                 type="radio"
                 value="nySivilstatus.samboerskap"
               />

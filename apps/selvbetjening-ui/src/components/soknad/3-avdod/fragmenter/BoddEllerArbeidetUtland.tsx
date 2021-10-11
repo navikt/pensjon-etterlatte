@@ -67,10 +67,12 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                         {
                                             label: t(OppholdUtlandType.bodd.valueOf()),
                                             value: OppholdUtlandType.bodd,
+                                            required: true
                                         },
                                         {
                                             label: t(OppholdUtlandType.arbeidet.valueOf()),
                                             value: OppholdUtlandType.arbeidet,
+                                            required: true
                                         },
                                     ]}
                                 />

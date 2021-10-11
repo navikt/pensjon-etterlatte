@@ -57,6 +57,7 @@ const SamboerSkjema = () => {
                             return {
                                 value: type,
                                 label: t(type),
+                                required: true
                             };
                         })}
                     />

@@ -20,7 +20,7 @@ const HoeyesteUtdanning = () => {
                 name={"utdanning.hoyesteFullfoerteUtdanning"}
                 legend={t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning")}
                 radios={Object.values(Utdanning).map(value => {
-                    return { label: t(value), value } as RadioProps
+                    return { label: t(value), value, required: true } as RadioProps
                 })}
             />
 

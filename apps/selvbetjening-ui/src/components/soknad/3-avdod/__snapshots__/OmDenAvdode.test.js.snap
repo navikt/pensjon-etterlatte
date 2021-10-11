@@ -147,13 +147,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="boddEllerJobbetUtland.svar"
+              required=""
               type="radio"
               value="Ja"
             />
             <span
               class="inputPanel__label"
             >
-              Ja
+              radiobuttons.ja
             </span>
           </label>
           <label
@@ -164,13 +165,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="boddEllerJobbetUtland.svar"
+              required=""
               type="radio"
               value="Nei"
             />
             <span
               class="inputPanel__label"
             >
-              Nei
+              radiobuttons.nei
             </span>
           </label>
           <label
@@ -181,13 +183,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               class="inputPanel__field"
               name="boddEllerJobbetUtland.svar"
+              required=""
               type="radio"
               value="Vet ikke"
             />
             <span
               class="inputPanel__label"
             >
-              Vet ikke
+              radiobuttons.vetIkke
             </span>
           </label>
         </div>
@@ -241,13 +244,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-invalid="false"
                 class="inputPanel__field"
                 name="selvstendigNaeringsdrivende.svar"
+                required=""
                 type="radio"
                 value="Ja"
               />
               <span
                 class="inputPanel__label"
               >
-                Ja
+                radiobuttons.ja
               </span>
             </label>
             <label
@@ -258,13 +262,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-invalid="false"
                 class="inputPanel__field"
                 name="selvstendigNaeringsdrivende.svar"
+                required=""
                 type="radio"
                 value="Nei"
               />
               <span
                 class="inputPanel__label"
               >
-                Nei
+                radiobuttons.nei
               </span>
             </label>
             <label
@@ -275,68 +280,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-invalid="false"
                 class="inputPanel__field"
                 name="selvstendigNaeringsdrivende.svar"
+                required=""
                 type="radio"
                 value="Vet ikke"
               />
               <span
                 class="inputPanel__label"
               >
-                Vet ikke
-              </span>
-            </label>
-          </div>
-          <div
-            aria-live="polite"
-          />
-        </fieldset>
-      </div>
-      <div
-        id="haddePensjonsgivendeInntekt.svar"
-      >
-        <fieldset
-          aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe inline"
-        >
-          <legend
-            class="skjemagruppe__legend"
-          >
-            omDenAvdoede.haddePensjonsgivendeInntekt.svar
-          </legend>
-          <div
-            class="inputPanelGruppe__inner"
-          >
-            <label
-              class="inputPanel radioPanel"
-            >
-              <input
-                aria-checked="false"
-                aria-invalid="false"
-                class="inputPanel__field"
-                name="haddePensjonsgivendeInntekt.svar"
-                type="radio"
-                value="Ja"
-              />
-              <span
-                class="inputPanel__label"
-              >
-                Ja
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel"
-            >
-              <input
-                aria-checked="false"
-                aria-invalid="false"
-                class="inputPanel__field"
-                name="haddePensjonsgivendeInntekt.svar"
-                type="radio"
-                value="Nei"
-              />
-              <span
-                class="inputPanel__label"
-              >
-                Nei
+                radiobuttons.vetIkke
               </span>
             </label>
           </div>
@@ -423,13 +374,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-invalid="false"
                 class="inputPanel__field"
                 name="harAvtjentMilitaerTjeneste.svar"
+                required=""
                 type="radio"
                 value="Ja"
               />
               <span
                 class="inputPanel__label"
               >
-                Ja
+                radiobuttons.ja
               </span>
             </label>
             <label
@@ -440,13 +392,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-invalid="false"
                 class="inputPanel__field"
                 name="harAvtjentMilitaerTjeneste.svar"
+                required=""
                 type="radio"
                 value="Nei"
               />
               <span
                 class="inputPanel__label"
               >
-                Nei
+                radiobuttons.nei
               </span>
             </label>
             <label
@@ -457,13 +410,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-invalid="false"
                 class="inputPanel__field"
                 name="harAvtjentMilitaerTjeneste.svar"
+                required=""
                 type="radio"
                 value="Vet ikke"
               />
               <span
                 class="inputPanel__label"
               >
-                Vet ikke
+                radiobuttons.vetIkke
               </span>
             </label>
           </div>

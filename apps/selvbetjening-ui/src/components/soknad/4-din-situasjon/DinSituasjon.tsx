@@ -61,7 +61,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                     name={"jobbStatus"}
                     legend={t("dinSituasjon.jobbStatus")}
                     checkboxes={Object.values(JobbStatus).map((value) => {
-                        return { label: t(value), value } as RadioProps;
+                        return { label: t(value), value, required: true } as RadioProps;
                     })}
                 />
 

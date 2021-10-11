@@ -22,11 +22,11 @@ export const RHFSpoersmaalRadio = ({
 }) => {
     const { t } = useTranslation();
     const defaultRadios = [
-        { label: t("radiobuttons.ja"), value: IValg.JA },
-        { label: t("radiobuttons.nei"), value: IValg.NEI },
+        { label: t("radiobuttons.ja"), value: IValg.JA, required: true },
+        { label: t("radiobuttons.nei"), value: IValg.NEI, required: true },
     ];
 
-    if (vetIkke) defaultRadios.push({ label: t("radiobuttons.vetIkke"), value: IValg.VET_IKKE });
+    if (vetIkke) defaultRadios.push({ label: t("radiobuttons.vetIkke"), value: IValg.VET_IKKE, required: true });
 
     return <RHFInlineRadio name={name} legend={legend} description={description} radios={defaultRadios} />;
 };
