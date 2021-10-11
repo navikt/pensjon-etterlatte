@@ -1,8 +1,18 @@
 .datovelger {
   display: flex;
   align-items: flex-end;
+
+  input {
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+  }
 }
 .kalender-ikon {
-  padding: 0 0 0 5px;
+  padding: 4px 10px;
   cursor: pointer;
+  background-color: #0167c5;
+  border: 1px solid #000;
+  border-radius: 0 4px 4px 0;
+  height: 40px;
+  line-height: 42px;
 }
