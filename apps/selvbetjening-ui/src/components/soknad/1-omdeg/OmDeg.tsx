@@ -1,6 +1,6 @@
 import "./OmDeg.scss";
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { FormProvider, useForm } from "react-hook-form";
@@ -57,7 +57,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
         <>
             {/* Steg 2 */}
             <Heading size={"medium"} className={"center"}>
-                <Trans i18nKey={"omDeg.tittel"} />
+               {t("omDeg.tittel")}
             </Heading>
 
             {/* Informasjon om den innloggede brukeren */}
@@ -71,14 +71,14 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                     <SkjemaGruppering>
                         <RHFSpoersmaalRadio
                             name={"bostedsadresseBekreftet"}
-                            legend={<Trans i18nKey={"omDeg.bostedsadresseBekreftet"} />}
+                            legend={t("omDeg.bostedsadresseBekreftet")}
                         />
 
                         {borPaaRegistrertAdresse === IValg.NEI && (
                             <SkjemaGruppe>
                                 <RHFInput
                                     name={"alternativAdresse"}
-                                    label={<Trans i18nKey={"omDeg.alternativAdresse"} />}
+                                    label={t("omDeg.alternativAdresse")}
                                 />
                             </SkjemaGruppe>
                         )}
@@ -167,7 +167,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         <SkjemaGruppe>
                             <RHFSpoersmaalRadio
                                 name={"flyktning"}
-                                legend={<Trans i18nKey={"omDeg.flyktning"} />}
+                                legend={t("omDeg.flyktning")}
                                 description={<HvorforSpoerVi>{t("omDeg.flyktningHvorfor")}</HvorforSpoerVi>}
                             />
                         </SkjemaGruppe>

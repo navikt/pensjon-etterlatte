@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.88% </span>
+                <span class="strong">52.94% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/17</span>
+                <span class='fraction'>9/17</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.88% </span>
+                <span class="strong">52.94% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/17</span>
+                <span class='fraction'>9/17</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -110,17 +110,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -141,7 +141,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,17 +154,17 @@ import { useBrukerContext } from "../context/bruker/BrukerContext";
 import { useHistory } from "react-router-dom";
 import { useError } from "./useError";
 &nbsp;
-const useInnloggetBruker = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-    const history = <span class="cstat-no" title="statement not covered" >useHistory();</span>
+const useInnloggetBruker = () =&gt; {
+    const history = useHistory();
 &nbsp;
-    const { setError } = <span class="cstat-no" title="statement not covered" >useError();</span>
-    const { dispatch } = <span class="cstat-no" title="statement not covered" >useBrukerContext();</span>
-    const [loading, setLoading] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+    const { setError } = useError();
+    const { dispatch } = useBrukerContext();
+    const [loading, setLoading] = useState(false);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        setLoading(true);</span>
+    useEffect(() =&gt; {
+        setLoading(true);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        hentInnloggetPerson()</span>
+        hentInnloggetPerson()
             .then(<span class="fstat-no" title="function not covered" >(p</span>erson: IBruker) =&gt; {
                 const alder = <span class="cstat-no" title="statement not covered" >hentAlder(person.foedselsdato!!);</span>
                 const kanSoeke = <span class="cstat-no" title="statement not covered" >gyldigAlder(alder);</span>
@@ -185,7 +185,7 @@ const useInnloggetBruker = <span class="fstat-no" title="function not covered" >
             .finally(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setLoading(false))</span>;
     }, []);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return loading;</span>
+    return loading;
 };
 &nbsp;
 export default useInnloggetBruker;
@@ -196,7 +196,7 @@ export default useInnloggetBruker;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Oct 06 2021 15:48:28 GMT+0200 (Central European Summer Time)
+                at Mon Oct 11 2021 15:41:34 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

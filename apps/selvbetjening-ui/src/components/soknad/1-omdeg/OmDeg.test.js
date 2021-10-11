@@ -16,7 +16,7 @@ jest.mock("react-i18next", () => ({
 
 JSutils.guid = jest.fn(() => "123");
 describe("Om deg og avdød", () => {
-    xit("Snapshot", () => {
+    it("Snapshot", () => {
         const { container } = render(<OmDeg />);
         expect(container).toMatchSnapshot();
     });

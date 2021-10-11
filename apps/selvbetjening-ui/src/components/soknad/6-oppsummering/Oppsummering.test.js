@@ -1,6 +1,7 @@
 import { render, act, fireEvent } from "@testing-library/react";
 import * as JSutils from "nav-frontend-js-utils";
 import { AccordionItem } from "./AccordionItem";
+import TekstGruppe from "./fragmenter/TekstGruppe";
 import Oppsummering from "./Oppsummering";
 
 jest.mock("react-i18next", () => ({
@@ -21,7 +22,7 @@ jest.mock("react-router-dom", () => ({
 }));
 
 JSutils.guid = jest.fn(() => "123");
-describe("Om den avdøde", () => {
+describe("Oppsummering", () => {
     it("Snapshot", () => {
         const { container } = render(<Oppsummering />);
         expect(container).toMatchSnapshot();
@@ -48,3 +49,11 @@ describe("Test accordionItem", () => {
         expect(getByText("Innhold")).toBeDefined()
     });
 });
+
+describe("Tekstgruppe", () => {
+    it("Skal rendre testittel og testcontent", () => {
+        const { getByText } = render(<TekstGruppe tittel="Testtittel" innhold={"Testcontent"} />);
+        expect(getByText("Testtittel")).toBeDefined();
+        expect(getByText("Testcontent")).toBeDefined();
+    })
+})

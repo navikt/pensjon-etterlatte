@@ -343,6 +343,19 @@ exports[`Om den avdøde Snapshot 1`] = `
       aria-invalid="false"
       class="skjemagruppe skjemagruppering"
     >
+      <fieldset
+        aria-invalid="false"
+        class="skjemagruppe"
+      >
+        <h1
+          class="navds-heading navds-heading--small"
+        >
+          dinSituasjon.utdanning.tittelFullfoert
+        </h1>
+        <div
+          aria-live="polite"
+        />
+      </fieldset>
       <div
         id="utdanning.hoyesteFullfoerteUtdanning"
       >

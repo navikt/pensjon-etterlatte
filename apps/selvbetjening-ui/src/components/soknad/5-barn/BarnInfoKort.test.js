@@ -1,6 +1,4 @@
 import { render } from "@testing-library/react";
-import uuid from "uuid";
-import lodash from "lodash";
 import * as JSutils from "nav-frontend-js-utils";
 import BarnInfokort from "./BarnInfokort";
 
@@ -18,8 +16,9 @@ jest.mock("react-i18next", () => ({
 
 JSutils.guid = jest.fn(() => "123");
 describe("BarnInfoKort", () => {
-    xit("Snapshot", () => {
-        const { container } = render(<BarnInfokort />);
-        expect(container).toMatchSnapshot();
+    it("Snapshot", () => {
+        const { getByText } = render(<BarnInfokort barn={{fornavn: "Treig", etternavn: "Floskel", foedselsnummer: "04096222195"}} />);
+        expect(getByText("Treig Floskel")).toBeDefined()
+        expect(getByText("040962 22195")).toBeDefined()
     });
 });
