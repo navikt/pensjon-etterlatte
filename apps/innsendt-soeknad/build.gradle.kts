@@ -35,6 +35,7 @@ dependencies {
     testImplementation("org.testcontainers:postgresql:1.15.3")
     testImplementation("io.ktor:ktor-server-tests:$ktorversion")
     testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
+    testImplementation("io.mockk:mockk:1.12.0")
 
     // Logging
     implementation("org.slf4j:slf4j-api:1.7.30")

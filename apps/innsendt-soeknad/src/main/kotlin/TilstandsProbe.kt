@@ -15,7 +15,7 @@ class TilstandsProbe(private val db: StatistikkRepository){
 
     private val logger = LoggerFactory.getLogger(TilstandsProbe::class.java)
 
-    private fun gatherMetrics(){
+    internal fun gatherMetrics(){
         db.eldsteUsendte()?.apply {
             usendtAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
         }
