@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>5/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -153,31 +153,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -238,35 +238,35 @@ import { BodyLong, Button, Link } from "@navikt/ds-react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 &nbsp;
-const UgyldigSoeker = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-    const history = <span class="cstat-no" title="statement not covered" >useHistory();</span>
-    const { t } = <span class="cstat-no" title="statement not covered" >useTranslation();</span>
+const UgyldigSoeker = () =&gt; {
+    const history = useHistory();
+    const { t } = useTranslation();
 &nbsp;
-    const { state, dispatch } = <span class="cstat-no" title="statement not covered" >useBrukerContext();</span>
+    const { state, dispatch } = useBrukerContext();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (state.kanSoeke) {</span>
+    useEffect(() =&gt; {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (state.kanSoeke) {
 <span class="cstat-no" title="statement not covered" >            history.push("/");</span>
         }
     }, [state.kanSoeke])
 &nbsp;
-    const brukerErForUng = <span class="cstat-no" title="statement not covered" >erForUng(state.alder!!);</span>
+    const brukerErForUng = erForUng(state.alder!!);
 &nbsp;
-    const heiTekst = <span class="cstat-no" title="statement not covered" >brukerErForUng</span>
-        ? t("ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon")
+    const heiTekst = brukerErForUng
+        ? <span class="branch-0 cbranch-no" title="branch not covered" >t("ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon")</span>
         : t("ugyldigSoeker.kanIkkeSoeke.gjenlevende");
 &nbsp;
-    const tilbake = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+    const tilbake = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >        dispatch({ type: ActionTypes.TILBAKESTILL });</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        window.location.href = "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/ytelser-til-gjenlevende-ektefelle"</span>
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;&gt;
             &lt;SkjemaGruppe&gt;
                 {brukerErForUng ? (
-                    &lt;Veileder tekst={heiTekst} posisjon="høyre"&gt;
+<span class="branch-0 cbranch-no" title="branch not covered" >                    &lt;Veileder tekst={heiTekst} posisjon="høyre"&gt;</span>
                         &lt;img alt="veileder" src={ikon}/&gt;
                     &lt;/Veileder&gt;
                 ) : (
@@ -278,7 +278,7 @@ const UgyldigSoeker = <span class="cstat-no" title="statement not covered" ><spa
 &nbsp;
             &lt;SkjemaGruppe&gt;
                 {brukerErForUng ? (
-                    &lt;BodyLong&gt;
+<span class="branch-0 cbranch-no" title="branch not covered" >                    &lt;BodyLong&gt;</span>
                         {t("ugyldigSoeker.info.gjenlevendeEllerBarnepensjon")}
                     &lt;/BodyLong&gt;
                 ) : (
@@ -291,7 +291,7 @@ const UgyldigSoeker = <span class="cstat-no" title="statement not covered" ><spa
             &lt;SkjemaGruppe&gt;
                 &lt;BodyLong&gt;
                     {brukerErForUng ? (
-                        &lt;Link href={t("ugyldigSoeker.infolenker.barnepensjon.href")}&gt;
+<span class="branch-0 cbranch-no" title="branch not covered" >                        &lt;Link href={t("ugyldigSoeker.infolenker.barnepensjon.href")}&gt;</span>
                             {t("ugyldigSoeker.infolenker.barnepensjon.tekst")}
                         &lt;/Link&gt;
                     ) : (
@@ -319,7 +319,7 @@ export default UgyldigSoeker;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Oct 11 2021 15:41:34 GMT+0200 (Central European Summer Time)
+                at Tue Oct 12 2021 10:36:08 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
