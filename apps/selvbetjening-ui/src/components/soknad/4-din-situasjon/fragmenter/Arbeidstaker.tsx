@@ -34,7 +34,7 @@ const Arbeidstaker = () => {
             ))}
 
             <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
-                + {t("knapp.leggTilArbeidstakere")}
+                + {t("knapp.leggTilArbeidsforhold")}
             </Button>
         </SkjemaGruppering>
     );

@@ -21,7 +21,7 @@
     "avbryt": "Avbryt",
     "sendSoeknad": "Send søknad",
     "leggTilLand": "Legg til fleire land",
-    "leggTilArbeidstakere": "Legg til fleire arbeidsforhold",
+    "leggTilArbeidsforhold": "Legg til fleire arbeidsforhold",
     "leggTilNaeringer": "Legg til fleire næringar",
     "leggTilBarn": "+ Legg til barn",
     "fjern": "Fjern",
@@ -202,7 +202,8 @@
         "hattBarnEllerVaertGift": "Har eller hadde de barn saman eller var de tidlegare gift?",
         "samboer": {
           "tittel": "Opplysingar om sambuar",
-          "navn": "Namn",
+          "fornavn": "Førenamn",
+          "etternavn": "Etternamn",
           "harInntekt.svar": "Har sambuar inntekt?",
           "harInntekt.samletBruttoinntektPrAar": "Samla årsinntekt før skatt",
           "harInntekt.inntektstype": "Inntektstype"

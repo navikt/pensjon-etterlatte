@@ -7,7 +7,7 @@ import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
 import { RHFCheckboksPanelGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
-import { Panel, Heading } from "@navikt/ds-react";
+import { Panel, Heading, Grid, Cell } from "@navikt/ds-react";
 
 const SamboerSkjema = () => {
     const { t } = useTranslation();
@@ -23,11 +23,22 @@ const SamboerSkjema = () => {
                 <Heading size={"small"}>{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}</Heading>
             </SkjemaGruppe>
 
-            <RHFInput
-                name={"nySivilstatus.samboerskap.samboer.navn"}
-                bredde={"XL"}
-                label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.navn")}
-            />
+            <Grid>
+                <Cell xs={12} md={6}>
+                    <RHFInput
+                        className={"kol-50"}
+                        name={"nySivilstatus.samboerskap.samboer.fornavn"}
+                        placeholder={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn")}
+                    />
+                </Cell>
+                <Cell xs={12} md={6}>
+                    <RHFInput
+                        className={"kol-50"}
+                        name={"nySivilstatus.samboerskap.samboer.etternavn"}
+                        placeholder={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn")}
+                    />
+                </Cell>
+            </Grid>
 
             <RHFFoedselsnummerInput
                 name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}

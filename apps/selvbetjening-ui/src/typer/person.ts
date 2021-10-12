@@ -110,7 +110,8 @@ export interface INyttSamboerskap {
 }
 
 export interface ISamboer {
-    navn?: string;
+    fornavn?: string;
+    etternavn?: string;
     foedselsnummer?: string;
     harInntekt?: {
         svar?: IValg;

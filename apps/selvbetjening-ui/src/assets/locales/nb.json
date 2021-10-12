@@ -21,7 +21,7 @@
     "avbryt": "Avbryt",
     "sendSoeknad": "Send søknad",
     "leggTilLand": "Legg til flere land",
-    "leggTilArbeidstakere": "Legg til flere arbeidsgivere",
+    "leggTilArbeidsforhold": "Legg til flere arbeidsforhold",
     "leggTilNaeringer": "Legg til flere næringer",
     "leggTilBarn": "+ Legg til barn",
     "fjern": "Fjern",
@@ -202,7 +202,8 @@
         "hattBarnEllerVaertGift": "Har eller hadde dere barn sammen eller var dere tidligere gift?",
         "samboer": {
           "tittel": "Opplysninger om samboer",
-          "navn": "Navn",
+          "fornavn": "Fornavn",
+          "etternavn": "Etternavn",
           "harInntekt.svar": "Har samboer inntekt?",
           "harInntekt.samletBruttoinntektPrAar": "Samlet årsinntekt før skatt",
           "harInntekt.inntektstype": "Inntektstype"
