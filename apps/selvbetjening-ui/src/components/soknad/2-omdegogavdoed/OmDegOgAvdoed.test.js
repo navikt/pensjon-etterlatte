@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { act, render, fireEvent } from "@testing-library/react";
 import * as JSutils from "nav-frontend-js-utils";
 import OmDegOgAvdoed from "./OmDegOgAvdoed";
 
@@ -16,8 +16,17 @@ jest.mock("react-i18next", () => ({
 
 JSutils.guid = jest.fn(() => "123");
 describe("Om deg og avdød", () => {
-    it("Snapshot", () => {
+    it("Snapshot uten samboerskjema", () => {
         const { container } = render(<OmDegOgAvdoed />);
+        expect(container).toMatchSnapshot();
+    });
+    it("Snapshot med sivilstatus samboer", () => {
+        const { container, getByText, getByLabelText } = render(<OmDegOgAvdoed />);
+       
+        act(() => {
+            fireEvent.click(getByLabelText("nySivilstatus.samboerskap"))
+        })
+        expect(getByText("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")).toBeDefined()
         expect(container).toMatchSnapshot();
     });
 });

@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { act, render, fireEvent } from "@testing-library/react";
 import * as JSutils from "nav-frontend-js-utils";
 import DinSituasjon from "./DinSituasjon";
 
@@ -60,5 +60,21 @@ describe("Om den avdøde", () => {
     it("Snapshot", () => {
         const { container } = render(<DinSituasjon />);
         expect(container).toMatchSnapshot();
+    });
+
+    it("Skal rendre selvstendig", () => {
+        const { container, getByLabelText } = render(<DinSituasjon />);
+        act(() => {
+            fireEvent.click(getByLabelText("jobbStatus.selvstendig"));
+        });
+        //console.log(container.querySelectorAll("input[name=selvstendig[0].forventerEndretInntekt.svar]"))
+        /*
+        act(() => {
+           fireEvent.change(getByText("dinSituasjon.selvstendig.forventerEndretInntekt.svar"), { target: { value: "Ja" } });
+        });
+        */
+        //expect(getByLabelText("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")).toBeDefined();
+        expect(container).toMatchSnapshot();
+        
     });
 });
