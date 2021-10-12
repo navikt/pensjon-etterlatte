@@ -1,5 +1,5 @@
 import { i18n, TFunction } from "i18next";
-import { StegPath } from "../context/steg/steg";
+import { StegPath } from "../typer/steg";
 
 export interface Innhold {
     spoersmaal: string;

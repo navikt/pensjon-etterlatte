@@ -19,60 +19,31 @@ export enum StegLabelKey {
 export const MuligeSteg: IStegElement[] = [
     {
         path: StegPath.OmDeg,
-        label: StegLabelKey.OmDeg,
-        disabled: false,
+        label: StegLabelKey.OmDeg
     },
     {
         path: StegPath.OmDegOgAvdoed,
-        label: StegLabelKey.OmDegOgAvdoed,
-        disabled: false,
+        label: StegLabelKey.OmDegOgAvdoed
     },
     {
         path: StegPath.OmAvdoed,
-        label: StegLabelKey.OmAvdoed,
-        disabled: false,
+        label: StegLabelKey.OmAvdoed
     },
     {
         path: StegPath.DinSituasjon,
-        label: StegLabelKey.DinSituasjon,
-        disabled: false,
+        label: StegLabelKey.DinSituasjon
     },
     {
         path: StegPath.OmBarn,
-        label: StegLabelKey.OmBarn,
-        disabled: false,
+        label: StegLabelKey.OmBarn
     },
     {
         path: StegPath.Oppsummering,
-        label: StegLabelKey.Oppsummering,
-        disabled: false,
+        label: StegLabelKey.Oppsummering
     },
 ];
 
 export interface IStegElement {
     path: StegPath;
     label: StegLabelKey;
-    disabled: boolean;
-}
-
-export interface ISteg {
-    aktivtSteg: StegPath;
-    steg: IStegElement[];
-}
-
-export enum StegActionTypes {
-    TILBAKESTILL = "TILBAKESTILL",
-    SETT_STEG = "SETT_STEG",
-    NESTE = "NESTE",
-    FORRIGE = "FORRIGE",
-}
-
-export interface IStegAction {
-    type: StegActionTypes;
-    payload?: any;
-}
-
-export interface StegProps {
-    state: ISteg;
-    dispatch: (action: IStegAction) => void;
 }

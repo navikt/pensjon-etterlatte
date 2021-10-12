@@ -4,14 +4,14 @@ import { Trans, useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
-import { useStegContext } from "../../context/steg/StegContext";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { BodyLong, Button, Link, Heading, Alert } from "@navikt/ds-react";
+import { Alert, BodyLong, Button, Heading, Link } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Dropdown } from "../felles/Dropdown";
+import { MuligeSteg } from "../../typer/steg";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -24,12 +24,8 @@ const SoknadForside = () => {
 
     const { state: brukerState } = useBrukerContext();
 
-    const {
-        state: { steg },
-    } = useStegContext();
-
     const startSoeknad = () => {
-        const foersteSteg = steg[0];
+        const foersteSteg = MuligeSteg[0];
         logEvent(LogEvents.AAPNE_SOKNAD);
         history.push(`/soknad/steg/${foersteSteg.path}`);
     };

@@ -4,7 +4,7 @@ import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed } from "../t
 import { i18n, TFunction } from "i18next";
 import { IBruker } from "../context/bruker/bruker";
 import { ISoeknad } from "../context/soknad/soknad";
-import { StegPath } from "../context/steg/steg";
+import { StegPath } from "../typer/steg";
 import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "../typer/arbeidsforhold";
 
 export default class SoeknadMapper {

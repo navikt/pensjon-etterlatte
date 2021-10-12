@@ -1,7 +1,6 @@
 import { Route, useRouteMatch } from "react-router";
-import { useStegContext } from "../../context/steg/StegContext";
 import { useHistory, useLocation } from "react-router-dom";
-import { StegPath } from "../../context/steg/steg";
+import { MuligeSteg, StegPath } from "../../typer/steg";
 import OmDeg from "./1-omdeg/OmDeg";
 import OmDegOgAvdoed from "./2-omdegogavdoed/OmDegOgAvdoed";
 import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
@@ -18,7 +17,7 @@ const SoknadDialog = () => {
     const location = useLocation();
     useLanguage();
 
-    const { state: { steg } } = useStegContext();
+    const steg = MuligeSteg;
 
     const settSteg = (retning: -1 | 1) => {
         const matchAktivtSteg = location.pathname.match(/[^/]+$/) || []
@@ -27,7 +26,7 @@ const SoknadDialog = () => {
         const nesteSteg = steg[index + retning]
 
         history.push(`/soknad/steg/${nesteSteg.path}`)
-    }
+    };
 
     const forrige = () => settSteg(-1)
     const neste = () => settSteg(1);
