@@ -7,6 +7,7 @@ import { IValg } from "../../../../typer/Spoersmaal";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
+import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 
 const giftMerEnn25aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0;
@@ -35,6 +36,7 @@ const SkiltFraAvdoede = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
+    const { state } = useBrukerContext();
 
     const datoForInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap");
     const datoForSkilsmisse = watch("forholdTilAvdoede.datoForSkilsmisse");
@@ -53,6 +55,7 @@ const SkiltFraAvdoede = () => {
                     className={"kol"}
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
                     label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
+                    minDate={state.foedselsdato}
                     maxDate={datoForDoedsfallet || new Date()}
                 />
 

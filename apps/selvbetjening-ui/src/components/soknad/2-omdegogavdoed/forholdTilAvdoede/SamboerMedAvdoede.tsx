@@ -7,11 +7,13 @@ import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
+import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 
 const SamboerMedAvdoede = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
+    const { state } = useBrukerContext();
 
     const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap");
     const ingenFellesBarn = watch("forholdTilAvdoede.fellesBarn") === IValg.NEI;
@@ -40,6 +42,7 @@ const SamboerMedAvdoede = () => {
                         <Datovelger
                             name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
                             label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
+                            minDate={state.foedselsdato}
                             maxDate={datoforDoedsfallet || new Date()}
                         />
                     </SkjemaGruppe>

@@ -7,11 +7,13 @@ import { IValg } from "../../../../typer/Spoersmaal";
 import { useTranslation } from "react-i18next";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
+import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 
 const GiftMedAvdoede = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
+    const { state } = useBrukerContext();
 
     const datoInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap");
     const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
@@ -25,6 +27,7 @@ const GiftMedAvdoede = () => {
                 <Datovelger
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
                     label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
+                    minDate={state.foedselsdato}
                     maxDate={datoforDoedsfallet || new Date()}
                 />
             </SkjemaGruppe>

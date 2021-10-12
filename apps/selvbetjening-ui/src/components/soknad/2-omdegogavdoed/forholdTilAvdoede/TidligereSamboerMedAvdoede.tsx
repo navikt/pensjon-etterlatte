@@ -7,11 +7,13 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
 import { useTranslation } from "react-i18next";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
+import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 
 const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation();
 
     const { watch } = useFormContext<ISoekerOgAvdoed>();
+    const { state } = useBrukerContext();
 
     const datoForInngaattSamboerskap = watch("forholdTilAvdoede.datoForInngaattSamboerskap")
     const datoForSamlivsbrudd = watch("forholdTilAvdoede.datoForSamlivsbrudd")
@@ -35,6 +37,7 @@ const TidligereSamboerMedAvdoede = () => {
                             <Datovelger
                                 name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
                                 label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
+                                minDate={state.foedselsdato}
                                 maxDate={datoForDoedsfallet || new Date()}
                             />
                         </div>
