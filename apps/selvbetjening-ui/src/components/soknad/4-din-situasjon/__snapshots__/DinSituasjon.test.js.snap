@@ -332,7 +332,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           class="navds-button__inner navds-body-short"
         >
           + 
-          knapp.leggTilArbeidstakere
+          knapp.leggTilArbeidsforhold
         </span>
       </button>
       <div

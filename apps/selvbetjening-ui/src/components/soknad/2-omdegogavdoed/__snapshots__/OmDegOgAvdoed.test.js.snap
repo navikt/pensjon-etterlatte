@@ -35,16 +35,11 @@ exports[`Om deg og avdød Snapshot 1`] = `
             <div
               class="skjemaelement"
             >
-              <label
-                class="skjemaelement__label"
-                for="avdoed.fornavn"
-              >
-                omDegOgAvdoed.avdoed.fornavn
-              </label>
               <input
                 aria-invalid="false"
                 class="skjemaelement__input input--fullbredde"
                 id="avdoed.fornavn"
+                placeholder="omDegOgAvdoed.avdoed.fornavn"
                 required=""
                 type="text"
                 value=""
@@ -59,16 +54,11 @@ exports[`Om deg og avdød Snapshot 1`] = `
             <div
               class="skjemaelement"
             >
-              <label
-                class="skjemaelement__label"
-                for="avdoed.etternavn"
-              >
-                omDegOgAvdoed.avdoed.etternavn
-              </label>
               <input
                 aria-invalid="false"
                 class="skjemaelement__input input--fullbredde"
                 id="avdoed.etternavn"
+                placeholder="omDegOgAvdoed.avdoed.etternavn"
                 required=""
                 type="text"
                 value=""
