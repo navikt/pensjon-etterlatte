@@ -20,7 +20,7 @@ fun Route.soknadApi(service: SoeknadService) {
             val soeknad = call.receive<Soeknad>()
                 .apply { imageTag = call.request.headers["ImageTag"] }
 
-            val response = service.sendSoknad(soeknad)
+            val response = service.sendSoeknad(soeknad)
 
             svarKlient(response)
         }

@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory
 class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
-    suspend fun sendSoknad(soeknad: Soeknad): RetryResult {
+    suspend fun sendSoeknad(soeknad: Soeknad): RetryResult {
         soeknad.validate()
 
         return retry {
