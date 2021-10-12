@@ -1,6 +1,6 @@
 import "./SoknadForside.scss";
 import { useHistory } from "react-router-dom";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
@@ -70,33 +70,33 @@ const SoknadForside = () => {
                 <Heading size={"small"}>{t("forside.uthentingAvInfo.tittel")}</Heading>
 
                 <BodyLong>
-                    <Trans i18nKey={"forside.uthentingAvInfo.innhold"} />
+                    {t("forside.uthentingAvInfo.innhold")}
                 </BodyLong>
 
                 <ul>
                     <li>
                         <BodyLong>
-                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li1"} />
+                            {t("forside.uthentingAvInfo.innholdListe.li1")}
                         </BodyLong>
                     </li>
                     <li>
                         <BodyLong>
-                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li2"} />
+                            {t("forside.uthentingAvInfo.innholdListe.li2")}
                         </BodyLong>
                     </li>
                     <li>
                         <BodyLong>
-                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li3"} />
+                            {t("forside.uthentingAvInfo.innholdListe.li3")}
                         </BodyLong>
                     </li>
                     <li>
                         <BodyLong>
-                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li4"} />
+                            {t("forside.uthentingAvInfo.innholdListe.li4")}
                         </BodyLong>
                     </li>
                     <li>
                         <BodyLong>
-                            <Trans i18nKey={"forside.uthentingAvInfo.innholdListe.li5"} />
+                            {t("forside.uthentingAvInfo.innholdListe.li5")}
                         </BodyLong>
                     </li>
                 </ul>
