@@ -25,4 +25,3 @@ export interface ISelvstendigNaeringsdrivende {
         beskrivelse?: string;
     }
 }
-

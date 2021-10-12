@@ -15,20 +15,10 @@ export enum ForholdTilAvdoede {
     tidligereSamboer = "avdoede.relasjon.tidligereSamboer",
 }
 
-export enum AvdoedInntekt {
-    Ja = "avdoedInntekt.ja",
-    nei = "avdoedInntekt.nei",
-}
-
 export enum BarnRelasjon {
     fellesbarnMedAvdoede = "barnRelasjon.fellesbarnMedAvdoede",
     avdoedesSaerkullsbarn = "barnRelasjon.avdoedesSaerkullsbarn",
     egneSaerkullsbarn = "barnRelasjon.egneSaerkullsbarn",
-}
-
-export enum GravidEllerNyligFoedt {
-    venterEllerHarNyligFoedt = "gravidEllerNyligFoedt.venterEllerHarNyligFoedt",
-    ingen = "gravidEllerNyligFoedt.ingen",
 }
 
 export enum OppholdUtlandType {

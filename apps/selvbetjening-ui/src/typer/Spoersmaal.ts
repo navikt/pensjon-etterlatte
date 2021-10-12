@@ -3,8 +3,3 @@ export enum IValg {
     NEI = "Nei",
     VET_IKKE = "Vet ikke",
 }
-
-export interface Spoersmaal{
-    svar?: IValg;
-    beskrivelse?: string;
-}
