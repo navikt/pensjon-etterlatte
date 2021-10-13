@@ -69,40 +69,40 @@ const SoknadForside = () => {
             <SkjemaGruppe>
                 <Heading size={"small"}>{t("forside.uthentingAvInfo.tittel")}</Heading>
 
-                <BodyLong>
-                    {t("forside.uthentingAvInfo.innhold")}
-                </BodyLong>
+                <BodyLong>{t("forside.uthentingAvInfo.innhold")}</BodyLong>
 
                 <ul>
                     <li>
                         <BodyLong>
-                            {t("forside.uthentingAvInfo.innholdListe.li1")}
+                            <span dangerouslySetInnerHTML={{ __html: t("forside.uthentingAvInfo.innholdListe.li1") }} />
                         </BodyLong>
                     </li>
                     <li>
                         <BodyLong>
-                            {t("forside.uthentingAvInfo.innholdListe.li2")}
+                            <span dangerouslySetInnerHTML={{ __html: t("forside.uthentingAvInfo.innholdListe.li2") }} />
                         </BodyLong>
                     </li>
                     <li>
                         <BodyLong>
-                            {t("forside.uthentingAvInfo.innholdListe.li3")}
+                            <span dangerouslySetInnerHTML={{ __html: t("forside.uthentingAvInfo.innholdListe.li3") }} />
                         </BodyLong>
                     </li>
                     <li>
                         <BodyLong>
-                            {t("forside.uthentingAvInfo.innholdListe.li4")}
+                            <span dangerouslySetInnerHTML={{ __html: t("forside.uthentingAvInfo.innholdListe.li4") }} />
                         </BodyLong>
                     </li>
                     <li>
                         <BodyLong>
-                            {t("forside.uthentingAvInfo.innholdListe.li5")}
+                            <span dangerouslySetInnerHTML={{ __html: t("forside.uthentingAvInfo.innholdListe.li5") }} />
                         </BodyLong>
                     </li>
                 </ul>
 
                 <BodyLong spacing>
-                    <Alert inline={true} variant={"info"}><b>{t("forside.uthentingAvInfo.infotekst")}</b></Alert>
+                    <Alert inline={true} variant={"info"}>
+                        <b>{t("forside.uthentingAvInfo.infotekst")}</b>
+                    </Alert>
                 </BodyLong>
 
                 <BodyLong spacing>
