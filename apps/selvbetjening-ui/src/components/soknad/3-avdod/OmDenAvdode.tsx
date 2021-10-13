@@ -123,6 +123,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaGruppe>
 
                     <RHFSpoersmaalRadio
+                        name={"doedsfallAarsak"}
+                        legend={t("omDenAvdoede.doedsfallAarsak")}
+                        description={
+                            <HvorforSpoerVi>{t("omDenAvdoede.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
+                        vetIkke
+                    />
+
+                    <RHFSpoersmaalRadio
                         name={"harAvtjentMilitaerTjeneste.svar"}
                         legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
                         description={
@@ -142,13 +150,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         </SkjemaGruppe>
                     )}
 
-                    <RHFSpoersmaalRadio
-                        name={"doedsfallAarsak"}
-                        legend={t("omDenAvdoede.doedsfallAarsak")}
-                        description={
-                            <HvorforSpoerVi>{t("omDenAvdoede.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
-                        vetIkke
-                    />
                 </SkjemaGruppering>
 
                 <Feilmeldinger errors={errors}/>
