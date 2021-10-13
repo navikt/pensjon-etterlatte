@@ -8,8 +8,6 @@ import { ActionTypes as BrukerAction } from "../../context/bruker/bruker";
 import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
 import { erDato } from "../../utils/dato";
 import { BodyShort, Button, Loader, Modal, Heading } from "@navikt/ds-react";
-import { DeleteFilled } from "@navikt/ds-icons";
-import { useHistory } from "react-router-dom";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root");
@@ -31,7 +29,6 @@ const Navigasjon = ({
     disabled?: boolean;
 }) => {
     const { t, i18n } = useTranslation();
-    const history = useHistory();
     const { logEvent } = useAmplitude();
     const {
         state: { sistLagretDato },
@@ -60,13 +57,8 @@ const Navigasjon = ({
         brukerDispatch({ type: BrukerAction.TILBAKESTILL });
 
         logEvent(LogEvents.KLIKK, {type: "slett soknad"})
-        history.push("/")
+        window.location.href = "https://www.nav.no/gjenlevendepensjon"
     };
-
-    const avbryt = () => {
-        logEvent(LogEvents.KLIKK, {type: "avbryt soknad"})
-        history.push("/")
-    }
 
     return (
         <>
@@ -110,24 +102,20 @@ const Navigasjon = ({
                     <Heading size={"medium"}>{t("avbrytModal.spoersmaal")}</Heading>
                 </SkjemaGruppe>
 
+                <BodyShort className="mute avbryt-text">
+                    {t("avbrytModal.informasjon")}
+                </BodyShort>
+
                 <SkjemaGruppe>
                     <Button variant={"primary"} type={"button"} onClick={() => setIsOpen(false)}>
                         {t("avbrytModal.svarNei")}
                     </Button>
                 </SkjemaGruppe>
 
-                <Button variant={"secondary"} type={"button"} onClick={avbryt}>
+                <Button variant={"secondary"} type={"button"} onClick={slettSoeknad}>
                     {t("avbrytModal.svarJa")}
                 </Button>
-                <BodyShort className="mute avbryt-text">
-                    {t("avbrytModal.informasjon")}
-                </BodyShort>
 
-                <div style={{ textAlign: "right", marginBottom: "0px" }}>
-                    <Button variant={"danger"} type={"button"} onClick={slettSoeknad}>
-                        <DeleteFilled/> &nbsp;{t("knapp.slett")}
-                    </Button>
-                </div>
             </Modal>
         </>
     );

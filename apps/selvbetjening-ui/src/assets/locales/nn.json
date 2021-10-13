@@ -399,8 +399,8 @@
   "avbrytModal": {
     "spoersmaal": "Vil du avbryte søknaden?",
     "svarNei": "Nei, eg vil halde fram med søknaden",
-    "svarJa": "Ja, avbryt søknaden",
-    "informasjon": "Søknaden din lagres i 24 timer \nhvis du ønsker å halde fram seinare."
+    "svarJa": "Ja, avbryt og slett søknaden",
+    "informasjon": "Du kan halde fram nå eller seinare. Søknaden din lagres i \n24 timer. Hvis du veljar å avbryte slettes den med ein gong."
   },
   "hvorforSpoerVi": "Kvifor spør vi om dette",
   "avdoede": {
