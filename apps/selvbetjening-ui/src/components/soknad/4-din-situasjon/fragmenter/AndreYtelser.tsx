@@ -63,7 +63,7 @@ const AndreYtelser = () => {
                     name={"andreYtelser.mottarPensjonUtland.svar"}
                     legend={t("dinSituasjon.andreYtelser.mottarPensjonUtland.svar")}
                     description={
-                        <HvorforSpoerVi>{t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvorfor")}</HvorforSpoerVi>
+                        <HvorforSpoerVi title="dinSituasjon.andreYtelser.mottarPensjonUtland.svar">{t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvorfor")}</HvorforSpoerVi>
                     }
                 />
 

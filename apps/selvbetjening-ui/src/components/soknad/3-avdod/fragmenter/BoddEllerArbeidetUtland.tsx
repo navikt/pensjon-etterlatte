@@ -103,7 +103,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                 name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygd` as const}
                                 legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd")}
                                 description={
-                                    <HvorforSpoerVi>
+                                    <HvorforSpoerVi title="omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd">
                                         {t(
                                             "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst"
                                         )}

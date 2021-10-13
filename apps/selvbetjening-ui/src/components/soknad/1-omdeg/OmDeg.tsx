@@ -110,7 +110,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         <RHFSpoersmaalRadio
                             name={"oppholderSegINorge"}
                             legend={t("omDeg.oppholderSegINorge")}
-                            description={<HvorforSpoerVi>{t("omDeg.oppholdHvorfor")}</HvorforSpoerVi>}
+                            description={<HvorforSpoerVi title="omDeg.oppholderSegINorge">{t("omDeg.oppholdHvorfor")}</HvorforSpoerVi>}
                         />
 
                         {oppholderSegINorge === IValg.JA && (
@@ -168,7 +168,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             <RHFSpoersmaalRadio
                                 name={"flyktning"}
                                 legend={t("omDeg.flyktning")}
-                                description={<HvorforSpoerVi>{t("omDeg.flyktningHvorfor")}</HvorforSpoerVi>}
+                                description={<HvorforSpoerVi title="omDeg.flyktning">{t("omDeg.flyktningHvorfor")}</HvorforSpoerVi>}
                             />
                         </SkjemaGruppe>
                     )}

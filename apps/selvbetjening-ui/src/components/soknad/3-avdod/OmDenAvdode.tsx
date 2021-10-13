@@ -126,7 +126,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         name={"doedsfallAarsak"}
                         legend={t("omDenAvdoede.doedsfallAarsak")}
                         description={
-                            <HvorforSpoerVi>{t("omDenAvdoede.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
+                            <HvorforSpoerVi title="omDenAvdoede.doedsfallAarsak">{t("omDenAvdoede.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
                         vetIkke
                     />
 
@@ -134,7 +134,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         name={"harAvtjentMilitaerTjeneste.svar"}
                         legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
                         description={
-                            <HvorforSpoerVi>{t("omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst")}</HvorforSpoerVi>
+                            <HvorforSpoerVi title="omDenAvdoede.harAvtjentMilitaerTjeneste.svar">{t("omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst")}</HvorforSpoerVi>
                         }
                         vetIkke
                     />
