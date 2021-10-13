@@ -318,6 +318,115 @@ exports[`Om den avdøde Snapshot 1`] = `
         />
       </fieldset>
       <div
+        id="doedsfallAarsak"
+      >
+        <fieldset
+          aria-invalid="false"
+          class="skjemagruppe inputPanelGruppe inline"
+        >
+          <legend
+            class="skjemagruppe__legend"
+          >
+            omDenAvdoede.doedsfallAarsak
+          </legend>
+          <div
+            class="skjemagruppe__description"
+          >
+            <div
+              class="hvorforPanel"
+            >
+              <button
+                aria-expanded="false"
+                class="hvorforPanel__toggle"
+                data-testid="hvorforPanel_toggle"
+                type="button"
+              >
+                <span>
+                  hvorforSpoerVi
+                </span>
+                <span>
+                  <svg
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M12 17L3 8.429 4.5 7l7.5 7.143L19.5 7 21 8.429 12 17z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div
+            class="inputPanelGruppe__inner"
+          >
+            <label
+              class="inputPanel radioPanel"
+            >
+              <input
+                aria-checked="false"
+                aria-invalid="false"
+                class="inputPanel__field"
+                name="doedsfallAarsak"
+                required=""
+                type="radio"
+                value="Ja"
+              />
+              <span
+                class="inputPanel__label"
+              >
+                radiobuttons.ja
+              </span>
+            </label>
+            <label
+              class="inputPanel radioPanel"
+            >
+              <input
+                aria-checked="false"
+                aria-invalid="false"
+                class="inputPanel__field"
+                name="doedsfallAarsak"
+                required=""
+                type="radio"
+                value="Nei"
+              />
+              <span
+                class="inputPanel__label"
+              >
+                radiobuttons.nei
+              </span>
+            </label>
+            <label
+              class="inputPanel radioPanel"
+            >
+              <input
+                aria-checked="false"
+                aria-invalid="false"
+                class="inputPanel__field"
+                name="doedsfallAarsak"
+                required=""
+                type="radio"
+                value="Vet ikke"
+              />
+              <span
+                class="inputPanel__label"
+              >
+                radiobuttons.vetIkke
+              </span>
+            </label>
+          </div>
+          <div
+            aria-live="polite"
+          />
+        </fieldset>
+      </div>
+      <div
         id="harAvtjentMilitaerTjeneste.svar"
       >
         <fieldset
