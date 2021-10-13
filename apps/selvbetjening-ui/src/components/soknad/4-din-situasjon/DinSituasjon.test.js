@@ -56,6 +56,7 @@ jest.mock("../../../context/soknad/SoknadContext", () => ({
 }));
 
 JSutils.guid = jest.fn(() => "123");
+
 describe("Om den avdøde", () => {
     it("Snapshot", () => {
         const { container } = render(<DinSituasjon />);

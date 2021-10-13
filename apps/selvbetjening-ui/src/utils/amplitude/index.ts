@@ -6,11 +6,12 @@ export enum LogEvents {
     AAPNE_SOKNAD = "skjema startet",
     SEND_SOKNAD = "send soknad",
     SIDEVISNING = "sidevisning",
+    KLIKK = "klikk"
 }
 
 export const useAmplitude = () => {
     const location = useLocation();
-    const [prevLocation, setPrevLocation] = useState<any>(null);
+    const [prevLocation, setPrevLocation] = useState<any>(location);
 
     useEffect(() => {
         amplitude?.getInstance().init("default", "", {
@@ -23,7 +24,7 @@ export const useAmplitude = () => {
     }, []);
 
     useEffect(() => {
-        if (prevLocation) {
+        if (prevLocation?.pathname !== location?.pathname) {
             logEvent(LogEvents.SIDEVISNING);
         }
         setPrevLocation(location);

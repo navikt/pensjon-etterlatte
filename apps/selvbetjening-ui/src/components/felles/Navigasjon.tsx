@@ -10,6 +10,7 @@ import { erDato } from "../../utils/dato";
 import { BodyShort, Button, Loader, Modal, Heading } from "@navikt/ds-react";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { useHistory } from "react-router-dom";
+import { LogEvents, useAmplitude } from "../../utils/amplitude";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root");
 
@@ -31,6 +32,7 @@ const Navigasjon = ({
 }) => {
     const { t, i18n } = useTranslation();
     const history = useHistory();
+    const { logEvent } = useAmplitude();
     const {
         state: { sistLagretDato },
         dispatch: soknadDispatch,
@@ -57,10 +59,12 @@ const Navigasjon = ({
         soknadDispatch({ type: SoknadAction.TILBAKESTILL });
         brukerDispatch({ type: BrukerAction.TILBAKESTILL });
 
+        logEvent(LogEvents.KLIKK, {type: "slett soknad"})
         history.push("/")
     };
 
     const avbryt = () => {
+        logEvent(LogEvents.KLIKK, {type: "avbryt soknad"})
         history.push("/")
     }
 
