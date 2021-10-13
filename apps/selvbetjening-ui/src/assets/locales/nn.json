@@ -281,7 +281,7 @@
       "soekerInfo": "Fordi du har felles barn med avdøde under 18 år, kan barnet ha rett til barnepensjon.",
       "soekerCheckboks": "Ja, eg søker om barnepensjon for barnet",
       "kontonummer": {
-        "svar": "Skal barnepensjonen utbetalast til same kontonummer som opgitt tidlegare?",
+        "svar": "Skal barnepensjonen utbetalast til same kontonummer som oppgitt tidlegare?",
         "informasjon": "Du kan legge til eige kontonummer for barnet",
         "kontonummer": "Oppgi norsk kontonummer for utbetaling av barnepensjon",
         "placeholder": "11 siffer"
