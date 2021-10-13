@@ -50,6 +50,12 @@ const SoknadForside = () => {
                 <Dropdown onChange={setLanguage} value={currentLanguage} />
             </SkjemaGruppe>
 
+            <SkjemaGruppe >
+                <Alert inline={true} variant={"info"}>
+                    <b>{t("forside.uthentingAvInfo.infotekst")}</b>
+                </Alert>
+            </SkjemaGruppe>
+
             <SkjemaGruppe>
                 <Heading spacing size={"large"}>
                     {t("forside.tittel")}
@@ -98,12 +104,6 @@ const SoknadForside = () => {
                         </BodyLong>
                     </li>
                 </ul>
-
-                <BodyLong spacing>
-                    <Alert inline={true} variant={"info"}>
-                        <b>{t("forside.uthentingAvInfo.infotekst")}</b>
-                    </Alert>
-                </BodyLong>
 
                 <BodyLong spacing>
                     <Link href={t("forside.uthentingAvInfo.lenke1.href")}>
