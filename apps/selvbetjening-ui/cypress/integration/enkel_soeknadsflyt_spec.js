@@ -50,7 +50,6 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById("avdoed.fornavn").type(omDegOgAvdoed.avdoed.fornavn);
         getById("avdoed.etternavn").type(omDegOgAvdoed.avdoed.etternavn);
         getById("avdoed.datoForDoedsfallet").type(omDegOgAvdoed.avdoed.datoForDoedsfallet);
-        selectValueForId("avdoed.doedsfallAarsak", omDegOgAvdoed.avdoed.doedsfallAarsak);
         selectValue(omDegOgAvdoed.forholdTilAvdoede.relasjon);
         getById("forholdTilAvdoede.datoForInngaattPartnerskap").type(
             omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
@@ -86,6 +85,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         selectValueForId("selvstendigNaeringsdrivende.svar", omDenAvdoede.selvstendigNaeringsdrivende.svar);
         getById("selvstendigNaeringsdrivende.beskrivelse").type(omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse);
         selectValueForId("haddePensjonsgivendeInntekt.svar", omDenAvdoede.haddePensjonsgivendeInntekt.svar);
+        selectValueForId("doedsfallAarsak", omDenAvdoede.doedsfallAarsak);
         selectValueForId("harAvtjentMilitaerTjeneste.svar", omDenAvdoede.harAvtjentMilitaerTjeneste.svar);
         getById("harAvtjentMilitaerTjeneste.beskrivelse").type(omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse);
 
