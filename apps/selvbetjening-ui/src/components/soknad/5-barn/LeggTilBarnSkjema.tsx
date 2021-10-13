@@ -17,9 +17,10 @@ import SkjemaGruppering from "../../felles/SkjemaGruppering";
 interface Props {
     lagre: (data: IBarn) => void;
     avbryt: () => void;
+    fnrRegistrerteBarn: string[];
 }
 
-const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
+const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
     const { t } = useTranslation();
 
     const methods = useForm<IBarn>({
@@ -54,6 +55,15 @@ const LeggTilBarnSkjema = ({ lagre, avbryt }: Props) => {
 
         return false
     }
+
+    const fnrFinnesFraFoer = (): boolean => {
+        if (foedselsnummer && fnrRegistrerteBarn.includes(foedselsnummer)) {
+            return true
+        }
+        return false
+    }
+
+    fnrFinnesFraFoer();
 
     return (
         <FormProvider {...methods} >

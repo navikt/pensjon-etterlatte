@@ -27,6 +27,21 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         defaultValues: state.opplysningerOmBarn || {},
     });
 
+    const {
+        watch
+    } = methods;
+
+    const registrerteBarn = watch("barn")
+
+    const getFnrRegistrerteBarn = (): string[] => {
+        if (registrerteBarn !== undefined) {
+            return registrerteBarn.map(barn => barn.foedselsnummer !== undefined ? barn.foedselsnummer : "")
+        } else {
+            return []
+        }
+    }
+    const fnrRegistrerteBarn: string[] = getFnrRegistrerteBarn()
+
     useEffectOnce(() => {
         methods.reset(state.opplysningerOmBarn);
     }, !isEmpty(state.opplysningerOmBarn));
@@ -71,12 +86,12 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <div className={"infokort-wrapper"}>
                         {fields?.map((field: FieldArrayWithId, index: number) => (
-                            <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={remove} />
+                            <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={remove}/>
                         ))}
 
                         <div className={"infokort"}>
                             <div className={"infokort__header gjennomsiktig"}>
-                                <img alt="barn" className="barneikon" src={ikon} />
+                                <img alt="barn" className="barneikon" src={ikon}/>
                             </div>
                             <div className={"infokort__informasjonsboks"}>
                                 <div className={"informasjonsboks-innhold"}>
@@ -93,13 +108,14 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                     </div>
 
                     <Modal open={isOpen} onClose={() => setIsOpen(false)} className={"ey-modal"}>
-                        <LeggTilBarnSkjema lagre={leggTilBarn} avbryt={() => setIsOpen(false)} />
+                        <LeggTilBarnSkjema lagre={leggTilBarn} avbryt={() => setIsOpen(false)}
+                                           fnrRegistrerteBarn={fnrRegistrerteBarn}/>
                     </Modal>
                 </SkjemaGruppe>
 
-                <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")} />
+                <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
 
-                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }} />
+                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }}/>
             </form>
         </FormProvider>
     );
