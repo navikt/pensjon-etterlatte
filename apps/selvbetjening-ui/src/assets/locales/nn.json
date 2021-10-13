@@ -184,7 +184,7 @@
       "relasjon": "Relasjonen din til avdøde då dødsfallet skjedde",
       "datoForInngaattPartnerskap": "Vi gifta oss",
       "fellesBarn": "Har eller hadde de felles barn?",
-      "samboereMedFellesBarn": "Var de sambuarar med felles barn før de gifta dykk?",
+      "samboereMedFellesBarn": "Var de sambuarar og hadde felles barn før de gifta dykk?",
       "tidligereGift": "Var du tidlegare gift med avdøde?",
       "datoForInngaattSamboerskap": "Vi vart sambuarar",
       "omsorgForBarn": "Hadde du omsorg for avdødes barn på dødstidspunktet?",
@@ -563,7 +563,7 @@
         "required": "Oppgi om du var tidlegare gift med avdøde"
       },
       "samboereMedFellesBarn": {
-        "required": "Oppgi om de var sambuarar med felles barn før de gifta dykk?"
+        "required": "Oppgi om de var sambuarar og hadde felles barn før de gifta dykk?"
       },
       "datoForInngaattSamboerskap": {
         "required": "Oppgi når de vart sambuarar"
