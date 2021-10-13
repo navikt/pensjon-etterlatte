@@ -10,10 +10,8 @@ import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
 import { Cell, Grid, Label, Heading } from "@navikt/ds-react";
-import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
-import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import { isEmpty } from "lodash";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 
@@ -81,14 +79,6 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                             maxDate={new Date()}
                         />
                     </SkjemaGruppe>
-
-                    <RHFSpoersmaalRadio
-                        name={"avdoed.doedsfallAarsak"}
-                        legend={t("omDegOgAvdoed.avdoed.doedsfallAarsak")}
-                        description={
-                            <HvorforSpoerVi>{t("omDegOgAvdoed.avdoed.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
-                        vetIkke
-                    />
 
                     {/* 2.9 */}
                     <ForholdTilAvdoedeSkjema/>

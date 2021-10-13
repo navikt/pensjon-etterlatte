@@ -178,8 +178,6 @@
       "fornavn": "Førenamn",
       "etternavn": "Etternamn",
       "dato": "Dato",
-      "doedsfallAarsak": "Skuldast dødsfallet yrkesskade/yrkessjukdom?",
-      "doedsfallAarsakHvorfor": "Viss dødsfallet skuldast godkjent yrkesskade eller yrkessjukdom kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
       "datoForDoedsfallet": "Når skjedde dødsfallet?"
     },
     "forholdTilAvdoede": {
@@ -246,13 +244,15 @@
       "placeholder": "Samla årsinntekt før skatt"
     },
     "annenOpptjening": {
-      "tittel": "Anna opptening"
+      "tittel": "Anna"
     },
     "harAvtjentMilitaerTjeneste": {
-      "svar": "Gjennomførte han eller ho militær eller sivil førstegongsteneste som varte minst 30 dagar?",
+      "svar": "Har han eller ho gjennomført militær eller sivil førstegongsteneste som varte minst 30 dagar?",
       "hjelpetekst": "Dette kan gi opptening som blir teke med i utrekninga av attlevandepensjonen din",
       "beskrivelse": "Kva for år? (valfri)"
-    }
+    },
+    "doedsfallAarsak": "Skuldast dødsfallet yrkesskade/yrkessjukdom?",
+    "doedsfallAarsakHvorfor": "Viss dødsfallet skuldast godkjent yrkesskade eller yrkessjukdom kan det avgjere om du får attlevandepensjon og kor mykje du kan få."
   },
   "omBarn": {
     "tittel": "Om barn",
@@ -529,6 +529,9 @@
     "medlemFolketrygdenUtland": {
       "required": "Oppgi om du er medlem i folketrygda under opphald i eit anna land enn Noreg"
     },
+    "doedsfallAarsak": {
+      "required": "Oppgi om dødsfallet skuldast yrkesskade/yrkessjukdom"
+    },
     "avdoed": {
       "fornavn": {
         "required": "Oppgi avdøde sitt førenamn"
@@ -538,9 +541,6 @@
       },
       "datoForDoedsfallet": {
         "required": "Oppgi når dødsfallet skjedde"
-      },
-      "doedsfallAarsak": {
-        "required": "Oppgi om dødsfallet skuldast yrkesskade/yrkessjukdom"
       }
     },
     "forholdTilAvdoede": {

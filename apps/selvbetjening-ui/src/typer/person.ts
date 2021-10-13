@@ -92,6 +92,7 @@ export interface IAvdoed {
         svar?: IValg;
         beskrivelse?: string;
     };
+    doedsfallAarsak?: string;
 }
 
 export interface IKontaktinfo {
@@ -158,7 +159,6 @@ export interface ISoekerOgAvdoed {
         fornavn?: string;
         etternavn?: string;
         datoForDoedsfallet?: Date;
-        doedsfallAarsak?: string;
     };
     forholdTilAvdoede?: IForholdAvdoede;
 }
