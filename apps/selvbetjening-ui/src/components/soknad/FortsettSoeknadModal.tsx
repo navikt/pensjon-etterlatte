@@ -56,13 +56,13 @@ export const FortsettSoeknadModal = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Button variant={"primary"} type={"button"} onClick={fortsettSoeknad}>
+                <Button variant={"primary"} type={"button"} onClick={fortsettSoeknad} id={"fortsett_soeknad"}>
                     {t("fortsettSoeknad.fortsettSoeknad")}
                 </Button>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Button variant={"primary"} type={"button"} onClick={startPaaNytt}>
+                <Button variant={"primary"} type={"button"} onClick={startPaaNytt} id={"start_paa_nytt"}>
                     {t("fortsettSoeknad.startPaaNytt")}
                 </Button>
             </SkjemaGruppe>

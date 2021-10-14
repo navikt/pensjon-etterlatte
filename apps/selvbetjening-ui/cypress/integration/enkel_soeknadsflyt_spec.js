@@ -1,5 +1,6 @@
 import mockSoeknad from "../../src/assets/dummy-soeknad.json";
 import { IValg } from "../../src/typer/Spoersmaal";
+import { gaaTilNesteSide, getById, selectValue, selectValueForId } from "../util/cy-functions";
 
 describe("Skal gå igjennom hele søknaden uten feil", () => {
     it("Skal åpne startsiden og starte en søknad", () => {
@@ -218,8 +219,3 @@ const sammenlignRequestMedInputdata = (request) => {
 
     expect(request).to.deep.equal(mockSoeknad);
 };
-
-const gaaTilNesteSide = () => cy.get('[type="button"]').contains("Neste").click();
-const getById = (id) => cy.get(`[id="${id}"]`);
-const selectValue = (value) => cy.get(`[value="${value}"]`).check({ force: true });
-const selectValueForId = (id, value) => getById(id).find(`[value="${value}"]`).check({ force: true });
