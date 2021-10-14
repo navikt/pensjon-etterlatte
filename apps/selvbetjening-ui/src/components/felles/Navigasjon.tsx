@@ -9,6 +9,7 @@ import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
 import { erDato } from "../../utils/dato";
 import { BodyShort, Button, Loader, Modal, Heading } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
+import { slettSoeknad } from "../../api/api";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root");
 
@@ -52,12 +53,14 @@ const Navigasjon = ({
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const slettSoeknad = () => {
-        soknadDispatch({ type: SoknadAction.TILBAKESTILL });
-        brukerDispatch({ type: BrukerAction.TILBAKESTILL });
+    const avbrytOgslettSoeknad = () => {
+        slettSoeknad().then(() => {
+            soknadDispatch({ type: SoknadAction.TILBAKESTILL });
+            brukerDispatch({ type: BrukerAction.TILBAKESTILL });
 
-        logEvent(LogEvents.KLIKK, {type: "slett soknad"})
-        window.location.href = "https://www.nav.no/gjenlevendepensjon"
+            logEvent(LogEvents.KLIKK, { type: "slett soknad" })
+            window.location.href = "https://www.nav.no/gjenlevendepensjon"
+        })
     };
 
     return (
@@ -96,7 +99,8 @@ const Navigasjon = ({
                 </Button>
             </SkjemaGruppe>
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)} className="spoersmaal-modal skjul-modal-knapp ey-modal">
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}
+                   className="spoersmaal-modal skjul-modal-knapp ey-modal">
 
                 <SkjemaGruppe>
                     <Heading size={"medium"}>{t("avbrytModal.spoersmaal")}</Heading>
@@ -112,7 +116,7 @@ const Navigasjon = ({
                     </Button>
                 </SkjemaGruppe>
 
-                <Button variant={"secondary"} type={"button"} onClick={slettSoeknad}>
+                <Button variant={"secondary"} type={"button"} onClick={avbrytOgslettSoeknad}>
                     {t("avbrytModal.svarJa")}
                 </Button>
 
