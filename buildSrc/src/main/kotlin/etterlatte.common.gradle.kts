@@ -13,7 +13,6 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-//    implementation(kotlin("stdlib-jdk8"))
 
     // Logging
     implementation(Logging.Slf4jApi)
