@@ -122,13 +122,15 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <Heading size="small">{t("omDenAvdoede.annenOpptjening.tittel")}</Heading>
                     </SkjemaGruppe>
 
-                    <RHFSpoersmaalRadio
-                        name={"doedsfallAarsak"}
-                        legend={t("omDenAvdoede.doedsfallAarsak")}
-                        description={
-                            <HvorforSpoerVi title="omDenAvdoede.doedsfallAarsak">{t("omDenAvdoede.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
-                        vetIkke
-                    />
+                    <SkjemaGruppe>
+                        <RHFSpoersmaalRadio
+                            name={"doedsfallAarsak"}
+                            legend={t("omDenAvdoede.doedsfallAarsak")}
+                            description={
+                                <HvorforSpoerVi title="omDenAvdoede.doedsfallAarsak">{t("omDenAvdoede.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
+                            vetIkke
+                        />
+                    </SkjemaGruppe>
 
                     <RHFSpoersmaalRadio
                         name={"harAvtjentMilitaerTjeneste.svar"}

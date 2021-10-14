@@ -37,7 +37,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     });
 
     return (
-        <>
+        <SkjemaGruppering>
             <SkjemaGruppe className="ingress">
                 <Heading size="small">{t("omDenAvdoede.boddEllerJobbetUtland.tittel")}</Heading>
                 <BodyLong>{t("omDenAvdoede.boddEllerJobbetUtland.ingress")}</BodyLong>
@@ -139,7 +139,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     </Button>
                 </SkjemaGruppering>
             )}
-        </>
+        </SkjemaGruppering>
     );
 };
 
