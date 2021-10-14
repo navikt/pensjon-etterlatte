@@ -77,7 +77,7 @@
   "dinSituasjon": {
     "tittel": "Situasjonen din",
     "undertittel": "Arbeid og utdanning",
-    "ingress": "Vi tar utgangspunkt i at du har egen inntekt. Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten vi kan forvente at du får. Vi beregner forventet inntekt på grunnlag av din arbeidssituasjon og tidligere utdanning.",
+    "ingress": "Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten din. Vi beregner forventet inntekt på grunnlag av din arbeidssituasjon og tidligere inntekt.",
     "jobbStatus": "Hva er situasjonen din nå?",
     "ingenJobbTittel": "Annet",
     "ingenJobbBeskrivelse": " Gi en beskrivelse av situasjonen din",
@@ -93,7 +93,7 @@
       "tittelFullfoert": "Fullført utdanning",
       "hoyesteFullfoerteUtdanning": "Hvilken utdanning har du?",
       "annenUtdanning": "Annen utdanning",
-      "annenUtdanningPlaceholder": "F.eks. kurs, enkeltår på universitet eller høyskole"
+      "annenUtdanningPlaceholder": "Eks. kurs, enkeltår på universitet eller høyskole"
     },
     "selvstendig": {
       "tittel": "Om næringen",
@@ -108,7 +108,7 @@
     },
     "arbeidsforhold": {
       "tittel": "Om arbeidsgiver",
-      "arbeidsgiver": "Hva heter firmaet?",
+      "arbeidsgiver": "Hva heter arbeidsgiver?",
       "ansettelsesforhold": "Type ansettelse",
       "stillingsprosent": "Hvor mye jobber du?",
       "stillingsprosentPlaceholder": "Eks. 80%",
