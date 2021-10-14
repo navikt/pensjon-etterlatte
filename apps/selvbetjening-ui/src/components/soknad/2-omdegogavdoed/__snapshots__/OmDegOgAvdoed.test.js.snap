@@ -518,6 +518,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
+        id="avbryt-btn"
         type="button"
       >
         <span
@@ -913,6 +914,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
+        id="avbryt-btn"
         type="button"
       >
         <span

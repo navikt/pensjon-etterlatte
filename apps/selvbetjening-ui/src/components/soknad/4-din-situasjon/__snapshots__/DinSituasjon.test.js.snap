@@ -1059,6 +1059,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
+        id="avbryt-btn"
         type="button"
       >
         <span
@@ -1974,6 +1975,7 @@ exports[`Om den avdøde Snapshot 1`] = `
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
+        id="avbryt-btn"
         type="button"
       >
         <span

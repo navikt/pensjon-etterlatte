@@ -27,6 +27,7 @@ describe("Skal avbryte en soeknad", () => {
     it("Avbryt og slett søknad", () => {
         getById("avbryt-btn").click();
 
+        cy.intercept("DELETE", "/api/api/kladd", {}).as("slettSoeknad");
         getById("avbryt-ja-btn").click();
         cy.url().should("include", "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/ytelser-til-gjenlevende-ektefelle");
     })

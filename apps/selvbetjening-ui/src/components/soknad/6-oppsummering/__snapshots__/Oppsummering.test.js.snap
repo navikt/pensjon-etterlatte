@@ -71,6 +71,7 @@ exports[`Oppsummering Snapshot 1`] = `
   >
     <button
       class="navds-button navds-button--secondary navds-button--medium"
+      id="avbryt-btn"
       type="button"
     >
       <span
