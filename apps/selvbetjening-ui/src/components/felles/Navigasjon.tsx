@@ -94,7 +94,7 @@ const Navigasjon = ({
             </SkjemaGruppe>
 
             <SkjemaGruppe className={classNames("navigasjon-rad", disabled && "disabled")}>
-                <Button variant={"secondary"} type={"button"} onClick={() => setIsOpen(true)}>
+                <Button id={"avbryt-btn"} variant={"secondary"} type={"button"} onClick={() => setIsOpen(true)}>
                     {t("knapp.avbryt")}
                 </Button>
             </SkjemaGruppe>
@@ -111,12 +111,12 @@ const Navigasjon = ({
                 </BodyShort>
 
                 <SkjemaGruppe>
-                    <Button variant={"primary"} type={"button"} onClick={() => setIsOpen(false)}>
+                    <Button id={"avbryt-nei-btn"} variant={"primary"} type={"button"} onClick={() => setIsOpen(false)}>
                         {t("avbrytModal.svarNei")}
                     </Button>
                 </SkjemaGruppe>
 
-                <Button variant={"secondary"} type={"button"} onClick={avbrytOgslettSoeknad}>
+                <Button id={"avbryt-ja-btn"}  variant={"secondary"} type={"button"} onClick={avbrytOgslettSoeknad}>
                     {t("avbrytModal.svarJa")}
                 </Button>
 
