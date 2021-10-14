@@ -2,6 +2,7 @@ import { i18n, TFunction } from "i18next";
 import { StegPath } from "../typer/steg";
 
 export interface Innhold {
+    key: string;
     spoersmaal: string;
     svar: string | Date | number;
 }
@@ -58,6 +59,7 @@ export default class ObjectTreeReader {
                     return this.traverse(val, key)
                 else {
                     return {
+                        key,
                         spoersmaal: this.t(key),
                         svar: this.stringify(val)
                     }

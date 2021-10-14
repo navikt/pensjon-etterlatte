@@ -5,6 +5,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 
 data class Innhold(
+    val key: String,
     val spoersmaal: String,
     val svar: Any
 )
