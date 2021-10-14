@@ -1,34 +1,34 @@
-
-val junitJupiterVersion: String by project
-val ktorversion: String by project
-val tokensupportversion:String by project
-val jacksonVersion: String by project
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
 }
 
+repositories {
+    mavenCentral()
+//    maven("https://kotlin.bintray.com/ktor")
+//    maven("https://packages.confluent.io/maven/")
+}
+
 dependencies {
     api(kotlin("stdlib"))
     api(kotlin("reflect"))
-    api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
-    api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$jacksonVersion")
-    api("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+    api(Jackson.DatatypeJsr310)
+    api(Jackson.DatatypeJdk8)
+    api(Jackson.ModuleKotlin)
+
+    testImplementation(Jupiter.Api)
+    testImplementation(Jupiter.Params)
+    testRuntimeOnly(Jupiter.Engine)
 }
 
-fun DependencyHandler.ktor(module: String){
-    when(module){
-        "client-jackson" -> api("io.ktor:ktor-$module:$ktorversion")
-        else ->  api("io.ktor:ktor-$module:$ktorversion"){
-            exclude("org.jetbrains.kotlin:kotlin-reflect")
-        }
+tasks {
+    withType<Test> {
+        useJUnitPlatform()
     }
-}
 
-tasks.withType<Test> {
-    useJUnitPlatform()
+    withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "16"
+    }
 }

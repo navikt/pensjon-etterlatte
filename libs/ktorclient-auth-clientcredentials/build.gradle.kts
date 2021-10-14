@@ -1,10 +1,11 @@
-
-val junitJupiterVersion: String by project
-val ktorversion: String by project
-val tokensupportversion:String by project
-
 plugins {
     kotlin("jvm")
+}
+
+repositories {
+    mavenCentral()
+    maven("https://kotlin.bintray.com/ktor")
+    maven("https://packages.confluent.io/maven/")
 }
 
 dependencies {
@@ -16,14 +17,14 @@ dependencies {
     ktor("client-logging-jvm")
     ktor("client-auth")
     ktor("client-jackson")
-    api("no.nav.security:token-client-core:$tokensupportversion")
 
+    api(NavFelles.TokenClientCore)
 }
 
 fun DependencyHandler.ktor(module: String){
     when(module){
-        "client-jackson" -> api("io.ktor:ktor-$module:$ktorversion")
-        else ->  api("io.ktor:ktor-$module:$ktorversion"){
+        "client-jackson" -> api("io.ktor:ktor-$module:1.6.1")
+        else -> api("io.ktor:ktor-$module:1.6.1") {
             exclude("org.jetbrains.kotlin:kotlin-reflect")
         }
     }

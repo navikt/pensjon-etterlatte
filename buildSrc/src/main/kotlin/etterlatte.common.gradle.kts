@@ -1,0 +1,46 @@
+plugins {
+    kotlin("jvm")
+    application
+}
+
+repositories {
+    mavenCentral()
+    maven("https://kotlin.bintray.com/ktor")
+    maven("https://packages.confluent.io/maven/")
+}
+
+dependencies {
+    implementation(kotlin("stdlib"))
+//    implementation(kotlin("stdlib-jdk8"))
+
+    // Logging
+    implementation(Logging.Slf4jApi)
+    implementation(Logging.LogbackClassic)
+    implementation(Logging.LogstashLogbackEncoder)
+
+    // JUnit Testing
+    testImplementation(Jupiter.Api)
+    testImplementation(Jupiter.Params)
+    testRuntimeOnly(Jupiter.Engine)
+}
+
+tasks {
+    named<Jar>("jar") {
+        archiveBaseName.set("app")
+
+        manifest {
+            attributes["Main-Class"] = "no.nav.etterlatte.ApplicationKt"
+            attributes["Class-Path"] = configurations.runtimeClasspath.get().joinToString(separator = " ") {
+                it.name
+            }
+        }
+
+        doLast {
+            configurations.runtimeClasspath.get().forEach {
+                val file = File("$buildDir/libs/${it.name}")
+                if (!file.exists())
+                    it.copyTo(file)
+            }
+        }
+    }
+}
