@@ -23,6 +23,7 @@ interface Props {
 const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
     const { t } = useTranslation();
 
+
     const methods = useForm<IBarn>({
         shouldUnregister: true
     });
@@ -42,7 +43,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
     const bosattUtland = watch("bosattUtland.svar")
     const harBarnetVerge = watch("harBarnetVerge.svar")
     const relasjon = watch("relasjon")
-    const foedselsnummer = watch("foedselsnummer")
+    const foedselsnummer: any = watch("foedselsnummer")
     const soekerBarnepensjon = watch("barnepensjon.soeker")
     const annetKontonummerBarnepensjon = watch("barnepensjon.kontonummer.svar")
     const forskuddstrekkBarnepensjon = watch("barnepensjon.forskuddstrekk.svar")
@@ -54,16 +55,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
         }
 
         return false
-    }
-
-    const fnrFinnesFraFoer = (): boolean => {
-        if (foedselsnummer && fnrRegistrerteBarn.includes(foedselsnummer)) {
-            return true
-        }
-        return false
-    }
-
-    fnrFinnesFraFoer();
+    }    
 
     return (
         <FormProvider {...methods} >
@@ -98,6 +90,18 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         bredde={"L"}
                         label={t("omBarn.foedselsnummer")}
                         placeholder={t("felles.fnrPlaceholder")}
+                        rules={{validate: { 
+                            validate: () => {
+                                if(fnr(foedselsnummer).status !== "valid") {
+                                    return false;
+                                }
+                            },
+                            duplicate: () => {
+                            if(fnrRegistrerteBarn.indexOf(foedselsnummer) > -1) {
+                                return false;
+                            }
+                            return true
+                        }}}}
                     />
 
                     <RHFInput

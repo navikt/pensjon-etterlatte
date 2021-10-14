@@ -203,7 +203,7 @@ export const RHFTelefonInput = ({ name, rules, ...rest }: RHFProps) => {
     );
 };
 
-export const RHFFoedselsnummerInput = ({ name, ...rest }: RHFProps) => {
+export const RHFFoedselsnummerInput = ({ name, rules, ...rest }: RHFProps) => {
     const { t } = useTranslation();
     const {
         control,
@@ -224,7 +224,7 @@ export const RHFFoedselsnummerInput = ({ name, ...rest }: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{ required: true, validate: (value) => fnr(value).status === "valid" }}
+            rules={{ required: true, validate: (value) => fnr(value).status === "valid", ...rules }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}

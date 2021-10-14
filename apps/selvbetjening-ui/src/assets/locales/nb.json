@@ -485,10 +485,12 @@
   "feil": {
     "tittel": "For å gå videre må du rette opp i dette:",
     "fornavn": {
-      "required": "Oppgi fornavn"
+      "required": "Oppgi fornavn",
+      "pattern": "Ugyldig fornavn"
     },
     "etternavn": {
-      "required": "Oppgi etternavn"
+      "required": "Oppgi etternavn",
+      "pattern": "Ugyldig etternavn"
     },
     "hovedytelse": {
       "required": "Hovedytelse må være valgt"
@@ -704,7 +706,8 @@
     },
     "foedselsnummer": {
       "validate": "Ugyldig fødselsnummer",
-      "required": "Oppgi fødselsnummer"
+      "required": "Oppgi fødselsnummer",
+      "duplicate": "Fødselsnummeret er allerede lagt til"
     },
     "statsborgerskap": {
       "required": "Oppgi statsborgerskap"

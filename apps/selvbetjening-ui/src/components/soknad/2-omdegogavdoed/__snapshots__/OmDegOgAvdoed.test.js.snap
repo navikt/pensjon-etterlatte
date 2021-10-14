@@ -414,7 +414,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             id="nySivilstatus.samboerskap.samboer.foedselsnummer"
             placeholder="felles.fnrPlaceholder"
             required=""
-            rules="[object Object]"
             type="tel"
             value=""
           />
