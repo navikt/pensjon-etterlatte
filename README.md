@@ -5,9 +5,6 @@ Monorepo for ny løsning for ytelser til etterlatte
 
 ## Apper
 
-[dodsfall-fra-leesah](apps/dodsfall-fra-leesah) \
-`// TODO`
-
 [etterlatte-kafkamanager](apps/etterlatte-kafkamanager) \
 Kafka Manager for å enkelt se flyten til en søknad.
 
@@ -22,9 +19,6 @@ Proxy for å tillate kommunikasjon mellom GCP og On-Prem.
 
 [ey-pdfgen](apps/ey-pdfgen) \
 Enkel app for opprettelse av PDF til journalføring. Benytter seg av [pdfgen](https://github.com/navikt/pdfgen)
-
-[finn-etterlatte](apps/finn-etterlatte) \
-`// TODO`
 
 [finn-fnr-soeknad](apps/finn-fnr-soeknad) \
 Finner alle mulige fnr. (11 siffer) i en søknad og validerer de. Videresender alle gyldige fnr.  
@@ -50,8 +44,6 @@ Brukergrensesnittet for "Søknad om gjenlevendepensjon".
 [sjekk-adressebeskyttelse](apps/sjekk-adressebeskyttelse) \
 Går gjennom en liste med fnr. og sjekker om noen av de har adressebeskyttelse. 
 
-[sjekk-alder-etterlatte](apps/sjekk-alder-etterlatte) \
-`// TODO`
 
 # Bygg og deploy
 
