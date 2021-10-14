@@ -14,7 +14,6 @@ dependencies {
     implementation(Ktor.ClientLogging)
     implementation(Ktor.MetricsMicrometer)
     implementation(Ktor.Jackson)
-//    implementation(Ktor.HtmlBuilder)
     implementation(Ktor.Auth)
 
     implementation(Micrometer.Prometheus)

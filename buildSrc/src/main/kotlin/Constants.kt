@@ -29,7 +29,6 @@ object Ktor {
     const val AuthJwt = "io.ktor:ktor-auth-jwt:$version"
     const val Jackson = "io.ktor:ktor-jackson:$version"
     const val MetricsMicrometer = "io.ktor:ktor-metrics-micrometer:$version"
-    const val HtmlBuilder = "io.ktor:ktor-html-builder:$version"
 
     const val ClientMock = "io.ktor:ktor-client-mock:$version"
     const val ServerTests = "io.ktor:ktor-server-tests:$version"
@@ -48,7 +47,6 @@ object Jackson {
     const val DatatypeJsr310 = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$version"
     const val DatatypeJdk8 = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$version"
     const val ModuleKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:$version"
-    const val XmlDatabind = "com.fasterxml:jackson-xml-databind:0.6.2"
 }
 
 object Jupiter {

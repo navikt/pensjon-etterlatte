@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.gradle.api.tasks.testing.logging.TestLogEvent
 import ca.cutterslade.gradle.analyze.AnalyzeDependenciesTask
 
 plugins {
@@ -29,13 +28,6 @@ tasks {
 
     withType<KotlinCompile> {
         kotlinOptions.jvmTarget = JavaVersion.VERSION_16.toString()
-    }
-
-    withType<Test> {
-        useJUnitPlatform()
-        testLogging {
-            events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED)
-        }
     }
 
     withType<AnalyzeDependenciesTask> {
