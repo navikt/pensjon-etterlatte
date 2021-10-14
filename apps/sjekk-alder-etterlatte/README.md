@@ -1,1 +1,0 @@
-# sjekk-alder-etterlatte

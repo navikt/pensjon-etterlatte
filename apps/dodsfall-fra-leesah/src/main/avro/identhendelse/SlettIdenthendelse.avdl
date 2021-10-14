@@ -1,7 +1,0 @@
-@namespace("no.nav.person.pdl.identhendelse.sletting.v1")
-protocol SlettIdenthendelseProto {
-
-  record SlettIdenthendelse {
-    string hendelseId;
-  }
-}
