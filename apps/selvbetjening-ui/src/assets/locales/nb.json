@@ -202,6 +202,7 @@
           "tittel": "Opplysninger om samboer",
           "fornavn": "Fornavn",
           "etternavn": "Etternavn",
+          "foedselsnummer": "Fødselsnummer",
           "harInntekt.svar": "Har samboer inntekt?",
           "harInntekt.samletBruttoinntektPrAar": "Samlet årsinntekt før skatt",
           "harInntekt.inntektstype": "Inntektstype"

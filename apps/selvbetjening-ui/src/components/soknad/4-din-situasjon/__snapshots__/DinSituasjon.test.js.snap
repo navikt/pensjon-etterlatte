@@ -34,88 +34,92 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
         aria-live="polite"
       />
     </fieldset>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe checkboxgruppe inputPanelGruppe"
+    <div
+      id="jobbStatus"
     >
-      <legend
-        class="skjemagruppe__legend"
+      <fieldset
+        aria-invalid="false"
+        class="skjemagruppe checkboxgruppe inputPanelGruppe"
       >
-        dinSituasjon.jobbStatus
-      </legend>
-      <label
-        class="inputPanel checkboksPanel inputPanel--checked"
-      >
-        <input
-          aria-checked="true"
-          aria-invalid="false"
-          checked=""
-          class="inputPanel__field"
-          required=""
-          type="checkbox"
-          value="jobbStatus.arbeidstaker"
-        />
-        <span
-          class="inputPanel__label"
+        <legend
+          class="skjemagruppe__legend"
         >
-          jobbStatus.arbeidstaker
-        </span>
-      </label>
-      <label
-        class="inputPanel checkboksPanel inputPanel--checked"
-      >
-        <input
-          aria-checked="true"
-          aria-invalid="false"
-          class="inputPanel__field"
-          required=""
-          type="checkbox"
-          value="jobbStatus.selvstendig"
-        />
-        <span
-          class="inputPanel__label"
+          dinSituasjon.jobbStatus
+        </legend>
+        <label
+          class="inputPanel checkboksPanel inputPanel--checked"
         >
-          jobbStatus.selvstendig
-        </span>
-      </label>
-      <label
-        class="inputPanel checkboksPanel"
-      >
-        <input
-          aria-checked="false"
-          aria-invalid="false"
-          class="inputPanel__field"
-          required=""
-          type="checkbox"
-          value="jobbStatus.underUtdanning"
-        />
-        <span
-          class="inputPanel__label"
+          <input
+            aria-checked="true"
+            aria-invalid="false"
+            checked=""
+            class="inputPanel__field"
+            required=""
+            type="checkbox"
+            value="jobbStatus.arbeidstaker"
+          />
+          <span
+            class="inputPanel__label"
+          >
+            jobbStatus.arbeidstaker
+          </span>
+        </label>
+        <label
+          class="inputPanel checkboksPanel inputPanel--checked"
         >
-          jobbStatus.underUtdanning
-        </span>
-      </label>
-      <label
-        class="inputPanel checkboksPanel"
-      >
-        <input
-          aria-checked="false"
-          aria-invalid="false"
-          class="inputPanel__field"
-          required=""
-          type="checkbox"
-          value="jobbStatus.ingen"
-        />
-        <span
-          class="inputPanel__label"
+          <input
+            aria-checked="true"
+            aria-invalid="false"
+            class="inputPanel__field"
+            required=""
+            type="checkbox"
+            value="jobbStatus.selvstendig"
+          />
+          <span
+            class="inputPanel__label"
+          >
+            jobbStatus.selvstendig
+          </span>
+        </label>
+        <label
+          class="inputPanel checkboksPanel"
         >
-          jobbStatus.ingen
-        </span>
-      </label>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
+          <input
+            aria-checked="false"
+            aria-invalid="false"
+            class="inputPanel__field"
+            required=""
+            type="checkbox"
+            value="jobbStatus.underUtdanning"
+          />
+          <span
+            class="inputPanel__label"
+          >
+            jobbStatus.underUtdanning
+          </span>
+        </label>
+        <label
+          class="inputPanel checkboksPanel"
+        >
+          <input
+            aria-checked="false"
+            aria-invalid="false"
+            class="inputPanel__field"
+            required=""
+            type="checkbox"
+            value="jobbStatus.ingen"
+          />
+          <span
+            class="inputPanel__label"
+          >
+            jobbStatus.ingen
+          </span>
+        </label>
+        <div
+          aria-live="polite"
+        />
+      </fieldset>
+    </div>
     <fieldset
       aria-invalid="false"
       class="skjemagruppe skjemagruppering"
@@ -1110,88 +1114,92 @@ exports[`Om den avdøde Snapshot 1`] = `
         aria-live="polite"
       />
     </fieldset>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe checkboxgruppe inputPanelGruppe"
+    <div
+      id="jobbStatus"
     >
-      <legend
-        class="skjemagruppe__legend"
+      <fieldset
+        aria-invalid="false"
+        class="skjemagruppe checkboxgruppe inputPanelGruppe"
       >
-        dinSituasjon.jobbStatus
-      </legend>
-      <label
-        class="inputPanel checkboksPanel inputPanel--checked"
-      >
-        <input
-          aria-checked="true"
-          aria-invalid="false"
-          checked=""
-          class="inputPanel__field"
-          required=""
-          type="checkbox"
-          value="jobbStatus.arbeidstaker"
-        />
-        <span
-          class="inputPanel__label"
+        <legend
+          class="skjemagruppe__legend"
         >
-          jobbStatus.arbeidstaker
-        </span>
-      </label>
-      <label
-        class="inputPanel checkboksPanel"
-      >
-        <input
-          aria-checked="false"
-          aria-invalid="false"
-          class="inputPanel__field"
-          required=""
-          type="checkbox"
-          value="jobbStatus.selvstendig"
-        />
-        <span
-          class="inputPanel__label"
+          dinSituasjon.jobbStatus
+        </legend>
+        <label
+          class="inputPanel checkboksPanel inputPanel--checked"
         >
-          jobbStatus.selvstendig
-        </span>
-      </label>
-      <label
-        class="inputPanel checkboksPanel"
-      >
-        <input
-          aria-checked="false"
-          aria-invalid="false"
-          class="inputPanel__field"
-          required=""
-          type="checkbox"
-          value="jobbStatus.underUtdanning"
-        />
-        <span
-          class="inputPanel__label"
+          <input
+            aria-checked="true"
+            aria-invalid="false"
+            checked=""
+            class="inputPanel__field"
+            required=""
+            type="checkbox"
+            value="jobbStatus.arbeidstaker"
+          />
+          <span
+            class="inputPanel__label"
+          >
+            jobbStatus.arbeidstaker
+          </span>
+        </label>
+        <label
+          class="inputPanel checkboksPanel"
         >
-          jobbStatus.underUtdanning
-        </span>
-      </label>
-      <label
-        class="inputPanel checkboksPanel"
-      >
-        <input
-          aria-checked="false"
-          aria-invalid="false"
-          class="inputPanel__field"
-          required=""
-          type="checkbox"
-          value="jobbStatus.ingen"
-        />
-        <span
-          class="inputPanel__label"
+          <input
+            aria-checked="false"
+            aria-invalid="false"
+            class="inputPanel__field"
+            required=""
+            type="checkbox"
+            value="jobbStatus.selvstendig"
+          />
+          <span
+            class="inputPanel__label"
+          >
+            jobbStatus.selvstendig
+          </span>
+        </label>
+        <label
+          class="inputPanel checkboksPanel"
         >
-          jobbStatus.ingen
-        </span>
-      </label>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
+          <input
+            aria-checked="false"
+            aria-invalid="false"
+            class="inputPanel__field"
+            required=""
+            type="checkbox"
+            value="jobbStatus.underUtdanning"
+          />
+          <span
+            class="inputPanel__label"
+          >
+            jobbStatus.underUtdanning
+          </span>
+        </label>
+        <label
+          class="inputPanel checkboksPanel"
+        >
+          <input
+            aria-checked="false"
+            aria-invalid="false"
+            class="inputPanel__field"
+            required=""
+            type="checkbox"
+            value="jobbStatus.ingen"
+          />
+          <span
+            class="inputPanel__label"
+          >
+            jobbStatus.ingen
+          </span>
+        </label>
+        <div
+          aria-live="polite"
+        />
+      </fieldset>
+    </div>
     <fieldset
       aria-invalid="false"
       class="skjemagruppe skjemagruppering"

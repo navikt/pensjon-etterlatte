@@ -202,6 +202,7 @@
           "tittel": "Opplysingar om sambuar",
           "fornavn": "Førenamn",
           "etternavn": "Etternamn",
+          "foedselsnummer": "Fødselsnummer",
           "harInntekt.svar": "Har sambuar inntekt?",
           "harInntekt.samletBruttoinntektPrAar": "Samla årsinntekt før skatt",
           "harInntekt.inntektstype": "Inntektstype"
