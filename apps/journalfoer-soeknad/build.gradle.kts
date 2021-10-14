@@ -1,53 +1,18 @@
-val junitJupiterVersion: String by project
-val ktorversion: String by project
-val rapidsandriversversion: String by project
-
 plugins {
-    application
-    kotlin("jvm")
+    id("etterlatte.rapids-and-rivers")
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
-    implementation("com.github.navikt:rapids-and-rivers:$rapidsandriversversion")
-    implementation("io.ktor:ktor-client-okhttp:$ktorversion")
-    implementation("io.ktor:ktor-client-core:$ktorversion")
-    implementation("io.ktor:ktor-client-logging-jvm:$ktorversion")
-    implementation("io.ktor:ktor-client-auth:$ktorversion")
-    implementation("io.ktor:ktor-client-jackson:$ktorversion")
+    implementation(Ktor.OkHttp)
+    implementation(Ktor.ClientCore)
+    implementation(Ktor.ClientLoggingJvm)
+    implementation(Ktor.ClientAuth)
+    implementation(Ktor.ClientJackson)
+
     implementation(project(":libs:ktorclient-auth-clientcredentials"))
     implementation(project(":libs:common"))
 
-    testImplementation("io.ktor:ktor-client-mock:$ktorversion")
-    testImplementation("io.mockk:mockk:1.12.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
-
-    // Logging
-    implementation("org.slf4j:slf4j-api:1.7.30")
-    implementation("ch.qos.logback:logback-classic:1.2.3")
-    implementation("net.logstash.logback:logstash-logback-encoder:6.6")
-
+    testImplementation(Ktor.ClientMock)
+    testImplementation(MockK.MockK)
+    testImplementation(Kotlinx.CoroutinesCore)
 }
-tasks.named<Jar>("jar") {
-    archiveBaseName.set("app")
-
-    manifest {
-        attributes["Main-Class"] = "no.nav.etterlatte.ApplicationKt"
-        attributes["Class-Path"] = configurations.runtimeClasspath.get().joinToString(separator = " ") {
-            it.name
-        }
-    }
-
-    doLast {
-        configurations.runtimeClasspath.get().forEach {
-            val file = File("$buildDir/libs/${it.name}")
-            if (!file.exists())
-                it.copyTo(file)
-        }
-    }
-}
-
-

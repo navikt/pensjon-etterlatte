@@ -1,66 +1,32 @@
-val ktorversion: String by project
-val tokensupportversion: String by project
-
 plugins {
-    application
-    kotlin("jvm")
+    id("etterlatte.common")
 }
 
 dependencies {
     implementation(project(":libs:common"))
 
-    implementation("io.ktor:ktor-server-core:$ktorversion")
-    implementation("io.ktor:ktor-server-cio:$ktorversion")
-    implementation("io.ktor:ktor-server-core:$ktorversion")
+    implementation(Ktor.ServerCore)
+    implementation(Ktor.ServerCio)
+    implementation(Ktor.ClientCore)
+    implementation(Ktor.ClientJackson)
+    implementation(Ktor.ClientCioJvm)
+    implementation(Ktor.ClientAuth)
+    implementation(Ktor.ClientLogging)
+    implementation(Ktor.MetricsMicrometer)
+    implementation(Ktor.Jackson)
+    implementation(Ktor.Auth)
 
-    implementation("io.ktor:ktor-client-core:$ktorversion")
-    implementation("io.ktor:ktor-client-jackson:$ktorversion")
-    implementation("io.ktor:ktor-client-cio-jvm:$ktorversion")
-    implementation("io.ktor:ktor-client-auth:$ktorversion")
-    implementation("io.ktor:ktor-client-logging:$ktorversion")
+    implementation(Micrometer.Prometheus)
+    implementation(Jackson.DatatypeJsr310)
+    implementation(Jackson.DatatypeJdk8)
+    implementation(Jackson.ModuleKotlin)
 
-    implementation("io.ktor:ktor-metrics-micrometer:$ktorversion")
-    implementation("io.ktor:ktor-jackson:$ktorversion")
-    implementation("io.ktor:ktor-html-builder:$ktorversion")
-    implementation("io.ktor:ktor-auth:$ktorversion")
+    implementation(NavFelles.TokenClientCore)
+    implementation(NavFelles.TokenValidationKtor)
 
-    implementation("io.micrometer:micrometer-registry-prometheus:1.6.1")
-    implementation("com.fasterxml:jackson-xml-databind:0.6.2")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.0")
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.0")
-    implementation("no.nav.security:token-client-core:$tokensupportversion")
-    implementation("no.nav.security:token-validation-ktor:$tokensupportversion")
-
-    testImplementation("io.mockk:mockk:1.12.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
-    testImplementation("io.ktor:ktor-server-tests:$ktorversion")
-    testImplementation("no.nav.security:mock-oauth2-server:0.3.1")
-    testImplementation("io.ktor:ktor-client-mock:$ktorversion")
-
-    // Logging
-    implementation("org.slf4j:slf4j-api:1.7.30")
-    implementation("ch.qos.logback:logback-classic:1.2.3")
-    implementation("net.logstash.logback:logstash-logback-encoder:6.6")
-}
-
-tasks.named<Jar>("jar") {
-    archiveBaseName.set("app")
-
-    manifest {
-        attributes["Main-Class"] = "no.nav.etterlatte.ApplicationKt"
-        attributes["Class-Path"] = configurations.runtimeClasspath.get().joinToString(separator = " ") {
-            it.name
-        }
-    }
-
-    doLast {
-        configurations.runtimeClasspath.get().forEach {
-            val file = File("$buildDir/libs/${it.name}")
-            if (!file.exists())
-                it.copyTo(file)
-        }
-    }
-
+    testImplementation(MockK.MockK)
+    testImplementation(Ktor.ClientMock)
+    testImplementation(Ktor.ServerTests)
+    testImplementation(Kotlinx.CoroutinesCore)
+    testImplementation(NavFelles.MockOauth2Server)
 }
