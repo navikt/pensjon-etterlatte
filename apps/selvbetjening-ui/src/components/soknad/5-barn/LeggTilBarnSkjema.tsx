@@ -91,13 +91,15 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         label={t("omBarn.foedselsnummer")}
                         placeholder={t("felles.fnrPlaceholder")}
                         rules={{validate: { 
-                            validate: () => {
-                                if(fnr(foedselsnummer).status !== "valid") {
+                            validate: (value) => {
+                                console.log(value, fnr(value).status)
+                                if(fnr(value).status !== "valid") {
                                     return false;
                                 }
+                                return true;
                             },
-                            duplicate: () => {
-                            if(fnrRegistrerteBarn.indexOf(foedselsnummer) > -1) {
+                            duplicate: (value) => {
+                            if(fnrRegistrerteBarn.indexOf(value) > -1) {
                                 return false;
                             }
                             return true
