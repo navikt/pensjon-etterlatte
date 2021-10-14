@@ -18,10 +18,12 @@ dependencies {
     implementation(Ktor.ClientLogging)
     implementation(Ktor.ClientCioJvm)
     implementation(Ktor.ServerCore)
+    implementation(Ktor.ServerCio)
     implementation(Ktor.Auth)
     implementation(Ktor.Jackson)
 
     testImplementation(Ktor.ServerTests)
+    testImplementation(NavFelles.MockOauth2Server)
 
     implementation(Jackson.DatatypeJsr310)
 
