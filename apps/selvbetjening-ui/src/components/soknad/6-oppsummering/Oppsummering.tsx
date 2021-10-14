@@ -37,7 +37,6 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         setSenderSoeknad(true);
         setError(false);
         const soeknadBody = { oppsummering: soeknadOppsummering }
-
         sendSoeknad(soeknadBody)
             .then(() => {
                 logData(soeknadOppsummering)

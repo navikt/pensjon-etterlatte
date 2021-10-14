@@ -47,7 +47,7 @@ export const useAmplitude = () => {
 
     /*
      ** Funksjon for logging av enkeltsvar
-     ** NB! Ikke logg svar ukritisk.
+     ** NB! Ikke logg svar ukritisk. Ikke logg persondata
      */
     const logData = (oppsummering: Gruppe[]) => {
         const omDegOgAvdoed = getByKey(oppsummering, "omDegOgAvdoed.forholdTilAvdoede.relasjon").svar;
