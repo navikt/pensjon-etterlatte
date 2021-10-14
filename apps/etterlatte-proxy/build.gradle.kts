@@ -14,6 +14,7 @@ dependencies {
     implementation(Ktor.Auth)
     implementation(Ktor.AuthJwt)
     implementation(Ktor.Jackson)
+    testImplementation(NavFelles.MockOauth2Server)
 
     testImplementation(Ktor.ServerTests)
 
