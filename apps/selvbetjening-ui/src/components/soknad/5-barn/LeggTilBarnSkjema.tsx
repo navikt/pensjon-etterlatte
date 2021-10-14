@@ -252,6 +252,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         variant={"primary"}
                         type={"button"}
                         onClick={handleSubmit(leggTilOgLukk)}
+                        style={{minWidth: "80px", marginBottom: "10px"}}
                     >
                         {t("knapp.lagre")}
                     </Button>
@@ -262,6 +263,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         variant={"secondary"}
                         type={"button"}
                         onClick={avbryt}
+                        style={{minWidth: "80px"}}
                     >
                         {t("knapp.avbryt")}
                     </Button>

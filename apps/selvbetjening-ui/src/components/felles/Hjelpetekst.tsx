@@ -21,6 +21,7 @@ const Hjelpetekst = ({ children }: PropsWithChildren<React.InputHTMLAttributes<H
                 aria-haspopup="dialog"
                 aria-expanded={open}
                 aria-controls={id}
+                style={{minWidth: "30px"}}
             >
                 <HelptextFilled />
             </Button>
