@@ -623,7 +623,7 @@
     },
     "haddePensjonsgivendeInntekt": {
       "svar": {
-        "required": "Oppgi om avdøde hadde pensjonsgivende inntekt (valgfri)"
+        "required": "Oppgi om avdøde hadde pensjonsgivende inntekt"
       }
     },
     "harAvtjentMilitaerTjeneste": {
@@ -724,8 +724,11 @@
           "required": "Oppgi om dere har har hatt barn sammen eller om dere har vært gift"
         },
         "samboer": {
-          "navn": {
-            "required": "Oppgi samboers navn"
+          "fornavn": {
+            "required": "Oppgi samboers fornavn"
+          },
+          "etternavn": {
+            "required": "Oppgi samboers etternavn"
           },
           "foedselsnummer": {
             "required": "Oppgi samboers fødselsnummer",
