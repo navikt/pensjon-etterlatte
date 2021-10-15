@@ -36,7 +36,7 @@ const OppsummeringInnhold = memo(
 
                                 {elementer.map(elementPanel)}
 
-                                <Link to={`/soknad/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>
+                                <Link to={`/skjema/steg/${path}`} className={senderSoeknad ? "disabled" : ""}>
                                     <EditFilled className={"edit-svg"} />
                                     <span>{t(`endreSvarOppsummering.${path}`)}</span>
                                 </Link>

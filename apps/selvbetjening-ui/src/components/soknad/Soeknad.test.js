@@ -15,21 +15,21 @@ const Page = ({location}) => (
 describe("Soknad", () => {
     it("skal rendre soknad - steg", () => {
         const { container } = render(
-            <Page location="/soknad/steg/om-deg" />
+            <Page location="/skjema/steg/om-deg" />
         );
         expect(container.querySelectorAll("h1")[0].innerHTML).toEqual("Om deg");
     });
 
     it("skal rendre soknad - admin", () => {
         const { getByText } = render(
-            <Page location="/soknad/admin" />
+            <Page location="/skjema/admin" />
         );
         expect(getByText("Mock Søknad")).toBeDefined()
     });
 
     it("skal rendre soknad - admin", () => {
         const { container } = render(
-            <Page location="/soknad/sendt" />
+            <Page location="/skjema/sendt" />
         );
         expect(container.querySelectorAll("h1")[0].innerHTML).toEqual("Søknaden din er sendt til oss");
 
