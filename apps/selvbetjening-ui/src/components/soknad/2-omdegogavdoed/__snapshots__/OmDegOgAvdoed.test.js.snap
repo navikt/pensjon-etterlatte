@@ -110,10 +110,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             </div>
           </div>
           <div
+            aria-label="Åpne datovelger"
             class="kalender-ikon"
+            role="button"
             tabindex="0"
+            title="Åpne datovelger"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="24px"
               viewBox="0 0 24 24"
@@ -645,10 +649,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             </div>
           </div>
           <div
+            aria-label="Åpne datovelger"
             class="kalender-ikon"
+            role="button"
             tabindex="0"
+            title="Åpne datovelger"
           >
             <svg
+              aria-hidden="true"
               fill="none"
               height="24px"
               viewBox="0 0 24 24"
