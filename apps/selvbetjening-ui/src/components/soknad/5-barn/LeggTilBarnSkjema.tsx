@@ -71,7 +71,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         <div className={"kol-50"}>
                             <RHFInput
                                 name={"fornavn"}
-                                label={t("omBarn.fornavn")}
+                                placeholder={t("omBarn.fornavn")}
                                 rules={{ pattern: /^\D+$/ }}
                             />
                         </div>
@@ -79,7 +79,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         <div className={"kol-50"}>
                             <RHFInput
                                 name={"etternavn"}
-                                label={t("omBarn.etternavn")}
+                                placeholder={t("omBarn.etternavn")}
                                 rules={{ pattern: /^\D+$/ }}
                             />
                         </div>
@@ -166,12 +166,14 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                                             <RHFInput
                                                 name={"harBarnetVerge.fornavn"}
                                                 placeholder={t("omBarn.harBarnetVerge.fornavn")}
+                                                rules={{ pattern: /^\D+$/ }}
                                             />
                                         </Cell>
                                         <Cell xs={12} md={6}>
                                             <RHFInput
                                                 name={"harBarnetVerge.etternavn"}
                                                 placeholder={t("omBarn.harBarnetVerge.etternavn")}
+                                                rules={{ pattern: /^\D+$/ }}
                                             />
                                         </Cell>
                                     </Grid>

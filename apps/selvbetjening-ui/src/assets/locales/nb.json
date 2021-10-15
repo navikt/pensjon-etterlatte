@@ -865,10 +865,12 @@
         "required": "Oppgi om det er oppnevnt en verge for barnet"
       },
       "fornavn": {
-        "required": "Oppgi verges fornavn"
+        "required": "Oppgi verges fornavn",
+        "pattern": "Ugyldig fornavn"
       },
       "etternavn": {
-        "required": "Oppgi verges etternavn"
+        "required": "Oppgi verges etternavn",
+        "pattern": "Ugyldig etternavn"
       },
       "foedselsnummer": {
         "required": "Oppgi verges fødselsnummer",

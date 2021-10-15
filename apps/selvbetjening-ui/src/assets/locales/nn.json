@@ -865,10 +865,12 @@
         "required": "Oppgi om det er oppnemnt ei verje for barnet"
       },
       "fornavn": {
-        "required": "Oppgi verja sitt førenamn"
+        "required": "Oppgi verja sitt førenamn",
+        "pattern": "Ugyldig førenamn"
       },
       "etternavn": {
-        "required": "Oppgi verja sitt etternamn"
+        "required": "Oppgi verja sitt etternamn",
+        "pattern": "Ugyldig etternamn"
       },
       "foedselsnummer": {
         "required": "Oppgi verja sitt fødselsnummer",
