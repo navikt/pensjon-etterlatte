@@ -17,14 +17,12 @@ import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
 import no.nav.etterlatte.routes.internal
 import no.nav.etterlatte.routes.pdl
 
-class Server(applicationContext: ApplicationContext) {
-    private val securityContext = applicationContext.securityMediator
-    private val pdlconfig = applicationContext.pdl
 
-    private val engine = embeddedServer(CIO, environment = applicationEngineEnvironment {
+fun applicationEngineEnvironment(applicationContext: ApplicationContext) =
+    applicationEngineEnvironment {
         module {
             install(ContentNegotiation) { jackson() }
-            installAuthUsing(securityContext)
+            installAuthUsing(applicationContext.securityMediator)
 
             install(CallLogging) {
                 filter { call -> !call.request.path().startsWith("/internal") }
@@ -32,18 +30,23 @@ class Server(applicationContext: ApplicationContext) {
 
             routing {
                 internal()
-                secureRoutUsing(securityContext){
-                    pdl(pdlconfig, applicationContext)
+                secureRoutUsing(applicationContext.securityMediator) {
+                    pdl(applicationContext.pdl, applicationContext)
                 }
-                authenticate("tokenX") {
+                authenticate {
                     route("/tokenx") {
-                        pdl(pdlconfig, applicationContext)
+                        pdl(applicationContext.pdl, applicationContext)
                     }
                 }
             }
         }
         connector { port = 8080 }
-    })
+    }
+
+class Server(applicationContext: ApplicationContext) {
+    private val engine = embeddedServer(CIO, environment = applicationEngineEnvironment(applicationContext))
+
+
 
     fun run() = engine.start(true)
 }

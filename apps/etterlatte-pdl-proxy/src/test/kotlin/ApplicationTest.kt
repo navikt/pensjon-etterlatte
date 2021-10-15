@@ -1,12 +1,8 @@
 package no.nav.etterlatte
 
-import com.typesafe.config.ConfigFactory
-import com.typesafe.config.ConfigValueFactory
-import io.ktor.config.HoconApplicationConfig
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.TestApplicationEngine
-import io.ktor.server.testing.createTestEnvironment
 import io.ktor.server.testing.handleRequest
 import no.nav.security.mock.oauth2.MockOAuth2Server
 import org.junit.jupiter.api.AfterAll
@@ -18,12 +14,8 @@ import org.junit.jupiter.api.TestInstance
 internal class ApplicationTest {
 
     val mockOAuth2 = MockOAuth2Server().apply { start() }
-    var engine = TestApplicationEngine(createTestEnvironment {
-        config = HoconApplicationConfig(ConfigFactory.load("applicationTest.conf")
-            .withValue("tokenx.wellKnownUrl", ConfigValueFactory.fromAnyRef(mockOAuth2.wellKnownUrl("tokenx").toString()))
-            .withValue("aad.wellKnownUrl", ConfigValueFactory.fromAnyRef(mockOAuth2.wellKnownUrl("aad").toString()))
-        )
-    }) {}.apply { start() }
+    var engine = TestApplicationEngine(applicationEngineEnvironment(ApplicationContext("applicationTest.conf")))
+    .apply { start() }
 
     @AfterAll
     fun tearDown(){
