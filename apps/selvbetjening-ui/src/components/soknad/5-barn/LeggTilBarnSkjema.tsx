@@ -245,7 +245,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                     </>
                 )}
 
-                {(relasjon === BarnRelasjon.avdoedesSaerkullsbarn || relasjon === BarnRelasjon.egneSaerkullsbarn) && (
+                {(relasjon === BarnRelasjon.egneSaerkullsbarn) && (
                     <SkjemaGruppe className={"skjemagruppe-modal"}>
                         <RHFSpoersmaalRadio
                             name={"dagligOmsorg"}
