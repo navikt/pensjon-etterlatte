@@ -267,7 +267,8 @@
     "harBarnetVerge": {
       "svar": "Er det oppnemnt verje for barnet?",
       "navn": "Namn på verje",
-      "navnPlaceholder": "Førenamn, etternamn",
+      "fornavn": "Førenamn",
+      "etternavn": "Etternamn",
       "foedselsnummer": "Fødselsnummer til verje",
       "foedselsnummerPlaceholder": "11 siffer"
     },
@@ -863,8 +864,11 @@
       "svar": {
         "required": "Oppgi om det er oppnemnt ei verje for barnet"
       },
-      "navn": {
-        "required": "Oppgi verja sitt namn"
+      "fornavn": {
+        "required": "Oppgi verja sitt førenamn"
+      },
+      "etternavn": {
+        "required": "Oppgi verja sitt etternamn"
       },
       "foedselsnummer": {
         "required": "Oppgi verja sitt fødselsnummer",

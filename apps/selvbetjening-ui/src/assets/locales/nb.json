@@ -267,7 +267,8 @@
     "harBarnetVerge": {
       "svar": "Er det oppnevnt en verge for barnet?",
       "navn": "Navn på verge",
-      "navnPlaceholder": "Fornavn, etternavn",
+      "fornavn": "Fornavn",
+      "etternavn": "Etternavn",
       "foedselsnummer": "Fødselsnummer til verge",
       "foedselsnummerPlaceholder": "11 siffer"
     },
@@ -863,8 +864,11 @@
       "svar": {
         "required": "Oppgi om det er oppnevnt en verge for barnet"
       },
-      "navn": {
-        "required": "Oppgi verges navn"
+      "fornavn": {
+        "required": "Oppgi verges fornavn"
+      },
+      "etternavn": {
+        "required": "Oppgi verges etternavn"
       },
       "foedselsnummer": {
         "required": "Oppgi verges fødselsnummer",

@@ -9,7 +9,7 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
-import { Button, Heading } from "@navikt/ds-react";
+import { Button, Cell, Grid, Heading, Label } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 import Hjelpetekst from "../../felles/Hjelpetekst";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
@@ -160,12 +160,21 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
 
                             {harBarnetVerge === IValg.JA && (
                                 <>
-                                    <RHFInput
-                                        name={"harBarnetVerge.navn"}
-                                        bredde={"L"}
-                                        label={t("omBarn.harBarnetVerge.navn")}
-                                        placeholder={t("omBarn.harBarnetVerge.navnPlaceholder")}
-                                    />
+                                    <Label>{t("omBarn.harBarnetVerge.navn")}</Label>
+                                    <Grid>
+                                        <Cell xs={12} md={6}>
+                                            <RHFInput
+                                                name={"harBarnetVerge.fornavn"}
+                                                placeholder={t("omBarn.harBarnetVerge.fornavn")}
+                                            />
+                                        </Cell>
+                                        <Cell xs={12} md={6}>
+                                            <RHFInput
+                                                name={"harBarnetVerge.etternavn"}
+                                                placeholder={t("omBarn.harBarnetVerge.etternavn")}
+                                            />
+                                        </Cell>
+                                    </Grid>
                                     <RHFFoedselsnummerInput
                                         name={"harBarnetVerge.foedselsnummer"}
                                         bredde={"L"}
