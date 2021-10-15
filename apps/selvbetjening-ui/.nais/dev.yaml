@@ -14,6 +14,7 @@ spec:
     cpuThresholdPercentage: 90
   ingresses:
     - "https://etterlatteytelser.dev.nav.no"
+    - https://etterlatte.dev.nav.no/gjenlevnendepensjon/soknad
   liveness:
     path: /isAlive
     initialDelay: 10
