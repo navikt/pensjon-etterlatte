@@ -55,7 +55,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
         }
 
         return false
-    }    
+    }
 
     return (
         <FormProvider {...methods} >
@@ -90,9 +90,8 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         bredde={"L"}
                         label={t("omBarn.foedselsnummer")}
                         placeholder={t("felles.fnrPlaceholder")}
-                        rules={{validate: { 
+                        rules={{validate: {
                             validate: (value) => {
-                                console.log(value, fnr(value).status)
                                 if(fnr(value).status !== "valid") {
                                     return false;
                                 }

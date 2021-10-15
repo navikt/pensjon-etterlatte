@@ -708,7 +708,7 @@
     "foedselsnummer": {
       "validate": "Ugyldig fødselsnummer",
       "required": "Oppgi fødselsnummer",
-      "duplicate": "Fødselsnummeret er allerede lagt til"
+      "duplicate": "Fødselsnummeret er allereie lagt til"
     },
     "statsborgerskap": {
       "required": "Oppgi statsborgarskap"
