@@ -93,12 +93,16 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
                                     tabIndex={0}
                                     onKeyPress={toggleDatepicker}
                                     onClick={toggleDatepicker}
+                                    role="button"
+                                    title="Åpne datovelger"
+                                    aria-label="Åpne datovelger"
                                 >
                                     <svg
                                         height="24px"
                                         viewBox="0 0 24 24"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true"
                                     >
                                         <path
                                             fillRule="evenodd"
