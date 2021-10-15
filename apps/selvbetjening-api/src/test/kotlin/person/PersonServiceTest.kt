@@ -37,6 +37,7 @@ internal class PersonServiceTest {
     private val personKlient = mockk<PersonKlient>()
     private val kodeverkService = mockk<KodeverkService> {
         coEvery { hentPoststed(any()) } returns "Skåla"
+        coEvery { hentLand(any()) } returns "Norge"
     }
 
     private val service = PersonService(personKlient, kodeverkService)
@@ -66,7 +67,7 @@ internal class PersonServiceTest {
         assertNull(person.husbokstav)
         assertEquals("6456", person.postnummer)
         assertEquals("Skåla", person.poststed)
-        assertEquals("NOR", person.statsborgerskap)
+        assertEquals("Norge", person.statsborgerskap)
         assertNull(person.sivilstatus)
     }
 

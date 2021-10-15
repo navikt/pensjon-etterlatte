@@ -7,8 +7,8 @@ import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.kodeverk.Beskrivelse
 import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
-import no.nav.etterlatte.kodeverk.PostnummerInfo
-import no.nav.etterlatte.kodeverk.PostnummerResponse
+import no.nav.etterlatte.kodeverk.Betydning
+import no.nav.etterlatte.kodeverk.KodeverkResponse
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
@@ -36,10 +36,10 @@ internal class KodeverkServiceTest {
 
     @Test
     fun `Bokmaal postnr finnes med gyldig dato`() {
-        coEvery { mockKlient.hentPoststed(any()) } returns PostnummerResponse(
+        coEvery { mockKlient.hentPoststed(any()) } returns KodeverkResponse(
             mapOf(
                 POSTNR_OSLO to listOf(
-                    PostnummerInfo(
+                    Betydning(
                         gyldigFra = LocalDate.now().minusYears(5).toString(),
                         gyldigTil = LocalDate.now().plusYears(1).toString(),
                         beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo"))
@@ -57,10 +57,10 @@ internal class KodeverkServiceTest {
 
     @Test
     fun `Bokmaal postnr finnes, men har ikke gyldig dato`() {
-        coEvery { mockKlient.hentPoststed(any()) } returns PostnummerResponse(
+        coEvery { mockKlient.hentPoststed(any()) } returns KodeverkResponse(
             mapOf(
                 POSTNR_OSLO to listOf(
-                    PostnummerInfo(
+                    Betydning(
                         gyldigFra = LocalDate.now().minusYears(5).toString(),
                         gyldigTil = LocalDate.now().minusDays(1).toString(),
                         beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo"))

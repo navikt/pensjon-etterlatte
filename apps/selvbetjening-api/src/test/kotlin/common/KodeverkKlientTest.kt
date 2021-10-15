@@ -19,7 +19,7 @@ import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Disabled
-class KodeverkKlientTest {
+internal class KodeverkKlientTest {
 
     lateinit var httpClient: HttpClient
 

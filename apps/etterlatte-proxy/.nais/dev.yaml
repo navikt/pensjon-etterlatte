@@ -50,7 +50,7 @@ spec:
     - name: DOK_URL
       value: https://dokarkiv-q1.nais.preprod.local/rest/journalpostapi/v1/journalpost
     - name: KODEVERK_URL
-      value: https://kodeverk.dev.adeo.no/api/v1/kodeverk/Postnummer/koder/betydninger?spraak=nb
+      value: https://kodeverk.dev.adeo.no/api/v1/kodeverk
   prometheus:
     enabled: true
     path: /internal/prometheus

@@ -12,11 +12,25 @@ class KodeverkService(private val klient: Kodeverk) {
         logger.info("Henter poststed for postnummer $postnr")
 
         // Todo: cache postnummerliste?
-        val postnummere = klient.hentPoststed(postnr)
+        return klient.hentPoststed(postnr).hentTekst(postnr, "nb")
+    }
 
-        val gjeldendePoststed = postnummere.betydninger[postnr]
+    suspend fun hentLand(landkode: String?): String {
+        if (landkode.isNullOrBlank()) return ""
+
+        return klient.hentLandkoder().hentTekst(landkode, "nb")
+    }
+
+    private fun KodeverkResponse.hentTekst(kode: String, locale: String): String {
+        val gyldigBetydning = this.betydninger[kode]
             ?.find { it -> it.gyldigTil > LocalDate.now().toString() }
 
-        return gjeldendePoststed?.beskrivelser?.get("nb")?.tekst.orEmpty()
+        return gyldigBetydning?.beskrivelser
+            ?.get(locale)
+            ?.tekst
+            ?.capitalize()
+            .orEmpty()
     }
+
+    private fun String.capitalize() = lowercase().replaceFirstChar { it.uppercase() }
 }
