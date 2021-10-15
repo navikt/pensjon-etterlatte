@@ -6,11 +6,9 @@ import io.ktor.client.HttpClient
 import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
 
 class ApplicationContext(
-    private val configLocation: String? = null
+    config: Config = ConfigFactory.load()
 ) {
     val closables = mutableListOf<() -> Unit>()
-
-    private val config: Config = configLocation?.let { ConfigFactory.load(it) } ?: ConfigFactory.load()
 
     // tror jeg må gjøre noe med lukking
     fun close() {

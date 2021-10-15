@@ -1,12 +1,13 @@
 package no.nav.etterlatte
 
 import com.nimbusds.jwt.SignedJWT
+import com.typesafe.config.ConfigFactory
 import no.nav.security.mock.oauth2.MockOAuth2Server
 import no.nav.security.mock.oauth2.token.DefaultOAuth2TokenCallback
 
 fun main() {
     mockOautServer()
-    val ctx = ApplicationContext("applicationTest.conf")
+    val ctx = ApplicationContext(ConfigFactory.load("applicationTest.conf"))
     Server(ctx).run()
     ctx.close()
 }

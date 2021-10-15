@@ -1,10 +1,14 @@
 package no.nav.etterlatte
 
+import com.nimbusds.jwt.SignedJWT
+import com.typesafe.config.ConfigFactory
+import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.TestApplicationEngine
 import io.ktor.server.testing.handleRequest
 import no.nav.security.mock.oauth2.MockOAuth2Server
+import no.nav.security.mock.oauth2.token.DefaultOAuth2TokenCallback
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -13,8 +17,8 @@ import org.junit.jupiter.api.TestInstance
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class ApplicationTest {
 
-    val mockOAuth2 = MockOAuth2Server().apply { start() }
-    var engine = TestApplicationEngine(applicationEngineEnvironment(ApplicationContext("applicationTest.conf")))
+    val mockOAuth2 = MockOAuth2Server().apply { start(6666) }
+    var engine = TestApplicationEngine(applicationEngineEnvironment(ApplicationContext(ConfigFactory.load("applicationTest.conf"))))
     .apply { start() }
 
     @AfterAll
@@ -33,9 +37,25 @@ internal class ApplicationTest {
 
     @Test
     fun testPDL() {
-        engine.handleRequest(HttpMethod.Post, "tokenx/pdl").apply {
+        val token: SignedJWT = mockOAuth2.issueToken(
+            "lokalissuer", "thisapp", DefaultOAuth2TokenCallback(
+                claims = mapOf(
+                    "acr" to "Level4",
+                    "pid" to "12321",
+                    "aud" to "thisapp"
+                )
+            )
+        )
+
+
+        engine.handleRequest(HttpMethod.Post, "/pdl") {
+            addHeader(HttpHeaders.Authorization, "Bearer " + token.serialize())
+
+        }
+            .apply {
             assertEquals(HttpStatusCode.Unauthorized, response.status())
         }
+
     }
 
     //@Test
