@@ -36,8 +36,8 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    redirectPath: "/gjenlevendepensjon/soknad/oauth2/callback"
-    frontchannelLogoutPath: "/gjenlevendepensjon/soknad/oauth2/logout"
+    redirectPath: /oauth2/callback
+    frontchannelLogoutPath: /oauth2/logout
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
