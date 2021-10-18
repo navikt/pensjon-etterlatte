@@ -731,7 +731,7 @@
       },
       "samboerskap": {
         "hattBarnEllerVaertGift": {
-          "required": "Oppgi om dere har har hatt barn sammen eller om dere har vært gift"
+          "required": "Oppgi om dere har eller har hatt barn sammen eller om dere har vært gift"
         },
         "samboer": {
           "fornavn": {
