@@ -34,13 +34,8 @@ fun Route.pdl(config: Config, context: ApplicationContext) {
         println(this.toString())
         val tokenexchangeIssuer = "tokenx"
         val pdlUrl = config.getString( "no.nav.etterlatte.tjenester.pdl.url")
-        //val tokenXHttpClient = tokenSecuredEndpoint()
-         //   .also { context.closables.add(it::close) }
-       // val clientCredentialHttpClient = pdlhttpclient(config.getConfig("no.nav.etterlatte.tjenester.pdl.aad"))
-        //    .also { context.closables.add(it::close) }
         val tokenxKlient = runBlocking {
-            //endre denne???
-            config.getString("no.nav.etterlatte.tjenester.pdl.ventmedutgaaendekall")?.toLong()?.also {
+            config.getString("no.nav.etterlatte.tjenester.ventmedutgaaendekall")?.toLong()?.also {
                 logger.debug("Venter $it sekunder før kall til token-issuers")
                 delay(it * 1000)
             }
@@ -65,7 +60,7 @@ fun Route.pdl(config: Config, context: ApplicationContext) {
             } else if (tokenxToken != null) {
                 //endre path
                 val returToken =
-                    config.getString("no.nav.etterlatte.tjenester.pdl.audience")?.let { audience ->
+                    config.getString("no.nav.etterlatte.tjenester.tokenx.audience")?.let { audience ->
                         tokenxKlient.tokenExchange(
                             tokenxToken.tokenAsString,
                             audience
