@@ -13,15 +13,15 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - "https://etterlatteytelser.labs.nais.io"
+    - https://etterlatte.labs.nais.io/gjenlevendepensjon/soknad"
   liveness:
-    path: /isAlive
+    path: /gjenlevendepensjon/soknad/isAlive
     initialDelay: 10
     timeout: 5
     periodSeconds: 5
     failureThreshold: 30
   readiness:
-    path: /isReady
+    path: /gjenlevendepensjon/soknad/isReady
     initialDelay: 30
     periodSeconds: 5
     timeout: 5

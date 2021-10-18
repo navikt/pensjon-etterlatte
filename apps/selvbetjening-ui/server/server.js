@@ -5,11 +5,12 @@ const authRoutes = require("./auth/auth-routes")
 const api = require("./api");
 const config = require("./config");
 
+const basePath = config.app.basePath;
 const buildPath = path.resolve(__dirname, "../build");
 const app = express();
 
 app.set("trust proxy", 1);
-app.use(config.app.basePath, express.static(buildPath, { index: false }));
+app.use(basePath, express.static(buildPath, { index: false }));
 
 if (config.env.isLabsCluster) {
     api.mock(app);
@@ -21,7 +22,7 @@ if (config.env.isLabsCluster) {
 decorator.setup(app, `${buildPath}/index.html`);
 
 // Endpoints to verify is app is ready/alive
-app.get(`/isAlive|isReady`, (req, res) => {
+app.get(`${basePath}/isAlive|${basePath}/isReady`, (req, res) => {
     res.sendStatus(200);
 });
 
