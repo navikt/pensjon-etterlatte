@@ -20,7 +20,7 @@ const env = {
 };
 
 const app = {
-    basePath: "", // TODO: Sti til vårt endepunkt på NAV.no
+    basePath: "/gjenlevendepensjon/soknad",
     apiUrl: process.env.API_URL || "http://localhost:8085",
     useSecureCookies: !!process.env.NAIS_CLUSTER_NAME,
     port: process.env.PORT || 8080,

@@ -13,7 +13,7 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - "https://etterlatteytelser.dev.nav.no"
+    - "https://www.dev.nav.no/gjenlevendepensjon/soknad"
   liveness:
     path: /isAlive
     initialDelay: 10
@@ -36,11 +36,11 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    clientUri: https://etterlatteytelser.dev.nav.no
+    clientUri: https://www.dev.nav.no/gjenlevendepensjon/soknad
     redirectPath: /oauth2/callback
     frontchannelLogoutPath: /oauth2/logout
     postLogoutRedirectURIs:
-      - https://etterlatteytelser.dev.nav.no/logout/callback
+      - https://www.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
@@ -54,9 +54,9 @@ spec:
     - name: NODE_LOG_LEVEL
       value: info
     - name: IDPORTEN_POST_LOGOUT_REDIRECT_URI
-      value: https://etterlatteytelser.dev.nav.no/logout/callback
+      value: https://www.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
     - name: LOGINSERVICE_URL
-      value: https://loginservice.dev.nav.no/login?redirect=https://etterlatteytelser.dev.nav.no
+      value: https://loginservice.dev.nav.no/login?redirect=https://www.dev.nav.no/gjenlevendepensjon/soknad
     - name: LOGINSERVICE_LOGOUT_URL
       value: https://loginservice.dev.nav.no/slo
   accessPolicy:
