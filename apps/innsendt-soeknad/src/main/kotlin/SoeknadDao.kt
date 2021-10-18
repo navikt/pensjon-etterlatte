@@ -59,7 +59,8 @@ class PostgresSoeknadRepository private constructor(private val dataSource: Data
         val SELECT_OLDEST_UNARCHIVED = """
                         SELECT MIN(s.opprettet)
                         FROM soeknad s 
-                        where not exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}')""".trimIndent()
+                        where exists (select 1 from hendelse h where h.soeknad = s.id and h.status in ('${Status.ferdigstilt}'))
+                        and not exists (select 1 from hendelse h where h.soeknad = s.id and h.status in ('${Status.arkivert}', '${Status.arkiveringsfeil}'))""".trimIndent()
         val SELECT_RAPPORT = """with status_rang as (
                         |select 'lagretkladd' "status", 0 "rang"
                         |union select 'ferdigstilt' "status", 1 "rang"

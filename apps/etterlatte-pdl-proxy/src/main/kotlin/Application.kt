@@ -1,48 +1,35 @@
 package no.nav.etterlatte
 
-import io.ktor.application.Application
-import io.ktor.application.install
-import io.ktor.auth.Authentication
-import io.ktor.auth.authenticate
-import io.ktor.features.CallLogging
-import io.ktor.features.ContentNegotiation
-import io.ktor.http.ContentType
-import io.ktor.jackson.JacksonConverter
-import io.ktor.request.path
-import io.ktor.routing.IgnoreTrailingSlash
-import io.ktor.routing.routing
-import no.nav.etterlatte.routes.internal
-import no.nav.etterlatte.routes.pdl
-import no.nav.security.token.support.ktor.tokenValidationSupport
-import org.slf4j.event.Level
+import com.typesafe.config.Config
+import com.typesafe.config.ConfigFactory
+import io.ktor.client.HttpClient
+import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
 
+class ApplicationContext(
+    config: Config = ConfigFactory.load()
+) {
+    val closables = mutableListOf<() -> Unit>()
 
-fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
-
-
-@Suppress("unused") // Referenced in application.conf
-fun Application.module() {
-    val config = this@module.environment.config
-
-    install(Authentication){
-        tokenValidationSupport(config = config)
+    // tror jeg må gjøre noe med lukking
+    fun close() {
+        closables.forEach { it() }
     }
 
-    install(ContentNegotiation) {
-        register(ContentType.Application.Json, JacksonConverter())
-    }
-    install(IgnoreTrailingSlash)
+    val pdl: Config = config
+    val tokenXHttpClient: HttpClient
+    val clientCredentialHttpClient: HttpClient
+    val securityMediator = SecurityContextMediatorFactory.from(config)
 
-    install(CallLogging) {
-        level = Level.INFO
-        filter { call -> !call.request.path().startsWith("/internal") }
-    }
-
-    routing {
-        internal()
-        authenticate {
-            pdl(config)
-        }
+    init {
+        tokenXHttpClient = tokenSecuredEndpoint()
+            .also { closables.add(it::close) }
+        clientCredentialHttpClient = pdlhttpclient(config.getConfig("no.nav.etterlatte.tjenester.pdl.aad"))
+            .also { closables.add(it::close) }
     }
 }
 
+fun main() {
+    ApplicationContext()
+        .also { Server(it).run() }
+        .close()
+}

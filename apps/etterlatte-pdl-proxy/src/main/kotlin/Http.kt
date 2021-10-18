@@ -3,6 +3,7 @@ package no.nav.etterlatte
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.typesafe.config.Config
 import io.ktor.application.ApplicationCall
 import io.ktor.client.HttpClient
 import io.ktor.client.call.receive
@@ -60,14 +61,18 @@ fun tokenSecuredEndpoint() = HttpClient(CIO) {
     }
 }
 
-fun pdlhttpclient(outBound: String) = HttpClient(OkHttp,) {
-    val env = System.getenv().toMutableMap()
-
+fun pdlhttpclient(aad: Config) = HttpClient(OkHttp) {
+    println(aad.toString())
+    val env = mutableMapOf(
+        "AZURE_APP_CLIENT_ID" to aad.getString("client_id"),
+        "AZURE_APP_WELL_KNOWN_URL" to aad.getString("well_known_url"),
+        "AZURE_APP_OUTBOUND_SCOPE" to aad.getString("outbound"),
+        "AZURE_APP_JWK" to aad.getString("client_jwk")
+        )
     install(JsonFeature) { serializer = JacksonSerializer() }
     install(Auth) {
         clientCredential {
-            config = env.toMutableMap()
-                .apply { put("AZURE_APP_OUTBOUND_SCOPE", outBound) }
+            config = env
         }
     }
 }.also { Runtime.getRuntime().addShutdownHook(Thread { it.close() }) }

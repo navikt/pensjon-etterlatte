@@ -1,53 +1,71 @@
 package no.nav.etterlatte
 
+import com.nimbusds.jwt.SignedJWT
 import com.typesafe.config.ConfigFactory
-import io.ktor.config.HoconApplicationConfig
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.TestApplicationEngine
-import io.ktor.server.testing.createTestEnvironment
 import io.ktor.server.testing.handleRequest
-import io.ktor.server.testing.withTestApplication
-import org.junit.BeforeClass
+import no.nav.security.mock.oauth2.MockOAuth2Server
+import no.nav.security.mock.oauth2.token.DefaultOAuth2TokenCallback
+import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 
-class ApplicationTest {
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+internal class ApplicationTest {
 
-    companion object {
-        val engine = TestApplicationEngine(createTestEnvironment {
-            config = HoconApplicationConfig(ConfigFactory.load("applicationTest.conf"))
-        })
+    val mockOAuth2 = MockOAuth2Server().apply { start(6666) }
+    var engine = TestApplicationEngine(applicationEngineEnvironment(ApplicationContext(ConfigFactory.load("applicationTest.conf"))))
+    .apply { start() }
 
-        @BeforeClass
-        @JvmStatic fun setup(){
-            //logger.debug("Starting application with config ....")
-            engine.start(wait = false)
-            engine.application.module()
-
-        }
-
-
-    }
-    private val testEnv = createTestEnvironment {
-        config = HoconApplicationConfig(ConfigFactory.load("applicationTest.conf"))
+    @AfterAll
+    fun tearDown(){
+        mockOAuth2.shutdown()
+        engine.stop(0,0)
     }
 
-    //@Test
+    @Test
     fun testRoot() {
-        with(engine) {
-            handleRequest(HttpMethod.Get, "internal/is_alive").apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("Alive", response.content)
-            }
+        engine.handleRequest(HttpMethod.Get, "internal/is_alive").apply {
+            assertEquals(HttpStatusCode.OK, response.status())
+            assertEquals("Alive", response.content)
         }
     }
-    //@Test
+
+    @Test
     fun testPDL() {
-        withTestApplication({ module() }) {
-            handleRequest(HttpMethod.Post, "/tokenx/pdl").apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("HELLO WORLD!", response.content)
-            }
+        val token: SignedJWT = mockOAuth2.issueToken(
+            "lokalissuer", "thisapp", DefaultOAuth2TokenCallback(
+                claims = mapOf(
+                    "acr" to "Level4",
+                    "pid" to "12321",
+                    "aud" to "thisapp"
+                )
+            )
+        )
+        mockOAuth2.enqueueCallback(
+            DefaultOAuth2TokenCallback(
+                issuerId = "lokalissuer",
+                subject = "foo"
+            )
+        )
+
+        engine.handleRequest(HttpMethod.Post, "/pdl") {
+            //addHeader(HttpHeaders.Authorization, "Bearer " + token.serialize())
+
+        }
+            .apply {
+            assertEquals(HttpStatusCode.Unauthorized, response.status())
+        }
+
+    }
+
+    //@Test
+    fun testDok() {
+        engine.handleRequest(HttpMethod.Post, "aad/dok").apply {
+            assertEquals(HttpStatusCode.Unauthorized, response.status())
         }
     }
 }
