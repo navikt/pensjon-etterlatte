@@ -2,7 +2,6 @@ package no.nav.etterlatte
 
 import com.nimbusds.jwt.SignedJWT
 import com.typesafe.config.ConfigFactory
-import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.TestApplicationEngine
@@ -46,10 +45,15 @@ internal class ApplicationTest {
                 )
             )
         )
-
+        mockOAuth2.enqueueCallback(
+            DefaultOAuth2TokenCallback(
+                issuerId = "lokalissuer",
+                subject = "foo"
+            )
+        )
 
         engine.handleRequest(HttpMethod.Post, "/pdl") {
-            addHeader(HttpHeaders.Authorization, "Bearer " + token.serialize())
+            //addHeader(HttpHeaders.Authorization, "Bearer " + token.serialize())
 
         }
             .apply {
