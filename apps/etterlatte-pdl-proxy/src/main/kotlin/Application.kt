@@ -7,10 +7,10 @@ import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
 
 class ApplicationContext(
     config: Config = ConfigFactory.load()
+
 ) {
     val closables = mutableListOf<() -> Unit>()
 
-    // tror jeg må gjøre noe med lukking
     fun close() {
         closables.forEach { it() }
     }
