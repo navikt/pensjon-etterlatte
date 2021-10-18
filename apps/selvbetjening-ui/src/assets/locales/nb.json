@@ -267,7 +267,8 @@
     "harBarnetVerge": {
       "svar": "Er det oppnevnt en verge for barnet?",
       "navn": "Navn på verge",
-      "navnPlaceholder": "Fornavn, etternavn",
+      "fornavn": "Fornavn",
+      "etternavn": "Etternavn",
       "foedselsnummer": "Fødselsnummer til verge",
       "foedselsnummerPlaceholder": "11 siffer"
     },
@@ -356,18 +357,26 @@
     },
     "andreStoenader": {
       "tittel": "Du kan også ha rett til andre stønader",
-      "informasjon": "\nHvis du jobber, har barn, er reell arbeidssøker, går på skole eller studerer, kan du også ha rett til andre stønader. For eksempel:",
+      "informasjon": "\nHar dere barn sammen? Da kan du også ha rett på andre støtteordninger:",
       "stoenadListe": {
-        "barnetrygd": "Utvidet barnetrygd",
-        "barnetilsyn": "Stønad til barnetilsyn",
-        "tilsyn": "Tilsyn av barn og andre familemedlemmer",
-        "tillegg": "Tilleggsstønader",
-        "skolepenger": "Stønad til skolepenger"
+        "skolepenger": {
+          "tekst": "Stønad til skolepenger for gjenlevende ektefelle",
+          "href": "https://www.nav.no/skolepenger-gjenlevende"
+        },
+        "barnetilsyn": {
+          "tekst": "Stønad til barnetilsyn for gjenlevende ektefelle",
+          "href": "https://www.nav.no/barnetilsyn-gjenlevende"
+        },
+        "barnetrygd": {
+          "tekst": "Utvidet barnetrygd",
+          "href": "https://www.nav.no/utvidet-barnetrygd"
+        },
+        "tillegg": {
+          "tekst": "Tilleggsstønader til gjenlevende ektefelle",
+          "href": "https://www.nav.no/tilleggsstonader-gjenlevende"
+        }
       },
-      "lenke": {
-        "href": "https://www.nav.no/no/person/familie/har-du-mistet-noen-i-naer-familie/har-du-mistet-ektefellen-samboeren-eller-partneren-din",
-        "tekst": "Les mer om stønader du kan ha rett på"
-      }
+      "andreInformasjon": "Tar du utdanning eller søker jobb? Da kan du også ha rett til støtte til barnepass og utgifter du har i forbindelse med utdanning eller jobbsøking:"
     },
     "spoersmaal": {
       "knapp": "Avslutt"
@@ -863,8 +872,13 @@
       "svar": {
         "required": "Oppgi om det er oppnevnt en verge for barnet"
       },
-      "navn": {
-        "required": "Oppgi verges navn"
+      "fornavn": {
+        "required": "Oppgi verges fornavn",
+        "pattern": "Ugyldig fornavn"
+      },
+      "etternavn": {
+        "required": "Oppgi verges etternavn",
+        "pattern": "Ugyldig etternavn"
       },
       "foedselsnummer": {
         "required": "Oppgi verges fødselsnummer",

@@ -37,7 +37,8 @@ export interface IBarn {
     foedselsnummer?: string;
     harBarnetVerge?: {
         svar?: IValg;
-        navn?: string;
+        fornavn?: string;
+        etternavn?: string;
         foedselsnummer?: string;
     };
     relasjon?: string;

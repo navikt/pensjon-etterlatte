@@ -41,7 +41,7 @@ internal class ApplicationTest {
 
     @Test
     fun testKodeverk() {
-        engine.handleRequest(HttpMethod.Get, "tokenx/kodeverk").apply {
+        engine.handleRequest(HttpMethod.Get, "tokenx/kodeverk/ukjentParameter").apply {
                 assertEquals(HttpStatusCode.Unauthorized, response.status())
             }
         }

@@ -8,22 +8,33 @@ import no.nav.etterlatte.common.mapJsonToAny
 import org.slf4j.LoggerFactory
 
 interface Kodeverk {
-    suspend fun hentPoststed(postnummer: String): PostnummerResponse
+    suspend fun hentPoststed(postnummer: String): KodeverkResponse
+    suspend fun hentLandkoder(): KodeverkResponse
 }
 
-class KodeverkKlient(private val httpClient: HttpClient): Kodeverk {
+/**
+ * Klient som kaller på kodeverksklienten via
+ */
+class KodeverkKlient(private val httpClient: HttpClient) : Kodeverk {
     private val logger = LoggerFactory.getLogger(KodeverkService::class.java)
 
-    override suspend fun hentPoststed(postnummer: String): PostnummerResponse {
+    override suspend fun hentPoststed(postnummer: String): KodeverkResponse =
         try {
-            val result = httpClient.get<String> {
+            httpClient.get("Postnummer") {
                 accept(ContentType.Application.Json)
             }
-
-            return mapJsonToAny(result)
         } catch (e: Exception) {
             logger.error("Henting av postnummere feilet", e)
             throw e
         }
-    }
+
+    override suspend fun hentLandkoder(): KodeverkResponse =
+        try {
+            httpClient.get("Landkoder") {
+                accept(ContentType.Application.Json)
+            }
+        } catch (e: Exception) {
+            logger.error("Henting av landkoder feilet", e)
+            throw e
+        }
 }

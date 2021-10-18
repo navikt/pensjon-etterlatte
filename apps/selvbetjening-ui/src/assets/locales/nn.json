@@ -267,7 +267,8 @@
     "harBarnetVerge": {
       "svar": "Er det oppnemnt verje for barnet?",
       "navn": "Namn på verje",
-      "navnPlaceholder": "Førenamn, etternamn",
+      "fornavn": "Førenamn",
+      "etternavn": "Etternamn",
       "foedselsnummer": "Fødselsnummer til verje",
       "foedselsnummerPlaceholder": "11 siffer"
     },
@@ -356,20 +357,28 @@
     },
     "andreStoenader": {
       "tittel": "Du kan også ha rett til andre stønader",
-      "informasjon": "\nViss du jobbar, har barn, er reell arbeidssøkar, går på skule eller studerer, kan du også ha rett til andre stønader. For eksempel:",
+      "informasjon": "\nHar de barn saman? Då kan du også har rett på andre støtteordningar:",
       "stoenadListe": {
-        "barnetrygd": "Utvida barnetrygd",
-        "barnetilsyn": "Stønad til barnetilsyn",
-        "tilsyn": "Tilsyn av barn og andre familemedlemmer",
-        "tillegg": "Tilleggsstønader",
-        "skolepenger": "Stønad til skulepengar"
+        "skolepenger": {
+          "tekst": "Stønad til skolepenger for attlevande ektefelle",
+          "href": "https://www.nav.no/skolepenger-gjenlevende"
+        },
+        "barnetilsyn": {
+          "tekst": "Stønad til barnetilsyn for attlevande ektefelle",
+          "href": "https://www.nav.no/barnetilsyn-gjenlevende"
+        },
+        "barnetrygd": {
+          "tekst": "Utvida barnetrygd",
+          "href": "https://www.nav.no/utvidet-barnetrygd"
+        },
+        "tillegg": {
+          "tekst": "Tilleggsstønader til attlevande ektefelle",
+          "href": "https://www.nav.no/tilleggsstonader-gjenlevende"
+        }
       },
-      "lenke": {
-        "href": "https://www.nav.no/no/person/familie/har-du-mistet-noen-i-naer-familie/har-du-mistet-ektefellen-samboeren-eller-partneren-din",
-        "tekst": "Les meir om stønader du kan ha rett på"
-      }
+      "andreInformasjon": "Tek du utdanning eller søker jobb? Då kan du også ha rett til støtte til barnepass og utgifter du har i forbindelse med utdanning eller jobbsøking:"
     },
-    "spoersmaal": {
+     "spoersmaal": {
       "knapp": "Avslutt"
     }
   },
@@ -708,7 +717,7 @@
     "foedselsnummer": {
       "validate": "Ugyldig fødselsnummer",
       "required": "Oppgi fødselsnummer",
-      "duplicate": "Fødselsnummeret er allerede lagt til"
+      "duplicate": "Fødselsnummeret er allereie lagt til"
     },
     "statsborgerskap": {
       "required": "Oppgi statsborgarskap"
@@ -863,8 +872,13 @@
       "svar": {
         "required": "Oppgi om det er oppnemnt ei verje for barnet"
       },
-      "navn": {
-        "required": "Oppgi verja sitt namn"
+      "fornavn": {
+        "required": "Oppgi verja sitt førenamn",
+        "pattern": "Ugyldig førenamn"
+      },
+      "etternavn": {
+        "required": "Oppgi verja sitt etternamn",
+        "pattern": "Ugyldig etternamn"
       },
       "foedselsnummer": {
         "required": "Oppgi verja sitt fødselsnummer",

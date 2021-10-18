@@ -21,15 +21,19 @@ import java.util.*
 
 fun Route.kodeverk(config: Config) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
-    route("/kodeverk") {
+
+    route("/kodeverk/{kodeverksnavn}") {
         val httpClient = httpClient()
-        val kodeverkUrl = config.kodeverk.url
+        val baseUrl = config.kodeverk.url
 
         get {
+            val kodeverksnavn = call.parameters["kodeverksnavn"] as String
             val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
 
+            val url = "$baseUrl/$kodeverksnavn/koder/betydninger?spraak=nb"
+
             try {
-                val response = httpClient.get<HttpResponse>(kodeverkUrl) {
+                val response = httpClient.get<HttpResponse>(url) {
                     header(HttpHeaders.NavConsumerId, "barnepensjon")
                     header(HttpHeaders.NavCallId, callId)
                     pipeRequest(call)

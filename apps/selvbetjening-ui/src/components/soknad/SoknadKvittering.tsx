@@ -95,38 +95,39 @@ const SoknadKvittering = () => {
                 <ul>
                     <li>
                         <BodyShort>
-                            {t("soeknadKvittering.andreStoenader.stoenadListe.barnetrygd")}
+                           <Link href={t("soeknadKvittering.andreStoenader.stoenadListe.skolepenger.href")}>
+                               {t("soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst")}
+                           </Link>
                         </BodyShort>
                     </li>
                     <li>
                         <BodyShort>
-                            {t("soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn")}
+                            <Link href={t("soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.href")}>
+                                {t("soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst")}
+                            </Link>
                         </BodyShort>
                     </li>
                     <li>
                         <BodyShort>
-                            {t("soeknadKvittering.andreStoenader.stoenadListe.tilsyn")}
-                        </BodyShort>
-                    </li>
-                    <li>
-                        <BodyShort>
-                            {t("soeknadKvittering.andreStoenader.stoenadListe.tillegg")}
-                        </BodyShort>
-                    </li>
-                    <li>
-                        <BodyShort>
-                            {t("soeknadKvittering.andreStoenader.stoenadListe.skolepenger")}
+                            <Link href={t("soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.href")}>
+                                {t("soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst")}
+                            </Link>
                         </BodyShort>
                     </li>
                 </ul>
 
                 <br/>
 
-                <BodyLong>
-                    <Link href={t("soeknadKvittering.andreStoenader.lenke.href")}>
-                        {t("soeknadKvittering.andreStoenader.lenke.tekst")}
-                    </Link>
+                <BodyLong spacing={true}>
+                    {t("soeknadKvittering.andreStoenader.andreInformasjon")}
                 </BodyLong>
+
+                <BodyShort>
+                    <Link href={t("soeknadKvittering.andreStoenader.stoenadListe.tillegg.href")}>
+                        {t("soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst")}
+                    </Link>
+                </BodyShort>
+
                 <br/>
             </SkjemaGruppe>
 

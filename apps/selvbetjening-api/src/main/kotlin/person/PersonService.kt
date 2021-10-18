@@ -47,6 +47,8 @@ class PersonService(
 
         val poststed = kodeverkService.hentPoststed(bostedsadresse.vegadresse?.postnummer)
 
+        val land = kodeverkService.hentLand(statsborgerskap.land)
+
         return Person(
             fornavn = navn.fornavn,
             etternavn = navn.etternavn,
@@ -58,7 +60,7 @@ class PersonService(
             husbokstav = bostedsadresse.vegadresse?.husbokstav,
             postnummer = bostedsadresse.vegadresse?.postnummer,
             poststed = poststed,
-            statsborgerskap = statsborgerskap.land,
+            statsborgerskap = land,
             sivilstatus = sivilstand?.type?.name
         )
     }

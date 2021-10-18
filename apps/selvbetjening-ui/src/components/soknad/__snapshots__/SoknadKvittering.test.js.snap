@@ -194,47 +194,53 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
           <p
             class="navds-body-short"
           >
-            soeknadKvittering.andreStoenader.stoenadListe.barnetrygd
+            <a
+              class="navds-link"
+              href="soeknadKvittering.andreStoenader.stoenadListe.skolepenger.href"
+            >
+              soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst
+            </a>
           </p>
         </li>
         <li>
           <p
             class="navds-body-short"
           >
-            soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn
+            <a
+              class="navds-link"
+              href="soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.href"
+            >
+              soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst
+            </a>
           </p>
         </li>
         <li>
           <p
             class="navds-body-short"
           >
-            soeknadKvittering.andreStoenader.stoenadListe.tilsyn
-          </p>
-        </li>
-        <li>
-          <p
-            class="navds-body-short"
-          >
-            soeknadKvittering.andreStoenader.stoenadListe.tillegg
-          </p>
-        </li>
-        <li>
-          <p
-            class="navds-body-short"
-          >
-            soeknadKvittering.andreStoenader.stoenadListe.skolepenger
+            <a
+              class="navds-link"
+              href="soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.href"
+            >
+              soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst
+            </a>
           </p>
         </li>
       </ul>
       <br />
       <p
-        class="navds-body-long"
+        class="navds-body-long navds-typo--spacing"
+      >
+        soeknadKvittering.andreStoenader.andreInformasjon
+      </p>
+      <p
+        class="navds-body-short"
       >
         <a
           class="navds-link"
-          href="soeknadKvittering.andreStoenader.lenke.href"
+          href="soeknadKvittering.andreStoenader.stoenadListe.tillegg.href"
         >
-          soeknadKvittering.andreStoenader.lenke.tekst
+          soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst
         </a>
       </p>
       <br />

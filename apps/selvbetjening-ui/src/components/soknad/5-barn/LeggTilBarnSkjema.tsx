@@ -9,7 +9,7 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
-import { Button, Heading } from "@navikt/ds-react";
+import { Button, Cell, Grid, Heading, Label } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 import Hjelpetekst from "../../felles/Hjelpetekst";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
@@ -55,7 +55,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
         }
 
         return false
-    }    
+    }
 
     return (
         <FormProvider {...methods} >
@@ -71,7 +71,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         <div className={"kol-50"}>
                             <RHFInput
                                 name={"fornavn"}
-                                label={t("omBarn.fornavn")}
+                                placeholder={t("omBarn.fornavn")}
                                 rules={{ pattern: /^\D+$/ }}
                             />
                         </div>
@@ -79,7 +79,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         <div className={"kol-50"}>
                             <RHFInput
                                 name={"etternavn"}
-                                label={t("omBarn.etternavn")}
+                                placeholder={t("omBarn.etternavn")}
                                 rules={{ pattern: /^\D+$/ }}
                             />
                         </div>
@@ -90,9 +90,8 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         bredde={"L"}
                         label={t("omBarn.foedselsnummer")}
                         placeholder={t("felles.fnrPlaceholder")}
-                        rules={{validate: { 
+                        rules={{validate: {
                             validate: (value) => {
-                                console.log(value, fnr(value).status)
                                 if(fnr(value).status !== "valid") {
                                     return false;
                                 }
@@ -161,12 +160,23 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
 
                             {harBarnetVerge === IValg.JA && (
                                 <>
-                                    <RHFInput
-                                        name={"harBarnetVerge.navn"}
-                                        bredde={"L"}
-                                        label={t("omBarn.harBarnetVerge.navn")}
-                                        placeholder={t("omBarn.harBarnetVerge.navnPlaceholder")}
-                                    />
+                                    <Label>{t("omBarn.harBarnetVerge.navn")}</Label>
+                                    <Grid>
+                                        <Cell xs={12} md={6}>
+                                            <RHFInput
+                                                name={"harBarnetVerge.fornavn"}
+                                                placeholder={t("omBarn.harBarnetVerge.fornavn")}
+                                                rules={{ pattern: /^\D+$/ }}
+                                            />
+                                        </Cell>
+                                        <Cell xs={12} md={6}>
+                                            <RHFInput
+                                                name={"harBarnetVerge.etternavn"}
+                                                placeholder={t("omBarn.harBarnetVerge.etternavn")}
+                                                rules={{ pattern: /^\D+$/ }}
+                                            />
+                                        </Cell>
+                                    </Grid>
                                     <RHFFoedselsnummerInput
                                         name={"harBarnetVerge.foedselsnummer"}
                                         bredde={"L"}
@@ -237,7 +247,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                     </>
                 )}
 
-                {(relasjon === BarnRelasjon.avdoedesSaerkullsbarn || relasjon === BarnRelasjon.egneSaerkullsbarn) && (
+                {(relasjon === BarnRelasjon.egneSaerkullsbarn) && (
                     <SkjemaGruppe className={"skjemagruppe-modal"}>
                         <RHFSpoersmaalRadio
                             name={"dagligOmsorg"}
