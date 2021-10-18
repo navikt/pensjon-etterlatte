@@ -36,11 +36,8 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    clientUri: https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad
-    redirectPath: /gjenlevendepensjon/soknad/oauth2/callback
-    frontchannelLogoutPath: /gjenlevendepensjon/soknad/oauth2/logout
-    postLogoutRedirectURIs:
-      - https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
+    redirectPath: "/gjenlevendepensjon/soknad/oauth2/callback"
+    frontchannelLogoutPath: "/gjenlevendepensjon/soknad/oauth2/logout"
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
