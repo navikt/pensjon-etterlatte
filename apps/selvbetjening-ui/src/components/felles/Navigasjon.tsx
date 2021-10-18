@@ -58,10 +58,15 @@ const Navigasjon = ({
             soknadDispatch({ type: SoknadAction.TILBAKESTILL });
             brukerDispatch({ type: BrukerAction.TILBAKESTILL });
 
-            logEvent(LogEvents.KLIKK, { type: "slett soknad" })
+            logEvent(LogEvents.KLIKK, { type: "avbryt soknad", svar: "ja" });
             window.location.href = "https://www.nav.no/gjenlevendepensjon"
         })
     };
+
+    const fortsettSoknad = () => {
+        logEvent(LogEvents.KLIKK, { type: "avbryt soknad", svar: "nei" });
+        setIsOpen(false)
+    }
 
     return (
         <>
@@ -111,7 +116,7 @@ const Navigasjon = ({
                 </BodyShort>
 
                 <SkjemaGruppe>
-                    <Button id={"avbryt-nei-btn"} variant={"primary"} type={"button"} onClick={() => setIsOpen(false)}>
+                    <Button id={"avbryt-nei-btn"} variant={"primary"} type={"button"} onClick={fortsettSoknad}>
                         {t("avbrytModal.svarNei")}
                     </Button>
                 </SkjemaGruppe>
