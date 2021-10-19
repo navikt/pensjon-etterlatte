@@ -15,6 +15,7 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
     private val logger: Logger = LoggerFactory.getLogger(Notifikasjon::class.java)
 
     private val rapid = rapidsConnection
+
     init {
         sendNotifikasjon.startuptask()
         River(rapidsConnection).apply {
@@ -23,30 +24,24 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             validate { it.requireKey("@fnr_soeker") }
             validate { it.requireKey("@lagret_soeknad_id") }
         }.register(this)
-
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-
         runBlocking {
-
             sendNotifikasjon.sendMessage(packet["@fnr_soeker"].textValue())
 
             val journalpostId = packet["@dokarkivRetur"]["journalpostId"]
-            JsonMessage.newMessage(mapOf(
-                "@event_name" to "notifikasjon_sendt",
-                "@lagret_soeknad_id" to packet["@lagret_soeknad_id"],
-                "@journalpostId" to journalpostId ,
-                "@notifikasjon" to "Notifikasjon sendt",
-            )).apply {
+            JsonMessage.newMessage(
+                mapOf(
+                    "@event_name" to "notifikasjon_sendt",
+                    "@lagret_soeknad_id" to packet["@lagret_soeknad_id"],
+                    "@journalpostId" to journalpostId,
+                    "@notifikasjon" to "Notifikasjon sendt",
+                )
+            ).apply {
                 rapid.publish("SendNotifikasjon " + journalpostId.textValue(), toJson())
             }
             logger.info("Notifikasjon til bruker opprettet")
         }
     }
 }
-
-
-
-
-

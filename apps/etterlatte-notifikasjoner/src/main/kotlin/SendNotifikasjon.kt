@@ -10,7 +10,6 @@ import org.apache.kafka.clients.producer.ProducerRecord
 import java.net.InetAddress
 import java.time.LocalDateTime
 import java.time.ZoneOffset
-import java.time.temporal.ChronoUnit
 import java.util.*
 
 class SendNotifikasjon(env: Map<String, String>) {
@@ -19,7 +18,6 @@ class SendNotifikasjon(env: Map<String, String>) {
     private val systembruker = env["srvuser"]
     private val passord = env["srvpwd"]
     private val bootStrapServer = env["BRUKERNOTIFIKASJON_KAFKA_BROKERS"]!!
-    //private var producer: KafkaProducer<Nokkel, Beskjed>? = null
     private var producer: Producer<Nokkel, Beskjed>? = null
     private val clientId =
         if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString()
@@ -53,15 +51,20 @@ class SendNotifikasjon(env: Map<String, String>) {
     }
 
     fun sendMessage(ident: String) {
-        val now = LocalDateTime.now(ZoneOffset.UTC)
-        val weekFromNow = now.plus(7, ChronoUnit.DAYS)
-
         val nokkel = NokkelBuilder()
             .withSystembruker(systembruker)
             .withEventId(UUID.randomUUID().toString())
             .build()
+        val beskjed = opprettBeskjed(ident)
 
-        val beskjed = BeskjedBuilder()
+        producer?.send(ProducerRecord(brukernotifikasjontopic, nokkel, beskjed))
+    }
+
+    internal fun opprettBeskjed(ident: String): Beskjed {
+        val now = LocalDateTime.now(ZoneOffset.UTC)
+        val weekFromNow = now.plusDays(7)
+
+        return BeskjedBuilder()
             .withFodselsnummer(ident)
             .withGrupperingsId(grupperingsId)
             .withTekst(notifikasjonsTekst)
@@ -72,9 +75,5 @@ class SendNotifikasjon(env: Map<String, String>) {
             //.withPrefererteKanaler(null)
             //.withPrefererteKanaler(PreferertKanal.SMS)
             .build()
-
-
-        val record = ProducerRecord(brukernotifikasjontopic, nokkel, beskjed)
-        producer?.send(record)
     }
 }
