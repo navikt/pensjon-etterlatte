@@ -34,14 +34,16 @@ const InnloggetBruker = memo(() => {
                         <BodyShort spacing>{state.foedselsnummer}</BodyShort>
                     </div>
 
-                    <div>
-                        <Label>{t("felles.adresse")}</Label>
-                        <BodyShort spacing>
-                            {state.adresse}
-                            {state.husnummer ? ` ${state.husnummer}` : ""}
-                            {state.husbokstav ? ` ${state.husbokstav}` : ""}, {state.postnummer} {state.poststed}
-                        </BodyShort>
-                    </div>
+                    {state.adresse &&
+                        <div>
+                            <Label>{t("felles.adresse")}</Label>
+                            <BodyShort spacing>
+                                {state.adresse}
+                                {state.husnummer ? ` ${state.husnummer}` : ""}
+                                {state.husbokstav ? ` ${state.husbokstav}` : ""}, {state.postnummer} {state.poststed}
+                            </BodyShort>
+                        </div>
+                    }
                 </Cell>
 
                 <Cell xs={6}>
