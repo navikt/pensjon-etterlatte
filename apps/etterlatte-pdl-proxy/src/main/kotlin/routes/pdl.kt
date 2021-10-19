@@ -31,7 +31,6 @@ fun Route.pdl(config: Config, context: ApplicationContext) {
     val logger = LoggerFactory.getLogger("no.pensjon.etterlatte")
 
     route("/pdl") {
-        println(this.toString())
         val tokenexchangeIssuer = "tokenx"
         val pdlUrl = config.getString( "no.nav.etterlatte.tjenester.pdl.url")
         val tokenxKlient = runBlocking {

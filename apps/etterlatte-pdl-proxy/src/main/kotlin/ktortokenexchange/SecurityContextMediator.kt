@@ -20,7 +20,6 @@ interface SecurityContextMediator{
 
 object SecurityContextMediatorFactory{
     fun from(config: Config): SecurityContextMediator {
-        println(HoconApplicationConfig(config).toString())
         return when (config.getStringSafely("no.nav.etterlatte.sikkerhet")) {
             "ingen" -> LolSecMediator()
             else -> TokenSupportSecurityContextMediator(HoconApplicationConfig(config))
