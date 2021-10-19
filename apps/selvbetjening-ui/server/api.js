@@ -23,6 +23,7 @@ const options = () => ({
             );
         });
     },
+    proxyReqPathResolver: (req) => req.originalUrl.replace(`${config.app.basePath}/api`, '')
 });
 
 const setup = (app) => {

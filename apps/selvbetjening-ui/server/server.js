@@ -12,7 +12,6 @@ console.log(`buildPath: ${buildPath}`);
 const app = express();
 
 app.set("trust proxy", 1);
-// app.use("/", express.static(buildPath, { index: false }));
 app.use(basePath, express.static(buildPath, {index: false}));
 console.log(`basePath: ${basePath}`)
 
