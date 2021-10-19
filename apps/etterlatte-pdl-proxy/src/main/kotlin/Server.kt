@@ -1,12 +1,11 @@
 package no.nav.etterlatte
 
 import io.ktor.application.install
-import io.ktor.auth.authenticate
 import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.jackson.jackson
 import io.ktor.request.path
-import io.ktor.routing.route
+import io.ktor.routing.IgnoreTrailingSlash
 import io.ktor.routing.routing
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
@@ -27,17 +26,20 @@ fun applicationEngineEnvironment(applicationContext: ApplicationContext) =
             install(CallLogging) {
                 filter { call -> !call.request.path().startsWith("/internal") }
             }
+            install(IgnoreTrailingSlash)
 
             routing {
                 internal()
                 secureRoutUsing(applicationContext.securityMediator) {
                     pdl(applicationContext.pdl, applicationContext)
                 }
-                authenticate {
+                /*authenticate {
                     route("/tokenx") {
                         pdl(applicationContext.pdl, applicationContext)
                     }
                 }
+
+                 */
             }
         }
         connector { port = 8080 }
