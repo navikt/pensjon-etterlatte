@@ -27,7 +27,7 @@ const SoknadForside = () => {
     const startSoeknad = () => {
         const foersteSteg = MuligeSteg[0];
         logEvent(LogEvents.AAPNE_SOKNAD);
-        history.push(`/soknad/steg/${foersteSteg.path}`);
+        history.push(`/skjema/steg/${foersteSteg.path}`);
     };
 
     const innloggetBrukerNavn = `${brukerState?.fornavn} ${brukerState?.etternavn}`;

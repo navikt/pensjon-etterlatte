@@ -2,6 +2,7 @@
   "name": "cra",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/gjenlevendepensjon/soknad",
   "dependencies": {
     "@navikt/ds-css": "^0.9.0",
     "@navikt/ds-icons": "0.5.2",

@@ -33,7 +33,7 @@ export const FortsettSoeknadModal = () => {
     const fortsettSoeknad = () => {
         const steg = nesteSteg();
         dispatch({ type: ActionTypes.VIS_FORTSETT_SOEKNAD_MODAL, payload: false });
-        history.push(`/soknad/steg/${steg.valueOf()}`);
+        history.push(`/skjema/steg/${steg.valueOf()}`);
     };
 
     const startPaaNytt = () => {

@@ -19,7 +19,7 @@ const useSoeknad = () => {
     useEffect(() => {
         if (!bruker.kanSoeke) return;
 
-        if (history.location.pathname === "/soknad/admin") {
+        if (history.location.pathname === "/skjema/admin") {
             settLasterSoeknad(false);
         } else {
             hentSoeknad()

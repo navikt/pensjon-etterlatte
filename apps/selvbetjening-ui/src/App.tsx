@@ -21,11 +21,11 @@ const App = () => {
 
             <ContentContainer className={"soeknad"} role="main">
                 <Switch>
-                    <Redirect from={"/labs"} to={"/soknad/admin"} />
+                    <Redirect from={"/labs"} to={"/skjema/admin"} />
 
                     <Route path={"/ugyldig-alder"} component={UgyldigSoeker} />
 
-                    <Route exact path={["/", "/soknad/*"]} component={Soeknad} />
+                    <Route exact path={["/", "/skjema/*"]} component={Soeknad} />
 
                     <Route component={SideIkkeFunnet} />
                 </Switch>

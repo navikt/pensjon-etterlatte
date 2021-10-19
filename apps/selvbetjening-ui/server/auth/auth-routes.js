@@ -66,7 +66,7 @@ const setup = (app) => {
                         domain: config.idporten.domain,
                         maxAge: config.session.maxAgeMs,
                     });
-                    res.redirect(303, "/");
+                    res.redirect(303, basePath);
                 })
                 .catch((err) => {
                     logger.error("Feil oppsto under validateOidcCallback: ", err);

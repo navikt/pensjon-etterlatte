@@ -19,8 +19,10 @@ const env = {
     isLabsCluster: process.env.NAIS_CLUSTER_NAME === "labs-gcp"
 };
 
+console.log(`process.env.PUBLIC_URL: ${process.env.PUBLIC_URL}`)
+
 const app = {
-    basePath: "", // TODO: Sti til vårt endepunkt på NAV.no
+    basePath: "/gjenlevendepensjon/soknad",
     apiUrl: process.env.API_URL || "http://localhost:8085",
     useSecureCookies: !!process.env.NAIS_CLUSTER_NAME,
     port: process.env.PORT || 8080,

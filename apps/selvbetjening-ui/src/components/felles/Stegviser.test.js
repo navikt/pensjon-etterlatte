@@ -21,27 +21,27 @@ const testSteg = (number) => {
 
 describe("Stegviser", () => {
     it("skal vise riktig steg 1", () => {
-        rr.useLocation.mockReturnValueOnce({ pathname: "/soknad/steg/om-deg" });
+        rr.useLocation.mockReturnValueOnce({ pathname: "/skjema/steg/om-deg" });
         testSteg("1");
     });
     it("skal vise riktig steg 2", () => {
-        rr.useLocation.mockReturnValueOnce({ pathname: "/soknad/steg/om-deg-og-avdoed" });
+        rr.useLocation.mockReturnValueOnce({ pathname: "/skjema/steg/om-deg-og-avdoed" });
         testSteg("2");
     });
     it("skal vise riktig steg 3", () => {
-        rr.useLocation.mockReturnValueOnce({ pathname: "/soknad/steg/om-den-avdoede" });
+        rr.useLocation.mockReturnValueOnce({ pathname: "/skjema/steg/om-den-avdoede" });
         testSteg("3");
     });
     it("skal vise riktig steg 4", () => {
-        rr.useLocation.mockReturnValueOnce({ pathname: "/soknad/steg/din-situasjon" });
+        rr.useLocation.mockReturnValueOnce({ pathname: "/skjema/steg/din-situasjon" });
         testSteg("4");
     });
     it("skal vise riktig steg 5", () => {
-        rr.useLocation.mockReturnValueOnce({ pathname: "/soknad/steg/om-barn" });
+        rr.useLocation.mockReturnValueOnce({ pathname: "/skjema/steg/om-barn" });
         testSteg("5");
     });
     it("skal vise riktig steg 6", () => {
-        rr.useLocation.mockReturnValueOnce({ pathname: "/soknad/steg/oppsummering" });
+        rr.useLocation.mockReturnValueOnce({ pathname: "/skjema/steg/oppsummering" });
         testSteg("6");
     });
 });

@@ -12,7 +12,7 @@ const authProps = {
     enforceLogin: !isLabsCluster,
     redirectToApp: true,
     level: "Level4",
-    logoutUrl: "/logout"
+    logoutUrl: `${config.app.basePath}/logout`
 };
 
 const props = {

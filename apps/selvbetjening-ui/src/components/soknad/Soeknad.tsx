@@ -17,11 +17,11 @@ const Soeknad = () => {
             {!lasterSoeknad && <FortsettSoeknadModal />}
 
             {/* TODO: Kun i dev/qa*/}
-            <Route path={"/soknad/admin"} component={Admin} />
+            <Route path={"/skjema/admin"} component={Admin} />
 
-            <Route path={"/soknad/steg"} component={SoknadDialog} />
+            <Route path={"/skjema/steg"} component={SoknadDialog} />
 
-            <Route path={"/soknad/sendt"} component={SoknadKvittering} />
+            <Route path={"/skjema/sendt"} component={SoknadKvittering} />
 
             <Route exact path={"/"} component={SoknadForside} />
         </>

@@ -40,7 +40,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         sendSoeknad(soeknadBody)
             .then(() => {
                 logData(soeknadOppsummering)
-                history.push(`/soknad/sendt`);
+                history.push(`/skjema/sendt`);
             })
             .catch((error) => {
                 console.log(error);

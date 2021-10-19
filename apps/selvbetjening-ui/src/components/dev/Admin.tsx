@@ -23,7 +23,7 @@ const Admin = () => {
         setState({...state, mocked: true});
 
         setTimeout(() => {
-            history.push("/soknad/steg/oppsummering")
+            history.push("/skjema/steg/oppsummering")
         }, 3500)
     }
 

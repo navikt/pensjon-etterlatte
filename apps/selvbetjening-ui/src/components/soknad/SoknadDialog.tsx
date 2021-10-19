@@ -25,7 +25,7 @@ const SoknadDialog = () => {
 
         const nesteSteg = steg[index + retning]
 
-        history.push(`/soknad/steg/${nesteSteg.path}`)
+        history.push(`/skjema/steg/${nesteSteg.path}`)
     };
 
     const forrige = () => settSteg(-1)
