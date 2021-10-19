@@ -13,7 +13,7 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - https://gjenlevendepensjon.nav.no
+    - https://www.nav.no/gjenlevendepensjon/soknad
   liveness:
     path: /isAlive
     initialDelay: 10
@@ -36,11 +36,6 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    clientUri: https://gjenlevendepensjon.nav.no
-    redirectPath: /oauth2/callback
-    frontchannelLogoutPath: /oauth2/logout
-    postLogoutRedirectURIs:
-      - https://gjenlevendepensjon.nav.no/logout/callback
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
@@ -54,9 +49,9 @@ spec:
     - name: NODE_LOG_LEVEL
       value: info
     - name: IDPORTEN_POST_LOGOUT_REDIRECT_URI
-      value: https://gjenlevendepensjon.nav.no/logout/callback
+      value: https://www.nav.no/gjenlevendepensjon/soknad/logout/callback
     - name: LOGINSERVICE_URL
-      value: https://loginservice.nav.no/login?redirect=https://gjenlevendepensjon.nav.no
+      value: https://loginservice.nav.no/login?redirect=https://www.nav.no/gjenlevendepensjon/soknad
     - name: LOGINSERVICE_LOGOUT_URL
       value: https://loginservice.nav.no/slo
   accessPolicy:
