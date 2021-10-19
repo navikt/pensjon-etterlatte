@@ -34,10 +34,10 @@ class PersonService(
             .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
 
         val bostedsadresse = hentPerson.bostedsadresse
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
         val statsborgerskap = hentPerson.statsborgerskap
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
+            .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
         val sivilstand = hentPerson.sivilstand
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
@@ -45,9 +45,9 @@ class PersonService(
         val foedsel = hentPerson.foedsel
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
-        val poststed = kodeverkService.hentPoststed(bostedsadresse.vegadresse?.postnummer)
+        val poststed = kodeverkService.hentPoststed(bostedsadresse?.vegadresse?.postnummer)
 
-        val land = kodeverkService.hentLand(statsborgerskap.land)
+        val land = kodeverkService.hentLand(statsborgerskap?.land)
 
         return Person(
             fornavn = navn.fornavn,
@@ -55,10 +55,10 @@ class PersonService(
             foedselsnummer = fnr,
             foedselsdato = foedsel?.foedselsdato?.toString(),
             foedselsaar = foedsel?.foedselsaar,
-            adresse = bostedsadresse.vegadresse?.adressenavn,
-            husnummer = bostedsadresse.vegadresse?.husnummer,
-            husbokstav = bostedsadresse.vegadresse?.husbokstav,
-            postnummer = bostedsadresse.vegadresse?.postnummer,
+            adresse = bostedsadresse?.vegadresse?.adressenavn,
+            husnummer = bostedsadresse?.vegadresse?.husnummer,
+            husbokstav = bostedsadresse?.vegadresse?.husbokstav,
+            postnummer = bostedsadresse?.vegadresse?.postnummer,
             poststed = poststed,
             statsborgerskap = land,
             sivilstatus = sivilstand?.type?.name

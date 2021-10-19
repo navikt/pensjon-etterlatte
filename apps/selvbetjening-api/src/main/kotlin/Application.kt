@@ -31,7 +31,7 @@ class ApplicationContext(configLocation: String? = null) {
 
     val personService: PersonService
     val soeknadService: SoeknadService
-    val kodeverkService: KodeverkService
+    private val kodeverkService: KodeverkService
     val securityMediator = SecurityContextMediatorFactory.from(config)
 
     init {
