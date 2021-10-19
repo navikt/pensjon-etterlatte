@@ -32,7 +32,9 @@ fun Route.pdl(config: Config, context: ApplicationContext) {
 
     route("/pdl") {
         val tokenexchangeIssuer = "tokenx"
-        val pdlUrl = config.getString( "no.nav.etterlatte.tjenester.pdl.url")
+        val azureIssuer = "azure"
+        val pdlUrl = config.getString("no.nav.etterlatte.tjenester.pdl.url")
+
         val tokenxKlient = runBlocking {
             config.getString("no.nav.etterlatte.tjenester.ventmedutgaaendekall")?.toLong()?.also {
                 logger.debug("Venter $it sekunder før kall til token-issuers")
@@ -43,8 +45,9 @@ fun Route.pdl(config: Config, context: ApplicationContext) {
 
         post {
             val callId = call.request.header(NavCallId) ?: UUID.randomUUID().toString()
-            val tokenxToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken("tokenx")
-            val azureToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken("azure")
+            val tokenxToken =
+                call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken(tokenexchangeIssuer)
+            val azureToken = call.principal<TokenValidationContextPrincipal>()?.context?.getJwtToken(azureIssuer)
 
             if (azureToken != null) {
                 try {
@@ -57,7 +60,6 @@ fun Route.pdl(config: Config, context: ApplicationContext) {
                     logger.error("Feil i kall mot PDL med AAD: ", cause)
                 }
             } else if (tokenxToken != null) {
-                //endre path
                 val returToken =
                     config.getString("no.nav.etterlatte.tjenester.tokenx.audience")?.let { audience ->
                         tokenxKlient.tokenExchange(
