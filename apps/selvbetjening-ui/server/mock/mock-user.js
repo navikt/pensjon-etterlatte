@@ -1,12 +1,12 @@
 
 const personalia = {
-    adresse: "Fyrstikkaléen",
+    adresse: "Adresse-mock",
     husnummer: 1,
     husbokstav: null,
-    postnummer: "0758",
-    poststed: "Oslo",
-    statsborgerskap: "Norsk",
-    sivilstatus: "Ugift"
+    postnummer: "0000",
+    poststed: "Poststed-mock",
+    statsborgerskap: "Statsborgerskap-mock",
+    sivilstatus: "Sivilstatus-mock"
 }
 
 const SEDAT_RIPSBÆRBUSK = {

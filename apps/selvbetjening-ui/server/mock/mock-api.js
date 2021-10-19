@@ -8,6 +8,8 @@ const {
     STOR_SNERK
 } = require("./mock-user");
 
+const config = require("../config")
+
 const cache = new NodeCache();
 
 const mockApi = (app) => {
@@ -24,9 +26,9 @@ const mockApi = (app) => {
         next();
     });
 
-    app.get("/api/person/innlogget", (req, res) => setTimeout(() => res.json(innloggetBruker), 1000));
+    app.get(`${config.app.basePath}/api/person/innlogget`, (req, res) => setTimeout(() => res.json(innloggetBruker), 1000));
 
-    app.post("/api/api/soeknad", (req, res) => {
+    app.post(`${config.app.basePath}/api/api/soeknad`, (req, res) => {
         let id = cache.get("id");
 
         if (!!id)
@@ -41,14 +43,14 @@ const mockApi = (app) => {
         }, 1000);
     });
 
-    app.get("/api/api/kladd", (req, res) => {
+    app.get(`${config.app.basePath}/api/api/kladd`, (req, res) => {
         const soeknad = cache.get(innloggetBruker.foedselsnummer);
 
         if (!soeknad) res.sendStatus(404);
         else res.json({soeknad})
     });
 
-    app.post("/api/api/kladd", (req, res) => {
+    app.post(`${config.app.basePath}/api/api/kladd`, (req, res) => {
         const soeknad = JSON.stringify(req.body);
 
         cache.set(innloggetBruker.foedselsnummer, soeknad);
@@ -56,7 +58,7 @@ const mockApi = (app) => {
         res.sendStatus(200)
     });
 
-    app.delete("/api/api/kladd", (req, res) => {
+    app.delete(`${config.app.basePath}/api/api/kladd`, (req, res) => {
         cache.del(innloggetBruker.foedselsnummer);
 
         res.sendStatus(200);

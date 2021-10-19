@@ -47,7 +47,6 @@ const setupRedis = () => {
         client: client,
         disableTouch: true,
     });
-
 };
 
 const appSession = setupSession();

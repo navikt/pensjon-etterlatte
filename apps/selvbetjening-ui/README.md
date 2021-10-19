@@ -43,7 +43,7 @@ Grunnet manglende støtte for Token/IDporten lokalt er det ikke mulig å kjøre 
 ## Testmiljøet
 
 Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:
-[https://etterlatteytelser.dev.nav.no](https://etterlatteytelser.dev.nav.no) 
+[https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad](https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad) 
 
 Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via Citrix/Utviklerimage.
 
