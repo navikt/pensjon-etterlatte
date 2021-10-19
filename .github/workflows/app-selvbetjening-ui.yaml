@@ -7,6 +7,14 @@ env:
 on:
   workflow_dispatch: # Allow manually triggered workflow run
     inputs:
+      deploy-labs:
+        description: 'Deploy til labs'
+        required: false
+        default: 'true'
+      deploy-dev:
+        description: 'Deploy til produksjon'
+        required: false
+        default: 'true'
       deploy-prod:
         description: 'Deploy til produksjon'
         required: false
@@ -57,6 +65,7 @@ jobs:
 
   deploy-to-dev-gcp:
     name: Deploy to dev-gcp
+    if: ${{ github.event.inputs.deploy-dev == 'true' }}
     needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
@@ -69,6 +78,7 @@ jobs:
 
   deploy-to-labs-gcp:
     name: Deploy to labs-gcp
+    if: ${{ github.event.inputs.deploy-labs == 'true' }}
     needs: build-and-publish
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -82,7 +92,7 @@ jobs:
 
   deploy-to-prod-gcp:
     name: Deploy to prod-gcp
-    if: ${{ github.event.inputs.deploy-prod }}
+    if: ${{ github.event.inputs.deploy-prod == 'true' }}
     needs: deploy-to-dev-gcp
     runs-on: ubuntu-latest
     steps:
