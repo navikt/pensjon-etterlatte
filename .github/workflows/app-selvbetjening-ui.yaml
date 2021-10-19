@@ -12,7 +12,7 @@ on:
         required: false
         default: 'true'
       deploy-dev:
-        description: 'Deploy til produksjon'
+        description: 'Deploy til dev'
         required: false
         default: 'true'
       deploy-prod:
