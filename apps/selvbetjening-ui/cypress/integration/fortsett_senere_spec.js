@@ -1,9 +1,9 @@
-import { getById } from "../util/cy-functions";
+import { basePath, getById } from "../util/cy-functions";
 
 describe("Skal fortsette og slette tidligere søknad", () => {
     it("Gå til søknad med eksisterende kladd", () => {
-        cy.intercept("GET", "/api/person/innlogget", {fixture: "testbruker"}).as("hentInnloggetPerson");
-        cy.intercept("GET", "/api/api/kladd", {fixture: "kladd"}).as("hentSoeknad");
+        cy.intercept("GET", `${basePath}/api/person/innlogget`, {fixture: "testbruker"}).as("hentInnloggetPerson");
+        cy.intercept("GET", `${basePath}/api/api/kladd`, {fixture: "kladd"}).as("hentSoeknad");
         cy.visit("localhost:3000", {
             onBeforeLoad: (obj) => {
                 Object.defineProperty(obj.navigator, "language", {value: "nb-NO"});
@@ -22,9 +22,9 @@ describe("Skal fortsette og slette tidligere søknad", () => {
     })
 
     it("Start på nytt skal sende deg til startsiden og slette state", () => {
-        cy.intercept("GET", "/api/person/innlogget", {fixture: "testbruker"}).as("hentInnloggetPerson");
-        cy.intercept("GET", "/api/api/kladd", {fixture: "kladd"}).as("hentSoeknad");
-        cy.intercept("DELETE", "/api/api/kladd", {}).as("slettSoeknad");
+        cy.intercept("GET", `${basePath}/api/person/innlogget`, {fixture: "testbruker"}).as("hentInnloggetPerson");
+        cy.intercept("GET", `${basePath}/api/api/kladd`, {fixture: "kladd"}).as("hentSoeknad");
+        cy.intercept("DELETE", `${basePath}/api/api/kladd`, {}).as("slettSoeknad");
 
         cy.reload();
 

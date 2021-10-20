@@ -1,9 +1,9 @@
-import { getById } from "../util/cy-functions";
+import { basePath, getById } from "../util/cy-functions";
 
 describe("Skal avbryte en soeknad", () => {
     it("Gå til søknad med eksisterende kladd", () => {
-        cy.intercept("GET", "/api/person/innlogget", {fixture: "testbruker"}).as("hentInnloggetPerson");
-        cy.intercept("GET", "/api/api/kladd", {fixture: "kladd"}).as("hentSoeknad");
+        cy.intercept("GET", `${basePath}/api/person/innlogget`, {fixture: "testbruker"}).as("hentInnloggetPerson");
+        cy.intercept("GET", `${basePath}/api/api/kladd`, {fixture: "kladd"}).as("hentSoeknad");
         cy.visit("localhost:3000", {
             onBeforeLoad: (obj) => {
                 Object.defineProperty(obj.navigator, "language", {value: "nb-NO"});
@@ -27,7 +27,7 @@ describe("Skal avbryte en soeknad", () => {
     it("Avbryt og slett søknad", () => {
         getById("avbryt-btn").click();
 
-        cy.intercept("DELETE", "/api/api/kladd", {}).as("slettSoeknad");
+        cy.intercept("DELETE", `${basePath}/api/api/kladd`, {}).as("slettSoeknad");
         getById("avbryt-ja-btn").click();
         cy.url().should("include", "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/ytelser-til-gjenlevende-ektefelle");
     })
