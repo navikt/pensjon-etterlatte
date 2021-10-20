@@ -11,6 +11,7 @@ class AppBuilder(private val props: Map<String, String>) {
     companion object {
         private const val CONFIG_PDF_URL = "PDF_URL"
         private const val CONFIG_DOKARKIV_URL = "DOKARKIV_URL"
+        private const val CONFIG_AZURE_DOKARKIV_SCOPE = "AZURE_DOKARKIV_SCOPE"
     }
 
     fun genererPdf() = PdfGenerator(pdfhttpclient(), props[CONFIG_PDF_URL]!!)
@@ -21,7 +22,7 @@ class AppBuilder(private val props: Map<String, String>) {
         install(Auth) {
             clientCredential {
                 config = System.getenv().toMutableMap().apply {
-                    put("AZURE_APP_OUTBOUND_SCOPE", "api://dev-fss.etterlatte.etterlatte-proxy/.default")
+                    put("AZURE_APP_OUTBOUND_SCOPE", props[CONFIG_AZURE_DOKARKIV_SCOPE])
                 }
             }
         }
