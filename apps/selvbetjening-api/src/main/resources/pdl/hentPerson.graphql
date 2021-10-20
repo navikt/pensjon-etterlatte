@@ -1,5 +1,8 @@
 query($ident: ID!) {
     hentPerson(ident: $ident) {
+        adressebeskyttelse(historikk: false) {
+            gradering
+        }
         bostedsadresse {
             vegadresse {
                 ...vegadresseDetails
