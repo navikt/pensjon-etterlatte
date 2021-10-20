@@ -36,6 +36,9 @@ spec:
     enabled: true
   idporten:
     enabled: true
+    clientUri: https://www.dev.nav.no
+    postLogoutRedirectURIs:
+      - https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
