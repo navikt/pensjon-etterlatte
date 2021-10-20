@@ -1,13 +1,14 @@
 {
   "data": {
     "hentPerson": {
+      "adressebeskyttelse": [],
       "bostedsadresse": [
         {
           "vegadresse": {
             "husbokstav": null,
             "husnummer": "30",
             "adressenavn": "Hamnavikvegen",
-            "postnummer": "6456",
+            "postnummer": "0380",
             "kommunenummer": "1506",
             "bydelsnummer": null
           },

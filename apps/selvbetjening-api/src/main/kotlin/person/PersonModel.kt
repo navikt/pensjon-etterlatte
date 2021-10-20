@@ -8,6 +8,7 @@ data class Person(
     val foedselsnummer: Foedselsnummer,
     val foedselsaar: Int?,
     val foedselsdato: String?,
+    val adressebeskyttelse: Boolean,
     val adresse: String?,
     val husnummer: String?,
     val husbokstav: String?,

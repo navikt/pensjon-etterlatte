@@ -36,7 +36,8 @@ internal class PersonServiceTest {
 
     private val personKlient = mockk<PersonKlient>()
     private val kodeverkService = mockk<KodeverkService> {
-        coEvery { hentPoststed(any()) } returns "Skåla"
+        coEvery { hentPoststed("0380") } returns "Skåla"
+        coEvery { hentPoststed(null) } returns null
         coEvery { hentLand(any()) } returns "Norge"
     }
 
@@ -65,9 +66,10 @@ internal class PersonServiceTest {
         assertEquals("Hamnavikvegen", person.adresse)
         assertEquals("30", person.husnummer)
         assertNull(person.husbokstav)
-        assertEquals("6456", person.postnummer)
+        assertEquals("0380", person.postnummer)
         assertEquals("Skåla", person.poststed)
         assertEquals("Norge", person.statsborgerskap)
+        assertEquals(false, person.adressebeskyttelse)
         assertNull(person.sivilstatus)
     }
 
@@ -80,6 +82,22 @@ internal class PersonServiceTest {
         }
 
         assertEquals(Sivilstandstype.ENKE_ELLER_ENKEMANN.name, person.sivilstatus)
+    }
+
+    @Test
+    fun `Person med adressebeskyttelse mappes korrekt`() {
+        coEvery { personKlient.hentPerson(any()) } returns opprettResponse("/pdl/adressebeskyttetPerson.json")
+
+        val person = runBlocking {
+            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT))
+        }
+
+        assertEquals(true, person.adressebeskyttelse)
+        assertNull(person.adresse)
+        assertNull(person.husbokstav)
+        assertNull(person.husnummer)
+        assertNull(person.postnummer)
+        assertNull(person.poststed)
     }
 
     @Test

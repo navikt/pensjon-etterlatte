@@ -10,6 +10,7 @@ import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.kodeverk.Betydning
 import no.nav.etterlatte.kodeverk.KodeverkResponse
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 
@@ -26,9 +27,9 @@ internal class KodeverkServiceTest {
     @Test
     fun `Postnummer er null eller blankt`() {
         runBlocking {
-            assertEquals("", service.hentPoststed(null))
-            assertEquals("", service.hentPoststed(""))
-            assertEquals("", service.hentPoststed(" "))
+            assertNull(service.hentPoststed(null))
+            assertNull(service.hentPoststed(""))
+            assertNull(service.hentPoststed(" "))
         }
 
         coVerify(exactly = 0) { mockKlient.hentPoststed(POSTNR_OSLO) }

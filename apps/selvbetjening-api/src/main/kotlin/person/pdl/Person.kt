@@ -1,6 +1,7 @@
 package no.nav.etterlatte.person.pdl
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import no.nav.etterlatte.libs.common.pdl.Adressebeskyttelse
 import no.nav.etterlatte.libs.common.pdl.ResponseError
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -16,6 +17,7 @@ data class PersonResponseData(
 )
 
 data class HentPerson(
+    val adressebeskyttelse: List<Adressebeskyttelse>,
     val bostedsadresse: List<Bostedsadresse>,
     val navn: List<Navn>,
     val statsborgerskap: List<Statsborgerskap>,

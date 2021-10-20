@@ -2,6 +2,9 @@ package no.nav.etterlatte.person
 
 import io.ktor.features.NotFoundException
 import no.nav.etterlatte.kodeverk.KodeverkService
+import no.nav.etterlatte.libs.common.pdl.Gradering.FORTROLIG
+import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
+import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
 import no.nav.etterlatte.libs.common.pdl.ResponseError
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.pdl.HentPerson
@@ -12,6 +15,7 @@ class PersonService(
     private val kodeverkService: KodeverkService
 ) {
     private val logger = LoggerFactory.getLogger(PersonService::class.java)
+    private val adressebeskyttet = listOf(FORTROLIG, STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND)
 
     suspend fun hentPerson(fnr: Foedselsnummer): Person {
         val response = klient.hentPerson(fnr)
@@ -32,6 +36,9 @@ class PersonService(
     ): Person {
         val navn = hentPerson.navn
             .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
+
+        val adressebeskyttelse = hentPerson.adressebeskyttelse
+            .any { it.gradering in adressebeskyttet }
 
         val bostedsadresse = hentPerson.bostedsadresse
             .maxByOrNull { it.metadata.sisteRegistrertDato() }
@@ -55,6 +62,7 @@ class PersonService(
             foedselsnummer = fnr,
             foedselsdato = foedsel?.foedselsdato?.toString(),
             foedselsaar = foedsel?.foedselsaar,
+            adressebeskyttelse = adressebeskyttelse,
             adresse = bostedsadresse?.vegadresse?.adressenavn,
             husnummer = bostedsadresse?.vegadresse?.husnummer,
             husbokstav = bostedsadresse?.vegadresse?.husbokstav,

@@ -6,8 +6,8 @@ import java.time.LocalDate
 class KodeverkService(private val klient: Kodeverk) {
     private val logger = LoggerFactory.getLogger(KodeverkService::class.java)
 
-    suspend fun hentPoststed(postnr: String?): String {
-        if (postnr.isNullOrBlank()) return ""
+    suspend fun hentPoststed(postnr: String?): String? {
+        if (postnr.isNullOrBlank()) return null
 
         logger.info("Henter poststed for postnummer $postnr")
 
