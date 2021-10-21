@@ -32,6 +32,10 @@ class DokarkivKlient(private val client: HttpClient, private val baseUrl: String
                 body = request
             }
 
+            if(retur.status.value != 200) {
+                throw Exception("Kall mot dokarkiv feilet")
+            }
+
             retur.receive()
         } catch (cause: ResponseException) {
             if (cause.response.status.value == 409) {
