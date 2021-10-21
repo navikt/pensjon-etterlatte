@@ -28,21 +28,7 @@ export const useAmplitude = () => {
             logEvent(LogEvents.SIDEVISNING);
         }
         setPrevLocation(location);
-    }, [location]);
-
-    const getByKey = (object: any, key: string): any => {
-        if (object.hasOwnProperty("key") && object["key"] === key) {
-            return object;
-        }
-        for (let i = 0; i < Object.keys(object).length; i++) {
-            if (typeof object[Object.keys(object)[i]] == "object") {
-                const o = getByKey(object[Object.keys(object)[i]], key);
-                if (o != null) return o;
-            }
-        }
-
-        return null;
-    };
+    }, [location])
 
     const logEvent = (eventName: LogEvents, eventData?: any): void => {
         setTimeout(() => {
