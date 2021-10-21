@@ -14,9 +14,6 @@ import java.time.temporal.ChronoUnit
  * @see <a href="https://www.skatteetaten.no/person/folkeregister/fodsel-og-navnevalg/barn-fodt-i-norge/fodselsnummer">Skatteetaten om fødselsnummer</a>
  */
 class Foedselsnummer private constructor(@JsonValue val value: String) {
-    private val controlDigits1 = intArrayOf(3, 7, 6, 1, 8, 9, 4, 5, 2)
-    private val controlDigits2 = intArrayOf(5, 4, 3, 2, 7, 6, 5, 4, 3, 2)
-
     init {
         require(FoedselsnummerValidator.isValid(value))
     }

@@ -1,6 +1,7 @@
 {
   "@event_name": "soeknad_innsendt",
   "@fnr_soeker": "07106123912",
+  "@lagret_soeknad_id": "404",
   "@skjema_info":  {
     "soeker": {
       "fornavn": "Test",

@@ -2,6 +2,7 @@ package no.nav.etterlatte.pdl
 
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelsePerson
 import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.slf4j.LoggerFactory
 
 class AdressebeskyttelseService(private val klient: Pdl) {
@@ -15,16 +16,11 @@ class AdressebeskyttelseService(private val klient: Pdl) {
      * @return Gyldig gradering av PDL-typen [Gradering].
      *  Gir verdi [Gradering.UGRADERT] dersom ingenting er funnet.
      */
-    suspend fun hentGradering(fnr: List<String>): Gradering {
-        val personListe = klient.finnAdressebeskyttelseForFnr(fnr).data
-            ?.hentPersonBolk
-            ?.mapNotNull { it.person }
+    suspend fun hentGradering(fnr: Foedselsnummer): Gradering {
+        val person = klient.finnAdressebeskyttelseForFnr(fnr).data?.hentPerson
+            ?: throw Exception("Fant ingen personer i PDL med fnr: $fnr")
 
-        // TODO: Avklare hvordan vi skal løse problemet dersom ingen personer blir funnet i PDL...
-        if (personListe.isNullOrEmpty())
-            throw Exception("Fant ingen personer i PDL med fnr: $fnr")
-
-        return hentPrioritertGradering(personListe)
+        return hentPrioritertGradering(person)
             .also { logger.info("Fant $it i liste over fnr: $fnr") }
     }
 
@@ -33,8 +29,8 @@ class AdressebeskyttelseService(private val klient: Pdl) {
      *
      * @return [Gradering]
      */
-    private fun hentPrioritertGradering(personer: List<AdressebeskyttelsePerson>): Gradering =
-        personer.flatMap { it.adressebeskyttelse }
+    private fun hentPrioritertGradering(person: AdressebeskyttelsePerson): Gradering =
+        person.adressebeskyttelse
             .mapNotNull { it.gradering }
             .minOrNull()
             ?: Gradering.UGRADERT

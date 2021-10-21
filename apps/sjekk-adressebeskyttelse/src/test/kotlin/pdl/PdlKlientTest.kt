@@ -8,12 +8,19 @@ import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.ContentType
 import io.ktor.http.fullPath
 import io.ktor.http.headersOf
+import io.mockk.every
+import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 internal class PdlKlientTest {
+
+    private val fnr = mockk<Foedselsnummer> {
+        every { value } returns "1234"
+    }
 
     @Test
     fun sjekkAdressebeskyttelse() {
@@ -36,12 +43,11 @@ internal class PdlKlientTest {
         }
 
         runBlocking {
-            PdlKlient(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(listOf("12334466","4231423142","234234325")).also {
+            PdlKlient(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(fnr).also {
                 //fikset, men dette er ikke pen
                 assertEquals(Gradering.FORTROLIG, it.data!!.hentPersonBolk!![0].person!!.adressebeskyttelse[0].gradering)
             }
         }
-
     }
 
 }

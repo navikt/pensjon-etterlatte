@@ -1,7 +1,7 @@
 package no.nav.etterlatte
 
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.libs.common.pdl.Gradering.UGRADERT
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.pdl.AdressebeskyttelseService
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
@@ -18,28 +18,24 @@ internal class SjekkAdressebeskyttelse(
 
     init {
         River(rapidsConnection).apply {
-            validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@fnr_soeker") }
+            validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.rejectKey("@adressebeskyttelse") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        val identer = FnrHelper.finnAlleFnr(packet["@skjema_info"])
+        val soeknadId = packet["@lagret_soeknad_id"].asText()
+        val fnrSoeker = Foedselsnummer.of(packet["@fnr_soeker"].asText())
 
-        logger.info("Fant ${identer.size} i søknaden")
+        logger.info("Sjekker adressebeskyttelse for søknad med ID: $soeknadId")
 
-        if (identer.isNotEmpty()) {
-            runBlocking {
-                val gradering = adressebeskyttelseService.hentGradering(identer)
+        runBlocking {
+            val gradering = adressebeskyttelseService.hentGradering(fnrSoeker)
 
-                packet["@adressebeskyttelse"] = gradering.name
-                logger.info("vurdert adressebeskyttelse til ${gradering.name}")
-                context.publish(packet.toJson())
-            }
-        } else {
-            packet["@adressebeskyttelse"] = UGRADERT
-            logger.error("Ingen fødselsnummer funnet i dokumentet")
+            packet["@adressebeskyttelse"] = gradering.name
+            logger.info("vurdert adressebeskyttelse til ${gradering.name}")
+            context.publish(packet.toJson())
         }
     }
 

@@ -1,6 +1,7 @@
 package pdl
 
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.pdl.Adressebeskyttelse
@@ -9,6 +10,7 @@ import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelsePerson
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.pdl.HentAdressebeskyttelse
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.pdl.AdressebeskyttelseService
 import no.nav.etterlatte.pdl.PdlKlient
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -18,8 +20,11 @@ import org.junit.jupiter.api.assertThrows
 internal class AdressebeskyttelseServiceTest {
 
     private val mockKlient = mockk<PdlKlient>()
-
     private val service = AdressebeskyttelseService(mockKlient)
+
+    private val fnr = mockk<Foedselsnummer> {
+        every { value } returns "1234"
+    }
 
     @Test
     fun `Gradering funnet og prioritert korrekt - STRENGT_FORTROLIG_UTLAND`() {
@@ -28,7 +33,7 @@ internal class AdressebeskyttelseServiceTest {
         } returns mockResponse(Gradering.FORTROLIG, null, null, Gradering.STRENGT_FORTROLIG_UTLAND)
 
         runBlocking {
-            val gradering = service.hentGradering(listOf("1", "2"))
+            val gradering = service.hentGradering(fnr)
 
             assertEquals(Gradering.STRENGT_FORTROLIG_UTLAND, gradering)
         }
@@ -41,7 +46,7 @@ internal class AdressebeskyttelseServiceTest {
         } returns mockResponse(Gradering.FORTROLIG, null, null, Gradering.STRENGT_FORTROLIG, null, Gradering.FORTROLIG)
 
         runBlocking {
-            val gradering = service.hentGradering(listOf("1", "2"))
+            val gradering = service.hentGradering(fnr)
 
             assertEquals(Gradering.STRENGT_FORTROLIG, gradering)
         }
@@ -54,7 +59,7 @@ internal class AdressebeskyttelseServiceTest {
         } returns mockResponse(Gradering.FORTROLIG, null, null, null, Gradering.FORTROLIG)
 
         runBlocking {
-            val gradering = service.hentGradering(listOf("1", "2"))
+            val gradering = service.hentGradering(fnr)
 
             assertEquals(Gradering.FORTROLIG, gradering)
         }
@@ -67,7 +72,7 @@ internal class AdressebeskyttelseServiceTest {
         } returns mockResponse(null, null, null, null)
 
         runBlocking {
-            val gradering = service.hentGradering(listOf("1", "2"))
+            val gradering = service.hentGradering(fnr)
 
             assertEquals(Gradering.UGRADERT, gradering)
         }
@@ -81,7 +86,7 @@ internal class AdressebeskyttelseServiceTest {
 
         assertThrows<Exception> {
             runBlocking {
-                service.hentGradering(listOf("1", "2"))
+                service.hentGradering(fnr)
             }
         }
     }
@@ -94,19 +99,15 @@ internal class AdressebeskyttelseServiceTest {
 
         assertThrows<Exception> {
             runBlocking {
-                service.hentGradering(listOf("1", "2"))
+                service.hentGradering(fnr)
             }
         }
     }
 
     private fun mockResponse(vararg graderinger: Gradering?) = AdressebeskyttelseResponse(
         data = HentAdressebeskyttelse(
-            listOf(
-                AdressebeskyttelseBolkPerson(
-                    AdressebeskyttelsePerson(
-                        graderinger.mapNotNull { Adressebeskyttelse(it) }
-                    )
-                )
+            hentPerson = AdressebeskyttelsePerson(
+                graderinger.mapNotNull { Adressebeskyttelse(it) }
             )
         )
     )
