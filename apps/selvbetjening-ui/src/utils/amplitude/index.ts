@@ -1,7 +1,6 @@
 import amplitude from "amplitude-js";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Gruppe } from "../ObjectTreeReader";
 
 export enum LogEvents {
     AAPNE_SOKNAD = "skjema startet",
@@ -45,19 +44,6 @@ export const useAmplitude = () => {
         return null;
     };
 
-    /*
-     ** Funksjon for logging av enkeltsvar
-     ** NB! Ikke logg svar ukritisk. Ikke logg persondata
-     */
-    const logData = (oppsummering: Gruppe[]) => {
-        const omDegOgAvdoed = getByKey(oppsummering, "omDegOgAvdoed.forholdTilAvdoede.relasjon").svar;
-        logEvent(LogEvents.SEND_SOKNAD, {
-            svar: {
-                relasjonTilAvdoed: omDegOgAvdoed
-            }
-        });
-    };
-
     const logEvent = (eventName: LogEvents, eventData?: any): void => {
         setTimeout(() => {
             try {
@@ -69,5 +55,5 @@ export const useAmplitude = () => {
             }
         }, 0);
     };
-    return { logEvent, logData };
+    return { logEvent };
 };

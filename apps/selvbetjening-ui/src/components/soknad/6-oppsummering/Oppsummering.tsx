@@ -12,7 +12,7 @@ import SoeknadMapper from "../../../utils/SoeknadMapper";
 import { sendSoeknad } from "../../../api/api";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
-import { useAmplitude } from "../../../utils/amplitude";
+import { LogEvents, useAmplitude } from "../../../utils/amplitude";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
@@ -21,7 +21,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     const { state: soeknad } = useSoknadContext();
     const { state: bruker } = useBrukerContext();
-    const { logData } = useAmplitude();
+    const { logEvent } = useAmplitude();
 
     const [senderSoeknad, setSenderSoeknad] = useState(false);
     const [error, setError] = useState(false);
@@ -39,7 +39,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         const soeknadBody = { oppsummering: soeknadOppsummering }
         sendSoeknad(soeknadBody)
             .then(() => {
-                logData(soeknadOppsummering)
+                logEvent(LogEvents.SEND_SOKNAD);
                 history.push(`/skjema/sendt`);
             })
             .catch((error) => {
