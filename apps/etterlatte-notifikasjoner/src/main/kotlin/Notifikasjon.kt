@@ -39,7 +39,12 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
                     "@notifikasjon" to "Notifikasjon sendt",
                 )
             ).apply {
-                rapid.publish("SendNotifikasjon " + journalpostId.textValue(), toJson())
+                try {
+                    rapid.publish("SendNotifikasjon " + journalpostId.textValue(), toJson())
+                } catch (err: Exception) {
+                    logger.error("Uhaandtert feilsituasjon. Ingen notifikasjon opprettet: ", err)
+                }
+
             }
             logger.info("Notifikasjon til bruker opprettet")
         }
