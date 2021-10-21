@@ -45,8 +45,8 @@
       "innhold": "Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om attlevandepensjon og barnepensjon i denne søknaden."
     },
     "uthentingAvInfo": {
-      "tittel": "Vi vil hente informasjon",
-      "innhold": "For at vi skal kunne behandle søknaden din, må vi hente informasjon om deg, avdøde og eventuelle barn. \n\nVi hentar:\n",
+      "tittel": "Vi vil hente inn informasjon",
+      "innhold": "For at vi skal kunne behandle søknaden din, må vi innhente informasjon om deg, avdøde, eventuelle barn og eventuell sambuar. \n\nVi innhentar:\n",
       "innholdListe": {
         "li1": "<strong>Personinformasjon</strong> frå Folkeregisteret",
         "li2": "<strong>Inntektsinformasjon</strong> frå Skatteetaten",
