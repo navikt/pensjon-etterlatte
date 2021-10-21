@@ -1,3 +1,5 @@
+import org.codehaus.groovy.tools.shell.util.Logger.io
+
 object NavFelles {
     const val RapidAndRivers = "com.github.navikt:rapids-and-rivers:20210617121814-3e67e4d"
     const val TokenClientCore = "no.nav.security:token-client-core:1.3.3"
@@ -72,5 +74,7 @@ object MockK {
 }
 
 object Kotest {
-    const val AssertionsCore = "io.kotest:kotest-assertions-core:4.6.3"
+    private const val version = "4.6.3"
+
+    const val AssertionsCore = "io.kotest:kotest-assertions-core:$version"
 }

@@ -21,6 +21,7 @@ dependencies {
     testImplementation(Jupiter.Api)
     testImplementation(Jupiter.Params)
     testRuntimeOnly(Jupiter.Engine)
+    testImplementation(Kotest.AssertionsCore)
 }
 
 tasks {

@@ -2,7 +2,6 @@ package no.nav.etterlatte.libs.common.person
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonValue
-import java.math.BigInteger
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -15,14 +14,8 @@ import java.time.temporal.ChronoUnit
  * @see <a href="https://www.skatteetaten.no/person/folkeregister/fodsel-og-navnevalg/barn-fodt-i-norge/fodselsnummer">Skatteetaten om fødselsnummer</a>
  */
 class Foedselsnummer private constructor(@JsonValue val value: String) {
-    private val controlDigits1 = intArrayOf(3, 7, 6, 1, 8, 9, 4, 5, 2)
-    private val controlDigits2 = intArrayOf(5, 4, 3, 2, 7, 6, 5, 4, 3, 2)
-
     init {
-        require(Regex("\\d{11}").matches(value)) { "Ikke et gyldig fødselsnummer: $value" }
-        require(value.toBigInteger() > BigInteger.ZERO) { "Ikke et gyldig fødselsnummer: $value" }
-        require(!(isHNumber() || isFhNumber())) { "Impelentasjonen støtter ikke H-nummer og FH-nummer" }
-        require(validateControlDigits()) { "Ugyldig kontrollnummer" }
+        require(FoedselsnummerValidator.isValid(value))
     }
 
     companion object {
@@ -36,12 +29,7 @@ class Foedselsnummer private constructor(@JsonValue val value: String) {
             }
 
         fun isValid(fnr: String?): Boolean =
-            try {
-                Foedselsnummer(fnr!!.replace(Regex("[^0-9]"), ""))
-                true
-            } catch (e: Exception) {
-                false
-            }
+            FoedselsnummerValidator.isValid(fnr!!.replace(Regex("[^0-9]"), ""))
     }
 
 
@@ -111,40 +99,6 @@ class Foedselsnummer private constructor(@JsonValue val value: String) {
      */
 
     private fun isFhNumber(): Boolean = Character.getNumericValue(value[0]) in 8..9
-
-    /**
-     * Validate control digits.
-     */
-    private fun validateControlDigits(): Boolean {
-        val ks1 = Character.getNumericValue(value[9])
-
-        val c1 = mod(controlDigits1)
-        if (c1 == 10 || c1 != ks1) {
-            return false
-        }
-
-        val c2 = mod(controlDigits2)
-        if (c2 == 10 || c2 != Character.getNumericValue(value[10])) {
-            return false
-        }
-
-        return true
-    }
-
-    /**
-     * Control Digits 1:
-     *  k1 = 11 - ((3 × d1 + 7 × d2 + 6 × m1 + 1 × m2 + 8 × å1 + 9 × å2 + 4 × i1 + 5 × i2 + 2 × i3) mod 11)
-     *
-     * Control Digits 2
-     *  k2 = 11 - ((5 × d1 + 4 × d2 + 3 × m1 + 2 × m2 + 7 × å1 + 6 × å2 + 5 × i1 + 4 × i2 + 3 × i3 + 2 × k1) mod 11)
-     */
-    private fun mod(arr: IntArray): Int {
-        val sum = arr.withIndex()
-            .sumOf { (i, m) -> m * Character.getNumericValue(value[i]) }
-
-        val result = 11 - (sum % 11)
-        return if (result == 11) 0 else result
-    }
 
     override fun equals(other: Any?): Boolean = this.value == (other as Foedselsnummer?)?.value
 

@@ -2,27 +2,42 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
+import io.mockk.clearAllMocks
+import io.mockk.coEvery
+import io.mockk.every
+import io.mockk.mockk
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.pdl.AdressebeskyttelseService
 import no.nav.etterlatte.pdl.Pdl
+import no.nav.etterlatte.pdl.PdlKlient
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 internal class FinnAdressebeskyttelseTest {
 
+    private val klientMock = mockk<PdlKlient>()
+    private val service = AdressebeskyttelseService(klientMock)
+
+    private val hendelseJson = javaClass.getResource("/OppdaterJournalpostInfoTest1.json")!!.readText()
+
+    @AfterEach
+    fun afterEach() {
+        clearAllMocks()
+    }
+
     @Test
     fun testFeltMapping() {
-        val json = getTestResource("/OppdaterJournalpostInfoTest1.json")
+        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons(Gradering.FORTROLIG, Gradering.STRENGT_FORTROLIG)
+
         val inspector = TestRapid()
-            .apply { SjekkAdressebeskyttelse(this, AdressebeskyttelseService(PdlKlientMock("/pdlMock1.json"))) }
-            .apply {
-                sendTestMessage(
-                    json
-                )
-            }.inspektør
+            .apply { SjekkAdressebeskyttelse(this, service) }
+            .apply { sendTestMessage(hendelseJson) }
+            .inspektør
 
         assertEquals(
             Gradering.STRENGT_FORTROLIG.name,
@@ -32,14 +47,12 @@ internal class FinnAdressebeskyttelseTest {
 
     @Test
     fun testTomResponse() {
-        val json = getTestResource("/OppdaterJournalpostInfoTest1.json")
+        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons()
+
         val inspector = TestRapid()
-            .apply { SjekkAdressebeskyttelse(this, AdressebeskyttelseService(PdlKlientMock("/pdlMock2.json"))) }
-            .apply {
-                sendTestMessage(
-                    json
-                )
-            }.inspektør
+            .apply { SjekkAdressebeskyttelse(this, service) }
+            .apply { sendTestMessage(hendelseJson) }
+            .inspektør
 
         assertEquals(
             Gradering.UGRADERT.name,
@@ -48,30 +61,13 @@ internal class FinnAdressebeskyttelseTest {
     }
 
     @Test
-    fun testIkkeForstaaeligRetur() {
-        val json = getTestResource("/OppdaterJournalpostInfoTest1.json")
-
-        assertThrows<Exception> {
-            TestRapid()
-                .apply { SjekkAdressebeskyttelse(this, AdressebeskyttelseService(PdlKlientMock("/pdlMock3.json"))) }
-                .apply {
-                    sendTestMessage(
-                        json
-                    )
-                }.inspektør
-        }
-    }
-
-    @Test
     fun testenTomOgEnVanlig() {
-        val json = getTestResource("/OppdaterJournalpostInfoTest1.json")
+        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons(Gradering.UGRADERT, Gradering.STRENGT_FORTROLIG_UTLAND)
+
         val inspector = TestRapid()
-            .apply { SjekkAdressebeskyttelse(this, AdressebeskyttelseService(PdlKlientMock("/pdlMock4.json"))) }
-            .apply {
-                sendTestMessage(
-                    json
-                )
-            }.inspektør
+            .apply { SjekkAdressebeskyttelse(this, service) }
+            .apply { sendTestMessage(hendelseJson) }
+            .inspektør
 
         assertEquals(
             Gradering.STRENGT_FORTROLIG_UTLAND.name,
@@ -79,56 +75,20 @@ internal class FinnAdressebeskyttelseTest {
         )
     }
 
-    @Test
-    fun faktiskTomRetur() {
-        val json = getTestResource("/OppdaterJournalpostInfoTest1.json")
-        val inspector = TestRapid()
-            .apply { SjekkAdressebeskyttelse(this, AdressebeskyttelseService(PdlKlientMock("/pdl-faktisk.json"))) }
-            .apply {
-                sendTestMessage(
-                    json
-                )
-            }.inspektør
+    private fun opprettRespons(vararg gradering: Gradering): AdressebeskyttelseResponse {
+        val graderingString = gradering.joinToString { "{\"gradering\" : \"$it\"}" }
 
-        assertEquals(
-            Gradering.UGRADERT.name,
-            inspector.message(0).get("@adressebeskyttelse").asText()
-        )
-    }
+        val json = """
+            {
+              "data": {
+                "hentPerson": {
+                  "adressebeskyttelse": [$graderingString] 
+                }
+              }
+            }
+        """
 
-    @Test
-    fun faktiskTomRetur2() {
-        val json = getTestResource("/OppdaterJournalpostInfoTest1.json")
-        val inspector = TestRapid()
-            .apply { SjekkAdressebeskyttelse(this, AdressebeskyttelseService(PdlKlientMock("/pdl-faktisk2.json"))) }
-            .apply {
-                sendTestMessage(
-                    json
-                )
-            }.inspektør
-
-        assertEquals(
-            Gradering.UGRADERT.name,
-            inspector.message(0).get("@adressebeskyttelse").asText()
-        )
-    }
-
-    fun getTestResource( file: String): String {
-        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
+        return jacksonObjectMapper().readValue(json, jacksonTypeRef())
     }
 
 }
-
-private class PdlKlientMock(private val file: String) : Pdl {
-    override suspend fun finnAdressebeskyttelseForFnr(identer: List<String>): AdressebeskyttelseResponse {
-        val mapper = jacksonObjectMapper()
-        val json = getTestResource(file)
-
-        return mapper.readValue(json, jacksonTypeRef<AdressebeskyttelseResponse>())
-    }
-    fun getTestResource( file: String): String {
-        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
-    }
-}
-
-

@@ -14,8 +14,10 @@ data class AdressebeskyttelseResponse(
     val errors: List<ResponseError>? = null
 )
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class HentAdressebeskyttelse(
-    val hentPersonBolk: List<AdressebeskyttelseBolkPerson>? = null
+    val hentPersonBolk: List<AdressebeskyttelseBolkPerson>? = null,
+    val hentPerson: AdressebeskyttelsePerson? = null
 )
 
 /**
@@ -33,6 +35,7 @@ data class AdressebeskyttelseBolkPerson(
  *
  * @param adressebeskyttelse: Liste over adressebeskyttelser registrert på personen.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class AdressebeskyttelsePerson(
     val adressebeskyttelse: List<Adressebeskyttelse>
 )

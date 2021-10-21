@@ -9,10 +9,11 @@ import io.ktor.http.contentType
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.GraphqlRequest
 import no.nav.etterlatte.libs.common.pdl.Variables
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.slf4j.LoggerFactory
 
 interface Pdl {
-    suspend fun finnAdressebeskyttelseForFnr(fnr: List<String>): AdressebeskyttelseResponse
+    suspend fun finnAdressebeskyttelseForFnr(fnr: Foedselsnummer): AdressebeskyttelseResponse
 }
 
 class PdlKlient(private val client: HttpClient, private val apiUrl: String) : Pdl {
@@ -26,10 +27,10 @@ class PdlKlient(private val client: HttpClient, private val apiUrl: String) : Pd
      *
      * @return [AdressebeskyttelseResponse]: Responsobjekt fra PDL.
      */
-    override suspend fun finnAdressebeskyttelseForFnr(fnr: List<String>): AdressebeskyttelseResponse {
+    override suspend fun finnAdressebeskyttelseForFnr(fnr: Foedselsnummer): AdressebeskyttelseResponse {
         val query = hentQuery()
 
-        val request = GraphqlRequest(query, Variables(identer = fnr))
+        val request = GraphqlRequest(query, Variables(ident = fnr.value))
 
         val response = client.post<AdressebeskyttelseResponse>(apiUrl) {
             header("Tema", "PEN")
