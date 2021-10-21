@@ -20,9 +20,6 @@ Proxy for å tillate kommunikasjon mellom GCP og On-Prem.
 [ey-pdfgen](apps/ey-pdfgen) \
 Enkel app for opprettelse av PDF til journalføring. Benytter seg av [pdfgen](https://github.com/navikt/pdfgen)
 
-[finn-fnr-soeknad](apps/finn-fnr-soeknad) \
-Finner alle mulige fnr. (11 siffer) i en søknad og validerer de. Videresender alle gyldige fnr.  
-
 [heartbeat](apps/heartbeat) \
 `// TODO`
 

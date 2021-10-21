@@ -8,7 +8,6 @@ include(
     "apps:selvbetjening-api",
     "apps:journalfoer-soeknad",
     "apps:innsendt-soeknad",
-    "apps:finn-fnr-soeknad",
     "apps:sjekk-adressebeskyttelse",
     "apps:journalpost-info",
     "apps:etterlatte-notifikasjoner",

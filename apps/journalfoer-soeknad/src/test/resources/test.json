@@ -81,11 +81,6 @@
   "system_read_count": 2,
   "system_participating_services": [
     {
-      "service": "finn-fnr-soeknad",
-      "instance": "finn-fnr-soeknad-575dc7ff5c-9h8wv",
-      "time": "2021-06-02T13:15:15.074285"
-    },
-    {
       "service": "sjekk-adressebeskyttelse",
       "instance": "sjekk-adressebeskyttelse-58c546dd4f-xw9rs",
       "time": "2021-06-02T13:15:15.709885"

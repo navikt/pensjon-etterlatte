@@ -24,10 +24,24 @@
     "skalIkkeBliMed": "00059581835823582385",
     "skalIkkeBliMed2": "1234"
   },
-  "tenorFNR": {
-    "fornavn": "Tenor",
-    "etternavn": "FNR",
-    "fnr": "21929774873"
+  "nøstetFnr": {
+    "endaLengerInn": {
+      "tenorFNR": {
+        "fornavn": "Tenor",
+        "etternavn": "FNR",
+        "fnr": "21929774873"
+      },
+      "andreTall": {
+        "kode": "12345678",
+        "skalIkkeBliMed": "24014021406123456",
+        "skalIkkeBliMed2": "1234"
+      },
+      "fjerntFamiliemedlem": {
+        "fornavn": "Ding",
+        "etternavn": "Dong",
+        "ident": "24014021406"
+      }
+    }
   },
   "tenorDNR": {
     "fornavn": "Tenor",

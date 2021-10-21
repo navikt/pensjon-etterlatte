@@ -40,9 +40,6 @@ spec:
       application: sjekk-adressebeskyttelse
       access: readwrite
     - team: etterlatte
-      application: finn-fnr-soeknad
-      access: readwrite
-    - team: etterlatte
       application: journalpost-info
       access: readwrite
     - team: etterlatte

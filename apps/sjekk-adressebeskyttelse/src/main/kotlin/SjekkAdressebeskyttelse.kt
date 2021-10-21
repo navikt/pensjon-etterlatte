@@ -18,13 +18,16 @@ internal class SjekkAdressebeskyttelse(
 
     init {
         River(rapidsConnection).apply {
-            validate { it.requireKey("@fnr_liste") }
+            validate { it.requireKey("@skjema_info") }
+            validate { it.requireKey("@fnr_soeker") }
             validate { it.rejectKey("@adressebeskyttelse") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        val identer = packet["@fnr_liste"].map { it.asText() }
+        val identer = FnrHelper.finnAlleFnr(packet["@skjema_info"])
+
+        logger.info("Fant ${identer.size} i søknaden")
 
         if (identer.isNotEmpty()) {
             runBlocking {
