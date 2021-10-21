@@ -28,7 +28,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
     const brukerState = useBrukerContext().state;
 
     const lagre = (data: ISoeker) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: data });
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: {...data, erValidert: true}} );
         neste!!();
     };
 

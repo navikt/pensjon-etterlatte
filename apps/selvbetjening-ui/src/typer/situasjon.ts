@@ -35,4 +35,5 @@ export interface ISituasjon {
     selvstendig?: ISelvstendigNaeringsdrivende[];
     arbeidsforhold?: IArbeidsforhold[];
     andreYtelser?: IAndreYtelser;
+    erValidert?: boolean;
 }

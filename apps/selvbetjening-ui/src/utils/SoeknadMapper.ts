@@ -54,6 +54,7 @@ export default class SoeknadMapper {
                                 ...omDeg.nySivilstatus,
                                 sivilstatus: this.t(omDeg.nySivilstatus?.sivilstatus || ""),
                             },
+                            erValidert: undefined,
                         },
                         "omDeg"
                     ),
@@ -68,7 +69,10 @@ export default class SoeknadMapper {
             path: StegPath.OmDegOgAvdoed,
             elementer: [
                 {
-                    innhold: this.otr.traverse<ISoekerOgAvdoed>(omDegOgAvdoed, "omDegOgAvdoed"),
+                    innhold: this.otr.traverse<ISoekerOgAvdoed>({
+                        ...omDegOgAvdoed,
+                        erValidert: undefined
+                    }, "omDegOgAvdoed"),
                 },
             ],
         };
@@ -107,6 +111,7 @@ export default class SoeknadMapper {
                         {
                             ...omDenAvdoede,
                             boddEllerJobbetUtland: undefined,
+                            erValidert: undefined,
                         },
                         "omDenAvdoede"
                     ),
@@ -153,9 +158,9 @@ export default class SoeknadMapper {
                     innhold: this.otr.traverse<ISituasjon>(
                         {
                             ...dinSituasjon,
-                            //utdanning: undefined,
                             arbeidsforhold: undefined,
                             selvstendig: undefined,
+                            erValidert: undefined,
                         },
                         "dinSituasjon"
                     ),
@@ -180,7 +185,11 @@ export default class SoeknadMapper {
             path: StegPath.OmBarn,
             elementer: [
                 {
-                    innhold: this.otr.traverse<IOmBarn>({ ...opplysningerOmBarn, barn: undefined }, "omBarn"),
+                    innhold: this.otr.traverse<IOmBarn>({
+                        ...opplysningerOmBarn,
+                        barn: undefined,
+                        erValidert: undefined
+                    }, "omBarn"),
                 },
                 ...barn,
             ],

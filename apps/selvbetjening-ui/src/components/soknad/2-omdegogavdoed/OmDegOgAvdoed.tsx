@@ -19,11 +19,6 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
-    const lagre = (data: ISoekerOgAvdoed) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: data })
-        neste!!()
-    };
-
     const methods = useForm<ISoekerOgAvdoed>({
         defaultValues: state.omDegOgAvdoed || {},
         shouldUnregister: true
@@ -35,19 +30,37 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
     const {
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
+        watch,
+        getValues
     } = methods;
+
+    const erValidert = watch("erValidert")
+
+    const lagreNeste = (data: ISoekerOgAvdoed) => {
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...data, erValidert: true } })
+        neste!!()
+    };
+
+    const lagreTilbake = (data: ISoekerOgAvdoed) => {
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...data, erValidert: true } })
+        forrige!!()
+    }
+
+    const lagreTilbakeUtenValidering = () => {
+        const verdier = getValues()
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...verdier, erValidert: false } })
+        forrige!!()
+    }
 
     return (
         <>
-            {/* Steg 2 */}
             <SkjemaGruppe>
                 <Heading size={"medium"} className={"center"}>
                     {t("omDegOgAvdoed.tittel")}
                 </Heading>
             </SkjemaGruppe>
 
-            {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <FormProvider {...methods}>
                 <form>
                     <SkjemaGruppe>
@@ -80,7 +93,6 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                         />
                     </SkjemaGruppe>
 
-                    {/* 2.9 */}
                     <ForholdTilAvdoedeSkjema/>
 
                     <NySivilstatus/>
@@ -88,8 +100,8 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                     <Feilmeldinger errors={errors}/>
 
                     <Navigasjon
-                        forrige={{ onClick: forrige }}
-                        neste={{ onClick: handleSubmit(lagre) }}
+                        forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
+                        neste={{ onClick: handleSubmit(lagreNeste) }}
                     />
                 </form>
             </FormProvider>

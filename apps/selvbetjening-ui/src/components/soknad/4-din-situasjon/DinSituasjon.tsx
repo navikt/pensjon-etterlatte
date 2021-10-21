@@ -35,15 +35,29 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const {
         handleSubmit,
         formState: { errors },
+        getValues,
         watch,
     } = methods;
 
-    const lagre = (data: ISituasjon) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: data });
+    const lagreNeste = (data: ISituasjon) => {
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...data, erValidert: true} });
         neste!!();
     };
 
+    const lagreTilbake = (data: ISituasjon) => {
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...data, erValidert: true} })
+        forrige!!()
+    }
+
+    const lagreTilbakeUtenValidering = () => {
+        const verdier = getValues()
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...verdier, erValidert: false} })
+        forrige!!()
+    }
+
+    const erValidert = watch("erValidert")
     const jobbStatus = watch("jobbStatus");
+
     return (
         <FormProvider {...methods}>
             <form>
@@ -91,7 +105,11 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
 
                 <Feilmeldinger errors={errors}/>
 
-                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }}/>
+                <Navigasjon
+                    forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
+                    neste={{ onClick: handleSubmit(lagreNeste) }}
+                />
+
             </form>
         </FormProvider>
     );

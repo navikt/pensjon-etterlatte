@@ -29,6 +29,7 @@ export enum OppholdUtlandType {
 export interface IOmBarn {
     barn?: IBarn[];
     gravidEllerNyligFoedt?: IValg;
+    erValidert?: boolean;
 }
 
 export interface IBarn {
@@ -94,6 +95,7 @@ export interface IAvdoed {
         beskrivelse?: string;
     };
     doedsfallAarsak?: string;
+    erValidert?: boolean;
 }
 
 export interface IKontaktinfo {
@@ -153,6 +155,7 @@ export interface ISoeker {
     oppholdsland?: string; // 2.7
     medlemFolketrygdenUtland?: IValg;
     nySivilstatus?: INySivilstatus;
+    erValidert?: boolean;
 }
 
 export interface ISoekerOgAvdoed {
@@ -162,4 +165,5 @@ export interface ISoekerOgAvdoed {
         datoForDoedsfallet?: Date;
     };
     forholdTilAvdoede?: IForholdAvdoede;
+    erValidert?: boolean;
 }

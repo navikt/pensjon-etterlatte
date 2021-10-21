@@ -33,14 +33,27 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const {
         handleSubmit,
         watch,
+        getValues,
         formState: { errors },
     } = methods;
 
-    const lagre = (data: IAvdoed) => {
-        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: data });
+    const lagreNeste = (data: IAvdoed) => {
+        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: {...data, erValidert: true} });
         neste!!();
     };
 
+    const lagreTilbake = (data: IAvdoed) => {
+        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: {...data, erValidert: true} })
+        forrige!!()
+    }
+
+    const lagreTilbakeUtenValidering = () => {
+        const verdier = getValues()
+        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: {...verdier, erValidert: false} })
+        forrige!!()
+    }
+
+    const erValidert = watch("erValidert")
     const selvstendigNaeringsdrivende = watch("selvstendigNaeringsdrivende.svar");
     const harAvtjentMilitaerTjeneste = watch("harAvtjentMilitaerTjeneste.svar");
 
@@ -94,7 +107,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         vetIkke
                     />
 
-                    {/* TODO: Rename? */}
                     {selvstendigNaeringsdrivende === IValg.JA && (
                         <>
                             <SkjemaGruppe>
@@ -156,7 +168,11 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
                 <Feilmeldinger errors={errors}/>
 
-                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }}/>
+                <Navigasjon
+                    forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
+                    neste={{ onClick: handleSubmit(lagreNeste) }}
+                />
+
             </form>
         </FormProvider>
     );

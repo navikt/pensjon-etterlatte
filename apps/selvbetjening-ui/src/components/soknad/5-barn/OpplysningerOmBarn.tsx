@@ -28,9 +28,11 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     });
 
     const {
-        watch
+        watch,
+        getValues
     } = methods;
 
+    const erValidert = watch("erValidert")
     const registrerteBarn = watch("barn")
 
     const getFnrRegistrerteBarn = (): string[] => {
@@ -59,10 +61,21 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         setIsOpen(false);
     };
 
-    const lagre = (data: IOmBarn) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: data });
+    const lagreNeste = (data: IOmBarn) => {
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: {...data, erValidert: true} });
         neste!!();
     };
+
+    const lagreTilbake = (data: IOmBarn) => {
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: {...data, erValidert: true} })
+        forrige!!()
+    }
+
+    const lagreTilbakeUtenValidering = () => {
+        const verdier = getValues()
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: {...verdier, erValidert: false} })
+        forrige!!()
+    }
 
     const { handleSubmit } = methods;
 
@@ -115,7 +128,10 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
 
                 <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
 
-                <Navigasjon forrige={{ onClick: forrige }} neste={{ onClick: handleSubmit(lagre) }}/>
+                <Navigasjon
+                    forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
+                    neste={{ onClick: handleSubmit(lagreNeste) }}
+                />
             </form>
         </FormProvider>
     );
