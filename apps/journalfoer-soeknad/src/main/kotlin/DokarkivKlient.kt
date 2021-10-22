@@ -32,11 +32,11 @@ class DokarkivKlient(private val client: HttpClient, private val baseUrl: String
                 body = request
             }
 
-            if(retur.status.value != 200) {
-                throw Exception("Kall mot dokarkiv feilet")
+            if(retur.status.value == 200 || retur.status.value == 201) {
+                return retur.receive()
             }
+            throw Exception("Kall mot dokarkiv feilet")
 
-            retur.receive()
         } catch (cause: ResponseException) {
             if (cause.response.status.value == 409) {
                 logger.error("Duplikat journalpost: ", cause)
