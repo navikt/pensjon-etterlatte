@@ -97,6 +97,7 @@ class PostgresSoeknadRepository private constructor(private val dataSource: Data
 
     private val postgresTimeZone = ZoneId.of("UTC")
     override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+
         return using(sessionOf(dataSource)) { session ->
             session.transaction {
                 val kladd = finnKladd(soeknad.fnr)
@@ -206,47 +207,74 @@ class PostgresSoeknadRepository private constructor(private val dataSource: Data
         }
     }
 
-    override fun eldsteUsendte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
-        session.transaction {
-            it.run(
-                queryOf(SELECT_OLDEST_UNSENT, emptyMap())
-                    .map { row -> row.postgresLocalDate(1) }.asSingle
-            )
+    override fun eldsteUsendte(): LocalDateTime? =
+        dataSource.connection.use { connection ->
+            connection.prepareStatement(SELECT_OLDEST_UNSENT).use { statement ->
+                val resultset = statement.executeQuery()
+                if (resultset.next()) {
+                    val ts = resultset.getTimestamp(1)
+                    val instant = ts.takeUnless { resultset.wasNull() }
+                        ?.toLocalDateTime()
+                        ?.atZone(postgresTimeZone)
+                        ?.withZoneSameInstant(ZoneId.systemDefault())
+                        ?.toLocalDateTime()
+
+                    require(!resultset.next())
+                    return instant
+                } else{
+                    return null
+            }
         }
     }
 
-    override fun eldsteUarkiverte(): LocalDateTime? = using(sessionOf(dataSource)) { session ->
-        session.transaction {
-            it.run(
-                queryOf(SELECT_OLDEST_UNARCHIVED, emptyMap())
-                    .map { row -> row.postgresLocalDate(1) }.asSingle
-            )
+    override fun eldsteUarkiverte(): LocalDateTime? =        dataSource.connection.use { connection ->
+        connection.prepareStatement(SELECT_OLDEST_UNARCHIVED).use { statement ->
+            val resultset = statement.executeQuery()
+            if (resultset.next()) {
+                val ts = resultset.getTimestamp(1)
+                val instant = ts.takeUnless { resultset.wasNull() }
+                    ?.toLocalDateTime()
+                    ?.atZone(postgresTimeZone)
+                    ?.withZoneSameInstant(ZoneId.systemDefault())
+                    ?.toLocalDateTime()
+
+                require(!resultset.next())
+                return instant
+            } else {
+                return null
+            }
         }
     }
 
-    override fun rapport(): Map<String, Long> = listOf(
-        Status.lagretkladd,
-        Status.ferdigstilt,
-        Status.sendt,
-        Status.arkivert,
-        Status.lagretkladd
-    ).associateWith { 0L } + using(sessionOf(dataSource)) { session ->
-        session.transaction {
-            it.run(
-                queryOf(SELECT_RAPPORT, emptyMap())
-                    .map { row -> Pair(row.string(1), row.long(2)) }.asList
-            )
+    override fun rapport(): Map<String, Long> {
+
+        return listOf(
+            Status.lagretkladd,
+            Status.ferdigstilt,
+            Status.sendt,
+            Status.arkivert,
+            Status.lagretkladd
+        ).associateWith { 0L } + dataSource.connection.use { connection ->
+            connection.prepareStatement(SELECT_RAPPORT).use { statement ->
+                val resultset = statement.executeQuery()
+                val map = mutableMapOf<String, Long>()
+                while (resultset.next()) {
+                    map[resultset.getString(1)] = resultset.getLong(2)
+                }
+                map
+            }
         }
-    }.toMap()
+    }
 
     override fun ukategorisert(): List<Long> {
-        return using(sessionOf(dataSource)) { session ->
-            session.transaction {
-                it.run(
-                    queryOf(
-                        """SELECT s.id FROM soeknad s where s.id not in (select soeknad from hendelse )""", emptyMap()
-                    ).map { id -> id.long("id") }.asList
-                )
+        return dataSource.connection.use { connection ->
+            connection.prepareStatement("""SELECT s.id FROM soeknad s where s.id not in (select soeknad from hendelse )""").use { statement ->
+                val resultset = statement.executeQuery()
+                val list = mutableListOf<Long>()
+                while (resultset.next()) {
+                    list += resultset.getLong("id")
+                }
+                list
             }
         }
     }
