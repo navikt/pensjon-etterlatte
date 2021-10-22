@@ -40,7 +40,7 @@ class SoeknadDaoIntegrationTest {
         dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
         dsb.migrate()
 
-        db = PostgresSoeknadRepository.using(dsb.getDataSource())
+        db = PostgresSoeknadRepository.using(dsb.dataSource)
     }
 
     @AfterAll
@@ -257,7 +257,7 @@ class SoeknadDaoIntegrationTest {
     }
 
     private fun lagreSoeknaderMedOpprettetTidspunkt(soeknader: List<SoeknadTest>) {
-        using(sessionOf(dsb.getDataSource())) { session ->
+        using(sessionOf(dsb.dataSource)) { session ->
             session.transaction {
                 soeknader.forEach { soeknad ->
                     it.run(
@@ -275,7 +275,7 @@ class SoeknadDaoIntegrationTest {
     }
 
     private fun slettHendelserForSoeknad(soeknadId: Long) {
-        using(sessionOf(dsb.getDataSource())) { session ->
+        using(sessionOf(dsb.dataSource)) { session ->
             session.transaction {
                 it.run(queryOf("DELETE FROM hendelse WHERE soeknad = ?", soeknadId).asExecute)
             }
@@ -283,7 +283,7 @@ class SoeknadDaoIntegrationTest {
     }
 
     private fun finnHendelser(soeknadId: Long): List<String> {
-        return using(sessionOf(dsb.getDataSource())) { session ->
+        return using(sessionOf(dsb.dataSource)) { session ->
             session.transaction {
                 it.run(queryOf("SELECT * FROM HENDELSE WHERE SOEKNAD = ?", soeknadId).map { row ->
                     row.string("status")
@@ -293,7 +293,7 @@ class SoeknadDaoIntegrationTest {
     }
 
     private fun finnSoeknad(fnr: String): LagretSoeknad? {
-        return using(sessionOf(dsb.getDataSource())) { session ->
+        return using(sessionOf(dsb.dataSource)) { session ->
             session.transaction {
                 it.run(queryOf("SELECT * FROM SOEKNAD WHERE FNR = ?", fnr).map { row ->
                     LagretSoeknad(row.string("fnr"), row.string("data"), row.long("id"))

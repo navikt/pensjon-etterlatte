@@ -58,7 +58,7 @@ class SoeknadApiIntegrationTest {
                 response.status() shouldBe HttpStatusCode.OK
                 response.content shouldBe "1"
 
-                val lagretSoeknadRow = dsb.getDataSource().connection.createStatement()
+                val lagretSoeknadRow = dsb.dataSource.connection.createStatement()
                     .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '26117512737'")
                 lagretSoeknadRow.next()
 
@@ -135,7 +135,7 @@ class SoeknadApiIntegrationTest {
         dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
         dsb.migrate()
 
-        db = PostgresSoeknadRepository.using(dsb.getDataSource())
+        db = PostgresSoeknadRepository.using(dsb.dataSource)
     }
 }
 

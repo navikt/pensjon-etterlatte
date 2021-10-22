@@ -10,7 +10,7 @@ import no.nav.helse.rapids_rivers.RapidsConnection
 
 fun main() {
     val datasourceBuilder = DataSourceBuilder(System.getenv())
-    val db = PostgresSoeknadRepository.using(datasourceBuilder.getDataSource())
+    val db = PostgresSoeknadRepository.using( datasourceBuilder.dataSource)
 
     val env = System.getenv().toMutableMap().apply {
         put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))

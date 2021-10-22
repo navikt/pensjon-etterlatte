@@ -16,24 +16,18 @@ class DataSourceBuilder(env: Map<String, String>) {
 
         env["DB_USERNAME"]?.let { this.username = it }
         env["DB_PASSWORD"]?.let { this.password = it }
-
-        maximumPoolSize = 3
-        minimumIdle = 1
-        idleTimeout = 10001
-        connectionTimeout = 1000
-        maxLifetime = 30001
     }
 
+    val dataSource: DataSource
     init {
         if (!env.containsKey("DB_JDBC_URL")) {
             checkNotNull(env["DB_USERNAME"]) { "username must be set when vault is disabled" }
             checkNotNull(env["DB_PASSWORD"]) { "password must be set when vault is disabled" }
         }
+        dataSource = HikariDataSource(hikariConfig)
     }
 
-    fun getDataSource() = HikariDataSource(hikariConfig)
-
-    fun migrate() = getDataSource().use { runMigration(it) }
+    fun migrate() =  runMigration(dataSource)
 
 
     private fun runMigration(dataSource: DataSource) =
