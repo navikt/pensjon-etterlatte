@@ -86,9 +86,13 @@ class PostgresSoeknadRepository private constructor(private val dataSource: Data
               AND h.status in ('${Status.ferdigstilt}', '${Status.arkiveringsfeil}','${Status.arkivert}' ,'${Status.sendt}'))""".trimIndent()
         val SLETT_UTGAATTE_KLADDER = """
             DELETE FROM soeknad s
-            WHERE s.opprettet <= (now() - interval '24 hours') AND NOT EXISTS ( 
-              select 1 from hendelse h where h.soeknad = s.id 
-              AND h.status in ('${Status.ferdigstilt}', '${Status.arkiveringsfeil}','${Status.arkivert}' ,'${Status.sendt}'))""".trimIndent()
+            WHERE EXISTS (
+              SELECT 1 FROM hendelse h WHERE h.soeknad = s.id AND h.status = '${Status.lagretkladd}')
+            AND NOT EXISTS (
+              SELECT 1 FROM hendelse h WHERE h.soeknad = s.id AND h.status != '${Status.lagretkladd}')
+            AND NOT EXISTS (
+              SELECT 1 FROM hendelse h WHERE h.soeknad = s.id AND h.opprettet >= (now() - interval '24 hours'))
+        """.trimIndent()
 
         fun using(datasource: DataSource): PostgresSoeknadRepository {
             return PostgresSoeknadRepository(datasource)

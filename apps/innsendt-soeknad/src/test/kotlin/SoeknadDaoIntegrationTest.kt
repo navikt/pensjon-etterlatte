@@ -143,14 +143,13 @@ class SoeknadDaoIntegrationTest {
     @Test
     fun `Kladder skal slettes etter 24 timer`() {
         val nowUTC = ZonedDateTime.now(ZoneOffset.UTC)
-        lagreSoeknaderMedOpprettetTidspunkt(
-            listOf(
-                SoeknadTest(1000, "aaaaaaa", """{}""", nowUTC.minusDays(2)),
-                SoeknadTest(1111, "bbbbbbb", """{}""", nowUTC.minusHours(24)),
-                SoeknadTest(2222, "ccccccc", """{}""", nowUTC.minusHours(23).plusMinutes(59)),
-                SoeknadTest(3333, "ddddddd", """{}""", nowUTC),
-            )
+        val soeknader = listOf(
+            SoeknadTest(1000, "aaaaaaa", """{}""", nowUTC.minusDays(2)),
+            SoeknadTest(1111, "bbbbbbb", """{}""", nowUTC.minusHours(24)),
+            SoeknadTest(2222, "ccccccc", """{}""", nowUTC.minusHours(23).plusMinutes(59)),
+            SoeknadTest(3333, "ddddddd", """{}""", nowUTC),
         )
+        lagreSoeknaderMedOpprettetTidspunkt(soeknader, true)
 
         assertEquals(2, db.slettUtgaatteKladder())
 
@@ -160,17 +159,28 @@ class SoeknadDaoIntegrationTest {
         assertNotNull(db.finnKladd("ddddddd"))
     }
 
+    @Test
+    fun `Kladder skal kun slettes hvis alle kladdhendelsene er over 24 timer`() {
+        val now = ZonedDateTime.now()
+        val utgaattSoeknad = SoeknadTest(3003, "aaaaaaa", """{}""", now.minusDays(5))
+        lagreSoeknaderMedOpprettetTidspunkt(listOf(utgaattSoeknad), true)
+        nyKladdHendelse(utgaattSoeknad.copy(opprettet = now.minusHours(12)), utgaattSoeknad.id + 1)
+
+        assertEquals(0, db.slettUtgaatteKladder())
+    }
 
     @Test
     fun `Kun kladder skal slettes etter 24 timer`() {
         val utgaatt = ZonedDateTime.now(ZoneOffset.UTC).minusDays(2)
-        val soeknad = SoeknadTest(1000, "aaaaaaa", """{}""", utgaatt)
+        val soeknad = SoeknadTest(1001, "aaaaaaa", """{}""", utgaatt)
         lagreSoeknaderMedOpprettetTidspunkt(listOf(soeknad))
         val lagretSoeknad = LagretSoeknad(soeknad.fnr, soeknad.data, soeknad.id)
         assertNotNull(db.finnKladd(soeknad.fnr))
 
+        // Skal ikke slette ukategoriserte søknader
+        assertEquals(0, db.slettUtgaatteKladder())
+
         // Skal ikke slette soeknader med hendelse "arkivert"
-        slettHendelserForSoeknad(soeknad.id)
         db.soeknadArkivert(lagretSoeknad)
         assertEquals(0, db.slettUtgaatteKladder())
 
@@ -188,11 +198,6 @@ class SoeknadDaoIntegrationTest {
         slettHendelserForSoeknad(soeknad.id)
         db.soeknadSendt(lagretSoeknad)
         assertEquals(0, db.slettUtgaatteKladder())
-
-        // Skal slette utgåtte soeknader med hendelse "lagretkladd"
-        slettHendelserForSoeknad(soeknad.id)
-        assertEquals(1, db.slettUtgaatteKladder())
-        assertNull(db.finnKladd(soeknad.fnr))
     }
 
     @Test
@@ -256,7 +261,10 @@ class SoeknadDaoIntegrationTest {
         finnSoeknad(lagretSoeknad.fnr) shouldBe null
     }
 
-    private fun lagreSoeknaderMedOpprettetTidspunkt(soeknader: List<SoeknadTest>) {
+    private fun lagreSoeknaderMedOpprettetTidspunkt(
+        soeknader: List<SoeknadTest>,
+        opprettKladdHendelse: Boolean = false
+    ) {
         using(sessionOf(dsb.dataSource)) { session ->
             session.transaction {
                 soeknader.forEach { soeknad ->
@@ -269,7 +277,25 @@ class SoeknadDaoIntegrationTest {
                             soeknad.opprettet
                         ).asExecute
                     )
+                    if (opprettKladdHendelse) nyKladdHendelse(soeknad, soeknad.id + 250)
                 }
+            }
+        }
+    }
+
+    private fun nyKladdHendelse(soeknad: SoeknadTest, hendelseId: Long) {
+        using(sessionOf(dsb.dataSource)) { session ->
+            session.transaction {
+                it.run(
+                    queryOf(
+                        "INSERT INTO hendelse(id, soeknad, status, data, opprettet) VALUES(?, ?, ?, (to_json(?::json)), ?)",
+                        hendelseId,
+                        soeknad.id,
+                        Status.lagretkladd,
+                        "{}",
+                        soeknad.opprettet
+                    ).asExecute
+                )
             }
         }
     }
