@@ -141,12 +141,12 @@ class SoeknadDaoIntegrationTest {
     }
 
     @Test
-    fun `Kladder skal slettes etter 24 timer`() {
+    fun `Kladder skal slettes etter 72 timer`() {
         val nowUTC = ZonedDateTime.now(ZoneOffset.UTC)
         val soeknader = listOf(
-            SoeknadTest(1000, "aaaaaaa", """{}""", nowUTC.minusDays(2)),
-            SoeknadTest(1111, "bbbbbbb", """{}""", nowUTC.minusHours(24)),
-            SoeknadTest(2222, "ccccccc", """{}""", nowUTC.minusHours(23).plusMinutes(59)),
+            SoeknadTest(1000, "aaaaaaa", """{}""", nowUTC.minusDays(5)),
+            SoeknadTest(1111, "bbbbbbb", """{}""", nowUTC.minusHours(72)),
+            SoeknadTest(2222, "ccccccc", """{}""", nowUTC.minusHours(71).plusMinutes(59)),
             SoeknadTest(3333, "ddddddd", """{}""", nowUTC),
         )
         lagreSoeknaderMedOpprettetTidspunkt(soeknader, true)
@@ -160,7 +160,7 @@ class SoeknadDaoIntegrationTest {
     }
 
     @Test
-    fun `Kladder skal kun slettes hvis alle kladdhendelsene er over 24 timer`() {
+    fun `Kladder skal kun slettes hvis alle kladdhendelsene er over 72 timer`() {
         val now = ZonedDateTime.now()
         val utgaattSoeknad = SoeknadTest(3003, "aaaaaaa", """{}""", now.minusDays(5))
         lagreSoeknaderMedOpprettetTidspunkt(listOf(utgaattSoeknad), true)
@@ -170,8 +170,8 @@ class SoeknadDaoIntegrationTest {
     }
 
     @Test
-    fun `Kun kladder skal slettes etter 24 timer`() {
-        val utgaatt = ZonedDateTime.now(ZoneOffset.UTC).minusDays(2)
+    fun `Kun kladder skal slettes etter 72 timer`() {
+        val utgaatt = ZonedDateTime.now(ZoneOffset.UTC).minusDays(4)
         val soeknad = SoeknadTest(1001, "aaaaaaa", """{}""", utgaatt)
         lagreSoeknaderMedOpprettetTidspunkt(listOf(soeknad))
         val lagretSoeknad = LagretSoeknad(soeknad.fnr, soeknad.data, soeknad.id)

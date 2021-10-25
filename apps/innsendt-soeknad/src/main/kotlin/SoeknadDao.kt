@@ -91,7 +91,7 @@ class PostgresSoeknadRepository private constructor(private val dataSource: Data
             AND NOT EXISTS (
               SELECT 1 FROM hendelse h WHERE h.soeknad = s.id AND h.status != '${Status.lagretkladd}')
             AND NOT EXISTS (
-              SELECT 1 FROM hendelse h WHERE h.soeknad = s.id AND h.opprettet >= (now() - interval '24 hours'))
+              SELECT 1 FROM hendelse h WHERE h.soeknad = s.id AND h.opprettet >= (now() - interval '72 hours'))
         """.trimIndent()
 
         fun using(datasource: DataSource): PostgresSoeknadRepository {
