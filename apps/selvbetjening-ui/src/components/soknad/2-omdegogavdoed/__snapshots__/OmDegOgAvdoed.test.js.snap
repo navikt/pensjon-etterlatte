@@ -35,11 +35,16 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             <div
               class="skjemaelement"
             >
+              <label
+                class="skjemaelement__label"
+                for="avdoed.fornavn"
+              >
+                omDegOgAvdoed.avdoed.fornavn
+              </label>
               <input
                 aria-invalid="false"
                 class="skjemaelement__input input--fullbredde"
                 id="avdoed.fornavn"
-                placeholder="omDegOgAvdoed.avdoed.fornavn"
                 required=""
                 type="text"
                 value=""
@@ -54,11 +59,16 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             <div
               class="skjemaelement"
             >
+              <label
+                class="skjemaelement__label"
+                for="avdoed.etternavn"
+              >
+                omDegOgAvdoed.avdoed.etternavn
+              </label>
               <input
                 aria-invalid="false"
                 class="skjemaelement__input input--fullbredde"
                 id="avdoed.etternavn"
-                placeholder="omDegOgAvdoed.avdoed.etternavn"
                 required=""
                 type="text"
                 value=""
@@ -369,11 +379,16 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               <div
                 class="skjemaelement"
               >
+                <label
+                  class="skjemaelement__label"
+                  for="nySivilstatus.samboerskap.samboer.fornavn"
+                >
+                  omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn
+                </label>
                 <input
                   aria-invalid="false"
                   class="skjemaelement__input input--fullbredde"
                   id="nySivilstatus.samboerskap.samboer.fornavn"
-                  placeholder="omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn"
                   required=""
                   type="text"
                   value=""
@@ -390,11 +405,16 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               <div
                 class="skjemaelement"
               >
+                <label
+                  class="skjemaelement__label"
+                  for="nySivilstatus.samboerskap.samboer.etternavn"
+                >
+                  omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn
+                </label>
                 <input
                   aria-invalid="false"
                   class="skjemaelement__input input--fullbredde"
                   id="nySivilstatus.samboerskap.samboer.etternavn"
-                  placeholder="omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn"
                   required=""
                   type="text"
                   value=""
@@ -574,11 +594,16 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             <div
               class="skjemaelement"
             >
+              <label
+                class="skjemaelement__label"
+                for="avdoed.fornavn"
+              >
+                omDegOgAvdoed.avdoed.fornavn
+              </label>
               <input
                 aria-invalid="false"
                 class="skjemaelement__input input--fullbredde"
                 id="avdoed.fornavn"
-                placeholder="omDegOgAvdoed.avdoed.fornavn"
                 required=""
                 type="text"
                 value=""
@@ -593,11 +618,16 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             <div
               class="skjemaelement"
             >
+              <label
+                class="skjemaelement__label"
+                for="avdoed.etternavn"
+              >
+                omDegOgAvdoed.avdoed.etternavn
+              </label>
               <input
                 aria-invalid="false"
                 class="skjemaelement__input input--fullbredde"
                 id="avdoed.etternavn"
-                placeholder="omDegOgAvdoed.avdoed.etternavn"
                 required=""
                 type="text"
                 value=""

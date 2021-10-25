@@ -70,14 +70,14 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                             <Cell xs={12} md={6}>
                                 <RHFInput
                                     name={"avdoed.fornavn"}
-                                    placeholder={t("omDegOgAvdoed.avdoed.fornavn")}
+                                    label={t("omDegOgAvdoed.avdoed.fornavn")}
                                 />
                             </Cell>
 
                             <Cell xs={12} md={6}>
                                 <RHFInput
                                     name={"avdoed.etternavn"}
-                                    placeholder={t("omDegOgAvdoed.avdoed.etternavn")}
+                                    label={t("omDegOgAvdoed.avdoed.etternavn")}
                                 />
                             </Cell>
                         </Grid>

@@ -28,14 +28,14 @@ const SamboerSkjema = () => {
                     <RHFInput
                         className={"kol-50"}
                         name={"nySivilstatus.samboerskap.samboer.fornavn"}
-                        placeholder={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn")}
+                        label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn")}
                     />
                 </Cell>
                 <Cell xs={12} md={6}>
                     <RHFInput
                         className={"kol-50"}
                         name={"nySivilstatus.samboerskap.samboer.etternavn"}
-                        placeholder={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn")}
+                        label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn")}
                     />
                 </Cell>
             </Grid>

@@ -71,7 +71,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         <div className={"kol-50"}>
                             <RHFInput
                                 name={"fornavn"}
-                                placeholder={t("omBarn.fornavn")}
+                                label={t("omBarn.fornavn")}
                                 rules={{ pattern: /^\D+$/ }}
                             />
                         </div>
@@ -79,7 +79,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         <div className={"kol-50"}>
                             <RHFInput
                                 name={"etternavn"}
-                                placeholder={t("omBarn.etternavn")}
+                                label={t("omBarn.etternavn")}
                                 rules={{ pattern: /^\D+$/ }}
                             />
                         </div>
@@ -165,14 +165,14 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                                         <Cell xs={12} md={6}>
                                             <RHFInput
                                                 name={"harBarnetVerge.fornavn"}
-                                                placeholder={t("omBarn.harBarnetVerge.fornavn")}
+                                                label={t("omBarn.harBarnetVerge.fornavn")}
                                                 rules={{ pattern: /^\D+$/ }}
                                             />
                                         </Cell>
                                         <Cell xs={12} md={6}>
                                             <RHFInput
                                                 name={"harBarnetVerge.etternavn"}
-                                                placeholder={t("omBarn.harBarnetVerge.etternavn")}
+                                                label={t("omBarn.harBarnetVerge.etternavn")}
                                                 rules={{ pattern: /^\D+$/ }}
                                             />
                                         </Cell>
