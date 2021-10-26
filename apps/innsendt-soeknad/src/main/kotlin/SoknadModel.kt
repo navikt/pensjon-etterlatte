@@ -31,3 +31,22 @@ data class Soeknad(
 )
 
 data class Soeker(val fnr: String, val type: SoeknadType)
+private data class Barn(val fnr: String?, val soekerBarnepensjon: String?)
+
+private fun Soeknad.finnBarn(): List<Barn> {
+    val barnElementer: List<Element> = this.oppsummering
+        .find { gruppe -> gruppe.tittel == "Om barn" }?.elementer ?: emptyList<Element>()
+        .filter { elementer -> elementer.innhold.any { innhold -> innhold.key == "omBarn.fornavn" } }
+
+    return barnElementer.map { element ->
+        Barn(
+            element.innhold.find { innhold -> innhold.key == "omBarn.foedselsnummer" }?.svar.toString(),
+            element.innhold.find { innhold -> innhold.key == "omBarn.barnepensjon.soeker" }?.svar.toString()
+        )
+    }
+}
+
+fun Soeknad.finnSoekere(gjenlevendeFnr: String): List<Soeker> = finnBarn()
+    .filter { it.fnr != null && it.soekerBarnepensjon == "Ja" }
+    .map { Soeker(it.fnr!!, SoeknadType.Barnepensjon) }
+    .plus(Soeker(gjenlevendeFnr, SoeknadType.Gjenlevendepensjon))

@@ -33,10 +33,9 @@ fun Route.soeknadApi(db: SoeknadRepository, testFnr: String? = null) {
     post("/api/soeknad") {
         val soeknad = call.receive<Soeknad>()
 
-        val soekere: List<Soeker> = finnSoekere(soeknad, testFnr ?: fnrFromToken())
-        soekere.forEach {
-            val oppdatertSoeknad = soeknad.apply { soeknadsType = it.type }
-            val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(testFnr ?: it.fnr, oppdatertSoeknad.toJson()))
+        soeknad.finnSoekere(gjenlevendeFnr = testFnr ?: fnrFromToken()).forEach { soeker ->
+            val oppdatertSoeknad = soeknad.apply { soeknadsType = soeker.type }
+            val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(testFnr ?: soeker.fnr, oppdatertSoeknad.toJson()))
             db.soeknadFerdigstilt(lagretSoeknad)
         }
 
