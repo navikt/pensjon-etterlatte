@@ -174,7 +174,7 @@
   "omDegOgAvdoed": {
     "tittel": "Om deg og avdøde",
     "avdoed": {
-      "hvem": "Kvem er det som er død?",
+      "hvem": "Kven er det som er død?",
       "fornavn": "Førenamn",
       "etternavn": "Etternamn",
       "dato": "Dato",
@@ -444,7 +444,7 @@
   },
   "jobbStatus": {
     "arbeidstaker": "Eg er arbeidstaker",
-    "selvstendig": "Eg er sjølstendig næringsdrivande",
+    "selvstendig": "Eg er sjølvstendig næringsdrivande",
     "underUtdanning": "Eg tek utdanning",
     "ingen": "Anna"
   },
