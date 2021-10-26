@@ -13,7 +13,6 @@ const NySivilstatus = () => {
     const { watch } = useFormContext<ISoeker>();
 
     const sivilstatus = watch("nySivilstatus.sivilstatus");
-
     return (
         <SkjemaGruppering>
             <SkjemaGruppe>
@@ -29,7 +28,7 @@ const NySivilstatus = () => {
                 })}
             />
 
-            {sivilstatus === Sivilstatus.samboerskap &&  <SamboerSkjema/>}
+            {sivilstatus === Sivilstatus.samboerskap && <SamboerSkjema/>}
         </SkjemaGruppering>
     );
 };

@@ -38,9 +38,9 @@ const SkiltFraAvdoede = () => {
     const { watch } = useFormContext<ISoekerOgAvdoed>();
     const { state } = useBrukerContext();
 
-    const datoForInngaattPartnerskap = watch("forholdTilAvdoede.datoForInngaattPartnerskap");
-    const datoForSkilsmisse = watch("forholdTilAvdoede.datoForSkilsmisse");
-    const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet");
+    const datoForInngaattPartnerskap: any = watch("forholdTilAvdoede.datoForInngaattPartnerskap");
+    const datoForSkilsmisse: any = watch("forholdTilAvdoede.datoForSkilsmisse");
+    const datoForDoedsfallet: any = watch("avdoed.datoForDoedsfallet");
 
     const fellesBarn = watch("forholdTilAvdoede.fellesBarn");
 

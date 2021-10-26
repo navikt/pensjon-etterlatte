@@ -166,4 +166,5 @@ export interface ISoekerOgAvdoed {
     };
     forholdTilAvdoede?: IForholdAvdoede;
     erValidert?: boolean;
+    nySivilstatus?: INySivilstatus
 }

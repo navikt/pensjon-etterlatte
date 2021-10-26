@@ -17,6 +17,7 @@ import { isEmpty } from "lodash";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
+import { deepCopy } from "../../../utils/deepCopy";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -27,7 +28,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         defaultValues: state.dinSituasjon || {},
         shouldUnregister: true,
     });
-
+    
     useEffectOnce(() => {
         methods.reset(state.dinSituasjon);
     }, !isEmpty(state.dinSituasjon));
@@ -40,18 +41,18 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     } = methods;
 
     const lagreNeste = (data: ISituasjon) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...data, erValidert: true} });
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...deepCopy(data), erValidert: true} });
         neste!!();
     };
 
     const lagreTilbake = (data: ISituasjon) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...data, erValidert: true} })
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...deepCopy(data), erValidert: true} })
         forrige!!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...verdier, erValidert: false} })
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...deepCopy(verdier), erValidert: false} })
         forrige!!()
     }
 

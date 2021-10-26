@@ -14,6 +14,7 @@ import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
 import { isEmpty } from "lodash";
 import useEffectOnce from "../../../hooks/useEffectOnce";
+import { deepCopy } from "../../../utils/deepCopy";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -24,6 +25,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         shouldUnregister: true
     });
 
+    
     useEffectOnce(() => {
         methods.reset(state.omDegOgAvdoed);
     }, !isEmpty(state.omDegOgAvdoed));
@@ -38,18 +40,18 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const erValidert = watch("erValidert")
 
     const lagreNeste = (data: ISoekerOgAvdoed) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...data, erValidert: true } })
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
         neste!!()
     };
 
     const lagreTilbake = (data: ISoekerOgAvdoed) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...data, erValidert: true } })
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
         forrige!!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...verdier, erValidert: false } })
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(verdier), erValidert: false } })
         forrige!!()
     }
 

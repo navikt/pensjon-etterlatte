@@ -1385,28 +1385,6 @@ exports[`Om den avdøde Snapshot 1`] = `
             />
           </fieldset>
         </div>
-        <div>
-          <div
-            class="skjemaelement"
-          >
-            <label
-              class="skjemaelement__label"
-              for="arbeidsforhold[0].forventerEndretInntekt.beskrivelse"
-            >
-              dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse
-            </label>
-            <input
-              aria-invalid="false"
-              class="skjemaelement__input input--s"
-              id="arbeidsforhold[0].forventerEndretInntekt.beskrivelse"
-              maxlength="200"
-              placeholder="dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelsePlaceholder"
-              required=""
-              type="text"
-              value="150 000"
-            />
-          </div>
-        </div>
       </div>
       <button
         class="navds-button navds-button--secondary navds-button--medium"
