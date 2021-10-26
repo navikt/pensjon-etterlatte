@@ -1,9 +1,6 @@
 package no.nav.etterlatte
 
-import kotliquery.Row
-import kotliquery.queryOf
-import kotliquery.sessionOf
-import kotliquery.using
+import java.sql.ResultSet
 import java.time.LocalDateTime
 import java.time.ZoneId
 import javax.sql.DataSource
@@ -15,7 +12,7 @@ interface SoeknadRepository {
     fun soeknadArkivert(soeknad: LagretSoeknad)
     fun soeknadFeiletArkivering(soeknad: LagretSoeknad, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
-    fun slettArkiverteSoeknader()
+    fun slettArkiverteSoeknader(): Int
     fun soeknadFerdigstilt(soeknad: LagretSoeknad)
     fun finnKladd(fnr: String): LagretSoeknad?
     fun slettKladd(fnr: String): Boolean
@@ -29,8 +26,10 @@ interface StatistikkRepository {
     fun ukategorisert(): List<Long>
 }
 
-class PostgresSoeknadRepository private constructor(private val dataSource: DataSource) : SoeknadRepository,
-    StatistikkRepository {
+class PostgresSoeknadRepository private constructor(
+    private val ds: DataSource
+) : SoeknadRepository, StatistikkRepository {
+
     companion object {
         object Status {
             const val sendt = "sendt"
@@ -75,7 +74,7 @@ class PostgresSoeknadRepository private constructor(private val dataSource: Data
             DELETE FROM soeknad s where exists (select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.arkivert}') 
         """.trimIndent()
         val FINN_KLADD = """
-            SELECT s.id, s.data FROM soeknad s
+            SELECT s.id, s.fnr, s.data FROM soeknad s
             WHERE s.fnr = ? AND NOT EXISTS ( 
               select 1 from hendelse h where h.soeknad = s.id 
               AND h.status in ('${Status.ferdigstilt}', '${Status.arkiveringsfeil}','${Status.arkivert}' ,'${Status.sendt}'))""".trimIndent()
@@ -99,29 +98,47 @@ class PostgresSoeknadRepository private constructor(private val dataSource: Data
         }
     }
 
-    private val postgresTimeZone = ZoneId.of("UTC")
-    override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+    private val connection get() = ds.connection
 
-        return using(sessionOf(dataSource)) { session ->
-            session.transaction {
-                val kladd = finnKladd(soeknad.fnr)
-                if (kladd != null) {
-                    it.run(
-                        queryOf(
-                            """UPDATE soeknad SET data = (to_json(?::json)) where id = ?""",
-                            soeknad.soeknad,
-                            kladd.id
-                        ).asUpdate
-                    )
-                    LagretSoeknad(kladd.fnr, soeknad.soeknad, kladd.id)
-                } else {
-                    val id =
-                        it.run(queryOf("select nextval('soeknad_id')", emptyMap()).map { id -> id.long(1) }.asSingle)!!
-                    it.run(queryOf(CREATE_SOEKNAD, id, soeknad.fnr, soeknad.soeknad).asExecute)
-                    LagretSoeknad(soeknad.fnr, soeknad.soeknad, id)
+    private val postgresTimeZone = ZoneId.of("UTC")
+
+    override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+        return finnKladd(soeknad.fnr)
+            ?.let { oppdaterSoeknad(it, soeknad.soeknad) }
+            ?: opprettNySoeknad(soeknad)
+    }
+
+    private fun opprettNySoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+        val id = connection.use {
+            it.prepareStatement("select nextval('soeknad_id')")
+                .executeQuery()
+                .singleOrNull { getLong(1) }
+        }!!
+
+        connection.use {
+            it.prepareStatement(CREATE_SOEKNAD)
+                .apply {
+                    setLong(1, id)
+                    setString(2, soeknad.fnr)
+                    setString(3, soeknad.soeknad)
                 }
-            }
+                .execute()
         }
+
+        return LagretSoeknad(soeknad.fnr, soeknad.soeknad, id)
+    }
+
+    private fun oppdaterSoeknad(kladd: LagretSoeknad, nyDataJson: String): LagretSoeknad {
+        connection.use {
+            it.prepareStatement("""UPDATE soeknad SET data = (to_json(?::json)) where id = ?""")
+                .apply {
+                    setString(1, nyDataJson)
+                    setLong(2, kladd.id)
+                }
+                .executeUpdate()
+        }
+
+        return LagretSoeknad(kladd.fnr, nyDataJson, kladd.id)
     }
 
     override fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad {
@@ -143,151 +160,122 @@ class PostgresSoeknadRepository private constructor(private val dataSource: Data
     }
 
     private fun nyStatus(soeknad: LagretSoeknad, status: String, data: String = """{}""") {
-        using(sessionOf(dataSource)) { session ->
-            session.transaction {
-                val id =
-                    it.run(queryOf("select nextval('hendelse_id')", emptyMap()).map { id -> id.long(1) }.asSingle)!!
-                it.run(queryOf(CREATE_HENDELSE, id, soeknad.id, status, data).asExecute)
-            }
+        val id = connection.use {
+            it.prepareStatement("select nextval('hendelse_id')")
+                .executeQuery()
+                .singleOrNull { getLong(1) }
+        }!!
+
+        connection.use {
+            it.prepareStatement(CREATE_HENDELSE)
+                .apply {
+                    setLong(1, id)
+                    setLong(2, soeknad.id)
+                    setString(3, status)
+                    setString(4, data)
+                }
+                .execute()
         }
     }
 
-    override fun slettArkiverteSoeknader() {
-        using(sessionOf(dataSource)) { session ->
-            session.transaction {
-                it.run(queryOf(DELETE_ARKIVERTE_SOEKNADER).asUpdate)
-            }
-        }
+    override fun slettArkiverteSoeknader(): Int = connection.use {
+        it.prepareStatement(DELETE_ARKIVERTE_SOEKNADER).executeUpdate()
     }
 
-    override fun slettUtgaatteKladder(): Int {
-        return using(sessionOf(dataSource)) { session ->
-            session.transaction {
-                it.run(queryOf(SLETT_UTGAATTE_KLADDER).asUpdate)
-            }
-        }
+    override fun slettUtgaatteKladder(): Int = connection.use {
+        it.prepareStatement(SLETT_UTGAATTE_KLADDER).executeUpdate()
     }
 
     override fun soeknadFerdigstilt(soeknad: LagretSoeknad) {
         nyStatus(soeknad, Status.ferdigstilt, """{}""")
     }
 
-    override fun finnKladd(fnr: String): LagretSoeknad? {
-        return using(sessionOf(dataSource)) { session ->
-            session.transaction { tx ->
-                tx.run(queryOf(FINN_KLADD, fnr).map {
-                    LagretSoeknad(
-                        fnr = fnr,
-                        soeknad = it.string("data"),
-                        id = it.long("id")
-                    )
-                }.asSingle)
+    override fun finnKladd(fnr: String): LagretSoeknad? = connection.use {
+        it.prepareStatement(FINN_KLADD)
+            .apply { setString(1, fnr) }
+            .executeQuery()
+            .singleOrNull {
+                LagretSoeknad(id = getLong("id"), fnr = fnr, soeknad = getString("data"))
             }
-        }
     }
 
-    override fun slettKladd(fnr: String): Boolean {
-        return using(sessionOf(dataSource)) { session ->
-            session.transaction { tx ->
-                tx.run(queryOf(SLETT_KLADD, fnr).asUpdate)
-            }
-        } > 0
+    override fun slettKladd(fnr: String): Boolean = connection.use {
+        val antallSlettet = it.prepareStatement(SLETT_KLADD)
+            .apply { setString(1, fnr) }
+            .executeUpdate()
+
+        return antallSlettet > 0
     }
 
-
-    override fun usendteSoeknader(): List<LagretSoeknad> {
-        return using(sessionOf(dataSource)) { session ->
-            session.transaction {
-                it.run(
-                    queryOf(SELECT_OLD, emptyMap()).map { row ->
-                        LagretSoeknad(
-                            fnr = row.string("fnr"),
-                            soeknad = row.string("data"),
-                            id = row.long("id")
-                        )
-                    }.asList
-                )
+    override fun usendteSoeknader(): List<LagretSoeknad> = connection.use {
+        it.prepareStatement(SELECT_OLD)
+            .executeQuery()
+            .toList {
+                LagretSoeknad(id = getLong("id"), fnr = getString("fnr"), soeknad = getString("data"))
             }
-        }
     }
 
-    override fun eldsteUsendte(): LocalDateTime? =
-        dataSource.connection.use { connection ->
-            connection.prepareStatement(SELECT_OLDEST_UNSENT).use { statement ->
-                val resultset = statement.executeQuery()
-                if (resultset.next()) {
-                    val ts = resultset.getTimestamp(1)
-                    val instant = ts.takeUnless { resultset.wasNull() }
-                        ?.toLocalDateTime()
-                        ?.atZone(postgresTimeZone)
-                        ?.withZoneSameInstant(ZoneId.systemDefault())
-                        ?.toLocalDateTime()
-
-                    require(!resultset.next())
-                    return instant
-                } else{
-                    return null
-            }
-        }
+    override fun eldsteUsendte(): LocalDateTime? = connection.use {
+        it.prepareStatement(SELECT_OLDEST_UNSENT)
+            .executeQuery()
+            .singleOrNull(::asLocalDateTime)
     }
 
-    override fun eldsteUarkiverte(): LocalDateTime? =        dataSource.connection.use { connection ->
-        connection.prepareStatement(SELECT_OLDEST_UNARCHIVED).use { statement ->
-            val resultset = statement.executeQuery()
-            if (resultset.next()) {
-                val ts = resultset.getTimestamp(1)
-                val instant = ts.takeUnless { resultset.wasNull() }
-                    ?.toLocalDateTime()
-                    ?.atZone(postgresTimeZone)
-                    ?.withZoneSameInstant(ZoneId.systemDefault())
-                    ?.toLocalDateTime()
-
-                require(!resultset.next())
-                return instant
-            } else {
-                return null
-            }
-        }
+    override fun eldsteUarkiverte(): LocalDateTime? = connection.use {
+        it.prepareStatement(SELECT_OLDEST_UNARCHIVED)
+            .executeQuery()
+            .singleOrNull(::asLocalDateTime)
     }
 
     override fun rapport(): Map<String, Long> {
-
         return listOf(
             Status.lagretkladd,
             Status.ferdigstilt,
             Status.sendt,
             Status.arkivert,
             Status.lagretkladd
-        ).associateWith { 0L } + dataSource.connection.use { connection ->
-            connection.prepareStatement(SELECT_RAPPORT).use { statement ->
-                val resultset = statement.executeQuery()
-                val map = mutableMapOf<String, Long>()
-                while (resultset.next()) {
-                    map[resultset.getString(1)] = resultset.getLong(2)
-                }
-                map
-            }
+        ).associateWith { 0L } + connection.use {
+            it.prepareStatement(SELECT_RAPPORT)
+                .executeQuery()
+                .toList { getString(1) to getLong(2) }
+                .toMap()
         }
     }
 
-    override fun ukategorisert(): List<Long> {
-        return dataSource.connection.use { connection ->
-            connection.prepareStatement("""SELECT s.id FROM soeknad s where s.id not in (select soeknad from hendelse )""").use { statement ->
-                val resultset = statement.executeQuery()
-                val list = mutableListOf<Long>()
-                while (resultset.next()) {
-                    list += resultset.getLong("id")
-                }
-                list
+    override fun ukategorisert(): List<Long> = connection.use {
+        it.prepareStatement("""SELECT s.id FROM soeknad s where s.id not in (select soeknad from hendelse )""")
+            .executeQuery()
+            .toList { getLong("id") }
+    }
+
+    private fun <T> ResultSet.singleOrNull(block: ResultSet.() -> T): T? {
+        return if (next()) {
+            block().also {
+                require(!next()) { "Skal være unik" }
             }
+        } else {
+            null
         }
     }
 
-    private fun Row.postgresLocalDate(columnIndex: Int) =
-        localDateTimeOrNull(columnIndex)
-            ?.atZone(postgresTimeZone)
-            ?.withZoneSameInstant(ZoneId.systemDefault())
-            ?.toLocalDateTime()
+    private fun <T> ResultSet.toList(block: ResultSet.() -> T): List<T> {
+        return generateSequence {
+            if (next()) block()
+            else null
+        }.toList()
+    }
+
+    private fun asLocalDateTime(rs: ResultSet): LocalDateTime? {
+        val timestamp = rs.getTimestamp(1)
+            .takeUnless { rs.wasNull() }
+            ?: return null
+
+        return timestamp
+            .toLocalDateTime()
+            .atZone(postgresTimeZone)
+            .withZoneSameInstant(ZoneId.systemDefault())
+            .toLocalDateTime()
+    }
 }
 
 data class LagretSoeknad(

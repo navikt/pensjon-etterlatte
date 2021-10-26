@@ -1,9 +1,6 @@
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
-import kotliquery.queryOf
-import kotliquery.sessionOf
-import kotliquery.using
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.LagretSoeknad
 import no.nav.etterlatte.PostgresSoeknadRepository
@@ -20,8 +17,11 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import java.sql.Timestamp
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
+import java.util.*
+import javax.sql.DataSource
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class SoeknadDaoIntegrationTest {
@@ -29,7 +29,9 @@ class SoeknadDaoIntegrationTest {
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
 
     private lateinit var db: PostgresSoeknadRepository
-    private lateinit var dsb: DataSourceBuilder
+    private lateinit var dataSource: DataSource
+
+    private val connection get() = dataSource.connection
 
     @BeforeAll
     fun beforeAll() {
@@ -37,8 +39,10 @@ class SoeknadDaoIntegrationTest {
         postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
         postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
 
-        dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
+        val dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
         dsb.migrate()
+
+        dataSource = dsb.dataSource
 
         db = PostgresSoeknadRepository.using(dsb.dataSource)
     }
@@ -265,66 +269,65 @@ class SoeknadDaoIntegrationTest {
         soeknader: List<SoeknadTest>,
         opprettKladdHendelse: Boolean = false
     ) {
-        using(sessionOf(dsb.dataSource)) { session ->
-            session.transaction {
-                soeknader.forEach { soeknad ->
-                    it.run(
-                        queryOf(
-                            "INSERT INTO soeknad(id, fnr, data, opprettet) VALUES(?, ?, (to_json(?::json)), ?)",
-                            soeknad.id,
-                            soeknad.fnr,
-                            soeknad.data,
-                            soeknad.opprettet
-                        ).asExecute
-                    )
-                    if (opprettKladdHendelse) nyKladdHendelse(soeknad, soeknad.id + 250)
-                }
+        soeknader.forEachIndexed { index, soeknad ->
+            connection.use {
+                it.prepareStatement("INSERT INTO soeknad(id, fnr, data, opprettet) VALUES(?, ?, (to_json(?::json)), ?)")
+                    .apply {
+                        setLong(1, soeknad.id)
+                        setString(2, soeknad.fnr)
+                        setString(3, soeknad.data)
+                        setTimestamp(4, Timestamp(Date.from(soeknad.opprettet.toInstant()).time))
+                    }
+                    .execute()
             }
+
+            if (opprettKladdHendelse) nyKladdHendelse(soeknad, (soeknad.id + index))
         }
     }
 
     private fun nyKladdHendelse(soeknad: SoeknadTest, hendelseId: Long) {
-        using(sessionOf(dsb.dataSource)) { session ->
-            session.transaction {
-                it.run(
-                    queryOf(
-                        "INSERT INTO hendelse(id, soeknad, status, data, opprettet) VALUES(?, ?, ?, (to_json(?::json)), ?)",
-                        hendelseId,
-                        soeknad.id,
-                        Status.lagretkladd,
-                        "{}",
-                        soeknad.opprettet
-                    ).asExecute
-                )
+        connection
+            .prepareStatement("INSERT INTO hendelse(id, soeknad, status, data, opprettet) VALUES(?, ?, ?, (to_json(?::json)), ?)")
+            .apply {
+                setLong(1, hendelseId)
+                setLong(2, soeknad.id)
+                setString(3, Status.lagretkladd)
+                setString(4, "{}")
+                setTimestamp(5, Timestamp(Date.from(soeknad.opprettet.toInstant()).time))
             }
-        }
+            .use { it.execute() }
     }
 
     private fun slettHendelserForSoeknad(soeknadId: Long) {
-        using(sessionOf(dsb.dataSource)) { session ->
-            session.transaction {
-                it.run(queryOf("DELETE FROM hendelse WHERE soeknad = ?", soeknadId).asExecute)
-            }
+        connection.use {
+            it.prepareStatement("DELETE FROM hendelse WHERE soeknad = ?")
+                .apply { setLong(1, soeknadId) }
+                .execute()
         }
     }
 
     private fun finnHendelser(soeknadId: Long): List<String> {
-        return using(sessionOf(dsb.dataSource)) { session ->
-            session.transaction {
-                it.run(queryOf("SELECT * FROM HENDELSE WHERE SOEKNAD = ?", soeknadId).map { row ->
-                    row.string("status")
-                }.asList)
-            }
+        return connection.use {
+            val rs = it.prepareStatement("SELECT * FROM HENDELSE WHERE SOEKNAD = ?")
+                .apply { setLong(1, soeknadId) }
+                .executeQuery()
+
+            generateSequence {
+                if (rs.next()) rs.getString("status")
+                else null
+            }.toList()
         }
     }
 
     private fun finnSoeknad(fnr: String): LagretSoeknad? {
-        return using(sessionOf(dsb.dataSource)) { session ->
-            session.transaction {
-                it.run(queryOf("SELECT * FROM SOEKNAD WHERE FNR = ?", fnr).map { row ->
-                    LagretSoeknad(row.string("fnr"), row.string("data"), row.long("id"))
-                }.asSingle)
-            }
+        return connection.use {
+            val pstmt = it.prepareStatement("SELECT * FROM SOEKNAD WHERE FNR = ?")
+            pstmt.setString(1, fnr)
+
+            val rs = pstmt.executeQuery()
+
+            if (rs.next()) LagretSoeknad(rs.getString("fnr"), rs.getString("data"), rs.getLong("id"))
+            else null
         }
     }
 
