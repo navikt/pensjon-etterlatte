@@ -79,7 +79,6 @@ export default class SoeknadMapper {
     }
 
     private mapOmDenAvdoede(omDenAvdoede: IAvdoed): Gruppe {
-        console.log(omDenAvdoede.boddEllerJobbetUtland)
         const oppholdUtland: Element[] =
             omDenAvdoede.boddEllerJobbetUtland?.oppholdUtland?.map((oppholdUtland) => {
                 const opphold: IOppholdUtland = {
