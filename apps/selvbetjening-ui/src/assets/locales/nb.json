@@ -289,9 +289,9 @@
         "placeholder": "11 siffer"
       },
       "forskuddstrekk": {
-        "svar": "Ønsker du at vi legger inn et forskuddstrekk for barnepensjonen?",
+        "svar": "Ønsker du at vi legger inn et skattetrekk for barnepensjonen?",
         "hjelpetekst": "Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.",
-        "trekkprosent": "Oppgi ønsket forskuddstrekk",
+        "trekkprosent": "Oppgi ønsket skattetrekk",
         "placeholder": "i prosent, eks. 20%"
       }
     },
@@ -858,7 +858,7 @@
       },
       "forskuddstrekk": {
         "svar": {
-          "required": "Oppgi om du ønsker forskuddstrekk for barnepensjonen"
+          "required": "Oppgi om du ønsker skattetrekk for barnepensjonen"
         },
         "trekkprosent": {
           "required": "Oppgi en gyldig prosent"
