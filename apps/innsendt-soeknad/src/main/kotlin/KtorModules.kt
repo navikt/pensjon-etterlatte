@@ -31,10 +31,17 @@ import no.nav.security.token.support.ktor.tokenValidationSupport
 // todo: testFnr burde ikke være nødvendig her, men sliter med å få testet/kjørt opp dette med autentisering.
 fun Route.soeknadApi(db: SoeknadRepository, testFnr: String? = null) {
     post("/api/soeknad") {
-        val soknad = call.receive<JsonNode>()
-        val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(testFnr ?: fnrFromToken(), soknad.toJson()))
-        db.soeknadFerdigstilt(lagretSoeknad)
-        call.respondText(lagretSoeknad.id.toString(), ContentType.Text.Plain)
+        val soeknad = call.receive<Soeknad>()
+
+        val soekere: List<Soeker> = finnSoekere(soeknad, testFnr ?: fnrFromToken())
+        soekere.forEach {
+            val oppdatertSoeknad = soeknad.apply { soeknadsType = it.type }
+            val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(testFnr ?: it.fnr, oppdatertSoeknad.toJson()))
+            db.soeknadFerdigstilt(lagretSoeknad)
+        }
+
+        // todo: Hvilke id skal sendes tilbake? Søkeren?
+        call.respondText("1234", ContentType.Text.Plain)
     }
 
     route("/api/kladd") {
@@ -55,7 +62,9 @@ fun Route.soeknadApi(db: SoeknadRepository, testFnr: String? = null) {
     }
 }
 
-fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() = call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
+fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() =
+    call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!
+        .toString()
 
 fun Application.apiModule(routes: Route.() -> Unit) {
     install(Authentication) {
