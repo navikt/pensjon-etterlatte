@@ -1,6 +1,5 @@
 package no.nav.etterlatte.person
 
-import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.ktor.client.HttpClient
 import io.ktor.client.request.accept
@@ -21,7 +20,7 @@ interface Pdl {
     suspend fun hentPerson(fnr: Foedselsnummer): PersonResponse
 }
 
-class PersonKlient(private val httpClient: HttpClient): Pdl {
+class PersonKlient(private val httpClient: HttpClient) : Pdl {
     private val logger = LoggerFactory.getLogger(PersonKlient::class.java)
 
     companion object {
@@ -42,8 +41,6 @@ class PersonKlient(private val httpClient: HttpClient): Pdl {
                 body = TextContent(request, Json)
             }
         }
-
-        logger.info((responseNode as JsonNode).toPrettyString())
 
         return try {
             mapJsonToAny(responseNode.toJson())
