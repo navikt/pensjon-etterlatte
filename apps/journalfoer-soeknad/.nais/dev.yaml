@@ -34,7 +34,6 @@ spec:
     - name: PDF_URL
       value: "http://ey-pdfgen/api/v1/genpdf/eypdfgen"
     - name: DOKARKIV_URL
-      #value: "https://etterlatte-proxy.dev-fss-pub.nais.io/aad/dok"
       value: "https://dokarkiv.dev-fss-pub.nais.io/rest/journalpostapi/v1/journalpost"
     - name: AZURE_DOKARKIV_SCOPE
       value: "api://972814f3-8bdf-44f8-a191-c2ed00020b54/.default"
