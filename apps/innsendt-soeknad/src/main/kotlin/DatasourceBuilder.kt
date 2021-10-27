@@ -5,7 +5,7 @@ import com.zaxxer.hikari.HikariDataSource
 import org.flywaydb.core.Flyway
 import javax.sql.DataSource
 
-class DataSourceBuilder(env: Map<String, String>) {
+class DataSourceBuilder(private val env: Map<String, String>) {
     private val hikariConfig = HikariConfig().apply {
         jdbcUrl = env["DB_JDBC_URL"] ?: String.format(
             "jdbc:postgresql://%s:%s/%s%s",
@@ -33,6 +33,9 @@ class DataSourceBuilder(env: Map<String, String>) {
     private fun runMigration(dataSource: DataSource) =
         Flyway.configure()
             .dataSource(dataSource)
+            .apply {
+                if (env.containsKey("NAIS_CLUSTER_NAME")) locations("db/migration", "db/gcp")
+            }
             .load()
             .migrate()
 }

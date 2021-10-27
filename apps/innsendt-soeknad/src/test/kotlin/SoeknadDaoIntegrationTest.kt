@@ -1,3 +1,4 @@
+
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
@@ -40,11 +41,9 @@ class SoeknadDaoIntegrationTest {
         postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
 
         val dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
-        dsb.migrate()
-
         dataSource = dsb.dataSource
-
-        db = PostgresSoeknadRepository.using(dsb.dataSource)
+        dsb.migrate()
+        db = PostgresSoeknadRepository.using(dataSource)
     }
 
     @AfterAll
