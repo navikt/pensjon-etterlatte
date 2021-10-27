@@ -34,13 +34,12 @@ fun Route.soeknadApi(db: SoeknadRepository, testFnr: String? = null) {
         val soeknad = call.receive<Soeknad>()
 
         soeknad.finnSoekere(gjenlevendeFnr = testFnr ?: fnrFromToken()).forEach { soeker ->
-            val oppdatertSoeknad = soeknad.apply { soeknadsType = soeker.type }
-            val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(testFnr ?: soeker.fnr, oppdatertSoeknad.toJson()))
+            val oppdatertSoeknad = soeknad.copy(soeknadsType = soeker.type)
+            val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(soeker.fnr, oppdatertSoeknad.toJson()))
             db.soeknadFerdigstilt(lagretSoeknad)
         }
 
-        // todo: Hvilke id skal sendes tilbake? Søkeren?
-        call.respondText("1234", ContentType.Text.Plain)
+        call.respond(HttpStatusCode.OK)
     }
 
     route("/api/kladd") {

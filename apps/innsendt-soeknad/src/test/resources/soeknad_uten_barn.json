@@ -4,6 +4,7 @@
   "oppsummering": [
     {
       "tittel": "Om deg",
+      "path": "om-deg",
       "elementer": [
         {
           "tittel": "Personalia",
@@ -74,6 +75,7 @@
     },
     {
       "tittel": "Om deg og avdøde",
+      "path": "om-deg-og-avdoed",
       "elementer": [
         {
           "innhold": [
@@ -113,6 +115,7 @@
     },
     {
       "tittel": "Om avdøde",
+      "path": "om-den-avdoede",
       "elementer": [
         {
           "innhold": [
@@ -197,6 +200,7 @@
     },
     {
       "tittel": "Situasjonen din",
+      "path": "din-situasjon",
       "elementer": [
         {
           "innhold": [
@@ -281,6 +285,7 @@
     },
     {
       "tittel": "Om barn",
+      "path": "om-barn",
       "elementer": [
         {
           "innhold": [

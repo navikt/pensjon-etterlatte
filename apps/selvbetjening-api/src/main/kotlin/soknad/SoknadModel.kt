@@ -18,7 +18,8 @@ data class Element(
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Gruppe(
     val tittel: String,
-    val elementer: List<Element>
+    val elementer: List<Element>,
+    val path: String
 )
 
 @JsonIgnoreProperties(ignoreUnknown = true)

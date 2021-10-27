@@ -19,7 +19,8 @@ data class Element(
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Gruppe(
     val tittel: String,
-    val elementer: List<Element>
+    val elementer: List<Element>,
+    val path: String
 )
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -35,8 +36,8 @@ private data class Barn(val fnr: String?, val soekerBarnepensjon: String?)
 
 private fun Soeknad.finnBarn(): List<Barn> {
     val barnElementer: List<Element> = this.oppsummering
-        .find { gruppe -> gruppe.tittel == "Om barn" }?.elementer ?: emptyList<Element>()
-        .filter { elementer -> elementer.innhold.any { innhold -> innhold.key == "omBarn.fornavn" } }
+        .find { gruppe -> gruppe.path == "om-barn" }?.elementer ?: emptyList<Element>()
+        .filter { elementer -> elementer.innhold.any { innhold -> innhold.key == "omBarn.foedselsnummer" } }
 
     return barnElementer.map { element ->
         Barn(
