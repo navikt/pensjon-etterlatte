@@ -4,7 +4,6 @@ plugins {
 
 dependencies {
     implementation("com.zaxxer:HikariCP:3.4.5")
-    implementation("com.github.seratch:kotliquery:1.3.1")
     implementation("org.flywaydb:flyway-core:6.5.0")
     implementation("org.postgresql:postgresql:42.2.5")
     implementation("no.nav.security:token-validation-ktor:1.3.3")
