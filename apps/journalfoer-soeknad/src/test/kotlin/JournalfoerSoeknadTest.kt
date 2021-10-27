@@ -48,7 +48,6 @@ internal class JournalfoerSoeknadTest {
         assertTrue(inspector.message(0).get("@journalpostInfo").get("journlanfoerendeEnhet").isNull)
         assertEquals("123", inspector.message(0).get("@dokarkivRetur").get("dokumenter")[0].get("dokumentInfoId").asText())
         assertEquals("467010363", inspector.message(0).get("@dokarkivRetur").get("journalpostId").asText())
-
     }
 
     @Test

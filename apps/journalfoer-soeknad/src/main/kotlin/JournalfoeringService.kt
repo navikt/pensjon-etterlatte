@@ -9,13 +9,13 @@ import no.nav.etterlatte.libs.common.journalpost.JournalPostType
 import no.nav.etterlatte.libs.common.journalpost.JournalpostDokument
 import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
 import no.nav.etterlatte.libs.common.journalpost.JournalpostRequest
+import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import org.slf4j.LoggerFactory
 import java.util.Base64
 
 class JournalfoeringService(private val klient: Dokarkiv) {
 
     private companion object {
-        private const val behandlingstema = "ab0011" // ab0011 = gjenlevendepensjon
         private const val kanal = "NAV_NO"
         private const val tema = "PEN"
     }
@@ -28,6 +28,7 @@ class JournalfoeringService(private val klient: Dokarkiv) {
         soeknadId: String,
         journalpostInfo: JournalpostInfo,
         skjemaInfo: ByteArray,
+        soeknadType: SoeknadType,
         pdf: ByteArray
     ): JsonNode {
         logger.info("Oppretter journalpost for søknad ID $soeknadId")
@@ -46,7 +47,7 @@ class JournalfoeringService(private val klient: Dokarkiv) {
             journalpostType = JournalPostType.INNGAAENDE,
             tema = tema,
             kanal = kanal,
-            behandlingstema = behandlingstema,
+            behandlingstema = soeknadType.behandlingstema,
             journalfoerendeEnhet = journalpostInfo.journalfoerendeEnhet,
             avsenderMottaker = journalpostInfo.avsenderMottaker,
             bruker = journalpostInfo.bruker,

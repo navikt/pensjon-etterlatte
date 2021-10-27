@@ -13,6 +13,7 @@ import no.nav.etterlatte.libs.common.journalpost.DokumentVariant
 import no.nav.etterlatte.libs.common.journalpost.JournalPostType
 import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
 import no.nav.etterlatte.libs.common.journalpost.JournalpostRequest
+import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -34,7 +35,13 @@ internal class JournalfoeringServiceTest {
         val journalpostInfo = journalpostInfo()
         val skjemaInfo = skjemaInfo()
 
-        val response = journalfoeringService.journalfoer(soeknadId, journalpostInfo, skjemaInfo, byteArrayOf())
+        val response = journalfoeringService.journalfoer(
+            soeknadId,
+            journalpostInfo,
+            skjemaInfo,
+            SoeknadType.Gjenlevendepensjon,
+            byteArrayOf()
+        )
 
         assertNotNull(response)
 
