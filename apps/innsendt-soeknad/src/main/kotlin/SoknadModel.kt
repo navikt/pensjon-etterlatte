@@ -25,8 +25,8 @@ data class Gruppe(
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Soeknad(
-    var imageTag: String,
     var soeknadsType: SoeknadType?,
+    val imageTag: String,
     val mottattDato: String = LocalDateTime.now(ZoneId.of("Europe/Oslo")).toString(),
     val oppsummering: List<Gruppe>
 )
