@@ -60,9 +60,8 @@ fun Route.soeknadApi(db: SoeknadRepository, testFnr: String? = null) {
     }
 }
 
-fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() =
-    call.principal<TokenValidationContextPrincipal>()?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!
-        .toString()
+fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() = call.principal<TokenValidationContextPrincipal>()
+    ?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
 
 fun Application.apiModule(routes: Route.() -> Unit) {
     install(Authentication) {

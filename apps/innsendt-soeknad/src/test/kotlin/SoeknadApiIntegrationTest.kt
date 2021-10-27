@@ -65,7 +65,6 @@ class SoeknadApiIntegrationTest {
                 setBody(utenBarnSoeknad)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-//                response.content shouldBe "1"
 
                 val lagretSoeknadRow = dsb.dataSource.connection.createStatement()
                     .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '26117512737'")
@@ -89,7 +88,6 @@ class SoeknadApiIntegrationTest {
                 setBody(medBarnSoeknad)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-//                response.content shouldBe "1"
 
                 // Verifiser søknad for gjenlevendepensjon
                 val gjenlevendeRow = dsb.dataSource.connection.createStatement()
