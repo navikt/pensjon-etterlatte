@@ -91,7 +91,7 @@
         "sluttDato": "Til dato"
       },
       "tittelFullfoert": "Fullført utdanning",
-      "hoyesteFullfoerteUtdanning": "Kva er utdanninga di?",
+      "hoyesteFullfoerteUtdanning": "Kva er di høgaste fullførte utdanning?",
       "annenUtdanning": "Anna utdanning",
       "annenUtdanningPlaceholder": "Eks. kurs, enkeltår på universitet eller høgskule"
     },
@@ -252,7 +252,7 @@
       "hjelpetekst": "Dette kan gi opptening som blir teke med i utrekninga av attlevandepensjonen din",
       "beskrivelse": "Kva for år? (valfri)"
     },
-    "doedsfallAarsak": "Skuldast dødsfallet yrkesskade/yrkessjukdom?",
+    "doedsfallAarsak": "Skuldast dødsfallet yrkesskade eller yrkessjukdom?",
     "doedsfallAarsakHvorfor": "Viss dødsfallet skuldast godkjent yrkesskade eller yrkessjukdom kan det avgjere om du får attlevandepensjon og kor mykje du kan få."
   },
   "omBarn": {
@@ -543,7 +543,7 @@
       "required": "Oppgi om du er medlem i folketrygda under opphald i eit anna land enn Noreg"
     },
     "doedsfallAarsak": {
-      "required": "Oppgi om dødsfallet skuldast yrkesskade/yrkessjukdom"
+      "required": "Oppgi om dødsfallet skuldast yrkesskade eller yrkessjukdom"
     },
     "avdoed": {
       "fornavn": {
