@@ -11,8 +11,6 @@ import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
-import useEffectOnce from "../../../hooks/useEffectOnce";
-import { isEmpty } from "lodash";
 import { BodyLong, Label, Heading } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
@@ -28,9 +26,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         shouldUnregister: true,
     });
 
-    useEffectOnce(() => {
-        methods.reset(state.omDenAvdoede);
-    }, !isEmpty(state.omDenAvdoede));
 
     const {
         handleSubmit,

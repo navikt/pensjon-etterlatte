@@ -18,8 +18,6 @@ import { Cell, Grid, Heading } from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
-import { isEmpty } from "lodash";
-import useEffectOnce from "../../../hooks/useEffectOnce";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
 
@@ -38,10 +36,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
         defaultValues: state.omDeg || {},
         shouldUnregister: true,
     });
-
-    useEffectOnce(() => {
-        methods.reset(state.omDeg);
-    }, !isEmpty(state.omDeg));
 
     const {
         handleSubmit,

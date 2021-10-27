@@ -12,8 +12,6 @@ import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import UnderUtdanning from "./fragmenter/UnderUtdanning";
 import { RHFInput } from "../../felles/RHFInput";
-import useEffectOnce from "../../../hooks/useEffectOnce";
-import { isEmpty } from "lodash";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
@@ -28,10 +26,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         defaultValues: state.dinSituasjon || {},
         shouldUnregister: true,
     });
-    
-    useEffectOnce(() => {
-        methods.reset(state.dinSituasjon);
-    }, !isEmpty(state.dinSituasjon));
+
 
     const {
         handleSubmit,

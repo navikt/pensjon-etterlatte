@@ -14,8 +14,6 @@ import Navigasjon from "../../felles/Navigasjon";
 import { Alert, BodyShort, Button, Modal, Panel, Heading } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
-import useEffectOnce from "../../../hooks/useEffectOnce";
-import { isEmpty } from "lodash";
 import { deepCopy } from "../../../utils/deepCopy";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root"); //Denne er også definert i Navigasjon. Trenger vi den?
@@ -44,10 +42,6 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         }
     }
     const fnrRegistrerteBarn: string[] = getFnrRegistrerteBarn()
-
-    useEffectOnce(() => {
-        methods.reset(state.opplysningerOmBarn);
-    }, !isEmpty(state.opplysningerOmBarn));
 
     const { fields, append, remove } = useFieldArray({
         name: "barn",

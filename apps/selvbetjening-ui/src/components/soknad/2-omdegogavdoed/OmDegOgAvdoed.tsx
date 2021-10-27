@@ -12,8 +12,6 @@ import Datovelger from "../../felles/Datovelger";
 import { Cell, Grid, Label, Heading } from "@navikt/ds-react";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
-import { isEmpty } from "lodash";
-import useEffectOnce from "../../../hooks/useEffectOnce";
 import { deepCopy } from "../../../utils/deepCopy";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
@@ -25,10 +23,6 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         shouldUnregister: true
     });
 
-    
-    useEffectOnce(() => {
-        methods.reset(state.omDegOgAvdoed);
-    }, !isEmpty(state.omDegOgAvdoed));
 
     const {
         handleSubmit,
