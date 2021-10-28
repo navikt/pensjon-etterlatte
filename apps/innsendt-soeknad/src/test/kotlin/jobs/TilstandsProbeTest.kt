@@ -1,19 +1,20 @@
+package jobs
+
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.prometheus.client.CollectorRegistry
-import no.nav.etterlatte.PostgresSoeknadRepository
-import no.nav.etterlatte.Status
-import no.nav.etterlatte.TilstandsProbe
+import no.nav.etterlatte.jobs.TilstandsProbe
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import soeknad.PostgresSoeknadRepository
+import soeknad.Status
 import java.time.LocalDateTime
 
-
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class TilstandsProbeTest {
+internal class TilstandsProbeTest {
     private val dbMock = mockk<PostgresSoeknadRepository>()
     private val tilstandsProbe = TilstandsProbe(dbMock)
     private val eldsteUsendt = LocalDateTime.now().minusHours(1)

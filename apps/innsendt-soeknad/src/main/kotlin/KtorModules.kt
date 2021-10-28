@@ -2,7 +2,7 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.typesafe.config.ConfigFactory
-import dao.SoeknadRepository
+import soeknad.SoeknadRepository
 import io.ktor.application.Application
 import io.ktor.application.ApplicationCall
 import io.ktor.application.call
@@ -26,7 +26,7 @@ import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.routing.routing
 import io.ktor.util.pipeline.PipelineContext
-import model.UlagretSoeknad
+import soeknad.UlagretSoeknad
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import no.nav.security.token.support.ktor.tokenValidationSupport
 

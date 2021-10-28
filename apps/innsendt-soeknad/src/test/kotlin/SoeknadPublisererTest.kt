@@ -1,13 +1,13 @@
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import no.nav.etterlatte.LagretSoeknad
-import no.nav.etterlatte.SoeknadID
 import no.nav.etterlatte.SoeknadPubliserer
-import no.nav.etterlatte.SoeknadRepository
-import no.nav.etterlatte.UlagretSoeknad
 import no.nav.helse.rapids_rivers.MessageContext
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
+import soeknad.LagretSoeknad
+import soeknad.SoeknadID
+import soeknad.SoeknadRepository
+import soeknad.UlagretSoeknad
 import java.time.Clock
 import java.time.LocalDateTime
 import java.time.Month
@@ -30,14 +30,14 @@ class SoeknadPublisererTest {
 
         val subject = SoeknadPubliserer(rapidStub, dbStub)
 
-        val soeknadSomSkalPubliseres = LagretSoeknad("1", "{}", 123)
+        val soeknadSomSkalPubliseres = LagretSoeknad(123, "fnr", "{}")
 
         subject.publiser(soeknadSomSkalPubliseres)
 
         assertEquals(1, publieserteSoeknader.size)
         assertEquals(1, rapidStub.publishedMessages.size)
         assertEquals(123.toString(), rapidStub.publishedMessages[0].first)
-        assertEquals(soeknadSomSkalPubliseres, publieserteSoeknader[0])
+        assertEquals(soeknadSomSkalPubliseres.id, publieserteSoeknader[0])
 
     }
 
@@ -47,7 +47,7 @@ class SoeknadPublisererTest {
         val dbStub = SoeknadRepositoryNoOp()
         val clock: Clock = Clock.fixed(LocalDateTime.of(2020, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
         val subject = SoeknadPubliserer(rapidStub, dbStub, clock)
-        val soeknadSomSkalPubliseres = LagretSoeknad("1", "{}", 123)
+        val soeknadSomSkalPubliseres = LagretSoeknad(123, "fnr", "{}")
         subject.publiser(soeknadSomSkalPubliseres)
 
         assertEquals(1, rapidStub.publishedMessages.size)
@@ -81,7 +81,7 @@ class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
 
     override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
         op()
-        return LagretSoeknad(soeknad.fnr, soeknad.payload, 0L)    }
+        return LagretSoeknad(0L, soeknad.fnr, soeknad.payload)    }
 
     override fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad {
         TODO("Not yet implemented")

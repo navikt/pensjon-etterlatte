@@ -1,15 +1,15 @@
 
 import no.nav.etterlatte.JournalpostSkrevet
-import no.nav.etterlatte.LagretSoeknad
-import no.nav.etterlatte.SoeknadID
-import no.nav.etterlatte.SoeknadRepository
-import no.nav.etterlatte.UlagretSoeknad
 import no.nav.etterlatte.mapper
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import soeknad.LagretSoeknad
+import soeknad.SoeknadID
+import soeknad.SoeknadRepository
+import soeknad.UlagretSoeknad
 
 class JournalpostSkrevetTest {
 

@@ -1,25 +1,21 @@
-package dao
+package soeknad
 
-import dao.Queries.CREATE_HENDELSE
-import dao.Queries.CREATE_SOEKNAD
-import dao.Queries.FINN_KLADD
-import dao.Queries.OPPDATER_SOEKNAD
-import dao.Queries.SELECT_OLD
-import dao.Queries.SELECT_OLDEST_UNARCHIVED
-import dao.Queries.SELECT_OLDEST_UNSENT
-import dao.Queries.SELECT_RAPPORT
-import dao.Queries.SLETT_ARKIVERTE_SOEKNADER
-import dao.Queries.SLETT_KLADD
-import dao.Queries.SLETT_UTGAATTE_KLADDER
-import model.LagretSoeknad
-import model.Status
-import model.UlagretSoeknad
-import model.SoeknadID
-import model.Status.ARKIVERINGSFEIL
-import model.Status.ARKIVERT
-import model.Status.FERDIGSTILT
-import model.Status.LAGRETKLADD
-import model.Status.SENDT
+import soeknad.Queries.CREATE_HENDELSE
+import soeknad.Queries.CREATE_SOEKNAD
+import soeknad.Queries.FINN_KLADD
+import soeknad.Queries.OPPDATER_SOEKNAD
+import soeknad.Queries.SELECT_OLD
+import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
+import soeknad.Queries.SELECT_OLDEST_UNSENT
+import soeknad.Queries.SELECT_RAPPORT
+import soeknad.Queries.SLETT_ARKIVERTE_SOEKNADER
+import soeknad.Queries.SLETT_KLADD
+import soeknad.Queries.SLETT_UTGAATTE_KLADDER
+import soeknad.Status.ARKIVERINGSFEIL
+import soeknad.Status.ARKIVERT
+import soeknad.Status.FERDIGSTILT
+import soeknad.Status.LAGRETKLADD
+import soeknad.Status.SENDT
 import java.sql.ResultSet
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -140,7 +136,7 @@ class PostgresSoeknadRepository private constructor(
             .apply { setString(1, fnr) }
             .executeQuery()
             .singleOrNull {
-                LagretSoeknad(id = getLong("id"), fnr = fnr, payload = getString("payload"))
+                LagretSoeknad(getLong("id"), fnr, getString("payload"))
             }
     }
 
@@ -156,7 +152,7 @@ class PostgresSoeknadRepository private constructor(
         it.prepareStatement(SELECT_OLD)
             .executeQuery()
             .toList {
-                LagretSoeknad(id = getLong("id"), fnr = getString("fnr"), payload = getString("payload"))
+                LagretSoeknad(getLong("id"), getString("fnr"), getString("payload"))
             }
     }
 

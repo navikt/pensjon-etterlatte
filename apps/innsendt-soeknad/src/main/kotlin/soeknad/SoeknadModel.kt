@@ -1,4 +1,4 @@
-package model
+package soeknad
 
 typealias SoeknadID = Long
 

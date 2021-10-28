@@ -1,7 +1,9 @@
 package no.nav.etterlatte
 
+import soeknad.LagretSoeknad
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
+import soeknad.SoeknadRepository
 import java.time.Clock
 import java.time.OffsetDateTime
 

@@ -13,6 +13,10 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import soeknad.LagretSoeknad
+import soeknad.PostgresSoeknadRepository
+import soeknad.Status
+import soeknad.UlagretSoeknad
 import java.sql.Timestamp
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
@@ -209,9 +213,9 @@ class SoeknadDaoIntegrationTest {
 
     @Test
     fun `Usendte søknader skal plukkes opp`() {
-        val soeknad1 = LagretSoeknad("Usendt-1", "{}", 2001)
-        val soeknad2 = LagretSoeknad("Usendt-2", "{}", 2002)
-        val soeknad3 = LagretSoeknad("Usendt-3", "{}", 2003)
+        val soeknad1 = LagretSoeknad(2001, "Usendt-1", "{}")
+        val soeknad2 = LagretSoeknad(2002, "Usendt-2", "{}")
+        val soeknad3 = LagretSoeknad(2003, "Usendt-3", "{}")
         lagreSoeknaderMedOpprettetTidspunkt(
             listOf(
                 SoeknadTest(soeknad1.id, soeknad1.fnr, soeknad1.payload, ZonedDateTime.now().minusHours(6)),
@@ -228,7 +232,7 @@ class SoeknadDaoIntegrationTest {
 
     @Test
     fun `Ukategoriserte søknader skal plukkes opp`() {
-        val soeknad = LagretSoeknad("Ukategorisert", "{}", 2004)
+        val soeknad = LagretSoeknad(2004, "Ukategorisert", "{}")
         lagreSoeknaderMedOpprettetTidspunkt(
             listOf(SoeknadTest(soeknad.id, soeknad.fnr, soeknad.payload, ZonedDateTime.now()))
         )
@@ -334,7 +338,7 @@ class SoeknadDaoIntegrationTest {
 
             val rs = pstmt.executeQuery()
 
-            if (rs.next()) LagretSoeknad(rs.getString("fnr"), rs.getString("payload"), rs.getLong("id"))
+            if (rs.next()) LagretSoeknad(rs.getLong("id"), rs.getString("fnr"), rs.getString("payload"))
             else null
         }
     }

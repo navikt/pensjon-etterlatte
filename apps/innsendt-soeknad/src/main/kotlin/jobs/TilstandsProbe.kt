@@ -1,10 +1,10 @@
-package no.nav.etterlatte
-
+package no.nav.etterlatte.jobs
 
 import io.prometheus.client.Gauge
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import org.slf4j.LoggerFactory
+import soeknad.StatistikkRepository
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
