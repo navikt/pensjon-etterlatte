@@ -28,12 +28,11 @@ import io.ktor.util.pipeline.PipelineContext
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import no.nav.security.token.support.ktor.tokenValidationSupport
 
-// todo: testFnr burde ikke være nødvendig her, men sliter med å få testet/kjørt opp dette med autentisering.
-fun Route.soeknadApi(db: SoeknadRepository, testFnr: String? = null) {
+fun Route.soeknadApi(db: SoeknadRepository) {
     post("/api/soeknad") {
         val soeknad = call.receive<Soeknad>()
 
-        soeknad.finnSoekere(gjenlevendeFnr = testFnr ?: fnrFromToken()).forEach { soeker ->
+        soeknad.finnSoekere(gjenlevendeFnr =  fnrFromToken()).forEach { soeker ->
             val oppdatertSoeknad = soeknad.copy(soeknadsType = soeker.type)
             val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(soeker.fnr, oppdatertSoeknad.toJson()))
             db.soeknadFerdigstilt(lagretSoeknad)
@@ -45,17 +44,17 @@ fun Route.soeknadApi(db: SoeknadRepository, testFnr: String? = null) {
     route("/api/kladd") {
         post {
             val soknad = call.receive<JsonNode>()
-            val lagretkladd = db.lagreKladd(UlagretSoeknad(testFnr ?: fnrFromToken(), soknad.toJson()))
+            val lagretkladd = db.lagreKladd(UlagretSoeknad(fnrFromToken(), soknad.toJson()))
             call.respondText(lagretkladd.id.toString(), ContentType.Text.Plain)
         }
 
         delete {
-            db.slettKladd(testFnr ?: fnrFromToken())
+            db.slettKladd(fnrFromToken())
             call.respond(HttpStatusCode)
         }
 
         get {
-            call.respond(db.finnKladd(testFnr ?: fnrFromToken()) ?: HttpStatusCode.NotFound)
+            call.respond(db.finnKladd(fnrFromToken()) ?: HttpStatusCode.NotFound)
         }
     }
 }
