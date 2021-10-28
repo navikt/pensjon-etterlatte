@@ -7,7 +7,7 @@ import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { ActionTypes as BrukerAction } from "../../context/bruker/bruker";
 import { ActionTypes as SoknadAction } from "../../context/soknad/soknad";
 import { erDato } from "../../utils/dato";
-import { BodyShort, Button, Loader, Modal, Heading } from "@navikt/ds-react";
+import { BodyShort, Button, Heading, Loader, Modal } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { slettSoeknad } from "../../api/api";
 
@@ -53,15 +53,15 @@ const Navigasjon = ({
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const avbrytOgslettSoeknad = () => {
-        slettSoeknad().then(() => {
-            soknadDispatch({ type: SoknadAction.TILBAKESTILL });
-            brukerDispatch({ type: BrukerAction.TILBAKESTILL });
+    const avbrytOgslettSoeknad = () => slettSoeknad().then(() => avbrytSoeknad());
 
-            logEvent(LogEvents.KLIKK, { type: "avbryt soknad", svar: "ja" });
-            window.location.href = "https://www.nav.no/gjenlevendepensjon"
-        })
-    };
+    const avbrytSoeknad = () => {
+        soknadDispatch({ type: SoknadAction.TILBAKESTILL });
+        brukerDispatch({ type: BrukerAction.TILBAKESTILL });
+
+        logEvent(LogEvents.KLIKK, { type: "avbryt soknad", svar: "ja" });
+        window.location.href = "https://www.nav.no/gjenlevendepensjon"
+    }
 
     const fortsettSoknad = () => {
         logEvent(LogEvents.KLIKK, { type: "avbryt soknad", svar: "nei" });
@@ -115,16 +115,23 @@ const Navigasjon = ({
                     {t("avbrytModal.informasjon")}
                 </BodyShort>
 
-                <SkjemaGruppe>
-                    <Button id={"avbryt-nei-btn"} variant={"primary"} type={"button"} onClick={fortsettSoknad}>
-                        {t("avbrytModal.svarNei")}
-                    </Button>
-                </SkjemaGruppe>
+                <Button id={"avbryt-nei-btn"} variant={"primary"} type={"button"} onClick={fortsettSoknad}
+                        style={{ margin: "10px" }}>
+                    {t("avbrytModal.svarNei")}
+                </Button>
 
-                <Button id={"avbryt-ja-btn"}  variant={"secondary"} type={"button"} onClick={avbrytOgslettSoeknad}>
+                <Button id={"avbryt-ja-btn"} variant={"secondary"} type={"button"} onClick={avbrytSoeknad}
+                        style={{ margin: "10px" }}>
                     {t("avbrytModal.svarJa")}
                 </Button>
 
+                <SkjemaGruppe>
+                    <a href="#"
+                       id={"slett-soeknad"}
+                       style={{ color: "#C65D4E" }}
+                       onClick={avbrytOgslettSoeknad}>{t("avbrytModal.svarSlett")}
+                    </a>
+                </SkjemaGruppe>
             </Modal>
         </>
     );
