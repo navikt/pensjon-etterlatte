@@ -25,7 +25,7 @@ class TilstandsProbe(private val db: StatistikkRepository){
 
         db.rapport()
             .also { rapport -> logger.info(rapport.toString()) }
-            .forEach { (status, antall) -> soknadTilstand.labels(status).set(antall.toDouble()) }
+            .forEach { (status, antall) -> soknadTilstand.labels(status.name).set(antall.toDouble()) }
 
         logger.info("Ukategoriserte søknader: " + db.ukategorisert().toString())
     }

@@ -1,7 +1,9 @@
 package no.nav.etterlatte
 
+import dao.SoeknadRepository
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import model.LagretSoeknad
 import org.slf4j.LoggerFactory
 
 class TilstandsPusher(private val db: SoeknadRepository, private val publiserSoeknad: SoeknadPubliserer) {

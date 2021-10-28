@@ -1,12 +1,7 @@
-
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.DataSourceBuilder
-import no.nav.etterlatte.LagretSoeknad
-import no.nav.etterlatte.PostgresSoeknadRepository
-import no.nav.etterlatte.PostgresSoeknadRepository.Companion.Status
-import no.nav.etterlatte.UlagretSoeknad
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
@@ -23,6 +18,7 @@ import java.time.ZoneOffset
 import java.time.ZonedDateTime
 import java.util.*
 import javax.sql.DataSource
+import kotlin.random.Random
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class SoeknadDaoIntegrationTest {
@@ -42,6 +38,7 @@ class SoeknadDaoIntegrationTest {
 
         val dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
         dataSource = dsb.dataSource
+
         dsb.migrate()
         db = PostgresSoeknadRepository.using(dataSource)
     }
@@ -51,9 +48,11 @@ class SoeknadDaoIntegrationTest {
         postgreSQLContainer.stop()
     }
 
+    private fun randomFakeFnr() = Random.nextLong(10000000000, 99999999999).toString()
+
     @Test
     fun `Lagring og uthenting av kladd fungerer som forventet`() {
-        val fnr = "11111111111"
+        val fnr = randomFakeFnr()
         val json = """{"harSamtykket":true}"""
 
         val soeknad = UlagretSoeknad(fnr, json)
@@ -64,7 +63,7 @@ class SoeknadDaoIntegrationTest {
 
         assertNotNull(funnetKladd.id)
         assertEquals(fnr, funnetKladd.fnr)
-        assertEquals(json, funnetKladd.soeknad)
+        assertEquals(json, funnetKladd.payload)
 
         assertEquals(lagretKladd, funnetKladd)
     }
@@ -78,7 +77,7 @@ class SoeknadDaoIntegrationTest {
 
     @Test
     fun `Lagre ferdig søknad hvor kladd IKKE finnes`() {
-        val fnr = "22222222222"
+        val fnr = randomFakeFnr()
         val json = """{"harSamtykket":true}"""
 
         assertNull(db.finnKladd(fnr))
@@ -87,12 +86,12 @@ class SoeknadDaoIntegrationTest {
 
         val lagretSoeknad = db.lagreSoeknad(soeknad)
 
-        assertEquals(json, lagretSoeknad.soeknad)
+        assertEquals(json, lagretSoeknad.payload)
     }
 
     @Test
     fun `Lagre ferdig søknad hvor kladd finnes`() {
-        val fnr = "33333333333"
+        val fnr = randomFakeFnr()
         val json = """{"harSamtykket":true}"""
         val soeknad = UlagretSoeknad(fnr, json)
 
@@ -104,7 +103,7 @@ class SoeknadDaoIntegrationTest {
         val funnetKladd = db.finnKladd(fnr)!!
         assertEquals(lagretKladd.id, funnetKladd.id)
         assertEquals(lagretKladd.fnr, funnetKladd.fnr)
-        assertEquals(lagretKladd.soeknad, funnetKladd.soeknad)
+        assertEquals(lagretKladd.payload, funnetKladd.payload)
 
         val nyJson = """{"harSamtykket":true,"omDeg":{"bostedsadresseBekreftet":"Ja"}}"""
         val endretSoeknad = UlagretSoeknad(fnr, nyJson)
@@ -112,12 +111,12 @@ class SoeknadDaoIntegrationTest {
         val lagretSoeknad = db.lagreSoeknad(endretSoeknad)
         assertEquals(lagretKladd.id, lagretSoeknad.id)
         assertEquals(lagretKladd.fnr, lagretSoeknad.fnr)
-        assertEquals(endretSoeknad.soeknad, lagretSoeknad.soeknad)
+        assertEquals(endretSoeknad.payload, lagretSoeknad.payload)
     }
 
     @Test
     fun `Kladd skal kunne slettes`() {
-        val fnr = "44444444444"
+        val fnr = randomFakeFnr()
         val json = """{"harSamtykket":true}"""
         val soeknad = UlagretSoeknad(fnr, json)
 
@@ -130,7 +129,7 @@ class SoeknadDaoIntegrationTest {
 
     @Test
     fun `Ferdigstilte søknader skal ikke slettes som kladd`() {
-        val fnr = "55555555555"
+        val fnr = randomFakeFnr()
         val json = """{"harSamtykket":true}"""
         val soeknad = UlagretSoeknad(fnr, json)
 
@@ -139,33 +138,39 @@ class SoeknadDaoIntegrationTest {
         val lagretKladd = db.lagreKladd(soeknad)
         assertNotNull(lagretKladd)
 
-        db.soeknadFerdigstilt(lagretKladd)
+        db.soeknadFerdigstilt(lagretKladd.id)
         assertFalse(db.slettKladd(fnr))
     }
 
     @Test
     fun `Kladder skal slettes etter 72 timer`() {
         val nowUTC = ZonedDateTime.now(ZoneOffset.UTC)
+
+        val fnr1 = randomFakeFnr()
+        val fnr2 = randomFakeFnr()
+        val fnr3 = randomFakeFnr()
+        val fnr4 = randomFakeFnr()
+
         val soeknader = listOf(
-            SoeknadTest(1000, "aaaaaaa", """{}""", nowUTC.minusDays(5)),
-            SoeknadTest(1111, "bbbbbbb", """{}""", nowUTC.minusHours(72)),
-            SoeknadTest(2222, "ccccccc", """{}""", nowUTC.minusHours(71).plusMinutes(59)),
-            SoeknadTest(3333, "ddddddd", """{}""", nowUTC),
+            SoeknadTest(1000, fnr1, """{}""", nowUTC.minusDays(5)),
+            SoeknadTest(1111, fnr2, """{}""", nowUTC.minusHours(72)),
+            SoeknadTest(2222, fnr3, """{}""", nowUTC.minusHours(71).plusMinutes(59)),
+            SoeknadTest(3333, fnr4, """{}""", nowUTC),
         )
         lagreSoeknaderMedOpprettetTidspunkt(soeknader, true)
 
         assertEquals(2, db.slettUtgaatteKladder())
 
-        assertNull(db.finnKladd("aaaaaaa"))
-        assertNull(db.finnKladd("bbbbbbb"))
-        assertNotNull(db.finnKladd("ccccccc"))
-        assertNotNull(db.finnKladd("ddddddd"))
+        assertNull(db.finnKladd(fnr1))
+        assertNull(db.finnKladd(fnr2))
+        assertNotNull(db.finnKladd(fnr3))
+        assertNotNull(db.finnKladd(fnr4))
     }
 
     @Test
     fun `Kladder skal kun slettes hvis alle kladdhendelsene er over 72 timer`() {
         val now = ZonedDateTime.now()
-        val utgaattSoeknad = SoeknadTest(3003, "aaaaaaa", """{}""", now.minusDays(5))
+        val utgaattSoeknad = SoeknadTest(3003, randomFakeFnr(), """{}""", now.minusDays(5))
         lagreSoeknaderMedOpprettetTidspunkt(listOf(utgaattSoeknad), true)
         nyKladdHendelse(utgaattSoeknad.copy(opprettet = now.minusHours(12)), utgaattSoeknad.id + 1)
 
@@ -175,31 +180,30 @@ class SoeknadDaoIntegrationTest {
     @Test
     fun `Kun kladder skal slettes etter 72 timer`() {
         val utgaatt = ZonedDateTime.now(ZoneOffset.UTC).minusDays(4)
-        val soeknad = SoeknadTest(1001, "aaaaaaa", """{}""", utgaatt)
+        val soeknad = SoeknadTest(1001, randomFakeFnr(), """{}""", utgaatt)
         lagreSoeknaderMedOpprettetTidspunkt(listOf(soeknad))
-        val lagretSoeknad = LagretSoeknad(soeknad.fnr, soeknad.data, soeknad.id)
         assertNotNull(db.finnKladd(soeknad.fnr))
 
         // Skal ikke slette ukategoriserte søknader
         assertEquals(0, db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "arkivert"
-        db.soeknadArkivert(lagretSoeknad)
+        db.soeknadArkivert(soeknad.id)
         assertEquals(0, db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "arkiveringsfeil"
         slettHendelserForSoeknad(soeknad.id)
-        db.soeknadFeiletArkivering(lagretSoeknad, """{}""")
+        db.soeknadFeiletArkivering(soeknad.id, """{}""")
         assertEquals(0, db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "ferdigstillt"
         slettHendelserForSoeknad(soeknad.id)
-        db.soeknadFerdigstilt(lagretSoeknad)
+        db.soeknadFerdigstilt(soeknad.id)
         assertEquals(0, db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "sendt"
         slettHendelserForSoeknad(soeknad.id)
-        db.soeknadSendt(lagretSoeknad)
+        db.soeknadSendt(soeknad.id)
         assertEquals(0, db.slettUtgaatteKladder())
     }
 
@@ -210,14 +214,14 @@ class SoeknadDaoIntegrationTest {
         val soeknad3 = LagretSoeknad("Usendt-3", "{}", 2003)
         lagreSoeknaderMedOpprettetTidspunkt(
             listOf(
-                SoeknadTest(soeknad1.id, soeknad1.fnr, soeknad1.soeknad, ZonedDateTime.now().minusHours(6)),
-                SoeknadTest(soeknad2.id, soeknad2.fnr, soeknad2.soeknad, ZonedDateTime.now()),
-                SoeknadTest(soeknad3.id, soeknad3.fnr, soeknad3.soeknad, ZonedDateTime.now().minusHours(12))
+                SoeknadTest(soeknad1.id, soeknad1.fnr, soeknad1.payload, ZonedDateTime.now().minusHours(6)),
+                SoeknadTest(soeknad2.id, soeknad2.fnr, soeknad2.payload, ZonedDateTime.now()),
+                SoeknadTest(soeknad3.id, soeknad3.fnr, soeknad3.payload, ZonedDateTime.now().minusHours(12))
             )
         )
-        db.soeknadFerdigstilt(soeknad1)
-        db.soeknadFerdigstilt(soeknad2)
-        db.soeknadFerdigstilt(soeknad3)
+        db.soeknadFerdigstilt(soeknad1.id)
+        db.soeknadFerdigstilt(soeknad2.id)
+        db.soeknadFerdigstilt(soeknad3.id)
 
         db.usendteSoeknader() shouldContainExactly listOf(soeknad1, soeknad3)
     }
@@ -226,7 +230,7 @@ class SoeknadDaoIntegrationTest {
     fun `Ukategoriserte søknader skal plukkes opp`() {
         val soeknad = LagretSoeknad("Ukategorisert", "{}", 2004)
         lagreSoeknaderMedOpprettetTidspunkt(
-            listOf(SoeknadTest(soeknad.id, soeknad.fnr, soeknad.soeknad, ZonedDateTime.now()))
+            listOf(SoeknadTest(soeknad.id, soeknad.fnr, soeknad.payload, ZonedDateTime.now()))
         )
 
         db.ukategorisert() shouldContain soeknad.id
@@ -237,18 +241,14 @@ class SoeknadDaoIntegrationTest {
         val soeknad = UlagretSoeknad("AlleHendelser", """{"harSamtykket":"true"}""")
 
         db.lagreKladd(soeknad)
-        val lagretSoeknad = db.lagreSoeknad(soeknad)
-        db.soeknadSendt(lagretSoeknad)
-        db.soeknadFerdigstilt(lagretSoeknad)
-        db.soeknadFeiletArkivering(lagretSoeknad, """{"error":"test"}""")
-        db.soeknadArkivert(lagretSoeknad)
+        val lagretSoeknadID = db.lagreSoeknad(soeknad).id
+        db.soeknadSendt(lagretSoeknadID)
+        db.soeknadFerdigstilt(lagretSoeknadID)
+        db.soeknadFeiletArkivering(lagretSoeknadID, """{"error":"test"}""")
+        db.soeknadArkivert(lagretSoeknadID)
 
-        finnHendelser(lagretSoeknad.id) shouldContainExactly listOf(
-            Status.lagretkladd,
-            Status.sendt,
-            Status.ferdigstilt,
-            Status.arkiveringsfeil,
-            Status.arkivert
+        finnHendelser(lagretSoeknadID) shouldContainExactly listOf(
+            Status.LAGRETKLADD, Status.FERDIGSTILT, Status.SENDT, Status.ARKIVERT, Status.ARKIVERINGSFEIL
         )
     }
 
@@ -256,7 +256,8 @@ class SoeknadDaoIntegrationTest {
     fun `Arkiverte søknader skal slettes`() {
         val soeknad = UlagretSoeknad("SlettArkivert", """{"harSamtykket":"true"}""")
         val lagretSoeknad = db.lagreSoeknad(soeknad)
-        db.soeknadArkivert(lagretSoeknad)
+        db.soeknadArkivert(lagretSoeknad.id)
+
         finnSoeknad(lagretSoeknad.fnr) shouldBe lagretSoeknad
 
         db.slettArkiverteSoeknader()
@@ -270,7 +271,7 @@ class SoeknadDaoIntegrationTest {
     ) {
         soeknader.forEachIndexed { index, soeknad ->
             connection.use {
-                it.prepareStatement("INSERT INTO soeknad(id, fnr, data, opprettet) VALUES(?, ?, (to_json(?::json)), ?)")
+                it.prepareStatement("INSERT INTO soeknad(id, fnr, payload, opprettet) VALUES(?, ?, ?, ?)")
                     .apply {
                         setLong(1, soeknad.id)
                         setString(2, soeknad.fnr)
@@ -285,34 +286,42 @@ class SoeknadDaoIntegrationTest {
     }
 
     private fun nyKladdHendelse(soeknad: SoeknadTest, hendelseId: Long) {
-        connection
-            .prepareStatement("INSERT INTO hendelse(id, soeknad, status, data, opprettet) VALUES(?, ?, ?, (to_json(?::json)), ?)")
+        connection.use {
+            it.prepareStatement("INSERT INTO hendelse(id, soeknad_id, status_id, payload, opprettet) VALUES(?, ?, ?, ?, ?)")
             .apply {
                 setLong(1, hendelseId)
                 setLong(2, soeknad.id)
-                setString(3, Status.lagretkladd)
+                setInt(3, Status.LAGRETKLADD.id)
                 setString(4, "{}")
                 setTimestamp(5, Timestamp(Date.from(soeknad.opprettet.toInstant()).time))
             }
-            .use { it.execute() }
+            .execute()
+        }
     }
 
     private fun slettHendelserForSoeknad(soeknadId: Long) {
         connection.use {
-            it.prepareStatement("DELETE FROM hendelse WHERE soeknad = ?")
+            it.prepareStatement("DELETE FROM hendelse WHERE soeknad_id = ?")
                 .apply { setLong(1, soeknadId) }
                 .execute()
         }
     }
 
-    private fun finnHendelser(soeknadId: Long): List<String> {
+    private fun finnHendelser(soeknadId: Long): List<Status> {
+        val sql = """
+            SELECT status.navn FROM hendelse 
+            INNER JOIN status ON hendelse.status_id = status.id
+            WHERE soeknad_id = ?
+            ORDER BY status.rang
+        """.trimIndent()
+
         return connection.use {
-            val rs = it.prepareStatement("SELECT * FROM HENDELSE WHERE SOEKNAD = ?")
+            val rs = it.prepareStatement(sql)
                 .apply { setLong(1, soeknadId) }
                 .executeQuery()
 
             generateSequence {
-                if (rs.next()) rs.getString("status")
+                if (rs.next()) Status.valueOf(rs.getString(1))
                 else null
             }.toList()
         }
@@ -320,12 +329,12 @@ class SoeknadDaoIntegrationTest {
 
     private fun finnSoeknad(fnr: String): LagretSoeknad? {
         return connection.use {
-            val pstmt = it.prepareStatement("SELECT * FROM SOEKNAD WHERE FNR = ?")
+            val pstmt = it.prepareStatement("SELECT * FROM soeknad WHERE fnr = ?")
             pstmt.setString(1, fnr)
 
             val rs = pstmt.executeQuery()
 
-            if (rs.next()) LagretSoeknad(rs.getString("fnr"), rs.getString("data"), rs.getLong("id"))
+            if (rs.next()) LagretSoeknad(rs.getString("fnr"), rs.getString("payload"), rs.getLong("id"))
             else null
         }
     }

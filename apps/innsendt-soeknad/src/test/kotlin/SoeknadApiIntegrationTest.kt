@@ -156,7 +156,7 @@ class SoeknadApiIntegrationTest {
                 kladd shouldNotBe null
                 kladd?.id shouldNotBe null
                 kladd?.fnr shouldBe "11057523044"
-                kladd?.soeknad shouldBe dummyKladd
+                kladd?.payload shouldBe dummyKladd
             }
         }
     }

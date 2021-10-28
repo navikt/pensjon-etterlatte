@@ -4,7 +4,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.prometheus.client.CollectorRegistry
 import no.nav.etterlatte.PostgresSoeknadRepository
-import no.nav.etterlatte.PostgresSoeknadRepository.Companion.Status
+import no.nav.etterlatte.Status
 import no.nav.etterlatte.TilstandsProbe
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -23,7 +23,7 @@ class TilstandsProbeTest {
     fun setUp() {
         every { dbMock.eldsteUsendte() } returns eldsteUsendt
         every { dbMock.eldsteUarkiverte() } returns eldsteUarkivert
-        every { dbMock.rapport() } returns mapOf(Status.sendt to 45L, Status.ferdigstilt to 30L)
+        every { dbMock.rapport() } returns mapOf(Status.SENDT to 45L, Status.FERDIGSTILT to 30L)
         every { dbMock.ukategorisert() } returns listOf(1L)
     }
 
@@ -39,12 +39,12 @@ class TilstandsProbeTest {
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_tilstand",
             arrayOf("tilstand"),
-            arrayOf(Status.sendt)
+            arrayOf(Status.SENDT.name)
         ) shouldBe 45.0
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_tilstand",
             arrayOf("tilstand"),
-            arrayOf(Status.ferdigstilt)
+            arrayOf(Status.FERDIGSTILT.name)
         ) shouldBe 30.0
         verify(exactly = 1) { dbMock.ukategorisert() }
     }

@@ -1,12 +1,12 @@
 package no.nav.etterlatte
 
+import dao.PostgresSoeknadRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
-
 
 fun main() {
     val datasourceBuilder = DataSourceBuilder(System.getenv())
