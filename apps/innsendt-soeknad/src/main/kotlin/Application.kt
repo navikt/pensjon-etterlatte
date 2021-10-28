@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import soeknad.PostgresSoeknadRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
