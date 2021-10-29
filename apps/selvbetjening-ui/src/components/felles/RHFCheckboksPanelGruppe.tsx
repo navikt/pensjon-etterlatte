@@ -79,10 +79,8 @@ export const RHFCheckboksPanel = ({ name, checkbox, valgfri, ...rest }: RHFCheck
                             key={checkbox.value as string}
                             label={checkbox.label}
                             value={checkbox.value}
-                            checked={(value)?.includes(checkbox.value) || false}
-                            onChange={(e) => onChange(
-                                handleSelect(value, ((e.target as HTMLInputElement).value as any)).toString()
-                            )}
+                            checked={value}
+                            onChange={(e) => {onChange(e.target.value)}}
                         />
                     </CheckboxGruppe>
                 )}
