@@ -1,3 +1,5 @@
+package soeknad
+
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
@@ -13,10 +15,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
-import soeknad.LagretSoeknad
-import soeknad.PostgresSoeknadRepository
-import soeknad.Status
-import soeknad.UlagretSoeknad
 import java.sql.Timestamp
 import java.time.ZoneOffset
 import java.time.ZonedDateTime

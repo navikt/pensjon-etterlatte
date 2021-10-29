@@ -251,16 +251,11 @@ private object Queries {
     """.trimIndent()
 
     val SELECT_RAPPORT = """
-        |with status_rang as (
-        |select 'lagretkladd' "status", 0 "rang"
-        |union select 'ferdigstilt' "status", 1 "rang"
-        |union select 'sendt' "status", 2 "rang"
-        |union select 'arkivert' "status", 3 "rang"
-        |union select 'arkiveringsfeil' "status", 4 "rang"
-        |) select status, count(1) from 
-        |(select soeknad, max(rang) "rang" from hendelse h inner join status_rang using(status) group by soeknad) valgtstatus
-        |inner join status_rang using(rang)
-        |group by status
+        SELECT status.navn, count(1)
+        FROM hendelse h
+        INNER JOIN status ON h.status_id = status.id
+        GROUP BY status.navn, status.rang
+        ORDER BY status.rang
     """.trimMargin()
 
     val SLETT_ARKIVERTE_SOEKNADER = """
@@ -272,7 +267,7 @@ private object Queries {
         SELECT s.id, s.fnr, s.payload FROM soeknad s
         WHERE s.fnr = ? AND NOT EXISTS ( 
             SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id 
-                AND h.status_id IN (${FERDIGSTILT.id}, ${ARKIVERINGSFEIL.id}, ${ARKIVERT.id}, ${SENDT.id})
+                AND h.status_id IN (${Status.innsendt.joinToString()})
             )
     """.trimIndent()
 
@@ -280,15 +275,13 @@ private object Queries {
         DELETE FROM soeknad s
         WHERE s.fnr = ? AND NOT EXISTS ( 
             SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id 
-            AND h.status_id IN (${FERDIGSTILT.id}, ${ARKIVERINGSFEIL.id}, ${ARKIVERT.id}, ${SENDT.id}))
+            AND h.status_id IN (${Status.innsendt.joinToString()}))
     """.trimIndent()
 
     val SLETT_UTGAATTE_KLADDER = """
         DELETE FROM soeknad s
         WHERE EXISTS (
-          SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id = ${LAGRETKLADD.id})
-        AND NOT EXISTS (
-          SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id != ${LAGRETKLADD.id})
+          SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id NOT IN (${Status.innsendt.joinToString()}))
         AND NOT EXISTS (
           SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.opprettet >= (now() - interval '72 hours'))
     """.trimIndent()
