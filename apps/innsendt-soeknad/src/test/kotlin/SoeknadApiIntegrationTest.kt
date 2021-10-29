@@ -27,13 +27,8 @@ import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
 import no.nav.etterlatte.DataSourceBuilder
-<<<<<<< HEAD
-import no.nav.etterlatte.LagretSoeknad
-import no.nav.etterlatte.PostgresSoeknadRepository
 import no.nav.etterlatte.Soeknad
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
-=======
->>>>>>> 44393d39 (Oppdatere pakkestruktur og tester)
 import no.nav.etterlatte.soeknadApi
 import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
@@ -48,12 +43,10 @@ import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestMethodOrder
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
-<<<<<<< HEAD
+import soeknad.LagretSoeknad
+import soeknad.PostgresSoeknadRepository
 import java.util.*
 import java.util.stream.Collectors
-=======
-import soeknad.PostgresSoeknadRepository
->>>>>>> 44393d39 (Oppdatere pakkestruktur og tester)
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation::class)
@@ -94,8 +87,7 @@ class SoeknadApiIntegrationTest {
                 lagretSoeknadRow.next()
 
                 lagretSoeknadRow.getString("fnr") shouldBe "26117512737"
-<<<<<<< HEAD
-                lagretSoeknadRow.getString("data") shouldBe mapper.readValue<Soeknad>(utenBarnSoeknad)
+                lagretSoeknadRow.getString("payload") shouldBe mapper.readValue<Soeknad>(utenBarnSoeknad)
                     .apply { soeknadsType = SoeknadType.Gjenlevendepensjon }.toJson()
             }
         }
@@ -120,7 +112,7 @@ class SoeknadApiIntegrationTest {
                 gjenlevendeRow.next()
 
                 gjenlevendeRow.getString("fnr") shouldBe "55555555555"
-                gjenlevendeRow.getString("data") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
+                gjenlevendeRow.getString("payload") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
                     .apply { soeknadsType = SoeknadType.Gjenlevendepensjon }.toJson()
 
                 // Verifiser egen søknad for barnepensjon
@@ -129,11 +121,8 @@ class SoeknadApiIntegrationTest {
                 barnepensjonRow.next()
 
                 barnepensjonRow.getString("fnr") shouldBe "08021376974"
-                barnepensjonRow.getString("data") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
+                barnepensjonRow.getString("payload") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
                     .apply { soeknadsType = SoeknadType.Barnepensjon }.toJson()
-=======
-                lagretSoeknadRow.getString("payload") shouldBe dummySoeknad
->>>>>>> 44393d39 (Oppdatere pakkestruktur og tester)
             }
         }
     }
@@ -182,13 +171,10 @@ class SoeknadApiIntegrationTest {
                 tokenFor("11057523044")
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-<<<<<<< HEAD
+
                 val content: LagretSoeknad = mapper.readValue(response.content!!)
-                content.soeknad shouldBe dummyKladd
+                content.payload shouldBe dummyKladd
                 content.fnr shouldBe "11057523044"
-=======
-                response.content shouldBe """{"id":2,"fnr":"11057523044","payload":"{\"harSamtykket\":\"true\"}"}"""
->>>>>>> 44393d39 (Oppdatere pakkestruktur og tester)
             }
         }
     }
