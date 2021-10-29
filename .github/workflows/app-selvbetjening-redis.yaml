@@ -33,7 +33,7 @@ jobs:
 
   deploy-prod-gcp:
     name: Deploy to prod-gcp
-    if: ${{ github.event.inputs.deploy-prod == 'true' }}
+#    if: ${{ github.event.inputs.deploy-prod == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
