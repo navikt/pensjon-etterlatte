@@ -15,9 +15,9 @@ const TidligereSamboerMedAvdoede = () => {
     const { watch } = useFormContext<ISoekerOgAvdoed>();
     const { state } = useBrukerContext();
 
-    const datoForInngaattSamboerskap = watch("forholdTilAvdoede.datoForInngaattSamboerskap")
-    const datoForSamlivsbrudd = watch("forholdTilAvdoede.datoForSamlivsbrudd")
-    const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet")
+    const datoForInngaattSamboerskap: any = watch("forholdTilAvdoede.datoForInngaattSamboerskap")
+    const datoForSamlivsbrudd: any = watch("forholdTilAvdoede.datoForSamlivsbrudd")
+    const datoForDoedsfallet: any = watch("avdoed.datoForDoedsfallet")
     const fellesBarn = watch("forholdTilAvdoede.fellesBarn");
 
     const bidragMaaUtfylles = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet);

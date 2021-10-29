@@ -11,24 +11,21 @@ import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
-import useEffectOnce from "../../../hooks/useEffectOnce";
-import { isEmpty } from "lodash";
 import { BodyLong, Label, Heading } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
+import { deepCopy } from "../../../utils/deepCopy";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
 
+    
     const methods = useForm<IAvdoed>({
         defaultValues: state.omDenAvdoede || {},
         shouldUnregister: true,
     });
 
-    useEffectOnce(() => {
-        methods.reset(state.omDenAvdoede);
-    }, !isEmpty(state.omDenAvdoede));
 
     const {
         handleSubmit,
@@ -38,18 +35,18 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     } = methods;
 
     const lagreNeste = (data: IAvdoed) => {
-        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: {...data, erValidert: true} });
+        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: {...deepCopy(data), erValidert: true} });
         neste!!();
     };
 
     const lagreTilbake = (data: IAvdoed) => {
-        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: {...data, erValidert: true} })
+        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: {...deepCopy(data), erValidert: true} })
         forrige!!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: {...verdier, erValidert: false} })
+        dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: {...deepCopy(verdier), erValidert: false} })
         forrige!!()
     }
 
