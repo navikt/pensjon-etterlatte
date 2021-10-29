@@ -35,8 +35,6 @@ spec:
       enabled: true
   tokenx:
     enabled: true
-  envFrom:
-    - secret: barnepensjon-secrets
   env:
     - name: PDL_URL
       value: https://pdl-api.prod-fss-pub.nais.io/graphql
