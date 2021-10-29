@@ -27,8 +27,6 @@ spec:
     cpuThresholdPercentage: 90
     max: 1
     min: 1
-  envFrom:
-    - secret: barnepensjon-secrets
   env:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
