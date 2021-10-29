@@ -3,6 +3,8 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":libs:common"))
+
     implementation("com.zaxxer:HikariCP:3.4.5")
     implementation("org.flywaydb:flyway-core:6.5.0")
     implementation("org.postgresql:postgresql:42.2.5")

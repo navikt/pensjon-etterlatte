@@ -1,10 +1,20 @@
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import com.nimbusds.jwt.JWTClaimsSet
+import com.nimbusds.jwt.PlainJWT
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.ktor.application.Application
+import io.ktor.application.call
 import io.ktor.application.install
+import io.ktor.auth.Authentication
+import io.ktor.auth.AuthenticationPipeline
+import io.ktor.auth.AuthenticationProvider
+import io.ktor.auth.authenticate
 import io.ktor.features.ContentNegotiation
 import io.ktor.http.ContentType
+import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
@@ -12,12 +22,20 @@ import io.ktor.jackson.jackson
 import io.ktor.routing.IgnoreTrailingSlash
 import io.ktor.routing.Route
 import io.ktor.routing.routing
+import io.ktor.server.testing.TestApplicationRequest
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
 import no.nav.etterlatte.DataSourceBuilder
+import no.nav.etterlatte.LagretSoeknad
 import no.nav.etterlatte.PostgresSoeknadRepository
+import no.nav.etterlatte.Soeknad
+import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import no.nav.etterlatte.soeknadApi
+import no.nav.etterlatte.toJson
+import no.nav.security.token.support.core.context.TokenValidationContext
+import no.nav.security.token.support.core.jwt.JwtToken
+import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
@@ -27,6 +45,8 @@ import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestMethodOrder
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import java.util.*
+import java.util.stream.Collectors
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation::class)
@@ -36,7 +56,8 @@ class SoeknadApiIntegrationTest {
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
     private lateinit var db: PostgresSoeknadRepository
     private lateinit var dsb: DataSourceBuilder
-    private val dummySoeknad = """{"harSamtykket":"true"}"""
+    private val dummyKladd = """{"harSamtykket":"true"}"""
+    private val mapper = jacksonObjectMapper()
 
     @BeforeAll
     fun beforeAll() {
@@ -50,22 +71,58 @@ class SoeknadApiIntegrationTest {
 
     @Test
     @Order(1)
-    fun `Skal opprette soeknad i databasen`() {
-        withTestApplication({ apiTestModule { soeknadApi(db, "26117512737") } }) {
+    fun `Skal opprette soeknad i databasen for gjenlevende`() {
+        withTestApplication({ apiTestModule { soeknadApi(db /*, "26117512737"*/) } }) {
+            val utenBarnSoeknad: String = javaClass.getResource("/soeknad_uten_barn.json")!!.readText()
+
             handleRequest(HttpMethod.Post, "/api/soeknad") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                setBody(dummySoeknad)
+                tokenFor("26117512737")
+                setBody(utenBarnSoeknad)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-                response.content shouldBe "1"
 
                 val lagretSoeknadRow = dsb.dataSource.connection.createStatement()
                     .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '26117512737'")
                 lagretSoeknadRow.next()
 
-                lagretSoeknadRow.getInt("id") shouldBe 1
                 lagretSoeknadRow.getString("fnr") shouldBe "26117512737"
-                lagretSoeknadRow.getString("data") shouldBe dummySoeknad
+                lagretSoeknadRow.getString("data") shouldBe mapper.readValue<Soeknad>(utenBarnSoeknad)
+                    .apply { soeknadsType = SoeknadType.Gjenlevendepensjon }.toJson()
+            }
+        }
+    }
+
+    @Test
+    @Order(1)
+    fun `Skal opprette soeknad i databasen for gjenlevende og barn`() {
+        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
+            val medBarnSoeknad: String = javaClass.getResource("/soeknad_med_barnepensjon.json")!!.readText()
+
+            handleRequest(HttpMethod.Post, "/api/soeknad") {
+                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                tokenFor("55555555555")
+                setBody(medBarnSoeknad)
+            }.apply {
+                response.status() shouldBe HttpStatusCode.OK
+
+                // Verifiser søknad for gjenlevendepensjon
+                val gjenlevendeRow = dsb.dataSource.connection.createStatement()
+                    .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '55555555555'")
+                gjenlevendeRow.next()
+
+                gjenlevendeRow.getString("fnr") shouldBe "55555555555"
+                gjenlevendeRow.getString("data") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
+                    .apply { soeknadsType = SoeknadType.Gjenlevendepensjon }.toJson()
+
+                // Verifiser egen søknad for barnepensjon
+                val barnepensjonRow = dsb.dataSource.connection.createStatement()
+                    .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '08021376974'")
+                barnepensjonRow.next()
+
+                barnepensjonRow.getString("fnr") shouldBe "08021376974"
+                barnepensjonRow.getString("data") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
+                    .apply { soeknadsType = SoeknadType.Barnepensjon }.toJson()
             }
         }
     }
@@ -73,8 +130,10 @@ class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal returnere not found hvis en kladd ikke eksisterer`() {
-        withTestApplication({ apiTestModule { soeknadApi(db, "INVALID_FNR") } }) {
-            handleRequest(HttpMethod.Get, "/api/kladd").apply {
+        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
+            handleRequest(HttpMethod.Get, "/api/kladd"){
+                tokenFor("INVALID_FNR")
+            }.apply {
                 response.status() shouldBe HttpStatusCode.NotFound
             }
         }
@@ -85,19 +144,19 @@ class SoeknadApiIntegrationTest {
     fun `Skal lagre kladd ned i databasen`() {
         db.finnKladd("11057523044") shouldBe null
 
-        withTestApplication({ apiTestModule { soeknadApi(db, "11057523044") } }) {
+        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
             handleRequest(HttpMethod.Post, "/api/kladd") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                setBody(dummySoeknad)
+                tokenFor("11057523044")
+                setBody(dummyKladd)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-                response.content shouldBe "2"
 
                 val kladd = db.finnKladd("11057523044")
                 kladd shouldNotBe null
-                kladd?.id shouldBe 2
+                kladd?.id shouldNotBe null
                 kladd?.fnr shouldBe "11057523044"
-                kladd?.soeknad shouldBe dummySoeknad
+                kladd?.soeknad shouldBe dummyKladd
             }
         }
     }
@@ -107,10 +166,14 @@ class SoeknadApiIntegrationTest {
     fun `Skal hente kladd fra databasen`() {
         db.finnKladd("11057523044") shouldNotBe null
 
-        withTestApplication({ apiTestModule { soeknadApi(db, "11057523044") } }) {
-            handleRequest(HttpMethod.Get, "/api/kladd").apply {
+        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
+            handleRequest(HttpMethod.Get, "/api/kladd"){
+                tokenFor("11057523044")
+            }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-                response.content shouldBe """{"fnr":"11057523044","soeknad":"{\"harSamtykket\":\"true\"}","id":2}"""
+                val content: LagretSoeknad = mapper.readValue(response.content!!)
+                content.soeknad shouldBe dummyKladd
+                content.fnr shouldBe "11057523044"
             }
         }
     }
@@ -120,8 +183,10 @@ class SoeknadApiIntegrationTest {
     fun `Skal slette kladd fra databasen`() {
         db.finnKladd("11057523044") shouldNotBe null
 
-        withTestApplication({ apiTestModule { soeknadApi(db, "11057523044") } }) {
-            handleRequest(HttpMethod.Delete, "/api/kladd").apply {
+        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
+            handleRequest(HttpMethod.Delete, "/api/kladd"){
+                tokenFor("11057523044")
+            }.apply {
                 response.status() shouldBe HttpStatusCode.OK
                 db.finnKladd("11057523044") shouldBe null
             }
@@ -145,8 +210,68 @@ fun Application.apiTestModule(routes: Route.() -> Unit) {
         jackson()
     }
     install(IgnoreTrailingSlash)
+    install(Authentication){
+        tokenTestSupportAcceptsAllTokens()
+    }
 
     routing {
-        routes()
+        authenticate {
+            routes()
+        }
     }
 }
+
+fun TestApplicationRequest.tokenFor(fnr: String) {
+    addHeader(HttpHeaders.Authorization, """Bearer ${PlainJWT(JWTClaimsSet.Builder().claim("pid", fnr).issuer("lol").build()).serialize()}""")
+}
+
+class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration()) {
+    class ProviderConfiguration : AuthenticationProvider.Configuration(null)
+    init {
+        pipeline.intercept(AuthenticationPipeline.RequestAuthentication) { context ->
+            context.principal(TokenValidationContextPrincipal(TokenValidationContext(getTokensFromHeader(call.request.headers).associateBy { it.issuer })))
+        }
+    }
+
+    private fun getTokensFromHeader(request: Headers): List<JwtToken> {
+        try {
+            val authorization = request["Authorization"]
+            if (authorization != null) {
+                val headerValues = authorization.split(",".toRegex()).toTypedArray()
+                return extractBearerTokens(*headerValues)
+                    .stream()
+                    .map { encodedToken: String? ->
+                        JwtToken(
+                            encodedToken
+                        )
+                    }
+                    .collect(Collectors.toList())
+            }
+        } catch (e: java.lang.Exception) {
+        }
+        return emptyList()
+    }
+
+
+    private fun extractBearerTokens(vararg headerValues: String): List<String> {
+        return Arrays.stream(headerValues)
+            .map { s: String ->
+                s.split(
+                    " ".toRegex()
+                ).toTypedArray()
+            }
+            .filter { pair: Array<String> -> pair.size == 2 }
+            .filter { pair: Array<String> ->
+                pair[0].trim { it <= ' ' }
+                    .equals("Bearer", ignoreCase = true)
+            }
+            .map { pair: Array<String> ->
+                pair[1].trim { it <= ' ' }
+            }
+            .collect(Collectors.toList())
+    }
+}
+
+fun Authentication.Configuration.tokenTestSupportAcceptsAllTokens() = register(TokenSupportAcceptAllProvider())
+
+

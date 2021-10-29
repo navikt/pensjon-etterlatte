@@ -11,7 +11,7 @@ describe("Test sending av søknad", () => {
             visFortsettSoeknadModal: false
         };
 
-        const expectedResult = {data: {id: 1}};
+        const expectedResult = {status: 200};
         axiosInstance.post.mockResolvedValue(expectedResult);
 
         const result = await sendSoeknad(soeknad);
@@ -24,7 +24,7 @@ describe("Test sending av søknad", () => {
                 }
         );
 
-        expect(result).toBe(expectedResult.data);
+        expect(result).toBe(200);
     });
 });
 

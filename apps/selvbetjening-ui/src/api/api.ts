@@ -69,7 +69,7 @@ export const sendSoeknad = async (soeknad: any) => {
 
     try {
         const response = await api.post("/api/soeknad", body);
-        return response.data;
+        return response.status;
     } catch (e) {
         throw new Error(`Det skjedde en feil: ${e.message}`);
     }

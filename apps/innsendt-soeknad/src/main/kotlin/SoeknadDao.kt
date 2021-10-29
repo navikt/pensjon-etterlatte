@@ -46,10 +46,10 @@ class PostgresSoeknadRepository private constructor(
                         SELECT *
                         FROM soeknad s 
                         where not exists ( select 1 from hendelse h where h.soeknad = s.id 
-                        and ((h.status = '${Status.sendt}' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
-                        OR (h.status in ('${Status.arkivert}', '${Status.arkiveringsfeil}'))))
+                            and ((h.status = '${Status.sendt}' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
+                            OR (h.status in ('${Status.arkivert}', '${Status.arkiveringsfeil}'))))
                         and exists(select 1 from hendelse h where h.soeknad = s.id and h.status = '${Status.ferdigstilt}')
-                        and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
+                            and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
                         fetch first 10 rows only""".trimIndent()
         val SELECT_OLDEST_UNSENT = """
                         SELECT MIN(s.opprettet)

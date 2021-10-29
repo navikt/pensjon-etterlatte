@@ -39,7 +39,7 @@ const mockApi = (app) => {
         cache.del(innloggetBruker.foedselsnummer);
 
         setTimeout(() => {
-            res.json({id: newID})
+            res.sendStatus(200)
         }, 1000);
     });
 

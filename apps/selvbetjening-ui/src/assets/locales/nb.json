@@ -91,7 +91,7 @@
         "sluttDato": "Til dato"
       },
       "tittelFullfoert": "Fullført utdanning",
-      "hoyesteFullfoerteUtdanning": "Hvilken utdanning har du?",
+      "hoyesteFullfoerteUtdanning": "Hva er din høyeste fullførte utdanning?",
       "annenUtdanning": "Annen utdanning",
       "annenUtdanningPlaceholder": "Eks. kurs, enkeltår på universitet eller høyskole"
     },
@@ -252,7 +252,7 @@
       "hjelpetekst": "Dette kan gi opptjening som tas med i beregningen av gjenlevendepensjonen din",
       "beskrivelse": "Hvilke(-t) år? (valgfri)"
     },
-    "doedsfallAarsak": "Skyldes dødsfallet yrkesskade/yrkessykdom?",
+    "doedsfallAarsak": "Skyldes dødsfallet yrkesskade eller yrkessykdom?",
     "doedsfallAarsakHvorfor": "Hvis dødsfallet skyldes godkjent yrkesskade eller yrkessykdom kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få."
   },
   "omBarn": {
@@ -543,7 +543,7 @@
       "required": "Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge"
     },
     "doedsfallAarsak": {
-      "required": "Oppgi om dødsfallet skyldes yrkesskade/yrkessykdom"
+      "required": "Oppgi om dødsfallet skyldes yrkesskade eller yrkessykdom"
     },
     "avdoed": {
       "fornavn": {

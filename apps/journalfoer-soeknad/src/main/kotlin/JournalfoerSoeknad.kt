@@ -7,6 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
 import no.nav.etterlatte.libs.common.objectMapper
+import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
@@ -61,10 +62,11 @@ internal class JournalfoerSoeknad(
         val soknadId = packet["@lagret_soeknad_id"].asText()
         val journalpostInfo = objectMapper.treeToValue<JournalpostInfo>(packet["@journalpostInfo"])!!
         val skjemaInfo = objectMapper.writeValueAsBytes(packet["@skjema_info"])
+        val soeknadType = SoeknadType.valueOf(packet["@skjema_info"].get("soeknadsType").asText())
         val pdf = runBlocking(Dispatchers.IO) {
             pdf.genererPdf(packet["@skjema_info"], packet["@template"].asText())
         }
 
-        return journalfoeringService.journalfoer(soknadId, journalpostInfo, skjemaInfo, pdf)
+        return journalfoeringService.journalfoer(soknadId, journalpostInfo, skjemaInfo, soeknadType, pdf)
     }
 }
