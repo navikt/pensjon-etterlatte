@@ -31,10 +31,12 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     });
 
     useEffect(() => {
-        if (fields.length === 0) {
-            append({});
+        if (boddEllerArbeidetUtland === IValg.JA && fields.length === 0) {
+           append({});
         }
     });
+
+    console.log(boddEllerArbeidetUtland)
 
     return (
         <SkjemaGruppering>
