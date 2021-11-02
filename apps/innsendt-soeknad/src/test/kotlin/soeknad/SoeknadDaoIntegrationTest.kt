@@ -7,10 +7,8 @@ import no.nav.etterlatte.DataSourceBuilder
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertNull
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -331,6 +329,26 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals(1, rapport[Status.SENDT])
         assertEquals(1, rapport[Status.FERDIGSTILT])
         assertEquals(1, rapport[Status.ARKIVERINGSFEIL])
+    }
+
+    @Test
+    fun `Sjekk at alle statuser finnes i databasen`() {
+        val statusMap: Map<StatusID, Status> = connection.use {
+            it.prepareStatement("SELECT id, navn FROM status")
+                .executeQuery()
+                .let {
+                    generateSequence {
+                        if (it.next()) it.getInt(1) to Status.valueOf(it.getString(2))
+                        else null
+                    }.toList().toMap()
+                }
+        }
+
+        assertEquals(Status.values().size, statusMap.size)
+
+        statusMap.forEach { (id, status) ->
+            assertEquals(id, status.id)
+        }
     }
 
     private fun lagreSoeknaderMedOpprettetTidspunkt(
