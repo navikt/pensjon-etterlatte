@@ -1,28 +1,40 @@
 package soeknad
 
-import org.junit.jupiter.api.Assertions.*
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 
 internal class StatusTest {
 
     @Test
     fun `Antall statuser er korrekt`() {
-        assertEquals(7, Status.values().size)
+        Status.values().size shouldBe 7
     }
 
     @Test
     fun `Innsendt funksjon returnerer korrekte statuser`() {
         val innsendt = Status.innsendt
 
-        assertEquals(4, innsendt.size)
+        innsendt.size shouldBe 4
 
         val forventetInnsendt = listOf(
-            Status.FERDIGSTILT.id,
-            Status.SENDT.id,
-            Status.ARKIVERT.id,
-            Status.ARKIVERINGSFEIL.id
+            Status.FERDIGSTILT,
+            Status.SENDT,
+            Status.ARKIVERT,
+            Status.ARKIVERINGSFEIL
         )
 
-        assertEquals(forventetInnsendt, innsendt)
+        innsendt shouldBe forventetInnsendt
+
+        val resterendeStatuser = Status.values().filterNot { it in forventetInnsendt }
+
+        resterendeStatuser.size shouldBe 3
+
+        val forventetResterende = listOf(
+            Status.LAGRETKLADD,
+            Status.SLETTET,
+            Status.UTGAATT
+        )
+
+        resterendeStatuser shouldBe forventetResterende
     }
 }

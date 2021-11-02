@@ -30,8 +30,11 @@ enum class Status(
         /**
          * Alle Status-IDer som ikke er [LAGRETKLADD]
          */
-        val innsendt = values()
-            .filterNot { it in listOf(LAGRETKLADD, SLETTET, UTGAATT) }
-            .map { it.id }
+        val innsendt = listOf(FERDIGSTILT, SENDT, ARKIVERT, ARKIVERINGSFEIL)
+
+        /**
+         * Ekstraherer status-IDer til en sql-lesbar string.
+         */
+        fun List<Status>.toSqlString(): String = joinToString { it.id.toString() }
     }
 }

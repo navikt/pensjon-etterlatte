@@ -13,6 +13,7 @@ import soeknad.Queries.SLETT_KLADD
 import soeknad.Queries.SLETT_UTGAATTE_KLADDER
 import soeknad.Status.ARKIVERINGSFEIL
 import soeknad.Status.ARKIVERT
+import soeknad.Status.Companion.toSqlString
 import soeknad.Status.FERDIGSTILT
 import soeknad.Status.LAGRETKLADD
 import soeknad.Status.SENDT
@@ -276,22 +277,22 @@ private object Queries {
         SELECT s.id, s.fnr, s.payload FROM soeknad s
         WHERE s.fnr = ? AND NOT EXISTS ( 
             SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id 
-                AND h.status_id IN (${Status.innsendt.joinToString()})
-            )
+                AND h.status_id IN (${Status.innsendt.toSqlString()})
+        )
     """.trimIndent()
 
     val SLETT_KLADD = """
         DELETE FROM soeknad s
         WHERE s.fnr = ? AND NOT EXISTS ( 
             SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id 
-            AND h.status_id IN (${Status.innsendt.joinToString()}))
+            AND h.status_id IN (${Status.innsendt.toSqlString()}))
         RETURNING s.id
     """.trimIndent()
 
     val SLETT_UTGAATTE_KLADDER = """
         DELETE FROM soeknad s
         WHERE EXISTS (
-          SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id NOT IN (${Status.innsendt.joinToString()}))
+          SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id NOT IN (${Status.innsendt.toSqlString()}))
         AND NOT EXISTS (
           SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.opprettet >= (now() - interval '72 hours'))
         RETURNING s.id
