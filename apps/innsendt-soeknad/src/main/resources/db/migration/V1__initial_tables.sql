@@ -26,18 +26,18 @@ INSERT INTO status(id, navn, rang) VALUES(2, 'FERDIGSTILT', 2);
 INSERT INTO status(id, navn, rang) VALUES(3, 'SENDT', 3);
 INSERT INTO status(id, navn, rang) VALUES(4, 'ARKIVERT', 4);
 INSERT INTO status(id, navn, rang) VALUES(5, 'ARKIVERINGSFEIL', 5);
+INSERT INTO status(id, navn, rang) VALUES(6, 'SLETTET', 6);
+INSERT INTO status(id, navn, rang) VALUES(7, 'UTGAATT', 7);
 
 CREATE TABLE hendelse
 (
     id BIGSERIAL
         CONSTRAINT hendelse_pk
             PRIMARY KEY,
-    soeknad_id BIGINT NOT NULL
-        CONSTRAINT hendelse_soeknad_id_fk
-            REFERENCES soeknad ON DELETE cascade,
+    soeknad_id BIGINT NOT NULL,
     status_id INT NOT NULL
         CONSTRAINT hendelse_status_id_fk
-            REFERENCES status,
+            REFERENCES status (id),
     payload TEXT NOT NULL,
     opprettet TIMESTAMP WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'UTC') NOT NULL
 );

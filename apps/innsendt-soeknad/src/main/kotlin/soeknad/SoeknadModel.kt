@@ -22,12 +22,16 @@ enum class Status(
     FERDIGSTILT(2),
     SENDT(3),
     ARKIVERT(4),
-    ARKIVERINGSFEIL(5);
+    ARKIVERINGSFEIL(5),
+    SLETTET(6),
+    UTGAATT(7);
 
     companion object {
         /**
          * Alle Status-IDer som ikke er [LAGRETKLADD]
          */
-        val innsendt = values().filterNot { it == LAGRETKLADD }.map { it.id }
+        val innsendt = values()
+            .filterNot { it in listOf(LAGRETKLADD, SLETTET, UTGAATT) }
+            .map { it.id }
     }
 }

@@ -108,7 +108,7 @@ class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
         TODO("Not yet implemented")
     }
 
-    override fun slettKladd(fnr: String): Boolean {
+    override fun slettKladd(fnr: String): SoeknadID? {
         TODO("Not yet implemented")
     }
 

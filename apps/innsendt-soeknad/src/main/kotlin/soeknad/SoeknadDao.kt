@@ -16,6 +16,8 @@ import soeknad.Status.ARKIVERT
 import soeknad.Status.FERDIGSTILT
 import soeknad.Status.LAGRETKLADD
 import soeknad.Status.SENDT
+import soeknad.Status.SLETTET
+import soeknad.Status.UTGAATT
 import java.sql.ResultSet
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -31,7 +33,7 @@ interface SoeknadRepository {
     fun slettArkiverteSoeknader(): Int
     fun soeknadFerdigstilt(id: SoeknadID)
     fun finnKladd(fnr: String): LagretSoeknad?
-    fun slettKladd(fnr: String): Boolean
+    fun slettKladd(fnr: String): SoeknadID?
     fun slettUtgaatteKladder(): Int
 }
 
@@ -127,8 +129,16 @@ class PostgresSoeknadRepository private constructor(
         it.prepareStatement(SLETT_ARKIVERTE_SOEKNADER).executeUpdate()
     }
 
-    override fun slettUtgaatteKladder(): Int = connection.use {
-        it.prepareStatement(SLETT_UTGAATTE_KLADDER).executeUpdate()
+    override fun slettUtgaatteKladder(): Int {
+        val slettedeKladder = connection.use {
+            it.prepareStatement(SLETT_UTGAATTE_KLADDER)
+                .executeQuery()
+                .toList { getLong(1) }
+        }
+
+        slettedeKladder.forEach { nyStatus(soeknadId = it, status = UTGAATT) }
+
+        return slettedeKladder.size
     }
 
     override fun finnKladd(fnr: String): LagretSoeknad? = connection.use {
@@ -140,12 +150,17 @@ class PostgresSoeknadRepository private constructor(
             }
     }
 
-    override fun slettKladd(fnr: String): Boolean = connection.use {
-        val antallSlettet = it.prepareStatement(SLETT_KLADD)
-            .apply { setString(1, fnr) }
-            .executeUpdate()
+    override fun slettKladd(fnr: String): SoeknadID? {
+        val slettetSoeknadId = connection.use {
+            it.prepareStatement(SLETT_KLADD)
+                .apply { setString(1, fnr) }
+                .executeQuery()
+                .singleOrNull { getLong("id") }
+        }
 
-        return antallSlettet > 0
+        return slettetSoeknadId?.also {
+            nyStatus(soeknadId = slettetSoeknadId, status = SLETTET)
+        }
     }
 
     override fun usendteSoeknader(): List<LagretSoeknad> = connection.use {
@@ -169,13 +184,7 @@ class PostgresSoeknadRepository private constructor(
     }
 
     override fun rapport(): Map<Status, Long> {
-        return listOf(
-            LAGRETKLADD,
-            FERDIGSTILT,
-            SENDT,
-            ARKIVERT,
-            LAGRETKLADD
-        ).associateWith { 0L } + connection.use {
+        return connection.use {
             it.prepareStatement(SELECT_RAPPORT)
                 .executeQuery()
                 .toList { Status.valueOf(getString(1)) to getLong(2) }
@@ -276,6 +285,7 @@ private object Queries {
         WHERE s.fnr = ? AND NOT EXISTS ( 
             SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id 
             AND h.status_id IN (${Status.innsendt.joinToString()}))
+        RETURNING s.id
     """.trimIndent()
 
     val SLETT_UTGAATTE_KLADDER = """
@@ -284,5 +294,6 @@ private object Queries {
           SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id NOT IN (${Status.innsendt.joinToString()}))
         AND NOT EXISTS (
           SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.opprettet >= (now() - interval '72 hours'))
+        RETURNING s.id
     """.trimIndent()
 }
