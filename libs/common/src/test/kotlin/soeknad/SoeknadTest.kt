@@ -3,8 +3,8 @@ package soeknad
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.kotest.matchers.equality.shouldBeEqualToComparingFields
+import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.libs.common.soeknad.Soeknad
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class SoeknadTest {
@@ -23,26 +23,26 @@ class SoeknadTest {
     fun `Skal mappe oppsummeringen korrekt`() {
         val oppsummering = soeknad.oppsummering
 
-        assertEquals(5, oppsummering.size)
+        oppsummering.size shouldBe 5
 
         val omDeg = oppsummering[0]
-        assertEquals("Om deg", omDeg.tittel)
-        assertEquals(2, omDeg.elementer.size)
+        omDeg.tittel shouldBe "Om deg"
+        omDeg.elementer.size shouldBe 2
 
         val omDegOgAvdoede = oppsummering[1]
-        assertEquals("Om deg og avdøde", omDegOgAvdoede.tittel)
-        assertEquals(1, omDegOgAvdoede.elementer.size)
+        omDegOgAvdoede.tittel shouldBe "Om deg og avdøde"
+        omDegOgAvdoede.elementer.size shouldBe 1
 
         val omDenAvdoede = oppsummering[2]
-        assertEquals("Om avdøde", omDenAvdoede.tittel)
-        assertEquals(2, omDenAvdoede.elementer.size)
+        omDenAvdoede.tittel shouldBe "Om avdøde"
+        omDenAvdoede.elementer.size shouldBe 2
 
         val dinSituasjon = oppsummering[3]
-        assertEquals("Situasjonen din", dinSituasjon.tittel)
-        assertEquals(2, dinSituasjon.elementer.size)
+        dinSituasjon.tittel shouldBe "Situasjonen din"
+        dinSituasjon.elementer.size shouldBe 2
 
         val omBarn = oppsummering[4]
-        assertEquals("Om barn", omBarn.tittel)
-        assertEquals(3, omBarn.elementer.size)
+        omBarn.tittel shouldBe "Om barn"
+        omBarn.elementer.size shouldBe 3
     }
 }
