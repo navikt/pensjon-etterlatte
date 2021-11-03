@@ -36,8 +36,6 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
         }
     });
 
-    console.log(boddEllerArbeidetUtland)
-
     return (
         <SkjemaGruppering>
             <SkjemaGruppe className="ingress">

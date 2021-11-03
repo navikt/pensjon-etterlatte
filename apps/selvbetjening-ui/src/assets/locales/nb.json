@@ -8,7 +8,7 @@
     "Oppsummering": "Oppsummering"
   },
   "banner": {
-    "tittel": "Søknad om gjenlevendepensjon"
+    "tittel": "Søknad om gjenlevendepensjon eller overgangsstønad"
   },
   "radiobuttons": {
     "ja": "Ja",
@@ -30,28 +30,39 @@
     "slett": "Slett søknad"
   },
   "forside": {
-    "tittel": "Søknad om gjenlevendepensjon",
+    "tittel": "Søk om gjenlevendepensjon eller overgangsstønad",
     "hei": "Hei, {{navn}}",
     "startSoeknad": "Start søknad",
     "omYtelsene": {
-      "innhold": "Hvis ektefellen, partneren eller samboeren din er død, kan du ha rett til gjenlevendepensjon eller overgangsstønad. Du kan også ha rett til gjenlevendepensjon hvis du tidligere har vært gift, partner eller samboer med avdøde. \n\nInntekten din avgjør hvor mye penger du kan få.",
-      "lenke": {
-        "href": "https://www.nav.no/no/person/familie/har-du-mistet-noen-i-naer-familie/har-du-mistet-ektefellen-samboeren-eller-partneren-din",
-        "tekst": "Mer om ytelser til gjenlevende"
+      "innhold": "Hvis ektefellen, partneren eller samboeren din er død, kan du ha rett til gjenlevendepensjon eller overgangsstønad til gjenlevende. Du kan også ha rett til støtte hvis du tidligere har vært gift, partner eller samboer med avdøde. Vi vil vurdere om du har rett på gjenlevendepensjon eller overgangsstønad basert på din situasjon. Inntekten din avgjør hvor mye penger du kan få.",
+      "papirsoeknad": {
+        "innhold": "Hvis du allerede får alderspensjon eller uføretrygd kan du søke om gjenlevendetillegg. Da må du søke på",
+        "href": "https://www.nav.no",
+        "tekst": "papir."
+      },
+      "lenkeGjenlevende": {
+        "href": "https://www.nav.no/mistet-noen#ektefelle",
+        "tekst": "Mer om gjenlevendepensjon"
+      },
+      "lenkeOvergangsstoenad": {
+        "href": "https://www.nav.no/mistet-noen#ektefelle",
+        "tekst": "Mer om overgangsstønad"
       }
     },
     "barnepensjon": {
       "tittel": "Du kan også søke om barnepensjon",
-      "innhold": "Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om gjenlevendepensjon og barnepensjon i denne søknaden."
+      "innhold": "Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om gjenlevendepensjon og barnepensjon i denne søknaden.",
+      "href": "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon",
+      "tekst": "Mer om barnepensjon"
     },
     "uthentingAvInfo": {
-      "tittel": "Vi vil hente inn informasjon",
-      "innhold": "For at vi skal kunne behandle søknaden din, må vi innhente informasjon om deg, avdøde, eventuelle barn og eventuell samboer. \n\nVi innhenter:\n",
+      "tittel": "Vi henter informasjon",
+      "innhold": "Vi henter informasjon om deg, avdøde, eventuelle barn og eventuell samboer for å kunne behandle søknaden din.",
       "innholdListe": {
         "li1": "<strong>Personinformasjon</strong> fra Folkeregisteret",
         "li2": "<strong>Inntektsinformasjon</strong> fra Skatteetaten",
-        "li3": "Opplysninger om <strong>arbeidsforhold</strong> fra arbeidsgiver- og arbeidstakerregisteret",
-        "li4": "Opplysninger om <strong>andre ytelser fra NAV</strong>",
+        "li3": "Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret",
+        "li4": "Opplysninger om <strong>annen støtte fra NAV</strong>",
         "li5": "Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>"
       },
       "infotekst": "Vi jobber med å forbedre denne søknaden. Inntil videre må du legge inn de fleste opplysningene manuelt.",
@@ -66,7 +77,7 @@
     },
     "samtykke": {
       "tittel": "Vi stoler på deg",
-      "innhold": "Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \n\nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n",
+      "innhold": "Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n",
       "lenke": {
         "tekst": "mine plikter på nav.no",
         "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger"
