@@ -14,20 +14,19 @@ CREATE UNIQUE INDEX soeknad_fnr_uindex
 
 CREATE TABLE status
 (
-    id SERIAL
+    id VARCHAR(16)
         CONSTRAINT status_pk
             PRIMARY KEY,
-    navn VARCHAR(16) NOT NULL,
     rang INT NOT NULL
 );
 
-INSERT INTO status(id, navn, rang) VALUES(1, 'LAGRETKLADD', 1);
-INSERT INTO status(id, navn, rang) VALUES(2, 'FERDIGSTILT', 2);
-INSERT INTO status(id, navn, rang) VALUES(3, 'SENDT', 3);
-INSERT INTO status(id, navn, rang) VALUES(4, 'ARKIVERT', 4);
-INSERT INTO status(id, navn, rang) VALUES(5, 'ARKIVERINGSFEIL', 5);
-INSERT INTO status(id, navn, rang) VALUES(6, 'SLETTET', 6);
-INSERT INTO status(id, navn, rang) VALUES(7, 'UTGAATT', 7);
+INSERT INTO status(id, rang) VALUES('LAGRETKLADD', 1);
+INSERT INTO status(id, rang) VALUES('FERDIGSTILT', 2);
+INSERT INTO status(id, rang) VALUES('SENDT', 3);
+INSERT INTO status(id, rang) VALUES('ARKIVERT', 4);
+INSERT INTO status(id, rang) VALUES('ARKIVERINGSFEIL', 5);
+INSERT INTO status(id, rang) VALUES('SLETTET', 6);
+INSERT INTO status(id, rang) VALUES('UTGAATT', 7);
 
 CREATE TABLE hendelse
 (
@@ -35,7 +34,7 @@ CREATE TABLE hendelse
         CONSTRAINT hendelse_pk
             PRIMARY KEY,
     soeknad_id BIGINT NOT NULL,
-    status_id INT NOT NULL
+    status_id VARCHAR(16) NOT NULL
         CONSTRAINT hendelse_status_id_fk
             REFERENCES status (id),
     payload TEXT NOT NULL,

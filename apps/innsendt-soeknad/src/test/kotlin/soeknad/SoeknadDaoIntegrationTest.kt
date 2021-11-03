@@ -333,22 +333,18 @@ internal class SoeknadDaoIntegrationTest {
 
     @Test
     fun `Sjekk at alle statuser finnes i databasen`() {
-        val statusMap: Map<StatusID, Status> = connection.use {
-            it.prepareStatement("SELECT id, navn FROM status")
+        val statusListe: List<Status> = connection.use {
+            it.prepareStatement("SELECT id FROM status")
                 .executeQuery()
                 .let {
                     generateSequence {
-                        if (it.next()) it.getInt(1) to Status.valueOf(it.getString(2))
+                        if (it.next()) Status.valueOf(it.getString(1))
                         else null
-                    }.toList().toMap()
+                    }.toList()
                 }
         }
 
-        assertEquals(Status.values().size, statusMap.size)
-
-        statusMap.forEach { (id, status) ->
-            assertEquals(id, status.id)
-        }
+        assertEquals(Status.values().size, statusListe.size)
     }
 
     private fun lagreSoeknaderMedOpprettetTidspunkt(
@@ -377,7 +373,7 @@ internal class SoeknadDaoIntegrationTest {
             .apply {
                 setLong(1, hendelseId)
                 setLong(2, soeknad.id)
-                setInt(3, Status.LAGRETKLADD.id)
+                setString(3, Status.LAGRETKLADD.name)
                 setString(4, "{}")
                 setTimestamp(5, Timestamp(Date.from(soeknad.opprettet.toInstant()).time))
             }
@@ -395,7 +391,7 @@ internal class SoeknadDaoIntegrationTest {
 
     private fun finnHendelser(soeknadId: Long): List<Status> {
         val sql = """
-            SELECT status.navn FROM hendelse 
+            SELECT status.id FROM hendelse 
             INNER JOIN status ON hendelse.status_id = status.id
             WHERE soeknad_id = ?
             ORDER BY status.rang

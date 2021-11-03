@@ -13,28 +13,21 @@ data class UlagretSoeknad(
     val payload: String
 )
 
-typealias StatusID = Int
-
-enum class Status(
-    val id: StatusID
-) {
-    LAGRETKLADD(1),
-    FERDIGSTILT(2),
-    SENDT(3),
-    ARKIVERT(4),
-    ARKIVERINGSFEIL(5),
-    SLETTET(6),
-    UTGAATT(7);
+enum class Status {
+    LAGRETKLADD,
+    FERDIGSTILT,
+    SENDT,
+    ARKIVERT,
+    ARKIVERINGSFEIL,
+    SLETTET,
+    UTGAATT;
 
     companion object {
         /**
-         * Alle Status-IDer som ikke er [LAGRETKLADD]
+         * Alle Status-IDer som indikerer at en søknad er innsendt og under maskinelt arbeid
          */
         val innsendt = listOf(FERDIGSTILT, SENDT, ARKIVERT, ARKIVERINGSFEIL)
-
-        /**
-         * Ekstraherer status-IDer til en sql-lesbar string.
-         */
-        fun List<Status>.toSqlString(): String = joinToString { it.id.toString() }
     }
 }
+
+fun List<Status>.toSqlString() = joinToString { "'$it'" }

@@ -13,7 +13,6 @@ import soeknad.Queries.SLETT_KLADD
 import soeknad.Queries.SLETT_UTGAATTE_KLADDER
 import soeknad.Status.ARKIVERINGSFEIL
 import soeknad.Status.ARKIVERT
-import soeknad.Status.Companion.toSqlString
 import soeknad.Status.FERDIGSTILT
 import soeknad.Status.LAGRETKLADD
 import soeknad.Status.SENDT
@@ -119,7 +118,7 @@ class PostgresSoeknadRepository private constructor(
             it.prepareStatement(CREATE_HENDELSE)
                 .apply {
                     setLong(1, soeknadId)
-                    setInt(2, status.id)
+                    setString(2, status.name)
                     setString(3, payload)
                 }
                 .execute()
@@ -240,9 +239,9 @@ private object Queries {
         SELECT *
         FROM soeknad s 
         where not exists ( select 1 from hendelse h where h.soeknad_id = s.id 
-        and ((h.status_id = ${SENDT.id} and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
-        OR (h.status_id in (${ARKIVERT.id}, ${ARKIVERINGSFEIL.id}))))
-        and exists(select 1 from hendelse h where h.soeknad_id = s.id and h.status_id = ${FERDIGSTILT.id})
+        and ((h.status_id = '$SENDT' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
+        OR (h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL'))))
+        and exists(select 1 from hendelse h where h.soeknad_id = s.id and h.status_id = '$FERDIGSTILT')
         and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
         fetch first 10 rows only
     """.trimIndent()
@@ -250,27 +249,27 @@ private object Queries {
     val SELECT_OLDEST_UNSENT = """
         SELECT MIN(s.opprettet)
         FROM soeknad s 
-        where not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id = ${SENDT.id})
+        where not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id = '$SENDT')
     """.trimIndent()
 
     val SELECT_OLDEST_UNARCHIVED = """
         SELECT MIN(s.opprettet)
         FROM soeknad s 
-        where exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in (${FERDIGSTILT.id}))
-        and not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in (${ARKIVERT.id}, ${ARKIVERINGSFEIL.id}))
+        where exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$FERDIGSTILT'))
+        and not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL'))
     """.trimIndent()
 
     val SELECT_RAPPORT = """
-        SELECT status.navn, count(1)
+        SELECT status.id, count(1)
         FROM hendelse h
         INNER JOIN status ON h.status_id = status.id
-        GROUP BY status.navn, status.rang
+        GROUP BY status.id, status.rang
         ORDER BY status.rang
     """.trimMargin()
 
     val SLETT_ARKIVERTE_SOEKNADER = """
         DELETE FROM soeknad s 
-        WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id = ${ARKIVERT.id}) 
+        WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id = '$ARKIVERT') 
     """.trimIndent()
 
     val FINN_KLADD = """
