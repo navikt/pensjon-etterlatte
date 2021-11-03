@@ -4,11 +4,10 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.accept
 import io.ktor.client.request.get
 import io.ktor.http.ContentType
-import no.nav.etterlatte.common.mapJsonToAny
 import org.slf4j.LoggerFactory
 
 interface Kodeverk {
-    suspend fun hentPoststed(postnummer: String): KodeverkResponse
+    suspend fun hentPostnummer(): KodeverkResponse
     suspend fun hentLandkoder(): KodeverkResponse
 }
 
@@ -18,8 +17,10 @@ interface Kodeverk {
 class KodeverkKlient(private val httpClient: HttpClient) : Kodeverk {
     private val logger = LoggerFactory.getLogger(KodeverkService::class.java)
 
-    override suspend fun hentPoststed(postnummer: String): KodeverkResponse =
+    override suspend fun hentPostnummer(): KodeverkResponse =
         try {
+            logger.info("Henter alle postnummer fra Kodeverk")
+
             httpClient.get("Postnummer") {
                 accept(ContentType.Application.Json)
             }
@@ -30,6 +31,8 @@ class KodeverkKlient(private val httpClient: HttpClient) : Kodeverk {
 
     override suspend fun hentLandkoder(): KodeverkResponse =
         try {
+            logger.info("Henter alle landkoder fra Kodeverk")
+
             httpClient.get("Landkoder") {
                 accept(ContentType.Application.Json)
             }

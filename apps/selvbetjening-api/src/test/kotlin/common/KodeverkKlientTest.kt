@@ -10,8 +10,7 @@ import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.takeFrom
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.kodeverk.KodeverkKlient
-import no.nav.etterlatte.kodeverk.KodeverkService
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
@@ -43,10 +42,10 @@ internal class KodeverkKlientTest {
     fun hentPostnummere() {
         runBlocking {
             val client = KodeverkKlient(httpClient)
-            val poststed = client.hentPoststed("2730")
-            val poststed2 = client.hentPoststed("0000")
-            assertEquals("LUNNER", poststed)
-            assertEquals("", poststed2)
+
+            val kodeverkResponse = client.hentPostnummer()
+
+            assertTrue(kodeverkResponse.betydninger.isNotEmpty())
         }
     }
 
