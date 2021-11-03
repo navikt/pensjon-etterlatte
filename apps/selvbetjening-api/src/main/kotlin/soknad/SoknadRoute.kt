@@ -42,7 +42,8 @@ fun Route.soknadApi(service: SoeknadService) {
                 call.application.environment.log.info("Lagret ny kladd med id ${response.response}")
 
                 call.respond(response.response)
-            }        }
+            }
+        }
 
         get {
             val response = service.hentKladd()
@@ -59,7 +60,9 @@ fun Route.soknadApi(service: SoeknadService) {
                 }
 
                 call.respond(response.response)
-            }        }
+            }
+        }
+
         delete {
             val response = service.slettKladd()
 

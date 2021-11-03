@@ -39,6 +39,8 @@ class KodeverkService(private val klient: Kodeverk) {
     suspend fun hentLand(landkode: String?, spraak: String = "nb"): String? {
         if (landkode.isNullOrBlank()) return null
 
+        logger.info("Henter land for landkode $landkode")
+
         val landkoder = cache.getIfPresent(LANDKODER)
             ?: klient.hentLandkoder().also { cache.put(LANDKODER, it) }
 
