@@ -3,14 +3,20 @@ CREATE TABLE soeknad
     id BIGSERIAL
         CONSTRAINT soeknad_pk
             PRIMARY KEY,
-    fnr VARCHAR(32) NOT NULL,
-    payload TEXT NOT NULL,
     opprettet TIMESTAMP WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'UTC') NOT NULL
 );
 
-CREATE UNIQUE INDEX soeknad_fnr_uindex
-    ON soeknad (fnr);
+CREATE TABLE innhold
+(
+    soeknad_id BIGINT NOT NULL
+        PRIMARY KEY
+            REFERENCES soeknad (id),
+    fnr VARCHAR(32) NOT NULL,
+    payload TEXT NOT NULL
+);
 
+CREATE UNIQUE INDEX soeknad_fnr_uindex
+    ON innhold (fnr);
 
 CREATE TABLE status
 (
@@ -33,7 +39,9 @@ CREATE TABLE hendelse
     id BIGSERIAL
         CONSTRAINT hendelse_pk
             PRIMARY KEY,
-    soeknad_id BIGINT NOT NULL,
+    soeknad_id BIGINT NOT NULL
+        CONSTRAINT hendelse_soeknad_id_fk
+            REFERENCES soeknad (id),
     status_id VARCHAR(16) NOT NULL
         CONSTRAINT hendelse_status_id_fk
             REFERENCES status (id),

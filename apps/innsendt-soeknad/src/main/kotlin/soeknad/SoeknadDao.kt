@@ -146,7 +146,7 @@ class PostgresSoeknadRepository private constructor(
             .apply { setString(1, fnr) }
             .executeQuery()
             .singleOrNull {
-                LagretSoeknad(getLong("id"), fnr, getString("payload"))
+                LagretSoeknad(getLong("soeknad_id"), fnr, getString("payload"))
             }
     }
 
@@ -155,7 +155,7 @@ class PostgresSoeknadRepository private constructor(
             it.prepareStatement(SLETT_KLADD)
                 .apply { setString(1, fnr) }
                 .executeQuery()
-                .singleOrNull { getLong("id") }
+                .singleOrNull { getLong("soeknad_id") }
         }
 
         return slettetSoeknadId?.also {
@@ -229,15 +229,21 @@ class PostgresSoeknadRepository private constructor(
 }
 
 private object Queries {
-    const val CREATE_SOEKNAD = "INSERT INTO soeknad(fnr, payload) VALUES(?, ?) RETURNING id"
+    val CREATE_SOEKNAD = """
+        WITH ny_soeknad AS (
+            INSERT INTO soeknad DEFAULT VALUES RETURNING id
+        ) INSERT INTO innhold(soeknad_id, fnr, payload) 
+            VALUES((SELECT id FROM ny_soeknad), ?, ?) RETURNING soeknad_id
+    """.trimMargin()
 
     const val CREATE_HENDELSE = "INSERT INTO hendelse(soeknad_id, status_id, payload) VALUES(?, ?, ?) RETURNING id"
 
-    const val OPPDATER_SOEKNAD = "UPDATE soeknad SET payload = ? where id = ?"
+    const val OPPDATER_SOEKNAD = "UPDATE innhold SET payload = ? where soeknad_id = ?"
 
     val SELECT_OLD = """
-        SELECT *
+        SELECT s.id, i.fnr, i.payload
         FROM soeknad s 
+        INNER JOIN innhold i ON i.soeknad_id = s.id
         where not exists ( select 1 from hendelse h where h.soeknad_id = s.id 
         and ((h.status_id = '$SENDT' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
         OR (h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL'))))
@@ -268,32 +274,32 @@ private object Queries {
     """.trimMargin()
 
     val SLETT_ARKIVERTE_SOEKNADER = """
-        DELETE FROM soeknad s 
-        WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id = '$ARKIVERT') 
+        DELETE FROM innhold i 
+        WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id = '$ARKIVERT') 
     """.trimIndent()
 
     val FINN_KLADD = """
-        SELECT s.id, s.fnr, s.payload FROM soeknad s
-        WHERE s.fnr = ? AND NOT EXISTS ( 
-            SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id 
+        SELECT i.soeknad_id, i.fnr, i.payload FROM innhold i
+        WHERE i.fnr = ? AND NOT EXISTS ( 
+            SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id 
                 AND h.status_id IN (${Status.innsendt.toSqlString()})
         )
     """.trimIndent()
 
     val SLETT_KLADD = """
-        DELETE FROM soeknad s
-        WHERE s.fnr = ? AND NOT EXISTS ( 
-            SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id 
+        DELETE FROM innhold i
+        WHERE i.fnr = ? AND NOT EXISTS ( 
+            SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id 
             AND h.status_id IN (${Status.innsendt.toSqlString()}))
-        RETURNING s.id
+        RETURNING i.soeknad_id
     """.trimIndent()
 
     val SLETT_UTGAATTE_KLADDER = """
-        DELETE FROM soeknad s
+        DELETE FROM innhold i
         WHERE EXISTS (
-          SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.status_id NOT IN (${Status.innsendt.toSqlString()}))
+          SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id NOT IN (${Status.innsendt.toSqlString()}))
         AND NOT EXISTS (
-          SELECT 1 FROM hendelse h WHERE h.soeknad_id = s.id AND h.opprettet >= (now() - interval '72 hours'))
-        RETURNING s.id
+          SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.opprettet >= (now() - interval '72 hours'))
+        RETURNING i.soeknad_id
     """.trimIndent()
 }

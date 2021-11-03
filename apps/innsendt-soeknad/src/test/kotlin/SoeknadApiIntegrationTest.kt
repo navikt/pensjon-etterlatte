@@ -83,7 +83,7 @@ class SoeknadApiIntegrationTest {
                 response.status() shouldBe HttpStatusCode.OK
 
                 val lagretSoeknadRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM soeknad WHERE fnr = '26117512737'")
+                    .executeQuery("SELECT * FROM innhold WHERE fnr = '26117512737'")
                 lagretSoeknadRow.next()
 
                 lagretSoeknadRow.getString("fnr") shouldBe "26117512737"
@@ -108,7 +108,7 @@ class SoeknadApiIntegrationTest {
 
                 // Verifiser søknad for gjenlevendepensjon
                 val gjenlevendeRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '55555555555'")
+                    .executeQuery("SELECT * FROM innhold WHERE fnr = '55555555555'")
                 gjenlevendeRow.next()
 
                 gjenlevendeRow.getString("fnr") shouldBe "55555555555"
@@ -117,7 +117,7 @@ class SoeknadApiIntegrationTest {
 
                 // Verifiser egen søknad for barnepensjon
                 val barnepensjonRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '08021376974'")
+                    .executeQuery("SELECT * FROM innhold WHERE fnr = '08021376974'")
                 barnepensjonRow.next()
 
                 barnepensjonRow.getString("fnr") shouldBe "08021376974"

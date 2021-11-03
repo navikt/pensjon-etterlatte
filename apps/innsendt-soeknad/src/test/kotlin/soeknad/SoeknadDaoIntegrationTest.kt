@@ -53,8 +53,7 @@ internal class SoeknadDaoIntegrationTest {
     fun resetTablesAfterEachTest() {
         connection.use {
             it.prepareStatement("""
-                TRUNCATE hendelse RESTART IDENTITY; 
-                TRUNCATE soeknad RESTART IDENTITY;
+                TRUNCATE soeknad CASCADE; 
             """.trimIndent()).execute()
         }
     }
@@ -353,12 +352,15 @@ internal class SoeknadDaoIntegrationTest {
     ) {
         soeknader.forEachIndexed { index, soeknad ->
             connection.use {
-                it.prepareStatement("INSERT INTO soeknad(id, fnr, payload, opprettet) VALUES(?, ?, ?, ?)")
+                it.prepareStatement("""
+                    WITH soeknad_id AS (
+                        INSERT INTO soeknad(id, opprettet) VALUES(${soeknad.id}, ?) RETURNING id
+                    ) INSERT INTO innhold(soeknad_id, fnr, payload) VALUES(${soeknad.id}, ?, ?) RETURNING soeknad_id
+                """.trimIndent())
                     .apply {
-                        setLong(1, soeknad.id)
+                        setTimestamp(1, Timestamp(Date.from(soeknad.opprettet.toInstant()).time))
                         setString(2, soeknad.fnr)
                         setString(3, soeknad.data)
-                        setTimestamp(4, Timestamp(Date.from(soeknad.opprettet.toInstant()).time))
                     }
                     .execute()
             }
@@ -411,12 +413,12 @@ internal class SoeknadDaoIntegrationTest {
 
     private fun finnSoeknad(fnr: String): LagretSoeknad? {
         return connection.use {
-            val pstmt = it.prepareStatement("SELECT * FROM soeknad WHERE fnr = ?")
+            val pstmt = it.prepareStatement("SELECT * FROM innhold WHERE fnr = ?")
             pstmt.setString(1, fnr)
 
             val rs = pstmt.executeQuery()
 
-            if (rs.next()) LagretSoeknad(rs.getLong("id"), rs.getString("fnr"), rs.getString("payload"))
+            if (rs.next()) LagretSoeknad(rs.getLong("soeknad_id"), rs.getString("fnr"), rs.getString("payload"))
             else null
         }
     }
