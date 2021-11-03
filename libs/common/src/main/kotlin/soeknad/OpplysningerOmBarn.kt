@@ -5,7 +5,7 @@ import no.nav.etterlatte.libs.common.soeknad.Valg
 
 
 data class OpplysningerOmBarn(
-    val barn: List<Barn>?,
+    val barn: List<Barn> = emptyList(),
     val gravidEllerNyligFoedt: Valg
 )
 

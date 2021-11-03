@@ -25,14 +25,18 @@ import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.routing.routing
 import io.ktor.util.pipeline.PipelineContext
+import no.nav.etterlatte.libs.common.soeknad.Soeknad
+import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+import no.nav.etterlatte.libs.common.soeknad.Valg
 import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
 import no.nav.security.token.support.ktor.tokenValidationSupport
 
 fun Route.soeknadApi(db: SoeknadRepository) {
     post("/api/soeknad") {
         val soeknad = call.receive<Soeknad>()
+        val soekere = finnSoekere(soeknad, fnrFromToken())
 
-        soeknad.finnSoekere(gjenlevendeFnr =  fnrFromToken()).forEach { soeker ->
+        soekere.forEach { soeker ->
             val oppdatertSoeknad = soeknad.copy(soeknadsType = soeker.type)
             val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(soeker.fnr, oppdatertSoeknad.toJson()))
             db.soeknadFerdigstilt(lagretSoeknad)
@@ -57,6 +61,16 @@ fun Route.soeknadApi(db: SoeknadRepository) {
             call.respond(db.finnKladd(fnrFromToken()) ?: HttpStatusCode.NotFound)
         }
     }
+}
+
+data class Soeker(val fnr: String, val type: SoeknadType)
+fun finnSoekere(soeknad: Soeknad, gjenlevendeFnr: String): List<Soeker> {
+    val gjenlevende = Soeker(gjenlevendeFnr, SoeknadType.Gjenlevendepensjon)
+    val barnepensjon: List<Soeker> = soeknad.utfyltSoeknad.opplysningerOmBarn.barn
+        .filter { it.barnepensjon?.soeker == Valg.JA }
+        .map { Soeker(it.foedselsnummer, SoeknadType.Barnepensjon) }
+
+    return listOf(gjenlevende) + barnepensjon
 }
 
 fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() = call.principal<TokenValidationContextPrincipal>()

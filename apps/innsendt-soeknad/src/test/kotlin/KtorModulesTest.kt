@@ -1,13 +1,14 @@
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import no.nav.etterlatte.Soeker
-import no.nav.etterlatte.Soeknad
 import no.nav.etterlatte.finnSoekere
+import no.nav.etterlatte.libs.common.soeknad.Soeknad
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import org.junit.jupiter.api.Test
 
-internal class SoknadModelKtTest {
+internal class KtorModulesTest {
     private val mapper = jacksonObjectMapper()
 
     @Test
@@ -15,11 +16,11 @@ internal class SoknadModelKtTest {
         val soeknad: Soeknad =
             mapper.readValue(javaClass.getResource("/soeknad_med_barnepensjon.json")!!.readText())
 
-        val soekere = soeknad.finnSoekere(gjenlevendeFnr = "12345678100")
+        val soekere = finnSoekere(soeknad, gjenlevendeFnr = "12345678100")
 
-        soekere shouldContainExactlyInAnyOrder listOf(
+        soekere shouldContainExactly listOf(
             Soeker("12345678100", SoeknadType.Gjenlevendepensjon),
-            Soeker("08021376974", SoeknadType.Barnepensjon)
+            Soeker("12345678911", SoeknadType.Barnepensjon)
         )
     }
 
@@ -28,7 +29,7 @@ internal class SoknadModelKtTest {
         val soeknad: Soeknad =
             mapper.readValue(javaClass.getResource("/soeknad_med_barn_uten_barnepensjon.json")!!.readText())
 
-        val soekere = soeknad.finnSoekere(gjenlevendeFnr = "12345678100")
+        val soekere = finnSoekere(soeknad, gjenlevendeFnr = "12345678100")
 
         soekere shouldContainExactlyInAnyOrder listOf(
             Soeker("12345678100", SoeknadType.Gjenlevendepensjon)
@@ -39,7 +40,7 @@ internal class SoknadModelKtTest {
     fun `Skal håndtere søknad uten barn`() {
         val soeknad: Soeknad = mapper.readValue(javaClass.getResource("/soeknad_uten_barn.json")!!.readText())
 
-        val soekere = soeknad.finnSoekere(gjenlevendeFnr = "12345678100")
+        val soekere = finnSoekere(soeknad, gjenlevendeFnr = "12345678100")
 
         soekere shouldContainExactlyInAnyOrder listOf(
             Soeker("12345678100", SoeknadType.Gjenlevendepensjon)
