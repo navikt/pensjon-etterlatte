@@ -10,6 +10,7 @@ import io.ktor.routing.delete
 import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.route
+import no.nav.etterlatte.libs.common.soeknad.Soeknad
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
@@ -42,7 +43,8 @@ fun Route.soknadApi(service: SoeknadService) {
                 call.application.environment.log.info("Lagret ny kladd med id ${response.response}")
 
                 call.respond(response.response)
-            }        }
+            }
+        }
 
         get {
             val response = service.hentKladd()
@@ -59,7 +61,8 @@ fun Route.soknadApi(service: SoeknadService) {
                 }
 
                 call.respond(response.response)
-            }        }
+            }
+        }
         delete {
             val response = service.slettKladd()
 
