@@ -18,7 +18,7 @@ data class Avdoed(
 
 data class ForholdTilAvdoede(
     val relasjon: ForholdTilAvdoedeType,
-    val datoForInngaattPartnerskap: String,
+    val datoForInngaattPartnerskap: String?,
     val datoForSkilsmisse: String?,
     val datoForInngaattSamboerskap: String?,
     val datoForSamlivsbrudd: String?,

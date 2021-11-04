@@ -23,8 +23,8 @@ data class NyttSamboerskap(
 data class Samboer(
     val fornavn: String,
     val etternavn: String,
-    val foedselsnummer: String, //Foedselsnummer
-    val harInntekt: HarInntekt
+    val foedselsnummer: String?,
+    val harInntekt: HarInntekt?
 )
 
 data class HarInntekt(

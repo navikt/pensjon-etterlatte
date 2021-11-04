@@ -16,7 +16,7 @@ data class Barn(
     val harBarnetVerge: HarBarnetVerge?,
     val relasjon: BarnRelasjonType?,
     val statsborgerskap: String?,
-    val bosattUtland: BosattUtland,
+    val bosattUtland: BosattUtland?,
     val dagligOmsorg: Valg?,
     val barnepensjon: Barnepensjon?
 )

@@ -8,8 +8,8 @@ import no.nav.etterlatte.libs.common.soeknad.Valg
 data class OmDeg(
     val bostedsadresseBekreftet: Valg?,
     val alternativAdresse: String?,
-    val kontaktinfo: Kontaktinfo,
-    val utbetalingsInformasjon: UtbetalingsInformasjon,
+    val kontaktinfo: Kontaktinfo?,
+    val utbetalingsInformasjon: UtbetalingsInformasjon?,
     val flyktning: Valg?,
     val oppholderSegINorge: Valg?,
     val oppholdsland: String?,

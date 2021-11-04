@@ -8,7 +8,7 @@ import no.nav.etterlatte.libs.common.soeknad.Valg
 data class OmDenAvdoede(
     val foedselsnummer: String,
     val statsborgerskap: String,
-    val boddEllerJobbetUtland: BoddEllerJobbetUtland,
+    val boddEllerJobbetUtland: BoddEllerJobbetUtland?,
     val selvstendigNaeringsdrivende: Spoersmaal?,
     val haddePensjonsgivendeInntekt: Spoersmaal?,
     val harAvtjentMilitaerTjeneste: Spoersmaal?,

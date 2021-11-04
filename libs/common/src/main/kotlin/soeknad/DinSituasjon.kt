@@ -28,24 +28,24 @@ data class Utdanning(
 )
 
 data class NaavaerendeUtdanning(
-    val navn: String,
-    val startDato: String,
-    val sluttDato: String
+    val navn: String?,
+    val startDato: String?,
+    val sluttDato: String?
 )
 
 data class SelvstendigNaeringsdrivende(
     val beskrivelse: String?,
     val orgnr: String?,
-    val forventerEndretInntekt: Spoersmaal
+    val forventerEndretInntekt: Spoersmaal?
 )
 
 
 data class Arbeidsforhold(
-    val arbeidsgiver: String,
+    val arbeidsgiver: String?,
     val stilling: String?,
-    val ansettelsesforhold: StillingType,
-    val stillingsprosent: String,
-    val forventerEndretInntekt: Spoersmaal,
+    val ansettelsesforhold: StillingType?,
+    val stillingsprosent: String?,
+    val forventerEndretInntekt: Spoersmaal?,
 )
 
 enum class StillingType(@get:JsonValue val beskrivelse: String) {
@@ -62,7 +62,7 @@ data class AndreYtelser(
 )
 
 data class MottarPensjonUtland(
-    val svar: Valg,
+    val svar: Valg?,
     val hvaSlagsPensjon: String?,
     val fraHvilketLand: String?,
     val bruttobeloepPrAar: String?,
