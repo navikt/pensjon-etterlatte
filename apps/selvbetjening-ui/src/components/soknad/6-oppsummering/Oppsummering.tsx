@@ -25,7 +25,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     const [senderSoeknad, setSenderSoeknad] = useState(false);
     const [error, setError] = useState(false);
-
+    
     const mapper = new SoeknadMapper(t, i18n);
     const soeknadOppsummering: Gruppe[] = useMemo(() => {
         if (isEmpty(soeknad) || isEmpty(bruker)) return [];
@@ -33,10 +33,11 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         return mapper.lagOppsummering(soeknad, bruker)
     }, [soeknad, bruker]);
     
+    
     const send = () => {
         setSenderSoeknad(true);
         setError(false);
-        const soeknadBody = { oppsummering: soeknadOppsummering }
+        const soeknadBody = { soeknad, bruker }
         sendSoeknad(soeknadBody)
             .then(() => {
                 logEvent(LogEvents.SEND_SOKNAD);

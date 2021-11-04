@@ -8,7 +8,8 @@ const {
     STOR_SNERK
 } = require("./mock-user");
 
-const config = require("../config")
+const config = require("../config");
+const { generateSummary } = require("../generateSummary");
 
 const cache = new NodeCache();
 
@@ -26,11 +27,21 @@ const mockApi = (app) => {
         next();
     });
 
+    app.post(`${config.app.basePath}/api/api/soeknad`, (req, res, next) => {
+        const oppsummering = generateSummary(req.body.soeknad, req.body.bruker);
+        req.body = { soeknad: req.body.soeknad, oppsummering }
+        next();
+    }, (req, res) => {
+        res.send("ok");
+    });
+
     app.get(`${config.app.basePath}/api/person/innlogget`, (req, res) => setTimeout(() => res.json(innloggetBruker), 1000));
 
+    
     app.post(`${config.app.basePath}/api/api/soeknad`, (req, res) => {
         let id = cache.get("id");
 
+        console.log(generateSummary(req.body.soeknad, req.body.bruker));
         if (!!id)
             return id;
 

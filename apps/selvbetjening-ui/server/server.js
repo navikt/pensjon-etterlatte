@@ -17,7 +17,6 @@ app.use(basePath, express.static(buildPath, {index: false}));
 app.get(`${basePath}/isAlive|${basePath}/isReady`, (req, res) => {
     res.send("OK");
 });
-
 if (config.env.isLabsCluster) {
     api.mock(app);
 } else {
