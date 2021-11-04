@@ -63,6 +63,7 @@ fun Route.soknadApi(service: SoeknadService) {
                 call.respond(response.response)
             }
         }
+
         delete {
             val response = service.slettKladd()
 

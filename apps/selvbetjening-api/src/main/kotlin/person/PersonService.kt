@@ -18,6 +18,8 @@ class PersonService(
     private val adressebeskyttet = listOf(FORTROLIG, STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND)
 
     suspend fun hentPerson(fnr: Foedselsnummer): Person {
+        logger.info("Henter person fra PDL")
+
         val response = klient.hentPerson(fnr)
 
         val hentPerson = response.data?.hentPerson

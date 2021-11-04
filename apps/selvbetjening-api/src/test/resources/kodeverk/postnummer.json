@@ -1,101 +1,101 @@
 {
   "betydninger": {
-    "CUB": [
+    "4912": [
       {
         "gyldigFra": "1900-01-01",
         "gyldigTil": "9999-12-31",
         "beskrivelser": {
           "nn": {
-            "term": "CUBA",
-            "tekst": "CUBA"
+            "term": "GJEVING",
+            "tekst": "GJEVING"
           },
           "nb": {
-            "term": "CUBA",
-            "tekst": "CUBA"
+            "term": "GJEVING",
+            "tekst": "GJEVING"
           },
           "en": {
-            "term": "CUBA",
-            "tekst": "CUBA"
+            "term": "GJEVING",
+            "tekst": "GJEVING"
           }
         }
       }
     ],
-    "POL": [
+    "4915": [
       {
         "gyldigFra": "1900-01-01",
         "gyldigTil": "9999-12-31",
         "beskrivelser": {
           "nn": {
-            "term": "POLEN",
-            "tekst": "POLEN"
+            "term": "VESTRE SANDØYA",
+            "tekst": "VESTRE SANDØYA"
           },
           "nb": {
-            "term": "POLEN",
-            "tekst": "POLEN"
+            "term": "VESTRE SANDØYA",
+            "tekst": "VESTRE SANDØYA"
           },
           "en": {
-            "term": "POLEN",
-            "tekst": "POLEN"
+            "term": "VESTRE SANDØYA",
+            "tekst": "VESTRE SANDØYA"
           }
         }
       }
     ],
-    "SWE": [
+    "4920": [
       {
         "gyldigFra": "1900-01-01",
         "gyldigTil": "9999-12-31",
         "beskrivelser": {
           "nn": {
-            "term": "SVERIGE",
-            "tekst": "SVERIGE"
+            "term": "STAUBØ",
+            "tekst": "STAUBØ"
           },
           "nb": {
-            "term": "SVERIGE",
-            "tekst": "SVERIGE"
+            "term": "STAUBØ",
+            "tekst": "STAUBØ"
           },
           "en": {
-            "term": "SVERIGE",
-            "tekst": "SVERIGE"
+            "term": "STAUBØ",
+            "tekst": "STAUBØ"
           }
         }
       }
     ],
-    "ISL": [
+    "4934": [
       {
-        "gyldigFra": "1900-01-01",
+        "gyldigFra": "2013-09-13",
         "gyldigTil": "9999-12-31",
         "beskrivelser": {
           "nn": {
-            "term": "ISLAND",
-            "tekst": "ISLAND"
+            "term": "NES VERK",
+            "tekst": "NES VERK"
           },
           "nb": {
-            "term": "ISLAND",
-            "tekst": "ISLAND"
+            "term": "NES VERK",
+            "tekst": "NES VERK"
           },
           "en": {
-            "term": "ISLAND",
-            "tekst": "ISLAND"
+            "term": "NES VERK",
+            "tekst": "NES VERK"
           }
         }
       }
     ],
-    "NOR": [
+    "4951": [
       {
         "gyldigFra": "1900-01-01",
         "gyldigTil": "9999-12-31",
         "beskrivelser": {
           "nn": {
-            "term": "NORGE",
-            "tekst": "NORGE"
+            "term": "RISØR",
+            "tekst": "RISØR"
           },
           "nb": {
-            "term": "NORGE",
-            "tekst": "NORGE"
+            "term": "RISØR",
+            "tekst": "RISØR"
           },
           "en": {
-            "term": "NORGE",
-            "tekst": "NORGE"
+            "term": "RISØR",
+            "tekst": "RISØR"
           }
         }
       }

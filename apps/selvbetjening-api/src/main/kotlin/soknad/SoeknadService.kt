@@ -19,7 +19,7 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
     suspend fun sendSoeknad(soeknad: Soeknad): RetryResult {
-        soeknad.validate()
+        logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
 
         return retry {
             innsendtSoeknadKlient.post<String> ("soeknad"){
@@ -31,6 +31,8 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
 
     suspend fun lagreKladd(json: JsonNode): RetryResult {
         return retry {
+            logger.info("Lagrer kladd for innlogget bruker.")
+
             innsendtSoeknadKlient.post<String> ("kladd"){
                 contentType(Json)
                 body = json
@@ -40,6 +42,8 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
 
     suspend fun hentKladd(): RetryResult = retry {
         try {
+            logger.info("Henter kladd for innlogget bruker.")
+
             innsendtSoeknadKlient.get<JsonNode>("kladd")
         } catch (ex: ClientRequestException){
             if (ex.response.status == HttpStatusCode.NotFound)
@@ -50,6 +54,8 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
     }
 
     suspend fun slettKladd(): RetryResult = retry {
+        logger.info("Sletter kladd for innlogget bruker.")
+
         innsendtSoeknadKlient.delete<HttpResponse>("kladd").status
     }
 }

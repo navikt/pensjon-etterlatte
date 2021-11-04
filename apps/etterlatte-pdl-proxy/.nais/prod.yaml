@@ -15,10 +15,10 @@ spec:
     max: 2
   liveness:
     path: /internal/is_alive
-    initialDelay: 10
+    initialDelay: 60
     timeout: 1
     periodSeconds: 5
-    failureThreshold: 3
+    failureThreshold: 10
   readiness:
     path: /internal/is_ready
     initialDelay: 10

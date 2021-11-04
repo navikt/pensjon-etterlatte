@@ -32,12 +32,12 @@ internal class KodeverkServiceTest {
             assertNull(service.hentPoststed(" "))
         }
 
-        coVerify(exactly = 0) { mockKlient.hentPoststed(POSTNR_OSLO) }
+        coVerify(exactly = 0) { mockKlient.hentPostnummer() }
     }
 
     @Test
     fun `Bokmaal postnr finnes med gyldig dato`() {
-        coEvery { mockKlient.hentPoststed(any()) } returns KodeverkResponse(
+        coEvery { mockKlient.hentPostnummer() } returns KodeverkResponse(
             mapOf(
                 POSTNR_OSLO to listOf(
                     Betydning(
@@ -53,12 +53,12 @@ internal class KodeverkServiceTest {
             assertEquals("Oslo", service.hentPoststed(POSTNR_OSLO))
         }
 
-        coVerify(exactly = 1) { mockKlient.hentPoststed(POSTNR_OSLO) }
+        coVerify(exactly = 1) { mockKlient.hentPostnummer() }
     }
 
     @Test
     fun `Bokmaal postnr finnes, men har ikke gyldig dato`() {
-        coEvery { mockKlient.hentPoststed(any()) } returns KodeverkResponse(
+        coEvery { mockKlient.hentPostnummer() } returns KodeverkResponse(
             mapOf(
                 POSTNR_OSLO to listOf(
                     Betydning(
@@ -74,7 +74,7 @@ internal class KodeverkServiceTest {
             assertEquals("", service.hentPoststed(POSTNR_OSLO))
         }
 
-        coVerify(exactly = 1) { mockKlient.hentPoststed(POSTNR_OSLO) }
+        coVerify(exactly = 1) { mockKlient.hentPostnummer() }
     }
 
 }

@@ -1,36 +1,67 @@
 package no.nav.etterlatte.kodeverk
 
+import com.github.benmanes.caffeine.cache.Caffeine
+import no.nav.etterlatte.kodeverk.CacheKey.LANDKODER
+import no.nav.etterlatte.kodeverk.CacheKey.POSTSTEDER
 import org.slf4j.LoggerFactory
 import java.time.LocalDate
+import java.util.concurrent.TimeUnit
 
 class KodeverkService(private val klient: Kodeverk) {
     private val logger = LoggerFactory.getLogger(KodeverkService::class.java)
 
-    suspend fun hentPoststed(postnr: String?): String? {
+    private val cache = Caffeine.newBuilder()
+        .expireAfterWrite(1, TimeUnit.HOURS)
+        .build<CacheKey, KodeverkResponse>()
+
+    suspend fun hentPoststed(postnr: String?, spraak: String = "nb"): String? {
         if (postnr.isNullOrBlank()) return null
 
         logger.info("Henter poststed for postnummer $postnr")
 
-        // Todo: cache postnummerliste?
-        return klient.hentPoststed(postnr).hentTekst(postnr, "nb")
+        val poststeder = cache.getIfPresent(POSTSTEDER)
+            ?: klient.hentPostnummer().also { cache.put(POSTSTEDER, it) }
+
+        return poststeder.hentTekst(postnr, spraak)
     }
 
-    suspend fun hentLand(landkode: String?): String {
-        if (landkode.isNullOrBlank()) return ""
+    suspend fun hentAlleLand(spraak: String = "nb"): List<String> {
+        val landkoder = cache.getIfPresent(LANDKODER)
+            ?: klient.hentLandkoder().also { cache.put(LANDKODER, it) }
 
-        return klient.hentLandkoder().hentTekst(landkode, "nb")
+        return landkoder
+            .betydninger
+            .flatMap { (_, betydninger) -> betydninger }
+            .mapNotNull { betydning -> betydning.beskrivelser[spraak] }
+            .map { it.tekst.capitalize() }
     }
 
-    private fun KodeverkResponse.hentTekst(kode: String, locale: String): String {
+    suspend fun hentLand(landkode: String?, spraak: String = "nb"): String? {
+        if (landkode.isNullOrBlank()) return null
+
+        logger.info("Henter land for landkode $landkode")
+
+        val landkoder = cache.getIfPresent(LANDKODER)
+            ?: klient.hentLandkoder().also { cache.put(LANDKODER, it) }
+
+        return landkoder.hentTekst(landkode, spraak)
+    }
+
+    private fun KodeverkResponse.hentTekst(kode: String, spraak: String): String {
         val gyldigBetydning = this.betydninger[kode]
             ?.find { it -> it.gyldigTil > LocalDate.now().toString() }
 
         return gyldigBetydning?.beskrivelser
-            ?.get(locale)
+            ?.get(spraak)
             ?.tekst
             ?.capitalize()
             .orEmpty()
     }
 
     private fun String.capitalize() = lowercase().replaceFirstChar { it.uppercase() }
+}
+
+private enum class CacheKey {
+    LANDKODER,
+    POSTSTEDER
 }
