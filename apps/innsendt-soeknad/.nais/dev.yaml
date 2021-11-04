@@ -26,7 +26,7 @@ spec:
     sqlInstances:
       - type: POSTGRES_12
         databases:
-          - name: soeknader
+          - name: innsendte_soeknader
             envVarPrefix: DB
   replicas:
     cpuThresholdPercentage: 90
