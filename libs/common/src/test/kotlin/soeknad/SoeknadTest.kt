@@ -2,6 +2,7 @@ package soeknad
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.equality.shouldBeEqualToComparingFields
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.libs.common.soeknad.Soeknad
@@ -17,6 +18,15 @@ class SoeknadTest {
         val reserialzied: String = mapper.writeValueAsString(soeknad)
 
         mapper.readTree(reserialzied) shouldBeEqualToComparingFields mapper.readTree(soeknadJson)
+    }
+
+    @Test
+    fun `Skal validere oppsummering ved opprettelse av søknad`() {
+        val exception = shouldThrow<Exception> {
+            soeknad.copy(oppsummering = soeknad.oppsummering.take(4))
+        }
+
+        exception.message shouldBe "Søknad inneholder færre grupper enn forventet"
     }
 
     @Test

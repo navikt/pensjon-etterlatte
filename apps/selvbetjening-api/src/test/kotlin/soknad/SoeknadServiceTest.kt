@@ -122,19 +122,6 @@ internal class SoeknadServiceTest {
     }
 
     @Test
-    fun sendSoeknadFeilerValidering() {
-        val soeknadMedManglendeGrupper = ferdigSoeknadMock.copy(oppsummering = ferdigSoeknadMock.oppsummering.take(4))
-
-        runBlocking {
-            try {
-                service.sendSoeknad(soeknadMedManglendeGrupper)
-            } catch (ex: Exception) {
-                assertEquals("Søknad inneholder færre grupper enn forventet", ex.message)
-            }
-        }
-    }
-
-    @Test
     fun slettKladdOK() {
         runBlocking {
             val result = service.slettKladd()
