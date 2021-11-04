@@ -25,6 +25,7 @@ spec:
   gcp:
     sqlInstances:
       - type: POSTGRES_12
+        name: innsendt-soeknad-v2
         databases:
           - name: innsendte-soeknader
             envVarPrefix: DB
