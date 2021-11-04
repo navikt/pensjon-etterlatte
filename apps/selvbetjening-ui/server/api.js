@@ -31,7 +31,7 @@ const setup = (app) => {
     // Intercept send søknad og lag oppsummering. Send så videre søknad og oppsummering
     app.post(`${config.app.basePath}/api/soeknad`, (req, res, next) => {
         const oppsummering = generateSummary(req.body.soeknad, req.body.bruker);
-        req.body = JSON.stringify({ soeknad: req.body.soeknad, oppsummering })
+        req.body = { utfyltSoeknad: req.body.soeknad, oppsummering }
         next();
     }, proxy(config.app.apiUrl, options()));
 

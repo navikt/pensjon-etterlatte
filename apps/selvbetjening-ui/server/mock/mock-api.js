@@ -29,7 +29,7 @@ const mockApi = (app) => {
 
     app.post(`${config.app.basePath}/api/api/soeknad`, (req, res, next) => {
         const oppsummering = generateSummary(req.body.soeknad, req.body.bruker);
-        req.body = { soeknad: req.body.soeknad, oppsummering }
+        req.body = { utfyltSoeknad: req.body.soeknad, oppsummering }
         next();
     }, (req, res) => {
         res.send("ok");
