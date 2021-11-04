@@ -52,9 +52,7 @@ internal class SoeknadDaoIntegrationTest {
     @AfterEach
     fun resetTablesAfterEachTest() {
         connection.use {
-            it.prepareStatement("""
-                TRUNCATE soeknad CASCADE; 
-            """.trimIndent()).execute()
+            it.prepareStatement("TRUNCATE soeknad RESTART IDENTITY CASCADE;").execute()
         }
     }
 
@@ -100,6 +98,29 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     @Test
+    fun `Lagre ny søknad returnerer korrekt ID`() {
+        val payload = """{"harSamtykket":true}"""
+
+        (1..5).forEach {
+            val fnr = randomFakeFnr()
+
+            assertNull(db.finnKladd(fnr))
+
+            val soeknad = UlagretSoeknad(fnr, payload)
+            val lagretSoeknad = db.lagreSoeknad(soeknad)
+
+            assertEquals(payload, lagretSoeknad.payload)
+            assertEquals(it.toLong(), lagretSoeknad.id)
+            assertEquals(fnr, lagretSoeknad.fnr)
+
+            val oppdatertSoeknad = db.lagreSoeknad(soeknad)
+            assertEquals(payload, oppdatertSoeknad.payload)
+            assertEquals(it.toLong(), oppdatertSoeknad.id)
+            assertEquals(fnr, oppdatertSoeknad.fnr)
+        }
+    }
+
+    @Test
     fun `Lagre ferdig søknad hvor kladd finnes`() {
         val fnr = randomFakeFnr()
         val json = """{"harSamtykket":true}"""
@@ -109,6 +130,9 @@ internal class SoeknadDaoIntegrationTest {
 
         val lagretKladd = db.lagreKladd(soeknad)
         assertNotNull(lagretKladd)
+        assertEquals(1, lagretKladd.id)
+        assertEquals(fnr, lagretKladd.fnr)
+        assertEquals(json, lagretKladd.payload)
 
         val funnetKladd = db.finnKladd(fnr)!!
         assertEquals(lagretKladd.id, funnetKladd.id)

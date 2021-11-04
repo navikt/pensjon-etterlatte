@@ -15,7 +15,7 @@ CREATE TABLE innhold
     payload TEXT NOT NULL
 );
 
-CREATE UNIQUE INDEX soeknad_fnr_uindex
+CREATE UNIQUE INDEX innhold_fnr_uindex
     ON innhold (fnr);
 
 CREATE TABLE status
