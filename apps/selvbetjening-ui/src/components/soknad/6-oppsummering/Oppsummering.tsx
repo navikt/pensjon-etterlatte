@@ -33,11 +33,10 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         return mapper.lagOppsummering(soeknad, bruker)
     }, [soeknad, bruker]);
     
-    
     const send = () => {
         setSenderSoeknad(true);
         setError(false);
-        const soeknadBody = { soeknad, bruker }
+        const soeknadBody = { soeknad, bruker, locale: i18n.language }
         sendSoeknad(soeknadBody)
             .then(() => {
                 logEvent(LogEvents.SEND_SOKNAD);

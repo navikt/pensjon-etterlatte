@@ -27,8 +27,8 @@ const mockApi = (app) => {
         next();
     });
 
-    app.post(`${config.app.basePath}/api/api/soeknad`, (req, res, next) => {
-        const oppsummering = generateSummary(req.body.soeknad, req.body.bruker);
+    app.post(`${config.app.basePath}/api/api/soeknad`, async (req, res, next) => {
+        const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
         req.body = { utfyltSoeknad: req.body.soeknad, oppsummering }
         next();
     }, (req, res) => {
