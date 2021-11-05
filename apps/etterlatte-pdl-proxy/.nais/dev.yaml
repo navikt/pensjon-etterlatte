@@ -30,11 +30,6 @@ spec:
     requests:
       cpu: 100m
       memory: 512Mi
-  vault:
-    enabled: true
-    paths:
-      - kvPath: "serviceuser/data/dev/srvbarnepensjon"
-        mountPath: "/secrets/srvbarnepensjon"
   azure:
     application:
       enabled: true

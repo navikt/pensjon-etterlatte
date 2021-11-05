@@ -32,7 +32,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
         return mapper.lagOppsummering(soeknad, bruker)
     }, [soeknad, bruker]);
-
+    
     const send = () => {
         setSenderSoeknad(true);
         setError(false);

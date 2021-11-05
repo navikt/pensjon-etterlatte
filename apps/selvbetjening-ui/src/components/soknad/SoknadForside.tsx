@@ -63,15 +63,29 @@ const SoknadForside = () => {
 
                 <BodyLong spacing>{t("forside.omYtelsene.innhold")}</BodyLong>
 
+                <BodyLong spacing>
+                    {t("forside.omYtelsene.papirsoeknad.innhold")}&nbsp;
+                    <Link href={t("forside.omYtelsene.papirsoeknad.href")}>{t("forside.omYtelsene.papirsoeknad.tekst")}</Link>
+                </BodyLong>
+
                 <BodyLong>
-                    <Link href={t("forside.omYtelsene.lenke.href")}>{t("forside.omYtelsene.lenke.tekst")}</Link>
+                    <Link href={t("forside.omYtelsene.lenkeGjenlevende.href")}>{t("forside.omYtelsene.lenkeGjenlevende.tekst")}</Link>
+                </BodyLong>
+
+                <BodyLong>
+                    <Link href={t("forside.omYtelsene.lenkeOvergangsstoenad.href")}>{t("forside.omYtelsene.lenkeOvergangsstoenad.tekst")}</Link>
                 </BodyLong>
             </SkjemaGruppe>
+
             <SkjemaGruppe>
                 <Heading size={"small"}>{t("forside.barnepensjon.tittel")}</Heading>
 
-                <BodyLong>{t("forside.barnepensjon.innhold")}</BodyLong>
+                <BodyLong spacing>{t("forside.barnepensjon.innhold")}</BodyLong>
+                <BodyLong>
+                    <Link href={t("forside.barnepensjon.href")}>{t("forside.barnepensjon.tekst")}</Link>
+                </BodyLong>
             </SkjemaGruppe>
+
             <SkjemaGruppe>
                 <Heading size={"small"}>{t("forside.uthentingAvInfo.tittel")}</Heading>
 

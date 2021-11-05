@@ -104,7 +104,12 @@ class Foedselsnummer private constructor(@JsonValue val value: String) {
 
     override fun hashCode(): Int = this.value.hashCode()
 
-    override fun toString(): String = this.value
+    /**
+     * Skal ALLTID returnere anonymisert fødselsnummer.
+     *
+     * Bruk [value] ved behov for komplett fødselsnummer.
+     */
+    override fun toString(): String = this.value.replaceRange(6 until 11, "*****")
 }
 
 class InvalidFoedselsnummer(value: String?, cause: Throwable) : Exception("Ugyldig fødselsnummer $value", cause)

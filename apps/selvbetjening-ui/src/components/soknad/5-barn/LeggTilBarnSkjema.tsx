@@ -57,6 +57,12 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
         return false
     }
 
+    const visDuplikatFeilmelding = () => {
+        const erDuplikat = fnrRegistrerteBarn.indexOf(foedselsnummer) === 0
+        const valideringVisesIkke = errors.foedselsnummer === undefined
+        return erDuplikat && valideringVisesIkke
+    }
+
     return (
         <FormProvider {...methods} >
             <form style={{ padding: "2rem 2.5rem" }}>
@@ -104,6 +110,14 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                             return true
                         }}}}
                     />
+
+                    {visDuplikatFeilmelding() && (
+                        <SkjemaGruppe className={"skjemaelement__feilmelding"}>
+                            <p className={"typo-feilmelding"}>
+                                {t("feil.foedselsnummer.duplicate")}
+                            </p>
+                        </SkjemaGruppe>
+                    )}
 
                     <RHFInput
                         name={"statsborgerskap"}
@@ -264,7 +278,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         variant={"primary"}
                         type={"button"}
                         onClick={handleSubmit(leggTilOgLukk)}
-                        style={{minWidth: "80px", marginBottom: "10px"}}
+                        style={{ minWidth: "80px", marginBottom: "10px" }}
                     >
                         {t("knapp.lagre")}
                     </Button>
@@ -275,7 +289,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         variant={"secondary"}
                         type={"button"}
                         onClick={avbryt}
-                        style={{minWidth: "80px"}}
+                        style={{ minWidth: "80px" }}
                     >
                         {t("knapp.avbryt")}
                     </Button>

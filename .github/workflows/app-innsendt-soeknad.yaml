@@ -56,9 +56,8 @@ jobs:
 
   deploy-to-prod-gcp:
     name: Deploy to prod-gcp
-#    if: ${{ github.event.inputs.deploy-prod }}
-#    needs: deploy-to-dev-gcp
-    needs: build-and-publish
+#    if: ${{ github.event.inputs.deploy-prod == 'true' }}
+    needs: deploy-to-dev-gcp
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

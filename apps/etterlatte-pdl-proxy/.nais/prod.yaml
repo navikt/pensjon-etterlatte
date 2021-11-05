@@ -15,10 +15,10 @@ spec:
     max: 2
   liveness:
     path: /internal/is_alive
-    initialDelay: 10
+    initialDelay: 60
     timeout: 1
     periodSeconds: 5
-    failureThreshold: 3
+    failureThreshold: 10
   readiness:
     path: /internal/is_ready
     initialDelay: 10
@@ -30,18 +30,11 @@ spec:
     requests:
       cpu: 100m
       memory: 512Mi
-  vault:
-    enabled: true
-    paths:
-      - kvPath: "serviceuser/data/prod/srvbarnepensjon"
-        mountPath: "/secrets/srvbarnepensjon"
   azure:
     application:
       enabled: true
   tokenx:
     enabled: true
-  envFrom:
-    - secret: barnepensjon-secrets
   env:
     - name: PDL_URL
       value: https://pdl-api.prod-fss-pub.nais.io/graphql
