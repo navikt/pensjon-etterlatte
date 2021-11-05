@@ -29,9 +29,9 @@ const options = () => ({
 
 
 const setup = (app) => {
-    app.use(parser.json());
     // Intercept send søknad og lag oppsummering. Send så videre søknad og oppsummering
     /*
+    app.use(parser.json());
     app.post(`${config.app.basePath}/api/api/soeknad`, async (req, res, next) => {
         console.log(req.body)
         try {
