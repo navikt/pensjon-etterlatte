@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import soeknad.SoeknadRepository
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
@@ -25,11 +26,11 @@ internal class JournalpostSkrevet(
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         if (packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L != 0L) {
-            soeknader.soeknadArkivert(LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()))
+            soeknader.soeknadArkivert(packet["@lagret_soeknad_id"].asLong())
         } else {
             logger.error("Arkivering feilet: ", packet.toJson())
             soeknader.soeknadFeiletArkivering(
-                LagretSoeknad("", "", packet["@lagret_soeknad_id"].asLong()),
+                packet["@lagret_soeknad_id"].asLong(),
                 packet["@dokarkivRetur"].toJson()
             )
         }

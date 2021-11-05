@@ -2,6 +2,7 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.typesafe.config.ConfigFactory
+import soeknad.SoeknadRepository
 import io.ktor.application.Application
 import io.ktor.application.ApplicationCall
 import io.ktor.application.call
@@ -25,6 +26,7 @@ import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.routing.routing
 import io.ktor.util.pipeline.PipelineContext
+import soeknad.UlagretSoeknad
 import no.nav.etterlatte.libs.common.soeknad.Soeknad
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import no.nav.etterlatte.libs.common.soeknad.Valg
@@ -39,7 +41,7 @@ fun Route.soeknadApi(db: SoeknadRepository) {
         soekere.forEach { soeker ->
             val oppdatertSoeknad = soeknad.copy(soeknadsType = soeker.type)
             val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(soeker.fnr, oppdatertSoeknad.toJson()))
-            db.soeknadFerdigstilt(lagretSoeknad)
+            db.soeknadFerdigstilt(lagretSoeknad.id)
         }
 
         call.respond(HttpStatusCode.OK)

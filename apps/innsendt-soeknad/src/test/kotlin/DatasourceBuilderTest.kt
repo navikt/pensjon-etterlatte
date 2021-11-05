@@ -1,12 +1,12 @@
 
 import no.nav.etterlatte.DataSourceBuilder
-import no.nav.etterlatte.PostgresSoeknadRepository
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import soeknad.PostgresSoeknadRepository
 import javax.sql.DataSource
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

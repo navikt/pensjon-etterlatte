@@ -80,7 +80,7 @@ export const RHFCheckboksPanel = ({ name, checkbox, valgfri, ...rest }: RHFCheck
                             label={checkbox.label}
                             value={checkbox.value}
                             checked={value}
-                            onChange={(e) => {onChange(e.target.value)}}
+                            onChange={(e) => {e.target.checked ? onChange(e.target.value) : onChange(null)}}
                         />
                     </CheckboxGruppe>
                 )}
