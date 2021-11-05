@@ -5,6 +5,7 @@ include(
     "apps:heartbeat",
     "libs:ktorclient-auth-clientcredentials",
     "libs:common",
+    "libs:common-test",
     "apps:selvbetjening-api",
     "apps:journalfoer-soeknad",
     "apps:innsendt-soeknad",
