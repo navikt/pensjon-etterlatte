@@ -44,6 +44,7 @@ import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import soeknad.LagretSoeknad
 import soeknad.PostgresSoeknadRepository
+import soeknad.SoeknadFixtures
 import java.util.*
 import java.util.stream.Collectors
 
@@ -72,7 +73,7 @@ class SoeknadApiIntegrationTest {
     @Order(1)
     fun `Skal opprette soeknad i databasen for gjenlevende`() {
         withTestApplication({ apiTestModule { soeknadApi(db /*, "26117512737"*/) } }) {
-            val utenBarnSoeknad: String = javaClass.getResource("/soeknad_uten_barn.json")!!.readText()
+            val utenBarnSoeknad: String = SoeknadFixtures.soeknadUtenBarn.toJson()
 
             handleRequest(HttpMethod.Post, "/api/soeknad") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
@@ -96,7 +97,7 @@ class SoeknadApiIntegrationTest {
     @Order(1)
     fun `Skal opprette soeknad i databasen for gjenlevende og barn`() {
         withTestApplication({ apiTestModule { soeknadApi(db) } }) {
-            val medBarnSoeknad: String = javaClass.getResource("/soeknad_med_barnepensjon.json")!!.readText()
+            val medBarnSoeknad: String = SoeknadFixtures.soeknadMedBarnepensjon.toJson()
 
             handleRequest(HttpMethod.Post, "/api/soeknad") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
