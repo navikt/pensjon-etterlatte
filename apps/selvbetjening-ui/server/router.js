@@ -1,4 +1,5 @@
 const express = require("express");
+const proxy = require("express-http-proxy");
 const parser = require("body-parser");
 const config = require("./config");
 const { generateSummary } = require("./generateSummary");
