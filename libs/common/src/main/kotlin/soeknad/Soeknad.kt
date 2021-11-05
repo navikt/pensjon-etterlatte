@@ -1,34 +1,22 @@
-package no.nav.etterlatte.soknad
+package no.nav.etterlatte.libs.common.soeknad
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import soeknad.UtfyltSoeknad
 import java.time.LocalDateTime
 import java.time.ZoneId
 
-data class Innhold(
-    val key: String,
-    val spoersmaal: String,
-    val svar: Any
-)
-
-data class Element(
-    val tittel: String? = null,
-    val innhold: List<Innhold>
-)
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-data class Gruppe(
-    val tittel: String,
-    val elementer: List<Element>,
-    val path: String
-)
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Soeknad(
     var imageTag: String?,
+    var soeknadsType: SoeknadType?,
     val mottattDato: String = LocalDateTime.now(ZoneId.of("Europe/Oslo")).toString(),
-    val oppsummering: List<Gruppe>
+    val oppsummering: List<Gruppe>,
+    val utfyltSoeknad: UtfyltSoeknad
 ) {
     init {
+        val oppsummering = this.oppsummering
+
         if (oppsummering.isEmpty())
             throw Exception("Søknad mangler grupper")
         else if (oppsummering.size < 5)

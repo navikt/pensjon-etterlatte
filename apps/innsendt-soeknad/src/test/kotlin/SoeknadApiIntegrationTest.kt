@@ -1,4 +1,3 @@
-
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.nimbusds.jwt.JWTClaimsSet
@@ -27,7 +26,7 @@ import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
 import no.nav.etterlatte.DataSourceBuilder
-import no.nav.etterlatte.Soeknad
+import no.nav.etterlatte.libs.common.soeknad.Soeknad
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import no.nav.etterlatte.soeknadApi
 import no.nav.etterlatte.toJson
@@ -117,10 +116,10 @@ class SoeknadApiIntegrationTest {
 
                 // Verifiser egen søknad for barnepensjon
                 val barnepensjonRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM innhold WHERE fnr = '08021376974'")
+                    .executeQuery("SELECT * FROM innhold WHERE fnr = '12345678911'")
                 barnepensjonRow.next()
 
-                barnepensjonRow.getString("fnr") shouldBe "08021376974"
+                barnepensjonRow.getString("fnr") shouldBe "12345678911"
                 barnepensjonRow.getString("payload") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
                     .apply { soeknadsType = SoeknadType.Barnepensjon }.toJson()
             }
@@ -131,7 +130,7 @@ class SoeknadApiIntegrationTest {
     @Order(1)
     fun `Skal returnere not found hvis en kladd ikke eksisterer`() {
         withTestApplication({ apiTestModule { soeknadApi(db) } }) {
-            handleRequest(HttpMethod.Get, "/api/kladd"){
+            handleRequest(HttpMethod.Get, "/api/kladd") {
                 tokenFor("INVALID_FNR")
             }.apply {
                 response.status() shouldBe HttpStatusCode.NotFound
@@ -167,7 +166,7 @@ class SoeknadApiIntegrationTest {
         db.finnKladd("11057523044") shouldNotBe null
 
         withTestApplication({ apiTestModule { soeknadApi(db) } }) {
-            handleRequest(HttpMethod.Get, "/api/kladd"){
+            handleRequest(HttpMethod.Get, "/api/kladd") {
                 tokenFor("11057523044")
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
@@ -185,7 +184,7 @@ class SoeknadApiIntegrationTest {
         db.finnKladd("11057523044") shouldNotBe null
 
         withTestApplication({ apiTestModule { soeknadApi(db) } }) {
-            handleRequest(HttpMethod.Delete, "/api/kladd"){
+            handleRequest(HttpMethod.Delete, "/api/kladd") {
                 tokenFor("11057523044")
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
@@ -211,7 +210,7 @@ fun Application.apiTestModule(routes: Route.() -> Unit) {
         jackson()
     }
     install(IgnoreTrailingSlash)
-    install(Authentication){
+    install(Authentication) {
         tokenTestSupportAcceptsAllTokens()
     }
 
@@ -223,11 +222,15 @@ fun Application.apiTestModule(routes: Route.() -> Unit) {
 }
 
 fun TestApplicationRequest.tokenFor(fnr: String) {
-    addHeader(HttpHeaders.Authorization, """Bearer ${PlainJWT(JWTClaimsSet.Builder().claim("pid", fnr).issuer("lol").build()).serialize()}""")
+    addHeader(
+        HttpHeaders.Authorization,
+        """Bearer ${PlainJWT(JWTClaimsSet.Builder().claim("pid", fnr).issuer("lol").build()).serialize()}"""
+    )
 }
 
 class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration()) {
     class ProviderConfiguration : AuthenticationProvider.Configuration(null)
+
     init {
         pipeline.intercept(AuthenticationPipeline.RequestAuthentication) { context ->
             context.principal(TokenValidationContextPrincipal(TokenValidationContext(getTokensFromHeader(call.request.headers).associateBy { it.issuer })))

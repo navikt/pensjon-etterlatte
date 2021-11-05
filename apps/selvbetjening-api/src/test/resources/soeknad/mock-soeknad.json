@@ -117,7 +117,7 @@
         {
           "fornavn": "Barn",
           "etternavn": "Barnsen",
-          "foedselsnummer": "12345678911",
+          "foedselsnummer": "24014021406",
           "harBarnetVerge": {
             "svar": "Ja",
             "fornavn": "Verge",
@@ -530,6 +530,5 @@
         }
       ]
     }
-  ],
-  "mottattDato": "2021-11-03T13:48:28.589528"
+  ]
 }
