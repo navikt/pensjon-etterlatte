@@ -1,27 +1,47 @@
 const express = require("express");
-const proxy = require("express-http-proxy");
-const parser = require("body-parser");
+const fetch = require("node-fetch");
+const TokenXClient = require("./auth/tokenx");
 const config = require("./config");
 const { generateSummary } = require("./generateSummary");
 
-const sendSoeknad = (options) => {
+const { exchangeToken } = new TokenXClient();
+
+
+const sendSoeknad = () => {
     const router = express.Router();
 
-    router.use(parser.json());
     router.post(
-        `${config.app.basePath}/api/api/soeknad`,
-        async (req, res, next) => {
-            console.log(req.body);
+        `${config.app.basePath}/api/api/soeknad`, express.json(),
+        async (req, res) => {
             try {
                 const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
-                req.body = { utfyltSoeknad: req.body.soeknad, oppsummering };
-                next();
+                body = { utfyltSoeknad: req.body.soeknad, oppsummering };
+                exchangeToken(req.session.tokens.access_token).then(
+                  (accessToken) => {
+                      let headers = {
+                        ...req.headers
+                      };
+                      headers.ImageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1")
+                      headers.Authorization = `Bearer ${accessToken}`;
+                      fetch(`${config.app.apiUrl}/api/soeknad`, {
+                        headers: headers,
+                        body: body
+                      }).then(response => response.json())
+                      .then(data => {
+                        console.log(data);
+                        res.send("ok")
+                      });
+                  },
+                  (error) => {
+                      logger.error("Feil oppsto ved endring av request headers", error);
+                      reject(error);
+                  }
+              );
             } catch (e) {
                 console.log("Feilmelding: ", e);
                 return res.status(500).send("Error ved innsending av søknad");
             }
-        },
-        proxy(config.app.apiUrl, options())
+        }
     );
     return router;
 };

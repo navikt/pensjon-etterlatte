@@ -17,7 +17,6 @@ const mockApi = (app) => {
     const innloggetBruker = STOR_SNERK;
 
     app.use(parser.json());
-
     app.use(function (req, res, next) {
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
@@ -28,6 +27,7 @@ const mockApi = (app) => {
     });
 
     app.post(`${config.app.basePath}/api/api/soeknad`, async (req, res, next) => {
+        console.log(req.body)
         const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
         req.body = { utfyltSoeknad: req.body.soeknad, oppsummering }
         next();

@@ -29,7 +29,7 @@ const options = () => ({
 
 const setup = (app) => {
     // Intercept send søknad og lag oppsummering. Send så videre søknad og oppsummering
-    app.use(sendSoeknad(options));
+    app.use(sendSoeknad());
     // Proxy Selvbetjening API
     app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl, options()));
 };
