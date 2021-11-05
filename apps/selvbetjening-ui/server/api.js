@@ -31,6 +31,7 @@ const options = () => ({
 const setup = (app) => {
     app.use(parser.json());
     // Intercept send søknad og lag oppsummering. Send så videre søknad og oppsummering
+    /*
     app.post(`${config.app.basePath}/api/api/soeknad`, async (req, res, next) => {
         console.log(req.body)
         try {
@@ -39,10 +40,10 @@ const setup = (app) => {
             next();
         } catch(e) {
             console.log(e);
-            res.status(500).send("Error ved innsending av søknad");
+            return res.status(500).send("Error ved innsending av søknad");
         }
     }, proxy(config.app.apiUrl, options()));
-
+*/
     // Proxy Selvbetjening API
     app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl, options()));
 };
