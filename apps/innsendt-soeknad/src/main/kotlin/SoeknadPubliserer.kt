@@ -1,7 +1,9 @@
 package no.nav.etterlatte
 
+import soeknad.LagretSoeknad
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
+import soeknad.SoeknadRepository
 import java.time.Clock
 import java.time.OffsetDateTime
 
@@ -9,7 +11,7 @@ class SoeknadPubliserer(private val rapid: MessageContext, private val db: Soekn
     fun publiser(soeknad: LagretSoeknad){
         val message = JsonMessage.newMessage(mapOf(
             "@event_name" to "soeknad_innsendt",
-            "@skjema_info" to mapper.readTree(soeknad.soeknad),
+            "@skjema_info" to mapper.readTree(soeknad.payload),
             "@lagret_soeknad_id" to soeknad.id,
             "@template" to "soeknad",
             "@fnr_soeker" to soeknad.fnr,
@@ -18,6 +20,6 @@ class SoeknadPubliserer(private val rapid: MessageContext, private val db: Soekn
 
         rapid.publish(soeknad.id.toString(), message.toJson())
 
-        db.soeknadSendt(soeknad)
+        db.soeknadSendt(soeknad.id)
     }
 }

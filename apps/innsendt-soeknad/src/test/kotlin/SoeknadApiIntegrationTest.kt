@@ -27,8 +27,6 @@ import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
 import no.nav.etterlatte.DataSourceBuilder
-import no.nav.etterlatte.LagretSoeknad
-import no.nav.etterlatte.PostgresSoeknadRepository
 import no.nav.etterlatte.Soeknad
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import no.nav.etterlatte.soeknadApi
@@ -45,6 +43,8 @@ import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestMethodOrder
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import soeknad.LagretSoeknad
+import soeknad.PostgresSoeknadRepository
 import java.util.*
 import java.util.stream.Collectors
 
@@ -83,11 +83,11 @@ class SoeknadApiIntegrationTest {
                 response.status() shouldBe HttpStatusCode.OK
 
                 val lagretSoeknadRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '26117512737'")
+                    .executeQuery("SELECT * FROM innhold WHERE fnr = '26117512737'")
                 lagretSoeknadRow.next()
 
                 lagretSoeknadRow.getString("fnr") shouldBe "26117512737"
-                lagretSoeknadRow.getString("data") shouldBe mapper.readValue<Soeknad>(utenBarnSoeknad)
+                lagretSoeknadRow.getString("payload") shouldBe mapper.readValue<Soeknad>(utenBarnSoeknad)
                     .apply { soeknadsType = SoeknadType.Gjenlevendepensjon }.toJson()
             }
         }
@@ -108,20 +108,20 @@ class SoeknadApiIntegrationTest {
 
                 // Verifiser søknad for gjenlevendepensjon
                 val gjenlevendeRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '55555555555'")
+                    .executeQuery("SELECT * FROM innhold WHERE fnr = '55555555555'")
                 gjenlevendeRow.next()
 
                 gjenlevendeRow.getString("fnr") shouldBe "55555555555"
-                gjenlevendeRow.getString("data") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
+                gjenlevendeRow.getString("payload") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
                     .apply { soeknadsType = SoeknadType.Gjenlevendepensjon }.toJson()
 
                 // Verifiser egen søknad for barnepensjon
                 val barnepensjonRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM SOEKNAD WHERE fnr = '08021376974'")
+                    .executeQuery("SELECT * FROM innhold WHERE fnr = '08021376974'")
                 barnepensjonRow.next()
 
                 barnepensjonRow.getString("fnr") shouldBe "08021376974"
-                barnepensjonRow.getString("data") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
+                barnepensjonRow.getString("payload") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
                     .apply { soeknadsType = SoeknadType.Barnepensjon }.toJson()
             }
         }
@@ -156,7 +156,7 @@ class SoeknadApiIntegrationTest {
                 kladd shouldNotBe null
                 kladd?.id shouldNotBe null
                 kladd?.fnr shouldBe "11057523044"
-                kladd?.soeknad shouldBe dummyKladd
+                kladd?.payload shouldBe dummyKladd
             }
         }
     }
@@ -171,8 +171,9 @@ class SoeknadApiIntegrationTest {
                 tokenFor("11057523044")
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
+
                 val content: LagretSoeknad = mapper.readValue(response.content!!)
-                content.soeknad shouldBe dummyKladd
+                content.payload shouldBe dummyKladd
                 content.fnr shouldBe "11057523044"
             }
         }

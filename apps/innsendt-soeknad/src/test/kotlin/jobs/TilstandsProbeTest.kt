@@ -1,19 +1,20 @@
+package jobs
+
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.prometheus.client.CollectorRegistry
-import no.nav.etterlatte.PostgresSoeknadRepository
-import no.nav.etterlatte.PostgresSoeknadRepository.Companion.Status
-import no.nav.etterlatte.TilstandsProbe
+import no.nav.etterlatte.jobs.TilstandsProbe
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import soeknad.PostgresSoeknadRepository
+import soeknad.Status
 import java.time.LocalDateTime
 
-
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class TilstandsProbeTest {
+internal class TilstandsProbeTest {
     private val dbMock = mockk<PostgresSoeknadRepository>()
     private val tilstandsProbe = TilstandsProbe(dbMock)
     private val eldsteUsendt = LocalDateTime.now().minusHours(1)
@@ -23,7 +24,7 @@ class TilstandsProbeTest {
     fun setUp() {
         every { dbMock.eldsteUsendte() } returns eldsteUsendt
         every { dbMock.eldsteUarkiverte() } returns eldsteUarkivert
-        every { dbMock.rapport() } returns mapOf(Status.sendt to 45L, Status.ferdigstilt to 30L)
+        every { dbMock.rapport() } returns mapOf(Status.SENDT to 45L, Status.FERDIGSTILT to 30L)
         every { dbMock.ukategorisert() } returns listOf(1L)
     }
 
@@ -39,12 +40,12 @@ class TilstandsProbeTest {
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_tilstand",
             arrayOf("tilstand"),
-            arrayOf(Status.sendt)
+            arrayOf(Status.SENDT.name)
         ) shouldBe 45.0
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_tilstand",
             arrayOf("tilstand"),
-            arrayOf(Status.ferdigstilt)
+            arrayOf(Status.FERDIGSTILT.name)
         ) shouldBe 30.0
         verify(exactly = 1) { dbMock.ukategorisert() }
     }
