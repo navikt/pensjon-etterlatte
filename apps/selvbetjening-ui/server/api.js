@@ -3,7 +3,7 @@ const config = require("./config");
 const TokenXClient = require("./auth/tokenx");
 const logger = require("./logger");
 const { mockApi } = require("./mock/mock-api");
-const { router } = require("./router");
+const { sendSoeknad } = require("./router");
 
 const { exchangeToken } = new TokenXClient();
 const options = () => ({
@@ -29,7 +29,7 @@ const options = () => ({
 
 const setup = (app) => {
     // Intercept send søknad og lag oppsummering. Send så videre søknad og oppsummering
-    app.use(router);
+    app.use(sendSoeknad(options));
     // Proxy Selvbetjening API
     app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl, options()));
 };
