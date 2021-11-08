@@ -28,11 +28,11 @@ const sendSoeknad = () => {
                         headers: headers,
                         body: body
                       }).then(response => {
-                        console.log(response);
                         return response.json()})
                       .then(data => {
-                        console.log(data);
                         res.send("ok")
+                      }).catch((e) => {
+                        throw e;
                       });
                   },
                   (error) => {
