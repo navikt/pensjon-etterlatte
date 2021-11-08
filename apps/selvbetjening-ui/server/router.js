@@ -27,7 +27,9 @@ const sendSoeknad = () => {
                         method: "post",
                         headers: headers,
                         body: body
-                      }).then(response => response.json())
+                      }).then(response => {
+                        console.log(response);
+                        return response.json()})
                       .then(data => {
                         console.log(data);
                         res.send("ok")
