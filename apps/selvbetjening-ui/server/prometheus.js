@@ -1,6 +1,6 @@
 const client = require('prom-client')
-const config = require("../config");
-const logger = require("../logger");
+const config = require("./config");
+const logger = require("./logger");
 
 const basePath = config.app.basePath;
 
