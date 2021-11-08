@@ -32,6 +32,9 @@ spec:
     requests:
       cpu: 200m
       memory: 256Mi
+  prometheus:
+    enabled: true
+    path: /metrics
   tokenx:
     enabled: true
   idporten:
