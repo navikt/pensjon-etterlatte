@@ -16,9 +16,12 @@ fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
             try {
+                call.application.environment.log.info("Søknad mottatt")
                 val soeknad = call.receive<Soeknad>()
                     .apply { imageTag = call.request.headers["ImageTag"] }
+                call.application.environment.log.info("Søknad: $soeknad")
                 val response = service.sendSoeknad(soeknad)
+                call.application.environment.log.info("Søknad lagret")
 
                 if (response.response == null) {
                     call.application.environment.log.error("Innsending av søknad feilet ", response.lastError())
