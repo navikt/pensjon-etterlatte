@@ -6,6 +6,15 @@ const { generateSummary } = require("./generateSummary");
 
 const { exchangeToken } = new TokenXClient();
 
+const deleteUnwantedFields = (soeknad) => {
+  delete soeknad.omDeg.erValidert;
+  delete soeknad.omDenAvdoede.erValidert;
+  delete soeknad.omDegOgAvdoed.erValidert;
+  delete soeknad.dinSituasjon.erValidert;
+  delete soeknad.opplysningerOmBarn.erValidert;
+
+  return soeknad;
+}
 
 const sendSoeknad = () => {
     const router = express.Router();
@@ -13,9 +22,11 @@ const sendSoeknad = () => {
     router.post(
         `${config.app.basePath}/api/api/soeknad`, express.json(),
         async (req, res) => {
+
+            const soeknadBody = deleteUnwantedFields(req.body.soeknad);
             try {
-                const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
-                body = { utfyltSoeknad: req.body.soeknad, oppsummering };
+                const oppsummering = await generateSummary(soeknadBody, req.body.bruker, req.body.locale);
+                body = { utfyltSoeknad: soeknadBody, oppsummering };
                 exchangeToken(req.session.tokens.access_token).then(
                   (accessToken) => {
                       let headers = {
