@@ -27,7 +27,7 @@ const sendSoeknad = () => {
             try {
                 const oppsummering = await generateSummary(soeknadBody, req.body.bruker, req.body.locale);
                 body = { utfyltSoeknad: soeknadBody, oppsummering };
-                exchangeToken(req.session.tokens.access_token).then(
+                await exchangeToken(req.session.tokens.access_token).then(
                   (accessToken) => {
                       let headers = {
                         ...req.headers
@@ -48,7 +48,7 @@ const sendSoeknad = () => {
                   },
                   (error) => {
                       logger.error("Feil oppsto ved endring av request headers", error);
-                      reject(error);
+                      throw error;
                   }
               );
             } catch (e) {
