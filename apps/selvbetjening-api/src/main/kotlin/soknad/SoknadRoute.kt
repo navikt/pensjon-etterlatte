@@ -17,6 +17,10 @@ fun Route.soknadApi(service: SoeknadService) {
         post {
             try {
                 call.application.environment.log.info("Søknad mottatt")
+                call.application.environment.log.info("Json request: ${call.receive<JsonNode>()}")
+                call.application.environment.log.info("headers: ${call.request.headers}")
+                call.application.environment.log.info("attr.: ${call.attributes}")
+
                 val soeknad = call.receive<Soeknad>()
                     .apply { imageTag = call.request.headers["ImageTag"] }
                 call.application.environment.log.info("Søknad: $soeknad")
@@ -31,7 +35,7 @@ fun Route.soknadApi(service: SoeknadService) {
                     call.respond(response.response)
                 }
             } catch (ex: Exception) {
-                call.application.environment.log.error("Klarte ikke å lagre søknad", ex.message)
+                call.application.environment.log.error("Klarte ikke å lagre søknad", ex.stackTrace)
             }
         }
     }
