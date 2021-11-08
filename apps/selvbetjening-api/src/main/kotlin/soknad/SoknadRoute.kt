@@ -16,19 +16,15 @@ fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
             try {
-                call.application.environment.log.info("imageTag: ${call.request.headers["ImageTag"]}")
-                val soeknad = call.receive<Soeknad>()
-                    .apply { imageTag = call.request.headers["ImageTag"] }
-                call.application.environment.log.info("Søknad: $soeknad")
+                val soeknad = call.receive<Soeknad>().apply { imageTag = call.request.headers["ImageTag"] }
                 val response = service.sendSoeknad(soeknad)
-                call.application.environment.log.info("Søknad lagret")
 
-                if (response.response == null) {
+                if (response.exceptions.isNotEmpty()) {
                     call.application.environment.log.error("Innsending av søknad feilet ", response.lastError())
                     call.respond(HttpStatusCode.InternalServerError)
                 } else {
                     call.application.environment.log.info("Søknad ${response.response} markert som ferdigstilt")
-                    call.respond(response.response)
+                    call.respond(HttpStatusCode.OK)
                 }
             } catch (ex: Exception) {
                 call.application.environment.log.error("Klarte ikke å lagre søknad", ex)
