@@ -15,17 +15,20 @@ import no.nav.etterlatte.libs.common.soeknad.Soeknad
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
-            val soeknad = call.receive<Soeknad>()
-                .apply { imageTag = call.request.headers["ImageTag"] }
+            try {
+                val soeknad = call.receive<Soeknad>()
+                    .apply { imageTag = call.request.headers["ImageTag"] }
+                val response = service.sendSoeknad(soeknad)
 
-            val response = service.sendSoeknad(soeknad)
-
-            if (response.response == null) {
-                call.application.environment.log.error("Innsending av søknad feilet ", response.lastError())
-                call.respond(HttpStatusCode.InternalServerError)
-            } else {
-                call.application.environment.log.info("Søknad ${response.response} markert som ferdigstilt")
-                call.respond(response.response)
+                if (response.response == null) {
+                    call.application.environment.log.error("Innsending av søknad feilet ", response.lastError())
+                    call.respond(HttpStatusCode.InternalServerError)
+                } else {
+                    call.application.environment.log.info("Søknad ${response.response} markert som ferdigstilt")
+                    call.respond(response.response)
+                }
+            } catch (ex: Exception) {
+                call.application.environment.log.error("Klarte ikke å lagre søknad", ex.message)
             }
         }
     }
