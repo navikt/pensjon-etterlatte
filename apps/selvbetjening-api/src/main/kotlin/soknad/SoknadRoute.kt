@@ -1,6 +1,8 @@
 package no.nav.etterlatte.soknad
 
 import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
@@ -17,12 +19,10 @@ fun Route.soknadApi(service: SoeknadService) {
         post {
             try {
                 call.application.environment.log.info("Søknad mottatt")
-                call.application.environment.log.info("Json request: ${call.receive<JsonNode>()}")
-                call.application.environment.log.info("headers: ${call.request.headers}")
-                call.application.environment.log.info("attr.: ${call.attributes}")
+                val json = call.receive<JsonNode>()
+                call.application.environment.log.info("Json request: json")
 
-                val soeknad = call.receive<Soeknad>()
-                    .apply { imageTag = call.request.headers["ImageTag"] }
+                val soeknad: Soeknad = jacksonObjectMapper().readValue(json.toString())
                 call.application.environment.log.info("Søknad: $soeknad")
                 val response = service.sendSoeknad(soeknad)
                 call.application.environment.log.info("Søknad lagret")
