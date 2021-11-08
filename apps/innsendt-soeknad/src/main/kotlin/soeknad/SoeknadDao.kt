@@ -1,5 +1,6 @@
 package soeknad
 
+import org.slf4j.LoggerFactory
 import soeknad.Queries.CREATE_HENDELSE
 import soeknad.Queries.CREATE_SOEKNAD
 import soeknad.Queries.FINN_KLADD
@@ -48,6 +49,8 @@ class PostgresSoeknadRepository private constructor(
     private val ds: DataSource
 ) : SoeknadRepository, StatistikkRepository {
 
+    private val logger = LoggerFactory.getLogger(PostgresSoeknadRepository::class.java)
+
     companion object {
         fun using(datasource: DataSource): PostgresSoeknadRepository {
             return PostgresSoeknadRepository(datasource)
@@ -59,12 +62,16 @@ class PostgresSoeknadRepository private constructor(
     private val postgresTimeZone = ZoneId.of("UTC")
 
     override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+        logger.info("Oppretter/oppdaterer søknad for ${soeknad.fnr}")
+
         return finnKladd(soeknad.fnr)
             ?.let { oppdaterSoeknad(it, soeknad.payload) }
             ?: opprettNySoeknad(soeknad)
     }
 
     private fun opprettNySoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+        logger.info("Oppretter søknad for ${soeknad.fnr}")
+
         val id = connection.use {
             it.prepareStatement(CREATE_SOEKNAD)
                 .apply {
@@ -79,6 +86,8 @@ class PostgresSoeknadRepository private constructor(
     }
 
     private fun oppdaterSoeknad(kladd: LagretSoeknad, nyDataJson: String): LagretSoeknad {
+        logger.info("Oppdaterer kladd for ${kladd.fnr}")
+
         connection.use {
             it.prepareStatement(OPPDATER_SOEKNAD)
                 .apply {
