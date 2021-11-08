@@ -34,7 +34,7 @@ spec:
       memory: 256Mi
   prometheus:
     enabled: true
-    path: /metrics
+    path: /gjenlevendepensjon/soknad/metrics
   tokenx:
     enabled: true
   idporten:
