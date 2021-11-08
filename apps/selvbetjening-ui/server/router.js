@@ -22,11 +22,11 @@ const sendSoeknad = () => {
                         ...req.headers
                       };
                       headers.ImageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1")
-                      headers.Authorization = `Bearer ${accessToken}`;
+                      headers.Authorization = `Bearer ${accessToken}`;                      
                       fetch(`${config.app.apiUrl}/api/soeknad`, {
                         method: "post",
                         headers: headers,
-                        body: body
+                        body: JSON.stringify(body)
                       }).then(response => {
                         return response.json()})
                       .then(data => {
