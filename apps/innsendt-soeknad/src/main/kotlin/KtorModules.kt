@@ -56,7 +56,7 @@ fun Route.soeknadApi(db: SoeknadRepository) {
 
         delete {
             db.slettKladd(fnrFromToken())
-            call.respond(HttpStatusCode)
+            call.respond(HttpStatusCode.OK)
         }
 
         get {
