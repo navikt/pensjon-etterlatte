@@ -3,6 +3,7 @@ package no.nav.etterlatte.soknad
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import com.fasterxml.jackson.module.kotlin.treeToValue
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
@@ -12,17 +13,14 @@ import io.ktor.routing.delete
 import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.route
+import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.libs.common.soeknad.Soeknad
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
             try {
-                call.application.environment.log.info("Søknad mottatt")
-                val json = call.receive<JsonNode>()
-                call.application.environment.log.info("Json request: json")
-
-                val soeknad: Soeknad = jacksonObjectMapper().readValue(json.toString())
+                val soeknad = call.receive<Soeknad>()
                 call.application.environment.log.info("Søknad: $soeknad")
                 val response = service.sendSoeknad(soeknad)
                 call.application.environment.log.info("Søknad lagret")
@@ -35,7 +33,7 @@ fun Route.soknadApi(service: SoeknadService) {
                     call.respond(response.response)
                 }
             } catch (ex: Exception) {
-                call.application.environment.log.error("Klarte ikke å lagre søknad", ex.stackTrace)
+                call.application.environment.log.error("Klarte ikke å lagre søknad", ex)
             }
         }
     }
