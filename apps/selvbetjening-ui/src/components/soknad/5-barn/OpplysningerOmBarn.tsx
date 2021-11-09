@@ -11,10 +11,11 @@ import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
-import { Alert, BodyShort, Button, Modal, Panel, Heading } from "@navikt/ds-react";
+import { Alert, BodyShort, Button, Modal, Panel, Heading, Accordion } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import { deepCopy } from "../../../utils/deepCopy";
+import { AccordionItem } from "../6-oppsummering/AccordionItem";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root"); //Denne er også definert i Navigasjon. Trenger vi den?
 
@@ -57,18 +58,18 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     };
 
     const lagreNeste = (data: IOmBarn) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: {...deepCopy(data), erValidert: true} });
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(data), erValidert: true } });
         neste!!();
     };
 
     const lagreTilbake = (data: IOmBarn) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: {...deepCopy(data), erValidert: true} })
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(data), erValidert: true } })
         forrige!!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: {...deepCopy(verdier), erValidert: false} })
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(verdier), erValidert: false } })
         forrige!!()
     }
 
@@ -114,6 +115,14 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                             </div>
                         </div>
                     </div>
+
+                    <SkjemaGruppe>
+                        <Accordion>
+                            <AccordionItem tittel={"Nytt barn"}>
+                                <div>TEST 2</div>
+                            </AccordionItem>
+                        </Accordion>
+                    </SkjemaGruppe>
 
                     <Modal open={isOpen} onClose={() => setIsOpen(false)} className={"ey-modal"}>
                         <LeggTilBarnSkjema lagre={leggTilBarn} avbryt={() => setIsOpen(false)}
