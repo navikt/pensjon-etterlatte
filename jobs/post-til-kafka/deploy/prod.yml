@@ -1,0 +1,14 @@
+apiVersion: nais.io/v1
+kind: Naisjob
+metadata:
+  labels:
+    team: etterlatte
+  name: post-til-kafka
+  namespace: tbd
+spec:
+  image: ghcr.io/navikt/helse-sparker-alt/helse-sparker-alt:<versjon>
+  kafka:
+    pool: nav-prod
+  env:
+    - name: KAFKA_TARGET_TOPIC
+      value: etterlatteytelser
