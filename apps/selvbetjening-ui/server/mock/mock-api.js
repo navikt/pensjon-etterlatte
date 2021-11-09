@@ -37,7 +37,7 @@ const mockApi = (app) => {
 
     app.get(`${config.app.basePath}/api/person/innlogget`, (req, res) => setTimeout(() => res.json(innloggetBruker), 1000));
 
-    
+
     app.post(`${config.app.basePath}/api/api/soeknad`, (req, res) => {
         let id = cache.get("id");
 
@@ -58,7 +58,7 @@ const mockApi = (app) => {
         const soeknad = cache.get(innloggetBruker.foedselsnummer);
 
         if (!soeknad) res.sendStatus(404);
-        else res.json({soeknad})
+        else res.json({ payload: soeknad })
     });
 
     app.post(`${config.app.basePath}/api/api/kladd`, (req, res) => {

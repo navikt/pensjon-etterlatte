@@ -19,7 +19,7 @@ export const hentInnloggetPerson = async () => {
 export const hentSoeknad = async () => {
     try {
         const response: any = await api.get("/api/kladd");
-        const soeknad = response.data?.soeknad;
+        const soeknad = response.data?.payload;
         if (soeknad) return JSON.parse(soeknad);
         else return undefined;
     } catch (e: any) {
