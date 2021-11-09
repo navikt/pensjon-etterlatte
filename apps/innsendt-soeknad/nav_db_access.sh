@@ -26,6 +26,7 @@ usage() {
 	echo -e "\n\t(optional) \n\t-h <int hours access> \n\t\tNumber of hours the temp access should be valid. Max 8 hours."
 }
 
+# Initialize provided options
 while getopts ":u:p:i:h:" opt; do
 	case "$opt" in 
 		u)
@@ -85,7 +86,7 @@ fi
 info "Setting up temporary access (+${hours}H) for"
 echo -e "\tUser: \t\t\033[0;36m${user}\033[0m"
 echo -e "\tProject: \t\033[0;36m${project}\033[0m"
-echo -e "\tSQL-instance: \t\033[0;36m${instance}\033[0m.\n"
+echo -e "\tSQL-instance: \t\033[0;36m${instance}\033[0m\n"
 read -p "Is this correct? [Y/n] " continue
 
 # Stop script if user input == n
@@ -94,6 +95,14 @@ if [[ "${continue}" == "n" ]]; then
 	exit 1;
 fi
 
+# Remove existing IAM bindings for user
+gcloud projects remove-iam-policy-binding ${project} \
+    --member=user:${user} \
+    --role=roles/cloudsql.instanceUser \
+    --all \
+    >/dev/null
+
+# Check if SQL user exists. Create one if it doesn't.
 user_list=$(gcloud beta sql users list --instance=${instance} --project ${project})
 if [[ ! "${user_list}" =~ "${user}" ]]; then
 
@@ -104,7 +113,7 @@ if [[ ! "${user_list}" =~ "${user}" ]]; then
         --member user:${user} \
         --role roles/cloudsql.admin \
         --condition="expression=request.time < timestamp('$(date -v +1M -u +'%Y-%m-%dT%H:%M:%SZ')'),title=temp_access" \
-        &>/dev/null
+        >/dev/null
 
     info "Creating user ${user} on instance ${instance}"
     # Create sql user with supplied username/email
@@ -112,7 +121,7 @@ if [[ ! "${user_list}" =~ "${user}" ]]; then
         --instance=${instance} \
         --type=cloud_iam_user \
         --project ${project} \
-        &>/dev/null
+        >/dev/null
 else
     info "User ${user} exists on instance ${instance}."
 fi
@@ -125,7 +134,7 @@ gcloud projects add-iam-policy-binding ${project} \
     --member=user:${user} \
     --role=roles/cloudsql.instanceUser \
     --condition="expression=request.time < timestamp('${access_to_date}'),title=temp_access" \
-    &>/dev/null
+    >/dev/null
 
 # Get connection name
 connection_name=$(gcloud sql instances describe ${instance} \
@@ -143,10 +152,12 @@ createProxyConnection() {
         info "Port $port is available. Setting up proxy."
         cloud_sql_proxy -instances=${connection_name}=tcp:$port > /dev/null 2>&1 &
     elif [[ "${port_usage}" =~ "cloud_sql" ]]; then
-        warn "Port $port already in use by cloud_sql_proxy. Doing nothing."
+        warn "Port $port already in use by cloud_sql_proxy. Restarting proxy."
+        kill $(pgrep -f "cloud_sql_proxy")
+        createProxyConnection
     else
-        error "Port $port already in use.\n"
-        lsof -i:$port
+        error "Port $port already in use by unknown process. To avoid destructive operations, this must be handled manually."
+        info "\tRun 'lsof -i:$port' to find the culprit. If it seems safe to kill, simply run 'kill -9 \$(lsof -i:$port -t)'"
         exit 1;
     fi
 }
