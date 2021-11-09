@@ -24,6 +24,7 @@ dependencies {
     implementation(NavFelles.TokenClientCore)
     implementation(NavFelles.TokenValidationKtor)
 
+    testImplementation(project(":libs:common-test"))
     testImplementation(MockK.MockK)
     testImplementation(Ktor.ClientMock)
     testImplementation(Ktor.ServerTests)
