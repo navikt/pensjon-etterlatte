@@ -11,6 +11,7 @@ import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
 import no.nav.etterlatte.health.healthApi
+import no.nav.etterlatte.kodeverk.kodeverkApi
 import no.nav.etterlatte.ktortokenexchange.installAuthUsing
 import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
 import no.nav.etterlatte.person.personApi
@@ -20,6 +21,7 @@ class Server(applicationContext: ApplicationContext) {
     private val personService = applicationContext.personService
     private val securityContext = applicationContext.securityMediator
     private val soeknadService = applicationContext.soeknadService
+    private val kodeverkService = applicationContext.kodeverkService
 
     private val engine = embeddedServer(CIO, environment = applicationEngineEnvironment {
         module {
@@ -35,6 +37,7 @@ class Server(applicationContext: ApplicationContext) {
                 secureRoutUsing(securityContext){
                     personApi(personService)
                     soknadApi(soeknadService)
+                    kodeverkApi(kodeverkService)
                 }
             }
         }

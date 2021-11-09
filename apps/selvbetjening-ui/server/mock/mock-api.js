@@ -74,6 +74,10 @@ const mockApi = (app) => {
 
         res.sendStatus(200);
     });
+
+    app.get(`${config.app.basePath}/api/kodeverk/alleland`, (req, res) => {
+        return res.json(["Norge", "Sverige", "Danmark"])
+    });
 };
 
 module.exports = {
