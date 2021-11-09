@@ -18,8 +18,8 @@ data class OmDeg(
 )
 
 data class Kontaktinfo(
-    val epost: String,
-    val telefonnummer: String
+    val epost: String?,
+    val telefonnummer: String?
 )
 
 data class UtbetalingsInformasjon(
