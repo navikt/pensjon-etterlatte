@@ -4,8 +4,20 @@
 # Script to simplify database access in dev and/or prod.
 # ======================================================
 
-usage() { 
-	echo -e "\033[0;31mERROR:\033[0m Invalid or missing flags."
+info() {
+    echo -e "INFO: $1"
+}
+
+warn() {
+    echo -e "\033[1;33mWARN:\033[0m $1"
+}
+
+error() {
+    echo -e "\033[1;31mERROR:\033[0m $1"
+}
+
+usage() {
+	error "Invalid or missing flags."
 	echo "Usage: nav_db_access [options]"
 	echo -e "\nwhere options include: \n"
 	echo -e "\t-u <firstname.lastname@nav.no> \n\t\tYour email address at nav."
@@ -47,16 +59,16 @@ fi
 # Ensure supplied project exists
 project_list=$(gcloud projects list)
 if [[ ! "${project_list}" =~ "${project}" ]]; then
-	echo -e "\n\033[0;31mERROR:\033[0m Invalid PROJECT_ID ${project}" 
-	echo -e "\nAvailable projects are: \n\n${project_list}"
+	error "Invalid PROJECT_ID ${project}\n"
+	info "Available projects are: \n\n${project_list}"
 	exit 1;
 fi
 
 # Ensure supplied instance exists
 instance_list=$(gcloud sql instances list --project ${project})
 if [[ ! "${instance_list}" =~ "${instance}" ]]; then
-	echo -e "\n\033[0;31mERROR:\033[0m Invalid sqlinstance ${instance}"
-	echo -e "\nAvailable instances for ${project} are: \n\n${instance_list}"
+	error "Invalid sqlinstance ${instance}\n"
+	echo -e "\tAvailable instances for ${project} are: \n\n${instance_list}"
 	exit 1;
 fi
 
@@ -65,12 +77,12 @@ fi
 
 # Ensure hours are valid (min 1, max 8)
 if [ ${hours} -lt 1 ] || [ ${hours} -gt 8 ]; then
-	echo -e "\n\033[0;31mERROR:\033[0m Hours must be in the range 1-8"
+	error "Hours must be in the range 1-8"
 	exit 1;
 fi
 
 
-echo -e "\nSetting up temporary access (+${hours}H) for"
+info "Setting up temporary access (+${hours}H) for"
 echo -e "\tUser: \t\t\033[0;36m${user}\033[0m"
 echo -e "\tProject: \t\033[0;36m${project}\033[0m"
 echo -e "\tSQL-instance: \t\033[0;36m${instance}\033[0m.\n"
@@ -78,48 +90,72 @@ read -p "Is this correct? [Y/n] " continue
 
 # Stop script if user input == n
 if [[ "${continue}" == "n" ]]; then
-    echo "Aborting setup ..."
+    warn "Aborting setup ..."
 	exit 1;
 fi
 
+user_list=$(gcloud beta sql users list --instance=${instance} --project ${project})
+if [[ ! "${user_list}" =~ "${user}" ]]; then
+
+    info "User ${user} not in sql users list. Setting up admin access for 1 minute to init sql user."
+
+    # Add IAM policy binding to project with roles/cloudsql.admin
+    gcloud projects add-iam-policy-binding ${project} \
+        --member user:${user} \
+        --role roles/cloudsql.admin \
+        --condition="expression=request.time < timestamp('$(date -v +1M -u +'%Y-%m-%dT%H:%M:%SZ')'),title=temp_access" \
+        &>/dev/null
+
+    info "Creating user ${user} on instance ${instance}"
+    # Create sql user with supplied username/email
+    gcloud beta sql users create ${user} \
+        --instance=${instance} \
+        --type=cloud_iam_user \
+        --project ${project} \
+        &>/dev/null
+else
+    info "User ${user} exists on instance ${instance}."
+fi
+
 # Set end of token as date
-accessToDate=$(date -v +${hours}H -u +'%Y-%m-%dT%H:%M:%SZ')
-
-
-# Add IAM policy binding to project with roles/cloudsql.admin
-gcloud projects add-iam-policy-binding ${project} \
-    --member user:${user} \
-    --role roles/cloudsql.admin \
-    --condition="expression=request.time < timestamp('${accessToDate}'),title=temp_access"
-
-# Create sql user with supplied username/email
-gcloud beta sql users create ${user} \
-    --instance=${instance} \
-    --type=cloud_iam_user \
-    --project ${project}
+access_to_date=$(date -v +${hours}H -u +'%Y-%m-%dT%H:%M:%SZ')
 
 # Add IAM policy binding to project with roles/cloudsql.instanceUser
 gcloud projects add-iam-policy-binding ${project} \
     --member=user:${user} \
     --role=roles/cloudsql.instanceUser \
-    --condition="expression=request.time < timestamp('${accessToDate}'),title=temp_access"
+    --condition="expression=request.time < timestamp('${access_to_date}'),title=temp_access" \
+    &>/dev/null
 
 # Get connection name
-CONNECTION_NAME=$(gcloud sql instances describe ${instance} \
+connection_name=$(gcloud sql instances describe ${instance} \
   --format="get(connectionName)" \
   --project ${project});
- 
 
-# Create proxy with port 5432
+port=5433
+
+# Create proxy with $port
 createProxyConnection() {
-	cloud_sql_proxy -instances=${CONNECTION_NAME}=tcp:5432
+    info "Trying to run cloud_sql_proxy"
+
+    port_usage="$(lsof -i:$port)"
+    if [[ -z "${port_usage}" ]]; then
+        info "Port $port is available. Setting up proxy."
+        cloud_sql_proxy -instances=${connection_name}=tcp:$port > /dev/null 2>&1 &
+    elif [[ "${port_usage}" =~ "cloud_sql" ]]; then
+        warn "Port $port already in use by cloud_sql_proxy. Doing nothing."
+    else
+        error "Port $port already in use.\n"
+        lsof -i:$port
+        exit 1;
+    fi
 }
 
 # Setup proxy if not already setup
 proxySetup() {
-	echo "Missing cloud_sql_proxy. Installing and moving to ~/Applications"
+	warn "Missing cloud_sql_proxy. Downloading and moving to ~/Applications"
 
-	curl -o cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64 --output ~/Applications
+	curl -o ~/Applications/cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64
 	chmod +x ~/Applications/cloud_sql_proxy
 	ln -s ~/Applications/cloud_sql_proxy /usr/local/bin 
 
@@ -127,7 +163,16 @@ proxySetup() {
 }
 
 # Try to create proxy connection, setup if cloud_sql_proxy is missing
-createProxyConnection || proxySetup
+if [ -f "/usr/local/bin/cloud_sql_proxy" ]; then
+    createProxyConnection
+else
+    warn "cloud_sql_proxy missing. Retry proxy setup."
+    proxySetup
+fi
 
 # Print username and password
-echo -e "\nUSERNAME: ${user} \nTEMP PASSWORD: $(gcloud auth print-access-token)"
+echo "------------------------------"
+echo -e "JDBC URL: \tjdbc:postgresql://localhost:$port/<database>\n"
+echo -e "USERNAME: \t${user}\n"
+echo -e "TEMP PWD: \t$(gcloud auth print-access-token)"
+echo "------------------------------"
