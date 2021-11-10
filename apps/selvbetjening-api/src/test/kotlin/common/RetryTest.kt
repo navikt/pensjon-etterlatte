@@ -1,24 +1,22 @@
 package no.nav.etterlatte.common
 
 import kotlinx.coroutines.runBlocking
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNull
-import org.junit.jupiter.api.Assertions.assertThrows
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.util.*
 
 class RetryTest {
 
     @Test
-    fun `unsafe retry skal gi resultatet om det gikk bra`(){
+    fun `unsafe retry skal gi resultatet om det gikk bra`() {
         assertEquals("OK", runBlocking {
             unsafeRetry(2, ustabilMetode(listOf(true, true, false)))
         })
     }
 
     @Test
-    fun `unsafe retry skal kaste feil etter et visst antall retries`(){
-        assertThrows(IllegalStateException::class.java){
+    fun `unsafe retry skal kaste feil etter et visst antall retries`() {
+        assertThrows(IllegalStateException::class.java) {
             runBlocking {
                 unsafeRetry(2, ustabilMetode(listOf(true, true, true, false)))
             }
@@ -26,31 +24,41 @@ class RetryTest {
     }
 
     @Test
-    fun `skal forsøke på nytt`(){
+    fun `Skal forsøke på nytt når det feiler`() {
         runBlocking {
             retry(2, ustabilMetode(listOf(true, true, false)))
         }.also {
-            assertEquals("OK", it.response)
-            assertEquals(2, it.exceptions.size)
+            when (it) {
+                is RetryResult.Success -> {
+                    assertEquals("OK", it.content)
+                    assertEquals(2, it.previousExceptions.size)
+                }
+                is RetryResult.Failure -> fail()
+            }
         }
     }
 
     @Test
-    fun `skal ikke gi svar når alle forsøk feiler`(){
+    fun `Skal returnere failure når alle forsøk feiler`() {
         runBlocking {
             retry(2, ustabilMetode(listOf(true, true, true, false)))
         }.also {
-            assertNull(it.response)
-            assertEquals(3, it.exceptions.size)
+            when (it) {
+                is RetryResult.Success -> fail()
+                is RetryResult.Failure -> {
+                    assertEquals(3, it.exceptions.size)
+                }
+            }
+
         }
 
     }
 
-    fun ustabilMetode(eksternFeil: List<Boolean>): suspend () -> String {
+    private fun ustabilMetode(eksternFeil: List<Boolean>): suspend () -> String {
         LinkedList<Boolean>().apply {
             addAll(eksternFeil)
             return suspend {
-                if(pop()) throw IllegalStateException()
+                if (pop()) throw IllegalStateException()
                 "OK"
             }
         }

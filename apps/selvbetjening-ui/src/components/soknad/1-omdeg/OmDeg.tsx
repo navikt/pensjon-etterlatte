@@ -27,7 +27,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
     const brukerState = useBrukerContext().state;
 
     const lagre = (data: ISoeker) => {
-        
+
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: {...deepCopy(data), erValidert: true}} );
         neste!!();
     };
@@ -87,6 +87,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                         name={"kontaktinfo.telefonnummer"}
                                         label={t("omDeg.kontaktinfo.telefonnummer")}
                                         placeholder={t("omDeg.kontaktinfo.telefonnummerPlaceholder")}
+                                        valgfri={true}
                                     />
                                 </Cell>
 

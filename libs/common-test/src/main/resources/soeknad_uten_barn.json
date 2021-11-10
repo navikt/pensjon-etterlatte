@@ -1,6 +1,107 @@
 {
-  "imageTag": "fa2b564640de029760ba279f0cfcea52ff7bec95",
-  "mottattDato": "2021-10-26T11:43:57.462904771",
+  "utfyltSoeknad": {
+    "harSamtykket": true,
+    "sistLagretDato": "2021-08-10T08:55:28.330Z",
+    "klarForLagring": true,
+    "omDeg": {
+      "bostedsadresseBekreftet": "Nei",
+      "kontaktinfo": {
+        "telefonnummer": "999 88 777",
+        "epost": "test@nav.no"
+      },
+      "oppholderSegINorge": "Ja",
+      "alternativAdresse": "Testveien 123, 0594 Oslo",
+      "utbetalingsInformasjon": {
+        "kontonummer": "1351.35.13513"
+      }
+    },
+    "omDegOgAvdoed": {
+      "avdoed": {
+        "fornavn": "Død",
+        "etternavn": "Testperson",
+        "datoForDoedsfallet": "2021-07-26T22:00:00.000Z"
+      },
+      "forholdTilAvdoede": {
+        "relasjon": "avdoede.relasjon.separert",
+        "datoForInngaattPartnerskap": "2001-07-26T22:00:00.000Z"
+      },
+      "nySivilstatus": {
+        "sivilstatus": "nySivilstatus.ingen"
+      }
+    },
+    "omDenAvdoede": {
+      "foedselsnummer": "24014021406",
+      "statsborgerskap": "Norsk",
+      "boddEllerJobbetUtland": {
+        "svar": "Ja",
+        "oppholdUtland": [
+          {
+            "land": "Kongo",
+            "beskrivelse": [
+              "oppholdUtlandType.bodd",
+              "oppholdUtlandType.arbeidet"
+            ],
+            "fraDato": "2002-08-10T22:00:00.000Z",
+            "tilDato": "2003-08-10T22:00:00.000Z",
+            "medlemFolketrygd": "Ja",
+            "mottokPensjon": {
+              "beskrivelse": "150.000"
+            }
+          }
+        ]
+      },
+      "selvstendigNaeringsdrivende": {
+        "svar": "Ja",
+        "beskrivelse": "150 000"
+      },
+      "haddePensjonsgivendeInntekt": {
+        "svar": "Nei"
+      },
+      "doedsfallAarsak": "Ja",
+      "harAvtjentMilitaerTjeneste": {
+        "svar": "Ja",
+        "beskrivelse": "1984"
+      }
+    },
+    "dinSituasjon": {
+      "jobbStatus": [
+        "jobbStatus.arbeidstaker"
+      ],
+      "utdanning": {
+        "hoyesteFullfoerteUtdanning": "utdanning.mastergrad"
+      },
+      "andreYtelser": {
+        "kravOmAnnenStonad": {
+          "svar": "Ja",
+          "beskrivelse": "Barnepensjon"
+        },
+        "annenPensjon": {
+          "svar": "Ja",
+          "beskrivelse": "Skandia"
+        },
+        "mottarPensjonUtland": {
+          "svar": "Ja",
+          "hvaSlagsPensjon": "Polsk Uførepensjon",
+          "fraHvilketLand": "Polen",
+          "bruttobeloepPrAar": "4000 PLN"
+        }
+      },
+      "arbeidsforhold": [
+        {
+          "arbeidsgiver": "Potetskreller AS",
+          "ansettelsesforhold": "stillingType.midlertidig",
+          "stillingsprosent": "100%",
+          "forventerEndretInntekt": {
+            "svar": "Ja",
+            "beskrivelse": "Forventer økt inntekt"
+          }
+        }
+      ]
+    },
+    "opplysningerOmBarn": {
+      "gravidEllerNyligFoedt": "Ja"
+    }
+  },
   "oppsummering": [
     {
       "tittel": "Om deg",
@@ -115,7 +216,7 @@
     },
     {
       "tittel": "Om avdøde",
-      "path": "om-den-avdoede",
+      "path": "om-avdoede",
       "elementer": [
         {
           "innhold": [
@@ -295,8 +396,89 @@
               "svar": "Ja"
             }
           ]
+        },
+        {
+          "tittel": "Treg Snøfreser",
+          "innhold": [
+            {
+              "key": "omBarn.fornavn",
+              "spoersmaal": "Fornavn",
+              "svar": "Treg"
+            },
+            {
+              "key": "omBarn.etternavn",
+              "spoersmaal": "Etternavn",
+              "svar": "Snøfreser"
+            },
+            {
+              "key": "omBarn.foedselsnummer",
+              "spoersmaal": "Barnets fødselsnummer / d-nummer",
+              "svar": "24014021406"
+            },
+            {
+              "key": "omBarn.statsborgerskap",
+              "spoersmaal": "Statsborgerskap",
+              "svar": "Norsk"
+            },
+            {
+              "key": "omBarn.bosattUtland.svar",
+              "spoersmaal": "Bor barnet i et annet land enn Norge?",
+              "svar": "Nei"
+            },
+            {
+              "key": "omBarn.relasjon",
+              "spoersmaal": "Hvem er foreldre til barnet?",
+              "svar": "Jeg og avdøde"
+            },
+            {
+              "key": "omBarn.harBarnetVerge.svar",
+              "spoersmaal": "Er det oppnevnt en verge for barnet?",
+              "svar": "Nei"
+            }
+          ]
+        },
+        {
+          "tittel": "Smålig Sykkel",
+          "innhold": [
+            {
+              "key": "omBarn.fornavn",
+              "spoersmaal": "Fornavn",
+              "svar": "Smålig"
+            },
+            {
+              "key": "omBarn.etternavn",
+              "spoersmaal": "Etternavn",
+              "svar": "Sykkel"
+            },
+            {
+              "key": "omBarn.foedselsnummer",
+              "spoersmaal": "Barnets fødselsnummer / d-nummer",
+              "svar": "19016424830"
+            },
+            {
+              "key": "omBarn.statsborgerskap",
+              "spoersmaal": "Statsborgerskap",
+              "svar": "Norsk"
+            },
+            {
+              "key": "omBarn.bosattUtland.svar",
+              "spoersmaal": "Bor barnet i et annet land enn Norge?",
+              "svar": "Nei"
+            },
+            {
+              "key": "omBarn.relasjon",
+              "spoersmaal": "Hvem er foreldre til barnet?",
+              "svar": "Jeg og avdøde"
+            },
+            {
+              "key": "omBarn.harBarnetVerge.svar",
+              "spoersmaal": "Er det oppnevnt en verge for barnet?",
+              "svar": "Nei"
+            }
+          ]
         }
       ]
     }
-  ]
+  ],
+  "mottattDato": "2021-11-03T13:48:28.589528"
 }

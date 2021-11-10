@@ -1,14 +1,15 @@
 
 import no.nav.etterlatte.JournalpostSkrevet
-import no.nav.etterlatte.LagretSoeknad
-import no.nav.etterlatte.SoeknadRepository
-import no.nav.etterlatte.UlagretSoeknad
 import no.nav.etterlatte.mapper
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import soeknad.LagretSoeknad
+import soeknad.SoeknadID
+import soeknad.SoeknadRepository
+import soeknad.UlagretSoeknad
 
 class JournalpostSkrevetTest {
 
@@ -26,9 +27,9 @@ class JournalpostSkrevetTest {
 
         assertEquals(3, db.arkiveringOk.size)
         assertEquals(0, db.arkiveringFeilet.size)
-        assertEquals(12L, db.arkiveringOk[0].id)
-        assertEquals(22L, db.arkiveringOk[1].id)
-        assertEquals(32L, db.arkiveringOk[2].id)
+        assertEquals(12L, db.arkiveringOk[0])
+        assertEquals(22L, db.arkiveringOk[1])
+        assertEquals(32L, db.arkiveringOk[2])
 
     }
 
@@ -46,9 +47,9 @@ class JournalpostSkrevetTest {
 
         assertEquals(0, db.arkiveringOk.size)
         assertEquals(3, db.arkiveringFeilet.size)
-        assertEquals(12L, db.arkiveringFeilet[0].id)
-        assertEquals(22L, db.arkiveringFeilet[1].id)
-        assertEquals(32L, db.arkiveringFeilet[2].id)
+        assertEquals(12L, db.arkiveringFeilet[0])
+        assertEquals(22L, db.arkiveringFeilet[1])
+        assertEquals(32L, db.arkiveringFeilet[2])
 
     }
 }
@@ -69,8 +70,8 @@ fun testMessage(journalpost: Long, soeknad: Long, dokumentInfoId: Long? = null) 
 
 
 class TestRepo: SoeknadRepository {
-    val arkiveringOk = mutableListOf<LagretSoeknad>()
-    val arkiveringFeilet = mutableListOf<LagretSoeknad>()
+    val arkiveringOk = mutableListOf<SoeknadID>()
+    val arkiveringFeilet = mutableListOf<SoeknadID>()
 
     override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
         TODO("Not yet implemented")
@@ -80,16 +81,16 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
-    override fun soeknadSendt(soeknad: LagretSoeknad) {
+    override fun soeknadSendt(id: SoeknadID) {
         TODO("Not yet implemented")
     }
 
-    override fun soeknadArkivert(soeknad: LagretSoeknad) {
-        arkiveringOk += soeknad
+    override fun soeknadArkivert(id: SoeknadID) {
+        arkiveringOk += id
     }
 
-    override fun soeknadFeiletArkivering(soeknad: LagretSoeknad, jsonFeil: String) {
-        arkiveringFeilet += soeknad
+    override fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String) {
+        arkiveringFeilet += id
 
     }
 
@@ -101,7 +102,7 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
-    override fun soeknadFerdigstilt(soeknad: LagretSoeknad) {
+    override fun soeknadFerdigstilt(id: SoeknadID) {
         TODO("Not yet implemented")
     }
 
@@ -109,7 +110,7 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
-    override fun slettKladd(fnr: String): Boolean {
+    override fun slettKladd(fnr: String): SoeknadID? {
         TODO("Not yet implemented")
     }
 

@@ -3,9 +3,9 @@ const config = require("./config");
 const TokenXClient = require("./auth/tokenx");
 const logger = require("./logger");
 const { mockApi } = require("./mock/mock-api");
+const { sendSoeknad } = require("./router");
 
 const { exchangeToken } = new TokenXClient();
-
 const options = () => ({
     parseReqBody: false,
     proxyReqOptDecorator: (options, req) => {
@@ -26,7 +26,10 @@ const options = () => ({
     proxyReqPathResolver: (req) => req.originalUrl.replace(`${config.app.basePath}/api`, '')
 });
 
+
 const setup = (app) => {
+    // Intercept send søknad og lag oppsummering. Send så videre søknad og oppsummering
+    app.use(sendSoeknad());
     // Proxy Selvbetjening API
     app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl, options()));
 };

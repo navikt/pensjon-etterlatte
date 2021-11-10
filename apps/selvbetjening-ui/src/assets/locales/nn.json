@@ -269,7 +269,7 @@
   "omBarn": {
     "tittel": "Om barn",
     "tittelModal": "Om barnet",
-    "informasjon": "Dersom du har eller har hatt barn kan det påverke retten din til attlevandepensjon. Du må difor oppgi alle barn, uavhengig av kor gamle dei er. Dette gjeld barn du har felles med avdøde, avdøde sine eigne barn, og dine eigne barn. \n\nViss du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her.",
+    "informasjon": "Dersom du har eller har hatt barn kan det påverke retten din til attlevandepensjon. Du må difor oppgi alle barn, uavhengig av kor gamle dei er. Dette gjeld barn du har felles med avdøde, avdøde sine eigne barn, og dine eigne barn. \n\nViss du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke sjøl.",
     "fornavn": "Førenamn",
     "etternavn": "Etternamn",
     "foedselsnummer": "Barnet sitt fødselsnummer / d-nummer",
@@ -291,7 +291,7 @@
     "barnepensjon": {
       "soekt": "Søkt om barnepensjon",
       "soeker": "Søk om barnepensjon",
-      "soekerInfo": "Fordi du har felles barn med avdøde under 18 år, kan barnet ha rett til barnepensjon.",
+      "soekerInfo": "Du kan søke om barnepensjon for barn under 18 år som du har felles med avdøde.",
       "soekerCheckboks": "Ja, eg søker om barnepensjon for barnet",
       "kontonummer": {
         "svar": "Skal barnepensjonen utbetalast til same kontonummer som oppgitt tidlegare?",

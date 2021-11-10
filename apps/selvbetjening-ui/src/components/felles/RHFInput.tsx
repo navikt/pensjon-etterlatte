@@ -174,7 +174,7 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
     );
 };
 
-export const RHFTelefonInput = ({ name, rules, ...rest }: RHFProps) => {
+export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => {
     const { t } = useTranslation();
     const {
         control,
@@ -188,7 +188,7 @@ export const RHFTelefonInput = ({ name, rules, ...rest }: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{ required: true, pattern: telefonnrMatcher, ...rules }}
+            rules={{ required: !valgfri, pattern: telefonnrMatcher, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}

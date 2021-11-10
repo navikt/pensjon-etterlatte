@@ -4,6 +4,7 @@ const decorator = require("./decorator");
 const authRoutes = require("./auth/auth-routes")
 const api = require("./api");
 const config = require("./config");
+const prometheus = require("./prometheus")
 
 const basePath = config.app.basePath;
 const buildPath = path.resolve(__dirname, "../build");
@@ -21,6 +22,7 @@ app.get(`${basePath}/isAlive|${basePath}/isReady`, (req, res) => {
 if (config.env.isLabsCluster) {
     api.mock(app);
 } else {
+    prometheus.setup(app);
     authRoutes.setup(app);
     api.setup(app);
 }

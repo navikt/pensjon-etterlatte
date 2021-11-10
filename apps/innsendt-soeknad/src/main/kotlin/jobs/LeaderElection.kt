@@ -1,4 +1,4 @@
-package no.nav.etterlatte
+package no.nav.etterlatte.jobs
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.ktor.client.HttpClient
@@ -7,7 +7,7 @@ import io.ktor.client.request.get
 import org.slf4j.LoggerFactory
 import java.net.InetAddress
 
-object LeaderElection {
+internal object LeaderElection {
     private val logger = LoggerFactory.getLogger(LeaderElection::class.java)
 
     private val electorPath: String? = System.getenv("ELECTOR_PATH")

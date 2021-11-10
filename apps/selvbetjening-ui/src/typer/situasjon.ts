@@ -29,7 +29,7 @@ export enum JobbStatus {
 }
 
 export interface ISituasjon {
-    jobbStatus?: JobbStatus;
+    jobbStatus?: JobbStatus[];
     ingenJobbBeskrivelse?: string;
     utdanning?: IUtdanning;
     selvstendig?: ISelvstendigNaeringsdrivende[];

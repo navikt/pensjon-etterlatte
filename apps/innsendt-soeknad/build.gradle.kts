@@ -16,9 +16,10 @@ dependencies {
     implementation(Ktor.ClientJackson)
     implementation(Ktor.ClientCioJvm)
 
+    testImplementation(project(":libs:common-test"))
     testImplementation("com.h2database:h2:1.4.200")
     testImplementation("org.testcontainers:junit-jupiter:1.15.3")
-    testImplementation("org.testcontainers:postgresql:1.15.3")
+    testImplementation("org.testcontainers:postgresql:1.16.0")
 
     testImplementation(Ktor.ServerTests)
     testImplementation(Kotest.AssertionsCore)

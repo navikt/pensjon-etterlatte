@@ -12,6 +12,7 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.retry
+import no.nav.etterlatte.libs.common.soeknad.Soeknad
 import org.slf4j.LoggerFactory
 
 class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
