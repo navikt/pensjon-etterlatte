@@ -12,5 +12,6 @@ include(
     "apps:sjekk-adressebeskyttelse",
     "apps:journalpost-info",
     "apps:etterlatte-notifikasjoner",
-    "apps:etterlatte-pdl-proxy"
+    "apps:etterlatte-pdl-proxy",
+    "jobs:post-til-kafka"
 )

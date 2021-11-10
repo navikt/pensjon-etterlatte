@@ -1,5 +1,3 @@
-import org.codehaus.groovy.tools.shell.util.Logger.io
-
 object NavFelles {
     const val RapidAndRivers = "com.github.navikt:rapids-and-rivers:20210617121814-3e67e4d"
     const val TokenClientCore = "no.nav.security:token-client-core:1.3.3"
@@ -40,7 +38,7 @@ object Kafka {
     const val Clients = "org.apache.kafka:kafka-clients:2.5.0"
     const val Avro = "org.apache.avro:avro:1.10.0"
     const val AvroSerializer = "io.confluent:kafka-avro-serializer:5.0.0"
-    const val EmbeddedEnv = "no.nav:kafka-embedded-env:2.7.0"
+    const val EmbeddedEnv = "no.nav:kafka-embedded-env:2.8.0"
 }
 
 object Jackson {
@@ -49,6 +47,8 @@ object Jackson {
     const val DatatypeJsr310 = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$version"
     const val DatatypeJdk8 = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$version"
     const val ModuleKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:$version"
+    const val Databind = "com.fasterxml.jackson.core:jackson-databind:$version"
+    const val Core = "com.fasterxml.jackson.core:jackson-core:$version"
 }
 
 object Jupiter {
