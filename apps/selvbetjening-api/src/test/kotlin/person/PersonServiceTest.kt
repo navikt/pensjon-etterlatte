@@ -18,7 +18,9 @@ import no.nav.etterlatte.person.pdl.PersonResponse
 import no.nav.etterlatte.person.pdl.Sivilstandstype
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
@@ -109,6 +111,22 @@ internal class PersonServiceTest {
                 service.hentPerson(Foedselsnummer.of(TREIG_FLOSKEL))
             }
         }
+    }
+
+    @Test
+    fun `Person finnes returnerer true`() = runBlocking {
+        val fnr = Foedselsnummer.of(TRIVIELL_MIDTPUNKT)
+        coEvery { personKlient.hentPerson(fnr) } returns opprettResponse("/pdl/adressebeskyttetPerson.json")
+
+        assertTrue(service.gyldigFnr(fnr))
+    }
+
+    @Test
+    fun `Person finnes ikke returnerer false`() = runBlocking {
+        val fnr = Foedselsnummer.of(TRIVIELL_MIDTPUNKT)
+        coEvery { personKlient.hentPerson(fnr) } returns PersonResponse(data = null, errors = emptyList())
+
+        assertFalse(service.gyldigFnr(fnr))
     }
 
     private fun opprettResponse(fil: String): PersonResponse {

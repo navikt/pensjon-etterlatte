@@ -1,10 +1,8 @@
 package no.nav.etterlatte.person
 
-import io.ktor.features.NotFoundException
+import io.ktor.features.*
 import no.nav.etterlatte.kodeverk.KodeverkService
-import no.nav.etterlatte.libs.common.pdl.Gradering.FORTROLIG
-import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
-import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
+import no.nav.etterlatte.libs.common.pdl.Gradering.*
 import no.nav.etterlatte.libs.common.pdl.ResponseError
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.pdl.HentPerson
@@ -30,6 +28,10 @@ class PersonService(
         }
 
         return opprettPerson(fnr, hentPerson)
+    }
+
+    suspend fun gyldigFnr(fnr: Foedselsnummer): Boolean {
+        return klient.hentPerson(fnr).data?.hentPerson != null
     }
 
     private suspend fun opprettPerson(
