@@ -3,12 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-    implementation(Kafka.Clients)
+    api(kotlin("reflect"))
 
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.0")
-    implementation("ch.qos.logback:logback-classic:1.2.5")
-    implementation("net.logstash.logback:logstash-logback-encoder:6.6") {
+    implementation(Logging.LogbackClassic)
+    implementation(Logging.LogstashLogbackEncoder) {
         exclude("com.fasterxml.jackson.core")
         exclude("com.fasterxml.jackson.dataformat")
     }
@@ -18,9 +16,5 @@ dependencies {
     implementation(Jackson.ModuleKotlin)
     implementation(Jackson.DatatypeJsr310)
 
-
-    testImplementation("io.mockk:mockk:1.12.0")
-
-    testImplementation(Kafka.EmbeddedEnv)
-
+    testImplementation(MockK.MockK)
 }

@@ -7,4 +7,6 @@ repositories {
 }
 
 dependencies {
+    implementation(Kafka.Clients)
+    testImplementation(Kafka.EmbeddedEnv)
 }
