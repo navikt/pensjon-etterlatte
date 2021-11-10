@@ -74,3 +74,16 @@ export const sendSoeknad = async (soeknad: any) => {
         throw new Error(`Det skjedde en feil: ${e.message}`);
     }
 };
+
+
+/**
+ * Sender inn ferdigstilt søknad
+ */
+ export const hentLand = async () => {
+    try {
+        const response = await api.get("/kodeverk/alleland");
+        return response.data;
+    } catch (e) {
+        throw new Error(`Det skjedde en feil: ${e.message}`);
+    }
+};

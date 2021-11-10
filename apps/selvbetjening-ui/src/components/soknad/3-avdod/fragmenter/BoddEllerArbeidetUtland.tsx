@@ -12,6 +12,8 @@ import { DeleteFilled } from "@navikt/ds-icons";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Button, Panel, Heading } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
+import { RHFSelect } from "../../../felles/RHFSelect";
+import { useLand } from "../../../../hooks/useLand";
 
 interface Props {
     datoForDoedsfallet?: Date;
@@ -19,6 +21,7 @@ interface Props {
 
 const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     const { t } = useTranslation();
+    const { land }: {land: any} = useLand();
 
     const { control, watch } = useFormContext<IAvdoed>();
 
@@ -32,7 +35,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
 
     useEffect(() => {
         if (boddEllerArbeidetUtland === IValg.JA && fields.length === 0) {
-           append({});
+           append({ land: "Norge" });
         }
     });
 
@@ -53,11 +56,11 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     {fields.map((field: FieldArrayWithId, index: number) => (
                         <Panel border key={field.id} className={"luft-under"}>
                             <div className={"rad"}>
-                                <RHFInput
-                                    className={"kol"}
-                                    bredde={"XL"}
+                                <RHFSelect
+                                    className="kol"
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].land` as const}
                                     label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land")}
+                                    selectOptions={land}
                                 />
                                 <RHFCheckboksGruppe
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].beskrivelse` as const}

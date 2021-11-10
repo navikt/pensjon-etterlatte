@@ -13,6 +13,8 @@ import { Button, Cell, Grid, Heading, Label } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 import Hjelpetekst from "../../felles/Hjelpetekst";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
+import { RHFSelect } from "../../felles/RHFSelect";
+import { useLand } from "../../../hooks/useLand";
 
 interface Props {
     lagre: (data: IBarn) => void;
@@ -22,10 +24,12 @@ interface Props {
 
 const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
     const { t } = useTranslation();
+    const { land }: {land: any} = useLand();
 
 
     const methods = useForm<IBarn>({
-        shouldUnregister: true
+        shouldUnregister: true,
+        defaultValues: {statsborgerskap: "Norge"}
     });
 
     const {
@@ -119,12 +123,13 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         </SkjemaGruppe>
                     )}
 
-                    <RHFInput
-                        name={"statsborgerskap"}
-                        placeholder={t("omBarn.statsborgerskapPlaceholder")}
-                        bredde={"XL"}
-                        label={t("omBarn.statsborgerskap")}
-                    />
+                    <RHFSelect
+                            className="kol-50"
+                            name={`statsborgerskap`}
+                            label={t("omBarn.statsborgerskap")}
+                            value={"Norge"}
+                            selectOptions={land}
+                        />
                 </SkjemaGruppering>
 
                 <SkjemaGruppering>
