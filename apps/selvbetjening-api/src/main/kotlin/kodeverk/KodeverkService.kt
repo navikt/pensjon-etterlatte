@@ -25,15 +25,13 @@ class KodeverkService(private val klient: Kodeverk) {
         return poststeder.hentTekst(postnr, spraak)
     }
 
-    suspend fun hentAlleLand(spraak: String = "nb"): List<String> {
+    suspend fun hentAlleLand(): List<Betydning> {
         val landkoder = cache.getIfPresent(LANDKODER)
             ?: klient.hentLandkoder().also { cache.put(LANDKODER, it) }
 
         return landkoder
             .betydninger
             .flatMap { (_, betydninger) -> betydninger }
-            .mapNotNull { betydning -> betydning.beskrivelser[spraak] }
-            .map { it.tekst.capitalize() }
     }
 
     suspend fun hentLand(landkode: String?, spraak: String = "nb"): String? {
