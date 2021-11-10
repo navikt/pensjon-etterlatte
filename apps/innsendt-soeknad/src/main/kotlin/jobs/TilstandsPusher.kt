@@ -16,12 +16,16 @@ class TilstandsPusher(private val db: SoeknadRepository, private val publiserSoe
             cycle = cycle.step()
 
             if (cycle.currentStep == 0 && LeaderElection.isLeader()) {
-                db.slettArkiverteSoeknader()
-                db.slettUtgaatteKladder()
-                db.usendteSoeknader().also {
-                    logger.info("Publiserer melding om søknader ${it.map(LagretSoeknad::id)} ut på kafka")
-                }.forEach {
-                    publiserSoeknad.publiser(it)
+                try {
+                    db.slettArkiverteSoeknader()
+                    db.slettUtgaatteKladder()
+                    db.usendteSoeknader().also {
+                        logger.info("Publiserer melding om søknader ${it.map(LagretSoeknad::id)} ut på kafka")
+                    }.forEach {
+                        publiserSoeknad.publiser(it)
+                    }
+                } catch (e: Exception) {
+                    logger.error("Feil under kjøring av jobb: ", e)
                 }
             } else {
                 delay(10_000)
