@@ -28,7 +28,6 @@ import io.ktor.server.testing.withTestApplication
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.libs.common.soeknad.Soeknad
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
-import no.nav.etterlatte.soeknadApi
 import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
@@ -45,6 +44,7 @@ import org.testcontainers.junit.jupiter.Container
 import soeknad.LagretSoeknad
 import soeknad.PostgresSoeknadRepository
 import soeknad.SoeknadFixtures
+import soeknad.soeknadApi
 import java.util.*
 import java.util.stream.Collectors
 
@@ -278,5 +278,3 @@ class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfigurati
 }
 
 fun Authentication.Configuration.tokenTestSupportAcceptsAllTokens() = register(TokenSupportAcceptAllProvider())
-
-
