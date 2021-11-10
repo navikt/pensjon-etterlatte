@@ -4,9 +4,9 @@ metadata:
   labels:
     team: etterlatte
   name: post-til-kafka
-  namespace: tbd
+  namespace: etterlatte
 spec:
-  image: ghcr.io/navikt/helse-sparker-alt/helse-sparker-alt:<versjon>
+  image: docker.pkg.github.com/navikt/pensjon-etterlatte/post-til-kafka:<versjon>
   kafka:
     pool: nav-prod
   env:

@@ -15,12 +15,12 @@ fun payload(fnr: String) = """
               {
                 "key": "felles.navn",
                 "spoersmaal": "Navn",
-                "svar": "GRØNN KOPP"
+                "svar": "Aremark Testfamilien"
               },
               {
                 "key": "felles.adresse",
                 "spoersmaal": "Bostedsadresse",
-                "svar": "Sannergata 6C, 0557 Oslo"
+                "svar": "RÅDHUSET    H1"
               },
               {
                 "key": "felles.foedselsnummer",
@@ -50,7 +50,7 @@ fun payload(fnr: String) = """
               {
                 "key": "omDeg.kontaktinfo.telefonnummer",
                 "spoersmaal": "Telefonnummer",
-                "svar": "976 46 464"
+                "svar": "99 00 11 22"
               },
               {
                 "key": "omDeg.kontaktinfo.epost",
@@ -224,7 +224,7 @@ fun payload(fnr: String) = """
         "alternativAdresse": null,
         "kontaktinfo": {
           "epost": "asdasd@adasd.asd",
-          "telefonnummer": "976 46 464"
+          "telefonnummer": "99 00 11 22"
         },
         "utbetalingsInformasjon": {
           "kontonummer": "1231.12.31231",
