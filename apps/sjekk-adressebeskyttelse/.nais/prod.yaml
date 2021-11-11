@@ -32,7 +32,7 @@ spec:
   #  - name: KAFKA_RESET_POLICY
   #    value: none
     - name: PDL_URL
-      value: http://etterlatte-pdl-proxy
+      value: http://etterlatte-pdl-proxy/pdl
     - name: PDL_AZURE_SCOPE
       value: api://prod-gcp.etterlatte.etterlatte-pdl-proxy/.default
   accessPolicy:
