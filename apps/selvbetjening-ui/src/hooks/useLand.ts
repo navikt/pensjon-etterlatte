@@ -30,7 +30,10 @@ export const useLand = (ekskluderUgyldige = true) => {
                 if (ekskluderUgyldige) {
                     landliste = landliste.filter((land) => new Date(land.gyldigTil) > new Date() );
                 }
-                landliste.sort();
+                landliste = landliste.sort((a, b) => {
+                  if(a.beskrivelser.nb.tekst > b.beskrivelser.nb.tekst) {return 1}
+                  return -1;
+                });
                 setLand(landliste);
             } catch (e) {
               console.log(e);
@@ -41,9 +44,11 @@ export const useLand = (ekskluderUgyldige = true) => {
 
     const optionsListe = (): Options[] => {
         return land.map((l) => {
+            const str = l.beskrivelser["nb"].tekst.toLowerCase();
+            const tekst = str.charAt(0).toUpperCase() + str.slice(1);
             return {
-                label: l.beskrivelser["nb"].tekst,
-                value: l.beskrivelser["nb"].tekst,
+                label: tekst,
+                value: tekst,
             };
         });
     };
