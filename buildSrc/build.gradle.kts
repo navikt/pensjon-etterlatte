@@ -23,11 +23,11 @@ dependencies {
 
 tasks {
     withType<Wrapper> {
-        gradleVersion = "7.2"
+        gradleVersion = "7.3"
     }
 
     withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_16.toString()
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     withType<AnalyzeDependenciesTask> {
