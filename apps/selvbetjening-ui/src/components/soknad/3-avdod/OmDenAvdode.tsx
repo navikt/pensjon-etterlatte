@@ -21,7 +21,7 @@ import { useLand } from "../../../hooks/useLand";
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
-    const { land } : {land: any} = useLand();
+    const { land } : { land: any } = useLand();
     const methods = useForm<IAvdoed>({
         defaultValues: { ...state.omDenAvdoede, statsborgerskap: state.omDenAvdoede.statsborgerskap || "Norge" } || {},
         shouldUnregister: true,

@@ -35,7 +35,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
     };
 
     const methods = useForm<ISoeker>({
-        defaultValues: {...state.omDeg, oppholdsland: "Norge" } || {},
+        defaultValues: {...state.omDeg, oppholdsland: state.omDeg.oppholdsland || "Norge" } || {},
         shouldUnregister: true,
     });
 

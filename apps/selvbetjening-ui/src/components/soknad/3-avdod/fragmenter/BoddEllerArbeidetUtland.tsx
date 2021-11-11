@@ -21,7 +21,7 @@ interface Props {
 
 const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     const { t } = useTranslation();
-    const { land }: {land: any} = useLand();
+    const { alleLand }: {land: any, alleLand: any} = useLand();
 
     const { control, watch } = useFormContext<IAvdoed>();
 
@@ -60,7 +60,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     className="kol"
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].land` as const}
                                     label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land")}
-                                    selectOptions={land}
+                                    selectOptions={alleLand}
                                 />
                                 <RHFCheckboksGruppe
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].beskrivelse` as const}
