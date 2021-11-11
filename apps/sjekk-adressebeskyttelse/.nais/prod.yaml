@@ -33,6 +33,8 @@ spec:
   #    value: none
     - name: PDL_URL
       value: http://etterlatte-pdl-proxy
+    - name: PDL_AZURE_SCOPE
+      value: api://prod-gcp.etterlatte.etterlatte-pdl-proxy/.default
   accessPolicy:
     outbound:
       rules:
