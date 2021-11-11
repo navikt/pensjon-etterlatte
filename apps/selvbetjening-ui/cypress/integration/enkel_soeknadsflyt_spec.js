@@ -75,7 +75,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.map((oppholdUtland, idx) => {
             const baseId = `boddEllerJobbetUtland\.oppholdUtland\[${idx}\].`;
 
-            getById(baseId + "land").type(oppholdUtland.land);
+            getById(baseId + "land").find("select").select(oppholdUtland.land);
             oppholdUtland.beskrivelse.map((utlandType) => selectValue(utlandType)); // Bodd/Arbeidet checkbox
             getById(baseId + "fraDato").type(oppholdUtland.fraDato);
             getById(baseId + "tilDato").type(oppholdUtland.tilDato);
@@ -127,7 +127,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         const mottarPensjonUtland = dinSituasjon.andreYtelser.mottarPensjonUtland;
         selectValueForId("andreYtelser.mottarPensjonUtland.svar", mottarPensjonUtland.svar);
         getById("andreYtelser.mottarPensjonUtland.hvaSlagsPensjon").type(mottarPensjonUtland.hvaSlagsPensjon);
-        getById("andreYtelser.mottarPensjonUtland.fraHvilketLand").type(mottarPensjonUtland.fraHvilketLand);
+        getById("andreYtelser.mottarPensjonUtland.fraHvilketLand").find("select").select(mottarPensjonUtland.fraHvilketLand);
         getById("andreYtelser.mottarPensjonUtland.bruttobeloepPrAar").type(mottarPensjonUtland.bruttobeloepPrAar);
 
         cy.checkA11y();

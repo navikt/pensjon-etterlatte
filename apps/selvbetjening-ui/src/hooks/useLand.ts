@@ -2,8 +2,13 @@ import { useEffect, useState } from "react";
 import { hentLand } from "../api/api";
 import { useError } from "./useError";
 
+
+interface UseLand {
+    land: Options[],
+    alleLand: Options[]
+}
 interface Options {
-    label?: string;
+    label?: string | undefined;
     value: string;
 }
 
@@ -25,7 +30,7 @@ const sortByTekst = (a: Land, b: Land) => {
     return -1;
 };
 
-export const useLand = () => {
+export const useLand = (): UseLand  => {
     const [land, setLand] = useState<Land[]>([]);
     const [alleLand, setAlleLand] = useState<Land[]>([]);
     const { setError } = useError();
@@ -47,7 +52,7 @@ export const useLand = () => {
     }, []);
 
     const optionsListe = (land: Land[]): Options[] => {
-        return land.map((l) => {
+        const landliste = land.map((l) => {
             const str = l.beskrivelser["nb"].tekst.toLowerCase();
             const tekst = str.charAt(0).toUpperCase() + str.slice(1);
             return {
@@ -55,6 +60,12 @@ export const useLand = () => {
                 value: tekst,
             };
         });
+
+        landliste.unshift({
+            label: "Velg land",
+            value: "Velg land",
+        });
+        return landliste;
     };
     return { land: optionsListe(land), alleLand: optionsListe(alleLand) };
 };

@@ -981,24 +981,31 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           />
         </div>
       </div>
-      <div>
+      <div
+        id="andreYtelser.mottarPensjonUtland.fraHvilketLand"
+      >
         <div
-          class="skjemaelement"
+          class="skjemaelement kol-50"
         >
           <label
             class="skjemaelement__label"
-            for="andreYtelser.mottarPensjonUtland.fraHvilketLand"
           >
             dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand
           </label>
-          <input
-            aria-invalid="false"
-            class="skjemaelement__input input--l"
-            id="andreYtelser.mottarPensjonUtland.fraHvilketLand"
-            required=""
-            type="text"
-            value="Polen"
-          />
+          <div
+            class="selectContainer input--l"
+          >
+            <select
+              aria-invalid="false"
+              class="skjemaelement__input"
+            >
+              <option
+                value="Velg land"
+              >
+                Velg land
+              </option>
+            </select>
+          </div>
         </div>
       </div>
       <div>
@@ -1901,24 +1908,31 @@ exports[`Om den avdøde Snapshot 1`] = `
           />
         </div>
       </div>
-      <div>
+      <div
+        id="andreYtelser.mottarPensjonUtland.fraHvilketLand"
+      >
         <div
-          class="skjemaelement"
+          class="skjemaelement kol-50"
         >
           <label
             class="skjemaelement__label"
-            for="andreYtelser.mottarPensjonUtland.fraHvilketLand"
           >
             dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand
           </label>
-          <input
-            aria-invalid="false"
-            class="skjemaelement__input input--l"
-            id="andreYtelser.mottarPensjonUtland.fraHvilketLand"
-            required=""
-            type="text"
-            value="Polen"
-          />
+          <div
+            class="selectContainer input--l"
+          >
+            <select
+              aria-invalid="false"
+              class="skjemaelement__input"
+            >
+              <option
+                value="Velg land"
+              >
+                Velg land
+              </option>
+            </select>
+          </div>
         </div>
       </div>
       <div>

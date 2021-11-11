@@ -8,10 +8,12 @@ import { ISituasjon } from "../../../../typer/situasjon";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
+import { RHFSelect } from "../../../felles/RHFSelect";
+import { useLand } from "../../../../hooks/useLand";
 
 const AndreYtelser = () => {
     const { t } = useTranslation();
-
+    const { land }: any = useLand();
     const { watch } = useFormContext<ISituasjon>();
 
     const kravOmAnnenStonad = watch("andreYtelser.kravOmAnnenStonad.svar");
@@ -75,11 +77,11 @@ const AndreYtelser = () => {
                             label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon")}
                             placeholder={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder")}
                         />
-
-                        <RHFInput
-                            bredde={"L"}
-                            name={"andreYtelser.mottarPensjonUtland.fraHvilketLand"}
+                        <RHFSelect
+                            className="kol-50"
+                            name={`andreYtelser.mottarPensjonUtland.fraHvilketLand`}
                             label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand")}
+                            selectOptions={land}
                         />
 
                         <RHFInput

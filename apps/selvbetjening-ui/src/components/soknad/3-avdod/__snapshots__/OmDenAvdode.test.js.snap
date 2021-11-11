@@ -92,7 +92,13 @@ exports[`Om den avdøde Snapshot 1`] = `
               <select
                 aria-invalid="false"
                 class="skjemaelement__input"
-              />
+              >
+                <option
+                  value="Velg land"
+                >
+                  Velg land
+                </option>
+              </select>
             </div>
           </div>
         </div>

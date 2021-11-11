@@ -35,7 +35,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
 
     useEffect(() => {
         if (boddEllerArbeidetUtland === IValg.JA && fields.length === 0) {
-           append({ land: "Norge" });
+           append({});
         }
     });
 
