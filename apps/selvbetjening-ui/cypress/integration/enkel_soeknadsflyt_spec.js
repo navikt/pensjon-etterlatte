@@ -64,6 +64,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
     it('Skal fylle ut siden "Om den avdøde" og gå til neste', () => {
         cy.url().should("include", "steg/om-den-avdoede");
+        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as("alleland")
 
         // Verifiser felter og fyll ut skjema.
         const omDenAvdoede = mockSoeknad.omDenAvdoede;
@@ -97,6 +98,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
     it('Skal fylle ut siden "Din situasjon" og gå til neste', () => {
         cy.url().should("include", "steg/din-situasjon");
+        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as("alleland")
 
         // Verifiser felter og fyll ut skjema.
         const dinSituasjon = mockSoeknad.dinSituasjon;
@@ -137,6 +139,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
     it('Skal fylle ut siden "Om barn" og gå til neste', () => {
         cy.url().should("include", "steg/om-barn");
+        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as("alleland")
 
         // Legg til barn
         mockSoeknad.opplysningerOmBarn.barn.map((barn) => {
