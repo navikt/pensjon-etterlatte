@@ -56,6 +56,4 @@ Spørsmål knyttet til koden eller prosjektet kan stilles som issues her på Git
 
 ## For NAV-ansatte
 
-Interne henvendelser kan sendes via Slack i kanalen #po-pensjon-teambarnepensjon-utvikling.
-
-
+Interne henvendelser kan sendes via Slack i kanalen #po-pensjon-team-etterlatte.
