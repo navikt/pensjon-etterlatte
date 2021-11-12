@@ -1,12 +1,12 @@
 package no.nav.etterlatte
 
-import soeknad.SoeknadRepository
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import no.nav.helse.rapids_rivers.isMissingOrNull
 import org.slf4j.LoggerFactory
+import soeknad.SoeknadRepository
 import java.time.OffsetDateTime
 
 internal class JournalpostSkrevet(
@@ -25,7 +25,13 @@ internal class JournalpostSkrevet(
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        if (packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L != 0L) {
+        val dokumentInfoId = packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
+        if(packet["@lagret_soeknad_id"].asLong() == 0L){
+            logger.info("Verifiseringssøknad lest med dokumentInfoId $dokumentInfoId")
+            return
+        }
+
+        if (dokumentInfoId != 0L) {
             soeknader.soeknadArkivert(packet["@lagret_soeknad_id"].asLong())
         } else {
             logger.error("Arkivering feilet: ", packet.toJson())

@@ -249,24 +249,33 @@ exports[`Om deg og avdød Snapshot 1`] = `
         aria-invalid="false"
         class="skjemagruppe"
       >
-        <div>
+        <div
+          id="oppholdsland"
+        >
           <div
-            class="skjemaelement"
+            class="skjemaelement kol-50"
           >
             <label
               class="skjemaelement__label"
-              for="oppholdsland"
+              for="123"
             >
               omDeg.oppholdsland
             </label>
-            <input
-              aria-invalid="false"
-              class="skjemaelement__input input--xl"
-              id="oppholdsland"
-              required=""
-              type="text"
-              value=""
-            />
+            <div
+              class="selectContainer input--l"
+            >
+              <select
+                aria-invalid="false"
+                class="skjemaelement__input"
+                id="123"
+              >
+                <option
+                  value="Velg land"
+                >
+                  Velg land
+                </option>
+              </select>
+            </div>
           </div>
         </div>
         <div

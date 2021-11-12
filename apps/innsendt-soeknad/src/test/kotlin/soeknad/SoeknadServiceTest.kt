@@ -1,12 +1,12 @@
+package soeknad
+
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.kotest.matchers.collections.shouldContainExactly
-import no.nav.etterlatte.Soeker
-import no.nav.etterlatte.finnSoekere
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+import no.nav.etterlatte.soeknad.finnSoekere
 import org.junit.jupiter.api.Test
-import soeknad.SoeknadFixtures
 
-internal class KtorModulesTest {
+internal class SoeknadServiceTest {
     private val mapper = jacksonObjectMapper()
 
     @Test

@@ -1,5 +1,6 @@
 const parser = require("body-parser");
 const NodeCache = require("node-cache");
+const mockLand = require("./landMock");
 const {
     SEDAT_RIPSBÆRBUSK,
     TRIVIELL_MIDTPUNKT, // For ung til å søke
@@ -76,7 +77,7 @@ const mockApi = (app) => {
     });
 
     app.get(`${config.app.basePath}/api/kodeverk/alleland`, (req, res) => {
-        return res.json(["Norge", "Sverige", "Danmark"])
+        return res.json(mockLand)
     });
 };
 

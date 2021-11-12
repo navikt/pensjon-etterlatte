@@ -76,26 +76,30 @@ exports[`Om den avdøde Snapshot 1`] = `
           />
         </div>
         <div
-          class="kol-50"
+          id="statsborgerskap"
         >
           <div
-            class="skjemaelement"
+            class="skjemaelement kol-50"
           >
             <label
               class="skjemaelement__label"
-              for="statsborgerskap"
             >
               omDenAvdoede.statsborgerskap
             </label>
-            <input
-              aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
-              id="statsborgerskap"
-              placeholder="omDenAvdoede.statsborgerskapPlaceholder"
-              required=""
-              type="text"
-              value=""
-            />
+            <div
+              class="selectContainer input--l"
+            >
+              <select
+                aria-invalid="false"
+                class="skjemaelement__input"
+              >
+                <option
+                  value="Velg land"
+                >
+                  Velg land
+                </option>
+              </select>
+            </div>
           </div>
         </div>
         <div

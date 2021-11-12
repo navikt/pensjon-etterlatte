@@ -3,11 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation("org.apache.kafka:kafka-clients") {
-        version {
-            strictly("2.7.1")
-        }
-    }
+    implementation(Kafka.Clients)
 
     implementation(Ktor.OkHttp)
     implementation(Ktor.ClientCore)

@@ -64,6 +64,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
     it('Skal fylle ut siden "Om den avdøde" og gå til neste', () => {
         cy.url().should("include", "steg/om-den-avdoede");
+        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as("alleland")
 
         // Verifiser felter og fyll ut skjema.
         const omDenAvdoede = mockSoeknad.omDenAvdoede;
@@ -75,7 +76,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.map((oppholdUtland, idx) => {
             const baseId = `boddEllerJobbetUtland\.oppholdUtland\[${idx}\].`;
 
-            getById(baseId + "land").type(oppholdUtland.land);
+            getById(baseId + "land").find("select").select(oppholdUtland.land);
             oppholdUtland.beskrivelse.map((utlandType) => selectValue(utlandType)); // Bodd/Arbeidet checkbox
             getById(baseId + "fraDato").type(oppholdUtland.fraDato);
             getById(baseId + "tilDato").type(oppholdUtland.tilDato);
@@ -97,6 +98,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
     it('Skal fylle ut siden "Din situasjon" og gå til neste', () => {
         cy.url().should("include", "steg/din-situasjon");
+        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as("alleland")
 
         // Verifiser felter og fyll ut skjema.
         const dinSituasjon = mockSoeknad.dinSituasjon;
@@ -127,7 +129,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         const mottarPensjonUtland = dinSituasjon.andreYtelser.mottarPensjonUtland;
         selectValueForId("andreYtelser.mottarPensjonUtland.svar", mottarPensjonUtland.svar);
         getById("andreYtelser.mottarPensjonUtland.hvaSlagsPensjon").type(mottarPensjonUtland.hvaSlagsPensjon);
-        getById("andreYtelser.mottarPensjonUtland.fraHvilketLand").type(mottarPensjonUtland.fraHvilketLand);
+        getById("andreYtelser.mottarPensjonUtland.fraHvilketLand").find("select").select(mottarPensjonUtland.fraHvilketLand);
         getById("andreYtelser.mottarPensjonUtland.bruttobeloepPrAar").type(mottarPensjonUtland.bruttobeloepPrAar);
 
         cy.checkA11y();
@@ -137,6 +139,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
     it('Skal fylle ut siden "Om barn" og gå til neste', () => {
         cy.url().should("include", "steg/om-barn");
+        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as("alleland")
 
         // Legg til barn
         mockSoeknad.opplysningerOmBarn.barn.map((barn) => {

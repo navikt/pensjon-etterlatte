@@ -15,17 +15,17 @@ import { BodyLong, Label, Heading } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
+import { RHFSelect } from "../../felles/RHFSelect";
+import { useLand } from "../../../hooks/useLand";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
-
-    
+    const { land } : { land: any } = useLand();
     const methods = useForm<IAvdoed>({
-        defaultValues: state.omDenAvdoede || {},
+        defaultValues: { ...state.omDenAvdoede, statsborgerskap: state.omDenAvdoede.statsborgerskap || "Norge" } || {},
         shouldUnregister: true,
     });
-
 
     const {
         handleSubmit,
@@ -81,11 +81,11 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             placeholder={t("felles.fnrPlaceholder")}
                         />
 
-                        <RHFInput
-                            className={"kol-50"}
-                            name={"statsborgerskap"}
+                        <RHFSelect
+                            className="kol-50"
+                            name={`statsborgerskap`}
                             label={t("omDenAvdoede.statsborgerskap")}
-                            placeholder={t("omDenAvdoede.statsborgerskapPlaceholder")}
+                            selectOptions={land}
                         />
                     </SkjemaGruppe>
                 </SkjemaGruppering>

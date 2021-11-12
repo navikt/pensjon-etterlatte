@@ -1,6 +1,13 @@
 package no.nav.etterlatte
 
-import soeknad.PostgresSoeknadRepository
+import com.typesafe.config.ConfigFactory
+import io.ktor.application.*
+import io.ktor.auth.*
+import io.ktor.config.*
+import io.ktor.features.*
+import io.ktor.jackson.*
+import io.ktor.routing.*
+import io.ktor.util.pipeline.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -9,10 +16,14 @@ import no.nav.etterlatte.jobs.TilstandsProbe
 import no.nav.etterlatte.jobs.TilstandsPusher
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
+import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
+import no.nav.security.token.support.ktor.tokenValidationSupport
+import soeknad.PostgresSoeknadRepository
+import soeknad.soeknadApi
 
 fun main() {
     val datasourceBuilder = DataSourceBuilder(System.getenv())
-    val db = PostgresSoeknadRepository.using( datasourceBuilder.dataSource)
+    val db = PostgresSoeknadRepository.using(datasourceBuilder.dataSource)
 
     val env = System.getenv().toMutableMap().apply {
         put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))
@@ -49,4 +60,23 @@ fun main() {
         }
 
     rapidApplication.start()
+}
+
+fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() = call.principal<TokenValidationContextPrincipal>()
+    ?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
+
+fun Application.apiModule(routes: Route.() -> Unit) {
+    install(Authentication) {
+        tokenValidationSupport(config = HoconApplicationConfig(ConfigFactory.load()))
+    }
+    install(ContentNegotiation) {
+        jackson()
+    }
+    install(IgnoreTrailingSlash)
+
+    routing {
+        authenticate {
+            routes()
+        }
+    }
 }

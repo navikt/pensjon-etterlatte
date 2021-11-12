@@ -1,5 +1,7 @@
 package soeknad
 
+import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+
 typealias SoeknadID = Long
 
 data class LagretSoeknad(
@@ -11,6 +13,11 @@ data class LagretSoeknad(
 data class UlagretSoeknad(
     val fnr: String,
     val payload: String
+)
+
+data class Soeker(
+    val fnr: String,
+    val type: SoeknadType
 )
 
 enum class Status {

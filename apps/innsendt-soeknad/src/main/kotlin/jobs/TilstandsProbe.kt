@@ -35,7 +35,11 @@ class TilstandsProbe(private val db: StatistikkRepository){
         while(!running.isCompleted) {
             cycle = cycle.step()
             if(cycle.currentStep == 0){
-                gatherMetrics()
+                try {
+                    gatherMetrics()
+                } catch (e: Exception) {
+                    logger.error("Feil oppsto under oppretting av rapport/metrikker: ", e)
+                }
             } else {
                 delay(10_000)
             }

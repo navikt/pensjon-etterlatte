@@ -21,7 +21,7 @@ class KodeverkKlient(private val httpClient: HttpClient) : Kodeverk {
         try {
             logger.info("Henter alle postnummer fra Kodeverk")
 
-            httpClient.get("Postnummer") {
+            httpClient.get("Postnummer?ekskluderUgyldige=true") {
                 accept(ContentType.Application.Json)
             }
         } catch (e: Exception) {
@@ -33,7 +33,7 @@ class KodeverkKlient(private val httpClient: HttpClient) : Kodeverk {
         try {
             logger.info("Henter alle landkoder fra Kodeverk")
 
-            httpClient.get("Landkoder") {
+            httpClient.get("Landkoder?ekskluderUgyldige=false") {
                 accept(ContentType.Application.Json)
             }
         } catch (e: Exception) {

@@ -20,12 +20,14 @@ import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
+import { RHFSelect } from "../../felles/RHFSelect";
+import { useLand } from "../../../hooks/useLand";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
     const { state, dispatch } = useSoknadContext();
     const brukerState = useBrukerContext().state;
-
+    const { land }: { land: any } = useLand();
     const lagre = (data: ISoeker) => {
 
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: {...deepCopy(data), erValidert: true}} );
@@ -125,11 +127,11 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         {oppholderSegINorge === IValg.NEI && (
                             <>
                                 <SkjemaGruppe>
-                                    <RHFInput
-                                        bredde={"XL"}
-                                        name={"oppholdsland"}
+                                    <RHFSelect
+                                        className="kol-50"
+                                        name={`oppholdsland`}
                                         label={t("omDeg.oppholdsland")}
-                                        rules={{ pattern: /^[\w|\s]+$/ }}
+                                        selectOptions={land}
                                     />
                                 </SkjemaGruppe>
 

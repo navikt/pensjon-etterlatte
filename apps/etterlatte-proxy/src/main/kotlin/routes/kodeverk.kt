@@ -29,8 +29,8 @@ fun Route.kodeverk(config: Config) {
         get {
             val kodeverksnavn = call.parameters["kodeverksnavn"] as String
             val callId = call.request.header(HttpHeaders.NavCallId) ?: UUID.randomUUID().toString()
-
-            val url = "$baseUrl/$kodeverksnavn/koder/betydninger?spraak=nb"
+            val ekskluderUgyldige = call.request.queryParameters["ekskluderUgyldige"]
+            val url = "$baseUrl/$kodeverksnavn/koder/betydninger?ekskluderUgyldige=$ekskluderUgyldige&spraak=nb"
 
             try {
                 val response = httpClient.get<HttpResponse>(url) {
