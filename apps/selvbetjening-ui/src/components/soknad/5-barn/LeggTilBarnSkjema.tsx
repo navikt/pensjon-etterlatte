@@ -15,16 +15,18 @@ import Hjelpetekst from "../../felles/Hjelpetekst";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 
 interface Props {
-    lagre: (data: IBarn) => void;
     avbryt: () => void;
+    lagre: (data: IBarn) => void;
+    barn: IBarn;
     fnrRegistrerteBarn: string[];
+    fjernAvbruttNyttBarn: () => void;
 }
 
-const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
+const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbruttNyttBarn }: Props) => {
     const { t } = useTranslation();
 
-
     const methods = useForm<IBarn>({
+        defaultValues: barn,
         shouldUnregister: true
     });
 
@@ -35,10 +37,17 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
         watch,
     } = methods;
 
-    const leggTilOgLukk = (data: any) => {
+    const leggTilOgLukk = (data: IBarn) => {
         lagre(data);
         reset();
     };
+
+    const avbrytOgLukk = () => {
+        if (barn.foedselsnummer === undefined) {
+            fjernAvbruttNyttBarn()
+        }
+        avbryt()
+    }
 
     const bosattUtland = watch("bosattUtland.svar")
     const harBarnetVerge = watch("harBarnetVerge.svar")
@@ -66,7 +75,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
     return (
         <FormProvider {...methods} >
             <form style={{ padding: "2rem 2.5rem" }}>
-                <SkjemaGruppe className={"skjemagruppe-modal"}>
+                <SkjemaGruppe>
                     <Heading size={"small"} className={"center"}>
                         {t("omBarn.tittelModal")}
                     </Heading>
@@ -96,19 +105,22 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         bredde={"L"}
                         label={t("omBarn.foedselsnummer")}
                         placeholder={t("felles.fnrPlaceholder")}
-                        rules={{validate: {
-                            validate: (value) => {
-                                if(fnr(value).status !== "valid") {
-                                    return false;
+                        rules={{
+                            validate: {
+                                validate: (value) => {
+                                    if (fnr(value).status !== "valid") {
+                                        return false;
+                                    }
+                                    return true;
+                                },
+                                duplicate: (value) => {
+                                    if (fnrRegistrerteBarn.indexOf(value) > -1) {
+                                        return false;
+                                    }
+                                    return true
                                 }
-                                return true;
-                            },
-                            duplicate: (value) => {
-                            if(fnrRegistrerteBarn.indexOf(value) > -1) {
-                                return false;
                             }
-                            return true
-                        }}}}
+                        }}
                     />
 
                     {visDuplikatFeilmelding() && (
@@ -262,7 +274,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                 )}
 
                 {(relasjon === BarnRelasjon.egneSaerkullsbarn) && (
-                    <SkjemaGruppe className={"skjemagruppe-modal"}>
+                    <SkjemaGruppe>
                         <RHFSpoersmaalRadio
                             name={"dagligOmsorg"}
                             legend={t("omBarn.dagligOmsorg")}
@@ -288,7 +300,7 @@ const LeggTilBarnSkjema = ({ lagre, avbryt, fnrRegistrerteBarn }: Props) => {
                         id={"avbrytLeggTilBarn"}
                         variant={"secondary"}
                         type={"button"}
-                        onClick={avbryt}
+                        onClick={() => avbrytOgLukk()}
                         style={{ minWidth: "80px" }}
                     >
                         {t("knapp.avbryt")}

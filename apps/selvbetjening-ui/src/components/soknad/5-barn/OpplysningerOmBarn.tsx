@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../felles/Infokort.scss";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import SoknadSteg from "../../../typer/SoknadSteg";
@@ -15,7 +15,6 @@ import { Alert, BodyShort, Button, Modal, Panel, Heading, Accordion } from "@nav
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import { deepCopy } from "../../../utils/deepCopy";
-import { AccordionItem } from "../6-oppsummering/AccordionItem";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root"); //Denne er også definert i Navigasjon. Trenger vi den?
 
@@ -42,20 +41,35 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
             return []
         }
     }
-    const fnrRegistrerteBarn: string[] = getFnrRegistrerteBarn()
 
-    const { fields, append, remove } = useFieldArray({
+    const fnrRegistrerteBarn = (aktivBarnIndex: number): string[] => {
+        const fnr = getFnrRegistrerteBarn()
+        fnr.splice(aktivBarnIndex, 1)
+        return fnr
+    }
+
+    const { fields, append, update, remove } = useFieldArray({
         name: "barn",
         control: methods.control,
     });
 
-    // Modal
-    const [isOpen, setIsOpen] = useState(false);
+    const [aktivBarnIndex, setAktivBarnIndex] = useState<number | undefined>(undefined)
 
-    const leggTilBarn = (data: IBarn) => {
-        append(data as any);
-        setIsOpen(false);
-    };
+    const leggtilNyttBarn = () => {
+        append({})
+        setAktivBarnIndex(fields.length)
+    }
+
+    const fjernNyttBarn = () => {
+        remove(aktivBarnIndex)
+    }
+
+    const oppdaterBarn = (barn: IBarn) => {
+        if (aktivBarnIndex !== undefined) {
+            update(aktivBarnIndex, barn)
+        }
+        setAktivBarnIndex(undefined)
+    }
 
     const lagreNeste = (data: IOmBarn) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(data), erValidert: true } });
@@ -84,53 +98,56 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                     </Heading>
                 </SkjemaGruppe>
 
-                <SkjemaGruppe>
-                    <Panel border>
-                        <Alert variant={"info"} className={"navds-alert--inline"}>
-                            <BodyShort size={"small"}>{t("omBarn.informasjon")}</BodyShort>
-                        </Alert>
-                    </Panel>
-                </SkjemaGruppe>
-
-                <SkjemaGruppe>
-                    <div className={"infokort-wrapper"}>
-                        {fields?.map((field: FieldArrayWithId, index: number) => (
-                            <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={remove}/>
-                        ))}
-
-                        <div className={"infokort"}>
-                            <div className={"infokort__header gjennomsiktig"}>
-                                <img alt="barn" className="barneikon" src={ikon}/>
-                            </div>
-                            <div className={"infokort__informasjonsboks"}>
-                                <div className={"informasjonsboks-innhold"}>
-                                    <Button variant={"primary"} type={"button"} onClick={() => setIsOpen(true)}>
-                                        {t("knapp.leggTilBarn")}
-                                    </Button>
-                                </div>
-
-                                <BodyShort size={"small"} className={"center mute"}>
-                                    {t("omBarn.valgfritt")}
-                                </BodyShort>
-                            </div>
-                        </div>
-                    </div>
-
+                {aktivBarnIndex === undefined &&
+                <>
                     <SkjemaGruppe>
-                        <Accordion>
-                            <AccordionItem tittel={"Nytt barn"}>
-                                <div>TEST 2</div>
-                            </AccordionItem>
-                        </Accordion>
+                        <Panel border>
+                            <Alert variant={"info"} className={"navds-alert--inline"}>
+                                <BodyShort size={"small"}>{t("omBarn.informasjon")}</BodyShort>
+                            </Alert>
+                        </Panel>
                     </SkjemaGruppe>
 
-                    <Modal open={isOpen} onClose={() => setIsOpen(false)} className={"ey-modal"}>
-                        <LeggTilBarnSkjema lagre={leggTilBarn} avbryt={() => setIsOpen(false)}
-                                           fnrRegistrerteBarn={fnrRegistrerteBarn}/>
-                    </Modal>
-                </SkjemaGruppe>
+                    <SkjemaGruppe>
+                        <div className={"infokort-wrapper"}>
+                            {fields?.map((field: FieldArrayWithId, index: number) => (
+                                <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={remove}
+                                              setAktivBarnIndex={() => setAktivBarnIndex(index)}/>
+                            ))}
 
-                <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
+                            <div className={"infokort"}>
+                                <div className={"infokort__header gjennomsiktig"}>
+                                    <img alt="barn" className="barneikon" src={ikon}/>
+                                </div>
+                                <div className={"infokort__informasjonsboks"}>
+                                    <div className={"informasjonsboks-innhold"}>
+                                        <Button variant={"primary"} type={"button"} onClick={leggtilNyttBarn}>
+                                            {t("knapp.leggTilBarn")}
+                                        </Button>
+                                    </div>
+
+                                    <BodyShort size={"small"} className={"center mute"}>
+                                        {t("omBarn.valgfritt")}
+                                    </BodyShort>
+                                </div>
+                            </div>
+                        </div>
+                    </SkjemaGruppe>
+                    <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
+                </>
+                }
+
+                {aktivBarnIndex !== undefined &&
+                <SkjemaGruppe>
+                    <Panel border>
+                        <LeggTilBarnSkjema lagre={oppdaterBarn} avbryt={() => setAktivBarnIndex(undefined)}
+                                           fnrRegistrerteBarn={fnrRegistrerteBarn(aktivBarnIndex)}
+                                           barn={fields[aktivBarnIndex] as IBarn}
+                                           fjernAvbruttNyttBarn={fjernNyttBarn}
+                        />
+                    </Panel>
+                </SkjemaGruppe>
+                }
 
                 <Navigasjon
                     forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}

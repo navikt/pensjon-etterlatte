@@ -10,9 +10,10 @@ interface Props {
     barn: IBarn;
     index: number;
     fjern: (index: number) => void;
+    setAktivBarnIndex: () => void
 }
 
-const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
+const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => {
     const { t } = useTranslation();
 
     const foedselsnummer = barn.foedselsnummer?.replace(/(\d{6})(.*)/, "$1 $2");
@@ -66,6 +67,9 @@ const BarnInfokort = memo(({ barn, index, fjern }: Props) => {
             </div>
 
             <div className={"infokort__footer"}>
+                <Link href={"#"} onClick={(e) => {e.preventDefault();  setAktivBarnIndex()} }>
+                    {t("knapp.endre")}
+                </Link>&nbsp;
                 <Link href={"#"} onClick={() => fjern(index)}>
                     {t("knapp.fjernFraSoeknad")}
                 </Link>
