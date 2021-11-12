@@ -26,10 +26,10 @@ interface Props {
 
 const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbruttNyttBarn }: Props) => {
     const { t } = useTranslation();
-    const { land }: {land: any} = useLand();
+    const { land }: { land: any } = useLand();
 
     const methods = useForm<IBarn>({
-        defaultValues: {statsborgerskap: "Norge", barn},
+        defaultValues: { ...barn, statsborgerskap: barn.statsborgerskap || "Norge" },
         shouldUnregister: true
     });
 
@@ -111,16 +111,10 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                         rules={{
                             validate: {
                                 validate: (value) => {
-                                    if (fnr(value).status !== "valid") {
-                                        return false;
-                                    }
-                                    return true;
+                                    return fnr(value).status === "valid";
                                 },
                                 duplicate: (value) => {
-                                    if (fnrRegistrerteBarn.indexOf(value) > -1) {
-                                        return false;
-                                    }
-                                    return true
+                                    return fnrRegistrerteBarn.indexOf(value) <= -1;
                                 }
                             }
                         }}
@@ -135,12 +129,12 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                     )}
 
                     <RHFSelect
-                            className="kol-50"
-                            name={`statsborgerskap`}
-                            label={t("omBarn.statsborgerskap")}
-                            value={"Norge"}
-                            selectOptions={land}
-                        />
+                        className="kol-50"
+                        name={`statsborgerskap`}
+                        label={t("omBarn.statsborgerskap")}
+                        value={"Norge"}
+                        selectOptions={land}
+                    />
                 </SkjemaGruppering>
 
                 <SkjemaGruppering>

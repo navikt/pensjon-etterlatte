@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../felles/Infokort.scss";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import SoknadSteg from "../../../typer/SoknadSteg";
@@ -11,7 +11,7 @@ import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
-import { Alert, BodyShort, Button, Modal, Panel, Heading, Accordion } from "@navikt/ds-react";
+import { Alert, BodyShort, Button, Modal, Panel, Heading } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import { deepCopy } from "../../../utils/deepCopy";
