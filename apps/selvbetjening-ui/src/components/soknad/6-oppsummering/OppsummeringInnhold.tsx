@@ -12,7 +12,6 @@ import { AccordionItem } from "./AccordionItem";
 const OppsummeringInnhold = memo(
     ({ soeknadOppsummering, senderSoeknad }: { soeknadOppsummering: Gruppe[]; senderSoeknad: boolean }) => {
         const { t } = useTranslation();
-
         const elementPanel = ({ tittel, innhold }: Element) => (
             <Panel key={uuid()}>
                 {tittel && <Heading size={"small"}>{tittel}</Heading>}

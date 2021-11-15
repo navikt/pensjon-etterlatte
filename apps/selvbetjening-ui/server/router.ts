@@ -21,9 +21,9 @@ const deleteUnwantedFields = (soeknad: any) => {
 export const sendSoeknad = () => {
     const router = express.Router();
 
-
     router.post(`${config.app.basePath}/api/oppsummering`, express.json(), async (req: Request, res: Response) => {
-        res.send("ok da");
+        const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
+        res.send(oppsummering)
     });
 
     router.post(`${config.app.basePath}/api/api/soeknad`, express.json(), async (req: any, res: any) => {

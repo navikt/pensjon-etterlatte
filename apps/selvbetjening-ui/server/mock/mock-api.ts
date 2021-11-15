@@ -29,8 +29,12 @@ export const mockApi = (app: any) => {
         next();
     });
 
+    app.post(`${config.app.basePath}/api/oppsummering`, async (req: Request, res: Response) => {
+        const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
+        res.send(oppsummering)
+    });
+
     app.post(`${config.app.basePath}/api/api/soeknad`, async (req: Request, res: Response, next: NextFunction) => {
-        console.log(req.body)
         const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
         req.body = { utfyltSoeknad: req.body.soeknad, oppsummering }
         next();
