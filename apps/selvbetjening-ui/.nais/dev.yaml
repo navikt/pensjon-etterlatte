@@ -40,6 +40,7 @@ spec:
   idporten:
     enabled: true
     clientUri: https://www.dev.nav.no
+    frontchannelLogoutPath: /gjenlevendepensjon/soknad/logout
     postLogoutRedirectURIs:
       - https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
   envFrom:
