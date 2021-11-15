@@ -41,34 +41,49 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
             return []
         }
     }
-    const fnrRegistrerteBarn: string[] = getFnrRegistrerteBarn()
 
-    const { fields, append, remove } = useFieldArray({
+    const fnrRegistrerteBarn = (aktivBarnIndex: number): string[] => {
+        const fnr = getFnrRegistrerteBarn()
+        fnr.splice(aktivBarnIndex, 1)
+        return fnr
+    }
+
+    const { fields, append, update, remove } = useFieldArray({
         name: "barn",
         control: methods.control,
     });
 
-    // Modal
-    const [isOpen, setIsOpen] = useState(false);
+    const [aktivBarnIndex, setAktivBarnIndex] = useState<number | undefined>(undefined)
 
-    const leggTilBarn = (data: IBarn) => {
-        append(data as any);
-        setIsOpen(false);
-    };
+    const leggtilNyttBarn = () => {
+        append({})
+        setAktivBarnIndex(fields.length)
+    }
+
+    const fjernNyttBarn = () => {
+        remove(aktivBarnIndex)
+    }
+
+    const oppdaterBarn = (barn: IBarn) => {
+        if (aktivBarnIndex !== undefined) {
+            update(aktivBarnIndex, barn)
+        }
+        setAktivBarnIndex(undefined)
+    }
 
     const lagreNeste = (data: IOmBarn) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: {...deepCopy(data), erValidert: true} });
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(data), erValidert: true } });
         neste!!();
     };
 
     const lagreTilbake = (data: IOmBarn) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: {...deepCopy(data), erValidert: true} })
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(data), erValidert: true } })
         forrige!!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: {...deepCopy(verdier), erValidert: false} })
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(verdier), erValidert: false } })
         forrige!!()
     }
 
@@ -77,56 +92,64 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     return (
         <FormProvider {...methods}>
             <form>
-                <SkjemaGruppe>
-                    <Heading size={"medium"} className={"center"}>
-                        {t("omBarn.tittel")}
-                    </Heading>
-                </SkjemaGruppe>
+                {aktivBarnIndex === undefined &&
+                <>
+                    <SkjemaGruppe>
+                        <Heading size={"medium"} className={"center"}>
+                            {t("omBarn.tittel")}
+                        </Heading>
+                    </SkjemaGruppe>
 
-                <SkjemaGruppe>
-                    <Panel border>
-                        <Alert variant={"info"} className={"navds-alert--inline"}>
-                            <BodyShort size={"small"}>{t("omBarn.informasjon")}</BodyShort>
-                        </Alert>
-                    </Panel>
-                </SkjemaGruppe>
+                    <SkjemaGruppe>
+                        <Panel border>
+                            <Alert variant={"info"} className={"navds-alert--inline"}>
+                                <BodyShort size={"small"}>{t("omBarn.informasjon")}</BodyShort>
+                            </Alert>
+                        </Panel>
+                    </SkjemaGruppe>
 
-                <SkjemaGruppe>
-                    <div className={"infokort-wrapper"}>
-                        {fields?.map((field: FieldArrayWithId, index: number) => (
-                            <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={remove}/>
-                        ))}
+                    <SkjemaGruppe>
+                        <div className={"infokort-wrapper"}>
+                            {fields?.map((field: FieldArrayWithId, index: number) => (
+                                <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={remove}
+                                              setAktivBarnIndex={() => setAktivBarnIndex(index)}/>
+                            ))}
 
-                        <div className={"infokort"}>
-                            <div className={"infokort__header gjennomsiktig"}>
-                                <img alt="barn" className="barneikon" src={ikon}/>
-                            </div>
-                            <div className={"infokort__informasjonsboks"}>
-                                <div className={"informasjonsboks-innhold"}>
-                                    <Button variant={"primary"} type={"button"} onClick={() => setIsOpen(true)}>
-                                        {t("knapp.leggTilBarn")}
-                                    </Button>
+                            <div className={"infokort"}>
+                                <div className={"infokort__header gjennomsiktig"}>
+                                    <img alt="barn" className="barneikon" src={ikon}/>
                                 </div>
+                                <div className={"infokort__informasjonsboks"}>
+                                    <div className={"informasjonsboks-innhold"}>
+                                        <Button variant={"primary"} type={"button"} onClick={leggtilNyttBarn}>
+                                            {t("knapp.leggTilBarn")}
+                                        </Button>
+                                    </div>
 
-                                <BodyShort size={"small"} className={"center mute"}>
-                                    {t("omBarn.valgfritt")}
-                                </BodyShort>
+                                    <BodyShort size={"small"} className={"center mute"}>
+                                        {t("omBarn.valgfritt")}
+                                    </BodyShort>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </SkjemaGruppe>
+                    <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
 
-                    <Modal open={isOpen} onClose={() => setIsOpen(false)} className={"ey-modal"}>
-                        <LeggTilBarnSkjema lagre={leggTilBarn} avbryt={() => setIsOpen(false)}
-                                           fnrRegistrerteBarn={fnrRegistrerteBarn}/>
-                    </Modal>
-                </SkjemaGruppe>
+                    <Navigasjon
+                        forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
+                        neste={{ onClick: handleSubmit(lagreNeste) }}
+                    />
+                </>
+                }
 
-                <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
-
-                <Navigasjon
-                    forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
-                    neste={{ onClick: handleSubmit(lagreNeste) }}
+                {aktivBarnIndex !== undefined &&
+                <LeggTilBarnSkjema lagre={oppdaterBarn} avbryt={() => setAktivBarnIndex(undefined)}
+                                   fnrRegistrerteBarn={fnrRegistrerteBarn(aktivBarnIndex)}
+                                   barn={fields[aktivBarnIndex] as IBarn}
+                                   fjernAvbruttNyttBarn={fjernNyttBarn}
                 />
+                }
+
             </form>
         </FormProvider>
     );
