@@ -1,24 +1,26 @@
-const parser = require("body-parser");
-const NodeCache = require("node-cache");
-const mockLand = require("./landMock");
-const {
+import parser from 'body-parser';
+import NodeCache from 'node-cache';
+import mockLand from './landMock';
+
+import {
     SEDAT_RIPSBÆRBUSK,
     TRIVIELL_MIDTPUNKT, // For ung til å søke
     KRAFTIG_GAPAHAUK, // For gammel til å søke
     NOBEL_TØFFELDYR,
     STOR_SNERK
-} = require("./mock-user");
+} from './mock-user';
+import config from '../config';
+import { generateSummary } from '../generateSummary';
+import { Request, Response, NextFunction } from 'express';
 
-const config = require("../config");
-const { generateSummary } = require("../generateSummary");
 
 const cache = new NodeCache();
 
-const mockApi = (app) => {
+export const mockApi = (app: any) => {
     const innloggetBruker = STOR_SNERK;
 
     app.use(parser.json());
-    app.use(function (req, res, next) {
+    app.use(function (req: Request, res: Response, next: NextFunction) {
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
         res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type");
@@ -27,20 +29,20 @@ const mockApi = (app) => {
         next();
     });
 
-    app.post(`${config.app.basePath}/api/api/soeknad`, async (req, res, next) => {
+    app.post(`${config.app.basePath}/api/api/soeknad`, async (req: Request, res: Response, next: NextFunction) => {
         console.log(req.body)
         const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
         req.body = { utfyltSoeknad: req.body.soeknad, oppsummering }
         next();
-    }, (req, res) => {
+    }, (req: Request, res: Response,) => {
         res.send("ok");
     });
 
-    app.get(`${config.app.basePath}/api/person/innlogget`, (req, res) => setTimeout(() => res.json(innloggetBruker), 1000));
+    app.get(`${config.app.basePath}/api/person/innlogget`, (req: Request, res: Response) => setTimeout(() => res.json(innloggetBruker), 1000));
 
 
-    app.post(`${config.app.basePath}/api/api/soeknad`, (req, res) => {
-        let id = cache.get("id");
+    app.post(`${config.app.basePath}/api/api/soeknad`, (req: Request, res: Response) => {
+        const id = cache.get("id");
 
         console.log(generateSummary(req.body.soeknad, req.body.bruker));
         if (!!id)
@@ -55,14 +57,14 @@ const mockApi = (app) => {
         }, 1000);
     });
 
-    app.get(`${config.app.basePath}/api/api/kladd`, (req, res) => {
+    app.get(`${config.app.basePath}/api/api/kladd`, (req: Request, res: Response) => {
         const soeknad = cache.get(innloggetBruker.foedselsnummer);
 
         if (!soeknad) res.sendStatus(404);
         else res.json({ payload: soeknad })
     });
 
-    app.post(`${config.app.basePath}/api/api/kladd`, (req, res) => {
+    app.post(`${config.app.basePath}/api/api/kladd`, (req: Request, res: Response) => {
         const soeknad = JSON.stringify(req.body);
 
         cache.set(innloggetBruker.foedselsnummer, soeknad);
@@ -70,17 +72,13 @@ const mockApi = (app) => {
         res.sendStatus(200)
     });
 
-    app.delete(`${config.app.basePath}/api/api/kladd`, (req, res) => {
+    app.delete(`${config.app.basePath}/api/api/kladd`, (req: Request, res: Response) => {
         cache.del(innloggetBruker.foedselsnummer);
 
         res.sendStatus(200);
     });
 
-    app.get(`${config.app.basePath}/api/kodeverk/alleland`, (req, res) => {
+    app.get(`${config.app.basePath}/api/kodeverk/alleland`, (req: Request, res: Response) => {
         return res.json(mockLand)
     });
-};
-
-module.exports = {
-    mockApi
 };

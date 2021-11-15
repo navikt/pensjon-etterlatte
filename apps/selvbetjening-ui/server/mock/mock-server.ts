@@ -1,5 +1,5 @@
-const express = require("express");
-const { mockApi } = require("./mock-api");
+import express from 'express';
+import { mockApi } from './mock-api';
 
 const app = express();
 

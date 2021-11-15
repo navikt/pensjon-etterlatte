@@ -6,6 +6,7 @@
 .idea/
 
 build/
+buildServer
 out/
 node_modules/
 yarn-error.log

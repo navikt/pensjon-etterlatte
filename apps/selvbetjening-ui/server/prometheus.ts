@@ -1,6 +1,7 @@
-const client = require('prom-client')
-const config = require("./config");
-const logger = require("./logger");
+
+import client from 'prom-client';
+import config from './config';
+import logger from "./logger";
 
 const basePath = config.app.basePath;
 
@@ -9,15 +10,15 @@ const register = new client.Registry();
 
 collectDefaultMetrics({ register });
 
-const setup = (app) => {
+const setup = (app: any) => {
     logger.info("Setup metrics");
 
-    app.get(`${basePath}/metrics`, async (req, res) => {
+    app.get(`${basePath}/metrics`, async (req: any, res: any) => {
         res.set('Content-Type', register.contentType);
         res.end(await register.metrics())
     });
 };
 
-module.exports = {
+export default {
     setup
-};
+}

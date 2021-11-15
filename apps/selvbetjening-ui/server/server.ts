@@ -1,10 +1,10 @@
-const express = require("express");
-const path = require("path");
-const decorator = require("./decorator");
-const authRoutes = require("./auth/auth-routes")
-const api = require("./api");
-const config = require("./config");
-const prometheus = require("./prometheus")
+import express from "express"
+import path from "path"
+import decorator from "./decorator";
+import authRoutes from './auth/auth-routes';
+import api from "./api"
+import config from "./config";
+import prometheus from './prometheus'
 
 const basePath = config.app.basePath;
 const buildPath = path.resolve(__dirname, "../build");
@@ -15,7 +15,7 @@ app.set("trust proxy", 1);
 app.use(basePath, express.static(buildPath, {index: false}));
 
 // Endpoints to verify is app is ready/alive
-app.get(`${basePath}/isAlive|${basePath}/isReady`, (req, res) => {
+app.get(`${basePath}/isAlive|${basePath}/isReady`, (req: any, res: any) => {
     res.send("OK");
 });
 

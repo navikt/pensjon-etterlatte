@@ -1,11 +1,12 @@
-const session = require("express-session");
-const redis = require("redis");
-const config = require("./config");
-const RedisStore = require("connect-redis");
+import session from 'express-session';
+import redis from 'redis';
+import config from './config';
+import RedisStore from 'connect-redis';
+
 
 const { isLabsCluster, isProduction } = config.env;
 
-const options = {
+const options: any = {
     cookie: {
         maxAge: config.session.maxAgeMs,
         sameSite: "lax",
@@ -31,11 +32,11 @@ const setupRedis = () => {
     const client = redis.createClient({
         host: config.session.redisHost,
         password: config.session.redisPassword,
-        port: config.session.redisPort,
+        port: Number(config.session.redisPort),
     });
     client.unref();
 
-    client.on("error", (err) => {
+    client.on("error", (err: any) => {
         console.error("Unable to establish connection with Redis: ", err);
     });
 
@@ -49,13 +50,13 @@ const setupRedis = () => {
     });
 };
 
-const appSession = setupSession();
+const appSession: any = setupSession();
 
-appSession.destroySessionBySid = (sid) => {
+appSession.destroySessionBySid = (sid: any) => {
     console.log(`Destroying session by SID: ${sid}`)
 
-    return new Promise((resolve, reject) => {
-        options.store.all((err, result) => {
+    return new Promise((resolve: any, reject: any) => {
+        options.store.all((err: any, result: any) => {
             if (err) {
                 console.error("Error during session destruction", err)
                 return reject(err)
@@ -63,7 +64,7 @@ appSession.destroySessionBySid = (sid) => {
 
             console.log(`Found ${result.length} sessions`);
 
-            const sessionToDestroy = result.find((session) => {
+            const sessionToDestroy = result.find((session: any) => {
                 return session.id && session.id === sid
             });
 
@@ -77,6 +78,4 @@ appSession.destroySessionBySid = (sid) => {
     })
 }
 
-module.exports = {
-    appSession,
-};
+export default appSession;

@@ -1,36 +1,37 @@
-const { appSession} = require("../session");
-const { generators, TokenSet } = require("openid-client");
-const IDportenClient = require("./idporten");
-const config = require("../config");
-const logger = require("../logger");
+import appSession from '../session';
+import { generators, TokenSet } from 'openid-client';
+import IDportenClient from './idporten';
+import config from '../config';
+import logger from '../logger';
+
 
 const basePath = config.app.basePath;
 
 const idporten = new IDportenClient();
 
-const setup = (app) => {
+const setup = (app: any) => {
     app.use(appSession);
 
-    app.get(`${basePath}/login`, async (req, res) => {
+    app.get(`${basePath}/login`, async (req: any, res: any) => {
         const session = req.session;
         session.nonce = generators.nonce();
         session.state = generators.state();
         res.redirect(idporten.authUrl(session));
     });
 
-    app.get(`${basePath}/logout/callback`, async (req, res) => {
+    app.get(`${basePath}/logout/callback`, async (req: any, res: any) => {
         console.log("Loginservice slo");
         res.redirect(config.app.loginServiceLogoutUrl)
     });
 
-    app.get(`${basePath}/logout`, async (req, res) => {
+    app.get(`${basePath}/logout`, async (req: any, res: any) => {
         const idToken = new TokenSet(req.session.tokens).id_token
 
         console.log("Initiating logout");
 
         console.log("Destroying session")
         appSession.destroySessionBySid(req.sessionID);
-        req.session.destroy((err) => {
+        req.session.destroy((err: any) => {
             if (err) console.error(err);
             else console.log("Session destroyed")
         });
@@ -51,7 +52,7 @@ const setup = (app) => {
         }
     });
 
-    app.get(`${basePath}/oauth2/callback`, async (req, res) => {
+    app.get(`${basePath}/oauth2/callback`, async (req: any, res: any) => {
         const session = req.session;
 
         idporten.validateOidcCallback(req)
@@ -76,7 +77,7 @@ const setup = (app) => {
     });
 
     // check auth
-    app.use(async (req, res, next) => {
+    app.use(async (req: any, res: any, next: any) => {
         const session = req.session;
         const currentTokens = session.tokens;
 
@@ -86,10 +87,10 @@ const setup = (app) => {
             const currentTokenSet = new TokenSet(currentTokens);
             if (currentTokenSet.expired()) {
                 idporten.refresh(currentTokens)
-                        .then((refreshedTokenSet) => {
+                        .then((refreshedTokenSet: any) => {
                             session.tokens = new TokenSet(refreshedTokenSet);
                         })
-                        .catch((err) => {
+                        .catch((err: any) => {
                             logger.error("Feil oppsto ved refresh av token", err);
                             session.destroy();
                             res.redirect(`${basePath}/login`);
@@ -100,6 +101,6 @@ const setup = (app) => {
     });
 };
 
-module.exports = {
+export default {
     setup
 }

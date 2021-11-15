@@ -1,5 +1,6 @@
-const config = require("./config");
-const { createLogger, format, transports } = require("winston");
+import config from "./config";
+import { createLogger, format, transports } from "winston";
+
 const { Console } = transports;
 const { colorize, combine, timestamp, simple, json } = format;
 
@@ -15,4 +16,4 @@ const logger = createLogger({
     transports: [new Console()],
 });
 
-module.exports = logger;
+export default logger;
