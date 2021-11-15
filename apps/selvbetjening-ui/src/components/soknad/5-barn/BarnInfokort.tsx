@@ -1,10 +1,11 @@
 import "./BarnInfoKort.scss";
 import { IBarn } from "../../../typer/person";
 import ikon from "../../../assets/ikoner/barn1.svg";
-import { memo } from "react";
+import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { IValg } from "../../../typer/Spoersmaal";
 import { BodyShort, Detail, Link, Heading } from "@navikt/ds-react";
+import { DeleteFilled, EditFilled } from "@navikt/ds-icons";
 
 interface Props {
     barn: IBarn;
@@ -67,11 +68,14 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
             </div>
 
             <div className={"infokort__footer"}>
-                <Link href={"#"} onClick={(e) => {e.preventDefault();  setAktivBarnIndex()} }>
-                    {t("knapp.endre")}
-                </Link>&nbsp;
-                <Link href={"#"} onClick={() => fjern(index)}>
-                    {t("knapp.fjernFraSoeknad")}
+                <Link href={"#"} className={"infokort__footer-item"} onClick={(e) => {e.preventDefault();  setAktivBarnIndex()} }>
+                    <EditFilled className={"edit-svg"} />
+                    <span>{t("knapp.endre")}</span>
+                </Link>
+
+                <Link href={"#"} className={"infokort__footer-item"} onClick={() => fjern(index)}>
+                    <DeleteFilled className={"edit-svg"} />
+                    <span>{t("knapp.fjernFraSoeknad")}</span>
                 </Link>
             </div>
         </div>

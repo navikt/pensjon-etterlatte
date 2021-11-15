@@ -92,14 +92,14 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     return (
         <FormProvider {...methods}>
             <form>
-                <SkjemaGruppe>
-                    <Heading size={"medium"} className={"center"}>
-                        {t("omBarn.tittel")}
-                    </Heading>
-                </SkjemaGruppe>
-
                 {aktivBarnIndex === undefined &&
                 <>
+                    <SkjemaGruppe>
+                        <Heading size={"medium"} className={"center"}>
+                            {t("omBarn.tittel")}
+                        </Heading>
+                    </SkjemaGruppe>
+
                     <SkjemaGruppe>
                         <Panel border>
                             <Alert variant={"info"} className={"navds-alert--inline"}>
@@ -134,25 +134,22 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                         </div>
                     </SkjemaGruppe>
                     <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
+
+                    <Navigasjon
+                        forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
+                        neste={{ onClick: handleSubmit(lagreNeste) }}
+                    />
                 </>
                 }
 
                 {aktivBarnIndex !== undefined &&
-                <SkjemaGruppe>
-                    <Panel border>
-                        <LeggTilBarnSkjema lagre={oppdaterBarn} avbryt={() => setAktivBarnIndex(undefined)}
-                                           fnrRegistrerteBarn={fnrRegistrerteBarn(aktivBarnIndex)}
-                                           barn={fields[aktivBarnIndex] as IBarn}
-                                           fjernAvbruttNyttBarn={fjernNyttBarn}
-                        />
-                    </Panel>
-                </SkjemaGruppe>
+                <LeggTilBarnSkjema lagre={oppdaterBarn} avbryt={() => setAktivBarnIndex(undefined)}
+                                   fnrRegistrerteBarn={fnrRegistrerteBarn(aktivBarnIndex)}
+                                   barn={fields[aktivBarnIndex] as IBarn}
+                                   fjernAvbruttNyttBarn={fjernNyttBarn}
+                />
                 }
 
-                <Navigasjon
-                    forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
-                    neste={{ onClick: handleSubmit(lagreNeste) }}
-                />
             </form>
         </FormProvider>
     );
