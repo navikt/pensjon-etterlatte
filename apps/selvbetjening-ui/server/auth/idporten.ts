@@ -1,5 +1,5 @@
 import { Issuer, TokenSet } from 'openid-client';
-import logger from '../logger';
+import logger from '../log/logger';
 import config from '../config';
 
 const idportenConfig = config.idporten;

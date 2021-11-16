@@ -1,6 +1,7 @@
 import session from 'express-session';
 import redis from 'redis';
 import config from './config';
+import logger from './log/logger';
 import RedisStore from 'connect-redis';
 
 
@@ -37,11 +38,11 @@ const setupRedis = () => {
     client.unref();
 
     client.on("error", (err: any) => {
-        console.error("Unable to establish connection with Redis: ", err);
+        logger.error("Unable to establish connection with Redis: ", err);
     });
 
     client.on("connect", () => {
-        console.log("Successfully connected to Redis!");
+        logger.info("Successfully connected to Redis!");
     });
 
     return new store({

@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import fetch from 'node-fetch';
 import TokenXClient from './auth/tokenx';
 import config from './config';
-import logger from './logger';
+import logger from './log/logger';
 import { generateSummary } from './generateSummary';
 
 

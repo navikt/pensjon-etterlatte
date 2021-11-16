@@ -48,13 +48,15 @@ $width: 650px;
       }
     }
 
-    &__footer {
+    &__footer-item {
       display: flex;
       justify-content: center;
       flex-grow: 1;
-      align-items: flex-end;
       text-align: center;
-      margin: 1rem 0;
+    }
+
+    &__footer {
+      margin-bottom: 1rem;
     }
 
     .infokort-knapper {

@@ -120,7 +120,9 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         const kravOmAnnenStonad = dinSituasjon.andreYtelser.kravOmAnnenStonad;
         selectValueForId("andreYtelser.kravOmAnnenStonad.svar", kravOmAnnenStonad.svar);
-        getById("andreYtelser.kravOmAnnenStonad.beskrivelse").type(kravOmAnnenStonad.beskrivelse);
+        getById("andreYtelser.kravOmAnnenStonad.ytelser")
+                .find("select")
+                .select(kravOmAnnenStonad.ytelser)
 
         const annenPensjon = dinSituasjon.andreYtelser.annenPensjon;
         selectValueForId("andreYtelser.annenPensjon.svar", annenPensjon.svar);

@@ -1,24 +1,16 @@
-
 import client from 'prom-client';
-import config from './config';
-import logger from "./logger";
 
-const basePath = config.app.basePath;
+class Prometheus {
+    public register;
+    constructor() {
+        const collectDefaultMetrics = client.collectDefaultMetrics;
 
-const collectDefaultMetrics = client.collectDefaultMetrics;
-const register = new client.Registry();
+        this.register = new client.Registry();
 
-collectDefaultMetrics({ register });
-
-const setup = (app: any) => {
-    logger.info("Setup metrics");
-
-    app.get(`${basePath}/metrics`, async (req: any, res: any) => {
-        res.set('Content-Type', register.contentType);
-        res.end(await register.metrics())
-    });
-};
-
-export default {
-    setup
+        collectDefaultMetrics({
+            register: this.register
+        });
+    }
 }
+
+export default new Prometheus();

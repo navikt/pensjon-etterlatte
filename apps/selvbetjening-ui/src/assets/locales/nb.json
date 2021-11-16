@@ -27,7 +27,8 @@
     "fjern": "Fjern",
     "fjernFraSoeknad": "Fjern fra søknad",
     "lagre": "Lagre",
-    "slett": "Slett søknad"
+    "slett": "Slett søknad",
+    "endre": "Endre"
   },
   "forside": {
     "tittel": "Søk om gjenlevendepensjon eller overgangsstønad",
@@ -133,9 +134,8 @@
       "tittel": "Ytelser",
       "ingress": "Noen ytelser fra NAV blir regnet som inntekt og har betydning for hvor mye gjenlevendepensjon du får. Uføretrygd, alderspensjon, avtalefestet pensjon (AFP) kan ikke kombineres med gjenlevendepensjon.",
       "kravOmAnnenStonad": {
-        "svar": "Har du søkt om andre ytelser fra NAV som du ikke har fått svar på?",
-        "beskrivelse": "Hva har du søkt om?",
-        "placeholder": "Eks. sykepenger, dagpenger, pensjon, stønad til livsopphold"
+        "svar": "Har du søkt om andre ytelser som du ikke har fått svar på?",
+        "ytelser": "Hva har du søkt om?"
       },
       "annenPensjon": {
         "svar": "Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?",
@@ -449,6 +449,20 @@
     "fast": "Fast ansatt",
     "midlertidig": "Midlertidig ansatt",
     "sesongarbeid": "Sesongansatt"
+  },
+  "ytelser": {
+    "velg": "Velg...",
+    "dagpenger": "Dagpenger",
+    "sykepenger": "Sykepenger",
+    "pleiepenger": "Pleiepenger",
+    "svangerskapspenger": "Svagerskapspenger",
+    "foreldrepenger": "Foreldrepenger",
+    "arbeidsavklaringspenger": "Arbeidsavklaringspenger",
+    "kvalifiseringsstoenad" : "Kvalifiseringsstønad",
+    "kommunal": "Kommunal omsorgsstønad",
+    "fosterhjem": "Fosterhjemsgodtgjøring",
+    "omsorgspenger": "Omsorgspenger",
+    "opplaeringspenger": "Opplæringspenger"
   },
   "bankkontoType": {
     "norsk": "Norsk",

@@ -2,7 +2,7 @@ import appSession from '../session';
 import { generators, TokenSet } from 'openid-client';
 import IDportenClient from './idporten';
 import config from '../config';
-import logger from '../logger';
+import logger from '../log/logger';
 
 
 const basePath = config.app.basePath;
@@ -20,20 +20,19 @@ const setup = (app: any) => {
     });
 
     app.get(`${basePath}/logout/callback`, async (req: any, res: any) => {
-        console.log("Loginservice slo");
+        logger.info(`Redirect to: ${config.app.loginServiceLogoutUrl}`)
         res.redirect(config.app.loginServiceLogoutUrl)
     });
 
     app.get(`${basePath}/logout`, async (req: any, res: any) => {
         const idToken = new TokenSet(req.session.tokens).id_token
 
-        console.log("Initiating logout");
+        logger.info("Initiating logout");
 
-        console.log("Destroying session")
         appSession.destroySessionBySid(req.sessionID);
         req.session.destroy((err: any) => {
-            if (err) console.error(err);
-            else console.log("Session destroyed")
+            if (err) logger.error(err);
+            else logger.info("Session destroyed")
         });
 
         res.cookie("selvbetjening-idtoken", "", {
@@ -41,12 +40,12 @@ const setup = (app: any) => {
         });
 
         if (!!idToken) {
-            console.log("Ending idporten session")
+            logger.info("Ending idporten session")
             const endSessionUrl = idporten.endSessionUrl(idToken, config.idporten.postLogoutRedirectUri);
 
             res.redirect(endSessionUrl);
         } else {
-            console.error("Error during logout")
+            logger.error("Error during logout")
             // TODO: Hvor skal vi redirecte brukeren dersom utlogging feiler?
             res.redirect(config.idporten.postLogoutRedirectUri)
         }

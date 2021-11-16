@@ -4,7 +4,7 @@ export interface IAndreYtelser {
     mottarAndreYtelser?: IValg;
     kravOmAnnenStonad?: {
         svar?: IValg;
-        beskrivelse?: string;
+        ytelser?: Ytelser;
     };
     annenPensjon?: {
         svar?: IValg;
@@ -17,4 +17,18 @@ export interface IAndreYtelser {
         bruttobeloepPrAar?: string;
         landetsValuta?: string;
     };
+}
+
+export enum Ytelser {
+    dagpenger = "ytelser.dagpenger",
+    sykepenger = "ytelser.sykepenger",
+    pleiepenger = "ytelser.pleiepenger",
+    svangerskapspenger = "ytelser.svangerskapspenger",
+    foreldrepenger = "ytelser.foreldrepenger",
+    arbeidsavklaringspenger = "ytelser.arbeidsavklaringspenger",
+    kvalifiseringsstoenad  = "ytelser.kvalifiseringsstoenad",
+    kommunal = "ytelser.kommunal",
+    fosterhjem = "ytelser.fosterhjem",
+    omsorgspenger = "ytelser.omsorgspenger",
+    opplaeringspenger = "ytelser.opplaeringspenger"
 }

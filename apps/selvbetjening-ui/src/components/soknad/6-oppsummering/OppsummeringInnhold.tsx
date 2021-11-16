@@ -26,7 +26,7 @@ const OppsummeringInnhold = memo(
             <>
                 <Accordion>
                     {soeknadOppsummering.map(({ tittel, elementer, path }: Gruppe) => (
-                        <AccordionItem key={uuid()} tittel={tittel} defaultOpen={false}>
+                        <AccordionItem key={uuid()} tittel={tittel}>
                                 {!elementer.length && (
                                     <SkjemaGruppe>
                                         <BodyLong>{t("felles.ingenInfo")}</BodyLong>

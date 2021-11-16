@@ -56,10 +56,29 @@ enum class StillingType(@get:JsonValue val beskrivelse: String) {
 
 data class AndreYtelser(
     val mottarAndreYtelser: Valg?,
-    val kravOmAnnenStonad: Spoersmaal?,
+    val kravOmAnnenStonad: KravOmAnnenStonad?,
     val annenPensjon: Spoersmaal?,
     val mottarPensjonUtland: MottarPensjonUtland?
 )
+
+data class KravOmAnnenStonad(
+    val svar: Valg,
+    val ytelser: YtelserType
+)
+
+enum class YtelserType(@get:JsonValue val ytelser: String) {
+    dagpenger("ytelser.dagpenger"),
+    sykepenger("ytelser.sykepenger"),
+    pleiepenger("ytelser.pleiepenger"),
+    svangerskapspenger("ytelser.svangerskapspenger"),
+    foreldrepenger("ytelser.foreldrepenger"),
+    arbeidsavklaringspenger("ytelser.arbeidsavklaringspenger"),
+    kvalifiseringsstoenad ("ytelser.kvalifiseringsstoenad"),
+    kommunal("ytelser.kommunal"),
+    fosterhjem("ytelser.fosterhjem"),
+    omsorgspenger("ytelser.omsorgspenger"),
+    opplaeringspenger("ytelser.opplaeringspenger")
+}
 
 data class MottarPensjonUtland(
     val svar: Valg?,
