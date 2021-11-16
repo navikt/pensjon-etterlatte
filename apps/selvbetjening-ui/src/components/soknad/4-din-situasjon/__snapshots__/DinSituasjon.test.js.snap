@@ -752,25 +752,84 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           />
         </fieldset>
       </div>
-      <div>
+      <div
+        id="andreYtelser.kravOmAnnenStonad.ytelser"
+      >
         <div
           class="skjemaelement"
         >
           <label
             class="skjemaelement__label"
-            for="andreYtelser.kravOmAnnenStonad.beskrivelse"
           >
-            dinSituasjon.andreYtelser.kravOmAnnenStonad.beskrivelse
+            dinSituasjon.andreYtelser.kravOmAnnenStonad.ytelser
           </label>
-          <input
-            aria-invalid="false"
-            class="skjemaelement__input input--xxl"
-            id="andreYtelser.kravOmAnnenStonad.beskrivelse"
-            placeholder="dinSituasjon.andreYtelser.kravOmAnnenStonad.placeholder"
-            required=""
-            type="text"
-            value="Barnepensjon"
-          />
+          <div
+            class="selectContainer input--l"
+          >
+            <select
+              aria-invalid="false"
+              class="skjemaelement__input"
+            >
+              <option>
+                ytelser.velg
+              </option>
+              <option
+                value="ytelser.dagpenger"
+              >
+                ytelser.dagpenger
+              </option>
+              <option
+                value="ytelser.sykepenger"
+              >
+                ytelser.sykepenger
+              </option>
+              <option
+                value="ytelser.pleiepenger"
+              >
+                ytelser.pleiepenger
+              </option>
+              <option
+                value="ytelser.svangerskapspenger"
+              >
+                ytelser.svangerskapspenger
+              </option>
+              <option
+                value="ytelser.foreldrepenger"
+              >
+                ytelser.foreldrepenger
+              </option>
+              <option
+                value="ytelser.arbeidsavklaringspenger"
+              >
+                ytelser.arbeidsavklaringspenger
+              </option>
+              <option
+                value="ytelser.kvalifiseringsstoenad"
+              >
+                ytelser.kvalifiseringsstoenad
+              </option>
+              <option
+                value="ytelser.kommunal"
+              >
+                ytelser.kommunal
+              </option>
+              <option
+                value="ytelser.fosterhjem"
+              >
+                ytelser.fosterhjem
+              </option>
+              <option
+                value="ytelser.omsorgspenger"
+              >
+                ytelser.omsorgspenger
+              </option>
+              <option
+                value="ytelser.opplaeringspenger"
+              >
+                ytelser.opplaeringspenger
+              </option>
+            </select>
+          </div>
         </div>
       </div>
       <div
@@ -1679,25 +1738,84 @@ exports[`Om den avdøde Snapshot 1`] = `
           />
         </fieldset>
       </div>
-      <div>
+      <div
+        id="andreYtelser.kravOmAnnenStonad.ytelser"
+      >
         <div
           class="skjemaelement"
         >
           <label
             class="skjemaelement__label"
-            for="andreYtelser.kravOmAnnenStonad.beskrivelse"
           >
-            dinSituasjon.andreYtelser.kravOmAnnenStonad.beskrivelse
+            dinSituasjon.andreYtelser.kravOmAnnenStonad.ytelser
           </label>
-          <input
-            aria-invalid="false"
-            class="skjemaelement__input input--xxl"
-            id="andreYtelser.kravOmAnnenStonad.beskrivelse"
-            placeholder="dinSituasjon.andreYtelser.kravOmAnnenStonad.placeholder"
-            required=""
-            type="text"
-            value="Barnepensjon"
-          />
+          <div
+            class="selectContainer input--l"
+          >
+            <select
+              aria-invalid="false"
+              class="skjemaelement__input"
+            >
+              <option>
+                ytelser.velg
+              </option>
+              <option
+                value="ytelser.dagpenger"
+              >
+                ytelser.dagpenger
+              </option>
+              <option
+                value="ytelser.sykepenger"
+              >
+                ytelser.sykepenger
+              </option>
+              <option
+                value="ytelser.pleiepenger"
+              >
+                ytelser.pleiepenger
+              </option>
+              <option
+                value="ytelser.svangerskapspenger"
+              >
+                ytelser.svangerskapspenger
+              </option>
+              <option
+                value="ytelser.foreldrepenger"
+              >
+                ytelser.foreldrepenger
+              </option>
+              <option
+                value="ytelser.arbeidsavklaringspenger"
+              >
+                ytelser.arbeidsavklaringspenger
+              </option>
+              <option
+                value="ytelser.kvalifiseringsstoenad"
+              >
+                ytelser.kvalifiseringsstoenad
+              </option>
+              <option
+                value="ytelser.kommunal"
+              >
+                ytelser.kommunal
+              </option>
+              <option
+                value="ytelser.fosterhjem"
+              >
+                ytelser.fosterhjem
+              </option>
+              <option
+                value="ytelser.omsorgspenger"
+              >
+                ytelser.omsorgspenger
+              </option>
+              <option
+                value="ytelser.opplaeringspenger"
+              >
+                ytelser.opplaeringspenger
+              </option>
+            </select>
+          </div>
         </div>
       </div>
       <div

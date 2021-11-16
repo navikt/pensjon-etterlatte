@@ -10,6 +10,8 @@ import { BodyLong, Heading } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { RHFSelect } from "../../../felles/RHFSelect";
 import { useLand } from "../../../../hooks/useLand";
+import SelectYtelser from "./SelectYtelser";
+
 
 const AndreYtelser = () => {
     const { t } = useTranslation();
@@ -23,7 +25,6 @@ const AndreYtelser = () => {
     return (
         <>
             <SkjemaGruppering>
-                {/* Steg 7 */}
                 <SkjemaGruppe>
                     <Heading size={"small"}>{t("dinSituasjon.andreYtelser.tittel")}</Heading>
                     <BodyLong>{t("dinSituasjon.andreYtelser.ingress")}</BodyLong>
@@ -35,12 +36,7 @@ const AndreYtelser = () => {
                 />
 
                 {kravOmAnnenStonad === IValg.JA && (
-                    <RHFInput
-                        bredde={"XXL"}
-                        name={"andreYtelser.kravOmAnnenStonad.beskrivelse"}
-                        label={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.beskrivelse")}
-                        placeholder={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.placeholder")}
-                    />
+                    <SelectYtelser/>
                 )}
             </SkjemaGruppering>
 
