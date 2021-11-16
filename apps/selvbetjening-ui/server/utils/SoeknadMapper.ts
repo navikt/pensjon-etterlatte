@@ -1,11 +1,11 @@
 import ObjectTreeReader, { Element, Gruppe } from "./ObjectTreeReader";
-import { ISituasjon } from "../typer/situasjon";
-import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed } from "../typer/person";
+import { ISituasjon } from "../../src/typer/situasjon";
+import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed } from "../../src/typer/person";
 import { i18n, TFunction } from "i18next";
-import { IBruker } from "../typer/bruker";
-import { ISoeknad } from "../typer/soknad";
-import { StegPath } from "../typer/steg";
-import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "../typer/arbeidsforhold";
+import { IBruker } from "../../src/context/bruker/bruker";
+import { ISoeknad } from "../../src/context/soknad/soknad";
+import { StegPath } from "../../src/typer/steg";
+import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "../../src/typer/arbeidsforhold";
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader;
