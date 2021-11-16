@@ -1,5 +1,5 @@
 import { i18n, TFunction } from "i18next";
-import { StegPath } from "../../src/typer/steg";
+import { StegPath } from "../typer/steg";
 
 export interface Innhold {
     key: string;
