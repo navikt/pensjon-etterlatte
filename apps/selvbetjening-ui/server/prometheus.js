@@ -1,23 +1,15 @@
 const client = require('prom-client')
-const config = require("./config");
-const logger = require("./logger");
 
-const basePath = config.app.basePath;
+class Prometheus {
+    constructor() {
+        const collectDefaultMetrics = client.collectDefaultMetrics;
 
-const collectDefaultMetrics = client.collectDefaultMetrics;
-const register = new client.Registry();
+        this.register = new client.Registry();
 
-collectDefaultMetrics({ register });
+        collectDefaultMetrics({
+            register: this.register
+        });
+    }
+}
 
-const setup = (app) => {
-    logger.info("Setup metrics");
-
-    app.get(`${basePath}/metrics`, async (req, res) => {
-        res.set('Content-Type', register.contentType);
-        res.end(await register.metrics())
-    });
-};
-
-module.exports = {
-    setup
-};
+module.exports = new Prometheus();

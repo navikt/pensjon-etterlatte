@@ -1,5 +1,5 @@
 const { Issuer, TokenSet } = require("openid-client");
-const logger = require("../logger");
+const logger = require("../log/logger");
 const config = require("../config");
 
 const idportenConfig = config.idporten;

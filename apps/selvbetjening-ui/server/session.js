@@ -1,6 +1,7 @@
 const session = require("express-session");
 const redis = require("redis");
 const config = require("./config");
+const logger = require("./log/logger");
 const RedisStore = require("connect-redis");
 
 const { isLabsCluster, isProduction } = config.env;
@@ -36,11 +37,11 @@ const setupRedis = () => {
     client.unref();
 
     client.on("error", (err) => {
-        console.error("Unable to establish connection with Redis: ", err);
+        logger.error("Unable to establish connection with Redis: ", err);
     });
 
     client.on("connect", () => {
-        console.log("Successfully connected to Redis!");
+        logger.info("Successfully connected to Redis!");
     });
 
     return new store({

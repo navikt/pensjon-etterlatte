@@ -85,7 +85,8 @@
     "stylelint": "13.13.1",
     "stylelint-config-standard": "22.0.0",
     "ulid": "2.3.0",
-    "winston": "3.3.3"
+    "winston": "3.3.3",
+    "winston-transport": "^4.4.0"
   },
   "scripts": {
     "start": "env REACT_APP_ENVIRONMENT=development react-scripts start",

@@ -2,7 +2,7 @@ const { Issuer } = require("openid-client");
 const jwt = require("jsonwebtoken");
 const ULID = require("ulid");
 const jose = require("node-jose");
-const logger = require("../logger");
+const logger = require("../log/logger");
 const config = require("../config");
 
 const tokenxConfig = config.tokenx;
