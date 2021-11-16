@@ -11,14 +11,10 @@ const production = combine(timestamp(), json());
 /* Bruker simple() for lettlest logg (lokal stdout/stderr) */
 const dev = combine(colorize(), simple());
 
-class WinstonLogger extends createLogger() {
-    constructor() {
-        super({
-            level: process.env.NODE_LOG_LEVEL || "warn",
-            format: config.env.isProduction ? production : dev,
-            transports: [new Console(), new PrometheusTransport()]
-        });
-    }
-}
+const WinstonLogger = createLogger({
+    level: process.env.NODE_LOG_LEVEL || "warn",
+    format: config.env.isProduction ? production : dev,
+    transports: [new Console(), new PrometheusTransport()]
+})
 
 export default new WinstonLogger();
