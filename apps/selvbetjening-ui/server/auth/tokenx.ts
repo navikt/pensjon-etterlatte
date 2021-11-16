@@ -1,6 +1,6 @@
 import { Issuer } from 'openid-client';
 import jwt from 'jsonwebtoken';
-import ULID from 'ulid';
+import { ulid } from 'ulid';
 import jose from 'node-jose';
 import logger from '../logger';
 import config from '../config';
@@ -48,7 +48,7 @@ class TokenXClient {
             sub: tokenxConfig.clientID,
             iss: tokenxConfig.clientID,
             aud: this.audience,
-            jti: ULID.ulid(),
+            jti: ulid(),
             nbf: now,
             iat: now,
             exp: now + 60, // max 120
