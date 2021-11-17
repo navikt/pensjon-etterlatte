@@ -63,7 +63,7 @@ data class AndreYtelser(
 
 data class KravOmAnnenStonad(
     val svar: Valg,
-    val ytelser: YtelserType
+    val ytelser: YtelserType?
 )
 
 enum class YtelserType(@get:JsonValue val ytelser: String) {
