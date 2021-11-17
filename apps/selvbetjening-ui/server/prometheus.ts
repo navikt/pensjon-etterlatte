@@ -1,6 +1,7 @@
-const client = require('prom-client')
+import client from 'prom-client';
 
 class Prometheus {
+    public register;
     constructor() {
         const collectDefaultMetrics = client.collectDefaultMetrics;
 
@@ -12,4 +13,4 @@ class Prometheus {
     }
 }
 
-module.exports = new Prometheus();
+export default new Prometheus();

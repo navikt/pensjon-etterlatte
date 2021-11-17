@@ -1,4 +1,4 @@
-module.exports = [
+export default [
     {
         gyldigFra: "1900-01-01",
         gyldigTil: "9999-12-31",

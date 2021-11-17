@@ -1,23 +1,23 @@
-const { Issuer, TokenSet } = require("openid-client");
-const logger = require("../log/logger");
-const config = require("../config");
+import { Issuer, TokenSet } from 'openid-client';
+import logger from '../log/logger';
+import config from '../config';
 
 const idportenConfig = config.idporten;
 
 class IDportenClient {
-    #client = null;
-    #issuer = null;
+    private client: any = null;
+    private issuer = null;
 
     constructor() {
         logger.info("Setter opp ID-porten");
 
-        this.#init().then((client) => {
-            this.#client = client;
+        this.init().then((client: any) => {
+            this.client = client;
         }).catch(() => process.exit(1));
     }
 
-    authUrl = (session) => {
-        return this.#client.authorizationUrl({
+    authUrl = (session: any) => {
+        return this.client.authorizationUrl({
             scope: idportenConfig.scope,
             redirect_uri: idportenConfig.redirectUri,
             response_type: idportenConfig.responseType[0],
@@ -29,46 +29,47 @@ class IDportenClient {
         });
     };
 
-    endSessionUrl = (idToken, postLogoutRedirectUri) => {
-        return this.#client.endSessionUrl({
+    endSessionUrl = (idToken: any, postLogoutRedirectUri: any) => {
+        return this.client.endSessionUrl({
             id_token_hint: idToken,
             post_logout_redirect_uri: postLogoutRedirectUri
         });
     };
 
-    validateOidcCallback = async (req) => {
-        const params = this.#client.callbackParams(req);
+    validateOidcCallback = async (req: any) => {
+        const params = this.client.callbackParams(req);
 
         const { nonce, state } = req.session;
 
         const additionalClaims = {
             clientAssertionPayload: {
-                aud: this.#issuer,
+                aud: this.issuer,
             },
         };
 
-        return this.#client
+        return this.client
                 .callback(idportenConfig.redirectUri, params, { nonce, state }, additionalClaims)
-                .catch((err) => Promise.reject(`error in oidc callback: ${err}`))
-                .then(async (tokenSet) => {
+                .catch((err: any) => Promise.reject(`error in oidc callback: ${err}`))
+                .then(async (tokenSet: any) => {
                     return tokenSet;
                 });
     };
 
-    refresh = (oldTokenSet) => {
+    refresh = (oldTokenSet: any) => {
         const additionalClaims = {
             clientAssertionPayload: {
-                aud: this.#issuer,
+                aud: this.issuer,
             },
         };
-        return this.#client.refresh(new TokenSet(oldTokenSet), additionalClaims);
+        return this.client.refresh(new TokenSet(oldTokenSet), additionalClaims);
+        
     };
 
-    #init = async () => {
-        const idporten = await Issuer.discover(idportenConfig.discoveryUrl);
-        this.#issuer = idporten.issuer;
+    private init = async () => {
+        const idporten: any = await Issuer.discover(idportenConfig.discoveryUrl);
+        this.issuer = idporten.issuer;
 
-        logger.info(`Discovered IDPorten @ ${this.#issuer}`);
+        logger.info(`Discovered IDPorten @ ${this.issuer}`);
 
         try {
             const idportenJwk = JSON.parse(idportenConfig.clientJwk);
@@ -96,4 +97,4 @@ class IDportenClient {
     };
 }
 
-module.exports = IDportenClient;
+export default IDportenClient;

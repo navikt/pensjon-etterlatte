@@ -1,12 +1,14 @@
-const express = require("express");
-const fetch = require("node-fetch");
-const TokenXClient = require("./auth/tokenx");
-const config = require("./config");
-const { generateSummary } = require("./generateSummary");
+import express, { Request, Response } from 'express';
+import fetch from 'node-fetch';
+import TokenXClient from './auth/tokenx';
+import config from './config';
+import logger from './log/logger';
+import { generateSummary } from './generateSummary';
+
 
 const { exchangeToken } = new TokenXClient();
 
-const deleteUnwantedFields = (soeknad) => {
+const deleteUnwantedFields = (soeknad: any) => {
     delete soeknad.omDeg.erValidert;
     delete soeknad.omDenAvdoede.erValidert;
     delete soeknad.omDegOgAvdoed.erValidert;
@@ -16,17 +18,22 @@ const deleteUnwantedFields = (soeknad) => {
     return soeknad;
 };
 
-const sendSoeknad = () => {
+export const sendSoeknad = () => {
     const router = express.Router();
 
-    router.post(`${config.app.basePath}/api/api/soeknad`, express.json(), async (req, res) => {
+    router.post(`${config.app.basePath}/api/oppsummering`, express.json(), async (req: Request, res: Response) => {
+        const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
+        res.send(oppsummering)
+    });
+
+    router.post(`${config.app.basePath}/api/api/soeknad`, express.json(), async (req: any, res: any) => {
         const soeknadBody = deleteUnwantedFields(req.body.soeknad);
         try {
             const oppsummering = await generateSummary(soeknadBody, req.body.bruker, req.body.locale);
-            body = { utfyltSoeknad: soeknadBody, oppsummering };
+            const body = { utfyltSoeknad: soeknadBody, oppsummering };
             await exchangeToken(req.session.tokens.access_token).then(
                 (accessToken) => {
-                    let headers = {
+                    const headers = {
                         ...req.headers,
                     };
                     headers.ImageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1");
@@ -35,13 +42,13 @@ const sendSoeknad = () => {
                         method: "post",
                         headers: headers,
                         body: JSON.stringify(body),
-                    }).then((response) => {
+                    }).then((response: any) => {
                             if (response.status !== 200) {
                                 return res.status(response.status).send("Det skjedde en feil.");
                             }
                             return res.status(200).send("ok")
                         })
-                        .catch((e) => {
+                        .catch((e: any) => {
                             throw e;
                         });
                 },
@@ -56,8 +63,4 @@ const sendSoeknad = () => {
         }
     });
     return router;
-};
-
-module.exports = {
-    sendSoeknad,
 };

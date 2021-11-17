@@ -62,7 +62,7 @@ const tokenx = {
     privateJwk: process.env.TOKEN_X_PRIVATE_JWK || testJwk,
 };
 
-module.exports = {
+export default {
     app,
     env,
     session,

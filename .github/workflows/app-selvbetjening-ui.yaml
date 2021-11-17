@@ -35,6 +35,7 @@ jobs:
         run: |
           yarn install
           yarn build
+          yarn server:build-prod
       - name: Run tests
         working-directory: apps/${{ env.APP_NAME }}
         run: |

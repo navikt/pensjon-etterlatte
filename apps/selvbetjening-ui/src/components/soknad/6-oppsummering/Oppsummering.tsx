@@ -1,22 +1,20 @@
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { useHistory } from "react-router-dom";
-import React, { memo, useMemo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { Alert, BodyLong, Heading } from "@navikt/ds-react";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
-import { Gruppe } from "../../../utils/ObjectTreeReader";
-import SoeknadMapper from "../../../utils/SoeknadMapper";
-import { sendSoeknad } from "../../../api/api";
+import { hentOppsummering, sendSoeknad } from "../../../api/api";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
 import { LogEvents, useAmplitude } from "../../../utils/amplitude";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
-
+    const [soeknadOppsummering, setOppsummering] = useState<any>([]);
     const { t, i18n } = useTranslation();
 
     const { state: soeknad } = useSoknadContext();
@@ -26,12 +24,14 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const [senderSoeknad, setSenderSoeknad] = useState(false);
     const [error, setError] = useState(false);
     
-    const mapper = new SoeknadMapper(t, i18n);
-    const soeknadOppsummering: Gruppe[] = useMemo(() => {
-        if (isEmpty(soeknad) || isEmpty(bruker)) return [];
+    useEffect(() => {
+        (async () => {
+            if (isEmpty(soeknad) || isEmpty(bruker)) setOppsummering([]);
+            const soeknadOppsummering: any = await hentOppsummering({soeknad, bruker, locale: i18n.language});
+            setOppsummering(soeknadOppsummering);
+        })()
 
-        return mapper.lagOppsummering(soeknad, bruker)
-    }, [soeknad, bruker]);
+    }, [soeknad, bruker])
     
     const send = () => {
         setSenderSoeknad(true);

@@ -1,28 +1,28 @@
-const { Issuer } = require("openid-client");
-const jwt = require("jsonwebtoken");
-const ULID = require("ulid");
-const jose = require("node-jose");
-const logger = require("../log/logger");
-const config = require("../config");
+import { Issuer } from 'openid-client';
+import jwt from 'jsonwebtoken';
+import { ulid } from 'ulid';
+import jose from 'node-jose';
+import logger from '../log/logger';
+import config from '../config';
 
-const tokenxConfig = config.tokenx;
+const tokenxConfig: any = config.tokenx; //ITokenXConfig
 
 class TokenXClient {
-    #tokenxClient = null;
-    #audience = null;
+    private tokenxClient: any = null;
+    private audience: any = null;
 
     constructor() {
         logger.info("Setter opp TokenX");
 
-        this.#init().then((client) => {
-            this.#tokenxClient = client
+        this.init().then((client: any) => {
+            this.tokenxClient = client
         }).catch(() => process.exit(1));
     }
 
-    exchangeToken = async (idportenToken) => {
-        const clientAssertion = await this.#createClientAssertion();
+    exchangeToken = async (idportenToken: any) => {
+        const clientAssertion = await this.createClientAssertion();
 
-        return this.#tokenxClient
+        return this.tokenxClient
                 .grant({
                     grant_type: "urn:ietf:params:oauth:grant-type:token-exchange",
                     client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
@@ -32,31 +32,31 @@ class TokenXClient {
                     subject_token: idportenToken,
                     audience: config.app.targetAudience,
                 })
-                .then((tokenSet) => {
+                .then((tokenSet: any) => {
                     return Promise.resolve(tokenSet.access_token);
                 })
-                .catch((err) => {
+                .catch((err: any) => {
                     logger.error("Feil under utveksling av token: ", err);
                     return Promise.reject(err);
                 });
     };
 
-    #createClientAssertion = async () => {
+    private createClientAssertion = async () => {
         const now = Math.floor(Date.now() / 1000);
 
         const payload = {
             sub: tokenxConfig.clientID,
             iss: tokenxConfig.clientID,
-            aud: this.#audience,
-            jti: ULID.ulid(),
+            aud: this.audience,
+            jti: ulid(),
             nbf: now,
             iat: now,
             exp: now + 60, // max 120
         };
 
-        const key = await this.#asKey(tokenxConfig.privateJwk);
+        const key = await this.asKey(tokenxConfig.privateJwk);
 
-        const options = {
+        const options: any = {
             algorithm: "RS256",
             header: {
                 kid: key.kid,
@@ -68,17 +68,17 @@ class TokenXClient {
         return jwt.sign(payload, key.toPEM(true), options);
     };
 
-    #asKey = async (jwk) => {
+    private asKey = async (jwk: any) => {
         if (!jwk) throw Error("JWK Mangler");
 
-        return jose.JWK.asKey(jwk).then((key) => {
+        return jose.JWK.asKey(jwk).then((key: any) => {
             return Promise.resolve(key);
         });
     };
 
-    #init = async () => {
+    private init = async () => {
         const tokenx = await Issuer.discover(tokenxConfig.discoveryUrl);
-        this.#audience = tokenx.token_endpoint;
+        this.audience = tokenx.token_endpoint;
 
         logger.info(`Discovered TokenX @ ${tokenx.issuer}`);
 
@@ -99,4 +99,4 @@ class TokenXClient {
     };
 }
 
-module.exports = TokenXClient;
+export default TokenXClient;

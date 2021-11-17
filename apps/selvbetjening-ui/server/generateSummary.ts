@@ -1,8 +1,9 @@
-const i18next = require("i18next/dist/cjs/i18next");
-const { SoeknadMapper } = require("./utils/SoeknadMapper");
-const nbLocale = require("./locales/nb.json");
-const nnLocale = require("./locales/nn.json");
-const enLocale = require("./locales/en.json");
+import i18next from "i18next";
+import SoeknadMapper from "./utils/SoeknadMapper";
+import nbLocale from './locales/nb.json';
+import nnLocale from './locales/nn.json';
+import enLocale from './locales/en.json';
+
 
 i18next.init({
     lng: "nb",
@@ -20,12 +21,9 @@ i18next.init({
     },
 });
 
-const generateSummary = async (soeknad, bruker, locale) =>
+export const generateSummary = async (soeknad: any, bruker: any, locale?: any) =>
     await i18next.changeLanguage(locale).then((t) => {
         const mapper = new SoeknadMapper(t, i18next);
         return mapper.lagOppsummering(soeknad, bruker);
     });
 
-module.exports = {
-    generateSummary,
-};

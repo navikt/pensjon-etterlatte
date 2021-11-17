@@ -75,6 +75,20 @@ export const sendSoeknad = async (soeknad: any) => {
     }
 };
 
+export const hentOppsummering = async (soeknad: any) => {
+    const body = {
+        ...soeknad,
+        klarForLagring: undefined
+    };
+
+    try {
+        const response = await api.post("/oppsummering", body);
+        return response.data;
+    } catch (e: any) {
+        throw new Error(`Det skjedde en feil: ${e.message}`);
+    }
+}
+
 
 /**
  * Sender inn ferdigstilt søknad

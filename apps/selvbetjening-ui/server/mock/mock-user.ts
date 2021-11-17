@@ -1,5 +1,5 @@
 
-const personalia = {
+export const personalia = {
     adresse: "Adresse-mock",
     husnummer: 1,
     husbokstav: null,
@@ -9,7 +9,7 @@ const personalia = {
     sivilstatus: "Sivilstatus-mock"
 }
 
-const SEDAT_RIPSBÆRBUSK = {
+export const SEDAT_RIPSBÆRBUSK = {
     fornavn: "SEDAT",
     etternavn: "RIPSBÆRBUSK",
     foedselsnummer: "26117512737",
@@ -18,7 +18,7 @@ const SEDAT_RIPSBÆRBUSK = {
     ...personalia
 };
 
-const NOBEL_TØFFELDYR = {
+export const NOBEL_TØFFELDYR = {
     fornavn: "NOBEL",
     etternavn: "TØFFELDYR",
     foedselsnummer: "24116324268",
@@ -27,7 +27,7 @@ const NOBEL_TØFFELDYR = {
     ...personalia
 }
 
-const STOR_SNERK = {
+export const STOR_SNERK = {
     fornavn: "STOR",
     etternavn: "SNERK",
     foedselsnummer: "11057523044",
@@ -37,7 +37,7 @@ const STOR_SNERK = {
 }
 
 // For ung til å søke
-const TRIVIELL_MIDTPUNKT = {
+export const TRIVIELL_MIDTPUNKT = {
     fornavn: "TRIVIELL",
     etternavn: "MIDTPUNKT",
     foedselsnummer: "19040550081",
@@ -47,7 +47,7 @@ const TRIVIELL_MIDTPUNKT = {
 };
 
 // For gammel til å søke
-const KRAFTIG_GAPAHAUK = {
+export const KRAFTIG_GAPAHAUK = {
     fornavn: "KRAFTIG",
     etternavn: "GAPAHAUK",
     foedselsnummer: "26104500284",
@@ -55,10 +55,3 @@ const KRAFTIG_GAPAHAUK = {
     foedselsdato: new Date(1945, 9, 26),
     ...personalia
 }
-
-module.exports = {
-    SEDAT_RIPSBÆRBUSK,
-    NOBEL_TØFFELDYR,
-    STOR_SNERK,
-    TRIVIELL_MIDTPUNKT
-};
