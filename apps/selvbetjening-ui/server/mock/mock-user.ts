@@ -1,5 +1,5 @@
 
-export const personalia = {
+const personalia = {
     adresse: "Adresse-mock",
     husnummer: 1,
     husbokstav: null,

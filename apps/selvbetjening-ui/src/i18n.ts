@@ -1,11 +1,11 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import nbLocale from "./assets/locales/nb.json";
+/*import nbLocale from "./assets/locales/nb.json";
 import nnLocale from "./assets/locales/nn.json";
-import enLocale from "./assets/locales/en.json";
+import enLocale from "./assets/locales/en.json";*/
 
 i18n.use(initReactI18next).init({
-    resources: {
+    /*resources: {
         nb: {
             translation: nbLocale,
         },
@@ -15,7 +15,7 @@ i18n.use(initReactI18next).init({
         en: {
             translation: enLocale,
         },
-    },
+    },*/
     lng: "nb",
     // keySeparator: false,
     nsSeparator: false,

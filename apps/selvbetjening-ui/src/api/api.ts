@@ -91,7 +91,7 @@ export const hentOppsummering = async (soeknad: any) => {
 
 
 /**
- * Sender inn ferdigstilt søknad
+ * Henter liste over land
  */
  export const hentLand = async () => {
     try {
@@ -101,3 +101,12 @@ export const hentOppsummering = async (soeknad: any) => {
         throw new Error(`Det skjedde en feil: ${e.message}`);
     }
 };
+
+export const hentLocales = async () => {
+    try{
+        const response = await api.get(`/locale`)
+        return response.data;
+    } catch(e: any) {
+        throw new Error(`Det skjedde en feil: ${e.message}`)
+    }
+}

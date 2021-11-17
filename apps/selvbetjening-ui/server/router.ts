@@ -4,6 +4,9 @@ import TokenXClient from './auth/tokenx';
 import config from './config';
 import logger from './log/logger';
 import { generateSummary } from './generateSummary';
+import nbLocale from './locales/nb.json';
+import nnLocale from './locales/nn.json';
+import enLocale from './locales/en.json';
 
 
 const { exchangeToken } = new TokenXClient();
@@ -24,6 +27,23 @@ export const sendSoeknad = () => {
     router.post(`${config.app.basePath}/api/oppsummering`, express.json(), async (req: Request, res: Response) => {
         const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
         res.send(oppsummering)
+    });
+
+    router.get(`${config.app.basePath}/api/locale/:locale`, (req: Request, res: Response) => {
+        return res.json({
+            nn: nnLocale,
+            nb: nbLocale,
+            en: enLocale
+        })
+        /*if(!req.params.locale) return res.status(500).send("Mangler locale-parameter");
+        switch(req.params.locale) {
+            case "nn":
+                return res.json(nnLocale);
+            case "en":
+                return res.json(enLocale);
+            default: 
+                return res.json(nbLocale);
+        }*/
     });
 
     router.post(`${config.app.basePath}/api/api/soeknad`, express.json(), async (req: any, res: any) => {
