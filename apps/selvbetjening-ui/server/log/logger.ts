@@ -17,4 +17,4 @@ const WinstonLogger = createLogger({
     transports: [new Console(), new PrometheusTransport()]
 })
 
-export default new WinstonLogger();
+export default WinstonLogger;
