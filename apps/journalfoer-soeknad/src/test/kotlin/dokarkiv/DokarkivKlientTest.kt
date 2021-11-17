@@ -1,3 +1,5 @@
+package dokarkiv
+
 import com.fasterxml.jackson.databind.node.ArrayNode
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
@@ -8,11 +10,6 @@ import io.ktor.http.ContentType
 import io.ktor.http.fullPath
 import io.ktor.http.headersOf
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.DokarkivKlient
-import no.nav.etterlatte.libs.common.journalpost.AvsenderMottaker
-import no.nav.etterlatte.libs.common.journalpost.Bruker
-import no.nav.etterlatte.libs.common.journalpost.JournalPostType
-import no.nav.etterlatte.libs.common.journalpost.JournalpostRequest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -54,8 +51,6 @@ internal class DokarkivKlientTest {
         return JournalpostRequest(
             "tittel",
             JournalPostType.INNGAAENDE,
-            "tema",
-            "kanal",
             "behandlingstema",
             "journalfoerendeEnhet",
             AvsenderMottaker("id", navn = "navn"),

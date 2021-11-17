@@ -8,7 +8,7 @@ fun main() {
     }.also { env ->
         AppBuilder(env).also { appBuilder ->
             RapidApplication.create(env).apply {
-                JournalfoerSoeknad(this, appBuilder.genererPdf(), appBuilder.journalfoerDok())
+                JournalfoerSoeknad(this, appBuilder.pdfService(), appBuilder.journalfoerDok())
             }.start()
         }
     }

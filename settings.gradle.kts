@@ -10,7 +10,6 @@ include(
     "apps:journalfoer-soeknad",
     "apps:innsendt-soeknad",
     "apps:sjekk-adressebeskyttelse",
-    "apps:journalpost-info",
     "apps:etterlatte-notifikasjoner",
     "apps:etterlatte-pdl-proxy",
     "jobs:post-til-kafka"

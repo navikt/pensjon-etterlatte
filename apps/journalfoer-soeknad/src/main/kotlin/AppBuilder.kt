@@ -1,11 +1,14 @@
 package no.nav.etterlatte
 
+import dokarkiv.DokarkivKlient
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
+import no.nav.etterlatte.pdf.DokumentService
 import no.nav.etterlatte.security.ktor.clientCredential
+import pdf.PdfGeneratorKlient
 
 class AppBuilder(private val props: Map<String, String>) {
     companion object {
@@ -14,7 +17,7 @@ class AppBuilder(private val props: Map<String, String>) {
         private const val CONFIG_AZURE_DOKARKIV_SCOPE = "AZURE_DOKARKIV_SCOPE"
     }
 
-    fun genererPdf() = PdfGenerator(pdfhttpclient(), props[CONFIG_PDF_URL]!!)
+    fun pdfService() = DokumentService(PdfGeneratorKlient(pdfhttpclient(), props[CONFIG_PDF_URL]!!))
     fun journalfoerDok() = JournalfoeringService(opprettJournalfoeringKlient())
 
     private fun opprettJournalfoeringKlient() = HttpClient(OkHttp) {

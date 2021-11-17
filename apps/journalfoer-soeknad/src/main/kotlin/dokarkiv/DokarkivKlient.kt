@@ -1,4 +1,4 @@
-package no.nav.etterlatte
+package dokarkiv
 
 import com.fasterxml.jackson.databind.JsonNode
 import io.ktor.client.HttpClient
@@ -10,11 +10,10 @@ import io.ktor.client.request.post
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
-import no.nav.etterlatte.libs.common.journalpost.JournalpostRequest
 import no.nav.etterlatte.libs.common.objectMapper
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
-import java.util.UUID
+import java.util.*
 
 interface Dokarkiv {
     suspend fun journalfoerDok(request: JournalpostRequest): JsonNode

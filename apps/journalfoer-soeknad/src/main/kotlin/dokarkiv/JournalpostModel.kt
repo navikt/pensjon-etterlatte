@@ -1,29 +1,23 @@
-package no.nav.etterlatte.libs.common.journalpost
-
-data class JournalpostInfo(
-    val tittel: String,
-    val avsenderMottaker: AvsenderMottaker,
-    val bruker: Bruker,
-    val journalfoerendeEnhet: String?
-)
+package dokarkiv
 
 data class JournalpostRequest(
     val tittel: String,
     val journalpostType: JournalPostType,
-    val tema: String,
-    val kanal: String?,
     val behandlingstema: String,
     val journalfoerendeEnhet: String?,
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,
     val eksternReferanseId: String,
     var dokumenter: List<JournalpostDokument>
-)
+) {
+    val tema: String = "PEN"
+    val kanal: String = "NAV_NO"
+}
 
 data class AvsenderMottaker(
     val id: String,
     val idType: String = "FNR",
-    val navn: String
+    val navn: String = ""
 )
 
 data class Bruker(
@@ -68,4 +62,3 @@ enum class DokumentKategori(val type: String) {
     VB("VB"),
     IB("IB")
 }
-

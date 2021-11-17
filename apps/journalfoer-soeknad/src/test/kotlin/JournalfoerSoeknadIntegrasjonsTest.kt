@@ -8,6 +8,7 @@ import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
 import org.junit.jupiter.api.Assertions.assertEquals
+import pdf.PdfGeneratorKlient
 import java.nio.file.Paths
 
 
@@ -42,7 +43,7 @@ class JournalfoerSoeknadIntegrasjonsTestTest {
         }
 
         runBlocking {
-            PdfGenerator(httpClient, "http://0.0.0.0:8081/api/v1/genpdf/eypdfgen").genererPdf(
+            PdfGeneratorKlient(httpClient, "http://0.0.0.0:8081/api/v1/genpdf/eypdfgen").genererPdf(
                 message["@skjema_info"],
                 "soeknad"
             ).also {

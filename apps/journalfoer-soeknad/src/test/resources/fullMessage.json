@@ -1,21 +1,9 @@
 {
   "@event_name": "soeknad_innsendt",
-  "@template": "trenger jeg denne",
-  "@journalpostInfo": {
-    "tittel": "tittel",
-    "avsenderMottaker": {
-      "id": "123456789",
-      "navn": "avsentermottagernavn",
-      "idType": "FNR"
-    },
-    "bruker": {
-      "id": "9876532",
-      "navn": "Brukernavn",
-      "idType": "FNR"
-    },
-    "journlanfoerendeEnhet": null
-  },
+  "@template": "gjenlevendepensjon",
   "@lagret_soeknad_id":"12",
+  "@adressebeskyttelse": "UGRADERT",
+  "@fnr_soeker": "5555555555",
   "@hendelse_gyldig_til":"2022-08-27T10:51:33.661+02:00",
   "@skjema_info": {
     "soeknadsType": "Gjenlevendepensjon",
