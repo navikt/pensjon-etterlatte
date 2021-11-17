@@ -73,7 +73,7 @@
       "andreYtelser": {
         "kravOmAnnenStonad": {
           "svar": "Ja",
-          "beskrivelse": "Barnepensjon"
+          "ytelser": "ytelser.dagpenger"
         },
         "annenPensjon": {
           "svar": "Ja",
