@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY build ./build
 COPY buildServer ./server
-COPY src/assets/locales ./server/locales
+COPY locales ./server/locales
 
 ENV NODE_ENV="production"
 

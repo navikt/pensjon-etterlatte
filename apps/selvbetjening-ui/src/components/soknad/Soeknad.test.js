@@ -1,8 +1,13 @@
 import { render } from "@testing-library/react";
+import { renderHook } from "@testing-library/react-hooks";
 import { I18nextProvider } from "react-i18next";
 import * as rr from "react-router-dom";
+import * as api from "../../api/api";
+import { useLanguage } from "../../hooks/useLanguage";
 import i18n from "../../i18n";
 import Soeknad from "./Soeknad";
+import nb from '../../../locales/nb.json';
+
 
 const Page = ({location}) => (
     <I18nextProvider i18n={i18n}>
@@ -12,7 +17,13 @@ const Page = ({location}) => (
     </I18nextProvider>
 );
 
+
+
 describe("Soknad", () => {
+    beforeAll(() => {
+        jest.spyOn(api, "hentLocales").mockReturnValue({nb: nb, nn: {}, en: {} })
+        renderHook(() => useLanguage());
+    })
     it("skal rendre soknad - steg", () => {
         const { container } = render(
             <Page location="/skjema/steg/om-deg" />

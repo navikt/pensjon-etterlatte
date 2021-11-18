@@ -1,5 +1,5 @@
-import nbLocale from "./assets/locales/nb.json";
-import nnLocale from "./assets/locales/nn.json";
+import nbLocale from '../locales/nb.json';
+import nnLocale from '../locales/nb.json';
 import { isEmpty } from "lodash";
 
 

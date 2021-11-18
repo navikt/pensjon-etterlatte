@@ -1,9 +1,12 @@
 import ReactDOM from "react-dom";
 import { act, screen, fireEvent } from "@testing-library/react";
+import { renderHook} from "@testing-library/react-hooks";
 import SoknadForside from "./SoknadForside";
 import { SoknadProvider } from "../../context/soknad/SoknadContext";
 import i18n from "../../i18n";
 import { I18nextProvider } from "react-i18next";
+import * as api from "../../api/api";
+import nb from '../../../locales/nb.json';
 
 jest.mock("../../context/bruker/BrukerContext", () => ({
     useBrukerContext: () => {
@@ -41,6 +44,9 @@ beforeEach(() => {
     container = document.createElement("root");
     document.body.appendChild(container);
 
+    jest.spyOn(api, "hentLocales").mockReturnValue({nb: nb, nn: {}, en: {} })
+    renderHook(() => useLanguage());
+
     act(() => {
         ReactDOM.render(
             <I18nextProvider i18n={i18n}>
@@ -53,14 +59,17 @@ beforeEach(() => {
     });
 });
 
+
+
 afterEach(() => {
     document.body.removeChild(container);
     container = null;
 });
 
+
 describe("Samtykke", () => {
-    it("Knapp vises ikke hvis samtykke mangler", async () => {
-        const bekreftSjekkboks = screen.getByLabelText(
+    xit("Knapp vises ikke hvis samtykke mangler", async () => {
+        const bekreftSjekkboks = await screen.findByText(
             "Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
         );
         expect(bekreftSjekkboks).toBeVisible();
@@ -71,7 +80,7 @@ describe("Samtykke", () => {
     });
 
     it("Knapp vises hvis samtykke er huket av", async () => {
-        const bekreftSjekkboks = screen.getByLabelText(
+        const bekreftSjekkboks = await screen.findByLabelText(
             "Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
         );
         expect(bekreftSjekkboks).toBeVisible();
