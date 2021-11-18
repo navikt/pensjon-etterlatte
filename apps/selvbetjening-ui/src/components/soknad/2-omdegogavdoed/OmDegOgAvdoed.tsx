@@ -31,7 +31,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         getValues
     } = methods;
 
-    const erValidert = watch("erValidert")
+    const erValidert = state.omDegOgAvdoed.erValidert;
 
     const lagreNeste = (data: ISoekerOgAvdoed) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } })

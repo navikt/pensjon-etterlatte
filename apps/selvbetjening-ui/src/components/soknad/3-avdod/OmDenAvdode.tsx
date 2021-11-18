@@ -50,7 +50,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         forrige!!()
     }
 
-    const erValidert = watch("erValidert")
+    const erValidert = state.omDenAvdoede.erValidert;
     const selvstendigNaeringsdrivende = watch("selvstendigNaeringsdrivende.svar");
     const harAvtjentMilitaerTjeneste = watch("harAvtjentMilitaerTjeneste.svar");
 

@@ -31,7 +31,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         getValues
     } = methods;
 
-    const erValidert = watch("erValidert")
+    const erValidert = state.opplysningerOmBarn.erValidert
     const registrerteBarn = watch("barn")
 
     const getFnrRegistrerteBarn = (): string[] => {

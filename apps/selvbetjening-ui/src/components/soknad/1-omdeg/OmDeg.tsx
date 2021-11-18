@@ -29,7 +29,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
     const brukerState = useBrukerContext().state;
     const { land }: { land: any } = useLand();
     const lagre = (data: ISoeker) => {
-
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: {...deepCopy(data), erValidert: true}} );
         neste!!();
     };

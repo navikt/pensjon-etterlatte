@@ -15,15 +15,15 @@ export const FortsettSoeknadModal = () => {
     const { t } = useTranslation();
 
     const nesteSteg = () => {
-        if (!isEmpty(state.opplysningerOmBarn)) {
+        if (state.opplysningerOmBarn.erValidert === true) {
             return StegPath.Oppsummering;
-        } else if (!isEmpty(state.dinSituasjon)) {
+        } else if (state.dinSituasjon.erValidert === true) {
             return StegPath.OmBarn;
-        } else if (!isEmpty(state.omDenAvdoede)) {
+        } else if (state.omDenAvdoede.erValidert === true) {
             return StegPath.DinSituasjon;
-        } else if (!isEmpty(state.omDegOgAvdoed)) {
+        } else if (state.omDegOgAvdoed.erValidert === true) {
             return StegPath.OmAvdoed;
-        } else if (!isEmpty(state.omDeg)) {
+        } else if (state.omDeg.erValidert === true) {
             return StegPath.OmDegOgAvdoed;
         } else {
             return StegPath.OmDeg;

@@ -51,7 +51,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         forrige!!()
     }
 
-    const erValidert = watch("erValidert")
+    const erValidert = state.dinSituasjon.erValidert;
     const jobbStatus = watch("jobbStatus");
 
     return (
