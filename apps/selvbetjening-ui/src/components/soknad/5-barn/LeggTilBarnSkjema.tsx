@@ -32,7 +32,11 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     const { land }: { land: any } = useLand();
 
     const methods = useForm<IBarn>({
-        defaultValues: { ...barn, statsborgerskap: barn.statsborgerskap || "Norge" },
+        defaultValues: {
+            ...barn,
+            statsborgerskap: barn.statsborgerskap || "Norge",
+            bosattUtland: {...barn.bosattUtland, land: barn.bosattUtland?.land || "Norge" }
+        },
         shouldUnregister: true
     });
 
@@ -57,7 +61,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
         window.scrollTo(0, 0)
     }
 
-    const bosattUtland = watch("bosattUtland.svar")
+    const bosattUtlandSvar = watch("bosattUtland.svar")
     const harBarnetVerge = watch("harBarnetVerge.svar")
     const relasjon = watch("relasjon")
     const foedselsnummer: any = watch("foedselsnummer")
@@ -154,12 +158,13 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                 legend={t("omBarn.bosattUtland.svar")}
                             />
 
-                            {bosattUtland === IValg.JA && (
+                            {bosattUtlandSvar === IValg.JA && (
                                 <>
-                                    <RHFInput
+                                    <RHFSelect
                                         name={"bosattUtland.land"}
-                                        bredde={"XL"}
                                         label={t("omBarn.bosattUtland.land")}
+                                        value={"Norge"}
+                                        selectOptions={land}
                                     />
 
                                     <RHFInput
