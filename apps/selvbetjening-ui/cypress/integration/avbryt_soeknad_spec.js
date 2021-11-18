@@ -30,7 +30,7 @@ describe("Skal avbryte en soeknad", () => {
         getById("avbryt-btn").click();
 
         getById("avbryt-ja-btn").click();
-        cy.url().should("include", "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/ytelser-til-gjenlevende-ektefelle");
+        cy.url().should("include", "https://www.nav.no/gjenlevendepensjon");
     })
 
     it("Avbryt og slett søknad", () => {
@@ -40,7 +40,7 @@ describe("Skal avbryte en soeknad", () => {
         cy.intercept("DELETE", `${basePath}/api/api/kladd`, {}).as("slettSoeknad");
         getById("slett-soeknad").click();
         cy.wait(["@slettSoeknad"]); // Verifiser at slett kladd blir kalt
-        cy.url().should("include", "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/ytelser-til-gjenlevende-ektefelle");
+        cy.url().should("include", "https://www.nav.no/gjenlevendepensjon");
     })
 
 });
