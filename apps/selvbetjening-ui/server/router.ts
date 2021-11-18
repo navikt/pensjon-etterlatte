@@ -29,7 +29,7 @@ export const sendSoeknad = () => {
         res.send(oppsummering)
     });
 
-    router.get(`${config.app.basePath}/api/locale/:locale`, (req: Request, res: Response) => {
+    router.get(`${config.app.basePath}/api/locale`, (req: Request, res: Response) => {
         return res.json({
             nn: nnLocale,
             nb: nbLocale,
