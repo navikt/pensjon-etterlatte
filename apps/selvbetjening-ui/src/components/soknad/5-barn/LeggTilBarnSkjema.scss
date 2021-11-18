@@ -17,10 +17,10 @@ $width: 650px;
     &__header {
       box-sizing: border-box;
       height: 128px;
-      background-color: rgb(193, 181, 208);
+      background-color: #4d3e55;
       border-top-right-radius: 5px;
       border-top-left-radius: 5px;
-      border-bottom: 4px solid rgb(130, 107, 161);
+      border-bottom: 4px solid #826ba1;
       display: flex;
       padding: 0;
       position: relative;
@@ -37,6 +37,7 @@ $width: 650px;
         left: 50%;
         transform: translateX(-50%);
         align-self: center;
+        color: white;
       }
     }
 
