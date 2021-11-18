@@ -2,7 +2,7 @@ import { renderHook, act } from "@testing-library/react-hooks";
 import i18next from "../i18n";
 import { useLanguage } from "./useLanguage";
 import * as api from "../api/api";
-import nb from '../../locales/nb.json';
+import nb from '../mocks/nblocaleMock.json';
 
 const navigator = { language: "nb-NO" };
 Object.defineProperty(window, "navigator", {

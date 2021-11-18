@@ -5,7 +5,7 @@ import i18n from "../i18n";
 import SideIkkeFunnet from "./SideIkkeFunnet";
 import UgyldigSoeker from "./UgyldigSoeker";
 import * as api from '../api/api';
-import nb from '../../locales/nb.json';
+import nb from '../mocks/nblocaleMock.json';
 
 describe("Side ikke funnet", () => {
     beforeEach(() => {

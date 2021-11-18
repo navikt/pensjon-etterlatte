@@ -1,5 +1,5 @@
-import nbLocale from '../locales/nb.json';
-import nnLocale from '../locales/nb.json';
+import nbLocale from './mocks/nblocaleMock.json';
+import nnLocale from './mocks/nblocaleMock.json';
 import { isEmpty } from "lodash";
 
 

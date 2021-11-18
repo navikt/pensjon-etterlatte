@@ -4,7 +4,7 @@ import * as JSutils from "nav-frontend-js-utils";
 import { useLanguage } from "../../hooks/useLanguage";
 import SoknadKvittering from "./SoknadKvittering";
 import * as api from "../../api/api";
-import nb from '../../../locales/nb.json';
+import nb from '../../mocks/nblocaleMock.json';
 
 /*
 jest.mock("react-i18next", () => ({
