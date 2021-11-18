@@ -23,11 +23,9 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         shouldUnregister: true
     });
 
-
     const {
         handleSubmit,
         formState: { errors },
-        watch,
         getValues
     } = methods;
 

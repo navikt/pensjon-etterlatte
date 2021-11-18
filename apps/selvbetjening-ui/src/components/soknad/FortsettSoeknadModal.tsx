@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes, ActionTypes as SoknadActionTypes } from "../../context/soknad/soknad";
 import { StegPath } from "../../typer/steg";
-import { isEmpty } from "lodash";
 import { slettSoeknad } from "../../api/api";
 import { useTranslation } from "react-i18next";
 
