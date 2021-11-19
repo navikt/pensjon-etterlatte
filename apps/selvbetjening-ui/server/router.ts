@@ -35,15 +35,6 @@ export const sendSoeknad = () => {
             nb: nbLocale,
             en: enLocale
         })
-        /*if(!req.params.locale) return res.status(500).send("Mangler locale-parameter");
-        switch(req.params.locale) {
-            case "nn":
-                return res.json(nnLocale);
-            case "en":
-                return res.json(enLocale);
-            default: 
-                return res.json(nbLocale);
-        }*/
     });
 
     router.post(`${config.app.basePath}/api/api/soeknad`, express.json(), async (req: any, res: any) => {
