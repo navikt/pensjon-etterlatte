@@ -36,7 +36,7 @@ API som gjør det mulig for [frontend](apps/selvbetjening-ui) å kommunisere med
 Brukergrensesnittet for "Søknad om gjenlevendepensjon".
 
 [sjekk-adressebeskyttelse](apps/sjekk-adressebeskyttelse) \
-Går gjennom en liste med fnr. og sjekker om noen av de har adressebeskyttelse. 
+Går igjennom alle fødselsnummer i søknaden og sjekker om noen av de har adressebeskyttelse.
 
 
 # Bygg og deploy
