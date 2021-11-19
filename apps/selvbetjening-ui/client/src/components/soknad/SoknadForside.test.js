@@ -44,7 +44,7 @@ beforeEach(() => {
     container = document.createElement("root");
     document.body.appendChild(container);
 
-    jest.spyOn(api, "hentLocales").mockReturnValue({nb: nb, nn: {}, en: {} })
+    jest.spyOn(api, "hentLocales").mockReturnValue(nb)
     renderHook(() => useLanguage());
 
     act(() => {

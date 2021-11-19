@@ -30,9 +30,9 @@ Object.defineProperty(window, "localStorage", {
 
 describe("useLanguage", () => {
     beforeEach(() => {
-        jest.spyOn(api, "hentLocales").mockReturnValue({ nb: nb, nn: {}, en: {} });
+        jest.spyOn(api, "hentLocales").mockReturnValue(nb);
     });
-    it("Skal sette riktig verdi og ha blitt kalt to ganger", () => {
+    it("Skal sette riktig verdi og ha blitt kalt en gang", () => {
         const { result } = renderHook(() => useLanguage());
 
         expect(result.current.currentLanguage).toEqual("nb");
@@ -43,7 +43,7 @@ describe("useLanguage", () => {
         });
 
         expect(result.current.currentLanguage).toEqual("test");
-        expect(i18next.changeLanguage).toHaveBeenCalledTimes(2);
+        expect(i18next.changeLanguage).toHaveBeenCalledTimes(1);
     });
 
     it("Skal sette en verdi i localstorage", () => {
@@ -52,7 +52,7 @@ describe("useLanguage", () => {
         act(() => {
             result.current.setLanguage("test");
         });
-        expect(localStorage.setItem).toHaveBeenCalledTimes(2);
+        expect(localStorage.setItem).toHaveBeenCalledTimes(1);
     });
 
     it("Skal returnere state og setState", () => {

@@ -8,39 +8,30 @@ export enum Language {
     ENGELSK = "en",
 }
 
-
 export const useLanguage = () => {
-    const [locales, setLocales] = useState({en: {}, nn: {}, nb: {}});
-    const [currentLanguage, setCurrentLanguage] = useState<Language>(Language.NORSK_BOKMAAL);
+    const [locales, setLocales] = useState({ en: {}, nn: {}, nb: {} });
+    const [currentLanguage, setCurrentLanguage] = useState<Language>(
+        (window.localStorage.getItem("preferredLang") as Language) || Language.NORSK_BOKMAAL
+    );
 
-    useEffect(() => {   
+    useEffect(() => {
         (async () => {
-            const localeList = await hentLocales();
-            setLocales(localeList);
-        })()
-    }, [])
-
-    /** 
-     * Init i18 next og sett valgt språk
-     * **/
-    useEffect(() => {
-        if(!locales) return;
-
-        i18next.addResourceBundle("nb", "translation", locales.nb);
-        i18next.addResourceBundle("nn", "translation", locales.nn);
-        i18next.addResourceBundle("en", "translation", locales.en);
-
-        const preferredLang = window.localStorage.getItem("preferredLang") as Language;
-        setCurrentLanguage(preferredLang || Language.NORSK_BOKMAAL);
-    }, [locales]);
+            const localeList = await hentLocales(currentLanguage);
+            setLocales({
+                ...locales,
+                [currentLanguage]: localeList,
+            });
+        })();
+    }, [, currentLanguage]);
 
     useEffect(() => {
+        i18next.addResourceBundle(currentLanguage, "translation", locales[currentLanguage]);
         i18next.changeLanguage(currentLanguage, (err, t) => {
             if (err) return console.log("something went wrong loading", err);
             t("key");
         });
         window.localStorage.setItem("preferredLang", currentLanguage);
-    }, [currentLanguage]);
+    }, [locales]);
 
     return {
         setLanguage: setCurrentLanguage,

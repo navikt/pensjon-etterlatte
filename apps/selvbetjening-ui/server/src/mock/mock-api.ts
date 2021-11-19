@@ -89,13 +89,7 @@ export const mockApi = (app: any) => {
         return res.json(mockLand)
     });
 
-    app.get(`${config.app.basePath}/api/locale`, (req: Request, res: Response) => {
-        return res.json({
-            nn: nnLocale,
-            nb: nbLocale,
-            en: enLocale
-        })
-        /*
+    app.get(`${config.app.basePath}/api/locale/:locale`, (req: Request, res: Response) => {
         if(!req.params.locale) return res.status(500).send("Mangler locale-parameter");
         switch(req.params.locale) {
             case "nn":
@@ -105,6 +99,5 @@ export const mockApi = (app: any) => {
             default: 
                 return res.json(nbLocale);
         }
-        */
     });
 };

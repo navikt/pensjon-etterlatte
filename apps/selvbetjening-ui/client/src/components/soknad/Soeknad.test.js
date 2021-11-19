@@ -21,7 +21,7 @@ const Page = ({location}) => (
 
 describe("Soknad", () => {
     beforeAll(() => {
-        jest.spyOn(api, "hentLocales").mockReturnValue({nb: nb, nn: {}, en: {} })
+        jest.spyOn(api, "hentLocales").mockReturnValue(nb)
         renderHook(() => useLanguage());
     })
     it("skal rendre soknad - steg", () => {

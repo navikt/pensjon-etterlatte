@@ -104,9 +104,9 @@ export const hentOppsummering = async (soeknad: any) => {
     }
 };
 
-export const hentLocales = async () => {
+export const hentLocales = async (locale: string) => {
     try{
-        const response = await api.get(`/locale`)
+        const response = await api.get(`/locale/${locale}`)
         return response.data;
     } catch(e: any) {
         throw new Error(`Det skjedde en feil: ${e.message}`)
