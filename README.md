@@ -29,9 +29,6 @@ Database app for håndtering av søknader (lagring, uthenting, sending, m.m.).
 [journalfoer-soeknad](apps/journalfoer-soeknad) \
 Sikrer korrekt Journalføring av innsendt søknad.
 
-[journalpost-info](apps/journalpost-info) \
-Oppdaterer JournalpostInfo med korrekt enhet/ruting.
-
 [selvbetjening-api](apps/selvbetjening-api) \
 API som gjør det mulig for [frontend](apps/selvbetjening-ui) å kommunisere med diverse apper. 
 

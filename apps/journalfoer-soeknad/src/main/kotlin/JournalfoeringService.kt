@@ -1,57 +1,40 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
+import dokarkiv.AvsenderMottaker
+import dokarkiv.Bruker
+import dokarkiv.Dokarkiv
+import dokarkiv.JournalPostType
+import dokarkiv.JournalpostDokument
+import dokarkiv.JournalpostRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.libs.common.journalpost.DokumentKategori
-import no.nav.etterlatte.libs.common.journalpost.DokumentVariant
-import no.nav.etterlatte.libs.common.journalpost.JournalPostType
-import no.nav.etterlatte.libs.common.journalpost.JournalpostDokument
-import no.nav.etterlatte.libs.common.journalpost.JournalpostInfo
-import no.nav.etterlatte.libs.common.journalpost.JournalpostRequest
+import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
+import no.nav.etterlatte.Konstanter.ENHET_VIKAFOSSEN
+import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import org.slf4j.LoggerFactory
-import java.util.Base64
 
 class JournalfoeringService(private val klient: Dokarkiv) {
-
-    private companion object {
-        private const val kanal = "NAV_NO"
-        private const val tema = "PEN"
-    }
-
     private val logger = LoggerFactory.getLogger(JournalfoeringService::class.java)
-
-    private val encoder = Base64.getEncoder()
 
     fun journalfoer(
         soeknadId: String,
-        journalpostInfo: JournalpostInfo,
-        skjemaInfo: ByteArray,
-        soeknadType: SoeknadType,
-        pdf: ByteArray
+        fnrSoeker: String,
+        gradering: Gradering,
+        dokument: JournalpostDokument,
+        soeknadType: SoeknadType
     ): JsonNode {
         logger.info("Oppretter journalpost for søknad ID $soeknadId")
 
-        val dokument = JournalpostDokument(
-            tittel = journalpostInfo.tittel,
-            dokumentKategori = DokumentKategori.SOK,
-            dokumentvarianter = listOf(
-                DokumentVariant.ArkivPDF(encoder.encodeToString(pdf)),
-                DokumentVariant.OriginalJson(encoder.encodeToString(skjemaInfo))
-            )
-        )
-
         val request = JournalpostRequest(
-            tittel = journalpostInfo.tittel,
+            tittel = SOEKNAD_TITTEL,
             journalpostType = JournalPostType.INNGAAENDE,
-            tema = tema,
-            kanal = kanal,
             behandlingstema = soeknadType.behandlingstema,
-            journalfoerendeEnhet = journalpostInfo.journalfoerendeEnhet,
-            avsenderMottaker = journalpostInfo.avsenderMottaker,
-            bruker = journalpostInfo.bruker,
-            eksternReferanseId = journalpostInfo.tittel + soeknadId,
+            journalfoerendeEnhet = finnEnhet(gradering),
+            avsenderMottaker = AvsenderMottaker(id = fnrSoeker),
+            bruker = Bruker(id = fnrSoeker),
+            eksternReferanseId = SOEKNAD_TITTEL + soeknadId,
             dokumenter = listOf(dokument)
         )
 
@@ -61,4 +44,12 @@ class JournalfoeringService(private val klient: Dokarkiv) {
             logger.info("Journalført PDF (søknad id $soeknadId) med respons: $it")
         }
     }
+
+    private fun finnEnhet(gradering: Gradering): String? =
+        when (gradering) {
+            Gradering.STRENGT_FORTROLIG_UTLAND,
+            Gradering.STRENGT_FORTROLIG -> ENHET_VIKAFOSSEN
+            Gradering.FORTROLIG,
+            Gradering.UGRADERT -> null
+        }
 }

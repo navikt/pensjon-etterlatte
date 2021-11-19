@@ -1,7 +1,8 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import dokarkiv.DokumentKategori
+import dokarkiv.JournalpostDokument
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
@@ -11,13 +12,19 @@ import io.ktor.content.TextContent
 import io.ktor.http.ContentType
 import io.ktor.http.fullPath
 import io.ktor.http.headersOf
+import io.mockk.Called
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.libs.common.journalpost.JournalpostRequest
 import no.nav.etterlatte.libs.common.objectMapper
+import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+import no.nav.etterlatte.pdf.DokumentService
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import pdf.PdfGeneratorKlient
 import java.nio.file.Paths
 import java.time.Clock
 import java.time.LocalDateTime
@@ -27,47 +34,51 @@ import java.time.ZoneOffset
 
 internal class JournalfoerSoeknadTest {
 
-    private val journalfoeringService = JournalfoeringService(JournalfoerDokMock("/journalfoerResponse.json"))
+    private val journalfoeringService = mockk<JournalfoeringService> {
+        every {
+            journalfoer(any(), any(), any(), any(), any())
+        } returns jacksonObjectMapper().readTree(getResource("/journalfoerResponse.json"))
+    }
 
-    private fun getTestResource(file: String): String {
-        return javaClass.getResource(file).readText().replace(Regex("[\n\t]"), "")
+    private val dokumentServiceMock = mockk<DokumentService>() {
+        every {
+            opprettJournalpostDokument(any(), any(), any())
+        } returns JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
     }
 
     @Test
-    fun journalfoer() {
+    fun `Gyldig melding på rapid trigger journalføring`() {
         val clock: Clock = Clock.fixed(LocalDateTime.of(2020, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
-        val message = getTestResource("/fullMessage.json")
         val inspector = TestRapid()
-            .apply { JournalfoerSoeknad(this, GenererPdfMock(), journalfoeringService, clock) }
-            .apply {
-                sendTestMessage(
-                    message
-                )
-            }.inspektør
+            .apply { JournalfoerSoeknad(this, dokumentServiceMock, journalfoeringService, clock) }
+            .apply { sendTestMessage(getResource("/fullMessage.json")) }
+            .inspektør
+
         assertEquals("true", inspector.message(0).get("@dokarkivRetur").get("journalpostferdigstilt").asText())
-        assertTrue(inspector.message(0).get("@journalpostInfo").get("journlanfoerendeEnhet").isNull)
         assertEquals("123", inspector.message(0).get("@dokarkivRetur").get("dokumenter")[0].get("dokumentInfoId").asText())
         assertEquals("467010363", inspector.message(0).get("@dokarkivRetur").get("journalpostId").asText())
+
+        verify(exactly = 1) { dokumentServiceMock.opprettJournalpostDokument("12", any(), "gjenlevendepensjon") }
+        verify(exactly = 1) { journalfoeringService.journalfoer("12", "5555555555", Gradering.UGRADERT, any(), SoeknadType.Gjenlevendepensjon) }
     }
 
     @Test
     fun testAvbruttPgaTid() {
         val clock: Clock = Clock.fixed(LocalDateTime.of(2023, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
-        val message = getTestResource("/fullMessage.json")
         val inspector = TestRapid()
-            .apply { JournalfoerSoeknad(this, GenererPdfMock(), journalfoeringService, clock) }
-            .apply {
-                sendTestMessage(
-                    message
-                )
-            }.inspektør
+            .apply { JournalfoerSoeknad(this, dokumentServiceMock, journalfoeringService, clock) }
+            .apply { sendTestMessage(getResource("/fullMessage.json")) }
+            .inspektør
 
         assertEquals(0, inspector.size )
+
+        verify { dokumentServiceMock wasNot Called }
+        verify { journalfoeringService wasNot Called }
     }
 
     @Test
     fun testPdfGen() {
-        val message = objectMapper.readTree(getTestResource("/fullMessage.json"))
+        val message = objectMapper.readTree(getResource("/fullMessage.json"))
         val httpClient = HttpClient(MockEngine) {
             engine {
                 addHandler { request ->
@@ -90,7 +101,7 @@ internal class JournalfoerSoeknadTest {
         }
 
         runBlocking {
-            PdfGenerator(httpClient, "https://ey-pdfgen/api/v1/genpdf/eypdfgen").genererPdf(
+            PdfGeneratorKlient(httpClient, "https://ey-pdfgen/api/v1/genpdf/eypdfgen").genererPdf(
                 message.get("@skjema_info"),
                 "soknad"
             ).also {
@@ -100,18 +111,7 @@ internal class JournalfoerSoeknadTest {
         }
     }
 
-}
+    private fun getResource(file: String): String =
+        javaClass.getResource(file)!!.readText().replace(Regex("[\n\t]"), "")
 
-private class JournalfoerDokMock(val file: String) : Dokarkiv {
-    override suspend fun journalfoerDok(request: JournalpostRequest): JsonNode {
-        val json = javaClass.getResource(file)!!.readText().replace(Regex("[\n\t]"), "")
-
-        return objectMapper.readTree(json)
-    }
-}
-
-class GenererPdfMock : GenererPdf {
-    override suspend fun genererPdf(input: JsonNode, template: String): ByteArray {
-        return Paths.get("src/test/resources/pdf.pdf").toFile().readBytes()
-    }
 }
