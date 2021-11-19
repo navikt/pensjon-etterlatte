@@ -11,17 +11,20 @@ class AdressebeskyttelseService(private val klient: Pdl) {
     /**
      * Henter ut adressebeskyttelse-gradering basert liste over identer/fnr.
      *
-     * @param fnr: Liste over fødselsnummere
+     * @param fnrListe: Liste over fødselsnummere
      *
      * @return Gyldig gradering av PDL-typen [Gradering].
      *  Gir verdi [Gradering.UGRADERT] dersom ingenting er funnet.
      */
-    suspend fun hentGradering(fnr: Foedselsnummer): Gradering {
-        val person = klient.finnAdressebeskyttelseForFnr(fnr).data?.hentPerson
-            ?: throw Exception("Fant ikke person i PDL!")
+    suspend fun hentGradering(fnrListe: List<Foedselsnummer>): Gradering {
+        val personer = klient.finnAdressebeskyttelseForFnr(fnrListe).data?.hentPersonBolk?.mapNotNull { it.person }
 
-        return hentPrioritertGradering(person)
-            .also { logger.info("Fant gradering $it på person i PDL.") }
+        if (personer.isNullOrEmpty()) {
+            throw Exception("Fant ingen personer i PDL")
+        }
+
+        return hentPrioritertGradering(personer)
+            .also { logger.info("Gradering vurdert til $it") }
     }
 
     /**
@@ -29,9 +32,8 @@ class AdressebeskyttelseService(private val klient: Pdl) {
      *
      * @return [Gradering]
      */
-    private fun hentPrioritertGradering(person: AdressebeskyttelsePerson): Gradering =
-        person.adressebeskyttelse
+    private fun hentPrioritertGradering(personer: List<AdressebeskyttelsePerson>): Gradering =
+        personer.flatMap { it.adressebeskyttelse }
             .mapNotNull { it.gradering }
-            .minOrNull()
-            ?: Gradering.UGRADERT
+            .minOrNull() ?: Gradering.UGRADERT
 }

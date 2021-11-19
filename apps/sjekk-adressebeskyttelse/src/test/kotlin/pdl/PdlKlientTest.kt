@@ -43,11 +43,10 @@ internal class PdlKlientTest {
         }
 
         runBlocking {
-            PdlKlient(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(fnr).also {
+            PdlKlient(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(listOf(fnr)).also {
                 //fikset, men dette er ikke pen
                 assertEquals(Gradering.FORTROLIG, it.data!!.hentPersonBolk!![0].person!!.adressebeskyttelse[0].gradering)
             }
         }
     }
-
 }

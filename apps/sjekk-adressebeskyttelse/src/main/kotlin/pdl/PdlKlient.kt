@@ -13,7 +13,7 @@ import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.slf4j.LoggerFactory
 
 interface Pdl {
-    suspend fun finnAdressebeskyttelseForFnr(fnr: Foedselsnummer): AdressebeskyttelseResponse
+    suspend fun finnAdressebeskyttelseForFnr(fnrListe: List<Foedselsnummer>): AdressebeskyttelseResponse
 }
 
 class PdlKlient(private val client: HttpClient, private val apiUrl: String) : Pdl {
@@ -23,14 +23,14 @@ class PdlKlient(private val client: HttpClient, private val apiUrl: String) : Pd
      * Henter personer og tilknyttet adressebeskyttelse fra PDL.
      * Dersom en person ikke har adressebeskyttelse vil personobjektet inneholde en tom liste adressebeskyttelse.
      *
-     * @param fnr: Liste over fødselsnummer.
+     * @param fnrListe: Liste over fødselsnummer.
      *
      * @return [AdressebeskyttelseResponse]: Responsobjekt fra PDL.
      */
-    override suspend fun finnAdressebeskyttelseForFnr(fnr: Foedselsnummer): AdressebeskyttelseResponse {
+    override suspend fun finnAdressebeskyttelseForFnr(fnrListe: List<Foedselsnummer>): AdressebeskyttelseResponse {
         val query = hentQuery()
 
-        val request = GraphqlRequest(query, Variables(ident = fnr.value))
+        val request = GraphqlRequest(query, Variables(identer = fnrListe.map { it.value }))
 
         val response = client.post<AdressebeskyttelseResponse>(apiUrl) {
             header("Tema", "PEN")
@@ -47,8 +47,7 @@ class PdlKlient(private val client: HttpClient, private val apiUrl: String) : Pd
         return response
     }
 
-    private fun hentQuery(): String =
-        javaClass.getResource("/hentAdressebeskyttelse.graphql")!!
-            .readText()
-            .replace(Regex("[\n\t]"), "")
+    private fun hentQuery(): String = javaClass.getResource("/hentAdressebeskyttelse.graphql")!!
+        .readText()
+        .replace(Regex("[\n\t]"), "")
 }

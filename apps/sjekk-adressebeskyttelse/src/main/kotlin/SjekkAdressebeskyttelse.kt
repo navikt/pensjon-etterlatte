@@ -1,7 +1,9 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.JsonNode
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.common.person.FoedselsnummerValidator
 import no.nav.etterlatte.pdl.AdressebeskyttelseService
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
@@ -20,23 +22,33 @@ internal class SjekkAdressebeskyttelse(
         River(rapidsConnection).apply {
             validate { it.requireKey("@fnr_soeker") }
             validate { it.requireKey("@lagret_soeknad_id") }
+            validate { it.requireKey("@skjema_info") }
             validate { it.rejectKey("@adressebeskyttelse") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         val soeknadId = packet["@lagret_soeknad_id"].asText()
-        val fnrSoeker = Foedselsnummer.of(packet["@fnr_soeker"].asText())
+        val fnrListe = packet["@skjema_info"].finnFoedselsnummer()
 
         logger.info("Sjekker adressebeskyttelse for søknad med ID: $soeknadId")
 
         runBlocking {
-            val gradering = adressebeskyttelseService.hentGradering(fnrSoeker)
+            val gradering = adressebeskyttelseService.hentGradering(fnrListe)
 
             packet["@adressebeskyttelse"] = gradering.name
             logger.info("vurdert adressebeskyttelse til ${gradering.name}")
             context.publish(packet.toJson())
         }
     }
+}
 
+internal fun JsonNode.finnFoedselsnummer(): List<Foedselsnummer> {
+    val regex = """\b(\d{11})\b""".toRegex()
+
+    return regex.findAll(this.toString())
+        .filter { FoedselsnummerValidator.isValid(it.value) }
+        .map { Foedselsnummer.of(it.groupValues[1]) }
+        .toList()
+        .distinct()
 }
