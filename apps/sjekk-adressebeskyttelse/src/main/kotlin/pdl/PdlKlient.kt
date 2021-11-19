@@ -49,5 +49,5 @@ class PdlKlient(private val client: HttpClient, private val apiUrl: String) : Pd
 
     private fun hentQuery(): String = javaClass.getResource("/hentAdressebeskyttelse.graphql")!!
         .readText()
-        .replace(Regex("[\n\t]"), "")
+        .replace(System.lineSeparator(), "")
 }
