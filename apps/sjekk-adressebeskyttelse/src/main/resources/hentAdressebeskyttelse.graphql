@@ -1,7 +1,9 @@
-query($ident: ID!){
-    hentPerson(ident: $ident) {
-        adressebeskyttelse(historikk: false) {
-            gradering
+query($identer: [ID!]!){
+    hentPersonBolk(identer: $identer) {
+        person {
+            adressebeskyttelse(historikk: false) {
+                gradering
+            }
         }
     }
 }

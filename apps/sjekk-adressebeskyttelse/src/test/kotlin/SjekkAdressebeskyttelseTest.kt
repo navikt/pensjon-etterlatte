@@ -4,19 +4,17 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.mockk
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.pdl.AdressebeskyttelseService
-import no.nav.etterlatte.pdl.Pdl
 import no.nav.etterlatte.pdl.PdlKlient
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
 
 internal class FinnAdressebeskyttelseTest {
 
@@ -32,7 +30,10 @@ internal class FinnAdressebeskyttelseTest {
 
     @Test
     fun testFeltMapping() {
-        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons(Gradering.FORTROLIG, Gradering.STRENGT_FORTROLIG)
+        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons(
+            Gradering.FORTROLIG,
+            Gradering.STRENGT_FORTROLIG
+        )
 
         val inspector = TestRapid()
             .apply { SjekkAdressebeskyttelse(this, service) }
@@ -62,7 +63,10 @@ internal class FinnAdressebeskyttelseTest {
 
     @Test
     fun testenTomOgEnVanlig() {
-        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons(Gradering.UGRADERT, Gradering.STRENGT_FORTROLIG_UTLAND)
+        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons(
+            Gradering.UGRADERT,
+            Gradering.STRENGT_FORTROLIG_UTLAND
+        )
 
         val inspector = TestRapid()
             .apply { SjekkAdressebeskyttelse(this, service) }
@@ -75,20 +79,32 @@ internal class FinnAdressebeskyttelseTest {
         )
     }
 
+    @Test
+    fun `Skal finne alle gyldige fødselsnummer i søknaden`() {
+        val gyldigeFoedselsnummer = listOf(
+            "07106123912", "14106126780", "21929774873", "61929750062", "61483601467", "29507030252"
+        ).map { Foedselsnummer.of(it) }
+
+        val resultat: List<Foedselsnummer> = jacksonObjectMapper().readTree(hendelseJson).finnFoedselsnummer()
+        assertEquals(resultat.size, gyldigeFoedselsnummer.size)
+        assertTrue(resultat.containsAll(gyldigeFoedselsnummer))
+    }
+
     private fun opprettRespons(vararg gradering: Gradering): AdressebeskyttelseResponse {
         val graderingString = gradering.joinToString { "{\"gradering\" : \"$it\"}" }
 
         val json = """
             {
               "data": {
-                "hentPerson": {
-                  "adressebeskyttelse": [$graderingString] 
-                }
+                "hentPersonBolk": [
+                  {
+                    "person": { "adressebeskyttelse": [$graderingString] }
+                  }
+                ]
               }
             }
         """
 
         return jacksonObjectMapper().readValue(json, jacksonTypeRef())
     }
-
 }

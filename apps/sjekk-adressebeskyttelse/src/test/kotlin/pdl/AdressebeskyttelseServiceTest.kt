@@ -33,7 +33,7 @@ internal class AdressebeskyttelseServiceTest {
         } returns mockResponse(Gradering.FORTROLIG, null, null, Gradering.STRENGT_FORTROLIG_UTLAND)
 
         runBlocking {
-            val gradering = service.hentGradering(fnr)
+            val gradering = service.hentGradering(listOf(fnr))
 
             assertEquals(Gradering.STRENGT_FORTROLIG_UTLAND, gradering)
         }
@@ -46,7 +46,7 @@ internal class AdressebeskyttelseServiceTest {
         } returns mockResponse(Gradering.FORTROLIG, null, null, Gradering.STRENGT_FORTROLIG, null, Gradering.FORTROLIG)
 
         runBlocking {
-            val gradering = service.hentGradering(fnr)
+            val gradering = service.hentGradering(listOf(fnr))
 
             assertEquals(Gradering.STRENGT_FORTROLIG, gradering)
         }
@@ -59,7 +59,7 @@ internal class AdressebeskyttelseServiceTest {
         } returns mockResponse(Gradering.FORTROLIG, null, null, null, Gradering.FORTROLIG)
 
         runBlocking {
-            val gradering = service.hentGradering(fnr)
+            val gradering = service.hentGradering(listOf(fnr))
 
             assertEquals(Gradering.FORTROLIG, gradering)
         }
@@ -72,7 +72,7 @@ internal class AdressebeskyttelseServiceTest {
         } returns mockResponse(null, null, null, null)
 
         runBlocking {
-            val gradering = service.hentGradering(fnr)
+            val gradering = service.hentGradering(listOf(fnr))
 
             assertEquals(Gradering.UGRADERT, gradering)
         }
@@ -86,7 +86,7 @@ internal class AdressebeskyttelseServiceTest {
 
         assertThrows<Exception> {
             runBlocking {
-                service.hentGradering(fnr)
+                service.hentGradering(listOf(fnr))
             }
         }
     }
@@ -99,15 +99,19 @@ internal class AdressebeskyttelseServiceTest {
 
         assertThrows<Exception> {
             runBlocking {
-                service.hentGradering(fnr)
+                service.hentGradering(listOf(fnr))
             }
         }
     }
 
     private fun mockResponse(vararg graderinger: Gradering?) = AdressebeskyttelseResponse(
         data = HentAdressebeskyttelse(
-            hentPerson = AdressebeskyttelsePerson(
-                graderinger.mapNotNull { Adressebeskyttelse(it) }
+            hentPersonBolk = listOf(
+                AdressebeskyttelseBolkPerson(
+                    person = AdressebeskyttelsePerson(
+                        graderinger.mapNotNull { Adressebeskyttelse(it) }
+                    )
+                )
             )
         )
     )
