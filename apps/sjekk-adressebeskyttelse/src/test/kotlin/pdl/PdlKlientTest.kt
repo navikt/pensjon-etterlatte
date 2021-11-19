@@ -32,8 +32,7 @@ internal class PdlKlientTest {
                             val response = javaClass.getResource("/pdlMock1.json").readText().replace(Regex("[\n\t]"), "")
                             val responseHeaders =
                                 headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
-                            respond(response, headers = responseHeaders
-                            )
+                            respond(response, headers = responseHeaders)
                         }
                         else -> error("Unhandled ${request.url.fullPath}")
                     }
@@ -44,8 +43,10 @@ internal class PdlKlientTest {
 
         runBlocking {
             PdlKlient(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(listOf(fnr)).also {
-                //fikset, men dette er ikke pen
-                assertEquals(Gradering.FORTROLIG, it.data!!.hentPersonBolk!![0].person!!.adressebeskyttelse[0].gradering)
+                assertEquals(
+                    Gradering.FORTROLIG,
+                    it.data?.hentPersonBolk?.get(0)?.person?.adressebeskyttelse?.get(0)?.gradering
+                )
             }
         }
     }
