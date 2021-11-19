@@ -33,19 +33,18 @@ jobs:
       - name: Install and build
         working-directory: apps/${{ env.APP_NAME }}
         run: |
-          yarn install
-          yarn build
-          yarn server:build-prod
+          yarn --cwd client install && yarn --cwd client build
+          yarn --cwd server install && yarn --cwd server build
       - name: Run tests
-        working-directory: apps/${{ env.APP_NAME }}
+        working-directory: apps/${{ env.APP_NAME }}/client
         run: |
           CI=true yarn test
       - name: Start application
-        working-directory: apps/${{ env.APP_NAME }}
+        working-directory: apps/${{ env.APP_NAME }}/client
         run: |
           yarn start & npx wait-on http://localhost:3000
       - name: Run e2e tests (Cypress)
-        working-directory: apps/${{ env.APP_NAME }}
+        working-directory: apps/${{ env.APP_NAME }}/client
         run: |
           yarn cy:test
       - name: Build and publish Docker image

@@ -2,8 +2,8 @@ FROM node:14
 
 WORKDIR /usr/src/app
 
-COPY build ./build
-COPY buildServer ./server
+COPY client/build ./build
+COPY server/build ./server
 
 ENV NODE_ENV="production"
 

@@ -3,7 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { MuligeSteg, StegPath } from "../../typer/steg";
 import OmDeg from "./1-omdeg/OmDeg";
 import OmDegOgAvdoed from "./2-omdegogavdoed/OmDegOgAvdoed";
-import OmDenAvdode from "../../components/soknad/3-avdod/OmDenAvdode";
+import OmDenAvdode from "./3-avdod/OmDenAvdode";
 import OpplysningerOmBarn from "./5-barn/OpplysningerOmBarn";
 import Stegviser from "../felles/Stegviser";
 import Oppsummering from "./6-oppsummering/Oppsummering";
