@@ -18,10 +18,10 @@ class AdressebeskyttelseService(private val klient: Pdl) {
      */
     suspend fun hentGradering(fnr: Foedselsnummer): Gradering {
         val person = klient.finnAdressebeskyttelseForFnr(fnr).data?.hentPerson
-            ?: throw Exception("Fant ingen personer i PDL med fnr: $fnr")
+            ?: throw Exception("Fant ikke person i PDL!")
 
         return hentPrioritertGradering(person)
-            .also { logger.info("Fant $it i liste over fnr: $fnr") }
+            .also { logger.info("Fant gradering $it på person i PDL.") }
     }
 
     /**
