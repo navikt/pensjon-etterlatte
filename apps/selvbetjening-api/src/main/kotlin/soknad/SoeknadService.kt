@@ -48,6 +48,8 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
         } catch (ex: ClientRequestException){
             if (ex.response.status == HttpStatusCode.NotFound)
                 HttpStatusCode.NotFound
+            else if (ex.response.status == HttpStatusCode.Conflict)
+                HttpStatusCode.Conflict
             else
                 throw ex
         }

@@ -3,7 +3,8 @@ package soeknad
 import org.slf4j.LoggerFactory
 import soeknad.Queries.CREATE_HENDELSE
 import soeknad.Queries.CREATE_SOEKNAD
-import soeknad.Queries.FINN_KLADD
+import soeknad.Queries.FINN_SISTE_STATUS
+import soeknad.Queries.FINN_SOEKNAD
 import soeknad.Queries.OPPDATER_SOEKNAD
 import soeknad.Queries.SELECT_OLD
 import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
@@ -20,20 +21,20 @@ import soeknad.Status.SENDT
 import soeknad.Status.SLETTET
 import soeknad.Status.UTGAATT
 import java.sql.ResultSet
+import java.sql.Timestamp
 import java.time.LocalDateTime
 import java.time.ZoneId
 import javax.sql.DataSource
 
 interface SoeknadRepository {
-    fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad
+    fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID
     fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad
     fun soeknadSendt(id: SoeknadID)
     fun soeknadArkivert(id: SoeknadID)
     fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
     fun slettArkiverteSoeknader(): Int
-    fun soeknadFerdigstilt(id: SoeknadID)
-    fun finnKladd(fnr: String): LagretSoeknad?
+    fun finnSoeknad(fnr: String): LagretSoeknad?
     fun slettKladd(fnr: String): SoeknadID?
     fun slettUtgaatteKladder(): Int
 }
@@ -61,17 +62,26 @@ class PostgresSoeknadRepository private constructor(
 
     private val postgresTimeZone = ZoneId.of("UTC")
 
-    override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
-        logger.info("Oppretter/oppdaterer søknad for ${soeknad.fnr}")
+    override fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID {
+        return lagreSoeknad(soeknad).id
+            .also { id ->
+                logger.info("Ferdigstiller søknad med id $id")
+                nyStatus(id, FERDIGSTILT)
+            }
+    }
 
-        return finnKladd(soeknad.fnr)
-            ?.let { oppdaterSoeknad(it, soeknad.payload) }
-            ?: opprettNySoeknad(soeknad)
+    private fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+        val lagretSoeknad = finnSoeknad(soeknad.fnr)
+
+        return if (lagretSoeknad == null)
+            opprettNySoeknad(soeknad)
+        else if (lagretSoeknad.status != null && lagretSoeknad.status != LAGRETKLADD)
+            throw Exception("Bruker har allerede en ferdigstilt søknad under behandling")
+        else
+            oppdaterSoeknad(lagretSoeknad, soeknad.payload)
     }
 
     private fun opprettNySoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
-        logger.info("Oppretter søknad for ${soeknad.fnr}")
-
         val id = connection.use {
             it.prepareStatement(CREATE_SOEKNAD)
                 .apply {
@@ -86,8 +96,6 @@ class PostgresSoeknadRepository private constructor(
     }
 
     private fun oppdaterSoeknad(kladd: LagretSoeknad, nyDataJson: String): LagretSoeknad {
-        logger.info("Oppdaterer kladd for ${kladd.fnr}")
-
         connection.use {
             it.prepareStatement(OPPDATER_SOEKNAD)
                 .apply {
@@ -118,10 +126,6 @@ class PostgresSoeknadRepository private constructor(
         nyStatus(id, ARKIVERINGSFEIL, jsonFeil)
     }
 
-    override fun soeknadFerdigstilt(id: SoeknadID) {
-        nyStatus(id, FERDIGSTILT)
-    }
-
     private fun nyStatus(soeknadId: SoeknadID, status: Status, payload: String = """{}""") {
         connection.use {
             it.prepareStatement(CREATE_HENDELSE)
@@ -150,13 +154,28 @@ class PostgresSoeknadRepository private constructor(
         return slettedeKladder.size
     }
 
-    override fun finnKladd(fnr: String): LagretSoeknad? = connection.use {
-        it.prepareStatement(FINN_KLADD)
-            .apply { setString(1, fnr) }
-            .executeQuery()
-            .singleOrNull {
-                LagretSoeknad(getLong("soeknad_id"), fnr, getString("payload"))
+    override fun finnSoeknad(fnr: String): LagretSoeknad? {
+        val soeknad = connection.use {
+            it.prepareStatement(FINN_SOEKNAD)
+                .apply { setString(1, fnr) }
+                .executeQuery()
+                .singleOrNull {
+                    LagretSoeknad(getLong("soeknad_id"), fnr, getString("payload"))
+                }
+        }
+
+        return if (soeknad != null) {
+            val sisteStatus = connection.use {
+                it.prepareStatement(FINN_SISTE_STATUS)
+                    .apply { setLong(1, soeknad.id) }
+                    .executeQuery()
+                    .singleOrNull {
+                        getString("status_id")?.let { id -> Status.valueOf(id) }
+                    }
             }
+
+            soeknad.apply { status = sisteStatus }
+        } else null
     }
 
     override fun slettKladd(fnr: String): SoeknadID? {
@@ -183,13 +202,15 @@ class PostgresSoeknadRepository private constructor(
     override fun eldsteUsendte(): LocalDateTime? = connection.use {
         it.prepareStatement(SELECT_OLDEST_UNSENT)
             .executeQuery()
-            .singleOrNull(::asLocalDateTime)
+            .singleOrNull { getTimestamp(1)?.let(::asLocalDateTime) }
     }
 
     override fun eldsteUarkiverte(): LocalDateTime? = connection.use {
         it.prepareStatement(SELECT_OLDEST_UNARCHIVED)
             .executeQuery()
-            .singleOrNull(::asLocalDateTime)
+            .singleOrNull {
+                getTimestamp(1)?.let(::asLocalDateTime)
+            }
     }
 
     override fun rapport(): Map<Status, Long> {
@@ -224,11 +245,7 @@ class PostgresSoeknadRepository private constructor(
         }.toList()
     }
 
-    private fun asLocalDateTime(rs: ResultSet): LocalDateTime? {
-        val timestamp = rs.getTimestamp(1)
-            .takeUnless { rs.wasNull() }
-            ?: return null
-
+    private fun asLocalDateTime(timestamp: Timestamp): LocalDateTime {
         return timestamp
             .toLocalDateTime()
             .atZone(postgresTimeZone)
@@ -287,12 +304,17 @@ private object Queries {
         WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id = '$ARKIVERT') 
     """.trimIndent()
 
-    val FINN_KLADD = """
-        SELECT i.soeknad_id, i.fnr, i.payload FROM innhold i
-        WHERE i.fnr = ? AND NOT EXISTS ( 
-            SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id 
-                AND h.status_id IN (${Status.innsendt.toSqlString()})
-        )
+    val FINN_SOEKNAD = """
+        SELECT soeknad_id, fnr, payload
+        FROM innhold
+        WHERE fnr = ?
+    """.trimIndent()
+
+    val FINN_SISTE_STATUS = """
+        SELECT h.status_id FROM hendelse h
+        WHERE h.soeknad_id = ?
+        ORDER BY h.opprettet DESC
+        LIMIT 1;
     """.trimIndent()
 
     val SLETT_KLADD = """

@@ -53,12 +53,19 @@ fun Route.soknadApi(service: SoeknadService) {
         get {
             when (val response = service.hentKladd()) {
                 is Success -> {
-                    if (response.content == HttpStatusCode.NotFound) {
-                        call.application.environment.log.info("Forsøkte å hente kladd som ikke finnes")
-                        call.respond(HttpStatusCode.NotFound)
-                    } else {
-                        call.application.environment.log.info("Kladd hentet OK")
-                        call.respond(response.content ?: throw Exception("Lagret kladd funnet uten innhold"))
+                    when (response.content) {
+                        HttpStatusCode.NotFound -> {
+                            call.application.environment.log.info("Forsøkte å hente kladd som ikke finnes")
+                            call.respond(HttpStatusCode.NotFound)
+                        }
+                        HttpStatusCode.Conflict -> {
+                            call.application.environment.log.info("Bruker har allerede innsendt søknad under arbeid.")
+                            call.respond(HttpStatusCode.Conflict)
+                        }
+                        else -> {
+                            call.application.environment.log.info("Kladd hentet OK")
+                            call.respond(response.content ?: throw Exception("Lagret kladd funnet uten innhold"))
+                        }
                     }
                 }
                 is Failure -> {

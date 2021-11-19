@@ -24,8 +24,7 @@ fun Route.soeknadApi(db: SoeknadRepository) {
 
         soekere.forEach { soeker ->
             val oppdatertSoeknad = soeknad.copy(soeknadsType = soeker.type)
-            val lagretSoeknad = db.lagreSoeknad(UlagretSoeknad(soeker.fnr, oppdatertSoeknad.toJson()))
-            db.soeknadFerdigstilt(lagretSoeknad.id)
+            db.ferdigstillSoeknad(UlagretSoeknad(soeker.fnr, oppdatertSoeknad.toJson()))
         }
 
         call.respond(HttpStatusCode.OK)
@@ -44,7 +43,14 @@ fun Route.soeknadApi(db: SoeknadRepository) {
         }
 
         get {
-            call.respond(db.finnKladd(fnrFromToken()) ?: HttpStatusCode.NotFound)
+            val soeknad = db.finnSoeknad(fnrFromToken())
+
+            if (soeknad == null)
+                call.respond(HttpStatusCode.NotFound)
+            else if (soeknad.status != Status.LAGRETKLADD)
+                call.respond(HttpStatusCode.Conflict)
+            else
+                call.respond(soeknad)
         }
     }
 }

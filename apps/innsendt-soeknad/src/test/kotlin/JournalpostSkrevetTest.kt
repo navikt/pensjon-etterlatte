@@ -73,7 +73,7 @@ class TestRepo: SoeknadRepository {
     val arkiveringOk = mutableListOf<SoeknadID>()
     val arkiveringFeilet = mutableListOf<SoeknadID>()
 
-    override fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+    override fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID {
         TODO("Not yet implemented")
     }
 
@@ -102,11 +102,7 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
-    override fun soeknadFerdigstilt(id: SoeknadID) {
-        TODO("Not yet implemented")
-    }
-
-    override fun finnKladd(fnr: String): LagretSoeknad? {
+    override fun finnSoeknad(fnr: String): LagretSoeknad? {
         TODO("Not yet implemented")
     }
 

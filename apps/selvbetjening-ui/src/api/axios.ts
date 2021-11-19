@@ -16,5 +16,5 @@ axiosRetry(axiosInstance, {
     retries: 3,
     retryDelay: (retryCount: number) => (isDev ? 500 : retryCount * 2000),
     // Må ta stilling til om vi kan få problemer med idempotens/timeout.
-    retryCondition: (error) => error.response?.status !== 404,
+    retryCondition: (error) => error.response?.status !== 404 && error.response?.status !== 409,
 });

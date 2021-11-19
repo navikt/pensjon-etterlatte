@@ -30,10 +30,15 @@ const useSoeknad = () => {
                         dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad });
                     }
                 })
-                .catch(() => {
-                    setError("Det skjedde en feil. Prøv igjen senere.");
+                .catch((err: Error) => {
                     settLasterSoeknad(false);
-                    history.push("/");
+
+                    if (err.message === "FERDIGSTILT") {
+                        history.push("/skjema/sendt")
+                    } else {
+                        setError("Det skjedde en feil. Prøv igjen senere.");
+                        history.push("/");
+                    }
                 })
                 .finally(() => settLasterSoeknad(false));
         }

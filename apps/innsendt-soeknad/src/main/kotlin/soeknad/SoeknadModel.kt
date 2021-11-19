@@ -1,5 +1,6 @@
 package soeknad
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 
 typealias SoeknadID = Long
@@ -8,7 +9,10 @@ data class LagretSoeknad(
     val id: SoeknadID,
     val fnr: String,
     val payload: String
-)
+) {
+    @JsonIgnore
+    var status: Status? = null
+}
 
 data class UlagretSoeknad(
     val fnr: String,

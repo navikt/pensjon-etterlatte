@@ -25,6 +25,8 @@ export const hentSoeknad = async () => {
     } catch (e: any) {
         if (e.response.status === 404) {
             return undefined;
+        } else if (e.response.status === 409) {
+            throw new Error("FERDIGSTILT");
         }
         throw new Error("Det skjedde en feil");
     }
