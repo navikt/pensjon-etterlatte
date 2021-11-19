@@ -104,7 +104,7 @@
     "build:prod": "env REACT_APP_ENVIRONMENT=production react-scripts build",
     "build": "react-scripts build",
     "server": "node ./server/server.js",
-    "server:mock": "ts-node-dev server/mock/mock-server.ts",
+    "server:mock": "ts-node-dev --project ./server/tsconfig.json server/mock/mock-server.ts",
     "server:dev": "NODE_ENV=dev ts-node-dev --project ./server/tsconfig.json ./server/server.ts",
     "server:build-dev": "NODE_ENV=dev tsc --project ./server/tsconfig.json",
     "server:build-prod": "NODE_ENV=production tsc --project ./server/tsconfig.json",
