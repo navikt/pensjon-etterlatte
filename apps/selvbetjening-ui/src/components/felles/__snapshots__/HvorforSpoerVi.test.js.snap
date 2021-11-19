@@ -60,7 +60,7 @@ exports[`HvorforSpoerVi skal rendre hvorfor spør vi som lukket boks 1`] = `
       type="button"
     >
       <span>
-        Hvorfor spør vi om dette
+        hvorforSpoerVi
       </span>
       <span>
         <svg

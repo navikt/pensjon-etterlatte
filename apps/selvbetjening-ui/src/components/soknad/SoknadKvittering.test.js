@@ -1,9 +1,12 @@
 import { render } from "@testing-library/react";
+import { renderHook } from "@testing-library/react-hooks";
 import * as JSutils from "nav-frontend-js-utils";
-import * as hook from "../../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 import SoknadKvittering from "./SoknadKvittering";
+import * as api from "../../api/api";
+import nb from '../../mocks/nblocaleMock.json';
 
-
+/*
 jest.mock("react-i18next", () => ({
   // this mock makes sure any components using the translate hook can use it without a warning being shown
   useTranslation: () => {
@@ -15,13 +18,14 @@ jest.mock("react-i18next", () => ({
       };
   },
 }));
-jest.mock()
+jest.mock()*/
 JSutils.guid = jest.fn(() => "");
 
 describe("SoknadKvittering", () => {
-  
     it("skal matche snapshot", () => {
-        jest.spyOn(hook, 'useLanguage').mockImplementation(() => (null)); //be quiet
+        // jest.spyOn(hook, 'useLanguage').mockImplementation(() => (null)); //be quiet
+        jest.spyOn(api, "hentLocales").mockReturnValue({ nb: nb, nn: {}, en: {} });
+        renderHook(() => useLanguage());
 
         const { container } = render(<SoknadKvittering />);
         expect(container).toMatchSnapshot();

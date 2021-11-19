@@ -1,6 +1,9 @@
 import parser from 'body-parser';
 import NodeCache from 'node-cache';
 import mockLand from './landMock';
+import nbLocale from '../locales/nb.json';
+import nnLocale from '../locales/nn.json';
+import enLocale from '../locales/en.json';
 
 import {
     SEDAT_RIPSBÆRBUSK,
@@ -84,5 +87,24 @@ export const mockApi = (app: any) => {
 
     app.get(`${config.app.basePath}/api/kodeverk/alleland`, (req: Request, res: Response) => {
         return res.json(mockLand)
+    });
+
+    app.get(`${config.app.basePath}/api/locale`, (req: Request, res: Response) => {
+        return res.json({
+            nn: nnLocale,
+            nb: nbLocale,
+            en: enLocale
+        })
+        /*
+        if(!req.params.locale) return res.status(500).send("Mangler locale-parameter");
+        switch(req.params.locale) {
+            case "nn":
+                return res.json(nnLocale);
+            case "en":
+                return res.json(enLocale);
+            default: 
+                return res.json(nbLocale);
+        }
+        */
     });
 };

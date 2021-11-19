@@ -27,7 +27,8 @@
     "fjern": "Fjern",
     "fjernFraSoeknad": "Fjern frå søknad",
     "lagre": "Lagre",
-    "slett": "Slett søknad"
+    "slett": "Slett søknad",
+    "endre": "Endre"
   },
   "forside": {
     "tittel": "Søk om attlevandepensjon eller overgangsstønad",
@@ -133,9 +134,8 @@
       "tittel": "Ytingar",
       "ingress": "Nokre ytingar frå NAV vert rekna som inntekt og har betydning for kor mykje attlevandepensjon du får. Uføretrygd, alderspensjon, avtalefesta pensjon (AFP) kan ikkje kombinerast med attlevandepensjon.",
       "kravOmAnnenStonad": {
-        "svar": "Har du søkt om andre ytingar frå NAV som du ikkje har fått svar på?",
-        "beskrivelse": "Kva har du søkt om?",
-        "placeholder": "Eks. sjukepengar, dagpengar, pensjon, stønad til livsopphald"
+        "svar": "Har du søkt om andre ytingar som du ikkje har fått svar på?",
+        "ytelser": "Kva har du søkt om?"
       },
       "annenPensjon": {
         "svar": "Får du eller har du søkt om avtalefesta pensjon (AFP) eller annan pensjon frå andre enn NAV?",
@@ -449,6 +449,20 @@
     "fast": "Fast ansatt",
     "midlertidig": "Midlertidig ansatt",
     "sesongarbeid": "Sesongansatt"
+  },
+  "ytelser": {
+    "velg": "Vel...",
+    "dagpenger": "Dagpengar",
+    "sykepenger": "Sjukepengar",
+    "pleiepenger": "Pleiepengar",
+    "svangerskapspenger": "Svangerskapspengar",
+    "foreldrepenger": "Foreldrepengar",
+    "arbeidsavklaringspenger": "Arbeidsavklaringspengar",
+    "kvalifiseringsstoenad" : "Kvalifiseringsstønad",
+    "kommunal": "Kommunal omsorgsstønad",
+    "fosterhjem": "Fosterheimsgodtgjering",
+    "omsorgspenger": "Omsorgspengar",
+    "opplaeringspenger": "Opplæringspengar"
   },
   "bankkontoType": {
     "norsk": "Norsk",

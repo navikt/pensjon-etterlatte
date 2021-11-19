@@ -5,7 +5,7 @@ import App from "./App";
 //import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 //import * as serviceWorker from "./serviceWorker";
-import "./i18n";
+//import "./i18n";
 import ContextProviders from "./context/ContextProviders";
 
 const ScrollToTop = () => {

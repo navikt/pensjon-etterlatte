@@ -1,15 +1,22 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import i18next from "i18next";
+import i18next from "../i18n";
 import { useLanguage } from "./useLanguage";
-
-jest.mock("i18next", () => ({
-    changeLanguage: jest.fn(),
-}));
+import * as api from "../api/api";
+import nb from '../mocks/nblocaleMock.json';
 
 const navigator = { language: "nb-NO" };
 Object.defineProperty(window, "navigator", {
     value: navigator,
     writable: true,
+});
+
+jest.mock("../i18n", () => {
+    const originalModule = jest.requireActual('../i18n');
+    return {
+        changeLanguage: jest.fn(),
+        addResourceBundle: jest.fn(),
+        ...originalModule
+    };
 });
 
 const localStorage = {
@@ -22,6 +29,9 @@ Object.defineProperty(window, "localStorage", {
 });
 
 describe("useLanguage", () => {
+    beforeEach(() => {
+        jest.spyOn(api, "hentLocales").mockReturnValue({ nb: nb, nn: {}, en: {} });
+    });
     it("Skal sette riktig verdi og ha blitt kalt to ganger", () => {
         const { result } = renderHook(() => useLanguage());
 
@@ -38,6 +48,7 @@ describe("useLanguage", () => {
 
     it("Skal sette en verdi i localstorage", () => {
         const { result } = renderHook(() => useLanguage());
+
         act(() => {
             result.current.setLanguage("test");
         });
@@ -46,6 +57,7 @@ describe("useLanguage", () => {
 
     it("Skal returnere state og setState", () => {
         const { result } = renderHook(() => useLanguage());
+
         expect(result.current.setLanguage).toBeDefined();
         expect(result.current.currentLanguage).toBeDefined();
     });

@@ -1,23 +1,38 @@
 import { useEffect, useState } from "react";
-import i18next from "i18next";
+import i18next from "../i18n";
+import { hentLocales } from "../api/api";
 
 export enum Language {
     NORSK_BOKMAAL = "nb",
     NORSK_NYNORSK = "nn",
-    // ENGELSK = "en",
+    ENGELSK = "en",
 }
 
+
 export const useLanguage = () => {
+    const [locales, setLocales] = useState({en: {}, nn: {}, nb: {}});
     const [currentLanguage, setCurrentLanguage] = useState<Language>(Language.NORSK_BOKMAAL);
 
-    /** Funksjonalitet for å detecte språk, må vi valideree at det er et godkjent språk?*/
-    // Slått av inntil vi har språkene
+    useEffect(() => {   
+        (async () => {
+            const localeList = await hentLocales();
+            setLocales(localeList);
+        })()
+    }, [])
+
+    /** 
+     * Init i18 next og sett valgt språk
+     * **/
     useEffect(() => {
+        if(!locales) return;
+
+        i18next.addResourceBundle("nb", "translation", locales.nb);
+        i18next.addResourceBundle("nn", "translation", locales.nn);
+        i18next.addResourceBundle("en", "translation", locales.en);
+
         const preferredLang = window.localStorage.getItem("preferredLang") as Language;
-        //const lng = navigator.language.slice(0, 2) as Language;
-        //setCurrentLanguage(preferredLang || lng);
         setCurrentLanguage(preferredLang || Language.NORSK_BOKMAAL);
-    }, []);
+    }, [locales]);
 
     useEffect(() => {
         i18next.changeLanguage(currentLanguage, (err, t) => {
