@@ -98,6 +98,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           for="avdoed.datoForDoedsfallet"
         >
           omDegOgAvdoed.avdoed.dato
+           (dd.mm.åååå)
         </label>
         <div
           class="datovelger"
@@ -112,7 +113,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 autocomplete="off"
                 class="skjemaelement__input dato-input"
                 id="avdoed.datoForDoedsfallet"
-                placeholder="dd.mm.åååå"
+                placeholder="eks: 01.12.2020"
                 required=""
                 type="text"
                 value=""
@@ -657,6 +658,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           for="avdoed.datoForDoedsfallet"
         >
           omDegOgAvdoed.avdoed.dato
+           (dd.mm.åååå)
         </label>
         <div
           class="datovelger"
@@ -671,7 +673,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 autocomplete="off"
                 class="skjemaelement__input dato-input"
                 id="avdoed.datoForDoedsfallet"
-                placeholder="dd.mm.åååå"
+                placeholder="eks: 01.12.2020"
                 required=""
                 type="text"
                 value=""

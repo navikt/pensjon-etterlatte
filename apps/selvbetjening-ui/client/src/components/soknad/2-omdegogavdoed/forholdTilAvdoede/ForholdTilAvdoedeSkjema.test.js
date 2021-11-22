@@ -28,7 +28,7 @@ describe("Forhold til avdoede", () => {
                 <ForholdTilAvdoedeSkjema />
             </FormProvider>
         );
-        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")).toBeDefined();
+        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap (dd.mm.åååå)")).toBeDefined();
     });
 
     it("Gift skal vise inngått partnerskap", () => {
@@ -40,7 +40,7 @@ describe("Forhold til avdoede", () => {
                 <ForholdTilAvdoedeSkjema />
             </FormProvider>
         );
-        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")).toBeDefined();
+        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap (dd.mm.åååå)")).toBeDefined();
     });
 
     it("Samboer skal vise spørsmål om felles barn", () => {
@@ -68,8 +68,8 @@ describe("Forhold til avdoede", () => {
                 <ForholdTilAvdoedeSkjema />
             </FormProvider>
         );
-        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")).toBeDefined();
-        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse")).toBeDefined();
+        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap (dd.mm.åååå)")).toBeDefined();
+        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse (dd.mm.åååå)")).toBeDefined();
         expect(getByText("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")).toBeDefined();
         expect(getByText("omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn")).toBeDefined();
     });
@@ -89,7 +89,7 @@ describe("Forhold til avdoede", () => {
         );
 
         expect(getByText("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")).toBeDefined();
-        expect(getByText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")).toBeDefined();
-        expect(getByText("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd")).toBeDefined();
+        expect(getByText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap (dd.mm.åååå)")).toBeDefined();
+        expect(getByText("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd (dd.mm.åååå)")).toBeDefined();
     });
 });
