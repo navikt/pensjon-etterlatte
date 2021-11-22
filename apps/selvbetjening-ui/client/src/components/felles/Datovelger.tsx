@@ -60,7 +60,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
     return (
         <>
             <section className={`skjemaelement ${className}`}>
-                <Label htmlFor={name}>{label}</Label>
+                <Label htmlFor={name}>{label} (dd.mm.åååå)</Label>
 
                 {description && <div className={"skjemaelement__description"}>{description}</div>}
 
@@ -81,7 +81,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
                                     className={dateInputCls}
                                     selected={parseDate(value)}
                                     dateFormat={"dd.MM.yyyy"}
-                                    placeholderText={"dd.mm.åååå"}
+                                    placeholderText={"eks: 01.12.2020"}
                                     onChange={onChange}
                                     onBlur={onBlur}
                                     minDate={parseDate(minDate)}
