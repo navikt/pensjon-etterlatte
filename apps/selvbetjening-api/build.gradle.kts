@@ -4,7 +4,9 @@ plugins {
 
 dependencies {
     implementation(project(":libs:common"))
+    implementation(project(":libs:ktorclient-auth-clientcredentials"))
 
+    implementation(Ktor.OkHttp)
     implementation(Ktor.ServerCore)
     implementation(Ktor.ServerCio)
     implementation(Ktor.ClientCore)
