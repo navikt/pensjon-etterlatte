@@ -26,21 +26,21 @@ class SoeknadService(
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
     suspend fun sendSoeknad(soeknad: Soeknad): RetryResult {
-        val barnListe = soeknad.utfyltSoeknad.opplysningerOmBarn.barn.map { Foedselsnummer.of(it.foedselsnummer) }
-        val barnMedAdressebeskyttelse = adressebeskyttelseService.hentGradering(barnListe)
-            .filter { listOf(STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND).contains(it.value) }
-            .map { it.key }
-
-        val rensketSoeknad =
-            if (barnMedAdressebeskyttelse.isEmpty()) {
-                logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
-                soeknad
-            } else {
-                logger.info("Fjerner felter for barn med adressebeskyttelse før den sendes til lagring.")
-                soeknad utenAdresseFor barnMedAdressebeskyttelse
-            }
-
         return retry {
+            val barnListe = soeknad.utfyltSoeknad.opplysningerOmBarn.barn.map { Foedselsnummer.of(it.foedselsnummer) }
+            val barnMedAdressebeskyttelse = adressebeskyttelseService.hentGradering(barnListe)
+                .filter { listOf(STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND).contains(it.value) }
+                .map { it.key }
+
+            val rensketSoeknad =
+                if (barnMedAdressebeskyttelse.isEmpty()) {
+                    logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
+                    soeknad
+                } else {
+                    logger.info("Fjerner felter for barn med adressebeskyttelse før den sendes til lagring.")
+                    soeknad utenAdresseFor barnMedAdressebeskyttelse
+                }
+
             innsendtSoeknadKlient.post<String>("soeknad") {
                 contentType(Json)
                 body = rensketSoeknad
