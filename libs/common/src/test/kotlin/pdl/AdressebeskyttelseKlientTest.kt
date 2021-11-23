@@ -1,4 +1,4 @@
-package no.nav.etterlatte.pdl
+package pdl
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
@@ -12,11 +12,12 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class PdlKlientTest {
+internal class AdressebeskyttelseKlientTest {
 
     private val fnr = mockk<Foedselsnummer> {
         every { value } returns "1234"
@@ -29,7 +30,7 @@ internal class PdlKlientTest {
                 addHandler { request ->
                     when (request.url.fullPath) {
                         "/" -> {
-                            val response = javaClass.getResource("/pdlMock1.json").readText().replace(Regex("[\n\t]"), "")
+                            val response = javaClass.getResource("/pdl/pdlMock1.json").readText().replace(Regex("[\n\t]"), "")
                             val responseHeaders =
                                 headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
                             respond(response, headers = responseHeaders)
@@ -42,11 +43,12 @@ internal class PdlKlientTest {
         }
 
         runBlocking {
-            PdlKlient(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(listOf(fnr)).also {
+            AdressebeskyttelseKlient(httpClient, "https://pdl.no/").finnAdressebeskyttelseForFnr(listOf(fnr)).also {
                 assertEquals(
                     Gradering.FORTROLIG,
                     it.data?.hentPersonBolk?.get(0)?.person?.adressebeskyttelse?.get(0)?.gradering
                 )
+                assertEquals("12345678910", it.data?.hentPersonBolk?.get(0)?.ident)
             }
         }
     }

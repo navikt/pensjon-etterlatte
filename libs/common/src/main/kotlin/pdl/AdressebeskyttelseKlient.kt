@@ -1,4 +1,4 @@
-package no.nav.etterlatte.pdl
+package no.nav.etterlatte.libs.common.pdl
 
 import io.ktor.client.HttpClient
 import io.ktor.client.request.accept
@@ -6,9 +6,6 @@ import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
-import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
-import no.nav.etterlatte.libs.common.pdl.GraphqlRequest
-import no.nav.etterlatte.libs.common.pdl.Variables
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.slf4j.LoggerFactory
 
@@ -16,8 +13,8 @@ interface Pdl {
     suspend fun finnAdressebeskyttelseForFnr(fnrListe: List<Foedselsnummer>): AdressebeskyttelseResponse
 }
 
-class PdlKlient(private val client: HttpClient, private val apiUrl: String) : Pdl {
-    private val logger = LoggerFactory.getLogger(PdlKlient::class.java)
+class AdressebeskyttelseKlient(private val client: HttpClient, private val apiUrl: String) : Pdl {
+    private val logger = LoggerFactory.getLogger(AdressebeskyttelseKlient::class.java)
 
     /**
      * Henter personer og tilknyttet adressebeskyttelse fra PDL.
@@ -47,7 +44,7 @@ class PdlKlient(private val client: HttpClient, private val apiUrl: String) : Pd
         return response
     }
 
-    private fun hentQuery(): String = javaClass.getResource("/hentAdressebeskyttelse.graphql")!!
+    private fun hentQuery(): String = javaClass.getResource("/pdl/hentAdressebeskyttelse.graphql")!!
         .readText()
         .replace(System.lineSeparator(), "")
 }

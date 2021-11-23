@@ -1,4 +1,4 @@
-package pdl
+package no.nav.etterlatte
 
 import io.mockk.coEvery
 import io.mockk.every
@@ -10,16 +10,15 @@ import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelsePerson
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.pdl.HentAdressebeskyttelse
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.pdl.AdressebeskyttelseService
-import no.nav.etterlatte.pdl.PdlKlient
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 internal class AdressebeskyttelseServiceTest {
 
-    private val mockKlient = mockk<PdlKlient>()
+    private val mockKlient = mockk<AdressebeskyttelseKlient>()
     private val service = AdressebeskyttelseService(mockKlient)
 
     private val fnr = mockk<Foedselsnummer> {
@@ -95,7 +94,7 @@ internal class AdressebeskyttelseServiceTest {
     fun `Kaster feil dersom ingen personer funnet del 2`() {
         coEvery {
             mockKlient.finnAdressebeskyttelseForFnr(any())
-        } returns AdressebeskyttelseResponse(HentAdressebeskyttelse(listOf(AdressebeskyttelseBolkPerson(person = null))))
+        } returns AdressebeskyttelseResponse(HentAdressebeskyttelse(listOf(AdressebeskyttelseBolkPerson(ident = "test", person = null))))
 
         assertThrows<Exception> {
             runBlocking {
@@ -108,6 +107,7 @@ internal class AdressebeskyttelseServiceTest {
         data = HentAdressebeskyttelse(
             hentPersonBolk = listOf(
                 AdressebeskyttelseBolkPerson(
+                    ident = "test",
                     person = AdressebeskyttelsePerson(
                         graderinger.mapNotNull { Adressebeskyttelse(it) }
                     )
