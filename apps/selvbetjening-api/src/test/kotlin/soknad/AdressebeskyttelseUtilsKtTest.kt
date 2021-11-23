@@ -56,5 +56,7 @@ internal class AdressebeskyttelseUtilsKtTest {
         soeknad.oppsummering
             .filter { it.path == "om-barn" }
             .mapNotNull { it.elementer.find { element -> element.innhold.any { innhold -> innhold.svar == fnr } } }
-            .any { element -> element.innhold.any { innhold -> innhold.key in barnAdressefelter } }
+            .any { element ->
+                element.innhold.any { innhold -> innhold.key in barnAdressefelter && innhold.svar != "<Fjernet på grunn av adressesperring>" }
+            }
 }

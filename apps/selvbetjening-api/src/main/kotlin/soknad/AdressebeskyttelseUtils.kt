@@ -1,6 +1,9 @@
 package no.nav.etterlatte.soknad
 
+import no.nav.etterlatte.libs.common.soeknad.Innhold
 import no.nav.etterlatte.libs.common.soeknad.Soeknad
+import no.nav.etterlatte.libs.common.soeknad.Valg
+import soeknad.BosattUtland
 
 internal val barnAdressefelter = listOf("omBarn.bosattUtland.svar", "omBarn.bosattUtland.land", "omBarn.bosattUtland.adresse")
 
@@ -20,7 +23,12 @@ internal infix fun Soeknad.utenAdresseFor(fnrListe: List<String>): Soeknad = thi
         if (gruppe.path == "om-barn") {
             gruppe.copy(elementer = gruppe.elementer.map { elementer ->
                 if (fnrListe.contains(elementer.innhold.find { it.key == "omBarn.foedselsnummer" }?.svar)) {
-                    elementer.copy(innhold = elementer.innhold.filter { it.key !in barnAdressefelter })
+                    elementer.copy(innhold = elementer.innhold.map { innhold ->
+                        if (innhold.key in barnAdressefelter) {
+                            Innhold(innhold.key, innhold.spoersmaal, "<Fjernet på grunn av adressesperring>")
+                        }
+                        else innhold
+                    })
                 } else elementer
             })
         } else gruppe
