@@ -13,6 +13,7 @@ import io.ktor.http.contentType
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.retry
+import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
 import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
@@ -40,6 +41,9 @@ class SoeknadService(
                     logger.info("Fjerner felter for barn med adressebeskyttelse før den sendes til lagring.")
                     soeknad utenAdresseFor barnMedAdressebeskyttelse
                 }
+
+            // Todo: Kun for verifisering. Skal bort.
+            logger.info(rensketSoeknad.toJson())
 
             innsendtSoeknadKlient.post<String>("soeknad") {
                 contentType(Json)
