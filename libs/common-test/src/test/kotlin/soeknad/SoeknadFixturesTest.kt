@@ -9,5 +9,6 @@ class SoeknadFixturesTest {
         SoeknadFixtures.soeknadUtenBarn
         SoeknadFixtures.soeknadMedBarnepensjon
         SoeknadFixtures.soeknadMedBarnUtenBarnepensjon
+        SoeknadFixtures.soeknadMedBarnBosattUtland
     }
 }
