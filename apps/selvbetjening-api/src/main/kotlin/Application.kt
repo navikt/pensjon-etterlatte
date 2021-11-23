@@ -24,13 +24,10 @@ import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.security.ktor.clientCredential
 import no.nav.etterlatte.soknad.SoeknadService
 
+const val PDL_URL = "PDL_URL"
 class ApplicationContext(configLocation: String? = null) {
     private val closables = mutableListOf<() -> Unit>()
-
     private val config: Config = configLocation?.let { ConfigFactory.load(it) } ?: ConfigFactory.load()
-    companion object {
-        const val CONFIG_PDL_URL = "PDL_URL"
-    }
 
     fun close() {
         closables.forEach { it() }
@@ -53,7 +50,7 @@ class ApplicationContext(configLocation: String? = null) {
 
         adressebeskyttelseService = systemPdlHttpClient()
             .also { closables.add(it::close) }
-            .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, System.getenv(CONFIG_PDL_URL))) }
+            .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, System.getenv(PDL_URL))) }
 
         soeknadService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
             .also { closables.add(it::close) }
