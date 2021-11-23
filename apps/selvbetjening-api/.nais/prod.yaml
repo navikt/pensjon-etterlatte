@@ -25,6 +25,9 @@ spec:
     max: 1
   tokenx:
     enabled: true
+  azure:
+    application:
+      enabled: true
   kafka:
     pool: nav-prod
   env:
