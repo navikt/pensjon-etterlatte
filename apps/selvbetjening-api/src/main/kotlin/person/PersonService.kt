@@ -15,7 +15,7 @@ class PersonService(
     private val kodeverkService: KodeverkService
 ) {
     private val logger = LoggerFactory.getLogger(PersonService::class.java)
-    private val adressebeskyttet = listOf(FORTROLIG, STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND)
+    private val adressebeskyttet = listOf(STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND)
 
     suspend fun hentPerson(fnr: Foedselsnummer): Person {
         logger.info("Henter person fra PDL")
