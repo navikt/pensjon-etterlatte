@@ -6,7 +6,7 @@ import no.nav.etterlatte.libs.common.soeknad.Valg
 
 
 data class DinSituasjon(
-    val jobbStatus: List<JobbStatusType>,
+    val jobbStatus: List<JobbStatusType>?,
     val ingenJobbBeskrivelse: String?,
     val utdanning: Utdanning?,
     val selvstendig: List<SelvstendigNaeringsdrivende>?,
