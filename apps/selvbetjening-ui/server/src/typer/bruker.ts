@@ -13,4 +13,5 @@ export interface IBruker {
   poststed?: string;
   statsborgerskap?: string;
   sivilstatus?: string;
+  adressebeskyttelse?: boolean;
 }

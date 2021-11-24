@@ -29,10 +29,10 @@ export default class SoeknadMapper {
     private mapOmDeg(omDeg: ISoeker, bruker: IBruker): Gruppe {
         const personalia = {
             navn: `${bruker.fornavn} ${bruker.etternavn}`,
-            adresse: `${bruker.adresse} ${bruker.husnummer}${bruker.husbokstav || ""}, ${bruker.postnummer} ${
-                bruker.poststed
-            }`,
             foedselsnummer: bruker.foedselsnummer,
+            adresse: !bruker.adressebeskyttelse ?
+                `${bruker.adresse} ${bruker.husnummer}${bruker.husbokstav || ""}, ${bruker.postnummer} ${bruker.poststed}`
+                : null,
             sivilstatus: bruker.sivilstatus,
             statsborgerskap: bruker.statsborgerskap,
         };
