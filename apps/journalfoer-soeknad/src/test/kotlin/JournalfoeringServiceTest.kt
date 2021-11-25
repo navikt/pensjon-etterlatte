@@ -1,4 +1,3 @@
-import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import dokarkiv.DokarkivKlient
 import dokarkiv.DokumentKategori
@@ -13,6 +12,8 @@ import io.mockk.slot
 import no.nav.etterlatte.JournalfoeringService
 import no.nav.etterlatte.Konstanter.ENHET_VIKAFOSSEN
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
+import no.nav.etterlatte.dokarkiv.DokarkivDokument
+import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -23,8 +24,6 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
 internal class JournalfoeringServiceTest {
-
-    private val mapper = jacksonObjectMapper()
 
     private val mockKlient = mockk<DokarkivKlient>()
 
@@ -123,19 +122,10 @@ internal class JournalfoeringServiceTest {
     private fun journalfoeringResponse(
         journalpostId: String = "467010363",
         ferdigstilt: Boolean = true
-    ): JsonNode {
-        val json = """
-            {
-              "journalpostId": $journalpostId,
-              "journalpostferdigstilt": "$ferdigstilt",
-              "dokumenter": [
-                {
-                  "dokumentInfoId": "123"
-                }
-              ]
-            }
-        """.trimIndent()
-
-        return mapper.readTree(json)
-    }
+    ): DokarkivResponse =
+        DokarkivResponse(
+            journalpostId = journalpostId,
+            journalpostferdigstilt = ferdigstilt,
+            dokumenter = listOf(DokarkivDokument("123"))
+        )
 }

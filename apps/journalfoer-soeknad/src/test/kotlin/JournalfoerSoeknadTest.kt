@@ -1,6 +1,7 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import dokarkiv.DokumentKategori
 import dokarkiv.JournalpostDokument
 import io.ktor.client.HttpClient
@@ -37,10 +38,10 @@ internal class JournalfoerSoeknadTest {
     private val journalfoeringService = mockk<JournalfoeringService> {
         every {
             journalfoer(any(), any(), any(), any(), any())
-        } returns jacksonObjectMapper().readTree(getResource("/journalfoerResponse.json"))
+        } returns jacksonObjectMapper().readValue(getResource("/dokarkiv/journalfoerResponse.json"), jacksonTypeRef())
     }
 
-    private val dokumentServiceMock = mockk<DokumentService>() {
+    private val dokumentServiceMock = mockk<DokumentService> {
         every {
             opprettJournalpostDokument(any(), any(), any())
         } returns JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
