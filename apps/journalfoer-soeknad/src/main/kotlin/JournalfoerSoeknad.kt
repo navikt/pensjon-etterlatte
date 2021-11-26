@@ -1,7 +1,6 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.JsonNode
-import io.ktor.client.features.ResponseException
+import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import no.nav.etterlatte.pdf.DokumentService
@@ -36,24 +35,24 @@ internal class JournalfoerSoeknad(
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
+        val soeknadId = packet["@lagret_soeknad_id"].asText()
         val gyldigTilDato = OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText())
 
         if (gyldigTilDato.isBefore(OffsetDateTime.now(klokke))) {
-            logger.error("Avbrutt journalføring for søknad id ${packet["@lagret_soeknad_id"].asText()} da hendelsen ikke er gyldig lengre")
+            logger.error("Avbrutt journalføring for søknad (id=$soeknadId) da hendelsen ikke er gyldig lengre")
             return
         }
 
         try {
-            val dokarkivResponse = journalfoer(packet)
+            val dokarkivResponse = journalfoer(soeknadId, packet)
 
             packet["@dokarkivRetur"] = dokarkivResponse
 
             context.publish(packet.toJson())
-        } catch (err: ResponseException) {
-            logger.error("duplikat: ", err)
-            logger.error(packet["@dokarkivRetur"].asText())
-        } catch (err: Exception) {
-            logger.error("Uhaandtert feilsituasjon: ", err)
+        } catch (e: Exception) {
+            logger.error("Ukjent feil oppsto under journalføring av søknad (id=$soeknadId): ", e)
+
+            throw e
         }
     }
 
@@ -61,8 +60,7 @@ internal class JournalfoerSoeknad(
         logger.error("Feil oppsto ved journalføring av søknad: ", problems)
     }
 
-    private fun journalfoer(packet: JsonMessage): JsonNode {
-        val soeknadId = packet["@lagret_soeknad_id"].asText()
+    private fun journalfoer(soeknadId: String, packet: JsonMessage): DokarkivResponse {
         val fnrSoeker = packet["@fnr_soeker"].asText()
         val gradering = Gradering.fra(packet["@adressebeskyttelse"].textValue())
         val template = packet["@template"].asText()

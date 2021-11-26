@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.JsonNode
 import dokarkiv.AvsenderMottaker
 import dokarkiv.Bruker
 import dokarkiv.Dokarkiv
@@ -9,8 +8,9 @@ import dokarkiv.JournalpostDokument
 import dokarkiv.JournalpostRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.Konstanter.ENHET_VIKAFOSSEN
+import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
+import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import org.slf4j.LoggerFactory
@@ -24,7 +24,7 @@ class JournalfoeringService(private val klient: Dokarkiv) {
         gradering: Gradering,
         dokument: JournalpostDokument,
         soeknadType: SoeknadType
-    ): JsonNode {
+    ): DokarkivResponse {
         logger.info("Oppretter journalpost for søknad ID $soeknadId")
 
         val request = JournalpostRequest(

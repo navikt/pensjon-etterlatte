@@ -1,51 +1,42 @@
 package dokarkiv
 
-import com.fasterxml.jackson.databind.JsonNode
 import io.ktor.client.HttpClient
-import io.ktor.client.call.receive
 import io.ktor.client.features.ResponseException
 import io.ktor.client.request.accept
 import io.ktor.client.request.header
 import io.ktor.client.request.post
-import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
-import no.nav.etterlatte.libs.common.objectMapper
+import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import java.util.*
 
 interface Dokarkiv {
-    suspend fun journalfoerDok(request: JournalpostRequest): JsonNode
+    suspend fun journalfoerDok(request: JournalpostRequest): DokarkivResponse
 }
 
 class DokarkivKlient(private val client: HttpClient, private val baseUrl: String) : Dokarkiv {
     private val logger = LoggerFactory.getLogger(DokarkivKlient::class.java)
 
-    override suspend fun journalfoerDok(request: JournalpostRequest): JsonNode {
+    override suspend fun journalfoerDok(request: JournalpostRequest): DokarkivResponse {
         return try {
-            val retur = client.post<HttpResponse>(baseUrl) {
+            client.post(baseUrl) {
                 accept(ContentType.Application.Json)
                 contentType(ContentType.Application.Json)
                 header("X-Correlation-ID", MDC.get("X-Correlation-ID") ?: UUID.randomUUID().toString())
                 body = request
             }
-
-            if(retur.status.value == 200 || retur.status.value == 201) {
-                return retur.receive()
-            }
-            throw Exception("Kall mot dokarkiv feilet")
-
-        } catch (cause: ResponseException) {
-            if (cause.response.status.value == 409) {
-                logger.error("Duplikat journalpost: ", cause)
+        } catch (re: ResponseException) {
+            if (re.response.status.value == 409) {
+                logger.error("Duplikat journalpost: ", re)
             }
 
-            cause.response.receive()
-        } catch (cause: Throwable) {
-            logger.error("Feil i kall mot Dokarkiv: ", cause)
+            throw re
+        } catch (e: Exception) {
+            logger.error("Feil i kall mot Dokarkiv: ", e)
 
-            objectMapper.readTree(cause.message)
+            throw e
         }
     }
 }
