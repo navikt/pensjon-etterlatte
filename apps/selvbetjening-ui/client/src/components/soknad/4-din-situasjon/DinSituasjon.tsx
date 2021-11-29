@@ -16,11 +16,13 @@ import { BodyLong, Heading } from "@navikt/ds-react";
 import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
+import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
 
     const { state, dispatch } = useSoknadContext();
+    const brukerState = useBrukerContext().state;
 
     const methods = useForm<ISituasjon>({
         defaultValues: state.dinSituasjon || {},
@@ -36,18 +38,18 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     } = methods;
 
     const lagreNeste = (data: ISituasjon) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...deepCopy(data), erValidert: true} });
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(data), erValidert: true } });
         neste!!();
     };
 
     const lagreTilbake = (data: ISituasjon) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...deepCopy(data), erValidert: true} })
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(data), erValidert: true } })
         forrige!!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: {...deepCopy(verdier), erValidert: false} })
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(verdier), erValidert: false } })
         forrige!!()
     }
 
@@ -68,34 +70,38 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                     <BodyLong>{t("dinSituasjon.ingress")}</BodyLong>
                 </SkjemaGruppe>
 
-                <RHFCheckboksPanelGruppe
-                    name={"jobbStatus"}
-                    legend={t("dinSituasjon.jobbStatus")}
-                    checkboxes={Object.values(JobbStatus).map((value) => {
-                        return { label: t(value), value, required: true } as RadioProps;
-                    })}
-                />
+                {!brukerState.adressebeskyttelse && (
+                    <>
+                        <RHFCheckboksPanelGruppe
+                            name={"jobbStatus"}
+                            legend={t("dinSituasjon.jobbStatus")}
+                            checkboxes={Object.values(JobbStatus).map((value) => {
+                                return { label: t(value), value, required: true } as RadioProps;
+                            })}
+                        />
 
-                {(jobbStatus?.includes(JobbStatus.selvstendig) || jobbStatus?.includes(JobbStatus.arbeidstaker)) && (
-                    <NavaerendeArbeidsforhold/>
+                        {(jobbStatus?.includes(JobbStatus.selvstendig) || jobbStatus?.includes(JobbStatus.arbeidstaker)) && (
+                            <NavaerendeArbeidsforhold/>
+                        )}
+
+                        {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning/>}
+
+                        {jobbStatus?.includes(JobbStatus.ingen) && (
+                            <SkjemaGruppering>
+                                <SkjemaGruppe>
+                                    <Heading size={"small"}>{t("dinSituasjon.ingenJobbTittel")}</Heading>
+                                </SkjemaGruppe>
+                                <RHFInput
+                                    name={"ingenJobbBeskrivelse"}
+                                    label={t("dinSituasjon.ingenJobbBeskrivelse")}
+                                    placeholder={t("dinSituasjon.ingenJobbBeskrivelsePlaceholder")}
+                                    maxLength={200}/>
+                            </SkjemaGruppering>
+                        )}
+
+                        <HoeyesteUtdanning/>
+                    </>
                 )}
-
-                {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning/>}
-
-                {jobbStatus?.includes(JobbStatus.ingen) && (
-                    <SkjemaGruppering>
-                        <SkjemaGruppe>
-                            <Heading size={"small"}>{t("dinSituasjon.ingenJobbTittel")}</Heading>
-                        </SkjemaGruppe>
-                        <RHFInput
-                            name={"ingenJobbBeskrivelse"}
-                            label={t("dinSituasjon.ingenJobbBeskrivelse")}
-                            placeholder={t("dinSituasjon.ingenJobbBeskrivelsePlaceholder")}
-                            maxLength={200}/>
-                    </SkjemaGruppering>
-                )}
-
-                <HoeyesteUtdanning/>
 
                 <AndreYtelser/>
 
