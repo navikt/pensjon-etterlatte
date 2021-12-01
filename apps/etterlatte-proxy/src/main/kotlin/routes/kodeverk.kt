@@ -12,7 +12,6 @@ import io.ktor.routing.route
 import no.nav.etterlatte.Config
 import no.nav.etterlatte.NavCallId
 import no.nav.etterlatte.NavConsumerId
-import no.nav.etterlatte.StsClient
 import no.nav.etterlatte.httpClient
 import no.nav.etterlatte.pipeRequest
 import no.nav.etterlatte.pipeResponse

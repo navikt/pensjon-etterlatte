@@ -422,17 +422,6 @@ internal class SoeknadDaoIntegrationTest {
         }
     }
 
-    private fun nyHendelse(soeknadId: SoeknadID, status: Status) {
-        connection.use {
-            it.prepareStatement("INSERT INTO hendelse(soeknad_id, status_id, payload) VALUES (?, ?, '{}')")
-                .apply {
-                    setLong(1, soeknadId)
-                    setString(2, status.name)
-                }
-                .execute()
-        }
-    }
-
     private fun nyKladdHendelse(soeknad: SoeknadTest, hendelseId: Long) {
         connection.use {
             it.prepareStatement("INSERT INTO hendelse(id, soeknad_id, status_id, payload, opprettet) VALUES(?, ?, ?, ?, ?)")

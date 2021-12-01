@@ -2,7 +2,6 @@ package no.nav.etterlatte.person
 
 import io.ktor.features.NotFoundException
 import no.nav.etterlatte.kodeverk.KodeverkService
-import no.nav.etterlatte.libs.common.pdl.Gradering.FORTROLIG
 import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
 import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
 import no.nav.etterlatte.libs.common.pdl.ResponseError

@@ -18,7 +18,6 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.libs.common.objectMapper
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
 import no.nav.etterlatte.pdf.DokumentService
@@ -79,7 +78,7 @@ internal class JournalfoerSoeknadTest {
 
     @Test
     fun testPdfGen() {
-        val message = objectMapper.readTree(getResource("/fullMessage.json"))
+        val message = jacksonObjectMapper().readTree(getResource("/fullMessage.json"))
         val httpClient = HttpClient(MockEngine) {
             engine {
                 addHandler { request ->

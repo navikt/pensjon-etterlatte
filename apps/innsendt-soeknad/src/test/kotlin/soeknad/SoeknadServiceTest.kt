@@ -7,8 +7,6 @@ import no.nav.etterlatte.soeknad.finnSoekere
 import org.junit.jupiter.api.Test
 
 internal class SoeknadServiceTest {
-    private val mapper = jacksonObjectMapper()
-
     @Test
     fun `Skal hente ut alle personer som skal ha en egen søknad`() {
         val soekere = finnSoekere(SoeknadFixtures.soeknadMedBarnepensjon, gjenlevendeFnr = "12345678100")
