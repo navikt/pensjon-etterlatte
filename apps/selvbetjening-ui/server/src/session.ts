@@ -1,5 +1,5 @@
 import session from 'express-session';
-import redis from 'redis';
+import { createClient } from 'redis';
 import config from './config';
 import logger from './log/logger';
 import RedisStore from 'connect-redis';
@@ -28,9 +28,9 @@ const setupSession = () => {
     return session(options);
 };
 
-const setupRedis = () => {
+const setupRedis = async () => {
     const store = RedisStore(session);
-    const client = redis.createClient({
+    const client = createClient({
         host: config.session.redisHost,
         password: config.session.redisPassword,
         port: Number(config.session.redisPort),
