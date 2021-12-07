@@ -28,10 +28,12 @@ const app = {
     loginServiceLogoutUrl: process.env.LOGINSERVICE_LOGOUT_URL
 };
 
+const defaultSessionMaxAgeMillis = 2 * 60 * 60 * 1000; // 2 hours
+
 const session = {
     secret: process.env.SESSION_SECRET || "localhostsecret",
-    maxAgeMs: process.env.SESSION_MAX_AGE_MS || 2 * 60 * 60 * 1000, // defaults to 2 hours
-    redisHost: process.env.REDIS_HOST,
+    maxAgeMs: !!process.env.SESSION_MAX_AGE_MS ? Number(process.env.SESSION_MAX_AGE_MS) : defaultSessionMaxAgeMillis,
+    redisHost: process.env.REDIS_HOST || 'localhost',
     redisPort: process.env.REDIS_PORT || 6379,
     redisPassword: process.env.REDIS_PASSWORD,
 };

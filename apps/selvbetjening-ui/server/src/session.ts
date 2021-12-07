@@ -1,14 +1,13 @@
-import session from 'express-session';
-import { createClient } from 'redis';
+import session, { SessionOptions } from 'express-session'
+import { createClient, RedisClient } from 'redis';
+import connectRedis, { RedisStore } from 'connect-redis';
 import config from './config';
 import logger from './log/logger';
-import connectRedis, { RedisStore } from 'connect-redis';
-
-// const RedisStore = connectRedis(session)
+import { RequestHandler } from "express";
 
 const { isLabsCluster, isProduction } = config.env;
 
-const options: any = {
+const options: SessionOptions = {
     cookie: {
         maxAge: config.session.maxAgeMs,
         sameSite: "lax",
@@ -21,9 +20,9 @@ const options: any = {
     unset: "destroy",
 };
 
-const setupSession = () => {
+const setupSession = (): RequestHandler => {
     if (isProduction && !isLabsCluster) {
-        options.cookie.secure = true;
+        options.cookie!!.secure = true;
         options.store = setupRedis();
     }
     return session(options);
@@ -31,7 +30,7 @@ const setupSession = () => {
 
 const setupRedis = (): RedisStore => {
     const Store = connectRedis(session);
-    const client = createClient({
+    const client: RedisClient = createClient({
         host: config.session.redisHost,
         password: config.session.redisPassword,
         port: Number(config.session.redisPort),
@@ -47,37 +46,11 @@ const setupRedis = (): RedisStore => {
     });
 
     return new Store({
-        client,
+        client: client,
         disableTouch: true,
     });
 };
 
-const appSession: any = setupSession();
-
-appSession.destroySessionBySid = (sid: any) => {
-    console.log(`Destroying session by SID: ${sid}`)
-
-    return new Promise((resolve: any, reject: any) => {
-        options.store.all((err: any, result: any) => {
-            if (err) {
-                console.error("Error during session destruction", err)
-                return reject(err)
-            }
-
-            console.log(`Found ${result.length} sessions`);
-
-            const sessionToDestroy = result.find((session: any) => {
-                return session.id && session.id === sid
-            });
-
-            console.log("Session to destroy: ", sessionToDestroy)
-            if (sessionToDestroy) {
-                options.store.destroy(sessionToDestroy.id)
-                console.log("Successfully destroyed session")
-            }
-            return resolve()
-        })
-    })
-}
+const appSession: RequestHandler = setupSession();
 
 export default appSession;

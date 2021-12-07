@@ -29,7 +29,6 @@ const setup = (app: any) => {
 
         logger.info("Initiating logout");
 
-        appSession.destroySessionBySid(req.sessionID);
         req.session.destroy((err: any) => {
             if (err) logger.error(err);
             else logger.info("Session destroyed")

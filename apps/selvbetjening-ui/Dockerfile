@@ -4,10 +4,9 @@ WORKDIR /usr/src/app
 
 COPY client/build ./build
 COPY server/build ./server
+COPY server/node_modules ./node_modules
 
 ENV NODE_ENV="production"
-
-RUN npm install express express-http-proxy express-session path jsdom node-fetch@2.6.1 node-cache jsonwebtoken ulid node-jose winston openid-client redis connect-redis @navikt/nav-dekoratoren-moduler i18next@20.4.0 prom-client @types/connect-redis @types/express @types/express-http-proxy @types/jsonwebtoken @types/node-fetch@2.5.12 @types/node-jose @types/redis
 
 EXPOSE 8080
 
