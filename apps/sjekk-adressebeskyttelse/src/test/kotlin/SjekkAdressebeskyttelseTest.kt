@@ -7,9 +7,8 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.pdl.AdressebeskyttelseService
-import no.nav.etterlatte.pdl.PdlKlient
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -18,7 +17,7 @@ import org.junit.jupiter.api.Test
 
 internal class FinnAdressebeskyttelseTest {
 
-    private val klientMock = mockk<PdlKlient>()
+    private val klientMock = mockk<AdressebeskyttelseKlient>()
     private val service = AdressebeskyttelseService(klientMock)
 
     private val hendelseJson = javaClass.getResource("/OppdaterJournalpostInfoTest1.json")!!.readText()
@@ -98,6 +97,7 @@ internal class FinnAdressebeskyttelseTest {
               "data": {
                 "hentPersonBolk": [
                   {
+                    "ident": "12345678910",
                     "person": { "adressebeskyttelse": [$graderingString] }
                   }
                 ]

@@ -27,6 +27,7 @@ data class HentAdressebeskyttelse(
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class AdressebeskyttelseBolkPerson(
+    val ident: String,
     val person: AdressebeskyttelsePerson? = null
 )
 

@@ -25,11 +25,16 @@ spec:
     max: 1
   tokenx:
     enabled: true
+  azure:
+    application:
+      enabled: true
   kafka:
     pool: nav-prod
   env:
     - name: PDL_URL
       value: http://etterlatte-pdl-proxy/pdl
+    - name: PDL_AZURE_SCOPE
+      value: api://prod-gcp.etterlatte.etterlatte-pdl-proxy/.default
     - name: PDL_AUDIENCE
       value: "prod-gcp:etterlatte:etterlatte-pdl-proxy"
     - name: INNSENDTSOEKNAD_AUDIENCE

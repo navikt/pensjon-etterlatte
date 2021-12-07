@@ -94,6 +94,7 @@ internal class AdressebeskyttelseTest {
         assertTrue(serialized.contains(Gradering.FORTROLIG.name))
         assertTrue(serialized.contains(Gradering.STRENGT_FORTROLIG_UTLAND.name))
         assertTrue(serialized.contains(Gradering.STRENGT_FORTROLIG.name))
+        assertTrue(serialized.contains("12345678910"))
 
         val deserialized = mapper.readValue(serialized, jacksonTypeRef<AdressebeskyttelseResponse>())
 
@@ -106,7 +107,8 @@ internal class AdressebeskyttelseTest {
 
     private fun mockPerson(vararg gradering: Gradering?) =
         AdressebeskyttelseBolkPerson(
-            AdressebeskyttelsePerson(
+            ident = "12345678910",
+            person = AdressebeskyttelsePerson(
                 gradering.filterNotNull().map { Adressebeskyttelse(it) }
             )
         )

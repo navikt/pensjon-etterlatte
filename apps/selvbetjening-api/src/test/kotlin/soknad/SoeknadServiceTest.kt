@@ -1,16 +1,33 @@
 package soknad
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import io.ktor.client.*
-import io.ktor.client.engine.mock.*
-import io.ktor.client.features.*
-import io.ktor.client.features.json.*
-import io.ktor.client.request.*
-import io.ktor.http.*
-import io.ktor.utils.io.*
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.mock.MockEngine
+import io.ktor.client.engine.mock.MockRequestHandleScope
+import io.ktor.client.engine.mock.respond
+import io.ktor.client.engine.mock.respondError
+import io.ktor.client.features.ClientRequestException
+import io.ktor.client.features.json.JacksonSerializer
+import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.request.HttpResponseData
+import io.ktor.http.HttpHeaders
+import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
+import io.ktor.http.headersOf
+import io.ktor.utils.io.ByteReadChannel
+import io.mockk.coEvery
+import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.toJson
+import no.nav.etterlatte.libs.common.pdl.Adressebeskyttelse
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseBolkPerson
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelsePerson
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
+import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.common.pdl.HentAdressebeskyttelse
 import no.nav.etterlatte.soknad.SoeknadService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -18,6 +35,7 @@ import soeknad.SoeknadFixtures
 
 internal class SoeknadServiceTest {
 
+    private val adressebeskyttelseKlientMock = mockk<AdressebeskyttelseKlient>()
     private val mapper = jacksonObjectMapper()
 
     private val soeknadKladdJson =
@@ -63,9 +81,12 @@ internal class SoeknadServiceTest {
         }
     }
 
-    private val service = SoeknadService(HttpClient(mockEngine) {
-        install(JsonFeature) { serializer = JacksonSerializer() }
-    })
+    private val service = SoeknadService(
+        HttpClient(mockEngine) {
+            install(JsonFeature) { serializer = JacksonSerializer() }
+        },
+        AdressebeskyttelseService(adressebeskyttelseKlientMock)
+    )
 
     @Test
     fun hentKladd() {
@@ -111,8 +132,37 @@ internal class SoeknadServiceTest {
 
     @Test
     fun sendSoeknad() {
+        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any()) } returns
+                AdressebeskyttelseResponse(
+                    HentAdressebeskyttelse(
+                        listOf(mockAdressebeskyttetPerson("test", Gradering.UGRADERT))
+                    )
+                )
+
         runBlocking {
             val result = service.sendSoeknad(SoeknadFixtures.soeknadMedBarnepensjon) as RetryResult.Success
+
+            assertEquals("OK", result.content)
+        }
+    }
+
+    @Test
+    fun sendSoeknadMedBarnSomHarAdressebeskyttelse() {
+        val barn = SoeknadFixtures.soeknadMedBarnBosattUtland.utfyltSoeknad.opplysningerOmBarn.barn
+        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any()) } returns
+                AdressebeskyttelseResponse(
+                    HentAdressebeskyttelse(
+                        listOf(
+                            mockAdressebeskyttetPerson(barn[0].foedselsnummer, Gradering.STRENGT_FORTROLIG),
+                            mockAdressebeskyttetPerson(barn[1].foedselsnummer, Gradering.UGRADERT),
+                            mockAdressebeskyttetPerson(barn[2].foedselsnummer, Gradering.STRENGT_FORTROLIG_UTLAND)
+                        )
+                    )
+                )
+
+        runBlocking {
+            val result =
+                service.sendSoeknad(SoeknadFixtures.soeknadMedBarnBosattUtland) as RetryResult.Success
 
             assertEquals("OK", result.content)
         }
@@ -127,5 +177,10 @@ internal class SoeknadServiceTest {
         }
     }
 }
+
+private fun mockAdressebeskyttetPerson(ident: String, gradering: Gradering) = AdressebeskyttelseBolkPerson(
+    ident,
+    person = AdressebeskyttelsePerson(listOf(Adressebeskyttelse(gradering)))
+)
 
 private fun <E> MutableList<E>.pop(): E? = if (isEmpty()) null else removeAt(0)

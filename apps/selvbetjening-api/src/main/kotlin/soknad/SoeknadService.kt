@@ -10,21 +10,40 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType.Application.Json
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
+import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.retry
+import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
+import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.common.soeknad.Soeknad
 import org.slf4j.LoggerFactory
 
-class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
+class SoeknadService(
+    private val innsendtSoeknadKlient: HttpClient,
+    private val adressebeskyttelseService: AdressebeskyttelseService
+) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
     suspend fun sendSoeknad(soeknad: Soeknad): RetryResult {
-        logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
-
         return retry {
-            innsendtSoeknadKlient.post<String> ("soeknad"){
+            val barnListe = soeknad.utfyltSoeknad.opplysningerOmBarn.barn.map { Foedselsnummer.of(it.foedselsnummer) }
+            val barnMedAdressebeskyttelse = adressebeskyttelseService.hentGradering(barnListe)
+                .filter { listOf(STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND).contains(it.value) }
+                .map { it.key }
+
+            val rensketSoeknad =
+                if (barnMedAdressebeskyttelse.isEmpty()) {
+                    logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
+                    soeknad
+                } else {
+                    logger.info("Fjerner felter for barn med adressebeskyttelse før den sendes til lagring.")
+                    soeknad utenAdresseFor barnMedAdressebeskyttelse
+                }
+
+            innsendtSoeknadKlient.post<String>("soeknad") {
                 contentType(Json)
-                body = soeknad
+                body = rensketSoeknad
             }
         }
     }
@@ -33,7 +52,7 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
         return retry {
             logger.info("Lagrer kladd for innlogget bruker.")
 
-            innsendtSoeknadKlient.post<String> ("kladd"){
+            innsendtSoeknadKlient.post<String>("kladd") {
                 contentType(Json)
                 body = json
             }
@@ -45,13 +64,12 @@ class SoeknadService(private val innsendtSoeknadKlient: HttpClient) {
             logger.info("Henter kladd for innlogget bruker.")
 
             innsendtSoeknadKlient.get<JsonNode>("kladd")
-        } catch (ex: ClientRequestException){
-            if (ex.response.status == HttpStatusCode.NotFound)
-                HttpStatusCode.NotFound
-            else if (ex.response.status == HttpStatusCode.Conflict)
-                HttpStatusCode.Conflict
-            else
-                throw ex
+        } catch (ex: ClientRequestException) {
+            when (ex.response.status) {
+                HttpStatusCode.NotFound -> HttpStatusCode.NotFound
+                HttpStatusCode.Conflict -> HttpStatusCode.Conflict
+                else -> throw ex
+            }
         }
     }
 

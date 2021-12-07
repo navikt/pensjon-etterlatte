@@ -5,8 +5,7 @@ import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
-import no.nav.etterlatte.pdl.AdressebeskyttelseService
-import no.nav.etterlatte.pdl.PdlKlient
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.security.ktor.clientCredential
 
 class AppBuilder(private val props: Map<String, String>) {
@@ -15,9 +14,9 @@ class AppBuilder(private val props: Map<String, String>) {
     }
 
     fun createAdressebeskyttelseService(): AdressebeskyttelseService {
-        val pdlKlient = PdlKlient(pdlHttpClient(), props[CONFIG_PDL_URL]!!)
+        val adressebeskyttelseKlient = AdressebeskyttelseKlient(pdlHttpClient(), props[CONFIG_PDL_URL]!!)
 
-        return AdressebeskyttelseService(pdlKlient)
+        return AdressebeskyttelseService(adressebeskyttelseKlient)
     }
 
     private fun pdlHttpClient() = HttpClient(OkHttp) {

@@ -6,8 +6,6 @@ plugins {
 
 repositories {
     mavenCentral()
-//    maven("https://kotlin.bintray.com/ktor")
-//    maven("https://packages.confluent.io/maven/")
 }
 
 dependencies {
@@ -18,10 +16,17 @@ dependencies {
     api(Jackson.DatatypeJdk8)
     api(Jackson.ModuleKotlin)
 
+    implementation(Ktor.ClientCore)
+    implementation(Ktor.ClientLoggingJvm)
+    implementation(Ktor.ClientAuth)
+    implementation(Ktor.ClientJackson)
+
     testImplementation(Jupiter.Api)
     testImplementation(Jupiter.Params)
     testRuntimeOnly(Jupiter.Engine)
     testImplementation(Kotest.AssertionsCore)
+    testImplementation(MockK.MockK)
+    testImplementation(Ktor.ClientMock)
 }
 
 tasks {
