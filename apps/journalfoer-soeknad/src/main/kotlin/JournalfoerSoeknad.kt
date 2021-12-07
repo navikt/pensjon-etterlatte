@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import io.ktor.client.features.ResponseException
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.soeknad.SoeknadType
@@ -49,6 +50,8 @@ internal class JournalfoerSoeknad(
             packet["@dokarkivRetur"] = dokarkivResponse
 
             context.publish(packet.toJson())
+        } catch (re: ResponseException) {
+            logger.error("Duplikat: ", re)
         } catch (e: Exception) {
             logger.error("Ukjent feil oppsto under journalføring av søknad (id=$soeknadId): ", e)
 
