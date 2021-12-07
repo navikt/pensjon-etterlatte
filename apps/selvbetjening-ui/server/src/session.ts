@@ -2,8 +2,9 @@ import session from 'express-session';
 import { createClient } from 'redis';
 import config from './config';
 import logger from './log/logger';
-import RedisStore from 'connect-redis';
+import connectRedis, { RedisStore } from 'connect-redis';
 
+// const RedisStore = connectRedis(session)
 
 const { isLabsCluster, isProduction } = config.env;
 
@@ -28,8 +29,8 @@ const setupSession = () => {
     return session(options);
 };
 
-const setupRedis = async () => {
-    const store = RedisStore(session);
+const setupRedis = (): RedisStore => {
+    const Store = connectRedis(session);
     const client = createClient({
         host: config.session.redisHost,
         password: config.session.redisPassword,
@@ -45,8 +46,8 @@ const setupRedis = async () => {
         logger.info("Successfully connected to Redis!");
     });
 
-    return new store({
-        client: client,
+    return new Store({
+        client,
         disableTouch: true,
     });
 };
