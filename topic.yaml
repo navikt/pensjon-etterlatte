@@ -48,3 +48,6 @@ spec:
     - team: etterlatte
       application: etterlatte-notifikasjoner
       access: readwrite
+    - team: etterlatte
+      application: etterlatte-fordeler
+      access: readwrite
