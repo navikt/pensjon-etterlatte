@@ -8,11 +8,8 @@
 <body>
 
 <h1>Søknad om barnepensjon</h1>
-{{#if mottattDato}}
-    <h3>Mottatt dato: {{iso_to_nor_datetime mottattDato}}</h3>
-{{/if}}
 
-{{> eypdfgen/partials/common/innsender this.innsender}}
+{{> eypdfgen/partials/common/innsender this}}
 {{> eypdfgen/partials/common/utbetalingsinformasjon/utbetalingsinformasjon this.utbetalingsInformasjon}}
 {{> eypdfgen/partials/barnepensjon/opplysningerOmBarnet this.soeker}}
 {{> eypdfgen/partials/barnepensjon/opplysningerOmForeldre this.foreldre}}

@@ -1,15 +1,16 @@
 {
   "type": "GJENLEVENDEPENSJON",
   "imageTag": "asda123-asdas213",
+  "mottattDato": "2021-12-09T14:48:00.162972",
   "harSamtykket": {
     "spoersmaal": "Jeg, , bekrefter at jeg vil gi riktige og fullstendige opplysninger.",
     "svar": true
   },
   "innsender": {
     "type": "INNSENDER",
-    "fornavn": "STOR",
-    "etternavn": "SNERK",
-    "foedselsnummer": "11057523044"
+    "fornavn": "Liten",
+    "etternavn": "Oppvaskmaskin",
+    "foedselsnummer": "123456789123"
   },
   "utbetalingsInformasjon": {
     "spoersmaal": "Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?",

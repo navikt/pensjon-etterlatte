@@ -1,13 +1,5 @@
-<table>
-    <thead>
-        <tr>
-            <th colspan="2">
-                <h4>Opplysninger om den som søker</h4>
-            </th>
-        </tr>
-    </thead>
-
-    <tbody>
-        {{> eypdfgen/partials/common/personalia/enkelPersonalia this}}
-    </tbody>
-</table>
+<p>Sendt inn av {{this.innsender.fornavn}} {{this.innsender.etternavn}} ({{this.innsender.foedselsnummer}}) den {{iso_to_nor_datetime this.mottattDato}}
+{{#not_eq this.soeker.foedselsnummer this.innsender.foedselsnummer}}
+på vegne av {{this.soeker.fornavn}} {{this.soeker.etternavn}} ({{this.soeker.foedselsnummer}})
+{{/not_eq}}
+</p>
