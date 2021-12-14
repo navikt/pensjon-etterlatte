@@ -1,6 +1,5 @@
 import { Person, Gjenlevende, Avdoed, Barn } from "./Person"
-
-export type Foedselsnummer = String;
+import { Opplysning, BetingetOpplysning, BankkontoType, UtbetalingsInformasjon } from "./FellesOpplysninger";
 
 export enum SoeknadType {
     GJENLEVENDEPENSJON = "GJENLEVENDEPENSJON",
@@ -30,7 +29,3 @@ export interface Barnepensjon extends InnsendtSoeknad {
     foreldre: Person[] | undefined;
     soesken: Barn[];
 }
-
-
-/* OPPLYSNINGER */
-

@@ -1,18 +1,35 @@
 import { JobbStatus, Utdanning as GammelUtdanning } from "../../typer/situasjon";
+import { StillingType as GammelStillingType } from "../../typer/arbeidsforhold";
 import {
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
     InntektType,
-    JobbStatusType, OppholdUtlandType,
+    JobbStatusType,
+    OppholdUtlandType,
     SivilstatusType,
+    StillingType,
     Ytelser
 } from "../dto/FellesOpplysninger";
 import {
-    ForholdTilAvdoede as RelasjonAvdoed, OppholdUtlandType as GammelOppholdUtlandType,
+    ForholdTilAvdoede as RelasjonAvdoed,
+    OppholdUtlandType as GammelOppholdUtlandType,
     SamboerInntekt as GammelSamboerInntekt,
     Sivilstatus
 } from "../../typer/person";
 import { Ytelser as GamleYtelser } from "../../typer/ytelser";
+
+export const konverterStillingType = (type: GammelStillingType): StillingType => {
+    switch (type) {
+        case GammelStillingType.fast:
+            return StillingType.FAST;
+        case GammelStillingType.midlertidig:
+            return StillingType.MIDLERTIDIG;
+        case GammelStillingType.sesongarbeid:
+            return StillingType.SESONGARBEID;
+        default:
+            throw Error(`Ukjent type stilling: ${type}`);
+    }
+}
 
 export const konverterTilHoyesteUtdanning = (type: String | GammelUtdanning): HoeyesteUtdanning => {
     switch (type) {

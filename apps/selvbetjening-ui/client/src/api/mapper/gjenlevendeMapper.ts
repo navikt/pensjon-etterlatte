@@ -34,7 +34,7 @@ import {
     konverterJobbStatus,
     konverterRelasjonAvdoed,
     konverterSamboerInntekt,
-    konverterSivilstatus,
+    konverterSivilstatus, konverterStillingType,
     konverterTilHoyesteUtdanning,
     konverterYtelser
 } from "./typeMapper";
@@ -193,7 +193,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                     },
                     ansettelsesforhold: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.ansettelsesforhold"),
-                        svar: StillingType.FAST // TODO: fikse type
+                        svar: konverterStillingType(arbeid.ansettelsesforhold)
                     },
                     stillingsprosent: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.stillingsprosent"),

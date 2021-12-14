@@ -1,18 +1,22 @@
-/* PERSON */
-
 import {
     AarstallForMilitaerTjeneste,
     AndreYtelser,
     AnnenUtdanning,
     ArbeidOgUtdanning,
     BetingetOpplysning,
-    Foedselsnummer, ForholdTilAvdoede, HoeyesteUtdanning,
-    Kontaktinfo, Naeringsinntekt,
+    Foedselsnummer,
+    ForholdTilAvdoede,
+    HoeyesteUtdanning,
+    Kontaktinfo,
+    Naeringsinntekt,
     OppholdUtland,
-    Opplysning, SamboerInntekt,
+    Opplysning,
+    SamboerInntekt,
     SivilstatusType,
-    Svar, Utenlandsadresse, Utenlandsopphold
-} from "./InnsendtSoeknad";
+    Svar,
+    Utenlandsadresse,
+    Utenlandsopphold
+} from "./FellesOpplysninger";
 
 export enum PersonType {
     INNSENDER = "INNSENDER",

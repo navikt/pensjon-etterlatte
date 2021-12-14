@@ -111,6 +111,7 @@ export interface Naeringsinntekt {
     naeringsinntektVedDoedsfall?: Opplysning<Svar>;
 }
 
+export type Foedselsnummer = String;
 export type AarstallForMilitaerTjeneste = String
 
 export interface ArbeidOgUtdanning {
