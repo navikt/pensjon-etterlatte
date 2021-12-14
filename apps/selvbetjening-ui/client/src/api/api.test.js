@@ -1,6 +1,6 @@
 import { axiosInstance } from "./axios";
 import { lagreSoeknad, sendSoeknad } from "./api";
-import { SoeknadRequest } from "./mapper/InnsendtSoeknad"
+import { SoeknadRequest } from "./dto/InnsendtSoeknad"
 
 jest.mock("./axios");
 

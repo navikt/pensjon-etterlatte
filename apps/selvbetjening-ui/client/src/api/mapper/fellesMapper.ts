@@ -1,22 +1,24 @@
 import { TFunction } from "i18next";
 import { BarnRelasjon, IBarn, ISoeker } from "../../typer/person";
 import {
-    Avdoed,
     BankkontoType,
-    Barn,
     BetingetOpplysning,
-    Forelder,
-    Gjenlevende,
-    GjenlevendeForelder,
-    OmsorgspersonType,
     Opplysning,
-    Person,
-    PersonType,
     Svar,
     UtbetalingsInformasjon,
     Utenlandsadresse,
+} from "../dto/FellesOpplysninger";
+import {
+    Gjenlevende,
+    Avdoed,
+    Barn,
+    Forelder,
+    GjenlevendeForelder,
+    OmsorgspersonType,
+    Person,
+    PersonType,
     Verge
-} from "./InnsendtSoeknad";
+} from "../dto/Person";
 import { BankkontoType as GammelBankkontoType } from "../../typer/utbetaling";
 import { IValg } from "../../typer/Spoersmaal";
 import { ISoeknad } from "../../context/soknad/soknad";
@@ -87,8 +89,6 @@ export const mapBarn = (
             svar: barn.statsborgerskap!!
         },
         utenlandsAdresse,
-        // TODO: Fikse foreldre
-        // foreldre: [],
         foreldre: hentForeldre(t, barn, soeknad, bruker),
         verge,
         dagligOmsorg: hentDagligOmsorg(t, barn)

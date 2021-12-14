@@ -1,6 +1,6 @@
 import { axiosInstance as api } from "./axios";
 import { ISoeknad } from "../context/soknad/soknad";
-import { SoeknadRequest } from "./mapper/InnsendtSoeknad";
+import { SoeknadRequest } from "./dto/InnsendtSoeknad";
 
 /**
  * Henter personalia for innlogget person

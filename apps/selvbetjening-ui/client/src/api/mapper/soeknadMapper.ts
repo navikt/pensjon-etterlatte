@@ -1,5 +1,6 @@
 import { ISoeknad } from "../../context/soknad/soknad";
-import { Barn, Barnepensjon, Gjenlevendepensjon, Innsender, PersonType, SoeknadType } from "./InnsendtSoeknad";
+import { Barnepensjon, Gjenlevendepensjon, SoeknadType } from "../dto/InnsendtSoeknad";
+import { Barn, Innsender, PersonType } from "../dto/Person";
 import { TFunction } from "i18next";
 import { IBruker } from "../../context/bruker/bruker";
 import { IBarn } from "../../typer/person";

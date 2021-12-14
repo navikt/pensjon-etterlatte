@@ -1,13 +1,15 @@
 import { TFunction } from "i18next";
 import { ISoeknad } from "../../context/soknad/soknad";
 import {
-    Avdoed,
     Naeringsinntekt,
     OppholdUtlandType,
     Opplysning,
-    PersonType,
     Utenlandsopphold
-} from "./InnsendtSoeknad";
+} from "../dto/FellesOpplysninger";
+import {
+    Avdoed,
+    PersonType,
+} from "../dto/Person";
 import { IValg } from "../../typer/Spoersmaal";
 import { valgTilSvar } from "./fellesMapper";
 import { konverterOpphold } from "./typeMapper";

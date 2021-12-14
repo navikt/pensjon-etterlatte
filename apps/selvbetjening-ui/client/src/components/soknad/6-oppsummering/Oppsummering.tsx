@@ -15,7 +15,7 @@ import {
     mapTilBarnepensjonSoeknadListe,
     mapTilGjenlevendepensjonSoeknad
 } from "../../../api/mapper/soeknadMapper";
-import { SoeknadRequest } from "../../../api/mapper/InnsendtSoeknad";
+import { SoeknadRequest } from "../../../api/dto/InnsendtSoeknad";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();

@@ -6,14 +6,13 @@ import {
     JobbStatusType, OppholdUtlandType,
     SivilstatusType,
     Ytelser
-} from "./InnsendtSoeknad";
+} from "../dto/FellesOpplysninger";
 import {
     ForholdTilAvdoede as RelasjonAvdoed, OppholdUtlandType as GammelOppholdUtlandType,
     SamboerInntekt as GammelSamboerInntekt,
     Sivilstatus
 } from "../../typer/person";
 import { Ytelser as GamleYtelser } from "../../typer/ytelser";
-
 
 export const konverterTilHoyesteUtdanning = (type: String | GammelUtdanning): HoeyesteUtdanning => {
     switch (type) {

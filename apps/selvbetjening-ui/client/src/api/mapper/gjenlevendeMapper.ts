@@ -9,22 +9,23 @@ import {
     BetingetOpplysning,
     ForholdTilAvdoede,
     ForholdTilAvdoedeType,
-    Gjenlevende,
     HoeyesteUtdanning,
     InntektType,
     Kontaktinfo,
     OppholdUtland,
     Opplysning,
-    PersonType,
-    Samboer,
     SamboerInntekt,
     SelvstendigNaeringsdrivende,
     SivilstatusType,
-    StillingType,
     Svar,
     Utdanning,
     Ytelser
-} from "./InnsendtSoeknad";
+} from "../dto/FellesOpplysninger";
+import {
+    Gjenlevende,
+    PersonType,
+    Samboer,
+} from "../dto/Person";
 import { valgTilSvar } from "./fellesMapper";
 import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from "../../typer/person";
 import { IValg } from "../../typer/Spoersmaal";
