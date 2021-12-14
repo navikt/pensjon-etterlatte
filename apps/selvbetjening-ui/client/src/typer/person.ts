@@ -94,7 +94,7 @@ export interface IAvdoed {
         svar?: IValg;
         beskrivelse?: string;
     };
-    doedsfallAarsak?: string;
+    doedsfallAarsak?: IValg;
     erValidert?: boolean;
 }
 
@@ -151,8 +151,8 @@ export interface ISoeker {
     kontaktinfo?: IKontaktinfo;
     utbetalingsInformasjon?: IUtbetalingsInformasjon;
     flyktning?: IValg;
-    oppholderSegINorge?: IValg; // 2.7
-    oppholdsland?: string; // 2.7
+    oppholderSegINorge?: IValg;
+    oppholdsland?: string;
     medlemFolketrygdenUtland?: IValg;
     nySivilstatus?: INySivilstatus;
     erValidert?: boolean;

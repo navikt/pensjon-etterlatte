@@ -3,7 +3,7 @@ package no.nav.etterlatte
 import io.ktor.client.features.ResponseException
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
-import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+import innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
@@ -54,8 +54,6 @@ internal class JournalfoerSoeknad(
             logger.error("Duplikat: ", re)
         } catch (e: Exception) {
             logger.error("Ukjent feil oppsto under journalføring av søknad (id=$soeknadId): ", e)
-
-            throw e
         }
     }
 
@@ -66,9 +64,10 @@ internal class JournalfoerSoeknad(
     private fun journalfoer(soeknadId: String, packet: JsonMessage): DokarkivResponse {
         val fnrSoeker = packet["@fnr_soeker"].asText()
         val gradering = Gradering.fra(packet["@adressebeskyttelse"].textValue())
-        val template = packet["@template"].asText()
         val skjemaInfo = packet["@skjema_info"]
-        val soeknadType = SoeknadType.valueOf(skjemaInfo.get("soeknadsType").asText())
+
+        val soeknadType = SoeknadType.valueOf(skjemaInfo.get("type").asText())
+        val template = skjemaInfo.get("template").asText()
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
 

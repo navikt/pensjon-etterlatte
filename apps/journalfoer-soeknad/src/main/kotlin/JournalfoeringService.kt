@@ -12,7 +12,7 @@ import no.nav.etterlatte.Konstanter.ENHET_VIKAFOSSEN
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
-import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+import innsendtsoeknad.common.SoeknadType
 import org.slf4j.LoggerFactory
 
 class JournalfoeringService(private val klient: Dokarkiv) {

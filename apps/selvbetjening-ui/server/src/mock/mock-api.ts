@@ -37,12 +37,8 @@ export const mockApi = (app: any) => {
         res.send(oppsummering)
     });
 
-    app.post(`${config.app.basePath}/api/api/soeknad`, async (req: Request, res: Response, next: NextFunction) => {
-        const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
-        req.body = { utfyltSoeknad: req.body.soeknad, oppsummering }
-        next();
-    }, (req: Request, res: Response,) => {
-        res.send("ok");
+    app.post(`${config.app.basePath}/api/api/soeknad`, async (req: Request, res: Response) => {
+        res.sendStatus(200)
     });
 
     app.get(`${config.app.basePath}/api/person/innlogget`, (req: Request, res: Response) => setTimeout(() => res.json(innloggetBruker), 1000));

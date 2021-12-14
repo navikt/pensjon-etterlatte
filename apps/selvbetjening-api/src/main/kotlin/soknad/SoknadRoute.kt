@@ -12,14 +12,17 @@ import io.ktor.routing.post
 import io.ktor.routing.route
 import no.nav.etterlatte.common.RetryResult.Failure
 import no.nav.etterlatte.common.RetryResult.Success
-import no.nav.etterlatte.libs.common.soeknad.Soeknad
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
             try {
-                val soeknad = call.receive<Soeknad>().apply { imageTag = call.request.headers["ImageTag"] }
-                when (val response = service.sendSoeknad(soeknad)) {
+                call.application.environment.log.info("SoeknadRequest mottatt!")
+
+                val request = call.receive<SoeknadRequest>()
+
+                when (val response = service.sendSoeknader(request)) {
                     is Success -> {
                         call.application.environment.log.info("Søknad markert som ferdigstilt")
                         call.respond(HttpStatusCode.OK)

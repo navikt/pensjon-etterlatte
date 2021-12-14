@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">
+                <h4>Opplysninger om barn</h4>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{this.soeker.uregistrertEllerVenterBarn.spoersmaal}}</td>
+            <td>{{capitalize_names this.soeker.uregistrertEllerVenterBarn.svar}}</td>
+        </tr>
+        <br />
+        {{#if this.barn.length}}
+            <h5>Registrerte barn:</h5>
+            {{#each this.barn}}
+                {{> eypdfgen/partials/common/barn/barn this}}
+            {{/each}}
+        {{/if}}
+    </tbody>
+</table>

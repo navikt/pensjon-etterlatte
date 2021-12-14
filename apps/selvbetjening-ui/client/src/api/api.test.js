@@ -1,15 +1,12 @@
 import { axiosInstance } from "./axios";
 import { lagreSoeknad, sendSoeknad } from "./api";
+import { SoeknadRequest } from "./mapper/InnsendtSoeknad"
 
 jest.mock("./axios");
 
 describe("Test sending av søknad", () => {
     it("Søknadsobjekt fylles ut korrekt", async () => {
-        const soeknad = {
-            harSamtykket: true,
-            klarForLagring: true,
-            visFortsettSoeknadModal: false
-        };
+        const soeknad: SoeknadRequest = { soeknader: [] };
 
         const expectedResult = {status: 200};
         axiosInstance.post.mockResolvedValue(expectedResult);
@@ -18,10 +15,7 @@ describe("Test sending av søknad", () => {
 
         expect(axiosInstance.post).toHaveBeenCalledWith(
                 `/api/soeknad`,
-                {
-                    ...soeknad,
-                    klarForLagring: undefined
-                }
+                { ...soeknad }
         );
 
         expect(result).toBe(200);

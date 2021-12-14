@@ -1,7 +1,7 @@
 package soeknad
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+import innsendtsoeknad.common.SoeknadType
 
 typealias SoeknadID = Long
 
@@ -16,12 +16,8 @@ data class LagretSoeknad(
 
 data class UlagretSoeknad(
     val fnr: String,
-    val payload: String
-)
-
-data class Soeker(
-    val fnr: String,
-    val type: SoeknadType
+    val payload: String,
+    val type: SoeknadType? = null
 )
 
 enum class Status {

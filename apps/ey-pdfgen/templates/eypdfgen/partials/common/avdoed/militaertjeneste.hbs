@@ -1,0 +1,31 @@
+{{#eq this.svar "NEI"}}
+<tr>
+    <td>{{this.spoersmaal}}</td>
+    <td>{{this.svar}}</td>
+</tr>
+{{/eq}}
+{{#eq this.svar "JA"}}
+<tr>
+    <td colspan="2">
+        <table class="inner">
+            <thead>
+            <tr>
+                <th colspan="2">Militærtjeneste</th>
+            </tr>
+            </thead>
+
+            <tbody>
+             <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{capitalize_names this.svar}}</td>
+            </tr>
+            <tr>
+                <td>Hvilke(-t) år? (valgfri):</td>
+                <td>{{this.opplysning.svar}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </td>
+</tr>
+{{/eq}}

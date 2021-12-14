@@ -1,0 +1,17 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">
+                <h4>Opplysninger om søsken</h4>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if this.length}}
+            <h5>Registrerte søsken:</h5>
+            {{#each this}}
+                {{> eypdfgen/partials/common/barn/barn this}}
+            {{/each}}
+        {{/if}}
+    </tbody>
+</table>

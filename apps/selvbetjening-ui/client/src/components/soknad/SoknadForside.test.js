@@ -6,7 +6,7 @@ import { SoknadProvider } from "../../context/soknad/SoknadContext";
 import i18n from "../../i18n";
 import { I18nextProvider } from "react-i18next";
 import * as api from "../../api/api";
-import nb from '../../mocks/nblocaleMock.json';
+import nb from '../../mocks/nbLocaleMock.json';
 
 jest.mock("../../context/bruker/BrukerContext", () => ({
     useBrukerContext: () => {

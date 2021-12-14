@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">
+                <h4>Opplysninger om gjenlevende forelder</h4>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{> eypdfgen/partials/common/personalia/enkelPersonalia this}}
+        <tr>
+            <td>{{this.statsborgerskap.spoersmaal}}</td>
+            <td>{{this.statsborgerskap.svar}}</td>
+        </tr>
+        <tr>
+            <td>Adresse:</td>
+            <td>{{this.adresse.svar}}</td>
+        </tr>
+        {{> eypdfgen/partials/common/personalia/kontaktinfo this.kontaktinfo}}
+</tbody>
+</table>

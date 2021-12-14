@@ -46,10 +46,10 @@ internal class AdressebeskyttelseServiceTest {
             )
 
             assertEquals(4, graderinger.size)
-            assertTrue(graderinger["11057523044"] == Gradering.STRENGT_FORTROLIG)
-            assertTrue(graderinger["26117512737"] == Gradering.UGRADERT)
-            assertTrue(graderinger["26104500284"] == Gradering.STRENGT_FORTROLIG_UTLAND)
-            assertTrue(graderinger["24116324268"] == Gradering.UGRADERT)
+            assertTrue(graderinger[Foedselsnummer.of("11057523044")] == Gradering.STRENGT_FORTROLIG)
+            assertTrue(graderinger[Foedselsnummer.of("26117512737")] == Gradering.UGRADERT)
+            assertTrue(graderinger[Foedselsnummer.of("26104500284")] == Gradering.STRENGT_FORTROLIG_UTLAND)
+            assertTrue(graderinger[Foedselsnummer.of("24116324268")] == Gradering.UGRADERT)
         }
     }
 
@@ -59,7 +59,6 @@ internal class AdressebeskyttelseServiceTest {
             assertEquals(emptyMap<String, Gradering>(), adressebeskyttelseService.hentGradering(emptyList()))
         }
     }
-
 
     @Test
     fun `Skal kaste exception dersom man ikke får noen person fra PDL`() {

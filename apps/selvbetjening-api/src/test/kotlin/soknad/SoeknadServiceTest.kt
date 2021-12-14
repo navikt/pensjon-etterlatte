@@ -1,5 +1,8 @@
 package soknad
 
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
@@ -21,6 +24,7 @@ import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.toJson
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.pdl.Adressebeskyttelse
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseBolkPerson
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
@@ -31,7 +35,8 @@ import no.nav.etterlatte.libs.common.pdl.HentAdressebeskyttelse
 import no.nav.etterlatte.soknad.SoeknadService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import soeknad.SoeknadFixtures
+import soeknad.InnsendtSoeknadFixtures.barnepensjon
+import soeknad.InnsendtSoeknadFixtures.gjenlevendepensjon
 
 internal class SoeknadServiceTest {
 
@@ -83,7 +88,13 @@ internal class SoeknadServiceTest {
 
     private val service = SoeknadService(
         HttpClient(mockEngine) {
-            install(JsonFeature) { serializer = JacksonSerializer() }
+            install(JsonFeature) {
+                serializer = JacksonSerializer {
+                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    registerModule(JavaTimeModule())
+                }
+            }
         },
         AdressebeskyttelseService(adressebeskyttelseKlientMock)
     )
@@ -131,38 +142,17 @@ internal class SoeknadServiceTest {
     }
 
     @Test
-    fun sendSoeknad() {
+    fun sendSoeknader() {
         coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any()) } returns
                 AdressebeskyttelseResponse(
                     HentAdressebeskyttelse(
-                        listOf(mockAdressebeskyttetPerson("test", Gradering.UGRADERT))
+                        listOf(mockAdressebeskyttetPerson("24014021406", Gradering.UGRADERT))
                     )
                 )
 
         runBlocking {
-            val result = service.sendSoeknad(SoeknadFixtures.soeknadMedBarnepensjon) as RetryResult.Success
-
-            assertEquals("OK", result.content)
-        }
-    }
-
-    @Test
-    fun sendSoeknadMedBarnSomHarAdressebeskyttelse() {
-        val barn = SoeknadFixtures.soeknadMedBarnBosattUtland.utfyltSoeknad.opplysningerOmBarn.barn
-        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any()) } returns
-                AdressebeskyttelseResponse(
-                    HentAdressebeskyttelse(
-                        listOf(
-                            mockAdressebeskyttetPerson(barn[0].foedselsnummer, Gradering.STRENGT_FORTROLIG),
-                            mockAdressebeskyttetPerson(barn[1].foedselsnummer, Gradering.UGRADERT),
-                            mockAdressebeskyttetPerson(barn[2].foedselsnummer, Gradering.STRENGT_FORTROLIG_UTLAND)
-                        )
-                    )
-                )
-
-        runBlocking {
-            val result =
-                service.sendSoeknad(SoeknadFixtures.soeknadMedBarnBosattUtland) as RetryResult.Success
+            val request = SoeknadRequest(listOf(gjenlevendepensjon(), barnepensjon()))
+            val result = service.sendSoeknader(request) as RetryResult.Success
 
             assertEquals("OK", result.content)
         }

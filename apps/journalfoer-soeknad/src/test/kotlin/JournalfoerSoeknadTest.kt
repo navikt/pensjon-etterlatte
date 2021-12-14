@@ -19,7 +19,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.pdl.Gradering
-import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+import innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -58,8 +58,8 @@ internal class JournalfoerSoeknadTest {
         assertEquals("123", inspector.message(0).get("@dokarkivRetur").get("dokumenter")[0].get("dokumentInfoId").asText())
         assertEquals("467010363", inspector.message(0).get("@dokarkivRetur").get("journalpostId").asText())
 
-        verify(exactly = 1) { dokumentServiceMock.opprettJournalpostDokument("12", any(), "gjenlevendepensjon") }
-        verify(exactly = 1) { journalfoeringService.journalfoer("12", "5555555555", Gradering.UGRADERT, any(), SoeknadType.Gjenlevendepensjon) }
+        verify(exactly = 1) { dokumentServiceMock.opprettJournalpostDokument("12", any(), "gjenlevendepensjon_v1") }
+        verify(exactly = 1) { journalfoeringService.journalfoer("12", "5555555555", Gradering.UGRADERT, any(), SoeknadType.GJENLEVENDEPENSJON) }
     }
 
     @Test

@@ -1,7 +1,6 @@
 import { IValg } from "./Spoersmaal";
 
 export interface IAndreYtelser {
-    mottarAndreYtelser?: IValg;
     kravOmAnnenStonad?: {
         svar?: IValg;
         ytelser?: Ytelser;
@@ -15,7 +14,7 @@ export interface IAndreYtelser {
         hvaSlagsPensjon?: string;
         fraHvilketLand?: string;
         bruttobeloepPrAar?: string;
-        landetsValuta?: string;
+        landetsValuta?: string; // bort?
     };
 }
 

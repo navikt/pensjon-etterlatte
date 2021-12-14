@@ -1,5 +1,6 @@
 import { axiosInstance as api } from "./axios";
 import { ISoeknad } from "../context/soknad/soknad";
+import { SoeknadRequest } from "./mapper/InnsendtSoeknad";
 
 /**
  * Henter personalia for innlogget person
@@ -63,11 +64,8 @@ export const lagreSoeknad = async (soeknad: ISoeknad) => {
 /**
  * Sender inn ferdigstilt søknad
  */
-export const sendSoeknad = async (soeknad: any) => {
-    const body = {
-        ...soeknad,
-        klarForLagring: undefined
-    };
+export const sendSoeknad = async (request: SoeknadRequest) => {
+    const body = { ...request };
 
     try {
         const response = await api.post("/api/soeknad", body);

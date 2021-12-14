@@ -13,10 +13,8 @@ import io.ktor.http.contentType
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.retry
-import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
-import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
-import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.libs.common.soeknad.Soeknad
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.libs.common.pdl.Gradering
 import org.slf4j.LoggerFactory
 
 class SoeknadService(
@@ -25,27 +23,26 @@ class SoeknadService(
 ) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
-    suspend fun sendSoeknad(soeknad: Soeknad): RetryResult {
+    suspend fun sendSoeknader(request: SoeknadRequest): RetryResult {
+        logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
+
         return retry {
-            val barnListe = soeknad.utfyltSoeknad.opplysningerOmBarn.barn.map { Foedselsnummer.of(it.foedselsnummer) }
-            val barnMedAdressebeskyttelse = adressebeskyttelseService.hentGradering(barnListe)
-                .filter { listOf(STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND).contains(it.value) }
-                .map { it.key }
-
-            val rensketSoeknad =
-                if (barnMedAdressebeskyttelse.isEmpty()) {
-                    logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
-                    soeknad
-                } else {
-                    logger.info("Fjerner felter for barn med adressebeskyttelse før den sendes til lagring.")
-                    soeknad utenAdresseFor barnMedAdressebeskyttelse
-                }
-
             innsendtSoeknadKlient.post<String>("soeknad") {
                 contentType(Json)
-                body = rensketSoeknad
+                body = vurderAdressebeskyttelse(request)
             }
         }
+    }
+
+    private suspend fun vurderAdressebeskyttelse(request: SoeknadRequest): SoeknadRequest {
+        val barnMedAdressebeskyttelse = adressebeskyttelseService.hentGradering(request.finnUnikeBarn())
+            .filter { listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND).contains(it.value) }
+            .map { it.key }
+
+        return if (barnMedAdressebeskyttelse.isNotEmpty()) {
+            logger.info("Fjerner informasjon om utenlandsadresse før søknaden(e) sendes til lagring.")
+            request.fjernUtenlandsadresseFor(barnMedAdressebeskyttelse)
+        } else request
     }
 
     suspend fun lagreKladd(json: JsonNode): RetryResult {

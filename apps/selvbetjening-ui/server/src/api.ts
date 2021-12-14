@@ -33,7 +33,6 @@ const options: any = () => ({
     }
 });
 
-
 const setup = (app: any) => {
     // Intercept send søknad og lag oppsummering. Send så videre søknad og oppsummering
     app.use(sendSoeknad());

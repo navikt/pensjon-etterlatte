@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.nimbusds.jwt.JWTClaimsSet
@@ -26,8 +27,9 @@ import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
 import no.nav.etterlatte.DataSourceBuilder
-import no.nav.etterlatte.libs.common.soeknad.Soeknad
-import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
@@ -41,27 +43,39 @@ import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestMethodOrder
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import soeknad.InnsendtSoeknadFixtures
 import soeknad.LagretSoeknad
 import soeknad.PostgresSoeknadRepository
-import soeknad.SoeknadFixtures
 import soeknad.soeknadApi
 import java.util.*
 import java.util.stream.Collectors
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation::class)
-class SoeknadApiIntegrationTest {
+internal class SoeknadApiIntegrationTest {
+
+    companion object {
+        private const val STOR_SNERK = "11057523044"
+        private const val LUR_KOPP = "04117120886"
+        private const val BLÅØYD_SAKS = "05111850870"
+        private const val VAKKER_PENN = "09038520129"
+        private const val LUGUBER_MASKIN = "05117300236"
+    }
 
     @Container
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
     private lateinit var db: PostgresSoeknadRepository
     private lateinit var dsb: DataSourceBuilder
+    private lateinit var service: SoeknadService
+
     private val dummyKladd = """{"harSamtykket":"true"}"""
     private val mapper = jacksonObjectMapper()
 
     @BeforeAll
     fun beforeAll() {
         setupDatabase()
+
+        service = SoeknadService(db)
     }
 
     @AfterAll
@@ -72,23 +86,17 @@ class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal opprette soeknad i databasen for gjenlevende`() {
-        withTestApplication({ apiTestModule { soeknadApi(db /*, "26117512737"*/) } }) {
-            val utenBarnSoeknad: String = SoeknadFixtures.soeknadUtenBarn.toJson()
+        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
+            val request = SoeknadRequest(
+                listOf(
+                    InnsendtSoeknadFixtures.gjenlevendepensjon(Foedselsnummer.of(VAKKER_PENN))
+                )
+            )
 
             handleRequest(HttpMethod.Post, "/api/soeknad") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor("26117512737")
-                setBody(utenBarnSoeknad)
-            }.apply {
-                response.status() shouldBe HttpStatusCode.OK
-
-                val lagretSoeknadRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM innhold WHERE fnr = '26117512737'")
-                lagretSoeknadRow.next()
-
-                lagretSoeknadRow.getString("fnr") shouldBe "26117512737"
-                lagretSoeknadRow.getString("payload") shouldBe mapper.readValue<Soeknad>(utenBarnSoeknad)
-                    .apply { soeknadsType = SoeknadType.Gjenlevendepensjon }.toJson()
+                tokenFor(VAKKER_PENN)
+                setBody(request.toJson())
             }
         }
     }
@@ -96,33 +104,36 @@ class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal opprette soeknad i databasen for gjenlevende og barn`() {
-        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
-            val medBarnSoeknad: String = SoeknadFixtures.soeknadMedBarnepensjon.toJson()
+        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
+            val request = SoeknadRequest(
+                soeknader = listOf(
+                    InnsendtSoeknadFixtures.gjenlevendepensjon(innsenderFnr = Foedselsnummer.of(LUR_KOPP)),
+                    InnsendtSoeknadFixtures.barnepensjon(innsenderFnr = Foedselsnummer.of(LUR_KOPP))
+                )
+            )
 
             handleRequest(HttpMethod.Post, "/api/soeknad") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor("55555555555")
-                setBody(medBarnSoeknad)
+                tokenFor(LUR_KOPP)
+                setBody(request.toJson())
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
 
                 // Verifiser søknad for gjenlevendepensjon
                 val gjenlevendeRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM innhold WHERE fnr = '55555555555'")
+                    .executeQuery("SELECT * FROM innhold WHERE fnr = '$LUR_KOPP'")
                 gjenlevendeRow.next()
 
-                gjenlevendeRow.getString("fnr") shouldBe "55555555555"
-                gjenlevendeRow.getString("payload") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
-                    .apply { soeknadsType = SoeknadType.Gjenlevendepensjon }.toJson()
+                gjenlevendeRow.getString("fnr") shouldBe LUR_KOPP
+                gjenlevendeRow.getString("payload") shouldBe request.soeknader.first().toJson()
 
                 // Verifiser egen søknad for barnepensjon
                 val barnepensjonRow = dsb.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM innhold WHERE fnr = '12345678911'")
+                    .executeQuery("SELECT * FROM innhold WHERE fnr = '$BLÅØYD_SAKS'")
                 barnepensjonRow.next()
 
-                barnepensjonRow.getString("fnr") shouldBe "12345678911"
-                barnepensjonRow.getString("payload") shouldBe mapper.readValue<Soeknad>(medBarnSoeknad)
-                    .apply { soeknadsType = SoeknadType.Barnepensjon }.toJson()
+                barnepensjonRow.getString("fnr") shouldBe BLÅØYD_SAKS
+                barnepensjonRow.getString("payload") shouldBe request.soeknader.last().toJson()
             }
         }
     }
@@ -130,9 +141,9 @@ class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal returnere not found hvis en kladd ikke eksisterer`() {
-        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
+        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Get, "/api/kladd") {
-                tokenFor("INVALID_FNR")
+                tokenFor(LUGUBER_MASKIN) // LUGUBER MASKIN
             }.apply {
                 response.status() shouldBe HttpStatusCode.NotFound
             }
@@ -142,20 +153,20 @@ class SoeknadApiIntegrationTest {
     @Test
     @Order(2)
     fun `Skal lagre kladd ned i databasen`() {
-        db.finnSoeknad("11057523044") shouldBe null
+        db.finnSoeknad(STOR_SNERK) shouldBe null
 
-        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
+        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Post, "/api/kladd") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor("11057523044")
+                tokenFor(STOR_SNERK)
                 setBody(dummyKladd)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
 
-                val kladd = db.finnSoeknad("11057523044")
+                val kladd = db.finnSoeknad(STOR_SNERK)
                 kladd shouldNotBe null
                 kladd?.id shouldNotBe null
-                kladd?.fnr shouldBe "11057523044"
+                kladd?.fnr shouldBe STOR_SNERK
                 kladd?.payload shouldBe dummyKladd
             }
         }
@@ -164,17 +175,17 @@ class SoeknadApiIntegrationTest {
     @Test
     @Order(3)
     fun `Skal hente kladd fra databasen`() {
-        db.finnSoeknad("11057523044") shouldNotBe null
+        db.finnSoeknad(STOR_SNERK) shouldNotBe null
 
-        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
+        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Get, "/api/kladd") {
-                tokenFor("11057523044")
+                tokenFor(STOR_SNERK)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
 
                 val content: LagretSoeknad = mapper.readValue(response.content!!)
                 content.payload shouldBe dummyKladd
-                content.fnr shouldBe "11057523044"
+                content.fnr shouldBe STOR_SNERK
             }
         }
     }
@@ -182,14 +193,14 @@ class SoeknadApiIntegrationTest {
     @Test
     @Order(4)
     fun `Skal slette kladd fra databasen`() {
-        db.finnSoeknad("11057523044") shouldNotBe null
+        db.finnSoeknad(STOR_SNERK) shouldNotBe null
 
-        withTestApplication({ apiTestModule { soeknadApi(db) } }) {
+        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Delete, "/api/kladd") {
-                tokenFor("11057523044")
+                tokenFor(STOR_SNERK)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-                db.finnSoeknad("11057523044") shouldBe null
+                db.finnSoeknad(STOR_SNERK) shouldBe null
             }
         }
     }
@@ -208,7 +219,9 @@ class SoeknadApiIntegrationTest {
 
 fun Application.apiTestModule(routes: Route.() -> Unit) {
     install(ContentNegotiation) {
-        jackson()
+        jackson() {
+            registerModule(JavaTimeModule())
+        }
     }
     install(IgnoreTrailingSlash)
     install(Authentication) {

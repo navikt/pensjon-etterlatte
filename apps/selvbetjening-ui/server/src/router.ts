@@ -8,18 +8,7 @@ import nbLocale from './locales/nb.json';
 import nnLocale from './locales/nn.json';
 import enLocale from './locales/en.json';
 
-
 const { exchangeToken } = new TokenXClient();
-
-const deleteUnwantedFields = (soeknad: any) => {
-    delete soeknad.omDeg.erValidert;
-    delete soeknad.omDenAvdoede.erValidert;
-    delete soeknad.omDegOgAvdoed.erValidert;
-    delete soeknad.dinSituasjon.erValidert;
-    delete soeknad.opplysningerOmBarn.erValidert;
-
-    return soeknad;
-};
 
 export const sendSoeknad = () => {
     const router = express.Router();
@@ -42,21 +31,25 @@ export const sendSoeknad = () => {
     });
 
     router.post(`${config.app.basePath}/api/api/soeknad`, express.json(), async (req: any, res: any) => {
-        const soeknadBody = deleteUnwantedFields(req.body.soeknad);
+        const soeknader: any[] = req.body.soeknader.map((soeknad: any) => {
+            return {
+                ...soeknad,
+                imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1")
+            }
+        });
+
         try {
-            const oppsummering = await generateSummary(soeknadBody, req.body.bruker, req.body.locale);
-            const body = { utfyltSoeknad: soeknadBody, oppsummering };
             await exchangeToken(req.session.tokens.access_token).then(
                 (accessToken) => {
                     const headers = {
                         ...req.headers,
+                        Authorization:  `Bearer ${accessToken}`
                     };
-                    headers.ImageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1");
-                    headers.Authorization = `Bearer ${accessToken}`;
+
                     fetch(`${config.app.apiUrl}/api/soeknad`, {
                         method: "post",
                         headers: headers,
-                        body: JSON.stringify(body),
+                        body: JSON.stringify({soeknader}),
                     }).then((response: any) => {
                             if (response.status !== 200) {
                                 return res.status(response.status).send("Det skjedde en feil.");
