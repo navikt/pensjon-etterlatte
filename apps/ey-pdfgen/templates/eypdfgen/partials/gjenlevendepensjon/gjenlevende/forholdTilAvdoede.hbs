@@ -1,0 +1,69 @@
+<tr>
+    <td colspan="2">
+        <table class="inner">
+            <thead>
+            <tr>
+                <th colspan="2">Forhold til den avdøde</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>{{this.relasjon.spoersmaal}}</td>
+                <td>{{capitalize_names this.relasjon.svar}}</td>
+            </tr>
+
+            {{#with this.datoForInngaattPartnerskap}}
+            <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{iso_to_nor_date this.svar}}</td>
+            </tr>
+            {{/with}}
+            {{#with this.datoForInngaattSamboerskap}}
+            <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{iso_to_nor_date this.svar}}</td>
+            </tr>
+            {{/with}}
+
+            {{#with this.datoForSkilsmisse}}
+            <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{iso_to_nor_date this.svar}}</td>
+            </tr>
+            {{/with}}
+            {{#with this.datoForSamlivsbrudd}}
+            <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{iso_to_nor_date this.svar}}</td>
+            </tr>
+            {{/with}}
+
+            {{#with this.fellesBarn}}
+            <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{capitalize_names this.svar}}</td>
+            </tr>
+            {{/with}}
+            {{#with this.samboereMedFellesBarnFoerGiftemaal}}
+            <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{capitalize_names this.svar}}</td>
+            </tr>
+            {{/with}}
+            {{#with this.tidligereGift}}
+            <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{capitalize_names this.svar}}</td>
+            </tr>
+            {{/with}}
+            {{#with this.omsorgForBarn}}
+            <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{capitalize_names this.svar}}</td>
+            </tr>
+            {{/with}}
+            </tbody>
+        </table>
+    </td>
+</tr>

@@ -73,12 +73,15 @@ class PostgresSoeknadRepository private constructor(
     private fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
         val lagretSoeknad = finnSoeknad(soeknad.fnr)
 
-        return if (lagretSoeknad == null)
+        return if (lagretSoeknad == null) {
+            logger.info("Søknad finnes ikke i databasen. Oppretter ny søknad.")
             opprettNySoeknad(soeknad)
-        else if (lagretSoeknad.status != null && lagretSoeknad.status != LAGRETKLADD)
+        } else if (lagretSoeknad.status != null && lagretSoeknad.status != LAGRETKLADD)
             throw Exception("Bruker har allerede en ferdigstilt søknad under behandling")
-        else
+        else {
+            logger.info("Søknad finnes allerede (id=${lagretSoeknad.id}). Oppdaterer søknad med nytt innhold.")
             oppdaterSoeknad(lagretSoeknad, soeknad.payload)
+        }
     }
 
     private fun opprettNySoeknad(soeknad: UlagretSoeknad): LagretSoeknad {

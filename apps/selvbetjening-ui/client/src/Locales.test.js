@@ -1,5 +1,6 @@
-import nbLocale from './mocks/nblocaleMock.json';
-import nnLocale from './mocks/nblocaleMock.json';
+import nbLocale from './mocks/nbLocaleMock.json';
+import nnLocale from './mocks/nnLocaleMock.json';
+import enLocale from './mocks/enLocaleMock.json';
 import { isEmpty } from "lodash";
 
 
@@ -12,6 +13,10 @@ describe("Json objekter", () => {
         expect(sammenlignSpraakNoekler(nnLocale, nbLocale)).toEqual(expect.stringMatching("Alle nøkler finnes"))
     })
 
+    it("Engelsk har alle de samme tekstnøklene som bokmål", () => {
+        expect(sammenlignSpraakNoekler(nbLocale, enLocale)).toEqual(expect.stringMatching("Alle nøkler finnes"))
+    })
+
     it("Bokmål har ingen tomme verdier", () => {
         expect(finnTommeVerdier(nbLocale)).toEqual(expect.stringMatching("Ingen tomme verdier"))
     })
@@ -20,7 +25,9 @@ describe("Json objekter", () => {
         expect(finnTommeVerdier(nnLocale)).toEqual(expect.stringMatching("Ingen tomme verdier"))
     })
 
-    //TODO: Legg til tester for engelsk når disse er klare
+    it("Engelsk har ingen tomme verdier", () => {
+        expect(finnTommeVerdier(enLocale)).toEqual(expect.stringMatching("Ingen tomme verdier"))
+    })
 
     function finnTommeVerdier(obj) {
         let emptyValues = [];

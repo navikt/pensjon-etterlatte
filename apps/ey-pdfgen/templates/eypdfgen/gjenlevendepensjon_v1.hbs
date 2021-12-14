@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    {{> eypdfgen/partials/style}}
+    <title>SØKNAD</title>
+</head>
+<body>
+
+<h1>Søknad om gjenlevendepensjon</h1>
+{{#if mottattDato}}
+    <h3>Mottatt dato: {{iso_to_nor_datetime mottattDato}}</h3>
+{{/if}}
+
+{{> eypdfgen/partials/common/innsender this.innsender}}
+{{> eypdfgen/partials/common/utbetalingsinformasjon/utbetalingsinformasjon this.utbetalingsInformasjon}}
+{{> eypdfgen/partials/gjenlevendepensjon/gjenlevende/gjenlevende this.soeker}}
+{{> eypdfgen/partials/common/avdoed/avdoed this.avdoed}}
+{{> eypdfgen/partials/gjenlevendepensjon/informasjonOmBarn this}}
+
+{{#if imageTag}}
+    <i class="mute">
+        Template: {{template}} ({{imageTag}})
+    </i>
+{{/if}}
+
+</body>
+</html>

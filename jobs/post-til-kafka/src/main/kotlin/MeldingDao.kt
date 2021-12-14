@@ -295,7 +295,6 @@ fun payload(fnr: String) = """
         "selvstendig": null,
         "arbeidsforhold": null,
         "andreYtelser": {
-          "mottarAndreYtelser": null,
           "kravOmAnnenStonad": {
             "svar": "Nei",
             "beskrivelse": null

@@ -12,7 +12,7 @@ export const Dropdown = (props: { onChange: any; value: string }) => {
             <Select onChange={setLanguage} value={props.value} label="Velg språk">
                 <option value={Language.NORSK_BOKMAAL}>Bokmål</option>
                 <option value={Language.NORSK_NYNORSK}>Nynorsk</option>
-                {/* <option value={Language.ENGELSK}>English</option> */}
+                <option value={Language.ENGELSK}>English</option>
             </Select>
         </SkjemaGruppe>
     );

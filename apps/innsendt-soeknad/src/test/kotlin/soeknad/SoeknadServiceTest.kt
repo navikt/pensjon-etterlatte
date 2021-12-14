@@ -1,37 +1,67 @@
 package soeknad
 
+import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import io.kotest.matchers.collections.shouldContainExactly
-import no.nav.etterlatte.libs.common.soeknad.SoeknadType
-import no.nav.etterlatte.soeknad.finnSoekere
+import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.soeknad.SoeknadService
 import org.junit.jupiter.api.Test
+import java.sql.SQLException
 
 internal class SoeknadServiceTest {
-    @Test
-    fun `Skal hente ut alle personer som skal ha en egen søknad`() {
-        val soekere = finnSoekere(SoeknadFixtures.soeknadMedBarnepensjon, gjenlevendeFnr = "12345678100")
 
-        soekere shouldContainExactly listOf(
-            Soeker("12345678100", SoeknadType.Gjenlevendepensjon),
-            Soeker("12345678911", SoeknadType.Barnepensjon)
-        )
+    private val mockRepository = mockk<SoeknadRepository>()
+
+    private val service = SoeknadService(mockRepository)
+
+    private val mapper = jacksonObjectMapper()
+
+    @Test
+    fun `Gyldige søknader lagres OK som forventet`() {
+        every { mockRepository.ferdigstillSoeknad(any()) } returns 1
+
+        val request = SoeknadRequest(listOf(
+            InnsendtSoeknadFixtures.gjenlevendepensjon(),
+            InnsendtSoeknadFixtures.barnepensjon()
+        ))
+
+        val lagretOK = service.sendSoeknad(Foedselsnummer.of("11057523044"), request)
+
+        lagretOK shouldBe true
+
+        verify(exactly = 2) { mockRepository.ferdigstillSoeknad(any()) }
     }
 
     @Test
-    fun `Skal håndtere søknad med barn uten søknad om barnepensjon`() {
-        val soekere = finnSoekere(SoeknadFixtures.soeknadMedBarnUtenBarnepensjon, gjenlevendeFnr = "12345678100")
+    fun `Hent kladd fungerer som forventet`() {
+        val fnr = "24014021406"
+        val lagretSoeknad = LagretSoeknad(1, fnr, """{}""")
 
-        soekere shouldContainExactly listOf(
-            Soeker("12345678100", SoeknadType.Gjenlevendepensjon)
-        )
+        every { mockRepository.finnSoeknad(any()) } returns lagretSoeknad
+
+        val kladd = service.hentKladd(Foedselsnummer.of(fnr))
+
+        kladd shouldBe lagretSoeknad
+
+        verify(exactly = 1) { mockRepository.finnSoeknad(fnr) }
     }
 
     @Test
-    fun `Skal håndtere søknad uten barn`() {
-        val soekere = finnSoekere(SoeknadFixtures.soeknadUtenBarn, gjenlevendeFnr = "12345678100")
+    fun `Lagre kladd fungerer som forventet`() {
+        val fnr = "24014021406"
 
-        soekere shouldContainExactly listOf(
-            Soeker("12345678100", SoeknadType.Gjenlevendepensjon)
-        )
+        every { mockRepository.lagreKladd(any()) } returns LagretSoeknad(1, fnr, """{}""")
+
+        val soeknadJsonNode = mapper.valueToTree<JsonNode>("""{}""")
+        val id = service.lagreKladd(Foedselsnummer.of(fnr), soeknadJsonNode)
+
+        verify(exactly = 1) { mockRepository.lagreKladd(any()) }
+
+        id shouldBe 1
     }
 }

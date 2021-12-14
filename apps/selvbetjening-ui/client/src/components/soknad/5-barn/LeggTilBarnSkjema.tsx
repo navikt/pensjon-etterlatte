@@ -35,7 +35,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
         defaultValues: {
             ...barn,
             statsborgerskap: barn.statsborgerskap || "Norge",
-            bosattUtland: {...barn.bosattUtland, land: barn.bosattUtland?.land || "Norge" }
+            bosattUtland: { ...barn.bosattUtland, land: barn.bosattUtland?.land || "Norge" }
         },
         shouldUnregister: true
     });
@@ -287,7 +287,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                             </>
                         )}
 
-                        {(relasjon === BarnRelasjon.egneSaerkullsbarn) && (
+                        {(relasjon === BarnRelasjon.egneSaerkullsbarn || relasjon == BarnRelasjon.avdoedesSaerkullsbarn) && (
                             <SkjemaGruppe>
                                 <RHFSpoersmaalRadio
                                     name={"dagligOmsorg"}

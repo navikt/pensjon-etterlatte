@@ -1,0 +1,359 @@
+{
+  "type": "GJENLEVENDEPENSJON",
+  "imageTag": "asda123-asdas213",
+  "harSamtykket": {
+    "spoersmaal": "Jeg, , bekrefter at jeg vil gi riktige og fullstendige opplysninger.",
+    "svar": true
+  },
+  "innsender": {
+    "type": "INNSENDER",
+    "fornavn": "STOR",
+    "etternavn": "SNERK",
+    "foedselsnummer": "11057523044"
+  },
+  "utbetalingsInformasjon": {
+    "spoersmaal": "Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?",
+    "svar": "UTENLANDSK",
+    "opplysning": {
+      "utenlandskBankNavn": {
+        "spoersmaal": "Bankens navn",
+        "svar": "Das bank"
+      },
+      "utenlandskBankAdresse": {
+        "spoersmaal": "Bankens fulle adresse",
+        "svar": "Bankveien 21"
+      },
+      "iban": {
+        "spoersmaal": "IBAN-nummer",
+        "svar": "FR7630006000011234567890189"
+      },
+      "swift": {
+        "spoersmaal": "Bankens S.W.I.F.T (BIC) adresse",
+        "svar": "CHASUS33XXX"
+      }
+    }
+  },
+  "soeker": {
+    "type": "GJENLEVENDE",
+    "fornavn": "STOR",
+    "etternavn": "SNERK",
+    "foedselsnummer": "11057523044",
+    "statsborgerskap": "Statsborgerskap-mock",
+    "sivilstatus": "Sivilstatus-mock",
+    "adresse": {
+      "spoersmaal": "Bostedsadresse",
+      "svar": "Adresse-mock"
+    },
+    "bostedsAdresse": {
+      "spoersmaal": "Bor du på denne adressen?",
+      "svar": "NEI",
+      "opplysning": {
+        "spoersmaal": "Oppgi nåværende bostedsadresse",
+        "svar": "Testveien 123, 0594 Oslo"
+      }
+    },
+    "kontaktinfo": {
+      "epost": {
+        "spoersmaal": "E-post",
+        "svar": "test@nav.no"
+      },
+      "telefonnummer": {
+        "spoersmaal": "Telefonnummer",
+        "svar": "999 88 777"
+      }
+    },
+    "oppholdUtland": {
+      "spoersmaal": "Oppholder du deg for tiden i Norge?",
+      "svar": "NEI",
+      "opplysning": {
+        "land": {
+          "spoersmaal": "Oppgi land",
+          "svar": "Algerie"
+        },
+        "medlemFolketrygd": {
+          "spoersmaal": "Er du medlem i folketrygden under opphold i et annet land enn Norge?",
+          "svar": "JA"
+        }
+      }
+    },
+    "nySivilstatus": {
+      "spoersmaal": "Sivilstanden din i dag",
+      "svar": "SAMBOERSKAP",
+      "opplysning": {
+        "type": "SAMBOER",
+        "fornavn": "Samboer",
+        "etternavn": "Samboerson",
+        "foedselsnummer": "11078431921",
+        "fellesBarnEllertidligereGift": {
+          "spoersmaal": "Har eller hadde dere barn sammen eller var dere tidligere gift?",
+          "svar": "NEI"
+        },
+        "inntekt": {
+          "spoersmaal": "Har samboer inntekt?",
+          "svar": "JA",
+          "opplysning": {
+            "inntektstype": {
+              "spoersmaal": "Inntektstype",
+              "svar": [
+                "ARBEIDSINNTEKT",
+                "PENSJON"
+              ]
+            },
+            "samletBruttoinntektPrAar": {
+              "spoersmaal": "Samlet årsinntekt før skatt",
+              "svar": "1000000"
+            }
+          }
+        }
+      }
+    },
+    "arbeidOgUtdanning": {
+      "dinSituasjon": {
+        "spoersmaal": "Hva er situasjonen din nå?",
+        "svar": [
+          "ARBEIDSTAKER"
+        ]
+      },
+      "arbeidsforhold": {
+        "spoersmaal": "Om arbeidsgiver",
+        "svar": [
+          {
+            "arbeidsgiver": {
+              "spoersmaal": "Hva heter arbeidsgiver?",
+              "svar": "Potetskreller AS"
+            },
+            "ansettelsesforhold": {
+              "spoersmaal": "Type ansettelse",
+              "svar": "FAST"
+            },
+            "stillingsprosent": {
+              "spoersmaal": "Hvor mye jobber du?",
+              "svar": "100%"
+            },
+            "endretInntekt": {
+              "spoersmaal": "Regner du med at inntekten din endrer seg de neste 12 månedene?",
+              "svar": "JA",
+              "opplysning": {
+                "spoersmaal": "Hva er grunnen til endringene?",
+                "svar": "Forventer økt inntekt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "fullfoertUtdanning": {
+      "spoersmaal": "Hva er din høyeste fullførte utdanning?",
+      "svar": "UNIVERSITET_OVER_4_AAR"
+    },
+    "andreYtelser": {
+      "kravOmAnnenStonad": {
+        "spoersmaal": "Har du søkt om andre ytelser som du ikke har fått svar på?",
+        "svar": "JA",
+        "opplysning": {
+          "spoersmaal": "Hva har du søkt om?",
+          "svar": "DAGPENGER"
+        }
+      },
+      "annenPensjon": {
+        "spoersmaal": "Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?",
+        "svar": "JA",
+        "opplysning": {
+          "spoersmaal": "Hvilken pensjonsordning?",
+          "svar": "Skandia"
+        }
+      },
+      "pensjonUtland": {
+        "spoersmaal": "Mottar du pensjon fra et annet land enn Norge?",
+        "svar": "JA",
+        "opplysning": {
+          "pensjonsType": {
+            "spoersmaal": "Hva slags pensjon?",
+            "svar": "Polsk Uførepensjon"
+          },
+          "land": {
+            "spoersmaal": "Fra hvilket land?",
+            "svar": "Polen"
+          },
+          "bruttobeloepPrAar": {
+            "spoersmaal": "Årlig beløp før skatt i landets valuta",
+            "svar": "4000 PLN"
+          }
+        }
+      }
+    },
+    "uregistrertEllerVenterBarn": {
+      "spoersmaal": "Venter du barn eller har du barn som enda ikke er registrert i folkeregisteret?",
+      "svar": "JA"
+    },
+    "forholdTilAvdoede": {
+      "relasjon": {
+        "spoersmaal": "Relasjonen din til avdøde da dødsfallet skjedde",
+        "svar": "SKILT"
+      },
+      "datoForInngaattPartnerskap": {
+        "spoersmaal": "Vi giftet oss",
+        "svar": "2001-07-26T22:00:00.000Z"
+      },
+      "datoForSkilsmisse": {
+        "spoersmaal": "Vi skilte oss (ikke separasjon)",
+        "svar": "2021-06-27T22:00:00.000Z"
+      },
+      "fellesBarn": {
+        "spoersmaal": "Har eller hadde dere felles barn?",
+        "svar": "JA"
+      }
+    }
+  },
+  "avdoed": {
+    "type": "AVDOED",
+    "fornavn": "Død",
+    "etternavn": "Testperson",
+    "foedselsnummer": "24014021406",
+    "datoForDoedsfallet": {
+      "spoersmaal": "Når skjedde dødsfallet?",
+      "svar": "2021-07-26T22:00:00.000Z"
+    },
+    "statsborgerskap": {
+      "spoersmaal": "Statsborgerskap",
+      "svar": "Norsk"
+    },
+    "utenlandsopphold": {
+      "spoersmaal": "Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?",
+      "svar": "JA",
+      "opplysning": [
+        {
+          "land": {
+            "spoersmaal": "Land",
+            "svar": "Kongo"
+          },
+          "fraDato": {
+            "spoersmaal": "Fra dato (valgfri)",
+            "svar": "2002-08-10T22:00:00.000Z"
+          },
+          "tilDato": {
+            "spoersmaal": "Til dato (valgfri)",
+            "svar": "2003-08-10T22:00:00.000Z"
+          },
+          "oppholdsType": {
+            "spoersmaal": "Bodd og/eller arbeidet?",
+            "svar": [
+              "BODD",
+              "ARBEIDET"
+            ]
+          },
+          "medlemFolketrygd": {
+            "spoersmaal": "Var han eller hun medlem av folketrygden under oppholdet?",
+            "svar": "JA"
+          },
+          "pensjonsutbetaling": {
+            "spoersmaal": "Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)",
+            "svar": "150.000"
+          }
+        }
+      ]
+    },
+    "naeringsInntekt": {
+      "spoersmaal": "Var han eller hun selvstendig næringsdrivende?",
+      "svar": "JA",
+      "opplysning": {
+        "naeringsinntektPrAarFoerDoedsfall": {
+          "spoersmaal": "Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)",
+          "svar": "150 000"
+        },
+        "naeringsinntektVedDoedsfall": {
+          "spoersmaal": "Hadde han eller hun næringsinntekt når dødsfallet skjedde?",
+          "svar": "NEI"
+        }
+      }
+    },
+    "militaertjeneste": {
+      "spoersmaal": "Har han eller hun gjennomført militær eller sivil førstegangstjeneste som varte minst 30 dager?",
+      "svar": "JA",
+      "opplysning": {
+        "spoersmaal": "Hvilke(-t) år? (valgfri)",
+        "svar": "1984"
+      }
+    },
+    "doedsaarsakSkyldesYrkesskadeEllerYrkessykdom": {
+      "spoersmaal": "Skyldes dødsfallet yrkesskade eller yrkessykdom?",
+      "svar": "JA"
+    }
+  },
+  "barn": [
+    {
+      "type": "BARN",
+      "fornavn": "Treg",
+      "etternavn": "Snøfreser",
+      "foedselsnummer": "24014021406",
+      "statsborgerskap": {
+        "spoersmaal": "Statsborgerskap",
+        "svar": "Norsk"
+      },
+      "utenlandsAdresse": {
+        "spoersmaal": "Bor barnet i et annet land enn Norge?",
+        "svar": "NEI"
+      },
+      "foreldre": [
+        {
+          "type": "FORELDER",
+          "fornavn": "Død",
+          "etternavn": "Testperson",
+          "foedselsnummer": "24014021406"
+        }
+      ],
+      "dagligOmsorg": {
+        "spoersmaal": "Har du daglig omsorg for dette barnet?",
+        "svar": "GJENLEVENDE"
+      }
+    },
+    {
+      "type": "BARN",
+      "fornavn": "Smålig",
+      "etternavn": "Sykkel",
+      "foedselsnummer": "02020850100",
+      "statsborgerskap": {
+        "spoersmaal": "Statsborgerskap",
+        "svar": "Norsk"
+      },
+      "utenlandsAdresse": {
+        "spoersmaal": "Bor barnet i et annet land enn Norge?",
+        "svar": "JA",
+        "opplysning": {
+          "land": {
+            "spoersmaal": "Land",
+            "svar": "Spania"
+          },
+          "adresse": {
+            "spoersmaal": "Adresse i utlandet",
+            "svar": "Spania adr 1"
+          }
+        }
+      },
+      "foreldre": [
+        {
+          "type": "FORELDER",
+          "fornavn": "STOR",
+          "etternavn": "SNERK",
+          "foedselsnummer": "11057523044"
+        },
+        {
+          "type": "FORELDER",
+          "fornavn": "Død",
+          "etternavn": "Testperson",
+          "foedselsnummer": "24014021406"
+        }
+      ],
+      "verge": {
+        "spoersmaal": "Er det oppnevnt en verge for barnet?",
+        "svar": "JA",
+        "opplysning": {
+          "type": "VERGE",
+          "fornavn": "Verge",
+          "etternavn": "Vergeson",
+          "foedselsnummer": "08021376974"
+        }
+      }
+    }
+  ]
+}

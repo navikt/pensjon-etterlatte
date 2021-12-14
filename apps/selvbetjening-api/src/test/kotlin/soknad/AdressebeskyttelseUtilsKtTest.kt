@@ -1,62 +1,60 @@
 package soknad
 
-import no.nav.etterlatte.libs.common.soeknad.Soeknad
-import no.nav.etterlatte.soknad.barnAdressefelter
-import no.nav.etterlatte.soknad.utenAdresseFor
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertNotNull
-import org.junit.jupiter.api.Assertions.assertNull
-import org.junit.jupiter.api.Assertions.assertTrue
+import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
+import io.kotest.matchers.shouldBe
+import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.soknad.finnUnikeBarn
+import no.nav.etterlatte.soknad.fjernUtenlandsadresseFor
 import org.junit.jupiter.api.Test
-import soeknad.SoeknadFixtures
+import soeknad.InnsendtSoeknadFixtures
 
 internal class AdressebeskyttelseUtilsKtTest {
-    private val soeknad = SoeknadFixtures.soeknadMedBarnBosattUtland
-    private val barn = soeknad.utfyltSoeknad.opplysningerOmBarn.barn.map { it.foedselsnummer }
 
     @Test
-    fun `Skal fjerne informasjon om bosatt utland og adresse for barn med adressebeskyttelse`() {
-        assertNotNull(soeknad.utfyltSoeknad.opplysningerOmBarn.barn[0].bosattUtland)
-        assertTrue(harAdresseinformasjonIOppsummering(soeknad, barn[0]))
+    fun `Skal finne unike barn`() {
+        val gjenlevendepensjon = InnsendtSoeknadFixtures.gjenlevendepensjon(
+            innsenderFnr = Foedselsnummer.of("24014021406")
+        )
+        val barnepensjon = InnsendtSoeknadFixtures.barnepensjon(
+            innsenderFnr = Foedselsnummer.of("24014021406"),
+            soekerFnr = Foedselsnummer.of("29080775995")
+        )
 
-        assertNotNull(soeknad.utfyltSoeknad.opplysningerOmBarn.barn[1].bosattUtland)
-        assertTrue(harAdresseinformasjonIOppsummering(soeknad, barn[1]))
+        val request = SoeknadRequest((listOf(gjenlevendepensjon, barnepensjon)))
 
-        assertNotNull(soeknad.utfyltSoeknad.opplysningerOmBarn.barn[2].bosattUtland)
-        assertTrue(harAdresseinformasjonIOppsummering(soeknad, barn[2]))
-
-        val rensketSoeknad = soeknad utenAdresseFor barn.take(2)
-
-        assertNull(rensketSoeknad.utfyltSoeknad.opplysningerOmBarn.barn[0].bosattUtland)
-        assertFalse(harAdresseinformasjonIOppsummering(rensketSoeknad, barn[0]))
-
-        assertNull(rensketSoeknad.utfyltSoeknad.opplysningerOmBarn.barn[1].bosattUtland)
-        assertFalse(harAdresseinformasjonIOppsummering(rensketSoeknad, barn[1]))
-
-        assertNotNull(rensketSoeknad.utfyltSoeknad.opplysningerOmBarn.barn[2].bosattUtland)
-        assertTrue(harAdresseinformasjonIOppsummering(rensketSoeknad, barn[2]))
+        request.finnUnikeBarn() shouldContainExactlyInAnyOrder listOf(
+            Foedselsnummer.of("24014021406"),
+            Foedselsnummer.of("29080775995")
+        )
     }
-
 
     @Test
-    fun `Skal beholde informasjon om bosatt utland og adresse for barn uten adressebeskyttelse`() {
-        val rensketSoeknad = soeknad utenAdresseFor listOf("ikke_gyldig", "ingen_treff")
+    fun `Skal fjerne informasjon om utenlandsopphold for en gitt liste med barn`() {
+        val gjenlevendepensjon = InnsendtSoeknadFixtures.gjenlevendepensjon(
+            innsenderFnr = Foedselsnummer.of("24014021406")
+        )
+        val barnepensjon = InnsendtSoeknadFixtures.barnepensjon(
+            innsenderFnr = Foedselsnummer.of("24014021406"),
+            soekerFnr = Foedselsnummer.of("29080775995")
+        )
 
-        assertNotNull(rensketSoeknad.utfyltSoeknad.opplysningerOmBarn.barn[0].bosattUtland)
-        assertTrue(harAdresseinformasjonIOppsummering(rensketSoeknad, barn[0]))
+        val request = SoeknadRequest((listOf(gjenlevendepensjon, barnepensjon)))
+        val barnFnr = listOf(Foedselsnummer.of("29080775995"), Foedselsnummer.of("24014021406"))
 
-        assertNotNull(rensketSoeknad.utfyltSoeknad.opplysningerOmBarn.barn[1].bosattUtland)
-        assertTrue(harAdresseinformasjonIOppsummering(rensketSoeknad, barn[1]))
+        val updatedRequest = request.fjernUtenlandsadresseFor(barnFnr)
 
-        assertNotNull(rensketSoeknad.utfyltSoeknad.opplysningerOmBarn.barn[2].bosattUtland)
-        assertTrue(harAdresseinformasjonIOppsummering(rensketSoeknad, barn[2]))
-    }
-
-    private fun harAdresseinformasjonIOppsummering(soeknad: Soeknad, fnr: String): Boolean =
-        soeknad.oppsummering
-            .filter { it.path == "om-barn" }
-            .mapNotNull { it.elementer.find { element -> element.innhold.any { innhold -> innhold.svar == fnr } } }
-            .any { element ->
-                element.innhold.any { innhold -> innhold.key in barnAdressefelter && innhold.svar != "<Fjernet på grunn av adressesperring>" }
+        updatedRequest.soeknader.forEach { soeknad ->
+            when (soeknad) {
+                is Gjenlevendepensjon -> {
+                    soeknad.barn.map { it.utenlandsAdresse shouldBe null }
+                }
+                is Barnepensjon -> {
+                    (soeknad.soesken + soeknad.soeker).map { it.utenlandsAdresse shouldBe null }
+                }
             }
+        }
+    }
 }

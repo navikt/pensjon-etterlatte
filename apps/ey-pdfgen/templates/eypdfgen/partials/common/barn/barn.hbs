@@ -1,0 +1,54 @@
+<tr>
+    <td colspan="2">
+        <table class="inner">
+            <thead>
+            <tr>
+                <th colspan="2">{{this.etternavn}}, {{this.fornavn}}</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{> eypdfgen/partials/common/personalia/enkelPersonalia this}}
+            <tr>
+                <td>{{this.statsborgerskap.spoersmaal}}</td>
+                <td>{{this.statsborgerskap.svar}}</td>
+            </tr>
+            <tr>
+                <td>{{this.utenlandsAdresse.spoersmaal}}</td>
+                <td>{{capitalize_names this.utenlandsAdresse.svar}}</td>
+            </tr>
+
+            {{#eq this.utenlandsAdresse.svar "JA"}}
+            <tr>
+                <td>{{this.utenlandsAdresse.opplysning.svar.land.spoersmaal}}</td>
+                <td>{{this.utenlandsAdresse.opplysning.svar.land.svar}}</td>
+            </tr>
+            <tr>
+                <td>{{this.utenlandsAdresse.opplysning.svar.adresse.spoersmaal}}</td>
+                <td>{{this.utenlandsAdresse.opplysning.svar.adresse.svar}}</td>
+            </tr>
+            {{/eq}}
+
+            {{#if this.dagligOmsorg}}
+            <tr>
+                <td>{{this.dagligOmsorg.spoersmaal}}</td>
+                <td>
+                {{#eq this.dagligOmsorg.svar "GJENLEVENDE"}}
+                    Ja
+                {{/eq}}
+                {{#not_eq this.dagligOmsorg.svar "GJENLEVENDE"}}
+                    Nei
+                {{/not_eq}}
+                </td>
+            </tr>
+            {{/if}}
+            </tbody>
+
+            {{> eypdfgen/partials/common/verge/verge this.verge}}
+
+            {{#each this.foreldre}}
+                {{> eypdfgen/partials/common/forelder/forelder this}}
+            {{/each}}
+        </table>
+    </td>
+</tr>

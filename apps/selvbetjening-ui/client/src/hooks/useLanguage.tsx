@@ -22,7 +22,7 @@ export const useLanguage = () => {
                 [currentLanguage]: localeList,
             });
         })();
-    }, [, currentLanguage]);
+    }, [currentLanguage]);
 
     useEffect(() => {
         i18next.addResourceBundle(currentLanguage, "translation", locales[currentLanguage]);

@@ -13,37 +13,36 @@ import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.route
 import no.nav.etterlatte.fnrFromToken
-import no.nav.etterlatte.libs.common.soeknad.Soeknad
-import no.nav.etterlatte.soeknad.finnSoekere
-import no.nav.etterlatte.toJson
+import innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.soeknad.SoeknadService
 
-fun Route.soeknadApi(db: SoeknadRepository) {
+fun Route.soeknadApi(service: SoeknadService) {
     post("/api/soeknad") {
-        val soeknad = call.receive<Soeknad>()
-        val soekere = finnSoekere(soeknad, fnrFromToken())
+        call.application.environment.log.info("SoeknadRequest mottatt!")
 
-        soekere.forEach { soeker ->
-            val oppdatertSoeknad = soeknad.copy(soeknadsType = soeker.type)
-            db.ferdigstillSoeknad(UlagretSoeknad(soeker.fnr, oppdatertSoeknad.toJson()))
-        }
+        val ferdigstiltOK = service.sendSoeknad(fnrFromToken(), call.receive<SoeknadRequest>())
+
+        call.application.environment.log.info("SoeknadRequest ferdigstilt ok: ${ferdigstiltOK}")
 
         call.respond(HttpStatusCode.OK)
     }
 
     route("/api/kladd") {
         post {
-            val soknad = call.receive<JsonNode>()
-            val lagretkladd = db.lagreKladd(UlagretSoeknad(fnrFromToken(), soknad.toJson()))
-            call.respondText(lagretkladd.id.toString(), ContentType.Text.Plain)
+            val id = service.lagreKladd(fnrFromToken(), call.receive<JsonNode>())
+
+            call.respondText(id.toString(), ContentType.Text.Plain)
         }
 
         delete {
-            db.slettKladd(fnrFromToken())
+            service.slettKladd(fnrFromToken())
+
             call.respond(HttpStatusCode.OK)
         }
 
         get {
-            val soeknad = db.finnSoeknad(fnrFromToken())
+            val soeknad = service.hentKladd(fnrFromToken())
 
             if (soeknad == null)
                 call.respond(HttpStatusCode.NotFound)

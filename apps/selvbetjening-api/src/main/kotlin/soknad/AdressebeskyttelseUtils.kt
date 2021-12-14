@@ -1,36 +1,37 @@
 package no.nav.etterlatte.soknad
 
-import no.nav.etterlatte.libs.common.soeknad.Innhold
-import no.nav.etterlatte.libs.common.soeknad.Soeknad
-import no.nav.etterlatte.libs.common.soeknad.Valg
-import soeknad.BosattUtland
+import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Barn
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 
-internal val barnAdressefelter = listOf("omBarn.bosattUtland.svar", "omBarn.bosattUtland.land", "omBarn.bosattUtland.adresse")
+
+internal fun SoeknadRequest.finnUnikeBarn() = this.soeknader.flatMap {
+    when (it) {
+        is Gjenlevendepensjon -> it.barn
+        is Barnepensjon -> it.soesken + it.soeker
+        else -> throw Exception("Ukjent søknadstype")
+    }
+}.map { it.foedselsnummer }.distinct()
 
 /**
- * Funksjonen fjerner informasjon om bosatt utland og adresse i utfylt søknad og oppsummering for en gitt søknad.
+ * Funksjonen fjerner informasjon om utenlandsadresse for barn med adressesperre.
  */
-internal infix fun Soeknad.utenAdresseFor(fnrListe: List<String>): Soeknad = this.copy(
-    utfyltSoeknad = this.utfyltSoeknad.copy(
-        opplysningerOmBarn = this.utfyltSoeknad.opplysningerOmBarn.copy(
-            barn = this.utfyltSoeknad.opplysningerOmBarn.barn.map { barn ->
-                if (barn.foedselsnummer in fnrListe) barn.copy(bosattUtland = null)
-                else barn
-            }
-        ),
-    ),
-    oppsummering = this.oppsummering.map { gruppe ->
-        if (gruppe.path == "om-barn") {
-            gruppe.copy(elementer = gruppe.elementer.map { elementer ->
-                if (fnrListe.contains(elementer.innhold.find { it.key == "omBarn.foedselsnummer" }?.svar)) {
-                    elementer.copy(innhold = elementer.innhold.map { innhold ->
-                        if (innhold.key in barnAdressefelter) {
-                            Innhold(innhold.key, innhold.spoersmaal, "<Fjernet på grunn av adressesperring>")
-                        }
-                        else innhold
-                    })
-                } else elementer
-            })
-        } else gruppe
+internal fun SoeknadRequest.fjernUtenlandsadresseFor(fnrListe: List<Foedselsnummer>): SoeknadRequest = this.copy(
+    soeknader = this.soeknader.map { soeknad ->
+        when (soeknad) {
+            is Gjenlevendepensjon -> soeknad.copy(
+                barn = soeknad.barn.map { it.utenAdresseFor(fnrListe) }
+            )
+            is Barnepensjon -> soeknad.copy(
+                soeker = soeknad.soeker.utenAdresseFor(fnrListe),
+                soesken = soeknad.soesken.map { it.utenAdresseFor(fnrListe) }
+            )
+            else -> throw Exception("Ukjent søknadstype")
+        }
     }
 )
+
+private fun Barn.utenAdresseFor(fnrListe: List<Foedselsnummer>) =
+    if (this.foedselsnummer in fnrListe) this.copy(utenlandsAdresse = null) else this

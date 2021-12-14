@@ -1,0 +1,54 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">
+                <h4>Utbetalingsinformasjon</h4>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>{{this.spoersmaal}}</td>
+            <td>{{capitalize_names this.svar}}</td>
+        </tr>
+        {{#with this.opplysning}}
+            {{#if this.kontonummer }}
+            <tr>
+                <td>{{this.kontonummer.spoersmaal}}</td>
+                <td>{{this.kontonummer.svar}}</td>
+            </tr>
+            {{/if}}
+            {{#if this.utenlandskBankNavn }}
+            <tr>
+                <td>{{this.utenlandskBankNavn.spoersmaal}}</td>
+                <td>{{this.utenlandskBankNavn.svar}}</td>
+            </tr>
+            {{/if}}
+            {{#if this.utenlandskBankAdresse }}
+            <tr>
+                <td>{{this.utenlandskBankAdresse.spoersmaal}}</td>
+                <td>{{this.utenlandskBankAdresse.svar}}</td>
+            </tr>
+            {{/if}}
+            {{#if this.iban }}
+            <tr>
+                <td>{{this.iban.spoersmaal}}</td>
+                <td>{{this.iban.svar}}</td>
+            </tr>
+            {{/if}}
+            {{#if this.swift }}
+            <tr>
+                <td>{{this.swift.spoersmaal}}</td>
+                <td>{{this.swift.svar}}</td>
+            </tr>
+            {{/if}}
+            {{#if this.skattetrekk }}
+            <tr>
+                <td>{{this.skattetrekk.spoersmaal}}</td>
+                <td>{{capitalize_names this.skattetrekk.svar}}</td>
+            </tr>
+            {{/if}}
+        {{/with}}
+</tbody>
+</table>

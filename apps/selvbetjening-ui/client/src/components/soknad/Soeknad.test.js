@@ -6,7 +6,7 @@ import * as api from "../../api/api";
 import { useLanguage } from "../../hooks/useLanguage";
 import i18n from "../../i18n";
 import Soeknad from "./Soeknad";
-import nb from '../../mocks/nblocaleMock.json';
+import nb from '../../mocks/nbLocaleMock.json';
 
 
 const Page = ({location}) => (

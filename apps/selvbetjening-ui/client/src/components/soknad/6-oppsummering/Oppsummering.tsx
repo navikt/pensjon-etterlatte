@@ -11,6 +11,11 @@ import { hentOppsummering, sendSoeknad } from "../../../api/api";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
 import { LogEvents, useAmplitude } from "../../../utils/amplitude";
+import {
+    mapTilBarnepensjonSoeknadListe,
+    mapTilGjenlevendepensjonSoeknad
+} from "../../../api/mapper/soeknadMapper";
+import { SoeknadRequest } from "../../../api/mapper/InnsendtSoeknad";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
@@ -23,20 +28,26 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     const [senderSoeknad, setSenderSoeknad] = useState(false);
     const [error, setError] = useState(false);
-    
+
     useEffect(() => {
         (async () => {
             if (isEmpty(soeknad) || isEmpty(bruker)) setOppsummering([]);
             const soeknadOppsummering: any = await hentOppsummering({soeknad, bruker, locale: i18n.language});
             setOppsummering(soeknadOppsummering);
         })()
-
     }, [soeknad, bruker])
-    
+
     const send = () => {
         setSenderSoeknad(true);
         setError(false);
-        const soeknadBody = { soeknad, bruker, locale: i18n.language }
+
+        const gjenlevendepensjon = mapTilGjenlevendepensjonSoeknad(t, soeknad, bruker);
+        const barnepensjonSoeknader = mapTilBarnepensjonSoeknadListe(t, soeknad, bruker);
+
+        const soeknadBody: SoeknadRequest = {
+            soeknader: [gjenlevendepensjon, ...barnepensjonSoeknader]
+        };
+
         sendSoeknad(soeknadBody)
             .then(() => {
                 logEvent(LogEvents.SEND_SOKNAD);
@@ -47,7 +58,6 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 setSenderSoeknad(false);
                 setError(true);
             });
-            
     };
 
     return (

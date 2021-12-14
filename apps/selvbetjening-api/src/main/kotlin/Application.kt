@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
+import io.ktor.application.install
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.engine.okhttp.OkHttp
@@ -12,8 +13,11 @@ import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.defaultRequest
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
+import io.ktor.features.CallLogging
 import io.ktor.http.takeFrom
+import io.ktor.request.path
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
+import no.nav.etterlatte.common.objectMapper
 import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
@@ -23,8 +27,10 @@ import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.security.ktor.clientCredential
 import no.nav.etterlatte.soknad.SoeknadService
+import org.slf4j.event.Level
 
 const val PDL_URL = "PDL_URL"
+
 class ApplicationContext(configLocation: String? = null) {
     private val closables = mutableListOf<() -> Unit>()
     private val config: Config = configLocation?.let { ConfigFactory.load(it) } ?: ConfigFactory.load()

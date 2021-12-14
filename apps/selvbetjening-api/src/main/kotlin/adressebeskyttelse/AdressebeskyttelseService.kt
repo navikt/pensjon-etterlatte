@@ -18,7 +18,7 @@ class AdressebeskyttelseService(private val klient: Pdl) {
      * @return Gyldig graderinger av PDL-typen [Gradering].
      *  Gir verdi [Gradering.UGRADERT] dersom ingenting er funnet.
      */
-    suspend fun hentGradering(fnrListe: List<Foedselsnummer>): Map<String, Gradering> {
+    suspend fun hentGradering(fnrListe: List<Foedselsnummer>): Map<Foedselsnummer, Gradering> {
         if (fnrListe.isEmpty()) return emptyMap()
 
         val personer = klient.finnAdressebeskyttelseForFnr(fnrListe).data?.hentPersonBolk
@@ -34,10 +34,10 @@ class AdressebeskyttelseService(private val klient: Pdl) {
     /**
      * Henter ut alle graderinger fra liste over personer
      *
-     * @return Map<[String], [Gradering]>
+     * @return Map<[Foedselsnummer], [Gradering]>
      */
-    private fun hentPrioritertGradering(personer: List<AdressebeskyttelseBolkPerson>): Map<String, Gradering> =
-        personer.associate { it.ident to (it.person?.finnGradering() ?: Gradering.UGRADERT) }
+    private fun hentPrioritertGradering(personer: List<AdressebeskyttelseBolkPerson>): Map<Foedselsnummer, Gradering> =
+        personer.associate { Foedselsnummer.of(it.ident) to (it.person?.finnGradering() ?: Gradering.UGRADERT) }
 
     private fun AdressebeskyttelsePerson.finnGradering(): Gradering? =
         this.adressebeskyttelse

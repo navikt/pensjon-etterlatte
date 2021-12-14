@@ -1,4 +1,3 @@
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import dokarkiv.DokarkivKlient
 import dokarkiv.DokumentKategori
 import dokarkiv.DokumentVariant
@@ -15,7 +14,7 @@ import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.dokarkiv.DokarkivDokument
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
-import no.nav.etterlatte.libs.common.soeknad.SoeknadType
+import innsendtsoeknad.common.SoeknadType
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertNull
@@ -41,7 +40,7 @@ internal class JournalfoeringServiceTest {
             fnrSoeker,
             Gradering.UGRADERT,
             JournalpostDokument(SOEKNAD_TITTEL, DokumentKategori.SOK, "", listOf(DokumentVariant.ArkivPDF(""), DokumentVariant.OriginalJson(""))),
-            SoeknadType.Gjenlevendepensjon
+            SoeknadType.GJENLEVENDEPENSJON
         )
 
         assertNotNull(response)
@@ -109,7 +108,7 @@ internal class JournalfoeringServiceTest {
         private fun testEnhetForGradering(gradering: Gradering): String? {
             coEvery { mockKlient.journalfoerDok(any()) } returns journalfoeringResponse()
 
-            journalfoeringService.journalfoer("", "", gradering, mockk(), SoeknadType.Gjenlevendepensjon)
+            journalfoeringService.journalfoer("", "", gradering, mockk(), SoeknadType.GJENLEVENDEPENSJON)
 
             val requestSlot = slot<JournalpostRequest>()
 

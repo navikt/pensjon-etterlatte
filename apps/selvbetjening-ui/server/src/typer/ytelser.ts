@@ -1,7 +1,6 @@
 import { IValg } from "./Spoersmaal";
 
 export interface IAndreYtelser {
-    mottarAndreYtelser?: IValg;
     kravOmAnnenStonad?: {
         svar?: IValg;
         beskrivelse?: string;
