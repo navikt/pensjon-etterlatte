@@ -6,7 +6,7 @@ metadata:
   labels:
     team: etterlatte
 spec:
-  image: ghcr.io/navikt/kafka-manager/kafka-manager:2.2021.06.08_08.54-87eab24b081e # See https://github.com/navikt/kafka-manager/packages
+  image: ghcr.io/navikt/kafka-manager/kafka-manager:2.2021.12.13_10.49-62142f80d7d3 # See https://github.com/navikt/kafka-manager/packages
   port: 8080
   webproxy: true
   ingresses:

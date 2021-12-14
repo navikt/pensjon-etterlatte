@@ -1,0 +1,915 @@
+{
+  "steg": {
+    "OmDeg": "About you",
+    "OmDegOgAvdoed": "About you and the deceased",
+    "OmAvdoed": "The deceased’s personal details",
+    "DinSituasjon": "Your situation",
+    "OmBarn": "Information about children",
+    "Oppsummering": "Summary"
+  },
+  "banner": {
+    "tittel": "Application for survivor’s pension or transitional benefit"
+  },
+  "radiobuttons": {
+    "ja": "Yes",
+    "nei": "No",
+    "vetIkke": "Don’t know"
+  },
+  "knapp": {
+    "tilbake": "Back",
+    "neste": "Next",
+    "avbryt": "Cancel",
+    "sendSoeknad": "Submit application",
+    "leggTilLand": "Add more countries",
+    "leggTilArbeidsforhold": "Add more employment relationships",
+    "leggTilNaeringer": "Add more businesses",
+    "leggTilBarn": "+ Add another child",
+    "fjern": "Remove",
+    "fjernFraSoeknad": "Remove from the application",
+    "lagre": "Save",
+    "slett": "Delete the application",
+    "endre": "Change"
+  },
+  "forside": {
+    "tittel": "Apply for survivor’s pension or transitional benefit",
+    "hei": "Hello {{navn}}!",
+    "startSoeknad": "Start the application",
+    "omYtelsene": {
+      "innhold": "If your spouse, partner or cohabitant has died, you may be entitled to a survivor’s pension or transitional benefit for survivors. You may also be entitled to support if you were previously married to, in a partnership with or cohabiting with the deceased. We will assess whether you are entitled to a survivor’s pension or transitional benefit, based on your situation. How much money you will receive depends on your current income.",
+      "papirsoeknad": {
+        "innhold": "If you are already receiving an old-age pension or disability benefit, you can apply for a survivor’s supplement. To apply for a survivor’s supplement, you must use",
+        "href": "https://www.nav.no",
+        "tekst": "a printed form."
+      },
+      "lenkeGjenlevende": {
+        "href": "https://www.nav.no/mistet-noen#ektefelle",
+        "tekst": "Read more about survivor’s pension"
+      },
+      "lenkeOvergangsstoenad": {
+        "href": "https://www.nav.no/mistet-noen#ektefelle",
+        "tekst": "Read more about transitional benefit"
+      }
+    },
+    "barnepensjon": {
+      "tittel": "You can also apply for a children’s pension",
+      "innhold": "If you have a joint child under the age of 18 with the deceased, the child(ren) may be entitled to a children’s pension. You can apply for both survivor’s pension and children’s pension using this application.",
+      "href": "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon",
+      "tekst": "Read more about children’s pension"
+    },
+    "uthentingAvInfo": {
+      "tittel": "We gather the information we need",
+      "innhold": "We gather the information about you, the deceased, any children and (as applicable) your cohabiting partner that we need to be able to process your application. We gather:",
+      "innholdListe": {
+        "li1": "<strong>Personal information</strong> from the Norwegian National Registry (“Folkeregisteret”)",
+        "li2": "<strong>Information about your income</strong> from the Norwegian Tax Administration (“Skatteetaten”)",
+        "li3": "Information about your <strong>work situation</strong> from the NAV State Register of Employers and Employees (the Aa Register)",
+        "li4": "Information about <strong>other support you are receiving from NAV</strong>",
+        "li5": "As applicable, information from <strong>foreign social security authorities</strong>"
+      },
+      "infotekst": "We are currently working on improving this application. For the time being, you have to enter most of the information manually.",
+      "lenke1": {
+        "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten",
+        "tekst": "Read more about how we process your personal data"
+      },
+      "lenke2": {
+        "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3",
+        "tekst": "Read more about data protection and security on the nav.no website"
+      }
+    },
+    "samtykke": {
+      "tittel": "We trust you",
+      "innhold": "You must provide us with the correct information so that we can process your application. \nIf you receive money that you are not entitled to because you withheld information or provided incorrect information, you usually have to pay this money back.\n\n",
+      "lenke": {
+        "tekst": "my obligations on nav.no",
+        "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger"
+      },
+      "bekreftelse": "I, {{navn}}, hereby confirm that the information I provide is correct and complete."
+    }
+  },
+  "dinSituasjon": {
+    "tittel": "Your situation",
+    "undertittel": "Work and education",
+    "ingress": "The size of your survivor’s pension depends on your earned income. We calculate your expected income on the basis of your current work situation and your previous income.",
+    "jobbStatus": "What is your situation now?",
+    "ingenJobbTittel": "Other",
+    "ingenJobbBeskrivelse": " Describe your situation",
+    "ingenJobbBeskrivelsePlaceholder": "Describe your situation in more detail",
+    "utdanning": {
+      "tittel": "Education",
+      "naavaerendeUtdanning": {
+        "navn": "The name of the education you are taking",
+        "navnPlaceholder": "For example: upper secondary education, apprenticeship, nursing programme",
+        "startDato": "From date",
+        "sluttDato": "To date"
+      },
+      "tittelFullfoert": "Completed education",
+      "hoyesteFullfoerteUtdanning": "What is your highest completed level of education?",
+      "annenUtdanning": "Other education",
+      "annenUtdanningPlaceholder": "For example: courses, individual years at university or college"
+    },
+    "selvstendig": {
+      "tittel": "About your business",
+      "beskrivelse": "What is the name of the company?",
+      "orgnr": "Organisation number",
+      "orgnrplaceholder": "9 digits",
+      "forventerEndretInntekt": {
+        "svar": "Do you expect your income to change in the next 12 months?",
+        "beskrivelse": "What is the reason for these changes?",
+        "beskrivelsePlaceholder": "For example: change in expected income or operation of your business"
+      }
+    },
+    "arbeidsforhold": {
+      "tittel": "About your employer",
+      "arbeidsgiver": "Name of your employer",
+      "ansettelsesforhold": "Type of employment",
+      "stillingsprosent": "How much do you work?",
+      "stillingsprosentPlaceholder": "For example: 80%",
+      "forventerEndretInntekt": {
+        "svar": "Do you expect your income to change in the next 12 months?",
+        "beskrivelse": "What is the reason for these changes?",
+        "beskrivelsePlaceholder": "For example: increase or decrease in income"
+      }
+    },
+    "andreYtelser": {
+      "tittel": "Benefits",
+      "ingress": "Some benefits from NAV are regarded as income and have an impact on how much survivor’s pension you are entitled to. Disability benefit, old-age pension and contractual early retirement pension (AFP) cannot be combined with survivor’s pension.",
+      "kravOmAnnenStonad": {
+        "svar": "Have you applied for other benefits that you have not received an answer to yet?",
+        "ytelser": "What have you applied for?"
+      },
+      "annenPensjon": {
+        "svar": "Are you receiving or have you applied for a contractual early retirement pension (AFP) or other pension from someone other than NAV?",
+        "beskrivelse": "Which pension scheme?",
+        "placeholder": "For example: Skandia, KLP, SPK, Oslo pensjonsforsikring"
+      },
+      "mottarPensjonUtland": {
+        "svar": "Do you receive a pension from a country other than Norway?",
+        "hvorfor": "We need this information in order to be able to assess your membership of the Norwegian National Insurance Scheme",
+        "hvaSlagsPensjon": "What kind of pension?",
+        "hvaSlagsPensjonPlaceholder": "For example: old-age pension, survivor’s pension",
+        "fraHvilketLand": "From which country?",
+        "bruttobeloepPrAar": "Annual amount before tax in the country’s currency"
+      }
+    }
+  },
+  "omDeg": {
+    "tittel": "About you",
+    "advarsel": "If the information we have about you is incorrect, you must change it in the National Registry.",
+    "valgfritt": "All fields must be filled in, apart from those marked as optional.",
+    "bostedsadresseBekreftet": "Do you live at this address?",
+    "alternativAdresse": "Enter your current residential address",
+    "oppholderSegINorge": "Are you currently in Norway?",
+    "oppholdHvorfor": "If you spend a prolonged period in a country other than Norway, this may affect whether you get a survivor’s pension and how much money you get.",
+    "oppholdsland": "State which country",
+    "medlemFolketrygdenUtland": "Are you a member of the Norwegian National Insurance Scheme during your period living in a country other than Norway?",
+    "flyktning": "Do you have refugee status?",
+    "flyktningHvorfor": "If you are registered as a refugee with the Norwegian Directorate of Immigration (UDI), this may affect whether you get a survivor’s pension and how much money you get.",
+    "kontaktinfo": {
+      "telefonnummer": "Telephone number",
+      "telefonnummerPlaceholder": "8 digits",
+      "epost": "E-mail address"
+    },
+    "utbetalingsInformasjon": {
+      "tittel": "Enter your bank details",
+      "bankkontoType": "Do you want the pension to be paid into a Norwegian bank account or an overseas bank account?",
+      "kontonummer": "Enter the Norwegian bank account number for payment",
+      "informasjon": "You can only have one bank account number registered with NAV.",
+      "utenlandskBankNavn": "Name of bank",
+      "utenlandskBankAdresse": "Full address of the bank",
+      "iban": "IBAN",
+      "ibanHjelpetekst": "IBAN stands for International Bank Account Number and is an international standard for bank account numbers.",
+      "swift": "The bank’s SWIFT code or BIC",
+      "swiftHjelpetekst": "BIC stands for Bank Identifier Code, and is a unique code that identifies the bank. The BIC, which in some countries is called the SWIFT code, is required when making payments to a number of countries."
+    }
+  },
+  "omDegOgAvdoed": {
+    "tittel": "About you and the deceased",
+    "avdoed": {
+      "hvem": "The deceased’s personal details",
+      "fornavn": "First name(s)",
+      "etternavn": "Family name",
+      "dato": "Date",
+      "datoForDoedsfallet": "When did the deceased die?"
+    },
+    "forholdTilAvdoede": {
+      "relasjon": "Your relationship with the deceased at the time of their death",
+      "datoForInngaattPartnerskap": "We got married",
+      "fellesBarn": "Do you have or did you have joint children?",
+      "samboereMedFellesBarn": "Were you cohabiting partners and had joint children before you married?",
+      "tidligereGift": "Were you previously married to the deceased?",
+      "datoForInngaattSamboerskap": "We lived together as cohabiting partners",
+      "omsorgForBarn": "Were you caring for the deceased’s children at the time of their death?",
+      "datoForSkilsmisse": "We were divorced (not separation)",
+      "datoForSamlivsbrudd": "We moved apart",
+      "mottokBidrag": "Were you being supported by the deceased at the time of their death?",
+      "mottokEktefelleBidrag": "Were you receiving alimony?"
+    },
+    "nySivilstatus": {
+      "sivilstatus": "Your marital status today",
+      "beskrivelse": "If you have remarried or moved in with a new partner, this may affect whether you can receive survivor’s pension and the size of the pension.",
+      "samboerskap": {
+        "hattBarnEllerVaertGift": "Do you have or have you had children together or were you previously married?",
+        "samboer": {
+          "tittel": "Information about your cohabiting partner",
+          "fornavn": "First name(s)",
+          "etternavn": "Family name",
+          "foedselsnummer": "Norwegian national identity number",
+          "harInntekt.svar": "Does your cohabiting partner have any income?",
+          "harInntekt.samletBruttoinntektPrAar": "Total annual income before tax",
+          "harInntekt.inntektstype": "Type of income"
+        }
+      }
+    }
+  },
+  "omDenAvdoede": {
+    "tittel": "About the deceased",
+    "fornavn": "First name(s)",
+    "etternavn": "Family name",
+    "foedselsnummer": "Norwegian national identity number",
+    "statsborgerskap": "Nationality",
+    "statsborgerskapPlaceholder": "For example: Norwegian",
+    "boddEllerJobbetUtland": {
+      "tittel": "Time spent outside Norway",
+      "ingress": "We need to know if the deceased has lived or worked outside Norway. This may affect both the size of the survivor’s pension you receive and give you pension rights from other countries.",
+      "svar": "Had the deceased lived or worked in a country other than Norway after the age of 16?",
+      "oppholdUtland": {
+        "land": "Country",
+        "beskrivelse": "Lived and/or worked?",
+        "fraDato": "From date (optional)",
+        "tilDato": "To date (optional)",
+        "medlemFolketrygd": "Was the deceased a member of the Norwegian National Insurance Scheme during this period?",
+        "medlemFolketrygdHjelpetekst": "We need to know if the deceased was a member of the Norwegian National Insurance Scheme in order to be able to determine whether you are entitled to a survivor’s pension.",
+        "mottokPensjon": {
+          "beskrivelse": "Enter any pension the deceased received from this country (optional)",
+          "beskrivelsePlaceholder": "Per year, in the country’s currency"
+        }
+      }
+    },
+    "haddePensjonsgivendeInntekt": {
+      "svar": "Did the deceased have any income from self-employment at the time of their death?"
+    },
+    "selvstendigNaeringsdrivende": {
+      "tittel": "Income from self-employment",
+      "ingress": "We need to know if the deceased had any income as a self-employed person. This is important when we calculate the size of your survivor’s pension. We obtain information about other income directly.",
+      "svar": "Was the deceased self-employed?",
+      "beskrivelse": "Enter the deceased’s income from self-employment from the calendar year before their death (optional)",
+      "placeholder": "Total annual income before tax"
+    },
+    "annenOpptjening": {
+      "tittel": "Other"
+    },
+    "harAvtjentMilitaerTjeneste": {
+      "svar": "Has the deceased carried out compulsory military or civil service that lasted at least 30 days?",
+      "hjelpetekst": "This may result in earnings that are to be included in the calculation of your survivor’s pension",
+      "beskrivelse": "In which year(s)? (optional)"
+    },
+    "doedsfallAarsak": "Was the death caused by an occupational injury or occupational illness?",
+    "doedsfallAarsakHvorfor": "If the death was caused by an approved occupational injury or occupational illness, this may affect whether you get a survivor’s pension and the size of the pension."
+  },
+  "omBarn": {
+    "tittel": "About children",
+    "tittelModal": "About the child",
+    "informasjon": "If you have or have had children, this may affect your right to a survivor’s pension. You therefore need to enter all your children, regardless of how old they are. This applies to children you share with the deceased (“joint children”), the deceased’s children from another relationship, and your children from another relationship. \n\nIf you have a joint child who is under the age of 18 with the deceased, you can also apply for a children’s pension here. Children over the age of 18 must apply for the pension themselves.",
+    "fornavn": "First name(s)",
+    "etternavn": "Family name",
+    "foedselsnummer": "The child’s Norwegian national identity number or D number",
+    "relasjon": "Who are the parents of the child?",
+    "relasjonHjelpetekst": "We need to know if this is a child you share with the deceased (a “joint child”), the deceased’s child from another relationship, or your child from another relationship.",
+    "harBarnetVerge": {
+      "svar": "Has a guardian been appointed for the child?",
+      "navn": "Guardian’s name",
+      "fornavn": "First name(s)",
+      "etternavn": "Family name",
+      "foedselsnummer": "Guardian’s Norwegian national identity number",
+      "foedselsnummerPlaceholder": "11 digits"
+    },
+    "statsborgerskap": "Nationality",
+    "statsborgerskapPlaceholder": "For example: Norwegian",
+    "statsborger": "citizen",
+    "borI": "Lives in",
+    "dagligOmsorg": "Do you have the daily care for this child?",
+    "barnepensjon": {
+      "soekt": "Applied for children’s pension",
+      "soeker": "Apply for children’s pension",
+      "soekerInfo": "You can apply for a children’s pension for children under the age of 18 you share with the deceased (“joint children”).",
+      "soekerCheckboks": "Yes, I am applying for a children’s pension for the child",
+      "kontonummer": {
+        "svar": "Should the children’s pension be paid to the same bank account that you have previously provided the details for?",
+        "informasjon": "You can add a separate bank account number for the child.",
+        "kontonummer": "Enter the Norwegian bank account number for payment of children’s pension",
+        "placeholder": "11 digits"
+      },
+      "forskuddstrekk": {
+        "svar": "Do you want us to deduct tax from the children’s pension?",
+        "hjelpetekst": "Children’s pensions are taxable, but we do not deduct tax from the payment amount unless we are instructed to do so. If you have any questions about tax, you must contact the Norwegian Tax Administration (“Skatteetaten”).",
+        "trekkprosent": "Enter the desired tax deduction",
+        "placeholder": "as a percentage; for example, 20%"
+      }
+    },
+    "infokort": {
+      "foedselsnummer": "NORWEGIAN NATIONAL IDENTITY NUMBER",
+      "foreldre": "THE CHILD’S PARENTS",
+      "bosted": "PLACE OF RESIDENCE",
+      "statsborgerskap": "NATIONALITY"
+    },
+    "bosattUtland": {
+      "svar": "Does the child live in a country other than Norway?",
+      "land": "Country",
+      "adresse": "Overseas address"
+    },
+    "gravidEllerNyligFoedt": "Are you expecting a child or do you have children who have not yet been registered in the Norwegian National Registry?",
+    "valgfritt": "This is optional"
+  },
+  "oppsummering": {
+    "tittel": "Summary",
+    "beskrivelse": "Please read through the summary of your application before submitting it.\nIf you need to make any changes, you can go back and make them.",
+    "feilVedSending": "An error occurred while submitting. Please wait and try again. Contact customer service if the error persists."
+  },
+  "soeknadKvittering": {
+    "tittel": "Your application has been submitted",
+    "kontakt": "If we need more information to be able to process your application, we will contact you.",
+    "endring": {
+      "tittel": "You must notify us of any changes",
+      "informasjon": "\nYou must notify us promptly if any important changes occur in your life. Examples include:",
+      "endringsListe": {
+        "sivilstatus": "if you get married, start living with your partner, or have children with your cohabiting partner",
+        "inntekt": "if there is a change in your income",
+        "bosted": "if you are going to move to or spend a prolonged period of time in another country"
+      },
+      "rettigheter": {
+        "informasjon": "You can read more about your rights and obligations at",
+        "lenke": {
+          "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger",
+          "tekst": "nav.no/rettogplikt"
+        }
+      }
+    },
+    "seSaken": {
+      "tittel": "Track your application",
+      "informasjon": {
+        "innhold1": "\nIf you log in to",
+        "lenkeDittNAV": {
+          "href": "https://www.nav.no/no/ditt-nav",
+          "tekst": "your personal Ditt NAV page"
+        },
+        "innhold2": "you will find a notification confirming that we have received your application. You can always check",
+        "lenkeDineSaker": {
+          "href": "https://tjenester.nav.no/saksoversikt",
+          "tekst": "Your cases"
+        },
+        "innhold3": "to see if your application has been processed."
+      },
+      "behandlingstidInfo": {
+        "lenke": {
+          "href": "https://www.nav.no/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav",
+          "tekst": "Here you can check the expected case processing time."
+        }
+      }
+    },
+    "andreStoenader": {
+      "tittel": "You may also be entitled to other benefits",
+      "informasjon": "\nDo you have children together? If so, you may also be entitled to support under other schemes:",
+      "stoenadListe": {
+        "skolepenger": {
+          "tekst": "Allowance to cover tuition fees for a surviving spouse",
+          "href": "https://www.nav.no/skolepenger-gjenlevende"
+        },
+        "barnetilsyn": {
+          "tekst": "Child care benefit for a surviving spouse",
+          "href": "https://www.nav.no/barnetilsyn-gjenlevende"
+        },
+        "barnetrygd": {
+          "tekst": "Extended child benefit",
+          "href": "https://www.nav.no/utvidet-barnetrygd"
+        },
+        "tillegg": {
+          "tekst": "Supplemental benefits for a surviving spouse",
+          "href": "https://www.nav.no/tilleggsstonader-gjenlevende"
+        }
+      },
+      "andreInformasjon": "Are you taking education or looking for work? If so, you may also be entitled to support for child care and expenses you have in connection with your education or job seeking:"
+    },
+    "spoersmaal": {
+      "knapp": "Exit"
+    }
+  },
+  "sideIkkeFunnet": {
+    "tittel": "Oops, something went wrong",
+    "alert": "The page you have requested does not exist."
+  },
+  "ugyldigSoeker": {
+    "kanIkkeSoeke": {
+      "gjenlevendeEllerBarnepensjon": "Sorry, you cannot apply for a survivor’s pension or children’s pension because you are under the age of 18.",
+      "gjenlevende": "Sorry, you cannot apply for a survivor’s pension."
+    },
+    "info": {
+      "gjenlevendeEllerBarnepensjon": "To apply for a survivor’s pension, or apply for a children’s pension on behalf of a child, you must be over 18 years of age.",
+      "gjenlevende": "To receive a survivor’s pension, you must be between 18 and 67 years of age. Do you want to apply for a survivor’s supplement to your old-age pension? You can read more about this on the old-age pension pages."
+    },
+    "infolenker": {
+      "barnepensjon": {
+        "href": "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon#chapter-3",
+        "tekst": "Here you can read more about who can get a children’s pension and how to apply."
+      },
+      "alderspensjon": {
+        "href": "https://www.nav.no/no/person/pensjon/alderspensjon",
+        "tekst": "Here you can read more about who can get an old-age pension and how to apply."
+      }
+    }
+  },
+  "avbrytModal": {
+    "spoersmaal": "Do you want to quit this application?",
+    "svarNei": "No, I want to continue applying",
+    "svarJa": "Yes, I want to quit now and continue later",
+    "svarSlett": "Yes, I want to quit now and clear the application form",
+    "informasjon": "You can continue now or later. Your application will be saved for 72 hours."
+  },
+  "hvorforSpoerVi": "Why are we asking you about this?",
+  "avdoede": {
+    "relasjon": {
+      "gift": "Married or registered partner",
+      "separert": "Separated",
+      "samboer": "Cohabiting partner",
+      "skilt": "Divorced",
+      "tidligereSamboer": "Former cohabiting partner"
+    }
+  },
+  "barnRelasjon": {
+    "fellesbarnMedAvdoede": "The deceased and myself",
+    "avdoedesSaerkullsbarn": "The deceased",
+    "egneSaerkullsbarn": "Me"
+  },
+  "samboerInntekt": {
+    "arbeidsinntekt": "Earned income",
+    "pensjon": "Pension(s)",
+    "kapitalinntekt": "Investment income",
+    "andreYtelser": "Other benefits"
+  },
+  "stillingType": {
+    "fast": "Permanent employee",
+    "midlertidig": "Temporary employee",
+    "sesongarbeid": "Seasonal employee"
+  },
+  "ytelser": {
+    "velg": "Choose...",
+    "dagpenger": "Unemployment benefit",
+    "sykepenger": "Sickness benefit",
+    "pleiepenger": "Attendance allowance",
+    "svangerskapspenger": "Pregnancy benefit",
+    "foreldrepenger": "Parental benefit",
+    "arbeidsavklaringspenger": "Work assessment allowance (AAP)",
+    "kvalifiseringsstoenad": "Qualification benefit",
+    "kommunal": "Municipal carer support",
+    "fosterhjem": "Foster care allowance",
+    "omsorgspenger": "Care benefit",
+    "opplaeringspenger": "Training allowance"
+  },
+  "bankkontoType": {
+    "norsk": "Norwegian",
+    "utenlandsk": "Foreign"
+  },
+  "jobbStatus": {
+    "arbeidstaker": "I am employed",
+    "selvstendig": "I am self-employed",
+    "underUtdanning": "I am taking education",
+    "ingen": "Other"
+  },
+  "nySivilstatus": {
+    "ekteskap": "Married",
+    "samboerskap": "Cohabiting partner",
+    "ingen": "Single"
+  },
+  "utdanning": {
+    "grunnskole": "Compulsory education (primary and lower secondary school)",
+    "fagbrev": "Trade certificate",
+    "videregående": "Upper secondary education",
+    "bachelorgrad": "University or college (up to 4 years)",
+    "mastergrad": "University or college (more than 4 years)",
+    "ingen": "No education",
+    "annen": "Other education"
+  },
+  "oppholdUtlandType": {
+    "bodd": "Lived",
+    "arbeidet": "Worked"
+  },
+  "felles": {
+    "fnrDnr": "Norwegian national identity number or D number",
+    "fnr": "Norwegian national identity number",
+    "fnrPlaceholder": "11 digits",
+    "foedselsnummer": "Norwegian national identity number",
+    "navn": "Name",
+    "adresse": "Residential address",
+    "sivilstatus": "Marital status",
+    "statsborgerskap": "Nationality",
+    "norge": "Norway",
+    "ingenInfo": "No information",
+    "ikkePaakrevd": "(not required)",
+    "sistLagret": "Last saved"
+  },
+  "endreSvarOppsummering": {
+    "om-deg": "Change answers about you",
+    "om-deg-og-avdoed": "Change answers about you and the deceased",
+    "om-den-avdoede": "Change answers about the deceased",
+    "din-situasjon": "Change answers about your situation",
+    "om-barn": "Change answers about children"
+  },
+  "fortsettSoeknad": {
+    "beskrivelse": "Do you want to continue filling in the application you started earlier?",
+    "fortsettSoeknad": "Yes, I want to carry on from where I left off",
+    "startPaaNytt": "No, I want to start a new application"
+  },
+  "feil": {
+    "tittel": "To proceed, you must correct the following:",
+    "fornavn": {
+      "required": "Enter first name(s)",
+      "pattern": "Invalid first name"
+    },
+    "etternavn": {
+      "required": "Enter family name",
+      "pattern": "Invalid family name"
+    },
+    "hovedytelse": {
+      "required": "A main benefit must be selected"
+    },
+    "fraDato": {
+      "required": "A “from” date must be selected"
+    },
+    "bostedsadresseBekreftet": {
+      "required": "You must confirm whether this is your current residential address or not"
+    },
+    "boddEllerJobbetUtland": {
+      "svar": {
+        "required": "State whether the deceased has ever lived or worked in a country other than Norway"
+      },
+      "oppholdUtland": {
+        "land": {
+          "required": "State which country"
+        },
+        "beskrivelse": {
+          "required": "Select one or both options"
+        },
+        "mottokPensjon": {
+          "beskrivelse": {
+            "required": "Enter how much pension was received"
+          }
+        },
+        "medlemFolketrygd": {
+          "required": "State whether the deceased was a member of the Norwegian National Insurance Scheme during their stay in a country other than Norway"
+        }
+      }
+    },
+    "alternativAdresse": {
+      "required": "Enter your current residential address"
+    },
+    "oppholdsland": {
+      "required": "Enter your current country of residence"
+    },
+    "medlemFolketrygdenUtland": {
+      "required": "State whether you are a member of the Norwegian National Insurance Scheme during your stay in a country other than Norway"
+    },
+    "doedsfallAarsak": {
+      "required": "State whether the death was due to an occupational injury or illness"
+    },
+    "avdoed": {
+      "fornavn": {
+        "required": "Enter the deceased’s first name(s)"
+      },
+      "etternavn": {
+        "required": "Enter the deceased’s family name"
+      },
+      "datoForDoedsfallet": {
+        "required": "State when the death occurred"
+      }
+    },
+    "forholdTilAvdoede": {
+      "relasjon": {
+        "required": "State your relationship to the deceased"
+      },
+      "datoForInngaattPartnerskap": {
+        "required": "Enter date"
+      },
+      "datoForSkilsmisse": {
+        "required": "Enter date of divorce (not separation)"
+      },
+      "fellesBarn": {
+        "required": "State whether you have (or had) joint children"
+      },
+      "omsorgForBarn": {
+        "required": "State whether you were caring for the deceased’s children at the time of his/her death"
+      },
+      "tidligereGift": {
+        "required": "State whether you were previously married to the deceased"
+      },
+      "samboereMedFellesBarn": {
+        "required": "State whether you were cohabiting partners and had joint children together before you married"
+      },
+      "datoForInngaattSamboerskap": {
+        "required": "Specify when you started living together"
+      },
+      "datoForSamlivsbrudd": {
+        "required": "Specify when you moved apart"
+      },
+      "mottokBidrag": {
+        "required": "State whether you were being supported by the deceased at the time of their death"
+      },
+      "mottokEktefelleBidrag": {
+        "required": "State whether you were receiving alimony"
+      }
+    },
+    "selvstendigNaeringsdrivende": {
+      "svar": {
+        "required": "State whether the deceased was self-employed"
+      },
+      "beskrivelse": {
+        "pattern": "Enter valid income from self-employment (digits only)",
+        "required": "Enter income from self-employment"
+      },
+      "forventerEndretInntekt": {
+        "svar": {
+          "required": "State whether you expect any changes in your income"
+        }
+      },
+      "orgnr": {
+        "required": "You must enter a valid organisation number. 9 digits",
+        "minLength": "The organisation number must be 9 digits"
+      }
+    },
+    "selvstendig": {
+      "beskrivelse": {
+        "required": "State business"
+      },
+      "startDato": {
+        "required": "Enter start-up date"
+      },
+      "type": {
+        "required": "State type of business"
+      },
+      "orgnr": {
+        "required": "You must enter a valid organisation number. 9 digits",
+        "minLength": "The organisation number must be 9 digits"
+      },
+      "forventerEndretInntekt": {
+        "svar": {
+          "required": "State whether you expect any changes in your income"
+        },
+        "beskrivelse": {
+          "required": "Description is a required field"
+        }
+      }
+    },
+    "haddePensjonsgivendeInntekt": {
+      "svar": {
+        "required": "State whether the deceased had pensionable income"
+      }
+    },
+    "harAvtjentMilitaerTjeneste": {
+      "svar": {
+        "required": "State whether the deceased has carried out compulsory military service"
+      },
+      "beskrivelse": {
+        "required": "State relevant year(s)"
+      }
+    },
+    "kontaktinfo": {
+      "telefonnummer": {
+        "required": "Telephone number is a required field",
+        "pattern": "The telephone number must be 8 digits"
+      },
+      "epost": {
+        "required": "E-mail address is a required field",
+        "pattern": "The e-mail address must be valid"
+      }
+    },
+    "oppholderSegINorge": {
+      "required": "You must answer this question about residence"
+    },
+    "jobbStatus": {
+      "required": "State whether you are in work"
+    },
+    "utdanning": {
+      "hoyesteFullfoerteUtdanning": {
+        "required": "Enter your highest completed level of education"
+      },
+      "annenUtdanning": {
+        "required": "Enter other education"
+      },
+      "naavaerendeUtdanning": {
+        "navn": {
+          "required": "Enter the name of the education"
+        },
+        "startDato": {
+          "required": "Enter the date you started the education"
+        },
+        "sluttDato": {
+          "required": "Enter the date you ended the education"
+        }
+      }
+    },
+    "ingenJobbBeskrivelse": {
+      "required": "Describe your situation in more detail"
+    },
+    "andreYtelser": {
+      "kravOmAnnenStonad": {
+        "svar": {
+          "required": "State whether you are waiting for a response to applications for other benefits"
+        },
+        "beskrivelse": {
+          "required": "State which benefits you have applied for"
+        }
+      },
+      "annenPensjon": {
+        "svar": {
+          "required": "State whether you have applied for contractual early retirement pension (AFP) or a pension from others"
+        },
+        "beskrivelse": {
+          "required": "Specify pension scheme"
+        }
+      },
+      "mottarPensjonUtland": {
+        "svar": {
+          "required": "State whether you receive a pension from a country other than Norway"
+        },
+        "hvaSlagsPensjon": {
+          "required": "State what kind of pension"
+        },
+        "fraHvilketLand": {
+          "required": "State which country"
+        },
+        "bruttobeloepPrAar": {
+          "required": "Enter gross amount in the currency of the country"
+        }
+      }
+    },
+    "foedselsnummer": {
+      "validate": "Invalid national identity number",
+      "required": "Enter Norwegian national identity number",
+      "duplicate": "This national identity number has already been entered"
+    },
+    "statsborgerskap": {
+      "required": "Enter nationality"
+    },
+    "nySivilstatus": {
+      "sivilstatus": {
+        "required": "State your current marital status"
+      },
+      "nySivilstatusEtterDoedsfallet": {
+        "required": "You must answer this question about your marital status"
+      },
+      "samboerskap": {
+        "hattBarnEllerVaertGift": {
+          "required": "State whether you have or have had children together or whether you have been married"
+        },
+        "samboer": {
+          "fornavn": {
+            "required": "Enter your cohabiting partner’s first name(s)"
+          },
+          "etternavn": {
+            "required": "Enter your cohabiting partner’s family name"
+          },
+          "foedselsnummer": {
+            "required": "Enter your cohabiting partner’s Norwegian national identity number",
+            "validate": "Invalid national identity number"
+          },
+          "harInntekt": {
+            "samletBruttoinntektPrAar": {
+              "required": "Enter combined gross income"
+            },
+            "inntektstype": {
+              "required": "Specify type of income"
+            },
+            "svar": {
+              "required": "State whether your cohabiting partner has any income"
+            }
+          }
+        }
+      }
+    },
+    "bosattUtland": {
+      "svar": {
+        "required": "State whether the person is a resident in a country other than Norway"
+      },
+      "land": {
+        "required": "State which country"
+      },
+      "adresse": {
+        "required": "Enter address"
+      }
+    },
+    "gravidEllerNyligFoedt": {
+      "required": "State whether you are expecting a child or have children who are not listed in the Norwegian National Registry"
+    },
+    "relasjon": {
+      "required": "Specify relationship"
+    },
+    "yrke": {
+      "required": "You must answer this question about your occupation"
+    },
+    "stilling": {
+      "required": "You must answer this question about your position"
+    },
+    "startDato": {
+      "required": "You must provide a start date"
+    },
+    "sluttDato": {
+      "required": "You must provide an end date"
+    },
+    "ansettelsesforhold": {
+      "required": "You must answer this question about your employment"
+    },
+    "heltidDeltid": {
+      "required": "You must state whether the position is full-time or part-time"
+    },
+    "stillingsprosent": {
+      "required": "Employment percentage is a required field",
+      "pattern": "The employment percentage must be entered in digits (0–99)"
+    },
+    "arbeidsgiver": {
+      "navn.required": "Employer’s name is a required field",
+      "adresse.required": "Employer’s address is a required field"
+    },
+    "inntekt": {
+      "bruttoArbeidsinntektPrMd.required": "Gross earned income is a required field",
+      "personinntektFraNaeringPrAr.required": "Personal income from self-employment is a required field"
+    },
+    "arbeidsforhold": {
+      "arbeidsgiver": {
+        "required": "Enter employer"
+      },
+      "startDato": {
+        "required": "Start date is a required field"
+      },
+      "ansettelsesforhold": {
+        "required": "State type of employment"
+      },
+      "stillingsprosent": {
+        "required": "Enter your employment percentage",
+        "pattern": "Enter a valid employment percentage"
+      },
+      "forventerEndretInntekt": {
+        "svar": {
+          "required": "State whether you expect any changes in your income"
+        },
+        "beskrivelse": {
+          "required": "Description is a required field"
+        }
+      }
+    },
+    "utbetalingsInformasjon": {
+      "bankkontoType.required": "You must choose whether you want the money to be paid into a Norwegian bank account or a foreign bank account",
+      "kontonummer": {
+        "required": "Norwegian bank account number is a required field (11 digits)",
+        "pattern": "Account number not valid. It must have 11 digits."
+      },
+      "utenlandskBankNavn.required": "The name of the foreign bank is a required field",
+      "utenlandskBankAdresse.required": "The address of the foreign bank is a required field",
+      "iban": {
+        "required": "IBAN number is a required field",
+        "validate": "Invalid IBAN"
+      },
+      "swift": {
+        "required": "The bank’s SWIFT code or BIC is a required field",
+        "validate": "Invalid SWIFT code or BIC"
+      }
+    },
+    "barnepensjon": {
+      "required": "You must answer this question",
+      "kontonummer": {
+        "svar": {
+          "required": "State whether you want to use a different bank account number for payment of children’s pension"
+        },
+        "kontonummer": {
+          "required": "Norwegian bank account number is a required field (11 digits)",
+          "pattern": "Account number not valid. It must have 11 digits."
+        }
+      },
+      "forskuddstrekk": {
+        "svar": {
+          "required": "State whether you want tax to be deducted from the children’s pension"
+        },
+        "trekkprosent": {
+          "required": "Enter a valid percentage"
+        }
+      }
+    },
+    "dagligOmsorg": {
+      "required": "State whether you have the daily care for the child"
+    },
+    "harBarnetVerge": {
+      "svar": {
+        "required": "State whether a guardian has been appointed for the child"
+      },
+      "fornavn": {
+        "required": "Enter the guardian’s first name(s)",
+        "pattern": "Invalid first name"
+      },
+      "etternavn": {
+        "required": "Enter the guardian’s family name",
+        "pattern": "Invalid family name"
+      },
+      "foedselsnummer": {
+        "required": "Enter the guardian’s Norwegian national identity number",
+        "validate": "Invalid national identity number"
+      }
+    }
+  }
+}
