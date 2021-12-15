@@ -134,10 +134,10 @@ const hentOppholdUtland = (t: TFunction, omDeg: ISoeker): BetingetOpplysning<Sva
 
 const hentSivilstatus = (t: TFunction, nySivilstatus: INySivilstatus): BetingetOpplysning<SivilstatusType, Samboer> => {
     let opplysning: Samboer | undefined;
-    let inntekt: BetingetOpplysning<Svar, SamboerInntekt> | undefined;
 
     if (nySivilstatus?.sivilstatus == Sivilstatus.samboerskap) {
         const samboer = nySivilstatus.samboerskap!!.samboer!!;
+        let inntekt: BetingetOpplysning<Svar, SamboerInntekt> | undefined;
 
         if (samboer.harInntekt?.svar === IValg.JA) {
             const inntektTypeSvar: InntektType[] = samboer.harInntekt?.inntektstype
@@ -157,6 +157,11 @@ const hentSivilstatus = (t: TFunction, nySivilstatus: INySivilstatus): BetingetO
                     }
                 }
             }
+        } else if (samboer.harInntekt?.svar === IValg.NEI) {
+            inntekt = {
+                spoersmaal: t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar"),
+                svar: valgTilSvar(samboer.harInntekt!!.svar!!), // TODO: Fikse type,
+            };
         }
 
         opplysning = {
