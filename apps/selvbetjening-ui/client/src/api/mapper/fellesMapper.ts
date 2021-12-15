@@ -117,7 +117,7 @@ const hentDagligOmsorg = (t: TFunction, barn: IBarn): Opplysning<OmsorgspersonTy
 export const hentUtbetalingsInformasjonSoeker = (
     t: TFunction,
     omDeg: ISoeker
-): BetingetOpplysning<BankkontoType, UtbetalingsInformasjon> => {
+): BetingetOpplysning<BankkontoType, UtbetalingsInformasjon> | undefined => {
 
     if (omDeg.utbetalingsInformasjon?.bankkontoType === GammelBankkontoType.utenlandsk) {
         return {
@@ -142,25 +142,25 @@ export const hentUtbetalingsInformasjonSoeker = (
                 }
             }
         }
-    }
-
-    return {
-        spoersmaal: t("omDeg.utbetalingsInformasjon.bankkontoType"),
-        svar: BankkontoType.NORSK,
-        opplysning: {
-            kontonummer: {
-                spoersmaal: t("omDeg.utbetalingsInformasjon.kontonummer"),
-                svar: omDeg.utbetalingsInformasjon!!.kontonummer!!
+    } else if (omDeg.utbetalingsInformasjon?.bankkontoType === GammelBankkontoType.norsk) {
+        return {
+            spoersmaal: t("omDeg.utbetalingsInformasjon.bankkontoType"),
+            svar: BankkontoType.NORSK,
+            opplysning: {
+                kontonummer: {
+                    spoersmaal: t("omDeg.utbetalingsInformasjon.kontonummer"),
+                    svar: omDeg.utbetalingsInformasjon!!.kontonummer!!
+                }
             }
         }
-    }
+    } else return undefined;
 };
 
 export const hentUtbetalingsInformasjonBarn = (
     t: TFunction,
     soeker: IBarn,
     soeknad: ISoeknad
-): BetingetOpplysning<BankkontoType, UtbetalingsInformasjon> => {
+): BetingetOpplysning<BankkontoType, UtbetalingsInformasjon> | undefined => {
     let trekkprosent: Opplysning<String> | undefined;
     if (soeker.barnepensjon!!.forskuddstrekk!!.svar === IValg.JA) {
         trekkprosent = {

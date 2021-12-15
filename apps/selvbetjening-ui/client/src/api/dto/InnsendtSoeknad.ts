@@ -15,7 +15,7 @@ interface InnsendtSoeknad {
 
     innsender: Person;
     harSamtykket: Opplysning<Boolean>;
-    utbetalingsInformasjon: BetingetOpplysning<BankkontoType, UtbetalingsInformasjon>;
+    utbetalingsInformasjon?: BetingetOpplysning<BankkontoType, UtbetalingsInformasjon>;
 }
 
 export interface Gjenlevendepensjon extends InnsendtSoeknad {
