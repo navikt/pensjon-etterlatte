@@ -1,6 +1,7 @@
 {
   "type": "GJENLEVENDEPENSJON",
   "imageTag": "asda123-asdas213",
+  "template": "gjenlevendepensjon_v1",
   "mottattDato": "2021-12-09T14:48:00.162972",
   "harSamtykket": {
     "spoersmaal": "Jeg, , bekrefter at jeg vil gi riktige og fullstendige opplysninger.",

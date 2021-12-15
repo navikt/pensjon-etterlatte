@@ -13,19 +13,38 @@
         width: 100%;
         border: 1px black solid;
         margin-bottom: 0.5cm;
-    }
+        border-collapse: collapse;
 
-    table thead {
-        background-color: lightblue;
-    }
-
-    table.inner {
         background-color: #fafafa;
         border: 1px #ccc solid;
     }
 
+    table thead {
+        background-color: lightblue;
+        /*background-color: #ddd;*/
+    }
+
+    table.inner {
+        width: 95%;
+        margin: 20px;
+
+        background-color: white;
+        border: 1px #ccc solid;
+    }
+
     table.inner thead {
-        background-color: #ddd;
+        background-color: inherit;
+        /*background-color: #ddd;*/
+    }
+
+    table.simple {
+        width: auto;
+        background-color: transparent;
+        border: none;
+    }
+
+    table.simple thead {
+        background-color: transparent;
     }
 
     table td {

@@ -1,85 +1,45 @@
-<table>
-    <thead>
-        <tr>
-            <th colspan="2">
-                <h4>Opplysninger om gjenlevendes situasjon</h4>
-            </th>
-        </tr>
-    </thead>
+<h2>Opplysninger om gjenlevendes situasjon</h2>
 
-    {{#with soeker.arbeidOgUtdanning}}
-    <tr>
-        <th colspan="2">
-            <h3>Arbeid og utdanning</h3>
-        </th>
-    </tr>
-    <tbody>
+{{#with soeker.arbeidOgUtdanning}}
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2">Arbeid og utdanning</th>
+        </tr>
+        </thead>
+
+        <tbody>
         <tr>
             <td>{{this.dinSituasjon.spoersmaal}}</td>
             <td>
                 {{#each this.dinSituasjon.svar}}
-                     - {{capitalize_names this}} <br/>
+                    - {{capitalize_names this}} <br/>
                 {{/each}}
             </td>
         </tr>
 
         {{#each soeker.arbeidOgUtdanning.arbeidsforhold.svar}}
-        <tr>
-            <td colspan="2">
-                <table class="inner">
-                    <thead>
-                    <tr>
-                        <th colspan="2">Om arbeidsgiver</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr>
-                        <td>{{this.arbeidsgiver.spoersmaal}}</td>
-                        <td>{{this.arbeidsgiver.svar}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{this.ansettelsesforhold.spoersmaal}}</td>
-                        <td>{{capitalize_names this.ansettelsesforhold.svar}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{this.stillingsprosent.spoersmaal}}</td>
-                        <td>{{this.stillingsprosent.svar}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{this.endretInntekt.spoersmaal}}</td>
-                        <td>{{capitalize_names this.endretInntekt.svar}}</td>
-                    </tr>
-                    {{#if this.endretInntekt.svar "JA" }}
-                        <tr>
-                            <td>{{this.endretInntekt.opplysning.spoersmaal}}</td>
-                            <td>{{this.endretInntekt.opplysning.svar}}</td>
-                        </tr>
-                    {{/if}}
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-        {{/each}}
-
-        {{#each soeker.arbeidOgUtdanning.selvstendig.svar}}
             <tr>
                 <td colspan="2">
                     <table class="inner">
                         <thead>
                         <tr>
-                            <th colspan="2">Selvstendig næringsdrivende</th>
+                            <th colspan="2">Om arbeidsgiver</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr>
-                            <td>{{this.firmanavn.spoersmaal}}</td>
-                            <td>{{this.firmanavn.svar}}</td>
+                            <td>{{this.arbeidsgiver.spoersmaal}}</td>
+                            <td>{{this.arbeidsgiver.svar}}</td>
                         </tr>
                         <tr>
-                            <td>{{this.orgnr.spoersmaal}}</td>
-                            <td>{{this.orgnr.svar}}</td>
+                            <td>{{this.ansettelsesforhold.spoersmaal}}</td>
+                            <td>{{capitalize_names this.ansettelsesforhold.svar}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{this.stillingsprosent.spoersmaal}}</td>
+                            <td>{{this.stillingsprosent.svar}}</td>
                         </tr>
                         <tr>
                             <td>{{this.endretInntekt.spoersmaal}}</td>
@@ -96,158 +56,167 @@
                 </td>
             </tr>
         {{/each}}
+        </tbody>
+    </table>
 
-        {{#with soeker.arbeidOgUtdanning.utdanning.svar}}
+    {{#each soeker.arbeidOgUtdanning.selvstendig.svar}}
+        <table>
+            <thead>
             <tr>
-                <td colspan="2">
-                    <table class="inner">
-                        <thead>
-                        <tr>
-                            <th colspan="2">Utdanning</th>
-                        </tr>
-                        </thead>
+                <th colspan="2">Selvstendig næringsdrivende</th>
+            </tr>
+            </thead>
 
-                        <tbody>
-                        <tr>
-                            <td>{{this.navn.spoersmaal}}</td>
-                            <td>{{this.navn.svar}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{this.startDato.spoersmaal}}</td>
-                            <td>{{iso_to_nor_date this.startDato.svar}}</td>
-                        </tr>
-                        <tr>
-                            <td>{{this.sluttDato.spoersmaal}}</td>
-                            <td>{{iso_to_nor_date this.sluttDato.svar}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </td>
+            <tbody>
+            <tr>
+                <td>{{this.firmanavn.spoersmaal}}</td>
+                <td>{{this.firmanavn.svar}}</td>
+            </tr>
+            <tr>
+                <td>{{this.orgnr.spoersmaal}}</td>
+                <td>{{this.orgnr.svar}}</td>
+            </tr>
+            <tr>
+                <td>{{this.endretInntekt.spoersmaal}}</td>
+                <td>{{capitalize_names this.endretInntekt.svar}}</td>
+            </tr>
+            {{#if this.endretInntekt.svar "JA" }}
+                <tr>
+                    <td>{{this.endretInntekt.opplysning.spoersmaal}}</td>
+                    <td>{{this.endretInntekt.opplysning.svar}}</td>
+                </tr>
+            {{/if}}
+            </tbody>
+        </table>
+    {{/each}}
+
+    {{#with soeker.arbeidOgUtdanning.utdanning.svar}}
+        <table>
+            <thead>
+            <tr>
+                <th colspan="2">Utdanning</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>{{this.navn.spoersmaal}}</td>
+                <td>{{this.navn.svar}}</td>
+            </tr>
+            <tr>
+                <td>{{this.startDato.spoersmaal}}</td>
+                <td>{{iso_to_nor_date this.startDato.svar}}</td>
+            </tr>
+            <tr>
+                <td>{{this.sluttDato.spoersmaal}}</td>
+                <td>{{iso_to_nor_date this.sluttDato.svar}}</td>
+            </tr>
+            </tbody>
+        </table>
+    {{/with}}
+
+    {{#with soeker.arbeidOgUtdanning.annet}}
+        <table>
+            <thead>
+            <tr>
+                <th colspan="2">Annet</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>{{this.spoersmaal}}</td>
+                <td>{{this.svar}}</td>
+            </tr>
+            </tbody>
+        </table>
+    {{/with}}
+{{/with}}
+
+{{#with soeker.fullfoertUtdanning}}
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2">Fullført utdanning</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>{{this.spoersmaal}}</td>
+            <td>{{capitalize_names this.svar}}</td>
+        </tr>
+        {{#with this.opplysning }}
+            <tr>
+                <td>{{this.opplysning}}</td>
+                <td>{{this.svar}}</td>
             </tr>
         {{/with}}
+        </tbody>
+    </table>
+{{/with}}
 
-        {{#with soeker.arbeidOgUtdanning.annet}}
+{{#with soeker.andreYtelser}}
+    <table>
+        <thead>
         <tr>
-            <td colspan="2">
-                <table class="inner">
-                    <thead>
-                    <tr>
-                        <th colspan="2">Annet</th>
-                    </tr>
-                    </thead>
+            <th colspan="2">Ytelser</th>
+        </tr>
+        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>{{this.spoersmaal}}</td>
-                        <td>{{this.svar}}</td>
-                    </tr>
-                    </tbody>
-                </table>
+        <tbody>
+        <tr>
+            <td>{{this.kravOmAnnenStonad.spoersmaal}}</td>
+            <td>{{capitalize_names this.kravOmAnnenStonad.svar}}</td>
+        </tr>
+        {{#eq this.kravOmAnnenStonad.svar "JA"}}
+            <tr>
+                <td>{{this.kravOmAnnenStonad.opplysning.spoersmaal}}</td>
+                <td>{{capitalize_names this.kravOmAnnenStonad.opplysning.svar}}</td>
+            </tr>
+        {{/eq}}
+
+        <tr class="divider">
+            <td colspan="2">
+                <br/>
             </td>
         </tr>
-        {{/with}}
-    </tbody>
-    {{/with}}
 
-    {{#with soeker.fullfoertUtdanning}}
-    <tr>
-            <th colspan="2">
-                <h3>Fullført utdanning</h3>
-            </th>
+        <tr>
+            <td>{{this.annenPensjon.spoersmaal}}</td>
+            <td>{{capitalize_names this.annenPensjon.svar}}</td>
         </tr>
-     <tr>
-        <td colspan="2">
-            <table class="inner">
-                <thead>
-                <tr>
-                    <th colspan="2">Utdanning</th>
-                </tr>
-                </thead>
+        {{#eq this.annenPensjon.svar "JA"}}
+            <tr>
+                <td>{{this.annenPensjon.opplysning.spoersmaal}}</td>
+                <td>{{this.annenPensjon.opplysning.svar}}</td>
+            </tr>
+        {{/eq}}
 
-                <tbody>
-                <tr>
-                    <td>{{this.spoersmaal}}</td>
-                    <td>{{capitalize_names this.svar}}</td>
-                </tr>
-                {{#with this.opplysning }}
-                    <tr>
-                        <td>{{this.opplysning}}</td>
-                        <td>{{this.svar}}</td>
-                    </tr>
-                {{/with}}
-                </tbody>
-            </table>
-        </td>
-    </tr>
-    {{/with}}
+        <tr class="divider">
+            <td colspan="2">
+                <br/>
+            </td>
+        </tr>
 
-    {{#with soeker.andreYtelser}}
-    <tr>
-        <th colspan="2">
-            <h3>Ytelser</h3>
-        </th>
-    </tr>
-     <tr>
-        <td colspan="2">
-            <table class="inner">
-                <tbody>
-                <tr>
-                    <td>{{this.kravOmAnnenStonad.spoersmaal}}</td>
-                    <td>{{capitalize_names this.kravOmAnnenStonad.svar}}</td>
-                </tr>
-                {{#eq this.kravOmAnnenStonad.svar "JA"}}
-                <tr>
-                    <td>{{this.kravOmAnnenStonad.opplysning.spoersmaal}}</td>
-                    <td>{{capitalize_names this.kravOmAnnenStonad.opplysning.svar}}</td>
-                </tr>
-                {{/eq}}
-                </tbody>
-            </table>
-        </td>
-    </tr>
-     <tr>
-        <td colspan="2">
-            <table class="inner">
-                <tbody>
-                <tr>
-                    <td>{{this.annenPensjon.spoersmaal}}</td>
-                    <td>{{capitalize_names this.annenPensjon.svar}}</td>
-                </tr>
-                {{#eq this.annenPensjon.svar "JA"}}
-                <tr>
-                    <td>{{this.annenPensjon.opplysning.spoersmaal}}</td>
-                    <td>{{this.annenPensjon.opplysning.svar}}</td>
-                </tr>
-                {{/eq}}
-                </tbody>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <table class="inner">
-                <tbody>
-                <tr>
-                    <td>{{this.pensjonUtland.spoersmaal}}</td>
-                    <td>{{capitalize_names this.pensjonUtland.svar}}</td>
-                </tr>
-                {{#eq this.pensjonUtland.svar "JA"}}
-                <tr>
-                    <td>{{this.pensjonUtland.opplysning.pensjonsType.spoersmaal}}</td>
-                    <td>{{this.pensjonUtland.opplysning.pensjonsType.svar}}</td>
-                </tr>
-                <tr>
-                    <td>{{this.pensjonUtland.opplysning.land.spoersmaal}}</td>
-                    <td>{{this.pensjonUtland.opplysning.land.svar}}</td>
-                </tr>
-                <tr>
-                    <td>{{this.pensjonUtland.opplysning.bruttobeloepPrAar.spoersmaal}}</td>
-                    <td>{{this.pensjonUtland.opplysning.bruttobeloepPrAar.svar}}</td>
-                </tr>
-                {{/eq}}
-                </tbody>
-            </table>
-        </td>
-    </tr>
-    {{/with}}
-</table>
+        <tr>
+            <td>{{this.pensjonUtland.spoersmaal}}</td>
+            <td>{{capitalize_names this.pensjonUtland.svar}}</td>
+        </tr>
+        {{#eq this.pensjonUtland.svar "JA"}}
+            <tr>
+                <td>{{this.pensjonUtland.opplysning.pensjonsType.spoersmaal}}</td>
+                <td>{{this.pensjonUtland.opplysning.pensjonsType.svar}}</td>
+            </tr>
+            <tr>
+                <td>{{this.pensjonUtland.opplysning.land.spoersmaal}}</td>
+                <td>{{this.pensjonUtland.opplysning.land.svar}}</td>
+            </tr>
+            <tr>
+                <td>{{this.pensjonUtland.opplysning.bruttobeloepPrAar.spoersmaal}}</td>
+                <td>{{this.pensjonUtland.opplysning.bruttobeloepPrAar.svar}}</td>
+            </tr>
+        {{/eq}}
+        </tbody>
+    </table>
+{{/with}}

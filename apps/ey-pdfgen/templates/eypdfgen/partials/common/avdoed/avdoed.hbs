@@ -1,28 +1,34 @@
+<h2>Opplysninger om avdøde</h2>
+
 <table>
     <thead>
-        <tr>
-            <th colspan="2">
-                <h4>Opplysninger om avdøde</h4>
-            </th>
-        </tr>
+    <tr>
+        <th colspan="2">
+            Personalia
+        </th>
+    </tr>
     </thead>
 
     <tbody>
-        {{> eypdfgen/partials/common/personalia/enkelPersonalia this}}
-        <tr>
-            <td>{{this.statsborgerskap.spoersmaal}}</td>
-            <td>{{this.statsborgerskap.svar}}</td>
-        </tr>
-        <tr>
-            <td>{{this.datoForDoedsfallet.spoersmaal}}</td>
-            <td>{{iso_to_nor_date this.datoForDoedsfallet.svar}}</td>
-        </tr>
-        <tr>
-            <td>{{this.doedsaarsakSkyldesYrkesskadeEllerYrkessykdom.spoersmaal}}</td>
-            <td>{{capitalize_names this.doedsaarsakSkyldesYrkesskadeEllerYrkessykdom.svar}}</td>
-        </tr>
-        {{> eypdfgen/partials/common/avdoed/utenlandsopphold this.utenlandsopphold}}
-        {{> eypdfgen/partials/common/avdoed/naeringsinntekt this.naeringsInntekt}}
-        {{> eypdfgen/partials/common/avdoed/militaertjeneste this.militaertjeneste}}
+    {{> eypdfgen/partials/common/personalia/enkelPersonalia this}}
+
+    <tr>
+        <td>{{this.statsborgerskap.spoersmaal}}</td>
+        <td>{{this.statsborgerskap.svar}}</td>
+    </tr>
+    <tr>
+        <td>{{this.datoForDoedsfallet.spoersmaal}}</td>
+        <td>{{iso_to_nor_date this.datoForDoedsfallet.svar}}</td>
+    </tr>
+    <tr>
+        <td>{{this.doedsaarsakSkyldesYrkesskadeEllerYrkessykdom.spoersmaal}}</td>
+        <td>{{capitalize_names this.doedsaarsakSkyldesYrkesskadeEllerYrkessykdom.svar}}</td>
+    </tr>
     </tbody>
 </table>
+
+{{> eypdfgen/partials/common/avdoed/utenlandsopphold this.utenlandsopphold}}
+
+{{> eypdfgen/partials/common/avdoed/naeringsinntekt this.naeringsInntekt}}
+
+{{> eypdfgen/partials/common/avdoed/militaertjeneste this.militaertjeneste}}

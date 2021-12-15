@@ -1,73 +1,61 @@
-{{#eq this.svar "NEI"}}
-<tr>
-    <td>{{this.spoersmaal}}</td>
-    <td>{{this.svar}}</td>
-</tr>
-{{/eq}}
+<table>
+    <thead>
+    <tr>
+        <th colspan="2">Utenlandsopphold</th>
+    </tr>
+    </thead>
 
-{{#eq this.svar "JA"}}
-<tr>
-    <td colspan="2">
-        <table class="inner">
-            <thead>
-            <tr>
-                <th colspan="2">Utenlandsopphold</th>
-            </tr>
-            </thead>
+    <tbody>
+    <tr>
+        <td>{{this.spoersmaal}}</td>
+        <td>{{capitalize_names this.svar}}</td>
+    </tr>
 
-            <tbody>
-             <tr>
-                <td>{{this.spoersmaal}}</td>
-                <td>{{capitalize_names this.svar}}</td>
-            </tr>
-            {{#each this.opplysning}}
-            <tbody>
+    {{#eq this.svar "JA"}}
+        {{#each this.opplysning}}
             <tr>
                 <td colspan="2">
                     <table class="inner">
-                            <thead>
-                            <tr>
-                                <th colspan="2">Opphold i {{this.land.svar}}</th>
-                            </tr>
-                            </thead>
+                        <thead>
+                        <tr>
+                            <th colspan="2">Opphold i {{this.land.svar}}</th>
+                        </tr>
+                        </thead>
 
                         <tbody>
-                            <tr>
-                                <td>{{this.land.spoersmaal}}</td>
-                                <td>{{this.land.svar}}</td>
-                            </tr>
-                            <tr>
-                                <td>{{this.fraDato.spoersmaal}}</td>
-                                <td>{{iso_to_nor_date this.fraDato.svar}}</td>
-                            </tr>
-                            <tr>
-                                <td>{{this.tilDato.spoersmaal}}</td>
-                                <td>{{iso_to_nor_date this.tilDato.svar}}</td>
-                            </tr>
-                            <tr>
-                                <td>{{this.oppholdsType.spoersmaal}}</td>
-                                <td>
+                        <tr>
+                            <td>{{this.land.spoersmaal}}</td>
+                            <td>{{this.land.svar}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{this.fraDato.spoersmaal}}</td>
+                            <td>{{iso_to_nor_date this.fraDato.svar}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{this.tilDato.spoersmaal}}</td>
+                            <td>{{iso_to_nor_date this.tilDato.svar}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{this.oppholdsType.spoersmaal}}</td>
+                            <td>
                                 {{#each this.oppholdsType.svar}}
-                                    - {{capitalize_names this}} <br />
+                                    - {{capitalize_names this}} <br/>
                                 {{/each}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{this.medlemFolketrygd.spoersmaal}}</td>
-                                <td>{{capitalize_names this.medlemFolketrygd.svar}}</td>
-                            </tr>
-                            <tr>
-                                <td>{{this.pensjonsutbetaling.spoersmaal}}</td>
-                                <td>{{this.pensjonsutbetaling.svar}}</td>
-                            </tr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{{this.medlemFolketrygd.spoersmaal}}</td>
+                            <td>{{capitalize_names this.medlemFolketrygd.svar}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{this.pensjonsutbetaling.spoersmaal}}</td>
+                            <td>{{this.pensjonsutbetaling.svar}}</td>
+                        </tr>
                         </tbody>
                     </table>
                 </td>
             </tr>
-            </tbody>
-            {{/each}}
-            </tbody>
-        </table>
-    </td>
-</tr>
-{{/eq}}
+        {{/each}}
+    {{/eq}}
+    </tbody>
+</table>

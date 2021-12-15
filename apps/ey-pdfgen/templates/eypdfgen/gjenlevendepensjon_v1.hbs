@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     {{> eypdfgen/partials/style}}
-    <title>SØKNAD</title>
+    <title>Søknad om gjenlevendepensjon</title>
 </head>
 <body>
 
@@ -16,9 +16,15 @@
 {{> eypdfgen/partials/gjenlevendepensjon/informasjonOmBarn this}}
 
 {{#if imageTag}}
-    <i class="mute">
-        Template: {{template}} ({{imageTag}})
-    </i>
+    <div>
+        <i class="mute">
+            Template: {{template}}
+        </i>
+        <br/>
+        <i class="mute">
+            Image: {{imageTag}}
+        </i>
+    </div>
 {{/if}}
 
 </body>

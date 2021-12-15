@@ -1,14 +1,15 @@
+<h2>Opplysninger om den gjenlevende</h2>
+
 <table>
     <thead>
     <tr>
-        <th colspan="2">
-            <h4>Opplysninger om den gjenlevende</h4>
-        </th>
+        <th colspan="2">Personalia</th>
     </tr>
     </thead>
 
     <tbody>
         {{> eypdfgen/partials/common/personalia/enkelPersonalia this}}
+
         <tr>
             <td>Statsborgerskap:</td>
             <td>{{this.statsborgerskap}}</td>
@@ -41,12 +42,15 @@
                  </tr>
             {{/eq}}
         {{/if}}
-
-        {{> eypdfgen/partials/common/personalia/kontaktinfo this.kontaktinfo}}
-        {{> eypdfgen/partials/gjenlevendepensjon/gjenlevende/oppholdsland this.oppholdUtland}}
-        {{> eypdfgen/partials/gjenlevendepensjon/gjenlevende/sivilstatus this.nySivilstatus}}
-        {{> eypdfgen/partials/gjenlevendepensjon/gjenlevende/forholdTilAvdoede this.forholdTilAvdoede}}
     </tbody>
 </table>
+
+{{> eypdfgen/partials/common/personalia/kontaktinfo this.kontaktinfo}}
+
+{{> eypdfgen/partials/gjenlevendepensjon/gjenlevende/oppholdsland this.oppholdUtland}}
+
+{{> eypdfgen/partials/gjenlevendepensjon/gjenlevende/sivilstatus this.nySivilstatus}}
+
+{{> eypdfgen/partials/gjenlevendepensjon/gjenlevende/forholdTilAvdoede this.forholdTilAvdoede}}
 
 {{> eypdfgen/partials/gjenlevendepensjon/gjenlevende/situasjonenDin this}}
