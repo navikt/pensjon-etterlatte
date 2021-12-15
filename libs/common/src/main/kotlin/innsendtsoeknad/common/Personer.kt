@@ -107,7 +107,7 @@ data class Samboer(
     override val foedselsnummer: Foedselsnummer,
 
     val fellesBarnEllertidligereGift: Opplysning<Svar>,
-    val inntekt: BetingetOpplysning<Svar, SamboerInntekt?>,
+    val inntekt: BetingetOpplysning<Svar, SamboerInntekt?>?,
 ) : Person {
     override val type = PersonType.SAMBOER
 }
