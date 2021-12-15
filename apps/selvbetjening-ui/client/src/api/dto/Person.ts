@@ -87,7 +87,7 @@ export interface Gjenlevende extends Person {
     flyktning?: Opplysning<Svar>;
     oppholdUtland?: BetingetOpplysning<Svar, OppholdUtland>;
     nySivilstatus?: BetingetOpplysning<SivilstatusType, Samboer>;
-    arbeidOgUtdanning: ArbeidOgUtdanning;
+    arbeidOgUtdanning?: ArbeidOgUtdanning;
     fullfoertUtdanning?: BetingetOpplysning<HoeyesteUtdanning, Opplysning<AnnenUtdanning>>;
     andreYtelser: AndreYtelser;
     uregistrertEllerVenterBarn: Opplysning<Svar>;

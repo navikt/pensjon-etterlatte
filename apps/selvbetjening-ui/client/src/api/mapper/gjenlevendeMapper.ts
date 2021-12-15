@@ -69,11 +69,11 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
 
 
     // TODO: Slå sammen med ArbeidOgUtdanning ... ?
-    const fullfoertUtdanning: BetingetOpplysning<HoeyesteUtdanning, Opplysning<AnnenUtdanning>> = {
+    const fullfoertUtdanning: BetingetOpplysning<HoeyesteUtdanning, Opplysning<AnnenUtdanning>> | undefined = !bruker.adressebeskyttelse ? {
         spoersmaal: t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning"),
         svar: konverterTilHoyesteUtdanning(soeknad.dinSituasjon.utdanning!!.hoyesteFullfoerteUtdanning!!),
         opplysning: annenUtdanning
-    };
+    } : undefined;
 
     return {
         type: PersonType.GJENLEVENDE,
@@ -89,16 +89,16 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
             spoersmaal: t("felles.adresse"),
             svar: `${bruker.adresse}`
         },
-        bostedsAdresse: {
+        bostedsAdresse: !bruker.adressebeskyttelse ? {
             spoersmaal: t("omDeg.bostedsadresseBekreftet"),
             svar: valgTilSvar(soeknad.omDeg.bostedsadresseBekreftet!!), // TODO: Støtte riktig type,
             opplysning: opplysningAlternativAdresse
-        },
+        } : undefined,
         kontaktinfo,
         flyktning,
-        oppholdUtland: hentOppholdUtland(t, soeknad.omDeg),
+        oppholdUtland: !bruker.adressebeskyttelse ? hentOppholdUtland(t, soeknad.omDeg) : undefined,
         nySivilstatus: hentSivilstatus(t, soeknad.omDegOgAvdoed.nySivilstatus!!),
-        arbeidOgUtdanning: hentArbeidOgUtdanning(t, soeknad.dinSituasjon),
+        arbeidOgUtdanning: !bruker.adressebeskyttelse ? hentArbeidOgUtdanning(t, soeknad.dinSituasjon) : undefined,
         fullfoertUtdanning,
         andreYtelser: hentAndreYtelser(t, soeknad.dinSituasjon),
         uregistrertEllerVenterBarn: {
@@ -193,7 +193,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                     },
                     ansettelsesforhold: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.ansettelsesforhold"),
-                        svar: konverterStillingType(arbeid.ansettelsesforhold)
+                        svar: konverterStillingType(arbeid.ansettelsesforhold!!)
                     },
                     stillingsprosent: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.stillingsprosent"),

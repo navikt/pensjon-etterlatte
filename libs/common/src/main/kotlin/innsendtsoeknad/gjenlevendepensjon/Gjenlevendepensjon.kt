@@ -55,7 +55,7 @@ data class Gjenlevende(
     val flyktning: Opplysning<Svar>?,
     val oppholdUtland: BetingetOpplysning<Svar, OppholdUtland?>,
     val nySivilstatus: BetingetOpplysning<SivilstatusType, Samboer?>,
-    val arbeidOgUtdanning: ArbeidOgUtdanning,
+    val arbeidOgUtdanning: ArbeidOgUtdanning?,
     val fullfoertUtdanning: BetingetOpplysning<HoeyesteUtdanning, Opplysning<AnnenUtdanning>?>,
     val andreYtelser: AndreYtelser,
     val uregistrertEllerVenterBarn: Opplysning<Svar>,
