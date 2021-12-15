@@ -1,28 +1,23 @@
-{{#eq this.svar "NEI"}}
-    <tr>
-        <td>{{this.spoersmaal}}</td>
-        <td>{{capitalize_names this.svar}}</td>
-    </tr>
-{{/eq}}
-<br/>
+<tr>
+    <td>{{this.spoersmaal}}</td>
+    <td>{{capitalize_names this.svar}}</td>
+</tr>
+
 {{#eq this.svar "JA"}}
     <tr>
         <td colspan="2">
             <table class="inner">
-                <thead>
-                <tr>
-                    <th colspan="2">Oppnevnt verge</th>
-                </tr>
-                </thead>
-
                 <tbody>
                 <tr>
-                    <td>{{this.spoersmaal}}</td>
-                    <td>{{capitalize_names this.svar}}</td>
+                    <td>Verge</td>
+                    <td>
+                        {{#with this.opplysning}}
+                            {{capitalize_names this.fornavn}}
+                            {{capitalize_names this.etternavn}}
+                            ({{this.foedselsnummer}})
+                        {{/with}}
+                    </td>
                 </tr>
-                {{#eq this.svar "JA"}}
-                    {{> eypdfgen/partials/common/personalia/enkelPersonalia this.opplysning}}
-                {{/eq}}
                 </tbody>
             </table>
         </td>
