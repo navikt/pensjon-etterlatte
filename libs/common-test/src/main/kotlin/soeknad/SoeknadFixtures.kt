@@ -231,11 +231,9 @@ fun eksempelBarn(fnr: Foedselsnummer, dagligOmsorg: OmsorgspersonType? = null) =
     statsborgerskap = Opplysning("Norge"),
     utenlandsAdresse = BetingetOpplysning(
         svar = JA,
-        opplysning = Opplysning(
-            Utenlandsadresse(
-                land = Opplysning("Sverige"),
-                adresse = Opplysning("Kirkeveien 345A")
-            )
+        opplysning = Utenlandsadresse(
+            land = Opplysning("Sverige"),
+            adresse = Opplysning("Kirkeveien 345A")
         )
     ),
     dagligOmsorg = if (dagligOmsorg != null) Opplysning(

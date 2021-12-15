@@ -68,7 +68,7 @@ data class Barn(
     override val foedselsnummer: Foedselsnummer,
 
     val statsborgerskap: Opplysning<String>,
-    val utenlandsAdresse: BetingetOpplysning<Svar, Opplysning<Utenlandsadresse>?>?,
+    val utenlandsAdresse: BetingetOpplysning<Svar, Utenlandsadresse?>?,
     val foreldre: List<Forelder>,
     val verge: BetingetOpplysning<Svar, Verge>?,
     val dagligOmsorg: Opplysning<OmsorgspersonType>?
