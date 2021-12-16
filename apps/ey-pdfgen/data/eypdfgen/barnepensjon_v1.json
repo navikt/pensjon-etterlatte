@@ -1,6 +1,8 @@
 {
   "type": "BARNEPENSJON",
-  "mottattDato": "2021-12-09T14:48:00.162972",
+  "template": "gjenlevendepensjon_v1",
+  "imageTag": "j8f2j38j-fj98hf98a4-f98h2398f29",
+  "mottattDato": "2021-11-28T23:00:00.000Z",
   "innsender": {
     "type": "INNSENDER",
     "fornavn": "STOR",
@@ -12,27 +14,45 @@
     "svar": true
   },
   "utbetalingsInformasjon": {
-    "spoersmaal": "Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?",
+    "spoersmaal": "-",
     "svar": "NORSK",
     "opplysning": {
       "kontonummer": {
-        "spoersmaal": "Oppgi norsk kontonummer for utbetaling",
-        "svar": "1351.35.13513"
+        "spoersmaal": "Oppgi norsk kontonummer for utbetaling av barnepensjon",
+        "svar": "5959.59.59595"
+      },
+      "skattetrekk": {
+        "spoersmaal": "Ønsker du at vi legger inn et skattetrekk for barnepensjonen?",
+        "svar": "JA",
+        "opplysning": {
+          "spoersmaal": "Oppgi ønsket skattetrekk",
+          "svar": "20%"
+        }
       }
     }
   },
   "soeker": {
     "type": "BARN",
-    "fornavn": "Blåøyd",
-    "etternavn": "Saks",
-    "foedselsnummer": "05111850870",
+    "fornavn": "LITEN",
+    "etternavn": "OBLONG",
+    "foedselsnummer": "09011350027",
     "statsborgerskap": {
       "spoersmaal": "Statsborgerskap",
-      "svar": "Norge"
+      "svar": "Paraguay"
     },
     "utenlandsAdresse": {
       "spoersmaal": "Bor barnet i et annet land enn Norge?",
-      "svar": "NEI"
+      "svar": "JA",
+      "opplysning": {
+        "land": {
+          "spoersmaal": "Land",
+          "svar": "Norfolkøya"
+        },
+        "adresse": {
+          "spoersmaal": "Adresse i utlandet",
+          "svar": "Norfolkveien 123, 158185 Norfolkøya"
+        }
+      }
     },
     "foreldre": [
       {
@@ -43,14 +63,20 @@
       },
       {
         "type": "FORELDER",
-        "fornavn": "Død",
-        "etternavn": "Testperson",
-        "foedselsnummer": "24014021406"
+        "fornavn": "PAPP",
+        "etternavn": "MARCHÉ",
+        "foedselsnummer": "11057523044"
       }
     ],
     "verge": {
       "spoersmaal": "Er det oppnevnt en verge for barnet?",
-      "svar": "NEI"
+      "svar": "JA",
+      "opplysning": {
+        "type": "VERGE",
+        "fornavn": "VAKKER",
+        "etternavn": "BAVIAN",
+        "foedselsnummer": "20126900199"
+      }
     }
   },
   "foreldre": [
@@ -80,16 +106,16 @@
     },
     {
       "type": "AVDOED",
-      "fornavn": "Død",
-      "etternavn": "Testperson",
-      "foedselsnummer": "24014021406",
+      "fornavn": "PAPP",
+      "etternavn": "MARCHÉ",
+      "foedselsnummer": "11057523044",
       "datoForDoedsfallet": {
         "spoersmaal": "Når skjedde dødsfallet?",
         "svar": "2021-07-26T22:00:00.000Z"
       },
       "statsborgerskap": {
         "spoersmaal": "Statsborgerskap",
-        "svar": "Norsk"
+        "svar": "Norge"
       },
       "utenlandsopphold": {
         "spoersmaal": "Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?",
@@ -98,7 +124,7 @@
           {
             "land": {
               "spoersmaal": "Land",
-              "svar": "Kongo"
+              "svar": "Am. samoa"
             },
             "fraDato": {
               "spoersmaal": "Fra dato (valgfri)",
@@ -220,6 +246,5 @@
       }
     }
   ],
-  "imageTag": "abc-def-ghi",
-  "template": "barnepensjon_v1"
+  "soesken": []
 }
