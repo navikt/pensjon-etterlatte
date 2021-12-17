@@ -18,6 +18,7 @@ import { useLand } from "../../../hooks/useLand";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import "./LeggTilBarnSkjema.scss"
 import { useEffect } from "react";
+import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 
 interface Props {
     avbryt: () => void;
@@ -30,6 +31,7 @@ interface Props {
 const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbruttNyttBarn }: Props) => {
     const { t } = useTranslation();
     const { land }: { land: any } = useLand();
+    const { state: bruker } = useBrukerContext();
 
     const methods = useForm<IBarn>({
         defaultValues: {
@@ -241,7 +243,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                         }
                                     />
 
-                                    {soekerBarnepensjon === IValg.JA && (
+                                    {!bruker.adressebeskyttelse && soekerBarnepensjon === IValg.JA && (
                                         <>
                                             <RHFSpoersmaalRadio
                                                 name={"barnepensjon.kontonummer.svar"}

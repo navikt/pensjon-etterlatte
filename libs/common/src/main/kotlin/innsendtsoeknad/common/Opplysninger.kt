@@ -16,7 +16,7 @@ data class UtbetalingsInformasjon(
     val utenlandskBankAdresse: Opplysning<String>? = null,
     val iban: Opplysning<String>? = null,
     val swift: Opplysning<String>? = null,
-    val skattetrekk: BetingetOpplysning<Svar, String>? = null
+    val skattetrekk: BetingetOpplysning<Svar, Opplysning<String>?>? = null
 )
 
 data class Kontaktinfo(

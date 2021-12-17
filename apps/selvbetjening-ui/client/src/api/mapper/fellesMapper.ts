@@ -9,10 +9,10 @@ import {
     Utenlandsadresse,
 } from "../dto/FellesOpplysninger";
 import {
-    Gjenlevende,
     Avdoed,
     Barn,
     Forelder,
+    Gjenlevende,
     GjenlevendeForelder,
     OmsorgspersonType,
     Person,
@@ -118,7 +118,6 @@ export const hentUtbetalingsInformasjonSoeker = (
     t: TFunction,
     omDeg: ISoeker
 ): BetingetOpplysning<BankkontoType, UtbetalingsInformasjon> | undefined => {
-
     if (omDeg.utbetalingsInformasjon?.bankkontoType === GammelBankkontoType.utenlandsk) {
         return {
             spoersmaal: t("omDeg.utbetalingsInformasjon.bankkontoType"),
@@ -142,7 +141,7 @@ export const hentUtbetalingsInformasjonSoeker = (
                 }
             }
         }
-    } else if (omDeg.utbetalingsInformasjon?.bankkontoType === GammelBankkontoType.norsk) {
+    } else if (!!omDeg.utbetalingsInformasjon?.kontonummer) {
         return {
             spoersmaal: t("omDeg.utbetalingsInformasjon.bankkontoType"),
             svar: BankkontoType.NORSK,
@@ -161,37 +160,48 @@ export const hentUtbetalingsInformasjonBarn = (
     soeker: IBarn,
     soeknad: ISoeknad
 ): BetingetOpplysning<BankkontoType, UtbetalingsInformasjon> | undefined => {
-    let trekkprosent: Opplysning<String> | undefined;
-    if (soeker.barnepensjon!!.forskuddstrekk!!.svar === IValg.JA) {
-        trekkprosent = {
-            spoersmaal: t("omBarn.barnepensjon.forskuddstrekk.trekkprosent"),
-            svar: soeker.barnepensjon!!.forskuddstrekk!!.trekkprosent!!
-        }
-    }
-
-    const brukForelderSinKonto = soeker.barnepensjon?.kontonummer?.svar === IValg.JA;
-    if (brukForelderSinKonto) {
-        return hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg);
-    } else {
+    if (soeker.barnepensjon?.kontonummer?.svar === IValg.JA) {
+        const gjenlevendeSinKonto = hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg);
+        if (gjenlevendeSinKonto === undefined) return undefined;
         return {
-            spoersmaal: "-",// TODO: t("omDeg.utbetalingsInformasjon.bankkontoType"),
-            svar: BankkontoType.NORSK, // TODO: fikse type
+            ...gjenlevendeSinKonto,
+            opplysning: {
+                 ...gjenlevendeSinKonto?.opplysning,
+                skattetrekk: hentSkattetrekk(t, soeker)
+            }
+        };
+    } else if (soeker.barnepensjon?.kontonummer?.svar === IValg.NEI) {
+        return {
+            spoersmaal: t("omDeg.utbetalingsInformasjon.bankkontoType"), // Dette mapper ikke opp i dagens modell.
+            svar: BankkontoType.NORSK, // Kun støtte for norsk konto
             opplysning: {
                 kontonummer: {
                     spoersmaal: t("omBarn.barnepensjon.kontonummer.kontonummer"),
                     svar: soeker.barnepensjon!!.kontonummer!!.kontonummer!!
                 },
-                skattetrekk: {
-                    spoersmaal: t("omBarn.barnepensjon.forskuddstrekk.svar"),
-                    svar: valgTilSvar(soeker.barnepensjon!!.forskuddstrekk!!.svar!!),
-                    opplysning: trekkprosent
-                }
+                skattetrekk: hentSkattetrekk(t, soeker)
             }
         }
     }
+
+    return undefined;
 };
 
-// TODO: Må fikse sånn at foreldre er gjenlevende og avdød
+const hentSkattetrekk = (t: TFunction, soeker: IBarn): BetingetOpplysning<Svar, Opplysning<String>> | undefined => {
+    if (soeker.barnepensjon?.forskuddstrekk?.svar === IValg.JA) {
+        const trekkprosent = {
+            spoersmaal: t("omBarn.barnepensjon.forskuddstrekk.trekkprosent"),
+            svar: soeker.barnepensjon!!.forskuddstrekk!!.trekkprosent!!
+        }
+        return {
+            spoersmaal: t("omBarn.barnepensjon.forskuddstrekk.svar"),
+            svar: valgTilSvar(soeker.barnepensjon!!.forskuddstrekk!!.svar!!),
+            opplysning: trekkprosent
+        }
+    }
+    return undefined
+}
+
 export const hentForeldre = (
     t: TFunction,
     barn: IBarn,
