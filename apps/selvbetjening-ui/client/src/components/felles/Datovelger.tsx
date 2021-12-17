@@ -60,7 +60,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
     return (
         <>
             <section className={`skjemaelement ${className}`}>
-                <Label htmlFor={name}>{label} (dd.mm.åååå)</Label>
+                <Label htmlFor={name}>{label} {t("felles.datoformat")}</Label>
 
                 {description && <div className={"skjemaelement__description"}>{description}</div>}
 

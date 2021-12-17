@@ -504,6 +504,7 @@
     "norge": "Noreg",
     "ingenInfo": "Ingen informasjon",
     "ikkePaakrevd": "(valfritt)",
+    "datoformat": "(dd.mm.åååå)",
     "sistLagret": "Sist lagra"
   },
   "endreSvarOppsummering": {
