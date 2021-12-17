@@ -7,7 +7,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.soknad.finnUnikeBarn
-import no.nav.etterlatte.soknad.fjernUtenlandsadresseFor
+import no.nav.etterlatte.soknad.fjernStedslokaliserendeInfo
 import org.junit.jupiter.api.Test
 import soeknad.InnsendtSoeknadFixtures
 
@@ -32,7 +32,7 @@ internal class AdressebeskyttelseUtilsKtTest {
     }
 
     @Test
-    fun `Skal fjerne informasjon om utenlandsopphold for en gitt liste med barn`() {
+    fun `Skal fjerne informasjon om utenlandsopphold og utbetalingsinformasjon for en gitt liste med barn`() {
         val gjenlevendepensjon = InnsendtSoeknadFixtures.gjenlevendepensjon(
             innsenderFnr = Foedselsnummer.of("24014021406")
         )
@@ -44,7 +44,7 @@ internal class AdressebeskyttelseUtilsKtTest {
         val request = SoeknadRequest((listOf(gjenlevendepensjon, barnepensjon)))
         val barnFnr = listOf(Foedselsnummer.of("29080775995"), Foedselsnummer.of("24014021406"))
 
-        val updatedRequest = request.fjernUtenlandsadresseFor(barnFnr)
+        val updatedRequest = request.fjernStedslokaliserendeInfo(barnFnr)
 
         updatedRequest.soeknader.forEach { soeknad ->
             when (soeknad) {
@@ -53,6 +53,7 @@ internal class AdressebeskyttelseUtilsKtTest {
                 }
                 is Barnepensjon -> {
                     (soeknad.soesken + soeknad.soeker).map { it.utenlandsAdresse shouldBe null }
+                    soeknad.utbetalingsInformasjon shouldBe null
                 }
             }
         }

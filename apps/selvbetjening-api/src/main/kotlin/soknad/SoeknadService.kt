@@ -41,7 +41,7 @@ class SoeknadService(
 
         return if (barnMedAdressebeskyttelse.isNotEmpty()) {
             logger.info("Fjerner informasjon om utenlandsadresse før søknaden(e) sendes til lagring.")
-            request.fjernUtenlandsadresseFor(barnMedAdressebeskyttelse)
+            request.fjernStedslokaliserendeInfo(barnMedAdressebeskyttelse)
         } else request
     }
 
