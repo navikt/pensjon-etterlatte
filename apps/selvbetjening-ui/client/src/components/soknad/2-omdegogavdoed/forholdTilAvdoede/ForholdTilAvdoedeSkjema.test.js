@@ -28,7 +28,7 @@ describe("Forhold til avdoede", () => {
                 <ForholdTilAvdoedeSkjema />
             </FormProvider>
         );
-        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap (dd.mm.åååå)")).toBeDefined();
+        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap felles.datoformat")).toBeDefined();
     });
 
     it("Gift skal vise inngått partnerskap", () => {
@@ -40,7 +40,7 @@ describe("Forhold til avdoede", () => {
                 <ForholdTilAvdoedeSkjema />
             </FormProvider>
         );
-        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap (dd.mm.åååå)")).toBeDefined();
+        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap felles.datoformat")).toBeDefined();
     });
 
     it("Samboer skal vise spørsmål om felles barn", () => {
@@ -68,8 +68,8 @@ describe("Forhold til avdoede", () => {
                 <ForholdTilAvdoedeSkjema />
             </FormProvider>
         );
-        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap (dd.mm.åååå)")).toBeDefined();
-        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse (dd.mm.åååå)")).toBeDefined();
+        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap felles.datoformat")).toBeDefined();
+        expect(getByLabelText("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse felles.datoformat")).toBeDefined();
         expect(getByText("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")).toBeDefined();
         expect(getByText("omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn")).toBeDefined();
     });
@@ -89,7 +89,7 @@ describe("Forhold til avdoede", () => {
         );
 
         expect(getByText("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")).toBeDefined();
-        expect(getByText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap (dd.mm.åååå)")).toBeDefined();
-        expect(getByText("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd (dd.mm.åååå)")).toBeDefined();
+        expect(getByText("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap felles.datoformat")).toBeDefined();
+        expect(getByText("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd felles.datoformat")).toBeDefined();
     });
 });

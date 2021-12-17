@@ -504,6 +504,7 @@
     "norge": "Norway",
     "ingenInfo": "No information",
     "ikkePaakrevd": "(not required)",
+    "datoformat": "(dd.mm.åååå)",
     "sistLagret": "Last saved"
   },
   "endreSvarOppsummering": {

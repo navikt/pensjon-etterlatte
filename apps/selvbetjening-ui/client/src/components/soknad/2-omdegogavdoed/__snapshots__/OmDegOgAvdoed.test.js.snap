@@ -98,7 +98,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           for="avdoed.datoForDoedsfallet"
         >
           omDegOgAvdoed.avdoed.dato
-           (dd.mm.åååå)
+           
+          felles.datoformat
         </label>
         <div
           class="datovelger"
@@ -658,7 +659,8 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           for="avdoed.datoForDoedsfallet"
         >
           omDegOgAvdoed.avdoed.dato
-           (dd.mm.åååå)
+           
+          felles.datoformat
         </label>
         <div
           class="datovelger"
