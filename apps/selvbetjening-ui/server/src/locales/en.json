@@ -505,7 +505,9 @@
     "ingenInfo": "No information",
     "ikkePaakrevd": "(not required)",
     "datoformat": "(dd.mm.yyyy)",
-    "sistLagret": "Last saved"
+    "sistLagret": "Last saved",
+    "spraakValg": "Select language",
+    "velgLand": "Select country"
   },
   "endreSvarOppsummering": {
     "om-deg": "Change answers about you",

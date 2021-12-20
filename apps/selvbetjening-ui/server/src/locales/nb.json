@@ -505,7 +505,9 @@
     "ingenInfo": "Ingen informasjon",
     "ikkePaakrevd": "(ikke påkrevd)",
     "datoformat": "(dd.mm.åååå)",
-    "sistLagret": "Sist lagret"
+    "sistLagret": "Sist lagret",
+    "spraakValg": "Velg språk",
+    "velgLand": "Velg land"
   },
   "endreSvarOppsummering": {
     "om-deg": "Endre svar om deg",

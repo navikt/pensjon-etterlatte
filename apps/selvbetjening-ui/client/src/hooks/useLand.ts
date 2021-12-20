@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { hentLand } from "../api/api";
 import { useError } from "./useError";
+import { useTranslation } from "react-i18next";
 
 
 interface UseLand {
@@ -34,6 +35,7 @@ export const useLand = (): UseLand  => {
     const [land, setLand] = useState<Land[]>([]);
     const [alleLand, setAlleLand] = useState<Land[]>([]);
     const { setError } = useError();
+    const { t } = useTranslation();
 
     useEffect(() => {
         (async () => {
@@ -62,8 +64,8 @@ export const useLand = (): UseLand  => {
         });
 
         landliste.unshift({
-            label: "Velg land",
-            value: "Velg land",
+            label: t("felles.velgLand"),
+            value: t("felles.velgLand")
         });
         return landliste;
     };
