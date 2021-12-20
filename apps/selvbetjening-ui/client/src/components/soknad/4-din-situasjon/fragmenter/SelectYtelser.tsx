@@ -8,7 +8,7 @@ const SelectYtelser = () => {
 
     const liste =
         [
-            { label: t("ytelser.velg"), value: undefined },
+            { label: t("felles.velg"), value: undefined },
             {
                 label: t("ytelser.dagpenger"),
                 value: Ytelser.dagpenger,

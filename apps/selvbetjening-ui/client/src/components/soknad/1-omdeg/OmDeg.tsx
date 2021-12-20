@@ -126,7 +126,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                         bredde={"S"}
                                         name={"utbetalingsInformasjon.kontonummer"}
                                         label={t("omDeg.utbetalingsInformasjon.kontonummer")}
-                                        placeholder={"11 siffer"}
+                                        placeholder={t("felles.elleveSiffer")}
                                         description={t("omDeg.utbetalingsInformasjon.informasjon")}
                                     />
                                 </SkjemaGruppe>
@@ -161,7 +161,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                             bredde={"S"}
                                             name={"utbetalingsInformasjon.kontonummer"}
                                             label={t("omDeg.utbetalingsInformasjon.kontonummer")}
-                                            placeholder={"11 siffer"}
+                                            placeholder={t("felles.elleveSiffer")}
                                         />
                                     )}
 

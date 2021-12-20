@@ -23,7 +23,7 @@
     "leggTilLand": "Add more countries",
     "leggTilArbeidsforhold": "Add more employment relationships",
     "leggTilNaeringer": "Add more businesses",
-    "leggTilBarn": "+ Add another child",
+    "leggTilBarn": "+ Add a child",
     "fjern": "Remove",
     "fjernFraSoeknad": "Remove from the application",
     "lagre": "Save",
@@ -58,7 +58,7 @@
     },
     "uthentingAvInfo": {
       "tittel": "We gather the information we need",
-      "innhold": "We gather the information about you, the deceased, any children and (as applicable) your cohabiting partner that we need to be able to process your application. We gather:",
+      "innhold": "To process your application we need information about you, the deceased, any children and (as applicable) your cohabiting partner. We gather:",
       "innholdListe": {
         "li1": "<strong>Personal information</strong> from the Norwegian National Registry (“Folkeregisteret”)",
         "li2": "<strong>Information about your income</strong> from the Norwegian Tax Administration (“Skatteetaten”)",
@@ -161,17 +161,17 @@
     "oppholderSegINorge": "Are you currently in Norway?",
     "oppholdHvorfor": "If you spend a prolonged period in a country other than Norway, this may affect whether you get a survivor’s pension and how much money you get.",
     "oppholdsland": "State which country",
-    "medlemFolketrygdenUtland": "Are you a member of the Norwegian National Insurance Scheme during your period living in a country other than Norway?",
+    "medlemFolketrygdenUtland": "Are you a member of the Norwegian National Insurance Scheme during your period out side Norway?",
     "flyktning": "Do you have refugee status?",
     "flyktningHvorfor": "If you are registered as a refugee with the Norwegian Directorate of Immigration (UDI), this may affect whether you get a survivor’s pension and how much money you get.",
     "kontaktinfo": {
-      "telefonnummer": "Telephone number",
+      "telefonnummer": "Phone number",
       "telefonnummerPlaceholder": "8 digits",
       "epost": "E-mail address"
     },
     "utbetalingsInformasjon": {
       "tittel": "Enter your bank details",
-      "bankkontoType": "Do you want the pension to be paid into a Norwegian bank account or an overseas bank account?",
+      "bankkontoType": "Do you want the pension to be paid into a Norwegian bank account or a foreign bank account?",
       "kontonummer": "Enter the Norwegian bank account number for payment",
       "informasjon": "You can only have one bank account number registered with NAV.",
       "utenlandskBankNavn": "Name of bank",
@@ -189,13 +189,13 @@
       "fornavn": "First name(s)",
       "etternavn": "Family name",
       "dato": "Date",
-      "datoForDoedsfallet": "When did the deceased die?"
+      "datoForDoedsfallet": "State the date of their death"
     },
     "forholdTilAvdoede": {
       "relasjon": "Your relationship with the deceased at the time of their death",
       "datoForInngaattPartnerskap": "We got married",
-      "fellesBarn": "Do you have or did you have joint children?",
-      "samboereMedFellesBarn": "Were you cohabiting partners and had joint children before you married?",
+      "fellesBarn": "Do you have or have you had children together?",
+      "samboereMedFellesBarn": "Were you cohabiting partners and had children together before you married?",
       "tidligereGift": "Were you previously married to the deceased?",
       "datoForInngaattSamboerskap": "We lived together as cohabiting partners",
       "omsorgForBarn": "Were you caring for the deceased’s children at the time of their death?",
@@ -230,7 +230,7 @@
     "statsborgerskapPlaceholder": "For example: Norwegian",
     "boddEllerJobbetUtland": {
       "tittel": "Time spent outside Norway",
-      "ingress": "We need to know if the deceased has lived or worked outside Norway. This may affect both the size of the survivor’s pension you receive and give you pension rights from other countries.",
+      "ingress": "We need to know if the deceased has lived or worked outside Norway. This may both affectthe size of the survivor’s pension you receive and give you pension rights from other countries.",
       "svar": "Had the deceased lived or worked in a country other than Norway after the age of 16?",
       "oppholdUtland": {
         "land": "Country",
@@ -259,7 +259,7 @@
       "tittel": "Other"
     },
     "harAvtjentMilitaerTjeneste": {
-      "svar": "Has the deceased carried out compulsory military or civil service that lasted at least 30 days?",
+      "svar": "Has the deceased carried out compulsory military or civil service for Norway that lasted at least 30 days?",
       "hjelpetekst": "This may result in earnings that are to be included in the calculation of your survivor’s pension",
       "beskrivelse": "In which year(s)? (optional)"
     },
@@ -274,7 +274,7 @@
     "etternavn": "Family name",
     "foedselsnummer": "The child’s Norwegian national identity number or D number",
     "relasjon": "Who are the parents of the child?",
-    "relasjonHjelpetekst": "We need to know if this is a child you share with the deceased (a “joint child”), the deceased’s child from another relationship, or your child from another relationship.",
+    "relasjonHjelpetekst": "We need to know if this is a child you share with the deceased, the deceased’s child from another relationship, or your child from another relationship.",
     "harBarnetVerge": {
       "svar": "Has a guardian been appointed for the child?",
       "navn": "Guardian’s name",
@@ -315,7 +315,7 @@
     "bosattUtland": {
       "svar": "Does the child live in a country other than Norway?",
       "land": "Country",
-      "adresse": "Overseas address"
+      "adresse": "Address outside Norway"
     },
     "gravidEllerNyligFoedt": "Are you expecting a child or do you have children who have not yet been registered in the Norwegian National Registry?",
     "valgfritt": "This is optional"
@@ -332,7 +332,7 @@
       "tittel": "You must notify us of any changes",
       "informasjon": "\nYou must notify us promptly if any important changes occur in your life. Examples include:",
       "endringsListe": {
-        "sivilstatus": "if you get married, start living with your partner, or have children with your cohabiting partner",
+        "sivilstatus": "if you get married, get a cohabiting partner, or have children with your cohabiting partner",
         "inntekt": "if there is a change in your income",
         "bosted": "if you are going to move to or spend a prolonged period of time in another country"
       },
@@ -345,7 +345,7 @@
       }
     },
     "seSaken": {
-      "tittel": "Track your application",
+      "tittel": "Check the satus of your application",
       "informasjon": {
         "innhold1": "\nIf you log in to",
         "lenkeDittNAV": {
@@ -451,7 +451,6 @@
     "sesongarbeid": "Seasonal employee"
   },
   "ytelser": {
-    "velg": "Choose...",
     "dagpenger": "Unemployment benefit",
     "sykepenger": "Sickness benefit",
     "pleiepenger": "Attendance allowance",
@@ -482,7 +481,7 @@
   "utdanning": {
     "grunnskole": "Compulsory education (primary and lower secondary school)",
     "fagbrev": "Trade certificate",
-    "videregående": "Upper secondary education",
+    "videregående": "Upper secondary education or high school",
     "bachelorgrad": "University or college (up to 4 years)",
     "mastergrad": "University or college (more than 4 years)",
     "ingen": "No education",
@@ -507,7 +506,10 @@
     "datoformat": "(dd.mm.yyyy)",
     "sistLagret": "Last saved",
     "spraakValg": "Select language",
-    "velgLand": "Select country"
+    "velgLand": "Select country",
+    "elleveSiffer": "11 digits",
+    "datoEksempel": "e.g. 01.12.2020",
+    "velg": "Select ..."
   },
   "endreSvarOppsummering": {
     "om-deg": "Change answers about you",
@@ -717,6 +719,9 @@
           "required": "State whether you are waiting for a response to applications for other benefits"
         },
         "beskrivelse": {
+          "required": "State which benefits you have applied for"
+        },
+        "ytelser": {
           "required": "State which benefits you have applied for"
         }
       },

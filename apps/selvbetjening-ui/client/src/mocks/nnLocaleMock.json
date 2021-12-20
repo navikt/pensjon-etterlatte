@@ -230,7 +230,7 @@
     "statsborgerskapPlaceholder": "Eks. norsk",
     "boddEllerJobbetUtland": {
       "tittel": "Opphald utanfor Noreg",
-      "ingress": "Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan ha påverknad både på kor mykje du kan få i attlevandepensjon og gi deg pensjonsrettar frå andre land.",
+      "ingress": "Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i attlevandepensjon og gi deg pensjonsrettar frå andre land.",
       "svar": "Budde eller arbeidde han eller ho i eit anna land enn Noreg etter fylte 16 år?",
       "oppholdUtland": {
         "land": "Land",
@@ -345,7 +345,7 @@
       }
     },
     "seSaken": {
-      "tittel": "Sjekk saka di",
+      "tittel": "Sjekk status i saka di",
       "informasjon": {
         "innhold1": "\nHvis du loggar inn i",
         "lenkeDittNAV": {
@@ -389,7 +389,7 @@
       },
       "andreInformasjon": "Tek du utdanning eller søker jobb? Då kan du også ha rett til støtte til barnepass og utgifter du har i forbindelse med utdanning eller jobbsøking:"
     },
-     "spoersmaal": {
+    "spoersmaal": {
       "knapp": "Avslutt"
     }
   },
@@ -451,7 +451,6 @@
     "sesongarbeid": "Sesongansatt"
   },
   "ytelser": {
-    "velg": "Vel...",
     "dagpenger": "Dagpengar",
     "sykepenger": "Sjukepengar",
     "pleiepenger": "Pleiepengar",
@@ -505,7 +504,12 @@
     "ingenInfo": "Ingen informasjon",
     "ikkePaakrevd": "(valfritt)",
     "datoformat": "(dd.mm.åååå)",
-    "sistLagret": "Sist lagra"
+    "sistLagret": "Sist lagra",
+    "spraakValg": "Velg språk",
+    "velgLand": "Velg land",
+    "elleveSiffer": "11 siffer",
+    "datoEksempel": "eks: 01.12.2020",
+    "velg": "Velg ..."
   },
   "endreSvarOppsummering": {
     "om-deg": "Endre svar om deg",
@@ -715,6 +719,9 @@
           "required": "Oppgi om du ventar svar på andre ytingar"
         },
         "beskrivelse": {
+          "required": "Oppgi ytingar du har søkt om"
+        },
+        "ytelser": {
           "required": "Oppgi ytingar du har søkt om"
         }
       },

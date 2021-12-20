@@ -270,9 +270,9 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 id="123"
               >
                 <option
-                  value="Velg land"
+                  value="felles.velgLand"
                 >
-                  Velg land
+                  felles.velgLand
                 </option>
               </select>
             </div>

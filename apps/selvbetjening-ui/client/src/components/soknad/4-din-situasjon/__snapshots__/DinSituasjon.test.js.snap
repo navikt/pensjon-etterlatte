@@ -185,7 +185,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   class="skjemaelement__input"
                 >
                   <option>
-                    Velg ...
+                    felles.velg
                   </option>
                   <option
                     value="stillingType.fast"
@@ -771,7 +771,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               class="skjemaelement__input"
             >
               <option>
-                ytelser.velg
+                felles.velg
               </option>
               <option
                 value="ytelser.dagpenger"
@@ -1059,9 +1059,9 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               class="skjemaelement__input"
             >
               <option
-                value="Velg land"
+                value="felles.velgLand"
               >
-                Velg land
+                felles.velgLand
               </option>
             </select>
           </div>
@@ -1331,7 +1331,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                   class="skjemaelement__input"
                 >
                   <option>
-                    Velg ...
+                    felles.velg
                   </option>
                   <option
                     value="stillingType.fast"
@@ -1757,7 +1757,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               class="skjemaelement__input"
             >
               <option>
-                ytelser.velg
+                felles.velg
               </option>
               <option
                 value="ytelser.dagpenger"
@@ -2045,9 +2045,9 @@ exports[`Om den avdøde Snapshot 1`] = `
               class="skjemaelement__input"
             >
               <option
-                value="Velg land"
+                value="felles.velgLand"
               >
-                Velg land
+                felles.velgLand
               </option>
             </select>
           </div>
