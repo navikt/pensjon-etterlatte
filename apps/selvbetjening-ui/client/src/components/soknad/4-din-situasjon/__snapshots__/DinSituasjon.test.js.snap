@@ -184,7 +184,9 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   aria-invalid="false"
                   class="skjemaelement__input"
                 >
-                  <option>
+                  <option
+                    value=""
+                  >
                     felles.velg
                   </option>
                   <option
@@ -770,7 +772,9 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               aria-invalid="false"
               class="skjemaelement__input"
             >
-              <option>
+              <option
+                value=""
+              >
                 felles.velg
               </option>
               <option
@@ -1059,7 +1063,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               class="skjemaelement__input"
             >
               <option
-                value="felles.velgLand"
+                value=""
               >
                 felles.velgLand
               </option>
@@ -1330,7 +1334,9 @@ exports[`Om den avdøde Snapshot 1`] = `
                   aria-invalid="false"
                   class="skjemaelement__input"
                 >
-                  <option>
+                  <option
+                    value=""
+                  >
                     felles.velg
                   </option>
                   <option
@@ -1756,7 +1762,9 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               class="skjemaelement__input"
             >
-              <option>
+              <option
+                value=""
+              >
                 felles.velg
               </option>
               <option
@@ -2045,7 +2053,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               class="skjemaelement__input"
             >
               <option
-                value="felles.velgLand"
+                value=""
               >
                 felles.velgLand
               </option>

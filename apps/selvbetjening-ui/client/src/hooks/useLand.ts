@@ -65,7 +65,7 @@ export const useLand = (): UseLand  => {
 
         landliste.unshift({
             label: t("felles.velgLand"),
-            value: t("felles.velgLand")
+            value: t("")
         });
         return landliste;
     };

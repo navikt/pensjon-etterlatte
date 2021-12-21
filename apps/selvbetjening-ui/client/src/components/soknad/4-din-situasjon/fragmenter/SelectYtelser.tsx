@@ -8,7 +8,7 @@ const SelectYtelser = () => {
 
     const liste =
         [
-            { label: t("felles.velg"), value: undefined },
+            { label: t("felles.velg"), value: '' },
             {
                 label: t("ytelser.dagpenger"),
                 value: Ytelser.dagpenger,
@@ -62,8 +62,6 @@ const SelectYtelser = () => {
             selectOptions={liste}
         />
     )
-
-
 }
 
 export default SelectYtelser;
