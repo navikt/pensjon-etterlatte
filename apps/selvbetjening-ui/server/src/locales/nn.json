@@ -57,8 +57,8 @@
       "tekst": "Meir om barnepensjon"
     },
     "uthentingAvInfo": {
-      "tittel": "Vi henter informasjon",
-      "innhold": "Vi henter informasjon om deg, avdøde, eventuelle barn og eventuell sambuar for å kunne behandle søknaden din.",
+      "tittel": "Vi henter informasjonen vi trenger",
+      "innhold": "For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell sambuar.\nVi henter:",
       "innholdListe": {
         "li1": "<strong>Personinformasjon</strong> frå Folkeregisteret",
         "li2": "<strong>Inntektsinformasjon</strong> frå Skatteetaten",
