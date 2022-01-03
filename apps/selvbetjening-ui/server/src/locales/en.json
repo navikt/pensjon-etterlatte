@@ -42,7 +42,7 @@
         "tekst": "a printed form."
       },
       "lenkeGjenlevende": {
-        "href": "https://www.nav.no/mistet-noen#ektefelle",
+        "href": "https://www.nav.no/en/home/benefits-and-services/relatert-informasjon/benefits-for-surviving-spouse",
         "tekst": "Read more about survivor’s pension"
       },
       "lenkeOvergangsstoenad": {
@@ -303,7 +303,7 @@
         "svar": "Do you want us to deduct tax from the children’s pension?",
         "hjelpetekst": "Children’s pensions are taxable, but we do not deduct tax from the payment amount unless we are instructed to do so. If you have any questions about tax, you must contact the Norwegian Tax Administration (“Skatteetaten”).",
         "trekkprosent": "Enter the desired tax deduction",
-        "placeholder": "as a percentage; for example, 20%"
+        "placeholder": "e.g. 20%"
       }
     },
     "infokort": {
@@ -706,7 +706,7 @@
           "required": "Enter the date you started the education"
         },
         "sluttDato": {
-          "required": "Enter the date you ended the education"
+          "required": "Enter the date your education will end"
         }
       }
     },
