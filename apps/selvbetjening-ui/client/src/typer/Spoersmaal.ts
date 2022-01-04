@@ -1,5 +1,5 @@
 export enum IValg {
-    JA = "Ja",
-    NEI = "Nei",
-    VET_IKKE = "Vet ikke",
+    JA = "radiobuttons.ja",
+    NEI = "radiobuttons.nei",
+    VET_IKKE = "radiobuttons.vetIkke",
 }

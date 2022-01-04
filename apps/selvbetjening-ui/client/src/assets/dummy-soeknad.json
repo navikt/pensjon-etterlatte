@@ -3,12 +3,12 @@
   "sistLagretDato": "2021-08-10T08:55:28.330Z",
   "klarForLagring": true,
   "omDeg": {
-    "bostedsadresseBekreftet": "Nei",
+    "bostedsadresseBekreftet": "radiobuttons.nei",
     "kontaktinfo": {
       "telefonnummer": "999 88 777",
       "epost": "test@nav.no"
     },
-    "oppholderSegINorge": "Ja",
+    "oppholderSegINorge": "radiobuttons.ja",
     "alternativAdresse": "Testveien 123, 0594 Oslo",
     "utbetalingsInformasjon": {
       "kontonummer": "1351.35.13513"
@@ -32,7 +32,7 @@
     "foedselsnummer": "24014021406",
     "statsborgerskap": "Norsk",
     "boddEllerJobbetUtland": {
-      "svar": "Ja",
+      "svar": "radiobuttons.ja",
       "oppholdUtland": [
         {
           "land": "Kongo",
@@ -42,7 +42,7 @@
           ],
           "fraDato": "2002-08-10T22:00:00.000Z",
           "tilDato": "2003-08-10T22:00:00.000Z",
-          "medlemFolketrygd": "Ja",
+          "medlemFolketrygd": "radiobuttons.ja",
           "mottokPensjon": {
             "beskrivelse": "150.000"
           }
@@ -50,15 +50,15 @@
       ]
     },
     "selvstendigNaeringsdrivende": {
-      "svar": "Ja",
+      "svar": "radiobuttons.ja",
       "beskrivelse": "150 000"
     },
     "haddePensjonsgivendeInntekt": {
-      "svar": "Nei"
+      "svar": "radiobuttons.nei"
     },
-    "doedsfallAarsak": "Ja",
+    "doedsfallAarsak": "radiobuttons.ja",
     "harAvtjentMilitaerTjeneste": {
-      "svar": "Ja",
+      "svar": "radiobuttons.ja",
       "beskrivelse": "1984"
     }
   },
@@ -71,15 +71,15 @@
     },
     "andreYtelser": {
       "kravOmAnnenStonad": {
-        "svar": "Ja",
+        "svar": "radiobuttons.ja",
         "ytelser": "ytelser.dagpenger"
       },
       "annenPensjon": {
-        "svar": "Ja",
+        "svar": "radiobuttons.ja",
         "beskrivelse": "Skandia"
       },
       "mottarPensjonUtland": {
-        "svar": "Ja",
+        "svar": "radiobuttons.ja",
         "hvaSlagsPensjon": "Polsk Uførepensjon",
         "fraHvilketLand": "Polen",
         "bruttobeloepPrAar": "4000 PLN"
@@ -91,14 +91,14 @@
         "ansettelsesforhold": "stillingType.midlertidig",
         "stillingsprosent": "100%",
         "forventerEndretInntekt": {
-          "svar": "Ja",
+          "svar": "radiobuttons.ja",
           "beskrivelse": "Forventer økt inntekt"
         }
       }
     ]
   },
   "opplysningerOmBarn": {
-    "gravidEllerNyligFoedt": "Ja",
+    "gravidEllerNyligFoedt": "radiobuttons.ja",
     "barn": [
       {
         "fornavn": "Treg",
@@ -106,11 +106,11 @@
         "foedselsnummer": "24014021406",
         "statsborgerskap": "Norsk",
         "bosattUtland": {
-          "svar": "Nei"
+          "svar": "radiobuttons.nei"
         },
         "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
         "harBarnetVerge": {
-          "svar": "Nei"
+          "svar": "radiobuttons.nei"
         }
       },
       {
@@ -119,11 +119,11 @@
         "foedselsnummer": "19016424830",
         "statsborgerskap": "Norsk",
         "bosattUtland": {
-          "svar": "Nei"
+          "svar": "radiobuttons.nei"
         },
         "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
         "harBarnetVerge": {
-          "svar": "Nei"
+          "svar": "radiobuttons.nei"
         }
       }
     ]
