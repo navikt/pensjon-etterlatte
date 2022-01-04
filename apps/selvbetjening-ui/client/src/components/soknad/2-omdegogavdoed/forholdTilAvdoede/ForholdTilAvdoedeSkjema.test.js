@@ -46,7 +46,7 @@ describe("Forhold til avdoede", () => {
     it("Samboer skal vise spørsmål om felles barn", () => {
         const { result } = renderHook(() =>
             useForm({
-                defaultValues: { forholdTilAvdoede: { relasjon: "avdoede.relasjon.samboer", fellesBarn: "Nei" } },
+                defaultValues: { forholdTilAvdoede: { relasjon: "avdoede.relasjon.samboer", fellesBarn: "radiobuttons.nei" } },
             })
         );
         const { getByText } = render(
@@ -61,7 +61,7 @@ describe("Forhold til avdoede", () => {
 
     it("Skilt skal vise inngått partnerskap", () => {
         const { result } = renderHook(() =>
-            useForm({ defaultValues: { forholdTilAvdoede: { relasjon: "avdoede.relasjon.skilt", fellesBarn: "Ja" } } })
+            useForm({ defaultValues: { forholdTilAvdoede: { relasjon: "avdoede.relasjon.skilt", fellesBarn: "radiobuttons.ja" } } })
         );
         const { getByLabelText, getByText } = render(
             <FormProvider {...result.current}>
@@ -78,7 +78,7 @@ describe("Forhold til avdoede", () => {
         const { result } = renderHook(() =>
             useForm({
                 defaultValues: {
-                    forholdTilAvdoede: { relasjon: "avdoede.relasjon.tidligereSamboer", fellesBarn: "Ja" },
+                    forholdTilAvdoede: { relasjon: "avdoede.relasjon.tidligereSamboer", fellesBarn: "radiobuttons.ja" },
                 },
             })
         );

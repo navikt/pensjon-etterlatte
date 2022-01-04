@@ -40,7 +40,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 name="bostedsadresseBekreftet"
                 required=""
                 type="radio"
-                value="Ja"
+                value="radiobuttons.ja"
               />
               <span
                 class="inputPanel__label"
@@ -61,7 +61,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 name="bostedsadresseBekreftet"
                 required=""
                 type="radio"
-                value="Nei"
+                value="radiobuttons.nei"
               />
               <span
                 class="inputPanel__label"
@@ -209,7 +209,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 name="oppholderSegINorge"
                 required=""
                 type="radio"
-                value="Ja"
+                value="radiobuttons.ja"
               />
               <span
                 class="inputPanel__label"
@@ -230,7 +230,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 name="oppholderSegINorge"
                 required=""
                 type="radio"
-                value="Nei"
+                value="radiobuttons.nei"
               />
               <span
                 class="inputPanel__label"
@@ -311,7 +311,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 name="medlemFolketrygdenUtland"
                 required=""
                 type="radio"
-                value="Ja"
+                value="radiobuttons.ja"
               />
               <span
                 class="inputPanel__label"
@@ -332,7 +332,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 name="medlemFolketrygdenUtland"
                 required=""
                 type="radio"
-                value="Nei"
+                value="radiobuttons.nei"
               />
               <span
                 class="inputPanel__label"

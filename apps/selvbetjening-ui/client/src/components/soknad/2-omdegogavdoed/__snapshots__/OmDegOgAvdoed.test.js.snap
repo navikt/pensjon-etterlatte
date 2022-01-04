@@ -469,7 +469,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
                   required=""
                   type="radio"
-                  value="Ja"
+                  value="radiobuttons.ja"
                 />
                 <span
                   class="inputPanel__label"
@@ -487,7 +487,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
                   required=""
                   type="radio"
-                  value="Nei"
+                  value="radiobuttons.nei"
                 />
                 <span
                   class="inputPanel__label"

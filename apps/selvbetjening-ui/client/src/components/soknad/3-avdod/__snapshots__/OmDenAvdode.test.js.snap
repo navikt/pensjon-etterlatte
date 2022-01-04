@@ -157,7 +157,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 name="boddEllerJobbetUtland.svar"
                 required=""
                 type="radio"
-                value="Ja"
+                value="radiobuttons.ja"
               />
               <span
                 class="inputPanel__label"
@@ -175,7 +175,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 name="boddEllerJobbetUtland.svar"
                 required=""
                 type="radio"
-                value="Nei"
+                value="radiobuttons.nei"
               />
               <span
                 class="inputPanel__label"
@@ -193,7 +193,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 name="boddEllerJobbetUtland.svar"
                 required=""
                 type="radio"
-                value="Vet ikke"
+                value="radiobuttons.vetIkke"
               />
               <span
                 class="inputPanel__label"
@@ -258,7 +258,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 name="selvstendigNaeringsdrivende.svar"
                 required=""
                 type="radio"
-                value="Ja"
+                value="radiobuttons.ja"
               />
               <span
                 class="inputPanel__label"
@@ -276,7 +276,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 name="selvstendigNaeringsdrivende.svar"
                 required=""
                 type="radio"
-                value="Nei"
+                value="radiobuttons.nei"
               />
               <span
                 class="inputPanel__label"
@@ -294,7 +294,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 name="selvstendigNaeringsdrivende.svar"
                 required=""
                 type="radio"
-                value="Vet ikke"
+                value="radiobuttons.vetIkke"
               />
               <span
                 class="inputPanel__label"
@@ -392,7 +392,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                   name="doedsfallAarsak"
                   required=""
                   type="radio"
-                  value="Ja"
+                  value="radiobuttons.ja"
                 />
                 <span
                   class="inputPanel__label"
@@ -410,7 +410,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                   name="doedsfallAarsak"
                   required=""
                   type="radio"
-                  value="Nei"
+                  value="radiobuttons.nei"
                 />
                 <span
                   class="inputPanel__label"
@@ -428,7 +428,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                   name="doedsfallAarsak"
                   required=""
                   type="radio"
-                  value="Vet ikke"
+                  value="radiobuttons.vetIkke"
                 />
                 <span
                   class="inputPanel__label"
@@ -505,7 +505,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 name="harAvtjentMilitaerTjeneste.svar"
                 required=""
                 type="radio"
-                value="Ja"
+                value="radiobuttons.ja"
               />
               <span
                 class="inputPanel__label"
@@ -523,7 +523,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 name="harAvtjentMilitaerTjeneste.svar"
                 required=""
                 type="radio"
-                value="Nei"
+                value="radiobuttons.nei"
               />
               <span
                 class="inputPanel__label"
@@ -541,7 +541,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 name="harAvtjentMilitaerTjeneste.svar"
                 required=""
                 type="radio"
-                value="Vet ikke"
+                value="radiobuttons.vetIkke"
               />
               <span
                 class="inputPanel__label"
