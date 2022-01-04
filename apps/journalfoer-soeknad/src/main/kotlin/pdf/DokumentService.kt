@@ -5,27 +5,31 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import dokarkiv.DokumentKategori
 import dokarkiv.DokumentVariant
 import dokarkiv.JournalpostDokument
+import io.ktor.client.features.ResponseException
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import org.slf4j.LoggerFactory
 import pdf.PdfGenerator
-import java.util.Base64
+import java.util.*
 
 class DokumentService(private val klient: PdfGenerator) {
     private val logger = LoggerFactory.getLogger(DokumentService::class.java)
 
     private val encoder = Base64.getEncoder()
 
-    fun opprettJournalpostDokument(soeknadId: String, skjemaInfo: JsonNode, template: String): JournalpostDokument {
-        val arkivPdf = opprettArkivPdf(soeknadId, skjemaInfo, template)
-        val originalJson = opprettOriginalJson(soeknadId, skjemaInfo)
+    fun opprettJournalpostDokument(soeknadId: String, skjemaInfo: JsonNode, template: String): JournalpostDokument =
+        try {
+            val arkivPdf = opprettArkivPdf(soeknadId, skjemaInfo, template)
+            val originalJson = opprettOriginalJson(soeknadId, skjemaInfo)
 
-        return JournalpostDokument(
-            tittel = SOEKNAD_TITTEL,
-            dokumentKategori = DokumentKategori.SOK,
-            dokumentvarianter = listOf(arkivPdf, originalJson)
-        )
-    }
+            JournalpostDokument(
+                tittel = SOEKNAD_TITTEL,
+                dokumentKategori = DokumentKategori.SOK,
+                dokumentvarianter = listOf(arkivPdf, originalJson)
+            )
+        } catch (e: ResponseException) {
+            throw PdfGeneratorException(soeknadId, e)
+        }
 
     private fun opprettArkivPdf(soeknadId: String, skjemaInfo: JsonNode, template: String): DokumentVariant.ArkivPDF {
         logger.info("Generer PDF for søknad med id $soeknadId")
@@ -45,3 +49,6 @@ class DokumentService(private val klient: PdfGenerator) {
         return DokumentVariant.OriginalJson(encoder.encodeToString(skjemaInfoBytes))
     }
 }
+
+class PdfGeneratorException(value: String, cause: Throwable) :
+    Exception("Klarte ikke å generere PDF for søknad med id $value", cause)

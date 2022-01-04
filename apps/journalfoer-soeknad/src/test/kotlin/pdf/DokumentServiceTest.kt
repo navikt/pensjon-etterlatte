@@ -4,20 +4,21 @@ import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import dokarkiv.DokumentKategori
 import dokarkiv.DokumentVariant
+import io.ktor.client.features.ResponseException
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.slot
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.pdf.DokumentService
+import no.nav.etterlatte.pdf.PdfGeneratorException
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 internal class DokumentServiceTest {
 
-    private val mockKlient = mockk<PdfGeneratorKlient> {
-        coEvery { genererPdf(any(), any()) } returns "et lite pdf-dokument".toByteArray()
-    }
+    private val mockKlient = mockk<PdfGeneratorKlient>()
 
     private val service = DokumentService(mockKlient)
 
@@ -29,6 +30,7 @@ internal class DokumentServiceTest {
 
     @Test
     fun `Opprettelse av dokumenter fungerer som forventet`() {
+        coEvery { mockKlient.genererPdf(any(), any()) } returns "et lite pdf-dokument".toByteArray()
         val dokument = service.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
 
         assertEquals(SOEKNAD_TITTEL, dokument.tittel)
@@ -48,6 +50,7 @@ internal class DokumentServiceTest {
 
     @Test
     fun `PDF genereres med korrekt data`() {
+        coEvery { mockKlient.genererPdf(any(), any()) } returns "et lite pdf-dokument".toByteArray()
         service.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
 
         val skjemaInfoSlot = slot<JsonNode>()
@@ -57,5 +60,14 @@ internal class DokumentServiceTest {
 
         assertEquals(skjemaInfo, skjemaInfoSlot.captured)
         assertEquals(template, templateSlot.captured)
+    }
+
+
+    @Test
+    fun `Feil mot generering av PDF skal kaste egen exception`() {
+        coEvery { mockKlient.genererPdf(any(), any()) } throws ResponseException(mockk(), "")
+        assertThrows<PdfGeneratorException> {
+            service.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
+        }
     }
 }

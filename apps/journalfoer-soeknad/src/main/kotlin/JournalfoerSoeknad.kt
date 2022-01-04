@@ -5,6 +5,7 @@ import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.pdf.DokumentService
+import no.nav.etterlatte.pdf.PdfGeneratorException
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.MessageProblems
@@ -50,6 +51,8 @@ internal class JournalfoerSoeknad(
             packet["@dokarkivRetur"] = dokarkivResponse
 
             context.publish(packet.toJson())
+        } catch (pdf: PdfGeneratorException) {
+            logger.error(pdf.message, pdf.cause)
         } catch (re: ResponseException) {
             logger.error("Duplikat: ", re)
         } catch (e: Exception) {
