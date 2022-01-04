@@ -60,6 +60,9 @@ spec:
         - application: sjekk-adressebeskyttelse
           namespace: etterlatte
           cluster: prod-gcp
+        - application: etterlatte-pdltjenester
+          namespace: etterlatte
+          cluster: prod-gcp
     outbound:
       external:
         - host: pdl-api.prod-fss-pub.nais.io
