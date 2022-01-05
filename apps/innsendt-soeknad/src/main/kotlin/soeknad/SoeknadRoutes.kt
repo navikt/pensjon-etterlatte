@@ -13,17 +13,19 @@ import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.route
 import no.nav.etterlatte.fnrFromToken
-import innsendtsoeknad.common.SoeknadType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.soeknad.SoeknadService
 
 fun Route.soeknadApi(service: SoeknadService) {
     post("/api/soeknad") {
-        call.application.environment.log.info("SoeknadRequest mottatt!")
+        call.application.environment.log.info("SoeknadRequest mottatt i innsendt-soeknad!")
 
-        val ferdigstiltOK = service.sendSoeknad(fnrFromToken(), call.receive<SoeknadRequest>())
-
-        call.application.environment.log.info("SoeknadRequest ferdigstilt ok: ${ferdigstiltOK}")
+        try {
+            val ferdigstiltOK = service.sendSoeknad(fnrFromToken(), call.receive())
+            call.application.environment.log.info("SoeknadRequest ferdigstilt ok: $ferdigstiltOK")
+        } catch (e: Exception) {
+            call.application.environment.log.error("Klarte ikke å lagre søknaden(e)", e)
+            throw e
+        }
 
         call.respond(HttpStatusCode.OK)
     }
