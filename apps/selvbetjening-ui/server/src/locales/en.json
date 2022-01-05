@@ -38,7 +38,7 @@
       "innhold": "If your spouse, partner or cohabitant has died, you may be entitled to a survivor’s pension or transitional benefit for survivors. You may also be entitled to support if you were previously married to, in a partnership with or cohabiting with the deceased. We will assess whether you are entitled to a survivor’s pension or transitional benefit, based on your situation. How much money you will receive depends on your current income.",
       "papirsoeknad": {
         "innhold": "If you are already receiving an old-age pension or disability benefit, you can apply for a survivor’s supplement. To apply for a survivor’s supplement, you must use",
-        "href": "https://www.nav.no",
+        "href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105",
         "tekst": "a printed form."
       },
       "lenkeGjenlevende": {
@@ -46,14 +46,14 @@
         "tekst": "Read more about survivor’s pension"
       },
       "lenkeOvergangsstoenad": {
-        "href": "https://www.nav.no/mistet-noen#ektefelle",
+        "href": "https://www.nav.no/overgangsstonad-gjenlevende",
         "tekst": "Read more about transitional benefit"
       }
     },
     "barnepensjon": {
       "tittel": "You can also apply for a children’s pension",
       "innhold": "If you have a joint child under the age of 18 with the deceased, the child(ren) may be entitled to a children’s pension. You can apply for both survivor’s pension and children’s pension using this application.",
-      "href": "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon",
+      "href": "https://www.nav.no/barnepensjon",
       "tekst": "Read more about children’s pension"
     },
     "uthentingAvInfo": {
@@ -408,7 +408,7 @@
     },
     "infolenker": {
       "barnepensjon": {
-        "href": "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon#chapter-3",
+        "href": "https://www.nav.no/barnepensjon",
         "tekst": "Here you can read more about who can get a children’s pension and how to apply."
       },
       "alderspensjon": {

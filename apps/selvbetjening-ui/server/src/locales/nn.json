@@ -38,22 +38,22 @@
       "innhold": "Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til attlevandepensjon eller overgangsstønad til atterlevande. Du kan også ha rett til støtte viss du tidlegare har vore gift, partnar eller sambuar med avdøde. Vi vil vurdere om du har rett på attlevandepensjon eller overgangsstønad basert på situasjonen din. Inntekta di avgjer kor mykje pengar du kan få.",
       "papirsoeknad": {
         "innhold": "Viss du allereie får alderspensjon eller uføretrygd kan du søke om attlevendetillegg. Da må du søke på",
-        "href": "https://www.nav.no",
+        "href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105",
         "tekst": "papir."
       },
       "lenkeGjenlevende": {
-        "href": "https://www.nav.no/mistet-noen#ektefelle",
+        "href": "https://www.nav.no/gjenlevendepensjon",
         "tekst": "Meir om attlevandepensjon"
       },
       "lenkeOvergangsstoenad": {
-        "href": "https://www.nav.no/mistet-noen#ektefelle",
+        "href": "https://www.nav.no/overgangsstonad-gjenlevende",
         "tekst": "Meir om overgangsstønad"
       }
     },
     "barnepensjon": {
       "tittel": "Du kan også søke om barnepensjon",
       "innhold": "Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om attlevandepensjon og barnepensjon i denne søknaden.",
-      "href": "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon",
+      "href": "https://www.nav.no/barnepensjon",
       "tekst": "Meir om barnepensjon"
     },
     "uthentingAvInfo": {
@@ -408,7 +408,7 @@
     },
     "infolenker": {
       "barnepensjon": {
-        "href": "https://www.nav.no/no/person/pensjon/andre-pensjonsordninger/barnepensjon#chapter-3",
+        "href": "https://www.nav.no/barnepensjon",
         "tekst": "Her kan du lese meir om kven som kan få barnepensjon og korleis du søker."
       },
       "alderspensjon": {
