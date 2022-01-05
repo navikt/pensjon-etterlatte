@@ -114,9 +114,9 @@
         }
       },
       {
-        "fornavn": "Smålig",
-        "etternavn": "Sykkel",
-        "foedselsnummer": "19016424830",
+        "fornavn": "Lunken",
+        "etternavn": "Floskel",
+        "foedselsnummer": "07010776133",
         "statsborgerskap": "Norsk",
         "bosattUtland": {
           "svar": "radiobuttons.nei"
@@ -124,6 +124,16 @@
         "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
         "harBarnetVerge": {
           "svar": "radiobuttons.nei"
+        },
+        "barnepensjon": {
+          "soeker": "radiobuttons.ja",
+          "kontonummer": {
+            "svar": "radiobuttons.ja"
+          },
+          "forskuddstrekk": {
+            "svar": "radiobuttons.ja",
+            "trekkprosent": "21%"
+          }
         }
       }
     ]
