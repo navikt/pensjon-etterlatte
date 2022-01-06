@@ -23,7 +23,7 @@ i18next.init({
 
 export const generateSummary = async (soeknad: any, bruker: any, locale?: any) =>
     await i18next.changeLanguage(locale).then((t) => {
-        const mapper = new SoeknadMapper(t, i18next);
+        const mapper = new SoeknadMapper(t);
         return mapper.lagOppsummering(soeknad, bruker);
     });
 
