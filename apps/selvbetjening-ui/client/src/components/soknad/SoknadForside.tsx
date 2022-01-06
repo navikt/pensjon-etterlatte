@@ -119,7 +119,7 @@ const SoknadForside = () => {
                     </li>
                 </ul>
 
-                <BodyLong spacing>
+                <BodyLong>
                     <Link href={t("forside.uthentingAvInfo.lenke1.href")}>
                         {t("forside.uthentingAvInfo.lenke1.tekst")}
                     </Link>
