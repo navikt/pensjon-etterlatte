@@ -34,7 +34,7 @@ const InnloggetBruker = memo(() => {
                         <BodyShort spacing>{state.foedselsnummer}</BodyShort>
                     </div>
 
-                    {state.adresse &&
+                    {state.adresse && !state.adressebeskyttelse && (
                         <div>
                             <Label>{t("felles.adresse")}</Label>
                             <BodyShort spacing>
@@ -43,7 +43,7 @@ const InnloggetBruker = memo(() => {
                                 {state.husbokstav ? ` ${state.husbokstav}` : ""}, {state.postnummer} {state.poststed}
                             </BodyShort>
                         </div>
-                    }
+                    )}
                 </Cell>
 
                 <Cell xs={6}>
