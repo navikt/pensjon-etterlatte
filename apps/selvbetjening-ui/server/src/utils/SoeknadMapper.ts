@@ -1,7 +1,7 @@
 import ObjectTreeReader, { Element, Gruppe } from "./ObjectTreeReader";
 import { ISituasjon } from "../typer/situasjon";
 import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed } from "../typer/person";
-import { i18n, TFunction } from "i18next";
+import { TFunction } from "i18next";
 import { IBruker } from "../typer/bruker";
 import { ISoeknad } from "../typer/soknad";
 import { StegPath } from "../typer/steg";
@@ -11,9 +11,9 @@ export default class SoeknadMapper {
     private otr: ObjectTreeReader;
     private readonly t: TFunction;
 
-    constructor(t: TFunction, i18n: i18n) {
+    constructor(t: TFunction) {
         this.t = t;
-        this.otr = new ObjectTreeReader(t, i18n);
+        this.otr = new ObjectTreeReader(t);
     }
 
     lagOppsummering(soeknad: ISoeknad, bruker: IBruker): Gruppe[] {

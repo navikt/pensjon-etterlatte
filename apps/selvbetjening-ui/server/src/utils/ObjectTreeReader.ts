@@ -1,4 +1,4 @@
-import { i18n, TFunction } from "i18next";
+import { TFunction } from "i18next";
 import { StegPath } from "../typer/steg";
 
 export interface Innhold {
@@ -42,9 +42,16 @@ export default class ObjectTreeReader {
     private dtf: Intl.DateTimeFormat;
     private readonly t: TFunction;
 
-    constructor(t: TFunction, i18n: i18n) {
+    constructor(t: TFunction) {
         this.t = t;
-        this.dtf = Intl.DateTimeFormat(i18n.language, { day: "2-digit", month: "2-digit", year: "numeric" });
+
+        // Behold norsk formattering på datoer.
+        this.dtf = Intl.DateTimeFormat("no-NO", {
+            timeZone: "Europe/Oslo",
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        });
     }
 
     traverse<T>(object: T, baseKey?: string): Innhold[] {
