@@ -168,11 +168,11 @@
           },
           "startDato": {
             "spoersmaal": "Fra dato",
-            "svar": "2021-11-29T23:00:00.000Z"
+            "svar": "2021-11-29"
           },
           "sluttDato": {
             "spoersmaal": "Til dato",
-            "svar": "2021-12-15T23:00:00.000Z"
+            "svar": "2021-12-15"
           }
         }
       },
@@ -232,7 +232,7 @@
       },
       "datoForInngaattPartnerskap": {
         "spoersmaal": "Vi giftet oss",
-        "svar": "2021-11-02T23:00:00.000Z"
+        "svar": "2021-11-02"
       },
       "fellesBarn": {
         "spoersmaal": "Har eller hadde dere felles barn?",
@@ -251,7 +251,7 @@
     "foedselsnummer": "11057523044",
     "datoForDoedsfallet": {
       "spoersmaal": "Når skjedde dødsfallet?",
-      "svar": "2021-11-28T23:00:00.000Z"
+      "svar": "2021-11-28"
     },
     "statsborgerskap": {
       "spoersmaal": "Statsborgerskap",
@@ -268,11 +268,11 @@
           },
           "fraDato": {
             "spoersmaal": "Fra dato (valgfri)",
-            "svar": "2021-10-31T23:00:00.000Z"
+            "svar": "2021-10-31"
           },
           "tilDato": {
             "spoersmaal": "Til dato (valgfri)",
-            "svar": "2021-11-01T23:00:00.000Z"
+            "svar": "2021-11-01"
           },
           "oppholdsType": {
             "spoersmaal": "Bodd og/eller arbeidet?",

@@ -111,7 +111,7 @@
       "foedselsnummer": "11057523044",
       "datoForDoedsfallet": {
         "spoersmaal": "Når skjedde dødsfallet?",
-        "svar": "2021-07-26T22:00:00.000Z"
+        "svar": "2021-07-26"
       },
       "statsborgerskap": {
         "spoersmaal": "Statsborgerskap",
@@ -128,11 +128,11 @@
             },
             "fraDato": {
               "spoersmaal": "Fra dato (valgfri)",
-              "svar": "2002-08-10T22:00:00.000Z"
+              "svar": "2002-08-10"
             },
             "tilDato": {
               "spoersmaal": "Til dato (valgfri)",
-              "svar": "2003-08-10T22:00:00.000Z"
+              "svar": "2003-08-10"
             },
             "oppholdsType": {
               "spoersmaal": "Bodd og/eller arbeidet?",
@@ -245,6 +245,5 @@
         "svar": "NEI"
       }
     }
-  ],
-  "soesken": []
+  ]
 }
