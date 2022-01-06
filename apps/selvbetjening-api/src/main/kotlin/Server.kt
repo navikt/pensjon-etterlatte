@@ -2,6 +2,7 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import io.ktor.application.install
 import io.ktor.features.CallLogging
@@ -13,6 +14,7 @@ import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
+import no.nav.etterlatte.common.LocalDateSerializer
 import no.nav.etterlatte.health.healthApi
 import no.nav.etterlatte.kodeverk.kodeverkApi
 import no.nav.etterlatte.ktortokenexchange.installAuthUsing
@@ -20,6 +22,7 @@ import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
 import org.slf4j.event.Level
+import java.time.LocalDate
 import java.util.logging.Logger
 
 class Server(applicationContext: ApplicationContext) {
@@ -36,6 +39,7 @@ class Server(applicationContext: ApplicationContext) {
                     disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
                     disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
                     registerModule(JavaTimeModule())
+                    registerModule(SimpleModule().addDeserializer(LocalDate::class.java, LocalDateSerializer()))
                 }
             }
             installAuthUsing(securityContext)
