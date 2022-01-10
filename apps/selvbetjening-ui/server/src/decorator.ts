@@ -18,6 +18,7 @@ const authProps = {
 const props: any = {
     ...authProps,
     env,
+    urlLookupTable: false,
     context: "privatperson",
     simple: true
 };
