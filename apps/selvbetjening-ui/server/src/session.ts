@@ -43,20 +43,22 @@ const setupRedis = (): RedisStore => {
     });
 };
 
-export const appSession: RequestHandler = () => {
+const setupSession = (): RequestHandler => {
     if (isProduction && !isLabsCluster) {
-        options.cookie!.secure = true;
+        options.cookie!!.secure = true;
         options.store = setupRedis();
     }
     return session(options);
 };
+
+export const appSession = setupSession();
 
 export const destroySessionBySid = (sid: any) => {
     logger.info(`Destroying session by SID: ${sid}`)
 
     return new Promise((resolve: any, reject: any) => {
         if (!options.store || !options.store.all) {
-            return resolve()
+            return resolve();
         }
 
         options.store.all((err: any, result: any) => {
