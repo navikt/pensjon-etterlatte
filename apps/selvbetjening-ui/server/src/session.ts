@@ -81,7 +81,7 @@ const destroySessionBySid = (sid: any) => {
     });
 };
 
-export {
+export default {
     appSession,
     destroySessionBySid
 };
