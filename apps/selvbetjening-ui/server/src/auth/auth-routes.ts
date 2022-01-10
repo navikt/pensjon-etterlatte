@@ -1,4 +1,4 @@
-import appSession from '../session';
+import { appSession, destroySessionBySid } from '../session';
 import { generators, TokenSet } from 'openid-client';
 import IDportenClient from './idporten';
 import config from '../config';
@@ -29,6 +29,7 @@ const setup = (app: any) => {
 
         logger.info("Initiating logout");
 
+        destroySessionBySid(req.sessionID);
         req.session.destroy((err: any) => {
             if (err) logger.error(err);
             else logger.info("Session destroyed")
@@ -84,6 +85,7 @@ const setup = (app: any) => {
         } else {
             const currentTokenSet = new TokenSet(currentTokens);
             if (currentTokenSet.expired()) {
+                logger.info("Token expired. Attempting token refresh.")
                 idporten.refresh(currentTokens)
                         .then((refreshedTokenSet: any) => {
                             session.tokens = new TokenSet(refreshedTokenSet);
