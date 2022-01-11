@@ -88,7 +88,7 @@ data class Avdoed(
 
     // Næringsinntekt og militærtjeneste er kun relevant dersom begge foreldrene er døde.
     val naeringsInntekt: BetingetOpplysning<Svar, Naeringsinntekt?>?,
-    val militaertjeneste: BetingetOpplysning<Svar, Opplysning<AarstallForMilitaerTjeneste>?>?
+    val militaertjeneste: BetingetOpplysning<Svar, Opplysning<AarstallForMilitaerTjeneste?>?>?
 ) : Person {
     override val type = PersonType.AVDOED
 }
