@@ -68,7 +68,8 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
     }
 
     let opplysningMilitaertjeneste: Opplysning<String> | undefined;
-    if (soeknad.omDenAvdoede.harAvtjentMilitaerTjeneste?.svar === IValg.JA) {
+    if (soeknad.omDenAvdoede.harAvtjentMilitaerTjeneste?.svar === IValg.JA
+        && !!soeknad.omDenAvdoede.harAvtjentMilitaerTjeneste!!.beskrivelse) {
         opplysningMilitaertjeneste = {
             spoersmaal: t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse"),
             svar: soeknad.omDenAvdoede.harAvtjentMilitaerTjeneste!!.beskrivelse!!
