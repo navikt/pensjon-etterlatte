@@ -32,7 +32,7 @@ const defaultSessionMaxAgeMillis = 60 * 60 * 1000; // 1 hour
 
 const session = {
     secret: process.env.SESSION_SECRET || "localhostsecret",
-    maxAgeMs: defaultSessionMaxAgeMillis,
+    maxAgeMs: Number(process.env.SESSION_MAX_AGE_MS) || defaultSessionMaxAgeMillis,
     redisHost: process.env.REDIS_HOST || 'localhost',
     redisPort: process.env.REDIS_PORT || 6379,
     redisPassword: process.env.REDIS_PASSWORD,
