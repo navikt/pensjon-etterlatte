@@ -20,19 +20,19 @@ const setup = (app: any) => {
     });
 
     app.get(`${basePath}/logout/callback`, async (req: any, res: any) => {
-        logger.info(`Redirect to: ${config.app.loginServiceLogoutUrl}`)
-        res.redirect(config.app.loginServiceLogoutUrl)
+        logger.info(`Redirect to: ${config.app.loginServiceLogoutUrl}`);
+        res.redirect(config.app.loginServiceLogoutUrl);
     });
 
     app.get(`${basePath}/logout`, async (req: any, res: any) => {
-        const idToken = new TokenSet(req.session.tokens).id_token
+        const idToken = new TokenSet(req.session.tokens).id_token;
 
         logger.info("Initiating logout");
 
         destroySessionBySid(req.sessionID);
         req.session.destroy((err: any) => {
             if (err) logger.error(err);
-            else logger.info("Session destroyed")
+            else logger.info("Session destroyed");
         });
 
         res.cookie("selvbetjening-idtoken", "", {
@@ -45,9 +45,9 @@ const setup = (app: any) => {
 
             res.redirect(endSessionUrl);
         } else {
-            logger.error("Error during logout")
+            logger.error("Error during logout");
             // TODO: Hvor skal vi redirecte brukeren dersom utlogging feiler?
-            res.redirect(config.idporten.postLogoutRedirectUri)
+            res.redirect(config.idporten.postLogoutRedirectUri);
         }
     });
 
@@ -77,25 +77,18 @@ const setup = (app: any) => {
 
     // check auth
     app.use(async (req: any, res: any, next: any) => {
-        const session = req.session;
-        const currentTokens = session.tokens;
+        const currentTokens = req.session.tokens;
 
-        if (!currentTokens) {
+        if (!currentTokens || new TokenSet(currentTokens).expired()) {
+            req.session.destroy((err: any) => {
+                if (err) logger.error(err);
+                else logger.info("Session destroyed");
+            });
+            res.cookie("selvbetjening-idtoken", "", {
+                expires: new Date(0),
+            });
             res.redirect(`${basePath}/login`);
         } else {
-            const currentTokenSet = new TokenSet(currentTokens);
-            if (currentTokenSet.expired()) {
-                logger.info("Token expired. Attempting token refresh.")
-                idporten.refresh(currentTokens)
-                        .then((refreshedTokenSet: any) => {
-                            session.tokens = new TokenSet(refreshedTokenSet);
-                        })
-                        .catch((err: any) => {
-                            logger.error("Feil oppsto ved refresh av token", err);
-                            session.destroy();
-                            res.redirect(`${basePath}/login`);
-                        });
-            }
             return next();
         }
     });

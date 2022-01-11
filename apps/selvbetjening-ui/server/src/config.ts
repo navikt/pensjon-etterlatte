@@ -28,7 +28,7 @@ const app = {
     loginServiceLogoutUrl: process.env.LOGINSERVICE_LOGOUT_URL
 };
 
-const defaultSessionMaxAgeMillis = 2 * 60 * 60 * 1000; // 2 hours
+const defaultSessionMaxAgeMillis = 60 * 60 * 1000; // 1 hour
 
 const session = {
     secret: process.env.SESSION_SECRET || "localhostsecret",
