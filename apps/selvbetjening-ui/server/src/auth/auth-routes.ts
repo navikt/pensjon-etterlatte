@@ -80,22 +80,9 @@ const setup = (app: any) => {
         const session = req.session;
         const currentTokens = session.tokens;
 
-        if (!currentTokens) {
+        if (!currentTokens || new TokenSet(currentTokens).expired()) {
             res.redirect(`${basePath}/login`);
         } else {
-            const currentTokenSet = new TokenSet(currentTokens);
-            if (currentTokenSet.expired()) {
-                logger.info("Token expired. Attempting token refresh.")
-                idporten.refresh(currentTokens)
-                        .then((refreshedTokenSet: any) => {
-                            session.tokens = new TokenSet(refreshedTokenSet);
-                        })
-                        .catch((err: any) => {
-                            logger.error("Feil oppsto ved refresh av token", err);
-                            session.destroy();
-                            res.redirect(`${basePath}/login`);
-                        });
-            }
             return next();
         }
     });
