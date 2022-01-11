@@ -20,9 +20,6 @@ Proxy for å tillate kommunikasjon mellom GCP og On-Prem.
 [ey-pdfgen](apps/ey-pdfgen) \
 Enkel app for opprettelse av PDF til journalføring. Benytter seg av [pdfgen](https://github.com/navikt/pdfgen)
 
-[heartbeat](apps/heartbeat) \
-`// TODO`
-
 [innsendt-soeknad](apps/innsendt-soeknad) \
 Database app for håndtering av søknader (lagring, uthenting, sending, m.m.).
 

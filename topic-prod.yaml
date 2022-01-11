@@ -22,9 +22,6 @@ spec:
       application: finn-etterlatte
       access: readwrite
     - team: etterlatte
-      application: heartbeat
-      access: readwrite
-    - team: etterlatte
       application: sjekk-alder-etterlatte
       access: readwrite
     - team: etterlatte

@@ -2,7 +2,6 @@ rootProject.name = "pensjon-etterlatte-root"
 
 include(
     "apps:etterlatte-proxy",
-    "apps:heartbeat",
     "libs:ktorclient-auth-clientcredentials",
     "libs:common",
     "libs:common-test",
