@@ -157,7 +157,7 @@ $width: 650px;
 .ey-modal {
   max-width: $width;
   width: 100%;
-  position: fixed;
+  position: fixed !important;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
