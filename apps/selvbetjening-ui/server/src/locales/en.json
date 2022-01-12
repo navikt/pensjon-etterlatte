@@ -923,5 +923,9 @@
         "validate": "Invalid national identity number"
       }
     }
+  },
+  "brukerLoggesUt": {
+    "alert": "You will be signed out in: ",
+    "knapp": "X-icon to close the message"
   }
 }

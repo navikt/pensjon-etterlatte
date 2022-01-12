@@ -919,5 +919,9 @@
         "validate": "Ugyldig fødselsnummer"
       }
     }
+  },
+  "brukerLoggesUt": {
+    "alert": "Du vil bli logget ut om: ",
+    "knapp": "X-ikon for å lukke meldingen"
   }
 }
