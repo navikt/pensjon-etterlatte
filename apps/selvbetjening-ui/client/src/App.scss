@@ -13,7 +13,7 @@ $width: 650px;
   .soeknad {
     padding: 2rem;
     margin: 0 auto;
-    max-width: $width;
+    max-width: $width !important;
     white-space: pre-line;
   }
 }
