@@ -925,7 +925,9 @@
     }
   },
   "brukerLoggesUt": {
-    "alert": "Du vil bli logget ut om: ",
-    "knapp": "X-ikon for å lukke meldingen"
+    "info1": "Du vil bli logget ut om",
+    "tid": "minutter",
+    "knapp": "X-ikon for å lukke meldingen",
+    "info2": "Du kan sende søknad nå eller fortsette senere. \n Søknaden din lagres i 72 timer."
   }
 }

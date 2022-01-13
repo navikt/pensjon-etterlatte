@@ -44,10 +44,12 @@ const App = () => {
                 {open && (
                     <div className="utlogging-alert-wrap">
                         <UtloggingsAlert onClose={() => setIsOpen(false)}>
-                            {t("brukerLoggesUt.alert")}
+                            {`${t("brukerLoggesUt.info1")} `}
                             <strong>
                                 <Nedteller {...props} />
                             </strong>
+                            {` ${t("brukerLoggesUt.tid")}.
+                            ${t("brukerLoggesUt.info2")}`}
                         </UtloggingsAlert>
                     </div>
                 )}
