@@ -43,8 +43,8 @@ spec:
     frontchannelLogoutPath: /gjenlevendepensjon/soknad/logout
     postLogoutRedirectURIs:
       - https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
-    accessTokenLifetime: 3600
-    sessionLifetime: 3600
+    accessTokenLifetime: 600
+    sessionLifetime: 600
   envFrom:
     - secret: redis-password
     - secret: session-encrypt-key
