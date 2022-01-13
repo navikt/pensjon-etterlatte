@@ -83,7 +83,7 @@ const setup = (app: any) => {
 
             res.send(`${expiry}`);
         } else {
-            res.send("");
+            res.sendStatus(401);
         }
     });
 
