@@ -20,7 +20,7 @@ import { SoeknadRequest } from "../../../api/dto/InnsendtSoeknad";
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
     const [soeknadOppsummering, setOppsummering] = useState<any>([]);
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const { state: soeknad } = useSoknadContext();
     const { state: bruker } = useBrukerContext();
@@ -32,7 +32,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     useEffect(() => {
         (async () => {
             if (isEmpty(soeknad) || isEmpty(bruker)) setOppsummering([]);
-            const soeknadOppsummering: any = await hentOppsummering({soeknad, bruker});
+            const soeknadOppsummering: any = await hentOppsummering({soeknad, bruker, locale: i18n.language});
             setOppsummering(soeknadOppsummering);
         })()
     }, [soeknad, bruker])
