@@ -96,4 +96,8 @@ export const mockApi = (app: any) => {
                 return res.json(nbLocale);
         }
     });
+
+    app.get(`${basePath}/oauth2/session`, async (req: any, res: any) => {
+        res.send("3600");
+    });
 };
