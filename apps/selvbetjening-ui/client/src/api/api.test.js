@@ -14,7 +14,7 @@ describe("Test sending av søknad", () => {
         const result = await sendSoeknad(soeknad);
 
         expect(axiosInstance.post).toHaveBeenCalledWith(
-                `/api/soeknad`,
+                `/api/api/soeknad`,
                 { ...soeknad }
         );
 
@@ -36,7 +36,7 @@ describe("Test lagring av søknad kladd", () => {
         const result = await lagreSoeknad(soeknad);
 
         expect(axiosInstance.post).toHaveBeenCalledWith(
-                `/api/kladd`,
+                `/api/api/kladd`,
                 {
                     ...soeknad,
                     klarForLagring: undefined
