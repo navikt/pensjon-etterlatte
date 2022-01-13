@@ -11,4 +11,4 @@ spec:
     pool: nav-dev
   env:
     - name: KAFKA_TARGET_TOPIC
-      value: dodsmelding
+      value: etterlatte.dodsmelding
