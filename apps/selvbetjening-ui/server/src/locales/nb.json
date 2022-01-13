@@ -154,6 +154,10 @@
   },
   "omDeg": {
     "tittel": "Om deg",
+    "undertittel": {
+      "personalia": "Personalia",
+      "opplysningerOmSoeker": "Opplysninger om søkeren"
+    },
     "advarsel": "Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.",
     "valgfritt": "Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.",
     "bostedsadresseBekreftet": "Bor du på denne adressen?",

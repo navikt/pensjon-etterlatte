@@ -154,6 +154,10 @@
   },
   "omDeg": {
     "tittel": "About you",
+    "undertittel": {
+      "personalia": "Personalia",
+      "opplysningerOmSoeker": "Information about the applicant"
+    },
     "advarsel": "If the information we have about you is incorrect, you must change it in the National Registry.",
     "valgfritt": "All fields must be filled in, apart from those marked as optional.",
     "bostedsadresseBekreftet": "Do you live at this address?",

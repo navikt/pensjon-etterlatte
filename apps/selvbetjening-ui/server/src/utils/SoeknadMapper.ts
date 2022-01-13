@@ -42,11 +42,11 @@ export default class SoeknadMapper {
             path: StegPath.OmDeg,
             elementer: [
                 {
-                    tittel: "Personalia",
+                    tittel: this.t("omDeg.undertittel.personalia"),
                     innhold: this.otr.traverse(personalia, "felles"),
                 },
                 {
-                    tittel: "Opplysninger om søkeren",
+                    tittel: this.t("omDeg.undertittel.opplysningerOmSoeker"),
                     innhold: this.otr.traverse<ISoeker>(
                         {
                             ...omDeg,
