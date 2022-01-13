@@ -7,7 +7,7 @@ import { Alert, BodyLong, Heading } from "@navikt/ds-react";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
-import { hentOppsummering, sendSoeknad } from "../../../api/api";
+import { sendSoeknad } from "../../../api/api";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
 import { LogEvents, useAmplitude } from "../../../utils/amplitude";
@@ -16,11 +16,12 @@ import {
     mapTilGjenlevendepensjonSoeknad
 } from "../../../api/mapper/soeknadMapper";
 import { SoeknadRequest } from "../../../api/dto/InnsendtSoeknad";
+import SoeknadMapper from "../../../utils/SoeknadMapper";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
     const [soeknadOppsummering, setOppsummering] = useState<any>([]);
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const { state: soeknad } = useSoknadContext();
     const { state: bruker } = useBrukerContext();
@@ -29,10 +30,12 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const [senderSoeknad, setSenderSoeknad] = useState(false);
     const [error, setError] = useState(false);
 
+    const mapper = new SoeknadMapper(t);
+
     useEffect(() => {
         (async () => {
             if (isEmpty(soeknad) || isEmpty(bruker)) setOppsummering([]);
-            const soeknadOppsummering: any = await hentOppsummering({soeknad, bruker, locale: i18n.language});
+            const soeknadOppsummering = mapper.lagOppsummering(soeknad, bruker);
             setOppsummering(soeknadOppsummering);
         })()
     }, [soeknad, bruker])

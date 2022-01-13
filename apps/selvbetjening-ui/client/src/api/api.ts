@@ -84,21 +84,6 @@ export const sendSoeknad = async (request: SoeknadRequest) => {
     }
 };
 
-export const hentOppsummering = async (soeknad: any) => {
-    const body = {
-        ...soeknad,
-        klarForLagring: undefined
-    };
-
-    try {
-        const response = await api.post("/api/oppsummering", body);
-        return response.data;
-    } catch (e: any) {
-        throw new Error(`Det skjedde en feil: ${e.message}`);
-    }
-}
-
-
 /**
  * Henter liste over land
  */
@@ -110,12 +95,3 @@ export const hentOppsummering = async (soeknad: any) => {
         throw new Error(`Det skjedde en feil: ${e.message}`);
     }
 };
-
-export const hentLocales = async (locale: string) => {
-    try{
-        const response = await api.get(`/api/locale/${locale}`)
-        return response.data;
-    } catch(e: any) {
-        throw new Error(`Det skjedde en feil: ${e.message}`)
-    }
-}

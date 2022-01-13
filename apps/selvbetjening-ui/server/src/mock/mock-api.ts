@@ -1,9 +1,6 @@
 import parser from 'body-parser';
 import NodeCache from 'node-cache';
 import mockLand from './landMock';
-import nbLocale from '../locales/nb.json';
-import nnLocale from '../locales/nn.json';
-import enLocale from '../locales/en.json';
 
 import {
     SEDAT_RIPSBÆRBUSK,
@@ -13,7 +10,6 @@ import {
     STOR_SNERK
 } from './mock-user';
 import config from '../config';
-import { generateSummary } from '../generateSummary';
 import { Request, Response, NextFunction } from 'express';
 
 
@@ -32,11 +28,6 @@ export const mockApi = (app: any) => {
         next();
     });
 
-    app.post(`${config.app.basePath}/api/oppsummering`, async (req: Request, res: Response) => {
-        const oppsummering = await generateSummary(req.body.soeknad, req.body.bruker, req.body.locale);
-        res.send(oppsummering)
-    });
-
     app.post(`${config.app.basePath}/api/api/soeknad`, async (req: Request, res: Response) => {
         res.sendStatus(200)
     });
@@ -47,7 +38,6 @@ export const mockApi = (app: any) => {
     app.post(`${config.app.basePath}/api/api/soeknad`, (req: Request, res: Response) => {
         const id = cache.get("id");
 
-        console.log(generateSummary(req.body.soeknad, req.body.bruker));
         if (!!id)
             return id;
 
@@ -85,19 +75,7 @@ export const mockApi = (app: any) => {
         return res.json(mockLand)
     });
 
-    app.get(`${config.app.basePath}/api/locale/:locale`, (req: Request, res: Response) => {
-        if(!req.params.locale) return res.status(500).send("Mangler locale-parameter");
-        switch(req.params.locale) {
-            case "nn":
-                return res.json(nnLocale);
-            case "en":
-                return res.json(enLocale);
-            default: 
-                return res.json(nbLocale);
-        }
-    });
-
-    app.get(`${config.app.basePath}/oauth2/session`, async (req: any, res: any) => {
+    app.get(`${config.app.basePath}/oauth2/session`, async (req: Request, res: Response) => {
         res.send("3600");
     });
 
