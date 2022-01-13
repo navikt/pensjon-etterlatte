@@ -1,17 +1,17 @@
 import { render } from "@testing-library/react";
-import TidsNedteller from "./TidsNedteller";
+import Nedteller from "./Nedteller";
 import { act } from "react-dom/test-utils";
 
-describe("TidsNedteller", () => {
+describe("Nedteller", () => {
     it("skal rendre default gjenvaerende tid", () => {
-        const { getByText } = render(<TidsNedteller />);
+        const { getByText } = render(<Nedteller />);
         expect(getByText("00:01:00")).toBeInTheDocument();
     });
 
     it("skal rendre 1 time, 3 minutter og 40 sekunder", () => {
         const props = { timer: 1, minutter: 3, sekunder: 40 };
 
-        const { getByText } = render(<TidsNedteller {...props} />);
+        const { getByText } = render(<Nedteller {...props} />);
         expect(getByText("01:03:40")).toBeInTheDocument();
     });
 
@@ -19,7 +19,7 @@ describe("TidsNedteller", () => {
         jest.useFakeTimers();
         const props = { timer: 1, minutter: 3, sekunder: 40 };
 
-        const { getByText } = render(<TidsNedteller {...props} />);
+        const { getByText } = render(<Nedteller {...props} />);
         expect(getByText("01:03:40")).toBeInTheDocument();
 
         act(() => {
@@ -36,7 +36,7 @@ describe("TidsNedteller", () => {
     it("skal kun vise minutter og sekunder", () => {
         const props = { timer: 1, minutter: 3, sekunder: 40, visTimer: false };
 
-        const { getByText } = render(<TidsNedteller {...props} />);
+        const { getByText } = render(<Nedteller {...props} />);
         expect(getByText("03:40")).toBeInTheDocument();
     });
 });

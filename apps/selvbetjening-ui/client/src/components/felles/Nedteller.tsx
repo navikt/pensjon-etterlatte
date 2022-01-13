@@ -7,7 +7,7 @@ interface TidNedtellerProps {
     visTimer?: boolean;
 }
 
-const TidsNedteller = ({ timer = 0, minutter = 1, sekunder = 0, visTimer = true }: TidNedtellerProps) => {
+const Nedteller = ({ timer = 0, minutter = 1, sekunder = 0, visTimer = true }: TidNedtellerProps) => {
     const [[tmr, mins, sek], setTid] = useState([timer, minutter, sekunder]);
 
     const tick = () => {
@@ -24,8 +24,8 @@ const TidsNedteller = ({ timer = 0, minutter = 1, sekunder = 0, visTimer = true 
     // const restart = () => setTid([timer, minutter, sekunder]); Kan være aktuelt å ha med til senere
 
     useEffect(() => {
-        const TidsNedtellerId = setInterval(() => tick(), 1000);
-        return () => clearInterval(TidsNedtellerId);
+        const NedtellerId = setInterval(() => tick(), 1000);
+        return () => clearInterval(NedtellerId);
     });
 
     return (
@@ -37,4 +37,4 @@ const TidsNedteller = ({ timer = 0, minutter = 1, sekunder = 0, visTimer = true 
     );
 };
 
-export default TidsNedteller;
+export default Nedteller;

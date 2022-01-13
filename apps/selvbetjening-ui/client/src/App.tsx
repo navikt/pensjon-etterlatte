@@ -9,7 +9,7 @@ import useInnloggetBruker from "./hooks/useInnloggetBruker";
 import { useAmplitude } from "./utils/amplitude";
 import { useSoknadContext } from "./context/soknad/SoknadContext";
 import { useTranslation } from "react-i18next";
-import TidsNedteller from "./components/felles/TidsNedteller";
+import Nedteller from "./components/felles/Nedteller";
 import UtloggingsAlert from "./components/felles/UtloggingsAlert";
 
 const App = () => {
@@ -46,7 +46,7 @@ const App = () => {
                         <UtloggingsAlert onClose={() => setIsOpen(false)}>
                             {t("brukerLoggesUt.alert")}
                             <strong>
-                                <TidsNedteller {...props} />
+                                <Nedteller {...props} />
                             </strong>
                         </UtloggingsAlert>
                     </div>
