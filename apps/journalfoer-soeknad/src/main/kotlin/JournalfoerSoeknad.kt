@@ -54,7 +54,7 @@ internal class JournalfoerSoeknad(
         } catch (pdf: PdfGeneratorException) {
             logger.error(pdf.message, pdf.cause)
         } catch (re: ResponseException) {
-            logger.error("Duplikat: ", re)
+            logger.error("Feil under journalføring av søknad (id=$soeknadId)", re)
         } catch (e: Exception) {
             logger.error("Ukjent feil oppsto under journalføring av søknad (id=$soeknadId): ", e)
         }
