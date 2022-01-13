@@ -1,8 +1,11 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import cl from "classnames";
 import { Close, InformationFilled } from "@navikt/ds-icons";
 import { Button } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
+import { hentUtløpstidForInnlogging} from "../../api/api";
+
+
 
 
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,6 +15,12 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(({ children, onClose, className, ...rest }, ref) => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+
+    hentUtløpstidForInnlogging().then((session: string) => console.log(session))
+
+}, [])
   
   return (
     <div {...rest} ref={ref} className={cl(className, "navds-alert", `navds-alert--warning`, `navds-alert--medium`)}>
