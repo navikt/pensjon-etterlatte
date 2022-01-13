@@ -75,6 +75,18 @@ const setup = (app: any) => {
                 });
     });
 
+    app.get(`${basePath}/oauth2/session`, async (req: any, res: any) => {
+        const currentTokens = req.session.tokens;
+
+        if (currentTokens) {
+            const expiry = new TokenSet(currentTokens).expires_in;
+
+            res.send(`${expiry}`);
+        } else {
+            res.send("");
+        }
+    });
+
     // check auth
     app.use(async (req: any, res: any, next: any) => {
         const currentTokens = req.session.tokens;
