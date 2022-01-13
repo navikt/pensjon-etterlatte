@@ -19,7 +19,7 @@ export const hentUtløpstidForInnlogging = async () => {
         const response = await api.get("/oauth2/session");
         return response.data;
     } catch (e) {
-        throw new Error("Det skjedde en feil");
+        throw new Error("Det skjedde en feil med session");
     }
 };
 
