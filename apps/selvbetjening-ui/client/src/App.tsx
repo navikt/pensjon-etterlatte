@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Redirect, Route, Switch } from "react-router";
 import SideIkkeFunnet from "./components/SideIkkeFunnet";
 import Banner from "./components/felles/Banner";
@@ -9,18 +8,13 @@ import useInnloggetBruker from "./hooks/useInnloggetBruker";
 import { useAmplitude } from "./utils/amplitude";
 import { useSoknadContext } from "./context/soknad/SoknadContext";
 import { useTranslation } from "react-i18next";
-import Nedteller from "./components/felles/Nedteller";
-import UtloggingsAlert from "./components/felles/UtloggingsAlert";
+import UtloeptSession from './components/felles/UtloeptSession'
 
 const App = () => {
     useInnloggetBruker();
     const soknadContext = useSoknadContext();
     useAmplitude();
     const { t } = useTranslation();
-
-    const [open, setIsOpen] = useState<boolean>(true);
-
-    const props = { minutter: 5, visTimer: false };
 
     return (
         <>
@@ -41,18 +35,7 @@ const App = () => {
                         <Alert variant="error">{soknadContext?.state?.error}</Alert>
                     </div>
                 )}
-                {open && (
-                    <div className="utlogging-alert-wrap">
-                        <UtloggingsAlert onClose={() => setIsOpen(false)}>
-                            {`${t("brukerLoggesUt.info1")} `}
-                            <strong>
-                                <Nedteller {...props} />
-                            </strong>
-                            {` ${t("brukerLoggesUt.tid")}.
-                            ${t("brukerLoggesUt.info2")}`}
-                        </UtloggingsAlert>
-                    </div>
-                )}
+                <UtloeptSession />
             </ContentContainer>
         </>
     );

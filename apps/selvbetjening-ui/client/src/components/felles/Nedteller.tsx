@@ -28,6 +28,10 @@ const Nedteller = ({ timer = 0, minutter = 1, sekunder = 0, visTimer = true }: T
         return () => clearInterval(NedtellerId);
     });
 
+    useEffect(() => {
+        setTid([timer, minutter, sekunder])
+    }, [timer, minutter, sekunder]);
+
     return (
         <>
             {`${visTimer ? (tmr.toString().padStart(2, "0") + ':') : ''}${mins.toString().padStart(2, "0")}:${sek

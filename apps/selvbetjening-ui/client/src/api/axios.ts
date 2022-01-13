@@ -4,8 +4,8 @@ import axiosRetry from "axios-retry";
 const isDev = process.env.NODE_ENV === "development";
 
 export const baseURL = isDev
-    ? `http://localhost:8080${process.env.PUBLIC_URL}/api`
-    : "/gjenlevendepensjon/soknad/api";
+    ? `http://localhost:8080${process.env.PUBLIC_URL}`
+    : "/gjenlevendepensjon/soknad";
 
 export const axiosInstance = axios.create({
     withCredentials: true,
