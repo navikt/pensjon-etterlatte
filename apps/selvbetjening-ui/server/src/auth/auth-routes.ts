@@ -79,15 +79,10 @@ const setup = (app: any) => {
     app.use(async (req: any, res: any, next: any) => {
         const currentTokens = req.session.tokens;
 
-        if (!currentTokens || new TokenSet(currentTokens).expired()) {
-            req.session.destroy((err: any) => {
-                if (err) logger.error(err);
-                else logger.info("Session destroyed");
-            });
-            res.cookie("selvbetjening-idtoken", "", {
-                expires: new Date(0),
-            });
+        if (!currentTokens) {
             res.redirect(`${basePath}/login`);
+        } else if (new TokenSet(currentTokens).expired()) {
+            res.redirect(`${basePath}/logout`);
         } else {
             return next();
         }
