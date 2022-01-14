@@ -47,11 +47,14 @@ const UtloeptSession = () => {
         };
     }, [tidIgjen]);
 
-    const loggUt = () => {
-        loggUtPerson().then((data: string) => {
-            console.log(data)
-        });
-    }
+    const loggUt = async () => {
+        try {
+            const response: number = await hentUtløpstidForInnlogging();
+            setTidIgjen(response);
+        } catch (error) {
+            loggUtPerson();
+        }
+    };
 
     return (
         <>
@@ -60,7 +63,7 @@ const UtloeptSession = () => {
                     <LukkbarAlert onClose={() => setIsOpen(false)}>
                         {`${t("brukerLoggesUt.info1")} `}
                         <strong>
-                            <Nedteller {...nedtellerProps} nårFerdig={loggUt}/>
+                            <Nedteller {...nedtellerProps} naarFerdig={loggUt} />
                         </strong>
                         {` ${t("brukerLoggesUt.tid")}.
                             ${t("brukerLoggesUt.info2")}`}
