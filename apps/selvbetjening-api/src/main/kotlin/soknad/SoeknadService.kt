@@ -13,6 +13,7 @@ import io.ktor.http.contentType
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.retry
+import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import org.slf4j.LoggerFactory
@@ -26,6 +27,10 @@ class SoeknadService(
     suspend fun sendSoeknader(request: SoeknadRequest): RetryResult {
         logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
 
+        request.soeknader.forEach {
+            Metrikker.soeknadTotal.labels(it.type.name).inc()
+        }
+
         return retry {
             innsendtSoeknadKlient.post<String>("soeknad") {
                 contentType(Json)
@@ -38,6 +43,8 @@ class SoeknadService(
         val barnMedAdressebeskyttelse = adressebeskyttelseService.hentGradering(request.finnUnikeBarn())
             .filter { listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND).contains(it.value) }
             .map { it.key }
+
+        Metrikker.soeknadGradertTotal.inc(barnMedAdressebeskyttelse.size.toDouble())
 
         return if (barnMedAdressebeskyttelse.isNotEmpty()) {
             logger.info("Fjerner informasjon om utenlandsadresse før søknaden(e) sendes til lagring.")

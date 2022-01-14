@@ -8,14 +8,21 @@ import io.ktor.application.install
 import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.jackson.jackson
+import io.ktor.metrics.micrometer.MicrometerMetrics
 import io.ktor.request.path
 import io.ktor.routing.routing
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
+import io.micrometer.core.instrument.binder.jvm.JvmMemoryMetrics
+import io.micrometer.core.instrument.binder.logging.LogbackMetrics
+import io.micrometer.core.instrument.binder.system.ProcessorMetrics
+import io.micrometer.core.instrument.binder.system.UptimeMetrics
 import no.nav.etterlatte.common.LocalDateSerializer
-import no.nav.etterlatte.health.healthApi
+import no.nav.etterlatte.internal.Metrikker
+import no.nav.etterlatte.internal.healthApi
+import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.kodeverk.kodeverkApi
 import no.nav.etterlatte.ktortokenexchange.installAuthUsing
 import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
@@ -23,7 +30,6 @@ import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
 import org.slf4j.event.Level
 import java.time.LocalDate
-import java.util.logging.Logger
 
 class Server(applicationContext: ApplicationContext) {
     private val personService = applicationContext.personService
@@ -49,8 +55,19 @@ class Server(applicationContext: ApplicationContext) {
                 filter { call -> !call.request.path().startsWith("/internal") }
             }
 
+            install(MicrometerMetrics) {
+                registry = Metrikker.registry
+                meterBinders = listOf(
+                    LogbackMetrics(),
+                    JvmMemoryMetrics(),
+                    ProcessorMetrics(),
+                    UptimeMetrics()
+                )
+            }
+
             routing {
                 healthApi()
+                metricsApi()
                 secureRoutUsing(securityContext) {
                     personApi(personService)
                     soknadApi(soeknadService)
