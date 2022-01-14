@@ -4,7 +4,6 @@ import Nedteller from "./Nedteller";
 import LukkbarAlert from "./LukkbarAlert";
 import { hentUtløpstidForInnlogging } from "../../api/api";
 import { konverterSekunderTilTimer } from "../../utils/konverterSekunderTilTimer";
-import { useHistory } from "react-router-dom";
 
 const UtloeptSession = () => {
     const [open, setIsOpen] = useState<boolean>(false);
@@ -12,7 +11,6 @@ const UtloeptSession = () => {
     const [nedtellerProps, setNedtellerProps] = useState({});
     const [pause, setPause] = useState<number>();
     const { t } = useTranslation();
-    const history = useHistory();
 
     useEffect(() => {
         hentUtløpstidForInnlogging().then((utgaarOm: string) => {
