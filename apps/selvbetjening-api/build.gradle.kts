@@ -14,11 +14,9 @@ dependencies {
     implementation(Ktor.ClientCioJvm)
     implementation(Ktor.ClientAuth)
     implementation(Ktor.ClientLogging)
-    implementation(Ktor.MetricsMicrometer)
     implementation(Ktor.Jackson)
     implementation(Ktor.Auth)
 
-    implementation(Micrometer.Prometheus)
     implementation(Jackson.DatatypeJsr310)
     implementation(Jackson.DatatypeJdk8)
     implementation(Jackson.ModuleKotlin)
