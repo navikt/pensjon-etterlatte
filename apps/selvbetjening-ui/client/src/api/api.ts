@@ -23,16 +23,6 @@ export const hentUtløpstidForInnlogging = async () => {
     }
 };
 
-
-export const loggUtPerson = async () => {
-    try {
-        const response = await api.get("/logout");
-        return response.data;
-    } catch (e) {
-        throw new Error("Det skjedde en feil");
-    }
-};
-
 /**
  * Henter søknad fra APIet basert på innlogget bruker sitt fnr.
  */

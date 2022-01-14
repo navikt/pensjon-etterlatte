@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Nedteller from "./Nedteller";
 import LukkbarAlert from "./LukkbarAlert";
-import { hentUtløpstidForInnlogging, loggUtPerson } from "../../api/api";
+import { hentUtløpstidForInnlogging } from "../../api/api";
 import { konverterSekunderTilTimer } from "../../utils/konverterSekunderTilTimer";
+import { useHistory } from "react-router-dom";
 
 const UtloeptSession = () => {
     const [open, setIsOpen] = useState<boolean>(false);
@@ -11,6 +12,7 @@ const UtloeptSession = () => {
     const [nedtellerProps, setNedtellerProps] = useState({});
     const [pause, setPause] = useState<number>();
     const { t } = useTranslation();
+    const history = useHistory();
 
     useEffect(() => {
         hentUtløpstidForInnlogging().then((utgaarOm: string) => {
@@ -52,7 +54,7 @@ const UtloeptSession = () => {
             const response: number = await hentUtløpstidForInnlogging();
             setTidIgjen(response);
         } catch (error) {
-            loggUtPerson();
+            history.push("/login");
         }
     };
 
