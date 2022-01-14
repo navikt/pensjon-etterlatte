@@ -11,4 +11,4 @@ spec:
     pool: nav-prod
   env:
     - name: KAFKA_TARGET_TOPIC
-      value: etterlatteytelser
+      value: etterlatte.etterlatteytelser
