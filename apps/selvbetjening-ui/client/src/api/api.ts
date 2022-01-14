@@ -19,10 +19,19 @@ export const hentUtløpstidForInnlogging = async () => {
         const response = await api.get("/oauth2/session");
         return response.data;
     } catch (e) {
-        throw new Error("Det skjedde en feil med session");
+        throw new Error("Det skjedde en feil");
     }
 };
 
+
+export const loggUtPerson = async () => {
+    try {
+        const response = await api.get("/logout");
+        return response.data;
+    } catch (e) {
+        throw new Error("Det skjedde en feil");
+    }
+};
 
 /**
  * Henter søknad fra APIet basert på innlogget bruker sitt fnr.

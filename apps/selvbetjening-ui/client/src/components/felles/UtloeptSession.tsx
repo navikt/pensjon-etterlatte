@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Nedteller from "./Nedteller";
 import LukkbarAlert from "./LukkbarAlert";
-import { hentUtløpstidForInnlogging } from "../../api/api";
+import { hentUtløpstidForInnlogging, loggUtPerson } from "../../api/api";
 import { konverterSekunderTilTimer } from "../../utils/konverterSekunderTilTimer";
 
 const UtloeptSession = () => {
@@ -47,6 +47,12 @@ const UtloeptSession = () => {
         };
     }, [tidIgjen]);
 
+    const loggUt = () => {
+        loggUtPerson().then((data: string) => {
+            console.log(data)
+        });
+    }
+
     return (
         <>
             {open && (
@@ -54,7 +60,7 @@ const UtloeptSession = () => {
                     <LukkbarAlert onClose={() => setIsOpen(false)}>
                         {`${t("brukerLoggesUt.info1")} `}
                         <strong>
-                            <Nedteller {...nedtellerProps} />
+                            <Nedteller {...nedtellerProps} nårFerdig={loggUt}/>
                         </strong>
                         {` ${t("brukerLoggesUt.tid")}.
                             ${t("brukerLoggesUt.info2")}`}

@@ -5,14 +5,19 @@ interface TidNedtellerProps {
     minutter?: number;
     sekunder?: number;
     visTimer?: boolean;
+    nårFerdig?: () => void;
 }
 
-const Nedteller = ({ timer = 0, minutter = 1, sekunder = 0, visTimer = true }: TidNedtellerProps) => {
+const Nedteller = ({ timer = 0, minutter = 1, sekunder = 0, visTimer = true, nårFerdig }: TidNedtellerProps) => {
     const [[tmr, mins, sek], setTid] = useState([timer, minutter, sekunder]);
 
     const tick = () => {
-        if (tmr === 0 && mins === 0 && sek === 0) setTid([0, 0, 0]);
-        else if (mins === 0 && sek === 0) {
+        if (tmr === 0 && mins === 0 && sek === 0) {
+            setTid([0, 0, 0]);
+            if (nårFerdig) {
+                nårFerdig();
+            }
+        } else if (mins === 0 && sek === 0) {
             setTid([tmr - 1, 59, 59]);
         } else if (sek === 0) {
             setTid([tmr, mins - 1, 59]);
@@ -29,12 +34,12 @@ const Nedteller = ({ timer = 0, minutter = 1, sekunder = 0, visTimer = true }: T
     });
 
     useEffect(() => {
-        setTid([timer, minutter, sekunder])
+        setTid([timer, minutter, sekunder]);
     }, [timer, minutter, sekunder]);
 
     return (
         <>
-            {`${visTimer ? (tmr.toString().padStart(2, "0") + ':') : ''}${mins.toString().padStart(2, "0")}:${sek
+            {`${visTimer ? tmr.toString().padStart(2, "0") + ":" : ""}${mins.toString().padStart(2, "0")}:${sek
                 .toString()
                 .padStart(2, "0")}`}
         </>
