@@ -340,7 +340,7 @@ Override av snodig oppførsel
 
 .utlogging-alert-wrap {
   position: fixed;
-  top: 2em;
+  top: calc(80px + 2rem);
   right: 1em;
   margin: 0 auto;
   max-width: 600px;
