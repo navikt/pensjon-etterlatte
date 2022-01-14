@@ -16,6 +16,7 @@ import org.apache.kafka.common.serialization.StringSerializer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.time.OffsetDateTime
+import java.util.*
 import kotlin.system.exitProcess
 
 val objectMapper: ObjectMapper = jacksonObjectMapper()
@@ -72,7 +73,7 @@ private fun createRecord(input: String, topic: String): ProducerRecord<String, S
     val message = JsonMessage.newMessage(mapOf(
         "@event_name" to "soeknad_innsendt",
         "@skjema_info" to objectMapper.readValue<ObjectNode>(input),
-        "@lagret_soeknad_id" to 0,
+        "@lagret_soeknad_id" to "TEST-${UUID.randomUUID()}",
         "@template" to "soeknad",
         "@fnr_soeker" to aremark_person,
         "@hendelse_gyldig_til" to OffsetDateTime.now().plusMinutes(60L).toString()

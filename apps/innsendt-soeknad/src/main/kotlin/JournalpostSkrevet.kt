@@ -26,7 +26,7 @@ internal class JournalpostSkrevet(
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         val dokumentInfoId = packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
-        if(packet["@lagret_soeknad_id"].asLong() == 0L){
+        if(packet["@lagret_soeknad_id"].toString().startsWith("TEST-")){
             logger.info("Verifiseringssøknad lest med dokumentInfoId $dokumentInfoId")
             return
         }
