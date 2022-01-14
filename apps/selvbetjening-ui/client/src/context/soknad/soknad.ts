@@ -1,8 +1,10 @@
 import { IAvdoed, IOmBarn, ISoeker, ISoekerOgAvdoed } from "../../typer/person";
 import { ISituasjon } from "../../typer/situasjon";
+import { Language } from "../../i18n";
 
 export const tomSoeknad: ISoeknad = {
     harSamtykket: false,
+    spraak: Language.NORSK_BOKMAAL,
     sistLagretDato: undefined,
     klarForLagring: false,
     visFortsettSoeknadModal: false,
@@ -16,6 +18,7 @@ export const tomSoeknad: ISoeknad = {
 
 export interface ISoeknad {
     harSamtykket: boolean;
+    spraak: Language;
     klarForLagring?: false;
     sistLagretDato?: Date;
     visFortsettSoeknadModal: boolean;
@@ -34,6 +37,7 @@ export enum ActionTypes {
     LAGRE_SOEKNAD = "LAGRE_SOEKNAD",
     VIS_FORTSETT_SOEKNAD_MODAL = "VIS_FORTSETT_SOEKNAD_MODAL",
     OPPDATER_SAMTYKKE = "OPPDATER_SAMTYKKE",
+    OPPDATER_SPRAAK = "OPPDATER_SPRAAK",
     OPPDATER_OM_DEG = "OPPDATER_OM_DEG",
     OPPDATER_OM_DEG_OG_AVDOED = "OPPDATER_OM_DEG_OG_AVDOED",
     OPPDATER_AVDOED = "OPPDATER_AVDOED",

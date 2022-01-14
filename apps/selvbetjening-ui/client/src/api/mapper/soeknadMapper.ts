@@ -25,6 +25,7 @@ export const mapTilGjenlevendepensjonSoeknad = (
 
     return {
         type: SoeknadType.GJENLEVENDEPENSJON,
+        spraak: soeknad.spraak,
 
         harSamtykket: {
             spoersmaal: t("forside.samtykke.bekreftelse"),
@@ -73,6 +74,7 @@ const mapTilBarnepensjonSoeknad = (
 
     return {
         type: SoeknadType.BARNEPENSJON,
+        spraak: soeknad.spraak,
 
         innsender,
         harSamtykket: {
