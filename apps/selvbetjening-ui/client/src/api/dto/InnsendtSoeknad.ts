@@ -1,5 +1,6 @@
 import { Person, Gjenlevende, Avdoed, Barn } from "./Person"
 import { Opplysning, BetingetOpplysning, BankkontoType, UtbetalingsInformasjon } from "./FellesOpplysninger";
+import { Language } from "../../i18n";
 
 export enum SoeknadType {
     GJENLEVENDEPENSJON = "GJENLEVENDEPENSJON",
@@ -12,6 +13,7 @@ export interface SoeknadRequest {
 
 interface InnsendtSoeknad {
     type: SoeknadType;
+    spraak: Language;
 
     innsender: Person;
     harSamtykket: Opplysning<Boolean>;

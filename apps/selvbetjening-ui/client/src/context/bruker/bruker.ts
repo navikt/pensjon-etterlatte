@@ -1,3 +1,5 @@
+import { Language } from "../../i18n";
+
 export interface IBruker {
     fornavn?: string;
     etternavn?: string;
@@ -15,7 +17,7 @@ export interface IBruker {
     sivilstatus?: string;
     adressebeskyttelse?: boolean;
     telefonnummer?: string;
-    spraak?: string;
+    spraak?: Language;
 }
 
 export enum ActionTypes {

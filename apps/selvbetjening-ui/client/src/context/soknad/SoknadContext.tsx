@@ -36,6 +36,11 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 klarForLagring: true,
                 harSamtykket: action.payload,
             };
+        case ActionTypes.OPPDATER_SPRAAK:
+            return {
+                ...state,
+                spraak: action.payload,
+            };
         case ActionTypes.OPPDATER_OM_DEG:
             return {
                 ...state,
