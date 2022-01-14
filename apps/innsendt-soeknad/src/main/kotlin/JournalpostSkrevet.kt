@@ -26,17 +26,19 @@ internal class JournalpostSkrevet(
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         val dokumentInfoId = packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
-        if(packet["@lagret_soeknad_id"].toString().startsWith("TEST-")){
-            logger.info("Verifiseringssøknad lest med dokumentInfoId $dokumentInfoId")
+
+        val soeknadId = packet["@lagret_soeknad_id"]
+        if (soeknadId.toString().startsWith("TEST-") || soeknadId.asLong() == 0L) {
+            logger.info("Verifiseringssøknad med id $soeknadId lest med dokumentInfoId $dokumentInfoId")
             return
         }
 
         if (dokumentInfoId != 0L) {
-            soeknader.soeknadArkivert(packet["@lagret_soeknad_id"].asLong())
+            soeknader.soeknadArkivert(soeknadId.asLong())
         } else {
             logger.error("Arkivering feilet: ", packet.toJson())
             soeknader.soeknadFeiletArkivering(
-                packet["@lagret_soeknad_id"].asLong(),
+                soeknadId.asLong(),
                 packet["@dokarkivRetur"].toJson()
             )
         }
@@ -44,7 +46,7 @@ internal class JournalpostSkrevet(
         if (!packet["@hendelse_gyldig_til"].isMissingOrNull()) {
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
                 if (it.isBefore(OffsetDateTime.now())) {
-                    logger.info("${OffsetDateTime.now()}: Fikk melding om at søknad ${packet["@lagret_soeknad_id"].asLong()} er arkivert, men hendelsen gikk ut på dato $it")
+                    logger.info("${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadId.asLong()} er arkivert, men hendelsen gikk ut på dato $it")
                 }
             }
         }
