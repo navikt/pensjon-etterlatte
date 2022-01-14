@@ -54,7 +54,7 @@ const UtloeptSession = () => {
             const response: number = await hentUtløpstidForInnlogging();
             setTidIgjen(response);
         } catch (error) {
-            history.push("/login");
+            window.location.reload();
         }
     };
 
