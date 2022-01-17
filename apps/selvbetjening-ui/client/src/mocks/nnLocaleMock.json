@@ -919,5 +919,11 @@
         "validate": "Ugyldig fødselsnummer"
       }
     }
+  },
+  "brukerLoggesUt": {
+    "info1": "Du vil bli logga ut om",
+    "tid": "minutt",
+    "knapp": "X-ikon for å lukke meldinga",
+    "info2": "Du kan sende søknad no eller halde fram seinare. \n Søknaden din vert lagra i 72 timar."
   }
 }

@@ -100,4 +100,8 @@ export const mockApi = (app: any) => {
     app.get(`${config.app.basePath}/oauth2/session`, async (req: any, res: any) => {
         res.send("3600");
     });
+
+    app.get(`${config.app.basePath}/logout`, async (req: any, res: any) => {
+        res.sendStatus(200)
+    });
 };

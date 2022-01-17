@@ -337,3 +337,27 @@ Override av snodig oppførsel
   max-width: 600px;
   width: 100%;
 }
+
+.utlogging-alert-wrap {
+  position: fixed;
+  top: calc(80px + 2rem);
+  right: 1em;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+  padding-left: 2rem;
+}
+
+
+.utlogging-alert__button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  padding: 0.5rem;
+}
+
+.utlogging-alert__button svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}

@@ -8,6 +8,7 @@ import useInnloggetBruker from "./hooks/useInnloggetBruker";
 import { useAmplitude } from "./utils/amplitude";
 import { useSoknadContext } from "./context/soknad/SoknadContext";
 import { useTranslation } from "react-i18next";
+import UtloeptSession from './components/felles/UtloeptSession'
 
 const App = () => {
     useInnloggetBruker();
@@ -34,6 +35,7 @@ const App = () => {
                         <Alert variant="error">{soknadContext?.state?.error}</Alert>
                     </div>
                 )}
+                <UtloeptSession />
             </ContentContainer>
         </>
     );

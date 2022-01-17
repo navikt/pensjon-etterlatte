@@ -7,7 +7,16 @@ import { SoeknadRequest } from "./dto/InnsendtSoeknad";
  */
 export const hentInnloggetPerson = async () => {
     try {
-        const response = await api.get("/person/innlogget");
+        const response = await api.get("/api/person/innlogget");
+        return response.data;
+    } catch (e) {
+        throw new Error("Det skjedde en feil");
+    }
+};
+
+export const hentUtløpstidForInnlogging = async () => {
+    try {
+        const response = await api.get("/oauth2/session");
         return response.data;
     } catch (e) {
         throw new Error("Det skjedde en feil");
@@ -19,7 +28,7 @@ export const hentInnloggetPerson = async () => {
  */
 export const hentSoeknad = async () => {
     try {
-        const response: any = await api.get("/api/kladd");
+        const response: any = await api.get("/api/api/kladd");
         const soeknad = response.data?.payload;
         if (soeknad) return JSON.parse(soeknad);
         else return undefined;
@@ -35,7 +44,7 @@ export const hentSoeknad = async () => {
 
 export const slettSoeknad = async () => {
     try {
-        const response = await api.delete("/api/kladd");
+        const response = await api.delete("/api/api/kladd");
         return response.data;
     } catch (e) {
         throw new Error("Det skjedde en feil");
@@ -54,7 +63,7 @@ export const lagreSoeknad = async (soeknad: ISoeknad) => {
     };
 
     try {
-        const response = await api.post("/api/kladd", body);
+        const response = await api.post("/api/api/kladd", body);
         return response.data;
     } catch (e) {
         throw new Error("Det skjedde en feil");
@@ -68,7 +77,7 @@ export const sendSoeknad = async (request: SoeknadRequest) => {
     const body = { ...request };
 
     try {
-        const response = await api.post("/api/soeknad", body);
+        const response = await api.post("/api/api/soeknad", body);
         return response.status;
     } catch (e) {
         throw new Error(`Det skjedde en feil: ${e.message}`);
@@ -82,7 +91,7 @@ export const hentOppsummering = async (soeknad: any) => {
     };
 
     try {
-        const response = await api.post("/oppsummering", body);
+        const response = await api.post("/api/oppsummering", body);
         return response.data;
     } catch (e: any) {
         throw new Error(`Det skjedde en feil: ${e.message}`);
@@ -95,7 +104,7 @@ export const hentOppsummering = async (soeknad: any) => {
  */
  export const hentLand = async () => {
     try {
-        const response = await api.get("/kodeverk/alleland");
+        const response = await api.get("/api/kodeverk/alleland");
         return response.data;
     } catch (e) {
         throw new Error(`Det skjedde en feil: ${e.message}`);
@@ -104,7 +113,7 @@ export const hentOppsummering = async (soeknad: any) => {
 
 export const hentLocales = async (locale: string) => {
     try{
-        const response = await api.get(`/locale/${locale}`)
+        const response = await api.get(`/api/locale/${locale}`)
         return response.data;
     } catch(e: any) {
         throw new Error(`Det skjedde en feil: ${e.message}`)

@@ -13,7 +13,11 @@ Deretter sjekk at det ble installert riktig:\
 Du er også nødt til å installere `naisdevice` og sette opp `kubectl` for at koblinger mot GCP skal fungere.\
 Les mer her: https://doc.nais.io
 
-### Kjøre lokalt
+## Kjøre lokalt
+
+### Server
+
+Naviger til `./server`
 
 Installere prosjektet:\
 `yarn install`
@@ -24,21 +28,34 @@ Kjøre prosjektet:\
 Kjøre prosjektet med mock backend:\
 `yarn start:mock`
 
-Kjører prosjektet lokalt.\
+### Client
+
+Naviger til `./client`
+
+Installere prosjektet:\
+`yarn install`
+
+Kjøre prosjektet:\
+`yarn start`
+
+Når både server og client kjører prosjektet lokalt.\
 Åpne [http://localhost:3000](http://localhost:3000) i nettleseren.
+
+### Testing (Gjelder både client og server)
 
 Teste prosjektet:\
 `yarn test`
 
 Kjøre cypress tester (krever at prosjektet kjører lokalt først):
+
 - `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
+
 - `yarn cy:test` Kjører testene headless fra CLI.
 
 ### Koble til APIet lokalt
 
-Grunnet manglende støtte for Token/IDporten lokalt er det ikke mulig å kjøre mot APIet lokalt. Vi bruker derfor 
-`mock-server.js` for å emulere backend. Dette er ikke en ideel løsning og burde på sikt forbedres. 
-
+Grunnet manglende støtte for Token/IDporten lokalt er det ikke mulig å kjøre mot APIet lokalt. Vi bruker derfor
+`mock-server.js` for å emulere backend. Dette er ikke en ideel løsning og burde på sikt forbedres.
 
 ## Testmiljøet
 
