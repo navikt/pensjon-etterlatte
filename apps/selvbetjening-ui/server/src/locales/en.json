@@ -229,7 +229,7 @@
     "tittel": "About the deceased",
     "fornavn": "First name(s)",
     "etternavn": "Family name",
-    "foedselsnummer": "Norwegian national identity number",
+    "foedselsnummer": "Norwegian national identity number or D number",
     "statsborgerskap": "Nationality",
     "statsborgerskapPlaceholder": "For example: Norwegian",
     "boddEllerJobbetUtland": {
