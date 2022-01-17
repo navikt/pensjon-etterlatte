@@ -49,8 +49,13 @@ const UtloeptSession = () => {
 
     const loggUt = async () => {
         try {
-            const response: number = await hentUtløpstidForInnlogging();
-            setTidIgjen(response);
+            const response: string = await hentUtløpstidForInnlogging();
+
+            if (parseInt(response) === 0) {
+                window.location.reload();
+            } else {
+                setTidIgjen(parseInt(response));
+            }
         } catch (error) {
             window.location.reload();
         }
