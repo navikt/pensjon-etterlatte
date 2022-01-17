@@ -43,7 +43,7 @@ spec:
     - name: ROOT_LOGLEVEL
       value: "INFO"
     - name: KODEVERK_URL
-      value: "https://etterlatte-proxy.prod.adeo.no/tokenx/kodeverk"
+      value: "https://etterlatte-proxy.prod-fss-pub.nais.io/tokenx/kodeverk/"
     - name: KODEVERK_AUDIENCE
       value: "prod-fss:etterlatte:etterlatte-proxy"
     - name: NAV_CONSUMER_ID
@@ -53,6 +53,7 @@ spec:
   accessPolicy:
     outbound:
       rules:
+        - application: etterlatte-proxy
         - application: etterlatte-pdl-proxy
         - application: innsendt-soeknad
     inbound:
