@@ -14,6 +14,7 @@ on:
   push:
     branches:
       - main
+      - release/*
     paths:
       - apps/etterlatte-pdl-proxy/**
 
@@ -54,7 +55,7 @@ jobs:
 
   deploy-to-prod-gcp:
     name: Deploy to prod-gcp
-#    if: ${{ github.event.inputs.deploy-prod == 'true' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
     needs: deploy-to-dev-gcp
     runs-on: ubuntu-latest
     steps:
