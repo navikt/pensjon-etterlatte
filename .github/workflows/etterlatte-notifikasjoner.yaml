@@ -18,6 +18,7 @@ on:
     paths:
       - apps/etterlatte-notifikasjoner/**
       - libs/ktorclient-auth-clientcredentials/**
+      - libs/common/**
 
 jobs:
   build-and-publish:
