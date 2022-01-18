@@ -18,6 +18,7 @@ on:
     paths:
       - apps/selvbetjening-api/**
       - libs/ktorclient-auth-clientcredentials/**
+      - libs/common/**
 
 jobs:
   build-and-publish:

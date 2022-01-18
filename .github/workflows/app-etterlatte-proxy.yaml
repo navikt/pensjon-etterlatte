@@ -17,6 +17,7 @@ on:
       - release/*
     paths:
       - apps/etterlatte-proxy/**
+      - libs/common/**
 
 jobs:
   build-and-publish:
