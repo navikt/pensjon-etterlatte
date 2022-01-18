@@ -32,7 +32,7 @@ class DokumentService(private val klient: PdfGenerator) {
         }
 
     private fun opprettArkivPdf(soeknadId: String, skjemaInfo: JsonNode, template: String): DokumentVariant.ArkivPDF {
-        logger.info("Generer PDF for søknad med id $soeknadId")
+        logger.info("Oppretter arkiv PDF for søknad med id $soeknadId")
 
         return runBlocking {
             val bytes = klient.genererPdf(skjemaInfo, template)
@@ -42,7 +42,7 @@ class DokumentService(private val klient: PdfGenerator) {
     }
 
     private fun opprettOriginalJson(soeknadId: String, skjemaInfo: JsonNode): DokumentVariant.OriginalJson {
-        logger.info("Generer PDF for søknad med id $soeknadId")
+        logger.info("Oppretter original JSON for søknad med id $soeknadId")
 
         val skjemaInfoBytes = jacksonObjectMapper().writeValueAsBytes(skjemaInfo)
 
