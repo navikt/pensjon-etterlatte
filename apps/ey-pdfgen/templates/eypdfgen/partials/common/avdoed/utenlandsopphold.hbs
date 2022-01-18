@@ -30,13 +30,13 @@
                         {{#if this.fraDato}}
                         <tr>
                             <td>{{this.fraDato.spoersmaal}}</td>
-                            <td>{{this.fraDato.svar}}</td>
+                            <td>{{iso_to_date this.fraDato.svar}}</td>
                         </tr>
                         {{/if}}
                         {{#if this.tilDato}}
                         <tr>
                             <td>{{this.tilDato.spoersmaal}}</td>
-                            <td>{{this.tilDato.svar}}</td>
+                            <td>{{iso_to_date this.tilDato.svar}}</td>
                         </tr>
                         {{/if}}
                         <tr>
