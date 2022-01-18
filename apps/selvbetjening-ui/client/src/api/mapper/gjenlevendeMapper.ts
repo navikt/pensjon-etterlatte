@@ -206,10 +206,10 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                     endretInntekt: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar"),
                         svar: valgTilSvar(arbeid.forventerEndretInntekt!!.svar!!), // TODO: fikse type,
-                        opplysning: {
+                        opplysning: arbeid.forventerEndretInntekt?.svar === IValg.JA ? {
                             spoersmaal: t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse"),
                             svar: `${arbeid.forventerEndretInntekt?.beskrivelse}`
-                        }
+                        } : undefined
                     }
                 }
 
@@ -241,10 +241,10 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                 endretInntekt: {
                     spoersmaal: t("dinSituasjon.selvstendig.forventerEndretInntekt.svar"),
                     svar: valgTilSvar(naering.forventerEndretInntekt!!.svar!!), // TODO: Fikse type
-                    opplysning: {
+                    opplysning: naering.forventerEndretInntekt?.svar === IValg.JA ? {
                         spoersmaal: t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse"),
                         svar: `${naering.forventerEndretInntekt?.beskrivelse}`
-                    }
+                    } : undefined
                 }
             }
         }) || []
