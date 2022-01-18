@@ -21,11 +21,7 @@ import {
     Utdanning,
     Ytelser
 } from "../dto/FellesOpplysninger";
-import {
-    Gjenlevende,
-    PersonType,
-    Samboer,
-} from "../dto/Person";
+import { Gjenlevende, PersonType, Samboer } from "../dto/Person";
 import { valgTilSvar } from "./fellesMapper";
 import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from "../../typer/person";
 import { IValg } from "../../typer/Spoersmaal";
@@ -34,7 +30,8 @@ import {
     konverterJobbStatus,
     konverterRelasjonAvdoed,
     konverterSamboerInntekt,
-    konverterSivilstatus, konverterStillingType,
+    konverterSivilstatus,
+    konverterStillingType,
     konverterTilHoyesteUtdanning,
     konverterYtelser
 } from "./typeMapper";
@@ -303,15 +300,15 @@ const hentAndreYtelser = (t: TFunction, dinSituasjon: ISituasjon): AndreYtelser 
         annenPensjon: {
             spoersmaal: t("dinSituasjon.andreYtelser.annenPensjon.svar"),
             svar: valgTilSvar(dinSituasjon.andreYtelser!!.annenPensjon!!.svar!!), // TODO: fikse type
-            opplysning: {
+            opplysning: dinSituasjon.andreYtelser?.annenPensjon?.svar === IValg.JA ? {
                 spoersmaal: t("dinSituasjon.andreYtelser.annenPensjon.beskrivelse"),
                 svar: `${dinSituasjon.andreYtelser?.annenPensjon?.beskrivelse}`
-            }
+            } : undefined
         },
         pensjonUtland: {
             spoersmaal: t("dinSituasjon.andreYtelser.mottarPensjonUtland.svar"),
             svar: valgTilSvar(dinSituasjon.andreYtelser!!.mottarPensjonUtland!!.svar!!), // TODO: fikse type
-            opplysning: {
+            opplysning: dinSituasjon.andreYtelser?.mottarPensjonUtland?.svar === IValg.JA ? {
                 pensjonsType: {
                     spoersmaal: t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"),
                     svar: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.hvaSlagsPensjon}`
@@ -324,7 +321,7 @@ const hentAndreYtelser = (t: TFunction, dinSituasjon: ISituasjon): AndreYtelser 
                     spoersmaal: t("dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"),
                     svar: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.bruttobeloepPrAar}`
                 }
-            }
+            } : undefined
         }
     }
 }

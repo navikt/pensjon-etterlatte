@@ -127,8 +127,8 @@ typealias Pensjonsordning = String
 
 data class AndreYtelser(
     val kravOmAnnenStonad: BetingetOpplysning<Svar, Opplysning<Ytelser>?>,
-    val annenPensjon: BetingetOpplysning<Svar, Opplysning<Pensjonsordning>>,
-    val pensjonUtland: BetingetOpplysning<Svar, PensjonUtland>
+    val annenPensjon: BetingetOpplysning<Svar, Opplysning<Pensjonsordning>?>,
+    val pensjonUtland: BetingetOpplysning<Svar, PensjonUtland?>
 )
 
 data class PensjonUtland(
