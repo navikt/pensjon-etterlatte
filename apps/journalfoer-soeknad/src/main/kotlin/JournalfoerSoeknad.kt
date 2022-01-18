@@ -60,10 +60,6 @@ internal class JournalfoerSoeknad(
         }
     }
 
-    override fun onError(problems: MessageProblems, context: MessageContext) {
-        logger.error("Feil oppsto ved journalføring av søknad: ${problems}")
-    }
-
     private fun journalfoer(soeknadId: String, packet: JsonMessage): DokarkivResponse {
         val fnrSoeker = packet["@fnr_soeker"].asText()
         val gradering = Gradering.fra(packet["@adressebeskyttelse"].textValue())
