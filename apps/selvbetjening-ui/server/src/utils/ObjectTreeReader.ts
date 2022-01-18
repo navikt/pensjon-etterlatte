@@ -86,7 +86,7 @@ export default class ObjectTreeReader {
     }
 
     private isTranslationKey = (value: any): boolean => {
-        if (typeof value === "string") return !!value.match(/[a-z]+\.[a-z]+(\.[a-z]+)?/)?.length
+        if (typeof value === "string") return !value.includes("@") && !!value.match(/[a-z]+\.[a-z]+(\.[a-z]+)?/)?.length
         else return false
     }
 
