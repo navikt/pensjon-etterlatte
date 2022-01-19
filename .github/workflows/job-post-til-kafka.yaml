@@ -9,6 +9,8 @@ on:
     branches:
       - main
       - release/*
+      - feature/*
+      - fix/*
     paths:
       - jobs/post-til-kafka/**
 
