@@ -31,7 +31,7 @@ export interface UtbetalingsInformasjon {
 
 export interface Kontaktinfo {
     epost: Opplysning<String>;
-    telefonnummer: Opplysning<String | undefined>;
+    telefonnummer: Opplysning<String>;
 }
 
 export enum BankkontoType {

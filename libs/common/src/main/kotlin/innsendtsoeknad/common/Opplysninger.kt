@@ -21,7 +21,7 @@ data class UtbetalingsInformasjon(
 
 data class Kontaktinfo(
     val epost: Opplysning<String>,
-    val telefonnummer: Opplysning<String?>
+    val telefonnummer: Opplysning<String>
 )
 
 enum class BankkontoType { NORSK, UTENLANDSK }

@@ -48,7 +48,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         },
         telefonnummer: {
             spoersmaal: t("omDeg.kontaktinfo.telefonnummer"),
-            svar: soeknad.omDeg.kontaktinfo!!.telefonnummer
+            svar: soeknad.omDeg.kontaktinfo!!.telefonnummer || "-"
         }
     };
 
@@ -66,7 +66,6 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         spoersmaal: t("omDeg.alternativAdresse"),
         svar: soeknad.omDeg.alternativAdresse!!
     } : undefined;
-
 
     // TODO: Slå sammen med ArbeidOgUtdanning ... ?
     const fullfoertUtdanning: BetingetOpplysning<HoeyesteUtdanning, Opplysning<AnnenUtdanning>> | undefined = !bruker.adressebeskyttelse ? {
