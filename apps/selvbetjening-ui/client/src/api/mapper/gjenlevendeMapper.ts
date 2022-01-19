@@ -48,7 +48,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         },
         telefonnummer: {
             spoersmaal: t("omDeg.kontaktinfo.telefonnummer"),
-            svar: soeknad.omDeg.kontaktinfo!!.telefonnummer!!
+            svar: soeknad.omDeg.kontaktinfo!!.telefonnummer
         }
     };
 
