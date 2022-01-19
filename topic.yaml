@@ -54,3 +54,6 @@ spec:
     - team: etterlatte
       application: post-til-kafka
       access: readwrite
+    - team: etterlatte
+      application: etterlatte-behandling-fra-soeknad
+      access: readwrite
