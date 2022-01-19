@@ -15,6 +15,7 @@ import io.ktor.config.HoconApplicationConfig
 import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.jackson.jackson
+import io.ktor.request.path
 import io.ktor.routing.IgnoreTrailingSlash
 import io.ktor.routing.Route
 import io.ktor.routing.routing
@@ -95,6 +96,7 @@ fun Application.apiModule(routes: Route.() -> Unit) {
     install(IgnoreTrailingSlash)
     install(CallLogging) {
         level = Level.INFO
+        filter { call -> !call.request.path().startsWith("/internal") }
     }
 
     routing {
