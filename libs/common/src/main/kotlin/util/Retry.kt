@@ -1,7 +1,7 @@
-package no.nav.etterlatte.common
+package libs.common.util
 
-import no.nav.etterlatte.common.RetryResult.Failure
-import no.nav.etterlatte.common.RetryResult.Success
+import libs.common.util.RetryResult.Failure
+import libs.common.util.RetryResult.Success
 
 sealed class RetryResult() {
     data class Success(val content: Any? = null, val previousExceptions: List<Exception> = emptyList()) : RetryResult()

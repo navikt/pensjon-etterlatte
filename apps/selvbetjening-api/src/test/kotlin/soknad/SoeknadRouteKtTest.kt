@@ -19,11 +19,11 @@ import io.ktor.server.testing.withTestApplication
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.soknad.SoeknadService
 import no.nav.etterlatte.soknad.soknadApi
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import libs.common.util.RetryResult
 
 internal class SoeknadRouteKtTest {
     private val service = mockk<SoeknadService>()
