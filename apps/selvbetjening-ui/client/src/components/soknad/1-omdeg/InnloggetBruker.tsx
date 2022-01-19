@@ -5,6 +5,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Cell, Grid } from "@navikt/ds-react";
 import { isEmpty } from "lodash";
 import { memo } from "react";
+import { fullAdresse } from "../../../utils/adresse";
 
 const InnloggetBruker = memo(() => {
     const { t } = useTranslation();
@@ -38,9 +39,7 @@ const InnloggetBruker = memo(() => {
                         <div>
                             <Label>{t("felles.adresse")}</Label>
                             <BodyShort spacing>
-                                {state.adresse}
-                                {state.husnummer ? ` ${state.husnummer}` : ""}
-                                {state.husbokstav ? ` ${state.husbokstav}` : ""}, {state.postnummer} {state.poststed}
+                                {fullAdresse(state)}
                             </BodyShort>
                         </div>
                     )}

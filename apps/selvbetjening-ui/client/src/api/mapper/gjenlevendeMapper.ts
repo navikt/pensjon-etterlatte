@@ -35,6 +35,7 @@ import {
     konverterTilHoyesteUtdanning,
     konverterYtelser
 } from "./typeMapper";
+import { fullAdresse } from "../../utils/adresse";
 
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
@@ -81,10 +82,10 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         statsborgerskap: `${bruker.statsborgerskap}`,
         sivilstatus: `${bruker.sivilstatus}`,
 
-        adresse: {
+        adresse: !bruker.adressebeskyttelse ? {
             spoersmaal: t("felles.adresse"),
-            svar: `${bruker.adresse}`
-        },
+            svar: fullAdresse(bruker)
+        } : undefined,
         bostedsAdresse: !bruker.adressebeskyttelse ? {
             spoersmaal: t("omDeg.bostedsadresseBekreftet"),
             svar: valgTilSvar(soeknad.omDeg.bostedsadresseBekreftet!!), // TODO: Støtte riktig type,
