@@ -96,7 +96,7 @@ fun Application.apiModule(routes: Route.() -> Unit) {
     install(IgnoreTrailingSlash)
     install(CallLogging) {
         level = Level.INFO
-        filter { call -> !call.request.path().startsWith("/internal") }
+        filter { call -> !call.request.path().matches(Regex(".*/isready|.*/isalive")) }
     }
 
     routing {
