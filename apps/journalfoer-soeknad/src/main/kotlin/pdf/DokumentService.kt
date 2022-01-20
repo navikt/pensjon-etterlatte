@@ -7,6 +7,8 @@ import dokarkiv.DokumentVariant
 import dokarkiv.JournalpostDokument
 import io.ktor.client.features.ResponseException
 import kotlinx.coroutines.runBlocking
+import libs.common.util.RetryResult
+import libs.common.util.retry
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import org.slf4j.LoggerFactory
 import pdf.PdfGenerator
@@ -34,10 +36,15 @@ class DokumentService(private val klient: PdfGenerator) {
     private fun opprettArkivPdf(soeknadId: String, skjemaInfo: JsonNode, template: String): DokumentVariant.ArkivPDF {
         logger.info("Oppretter arkiv PDF for søknad med id $soeknadId")
 
-        return runBlocking {
-            val bytes = klient.genererPdf(skjemaInfo, template)
+        val response: RetryResult = runBlocking {
+            retry {
+                klient.genererPdf(skjemaInfo, template)
+            }
+        }
 
-            DokumentVariant.ArkivPDF(encoder.encodeToString(bytes))
+        return when (response) {
+            is RetryResult.Success -> DokumentVariant.ArkivPDF(encoder.encodeToString(response.content as ByteArray))
+            is RetryResult.Failure -> throw response.lastError()
         }
     }
 

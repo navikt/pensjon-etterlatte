@@ -1,4 +1,4 @@
-package no.nav.etterlatte.common
+package libs.common.util
 
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.*

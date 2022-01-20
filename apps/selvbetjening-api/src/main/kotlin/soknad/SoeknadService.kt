@@ -11,12 +11,12 @@ import io.ktor.http.ContentType.Application.Json
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
-import no.nav.etterlatte.common.RetryResult
-import no.nav.etterlatte.common.retry
 import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import org.slf4j.LoggerFactory
+import libs.common.util.RetryResult
+import libs.common.util.retry
 
 class SoeknadService(
     private val innsendtSoeknadKlient: HttpClient,

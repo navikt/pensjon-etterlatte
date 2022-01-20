@@ -22,7 +22,6 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
-import no.nav.etterlatte.common.RetryResult
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.pdl.Adressebeskyttelse
@@ -37,6 +36,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import soeknad.InnsendtSoeknadFixtures.barnepensjon
 import soeknad.InnsendtSoeknadFixtures.gjenlevendepensjon
+import libs.common.util.RetryResult
 
 internal class SoeknadServiceTest {
 
