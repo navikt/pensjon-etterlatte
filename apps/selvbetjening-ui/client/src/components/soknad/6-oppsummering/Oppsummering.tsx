@@ -11,10 +11,7 @@ import { sendSoeknad } from "../../../api/api";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
 import { LogEvents, useAmplitude } from "../../../utils/amplitude";
-import {
-    mapTilBarnepensjonSoeknadListe,
-    mapTilGjenlevendepensjonSoeknad
-} from "../../../api/mapper/soeknadMapper";
+import { mapTilBarnepensjonSoeknadListe, mapTilGjenlevendepensjonSoeknad } from "../../../api/mapper/soeknadMapper";
 import { SoeknadRequest } from "../../../api/dto/InnsendtSoeknad";
 import SoeknadMapper from "../../../utils/SoeknadMapper";
 
@@ -34,9 +31,12 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     useEffect(() => {
         (async () => {
-            if (isEmpty(soeknad) || isEmpty(bruker)) setOppsummering([]);
-            const soeknadOppsummering = mapper.lagOppsummering(soeknad, bruker);
-            setOppsummering(soeknadOppsummering);
+            if (isEmpty(soeknad) || isEmpty(bruker)) {
+                setOppsummering([])
+            } else {
+                const soeknadOppsummering = mapper.lagOppsummering(soeknad, bruker);
+                setOppsummering(soeknadOppsummering);
+            }
         })()
     }, [soeknad, bruker])
 
@@ -75,10 +75,12 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 <BodyLong>{t("oppsummering.beskrivelse")}</BodyLong>
             </SkjemaGruppe>
 
-            <OppsummeringInnhold
-                soeknadOppsummering={soeknadOppsummering}
-                senderSoeknad={senderSoeknad}
-            />
+            {!isEmpty(soeknadOppsummering) && (
+                <OppsummeringInnhold
+                    soeknadOppsummering={soeknadOppsummering}
+                    senderSoeknad={senderSoeknad}
+                />
+            )}
 
             <br />
 

@@ -1,6 +1,14 @@
 import { render, fireEvent } from "@testing-library/react";
-import i18n from "../../i18n"; // tar med denne for å slippe warnings fra komponenten vi tester
 import HvorforSpoerVi from "./HvorforSpoerVi";
+
+jest.mock("react-i18next", () => ({
+    useTranslation: () => ({
+        t: (str) => str,
+        i18n: {
+            changeLanguage: () => new Promise(() => {}),
+        },
+    })
+}));
 
 describe("HvorforSpoerVi", () => {
     it("skal rendre hvorfor spør vi som lukket boks", () => {

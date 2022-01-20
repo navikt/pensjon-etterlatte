@@ -2,8 +2,8 @@ import { TFunction } from "i18next";
 import ObjectTreeReader, { Element, Gruppe } from "./ObjectTreeReader";
 import { ISituasjon } from "../typer/situasjon";
 import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed } from "../typer/person";
-import { IBruker } from "../typer/bruker";
-import { ISoeknad } from "../typer/soknad";
+import { IBruker } from "../context/bruker/bruker";
+import { ISoeknad } from "../context/soknad/soknad";
 import { StegPath } from "../typer/steg";
 import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "../typer/arbeidsforhold";
 

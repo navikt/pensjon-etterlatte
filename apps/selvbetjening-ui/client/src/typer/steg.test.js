@@ -1,5 +1,5 @@
 import { StegLabelKey, StegPath, MuligeSteg } from "./steg";
-import nbLocale from '../mocks/nbLocaleMock.json';
+import nbLocale from "../locales/nb.json";
 
 test("Skal være 8 steg", () => {
     expect(MuligeSteg.length).toBe(6);
