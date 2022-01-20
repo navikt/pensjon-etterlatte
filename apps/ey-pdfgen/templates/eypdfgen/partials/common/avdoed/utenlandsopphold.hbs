@@ -27,14 +27,18 @@
                             <td>{{this.land.spoersmaal}}</td>
                             <td>{{this.land.svar}}</td>
                         </tr>
+                        {{#if this.fraDato}}
                         <tr>
                             <td>{{this.fraDato.spoersmaal}}</td>
                             <td>{{this.fraDato.svar}}</td>
                         </tr>
+                        {{/if}}
+                        {{#if this.tilDato}}
                         <tr>
                             <td>{{this.tilDato.spoersmaal}}</td>
                             <td>{{this.tilDato.svar}}</td>
                         </tr>
+                        {{/if}}
                         <tr>
                             <td>{{this.oppholdsType.spoersmaal}}</td>
                             <td>

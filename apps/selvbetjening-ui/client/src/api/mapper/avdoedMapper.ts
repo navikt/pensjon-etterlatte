@@ -27,14 +27,14 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
                     spoersmaal: t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land"),
                     svar: info.land!!
                 },
-                fraDato: {
+                fraDato: info.fraDato ? {
                     spoersmaal: t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato"),
                     svar: info.fraDato!!
-                },
-                tilDato: {
+                } : undefined,
+                tilDato: info.tilDato ? {
                     spoersmaal: t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato"),
                     svar: info.tilDato!!
-                },
+                } : undefined,
                 oppholdsType: {
                     spoersmaal: t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse"),
                     svar: oppholdsTypeListe
@@ -45,7 +45,7 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
                 },
                 pensjonsutbetaling: {
                     spoersmaal: t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse"),
-                    svar: `${info.mottokPensjon?.beskrivelse}` // info.mottokPensjon!!
+                    svar: info.mottokPensjon?.beskrivelse || "-"
                 }
             }
 
