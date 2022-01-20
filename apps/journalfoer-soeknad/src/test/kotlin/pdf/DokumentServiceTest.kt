@@ -12,9 +12,11 @@ import io.mockk.slot
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.etterlatte.pdf.PdfGeneratorException
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import java.util.*
 
 internal class DokumentServiceTest {
 
@@ -62,12 +64,27 @@ internal class DokumentServiceTest {
         assertEquals(template, templateSlot.captured)
     }
 
+    @Test
+    fun `PDF skal genereres med korrekt data selv om det feiler på de første to kallene`() {
+        coEvery { mockKlient.genererPdf(any(), any()) } throws
+                ResponseException(mockk(), "") andThenThrows
+                ResponseException(mockk(), "Test") andThen
+                "et lite pdf-dokument".toByteArray()
+
+        val dokument = service.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
+
+        coVerify(exactly = 3) { mockKlient.genererPdf(any(), any()) }
+        val arkivPdf = dokument.dokumentvarianter.find { it is DokumentVariant.ArkivPDF }
+        assertEquals(arkivPdf?.fysiskDokument, Base64.getEncoder().encodeToString("et lite pdf-dokument".toByteArray()))
+    }
 
     @Test
-    fun `Feil mot generering av PDF skal kaste egen exception`() {
+    fun `Feil mot generering av PDF skal forsøke tre ganger og kaste egen exception`() {
         coEvery { mockKlient.genererPdf(any(), any()) } throws ResponseException(mockk(), "")
         assertThrows<PdfGeneratorException> {
             service.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
         }
+
+        coVerify(exactly = 3) { mockKlient.genererPdf(any(), any()) }
     }
 }

@@ -3,18 +3,18 @@ package libs.common.util
 import libs.common.util.RetryResult.Failure
 import libs.common.util.RetryResult.Success
 
-sealed class RetryResult() {
+sealed class RetryResult {
     data class Success(val content: Any? = null, val previousExceptions: List<Exception> = emptyList()) : RetryResult()
 
     data class Failure(val exceptions: List<Exception> = emptyList()) : RetryResult() {
-        fun lastError() = exceptions.lastOrNull()
+        fun lastError() = exceptions.last()
     }
 }
 
 suspend fun <T> unsafeRetry(times: Int = 2, block: suspend () -> T) = retry(times, block).let {
     when (it) {
         is Success -> it.content
-        is Failure -> throw it.exceptions.last()
+        is Failure -> throw it.lastError()
     }
 }
 
