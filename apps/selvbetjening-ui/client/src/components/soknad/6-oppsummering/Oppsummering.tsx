@@ -50,11 +50,11 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
         sendSoeknad(soeknadBody)
             .then(() => {
-                logEvent(LogEvents.SEND_SOKNAD, { type: SoeknadType.GJENLEVENDEPENSJON, antall: 1 });
+                logEvent(LogEvents.SEND_SOKNAD, { type: SoeknadType.GJENLEVENDEPENSJON });
 
-                if (barnepensjonSoeknader.length) {
-                    logEvent(LogEvents.SEND_SOKNAD, { type: SoeknadType.BARNEPENSJON, antall: barnepensjonSoeknader.length });
-                }
+                barnepensjonSoeknader.forEach(() => {
+                    logEvent(LogEvents.SEND_SOKNAD, { type: SoeknadType.BARNEPENSJON });
+                });
 
                 history.push(`/skjema/sendt`);
             })
