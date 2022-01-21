@@ -15,7 +15,7 @@ import {
     mapTilBarnepensjonSoeknadListe,
     mapTilGjenlevendepensjonSoeknad
 } from "../../../api/mapper/soeknadMapper";
-import { SoeknadRequest } from "../../../api/dto/InnsendtSoeknad";
+import { SoeknadRequest, SoeknadType } from "../../../api/dto/InnsendtSoeknad";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
@@ -50,7 +50,12 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
         sendSoeknad(soeknadBody)
             .then(() => {
-                logEvent(LogEvents.SEND_SOKNAD);
+                logEvent(LogEvents.SEND_SOKNAD, { type: SoeknadType.GJENLEVENDEPENSJON });
+
+                barnepensjonSoeknader.forEach(() => {
+                    logEvent(LogEvents.SEND_SOKNAD, { type: SoeknadType.BARNEPENSJON });
+                });
+
                 history.push(`/skjema/sendt`);
             })
             .catch((error) => {
