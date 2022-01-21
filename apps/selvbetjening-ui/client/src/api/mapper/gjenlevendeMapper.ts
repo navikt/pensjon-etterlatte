@@ -21,11 +21,7 @@ import {
     Utdanning,
     Ytelser
 } from "../dto/FellesOpplysninger";
-import {
-    Gjenlevende,
-    PersonType,
-    Samboer,
-} from "../dto/Person";
+import { Gjenlevende, PersonType, Samboer } from "../dto/Person";
 import { valgTilSvar } from "./fellesMapper";
 import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from "../../typer/person";
 import { IValg } from "../../typer/Spoersmaal";
@@ -34,10 +30,12 @@ import {
     konverterJobbStatus,
     konverterRelasjonAvdoed,
     konverterSamboerInntekt,
-    konverterSivilstatus, konverterStillingType,
+    konverterSivilstatus,
+    konverterStillingType,
     konverterTilHoyesteUtdanning,
     konverterYtelser
 } from "./typeMapper";
+import { fullAdresse } from "../../utils/adresse";
 
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
@@ -84,10 +82,10 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         statsborgerskap: `${bruker.statsborgerskap}`,
         sivilstatus: `${bruker.sivilstatus}`,
 
-        adresse: {
+        adresse: !bruker.adressebeskyttelse ? {
             spoersmaal: t("felles.adresse"),
-            svar: `${bruker.adresse}`
-        },
+            svar: fullAdresse(bruker)
+        } : undefined,
         bostedsAdresse: !bruker.adressebeskyttelse ? {
             spoersmaal: t("omDeg.bostedsadresseBekreftet"),
             svar: valgTilSvar(soeknad.omDeg.bostedsadresseBekreftet!!), // TODO: Støtte riktig type,
@@ -206,10 +204,10 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                     endretInntekt: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar"),
                         svar: valgTilSvar(arbeid.forventerEndretInntekt!!.svar!!), // TODO: fikse type,
-                        opplysning: {
+                        opplysning: arbeid.forventerEndretInntekt?.svar === IValg.JA ? {
                             spoersmaal: t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse"),
                             svar: `${arbeid.forventerEndretInntekt?.beskrivelse}`
-                        }
+                        } : undefined
                     }
                 }
 
@@ -241,10 +239,10 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                 endretInntekt: {
                     spoersmaal: t("dinSituasjon.selvstendig.forventerEndretInntekt.svar"),
                     svar: valgTilSvar(naering.forventerEndretInntekt!!.svar!!), // TODO: Fikse type
-                    opplysning: {
+                    opplysning: naering.forventerEndretInntekt?.svar === IValg.JA ? {
                         spoersmaal: t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse"),
                         svar: `${naering.forventerEndretInntekt?.beskrivelse}`
-                    }
+                    } : undefined
                 }
             }
         }) || []
@@ -303,15 +301,15 @@ const hentAndreYtelser = (t: TFunction, dinSituasjon: ISituasjon): AndreYtelser 
         annenPensjon: {
             spoersmaal: t("dinSituasjon.andreYtelser.annenPensjon.svar"),
             svar: valgTilSvar(dinSituasjon.andreYtelser!!.annenPensjon!!.svar!!), // TODO: fikse type
-            opplysning: {
+            opplysning: dinSituasjon.andreYtelser?.annenPensjon?.svar === IValg.JA ? {
                 spoersmaal: t("dinSituasjon.andreYtelser.annenPensjon.beskrivelse"),
                 svar: `${dinSituasjon.andreYtelser?.annenPensjon?.beskrivelse}`
-            }
+            } : undefined
         },
         pensjonUtland: {
             spoersmaal: t("dinSituasjon.andreYtelser.mottarPensjonUtland.svar"),
             svar: valgTilSvar(dinSituasjon.andreYtelser!!.mottarPensjonUtland!!.svar!!), // TODO: fikse type
-            opplysning: {
+            opplysning: dinSituasjon.andreYtelser?.mottarPensjonUtland?.svar === IValg.JA ? {
                 pensjonsType: {
                     spoersmaal: t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"),
                     svar: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.hvaSlagsPensjon}`
@@ -324,7 +322,7 @@ const hentAndreYtelser = (t: TFunction, dinSituasjon: ISituasjon): AndreYtelser 
                     spoersmaal: t("dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"),
                     svar: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.bruttobeloepPrAar}`
                 }
-            }
+            } : undefined
         }
     }
 }

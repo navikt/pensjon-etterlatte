@@ -1,12 +1,11 @@
 import { axiosInstance } from "./axios";
 import { lagreSoeknad, sendSoeknad } from "./api";
-import { SoeknadRequest } from "./dto/InnsendtSoeknad"
 
 jest.mock("./axios");
 
 describe("Test sending av søknad", () => {
     it("Søknadsobjekt fylles ut korrekt", async () => {
-        const soeknad: SoeknadRequest = { soeknader: [] };
+        const soeknad = { soeknader: [] };
 
         const expectedResult = {status: 200};
         axiosInstance.post.mockResolvedValue(expectedResult);

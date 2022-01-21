@@ -11,8 +11,11 @@ import { sendSoeknad } from "../../../api/api";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
 import { LogEvents, useAmplitude } from "../../../utils/amplitude";
-import { mapTilBarnepensjonSoeknadListe, mapTilGjenlevendepensjonSoeknad } from "../../../api/mapper/soeknadMapper";
-import { SoeknadRequest } from "../../../api/dto/InnsendtSoeknad";
+import {
+    mapTilBarnepensjonSoeknadListe,
+    mapTilGjenlevendepensjonSoeknad
+} from "../../../api/mapper/soeknadMapper";
+import { SoeknadRequest, SoeknadType } from "../../../api/dto/InnsendtSoeknad";
 import SoeknadMapper from "../../../utils/SoeknadMapper";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
@@ -53,7 +56,12 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
         sendSoeknad(soeknadBody)
             .then(() => {
-                logEvent(LogEvents.SEND_SOKNAD);
+                logEvent(LogEvents.SEND_SOKNAD, { type: SoeknadType.GJENLEVENDEPENSJON });
+
+                barnepensjonSoeknader.forEach(() => {
+                    logEvent(LogEvents.SEND_SOKNAD, { type: SoeknadType.BARNEPENSJON });
+                });
+
                 history.push(`/skjema/sendt`);
             })
             .catch((error) => {
