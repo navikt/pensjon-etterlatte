@@ -113,7 +113,7 @@ export default {
   "omDeg.flyktningHvorfor": "Hvis du er registrert som flyktning hos UDI kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
   "omDeg.kontaktinfo.telefonnummer": "Telefonnummer",
   "omDeg.kontaktinfo.telefonnummerPlaceholder": "8 siffer",
-  "omDeg.kontaktinfo.epost": "E-post",
+  "omDeg.kontaktinfo.epost": "E-post (valgfri)",
   "omDeg.utbetalingsInformasjon.tittel": "Oppgi bankopplysingar",
   "omDeg.utbetalingsInformasjon.bankkontoType": "Ønsker du å motta utbetalinga på norsk eller utanlandsk bankkonto?",
   "omDeg.utbetalingsInformasjon.kontonummer": "Oppgi norsk kontonummer for utbetaling",

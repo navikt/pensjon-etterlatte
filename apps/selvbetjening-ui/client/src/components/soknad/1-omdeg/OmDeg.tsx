@@ -101,6 +101,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                         name={"kontaktinfo.epost"}
                                         label={t("omDeg.kontaktinfo.epost")}
                                         rules={{ pattern: emailMatcher }}
+                                        valgfri={true}
                                     />
                                 </Cell>
                             </Grid>

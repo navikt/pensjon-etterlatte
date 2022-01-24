@@ -42,7 +42,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
     const kontaktinfo: Kontaktinfo = {
         epost: {
             spoersmaal: t("omDeg.kontaktinfo.epost"),
-            svar: soeknad.omDeg.kontaktinfo!!.epost!!
+            svar: soeknad.omDeg.kontaktinfo!!.epost || "-"
         },
         telefonnummer: {
             spoersmaal: t("omDeg.kontaktinfo.telefonnummer"),
