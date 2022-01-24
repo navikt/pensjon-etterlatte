@@ -1,35 +1,25 @@
 import { render } from "@testing-library/react";
-import { renderHook } from "@testing-library/react-hooks";
-import { I18nextProvider } from "react-i18next";
-import i18n from "../i18n";
 import SideIkkeFunnet from "./SideIkkeFunnet";
 import UgyldigSoeker from "./UgyldigSoeker";
-import * as api from '../api/api';
-import nb from '../mocks/nbLocaleMock.json';
 
-describe("Side ikke funnet", () => {
-    beforeEach(() => {
-        jest.spyOn(api, "hentLocales").mockReturnValue({nb: nb, nn: {}, en: {} })
-        renderHook(() => useLanguage());
-    })
-    it("Skal rendre ut innhold fra språkliste", () => {
-        const { findByText } = render(
-            <I18nextProvider i18n={i18n}>
-                <SideIkkeFunnet />
-            </I18nextProvider>
-        );
-        expect(findByText("Oi, her var det noe rusk")).toBeDefined();
-        expect(findByText("Siden du har etterspurt finnes ikke.")).toBeDefined();
+jest.mock("react-i18next", () => ({
+    ...jest.requireActual("react-i18next"),
+    useTranslation: () => {
+        return { t: jest.fn((key) => key) };
+    },
+}));
+
+describe("Enkel test av feilsider", () => {
+    it("Side ikke funnet", async () => {
+        const { findByText } = render(<SideIkkeFunnet />);
+
+        expect(await findByText("sideIkkeFunnet.tittel")).toBeDefined();
+        expect(await findByText("sideIkkeFunnet.alert")).toBeDefined();
     });
-});
 
-describe("Side ikke funnet", () => {
-  it("Skal rendre ut innhold fra språkliste", () => {
-      const { findByText } = render(
-          <I18nextProvider i18n={i18n}>
-              <UgyldigSoeker />
-          </I18nextProvider>
-      );      
-      expect(findByText("Hei, du kan ikke søke om gjenlevendepensjon.")).toBeDefined();
-  });
+    it("Ugyldig søker", async () => {
+        const { findByText } = render(<UgyldigSoeker/>);
+
+        expect(findByText("Hei, du kan ikke søke om gjenlevendepensjon.")).toBeDefined();
+    });
 });

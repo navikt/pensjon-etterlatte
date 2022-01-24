@@ -28,9 +28,6 @@ exports[`Oppsummering Snapshot 1`] = `
       aria-live="polite"
     />
   </fieldset>
-  <div
-    class="navds-accordion"
-  />
   <br />
   <fieldset
     aria-invalid="false"

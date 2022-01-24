@@ -1,5 +1,5 @@
-import { Language } from "../../hooks/useLanguage";
 import "./Dropdown.scss";
+import { Language } from "../../i18n";
 import { Select, SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 

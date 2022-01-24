@@ -1,12 +1,11 @@
-import ReactDOM from "react-dom";
-import { act, screen, fireEvent } from "@testing-library/react";
-import { renderHook} from "@testing-library/react-hooks";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import SoknadForside from "./SoknadForside";
 import { SoknadProvider } from "../../context/soknad/SoknadContext";
-import i18n from "../../i18n";
-import { I18nextProvider } from "react-i18next";
-import * as api from "../../api/api";
-import nb from '../../mocks/nbLocaleMock.json';
+
+jest.mock("react-i18next", () => ({
+    ...jest.requireActual("react-i18next"),
+    useTranslation: () => ({ t: jest.fn((key) => key) })
+}));
 
 jest.mock("../../context/bruker/BrukerContext", () => ({
     useBrukerContext: () => {
@@ -44,21 +43,15 @@ beforeEach(() => {
     container = document.createElement("root");
     document.body.appendChild(container);
 
-    jest.spyOn(api, "hentLocales").mockReturnValue(nb)
-    renderHook(() => useLanguage());
-
     act(() => {
-        ReactDOM.render(
-            <I18nextProvider i18n={i18n}>
+        render(
                 <SoknadProvider>
-                    <SoknadForside />
-                </SoknadProvider>
-            </I18nextProvider>,
-            container
+                    <SoknadForside/>
+                </SoknadProvider>,
+                container
         );
     });
 });
-
 
 
 afterEach(() => {
@@ -68,10 +61,8 @@ afterEach(() => {
 
 
 describe("Samtykke", () => {
-    xit("Knapp vises ikke hvis samtykke mangler", async () => {
-        const bekreftSjekkboks = await screen.findByText(
-            "Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
-        );
+    it("Knapp vises ikke hvis samtykke mangler", async () => {
+        const bekreftSjekkboks = await screen.findByText("forside.samtykke.bekreftelse");
         expect(bekreftSjekkboks).toBeVisible();
         expect(bekreftSjekkboks).not.toBeChecked();
 
@@ -80,9 +71,7 @@ describe("Samtykke", () => {
     });
 
     it("Knapp vises hvis samtykke er huket av", async () => {
-        const bekreftSjekkboks = await screen.findByLabelText(
-            "Jeg, STERK BUSK, bekrefter at jeg vil gi riktige og fullstendige opplysninger."
-        );
+        const bekreftSjekkboks = await screen.findByLabelText("forside.samtykke.bekreftelse");
         expect(bekreftSjekkboks).toBeVisible();
 
         await act(async () => {
@@ -90,14 +79,14 @@ describe("Samtykke", () => {
         });
         expect(bekreftSjekkboks).toBeChecked();
 
-        const startKnapp = await screen.findByText("Start søknad");
+        const startKnapp = await screen.findByText("forside.startSoeknad");
         expect(startKnapp).toBeVisible();
     });
 });
 
 describe("Velkomstmelding", () => {
     it("Velkomstmelding med brukers navn vises", async () => {
-        const velkomstmelding = await screen.findByText("Hei, STERK BUSK");
+        const velkomstmelding = await screen.findByText("forside.hei");
 
         expect(velkomstmelding).toBeVisible();
     });

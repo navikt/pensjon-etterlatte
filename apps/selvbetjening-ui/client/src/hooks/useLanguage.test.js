@@ -1,14 +1,6 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import i18next from "../i18n";
 import { useLanguage } from "./useLanguage";
-import * as api from "../api/api";
-import nb from '../mocks/nbLocaleMock.json';
-
-const navigator = { language: "nb-NO" };
-Object.defineProperty(window, "navigator", {
-    value: navigator,
-    writable: true,
-});
 
 jest.mock("../i18n", () => {
     const originalModule = jest.requireActual('../i18n');
@@ -17,6 +9,12 @@ jest.mock("../i18n", () => {
         addResourceBundle: jest.fn(),
         ...originalModule
     };
+});
+
+const navigator = { language: "nb-NO" };
+Object.defineProperty(window, "navigator", {
+    value: navigator,
+    writable: true,
 });
 
 const localStorage = {
@@ -29,9 +27,6 @@ Object.defineProperty(window, "localStorage", {
 });
 
 describe("useLanguage", () => {
-    beforeEach(() => {
-        jest.spyOn(api, "hentLocales").mockReturnValue(nb);
-    });
     it("Skal sette riktig verdi og ha blitt kalt en gang", () => {
         const { result } = renderHook(() => useLanguage());
 
@@ -43,7 +38,7 @@ describe("useLanguage", () => {
         });
 
         expect(result.current.currentLanguage).toEqual("test");
-        expect(i18next.changeLanguage).toHaveBeenCalledTimes(1);
+        expect(i18next.changeLanguage).toHaveBeenCalledTimes(2);
     });
 
     it("Skal sette en verdi i localstorage", () => {
@@ -52,7 +47,7 @@ describe("useLanguage", () => {
         act(() => {
             result.current.setLanguage("test");
         });
-        expect(localStorage.setItem).toHaveBeenCalledTimes(1);
+        expect(localStorage.setItem).toHaveBeenCalledTimes(2);
     });
 
     it("Skal returnere state og setState", () => {

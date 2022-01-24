@@ -1,6 +1,6 @@
-import nbLocale from './mocks/nbLocaleMock.json';
-import nnLocale from './mocks/nnLocaleMock.json';
-import enLocale from './mocks/enLocaleMock.json';
+import nbLocale from './locales/nb.json';
+import nnLocale from './locales/nn.json';
+import enLocale from './locales/en.json';
 import { isEmpty } from "lodash";
 
 
