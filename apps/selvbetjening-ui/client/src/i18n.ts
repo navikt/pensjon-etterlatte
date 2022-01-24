@@ -1,8 +1,8 @@
 import i18n, { Resource } from "i18next";
 import { initReactI18next } from "react-i18next";
-import nnLocale from "./locales/nn.json";
-import enLocale from "./locales/en.json";
-import nbLocale from "./locales/nb.json";
+import nnLocale from "./locales/nn";
+import enLocale from "./locales/en";
+import nbLocale from "./locales/nb";
 
 export enum Language {
     NORSK_BOKMAAL = "nb",
@@ -26,7 +26,7 @@ i18n.use(initReactI18next).init({
     lng: "nb",
     nsSeparator: false,
     interpolation: {
-        escapeValue: false,
+        escapeValue: true,
     },
     react: {
         useSuspense: false,

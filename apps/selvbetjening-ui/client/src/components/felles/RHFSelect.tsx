@@ -26,7 +26,7 @@ export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: Select
     const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
-    const feilmelding = t(getTransKey(error))
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
         <div id={name}>

@@ -15,7 +15,7 @@ const Stegviser = () => {
     const alleSteg = steg.map(({ label }, index) => {
         return {
             index,
-            label: t(`steg.${label}`)
+            label: t(label)
         };
     });
 
