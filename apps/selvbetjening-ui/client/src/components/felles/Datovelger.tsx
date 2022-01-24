@@ -53,7 +53,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
     };
 
     const error: FieldError = get(errors, name);
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     const dateInputCls = classnames("skjemaelement__input dato-input", feilmelding && "skjemaelement__input--harFeil");
 

@@ -22,7 +22,7 @@ export const RHFCheckboksPanelGruppe = ({ name, checkboxes, ...rest }: RHFCheckb
     const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
-    const feilmelding = t(getTransKey(error))
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
         <div id={name}>
@@ -100,7 +100,7 @@ export const RHFCheckboksGruppe = ({ name, checkboxes, ...rest }: RHFCheckboksGr
     const { control, formState: { errors } } = useFormContext();
 
     const error: FieldError = get(errors, name)
-    const feilmelding = t(getTransKey(error))
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
         <div id={name}>

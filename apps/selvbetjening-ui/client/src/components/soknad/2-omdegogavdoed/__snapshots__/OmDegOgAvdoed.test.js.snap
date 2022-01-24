@@ -144,7 +144,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             </svg>
           </div>
         </div>
-        
       </section>
       <div
         aria-live="polite"
@@ -705,7 +704,6 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             </svg>
           </div>
         </div>
-        
       </section>
       <div
         aria-live="polite"

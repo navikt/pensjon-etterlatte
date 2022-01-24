@@ -8,12 +8,12 @@ export enum StegPath {
 }
 
 export enum StegLabelKey {
-    OmDeg = "OmDeg",
-    OmDegOgAvdoed = "OmDegOgAvdoed",
-    OmAvdoed = "OmAvdoed",
-    DinSituasjon = "DinSituasjon",
-    OmBarn = "OmBarn",
-    Oppsummering = "Oppsummering"
+    OmDeg = "steg.OmDeg",
+    OmDegOgAvdoed = "steg.OmDegOgAvdoed",
+    OmAvdoed = "steg.OmAvdoed",
+    DinSituasjon = "steg.DinSituasjon",
+    OmBarn = "steg.OmBarn",
+    Oppsummering = "steg.Oppsummering"
 }
 
 export const MuligeSteg: IStegElement[] = [

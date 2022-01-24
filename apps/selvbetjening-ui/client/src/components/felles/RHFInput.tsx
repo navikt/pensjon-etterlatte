@@ -31,8 +31,7 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
     } = useFormContext();
 
     const error: FieldError = get(errors, name);
-
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
         <Controller
@@ -85,7 +84,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
     } = useFormContext();
 
     const error: FieldError = get(errors, name);
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
         <Controller
@@ -114,7 +113,7 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
     } = useFormContext();
 
     const error: FieldError = get(errors, name);
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
         <Controller
@@ -143,7 +142,7 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
     } = useFormContext();
 
     const error: FieldError = get(errors, name);
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
     const maxLength = 4;
 
     const isValid = (e: ChangeEvent<HTMLInputElement>): boolean => {
@@ -182,7 +181,7 @@ export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => 
     } = useFormContext();
 
     const error: FieldError = get(errors, name);
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
         <Controller
@@ -211,8 +210,7 @@ export const RHFFoedselsnummerInput = ({ name, rules, ...rest }: RHFProps) => {
     } = useFormContext();
 
     const error: FieldError = get(errors, name);
-
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     const isValid = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -250,7 +248,7 @@ export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
     } = useFormContext();
 
     const error: FieldError = get(errors, name);
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
         <Controller
@@ -279,7 +277,7 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
     } = useFormContext();
 
     const error: FieldError = get(errors, name);
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
         <Controller
@@ -308,7 +306,7 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
     } = useFormContext();
 
     const error: FieldError = get(errors, name);
-    const feilmelding = t(getTransKey(error));
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     const re = /^[0-9\b]+$/;
     const isValid = (e: ChangeEvent<HTMLInputElement>): boolean => {
