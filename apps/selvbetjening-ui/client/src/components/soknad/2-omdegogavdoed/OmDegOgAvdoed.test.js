@@ -9,10 +9,15 @@ jest.mock("react-i18next", () => ({
         i18n: {
             changeLanguage: () => new Promise(() => {}),
         },
-    })
+    }),
 }));
 
 JSutils.guid = jest.fn(() => "123");
+
+jest.mock("uuid", () => ({
+    v4: () => "456",
+}));
+
 describe("Om deg og avdød", () => {
     it("Snapshot uten samboerskjema", () => {
         const { container } = render(<OmDegOgAvdoed />);
@@ -21,11 +26,11 @@ describe("Om deg og avdød", () => {
 
     it("Snapshot med sivilstatus samboer", () => {
         const { container, getByText, getByLabelText } = render(<OmDegOgAvdoed />);
-       
+
         act(() => {
-            fireEvent.click(getByLabelText("nySivilstatus.samboerskap"))
-        })
-        expect(getByText("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")).toBeDefined()
+            fireEvent.click(getByLabelText("nySivilstatus.samboerskap"));
+        });
+        expect(getByText("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")).toBeDefined();
         expect(container).toMatchSnapshot();
     });
 });

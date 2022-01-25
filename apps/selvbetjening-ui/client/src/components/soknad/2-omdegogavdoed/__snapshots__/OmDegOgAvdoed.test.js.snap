@@ -134,7 +134,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   <div
                     aria-live="polite"
                     aria-relevant="additions removals"
-                    id="textField-error-7b3b6abf-3833-415a-9b10-30362bcd53f2"
+                    id="textField-error-456"
                   />
                 </div>
                 <button
@@ -732,7 +732,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                   <div
                     aria-live="polite"
                     aria-relevant="additions removals"
-                    id="textField-error-2cd126cc-732e-46df-909d-f59b80507dda"
+                    id="textField-error-456"
                   />
                 </div>
                 <button
