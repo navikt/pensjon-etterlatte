@@ -97,53 +97,91 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           class="skjemaelement__label"
           for="avdoed.datoForDoedsfallet"
         >
-          omDegOgAvdoed.avdoed.dato
-           
-          felles.datoformat
+          omDegOgAvdoed.avdoed.dato felles.datoformat
         </label>
         <div
           class="datovelger"
         >
-          <div
-            class="react-datepicker-wrapper"
-          >
+          <div>
             <div
-              class="react-datepicker__input-container"
+              class="ds-datepicker"
             >
-              <input
-                autocomplete="off"
-                class="skjemaelement__input dato-input"
-                id="avdoed.datoForDoedsfallet"
-                placeholder="felles.datoEksempel"
-                required=""
-                type="text"
-                value=""
-              />
+              <div
+                class="ds-datepicker"
+              >
+                <div
+                  class="ds-datepicker__input navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-text-field__label sr-only navds-label"
+                    for="avdoed.datoForDoedsfallet"
+                  >
+                    abc
+                  </label>
+                  <input
+                    aria-invalid="false"
+                    autocomplete="off"
+                    autocorrect="off"
+                    class="navds-text-field__input navds-body-short navds-body-medium"
+                    id="avdoed.datoForDoedsfallet"
+                    inputmode="text"
+                    maxlength="10"
+                    name="avdoed.datoForDoedsfallet"
+                    placeholder="felles.datoEksempel"
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    id="textField-error-7b3b6abf-3833-415a-9b10-30362bcd53f2"
+                  />
+                </div>
+                <button
+                  aria-expanded="false"
+                  class="ds-datepicker__kalenderknapp"
+                  type="button"
+                >
+                  <span
+                    class="sr-only"
+                  >
+                    Kalender
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="ds-datepicker__kalenderknapp__icon"
+                  >
+                    <svg
+                      focusable="false"
+                      height="16"
+                      role="presentation"
+                      style="pointer-events: none;"
+                      viewBox="0 0 18 18"
+                      width="16"
+                    >
+                      <title>
+                        Kalenderikon
+                      </title>
+                      <g
+                        fill="none"
+                        fill-rule="evenodd"
+                        stroke="#0067C5"
+                      >
+                        <path
+                          d="M4 2.667H1.333v14h15.334v-14H14"
+                        />
+                        <path
+                          d="M4 1.333h2V4H4zm8 0h2V4h-2zM6 2h6M1.333 6h15.334"
+                        />
+                      </g>
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-          <div
-            aria-label="Åpne datovelger"
-            class="kalender-ikon"
-            role="button"
-            tabindex="0"
-            title="Åpne datovelger"
-          >
-            <svg
-              aria-hidden="true"
-              fill="none"
-              height="24px"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M6 7V5H2v5h20V5h-4v2a1 1 0 11-2 0V5H8v2a1 1 0 11-2 0zm10-4H8V1a1 1 0 10-2 0v2H2a2 2 0 00-2 2v17a2 2 0 002 2h20a2 2 0 002-2V5a2 2 0 00-2-2h-4V1a1 1 0 10-2 0v2zM2 12v10h20V12H2zm6 3a1 1 0 00-1-1H5a1 1 0 100 2h2a1 1 0 001-1zm-1 3a1 1 0 110 2H5a1 1 0 110-2h2zm6-4h-2a1 1 0 100 2h2a1 1 0 100-2zm-2 4h2a1 1 0 110 2h-2a1 1 0 110-2zm9-3a1 1 0 00-1-1h-2a1 1 0 100 2h2a1 1 0 001-1zm-4 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z"
-                fill="#fff"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
         </div>
+        
       </section>
       <div
         aria-live="polite"
@@ -657,53 +695,91 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           class="skjemaelement__label"
           for="avdoed.datoForDoedsfallet"
         >
-          omDegOgAvdoed.avdoed.dato
-           
-          felles.datoformat
+          omDegOgAvdoed.avdoed.dato felles.datoformat
         </label>
         <div
           class="datovelger"
         >
-          <div
-            class="react-datepicker-wrapper"
-          >
+          <div>
             <div
-              class="react-datepicker__input-container"
+              class="ds-datepicker"
             >
-              <input
-                autocomplete="off"
-                class="skjemaelement__input dato-input"
-                id="avdoed.datoForDoedsfallet"
-                placeholder="felles.datoEksempel"
-                required=""
-                type="text"
-                value=""
-              />
+              <div
+                class="ds-datepicker"
+              >
+                <div
+                  class="ds-datepicker__input navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-text-field__label sr-only navds-label"
+                    for="avdoed.datoForDoedsfallet"
+                  >
+                    abc
+                  </label>
+                  <input
+                    aria-invalid="false"
+                    autocomplete="off"
+                    autocorrect="off"
+                    class="navds-text-field__input navds-body-short navds-body-medium"
+                    id="avdoed.datoForDoedsfallet"
+                    inputmode="text"
+                    maxlength="10"
+                    name="avdoed.datoForDoedsfallet"
+                    placeholder="felles.datoEksempel"
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    id="textField-error-2cd126cc-732e-46df-909d-f59b80507dda"
+                  />
+                </div>
+                <button
+                  aria-expanded="false"
+                  class="ds-datepicker__kalenderknapp"
+                  type="button"
+                >
+                  <span
+                    class="sr-only"
+                  >
+                    Kalender
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="ds-datepicker__kalenderknapp__icon"
+                  >
+                    <svg
+                      focusable="false"
+                      height="16"
+                      role="presentation"
+                      style="pointer-events: none;"
+                      viewBox="0 0 18 18"
+                      width="16"
+                    >
+                      <title>
+                        Kalenderikon
+                      </title>
+                      <g
+                        fill="none"
+                        fill-rule="evenodd"
+                        stroke="#0067C5"
+                      >
+                        <path
+                          d="M4 2.667H1.333v14h15.334v-14H14"
+                        />
+                        <path
+                          d="M4 1.333h2V4H4zm8 0h2V4h-2zM6 2h6M1.333 6h15.334"
+                        />
+                      </g>
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-          <div
-            aria-label="Åpne datovelger"
-            class="kalender-ikon"
-            role="button"
-            tabindex="0"
-            title="Åpne datovelger"
-          >
-            <svg
-              aria-hidden="true"
-              fill="none"
-              height="24px"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M6 7V5H2v5h20V5h-4v2a1 1 0 11-2 0V5H8v2a1 1 0 11-2 0zm10-4H8V1a1 1 0 10-2 0v2H2a2 2 0 00-2 2v17a2 2 0 002 2h20a2 2 0 002-2V5a2 2 0 00-2-2h-4V1a1 1 0 10-2 0v2zM2 12v10h20V12H2zm6 3a1 1 0 00-1-1H5a1 1 0 100 2h2a1 1 0 001-1zm-1 3a1 1 0 110 2H5a1 1 0 110-2h2zm6-4h-2a1 1 0 100 2h2a1 1 0 100-2zm-2 4h2a1 1 0 110 2h-2a1 1 0 110-2zm9-3a1 1 0 00-1-1h-2a1 1 0 100 2h2a1 1 0 001-1zm-4 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z"
-                fill="#fff"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
         </div>
+        
       </section>
       <div
         aria-live="polite"

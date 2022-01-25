@@ -39,9 +39,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
 
     return (
         <section className={`skjemaelement ${className}`}>
-            <Label htmlFor={name}>
-                {label} {t("felles.datoformat")}
-            </Label>
+            <Label htmlFor={name}>{`${label} ${t("felles.datoformat")}`}</Label>
 
             {description && <div className={"skjemaelement__description"}>{description}</div>}
 
@@ -56,6 +54,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
                             locale={i18n.language as DatepickerLocales}
                             value={value}
                             onChange={onChange}
+                            inputId={name}
                             inputProps={{
                                 name,
                                 "aria-invalid": feilmelding.length !== 0,
