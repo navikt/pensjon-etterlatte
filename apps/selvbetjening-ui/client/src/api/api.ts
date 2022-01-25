@@ -14,7 +14,7 @@ export const hentInnloggetPerson = async () => {
     }
 };
 
-export const hentUtløpstidForInnlogging = async () => {
+export const hentUtloepstidForInnlogging = async () => {
     try {
         const response = await api.get("/oauth2/session");
         return response.data;
@@ -87,7 +87,7 @@ export const sendSoeknad = async (request: SoeknadRequest) => {
 /**
  * Henter liste over land
  */
- export const hentLand = async () => {
+export const hentLand = async () => {
     try {
         const response = await api.get("/api/kodeverk/alleland");
         return response.data;
