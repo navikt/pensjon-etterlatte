@@ -9,7 +9,6 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
-import Datovelger2 from "../../felles/Datovelger2/Datovelger2";
 import { Cell, Grid, Label, Heading } from "@navikt/ds-react";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
@@ -76,11 +75,6 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                         <Label>{t("omDegOgAvdoed.avdoed.datoForDoedsfallet")}</Label>
 
                         <Datovelger
-                            name={"avdoed.datoForDoedsfallet"}
-                            label={t("omDegOgAvdoed.avdoed.dato")}
-                            maxDate={new Date()}
-                        />
-                        <Datovelger2
                             name={"avdoed.datoForDoedsfallet"}
                             label={t("omDegOgAvdoed.avdoed.dato")}
                             maxDate={new Date()}
