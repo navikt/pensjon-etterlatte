@@ -7,7 +7,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         cy.intercept("GET", `${basePath}/api/person/innlogget`, { fixture: "testbruker" }).as("hentInnloggetPerson");
         cy.intercept("GET", `${basePath}/api/api/kladd`, {}).as("hentSoeknad"); // Ingen kladd eksisterer
         cy.intercept("POST", `${basePath}/api/api/kladd`, {});
-        cy.intercept("GET", `${basePath}/oauth2/session`, {body: "3600"});
+        cy.intercept("GET", `${basePath}/oauth2/session`, { body: "3600" });
         cy.visit("localhost:3000", {
             onBeforeLoad: (obj) => {
                 Object.defineProperty(obj.navigator, "language", { value: "nb-NO" });
@@ -56,6 +56,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById("forholdTilAvdoede.datoForInngaattPartnerskap").type(
             omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
         );
+
         selectValue(omDegOgAvdoed.nySivilstatus.sivilstatus);
 
         cy.checkA11y();
@@ -65,7 +66,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
     it('Skal fylle ut siden "Om den avdøde" og gå til neste', () => {
         cy.url().should("include", "steg/om-den-avdoede");
-        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as("alleland")
+        cy.intercept("GET", `${basePath}/api/kodeverk/alleland`, { fixture: "land.json" }).as("alleland");
 
         // Verifiser felter og fyll ut skjema.
         const omDenAvdoede = mockSoeknad.omDenAvdoede;
@@ -77,7 +78,9 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.map((oppholdUtland, idx) => {
             const baseId = `boddEllerJobbetUtland\.oppholdUtland\[${idx}\].`;
 
-            getById(baseId + "land").find("select").select(oppholdUtland.land);
+            getById(baseId + "land")
+                .find("select")
+                .select(oppholdUtland.land);
             oppholdUtland.beskrivelse.map((utlandType) => selectValue(utlandType)); // Bodd/Arbeidet checkbox
             getById(baseId + "fraDato").type(oppholdUtland.fraDato);
             getById(baseId + "tilDato").type(oppholdUtland.tilDato);
@@ -99,7 +102,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
     it('Skal fylle ut siden "Din situasjon" og gå til neste', () => {
         cy.url().should("include", "steg/din-situasjon");
-        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as("alleland")
+        cy.intercept("GET", `${basePath}/api/kodeverk/alleland`, { fixture: "land.json" }).as("alleland");
 
         // Verifiser felter og fyll ut skjema.
         const dinSituasjon = mockSoeknad.dinSituasjon;
@@ -121,9 +124,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         const kravOmAnnenStonad = dinSituasjon.andreYtelser.kravOmAnnenStonad;
         selectValueForId("andreYtelser.kravOmAnnenStonad.svar", kravOmAnnenStonad.svar);
-        getById("andreYtelser.kravOmAnnenStonad.ytelser")
-                .find("select")
-                .select(kravOmAnnenStonad.ytelser)
+        getById("andreYtelser.kravOmAnnenStonad.ytelser").find("select").select(kravOmAnnenStonad.ytelser);
 
         const annenPensjon = dinSituasjon.andreYtelser.annenPensjon;
         selectValueForId("andreYtelser.annenPensjon.svar", annenPensjon.svar);
@@ -132,7 +133,9 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         const mottarPensjonUtland = dinSituasjon.andreYtelser.mottarPensjonUtland;
         selectValueForId("andreYtelser.mottarPensjonUtland.svar", mottarPensjonUtland.svar);
         getById("andreYtelser.mottarPensjonUtland.hvaSlagsPensjon").type(mottarPensjonUtland.hvaSlagsPensjon);
-        getById("andreYtelser.mottarPensjonUtland.fraHvilketLand").find("select").select(mottarPensjonUtland.fraHvilketLand);
+        getById("andreYtelser.mottarPensjonUtland.fraHvilketLand")
+            .find("select")
+            .select(mottarPensjonUtland.fraHvilketLand);
         getById("andreYtelser.mottarPensjonUtland.bruttobeloepPrAar").type(mottarPensjonUtland.bruttobeloepPrAar);
 
         cy.checkA11y();
@@ -142,7 +145,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
     it('Skal fylle ut siden "Om barn" og gå til neste', () => {
         cy.url().should("include", "steg/om-barn");
-        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as("alleland")
+        cy.intercept("GET", `${basePath}/api/kodeverk/alleland`, { fixture: "land.json" }).as("alleland");
 
         // Legg til barn
         mockSoeknad.opplysningerOmBarn.barn.map((barn) => {
@@ -154,7 +157,8 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             getById("statsborgerskap").type(barn.statsborgerskap);
             selectValueForId("bosattUtland.svar", barn.bosattUtland.svar);
             selectValue("barnRelasjon.fellesbarnMedAvdoede");
-            if (barn.foedselsnummer === "07010776133") { // under 18 år
+            if (barn.foedselsnummer === "07010776133") {
+                // under 18 år
                 selectValueForId("harBarnetVerge.svar", barn.harBarnetVerge.svar);
             }
             getById("leggTilBarn").click();
