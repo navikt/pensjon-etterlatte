@@ -9,6 +9,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
+import Datovelger2 from "../../felles/Datovelger2/Datovelger2";
 import { Cell, Grid, Label, Heading } from "@navikt/ds-react";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
@@ -20,32 +21,32 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
     const methods = useForm<ISoekerOgAvdoed>({
         defaultValues: state.omDegOgAvdoed || {},
-        shouldUnregister: true
+        shouldUnregister: true,
     });
 
     const {
         handleSubmit,
         formState: { errors },
-        getValues
+        getValues,
     } = methods;
 
     const erValidert = state.omDegOgAvdoed.erValidert;
 
     const lagreNeste = (data: ISoekerOgAvdoed) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
-        neste!!()
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } });
+        neste!!();
     };
 
     const lagreTilbake = (data: ISoekerOgAvdoed) => {
-        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
-        forrige!!()
-    }
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } });
+        forrige!!();
+    };
 
     const lagreTilbakeUtenValidering = () => {
-        const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(verdier), erValidert: false } })
-        forrige!!()
-    }
+        const verdier = getValues();
+        dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(verdier), erValidert: false } });
+        forrige!!();
+    };
 
     return (
         <>
@@ -62,17 +63,11 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
                         <Grid>
                             <Cell xs={12} md={6}>
-                                <RHFInput
-                                    name={"avdoed.fornavn"}
-                                    label={t("omDegOgAvdoed.avdoed.fornavn")}
-                                />
+                                <RHFInput name={"avdoed.fornavn"} label={t("omDegOgAvdoed.avdoed.fornavn")} />
                             </Cell>
 
                             <Cell xs={12} md={6}>
-                                <RHFInput
-                                    name={"avdoed.etternavn"}
-                                    label={t("omDegOgAvdoed.avdoed.etternavn")}
-                                />
+                                <RHFInput name={"avdoed.etternavn"} label={t("omDegOgAvdoed.avdoed.etternavn")} />
                             </Cell>
                         </Grid>
                     </SkjemaGruppe>
@@ -85,16 +80,23 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                             label={t("omDegOgAvdoed.avdoed.dato")}
                             maxDate={new Date()}
                         />
+                        <Datovelger2
+                            name={"avdoed.datoForDoedsfallet"}
+                            label={t("omDegOgAvdoed.avdoed.dato")}
+                            maxDate={new Date()}
+                        />
                     </SkjemaGruppe>
 
-                    <ForholdTilAvdoedeSkjema/>
+                    <ForholdTilAvdoedeSkjema />
 
-                    <NySivilstatus/>
+                    <NySivilstatus />
 
-                    <Feilmeldinger errors={errors}/>
+                    <Feilmeldinger errors={errors} />
 
                     <Navigasjon
-                        forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
+                        forrige={{
+                            onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering,
+                        }}
                         neste={{ onClick: handleSubmit(lagreNeste) }}
                     />
                 </form>
