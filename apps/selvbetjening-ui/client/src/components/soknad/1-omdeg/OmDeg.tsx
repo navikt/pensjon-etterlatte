@@ -86,12 +86,11 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
                         <SkjemaGruppe>
                             <Grid>
-                                <Cell xs={12} md={3} className={"kol"}>
+                                <Cell xs={12} md={6} className={"kol"}>
                                     <RHFTelefonInput
                                         bredde={"S"}
                                         name={"kontaktinfo.telefonnummer"}
                                         label={t("omDeg.kontaktinfo.telefonnummer")}
-                                        placeholder={t("omDeg.kontaktinfo.telefonnummerPlaceholder")}
                                         valgfri={true}
                                     />
                                 </Cell>

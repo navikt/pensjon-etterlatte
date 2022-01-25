@@ -61,18 +61,37 @@ describe("Verifiser at kontonummer-matcher fungerer som tiltenkt", () => {
 
 describe("Verifiser at telefonnummer-matcher fungerer som tiltenkt", () => {
     it("Skal matche på korrekte telefonnummer", () => {
-        const validTelefonnr = ["123 45 678", "100 00 000", "999 99 999"]
+        const validTelefonnr = [
+            // Diverse norske
+            "+47 999 888 77",
+            "+4799988877",
+            "0047 999 888 77",
+            "004799988877",
+            "123 45 678",
+            "100 00 000",
+            "999 99 999",
+            // USA
+            "+1 (555) 555-1234",
+            "001 (555) 555-1234",
+            // Sverige
+            "999 888 777",
+            "999888777",
+            "+46 999 888 777",
+            "+46999888777",
+            "0046 999 888 777",
+            "0046999888777",
+        ];
 
-        validTelefonnr.forEach(telefonnummer =>
-                expect(telefonnrMatcher.test(telefonnummer)).toBe(true)
-        )
+        validTelefonnr.forEach(telefonnummer => {
+            expect(telefonnummer).toMatch(telefonnrMatcher);
+        });
     })
 
     it("Skal ikke matche på ugyldige input", () => {
-        const invalidTelefonnr = ["12345678", "123.45.678", "123", "123 45 abc", "123 45 67", "000 00 000"]
+        const invalidTelefonnr = ["123.45.678", "123 45 abc", "ren tekst", "", "    "];
 
-        invalidTelefonnr.forEach(telefonnummer =>
-                expect(telefonnrMatcher.test(telefonnummer)).toBe(false)
-        )
+        invalidTelefonnr.forEach(telefonnummer => {
+            expect(telefonnummer).not.toMatch(telefonnrMatcher);
+        });
     })
 })
