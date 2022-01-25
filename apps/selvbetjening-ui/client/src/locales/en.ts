@@ -389,6 +389,7 @@ export default {
   "feil.harAvtjentMilitaerTjeneste.beskrivelse.required": "State relevant year(s)",
   "feil.kontaktinfo.telefonnummer.required": "Telephone number is a required field",
   "feil.kontaktinfo.telefonnummer.pattern": "Must be a valid phone number",
+  "feil.kontaktinfo.telefonnummer.minLength": "Must be a valid phone number",
   "feil.kontaktinfo.epost.required": "E-mail address is a required field",
   "feil.kontaktinfo.epost.pattern": "The e-mail address must be valid",
   "feil.oppholderSegINorge.required": "You must answer this question about residence",

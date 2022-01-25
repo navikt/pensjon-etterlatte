@@ -389,6 +389,7 @@ export default {
   "feil.harAvtjentMilitaerTjeneste.beskrivelse.required": "Oppgi gjeldande år",
   "feil.kontaktinfo.telefonnummer.required": "Telefonnummer må fyllast ut",
   "feil.kontaktinfo.telefonnummer.pattern": "Må vere eit gyldig telefonnummer",
+  "feil.kontaktinfo.telefonnummer.minLength": "Må vere eit gyldig telefonnummer",
   "feil.kontaktinfo.epost.required": "E-post må fyllast ut",
   "feil.kontaktinfo.epost.pattern": "E-post må vere gyldig",
   "feil.oppholderSegINorge.required": "Opphald i Noreg må svarast på",
