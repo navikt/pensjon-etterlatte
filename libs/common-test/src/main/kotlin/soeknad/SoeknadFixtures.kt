@@ -33,8 +33,8 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Forelder
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Innsender
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Samboer
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Svar.JA
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Svar.NEI
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke.JA
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke.NEI
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Verge
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevende
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon

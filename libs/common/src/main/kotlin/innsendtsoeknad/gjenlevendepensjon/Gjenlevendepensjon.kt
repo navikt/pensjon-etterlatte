@@ -21,7 +21,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Person
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.PersonType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Samboer
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Svar
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import innsendtsoeknad.common.SoeknadType
 import java.time.LocalDateTime
@@ -50,15 +50,15 @@ data class Gjenlevende(
     val statsborgerskap: String,
     val sivilstatus: String,
     val adresse: Opplysning<String>?,
-    val bostedsAdresse: BetingetOpplysning<Svar, Opplysning<String>?>?,
+    val bostedsAdresse: BetingetOpplysning<JaNeiVetIkke, Opplysning<String>?>?,
     val kontaktinfo: Kontaktinfo,
-    val flyktning: Opplysning<Svar>?,
-    val oppholdUtland: BetingetOpplysning<Svar, OppholdUtland?>?,
+    val flyktning: Opplysning<JaNeiVetIkke>?,
+    val oppholdUtland: BetingetOpplysning<JaNeiVetIkke, OppholdUtland?>?,
     val nySivilstatus: BetingetOpplysning<SivilstatusType, Samboer?>,
     val arbeidOgUtdanning: ArbeidOgUtdanning?,
     val fullfoertUtdanning: BetingetOpplysning<HoeyesteUtdanning, Opplysning<AnnenUtdanning>?>?,
     val andreYtelser: AndreYtelser,
-    val uregistrertEllerVenterBarn: Opplysning<Svar>,
+    val uregistrertEllerVenterBarn: Opplysning<JaNeiVetIkke>,
     val forholdTilAvdoede: ForholdTilAvdoede,
 ) : Person {
     override val type = PersonType.GJENLEVENDE

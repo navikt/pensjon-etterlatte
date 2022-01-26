@@ -67,11 +67,11 @@ data class Barn(
     override val etternavn: String,
     override val foedselsnummer: Foedselsnummer,
 
-    val statsborgerskap: Opplysning<String>,
-    val utenlandsAdresse: BetingetOpplysning<Svar, Utenlandsadresse?>?,
+    val statsborgerskap: Opplysning<FritekstSvar>,
+    val utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse?>?,
     val foreldre: List<Forelder>,
-    val verge: BetingetOpplysning<Svar, Verge>?,
-    val dagligOmsorg: Opplysning<OmsorgspersonType>?
+    val verge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge>?,
+    val dagligOmsorg: Opplysning<EnumSvar<OmsorgspersonType>>?
 ) : Person {
     override val type = PersonType.BARN
 }
@@ -81,14 +81,14 @@ data class Avdoed(
     override val etternavn: String,
     override val foedselsnummer: Foedselsnummer,
 
-    val datoForDoedsfallet: Opplysning<LocalDate>,
-    val statsborgerskap: Opplysning<String>,
-    val utenlandsopphold: BetingetOpplysning<Svar, List<Utenlandsopphold>>,
-    val doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: Opplysning<Svar>,
+    val datoForDoedsfallet: Opplysning<DatoSvar>,
+    val statsborgerskap: Opplysning<FritekstSvar>,
+    val utenlandsopphold: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, List<Utenlandsopphold>>,
+    val doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: Opplysning<EnumSvar<JaNeiVetIkke>>,
 
     // Næringsinntekt og militærtjeneste er kun relevant dersom begge foreldrene er døde.
-    val naeringsInntekt: BetingetOpplysning<Svar, Naeringsinntekt?>?,
-    val militaertjeneste: BetingetOpplysning<Svar, Opplysning<AarstallForMilitaerTjeneste>?>?
+    val naeringsInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt?>?,
+    val militaertjeneste: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<AarstallForMilitaerTjeneste>?>?
 ) : Person {
     override val type = PersonType.AVDOED
 }
@@ -106,8 +106,8 @@ data class Samboer(
     override val etternavn: String,
     override val foedselsnummer: Foedselsnummer,
 
-    val fellesBarnEllertidligereGift: Opplysning<Svar>,
-    val inntekt: BetingetOpplysning<Svar, SamboerInntekt?>?,
+    val fellesBarnEllertidligereGift: Opplysning<JaNeiVetIkke>,
+    val inntekt: BetingetOpplysning<JaNeiVetIkke, SamboerInntekt?>?,
 ) : Person {
     override val type = PersonType.SAMBOER
 }

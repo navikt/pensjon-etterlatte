@@ -7,7 +7,7 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Barn
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Person
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Svar
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Verge
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.junit.jupiter.api.Test
@@ -49,7 +49,7 @@ internal class PersonerTest {
         deserialized.foreldre.size shouldBe 2
         deserialized.dagligOmsorg shouldBe null
         deserialized.statsborgerskap.svar shouldBe "Norge"
-        deserialized.utenlandsAdresse!!.svar shouldBe Svar.NEI
+        deserialized.utenlandsAdresse!!.svar shouldBe JaNeiVetIkke.NEI
     }
 
 }
