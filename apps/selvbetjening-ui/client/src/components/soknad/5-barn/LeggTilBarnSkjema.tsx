@@ -302,16 +302,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
 
                         <div className={"navigasjon-rad bottom-spacing-none"}>
                             <Button
-                                id={"leggTilBarn"}
-                                variant={"primary"}
-                                type={"button"}
-                                onClick={handleSubmit(leggTilOgLukk)}
-                                style={{ minWidth: "80px" }}
-                            >
-                                {t("knapp.lagre")}
-                            </Button>
-
-                            <Button
                                 id={"avbrytLeggTilBarn"}
                                 variant={"secondary"}
                                 type={"button"}
@@ -319,6 +309,16 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                 style={{ minWidth: "80px" }}
                             >
                                 {t("knapp.avbryt")}
+                            </Button>
+
+                            <Button
+                                id={"leggTilBarn"}
+                                variant={"primary"}
+                                type={"button"}
+                                onClick={handleSubmit(leggTilOgLukk)}
+                                style={{ minWidth: "80px" }}
+                            >
+                                {t("knapp.lagre")}
                             </Button>
                         </div>
                     </div>
