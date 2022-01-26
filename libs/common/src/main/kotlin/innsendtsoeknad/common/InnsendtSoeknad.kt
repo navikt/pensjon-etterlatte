@@ -27,7 +27,7 @@ interface InnsendtSoeknad {
     val innsender: Innsender
     val soeker: Person
     val harSamtykket: Opplysning<Boolean>
-    val utbetalingsInformasjon: BetingetOpplysning<BankkontoType, UtbetalingsInformasjon>?
+    val utbetalingsInformasjon: BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon>?
 
     @JsonGetter("template")
     fun template(): String = "${type.name.lowercase()}_v$versjon"

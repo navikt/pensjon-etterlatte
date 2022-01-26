@@ -1,6 +1,7 @@
 import { TFunction } from "i18next";
 import { ISoeknad } from "../../context/soknad/soknad";
 import {
+    EnumSvar,
     Naeringsinntekt,
     OppholdUtlandType,
     Opplysning,
@@ -19,8 +20,11 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
 
     if (soeknad.omDenAvdoede.boddEllerJobbetUtland?.svar === IValg.JA) {
         oppholdUtland = soeknad.omDenAvdoede.boddEllerJobbetUtland.oppholdUtland?.map(info => {
-            const oppholdsTypeListe: OppholdUtlandType[] = info.beskrivelse
-                ?.map(type => konverterOpphold(type)) || [];
+            const oppholdsTypeListe: EnumSvar<OppholdUtlandType>[] = info.beskrivelse
+                ?.map(type => ({
+                    verdi: konverterOpphold(type),
+                    svar: t(type),
+                })) || [];
 
             const utenlandsopphold: Utenlandsopphold = {
                 land: {
@@ -41,7 +45,7 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
                 },
                 medlemFolketrygd: {
                     spoersmaal: t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd"),
-                    svar: valgTilSvar(info.medlemFolketrygd!!)
+                    svar: valgTilSvar(t, info.medlemFolketrygd!!)
                 },
                 pensjonsutbetaling: {
                     spoersmaal: t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse"),
@@ -62,7 +66,7 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
             },
             naeringsinntektVedDoedsfall: {
                 spoersmaal: t("omDenAvdoede.haddePensjonsgivendeInntekt.svar"),
-                svar: valgTilSvar(soeknad.omDenAvdoede.haddePensjonsgivendeInntekt!!.svar!!) // TODO: Fikse type
+                svar: valgTilSvar(t, soeknad.omDenAvdoede.haddePensjonsgivendeInntekt!!.svar!!) // TODO: Fikse type
             }
         }
     }
@@ -92,22 +96,22 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
         },
         utenlandsopphold: {
             spoersmaal: t("omDenAvdoede.boddEllerJobbetUtland.svar"),
-            svar: valgTilSvar(soeknad.omDenAvdoede.boddEllerJobbetUtland!!.svar!!), // TODO: Fikse type
+            svar: valgTilSvar(t, soeknad.omDenAvdoede.boddEllerJobbetUtland!!.svar!!), // TODO: Fikse type
             opplysning: oppholdUtland
         },
         naeringsInntekt: {
             spoersmaal: t("omDenAvdoede.selvstendigNaeringsdrivende.svar"),
-            svar: valgTilSvar(soeknad.omDenAvdoede.selvstendigNaeringsdrivende!!.svar!!), // TODO: Fikse type
+            svar: valgTilSvar(t, soeknad.omDenAvdoede.selvstendigNaeringsdrivende!!.svar!!), // TODO: Fikse type
             opplysning: opplysningNaeringsInntekt
         },
         militaertjeneste: {
             spoersmaal: t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar"),
-            svar: valgTilSvar(soeknad.omDenAvdoede.harAvtjentMilitaerTjeneste!!.svar!!), // TODO: Fikse type
+            svar: valgTilSvar(t, soeknad.omDenAvdoede.harAvtjentMilitaerTjeneste!!.svar!!), // TODO: Fikse type
             opplysning: opplysningMilitaertjeneste
         },
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
             spoersmaal: t("omDenAvdoede.doedsfallAarsak"),
-            svar: valgTilSvar(soeknad.omDenAvdoede.doedsfallAarsak!!)
+            svar: valgTilSvar(t, soeknad.omDenAvdoede.doedsfallAarsak!!)
         }
     }
 };
