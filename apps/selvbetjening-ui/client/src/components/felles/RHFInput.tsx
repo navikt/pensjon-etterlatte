@@ -11,7 +11,6 @@ import {
     kontonrMatcher,
     partialKontonrMatcher,
     partialProsentMatcher,
-    partialTelefonnrMatcher,
     prosentMatcher,
     telefonnrMatcher,
 } from "../../utils/matchers";
@@ -187,13 +186,18 @@ export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => 
         <Controller
             name={name}
             control={control}
-            rules={{ required: !valgfri, pattern: telefonnrMatcher, ...rules }}
+            rules={{
+                required: !valgfri,
+                pattern: telefonnrMatcher,
+                minLength: 8,
+                ...rules
+            }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
                     required
                     value={value || ""}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialTelefonnrMatcher))}
+                    onChange={onChange}
                     feil={feilmelding}
                     {...rest}
                 />

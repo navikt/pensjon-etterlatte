@@ -84,7 +84,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
           class="navds-grid"
         >
           <div
-            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-3 kol"
+            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
           >
             <div
               class="skjemaelement"
@@ -99,7 +99,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 aria-invalid="false"
                 class="skjemaelement__input input--s"
                 id="kontaktinfo.telefonnummer"
-                placeholder="omDeg.kontaktinfo.telefonnummerPlaceholder"
                 required=""
                 type="text"
                 value=""
