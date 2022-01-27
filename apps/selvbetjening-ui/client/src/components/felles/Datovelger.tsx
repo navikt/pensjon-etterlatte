@@ -22,10 +22,19 @@ interface DatovelgerProps {
 }
 
 const parseDate = (dato?: Date | string) => {
-    if (!dato) return;
-    else if (typeof dato === "string") return format(parseISO(dato), "yyyy-MM-dd");
-    else return format(dato, "yyyy-MM-dd");
+    try {
+        if (!dato)
+            return undefined;
+        else if (typeof dato === "string")
+            return format(parseISO(dato), "yyyy-MM-dd");
+        else
+            return format(dato, "yyyy-MM-dd");
+    } catch {
+        return undefined;
+    }
 };
+
+const isValid = (date: any): boolean => !!parseDate(date);
 
 const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, className }: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
@@ -48,7 +57,10 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
                     name={name}
                     control={control}
                     defaultValue={undefined}
-                    rules={{ required: !valgfri }}
+                    rules={{
+                        required: !valgfri,
+                        validate: (date) => isValid(date)
+                    }}
                     render={({ field: { onChange, value } }) => (
                         <Datepicker
                             locale={i18n.language as DatepickerLocales}
