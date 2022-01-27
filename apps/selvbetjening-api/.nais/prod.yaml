@@ -48,6 +48,12 @@ spec:
       value: "prod-fss:etterlatte:etterlatte-proxy"
     - name: NAV_CONSUMER_ID
       value: "srvbarnepensjon"
+    - name: KRR_ENDPOINT_URL
+      value: "https://digdir-krr-proxy.intern.nav.no/rest/v1"
+    - name: KRR_SCOPE
+      value: "api://prod-gcp.team-rocket.digdir-krr-proxy/.default"
+    - name: KRR_AUDIENCE
+      value: "prod-gcp:team-rocket:digdir-krr-proxy"
   ingresses:
     - "https://etterlatte-selvbetjening-api.prod-gcp.nais.io"
   accessPolicy:
@@ -56,6 +62,7 @@ spec:
         - application: etterlatte-proxy
         - application: etterlatte-pdl-proxy
         - application: innsendt-soeknad
+        - application: digdir-krr-proxy
     inbound:
       rules:
         - application: selvbetjening-ui
