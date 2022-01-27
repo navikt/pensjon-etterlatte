@@ -332,6 +332,8 @@ export default {
   "felles.elleveSiffer": "11 digits",
   "felles.datoEksempel": "e.g. 01.12.2020",
   "felles.velg": "Select ...",
+  "felles.telefonnummer": "Phone number",
+  "felles.telefonnummerHjelpetekst": "The phone number is retrieved from the common Norwegian contact register (KRR)",
   "endreSvarOppsummering.om-deg": "Change answers about you",
   "endreSvarOppsummering.om-deg-og-avdoed": "Change answers about you and the deceased",
   "endreSvarOppsummering.om-den-avdoede": "Change answers about the deceased",

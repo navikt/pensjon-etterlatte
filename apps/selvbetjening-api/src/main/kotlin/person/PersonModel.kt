@@ -16,7 +16,6 @@ data class Person(
     val poststed: String?,
     val statsborgerskap: String?,
     val sivilstatus: String?,
-    val epost: String?,
     val telefonnummer: String?,
     val spraak: String?
 )

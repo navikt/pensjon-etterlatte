@@ -75,7 +75,6 @@ class PersonService(
             poststed = poststed,
             statsborgerskap = land,
             sivilstatus = sivilstand?.type?.name,
-            epost = kontaktInformasjon?.epostadresse,
             telefonnummer = kontaktInformasjon?.mobiltelefonnummer,
             spraak = kontaktInformasjon?.spraak
         )

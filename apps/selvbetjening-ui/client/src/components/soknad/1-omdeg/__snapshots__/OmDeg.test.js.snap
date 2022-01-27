@@ -105,29 +105,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
               />
             </div>
           </div>
-          <div
-            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
-          >
-            <div>
-              <div
-                class="skjemaelement"
-              >
-                <label
-                  class="skjemaelement__label"
-                  for="kontaktinfo.epost"
-                >
-                  omDeg.kontaktinfo.epost
-                </label>
-                <input
-                  aria-invalid="false"
-                  class="skjemaelement__input input--fullbredde"
-                  id="kontaktinfo.epost"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
         </div>
         <div
           aria-live="polite"

@@ -13,7 +13,6 @@ import { RHFInlineRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
-import { emailMatcher } from "../../../utils/matchers";
 import { Cell, Grid, Heading } from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
@@ -84,27 +83,20 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             </>
                         )}
 
-                        <SkjemaGruppe>
-                            <Grid>
-                                <Cell xs={12} md={6} className={"kol"}>
-                                    <RHFTelefonInput
-                                        bredde={"S"}
-                                        name={"kontaktinfo.telefonnummer"}
-                                        label={t("omDeg.kontaktinfo.telefonnummer")}
-                                        valgfri={true}
-                                    />
-                                </Cell>
-
-                                <Cell xs={12} md={6} className={"kol"}>
-                                    <RHFInput
-                                        name={"kontaktinfo.epost"}
-                                        label={t("omDeg.kontaktinfo.epost")}
-                                        rules={{ pattern: emailMatcher }}
-                                        valgfri={true}
-                                    />
-                                </Cell>
-                            </Grid>
-                        </SkjemaGruppe>
+                        {!brukerState.telefonnummer && (
+                            <SkjemaGruppe>
+                                <Grid>
+                                    <Cell xs={12} md={6} className={"kol"}>
+                                        <RHFTelefonInput
+                                            bredde={"S"}
+                                            name={"kontaktinfo.telefonnummer"}
+                                            label={t("omDeg.kontaktinfo.telefonnummer")}
+                                            valgfri={true}
+                                        />
+                                    </Cell>
+                                </Grid>
+                            </SkjemaGruppe>
+                        )}
                     </SkjemaGruppering>
 
                     {/* 2.7 */}

@@ -76,7 +76,6 @@ internal class PersonServiceTest {
         assertEquals("Skåla", person.poststed)
         assertEquals("Norge", person.statsborgerskap)
         assertEquals(false, person.adressebeskyttelse)
-        assertEquals("noreply@nav.no", person.epost)
         assertEquals("11111111", person.telefonnummer)
         assertEquals("nb", person.spraak)
         assertNull(person.sivilstatus)

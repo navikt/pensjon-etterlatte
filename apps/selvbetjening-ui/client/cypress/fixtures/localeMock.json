@@ -166,8 +166,7 @@
     "flyktningHvorfor": "Hvis du er registrert som flyktning hos UDI kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.",
     "kontaktinfo": {
       "telefonnummer": "Telefonnummer",
-      "telefonnummerPlaceholder": "8 siffer",
-      "epost": "E-post"
+      "telefonnummerPlaceholder": "8 siffer"
     },
     "utbetalingsInformasjon": {
       "tittel": "Oppgi bankopplysninger",
@@ -674,10 +673,6 @@
       "telefonnummer": {
         "required": "Telefonnummer må fylles ut",
         "pattern": "Telefonnummer må være 8 siffer"
-      },
-      "epost": {
-        "required": "E-post må fylles ut",
-        "pattern": "E-post må være gyldig"
       }
     },
     "oppholderSegINorge": {

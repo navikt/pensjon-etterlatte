@@ -332,6 +332,8 @@ export default {
   "felles.elleveSiffer": "11 siffer",
   "felles.datoEksempel": "eks: 01.12.2020",
   "felles.velg": "Velg ...",
+  "felles.telefonnummer": "Telefonnummer",
+  "felles.telefonnummerHjelpetekst": "Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.",
   "endreSvarOppsummering.om-deg": "Endre svar om deg",
   "endreSvarOppsummering.om-deg-og-avdoed": "Endre svar om deg og avdøde",
   "endreSvarOppsummering.om-den-avdoede": "Endre svar om avdøde",

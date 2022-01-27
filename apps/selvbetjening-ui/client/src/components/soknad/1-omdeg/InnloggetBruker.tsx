@@ -1,11 +1,11 @@
-import { Alert, BodyShort, Label } from "@navikt/ds-react";
+import { Alert, BodyShort, Cell, Grid, Label } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { Cell, Grid } from "@navikt/ds-react";
 import { isEmpty } from "lodash";
-import { memo } from "react";
+import React, { memo } from "react";
 import { fullAdresse } from "../../../utils/adresse";
+import Hjelpetekst from "../../felles/Hjelpetekst";
 
 const InnloggetBruker = memo(() => {
     const { t } = useTranslation();
@@ -55,6 +55,14 @@ const InnloggetBruker = memo(() => {
                         <Label>{t("felles.statsborgerskap")}</Label>
                         <BodyShort spacing>{state.statsborgerskap}</BodyShort>
                     </div>
+
+                    {state.telefonnummer && (
+                        <div>
+                            <Label>{t("felles.telefonnummer")}&nbsp;
+                                <Hjelpetekst>{t("felles.telefonnummerHjelpetekst")}</Hjelpetekst></Label>
+                            <BodyShort spacing>{state.telefonnummer}</BodyShort>
+                        </div>
+                    )}
                 </Cell>
             </Grid>
         </SkjemaGruppe>
