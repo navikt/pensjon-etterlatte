@@ -12,6 +12,8 @@ import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Dropdown } from "../felles/Dropdown";
 import { MuligeSteg } from "../../typer/steg";
+import { useEffect } from "react";
+import { Language } from "../../i18n";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -37,6 +39,13 @@ const SoknadForside = () => {
             {t("forside.hei", { navn: innloggetBrukerNavn })}
         </div>
     );
+
+    useEffect(() => {
+        // Sett default språk dersom det finnes og det er støttet (KRR har f. eks støtte for svensk)
+        if (brukerState.spraak && ["nb", "nn", "en"].includes(brukerState.spraak)) {
+            setLanguage(brukerState.spraak as Language)
+        }
+    }, [brukerState]);
 
     return (
         <div className={"forside"}>
