@@ -28,7 +28,7 @@ const parseDate = (dato?: Date | string) => {
         else if (typeof dato === "string")
             return format(parseISO(dato), "yyyy-MM-dd");
         else
-            return format(dato, "yyyy-MM-dd");
+            return format(parseISO(dato.toISOString()), "yyyy-MM-dd");
     } catch {
         return undefined;
     }
@@ -65,7 +65,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
                         <Datepicker
                             locale={i18n.language as DatepickerLocales}
                             value={value}
-                            onChange={onChange}
+                            onChange={(date) => onChange(parseDate(date))}
                             inputId={name}
                             inputProps={{
                                 name,
