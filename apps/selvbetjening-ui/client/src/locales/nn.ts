@@ -56,7 +56,7 @@ export default {
   "forside.samtykke.bekreftelse": "Eg, {{navn}}, bekreftar at eg vil gi riktige og fullstendige opplysingar.",
   "dinSituasjon.tittel": "Situasjonen din",
   "dinSituasjon.undertittel": "Arbeid og utdanning",
-  "dinSituasjon.ingress": "Kor mykje du kan få i attlevandepensjon er avhengig av arbeidsinntekta di. Vi bereknar ut forventa inntekt på grunnlag av din arbeidssituasjon og tidlegare utdanning.",
+  "dinSituasjon.ingress": "Kor mykje du kan få i attlevandepensjon er avhengig av arbeidsinntekta di. Vi bereknar ut forventa inntekt både på grunnlag av arbeidssituasjonen og inntekten din. Inntekt hentar vi frå Skatteetaten.",
   "dinSituasjon.jobbStatus": "Kva er situasjonen din no?",
   "dinSituasjon.ingenJobbTittel": "Anna",
   "dinSituasjon.ingenJobbBeskrivelse": "Gi ei skildring av situasjonen din",

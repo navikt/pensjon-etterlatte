@@ -56,7 +56,7 @@ export default {
   "forside.samtykke.bekreftelse": "Jeg, {{navn}}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.",
   "dinSituasjon.tittel": "Situasjonen din",
   "dinSituasjon.undertittel": "Arbeid og utdanning",
-  "dinSituasjon.ingress": "Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten din. Vi beregner forventet inntekt på grunnlag av din arbeidssituasjon og tidligere inntekt.",
+  "dinSituasjon.ingress": "Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten din. Vi beregner forventet inntekt både på grunnlag av arbeidssituasjonen og inntekten din. Inntekt henter vi fra Skatteetaten.",
   "dinSituasjon.jobbStatus": "Hva er situasjonen din nå?",
   "dinSituasjon.ingenJobbTittel": "Annet",
   "dinSituasjon.ingenJobbBeskrivelse": "Gi en beskrivelse av situasjonen din",
