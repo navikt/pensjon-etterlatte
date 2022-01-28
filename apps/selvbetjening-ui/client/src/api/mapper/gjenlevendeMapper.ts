@@ -19,7 +19,7 @@ import {
     SivilstatusType,
     JaNeiVetIkke,
     Utdanning,
-    Ytelser, EnumSvar
+    Ytelser, EnumSvar, FritekstSvar, DatoSvar
 } from "../dto/FellesOpplysninger";
 import { Gjenlevende, PersonType, Samboer } from "../dto/Person";
 import { valgTilSvar } from "./fellesMapper";
@@ -42,11 +42,15 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
     const kontaktinfo: Kontaktinfo = {
         epost: {
             spoersmaal: t("omDeg.kontaktinfo.epost"),
-            svar: soeknad.omDeg.kontaktinfo!!.epost || "-"
+            svar: {
+                innhold: soeknad.omDeg.kontaktinfo!!.epost || "-"
+            }
         },
         telefonnummer: {
             spoersmaal: t("omDeg.kontaktinfo.telefonnummer"),
-            svar: soeknad.omDeg.kontaktinfo!!.telefonnummer || "-"
+            svar: {
+                innhold: soeknad.omDeg.kontaktinfo!!.telefonnummer || "-"
+            }
         }
     };
 
@@ -57,27 +61,43 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
 
     const annenUtdanning: Opplysning<AnnenUtdanning> | undefined = soeknad.dinSituasjon.utdanning?.hoyesteFullfoerteUtdanning === HoeyesteUtdanning.ANNEN ? {
         spoersmaal: t("dinSituasjon.utdanning.annenUtdanning"),
-        svar: soeknad.dinSituasjon.utdanning!!.annenUtdanning!!
+        svar: {
+            innhold: soeknad.dinSituasjon.utdanning!!.annenUtdanning!!
+        }
     } : undefined;
 
-    const opplysningAlternativAdresse: Opplysning<String> | undefined = soeknad.omDeg.bostedsadresseBekreftet === IValg.NEI ? {
+    const opplysningAlternativAdresse: Opplysning<FritekstSvar> | undefined = soeknad.omDeg.bostedsadresseBekreftet === IValg.NEI ? {
         spoersmaal: t("omDeg.alternativAdresse"),
-        svar: soeknad.omDeg.alternativAdresse!!
+        svar: {
+            innhold: soeknad.omDeg.alternativAdresse!!
+        }
     } : undefined;
 
     // TODO: Slå sammen med ArbeidOgUtdanning ... ?
-    const fullfoertUtdanning: BetingetOpplysning<HoeyesteUtdanning, Opplysning<AnnenUtdanning>> | undefined = !bruker.adressebeskyttelse ? {
+    const fullfoertUtdanning: BetingetOpplysning<EnumSvar<HoeyesteUtdanning>, Opplysning<AnnenUtdanning>> | undefined = !bruker.adressebeskyttelse ? {
         spoersmaal: t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning"),
-        svar: konverterTilHoyesteUtdanning(soeknad.dinSituasjon.utdanning!!.hoyesteFullfoerteUtdanning!!),
+        svar: {
+            verdi: konverterTilHoyesteUtdanning(soeknad.dinSituasjon.utdanning!!.hoyesteFullfoerteUtdanning!!),
+            innhold: t(soeknad.dinSituasjon.utdanning!!.hoyesteFullfoerteUtdanning!!)
+        },
         opplysning: annenUtdanning
     } : undefined;
 
     return {
         type: PersonType.GJENLEVENDE,
 
-        fornavn: bruker.fornavn!!,
-        etternavn: bruker.etternavn!!,
-        foedselsnummer: bruker.foedselsnummer!!,
+        fornavn: {
+            spoersmaal: t("felles.fornavn"),
+            svar: bruker.fornavn!!
+        },
+        etternavn: {
+            spoersmaal: t("felles.etternavn"),
+            svar: bruker.etternavn!!
+        },
+        foedselsnummer: {
+            spoersmaal: t("felles.foedselsnummer"),
+            svar: bruker.foedselsnummer!!
+        },
 
         statsborgerskap: `${bruker.statsborgerskap}`,
         sivilstatus: `${bruker.sivilstatus}`,
@@ -113,22 +133,25 @@ const hentOppholdUtland = (t: TFunction, omDeg: ISoeker): BetingetOpplysning<Enu
         opplysning = {
             land: {
                 spoersmaal: t("omDeg.oppholdsland"),
-                svar: omDeg.oppholdsland!!
+                svar: {
+                    innhold: omDeg.oppholdsland!!
+                }
             },
             medlemFolketrygd: {
                 spoersmaal: t("omDeg.medlemFolketrygdenUtland"),
-                svar: valgTilSvar(t, omDeg.medlemFolketrygdenUtland!!),            }
+                svar: valgTilSvar(t, omDeg.medlemFolketrygdenUtland!!),
+            }
         };
     }
 
     return {
         spoersmaal: t("omDeg.oppholderSegINorge"),
-        svar: valgTilSvar(t, omDeg.oppholderSegINorge!!), // TODO: Korrigere type
+        svar: valgTilSvar(t, omDeg.oppholderSegINorge!!),
         opplysning
     }
 }
 
-const hentSivilstatus = (t: TFunction, nySivilstatus: INySivilstatus): BetingetOpplysning<SivilstatusType, Samboer> => {
+const hentSivilstatus = (t: TFunction, nySivilstatus: INySivilstatus): BetingetOpplysning<EnumSvar<SivilstatusType>, Samboer> => {
     let opplysning: Samboer | undefined;
 
     if (nySivilstatus?.sivilstatus == Sivilstatus.samboerskap) {
@@ -139,7 +162,7 @@ const hentSivilstatus = (t: TFunction, nySivilstatus: INySivilstatus): BetingetO
             const inntektTypeSvar: EnumSvar<InntektType>[] = samboer.harInntekt?.inntektstype
                 ?.map(type => ({
                     verdi: konverterSamboerInntekt(type),
-                    svar: t(type)
+                    innhold: t(type)
                 })) || [];
 
             inntekt = {
@@ -152,7 +175,9 @@ const hentSivilstatus = (t: TFunction, nySivilstatus: INySivilstatus): BetingetO
                     },
                     samletBruttoinntektPrAar: {
                         spoersmaal: t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"),
-                        svar: samboer.harInntekt!!.samletBruttoinntektPrAar!!
+                        svar: {
+                            innhold: samboer.harInntekt!!.samletBruttoinntektPrAar!!
+                        }
                     }
                 }
             }
@@ -165,9 +190,18 @@ const hentSivilstatus = (t: TFunction, nySivilstatus: INySivilstatus): BetingetO
 
         opplysning = {
             type: PersonType.SAMBOER,
-            fornavn: samboer.fornavn!!,
-            etternavn: samboer.etternavn!!,
-            foedselsnummer: samboer.foedselsnummer!!,
+            fornavn: {
+                spoersmaal: t("felles.fornavn"),
+                svar: samboer.fornavn!!
+            },
+            etternavn: {
+                spoersmaal: t("felles.etternavn"),
+                svar: samboer.etternavn!!
+            },
+            foedselsnummer: {
+                spoersmaal: t("felles.foedselsnummer"),
+                svar: samboer.foedselsnummer!!
+            },
             fellesBarnEllertidligereGift: {
                 spoersmaal: t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift"),
                 svar: valgTilSvar(t, nySivilstatus.samboerskap!!.hattBarnEllerVaertGift!!), // TODO: Korrigere type
@@ -178,7 +212,10 @@ const hentSivilstatus = (t: TFunction, nySivilstatus: INySivilstatus): BetingetO
 
     return {
         spoersmaal: t("omDegOgAvdoed.nySivilstatus.sivilstatus"),
-        svar: konverterSivilstatus(nySivilstatus!!.sivilstatus!!),
+        svar: {
+            verdi: konverterSivilstatus(nySivilstatus!!.sivilstatus!!),
+            innhold: t(nySivilstatus!!.sivilstatus!!)
+        },
         opplysning
     }
 }
@@ -193,25 +230,31 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                 const arbeidstaker: Arbeidstaker = {
                     arbeidsgiver: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.arbeidsgiver"),
-                        svar: arbeid.arbeidsgiver!!
+                        svar: {
+                            innhold: arbeid.arbeidsgiver!!
+                        }
                     },
                     ansettelsesforhold: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.ansettelsesforhold"),
                         svar: {
                             verdi: konverterStillingType(arbeid.ansettelsesforhold!!),
-                            svar: t(arbeid.ansettelsesforhold!!)
+                            innhold: t(arbeid.ansettelsesforhold!!)
                         }
                     },
                     stillingsprosent: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.stillingsprosent"),
-                        svar: `${arbeid.stillingsprosent}`
+                        svar: {
+                            innhold: `${arbeid.stillingsprosent}`
+                        }
                     },
                     endretInntekt: {
                         spoersmaal: t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar"),
                         svar: valgTilSvar(t, arbeid.forventerEndretInntekt!!.svar!!), // TODO: fikse type,
                         opplysning: arbeid.forventerEndretInntekt?.svar === IValg.JA ? {
                             spoersmaal: t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse"),
-                            svar: `${arbeid.forventerEndretInntekt?.beskrivelse}`
+                            svar: {
+                                innhold: `${arbeid.forventerEndretInntekt?.beskrivelse}`
+                            }
                         } : undefined
                     }
                 }
@@ -221,11 +264,13 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
         }
     }
 
-    let annet: Opplysning<string> | undefined;
+    let annet: Opplysning<FritekstSvar> | undefined;
     if (dinSituasjon.jobbStatus?.includes(JobbStatus.ingen)) {
         annet = {
             spoersmaal: t("dinSituasjon.ingenJobbBeskrivelse"),
-            svar: dinSituasjon.ingenJobbBeskrivelse!!
+            svar: {
+                innhold: dinSituasjon.ingenJobbBeskrivelse!!
+            }
         }
     }
 
@@ -235,18 +280,24 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
             return {
                 firmanavn: {
                     spoersmaal: t("dinSituasjon.selvstendig.tittel"),
-                    svar: naering.beskrivelse!!
+                    svar: {
+                        innhold: naering.beskrivelse!!
+                    }
                 },
                 orgnr: {
                     spoersmaal: t("dinSituasjon.selvstendig.orgnr"),
-                    svar: naering.orgnr!!
+                    svar: {
+                        innhold: naering.orgnr!!
+                    }
                 },
                 endretInntekt: {
                     spoersmaal: t("dinSituasjon.selvstendig.forventerEndretInntekt.svar"),
                     svar: valgTilSvar(t, naering.forventerEndretInntekt!!.svar!!), // TODO: Fikse type
                     opplysning: naering.forventerEndretInntekt?.svar === IValg.JA ? {
                         spoersmaal: t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse"),
-                        svar: `${naering.forventerEndretInntekt?.beskrivelse}`
+                        svar: {
+                            innhold: `${naering.forventerEndretInntekt?.beskrivelse}`
+                        }
                     } : undefined
                 }
             }
@@ -265,15 +316,21 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
             svar: {
                 navn: {
                     spoersmaal: t("dinSituasjon.utdanning.naavaerendeUtdanning.navn"),
-                    svar: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.navn!!
+                    svar: {
+                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.navn!!
+                    }
                 },
                 startDato: {
                     spoersmaal: t("dinSituasjon.utdanning.naavaerendeUtdanning.startDato"),
-                    svar: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.startDato!!
+                    svar: {
+                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.startDato!!
+                    }
                 },
                 sluttDato: {
                     spoersmaal: t("dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato"),
-                    svar: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.sluttDato!!
+                    svar: {
+                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.sluttDato!!
+                    }
                 },
             }
         }
@@ -284,7 +341,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
             spoersmaal: t("dinSituasjon.jobbStatus"),
             svar: dinSituasjon.jobbStatus?.map(type => ({
                 verdi: konverterJobbStatus(type),
-                svar: t(type)
+                innhold: t(type)
             })) || []
         },
         arbeidsforhold,
@@ -299,7 +356,7 @@ const hentAndreYtelser = (t: TFunction, dinSituasjon: ISituasjon): AndreYtelser 
         spoersmaal: t("dinSituasjon.andreYtelser.kravOmAnnenStonad.ytelser"),
         svar: {
             verdi: konverterYtelser(dinSituasjon.andreYtelser!!.kravOmAnnenStonad!!.ytelser!!),
-            svar: t(dinSituasjon.andreYtelser!!.kravOmAnnenStonad!!.ytelser!!)
+            innhold: t(dinSituasjon.andreYtelser!!.kravOmAnnenStonad!!.ytelser!!)
         }
     } : undefined;
 
@@ -314,7 +371,9 @@ const hentAndreYtelser = (t: TFunction, dinSituasjon: ISituasjon): AndreYtelser 
             svar: valgTilSvar(t, dinSituasjon.andreYtelser!!.annenPensjon!!.svar!!), // TODO: fikse type
             opplysning: dinSituasjon.andreYtelser?.annenPensjon?.svar === IValg.JA ? {
                 spoersmaal: t("dinSituasjon.andreYtelser.annenPensjon.beskrivelse"),
-                svar: `${dinSituasjon.andreYtelser?.annenPensjon?.beskrivelse}`
+                svar: {
+                    innhold: `${dinSituasjon.andreYtelser?.annenPensjon?.beskrivelse}`
+                }
             } : undefined
         },
         pensjonUtland: {
@@ -323,15 +382,21 @@ const hentAndreYtelser = (t: TFunction, dinSituasjon: ISituasjon): AndreYtelser 
             opplysning: dinSituasjon.andreYtelser?.mottarPensjonUtland?.svar === IValg.JA ? {
                 pensjonsType: {
                     spoersmaal: t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"),
-                    svar: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.hvaSlagsPensjon}`
+                    svar: {
+                        innhold: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.hvaSlagsPensjon}`
+                    }
                 },
                 land: {
                     spoersmaal: t("dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand"),
-                    svar: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.fraHvilketLand}`
+                    svar: {
+                        innhold: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.fraHvilketLand}`
+                    }
                 },
                 bruttobeloepPrAar: {
                     spoersmaal: t("dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"),
-                    svar: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.bruttobeloepPrAar}`
+                    svar: {
+                        innhold: `${dinSituasjon.andreYtelser?.mottarPensjonUtland?.bruttobeloepPrAar}`
+                    }
                 }
             } : undefined
         }
@@ -343,18 +408,22 @@ const mapForholdTilAvdoede = (t: TFunction, forholdTilAvdoede: IForholdAvdoede):
         spoersmaal: t("omDegOgAvdoed.forholdTilAvdoede.relasjon"),
         svar: {
             verdi: konverterRelasjonAvdoed(forholdTilAvdoede.relasjon!!),
-            svar: t(forholdTilAvdoede.relasjon!!)
+            innhold: t(forholdTilAvdoede.relasjon!!)
         }
     };
 
-    const datoForInngaattPartnerskap: Opplysning<Date> | undefined = !!forholdTilAvdoede.datoForInngaattPartnerskap ? {
+    const datoForInngaattPartnerskap: Opplysning<DatoSvar> | undefined = !!forholdTilAvdoede.datoForInngaattPartnerskap ? {
         spoersmaal: t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap"),
-        svar: forholdTilAvdoede.datoForInngaattPartnerskap
+        svar: {
+            innhold: forholdTilAvdoede.datoForInngaattPartnerskap
+        }
     } : undefined;
 
-    const datoForSkilsmisse: Opplysning<Date> | undefined = !!forholdTilAvdoede.datoForSkilsmisse ? {
+    const datoForSkilsmisse: Opplysning<DatoSvar> | undefined = !!forholdTilAvdoede.datoForSkilsmisse ? {
         spoersmaal: t("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse"),
-        svar: forholdTilAvdoede.datoForSkilsmisse
+        svar: {
+            innhold: forholdTilAvdoede.datoForSkilsmisse
+        }
     } : undefined;
 
     const samboereMedFellesBarnFoerGiftemaal: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!forholdTilAvdoede.samboereMedFellesBarn ? {
@@ -367,14 +436,18 @@ const mapForholdTilAvdoede = (t: TFunction, forholdTilAvdoede: IForholdAvdoede):
         svar: valgTilSvar(t, forholdTilAvdoede.mottokEktefelleBidrag)
     } : undefined;
 
-    const datoForInngaattSamboerskap: Opplysning<Date> | undefined = !!forholdTilAvdoede.datoForInngaattSamboerskap ? {
+    const datoForInngaattSamboerskap: Opplysning<DatoSvar> | undefined = !!forholdTilAvdoede.datoForInngaattSamboerskap ? {
         spoersmaal: t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap"),
-        svar: forholdTilAvdoede.datoForInngaattSamboerskap
+        svar: {
+            innhold: forholdTilAvdoede.datoForInngaattSamboerskap
+        }
     } : undefined;
 
-    const datoForSamlivsbrudd: Opplysning<Date> | undefined = !!forholdTilAvdoede.datoForSamlivsbrudd ? {
+    const datoForSamlivsbrudd: Opplysning<DatoSvar> | undefined = !!forholdTilAvdoede.datoForSamlivsbrudd ? {
         spoersmaal: t("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd"),
-        svar: forholdTilAvdoede.datoForSamlivsbrudd
+        svar: {
+            innhold: forholdTilAvdoede.datoForSamlivsbrudd
+        }
     } : undefined;
 
     const fellesBarn: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!forholdTilAvdoede.fellesBarn ? {

@@ -44,7 +44,7 @@ fun payload(fnr: String) = """
       "opplysning": null
     },
     "nySivilstatus": {
-      "svar": "INGEN",
+      "svar": "ENSLIG",
       "spoersmaal": "Sivilstanden din i dag",
       "opplysning": null
     },

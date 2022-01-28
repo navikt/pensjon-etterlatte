@@ -33,7 +33,7 @@ enum class OppholdUtlandType { BODD, ARBEIDET }
 enum class JobbStatusType { ARBEIDSTAKER, SELVSTENDIG, UNDER_UTDANNING, INGEN }
 enum class StillingType { FAST, MIDLERTIDIG, SESONGARBEID }
 enum class OmsorgspersonType { GJENLEVENDE, VERGE, ANNET }
-enum class SivilstatusType { INGEN, EKTESKAP, SAMBOERSKAP }
+enum class SivilstatusType { ENSLIG, EKTESKAP, SAMBOERSKAP }
 
 data class SamboerInntekt(
     val inntektstype: Opplysning<List<EnumSvar<InntektType>>>,

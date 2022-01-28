@@ -69,8 +69,8 @@ export const konverterSamboerInntekt = (type: GammelSamboerInntekt): InntektType
 
 export const konverterSivilstatus = (type: Sivilstatus): SivilstatusType => {
     switch (type) {
-        case Sivilstatus.ingen:
-            return SivilstatusType.INGEN;
+        case Sivilstatus.enslig:
+            return SivilstatusType.ENSLIG;
         case Sivilstatus.ekteskap:
             return SivilstatusType.EKTESKAP;
         case Sivilstatus.samboerskap:

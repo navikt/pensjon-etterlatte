@@ -15,7 +15,7 @@ import {
     EnumSvar,
     JaNeiVetIkke,
     Utenlandsadresse,
-    Utenlandsopphold,
+    Utenlandsopphold, FritekstSvar, DatoSvar,
 } from "./FellesOpplysninger";
 
 type Foedselsnummer = String;
@@ -33,40 +33,39 @@ export enum PersonType {
 
 export enum OmsorgspersonType {
     GJENLEVENDE = "GJENLEVENDE",
-    VERGE = "VERGE",
     ANNET = "ANNET"
 }
 
 export interface Person {
     type: PersonType;
-    fornavn: String;
-    etternavn: String;
-    foedselsnummer: Foedselsnummer;
+    fornavn: Opplysning<String>;
+    etternavn: Opplysning<String>;
+    foedselsnummer: Opplysning<Foedselsnummer>;
 }
 
 export interface Innsender extends Person {
     type: PersonType.INNSENDER;
 
-    fornavn: String;
-    etternavn: String;
-    foedselsnummer: Foedselsnummer;
+    fornavn: Opplysning<String>;
+    etternavn: Opplysning<String>;
+    foedselsnummer: Opplysning<Foedselsnummer>;
 }
 
 
 export interface Forelder extends Person {
     type: PersonType.FORELDER;
 
-    fornavn: String;
-    etternavn: String;
-    foedselsnummer: Foedselsnummer;
+    fornavn: Opplysning<String>;
+    etternavn: Opplysning<String>;
+    foedselsnummer: Opplysning<Foedselsnummer>;
 }
 
 export interface GjenlevendeForelder extends Person {
     type: PersonType.GJENLEVENDE_FORELDER;
 
-    fornavn: String;
-    etternavn: String;
-    foedselsnummer: Foedselsnummer;
+    fornavn: Opplysning<String>;
+    etternavn: Opplysning<String>;
+    foedselsnummer: Opplysning<Foedselsnummer>;
 
     statsborgerskap: Opplysning<String>;
     adresse?: Opplysning<String>;
@@ -76,21 +75,21 @@ export interface GjenlevendeForelder extends Person {
 export interface Gjenlevende extends Person {
     type: PersonType.GJENLEVENDE;
 
-    fornavn: String;
-    etternavn: String;
-    foedselsnummer: Foedselsnummer;
+    fornavn: Opplysning<String>;
+    etternavn: Opplysning<String>;
+    foedselsnummer: Opplysning<Foedselsnummer>;
 
     statsborgerskap: String;
     sivilstatus: String
 
     adresse?: Opplysning<String>;
-    bostedsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<String>>;
+    bostedsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar>>;
     kontaktinfo: Kontaktinfo;
     flyktning?: Opplysning<EnumSvar<JaNeiVetIkke>>;
     oppholdUtland?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland>;
-    nySivilstatus?: BetingetOpplysning<SivilstatusType, Samboer>;
+    nySivilstatus?: BetingetOpplysning<EnumSvar<SivilstatusType>, Samboer>;
     arbeidOgUtdanning?: ArbeidOgUtdanning;
-    fullfoertUtdanning?: BetingetOpplysning<HoeyesteUtdanning, Opplysning<AnnenUtdanning>>;
+    fullfoertUtdanning?: BetingetOpplysning<EnumSvar<HoeyesteUtdanning>, Opplysning<AnnenUtdanning>>;
     andreYtelser: AndreYtelser;
     uregistrertEllerVenterBarn: Opplysning<EnumSvar<JaNeiVetIkke>>;
     forholdTilAvdoede: ForholdTilAvdoede;
@@ -99,26 +98,26 @@ export interface Gjenlevende extends Person {
 export interface Barn extends Person {
     type: PersonType.BARN
 
-    fornavn: String;
-    etternavn: String;
-    foedselsnummer: Foedselsnummer;
+    fornavn: Opplysning<String>;
+    etternavn: Opplysning<String>;
+    foedselsnummer: Opplysning<Foedselsnummer>;
 
     statsborgerskap: Opplysning<String>;
     utenlandsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse | undefined>;
     foreldre: Forelder[];
     verge?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge>;
-    dagligOmsorg?: Opplysning<OmsorgspersonType>
+    dagligOmsorg?: Opplysning<EnumSvar<OmsorgspersonType>>
 }
 
 export interface Avdoed extends Person {
     type: PersonType.AVDOED;
 
-    fornavn: String;
-    etternavn: String;
-    foedselsnummer: Foedselsnummer;
+    fornavn: Opplysning<String>;
+    etternavn: Opplysning<String>;
+    foedselsnummer: Opplysning<Foedselsnummer>;
 
-    datoForDoedsfallet: Opplysning<Date>;
-    statsborgerskap: Opplysning<String>;
+    datoForDoedsfallet: Opplysning<DatoSvar>;
+    statsborgerskap: Opplysning<FritekstSvar>;
     utenlandsopphold: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsopphold[] | undefined>;
     naeringsInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt>;                 // Ikke nødvendig nytt regelverk for barnep.
     militaertjeneste: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<AarstallForMilitaerTjeneste>>;    // Ikke nødvendig nytt regelverk for barnep.
@@ -126,18 +125,18 @@ export interface Avdoed extends Person {
 }
 
 export interface Verge extends Person {
-    fornavn: String;
-    etternavn: String;
-    foedselsnummer: Foedselsnummer;
+    fornavn: Opplysning<String>;
+    etternavn: Opplysning<String>;
+    foedselsnummer: Opplysning<Foedselsnummer>;
     type: PersonType.VERGE;
 }
 
 export interface Samboer extends Person {
     type: PersonType.SAMBOER;
 
-    fornavn: String;
-    etternavn: String;
-    foedselsnummer: Foedselsnummer;
+    fornavn: Opplysning<String>;
+    etternavn: Opplysning<String>;
+    foedselsnummer: Opplysning<Foedselsnummer>;
 
     fellesBarnEllertidligereGift: Opplysning<EnumSvar<JaNeiVetIkke>>;
     inntekt?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, SamboerInntekt | undefined>;

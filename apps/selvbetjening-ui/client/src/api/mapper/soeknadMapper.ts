@@ -23,19 +23,30 @@ export const mapTilGjenlevendepensjonSoeknad = (
     const barn: Barn[] = soeknad.opplysningerOmBarn.barn
         ?.map(barn => mapBarn(t, barn, soeknad, bruker)) || []
 
+    const innsenderNavn = `${bruker.fornavn} ${bruker.etternavn}`;
+
     return {
         type: SoeknadType.GJENLEVENDEPENSJON,
 
         harSamtykket: {
-            spoersmaal: t("forside.samtykke.bekreftelse"),
+            spoersmaal: t("forside.samtykke.bekreftelse", { navn: innsenderNavn }),
             svar: soeknad.harSamtykket
         },
 
         innsender: {
             type: PersonType.INNSENDER,
-            fornavn: bruker.fornavn!!,
-            etternavn: bruker.etternavn!!,
-            foedselsnummer: bruker.foedselsnummer!!
+            fornavn: {
+                spoersmaal: t("felles.fornavn"),
+                svar: bruker.fornavn!!
+            },
+            etternavn: {
+                spoersmaal: t("felles.etternavn"),
+                svar: bruker.etternavn!!
+            },
+            foedselsnummer: {
+                spoersmaal: t("felles.foedselsnummer"),
+                svar: bruker.foedselsnummer!!
+            },
         },
         utbetalingsInformasjon: hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg),
         soeker: mapGjenlevende(t, soeknad, bruker),
@@ -62,9 +73,18 @@ const mapTilBarnepensjonSoeknad = (
 ): Barnepensjon => {
     const innsender: Innsender = {
         type: PersonType.INNSENDER,
-        fornavn: bruker.fornavn!!,
-        etternavn: bruker.etternavn!!,
-        foedselsnummer: bruker.foedselsnummer!!
+        fornavn: {
+            spoersmaal: t("felles.fornavn"),
+            svar: bruker.fornavn!!
+        },
+        etternavn: {
+            spoersmaal: t("felles.etternavn"),
+            svar: bruker.etternavn!!
+        },
+        foedselsnummer: {
+            spoersmaal: t("felles.foedselsnummer"),
+            svar: bruker.foedselsnummer!!
+        },
     };
 
     const soesken: Barn[] = soeknad.opplysningerOmBarn.barn!!

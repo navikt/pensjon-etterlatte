@@ -2,7 +2,7 @@ import { IValg } from "./Spoersmaal";
 import { IUtbetalingsInformasjon } from "./utbetaling";
 
 export enum Sivilstatus {
-    ingen = "nySivilstatus.ingen",
+    enslig = "nySivilstatus.enslig",
     ekteskap = "nySivilstatus.ekteskap",
     samboerskap = "nySivilstatus.samboerskap",
 }

@@ -8,6 +8,7 @@ import io.kotest.matchers.shouldNotBe
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Barn
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Person
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Verge
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.junit.jupiter.api.Test
@@ -20,9 +21,9 @@ internal class PersonerTest {
     @Test
     fun `Serde av verge fungerer`() {
         val verge = Verge(
-            "Fornavn",
-            "Etternavn",
-            Foedselsnummer.of("24014021406")
+            Opplysning("Fornavn"),
+            Opplysning("Etternavn"),
+            Opplysning(Foedselsnummer.of("24014021406"))
         )
 
         val serialized = mapper.writeValueAsString(verge)
@@ -44,7 +45,7 @@ internal class PersonerTest {
         (deserialized as Barn) shouldNotBe null
         deserialized.fornavn shouldBe "Blåøyd"
         deserialized.etternavn shouldBe "Saks"
-        deserialized.foedselsnummer.value shouldBe "09011350027"
+        deserialized.foedselsnummer.svar.value shouldBe "09011350027"
 
         deserialized.foreldre.size shouldBe 2
         deserialized.dagligOmsorg shouldBe null
