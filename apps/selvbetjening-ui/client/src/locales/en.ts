@@ -56,7 +56,7 @@ export default {
   "forside.samtykke.bekreftelse": "I, {{navn}}, hereby confirm that the information I provide is correct and complete.",
   "dinSituasjon.tittel": "Your situation",
   "dinSituasjon.undertittel": "Work and education",
-  "dinSituasjon.ingress": "The size of your survivor’s pension depends on your earned income. We calculate your expected income on the basis of your current work situation and your previous income.",
+  "dinSituasjon.ingress": "The size of your survivor’s pension depends on your earned income. We calculate your expected income on the basis of your current work situation and your income. Income is retrieved from the Norwegian Tax Administration (“Skatteetaten”).",
   "dinSituasjon.jobbStatus": "What is your situation now?",
   "dinSituasjon.ingenJobbTittel": "Other",
   "dinSituasjon.ingenJobbBeskrivelse": " Describe your situation",
