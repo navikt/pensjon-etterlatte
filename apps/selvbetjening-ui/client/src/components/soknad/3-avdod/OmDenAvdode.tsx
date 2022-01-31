@@ -11,7 +11,7 @@ import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
-import { BodyLong, Label, Heading } from "@navikt/ds-react";
+import { BodyLong, Label, Heading, Cell, Grid } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
@@ -73,20 +73,24 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         </div>
                     </SkjemaGruppe>
 
-                    <SkjemaGruppe className={"rad"}>
-                        <RHFFoedselsnummerInput
-                            className={"kol-50"}
-                            name={"foedselsnummer"}
-                            label={t("omDenAvdoede.foedselsnummer")}
-                            placeholder={t("felles.fnrPlaceholder")}
-                        />
+                    <SkjemaGruppe>
+                        <Grid style={{alignItems: "end" }}>
+                            <Cell xs={12} md={6} className={"kol"}>
+                                <RHFFoedselsnummerInput
+                                    name={"foedselsnummer"}
+                                    label={t("omDenAvdoede.foedselsnummer")}
+                                    placeholder={t("felles.fnrPlaceholder")}
+                                />
+                            </Cell>
 
-                        <RHFSelect
-                            className="kol-50"
-                            name={`statsborgerskap`}
-                            label={t("omDenAvdoede.statsborgerskap")}
-                            selectOptions={land}
-                        />
+                            <Cell xs={12} md={6} className={"kol"}>
+                                <RHFSelect
+                                    name={`statsborgerskap`}
+                                    label={t("omDenAvdoede.statsborgerskap")}
+                                    selectOptions={land}
+                                />
+                            </Cell>
+                        </Grid>
                     </SkjemaGruppe>
                 </SkjemaGruppering>
 

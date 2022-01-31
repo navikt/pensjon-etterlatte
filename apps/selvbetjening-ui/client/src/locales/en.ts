@@ -153,7 +153,7 @@ export default {
   "omDenAvdoede.tittel": "About the deceased",
   "omDenAvdoede.fornavn": "First name(s)",
   "omDenAvdoede.etternavn": "Family name",
-  "omDenAvdoede.foedselsnummer": "Norwegian national identity number",
+  "omDenAvdoede.foedselsnummer": "Norwegian national identity number or D number",
   "omDenAvdoede.statsborgerskap": "Nationality",
   "omDenAvdoede.statsborgerskapPlaceholder": "For example: Norwegian",
   "omDenAvdoede.boddEllerJobbetUtland.tittel": "Time spent outside Norway",
