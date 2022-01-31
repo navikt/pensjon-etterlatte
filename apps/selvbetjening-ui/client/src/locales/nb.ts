@@ -60,7 +60,6 @@ export default {
   "dinSituasjon.jobbStatus": "Hva er situasjonen din nå?",
   "dinSituasjon.ingenJobbTittel": "Annet",
   "dinSituasjon.ingenJobbBeskrivelse": "Velg det som beskriver situasjonen din fra nedtrekksmenyen.",
-  "dinSituasjon.ingenJobbBeskrivelsePlaceholder": "Beskriv situasjonen nærmere",
   "dinSituasjon.ingenJobb.hjemmearbeidende": "Hjemmearbeidende",
   "dinSituasjon.ingenJobb.omsorgBarn": "Omsorg for egne barn",
   "dinSituasjon.ingenJobb.omsorgNaerstaaende": "Omsorg for nærstående",
