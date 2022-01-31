@@ -12,10 +12,6 @@ import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.defaultRequest
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.features.logging.DEFAULT
-import io.ktor.client.features.logging.LogLevel
-import io.ktor.client.features.logging.Logger
-import io.ktor.client.features.logging.Logging
 import io.ktor.http.takeFrom
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.kodeverk.KodeverkKlient
@@ -81,12 +77,6 @@ class ApplicationContext(configLocation: String? = null) {
             bearerToken {
                 tokenprovider = securityMediator.outgoingToken(endpointConfig.getString("audience"))
             }
-        }
-
-        // todo: skal fjernes
-        install(Logging) {
-            logger = Logger.DEFAULT
-            level = LogLevel.HEADERS
         }
 
         defaultRequest {
