@@ -153,7 +153,7 @@ export default {
   "omDenAvdoede.tittel": "Om avdøde",
   "omDenAvdoede.fornavn": "Fornavn",
   "omDenAvdoede.etternavn": "Etternavn",
-  "omDenAvdoede.foedselsnummer": "Fødselsnummer",
+  "omDenAvdoede.foedselsnummer": "Fødselsnummer / d-nummer",
   "omDenAvdoede.statsborgerskap": "Statsborgerskap",
   "omDenAvdoede.statsborgerskapPlaceholder": "Eks. norsk",
   "omDenAvdoede.boddEllerJobbetUtland.tittel": "Opphold utenfor Norge",

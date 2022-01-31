@@ -54,51 +54,64 @@ exports[`Om den avdøde Snapshot 1`] = `
       </fieldset>
       <fieldset
         aria-invalid="false"
-        class="skjemagruppe rad"
+        class="skjemagruppe"
       >
         <div
-          class="skjemaelement kol-50"
-        >
-          <label
-            class="skjemaelement__label"
-            for="foedselsnummer"
-          >
-            omDenAvdoede.foedselsnummer
-          </label>
-          <input
-            aria-invalid="false"
-            class="skjemaelement__input input--fullbredde"
-            id="foedselsnummer"
-            placeholder="felles.fnrPlaceholder"
-            required=""
-            type="tel"
-            value=""
-          />
-        </div>
-        <div
-          id="statsborgerskap"
+          class="navds-grid"
+          style="align-items: end;"
         >
           <div
-            class="skjemaelement kol-50"
+            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
           >
-            <label
-              class="skjemaelement__label"
-            >
-              omDenAvdoede.statsborgerskap
-            </label>
             <div
-              class="selectContainer input--l"
+              class="skjemaelement"
             >
-              <select
-                aria-invalid="false"
-                class="skjemaelement__input"
+              <label
+                class="skjemaelement__label"
+                for="foedselsnummer"
               >
-                <option
-                  value=""
+                omDenAvdoede.foedselsnummer
+              </label>
+              <input
+                aria-invalid="false"
+                class="skjemaelement__input input--fullbredde"
+                id="foedselsnummer"
+                placeholder="felles.fnrPlaceholder"
+                required=""
+                type="tel"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
+          >
+            <div
+              id="statsborgerskap"
+            >
+              <div
+                class="skjemaelement"
+              >
+                <label
+                  class="skjemaelement__label"
                 >
-                  felles.velgLand
-                </option>
-              </select>
+                  omDenAvdoede.statsborgerskap
+                </label>
+                <div
+                  class="selectContainer input--l"
+                >
+                  <select
+                    aria-invalid="false"
+                    class="skjemaelement__input"
+                  >
+                    <option
+                      value=""
+                    >
+                      felles.velgLand
+                    </option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
         </div>
