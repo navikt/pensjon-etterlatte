@@ -1,6 +1,7 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
+import { IngenJobb } from "../../../typer/arbeidsforhold";
 import { FormProvider, useForm } from "react-hook-form";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
@@ -96,23 +97,23 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                                         { label: t("felles.velg"), value: "" },
                                         {
                                             label: t("dinSituasjon.ingenJobb.hjemmearbeidende"),
-                                            value: t("dinSituasjon.ingenJobb.hjemmearbeidende"),
+                                            value: IngenJobb.hjemmearbeidende,
                                         },
                                         {
                                             label: t("dinSituasjon.ingenJobb.omsorgBarn"),
-                                            value: t("dinSituasjon.ingenJobb.omsorgBarn"),
+                                            value: IngenJobb.omsorgBarn,
                                         },
                                         {
                                             label: t("dinSituasjon.ingenJobb.omsorgNaerstaaende"),
-                                            value: t("dinSituasjon.ingenJobb.omsorgNaerstaaende"),
+                                            value: IngenJobb.omsorgNaerstaaende,
                                         },
                                         {
                                             label: t("dinSituasjon.ingenJobb.frivilligArbeid"),
-                                            value: t("dinSituasjon.ingenJobb.frivilligArbeid"),
+                                            value: IngenJobb.frivilligArbeid,
                                         },
                                         {
                                             label: t("dinSituasjon.ingenJobb.annet"),
-                                            value: t("dinSituasjon.ingenJobb.annet"),
+                                            value: IngenJobb.annet,
                                         },
                                     ]}
                                 />
