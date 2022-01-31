@@ -96,23 +96,23 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                                     selectOptions={[
                                         { label: t("felles.velg"), value: "" },
                                         {
-                                            label: t("dinSituasjon.ingenJobb.hjemmearbeidende"),
+                                            label: t(IngenJobb.hjemmearbeidende),
                                             value: IngenJobb.hjemmearbeidende,
                                         },
                                         {
-                                            label: t("dinSituasjon.ingenJobb.omsorgBarn"),
+                                            label: t(IngenJobb.omsorgBarn),
                                             value: IngenJobb.omsorgBarn,
                                         },
                                         {
-                                            label: t("dinSituasjon.ingenJobb.omsorgNaerstaaende"),
+                                            label: t(IngenJobb.omsorgNaerstaaende),
                                             value: IngenJobb.omsorgNaerstaaende,
                                         },
                                         {
-                                            label: t("dinSituasjon.ingenJobb.frivilligArbeid"),
+                                            label: t(IngenJobb.frivilligArbeid),
                                             value: IngenJobb.frivilligArbeid,
                                         },
                                         {
-                                            label: t("dinSituasjon.ingenJobb.annet"),
+                                            label: t(IngenJobb.annet),
                                             value: IngenJobb.annet,
                                         },
                                     ]}
