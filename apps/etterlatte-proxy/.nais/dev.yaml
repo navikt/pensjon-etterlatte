@@ -72,3 +72,6 @@ spec:
         - application: sjekk-adressebeskyttelse
           namespace: etterlatte
           cluster: dev-gcp
+        - application: etterlatte-pdltjenester
+          namespace: etterlatte
+          cluster: dev-gcp
