@@ -34,10 +34,10 @@ describe("useLanguage", () => {
         expect(i18next.changeLanguage).toHaveBeenCalledTimes(1);
 
         act(() => {
-            result.current.setLanguage("test");
+            result.current.setLanguage("nn");
         });
 
-        expect(result.current.currentLanguage).toEqual("test");
+        expect(result.current.currentLanguage).toEqual("nn");
         expect(i18next.changeLanguage).toHaveBeenCalledTimes(2);
     });
 
@@ -45,7 +45,7 @@ describe("useLanguage", () => {
         const { result } = renderHook(() => useLanguage());
 
         act(() => {
-            result.current.setLanguage("test");
+            result.current.setLanguage("en");
         });
         expect(localStorage.setItem).toHaveBeenCalledTimes(2);
     });

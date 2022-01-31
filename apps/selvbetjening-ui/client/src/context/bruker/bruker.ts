@@ -1,5 +1,3 @@
-import { Language } from "../../i18n";
-
 export interface IBruker {
     fornavn?: string;
     etternavn?: string;

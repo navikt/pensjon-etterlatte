@@ -10,16 +10,18 @@ export const useLanguage = () => {
     );
 
     useEffect(() => {
-        i18next.changeLanguage(currentLanguage, (err, t) => {
-            if (err) return console.log("something went wrong loading", err);
-            t("key");
-        });
-        window.localStorage.setItem("preferredLang", currentLanguage);
+        if (["nb", "nn", "en"].includes(currentLanguage)) {
+            i18next.changeLanguage(currentLanguage, (err, t) => {
+                if (err) return console.log("something went wrong loading", err);
+                t("key");
+            });
+            window.localStorage.setItem("preferredLang", currentLanguage);
 
-        soknadDispatch({
-            type: ActionTypes.OPPDATER_SPRAAK,
-            payload: currentLanguage,
-        });
+            soknadDispatch({
+                type: ActionTypes.OPPDATER_SPRAAK,
+                payload: currentLanguage,
+            });
+        }
     }, [currentLanguage]);
 
     return {

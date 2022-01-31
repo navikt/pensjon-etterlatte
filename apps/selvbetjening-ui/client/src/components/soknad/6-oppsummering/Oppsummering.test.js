@@ -5,6 +5,7 @@ import TekstGruppe from "./fragmenter/TekstGruppe";
 import Oppsummering from "./Oppsummering";
 
 jest.mock("react-i18next", () => ({
+    ...jest.requireActual("react-i18next"),
     useTranslation: () => ({
         t: jest.fn((key) => key),
         i18n: {
