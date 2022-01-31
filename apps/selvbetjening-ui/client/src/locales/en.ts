@@ -62,7 +62,7 @@ export default {
   "dinSituasjon.ingenJobbBeskrivelse": "Select the option that best describes your situation",
   "dinSituasjon.ingenJobb.hjemmearbeidende": "Homeworking",
   "dinSituasjon.ingenJobb.omsorgBarn": "Care for own children",
-  "dinSituasjon.ingenJobb.omsorgNaerstaaende": "Care for related persons",
+  "dinSituasjon.ingenJobb.omsorgNaerstaaende": "Care for relatives",
   "dinSituasjon.ingenJobb.frivilligArbeid": "Volunteering",
   "dinSituasjon.ingenJobb.annet": "Other",
   "dinSituasjon.utdanning.tittel": "Education",
