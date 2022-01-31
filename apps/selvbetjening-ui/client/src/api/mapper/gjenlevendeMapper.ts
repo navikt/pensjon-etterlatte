@@ -40,13 +40,9 @@ import { fullAdresse } from "../../utils/adresse";
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
     const kontaktinfo: Kontaktinfo = {
-        epost: {
-            spoersmaal: t("omDeg.kontaktinfo.epost"),
-            svar: soeknad.omDeg.kontaktinfo!!.epost || "-"
-        },
         telefonnummer: {
-            spoersmaal: t("omDeg.kontaktinfo.telefonnummer"),
-            svar: soeknad.omDeg.kontaktinfo!!.telefonnummer || "-"
+            spoersmaal: bruker.telefonnummer ? t("felles.telefonnummer") : t("omDeg.kontaktinfo.telefonnummer"),
+            svar: bruker.telefonnummer || soeknad.omDeg.kontaktinfo!!.telefonnummer || "-"
         }
     };
 

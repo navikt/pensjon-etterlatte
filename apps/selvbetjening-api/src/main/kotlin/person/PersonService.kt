@@ -6,12 +6,14 @@ import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
 import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
 import no.nav.etterlatte.libs.common.pdl.ResponseError
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.person.krr.Krr
 import no.nav.etterlatte.person.pdl.HentPerson
 import org.slf4j.LoggerFactory
 
 class PersonService(
     private val klient: PersonKlient,
-    private val kodeverkService: KodeverkService
+    private val kodeverkService: KodeverkService,
+    private val krrKlient: Krr
 ) {
     private val logger = LoggerFactory.getLogger(PersonService::class.java)
     private val adressebeskyttet = listOf(STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND)
@@ -57,6 +59,8 @@ class PersonService(
 
         val land = kodeverkService.hentLand(statsborgerskap?.land)
 
+        val kontaktInformasjon = krrKlient.hentDigitalKontaktinformasjon(fnr)
+
         return Person(
             fornavn = navn.fornavn,
             etternavn = navn.etternavn,
@@ -70,7 +74,9 @@ class PersonService(
             postnummer = bostedsadresse?.vegadresse?.postnummer,
             poststed = poststed,
             statsborgerskap = land,
-            sivilstatus = sivilstand?.type?.name
+            sivilstatus = sivilstand?.type?.name,
+            telefonnummer = kontaktInformasjon?.mobiltelefonnummer,
+            spraak = kontaktInformasjon?.spraak
         )
     }
 

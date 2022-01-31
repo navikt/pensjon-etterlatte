@@ -5,8 +5,7 @@
   "omDeg": {
     "bostedsadresseBekreftet": "radiobuttons.nei",
     "kontaktinfo": {
-      "telefonnummer": "999 88 777",
-      "epost": "test@nav.no"
+      "telefonnummer": "999 88 777"
     },
     "oppholderSegINorge": "radiobuttons.ja",
     "alternativAdresse": "Testveien 123, 0594 Oslo",

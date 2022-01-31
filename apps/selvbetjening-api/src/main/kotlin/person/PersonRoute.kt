@@ -23,17 +23,5 @@ fun Route.personApi(service: PersonService) {
 
             call.respondText(person.toJson())
         }
-
-        get("{fnr}") {
-            val innloggetFnr = innloggetBrukerFnr()
-            val fnr = Foedselsnummer.of(call.parameters["fnr"]!!)
-
-            if (innloggetFnr != innloggetFnr)
-                call.respond(HttpStatusCode.Forbidden)
-
-            val person = service.hentPerson(fnr)
-
-            call.respondText(person.toJson())
-        }
     }
 }

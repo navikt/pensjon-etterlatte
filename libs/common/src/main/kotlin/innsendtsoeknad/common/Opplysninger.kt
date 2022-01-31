@@ -1,5 +1,6 @@
 package no.nav.etterlatte.libs.common.innsendtsoeknad
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.BetingetOpplysning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Svar
@@ -19,8 +20,8 @@ data class UtbetalingsInformasjon(
     val skattetrekk: BetingetOpplysning<Svar, Opplysning<String>?>? = null
 )
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class Kontaktinfo(
-    val epost: Opplysning<String>,
     val telefonnummer: Opplysning<String>
 )
 

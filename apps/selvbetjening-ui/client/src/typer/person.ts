@@ -100,7 +100,6 @@ export interface IAvdoed {
 
 export interface IKontaktinfo {
     telefonnummer?: string;
-    epost?: string;
 }
 
 export interface INySivilstatus {

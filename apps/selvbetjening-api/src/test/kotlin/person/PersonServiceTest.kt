@@ -14,6 +14,8 @@ import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
+import no.nav.etterlatte.person.krr.DigitalKontaktinformasjon
+import no.nav.etterlatte.person.krr.KrrKlient
 import no.nav.etterlatte.person.pdl.PersonResponse
 import no.nav.etterlatte.person.pdl.Sivilstandstype
 import org.junit.jupiter.api.AfterEach
@@ -35,13 +37,16 @@ internal class PersonServiceTest {
         .registerModule(JavaTimeModule())
 
     private val personKlient = mockk<PersonKlient>()
+    private val krrKlient = mockk<KrrKlient>() {
+        coEvery { hentDigitalKontaktinformasjon(any()) } returns null
+    }
     private val kodeverkService = mockk<KodeverkService> {
         coEvery { hentPoststed("0380") } returns "Skåla"
         coEvery { hentPoststed(null) } returns null
         coEvery { hentLand(any()) } returns "Norge"
     }
 
-    private val service = PersonService(personKlient, kodeverkService)
+    private val service = PersonService(personKlient, kodeverkService, krrKlient)
 
     @AfterEach
     fun afterEach() {
@@ -52,6 +57,7 @@ internal class PersonServiceTest {
     @Test
     fun `Komplett person mappes korrekt`() {
         coEvery { personKlient.hentPerson(any()) } returns opprettResponse("/pdl/personResponse.json")
+        coEvery { krrKlient.hentDigitalKontaktinformasjon(any()) } returns opprettDigitalKontaktInfo()
 
         val person = runBlocking {
             service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT))
@@ -70,6 +76,8 @@ internal class PersonServiceTest {
         assertEquals("Skåla", person.poststed)
         assertEquals("Norge", person.statsborgerskap)
         assertEquals(false, person.adressebeskyttelse)
+        assertEquals("11111111", person.telefonnummer)
+        assertEquals("nb", person.spraak)
         assertNull(person.sivilstatus)
     }
 
@@ -116,4 +124,15 @@ internal class PersonServiceTest {
 
         return mapper.readValue(json, jacksonTypeRef())
     }
+
+    private fun opprettDigitalKontaktInfo(): DigitalKontaktinformasjon = DigitalKontaktinformasjon(
+        personident = TRIVIELL_MIDTPUNKT,
+        aktiv = true,
+        kanVarsles = true,
+        reservert = false,
+        spraak = "nb",
+        epostadresse = "noreply@nav.no",
+        mobiltelefonnummer = "11111111",
+        sikkerDigitalPostkasse = null
+    )
 }

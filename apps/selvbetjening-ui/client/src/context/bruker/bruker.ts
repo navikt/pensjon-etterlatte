@@ -14,6 +14,8 @@ export interface IBruker {
     statsborgerskap?: string;
     sivilstatus?: string;
     adressebeskyttelse?: boolean;
+    telefonnummer?: string;
+    spraak?: string;
 }
 
 export enum ActionTypes {
