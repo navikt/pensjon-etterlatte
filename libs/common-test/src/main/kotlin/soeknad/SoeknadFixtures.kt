@@ -73,7 +73,6 @@ object InnsendtSoeknadFixtures {
                 adresse = Opplysning("Hjemmeveien 21"),
                 statsborgerskap = Opplysning("Norsk"),
                 kontaktinfo = Kontaktinfo(
-                    epost = Opplysning("Stor.Snerk@Norge.no"),
                     telefonnummer = Opplysning("12345678")
                 )
             ),
@@ -115,7 +114,6 @@ object InnsendtSoeknadFixtures {
                 opplysning = Opplysning("Kirkeveien 1"),
             ),
             kontaktinfo = Kontaktinfo(
-                epost = Opplysning("ola.nordmann@norge.no"),
                 telefonnummer = Opplysning("97611679")
             ),
             flyktning = Opplysning(NEI),

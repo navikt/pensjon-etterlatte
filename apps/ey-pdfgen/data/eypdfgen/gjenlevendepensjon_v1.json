@@ -43,10 +43,6 @@
       }
     },
     "kontaktinfo": {
-      "epost": {
-        "spoersmaal": "E-post",
-        "svar": "test@nav.no"
-      },
       "telefonnummer": {
         "spoersmaal": "Telefonnummer",
         "svar": "999 88 877"

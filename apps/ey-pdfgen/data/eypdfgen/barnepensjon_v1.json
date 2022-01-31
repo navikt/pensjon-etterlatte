@@ -94,10 +94,6 @@
         "svar": "Adresse-mock"
       },
       "kontaktinfo": {
-        "epost": {
-          "spoersmaal": "E-post",
-          "svar": "test@nav.no"
-        },
         "telefonnummer": {
           "spoersmaal": "Telefonnummer",
           "svar": "999 88 777"
