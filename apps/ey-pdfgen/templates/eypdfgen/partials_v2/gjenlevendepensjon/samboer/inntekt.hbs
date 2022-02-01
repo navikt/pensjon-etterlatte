@@ -1,9 +1,9 @@
 <tr>
     <td>{{this.inntektstype.spoersmaal}}</td>
     <td>
-    {{#with this.inntektstype.svar.innhold}}
+    {{#with this.inntektstype.svar}}
         {{#each this}}
-            - {{capitalize_names this}} <br />
+            - {{this.innhold}} <br />
         {{/each}}
     {{/with}}
     </td>
