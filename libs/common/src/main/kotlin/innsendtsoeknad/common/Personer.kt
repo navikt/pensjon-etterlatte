@@ -30,9 +30,9 @@ import java.time.LocalDate
 )
 interface Person {
     val type: PersonType
-    val fornavn: String
-    val etternavn: String
-    val foedselsnummer: Foedselsnummer
+    val fornavn: Opplysning<String>
+    val etternavn: Opplysning<String>
+    val foedselsnummer: Opplysning<Foedselsnummer>
 }
 
 enum class PersonType {
@@ -47,27 +47,27 @@ enum class PersonType {
 }
 
 data class Innsender(
-    override val fornavn: String,
-    override val etternavn: String,
-    override val foedselsnummer: Foedselsnummer
+    override val fornavn: Opplysning<String>,
+    override val etternavn: Opplysning<String>,
+    override val foedselsnummer: Opplysning<Foedselsnummer>
 ) : Person {
     override val type: PersonType = PersonType.INNSENDER
 }
 
 data class Forelder(
-    override val fornavn: String,
-    override val etternavn: String,
-    override val foedselsnummer: Foedselsnummer
+    override val fornavn: Opplysning<String>,
+    override val etternavn: Opplysning<String>,
+    override val foedselsnummer: Opplysning<Foedselsnummer>
 ) : Person {
     override val type: PersonType = PersonType.FORELDER
 }
 
 data class Barn(
-    override val fornavn: String,
-    override val etternavn: String,
-    override val foedselsnummer: Foedselsnummer,
+    override val fornavn: Opplysning<String>,
+    override val etternavn: Opplysning<String>,
+    override val foedselsnummer: Opplysning<Foedselsnummer>,
 
-    val statsborgerskap: Opplysning<FritekstSvar>,
+    val statsborgerskap: Opplysning<String>,
     val utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse?>?,
     val foreldre: List<Forelder>,
     val verge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge>?,
@@ -77,9 +77,9 @@ data class Barn(
 }
 
 data class Avdoed(
-    override val fornavn: String,
-    override val etternavn: String,
-    override val foedselsnummer: Foedselsnummer,
+    override val fornavn: Opplysning<String>,
+    override val etternavn: Opplysning<String>,
+    override val foedselsnummer: Opplysning<Foedselsnummer>,
 
     val datoForDoedsfallet: Opplysning<DatoSvar>,
     val statsborgerskap: Opplysning<FritekstSvar>,
@@ -94,20 +94,20 @@ data class Avdoed(
 }
 
 data class Verge(
-    override val fornavn: String,
-    override val etternavn: String,
-    override val foedselsnummer: Foedselsnummer,
+    override val fornavn: Opplysning<String>,
+    override val etternavn: Opplysning<String>,
+    override val foedselsnummer: Opplysning<Foedselsnummer>,
 ) : Person {
     override val type = PersonType.VERGE
 }
 
 data class Samboer(
-    override val fornavn: String,
-    override val etternavn: String,
-    override val foedselsnummer: Foedselsnummer,
+    override val fornavn: Opplysning<String>,
+    override val etternavn: Opplysning<String>,
+    override val foedselsnummer: Opplysning<Foedselsnummer>,
 
-    val fellesBarnEllertidligereGift: Opplysning<JaNeiVetIkke>,
-    val inntekt: BetingetOpplysning<JaNeiVetIkke, SamboerInntekt?>?,
+    val fellesBarnEllertidligereGift: Opplysning<EnumSvar<JaNeiVetIkke>>,
+    val inntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, SamboerInntekt?>?,
 ) : Person {
     override val type = PersonType.SAMBOER
 }

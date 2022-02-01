@@ -8,6 +8,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.UtbetalingsInformasjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.Spraak
 import java.time.LocalDateTime
 
 @JsonTypeInfo(
@@ -21,6 +22,7 @@ import java.time.LocalDateTime
 )
 interface InnsendtSoeknad {
     val versjon: String
+    val spraak: Spraak
     val imageTag: ImageTag
     val type: SoeknadType
     val mottattDato: LocalDateTime

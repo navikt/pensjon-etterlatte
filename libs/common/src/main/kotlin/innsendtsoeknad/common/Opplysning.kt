@@ -14,20 +14,20 @@ data class BetingetOpplysning<T, R>(
 )
 
 interface Svar {
-    val svar: Any
+    val innhold: Any
 }
 
 data class FritekstSvar(
-    override val svar: String
+    override val innhold: String
 ): Svar
 
 data class DatoSvar(
-    override val svar: LocalDate
+    override val innhold: LocalDate
 ): Svar
 
 data class EnumSvar<E: Enum<E>>(
     val verdi: E,
-    override val svar: String
+    override val innhold: String
 ): Svar
 
 enum class JaNeiVetIkke { JA, NEI, VET_IKKE }

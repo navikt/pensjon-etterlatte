@@ -1,5 +1,6 @@
 package no.nav.etterlatte.libs.common.innsendtsoeknad
 
+import com.fasterxml.jackson.annotation.JsonValue
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.BetingetOpplysning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.FritekstSvar
@@ -27,6 +28,7 @@ data class Kontaktinfo(
     val telefonnummer: Opplysning<FritekstSvar>
 )
 
+enum class Spraak(@get:JsonValue val verdi: String) { NB("nb"), NN("nn"), EN("en") }
 enum class BankkontoType { NORSK, UTENLANDSK }
 enum class InntektType { ARBEIDSINNTEKT, PENSJON, KAPITALINNTEKT, ANDRE_YTELSER }
 enum class ForholdTilAvdoedeType { GIFT, SEPARERT, SAMBOER, SKILT, TIDLIGERE_SAMBOER }
@@ -34,7 +36,7 @@ enum class OppholdUtlandType { BODD, ARBEIDET }
 enum class JobbStatusType { ARBEIDSTAKER, SELVSTENDIG, UNDER_UTDANNING, INGEN }
 enum class StillingType { FAST, MIDLERTIDIG, SESONGARBEID }
 enum class OmsorgspersonType { GJENLEVENDE, VERGE, ANNET }
-enum class SivilstatusType { INGEN, EKTESKAP, SAMBOERSKAP }
+enum class SivilstatusType { ENSLIG, EKTESKAP, SAMBOERSKAP }
 
 data class SamboerInntekt(
     val inntektstype: Opplysning<List<EnumSvar<InntektType>>>,
