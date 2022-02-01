@@ -13,6 +13,7 @@ import { useLanguage } from "../../hooks/useLanguage";
 import { Dropdown } from "../felles/Dropdown";
 import { MuligeSteg } from "../../typer/steg";
 import { useEffect } from "react";
+import { Language } from "../../i18n";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -22,7 +23,7 @@ const SoknadForside = () => {
     const { state: brukerState } = useBrukerContext();
     useLanguage();
 
-    const personHarStoettetSpraakvalg = (): boolean => ["nb", "nn", "en"].includes(brukerState?.spraak || "");
+    const personHarStoettetSpraakvalg = () => Object.values<string>(Language).includes(brukerState?.spraak || "");
     const oppdaterSpraak = (spraak: String) => soknadDispatch({
         type: ActionTypes.OPPDATER_SPRAAK,
         payload: spraak,
