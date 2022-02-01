@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    {{> eypdfgen/partials/style}}
+    <title>Søknad om barnepensjon</title>
+</head>
+<body>
+
+<h2>
+    {{#eq spraak "en"}}
+        Application for children’s pension
+    {{else}}
+        Søknad om barnepensjon
+    {{/eq}}
+</h2>
+
+{{> eypdfgen/partials_v2/common/innsender this}}
+{{> eypdfgen/partials_v2/common/utbetalingsinformasjon/utbetalingsinformasjon this.utbetalingsInformasjon}}
+{{> eypdfgen/partials_v2/barnepensjon/opplysningerOmBarnet this.soeker}}
+{{> eypdfgen/partials_v2/barnepensjon/opplysningerOmForeldre this.foreldre}}
+{{> eypdfgen/partials_v2/barnepensjon/opplysningerOmSoesken this.soesken}}
+
+{{#if imageTag}}
+    <div>
+        <i class="mute">
+            {{template}} - {{imageTag}}
+        </i>
+    </div>
+{{/if}}
+
+</body>
+</html>

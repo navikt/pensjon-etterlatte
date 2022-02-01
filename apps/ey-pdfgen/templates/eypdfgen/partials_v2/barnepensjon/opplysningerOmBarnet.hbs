@@ -1,0 +1,13 @@
+<h2>
+    {{#eq spraak "en"}}
+        Information about the child (applicant)
+    {{else}}
+        {{#eq spraak "nn"}}
+            Opplysingar om barnet (søkaren)
+        {{else}}
+            Opplysninger om barnet (søkeren)
+        {{/eq}}
+    {{/eq}}
+</h2>
+
+{{> eypdfgen/partials_v2/common/barn/barn this}}

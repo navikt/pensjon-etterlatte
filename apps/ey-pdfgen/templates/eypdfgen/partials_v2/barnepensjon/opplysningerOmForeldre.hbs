@@ -1,0 +1,8 @@
+{{#each this}}
+    {{#eq this.type "GJENLEVENDE_FORELDER"}}
+        {{> eypdfgen/partials_v2/barnepensjon/gjenlevendeForelder this}}
+    {{/eq}}
+    {{#eq this.type "AVDOED"}}
+        {{> eypdfgen/partials_v2/common/avdoed/avdoed this}}
+    {{/eq}}
+{{/each}}

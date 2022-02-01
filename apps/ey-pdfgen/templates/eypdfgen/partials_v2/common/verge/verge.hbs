@@ -1,0 +1,33 @@
+{{> eypdfgen/partials_v2/common/opplysning this}}
+
+{{#eq this.svar.verdi "JA"}}
+    <tr>
+        <td colspan="2">
+            <table class="inner">
+                <tbody>
+                <tr>
+                    <td>
+                        {{#eq spraak "en"}}
+                            Guardian
+                        {{else}}
+                            {{#eq spraak "nn"}}
+                                Verge
+                            {{else}}
+                                Verge
+                            {{/eq}}
+                        {{/eq}}
+                    </td>
+
+                    <td>
+                        {{#with this.opplysning}}
+                            {{capitalize_names this.fornavn.svar}}
+                            {{capitalize_names this.etternavn.svar}}
+                            ({{this.foedselsnummer.svar}})
+                        {{/with}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+{{/eq}}

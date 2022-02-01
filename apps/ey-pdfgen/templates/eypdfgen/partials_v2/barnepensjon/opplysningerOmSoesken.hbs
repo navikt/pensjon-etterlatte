@@ -1,0 +1,19 @@
+<h2>Opplysninger om søsken</h2>
+
+{{#if this.length}}
+    {{#each this}}
+        {{> eypdfgen/partials_v2/common/barn/barn this}}
+    {{/each}}
+{{else}}
+    <p>
+    {{#eq spraak "en"}}
+        The sender/applicant have not supplied any information regarding siblings.
+    {{else}}
+        {{#eq spraak "nn"}}
+            Innsender/søkar har ikkje gitt opplysingar om eventuelle sysken.
+        {{else}}
+            Innsender/søker har ikke opplyst om eventuelle søsken.
+        {{/eq}}
+    {{/eq}}
+    </p>
+{{/if}}

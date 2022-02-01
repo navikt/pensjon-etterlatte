@@ -1,0 +1,34 @@
+<h2>
+    {{#eq spraak "en"}}
+        Information about the surviving parent
+    {{else}}
+        {{#eq spraak "nn"}}
+            Opplysingar om attlevande forelder
+        {{else}}
+            Opplysninger om gjenlevende forelder
+        {{/eq}}
+    {{/eq}}
+</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Personalia</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
+
+        <tr>
+            <td>{{this.statsborgerskap.spoersmaal}}</td>
+            <td>{{this.statsborgerskap.svar}}</td>
+        </tr>
+        <tr>
+            <td>{{this.adresse.spoersmaal}}</td>
+            <td>{{this.adresse.svar}}</td>
+        </tr>
+</tbody>
+</table>
+
+{{> eypdfgen/partials_v2/common/personalia/kontaktinfo this.kontaktinfo}}

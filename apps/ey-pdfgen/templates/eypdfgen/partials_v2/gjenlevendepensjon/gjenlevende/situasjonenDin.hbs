@@ -1,0 +1,91 @@
+<h2>
+    {{#eq spraak "en"}}
+        Information about the survivors current situation
+    {{else}}
+        {{#eq spraak "nn"}}
+            Opplysingar om attlevandes situasjon
+        {{else}}
+            Opplysninger om gjenlevendes situasjon
+        {{/eq}}
+    {{/eq}}
+</h2>
+
+{{#with soeker.arbeidOgUtdanning}}
+    {{> eypdfgen/partials_v2/gjenlevendepensjon/gjenlevende/situasjon/arbeidstaker}}
+
+    {{> eypdfgen/partials_v2/gjenlevendepensjon/gjenlevende/situasjon/selvstendig}}
+
+    {{#with soeker.arbeidOgUtdanning.utdanning.svar}}
+        <table>
+            <thead>
+            <tr>
+                <th colspan="2">
+                    {{#eq spraak "en"}}
+                        Education
+                    {{else}}
+                        Utdanning
+                    {{/eq}}
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{> eypdfgen/partials_v2/common/opplysning this.navn}}
+
+            {{> eypdfgen/partials_v2/common/datoOpplysning this.startDato}}
+
+            {{> eypdfgen/partials_v2/common/datoOpplysning this.sluttDato}}
+            </tbody>
+        </table>
+    {{/with}}
+
+    {{#with soeker.arbeidOgUtdanning.annet}}
+        <table>
+            <thead>
+            <tr>
+                <th colspan="2">
+                    {{#eq spraak "en"}}
+                        Other
+                    {{else}}
+                        {{#eq spraak "nn"}}
+                            Anna
+                        {{else}}
+                            Annet
+                        {{/eq}}
+                    {{/eq}}
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{> eypdfgen/partials_v2/common/opplysning this}}
+            </tbody>
+        </table>
+    {{/with}}
+{{/with}}
+
+{{#with soeker.fullfoertUtdanning}}
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2">
+                {{#eq spraak "en"}}
+                    Completed education
+                {{else}}
+                    Fullført utdanning
+                {{/eq}}
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{> eypdfgen/partials_v2/common/opplysning this}}
+
+        {{#with this.opplysning }}
+            {{> eypdfgen/partials_v2/common/opplysning this}}
+        {{/with}}
+        </tbody>
+    </table>
+{{/with}}
+
+{{> eypdfgen/partials_v2/gjenlevendepensjon/gjenlevende/situasjon/andreYtelser soeker.andreYtelser}}

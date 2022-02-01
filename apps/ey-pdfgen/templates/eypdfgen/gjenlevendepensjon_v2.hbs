@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    {{> eypdfgen/partials_v2/style}}
+    <title>Søknad om gjenlevendepensjon</title>
+</head>
+<body>
+
+<h2>
+    {{#eq spraak "en"}}
+        Application for survivor’s pension or transitional benefit
+    {{else}}
+        {{#eq spraak "nn"}}
+            Søknad om attlevandepensjon eller overgangsstønad
+        {{else}}
+            Søknad om gjenlevendepensjon eller overgangsstønad
+        {{/eq}}
+    {{/eq}}
+</h2>
+
+
+{{> eypdfgen/partials_v2/common/innsender this}}
+{{> eypdfgen/partials_v2/common/utbetalingsinformasjon/utbetalingsinformasjon this.utbetalingsInformasjon}}
+{{> eypdfgen/partials_v2/gjenlevendepensjon/gjenlevende/gjenlevende this.soeker}}
+{{> eypdfgen/partials_v2/common/avdoed/avdoed this.avdoed}}
+{{> eypdfgen/partials_v2/gjenlevendepensjon/informasjonOmBarn this}}
+
+{{#if imageTag}}
+    <div>
+        <i class="mute">
+            {{template}} - {{imageTag}}
+        </i>
+    </div>
+{{/if}}
+
+</body>
+</html>

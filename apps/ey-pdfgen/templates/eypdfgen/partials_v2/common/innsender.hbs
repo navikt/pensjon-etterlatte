@@ -1,0 +1,55 @@
+<table class="simple">
+    <thead>
+    <tr>
+    <th colspan="2">
+        {{#eq spraak "en"}}
+            Sent by:
+        {{else}}
+            {{#eq spraak "nn"}}
+                Sendt inn av:
+            {{else}}
+                Sendt inn av:
+            {{/eq}}
+        {{/eq}}
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this.innsender}}
+
+    <tr>
+        <td>
+            {{#eq spraak "en"}}
+                Received date
+            {{else}}
+                {{#eq spraak "nn"}}
+                    Mottatt dato
+                {{else}}
+                    Mottatt dato
+                {{/eq}}
+            {{/eq}}
+        </td>
+
+        <td>{{iso_to_nor_datetime this.mottattDato}}</td>
+    </tr>
+
+    {{#not_eq this.soeker.foedselsnummer.svar this.innsender.foedselsnummer.svar}}
+        <tr>
+            <td>
+                {{#eq spraak "en"}}
+                    On behalf of
+                {{else}}
+                    {{#eq spraak "nn"}}
+                        På vegne av
+                    {{else}}
+                        På vegne av
+                    {{/eq}}
+                {{/eq}}
+            </td>
+
+            <td>{{this.soeker.fornavn.svar}} {{this.soeker.etternavn.svar}} ({{this.soeker.foedselsnummer.svar}})</td>
+        </tr>
+    {{/not_eq}}
+    </tbody>
+</table>
