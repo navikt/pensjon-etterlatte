@@ -14,7 +14,6 @@ import {
 import { mapGjenlevende } from "./gjenlevendeMapper";
 import { mapAvdoed } from "./avdoedMapper";
 
-
 export const mapTilGjenlevendepensjonSoeknad = (
     t: TFunction,
     soeknad: ISoeknad,
@@ -25,7 +24,7 @@ export const mapTilGjenlevendepensjonSoeknad = (
 
     return {
         type: SoeknadType.GJENLEVENDEPENSJON,
-        spraak: soeknad.spraak,
+        spraak: soeknad.spraak!!,
 
         harSamtykket: {
             spoersmaal: t("forside.samtykke.bekreftelse"),
@@ -74,7 +73,7 @@ const mapTilBarnepensjonSoeknad = (
 
     return {
         type: SoeknadType.BARNEPENSJON,
-        spraak: soeknad.spraak,
+        spraak: soeknad.spraak!!,
 
         innsender,
         harSamtykket: {

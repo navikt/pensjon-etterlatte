@@ -5,15 +5,12 @@ import { hentSoeknad, lagreSoeknad } from "../api/api";
 import { ActionTypes, ISoeknad } from "../context/soknad/soknad";
 import { useHistory } from "react-router-dom";
 import { useError } from "./useError";
-import { useLanguage } from "./useLanguage";
-import { Language } from "../i18n";
 
 const useSoeknad = () => {
     const history = useHistory();
 
     const { state: bruker } = useBrukerContext();
     const { state, dispatch } = useSoknadContext();
-    const { currentLanguage, setLanguage } = useLanguage();
     const { setError } = useError();
 
     // TODO: loading-skjerm bør gjøres global og styres fra soknadskonteksten (p.g.a flere ting som laster data som også kan feile)
@@ -31,9 +28,6 @@ const useSoeknad = () => {
                         history.push("/");
                     } else {
                         dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad });
-                        if (currentLanguage !== soeknad.spraak) {
-                            setLanguage(soeknad.spraak as Language)
-                        }
                     }
                 })
                 .catch((err: Error) => {

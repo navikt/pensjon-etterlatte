@@ -4,7 +4,7 @@ import { Language } from "../../i18n";
 
 export const tomSoeknad: ISoeknad = {
     harSamtykket: false,
-    spraak: Language.NORSK_BOKMAAL,
+    spraak: undefined,
     sistLagretDato: undefined,
     klarForLagring: false,
     visFortsettSoeknadModal: false,
@@ -18,7 +18,7 @@ export const tomSoeknad: ISoeknad = {
 
 export interface ISoeknad {
     harSamtykket: boolean;
-    spraak: Language;
+    spraak?: Language;
     klarForLagring?: false;
     sistLagretDato?: Date;
     visFortsettSoeknadModal: boolean;
