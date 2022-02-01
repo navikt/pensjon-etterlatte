@@ -73,8 +73,14 @@ const SoknadForside = () => {
                 <BodyLong spacing>{t("forside.omYtelsene.innhold")}</BodyLong>
 
                 <BodyLong spacing>
-                    {t("forside.omYtelsene.papirsoeknad.innhold")}&nbsp;
-                    <Link href={t("forside.omYtelsene.papirsoeknad.href")}>{t("forside.omYtelsene.papirsoeknad.tekst")}</Link>
+                    <Alert inline={true} variant={"warning"}>
+                        <b>
+                            {t("forside.omYtelsene.papirsoeknad.innhold")}&nbsp;
+                            <Link href={t("forside.omYtelsene.papirsoeknad.href")}>
+                                {t("forside.omYtelsene.papirsoeknad.tekst")}
+                            </Link>
+                        </b>
+                    </Alert>
                 </BodyLong>
 
                 <BodyLong>
