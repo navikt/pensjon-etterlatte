@@ -99,7 +99,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         },
         sivilstatus: {
             spoersmaal: t("felles.sivilstatus"),
-            svar: `${bruker.sivilstatus}`
+            svar: t(`pdl.sivilstatus.${bruker.sivilstatus}`) || `${bruker.sivilstatus}`
         },
 
         adresse: !bruker.adressebeskyttelse ? {

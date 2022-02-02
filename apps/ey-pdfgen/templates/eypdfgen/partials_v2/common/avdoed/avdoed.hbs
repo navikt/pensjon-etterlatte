@@ -1,5 +1,15 @@
 <div>
-    <h2>Opplysninger om avdøde</h2>
+    <h2>
+        {{#eq spraak "en"}}
+            The deceased’s personal details
+        {{else}}
+            {{#eq spraak "nn"}}
+                Opplysingar om avdøde
+            {{else}}
+                Opplysninger om avdøde
+            {{/eq}}
+        {{/eq}}
+    </h2>
 
     {{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
 
