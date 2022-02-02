@@ -58,17 +58,7 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe id="language-selector">
-                <Dropdown onChange={oppdaterSpraak} value={soknadState.spraak!!} disabled={personHarStoettetSpraakvalg()} />
-            </SkjemaGruppe>
-            <SkjemaGruppe>
-                {personHarStoettetSpraakvalg() && (
-                    <Alert inline={true} variant={"info"}>
-                        {t("forside.infotekst.krr.beskrivelse")}&nbsp;
-                        <Link href={t("forside.infotekst.krr.href")}>
-                            {t("forside.infotekst.krr.href.tittel")}
-                        </Link>
-                    </Alert>
-                )}
+                <Dropdown onChange={oppdaterSpraak} value={soknadState.spraak!!} />
             </SkjemaGruppe>
 
             <SkjemaGruppe >
