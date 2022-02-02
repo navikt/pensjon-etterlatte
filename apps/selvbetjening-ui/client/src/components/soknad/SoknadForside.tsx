@@ -10,10 +10,8 @@ import ikon from "../../assets/ikoner/veileder.svg";
 import { Alert, BodyLong, Button, Heading, Link } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
-import { Dropdown } from "../felles/Dropdown";
+import { Spraakvalg } from "../felles/Spraakvalg";
 import { MuligeSteg } from "../../typer/steg";
-import { useEffect } from "react";
-import { Language } from "../../i18n";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -22,18 +20,6 @@ const SoknadForside = () => {
     const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext();
     const { state: brukerState } = useBrukerContext();
     useLanguage();
-
-    const personHarStoettetSpraakvalg = () => Object.values<string>(Language).includes(brukerState?.spraak || "");
-    const oppdaterSpraak = (spraak: String) => soknadDispatch({
-        type: ActionTypes.OPPDATER_SPRAAK,
-        payload: spraak,
-    });
-
-    useEffect(() => {
-        if (!soknadState.spraak && personHarStoettetSpraakvalg()) {
-            oppdaterSpraak(brukerState.spraak!!);
-        }
-    }, [soknadState.spraak, brukerState.spraak]);
 
     const startSoeknad = () => {
         const foersteSteg = MuligeSteg[0];
@@ -57,9 +43,7 @@ const SoknadForside = () => {
                 </Veileder>
             </SkjemaGruppe>
 
-            <SkjemaGruppe id="language-selector">
-                <Dropdown onChange={oppdaterSpraak} value={soknadState.spraak!!} />
-            </SkjemaGruppe>
+            <Spraakvalg />
 
             <SkjemaGruppe >
                 <Alert inline={true} variant={"info"}>
