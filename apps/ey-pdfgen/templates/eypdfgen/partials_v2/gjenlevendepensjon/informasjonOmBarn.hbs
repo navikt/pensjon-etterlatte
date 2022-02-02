@@ -12,22 +12,18 @@
 
 {{> eypdfgen/partials_v2/common/opplysning this.soeker.uregistrertEllerVenterBarn}}
 
-{{#if this.barn.length}}
+{{#with this.barn as | barnliste |}}
     <h3>
         {{#eq spraak "en"}}
             Registered children:
         {{else}}
-            {{#eq spraak "nn"}}
-                Registrerte barn:
-            {{else}}
-                Registrerte barn:
-            {{/eq}}
+            Registrerte barn:
         {{/eq}}
     </h3>
 
-    {{#each this.barn}}
-        <div class="panel">
-            {{> eypdfgen/partials_v2/common/barn/barn this}}
+    {{#each barnliste as | barnet |}}
+        <div class="{{#gt barnliste.length 1}}panel{{/gt}}">
+            {{> eypdfgen/partials_v2/common/barn/barn barnet}}
         </div>
     {{/each}}
-{{/if}}
+{{/with}}

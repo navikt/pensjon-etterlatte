@@ -13,36 +13,38 @@
         </div>
         <div class="col">
             {{#each this.dinSituasjon.svar}}
-                - {{this.innhold}} <br />
+                • {{this.innhold}} <br />
             {{/each}}
         </div>
     </div>
 
-    {{#each soeker.arbeidOgUtdanning.arbeidsforhold.svar}}
-        <div class="panel">
-            <h5>
-                {{#eq spraak "en"}}
-                    About your employer
-                {{else}}
-                    {{#eq spraak "nn"}}
-                        Om arbeidsforhold
+    {{#with soeker.arbeidOgUtdanning.arbeidsforhold.svar as | arbeidsforhold |}}
+        {{#each arbeidsforhold}}
+            <div class="{{#gt arbeidsforhold.length 1}}panel{{/gt}}">
+                <h4>
+                    {{#eq spraak "en"}}
+                        About your employer
                     {{else}}
-                        Om arbeidsgiver
+                        {{#eq spraak "nn"}}
+                            Om arbeidsforhold
+                        {{else}}
+                            Om arbeidsgiver
+                        {{/eq}}
                     {{/eq}}
-                {{/eq}}
-            </h5>
+                </h4>
 
-            {{> eypdfgen/partials_v2/common/opplysning this.arbeidsgiver}}
+                {{> eypdfgen/partials_v2/common/opplysning this.arbeidsgiver}}
 
-            {{> eypdfgen/partials_v2/common/opplysning this.ansettelsesforhold}}
+                {{> eypdfgen/partials_v2/common/opplysning this.ansettelsesforhold}}
 
-            {{> eypdfgen/partials_v2/common/opplysning this.stillingsprosent}}
+                {{> eypdfgen/partials_v2/common/opplysning this.stillingsprosent}}
 
-            {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
-
-            {{#eq this.endretInntekt.svar "JA" }}
                 {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
-            {{/eq}}
-        </div>
-    {{/each}}
+
+                {{#eq this.endretInntekt.svar "JA" }}
+                    {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
+                {{/eq}}
+            </div>
+        {{/each}}
+    {{/with}}
 </div>

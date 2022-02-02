@@ -1,21 +1,21 @@
 <h2>Opplysninger om søsken</h2>
 
-{{#if this.length}}
+{{#with soesken}}
     {{#each this}}
-        <div class="panel">
+        <div class="{{#gt soesken.length 1}}panel{{/gt}}">
             {{> eypdfgen/partials_v2/common/barn/barn this}}
         </div>
     {{/each}}
 {{else}}
-    <p>
-    {{#eq spraak "en"}}
-        The sender/applicant have not supplied any information regarding siblings.
-    {{else}}
-        {{#eq spraak "nn"}}
-            Innsender/søkar har ikkje gitt opplysingar om eventuelle sysken.
+    <i>
+        {{#eq spraak "en"}}
+            The sender/applicant have not supplied any information regarding siblings.
         {{else}}
-            Innsender/søker har ikke opplyst om eventuelle søsken.
+            {{#eq spraak "nn"}}
+                Innsender/søkar har ikkje gitt opplysingar om eventuelle sysken.
+            {{else}}
+                Innsender/søker har ikke opplyst om eventuelle søsken.
+            {{/eq}}
         {{/eq}}
-    {{/eq}}
-    </p>
-{{/if}}
+    </i>
+{{/with}}

@@ -12,16 +12,20 @@
             {{/eq}}
         </h4>
 
-        {{#each soeker.arbeidOgUtdanning.selvstendig.svar}}
-            {{> eypdfgen/partials_v2/common/opplysning this.firmanavn}}
+        {{#with soeker.arbeidOgUtdanning.selvstendig.svar as | naeringer |}}
+            {{#each naeringer}}
+                <div class="{{#gt naeringer.length 1}}panel{{/gt}}">
+                    {{> eypdfgen/partials_v2/common/opplysning this.firmanavn}}
 
-            {{> eypdfgen/partials_v2/common/opplysning this.orgnr}}
+                    {{> eypdfgen/partials_v2/common/opplysning this.orgnr}}
 
-            {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
+                    {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
 
-            {{#eq this.endretInntekt.svar.verdi "JA" }}
-                {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt.opplysning}}
-            {{/eq}}
-        {{/each}}
+                    {{#eq this.endretInntekt.svar.verdi "JA" }}
+                        {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt.opplysning}}
+                    {{/eq}}
+                </div>
+            {{/each}}
+        {{/with}}
     </div>
 {{/if}}

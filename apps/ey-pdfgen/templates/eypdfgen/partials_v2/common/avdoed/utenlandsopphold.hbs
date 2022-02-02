@@ -14,33 +14,35 @@
     {{> eypdfgen/partials_v2/common/opplysning this}}
 
     {{#eq this.svar.verdi "JA"}}
-        {{#each this.opplysning}}
-            <div class="panel">
-                <h5>
-                    {{this.land.svar.innhold}}
-                </h5>
+        {{#with this.opplysning as | opphold |}}
+            {{#each opphold}}
+                <div class="{{#gt opphold.length 1}}panel{{/gt}}">
+                    <h5>
+                        {{this.land.svar.innhold}}
+                    </h5>
 
-                {{> eypdfgen/partials_v2/common/opplysning this.land}}
+                    {{> eypdfgen/partials_v2/common/opplysning this.land}}
 
-                {{> eypdfgen/partials_v2/common/datoOpplysning this.fraDato}}
+                    {{> eypdfgen/partials_v2/common/datoOpplysning this.fraDato}}
 
-                {{> eypdfgen/partials_v2/common/datoOpplysning this.tilDato}}
+                    {{> eypdfgen/partials_v2/common/datoOpplysning this.tilDato}}
 
-                <div class="row">
-                    <div class="col">
-                        {{this.oppholdsType.spoersmaal}}
+                    <div class="row">
+                        <div class="col">
+                            {{this.oppholdsType.spoersmaal}}
+                        </div>
+                        <div class="col">
+                            {{#each this.oppholdsType.svar}}
+                                • {{this.innhold}} <br />
+                            {{/each}}
+                        </div>
                     </div>
-                    <div class="col">
-                        {{#each this.oppholdsType.svar}}
-                            - {{this.innhold}} <br />
-                        {{/each}}
-                    </div>
+
+                    {{> eypdfgen/partials_v2/common/opplysning this.medlemFolketrygd}}
+
+                    {{> eypdfgen/partials_v2/common/opplysning this.pensjonsutbetaling}}
                 </div>
-
-                {{> eypdfgen/partials_v2/common/opplysning this.medlemFolketrygd}}
-
-                {{> eypdfgen/partials_v2/common/opplysning this.pensjonsutbetaling}}
-            </div>
-        {{/each}}
+            {{/each}}
+        {{/with}}
     {{/eq}}
 </div>
