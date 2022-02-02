@@ -60,7 +60,7 @@ export default {
   "dinSituasjon.jobbStatus": "What is your situation now?",
   "dinSituasjon.ingenJobbTittel": "Other",
   "dinSituasjon.ingenJobbBeskrivelse": "Select the option that best describes your situation",
-  "dinSituasjon.ingenJobb.hjemmearbeidende": "Homeworking",
+  "dinSituasjon.ingenJobb.hjemmearbeidende": "Homemaker",
   "dinSituasjon.ingenJobb.omsorgBarn": "Care for own children",
   "dinSituasjon.ingenJobb.omsorgNaerstaaende": "Care for relatives",
   "dinSituasjon.ingenJobb.frivilligArbeid": "Volunteering",
