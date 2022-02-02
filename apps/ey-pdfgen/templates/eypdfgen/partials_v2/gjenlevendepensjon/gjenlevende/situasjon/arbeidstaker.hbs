@@ -7,7 +7,7 @@
         {{/eq}}
     </h4>
 
-    <div class="row">
+    <div class="row opplysning">
         <div class="col">
             {{this.dinSituasjon.spoersmaal}}
         </div>
@@ -41,7 +41,7 @@
 
                 {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
 
-                {{#eq this.endretInntekt.svar "JA" }}
+                {{#eq this.endretInntekt.svar.verdi "JA" }}
                     {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
                 {{/eq}}
             </div>

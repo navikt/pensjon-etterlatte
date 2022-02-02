@@ -1,28 +1,30 @@
-<div>
-    <h4>
-        {{#eq spraak "en"}}
-            Sent by:
-        {{else}}
-            {{#eq spraak "nn"}}
-                Sendt inn av:
+<div class="row">
+    <div class="col">
+        <h4>
+            {{#eq spraak "en"}}
+                Sent by:
             {{else}}
-                Sendt inn av:
+                {{#eq spraak "nn"}}
+                    Sendt inn av:
+                {{else}}
+                    Sendt inn av:
+                {{/eq}}
             {{/eq}}
-        {{/eq}}
-    </h4>
+        </h4>
 
-    <div>
-        {{this.innsender.fornavn.svar}}
-        {{this.innsender.etternavn.svar}}
-        ({{this.innsender.foedselsnummer.svar}})
-    </div>
+        <div>
+            {{this.innsender.fornavn.svar}}
+            {{this.innsender.etternavn.svar}}
+            ({{this.innsender.foedselsnummer.svar}})
+        </div>
 
-    <div>
-        {{iso_to_nor_datetime this.mottattDato}}
+        <div>
+            {{iso_to_nor_datetime this.mottattDato}}
+        </div>
     </div>
 
     {{#not_eq this.soeker.foedselsnummer.svar this.innsender.foedselsnummer.svar}}
-        <div>
+        <div class="col">
             <h4>
                 {{#eq spraak "en"}}
                     On behalf of

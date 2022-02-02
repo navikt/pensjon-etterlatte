@@ -78,7 +78,6 @@
     .row {
         width: 100%;
         padding: 0.1cm;
-        border-bottom: 1px solid #ddd;
     }
 
     .col {
@@ -88,7 +87,11 @@
         font-size: 14px;
     }
 
-    .col:first-child {
+    .row.opplysning {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .row.opplysning .col:first-child {
         border-right: 1px solid #ddd;
     }
 
