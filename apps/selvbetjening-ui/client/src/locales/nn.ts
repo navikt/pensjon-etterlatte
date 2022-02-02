@@ -26,7 +26,7 @@ export default {
   "forside.hei": "Hei, {{navn}}",
   "forside.startSoeknad": "Start søknad",
   "forside.omYtelsene.innhold": "Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til attlevandepensjon eller overgangsstønad til atterlevande. Du kan også ha rett til støtte viss du tidlegare har vore gift, partnar eller sambuar med avdøde. Vi vil vurdere om du har rett på attlevandepensjon eller overgangsstønad basert på situasjonen din. Inntekta di avgjer kor mykje pengar du kan få.",
-  "forside.omYtelsene.papirsoeknad.innhold": "Viss du allereie får alderspensjon eller uføretrygd kan du søke om attlevendetillegg. Da må du søke på",
+  "forside.omYtelsene.papirsoeknad.innhold": "Får du alderspensjon eller uføretrygd fra før? Da kan du søke om attlevendetillegg i uføretrygd eller attlevenderett i alderspensjon. Du må søke på",
   "forside.omYtelsene.papirsoeknad.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105",
   "forside.omYtelsene.papirsoeknad.tekst": "papir.",
   "forside.omYtelsene.lenkeGjenlevende.href": "https://www.nav.no/gjenlevendepensjon",
