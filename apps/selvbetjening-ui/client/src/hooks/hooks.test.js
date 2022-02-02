@@ -1,7 +1,6 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import useEffectOnce from "./useEffectOnce";
 import { useError } from "./useError";
-import useInnloggetBruker from "./useInnloggetBruker";
 
 describe("useError", () => {
     it("Skal dispatche en error-action", () => {

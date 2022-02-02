@@ -326,7 +326,7 @@ export default {
   "felles.ikkePaakrevd": "(not required)",
   "felles.datoformat": "(dd.mm.yyyy)",
   "felles.sistLagret": "Last saved",
-  "felles.spraakValg": "Select language",
+  "felles.spraakValg": "Select application language",
   "felles.velgLand": "Select country",
   "felles.elleveSiffer": "11 digits",
   "felles.datoEksempel": "e.g. 01.12.2020",

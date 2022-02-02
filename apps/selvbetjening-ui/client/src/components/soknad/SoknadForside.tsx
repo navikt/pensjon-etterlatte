@@ -10,21 +10,16 @@ import ikon from "../../assets/ikoner/veileder.svg";
 import { Alert, BodyLong, Button, Heading, Link } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
-import { Dropdown } from "../felles/Dropdown";
+import { Spraakvalg } from "../felles/Spraakvalg";
 import { MuligeSteg } from "../../typer/steg";
-import { useEffect } from "react";
-import { Language } from "../../i18n";
 
 const SoknadForside = () => {
     const history = useHistory();
     const { logEvent } = useAmplitude();
-    const { setLanguage, currentLanguage } = useLanguage();
-
     const { t } = useTranslation();
-
     const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext();
-
     const { state: brukerState } = useBrukerContext();
+    useLanguage();
 
     const startSoeknad = () => {
         const foersteSteg = MuligeSteg[0];
@@ -40,13 +35,6 @@ const SoknadForside = () => {
         </div>
     );
 
-    useEffect(() => {
-        // Sett default språk dersom det finnes og det er støttet (KRR har f. eks støtte for svensk)
-        if (brukerState.spraak && ["nb", "nn", "en"].includes(brukerState.spraak)) {
-            setLanguage(brukerState.spraak as Language)
-        }
-    }, [brukerState]);
-
     return (
         <div className={"forside"}>
             <SkjemaGruppe>
@@ -55,9 +43,7 @@ const SoknadForside = () => {
                 </Veileder>
             </SkjemaGruppe>
 
-            <SkjemaGruppe id="language-selector">
-                <Dropdown onChange={setLanguage} value={currentLanguage} />
-            </SkjemaGruppe>
+            <Spraakvalg />
 
             <SkjemaGruppe >
                 <Alert inline={true} variant={"info"}>

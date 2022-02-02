@@ -326,7 +326,7 @@ export default {
   "felles.ikkePaakrevd": "(valfritt)",
   "felles.datoformat": "(dd.mm.åååå)",
   "felles.sistLagret": "Sist lagra",
-  "felles.spraakValg": "Velg språk",
+  "felles.spraakValg": "Velg språk for søknaden",
   "felles.velgLand": "Velg land",
   "felles.elleveSiffer": "11 siffer",
   "felles.datoEksempel": "eks: 01.12.2020",
