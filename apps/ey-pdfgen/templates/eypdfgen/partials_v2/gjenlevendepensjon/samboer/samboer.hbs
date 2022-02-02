@@ -1,21 +1,16 @@
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">
-            {{#eq spraak "en"}}
-                Cohabiting partner
+<div>
+    <h4>
+        {{#eq spraak "en"}}
+            Cohabiting partner
+        {{else}}
+            {{#eq spraak "nn"}}
+                Sambuar
             {{else}}
-                {{#eq spraak "nn"}}
-                    Sambuar
-                {{else}}
-                    Samboer
-                {{/eq}}
+                Samboer
             {{/eq}}
-        </th>
-    </tr>
-    </thead>
+        {{/eq}}
+    </h4>
 
-    <tbody>
     {{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
 
     {{> eypdfgen/partials_v2/common/opplysning this.fellesBarnEllertidligereGift}}
@@ -24,5 +19,4 @@
     {{#eq this.inntekt.svar.verdi "JA" }}
         {{> eypdfgen/partials_v2/gjenlevendepensjon/samboer/inntekt this.inntekt.opplysning}}
     {{/eq}}
-    </tbody>
-</table>
+</div>

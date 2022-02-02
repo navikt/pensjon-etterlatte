@@ -10,11 +10,7 @@
     {{/eq}}
 </h2>
 
-<table>
-    <tbody>
-    {{> eypdfgen/partials_v2/common/opplysning this.soeker.uregistrertEllerVenterBarn}}
-    </tbody>
-</table>
+{{> eypdfgen/partials_v2/common/opplysning this.soeker.uregistrertEllerVenterBarn}}
 
 {{#if this.barn.length}}
     <h3>
@@ -30,6 +26,8 @@
     </h3>
 
     {{#each this.barn}}
-        {{> eypdfgen/partials_v2/common/barn/barn this}}
+        <div class="panel">
+            {{> eypdfgen/partials_v2/common/barn/barn this}}
+        </div>
     {{/each}}
 {{/if}}

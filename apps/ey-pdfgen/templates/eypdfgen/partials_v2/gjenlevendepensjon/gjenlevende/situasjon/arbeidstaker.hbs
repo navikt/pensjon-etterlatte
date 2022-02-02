@@ -1,56 +1,48 @@
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">Arbeid og utdanning</th>
-    </tr>
-    </thead>
+<div>
+    <h4>
+        {{#eq spraak "en"}}
+            Work and education
+        {{else}}
+            Arbeid og utdanning
+        {{/eq}}
+    </h4>
 
-    <tbody>
-    <tr>
-        <td>{{this.dinSituasjon.spoersmaal}}</td>
-        <td>
+    <div class="row">
+        <div class="col">
+            {{this.dinSituasjon.spoersmaal}}
+        </div>
+        <div class="col">
             {{#each this.dinSituasjon.svar}}
-                - {{this.innhold}} <br/>
+                - {{this.innhold}} <br />
             {{/each}}
-        </td>
-    </tr>
+        </div>
+    </div>
 
     {{#each soeker.arbeidOgUtdanning.arbeidsforhold.svar}}
-        <tr>
-            <td colspan="2">
-                <table class="inner">
-                    <thead>
-                    <tr>
-                        <th colspan="2">
-                            {{#eq spraak "en"}}
-                                About your employer
-                            {{else}}
-                                {{#eq spraak "nn"}}
-                                    Om arbeidsforhold
-                                {{else}}
-                                    Om arbeidsgiver
-                                {{/eq}}
-                            {{/eq}}
-                        </th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    {{> eypdfgen/partials_v2/common/opplysning this.arbeidsgiver}}
-
-                    {{> eypdfgen/partials_v2/common/opplysning this.ansettelsesforhold}}
-
-                    {{> eypdfgen/partials_v2/common/opplysning this.stillingsprosent}}
-
-                    {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
-
-                    {{#eq this.endretInntekt.svar "JA" }}
-                        {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
+        <div class="panel">
+            <h5>
+                {{#eq spraak "en"}}
+                    About your employer
+                {{else}}
+                    {{#eq spraak "nn"}}
+                        Om arbeidsforhold
+                    {{else}}
+                        Om arbeidsgiver
                     {{/eq}}
-                    </tbody>
-                </table>
-            </td>
-        </tr>
+                {{/eq}}
+            </h5>
+
+            {{> eypdfgen/partials_v2/common/opplysning this.arbeidsgiver}}
+
+            {{> eypdfgen/partials_v2/common/opplysning this.ansettelsesforhold}}
+
+            {{> eypdfgen/partials_v2/common/opplysning this.stillingsprosent}}
+
+            {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
+
+            {{#eq this.endretInntekt.svar "JA" }}
+                {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
+            {{/eq}}
+        </div>
     {{/each}}
-    </tbody>
-</table>
+</div>

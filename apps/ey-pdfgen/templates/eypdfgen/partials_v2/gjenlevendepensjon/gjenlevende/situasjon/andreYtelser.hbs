@@ -1,21 +1,16 @@
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">
-            {{#eq spraak "en"}}
-                Benefits
+<div>
+    <h4>
+        {{#eq spraak "en"}}
+            Benefits
+        {{else}}
+            {{#eq spraak "nn"}}
+                Ytingar
             {{else}}
-                {{#eq spraak "nn"}}
-                    Ytingar
-                {{else}}
-                    Ytelser
-                {{/eq}}
+                Ytelser
             {{/eq}}
-        </th>
-    </tr>
-    </thead>
+        {{/eq}}
+    </h4>
 
-    <tbody>
     {{> eypdfgen/partials_v2/common/opplysning this.kravOmAnnenStonad}}
     {{#eq this.kravOmAnnenStonad.svar.verdi "JA"}}
         {{> eypdfgen/partials_v2/common/opplysning this.kravOmAnnenStonad.opplysning}}
@@ -23,7 +18,7 @@
 
     <tr class="divider">
         <td colspan="2">
-            <br/>
+            <br />
         </td>
     </tr>
 
@@ -34,7 +29,7 @@
 
     <tr class="divider">
         <td colspan="2">
-            <br/>
+            <br />
         </td>
     </tr>
 
@@ -44,5 +39,4 @@
         {{> eypdfgen/partials_v2/common/opplysning this.pensjonUtland.opplysning.land}}
         {{> eypdfgen/partials_v2/common/opplysning this.pensjonUtland.opplysning.bruttobeloepPrAar}}
     {{/eq}}
-    </tbody>
-</table>
+</div>

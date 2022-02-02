@@ -1,26 +1,29 @@
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">{{this.etternavn.svar}}, {{this.fornavn.svar}}</th>
-    </tr>
-    </thead>
+<h5>
+    {{this.etternavn.svar}}, {{this.fornavn.svar}}
+</h5>
 
-    <tbody>
-    {{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
-    {{> eypdfgen/partials_v2/common/opplysning this.statsborgerskap}}
-    {{> eypdfgen/partials_v2/common/opplysning this.utenlandsAdresse}}
+{{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
 
-    {{#eq this.utenlandsAdresse.svar.verdi "JA"}}
-        {{> eypdfgen/partials_v2/common/opplysning this.utenlandsAdresse.opplysning.land}}
-        {{> eypdfgen/partials_v2/common/opplysning this.utenlandsAdresse.opplysning.adresse}}
-    {{/eq}}
+<div class="row">
+    <div class="col">
+        {{this.statsborgerskap.spoersmaal}}
+    </div>
+    <div class="col">
+        {{this.statsborgerskap.svar}}
+    </div>
+</div>
 
-    {{> eypdfgen/partials_v2/common/opplysning this.dagligOmsorg}}
+{{> eypdfgen/partials_v2/common/opplysning this.utenlandsAdresse}}
 
-    {{> eypdfgen/partials_v2/common/verge/verge this.verge}}
+{{#eq this.utenlandsAdresse.svar.verdi "JA"}}
+    {{> eypdfgen/partials_v2/common/opplysning this.utenlandsAdresse.opplysning.land}}
+    {{> eypdfgen/partials_v2/common/opplysning this.utenlandsAdresse.opplysning.adresse}}
+{{/eq}}
 
-    {{#each this.foreldre}}
-        {{> eypdfgen/partials_v2/common/forelder/forelder this}}
-    {{/each}}
-    </tbody>
-</table>
+{{> eypdfgen/partials_v2/common/opplysning this.dagligOmsorg}}
+
+{{> eypdfgen/partials_v2/common/verge/verge this.verge}}
+
+{{#each this.foreldre}}
+    {{> eypdfgen/partials_v2/common/forelder/forelder this}}
+{{/each}}

@@ -1,27 +1,15 @@
-<tr>
-    <td colspan="2">
-        <table class="inner">
-            <tbody>
-            <tr>
-                <td>
-                    {{#eq spraak "en"}}
-                        Parent
-                    {{else}}
-                        {{#eq spraak "nn"}}
-                            Forelder
-                        {{else}}
-                            Forelder
-                        {{/eq}}
-                    {{/eq}}
-                </td>
+<div class="row">
+    <div class="col">
+        {{#eq spraak "en"}}
+            Parent
+        {{else}}
+            Forelder
+        {{/eq}}
+    </div>
 
-                <td>
-                    {{capitalize_names this.fornavn.svar}}
-                    {{capitalize_names this.etternavn.svar}}
-                    ({{this.foedselsnummer.svar}})
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </td>
-</tr>
+    <div class="col">
+        {{capitalize_names this.fornavn.svar}}
+        {{capitalize_names this.etternavn.svar}}
+        ({{this.foedselsnummer.svar}})
+    </div>
+</div>

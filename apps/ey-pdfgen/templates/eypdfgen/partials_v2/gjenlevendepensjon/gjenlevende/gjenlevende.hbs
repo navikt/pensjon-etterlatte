@@ -10,48 +10,55 @@
     {{/eq}}
 </h2>
 
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">Personalia</th>
-    </tr>
-    </thead>
+{{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
 
-    <tbody>
-        {{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
+<div class="row">
+    <div class="col">
+        {{this.statsborgerskap.spoersmaal}}
+    </div>
+    <div class="col">
+        {{this.statsborgerskap.svar}}
+    </div>
+</div>
 
-        <tr>
-            <td>{{this.statsborgerskap.spoersmaal}}</td>
-            <td>{{this.statsborgerskap.svar}}</td>
-        </tr>
-        <tr>
-            <td>{{this.sivilstatus.spoersmaal}}</td>
-            <td>{{this.sivilstatus.svar}}</td>
-        </tr>
+<div class="row">
+    <div class="col">
+        {{this.sivilstatus.spoersmaal}}
+    </div>
+    <div class="col">
+        {{this.sivilstatus.svar}}
+    </div>
+</div>
 
-        {{#if this.adresse}}
-        <tr>
-            <td>{{this.adresse.spoersmaal}}</td>
-            <td>{{this.adresse.svar}}</td>
-        </tr>
-        {{/if}}
+{{#if this.adresse}}
+    <div class="row">
+        <div class="col">
+            {{this.adresse.spoersmaal}}
+        </div>
+        <div class="col">
+            {{this.adresse.svar}}
+        </div>
+    </div>
+{{/if}}
 
-        {{#if this.flyktning}}
-            <tr>
-                <td>{{this.flyktning.spoersmaal}}</td>
-                <td>{{capitalize_names this.flyktning.svar}}</td>
-            </tr>
-        {{/if}}
+{{#if this.flyktning}}
+    <div class="row">
+        <div class="col">
+            {{this.flyktning.spoersmaal}}
+        </div>
+        <div class="col">
+            {{capitalize_names this.flyktning.svar}}
+        </div>
+    </div>
+{{/if}}
 
-        {{#if this.bostedsAdresse}}
-            {{> eypdfgen/partials_v2/common/opplysning this.bostedsAdresse}}
+{{#if this.bostedsAdresse}}
+    {{> eypdfgen/partials_v2/common/opplysning this.bostedsAdresse}}
 
-            {{#eq this.bostedsAdresse.svar.verdi "NEI"}}
-                 {{> eypdfgen/partials_v2/common/opplysning this.bostedsAdresse.opplysning}}
-            {{/eq}}
-        {{/if}}
-    </tbody>
-</table>
+    {{#eq this.bostedsAdresse.svar.verdi "NEI"}}
+        {{> eypdfgen/partials_v2/common/opplysning this.bostedsAdresse.opplysning}}
+    {{/eq}}
+{{/if}}
 
 {{> eypdfgen/partials_v2/common/personalia/kontaktinfo this.kontaktinfo}}
 

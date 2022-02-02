@@ -1,7 +1,5 @@
-<table class="simple">
-    <thead>
-    <tr>
-    <th colspan="2">
+<div>
+    <h4>
         {{#eq spraak "en"}}
             Sent by:
         {{else}}
@@ -11,32 +9,21 @@
                 Sendt inn av:
             {{/eq}}
         {{/eq}}
-        </th>
-    </tr>
-    </thead>
+    </h4>
 
-    <tbody>
-    {{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this.innsender}}
+    <div>
+        {{this.innsender.fornavn.svar}}
+        {{this.innsender.etternavn.svar}}
+        ({{this.innsender.foedselsnummer.svar}})
+    </div>
 
-    <tr>
-        <td>
-            {{#eq spraak "en"}}
-                Received date
-            {{else}}
-                {{#eq spraak "nn"}}
-                    Mottatt dato
-                {{else}}
-                    Mottatt dato
-                {{/eq}}
-            {{/eq}}
-        </td>
-
-        <td>{{iso_to_nor_datetime this.mottattDato}}</td>
-    </tr>
+    <div>
+        {{iso_to_nor_datetime this.mottattDato}}
+    </div>
 
     {{#not_eq this.soeker.foedselsnummer.svar this.innsender.foedselsnummer.svar}}
-        <tr>
-            <td>
+        <div>
+            <h4>
                 {{#eq spraak "en"}}
                     On behalf of
                 {{else}}
@@ -46,10 +33,13 @@
                         På vegne av
                     {{/eq}}
                 {{/eq}}
-            </td>
+            </h4>
 
-            <td>{{this.soeker.fornavn.svar}} {{this.soeker.etternavn.svar}} ({{this.soeker.foedselsnummer.svar}})</td>
-        </tr>
+            <div>
+                {{this.soeker.fornavn.svar}}
+                {{this.soeker.etternavn.svar}}
+                ({{this.soeker.foedselsnummer.svar}})
+            </div>
+        </div>
     {{/not_eq}}
-    </tbody>
-</table>
+</div>

@@ -1,66 +1,116 @@
 <style>
+    @page {
+        size: A4 portrait;
+        /*margin: 1cm 0.3cm 0.5cm;*/
+        padding-bottom: 1cm;
+        @bottom-left {
+            content: element(footer);
+        }
+    }
+
+    @page :first {
+        /*margin-top: 0;*/
+        @top-left {
+            content: element(header);
+        }
+    }
+
+    #currentpage:before {
+        content: counter(page);
+    }
+
+    #pagecount:before {
+        content: counter(pages)
+    }
+
     * {
         font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro, ArialSystem, sans-serif;
     }
 
-    td {
-        font-size: 0.9em;
-        vertical-align: top;
-        word-wrap: break-word;
+    #header {
+        background: #C2EAF7;
+        padding: 0cm 0.7cm;
     }
 
-    table {
-        width: 100%;
-        border: 1px black solid;
-        margin-bottom: 0.5cm;
-        border-collapse: collapse;
-
-        background-color: #fafafa;
-        border: 1px #ccc solid;
+    #footer {
+        position: running(footer);
+        font-size: 12px;
+        margin-top: -25px;
+        padding-left: 0.6cm;
     }
 
-    table thead {
-        background-color: lightblue;
+    h1 {
+        font-weight: 700;
+        font-style: normal;
+        font-size: 20px;
+        font-family: "Source Sans Pro";
     }
 
-    table.inner {
-        width: 95%;
-        margin: 5px 20px;
-
-        background-color: white;
-        border: 1px #ccc solid;
+    .navlogo {
+        display: inline-block;
+        padding-top: 15px;
+        padding-bottom: 12px;
+        margin-left: 3px;
+        width: 48px;
     }
 
-    table.inner thead {
-        background-color: inherit;
-        border-bottom: 1px solid gray;
+    .title {
+        display: inline-block;
+        position: absolute;
+        width: 80%;
+        top: 12px;
+        left: 100px;
     }
 
-    table.simple {
-        width: auto;
-        background-color: transparent;
-        border: none;
+    .sidetall {
+        float: right;
     }
 
-    table.simple thead {
-        background-color: transparent;
-    }
-
-    table td {
-        width: 50%;
-        padding: 3px;
-    }
-
-    td h4 {
-        margin: 0;
-    }
-
-    body {
-        page-break-inside: avoid;
+    .container {
+        margin: 0cm 0.7cm;
+        height: 850px;
     }
 
     .mute {
-        font-size: 0.7em;
         color: #666;
     }
+
+    .row {
+        width: 100%;
+        padding: 0.1cm;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .col {
+        width: 49%;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14px;
+    }
+
+    .col:first-child {
+        border-right: 1px solid #ddd;
+    }
+
+    .panel {
+        border: 1px solid #ddd;
+        margin: 0.7cm 0.2cm;
+        padding: 0 0.2cm;
+        background: #efefef;
+    }
+
+    .panel .row {
+        padding: 0.05cm;
+    }
+
+    .panel .col {
+        font-size: 13px;
+    }
+
+    .panel h5 {
+        /*background: #C2EAF7;*/
+        padding: 0.2cm 0;
+        margin: 0;
+    }
+
 </style>

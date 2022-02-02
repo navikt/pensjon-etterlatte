@@ -1,26 +1,19 @@
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">
-            {{#eq spraak "en"}}
-                Military or civil service
+<div>
+    <h4>
+        {{#eq spraak "en"}}
+            Military or civil service
+        {{else}}
+            {{#eq spraak "nn"}}
+                Militær eller sivil førstegongsteneste
             {{else}}
-                {{#eq spraak "nn"}}
-                    Militær eller sivil førstegongsteneste
-                {{else}}
-                    Militær eller sivil førstegangstjeneste
-                {{/eq}}
+                Militær eller sivil førstegangstjeneste
             {{/eq}}
-        </th>
-    </tr>
-    </thead>
+        {{/eq}}
+    </h4>
 
-    <tbody>
     {{> eypdfgen/partials_v2/common/opplysning this}}
 
     {{#eq this.svar.verdi "JA"}}
         {{> eypdfgen/partials_v2/common/opplysning this.opplysning}}
     {{/eq}}
-
-    </tbody>
-</table>
+</div>

@@ -73,15 +73,15 @@
     },
     "statsborgerskap": {
       "spoersmaal": "Statsborgerskap",
-      "svar": "Statsborgerskap-mock"
+      "svar": "Norsk"
     },
     "sivilstatus": {
       "spoersmaal": "Sivilstatus",
-      "svar": "Sivilstatus-mock"
+      "svar": "Enslig"
     },
     "adresse": {
       "spoersmaal": "Bostedsadresse",
-      "svar": "Adresse-mock 1, 0000 Poststed-mock"
+      "svar": "Fyrstikkalleen 1A, 1024 Oslo"
     },
     "bostedsAdresse": {
       "spoersmaal": "Bor du på denne adressen?",

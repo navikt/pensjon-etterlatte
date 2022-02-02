@@ -10,25 +10,24 @@
     {{/eq}}
 </h2>
 
-<table>
-    <thead>
-        <tr>
-            <th colspan="2">Personalia</th>
-        </tr>
-    </thead>
+{{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
 
-    <tbody>
-        {{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
+<div class="row">
+    <div class="col">
+        {{this.statsborgerskap.spoersmaal}}
+    </div>
+    <div class="col">
+        {{this.statsborgerskap.svar}}
+    </div>
+</div>
 
-        <tr>
-            <td>{{this.statsborgerskap.spoersmaal}}</td>
-            <td>{{this.statsborgerskap.svar}}</td>
-        </tr>
-        <tr>
-            <td>{{this.adresse.spoersmaal}}</td>
-            <td>{{this.adresse.svar}}</td>
-        </tr>
-</tbody>
-</table>
+<div class="row">
+    <div class="col">
+        {{this.adresse.spoersmaal}}
+    </div>
+    <div class="col">
+        {{this.adresse.svar}}
+    </div>
+</div>
 
 {{> eypdfgen/partials_v2/common/personalia/kontaktinfo this.kontaktinfo}}

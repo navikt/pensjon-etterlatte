@@ -2,7 +2,9 @@
 
 {{#if this.length}}
     {{#each this}}
-        {{> eypdfgen/partials_v2/common/barn/barn this}}
+        <div class="panel">
+            {{> eypdfgen/partials_v2/common/barn/barn this}}
+        </div>
     {{/each}}
 {{else}}
     <p>

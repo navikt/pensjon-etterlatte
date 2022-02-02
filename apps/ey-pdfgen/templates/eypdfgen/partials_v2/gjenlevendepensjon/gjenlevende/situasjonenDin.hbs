@@ -16,76 +16,58 @@
     {{> eypdfgen/partials_v2/gjenlevendepensjon/gjenlevende/situasjon/selvstendig}}
 
     {{#with soeker.arbeidOgUtdanning.utdanning.svar}}
-        <table>
-            <thead>
-            <tr>
-                <th colspan="2">
-                    {{#eq spraak "en"}}
-                        Education
-                    {{else}}
-                        Utdanning
-                    {{/eq}}
-                </th>
-            </tr>
-            </thead>
+        <div>
+            <h4>
+                {{#eq spraak "en"}}
+                    Education
+                {{else}}
+                    Utdanning
+                {{/eq}}
+            </h4>
 
-            <tbody>
             {{> eypdfgen/partials_v2/common/opplysning this.navn}}
 
             {{> eypdfgen/partials_v2/common/datoOpplysning this.startDato}}
 
             {{> eypdfgen/partials_v2/common/datoOpplysning this.sluttDato}}
-            </tbody>
-        </table>
+        </div>
     {{/with}}
 
     {{#with soeker.arbeidOgUtdanning.annet}}
-        <table>
-            <thead>
-            <tr>
-                <th colspan="2">
-                    {{#eq spraak "en"}}
-                        Other
+        <div>
+            <h4>
+                {{#eq spraak "en"}}
+                    Other
+                {{else}}
+                    {{#eq spraak "nn"}}
+                        Anna
                     {{else}}
-                        {{#eq spraak "nn"}}
-                            Anna
-                        {{else}}
-                            Annet
-                        {{/eq}}
+                        Annet
                     {{/eq}}
-                </th>
-            </tr>
-            </thead>
+                {{/eq}}
+            </h4>
 
-            <tbody>
             {{> eypdfgen/partials_v2/common/opplysning this}}
-            </tbody>
-        </table>
+        </div>
     {{/with}}
 {{/with}}
 
 {{#with soeker.fullfoertUtdanning}}
-    <table>
-        <thead>
-        <tr>
-            <th colspan="2">
-                {{#eq spraak "en"}}
-                    Completed education
-                {{else}}
-                    Fullført utdanning
-                {{/eq}}
-            </th>
-        </tr>
-        </thead>
+    <div>
+        <h4>
+            {{#eq spraak "en"}}
+                Completed education
+            {{else}}
+                Fullført utdanning
+            {{/eq}}
+        </h4>
 
-        <tbody>
         {{> eypdfgen/partials_v2/common/opplysning this}}
 
         {{#with this.opplysning }}
             {{> eypdfgen/partials_v2/common/opplysning this}}
         {{/with}}
-        </tbody>
-    </table>
+    </div>
 {{/with}}
 
 {{> eypdfgen/partials_v2/gjenlevendepensjon/gjenlevende/situasjon/andreYtelser soeker.andreYtelser}}

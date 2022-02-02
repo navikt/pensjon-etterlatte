@@ -1,42 +1,27 @@
 {{#if soeker.arbeidOgUtdanning.selvstendig.svar}}
-    <table>
-        <thead>
-        <tr>
-            <th colspan="2">
-                {{#eq spraak "en"}}
-                    About your business
+    <div>
+        <h4>
+            {{#eq spraak "en"}}
+                About your business
+            {{else}}
+                {{#eq spraak "nn"}}
+                    Om næringa
                 {{else}}
-                    {{#eq spraak "nn"}}
-                        Om næringa
-                    {{else}}
-                        Om næringen
-                    {{/eq}}
+                    Om næringen
                 {{/eq}}
-            </th>
-        </tr>
-        </thead>
+            {{/eq}}
+        </h4>
 
-        <tbody>
         {{#each soeker.arbeidOgUtdanning.selvstendig.svar}}
-            <tr>
-                <td colspan="2">
-                    <table class="inner">
-                        <tbody>
+            {{> eypdfgen/partials_v2/common/opplysning this.firmanavn}}
 
-                        {{> eypdfgen/partials_v2/common/opplysning this.firmanavn}}
+            {{> eypdfgen/partials_v2/common/opplysning this.orgnr}}
 
-                        {{> eypdfgen/partials_v2/common/opplysning this.orgnr}}
+            {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
 
-                        {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt}}
-
-                        {{#eq this.endretInntekt.svar.verdi "JA" }}
-                            {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt.opplysning}}
-                        {{/eq}}
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
+            {{#eq this.endretInntekt.svar.verdi "JA" }}
+                {{> eypdfgen/partials_v2/common/opplysning this.endretInntekt.opplysning}}
+            {{/eq}}
         {{/each}}
-        </tbody>
-    </table>
+    </div>
 {{/if}}

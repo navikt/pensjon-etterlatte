@@ -1,60 +1,46 @@
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">
-            {{#eq spraak "en"}}
-                Time spent outside Norway
+<div>
+    <h4>
+        {{#eq spraak "en"}}
+            Time spent outside Norway
+        {{else}}
+            {{#eq spraak "nn"}}
+                Opphald utanfor Noreg
             {{else}}
-                {{#eq spraak "nn"}}
-                    Opphald utanfor Noreg
-                {{else}}
-                    Opphold utenfor Norge
-                {{/eq}}
+                Opphold utenfor Norge
             {{/eq}}
-        </th>
-    </tr>
-    </thead>
+        {{/eq}}
+    </h4>
 
-    <tbody>
-    <tr>
-        {{> eypdfgen/partials_v2/common/opplysning this}}
-    </tr>
+    {{> eypdfgen/partials_v2/common/opplysning this}}
 
     {{#eq this.svar.verdi "JA"}}
         {{#each this.opplysning}}
-            <tr>
-                <td colspan="2">
-                    <table class="inner">
-                        <thead>
-                        <tr>
-                            <th colspan="2">{{this.land.svar.innhold}}</th>
-                        </tr>
-                        </thead>
+            <div class="panel">
+                <h5>
+                    {{this.land.svar.innhold}}
+                </h5>
 
-                        <tbody>
-                        {{> eypdfgen/partials_v2/common/opplysning this.land}}
+                {{> eypdfgen/partials_v2/common/opplysning this.land}}
 
-                        {{> eypdfgen/partials_v2/common/datoOpplysning this.fraDato}}
+                {{> eypdfgen/partials_v2/common/datoOpplysning this.fraDato}}
 
-                        {{> eypdfgen/partials_v2/common/datoOpplysning this.tilDato}}
+                {{> eypdfgen/partials_v2/common/datoOpplysning this.tilDato}}
 
-                        <tr>
-                            <td>{{this.oppholdsType.spoersmaal}}</td>
-                            <td>
-                                {{#each this.oppholdsType.svar}}
-                                    - {{this.innhold}} <br/>
-                                {{/each}}
-                            </td>
-                        </tr>
+                <div class="row">
+                    <div class="col">
+                        {{this.oppholdsType.spoersmaal}}
+                    </div>
+                    <div class="col">
+                        {{#each this.oppholdsType.svar}}
+                            - {{this.innhold}} <br />
+                        {{/each}}
+                    </div>
+                </div>
 
-                        {{> eypdfgen/partials_v2/common/opplysning this.medlemFolketrygd}}
+                {{> eypdfgen/partials_v2/common/opplysning this.medlemFolketrygd}}
 
-                        {{> eypdfgen/partials_v2/common/opplysning this.pensjonsutbetaling}}
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
+                {{> eypdfgen/partials_v2/common/opplysning this.pensjonsutbetaling}}
+            </div>
         {{/each}}
     {{/eq}}
-    </tbody>
-</table>
+</div>

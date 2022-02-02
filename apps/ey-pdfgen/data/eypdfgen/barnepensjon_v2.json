@@ -2,7 +2,7 @@
   "type": "BARNEPENSJON",
   "spraak": "nb",
   "imageTag": "189h13r89-109j18j38r",
-  "template": "gjenlevendepensjon_v2",
+  "template": "barnepensjonepensjon_v2",
   "mottattDato": "2022-01-31T00:00:00Z",
   "version": "2",
   "innsender": {
@@ -309,5 +309,71 @@
       }
     }
   ],
-  "soesken": []
+  "soesken": [
+    {
+      "type": "BARN",
+      "fornavn": {
+        "spoersmaal": "Fornavn",
+        "svar": "Blåøyd"
+      },
+      "etternavn": {
+        "spoersmaal": "Etternavn",
+        "svar": "Saks"
+      },
+      "foedselsnummer": {
+        "spoersmaal": "Barnets fødselsnummer / d-nummer",
+        "svar": "19040550081"
+      },
+      "statsborgerskap": {
+        "spoersmaal": "Statsborgerskap",
+        "svar": "Norge"
+      },
+      "utenlandsAdresse": {
+        "spoersmaal": "Bor barnet i et annet land enn Norge?",
+        "svar": {
+          "verdi": "NEI",
+          "innhold": "Nei"
+        }
+      },
+      "foreldre": [
+        {
+          "type": "FORELDER",
+          "fornavn": {
+            "spoersmaal": "Fornavn",
+            "svar": "STOR"
+          },
+          "etternavn": {
+            "spoersmaal": "Etternavn",
+            "svar": "SNERK"
+          },
+          "foedselsnummer": {
+            "spoersmaal": "Fødselsnummer",
+            "svar": "11057523044"
+          }
+        },
+        {
+          "type": "FORELDER",
+          "fornavn": {
+            "spoersmaal": "Fornavn",
+            "svar": "Polski"
+          },
+          "etternavn": {
+            "spoersmaal": "Etternavn",
+            "svar": "Dødski"
+          },
+          "foedselsnummer": {
+            "spoersmaal": "Fødselsnummer",
+            "svar": "26104500284"
+          }
+        }
+      ],
+      "verge": {
+        "spoersmaal": "Er det oppnevnt en verge for barnet?",
+        "svar": {
+          "verdi": "NEI",
+          "innhold": "Nei"
+        }
+      }
+    }
+  ]
 }

@@ -1,25 +1,19 @@
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">
-            {{#eq spraak "en"}}
-                Current marital status
+<div>
+    <h4>
+        {{#eq spraak "en"}}
+            Current marital status
+        {{else}}
+            {{#eq spraak "nn"}}
+                Noverande sivilstand
             {{else}}
-                {{#eq spraak "nn"}}
-                    Noverande sivilstand
-                {{else}}
-                    Sivilstanden i dag
-                {{/eq}}
+                Sivilstanden i dag
             {{/eq}}
-        </th>
-    </tr>
-    </thead>
+        {{/eq}}
+    </h4>
 
-    <tbody>
     {{> eypdfgen/partials_v2/common/opplysning this}}
-    </tbody>
-</table>
 
-{{#if this.opplysning}}
-    {{> eypdfgen/partials_v2/gjenlevendepensjon/samboer/samboer this.opplysning}}
-{{/if}}
+    {{#if this.opplysning}}
+        {{> eypdfgen/partials_v2/gjenlevendepensjon/samboer/samboer this.opplysning}}
+    {{/if}}
+</div>
