@@ -3,7 +3,7 @@ import { IValg } from "./Spoersmaal";
 export enum StillingType {
     fast = "stillingType.fast",
     midlertidig = "stillingType.midlertidig",
-    sesongarbeid = "stillingType.sesongarbeid"
+    sesongarbeid = "stillingType.sesongarbeid",
 }
 
 export interface IArbeidsforhold {
@@ -14,7 +14,7 @@ export interface IArbeidsforhold {
     forventerEndretInntekt?: {
         svar?: IValg;
         beskrivelse?: string;
-    }
+    };
 }
 
 export interface ISelvstendigNaeringsdrivende {
@@ -23,5 +23,13 @@ export interface ISelvstendigNaeringsdrivende {
     forventerEndretInntekt?: {
         svar?: IValg;
         beskrivelse?: string;
-    }
+    };
+}
+
+export enum IngenJobb {
+    hjemmearbeidende = "dinSituasjon.ingenJobb.hjemmearbeidende",
+    omsorgBarn = "dinSituasjon.ingenJobb.omsorgBarn",
+    omsorgNaerstaaende = "dinSituasjon.ingenJobb.omsorgNaerstaaende",
+    frivilligArbeid = "dinSituasjon.ingenJobb.frivilligArbeid",
+    annet = "dinSituasjon.ingenJobb.annet",
 }

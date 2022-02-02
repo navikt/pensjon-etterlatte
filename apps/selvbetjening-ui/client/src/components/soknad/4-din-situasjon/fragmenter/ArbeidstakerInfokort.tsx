@@ -35,17 +35,17 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     name={`arbeidsforhold[${index}].ansettelsesforhold` as const}
                     label={t("dinSituasjon.arbeidsforhold.ansettelsesforhold")}
                     selectOptions={[
-                        { label: t("felles.velg"), value: '' },
+                        { label: t("felles.velg"), value: "" },
                         {
-                            label: t("stillingType.fast"),
+                            label: t(StillingType.fast),
                             value: StillingType.fast,
                         },
                         {
-                            label: t("stillingType.midlertidig"),
+                            label: t(StillingType.midlertidig),
                             value: StillingType.midlertidig,
                         },
                         {
-                            label: t("stillingType.sesongarbeid"),
+                            label: t(StillingType.sesongarbeid),
                             value: StillingType.sesongarbeid,
                         },
                     ]}

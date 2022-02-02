@@ -216,7 +216,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
     if (dinSituasjon.jobbStatus?.includes(JobbStatus.ingen)) {
         annet = {
             spoersmaal: t("dinSituasjon.ingenJobbBeskrivelse"),
-            svar: dinSituasjon.ingenJobbBeskrivelse!!
+            svar: t(dinSituasjon.ingenJobbBeskrivelse!!)
         }
     }
 

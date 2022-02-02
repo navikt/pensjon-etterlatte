@@ -1,6 +1,7 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
+import { IngenJobb } from "../../../typer/arbeidsforhold";
 import { FormProvider, useForm } from "react-hook-form";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
@@ -11,7 +12,7 @@ import HoeyesteUtdanning from "./fragmenter/HoeyesteUtdanning";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import UnderUtdanning from "./fragmenter/UnderUtdanning";
-import { RHFInput } from "../../felles/RHFInput";
+import { RHFSelect } from "../../felles/RHFSelect";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
@@ -29,7 +30,6 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
         shouldUnregister: true,
     });
 
-
     const {
         handleSubmit,
         formState: { errors },
@@ -43,15 +43,15 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     };
 
     const lagreTilbake = (data: ISituasjon) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(data), erValidert: true } })
-        forrige!!()
-    }
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(data), erValidert: true } });
+        forrige!!();
+    };
 
     const lagreTilbakeUtenValidering = () => {
-        const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(verdier), erValidert: false } })
-        forrige!!()
-    }
+        const verdier = getValues();
+        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(verdier), erValidert: false } });
+        forrige!!();
+    };
 
     const erValidert = state.dinSituasjon.erValidert;
     const jobbStatus = watch("jobbStatus");
@@ -80,38 +80,58 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                             })}
                         />
 
-                        {(jobbStatus?.includes(JobbStatus.selvstendig) || jobbStatus?.includes(JobbStatus.arbeidstaker)) && (
-                            <NavaerendeArbeidsforhold/>
-                        )}
+                        {(jobbStatus?.includes(JobbStatus.selvstendig) ||
+                            jobbStatus?.includes(JobbStatus.arbeidstaker)) && <NavaerendeArbeidsforhold />}
 
-                        {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning/>}
+                        {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
 
                         {jobbStatus?.includes(JobbStatus.ingen) && (
                             <SkjemaGruppering>
                                 <SkjemaGruppe>
                                     <Heading size={"small"}>{t("dinSituasjon.ingenJobbTittel")}</Heading>
                                 </SkjemaGruppe>
-                                <RHFInput
+                                <RHFSelect
                                     name={"ingenJobbBeskrivelse"}
                                     label={t("dinSituasjon.ingenJobbBeskrivelse")}
-                                    placeholder={t("dinSituasjon.ingenJobbBeskrivelsePlaceholder")}
-                                    maxLength={200}/>
+                                    selectOptions={[
+                                        { label: t("felles.velg"), value: "" },
+                                        {
+                                            label: t(IngenJobb.hjemmearbeidende),
+                                            value: IngenJobb.hjemmearbeidende,
+                                        },
+                                        {
+                                            label: t(IngenJobb.omsorgBarn),
+                                            value: IngenJobb.omsorgBarn,
+                                        },
+                                        {
+                                            label: t(IngenJobb.omsorgNaerstaaende),
+                                            value: IngenJobb.omsorgNaerstaaende,
+                                        },
+                                        {
+                                            label: t(IngenJobb.frivilligArbeid),
+                                            value: IngenJobb.frivilligArbeid,
+                                        },
+                                        {
+                                            label: t(IngenJobb.annet),
+                                            value: IngenJobb.annet,
+                                        },
+                                    ]}
+                                />
                             </SkjemaGruppering>
                         )}
 
-                        <HoeyesteUtdanning/>
+                        <HoeyesteUtdanning />
                     </>
                 )}
 
-                <AndreYtelser/>
+                <AndreYtelser />
 
-                <Feilmeldinger errors={errors}/>
+                <Feilmeldinger errors={errors} />
 
                 <Navigasjon
                     forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
                     neste={{ onClick: handleSubmit(lagreNeste) }}
                 />
-
             </form>
         </FormProvider>
     );
