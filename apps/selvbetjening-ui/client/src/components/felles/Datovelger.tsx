@@ -59,7 +59,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
                     defaultValue={undefined}
                     rules={{
                         required: !valgfri,
-                        validate: (date) => isValid(date)
+                        validate: (date) => !date || isValid(date)
                     }}
                     render={({ field: { onChange, value } }) => (
                         <Datepicker
