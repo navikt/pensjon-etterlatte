@@ -1,0 +1,19 @@
+<div>
+    <h4>
+        {{#eq spraak "en"}}
+            Current marital status
+        {{else}}
+            {{#eq spraak "nn"}}
+                Noverande sivilstand
+            {{else}}
+                Sivilstanden i dag
+            {{/eq}}
+        {{/eq}}
+    </h4>
+
+    {{> eypdfgen/partials_v2/common/opplysning this}}
+
+    {{#if this.opplysning}}
+        {{> eypdfgen/partials_v2/gjenlevendepensjon/samboer/samboer this.opplysning}}
+    {{/if}}
+</div>

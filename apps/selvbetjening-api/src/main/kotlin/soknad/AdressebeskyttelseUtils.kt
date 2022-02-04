@@ -13,7 +13,7 @@ internal fun SoeknadRequest.finnUnikeBarn() = this.soeknader.flatMap {
         is Barnepensjon -> it.soesken + it.soeker
         else -> throw Exception("Ukjent søknadstype")
     }
-}.map { it.foedselsnummer }.distinct()
+}.map { it.foedselsnummer.svar }.distinct()
 
 /**
  * Funksjonen fjerner informasjon om utenlandsadresse for barn med adressesperre.
@@ -27,7 +27,7 @@ internal fun SoeknadRequest.fjernStedslokaliserendeInfo(fnrListe: List<Foedselsn
             is Barnepensjon -> soeknad.copy(
                 soeker = soeknad.soeker.utenAdresseFor(fnrListe),
                 soesken = soeknad.soesken.map { it.utenAdresseFor(fnrListe) },
-                utbetalingsInformasjon = if (soeknad.soeker.foedselsnummer in fnrListe) null else soeknad.utbetalingsInformasjon
+                utbetalingsInformasjon = if (soeknad.soeker.foedselsnummer.svar in fnrListe) null else soeknad.utbetalingsInformasjon
             )
             else -> throw Exception("Ukjent søknadstype")
         }
@@ -35,4 +35,4 @@ internal fun SoeknadRequest.fjernStedslokaliserendeInfo(fnrListe: List<Foedselsn
 )
 
 private fun Barn.utenAdresseFor(fnrListe: List<Foedselsnummer>) =
-    if (this.foedselsnummer in fnrListe) this.copy(utenlandsAdresse = null) else this
+    if (this.foedselsnummer.svar in fnrListe) this.copy(utenlandsAdresse = null) else this

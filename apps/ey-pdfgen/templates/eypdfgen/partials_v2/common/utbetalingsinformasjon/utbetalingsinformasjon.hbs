@@ -1,0 +1,49 @@
+<h2>
+    {{#eq spraak "en"}}
+        Payment information
+    {{else}}
+        {{#eq spraak "nn"}}
+            Utbetalingsinformasjon
+        {{else}}
+            Utbetalingsinformasjon
+        {{/eq}}
+    {{/eq}}
+
+</h2>
+
+<h4>
+    {{capitalize_names this.svar.innhold}}
+
+    {{#eq spraak "en"}}
+        account
+    {{else}}
+        konto
+    {{/eq}}
+</h4>
+
+<div class="row opplysning">
+    <div class="col">
+        {{this.spoersmaal}}
+    </div>
+    <div class="col">
+        {{capitalize_names this.svar.innhold}}
+    </div>
+</div>
+
+{{#with this.opplysning}}
+    {{> eypdfgen/partials_v2/common/opplysning this.kontonummer}}
+
+    {{> eypdfgen/partials_v2/common/opplysning this.utenlandskBankNavn}}
+
+    {{> eypdfgen/partials_v2/common/opplysning this.utenlandskBankAdresse}}
+
+    {{> eypdfgen/partials_v2/common/opplysning this.iban}}
+
+    {{> eypdfgen/partials_v2/common/opplysning this.swift}}
+
+    {{> eypdfgen/partials_v2/common/opplysning this.skattetrekk}}
+
+    {{#eq this.skattetrekk.svar.verdi "JA"}}
+        {{> eypdfgen/partials_v2/common/opplysning this.skattetrekk.opplysning}}
+    {{/eq}}
+{{/with}}

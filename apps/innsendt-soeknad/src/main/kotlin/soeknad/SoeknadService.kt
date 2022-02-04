@@ -16,14 +16,14 @@ class SoeknadService(private val db: SoeknadRepository) {
     fun sendSoeknad(innloggetBrukerFnr: Foedselsnummer, request: SoeknadRequest): Boolean {
         logger.info("Forsøker lagring av mottatte søknader (antall=${request.soeknader.size})")
         // Verifisere at det er innlogget bruker som er registrert som innsender
-        val innsenderErInnlogget = request.soeknader.all { innloggetBrukerFnr == it.innsender.foedselsnummer }
+        val innsenderErInnlogget = request.soeknader.all { innloggetBrukerFnr == it.innsender.foedselsnummer.svar }
         if (!innsenderErInnlogget) {
             logger.error("Søknad innsender er ikke samme som innlogget bruker!")
             throw RuntimeException("Ugyldig innsender")
         }
 
         val ider = request.soeknader
-            .map { UlagretSoeknad(it.soeker.foedselsnummer.value, it.toJson(), it.type) }
+            .map { UlagretSoeknad(it.soeker.foedselsnummer.svar.value, it.toJson(), it.type) }
             .map {
                 logger.info("Ferdigstiller søknad (type=${it.type})")
                 db.ferdigstillSoeknad(it)

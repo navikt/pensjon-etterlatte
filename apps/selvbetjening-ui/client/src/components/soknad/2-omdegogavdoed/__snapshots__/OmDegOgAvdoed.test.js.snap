@@ -340,12 +340,12 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 name="nySivilstatus.sivilstatus"
                 required=""
                 type="radio"
-                value="nySivilstatus.ingen"
+                value="nySivilstatus.enslig"
               />
               <span
                 class="inputPanel__label"
               >
-                nySivilstatus.ingen
+                nySivilstatus.enslig
               </span>
             </label>
             <label
@@ -938,12 +938,12 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 name="nySivilstatus.sivilstatus"
                 required=""
                 type="radio"
-                value="nySivilstatus.ingen"
+                value="nySivilstatus.enslig"
               />
               <span
                 class="inputPanel__label"
               >
-                nySivilstatus.ingen
+                nySivilstatus.enslig
               </span>
             </label>
             <label

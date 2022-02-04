@@ -1,0 +1,29 @@
+<h4>
+    {{#eq spraak "en"}}
+        Relationship with the deceased
+    {{else}}
+        {{#eq spraak "nn"}}
+            Relasjonen til avdøde
+        {{else}}
+            Relasjonen til avdøde
+        {{/eq}}
+    {{/eq}}
+</h4>
+
+{{> eypdfgen/partials_v2/common/opplysning this.relasjon}}
+
+{{> eypdfgen/partials_v2/common/datoOpplysning this.datoForInngaattPartnerskap}}
+
+{{> eypdfgen/partials_v2/common/datoOpplysning this.datoForInngaattSamboerskap}}
+
+{{> eypdfgen/partials_v2/common/datoOpplysning this.datoForSkilsmisse}}
+
+{{> eypdfgen/partials_v2/common/datoOpplysning this.datoForSamlivsbrudd}}
+
+{{> eypdfgen/partials_v2/common/opplysning this.fellesBarn}}
+
+{{> eypdfgen/partials_v2/common/opplysning this.samboereMedFellesBarnFoerGiftemaal}}
+
+{{> eypdfgen/partials_v2/common/opplysning this.tidligereGift}}
+
+{{> eypdfgen/partials_v2/common/opplysning this.omsorgForBarn}}

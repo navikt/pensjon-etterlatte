@@ -4,9 +4,10 @@ import {
     BankkontoType,
     BetingetOpplysning,
     Opplysning,
-    Svar,
+    JaNeiVetIkke,
     UtbetalingsInformasjon,
     Utenlandsadresse,
+    EnumSvar, FritekstSvar,
 } from "../dto/FellesOpplysninger";
 import {
     Avdoed,
@@ -26,14 +27,26 @@ import { IBruker } from "../../context/bruker/bruker";
 import { mapGjenlevende } from "./gjenlevendeMapper";
 import { mapAvdoed } from "./avdoedMapper";
 
-export const valgTilSvar = (valg: IValg): Svar => {
+export const valgTilSvar = (
+    t: TFunction,
+    valg: IValg
+): EnumSvar<JaNeiVetIkke> => {
     switch (valg!!) {
         case IValg.JA:
-            return Svar.JA
+            return {
+                verdi: JaNeiVetIkke.JA,
+                innhold: t(IValg.JA)
+            }
         case IValg.NEI:
-            return Svar.NEI
+            return {
+                verdi: JaNeiVetIkke.NEI,
+                innhold: t(IValg.NEI)
+            }
         case IValg.VET_IKKE:
-            return Svar.VET_IKKE
+            return {
+                verdi: JaNeiVetIkke.VET_IKKE,
+                innhold: t(IValg.VET_IKKE)
+            }
         default:
             throw Error()
     }
@@ -45,45 +58,69 @@ export const mapBarn = (
     soeknad: ISoeknad,
     bruker: IBruker
 ): Barn => {
-    const utenlandsAdresse: BetingetOpplysning<Svar, Utenlandsadresse> = {
-        spoersmaal: t("omBarn.bosattUtland.svar"),
-        svar: valgTilSvar(barn.bosattUtland!!.svar!!)
-    }
+    const bosattUtlandSvar: IValg = barn.bosattUtland!!.svar!!;
 
-    if (utenlandsAdresse.svar === Svar.JA) {
+    const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> = {
+        spoersmaal: t("omBarn.bosattUtland.svar"),
+        svar: valgTilSvar(t, bosattUtlandSvar)
+    };
+
+    if (bosattUtlandSvar === IValg.JA) {
         utenlandsAdresse.opplysning = {
             land: {
                 spoersmaal: t("omBarn.bosattUtland.land"),
-                svar: barn.bosattUtland!!.land!!
+                svar: {
+                    innhold: barn.bosattUtland!!.land!!
+                }
             },
             adresse: {
                 spoersmaal: t("omBarn.bosattUtland.adresse"),
-                svar: barn.bosattUtland!!.adresse!!
+                svar: {
+                    innhold: barn.bosattUtland!!.adresse!!
+                }
             }
         }
     }
 
-    let verge: BetingetOpplysning<Svar, Verge> | undefined;
+    let verge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge> | undefined;
     if (!!barn.harBarnetVerge?.svar) {
         const opplysningOmVerge: Verge | undefined = barn.harBarnetVerge?.svar === IValg.JA ? {
             type: PersonType.VERGE,
-            fornavn: barn.harBarnetVerge!!.fornavn!!,
-            etternavn: barn.harBarnetVerge!!.etternavn!!,
-            foedselsnummer: barn.harBarnetVerge!!.foedselsnummer!!,
+            fornavn: {
+                spoersmaal: t("felles.fornavn"),
+                svar: barn.harBarnetVerge!!.fornavn!!
+            },
+            etternavn: {
+                spoersmaal: t("felles.etternavn"),
+                svar: barn.harBarnetVerge!!.etternavn!!
+            },
+            foedselsnummer: {
+                spoersmaal: t("felles.foedselsnummer"),
+                svar: barn.harBarnetVerge!!.foedselsnummer!!
+            },
         } : undefined;
 
         verge = {
             spoersmaal: t("omBarn.harBarnetVerge.svar"),
-            svar: valgTilSvar(barn.harBarnetVerge?.svar),
+            svar: valgTilSvar(t, barn.harBarnetVerge?.svar),
             opplysning: opplysningOmVerge
         }
     }
 
     return {
         type: PersonType.BARN,
-        fornavn: barn.fornavn!!,
-        etternavn: barn.etternavn!!,
-        foedselsnummer: barn.foedselsnummer!!,
+        fornavn: {
+            spoersmaal: t("omBarn.fornavn"),
+            svar: barn.fornavn!!
+        },
+        etternavn: {
+            spoersmaal: t("omBarn.etternavn"),
+            svar: barn.etternavn!!
+        },
+        foedselsnummer: {
+            spoersmaal: t("omBarn.foedselsnummer"),
+            svar: barn.foedselsnummer!!
+        },
         statsborgerskap: {
             spoersmaal: t("omBarn.statsborgerskap"),
             svar: barn.statsborgerskap!!
@@ -95,19 +132,17 @@ export const mapBarn = (
     }
 };
 
-const hentDagligOmsorg = (t: TFunction, barn: IBarn): Opplysning<OmsorgspersonType> | undefined => {
+const hentDagligOmsorg = (t: TFunction, barn: IBarn): Opplysning<EnumSvar<OmsorgspersonType>> | undefined => {
     if (barn.relasjon === BarnRelasjon.egneSaerkullsbarn || barn.relasjon === BarnRelasjon.avdoedesSaerkullsbarn) {
-        let person: OmsorgspersonType;
-        if (barn.dagligOmsorg === IValg.JA)
-            person = OmsorgspersonType.GJENLEVENDE;
-        else if (barn.harBarnetVerge === IValg.JA) // Todo: Mulig dette ikke stemmer..
-            person = OmsorgspersonType.VERGE
-        else
-            person = OmsorgspersonType.ANNET
+        const omsorgsperson = barn.dagligOmsorg === IValg.JA
+            ? OmsorgspersonType.GJENLEVENDE : OmsorgspersonType.ANNET;
 
         return {
             spoersmaal: t("omBarn.dagligOmsorg"),
-            svar: person
+            svar: {
+                verdi: omsorgsperson,
+                innhold: t(barn.dagligOmsorg!!)
+            }
         };
     } else {
         return undefined;
@@ -117,38 +152,54 @@ const hentDagligOmsorg = (t: TFunction, barn: IBarn): Opplysning<OmsorgspersonTy
 export const hentUtbetalingsInformasjonSoeker = (
     t: TFunction,
     omDeg: ISoeker
-): BetingetOpplysning<BankkontoType, UtbetalingsInformasjon> | undefined => {
+): BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon> | undefined => {
     if (omDeg.utbetalingsInformasjon?.bankkontoType === GammelBankkontoType.utenlandsk) {
         return {
             spoersmaal: t("omDeg.utbetalingsInformasjon.bankkontoType"),
-            svar: BankkontoType.UTENLANDSK,
+            svar: {
+                verdi: BankkontoType.UTENLANDSK,
+                innhold: t(GammelBankkontoType.utenlandsk)
+            },
             opplysning: {
                 utenlandskBankNavn: {
                     spoersmaal: t("omDeg.utbetalingsInformasjon.utenlandskBankNavn"),
-                    svar: omDeg.utbetalingsInformasjon.utenlandskBankNavn!!
+                    svar: {
+                        innhold: omDeg.utbetalingsInformasjon.utenlandskBankNavn!!
+                    }
                 },
                 utenlandskBankAdresse: {
                     spoersmaal: t("omDeg.utbetalingsInformasjon.utenlandskBankAdresse"),
-                    svar: omDeg.utbetalingsInformasjon.utenlandskBankAdresse!!
+                    svar: {
+                        innhold: omDeg.utbetalingsInformasjon.utenlandskBankAdresse!!
+                    }
                 },
                 iban: {
                     spoersmaal: t("omDeg.utbetalingsInformasjon.iban"),
-                    svar: omDeg.utbetalingsInformasjon.iban!!
+                    svar: {
+                        innhold: omDeg.utbetalingsInformasjon.iban!!
+                    }
                 },
                 swift: {
                     spoersmaal: t("omDeg.utbetalingsInformasjon.swift"),
-                    svar: omDeg.utbetalingsInformasjon.swift!!
+                    svar: {
+                        innhold: omDeg.utbetalingsInformasjon.swift!!
+                    }
                 }
             }
         }
     } else if (!!omDeg.utbetalingsInformasjon?.kontonummer) {
         return {
             spoersmaal: t("omDeg.utbetalingsInformasjon.bankkontoType"),
-            svar: BankkontoType.NORSK,
+            svar: {
+                verdi: BankkontoType.NORSK,
+                innhold: t(GammelBankkontoType.norsk)
+            },
             opplysning: {
                 kontonummer: {
                     spoersmaal: t("omDeg.utbetalingsInformasjon.kontonummer"),
-                    svar: omDeg.utbetalingsInformasjon!!.kontonummer!!
+                    svar: {
+                        innhold: omDeg.utbetalingsInformasjon!!.kontonummer!!
+                    }
                 }
             }
         }
@@ -159,10 +210,13 @@ export const hentUtbetalingsInformasjonBarn = (
     t: TFunction,
     soeker: IBarn,
     soeknad: ISoeknad
-): BetingetOpplysning<BankkontoType, UtbetalingsInformasjon> | undefined => {
+): BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon> | undefined => {
     if (soeker.barnepensjon?.kontonummer?.svar === IValg.JA) {
         const gjenlevendeSinKonto = hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg);
-        if (gjenlevendeSinKonto === undefined) return undefined;
+
+        if (gjenlevendeSinKonto === undefined)
+            return undefined;
+
         return {
             ...gjenlevendeSinKonto,
             opplysning: {
@@ -173,11 +227,16 @@ export const hentUtbetalingsInformasjonBarn = (
     } else if (soeker.barnepensjon?.kontonummer?.svar === IValg.NEI) {
         return {
             spoersmaal: t("omDeg.utbetalingsInformasjon.bankkontoType"), // Dette mapper ikke opp i dagens modell.
-            svar: BankkontoType.NORSK, // Kun støtte for norsk konto
+            svar: {
+                verdi: BankkontoType.NORSK,
+                innhold: t(GammelBankkontoType.norsk)
+            }, // Kun støtte for norsk konto
             opplysning: {
                 kontonummer: {
                     spoersmaal: t("omBarn.barnepensjon.kontonummer.kontonummer"),
-                    svar: soeker.barnepensjon!!.kontonummer!!.kontonummer!!
+                    svar: {
+                        innhold: soeker.barnepensjon!!.kontonummer!!.kontonummer!!
+                    }
                 },
                 skattetrekk: hentSkattetrekk(t, soeker)
             }
@@ -187,15 +246,21 @@ export const hentUtbetalingsInformasjonBarn = (
     return undefined;
 };
 
-const hentSkattetrekk = (t: TFunction, soeker: IBarn): BetingetOpplysning<Svar, Opplysning<String>> | undefined => {
+const hentSkattetrekk = (
+    t: TFunction,
+    soeker: IBarn
+): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar>> | undefined => {
     if (soeker.barnepensjon?.forskuddstrekk?.svar === IValg.JA) {
-        const trekkprosent = {
+        const trekkprosent: Opplysning<FritekstSvar> = {
             spoersmaal: t("omBarn.barnepensjon.forskuddstrekk.trekkprosent"),
-            svar: soeker.barnepensjon!!.forskuddstrekk!!.trekkprosent!!
-        }
+            svar: {
+                innhold: soeker.barnepensjon!!.forskuddstrekk!!.trekkprosent!!
+            }
+        };
+
         return {
             spoersmaal: t("omBarn.barnepensjon.forskuddstrekk.svar"),
-            svar: valgTilSvar(soeker.barnepensjon!!.forskuddstrekk!!.svar!!),
+            svar: valgTilSvar(t, soeker.barnepensjon!!.forskuddstrekk!!.svar!!),
             opplysning: trekkprosent
         }
     }
@@ -211,16 +276,34 @@ export const hentForeldre = (
     // TODO: Per dags dato er bruker alltid gjenlevende, men dette kan endre seg. Burde ryddes opp i.
     const gjenlevende: Forelder = {
         type: PersonType.FORELDER,
-        fornavn: bruker.fornavn!!,
-        etternavn: bruker.etternavn!!,
-        foedselsnummer: bruker.foedselsnummer!!,
+        fornavn: {
+            spoersmaal: t("felles.fornavn"),
+            svar: bruker.fornavn!!
+        },
+        etternavn: {
+            spoersmaal: t("felles.etternavn"),
+            svar: bruker.etternavn!!
+        },
+        foedselsnummer: {
+            spoersmaal: t("felles.foedselsnummer"),
+            svar: bruker.foedselsnummer!!
+        },
     };
 
     const avdoed: Forelder = {
         type: PersonType.FORELDER,
-        fornavn: soeknad.omDegOgAvdoed.avdoed!!.fornavn!!,
-        etternavn: soeknad.omDegOgAvdoed.avdoed!!.etternavn!!,
-        foedselsnummer: soeknad.omDenAvdoede.foedselsnummer!!
+        fornavn: {
+            spoersmaal: t("felles.fornavn"),
+            svar: soeknad.omDegOgAvdoed.avdoed!!.fornavn!!
+        },
+        etternavn: {
+            spoersmaal: t("felles.etternavn"),
+            svar: soeknad.omDegOgAvdoed.avdoed!!.etternavn!!
+        },
+        foedselsnummer: {
+            spoersmaal: t("felles.foedselsnummer"),
+            svar: soeknad.omDenAvdoede.foedselsnummer!!
+        },
     };
 
     if (barn.relasjon === BarnRelasjon.fellesbarnMedAvdoede) {
@@ -247,13 +330,10 @@ export const hentForeldreMedUtvidetInfo = (
         fornavn: gjenlevende.fornavn,
         etternavn: gjenlevende.etternavn,
         foedselsnummer: gjenlevende.foedselsnummer,
-        statsborgerskap: {
-            spoersmaal: "Statsborgerskap", // todo: Vi har ingen tekst her, hentes fra PDL i dette scenarioet.
-            svar: gjenlevende.statsborgerskap
-        },
+        statsborgerskap: gjenlevende.statsborgerskap,
         adresse: gjenlevende.adresse,
         kontaktinfo: gjenlevende.kontaktinfo
-    }
+    };
     const avdoed: Avdoed = mapAvdoed(t, soeknad);
 
     if (barn.relasjon === BarnRelasjon.fellesbarnMedAvdoede) {

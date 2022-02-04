@@ -9,28 +9,45 @@ export interface BetingetOpplysning<T, R> {
     opplysning?: R;
 }
 
-export enum Svar {
+export interface Svar<T> {
+    innhold: T;
+}
+
+export interface FritekstSvar extends Svar<String> {
+    innhold: String;
+}
+
+export interface DatoSvar extends Svar<Date | String> {
+    innhold: Date | String;
+}
+
+export interface EnumSvar<E> extends Svar<String> {
+    innhold: String;
+    verdi: E;
+}
+
+export enum JaNeiVetIkke {
     JA = "JA",
     NEI = "NEI",
     VET_IKKE = "VET_IKKE"
 }
 
 export interface Utenlandsadresse {
-    land: Opplysning<String>,
-    adresse: Opplysning<String>
+    land: Opplysning<FritekstSvar>,
+    adresse: Opplysning<FritekstSvar>
 }
 
 export interface UtbetalingsInformasjon {
-    kontonummer?: Opplysning<String>;
-    utenlandskBankNavn?: Opplysning<String>;
-    utenlandskBankAdresse?: Opplysning<String>;
-    iban?: Opplysning<String>;
-    swift?: Opplysning<String>;
-    skattetrekk?: BetingetOpplysning<Svar, Opplysning<String> | undefined>;
+    kontonummer?: Opplysning<FritekstSvar>;
+    utenlandskBankNavn?: Opplysning<FritekstSvar>;
+    utenlandskBankAdresse?: Opplysning<FritekstSvar>;
+    iban?: Opplysning<FritekstSvar>;
+    swift?: Opplysning<FritekstSvar>;
+    skattetrekk?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar> | undefined>;
 }
 
 export interface Kontaktinfo {
-    telefonnummer: Opplysning<String>;
+    telefonnummer: Opplysning<FritekstSvar>;
 }
 
 export enum BankkontoType {
@@ -72,65 +89,64 @@ export enum StillingType {
 }
 
 export enum SivilstatusType {
-    INGEN = "INGEN",
+    ENSLIG = "ENSLIG",
     EKTESKAP = "EKTESKAP",
     SAMBOERSKAP = "SAMBOERSKAP"
 }
 
 export interface SamboerInntekt {
-    inntektstype: Opplysning<InntektType[]>;
-    samletBruttoinntektPrAar: Opplysning<String>;
+    inntektstype: Opplysning<EnumSvar<InntektType>[]>;
+    samletBruttoinntektPrAar: Opplysning<FritekstSvar>;
 }
 
 export interface ForholdTilAvdoede {
-    relasjon: Opplysning<ForholdTilAvdoedeType>;
-    datoForInngaattPartnerskap?: Opplysning<Date>;
-    datoForInngaattSamboerskap?: Opplysning<Date>;
-    datoForSkilsmisse?: Opplysning<Date>;
-    datoForSamlivsbrudd?: Opplysning<Date>;
-    fellesBarn?: Opplysning<Svar>;
-    samboereMedFellesBarnFoerGiftemaal?: Opplysning<Svar>;
-    tidligereGift?: Opplysning<Svar>;
-    omsorgForBarn?: Opplysning<Svar>; // Finner ikke igjen i søknadsdialogen. Flyttet til barn
-    mottokBidrag?: Opplysning<Svar>; // Finner ikke igjen
-    mottokEktefelleBidrag?: Opplysning<Svar>; // Finner ikke igjen?
+    relasjon: Opplysning<EnumSvar<ForholdTilAvdoedeType>>;
+    datoForInngaattPartnerskap?: Opplysning<DatoSvar>;
+    datoForInngaattSamboerskap?: Opplysning<DatoSvar>;
+    datoForSkilsmisse?: Opplysning<DatoSvar>;
+    datoForSamlivsbrudd?: Opplysning<DatoSvar>;
+    fellesBarn?: Opplysning<EnumSvar<JaNeiVetIkke>>;
+    samboereMedFellesBarnFoerGiftemaal?: Opplysning<EnumSvar<JaNeiVetIkke>>;
+    tidligereGift?: Opplysning<EnumSvar<JaNeiVetIkke>>;
+    omsorgForBarn?: Opplysning<EnumSvar<JaNeiVetIkke>>; // Finner ikke igjen i søknadsdialogen. Flyttet til barn
+    mottokBidrag?: Opplysning<EnumSvar<JaNeiVetIkke>>; // Finner ikke igjen
+    mottokEktefelleBidrag?: Opplysning<EnumSvar<JaNeiVetIkke>>; // Finner ikke igjen?
 }
 
 export interface Utenlandsopphold {
-    land: Opplysning<String>;
-    fraDato?: Opplysning<Date>;
-    tilDato?: Opplysning<Date>;
-    oppholdsType: Opplysning<OppholdUtlandType[]>;
-    medlemFolketrygd: Opplysning<String>;
-    pensjonsutbetaling?: Opplysning<String>;
+    land: Opplysning<FritekstSvar>;
+    fraDato?: Opplysning<DatoSvar>;
+    tilDato?: Opplysning<DatoSvar>;
+    oppholdsType: Opplysning<EnumSvar<OppholdUtlandType>[]>;
+    medlemFolketrygd: Opplysning<EnumSvar<JaNeiVetIkke>>;
+    pensjonsutbetaling?: Opplysning<FritekstSvar>;
 }
 
 export interface Naeringsinntekt {
-    naeringsinntektPrAarFoerDoedsfall?: Opplysning<String>;
-    naeringsinntektVedDoedsfall?: Opplysning<Svar>;
+    naeringsinntektPrAarFoerDoedsfall?: Opplysning<FritekstSvar>;
+    naeringsinntektVedDoedsfall?: Opplysning<EnumSvar<JaNeiVetIkke>>;
 }
 
-export type Foedselsnummer = String;
-export type AarstallForMilitaerTjeneste = String
+export type AarstallForMilitaerTjeneste = FritekstSvar
 
 export interface ArbeidOgUtdanning {
-    dinSituasjon: Opplysning<JobbStatusType[]>;
+    dinSituasjon: Opplysning<EnumSvar<JobbStatusType>[]>;
     arbeidsforhold?: Opplysning<Arbeidstaker[]>;
     selvstendig?: Opplysning<SelvstendigNaeringsdrivende[]>;
     utdanning?: Opplysning<Utdanning>;
-    annet?: Opplysning<String>;
+    annet?: Opplysning<FritekstSvar>;
 }
 
 
 // TODO: naavaerende utdanning + tidligere
 
 export interface Utdanning {
-    navn: Opplysning<String>;
-    startDato: Opplysning<Date>;
-    sluttDato: Opplysning<Date>;
+    navn: Opplysning<FritekstSvar>;
+    startDato: Opplysning<DatoSvar>;
+    sluttDato: Opplysning<DatoSvar>;
 }
 
-export type AnnenUtdanning = String;
+export type AnnenUtdanning = FritekstSvar;
 
 export enum HoeyesteUtdanning {
     GRUNNSKOLE = "GRUNNSKOLE",
@@ -142,19 +158,19 @@ export enum HoeyesteUtdanning {
     ANNEN = "ANNEN"
 }
 
-export type EndretInntektBegrunnelse = String;
+export type EndretInntektBegrunnelse = FritekstSvar;
 
 export interface SelvstendigNaeringsdrivende {
-    firmanavn: Opplysning<String>;
-    orgnr: Opplysning<String>;
-    endretInntekt: BetingetOpplysning<Svar, Opplysning<EndretInntektBegrunnelse> | undefined>;
+    firmanavn: Opplysning<FritekstSvar>;
+    orgnr: Opplysning<FritekstSvar>;
+    endretInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>;
 }
 
 export interface Arbeidstaker {
-    arbeidsgiver: Opplysning<String>;
-    ansettelsesforhold: Opplysning<StillingType>;
-    stillingsprosent: Opplysning<String>;
-    endretInntekt: BetingetOpplysning<Svar, Opplysning<EndretInntektBegrunnelse> | undefined>;
+    arbeidsgiver: Opplysning<FritekstSvar>;
+    ansettelsesforhold: Opplysning<EnumSvar<StillingType>>;
+    stillingsprosent: Opplysning<FritekstSvar>;
+    endretInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>;
 }
 
 export enum Ytelser {
@@ -171,23 +187,22 @@ export enum Ytelser {
     OPPLAERINGSPENGER = "OPPLAERINGSPENGER"
 }
 
-export type Pensjonsordning = String;
+export type Pensjonsordning = FritekstSvar;
 
 export interface AndreYtelser {
-    kravOmAnnenStonad: BetingetOpplysning<Svar, Opplysning<Ytelser> | undefined>;
-    annenPensjon: BetingetOpplysning<Svar, Opplysning<Pensjonsordning> | undefined>;
-    pensjonUtland: BetingetOpplysning<Svar, PensjonUtland | undefined>;
+    kravOmAnnenStonad: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EnumSvar<Ytelser>> | undefined>;
+    annenPensjon: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<Pensjonsordning> | undefined>;
+    pensjonUtland: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, PensjonUtland | undefined>;
 }
 
 
 export interface PensjonUtland {
-    pensjonsType?: Opplysning<String>;
-    land?: Opplysning<String>;
-    bruttobeloepPrAar?: Opplysning<String>;
+    pensjonsType?: Opplysning<FritekstSvar>;
+    land?: Opplysning<FritekstSvar>;
+    bruttobeloepPrAar?: Opplysning<FritekstSvar>;
 }
 
-
 export interface OppholdUtland {
-    land: Opplysning<String>;
-    medlemFolketrygd: Opplysning<Svar>;
+    land: Opplysning<FritekstSvar>;
+    medlemFolketrygd: Opplysning<EnumSvar<JaNeiVetIkke>>;
 }

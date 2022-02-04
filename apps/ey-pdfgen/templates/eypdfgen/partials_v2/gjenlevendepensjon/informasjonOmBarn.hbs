@@ -1,0 +1,29 @@
+<h2>
+    {{#eq spraak "en"}}
+        Information about children
+    {{else}}
+        {{#eq spraak "nn"}}
+            Opplysingar om barn
+        {{else}}
+            Opplysninger om barn
+        {{/eq}}
+    {{/eq}}
+</h2>
+
+{{> eypdfgen/partials_v2/common/opplysning this.soeker.uregistrertEllerVenterBarn}}
+
+{{#with this.barn as | barnliste |}}
+    <h3>
+        {{#eq spraak "en"}}
+            Registered children:
+        {{else}}
+            Registrerte barn:
+        {{/eq}}
+    </h3>
+
+    {{#each barnliste as | barnet |}}
+        <div class="{{#gt barnliste.length 1}}panel{{/gt}}">
+            {{> eypdfgen/partials_v2/common/barn/barn barnet}}
+        </div>
+    {{/each}}
+{{/with}}

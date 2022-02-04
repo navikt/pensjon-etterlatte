@@ -1,0 +1,42 @@
+<div>
+    <h4>
+        {{#eq spraak "en"}}
+            Benefits
+        {{else}}
+            {{#eq spraak "nn"}}
+                Ytingar
+            {{else}}
+                Ytelser
+            {{/eq}}
+        {{/eq}}
+    </h4>
+
+    {{> eypdfgen/partials_v2/common/opplysning this.kravOmAnnenStonad}}
+    {{#eq this.kravOmAnnenStonad.svar.verdi "JA"}}
+        {{> eypdfgen/partials_v2/common/opplysning this.kravOmAnnenStonad.opplysning}}
+    {{/eq}}
+
+    <tr class="divider">
+        <td colspan="2">
+            <br />
+        </td>
+    </tr>
+
+    {{> eypdfgen/partials_v2/common/opplysning this.annenPensjon}}
+    {{#eq this.annenPensjon.svar.verdi "JA"}}
+        {{> eypdfgen/partials_v2/common/opplysning this.annenPensjon.opplysning}}
+    {{/eq}}
+
+    <tr class="divider">
+        <td colspan="2">
+            <br />
+        </td>
+    </tr>
+
+    {{> eypdfgen/partials_v2/common/opplysning this.pensjonUtland}}
+    {{#eq this.pensjonUtland.svar.verdi "JA"}}
+        {{> eypdfgen/partials_v2/common/opplysning this.pensjonUtland.opplysning.pensjonsType}}
+        {{> eypdfgen/partials_v2/common/opplysning this.pensjonUtland.opplysning.land}}
+        {{> eypdfgen/partials_v2/common/opplysning this.pensjonUtland.opplysning.bruttobeloepPrAar}}
+    {{/eq}}
+</div>

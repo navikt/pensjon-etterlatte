@@ -1,0 +1,15 @@
+<div class="row opplysning">
+    <div class="col">
+        {{#eq spraak "en"}}
+            Parent
+        {{else}}
+            Forelder
+        {{/eq}}
+    </div>
+
+    <div class="col">
+        {{capitalize_names this.fornavn.svar}}
+        {{capitalize_names this.etternavn.svar}}
+        ({{this.foedselsnummer.svar}})
+    </div>
+</div>

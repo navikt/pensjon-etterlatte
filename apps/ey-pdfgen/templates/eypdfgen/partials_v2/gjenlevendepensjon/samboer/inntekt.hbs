@@ -1,0 +1,21 @@
+<div class="row opplysning">
+    <div class="col">
+        {{this.inntektstype.spoersmaal}}
+    </div>
+    <div class="col">
+        {{#with this.inntektstype.svar}}
+            {{#each this}}
+                • {{this.innhold}} <br />
+            {{/each}}
+        {{/with}}
+    </div>
+</div>
+
+<div class="row opplysning">
+    <div class="col">
+        {{this.samletBruttoinntektPrAar.spoersmaal}}
+    </div>
+    <div class="col">
+        kr. {{currency_no this.samletBruttoinntektPrAar.svar.innhold}}
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div>
+    <h2>
+        {{#eq spraak "en"}}
+            The deceased’s personal details
+        {{else}}
+            {{#eq spraak "nn"}}
+                Opplysingar om avdøde
+            {{else}}
+                Opplysninger om avdøde
+            {{/eq}}
+        {{/eq}}
+    </h2>
+
+    {{> eypdfgen/partials_v2/common/personalia/enkelPersonalia this}}
+
+    {{> eypdfgen/partials_v2/common/opplysning this.statsborgerskap}}
+
+    {{> eypdfgen/partials_v2/common/datoOpplysning this.datoForDoedsfallet}}
+
+    {{> eypdfgen/partials_v2/common/opplysning this.doedsaarsakSkyldesYrkesskadeEllerYrkessykdom}}
+
+    {{> eypdfgen/partials_v2/common/avdoed/utenlandsopphold this.utenlandsopphold}}
+
+    {{> eypdfgen/partials_v2/common/avdoed/naeringsinntekt this.naeringsInntekt}}
+
+    {{> eypdfgen/partials_v2/common/avdoed/militaertjeneste this.militaertjeneste}}
+</div>
