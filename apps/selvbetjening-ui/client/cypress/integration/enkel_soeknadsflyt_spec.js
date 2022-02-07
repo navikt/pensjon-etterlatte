@@ -116,7 +116,9 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
                 .select(arbeid.ansettelsesforhold);
             getById(baseId + "stillingsprosent").type(arbeid.stillingsprosent);
             selectValueForId(baseId + "forventerEndretInntekt.svar", arbeid.forventerEndretInntekt.svar);
-            getById(baseId + "forventerEndretInntekt.beskrivelse").type(arbeid.forventerEndretInntekt.beskrivelse);
+            getById(baseId + "forventerEndretInntekt.beskrivelse")
+                    .find("select")
+                    .select(arbeid.forventerEndretInntekt.beskrivelse);
         });
 
         selectValue(dinSituasjon.utdanning.hoyesteFullfoerteUtdanning);

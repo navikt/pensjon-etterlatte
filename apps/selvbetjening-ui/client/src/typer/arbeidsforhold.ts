@@ -33,3 +33,14 @@ export enum IngenJobb {
     frivilligArbeid = "dinSituasjon.ingenJobb.frivilligArbeid",
     annet = "dinSituasjon.ingenJobb.annet",
 }
+
+export enum ForventerEndretInntektType {
+    oektStillingsprosent = "dinSituasjon.forventerEndretInntektType.oektStillingsprosent",
+    redusertStillingsprosent = "dinSituasjon.forventerEndretInntektType.redusertStillingsprosent",
+    permisjonUtenLoenn = "dinSituasjon.forventerEndretInntektType.permisjonUtenLoenn",
+    loennsOekning = "dinSituasjon.forventerEndretInntektType.loennsOekning",
+    arbeidsledig = "dinSituasjon.forventerEndretInntektType.arbeidsledig",
+    sesongarbeid = "dinSituasjon.forventerEndretInntektType.sesongarbeid",
+    bytteAvJobb = "dinSituasjon.forventerEndretInntektType.bytteAvJobb",
+    annet = "dinSituasjon.forventerEndretInntektType.annet",
+}

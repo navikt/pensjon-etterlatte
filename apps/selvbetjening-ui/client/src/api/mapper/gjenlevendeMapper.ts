@@ -253,7 +253,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                         opplysning: arbeid.forventerEndretInntekt?.svar === IValg.JA ? {
                             spoersmaal: t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse"),
                             svar: {
-                                innhold: `${arbeid.forventerEndretInntekt?.beskrivelse}`
+                                innhold: t(arbeid.forventerEndretInntekt.beskrivelse!!)
                             }
                         } : undefined
                     }
