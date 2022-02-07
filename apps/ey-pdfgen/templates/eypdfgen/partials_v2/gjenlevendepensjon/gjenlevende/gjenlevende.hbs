@@ -42,14 +42,7 @@
 {{/if}}
 
 {{#if this.flyktning}}
-    <div class="row opplysning">
-        <div class="col">
-            {{this.flyktning.spoersmaal}}
-        </div>
-        <div class="col">
-            {{capitalize_names this.flyktning.svar}}
-        </div>
-    </div>
+    {{> eypdfgen/partials_v2/common/opplysning this.flyktning}}
 {{/if}}
 
 {{#if this.bostedsAdresse}}
