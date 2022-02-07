@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "/barnepensjon/soknad",
   "dependencies": {
+    "@navikt/ds-css": "^0.15.1",
+    "@navikt/ds-icons": "^0.8.1",
+    "@navikt/ds-react": "^0.16.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -11,9 +14,11 @@
     "@types/node": "^16.11.22",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
+    "@types/styled-components": "^5.1.22",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
     "typescript": "^4.5.5",
     "web-vitals": "^2.1.4"
   },

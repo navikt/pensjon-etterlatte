@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ContextProviders from "./context/ContextProviders"
+import "@navikt/ds-css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <ContextProviders>
+        <App />
+      </ContextProviders>
   </React.StrictMode>,
   document.getElementById('root')
 );

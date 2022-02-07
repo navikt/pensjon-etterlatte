@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react"
+import Banner from "./components/common/Banner";
+import { useBrukerContext } from "./context/bruker/BrukerContext"
+import { ActionTypes } from "./context/bruker/bruker"
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -7,14 +10,14 @@ const baseUrl = isDev
         : "/barnepensjon/soknad";
 
 const App = () => {
-    const [innlogget, setInnlogget] = useState<any>()
+    const { state, dispatch } = useBrukerContext()
     const [error, setError] = useState<any>()
 
     useEffect(() => {
         fetch(`${baseUrl}/api/person/innlogget`)
                 .then(res => res.json())
                 .then(
-                        (result) => setInnlogget(result),
+                        (result) => dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: result }),
                         (error) => setError(error)
                 )
                 .catch(err => console.log(err))
@@ -22,10 +25,10 @@ const App = () => {
 
     return (
             <div>
-                <h1>barnepensjon</h1>
+                <Banner tekst={"Søknad om barnepensjon"} />
 
                 <div>
-                    <pre>{innlogget && JSON.stringify(innlogget)}</pre>
+                    <pre>{state && JSON.stringify(state)}</pre>
                 </div>
                 <div>
                     <pre>{error && JSON.stringify(error)}</pre>

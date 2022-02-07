@@ -1,4 +1,4 @@
-import { Express, Request, Response } from "express"
+import { Express, Request, Response, RequestHandler } from "express"
 import fetch from "node-fetch"
 import config from "./config"
 import logger from "./monitoring/logger"
@@ -6,51 +6,42 @@ import TokenXClient from "./auth/tokenx"
 
 const { exchangeToken } = new TokenXClient()
 
-const setup = (app: Express) => {
-    app.use(`${config.app.basePath}/api`, async (req: Request, res: Response) => {
-        try {
-            const { authorization } = req.headers
-            const token = authorization!!.split(" ")[1]
+const prepareSecuredRequest = async (req: Request) => {
+    const { authorization } = req.headers
+    const token = authorization!!.split(" ")[1]
 
-            await exchangeToken(token)
-                    .then(
-                            async (accessToken) => {
-                                const headers: any = {
-                                    ...req.headers,
-                                    authorization: `Bearer ${accessToken}`,
-                                }
+    const accessToken = await exchangeToken(token)
+            .then((accessToken) => accessToken)
 
-                                const body = !!req.body ? JSON.stringify(req.body) : undefined
+    const headers: any = {
+        ...req.headers,
+        authorization: `Bearer ${accessToken}`,
+    }
 
-                                const request = {
-                                    method: req.method,
-                                    body,
-                                    headers,
-                                }
+    const body = !!req.body ? JSON.stringify(req.body) : undefined
 
-                                fetch(`${config.app.apiUrl}${req.path}`, request)
-                                        .then((response: any) => {
-                                            logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
-                                            return response.json()
-                                        })
-                                        .then(json => res.send(json))
-                                        .catch((error) => {
-                                            logger.error(`ERROR: ${req.method} ${req.path}`)
-                                            throw error
-                                        })
-                            },
-                            (error) => {
-                                throw error
-                            },
-                    )
-        } catch (error) {
-            logger.error(`Feilet kall mot ${req.path}: `, error)
-
-            return res.status(500).send("Error")
-        }
-    })
+    return {
+        method: req.method,
+        body,
+        headers,
+    }
 }
 
-export default {
-    setup,
-}
+const proxy = (host: string): RequestHandler => (async (req: Request, res: Response) => {
+    try {
+        const request = await prepareSecuredRequest(req)
+
+        fetch(`${host}${req.path}`, request)
+                .then((response: any) => {
+                    logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
+                    return response.json()
+                })
+                .then(json => res.send(json))
+    } catch (error) {
+        logger.error(`Feilet kall (${req.method} - ${req.path}): `, error)
+
+        return res.status(500).send("Error")
+    }
+})
+
+export default proxy

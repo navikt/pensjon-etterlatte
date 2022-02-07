@@ -2,7 +2,6 @@ import express from "express"
 import path from "path"
 import decorator from "./decorator"
 import proxy from "./proxy"
-// import proxy from "./mock-proxy"
 import config from "./config"
 import prometheus from "./monitoring/prometheus"
 import logger from "./monitoring/logger"
@@ -27,7 +26,7 @@ app.get(`${basePath}/metrics`, async (req, res) => {
 
 // TODO: Legge til ingress i loginservice for at det skal fungere
 // loginservice.setup(app)
-proxy.setup(app)
+app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
 
 decorator.setup(app, `${buildPath}/index.html`)
 
