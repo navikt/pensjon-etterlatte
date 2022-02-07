@@ -7,6 +7,8 @@ import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { useFormContext } from "react-hook-form";
+import { RHFSelect } from "../../../felles/RHFSelect";
+import { ForventerEndretInntektType } from "../../../../typer/arbeidsforhold";
 
 interface Props {
     lengde: number;
@@ -19,6 +21,9 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
 
     const { watch } = useFormContext();
     const endretInntekt = watch(`selvstendig[${index}].forventerEndretInntekt.svar`)
+    const forventerEndretInntektValg = Object.values(ForventerEndretInntektType).map(value => {
+        return { label: t(value), value: value }
+    });
 
     return (
         <Panel border className={"luft-under"}>
@@ -46,12 +51,10 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
             />
 
             {endretInntekt === IValg.JA && (
-                <RHFInput
+                <RHFSelect
                     name={`selvstendig[${index}].forventerEndretInntekt.beskrivelse` as const}
-                    bredde={"S"}
                     label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
-                    placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
-                    maxLength={200}
+                    selectOptions={[{ label: t("felles.velg"), value: "" }].concat(forventerEndretInntektValg)}
                 />
 
             )}

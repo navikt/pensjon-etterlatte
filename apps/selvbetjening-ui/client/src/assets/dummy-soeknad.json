@@ -92,7 +92,7 @@
         "stillingsprosent": "100%",
         "forventerEndretInntekt": {
           "svar": "radiobuttons.ja",
-          "beskrivelse": "Forventer økt inntekt"
+          "beskrivelse": "dinSituasjon.forventerEndretInntektType.oektStillingsprosent"
         }
       }
     ]

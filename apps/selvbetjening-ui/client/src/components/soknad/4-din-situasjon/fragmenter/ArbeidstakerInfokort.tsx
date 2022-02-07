@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { StillingType } from "../../../../typer/arbeidsforhold";
+import { ForventerEndretInntektType, StillingType } from "../../../../typer/arbeidsforhold";
 import { useTranslation } from "react-i18next";
 import { Button, Panel } from "@navikt/ds-react";
 import { RHFInput, RHFProsentInput } from "../../../felles/RHFInput";
@@ -21,6 +21,9 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
 
     const { watch } = useFormContext();
     const endretInntekt = watch(`arbeidsforhold[${index}].forventerEndretInntekt.svar`);
+    const forventerEndretInntektValg = Object.values(ForventerEndretInntektType).map(value => {
+        return { label: t(value), value: value }
+    });
 
     return (
         <Panel border className={"luft-under"}>
@@ -65,12 +68,10 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             />
 
             {endretInntekt === IValg.JA && (
-                <RHFInput
+                <RHFSelect
                     name={`arbeidsforhold[${index}].forventerEndretInntekt.beskrivelse` as const}
-                    bredde={"S"}
                     label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
-                    placeholder={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelsePlaceholder")}
-                    maxLength={200}
+                    selectOptions={[{ label: t("felles.velg"), value: "" }].concat(forventerEndretInntektValg)}
                 />
             )}
 
