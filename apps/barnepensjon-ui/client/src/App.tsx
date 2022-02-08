@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Banner from './components/common/Banner'
 import { useBrukerContext } from './context/bruker/BrukerContext'
-import { ActionTypes, IBruker } from './context/bruker/bruker'
-import { hentInnloggetPerson } from './api/api'
+import useLoggedInUser from './hooks/useLoggedInUser'
 
 const App = () => {
-    const { state, dispatch } = useBrukerContext()
-    const [error, setError] = useState<any>()
-
-    useEffect(() => {
-        hentInnloggetPerson()
-            .then((person: IBruker) => {
-                dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person })
-            })
-            .catch((err) => {
-                setError(err)
-            })
-    }, [])
+    useLoggedInUser()
+    const { state } = useBrukerContext()
 
     return (
         <div>
@@ -24,9 +13,6 @@ const App = () => {
 
             <div>
                 <pre>{state && JSON.stringify(state)}</pre>
-            </div>
-            <div>
-                <pre>{error && JSON.stringify(error)}</pre>
             </div>
         </div>
     )

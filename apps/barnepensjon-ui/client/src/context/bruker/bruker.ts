@@ -1,4 +1,4 @@
-export interface IBruker {
+export interface User {
     fornavn?: string
     etternavn?: string
     foedselsnummer?: string
@@ -19,16 +19,16 @@ export interface IBruker {
 }
 
 export enum ActionTypes {
-    HENT_INNLOGGET_BRUKER = 'HENT_INNLOGGET_BRUKER',
-    TILBAKESTILL = 'TILBAKESTILL',
+    SET_USER = 'SET_USER',
+    RESET = 'RESET',
 }
 
 export interface IBrukerAction {
     type: ActionTypes
-    payload?: IBruker
+    payload?: User
 }
 
 export interface StegProps {
-    state: IBruker
+    state: User
     dispatch: (action: IBrukerAction) => void
 }

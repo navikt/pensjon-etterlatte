@@ -1,15 +1,15 @@
 import { createContext, FC, useContext, useReducer } from 'react'
-import { ActionTypes, IBruker, IBrukerAction, StegProps } from './bruker'
+import { ActionTypes, User, IBrukerAction, StegProps } from './bruker'
 
-const initialState: IBruker = {}
+const initialState: User = {}
 
-const reducer = (state: IBruker, action: IBrukerAction) => {
+const reducer = (state: User, action: IBrukerAction) => {
     switch (action.type) {
-        case ActionTypes.TILBAKESTILL: {
+        case ActionTypes.RESET: {
             return {}
         }
-        case ActionTypes.HENT_INNLOGGET_BRUKER: {
-            return action.payload as IBruker
+        case ActionTypes.SET_USER: {
+            return action.payload as User
         }
         default:
             return { ...state }
