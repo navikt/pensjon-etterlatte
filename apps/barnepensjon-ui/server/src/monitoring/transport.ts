@@ -1,6 +1,6 @@
-import Transport from "winston-transport"
-import { Counter } from "prom-client"
-import prometheus from "./prometheus"
+import Transport from 'winston-transport'
+import { Counter } from 'prom-client'
+import prometheus from './prometheus'
 
 export class PrometheusTransport extends Transport {
     private register: any = null
@@ -11,16 +11,16 @@ export class PrometheusTransport extends Transport {
 
         this.register = prometheus.register
         this.counter = new Counter({
-            name: "winston_events_total",
-            help: "All log entries passed to winston, labelled with log level.",
-            labelNames: ["level"],
+            name: 'winston_events_total',
+            help: 'All log entries passed to winston, labelled with log level.',
+            labelNames: ['level'],
             registers: [this.register],
         })
     }
 
     log(info: any, callback: any) {
         setImmediate(() => {
-            this.emit("logged", info)
+            this.emit('logged', info)
 
             this.counter.inc({ level: info.level })
 
@@ -28,4 +28,3 @@ export class PrometheusTransport extends Transport {
         })
     }
 }
-

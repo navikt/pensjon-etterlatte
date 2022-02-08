@@ -5,12 +5,12 @@ import { BrukerProvider, useBrukerContext } from './BrukerContext'
 const setup = () => {
     const wrapper = ({ children }) => <BrukerProvider>{children}</BrukerProvider>
 
-    return renderHook(() => useBrukerContext(), { wrapper });
-};
+    return renderHook(() => useBrukerContext(), { wrapper })
+}
 
-describe("Bruker-reducer fungerer som forventet", () => {
-    test("Henting av bruker", () => {
-        const { result } = setup();
+describe('Bruker-reducer fungerer som forventet', () => {
+    test('Henting av bruker', () => {
+        const { result } = setup()
 
         const person = {
             fornavn: 'SEDAT',
@@ -25,28 +25,28 @@ describe("Bruker-reducer fungerer som forventet", () => {
             poststed: 'Oslo',
             statsborgerskap: 'Norsk',
             sivilstatus: 'Ugift',
-        };
+        }
 
         const bruker = {
             ...person,
             kanSoeke: true,
-            alder: 65
+            alder: 65,
         }
 
         act(() => {
-            result.current.dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: bruker });
-        });
+            result.current.dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: bruker })
+        })
 
-        expect(result.current.state).toStrictEqual(bruker);
-    });
+        expect(result.current.state).toStrictEqual(bruker)
+    })
 
-    test("Tilbakestill søknad", () => {
-        const { result } = setup();
+    test('Tilbakestill søknad', () => {
+        const { result } = setup()
 
         act(() => {
-            result.current.dispatch({type: ActionTypes.TILBAKESTILL});
-        });
+            result.current.dispatch({ type: ActionTypes.TILBAKESTILL })
+        })
 
-        expect(result.current.state).toStrictEqual({});
-    });
-});
+        expect(result.current.state).toStrictEqual({})
+    })
+})

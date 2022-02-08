@@ -1,11 +1,11 @@
-import express from 'express';
-import { mockApi } from './mock-api';
+import express from 'express'
+import { mockApi } from './mock-api'
 
-const app = express();
+const app = express()
 
-mockApi(app);
+mockApi(app)
 
-const port = process.env.PORT || 8085;
+const port = process.env.PORT || 8085
 app.listen(port, () => {
-    console.log(`App listening on port: ${port}`);
-});
+    console.log(`App listening on port: ${port}`)
+})

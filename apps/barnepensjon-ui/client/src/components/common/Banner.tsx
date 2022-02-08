@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components"
-import { Heading } from "@navikt/ds-react";
+import React from 'react'
+import styled from 'styled-components'
+import { Heading } from '@navikt/ds-react'
 
 const Header = styled.div`
     width: 100%;
@@ -15,10 +15,10 @@ const Header = styled.div`
 
 const Banner = ({ tekst }: { tekst: string }) => {
     return (
-            <Header role="banner">
-                <Heading size={"xlarge"}>{tekst}</Heading>
-            </Header>
-    );
-};
+        <Header role="banner">
+            <Heading size={'xlarge'}>{tekst}</Heading>
+        </Header>
+    )
+}
 
-export default Banner;
+export default Banner

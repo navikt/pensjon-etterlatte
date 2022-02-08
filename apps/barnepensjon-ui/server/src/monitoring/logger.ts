@@ -1,6 +1,6 @@
-import config from "../config"
-import { createLogger, format, transports } from "winston"
-import { PrometheusTransport } from "./transport"
+import config from '../config'
+import { createLogger, format, transports } from 'winston'
+import { PrometheusTransport } from './transport'
 
 const { Console } = transports
 const { colorize, combine, timestamp, simple, json } = format
@@ -12,7 +12,7 @@ const production = combine(timestamp(), json())
 const dev = combine(colorize(), simple())
 
 const WinstonLogger = createLogger({
-    level: "info",
+    level: 'info',
     format: config.env.isProduction ? production : dev,
     transports: [new Console(), new PrometheusTransport()],
 })

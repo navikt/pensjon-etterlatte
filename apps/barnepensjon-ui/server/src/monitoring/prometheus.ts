@@ -1,4 +1,4 @@
-import client from "prom-client"
+import client from 'prom-client'
 
 class Prometheus {
     public register
