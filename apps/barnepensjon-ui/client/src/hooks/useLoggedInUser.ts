@@ -1,10 +1,10 @@
-import { useBrukerContext } from '../context/bruker/BrukerContext'
+import { useUserContext } from '../context/user/UserContext'
 import { useEffect, useState } from 'react'
 import { getLoggedInUser } from '../api/api'
-import { ActionTypes, User } from '../context/bruker/bruker'
+import { ActionTypes, User } from '../context/user/user'
 
 const useLoggedInUser = () => {
-    const { dispatch } = useBrukerContext()
+    const { dispatch } = useUserContext()
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -23,8 +23,7 @@ const useLoggedInUser = () => {
             .catch(() => {
                 setLoading(false)
             })
-            .finally(() => setLoading(false))
-    })
+    }, [dispatch])
 
     return loading
 }

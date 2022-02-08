@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { SoeknadProvider } from './soeknad/SoeknadContext'
-import { BrukerProvider } from './bruker/BrukerContext'
+import { UserProvider } from './user/UserContext'
 
 const ContextProviders: FC = ({ children }) => {
     return (
         <SoeknadProvider>
-            <BrukerProvider>{children}</BrukerProvider>
+            <UserProvider>{children}</UserProvider>
         </SoeknadProvider>
     )
 }

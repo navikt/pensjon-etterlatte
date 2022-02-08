@@ -4,12 +4,15 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import ContextProviders from './context/ContextProviders'
 import '@navikt/ds-css'
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
     <React.StrictMode>
-        <ContextProviders>
-            <App />
-        </ContextProviders>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <ContextProviders>
+                <App />
+            </ContextProviders>
+        </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
 )
