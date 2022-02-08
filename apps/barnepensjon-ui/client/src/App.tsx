@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react"
 import Banner from "./components/common/Banner";
 import { useBrukerContext } from "./context/bruker/BrukerContext"
-import { ActionTypes } from "./context/bruker/bruker"
-
-const isDev = process.env.NODE_ENV === "development";
-
-const baseUrl = isDev
-        ? `http://localhost:8085${process.env.PUBLIC_URL}`
-        : "/barnepensjon/soknad";
+import { ActionTypes, IBruker } from "./context/bruker/bruker"
+import { hentInnloggetPerson } from "./api/api"
 
 const App = () => {
-    const { state, dispatch } = useBrukerContext()
+    const {state, dispatch} = useBrukerContext()
     const [error, setError] = useState<any>()
 
     useEffect(() => {
-        fetch(`${baseUrl}/api/person/innlogget`)
-                .then(res => res.json())
-                .then(
-                        (result) => dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: result }),
-                        (error) => setError(error)
-                )
-                .catch(err => console.log(err))
+        hentInnloggetPerson()
+                .then((person: IBruker) => {
+                    dispatch({type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: person})
+                })
+                .catch(err => {
+                    setError(err)
+                })
     }, [])
 
     return (
