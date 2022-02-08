@@ -6,7 +6,7 @@ import { ActionTypes } from "./context/bruker/bruker"
 const isDev = process.env.NODE_ENV === "development";
 
 const baseUrl = isDev
-        ? `http://localhost:8080${process.env.PUBLIC_URL}`
+        ? `http://localhost:8085${process.env.PUBLIC_URL}`
         : "/barnepensjon/soknad";
 
 const App = () => {

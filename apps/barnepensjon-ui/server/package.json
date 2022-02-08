@@ -28,6 +28,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=dev ts-node-dev --project ./tsconfig.json src/server.ts",
+    "start:mock": "ts-node-dev --project ./tsconfig.json src/mock/mock-server.ts",
     "build": "NODE_ENV=production tsc --project ./tsconfig.json",
     "build-dev": "NODE_ENV=dev tsc --project ./tsconfig.json"
   }
