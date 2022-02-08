@@ -32,5 +32,12 @@
     "start:mock": "ts-node-dev --project ./tsconfig.json src/mock/mock-server.ts",
     "build": "NODE_ENV=production tsc --project ./tsconfig.json",
     "build-dev": "NODE_ENV=dev tsc --project ./tsconfig.json"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true
   }
 }
