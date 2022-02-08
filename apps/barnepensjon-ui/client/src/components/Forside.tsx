@@ -1,10 +1,12 @@
 import veileder from '../assets/veileder.svg'
-import { Alert, BodyLong, ConfirmationPanel, Heading, Link, SpeechBubble } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link, SpeechBubble } from '@navikt/ds-react'
 import styled from 'styled-components'
 import { useUserContext } from '../context/user/UserContext'
 import useTranslation from '../hooks/useTranslation'
 
-const SkjemaGruppe = styled.div``
+const SkjemaGruppe = styled.div`
+    margin-top: 1em;
+`
 
 const Forside = () => {
     const { state: brukerState } = useUserContext()
@@ -136,6 +138,16 @@ const Forside = () => {
                     Ipsum voluptate pariatur <Link href="#123">demolink</Link> anim officia minim ut mollit voluptate
                     exercitation nulla mollit.
                 </ConfirmationPanel>
+            </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                <Button
+                    size={'small'}
+                    variant={'primary'}
+                    onClick={() => (window.location.href = 'skjema/steg/velg-scenarie')}
+                >
+                    Start søknad
+                </Button>
             </SkjemaGruppe>
         </div>
     )
