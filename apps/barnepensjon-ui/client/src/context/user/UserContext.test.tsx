@@ -1,50 +1,47 @@
 import { act, renderHook } from '@testing-library/react-hooks'
-import { ActionTypes } from './bruker'
-import { BrukerProvider, useBrukerContext } from './BrukerContext'
+import { ActionTypes, User } from './user'
+import { UserProvider, useUserContext } from './UserContext'
+import React from 'react'
 
 const setup = () => {
-    const wrapper = ({ children }) => <BrukerProvider>{children}</BrukerProvider>
+    const wrapper: React.FC = ({ children }) => <UserProvider>{children}</UserProvider>
 
-    return renderHook(() => useBrukerContext(), { wrapper })
+    return renderHook(() => useUserContext(), { wrapper })
 }
 
 describe('Bruker-reducer fungerer som forventet', () => {
     test('Henting av bruker', () => {
         const { result } = setup()
 
-        const person = {
+        const user: User = {
             fornavn: 'SEDAT',
             etternavn: 'RIPSBÆRBUSK',
             foedselsnummer: '26117512737',
             foedselsaar: 1975,
             foedselsdato: new Date(1975, 10, 26),
             adresse: 'Fyrstikkaléen 1',
-            husnummer: 1,
-            husbokstav: null,
+            husnummer: '1',
+            husbokstav: undefined,
             postnummer: '0758',
             poststed: 'Oslo',
             statsborgerskap: 'Norsk',
             sivilstatus: 'Ugift',
-        }
-
-        const bruker = {
-            ...person,
             kanSoeke: true,
             alder: 65,
         }
 
         act(() => {
-            result.current.dispatch({ type: ActionTypes.HENT_INNLOGGET_BRUKER, payload: bruker })
+            result.current.dispatch({ type: ActionTypes.SET_USER, payload: user })
         })
 
-        expect(result.current.state).toStrictEqual(bruker)
+        expect(result.current.state).toStrictEqual(user)
     })
 
     test('Tilbakestill søknad', () => {
         const { result } = setup()
 
         act(() => {
-            result.current.dispatch({ type: ActionTypes.TILBAKESTILL })
+            result.current.dispatch({ type: ActionTypes.RESET })
         })
 
         expect(result.current.state).toStrictEqual({})
