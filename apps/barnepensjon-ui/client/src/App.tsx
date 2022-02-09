@@ -1,11 +1,12 @@
 import React from 'react'
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 import Banner from './components/common/Banner'
 import useLoggedInUser from './hooks/useLoggedInUser'
 import Forside from './components/Forside'
 import { ContentContainer } from '@navikt/ds-react'
 import styled from 'styled-components'
 import VelgScenarie from './components/soeknad/1-velg-scenarie/VelgScenarie'
+import OmDeg from './components/soeknad/2-om-deg/OmDeg'
 
 const Soeknad = styled.div`
     @media screen and (max-width: 650px) {
@@ -35,6 +36,7 @@ const App = () => {
                     <Routes>
                         <Route caseSensitive path={'/'} element={<Forside />} />
                         <Route caseSensitive path={'/skjema/steg/velg-scenarie'} element={<VelgScenarie />} />
+                        <Route caseSensitive path={'/skjema/steg/om-deg'} element={<OmDeg />} />
                     </Routes>
                 </Soeknad>
             </ContentContainer>

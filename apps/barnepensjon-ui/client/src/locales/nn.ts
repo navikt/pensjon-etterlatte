@@ -47,6 +47,7 @@ const forside = {
     'samtykke.bekreftelse': 'Eg, {{navn}}, bekreftar at eg vil gi riktige og fullstendige opplysingar.',
 }
 
-export default {
+const tekster = {
     forside,
 }
+export default tekster

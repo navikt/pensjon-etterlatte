@@ -46,6 +46,45 @@ const forside = {
     'samtykke.bekreftelse': 'Jeg, {{navn}}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
 }
 
-export default {
-    forside,
+const velgScenarie = {
+    tittel: 'Søk barnepensjon',
+    ingress: 'Velg din situasjon for å gå videre med søknaden',
+    'knapp.mineBarn': 'Jeg skal søke om barnepensjon for mitt/mine barn',
+    'knapp.verge': 'Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til',
+    'knapp.megSelv': 'Jeg er over 18 år og søker på vegne av meg selv',
+    'alert.tittel': 'Søke gjenlevendepensjon og barnepensjon?',
+    'alert.beskrivelse':
+        'Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du søke om gjenlevendepensjon og barnepensjon i en og samme søknad.',
+    'alert.beskrivelse2': 'Gå til',
+    'alert.lenke.href': 'https://www.nav.no/gjenlevendepensjon/soknad/',
+    'alert.lenke.tekst': 'søknad om gjenlevendepensjon og barnepensjon',
 }
+
+const omDeg = {
+    tittel: 'Om deg',
+}
+
+const loggedInUserInfo = {
+    advarsel: 'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
+    valgfritt: 'Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.',
+}
+
+const felles = {
+    navn: 'Navn',
+    fnrDnr: 'Fødselsnummer / d-nummer',
+    adresse: 'Bostedsadresse',
+    sivilstatus: 'Sivilstatus',
+    statsborgerskap: 'Statsborgerskap',
+    telefonnummer: 'Telefonnummer',
+    telefonnummerHjelpetekst: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
+}
+
+const tekster = {
+    forside,
+    velgScenarie,
+    omDeg,
+    loggedInUserInfo,
+    felles,
+}
+
+export default tekster

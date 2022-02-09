@@ -1,5 +1,6 @@
-import { Alert, BodyLong, Button, Heading, Ingress } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Link, Heading, Ingress } from '@navikt/ds-react'
 import styled from 'styled-components'
+import useTranslation from '../../../hooks/useTranslation'
 
 const SchemaGroup = styled.div`
     margin: 0 0 1em;
@@ -17,28 +18,32 @@ const ButtonGroup = styled.div`
 `
 
 const VelgScenarie = () => {
+    const { t } = useTranslation()
+    // todo: midleridig hack for å gå videre til neste side.
+    const neste = () => (window.location.href = 'om-deg')
+
     return (
         <>
             <SchemaGroup>
                 <Heading size={'medium'} className={'center'}>
-                    Søk barnepensjon
+                    {t('velgScenarie:tittel')}
                 </Heading>
             </SchemaGroup>
 
             <SchemaGroup>
-                <Ingress>Velg din situasjon for å gå videre med søknaden</Ingress>
+                <Ingress>{t('velgScenarie:ingress')}</Ingress>
             </SchemaGroup>
 
             <SchemaGroup>
                 <ButtonGroup>
-                    <Button variant={'secondary'} type={'button'}>
-                        Jeg skal søke om barnepensjon for mitt/mine barn
+                    <Button variant={'secondary'} type={'button'} onClick={neste}>
+                        {t('velgScenarie:knapp.mineBarn')}
                     </Button>
-                    <Button variant={'secondary'} type={'button'}>
-                        Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til
+                    <Button variant={'secondary'} type={'button'} onClick={neste}>
+                        {t('velgScenarie:knapp.verge')}
                     </Button>
-                    <Button variant={'secondary'} type={'button'}>
-                        Jeg er over 18 år og søker på vegne av meg selv
+                    <Button variant={'secondary'} type={'button'} onClick={neste}>
+                        {t('velgScenarie:knapp.megSelv')}
                     </Button>
                 </ButtonGroup>
             </SchemaGroup>
@@ -46,17 +51,14 @@ const VelgScenarie = () => {
             <SchemaGroup>
                 <Alert inline={true} variant={'info'}>
                     <Heading size={'small'} className={'center'}>
-                        Søke gjenlevendepensjon og barnepensjon?
+                        {t('velgScenarie:alert.tittel')}
                     </Heading>
                     <BodyLong className={'center'}>
-                        Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du
-                        søke om gjenlevendepensjon og barnepensjon i en og samme søknad.
+                        {t('velgScenarie:alert.beskrivelse')}
                         <br />
                         <br />
-                        Gå til{' '}
-                        <a href={'https://www.nav.no/gjenlevendepensjon/soknad/'}>
-                            søknad om gjenlevendepensjon og barnepensjon
-                        </a>
+                        {t('velgScenarie:alert.beskrivelse2')}&nbsp;
+                        <Link href={t('velgScenarie:alert.lenke.href')}>{t('velgScenarie:alert.lenke.tekst')}</Link>
                     </BodyLong>
                 </Alert>
             </SchemaGroup>

@@ -52,6 +52,7 @@ const forside = {
         'I, {{navn}}, hereby confirm that the information I provide is correct and complete.',
 }
 
-export default {
+const tekster = {
     forside,
 }
+export default tekster
