@@ -34,9 +34,10 @@ const App = () => {
             <ContentContainer>
                 <Soeknad>
                     <Routes>
+                        <Route path={'/skjema/steg/velg-scenarie'} element={<VelgScenarie />} />
+                        <Route path={'/skjema/steg/om-deg'} element={<OmDeg />} />
+
                         <Route caseSensitive path={'/'} element={<Forside />} />
-                        <Route caseSensitive path={'/skjema/steg/velg-scenarie'} element={<VelgScenarie />} />
-                        <Route caseSensitive path={'/skjema/steg/om-deg'} element={<OmDeg />} />
                     </Routes>
                 </Soeknad>
             </ContentContainer>

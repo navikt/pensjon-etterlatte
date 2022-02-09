@@ -1,29 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import nb from '../locales/nb'
 import nn from '../locales/nn'
 import en from '../locales/en'
+import { useLanguageContext } from '../context/language/LanguageContext'
+import { Language } from '../context/language/language'
 
-enum Language {
-    BOKMAAL = 'nb',
-    NYNORSK = 'nn',
-    ENGELSK = 'en',
-}
+type TKey = string
+type Namespace = string
 
-const useTranslation = (ns?: string) => {
-    const [language, setLanguage] = useState(Language.BOKMAAL)
+const useTranslation = (ns?: Namespace) => {
+    const { language } = useLanguageContext()
 
-    const file = (lang: Language): object => {
-        switch (lang) {
-            case Language.BOKMAAL:
-                return nb
-            case Language.NYNORSK:
-                return nn
-            case Language.ENGELSK:
-                return en
-        }
-    }
+    const [translations, setTranslations] = useState<Record<Namespace, Record<TKey, any>>>(nb)
 
-    const t = (key: string, meta?: any): string => {
+    useEffect(() => {
+        if (language === Language.NYNORSK) setTranslations(nn)
+        else if (language === Language.ENGELSK) setTranslations(en)
+        else setTranslations(nb)
+    }, [language])
+
+    const translate = (key: TKey): string => {
         if (!ns) {
             const values = key.split(':')
 
@@ -31,17 +27,27 @@ const useTranslation = (ns?: string) => {
                 const ns = values[0]
                 const key = values[1]
 
-                // @ts-ignore
-                return file(language)[ns][key]
+                return translations[ns][key]
+            } else {
+                return '' // Namespace missing. Returning empty string.
             }
         }
 
         // @ts-ignore
-        return file(language)[ns][key]
+        return translations[ns][key]
+    }
+
+    const t = (key: TKey, meta?: (string | undefined)[]): string => {
+        let translation = translate(key)
+
+        meta?.forEach((entry) => {
+            translation = translation.replace(`{}`, entry || '')
+        })
+
+        return translation
     }
 
     return {
-        setLanguage,
         t,
     }
 }

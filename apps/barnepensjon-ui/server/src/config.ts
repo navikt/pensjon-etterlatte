@@ -22,13 +22,14 @@ const app = {
     basePath: '/barnepensjon/soknad',
     apiUrl: process.env.API_URL || 'http://localhost:8085',
     useSecureCookies: !!process.env.NAIS_CLUSTER_NAME,
-    port: process.env.PORT || 8080,
-    targetAudience: process.env.SELVBETJENING_AUDIENCE || 'local:selvbetjening-api',
+    port: process.env.PORT || 8081,
+    targetAudience: process.env.SELVBETJENING_AUDIENCE || 'dev-gcp:etterlatte:selvbetjening-api',
     loginServiceLogoutUrl: process.env.LOGINSERVICE_LOGOUT_URL,
 }
 
 const tokenx = {
     discoveryUrl:
+        // process.env.TOKEN_X_WELL_KNOWN_URL || 'http://localhost:8080/default/.well-known/openid-configuration',
         process.env.TOKEN_X_WELL_KNOWN_URL ||
         'https://tokendings.dev-gcp.nais.io/.well-known/oauth-authorization-server',
     clientID: process.env.TOKEN_X_CLIENT_ID || 'debugger',

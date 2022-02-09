@@ -1,6 +1,7 @@
 import { Alert, BodyLong, Button, Link, Heading, Ingress } from '@navikt/ds-react'
 import styled from 'styled-components'
 import useTranslation from '../../../hooks/useTranslation'
+import { useNavigate } from 'react-router-dom'
 
 const SchemaGroup = styled.div`
     margin: 0 0 1em;
@@ -18,32 +19,34 @@ const ButtonGroup = styled.div`
 `
 
 const VelgScenarie = () => {
-    const { t } = useTranslation()
+    const navigate = useNavigate()
+    const { t } = useTranslation('velgScenarie')
     // todo: midleridig hack for å gå videre til neste side.
-    const neste = () => (window.location.href = 'om-deg')
+
+    const neste = () => navigate('/skjema/steg/om-deg')
 
     return (
         <>
             <SchemaGroup>
                 <Heading size={'medium'} className={'center'}>
-                    {t('velgScenarie:tittel')}
+                    {t('tittel')}
                 </Heading>
             </SchemaGroup>
 
             <SchemaGroup>
-                <Ingress>{t('velgScenarie:ingress')}</Ingress>
+                <Ingress>{t('ingress')}</Ingress>
             </SchemaGroup>
 
             <SchemaGroup>
                 <ButtonGroup>
                     <Button variant={'secondary'} type={'button'} onClick={neste}>
-                        {t('velgScenarie:knapp.mineBarn')}
+                        {t('knapp.mineBarn')}
                     </Button>
                     <Button variant={'secondary'} type={'button'} onClick={neste}>
-                        {t('velgScenarie:knapp.verge')}
+                        {t('knapp.verge')}
                     </Button>
                     <Button variant={'secondary'} type={'button'} onClick={neste}>
-                        {t('velgScenarie:knapp.megSelv')}
+                        {t('knapp.megSelv')}
                     </Button>
                 </ButtonGroup>
             </SchemaGroup>
@@ -51,14 +54,14 @@ const VelgScenarie = () => {
             <SchemaGroup>
                 <Alert inline={true} variant={'info'}>
                     <Heading size={'small'} className={'center'}>
-                        {t('velgScenarie:alert.tittel')}
+                        {t('alert.tittel')}
                     </Heading>
                     <BodyLong className={'center'}>
-                        {t('velgScenarie:alert.beskrivelse')}
+                        {t('alert.beskrivelse')}
                         <br />
                         <br />
-                        {t('velgScenarie:alert.beskrivelse2')}&nbsp;
-                        <Link href={t('velgScenarie:alert.lenke.href')}>{t('velgScenarie:alert.lenke.tekst')}</Link>
+                        {t('alert.beskrivelse2')}&nbsp;
+                        <Link href={t('alert.lenke.href')}>{t('alert.lenke.tekst')}</Link>
                     </BodyLong>
                 </Alert>
             </SchemaGroup>

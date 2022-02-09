@@ -33,10 +33,15 @@ const proxy =
 
             fetch(`${host}${req.path}`, request)
                 .then((response: any) => {
-                    logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
-                    return response.json()
+                    if ([200, 404, 409].includes(response.status)) {
+                        logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
+                        return response.json()
+                    } else {
+                        logger.error(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
+                        return response.text()
+                    }
                 })
-                .then((json) => res.send(json))
+                .then((response) => res.send(response))
         } catch (error) {
             logger.error(`Feilet kall (${req.method} - ${req.path}): `, error)
 

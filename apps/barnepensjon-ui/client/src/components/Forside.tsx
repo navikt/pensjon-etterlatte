@@ -1,154 +1,124 @@
-import veileder from '../assets/veileder.svg'
-import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link, SpeechBubble } from '@navikt/ds-react'
-import styled from 'styled-components'
+import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
 import { useUserContext } from '../context/user/UserContext'
 import useTranslation from '../hooks/useTranslation'
-
-const SkjemaGruppe = styled.div`
-    margin-top: 1em;
-`
+import { useNavigate } from 'react-router-dom'
+import LanguageSelect from './common/LanguageSelect'
+import NavGuide from './common/NavGuide'
+import FormGroup from './common/FormGroup'
 
 const Forside = () => {
+    const navigate = useNavigate()
+
     const { state: brukerState } = useUserContext()
 
-    const innloggetBrukerNavn = `${brukerState?.fornavn} ${brukerState?.etternavn}`
+    const { t } = useTranslation('forside')
 
-    const { t } = useTranslation()
+    const { fornavn, etternavn } = brukerState
 
-    const heiTekst = (
-        <div className={!brukerState?.fornavn ? 'blur-text' : ''}>
-            {t('forside:hei', { navn: innloggetBrukerNavn })}
-        </div>
-    )
+    const heiTekst = <div className={!fornavn ? 'blur-text' : ''}>{t('hei', [fornavn, etternavn])}</div>
 
     return (
         <div className={'forside'}>
-            {/*<SkjemaGruppe>
-                    <Veileder tekst={heiTekst} posisjon="høyre">
-                        <img alt="veileder" src={ikon} />
-                    </Veileder>
-                </SkjemaGruppe>*/}
+            <FormGroup>
+                <NavGuide>{heiTekst}</NavGuide>
+            </FormGroup>
 
-            <SpeechBubble illustration={<img alt="veileder" src={veileder} />} position="left">
-                <SpeechBubble.Bubble>{heiTekst}</SpeechBubble.Bubble>
-            </SpeechBubble>
+            <FormGroup>
+                <LanguageSelect />
+            </FormGroup>
 
-            <SkjemaGruppe>
+            <FormGroup>
                 <Alert inline={true} variant={'info'}>
-                    <b>{t('forside:uthentingAvInfo.infotekst')}</b>
+                    <b>{t('uthentingAvInfo.infotekst')}</b>
                 </Alert>
-            </SkjemaGruppe>
+            </FormGroup>
 
-            <SkjemaGruppe>
+            <FormGroup>
                 <Heading spacing size={'large'}>
-                    {t('forside:tittel')}
+                    {t('tittel')}
                 </Heading>
 
-                <BodyLong spacing>{t('forside:omYtelsene.innhold')}</BodyLong>
+                <BodyLong spacing>{t('omYtelsene.innhold')}</BodyLong>
 
                 <Alert inline={true} variant={'warning'}>
                     <BodyLong spacing>
                         <b>
-                            {t('forside:omYtelsene.papirsoeknad.innhold')}&nbsp;
-                            <Link href={t('forside:omYtelsene.papirsoeknad.href')}>
-                                {t('forside:omYtelsene.papirsoeknad.tekst')}
-                            </Link>
+                            {t('omYtelsene.papirsoeknad.innhold')}&nbsp;
+                            <Link href={t('omYtelsene.papirsoeknad.href')}>{t('omYtelsene.papirsoeknad.tekst')}</Link>
                         </b>
                     </BodyLong>
                 </Alert>
 
                 <BodyLong>
-                    <Link href={t('forside:omYtelsene.lenkeGjenlevende.href')}>
-                        {t('forside:omYtelsene.lenkeGjenlevende.tekst')}
-                    </Link>
+                    <Link href={t('omYtelsene.lenkeGjenlevende.href')}>{t('omYtelsene.lenkeGjenlevende.tekst')}</Link>
                 </BodyLong>
 
                 <BodyLong>
-                    <Link href={t('forside:omYtelsene.lenkeOvergangsstoenad.href')}>
-                        {t('forside:omYtelsene.lenkeOvergangsstoenad.tekst')}
+                    <Link href={t('omYtelsene.lenkeOvergangsstoenad.href')}>
+                        {t('omYtelsene.lenkeOvergangsstoenad.tekst')}
                     </Link>
                 </BodyLong>
-            </SkjemaGruppe>
+            </FormGroup>
 
-            <SkjemaGruppe>
-                <Heading size={'small'}>{t('forside:barnepensjon.tittel')}</Heading>
+            <FormGroup>
+                <Heading size={'small'}>{t('barnepensjon.tittel')}</Heading>
 
-                <BodyLong spacing>{t('forside:barnepensjon.innhold')}</BodyLong>
+                <BodyLong spacing>{t('barnepensjon.innhold')}</BodyLong>
                 <BodyLong>
-                    <Link href={t('forside:barnepensjon.href')}>{t('forside:barnepensjon.tekst')}</Link>
+                    <Link href={t('barnepensjon.href')}>{t('barnepensjon.tekst')}</Link>
                 </BodyLong>
-            </SkjemaGruppe>
+            </FormGroup>
 
-            <SkjemaGruppe>
-                <Heading size={'small'}>{t('forside:uthentingAvInfo.tittel')}</Heading>
+            <FormGroup>
+                <Heading size={'small'}>{t('uthentingAvInfo.tittel')}</Heading>
 
-                <BodyLong>{t('forside:uthentingAvInfo.innhold')}</BodyLong>
+                <BodyLong>{t('uthentingAvInfo.innhold')}</BodyLong>
 
                 <ul>
                     <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside:uthentingAvInfo.innholdListe.li1') }} />
-                        </BodyLong>
+                        <BodyLong>{t('uthentingAvInfo.innholdListe.li1')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside:uthentingAvInfo.innholdListe.li2') }} />
-                        </BodyLong>
+                        <BodyLong>{t('uthentingAvInfo.innholdListe.li2')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside:uthentingAvInfo.innholdListe.li3') }} />
-                        </BodyLong>
+                        <BodyLong>{t('uthentingAvInfo.innholdListe.li3')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside:uthentingAvInfo.innholdListe.li4') }} />
-                        </BodyLong>
+                        <BodyLong>{t('uthentingAvInfo.innholdListe.li4')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside:uthentingAvInfo.innholdListe.li5') }} />
-                        </BodyLong>
+                        <BodyLong>{t('uthentingAvInfo.innholdListe.li5')}</BodyLong>
                     </li>
                 </ul>
 
                 <BodyLong>
-                    <Link href={t('forside:uthentingAvInfo.lenke1.href')}>
-                        {t('forside:uthentingAvInfo.lenke1.tekst')}
-                    </Link>
+                    <Link href={t('uthentingAvInfo.lenke1.href')}>{t('uthentingAvInfo.lenke1.tekst')}</Link>
                 </BodyLong>
 
                 <BodyLong>
-                    <Link href={t('forside:uthentingAvInfo.lenke2.href')}>
-                        {t('forside:uthentingAvInfo.lenke2.tekst')}
-                    </Link>
+                    <Link href={t('uthentingAvInfo.lenke2.href')}>{t('uthentingAvInfo.lenke2.tekst')}</Link>
                 </BodyLong>
-            </SkjemaGruppe>
-            <SkjemaGruppe>
-                <Heading size={'small'}>{t('forside:samtykke.tittel')}</Heading>
+            </FormGroup>
 
-                <BodyLong>{t('forside:samtykke.innhold')}</BodyLong>
+            <FormGroup>
+                <Heading size={'small'}>{t('samtykke.tittel')}</Heading>
+
+                <BodyLong>{t('samtykke.innhold')}</BodyLong>
 
                 <ConfirmationPanel
                     checked={false}
                     onChange={() => ''}
-                    label={t('forside:samtykke.bekreftelse', { navn: innloggetBrukerNavn })}
-                    size="small"
-                >
-                    Ipsum voluptate pariatur <Link href="#123">demolink</Link> anim officia minim ut mollit voluptate
-                    exercitation nulla mollit.
-                </ConfirmationPanel>
-            </SkjemaGruppe>
+                    label={t('samtykke.bekreftelse', [fornavn, etternavn])}
+                    size="medium"
+                />
+            </FormGroup>
 
-            <SkjemaGruppe>
-                <Button
-                    size={'small'}
-                    variant={'primary'}
-                    onClick={() => (window.location.href = 'skjema/steg/velg-scenarie')}
-                >
-                    Start søknad
+            <FormGroup>
+                <Button size={'medium'} variant={'primary'} onClick={() => navigate('/skjema/steg/velg-scenarie')}>
+                    {t('startSoeknad')}
                 </Button>
-            </SkjemaGruppe>
+            </FormGroup>
         </div>
     )
 }

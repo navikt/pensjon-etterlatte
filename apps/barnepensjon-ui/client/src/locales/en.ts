@@ -2,7 +2,7 @@
 // prettier-ignore
 const forside = {
     'tittel': 'Apply for survivor’s pension or transitional benefit',
-    'hei': 'Hello {{navn}}!',
+    'hei': 'Hello, {} {}!',
     'startSoeknad': 'Start the application',
     'omYtelsene.innhold':
         'If your spouse, partner or cohabitant has died, you may be entitled to a survivor’s pension or transitional benefit for survivors. You may also be entitled to support if you were previously married to, in a partnership with or cohabiting with the deceased. We will assess whether you are entitled to a survivor’s pension or transitional benefit, based on your situation. How much money you will receive depends on your current income.',
@@ -52,7 +52,36 @@ const forside = {
         'I, {{navn}}, hereby confirm that the information I provide is correct and complete.',
 }
 
+const velgScenarie = {
+    tittel: 'Apply for child pension',
+    ingress: 'Select your situation to continue',
+    'knapp.mineBarn': 'Jeg skal søke om barnepensjon for mitt/mine barn',
+    'knapp.verge': 'Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til',
+    'knapp.megSelv': 'Jeg er over 18 år og søker på vegne av meg selv',
+    'alert.tittel': 'Søke gjenlevendepensjon og barnepensjon?',
+    'alert.beskrivelse':
+        'Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du søke om gjenlevendepensjon og barnepensjon i en og samme søknad.',
+    'alert.beskrivelse2': 'Gå til',
+    'alert.lenke.href': 'https://www.nav.no/gjenlevendepensjon/soknad/',
+    'alert.lenke.tekst': 'søknad om gjenlevendepensjon og barnepensjon',
+}
+
+const felles = {
+    navn: 'Name',
+    fnrDnr: 'Norwegian national identity number',
+    adresse: 'Residential address',
+    sivilstatus: 'Maritial status',
+    statsborgerskap: 'Nationality',
+    telefonnummer: 'Phone number',
+    telefonnummerHjelpetekst: 'The phone number is retrieved from the common Norwegian contact register (KRR)',
+}
+
+const loggedInUserInfo = {}
+
 const tekster = {
     forside,
+    velgScenarie,
+    felles,
+    loggedInUserInfo,
 }
 export default tekster

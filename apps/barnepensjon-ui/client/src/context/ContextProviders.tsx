@@ -1,12 +1,15 @@
 import { FC } from 'react'
 import { SoeknadProvider } from './soeknad/SoeknadContext'
 import { UserProvider } from './user/UserContext'
+import { LanguageProvider } from './language/LanguageContext'
 
 const ContextProviders: FC = ({ children }) => {
     return (
-        <SoeknadProvider>
-            <UserProvider>{children}</UserProvider>
-        </SoeknadProvider>
+        <LanguageProvider>
+            <SoeknadProvider>
+                <UserProvider>{children}</UserProvider>
+            </SoeknadProvider>
+        </LanguageProvider>
     )
 }
 

@@ -2,7 +2,7 @@
 // prettier-ignore
 const forside = {
     'tittel': 'Søk om gjenlevendepensjon eller overgangsstønad',
-    'hei': `Hei, {{navn}}`,
+    'hei': `Hei, {} {}`,
     'startSoeknad': 'Start søknad',
     'omYtelsene.innhold':
         'Hvis ektefellen, partneren eller samboeren din er død, kan du ha rett til gjenlevendepensjon eller overgangsstønad til gjenlevende. Du kan også ha rett til støtte hvis du tidligere har vært gift, partner eller samboer med avdøde. Vi vil vurdere om du har rett på gjenlevendepensjon eller overgangsstønad basert på din situasjon. Inntekten din avgjør hvor mye penger du kan få.',
@@ -43,7 +43,7 @@ const forside = {
     'samtykke.lenke.tekst': 'mine plikter på nav.no',
     'samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'samtykke.bekreftelse': 'Jeg, {{navn}}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
+    'samtykke.bekreftelse': 'Jeg, {} {}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
 }
 
 const velgScenarie = {
