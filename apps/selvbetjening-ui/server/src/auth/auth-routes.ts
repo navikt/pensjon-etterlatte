@@ -60,12 +60,6 @@ const setup = (app: any) => {
                     session.state = null;
                     session.nonce = null;
 
-                    res.cookie("selvbetjening-idtoken", `${tokens.id_token}`, {
-                        secure: config.app.useSecureCookies,
-                        sameSite: "lax",
-                        domain: config.idporten.domain,
-                        maxAge: config.session.maxAgeMs,
-                    });
                     res.redirect(303, basePath);
                 })
                 .catch((err) => {
