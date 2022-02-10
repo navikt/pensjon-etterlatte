@@ -13,12 +13,10 @@ const Header = styled.div`
     justify-content: center;
 `
 
-const Banner = ({ tekst }: { tekst: string }) => {
+export default function Banner({ tekst }: { tekst: string }) {
     return (
         <Header role="banner">
-            <Heading size={'xlarge'}>{tekst}</Heading>
+            <Heading size={'large'}>{tekst}</Heading>
         </Header>
     )
 }
-
-export default Banner
