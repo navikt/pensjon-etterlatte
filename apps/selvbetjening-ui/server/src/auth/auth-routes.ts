@@ -3,11 +3,17 @@ import { generators, TokenSet } from 'openid-client';
 import IDportenClient from './idporten';
 import config from '../config';
 import logger from '../log/logger';
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 
 const basePath = config.app.basePath;
 
 const idporten = new IDportenClient();
+
+const getSid = (token: any) => {
+    if (!token) return
+    return (jwt.decode(token) as JwtPayload)?.sid
+}
 
 const setup = (app: any) => {
     app.use(appSession);
@@ -55,12 +61,13 @@ const setup = (app: any) => {
         const session = req.session;
 
         idporten.validateOidcCallback(req)
-                .then((tokens) => {
+                .then((tokens: TokenSet) => {
                     session.tokens = tokens;
                     session.state = null;
                     session.nonce = null;
 
                     if (config.env.isProduction) {
+                        session.idportenSid = getSid(tokens.id_token)
                         res.redirect(301, config.app.loginServiceUrl || '/')
                     } else {
                         res.redirect(303, basePath);
