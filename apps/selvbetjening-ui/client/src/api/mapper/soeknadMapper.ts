@@ -11,7 +11,7 @@ import {
     hentUtbetalingsInformasjonSoeker,
     mapBarn
 } from "./fellesMapper";
-import { mapGjenlevende } from "./gjenlevendeMapper";
+import { mapGjenlevende, mapStoenader } from "./gjenlevendeMapper";
 import { mapAvdoed } from "./avdoedMapper";
 
 export const mapTilGjenlevendepensjonSoeknad = (
@@ -51,7 +51,8 @@ export const mapTilGjenlevendepensjonSoeknad = (
         utbetalingsInformasjon: hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg),
         soeker: mapGjenlevende(t, soeknad, bruker),
         avdoed: mapAvdoed(t, soeknad),
-        barn
+        barn,
+        andreStoenader: mapStoenader(t, soeknad)
     }
 };
 

@@ -206,3 +206,10 @@ export interface OppholdUtland {
     land: Opplysning<FritekstSvar>;
     medlemFolketrygd: Opplysning<EnumSvar<JaNeiVetIkke>>;
 }
+
+export enum Stoenader {
+    BARNETILSYN = "BARNETILSYN",
+    SKOLEPENGER = "SKOLEPENGER",
+    TILLEGGSSTOENAD_BARNEPASS = "TILLEGGSSTOENAD_BARNEPASS",
+    TILLEGGSSTOENAD_UTDANNING = "TILLEGGSSTOENAD_BARNEPASS",
+}

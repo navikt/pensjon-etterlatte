@@ -29,6 +29,9 @@ export enum OppholdUtlandType {
 export interface IOmBarn {
     barn?: IBarn[];
     gravidEllerNyligFoedt?: IValg;
+    soeknadOmBarnetilsyn?: IValg.JA | undefined;
+    soeknadOmTilleggsstoenadBarnepass?: IValg.JA | undefined;
+    soeknadOmTilleggsstoenadUtdanning?: IValg.JA | undefined;
     erValidert?: boolean;
 }
 

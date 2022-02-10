@@ -1,5 +1,6 @@
 import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "./arbeidsforhold";
 import { IAndreYtelser } from "./ytelser";
+import {IValg} from "./Spoersmaal";
 
 export interface IUtdanning {
     naavaerendeUtdanning?: {
@@ -7,6 +8,7 @@ export interface IUtdanning {
         startDato?: Date;
         sluttDato?: Date;
     };
+    soeknadOmSkolepenger?: IValg.JA | undefined;
     hoyesteFullfoerteUtdanning?: string;
     annenUtdanning?: string;
 }
