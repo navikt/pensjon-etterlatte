@@ -60,7 +60,11 @@ const setup = (app: any) => {
                     session.state = null;
                     session.nonce = null;
 
-                    res.redirect(303, basePath);
+                    if (config.env.isProduction) {
+                        res.redirect(301, config.app.loginServiceUrl || '/')
+                    } else {
+                        res.redirect(303, basePath);
+                    }
                 })
                 .catch((err) => {
                     logger.error("Feil oppsto under validateOidcCallback: ", err);

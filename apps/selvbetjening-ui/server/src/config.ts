@@ -25,6 +25,7 @@ const app = {
     useSecureCookies: !!process.env.NAIS_CLUSTER_NAME,
     port: process.env.PORT || 8080,
     targetAudience: process.env.SELVBETJENING_AUDIENCE || "local:selvbetjening-api",
+    loginServiceUrl: process.env.LOGINSERVICE_URL,
     loginServiceLogoutUrl: process.env.LOGINSERVICE_LOGOUT_URL
 };
 
