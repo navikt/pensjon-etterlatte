@@ -1,0 +1,11 @@
+<h2>
+    {{#eq spraak "en"}}
+        Other benefits
+    {{else}}
+        Søker om andre stønader
+    {{/eq}}
+</h2>
+
+{{#each this as | stoenad | }}
+    {{> eypdfgen/partials_v2/common/opplysning stoenad}}
+{{/each}}

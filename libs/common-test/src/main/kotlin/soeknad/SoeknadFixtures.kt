@@ -20,6 +20,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.SelvstendigNaeringsdrivende
 import no.nav.etterlatte.libs.common.innsendtsoeknad.SivilstatusType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Spraak
 import no.nav.etterlatte.libs.common.innsendtsoeknad.StillingType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.Stoenader
 import no.nav.etterlatte.libs.common.innsendtsoeknad.UtbetalingsInformasjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Utdanning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Utenlandsadresse
@@ -224,7 +225,11 @@ object InnsendtSoeknadFixtures {
         barn = listOf(
             eksempelBarn(Foedselsnummer.of("24014021406"), OmsorgspersonType.GJENLEVENDE),
             eksempelBarn(Foedselsnummer.of("29080775995"), OmsorgspersonType.ANNET)
-        )
+        ),
+        andreStoenader = listOf(Opplysning(
+            svar = EnumSvar(Stoenader.BARNETILSYN, "Jeg har utgifter til barnetilstyn0"),
+            spoersmaal = "Søknad om barnetilsyn"
+        ))
     )
 }
 
@@ -242,7 +247,7 @@ fun eksempelBarn(fnr: Foedselsnummer, dagligOmsorg: OmsorgspersonType? = null) =
     ),
     dagligOmsorg = if (dagligOmsorg != null) Opplysning(
         spoersmaal = "Har du daglig omsorg for dette barnet?",
-        svar = EnumSvar(dagligOmsorg, "${dagligOmsorg.name.lowercase()}")
+        svar = EnumSvar(dagligOmsorg, dagligOmsorg.name.lowercase())
     ) else null,
     foreldre = listOf(
         Forelder(

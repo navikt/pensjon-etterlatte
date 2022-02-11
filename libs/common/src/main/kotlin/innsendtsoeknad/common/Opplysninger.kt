@@ -128,6 +128,13 @@ enum class Ytelser {
     OPPLAERINGSPENGER
 }
 
+enum class Stoenader {
+    BARNETILSYN,
+    SKOLEPENGER,
+    TILLEGGSSTOENAD_BARNEPASS,
+    TILLEGGSSTOENAD_UTDANNING
+}
+
 typealias Pensjonsordning = FritekstSvar
 
 data class AndreYtelser(
