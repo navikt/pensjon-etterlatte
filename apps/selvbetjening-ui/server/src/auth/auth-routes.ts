@@ -3,11 +3,17 @@ import { generators, TokenSet } from 'openid-client';
 import IDportenClient from './idporten';
 import config from '../config';
 import logger from '../log/logger';
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 
 const basePath = config.app.basePath;
 
 const idporten = new IDportenClient();
+
+const getSid = (token: any) => {
+    if (!token) return
+    return (jwt.decode(token) as JwtPayload)?.sid
+}
 
 const setup = (app: any) => {
     app.use(appSession);
@@ -29,7 +35,7 @@ const setup = (app: any) => {
 
         logger.info("Initiating logout");
 
-        destroySessionBySid(req.sessionID);
+        await destroySessionBySid(req.sessionID);
         req.session.destroy((err: any) => {
             if (err) logger.error(err);
             else logger.info("Session destroyed");
@@ -55,18 +61,17 @@ const setup = (app: any) => {
         const session = req.session;
 
         idporten.validateOidcCallback(req)
-                .then((tokens) => {
+                .then((tokens: TokenSet) => {
                     session.tokens = tokens;
                     session.state = null;
                     session.nonce = null;
 
-                    res.cookie("selvbetjening-idtoken", `${tokens.id_token}`, {
-                        secure: config.app.useSecureCookies,
-                        sameSite: "lax",
-                        domain: config.idporten.domain,
-                        maxAge: config.session.maxAgeMs,
-                    });
-                    res.redirect(303, basePath);
+                    if (config.env.isProduction) {
+                        session.idportenSid = getSid(tokens.id_token)
+                        res.redirect(301, config.app.loginServiceUrl || '/')
+                    } else {
+                        res.redirect(303, basePath);
+                    }
                 })
                 .catch((err) => {
                     logger.error("Feil oppsto under validateOidcCallback: ", err);

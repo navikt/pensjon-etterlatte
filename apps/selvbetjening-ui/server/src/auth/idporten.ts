@@ -36,7 +36,7 @@ class IDportenClient {
         });
     };
 
-    validateOidcCallback = async (req: any) => {
+    validateOidcCallback = async (req: any): Promise<TokenSet> => {
         const params = this.client.callbackParams(req);
 
         const { nonce, state } = req.session;

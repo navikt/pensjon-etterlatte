@@ -70,8 +70,8 @@ export const destroySessionBySid = (sid: any) => {
             logger.info(`Found ${result.length} sessions`);
 
             const sessionToDestroy = result.find((session: any) => {
-                return session.id && session.id === sid
-            });
+                return session.idportenSid && session.idportenSid === sid
+            })
 
             logger.info("Session to destroy: ", sessionToDestroy)
             if (sessionToDestroy) {
