@@ -6,22 +6,26 @@ import { ISoeknad } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { JobbStatus } from "../../../typer/situasjon";
 import { IBarn } from "../../../typer/person";
+import { IngenJobb } from "../../../typer/arbeidsforhold";
 
-const AndreYtelserVedBarn = ({ soeknad, barn }: { soeknad: ISoeknad, barn?: IBarn[] }) => {
+const AndreStoenader = ({ soeknad, barn }: { soeknad: ISoeknad, barn?: IBarn[] }) => {
     const { t } = useTranslation();
+    const situasjon = soeknad.dinSituasjon;
 
-    const erArbeidstaker = soeknad.dinSituasjon.arbeidsforhold || soeknad.dinSituasjon.selvstendig; // todo: eller etablerer bedrift eller er syk.
-    const erArbeidssoeker = soeknad.dinSituasjon.jobbStatus?.includes(JobbStatus.ingen); // todo: må være reell arbeidssøker
-    const underUtdanning = soeknad.dinSituasjon.utdanning?.naavaerendeUtdanning;
+    const erArbeidstaker = situasjon.arbeidsforhold || situasjon.selvstendig;
+    const erArbeidssoeker = situasjon.jobbStatus?.includes(JobbStatus.arbeidssoeker);
+    const etablererBedrift = situasjon.ingenJobbBeskrivelse === IngenJobb.etablererBedrift
+    const erSyk = situasjon.ingenJobbBeskrivelse === IngenJobb.syk
+    const underUtdanning = situasjon.utdanning?.naavaerendeUtdanning;
     const harBarn = barn && barn.length > 0 || false;
 
-    const rettTilBarnetilsyn = harBarn && erArbeidstaker;
+    const rettTilBarnetilsyn = harBarn && (erArbeidstaker || etablererBedrift || erSyk);
     const rettTilUtdanningStoenad = underUtdanning;
     const rettTilBarnStoenad = harBarn && (underUtdanning || erArbeidssoeker);
 
     return (
         <>
-            { rettTilBarnetilsyn &&
+            {rettTilBarnetilsyn &&
             <SkjemaGruppe>
                 <RHFCheckboksPanel
                     name={"soeknadOmBarnetilsyn"}
@@ -75,4 +79,4 @@ const AndreYtelserVedBarn = ({ soeknad, barn }: { soeknad: ISoeknad, barn?: IBar
     );
 };
 
-export default AndreYtelserVedBarn;
+export default AndreStoenader;

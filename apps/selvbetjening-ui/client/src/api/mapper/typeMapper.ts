@@ -88,6 +88,8 @@ export const konverterJobbStatus = (type: JobbStatus): JobbStatusType => {
             return JobbStatusType.SELVSTENDIG;
         case JobbStatus.underUtdanning:
             return JobbStatusType.UNDER_UTDANNING;
+        case JobbStatus.arbeidssoeker:
+            return JobbStatusType.ARBEIDSSOEKER
         case JobbStatus.ingen:
             return JobbStatusType.INGEN;
         default:

@@ -168,7 +168,7 @@ export const mapStoenader = (t: TFunction, soeknad: ISoeknad): Opplysning<EnumSv
         stoenader.push({
             spoersmaal: t("omBarn.soeknadOmTilleggsstoenadUtdanning"),
             svar: {
-                innhold: t("omBarn.soeknadOmTilleggsstoenadUtdanning.beskrivelse"),
+                innhold: t("omBarn.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
                 verdi: Stoenader.TILLEGGSSTOENAD_UTDANNING
             }
         })

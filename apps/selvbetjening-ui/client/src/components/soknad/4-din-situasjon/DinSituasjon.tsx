@@ -56,6 +56,10 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const erValidert = state.dinSituasjon.erValidert;
     const jobbStatus = watch("jobbStatus");
 
+    const ingenJobbAlternativer = Object.values(IngenJobb).map(value => {
+        return { label: t(value), value: value }
+    });
+
     return (
         <FormProvider {...methods}>
             <form>
@@ -93,29 +97,7 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                                 <RHFSelect
                                     name={"ingenJobbBeskrivelse"}
                                     label={t("dinSituasjon.ingenJobbBeskrivelse")}
-                                    selectOptions={[
-                                        { label: t("felles.velg"), value: "" },
-                                        {
-                                            label: t(IngenJobb.hjemmearbeidende),
-                                            value: IngenJobb.hjemmearbeidende,
-                                        },
-                                        {
-                                            label: t(IngenJobb.omsorgBarn),
-                                            value: IngenJobb.omsorgBarn,
-                                        },
-                                        {
-                                            label: t(IngenJobb.omsorgNaerstaaende),
-                                            value: IngenJobb.omsorgNaerstaaende,
-                                        },
-                                        {
-                                            label: t(IngenJobb.frivilligArbeid),
-                                            value: IngenJobb.frivilligArbeid,
-                                        },
-                                        {
-                                            label: t(IngenJobb.annet),
-                                            value: IngenJobb.annet,
-                                        },
-                                    ]}
+                                    selectOptions={[{ label: t("felles.velg"), value: "" }].concat(ingenJobbAlternativer)}
                                 />
                             </SkjemaGruppering>
                         )}
