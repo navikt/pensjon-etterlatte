@@ -8,9 +8,9 @@ on:
   workflow_dispatch: # Allow manually triggered workflow run
     inputs:
       deploy-prod:
-        description: 'Deploy til produksjon'
+        description: "Deploy til produksjon"
         required: false
-        default: 'false'
+        default: "false"
   push:
     branches:
       - main
@@ -19,7 +19,7 @@ on:
       - fix/*
     paths:
       - apps/selvbetjening-ui/**
-      - '!apps/selvbetjening-ui/nais/redis-dev-gcp.yaml'
+      - "!apps/selvbetjening-ui/nais/redis-dev-gcp.yaml"
 
 jobs:
   build-and-publish:
@@ -31,14 +31,18 @@ jobs:
       - name: Setup Node 14
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: "14.x"
       - name: Install and build
         working-directory: apps/${{ env.APP_NAME }}
         run: |
           yarn --cwd client install && yarn --cwd client build
           yarn --cwd server install && yarn --cwd server build
-      - name: Run tests
+      - name: Run tests (client)
         working-directory: apps/${{ env.APP_NAME }}/client
+        run: |
+          CI=true yarn test
+      - name: Run tests (server)
+        working-directory: apps/${{ env.APP_NAME }}/server
         run: |
           CI=true yarn test
       - name: Start application
