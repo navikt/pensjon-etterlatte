@@ -349,7 +349,7 @@ export default {
   "felles.ikkePaakrevd": "(not required)",
   "felles.datoformat": "(dd.mm.yyyy)",
   "felles.sistLagret": "Last saved",
-  "felles.spraakValg": "Select application language",
+  "felles.spraakValg": "Select language",
   "felles.velgLand": "Select country",
   "felles.elleveSiffer": "11 digits",
   "felles.datoEksempel": "e.g. 01.12.2020",
@@ -507,5 +507,13 @@ export default {
   "brukerLoggesUt.info1": "You will be signed out in",
   "brukerLoggesUt.tid": "minutes",
   "brukerLoggesUt.knapp": "X-icon to close the message",
-  "brukerLoggesUt.info2": "You can submit your application now or continue later. \n The application will be stored for 72 hours"
+  "brukerLoggesUt.info2": "You can submit your application now or continue later. \n The application will be stored for 72 hours",
+  "systemUtilgjengelig.veileder": "Oh no, the application isn't working...",
+  "systemUtilgjengelig.intro": "There seems to be an error in the application.",
+  "systemUtilgjengelig.beskrivelse": "We apologize for the inconvenience and are working on solving the problem. We recommend you take a short break and try again later.",
+  "systemUtilgjengelig.tilbakemelding": "If the error persists, you can report it here: ",
+  "systemUtilgjengelig.tilbakemeldingLenke": "https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler",
+  "systemUtilgjengelig.merOmYtelsene": "You can read more about survivors benefits here: ",
+  "systemUtilgjengelig.merOmYtelseneLenke": "https://www.nav.no/mistet-noen",
+  "systemUtilgjengelig.knappProevIgjen": "Try again",
 }

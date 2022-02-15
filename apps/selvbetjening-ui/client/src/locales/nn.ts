@@ -349,7 +349,7 @@ export default {
   "felles.ikkePaakrevd": "(valfritt)",
   "felles.datoformat": "(dd.mm.åååå)",
   "felles.sistLagret": "Sist lagra",
-  "felles.spraakValg": "Velg språk for søknaden",
+  "felles.spraakValg": "Velg språk",
   "felles.velgLand": "Velg land",
   "felles.elleveSiffer": "11 siffer",
   "felles.datoEksempel": "eks: 01.12.2020",
@@ -507,5 +507,13 @@ export default {
   "brukerLoggesUt.info1": "Du vil bli logga ut om",
   "brukerLoggesUt.tid": "minutt",
   "brukerLoggesUt.knapp": "X-ikon for å lukke meldinga",
-  "brukerLoggesUt.info2": "Du kan sende søknad no eller halde fram seinare. \n Søknaden din vert lagra i 72 timar."
+  "brukerLoggesUt.info2": "Du kan sende søknad no eller halde fram seinare. \n Søknaden din vert lagra i 72 timar.",
+  "systemUtilgjengelig.veileder": "Å nei, søknaden fungerer ikkje...",
+  "systemUtilgjengelig.intro": "Det er ein feil i søknaden som gjer at han diverre ikkje fungerer som han skal no.",
+  "systemUtilgjengelig.beskrivelse": "Vi beklagar dette og jobbar med å finne ut av det så raskt som mogleg. I mellomtida er det nok lurt å ta ei pause og prøve igjen seinare.",
+  "systemUtilgjengelig.tilbakemelding": "Viss feilen varer, kan du melde frå om dette her:",
+  "systemUtilgjengelig.tilbakemeldingLenke": "https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler",
+  "systemUtilgjengelig.merOmYtelsene": "Her kan du lese meir om ytingar til etterlatte:",
+  "systemUtilgjengelig.merOmYtelseneLenke": "https://www.nav.no/mistet-noen",
+  "systemUtilgjengelig.knappProevIgjen": "Prøv igjen",
 }
