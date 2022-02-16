@@ -1,11 +1,13 @@
 package soeknad
 
+import innsendtsoeknad.common.SoeknadType
 import org.slf4j.LoggerFactory
 import soeknad.Queries.CREATE_HENDELSE
 import soeknad.Queries.CREATE_SOEKNAD
 import soeknad.Queries.FINN_SISTE_STATUS
-import soeknad.Queries.FINN_SOEKNAD
+import soeknad.Queries.FINN_KLADD
 import soeknad.Queries.OPPDATER_SOEKNAD
+import soeknad.Queries.OPPDATER_SOEKNAD_TYPE
 import soeknad.Queries.SELECT_OLD
 import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
 import soeknad.Queries.SELECT_OLDEST_UNSENT
@@ -34,7 +36,7 @@ interface SoeknadRepository {
     fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
     fun slettArkiverteSoeknader(): Int
-    fun finnSoeknad(fnr: String): LagretSoeknad?
+    fun finnKladd(fnr: String): LagretSoeknad?
     fun slettKladd(fnr: String): SoeknadID?
     fun slettUtgaatteKladder(): Int
 }
@@ -67,11 +69,21 @@ class PostgresSoeknadRepository private constructor(
             .also { id ->
                 logger.info("Ferdigstiller søknad med id $id")
                 nyStatus(id, FERDIGSTILT)
+                oppdaterSoeknadType(id, soeknad.type)
             }
     }
 
+    private fun oppdaterSoeknadType(id: SoeknadID, type: SoeknadType?) = connection.use {
+        it.prepareStatement(OPPDATER_SOEKNAD_TYPE)
+            .apply {
+                setString(1, type?.name)
+                setLong(2, id)
+            }
+            .executeUpdate()
+    }
+
     private fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
-        val lagretSoeknad = finnSoeknad(soeknad.fnr)
+        val lagretSoeknad = finnKladd(soeknad.fnr)
 
         return if (lagretSoeknad == null) {
             logger.info("Søknad finnes ikke i databasen. Oppretter ny søknad.")
@@ -157,9 +169,9 @@ class PostgresSoeknadRepository private constructor(
         return slettedeKladder.size
     }
 
-    override fun finnSoeknad(fnr: String): LagretSoeknad? {
+    override fun finnKladd(fnr: String): LagretSoeknad? {
         val soeknad = connection.use {
-            it.prepareStatement(FINN_SOEKNAD)
+            it.prepareStatement(FINN_KLADD)
                 .apply { setString(1, fnr) }
                 .executeQuery()
                 .singleOrNull {
@@ -269,6 +281,8 @@ private object Queries {
 
     const val OPPDATER_SOEKNAD = "UPDATE innhold SET payload = ? where soeknad_id = ?"
 
+    const val OPPDATER_SOEKNAD_TYPE = "UPDATE soeknad SET type = ? where id = ?"
+
     val SELECT_OLD = """
         SELECT s.id, i.fnr, i.payload
         FROM soeknad s 
@@ -307,7 +321,7 @@ private object Queries {
         WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id = '$ARKIVERT') 
     """.trimIndent()
 
-    val FINN_SOEKNAD = """
+    val FINN_KLADD = """
         SELECT soeknad_id, fnr, payload
         FROM innhold
         WHERE fnr = ?

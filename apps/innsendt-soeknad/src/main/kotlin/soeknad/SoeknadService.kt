@@ -39,7 +39,7 @@ class SoeknadService(private val db: SoeknadRepository) {
     }
 
     fun hentKladd(innloggetBruker: Foedselsnummer): LagretSoeknad? {
-        return db.finnSoeknad(innloggetBruker.value)
+        return db.finnKladd(innloggetBruker.value)
             ?.also { logger.info("Fant kladd (id=${it.id})") }
     }
 
