@@ -7,11 +7,9 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.soeknad.SoeknadService
 import org.junit.jupiter.api.Test
-import java.sql.SQLException
 
 internal class SoeknadServiceTest {
 
@@ -42,13 +40,13 @@ internal class SoeknadServiceTest {
         val fnr = "24014021406"
         val lagretSoeknad = LagretSoeknad(1, fnr, """{}""")
 
-        every { mockRepository.finnSoeknad(any()) } returns lagretSoeknad
+        every { mockRepository.finnKladd(any()) } returns lagretSoeknad
 
         val kladd = service.hentKladd(Foedselsnummer.of(fnr))
 
         kladd shouldBe lagretSoeknad
 
-        verify(exactly = 1) { mockRepository.finnSoeknad(fnr) }
+        verify(exactly = 1) { mockRepository.finnKladd(fnr) }
     }
 
     @Test

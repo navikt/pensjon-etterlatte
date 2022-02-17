@@ -153,7 +153,7 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(2)
     fun `Skal lagre kladd ned i databasen`() {
-        db.finnSoeknad(STOR_SNERK) shouldBe null
+        db.finnKladd(STOR_SNERK) shouldBe null
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Post, "/api/kladd") {
@@ -163,7 +163,7 @@ internal class SoeknadApiIntegrationTest {
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
 
-                val kladd = db.finnSoeknad(STOR_SNERK)
+                val kladd = db.finnKladd(STOR_SNERK)
                 kladd shouldNotBe null
                 kladd?.id shouldNotBe null
                 kladd?.fnr shouldBe STOR_SNERK
@@ -175,7 +175,7 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(3)
     fun `Skal hente kladd fra databasen`() {
-        db.finnSoeknad(STOR_SNERK) shouldNotBe null
+        db.finnKladd(STOR_SNERK) shouldNotBe null
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Get, "/api/kladd") {
@@ -193,14 +193,14 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(4)
     fun `Skal slette kladd fra databasen`() {
-        db.finnSoeknad(STOR_SNERK) shouldNotBe null
+        db.finnKladd(STOR_SNERK) shouldNotBe null
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Delete, "/api/kladd") {
                 tokenFor(STOR_SNERK)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-                db.finnSoeknad(STOR_SNERK) shouldBe null
+                db.finnKladd(STOR_SNERK) shouldBe null
             }
         }
     }
