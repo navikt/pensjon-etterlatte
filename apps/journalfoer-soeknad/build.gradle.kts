@@ -15,4 +15,7 @@ dependencies {
     testImplementation(Ktor.ClientMock)
     testImplementation(MockK.MockK)
     testImplementation(Kotlinx.CoroutinesCore)
+    testImplementation(Kotest.AssertionsCore)
+
+    testImplementation(project(":libs:common-test"))
 }
