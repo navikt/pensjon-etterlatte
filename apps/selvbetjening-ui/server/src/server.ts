@@ -62,3 +62,5 @@ const port = config.app.port;
 app.listen(port, () => {
     logger.info(`App listening on port: ${port}`);
 });
+
+module.exports = app
