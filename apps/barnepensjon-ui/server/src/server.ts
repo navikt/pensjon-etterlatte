@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 import path from 'path'
 import decorator from './decorator'
 import proxy from './proxy'
@@ -15,20 +15,18 @@ app.set('trust proxy', 1)
 app.use(basePath, express.static(buildPath, { index: false }))
 
 // Endpoints to verify is app is ready/alive
-app.get(`${basePath}/isAlive|${basePath}/isReady`, (req: any, res: any) => {
+app.get(`${basePath}/isAlive|${basePath}/isReady`, (req: Request, res: Response) => {
     res.send('OK')
 })
 
-app.get(`${basePath}/metrics`, async (req, res) => {
+app.get(`${basePath}/metrics`, async (req: Request, res: Response) => {
     res.set('Content-Type', prometheus.register.contentType)
     res.end(await prometheus.register.metrics())
 })
 
-// TODO: Legge til ingress i loginservice for at det skal fungere
-// loginservice.setup(app)
 app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
 
-decorator.setup(app, `${buildPath}/index.html`)
+app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))
 
 const port = config.app.port
 app.listen(port, () => {

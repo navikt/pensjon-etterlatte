@@ -1,15 +1,9 @@
-import { Alert, BodyLong, Button, Link, Heading, Ingress } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Heading, Ingress, Link } from '@navikt/ds-react'
 import styled from 'styled-components'
 import useTranslation from '../../../hooks/useTranslation'
 import { useNavigate } from 'react-router-dom'
+import FormGroup from '../../common/FormGroup'
 
-const SchemaGroup = styled.div`
-    margin: 0 0 1em;
-
-    .navds-alert {
-        margin-top: 3em;
-    }
-`
 const ButtonGroup = styled.div`
     button {
         width: 100%;
@@ -18,40 +12,42 @@ const ButtonGroup = styled.div`
     }
 `
 
-const VelgScenarie = () => {
+export default function ScenarioSelection() {
     const navigate = useNavigate()
     const { t } = useTranslation('velgScenarie')
     // todo: midleridig hack for å gå videre til neste side.
 
-    const neste = () => navigate('/skjema/steg/om-deg')
-
     return (
         <>
-            <SchemaGroup>
+            <FormGroup>
                 <Heading size={'medium'} className={'center'}>
                     {t('tittel')}
                 </Heading>
-            </SchemaGroup>
+            </FormGroup>
 
-            <SchemaGroup>
+            <FormGroup>
                 <Ingress>{t('ingress')}</Ingress>
-            </SchemaGroup>
+            </FormGroup>
 
-            <SchemaGroup>
+            <FormGroup>
                 <ButtonGroup>
-                    <Button variant={'secondary'} type={'button'} onClick={neste}>
+                    <Button
+                        variant={'secondary'}
+                        type={'button'}
+                        onClick={() => navigate('/skjema/forelder/steg/om-deg')}
+                    >
                         {t('knapp.mineBarn')}
                     </Button>
-                    <Button variant={'secondary'} type={'button'} onClick={neste}>
+                    <Button variant={'secondary'} type={'button'} onClick={() => navigate('/skjema/verge/steg/om-deg')}>
                         {t('knapp.verge')}
                     </Button>
-                    <Button variant={'secondary'} type={'button'} onClick={neste}>
+                    <Button variant={'secondary'} type={'button'} onClick={() => navigate('/skjema/barn/steg/om-deg')}>
                         {t('knapp.megSelv')}
                     </Button>
                 </ButtonGroup>
-            </SchemaGroup>
+            </FormGroup>
 
-            <SchemaGroup>
+            <FormGroup>
                 <Alert inline={true} variant={'info'}>
                     <Heading size={'small'} className={'center'}>
                         {t('alert.tittel')}
@@ -64,9 +60,7 @@ const VelgScenarie = () => {
                         <Link href={t('alert.lenke.href')}>{t('alert.lenke.tekst')}</Link>
                     </BodyLong>
                 </Alert>
-            </SchemaGroup>
+            </FormGroup>
         </>
     )
 }
-
-export default VelgScenarie

@@ -6,7 +6,7 @@ import LanguageSelect from './common/LanguageSelect'
 import NavGuide from './common/NavGuide'
 import FormGroup from './common/FormGroup'
 
-const Forside = () => {
+export default function FrontPage() {
     const navigate = useNavigate()
 
     const { state: brukerState } = useUserContext()
@@ -15,12 +15,10 @@ const Forside = () => {
 
     const { fornavn, etternavn } = brukerState
 
-    const heiTekst = <div className={!fornavn ? 'blur-text' : ''}>{t('hei', [fornavn, etternavn])}</div>
-
     return (
         <div className={'forside'}>
             <FormGroup>
-                <NavGuide>{heiTekst}</NavGuide>
+                <NavGuide>{t('hei', [fornavn, etternavn])}</NavGuide>
             </FormGroup>
 
             <FormGroup>
@@ -115,12 +113,10 @@ const Forside = () => {
             </FormGroup>
 
             <FormGroup>
-                <Button size={'medium'} variant={'primary'} onClick={() => navigate('/skjema/steg/velg-scenarie')}>
+                <Button size={'medium'} variant={'primary'} onClick={() => navigate('velg-scenarie')}>
                     {t('startSoeknad')}
                 </Button>
             </FormGroup>
         </div>
     )
 }
-
-export default Forside

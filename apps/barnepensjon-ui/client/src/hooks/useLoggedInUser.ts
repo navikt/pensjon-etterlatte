@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { getLoggedInUser } from '../api/api'
 import { ActionTypes, User } from '../context/user/user'
 
-const useLoggedInUser = () => {
+export default function useLoggedInUser() {
     const { dispatch } = useUserContext()
     const [loading, setLoading] = useState(false)
 
@@ -27,5 +27,3 @@ const useLoggedInUser = () => {
 
     return loading
 }
-
-export default useLoggedInUser

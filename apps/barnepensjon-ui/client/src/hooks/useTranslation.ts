@@ -8,7 +8,7 @@ import { Language } from '../context/language/language'
 type TKey = string
 type Namespace = string
 
-const useTranslation = (ns?: Namespace) => {
+export default function useTranslation(ns?: Namespace) {
     const { language } = useLanguageContext()
 
     const [translations, setTranslations] = useState<Record<Namespace, Record<TKey, any>>>(nb)
@@ -51,5 +51,3 @@ const useTranslation = (ns?: Namespace) => {
         t,
     }
 }
-
-export default useTranslation

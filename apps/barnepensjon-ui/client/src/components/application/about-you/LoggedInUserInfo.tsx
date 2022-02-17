@@ -15,10 +15,12 @@ const SkjemaGruppe = styled.div`
         min-width: 30px;
     }
 `
+
 interface LoggedInUserInfoProps {
     user: User
 }
-const LoggedInUserInfo = ({ user }: LoggedInUserInfoProps) => {
+
+export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
     const { t } = useTranslation()
 
     return (
@@ -74,5 +76,3 @@ const LoggedInUserInfo = ({ user }: LoggedInUserInfoProps) => {
         </SkjemaGruppe>
     )
 }
-
-export default LoggedInUserInfo

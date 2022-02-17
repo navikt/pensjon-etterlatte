@@ -25,9 +25,8 @@ const prepareSecuredRequest = async (req: Request) => {
     }
 }
 
-const proxy =
-    (host: string): RequestHandler =>
-    async (req: Request, res: Response) => {
+export default function proxy(host: string): RequestHandler {
+    return async (req: Request, res: Response) => {
         try {
             const request = await prepareSecuredRequest(req)
 
@@ -48,5 +47,4 @@ const proxy =
             return res.status(500).send('Error')
         }
     }
-
-export default proxy
+}

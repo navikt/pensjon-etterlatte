@@ -3,7 +3,7 @@ import { Counter } from 'prom-client'
 import prometheus from './prometheus'
 
 export class PrometheusTransport extends Transport {
-    private register: any = null
+    private readonly register: any = null
     private counter: any = null
 
     constructor() {
