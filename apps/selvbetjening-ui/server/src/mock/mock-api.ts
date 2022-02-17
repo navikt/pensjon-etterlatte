@@ -74,7 +74,7 @@ export const mockApi = (app: any) => {
     return res.json(mockLand)
   })
 
-  app.get(`${config.app.basePath}/oauth2/session`, async (req: Request, res: Response) => {
+  app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
     res.send('3600')
   })
 

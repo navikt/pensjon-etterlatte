@@ -6,7 +6,7 @@ import config from "./config";
 import prometheus from './monitoring/prometheus'
 import logger from "./monitoring/logger";
 import { mockApi } from "./mock/mock-api";
-import { TokenSet } from "openid-client";
+import jwt from "jsonwebtoken";
 
 const basePath = config.app.basePath;
 const buildPath = path.resolve(__dirname, "../build");
@@ -35,16 +35,19 @@ app.get(`${basePath}/metrics`, async (req, res) => {
 if (config.env.isLabsCluster) {
     mockApi(app)
 } else {
-    app.get(`${basePath}/oauth2/session`, async (req: any, res: any) => {
-        console.log("Traff endepunkt for sesjon")
-
+    app.get(`${basePath}/session`, async (req: any, res: any) => {
         const { authorization } = req.headers
         const token = authorization!!.split(' ')[1]
 
         if (token) {
-            const expiry = new TokenSet(token).expires_in;
-
-            res.send(`${expiry}`);
+            const decoded = jwt.decode(token)
+            if (!decoded || typeof decoded === 'string') {
+                res.sendStatus(500)
+            } else {
+                const exp = decoded['exp'] as number
+                logger.info(`exp: ${exp}`)
+                res.send(`${exp * 1000}`);
+            }
         } else {
             res.sendStatus(401);
         }
