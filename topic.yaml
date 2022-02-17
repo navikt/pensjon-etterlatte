@@ -60,3 +60,6 @@ spec:
     - team: etterlatte
       application: etterlatte-behandling-fra-soeknad
       access: readwrite
+    - team: etterlatte
+      application: etterlatte-testdata
+      access: write
