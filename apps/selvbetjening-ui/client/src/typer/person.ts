@@ -31,7 +31,6 @@ export interface IOmBarn {
     gravidEllerNyligFoedt?: IValg;
     soeknadOmBarnetilsyn?: IValg.JA | undefined;
     soeknadOmTilleggsstoenadBarnepass?: IValg.JA | undefined;
-    soeknadOmTilleggsstoenadUtdanning?: IValg.JA | undefined;
     erValidert?: boolean;
 }
 

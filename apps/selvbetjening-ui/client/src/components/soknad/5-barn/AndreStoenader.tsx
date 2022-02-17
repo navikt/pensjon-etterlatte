@@ -20,7 +20,6 @@ const AndreStoenader = ({ soeknad, barn }: { soeknad: ISoeknad, barn?: IBarn[] }
     const harBarn = barn && barn.length > 0 || false;
 
     const rettTilBarnetilsyn = harBarn && (erArbeidstaker || etablererBedrift || erSyk);
-    const rettTilUtdanningStoenad = underUtdanning;
     const rettTilBarnStoenad = harBarn && (underUtdanning || erArbeidssoeker);
 
     return (
@@ -52,23 +51,6 @@ const AndreStoenader = ({ soeknad, barn }: { soeknad: ISoeknad, barn?: IBarn[] }
                     checkbox={
                         {
                             label: t("omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse"),
-                            value: IValg.JA
-                        }
-                    }
-                />
-            </SkjemaGruppe>
-            }
-
-            {rettTilUtdanningStoenad &&
-            <SkjemaGruppe>
-                <RHFCheckboksPanel
-                    name={"soeknadOmTilleggsstoenadUtdanning"}
-                    legend={t("omBarn.soeknadOmTilleggsstoenadUtdanning")}
-                    description={t("omBarn.soeknadOmTilleggsstoenadUtdanning.beskrivelse")}
-                    valgfri={true}
-                    checkbox={
-                        {
-                            label: t("omBarn.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
                             value: IValg.JA
                         }
                     }

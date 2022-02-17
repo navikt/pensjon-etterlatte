@@ -58,6 +58,21 @@ const UnderUtdanning = () => {
                     }
                 />
             </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                <RHFCheckboksPanel
+                    name={"utdanning.soeknadOmTilleggsstoenadUtdanning"}
+                    legend={t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning")}
+                    description={t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse")}
+                    valgfri={true}
+                    checkbox={
+                        {
+                            label: t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
+                            value: IValg.JA
+                        }
+                    }
+                />
+            </SkjemaGruppe>
         </SkjemaGruppering>
     );
 };

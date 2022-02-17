@@ -143,6 +143,16 @@ export const mapStoenader = (t: TFunction, soeknad: ISoeknad): Opplysning<EnumSv
         })
     }
 
+    if (soeknad.dinSituasjon.utdanning?.soeknadOmTilleggsstoenadUtdanning) {
+        stoenader.push({
+            spoersmaal: t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning"),
+            svar: {
+                innhold: t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
+                verdi: Stoenader.TILLEGGSSTOENAD_UTDANNING
+            }
+        })
+    }
+
     if (soeknad.opplysningerOmBarn.soeknadOmBarnetilsyn) {
         stoenader.push({
             spoersmaal: t("omBarn.soeknadOmBarnetilsyn"),
@@ -159,17 +169,6 @@ export const mapStoenader = (t: TFunction, soeknad: ISoeknad): Opplysning<EnumSv
             svar: {
                 innhold: t("omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse"),
                 verdi: Stoenader.TILLEGGSSTOENAD_BARNEPASS
-            }
-        })
-    }
-
-
-    if (soeknad.opplysningerOmBarn.soeknadOmTilleggsstoenadUtdanning) {
-        stoenader.push({
-            spoersmaal: t("omBarn.soeknadOmTilleggsstoenadUtdanning"),
-            svar: {
-                innhold: t("omBarn.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
-                verdi: Stoenader.TILLEGGSSTOENAD_UTDANNING
             }
         })
     }

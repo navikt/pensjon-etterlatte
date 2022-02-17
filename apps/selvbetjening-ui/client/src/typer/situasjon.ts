@@ -9,6 +9,7 @@ export interface IUtdanning {
         sluttDato?: Date;
     };
     soeknadOmSkolepenger?: IValg.JA | undefined;
+    soeknadOmTilleggsstoenadUtdanning?: IValg.JA | undefined;
     hoyesteFullfoerteUtdanning?: string;
     annenUtdanning?: string;
 }
