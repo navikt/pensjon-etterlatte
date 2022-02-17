@@ -35,13 +35,13 @@ internal class JournalfoerendeEnhetServiceKtTest {
     )
 
     @Test
-    fun `Skal returnere null dersom søknaden ikke har adressesperre og avdød ikke har jobbet i utlandet`() {
+    fun `Skal returnere null dersom søknaden ikke har adressesperre og avdød ikke har opphold i utlandet`() {
         finnJournalfoerendeEnhet(gjenlevendepUtenOppholdUtland, UGRADERT) shouldBe null
         finnJournalfoerendeEnhet(barnepUtenOppholdUtland, UGRADERT) shouldBe null
     }
 
     @Test
-    fun `Skal returnere null dersom søknaden ikke har adressesperre og avdød ikke har jobbet i avtaleland`() {
+    fun `Skal returnere null dersom søknaden ikke har adressesperre og avdød ikke har opphold i avtaleland`() {
         finnJournalfoerendeEnhet(gjenlevendepMedOppholdAvtaleland.copy(
             avdoed = gjenlevendepMedOppholdAvtaleland.avdoed.copy(
                 utenlandsopphold = gjenlevendepMedOppholdAvtaleland.avdoed.utenlandsopphold.copy(
@@ -66,7 +66,7 @@ internal class JournalfoerendeEnhetServiceKtTest {
     }
 
     @Test
-    fun `Skal rutes til NFP UTLAND ÅLESUND dersom avdød har har jobbet i avtaleland og det ikke er adressesperre`() {
+    fun `Skal rutes til NFP UTLAND ÅLESUND dersom avdød har har opphold i avtaleland og det ikke er adressesperre`() {
         finnJournalfoerendeEnhet(gjenlevendepMedOppholdAvtaleland, UGRADERT) shouldBe ENHET_UTLAND
         finnJournalfoerendeEnhet(gjenlevendepMedOppholdAvtaleland, FORTROLIG) shouldBe ENHET_UTLAND
         finnJournalfoerendeEnhet(barnepMedOppholdAvtaleland, UGRADERT) shouldBe ENHET_UTLAND
