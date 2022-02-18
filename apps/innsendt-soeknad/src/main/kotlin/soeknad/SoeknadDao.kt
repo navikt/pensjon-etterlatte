@@ -309,11 +309,17 @@ private object Queries {
     """.trimIndent()
 
     val SELECT_RAPPORT = """
-        SELECT status.id, count(1)
-        FROM hendelse h
-        INNER JOIN status ON h.status_id = status.id
-        GROUP BY status.id, status.rang
-        ORDER BY status.rang
+        SELECT st.id, count(1)
+        FROM (
+            SELECT DISTINCT(h.soeknad_id), MAX(s.rang) rang
+            FROM hendelse h
+            INNER JOIN status s on h.status_id = s.id
+            GROUP BY h.soeknad_id
+        ) h2
+            INNER JOIN
+            status st ON st.rang = h2.rang
+        GROUP BY st.id
+        ORDER BY st.rang;
     """.trimMargin()
 
     val SLETT_ARKIVERTE_SOEKNADER = """
