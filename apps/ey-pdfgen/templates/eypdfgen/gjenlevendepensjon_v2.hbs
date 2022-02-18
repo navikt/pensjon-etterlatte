@@ -29,7 +29,9 @@
     {{> eypdfgen/partials_v2/gjenlevendepensjon/gjenlevende/gjenlevende this.soeker}}
     {{> eypdfgen/partials_v2/common/avdoed/avdoed this.avdoed}}
     {{> eypdfgen/partials_v2/gjenlevendepensjon/informasjonOmBarn this}}
-    {{> eypdfgen/partials_v2/gjenlevendepensjon/andreStoenader this.andreStoenader}}
+    {{#if this.andreStoenader}}
+        {{> eypdfgen/partials_v2/gjenlevendepensjon/andreStoenader this.andreStoenader}}
+    {{/if}}
 </div>
 
 {{> eypdfgen/partials_v2/footer this}}
