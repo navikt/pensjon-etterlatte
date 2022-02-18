@@ -1,14 +1,14 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.module.kotlin.readValue
 import io.ktor.client.features.ResponseException
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.pdl.Gradering
-import innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.etterlatte.pdf.PdfGeneratorException
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
-import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import org.slf4j.LoggerFactory
@@ -64,12 +64,10 @@ internal class JournalfoerSoeknad(
         val fnrSoeker = packet["@fnr_soeker"].asText()
         val gradering = Gradering.fra(packet["@adressebeskyttelse"].textValue())
         val skjemaInfo = packet["@skjema_info"]
+        val soeknad: InnsendtSoeknad = mapper.readValue(skjemaInfo.toString())
 
-        val soeknadType = SoeknadType.valueOf(skjemaInfo.get("type").asText())
-        val template = skjemaInfo.get("template").asText()
+        val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
-        val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
-
-        return journalfoeringService.journalfoer(soeknadId, fnrSoeker, gradering, dokument, soeknadType)
+        return journalfoeringService.journalfoer(soeknadId, fnrSoeker, gradering, dokument, soeknad)
     }
 }

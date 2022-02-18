@@ -58,8 +58,8 @@ internal class JournalfoerSoeknadTest {
         assertEquals("123", inspector.message(0).get("@dokarkivRetur").get("dokumenter")[0].get("dokumentInfoId").asText())
         assertEquals("467010363", inspector.message(0).get("@dokarkivRetur").get("journalpostId").asText())
 
-        verify(exactly = 1) { dokumentServiceMock.opprettJournalpostDokument("12", any(), "gjenlevendepensjon_v1") }
-        verify(exactly = 1) { journalfoeringService.journalfoer("12", "5555555555", Gradering.UGRADERT, any(), SoeknadType.GJENLEVENDEPENSJON) }
+        verify(exactly = 1) { dokumentServiceMock.opprettJournalpostDokument("12", any(), "gjenlevendepensjon_v2") }
+        verify(exactly = 1) { journalfoeringService.journalfoer("12", "5555555555", Gradering.UGRADERT, any(), any() ) }
     }
 
     @Test

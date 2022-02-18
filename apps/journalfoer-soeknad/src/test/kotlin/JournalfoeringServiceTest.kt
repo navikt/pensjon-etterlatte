@@ -9,24 +9,22 @@ import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.slot
 import no.nav.etterlatte.JournalfoeringService
-import no.nav.etterlatte.Konstanter.ENHET_VIKAFOSSEN
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.dokarkiv.DokarkivDokument
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
+import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import no.nav.etterlatte.libs.common.pdl.Gradering
-import innsendtsoeknad.common.SoeknadType
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
-import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import soeknad.InnsendtSoeknadFixtures
 
 internal class JournalfoeringServiceTest {
 
     private val mockKlient = mockk<DokarkivKlient>()
-
     private val journalfoeringService = JournalfoeringService(mockKlient)
+    private val soeknad: Gjenlevendepensjon = InnsendtSoeknadFixtures.gjenlevendepensjon()
 
     @Test
     fun `Verifiser at request blir opprettet korrekt`() {
@@ -39,8 +37,13 @@ internal class JournalfoeringServiceTest {
             soeknadId,
             fnrSoeker,
             Gradering.UGRADERT,
-            JournalpostDokument(SOEKNAD_TITTEL, DokumentKategori.SOK, "", listOf(DokumentVariant.ArkivPDF(""), DokumentVariant.OriginalJson(""))),
-            SoeknadType.GJENLEVENDEPENSJON
+            JournalpostDokument(
+                SOEKNAD_TITTEL,
+                DokumentKategori.SOK,
+                "",
+                listOf(DokumentVariant.ArkivPDF(""), DokumentVariant.OriginalJson(""))
+            ),
+            soeknad
         )
 
         assertNotNull(response)
@@ -58,7 +61,7 @@ internal class JournalfoeringServiceTest {
         assertEquals("NAV_NO", actualRequest.kanal)
         assertEquals("ab0011", actualRequest.behandlingstema)
 
-        assertNull(actualRequest.journalfoerendeEnhet, "Ugradert skal gi tom enhet")
+        assertEquals(actualRequest.journalfoerendeEnhet, "4862")
         assertEquals(fnrSoeker, actualRequest.avsenderMottaker.id)
         assertEquals("FNR", actualRequest.avsenderMottaker.idType)
         assertEquals(fnrSoeker, actualRequest.bruker.id)
@@ -76,46 +79,6 @@ internal class JournalfoeringServiceTest {
         assertEquals(2, actualDokument.dokumentvarianter.size)
         assertTrue(actualDokument.dokumentvarianter.any { it is DokumentVariant.ArkivPDF })
         assertTrue(actualDokument.dokumentvarianter.any { it is DokumentVariant.OriginalJson })
-    }
-
-    @Nested
-    inner class GraderingGirKorrektEnhet {
-
-        @Test
-        fun `Gradering STRENGT_FORTROLIG_UTLAND rutes til Vikafossen`() {
-            val enhet = testEnhetForGradering(Gradering.STRENGT_FORTROLIG_UTLAND)
-            assertEquals(ENHET_VIKAFOSSEN, enhet)
-        }
-
-        @Test
-        fun `Gradering STRENGT_FORTROLIG rutes til Vikafossen`() {
-            val enhet = testEnhetForGradering(Gradering.STRENGT_FORTROLIG)
-            assertEquals(ENHET_VIKAFOSSEN, enhet)
-        }
-
-        @Test
-        fun `Gradering FORTROLIG setter ingen enhet`() {
-            val enhet = testEnhetForGradering(Gradering.FORTROLIG)
-            assertNull(enhet)
-        }
-
-        @Test
-        fun `Gradering UGRADERT setter ingen enhet`() {
-            val enhet = testEnhetForGradering(Gradering.UGRADERT)
-            assertNull(enhet)
-        }
-
-        private fun testEnhetForGradering(gradering: Gradering): String? {
-            coEvery { mockKlient.journalfoerDok(any()) } returns journalfoeringResponse()
-
-            journalfoeringService.journalfoer("", "", gradering, mockk(), SoeknadType.GJENLEVENDEPENSJON)
-
-            val requestSlot = slot<JournalpostRequest>()
-
-            coVerify(exactly = 1) { mockKlient.journalfoerDok(capture(requestSlot)) }
-
-            return requestSlot.captured.journalfoerendeEnhet
-        }
     }
 
     private fun journalfoeringResponse(

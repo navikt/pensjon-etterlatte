@@ -8,11 +8,10 @@ import dokarkiv.JournalpostDokument
 import dokarkiv.JournalpostRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.Konstanter.ENHET_VIKAFOSSEN
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.pdl.Gradering
-import innsendtsoeknad.common.SoeknadType
 import org.slf4j.LoggerFactory
 
 class JournalfoeringService(private val klient: Dokarkiv) {
@@ -23,15 +22,15 @@ class JournalfoeringService(private val klient: Dokarkiv) {
         fnrSoeker: String,
         gradering: Gradering,
         dokument: JournalpostDokument,
-        soeknadType: SoeknadType
+        soeknad: InnsendtSoeknad
     ): DokarkivResponse {
         logger.info("Oppretter journalpost for søknad ID $soeknadId")
 
         val request = JournalpostRequest(
             tittel = SOEKNAD_TITTEL,
             journalpostType = JournalPostType.INNGAAENDE,
-            behandlingstema = soeknadType.behandlingstema,
-            journalfoerendeEnhet = finnEnhet(gradering),
+            behandlingstema = soeknad.type.behandlingstema,
+            journalfoerendeEnhet = finnJournalfoerendeEnhet(soeknad, gradering),
             avsenderMottaker = AvsenderMottaker(id = fnrSoeker),
             bruker = Bruker(id = fnrSoeker),
             eksternReferanseId = SOEKNAD_TITTEL + soeknadId,
@@ -44,12 +43,4 @@ class JournalfoeringService(private val klient: Dokarkiv) {
             logger.info("Journalført PDF (søknad id $soeknadId) med respons: $it")
         }
     }
-
-    private fun finnEnhet(gradering: Gradering): String? =
-        when (gradering) {
-            Gradering.STRENGT_FORTROLIG_UTLAND,
-            Gradering.STRENGT_FORTROLIG -> ENHET_VIKAFOSSEN
-            Gradering.FORTROLIG,
-            Gradering.UGRADERT -> null
-        }
 }
