@@ -6,6 +6,9 @@ import { STOR_SNERK } from './mock-user'
 import mockLand from './landMock'
 
 describe('Test at mock-api gir korrekte resultater', () => {
+  afterAll(() => {
+    app.close()
+  })
   test('Skal returnere STOR SNERK som innlogget bruker', async () => {
     const res = await request(app).get(`${config.default.app.basePath}/api/person/innlogget`).expect(200)
     expect(res.body).toEqual(JSON.parse(JSON.stringify(STOR_SNERK)))
