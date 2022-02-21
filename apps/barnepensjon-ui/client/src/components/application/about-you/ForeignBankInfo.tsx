@@ -1,6 +1,7 @@
 import { Heading, TextField } from '@navikt/ds-react'
 import FormGroup from '../../common/FormGroup'
 import useTranslation from '../../../hooks/useTranslation'
+import Hjelpetekst from '../../../utils/Hjelpetekst'
 
 const ForeignBankInfo = () => {
     const { t } = useTranslation()
@@ -27,7 +28,7 @@ const ForeignBankInfo = () => {
                     <>
                         {t('utbetalingsInformasjon:iban')}
                         &nbsp;
-                        <p>{t('utbetalingsInformasjon:ibanHjelpetekst')}</p>
+                        <Hjelpetekst>{t('utbetalingsInformasjon:ibanHjelpetekst')}</Hjelpetekst>
                     </>
                 }
             />
@@ -38,7 +39,7 @@ const ForeignBankInfo = () => {
                     <>
                         {t('utbetalingsInformasjon:swift')}
                         &nbsp;
-                        <p>{t('utbetalingsInformasjon:swiftHjelpetekst')}</p>
+                        <Hjelpetekst>{t('utbetalingsInformasjon:swiftHjelpetekst')}</Hjelpetekst>
                     </>
                 }
             />
