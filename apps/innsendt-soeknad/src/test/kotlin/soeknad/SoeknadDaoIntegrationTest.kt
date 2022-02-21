@@ -392,16 +392,38 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     @Test
-    fun `Sjekk innhold i rapport`() {
-        val soeknad = UlagretSoeknad(randomFakeFnr(), """{"harSamtykket":"true"}""")
+    fun `Sjekk innhold i rapport, skal kun være siste status på hver søknad`() {
+        // To stk stopper på status KLADD
+        db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}"""))
+        db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}"""))
+
+        // Stopp på status "FERDIGSTILT"
+        val ferdigstilt = UlagretSoeknad(randomFakeFnr(), """{}""")
+        db.lagreKladd(ferdigstilt)
+        db.ferdigstillSoeknad(ferdigstilt)
+
+        // Stopp på status "SENDT"
+        val sendt = UlagretSoeknad(randomFakeFnr(), """{}""")
+        db.lagreKladd(sendt)
+        val sendtId = db.ferdigstillSoeknad(sendt)
+        db.soeknadSendt(sendtId)
+
+        // Stopp på status "SENDT"
+        val sendt2 = UlagretSoeknad(randomFakeFnr(), """{}""")
+        db.lagreKladd(sendt2)
+        val sendt2Id = db.ferdigstillSoeknad(sendt2)
+        db.soeknadSendt(sendt2Id)
+
+        // Stopp på status "ARKIVERINGSFEIL"
+        val arkiveringsfeil = UlagretSoeknad(randomFakeFnr(), """{}""")
 
         // Lagre kladd 3 ganger
-        db.lagreKladd(soeknad)
-        db.lagreKladd(soeknad)
-        db.lagreKladd(soeknad)
+        db.lagreKladd(arkiveringsfeil)
+        db.lagreKladd(arkiveringsfeil)
+        db.lagreKladd(arkiveringsfeil)
 
-        val lagretSoeknadID = db.lagreKladd(soeknad).id
-        db.ferdigstillSoeknad(soeknad)
+        val lagretSoeknadID = db.lagreKladd(arkiveringsfeil).id
+        db.ferdigstillSoeknad(arkiveringsfeil)
         db.soeknadSendt(lagretSoeknadID)
         db.soeknadFeiletArkivering(lagretSoeknadID, """{"error":"test"}""")
 
@@ -409,9 +431,9 @@ internal class SoeknadDaoIntegrationTest {
 
         assertEquals(4, rapport.size)
 
-        assertEquals(4, rapport[Status.LAGRETKLADD])
-        assertEquals(1, rapport[Status.SENDT])
+        assertEquals(2, rapport[Status.LAGRETKLADD])
         assertEquals(1, rapport[Status.FERDIGSTILT])
+        assertEquals(2, rapport[Status.SENDT])
         assertEquals(1, rapport[Status.ARKIVERINGSFEIL])
     }
 
