@@ -13,10 +13,9 @@ const UtloeptSession = () => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        hentUtloepstidForInnlogging().then((utgaarOm: string) => {
-            const sluttTid = new Date();
-            sluttTid.setSeconds(sluttTid.getSeconds() + parseInt(utgaarOm));
-            WebWorker.registrerNedtellingsLytter({ sluttTid: sluttTid.valueOf(), callbackFn: setTidIgjen });
+        hentUtloepstidForInnlogging().then((utloepstid: string) => {
+            const sluttTid = new Date(utloepstid);
+            WebWorker.registrerNedtellingsLytter({ sluttTid: sluttTid.getTime(), callbackFn: setTidIgjen });
         });
 
         return () => {
@@ -44,9 +43,8 @@ const UtloeptSession = () => {
             if (parseInt(response) === 0) {
                 window.location.reload();
             } else {
-                const sluttTid = new Date();
-                sluttTid.setSeconds(sluttTid.getSeconds() + parseInt(response));
-                WebWorker.oppdaterSluttTid(sluttTid.valueOf());
+                const sluttTid = new Date(response);
+                WebWorker.oppdaterSluttTid(sluttTid.getTime());
             }
         } catch (error) {
             window.location.reload();

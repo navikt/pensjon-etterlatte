@@ -2,7 +2,7 @@ import { Issuer } from 'openid-client';
 import jwt from 'jsonwebtoken';
 import { ulid } from 'ulid';
 import jose from 'node-jose';
-import logger from '../log/logger';
+import logger from '../monitoring/logger';
 import config from '../config';
 
 const tokenxConfig: any = config.tokenx; //ITokenXConfig

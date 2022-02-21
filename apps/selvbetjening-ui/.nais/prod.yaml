@@ -45,31 +45,26 @@ spec:
       - https://www.nav.no/gjenlevendepensjon/soknad/logout/callback
     accessTokenLifetime: 3600
     sessionLifetime: 3600
-  envFrom:
-    - secret: redis-password
-    - secret: session-encrypt-key
+    sidecar:
+      enabled: true
+      level: Level4
+      locale: nb
+      autoLogin: true
+      errorPath: ""
   env:
     - name: API_URL
       value: http://selvbetjening-api
-    - name: REDIS_HOST
-      value: selvbetjening-redis.etterlatte.svc.cluster.local
     - name: SELVBETJENING_AUDIENCE
       value: prod-gcp:etterlatte:selvbetjening-api
     - name: NODE_LOG_LEVEL
       value: info
     - name: IDPORTEN_POST_LOGOUT_REDIRECT_URI
       value: https://www.nav.no/gjenlevendepensjon/soknad/logout/callback
-    - name: LOGINSERVICE_URL
-      value: https://loginservice.nav.no/login?redirect=https://www.nav.no/gjenlevendepensjon/soknad
-    - name: LOGINSERVICE_LOGOUT_URL
-      value: https://loginservice.nav.no/slo
   accessPolicy:
     outbound:
       external:
         - host: www.nav.no
-        - host: loginservice.nav.no
         - host: dekoratoren.nav.no
         - host: tokendings.prod-gcp.nais.io
       rules:
         - application: selvbetjening-api
-        - application: selvbetjening-redis

@@ -1,6 +1,6 @@
 import Transport from 'winston-transport';
 import { Counter } from 'prom-client';
-import prometheus from '../prometheus';
+import prometheus from '../monitoring/prometheus';
 
 export class PrometheusTransport extends Transport {
     private register: any = null;
@@ -28,4 +28,3 @@ export class PrometheusTransport extends Transport {
         })
     }
 }
-
