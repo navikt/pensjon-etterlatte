@@ -81,7 +81,7 @@ export default {
   "dinSituasjon.utdanning.soeknadOmSkolepenger.bekreftelse": "Jeg har utgifter til skolepenger",
   "dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning": "Informasjon om tilleggsstønad til skoleutgifter",
   "dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse": "Som gjenlevende ektefelle kan du også søke om tilleggsstønad hvis du gjennomfører utdanning som er godkjent av NAV. Du kan få støtte til dekning av nødvendige utgifter som du har under utdanningen, for eksempel utgifter til læremidler, reiser, flytting og ekstra boutgifter.",
-  "dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse": "Jeg har utgifter til utdanning (utdanningsutgifter)",
+  "dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse": "Jeg har utgifter til utdanning",
   "dinSituasjon.selvstendig.tittel": "Om næringen",
   "dinSituasjon.selvstendig.beskrivelse": "Hva heter firmaet?",
   "dinSituasjon.selvstendig.orgnr": "Organisasjonsnummer",
