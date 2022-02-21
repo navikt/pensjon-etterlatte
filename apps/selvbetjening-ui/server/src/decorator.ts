@@ -17,7 +17,7 @@ const props: Props = {
 export default function decorator(filePath: string): RequestHandler {
     return async (req: Request, res: Response) => {
         if (isLabsCluster) {
-            res.send(filePath)
+            res.sendFile(filePath)
         } else {
             await injectDecoratorServerSide({ ...props, filePath })
                 .then((html: any) => {
