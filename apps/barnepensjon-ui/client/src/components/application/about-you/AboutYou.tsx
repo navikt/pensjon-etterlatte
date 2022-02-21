@@ -21,11 +21,11 @@ export default function AboutYou() {
     const [typeOfBankAccount, setTypeOfBankAccount] = useState<string>('')
 
     const { state: user } = useUserContext()
-    const { t } = useTranslation()
+    const { t } = useTranslation('omDeg')
 
     return (
         <FormGroup>
-            <StepHeading>{t('omDeg:tittel')}</StepHeading>
+            <StepHeading>{t('tittel')}</StepHeading>
 
             <FormGroup>
                 <LoggedInUserInfo user={user} />
@@ -33,56 +33,53 @@ export default function AboutYou() {
 
             <FormGroup>
                 <RadioGroup
-                    legend={t('omDeg:bostedsadresseBekreftet')}
+                    legend={t('bostedsadresseBekreftet')}
                     value={livesOnThisAddress}
                     onChange={(value: string) => setLivesOnThisAddress(value)}
                 >
-                    <Radio value={t('radiobuttons:ja')}>{t('radiobuttons:ja')}</Radio>
-                    <Radio value={t('radiobuttons:nei')}>{t('radiobuttons:nei')}</Radio>
+                    <Radio value={t('ja')}>{t('ja')}</Radio>
+                    <Radio value={t('nei')}>{t('nei')}</Radio>
                 </RadioGroup>
                 {livesOnThisAddress === 'Nei' && (
                     <FormGroup>
-                        <TextField label={t('omDeg:alternativAdresse')}></TextField>
+                        <TextField label={t('alternativAdresse')}></TextField>
                     </FormGroup>
                 )}
             </FormGroup>
 
             <FormGroup>
                 <RadioGroup
-                    legend={t('omDeg:oppholderSegINorge')}
-                    description={<WhyWeAsk title={t('omDeg:oppholderSegINorge')}>{t('omDeg:oppholdHvorfor')}</WhyWeAsk>}
+                    legend={t('oppholderSegINorge')}
+                    description={<WhyWeAsk title={t('oppholderSegINorge')}>{t('oppholdHvorfor')}</WhyWeAsk>}
                     value={currentlyInNorway}
                     onChange={(value: string) => setCurrentlyInNorway(value)}
                 >
-                    <Radio value={t('radiobuttons:ja')}>{t('radiobuttons:ja')}</Radio>
-                    <Radio value={t('radiobuttons:nei')}>{t('radiobuttons:nei')}</Radio>
+                    <Radio value={t('ja')}>{t('ja')}</Radio>
+                    <Radio value={t('nei')}>{t('nei')}</Radio>
                 </RadioGroup>
 
                 {currentlyInNorway === 'Ja' && (
                     <FormGroup>
-                        <TextField
-                            label={t('utbetalingsInformasjon:kontonummer')}
-                            description={t('utbetalingsInformasjon:informasjon')}
-                        ></TextField>
+                        <TextField label={t('kontonummer')} description={t('informasjon')}></TextField>
                     </FormGroup>
                 )}
 
                 {currentlyInNorway === 'Nei' && (
                     <>
                         <FormGroup>
-                            <Select label={t('omDeg:oppholdsland')}>
+                            <Select label={t('oppholdsland')}>
                                 {selectOptions.map((option) => (
                                     <option key={uuid()} value={option.value}>
                                         {option.label}
                                     </option>
                                 ))}
                             </Select>
-                            <RadioGroup legend={t('omDeg:medlemFolketrygdenUtland')}>
-                                <Radio value={t('radiobuttons:ja')}>{t('radiobuttons:ja')}</Radio>
-                                <Radio value={t('radiobuttons:nei')}>{t('radiobuttons:nei')}</Radio>
+                            <RadioGroup legend={t('medlemFolketrygdenUtland')}>
+                                <Radio value={t('ja')}>{t('ja')}</Radio>
+                                <Radio value={t('nei')}>{t('nei')}</Radio>
                             </RadioGroup>
                             <RadioGroup
-                                legend={t('utbetalingsInformasjon:bankkontoType')}
+                                legend={t('bankkontoType')}
                                 value={typeOfBankAccount}
                                 onChange={(value: string) => setTypeOfBankAccount(value)}
                             >
@@ -92,10 +89,7 @@ export default function AboutYou() {
                         </FormGroup>
                         {typeOfBankAccount === 'Norsk' && (
                             <FormGroup>
-                                <TextField
-                                    label={t('utbetalingsInformasjon:kontonummer')}
-                                    description={t('utbetalingsInformasjon:informasjon')}
-                                ></TextField>
+                                <TextField label={t('kontonummer')} description={t('informasjon')}></TextField>
                             </FormGroup>
                         )}
                         {typeOfBankAccount === 'Utenlandsk' && <ForeignBankInfo />}

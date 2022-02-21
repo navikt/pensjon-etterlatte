@@ -69,6 +69,11 @@ const omDeg = {
     oppholderSegINorge: 'Oppholder du deg for tiden i Norge?',
     oppholdsland: 'Oppgi land',
     medlemFolketrygdenUtland: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
+    kontonummer: 'Oppgi norsk kontonummer for utbetaling',
+    informasjon: 'Du kan bare ha ett kontonummer registrert hos NAV.',
+    bankkontoType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
+    ja: 'Ja',
+    nei: 'Nei',
 }
 
 const loggedInUserInfo = {
@@ -88,9 +93,6 @@ const felles = {
 }
 const utbetalingsInformasjon = {
     tittel: 'Oppgi bankopplysninger',
-    kontonummer: 'Oppgi norsk kontonummer for utbetaling',
-    informasjon: 'Du kan bare ha ett kontonummer registrert hos NAV.',
-    bankkontoType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
     utenlandskBankNavn: 'Bankens navn',
     utenlandskBankAdresse: 'Bankens fulle adresse',
     iban: 'IBAN-nummer',

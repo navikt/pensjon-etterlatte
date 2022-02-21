@@ -4,31 +4,25 @@ import useTranslation from '../../../hooks/useTranslation'
 import Hjelpetekst from '../../../utils/Hjelpetekst'
 
 const ForeignBankInfo = () => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('utbetalingsInformasjon')
 
     return (
         <>
             <FormGroup>
-                <Heading size={'small'}>{t('utbetalingsInformasjon:tittel')}</Heading>
+                <Heading size={'small'}>{t('tittel')}</Heading>
             </FormGroup>
 
-            <TextField
-                name={'utbetalingsInformasjon.utenlandskBankNavn'}
-                label={t('utbetalingsInformasjon:utenlandskBankNavn')}
-            />
+            <TextField name={'utenlandskBankNavn'} label={t('utenlandskBankNavn')} />
 
-            <TextField
-                name={'utbetalingsInformasjon.utenlandskBankAdresse'}
-                label={t('utbetalingsInformasjon:utenlandskBankAdresse')}
-            />
+            <TextField name={'utenlandskBankAdresse'} label={t('utenlandskBankAdresse')} />
 
             <TextField
                 name={'utbetalingsInformasjon.iban'}
                 label={
                     <>
-                        {t('utbetalingsInformasjon:iban')}
+                        {t('iban')}
                         &nbsp;
-                        <Hjelpetekst>{t('utbetalingsInformasjon:ibanHjelpetekst')}</Hjelpetekst>
+                        <Hjelpetekst>{t('ibanHjelpetekst')}</Hjelpetekst>
                     </>
                 }
             />
@@ -37,9 +31,9 @@ const ForeignBankInfo = () => {
                 name={'utbetalingsInformasjon.swift'}
                 label={
                     <>
-                        {t('utbetalingsInformasjon:swift')}
+                        {t('swift')}
                         &nbsp;
-                        <Hjelpetekst>{t('utbetalingsInformasjon:swiftHjelpetekst')}</Hjelpetekst>
+                        <Hjelpetekst>{t('swiftHjelpetekst')}</Hjelpetekst>
                     </>
                 }
             />
