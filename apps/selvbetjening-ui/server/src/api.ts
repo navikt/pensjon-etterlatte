@@ -1,11 +1,9 @@
-
 import proxy from 'express-http-proxy';
 import config from './config';
 import TokenXClient from './auth/tokenx';
-import logger from './log/logger';
+import logger from './monitoring/logger';
 import { mockApi } from './mock/mock-api';
 import { sendSoeknad } from './router';
-
 
 const { exchangeToken } = new TokenXClient();
 const options: any = () => ({
@@ -13,10 +11,13 @@ const options: any = () => ({
     proxyReqOptDecorator: (options: any, req: any) => {
         logger.info(`${req.protocol?.toUpperCase()} ${req.method} ${req.path}`);
 
+        const { authorization } = req.headers
+        const token = authorization!!.split(' ')[1]
+
         return new Promise((resolve, reject) => {
-            return exchangeToken(req.session.tokens.access_token).then(
+            return exchangeToken(token).then(
                 (accessToken) => {
-                    options.headers.Authorization = `Bearer ${accessToken}`;
+                    options.headers.authorization = `Bearer ${accessToken}`;
                     resolve(options);
                 },
                 (error) => {

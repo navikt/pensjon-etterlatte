@@ -22,39 +22,8 @@ const env = {
 const app = {
     basePath: "/gjenlevendepensjon/soknad",
     apiUrl: process.env.API_URL || "http://localhost:8085",
-    useSecureCookies: !!process.env.NAIS_CLUSTER_NAME,
     port: process.env.PORT || 8080,
     targetAudience: process.env.SELVBETJENING_AUDIENCE || "local:selvbetjening-api",
-    loginServiceUrl: process.env.LOGINSERVICE_URL,
-    loginServiceLogoutUrl: process.env.LOGINSERVICE_LOGOUT_URL
-};
-
-const defaultSessionMaxAgeMillis = 60 * 60 * 1000; // 1 hour
-
-const session = {
-    secret: process.env.SESSION_SECRET || "localhostsecret",
-    maxAgeMs: Number(process.env.SESSION_MAX_AGE_MS) || defaultSessionMaxAgeMillis,
-    redisHost: process.env.REDIS_HOST || 'localhost',
-    redisPort: process.env.REDIS_PORT || 6379,
-    redisPassword: process.env.REDIS_PASSWORD,
-};
-
-/*
- * https://doc.nais.io/security/auth/idporten/
- */
-const idporten = {
-    discoveryUrl:
-        process.env.IDPORTEN_WELL_KNOWN_URL ||
-        "https://oidc-ver2.difi.no/idporten-oidc-provider/.well-known/openid-configuration",
-    clientID: process.env.IDPORTEN_CLIENT_ID || "debugger",
-    clientJwk: process.env.IDPORTEN_CLIENT_JWK || testJwk,
-    redirectUri: process.env.IDPORTEN_REDIRECT_URI || "http://localhost:8080/oauth2/callback",
-    postLogoutRedirectUri:
-            process.env.IDPORTEN_POST_LOGOUT_REDIRECT_URI ||
-            "http://localhost:8080/logout/callback",
-    domain: process.env.NAIS_CLUSTER_NAME === "prod-gcp" ? "nav.no" : "dev.nav.no",
-    responseType: ["code"],
-    scope: "openid profile",
 };
 
 const tokenx = {
@@ -68,7 +37,5 @@ const tokenx = {
 export default {
     app,
     env,
-    session,
-    idporten,
     tokenx,
 };

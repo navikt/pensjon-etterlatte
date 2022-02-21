@@ -72,10 +72,6 @@ Innloggingsdetaljer kan oppdrives av noen i teamet.
 
 https://github.com/navikt/nav-dekoratoren
 
-## Loginservice
-
-https://github.com/navikt/loginservice
-
 ## NAV Frontend-moduler / Designsystemet
 
 Tar i bruk designsystemet til NAV.
