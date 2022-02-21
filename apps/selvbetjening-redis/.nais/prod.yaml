@@ -1,0 +1,32 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: selvbetjening-redis
+  namespace: etterlatte
+  labels:
+    team: etterlatte
+  annotations:
+    nais.io/run-as-group: "0"
+    nais.io/read-only-file-system: "false"
+spec:
+  image: bitnami/redis:6.2
+  port: 6379
+  replicas: # A single Redis-app doesn't scale
+    min: 1
+    max: 1 # More replicas doesn't sync
+  resources: # you need to monitor the resource usage yourself
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  service:
+    port: 6379
+    protocol: redis
+  envFrom:
+    - secret: redis-password
+  accessPolicy:
+    inbound:
+      rules:
+        - application: selvbetjening-ui

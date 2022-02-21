@@ -7,9 +7,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         cy.intercept("GET", `${basePath}/api/person/innlogget`, { fixture: "testbruker" }).as("hentInnloggetPerson");
         cy.intercept("GET", `${basePath}/api/api/kladd`, {}).as("hentSoeknad"); // Ingen kladd eksisterer
         cy.intercept("POST", `${basePath}/api/api/kladd`, {});
-        const utloepDato = new Date()
-        utloepDato.setHours(utloepDato.getHours() + 1)
-        cy.intercept("GET", `${basePath}/session`, { body: utloepDato.getTime() });
+        cy.intercept("GET", `${basePath}/oauth2/session`, { body: "3600" });
         cy.visit("localhost:3000", {
             onBeforeLoad: (obj) => {
                 Object.defineProperty(obj.navigator, "language", { value: "nb-NO" });

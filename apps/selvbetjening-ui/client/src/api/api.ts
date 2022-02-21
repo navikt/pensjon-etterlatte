@@ -16,7 +16,7 @@ export const hentInnloggetPerson = async () => {
 
 export const hentUtloepstidForInnlogging = async () => {
     try {
-        const response = await api.get("/session");
+        const response = await api.get("/oauth2/session");
         return response.data;
     } catch (e) {
         throw new Error("Det skjedde en feil");

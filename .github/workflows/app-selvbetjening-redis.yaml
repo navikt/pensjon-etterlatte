@@ -1,0 +1,50 @@
+name: selvbetjening-redis
+
+env:
+  APP_NAME: ${{ github.workflow }}
+
+on:
+  workflow_dispatch: # Allow manually triggered workflow run
+    inputs:
+      deploy-prod:
+        description: 'Deploy til produksjon'
+        required: false
+        default: 'false'
+  push:
+    branches:
+      - main
+      - release/*
+      - feature/*
+      - fix/*
+    paths:
+      - apps/selvbetjening-redis/**
+
+jobs:
+  deploy-dev-gcp:
+    name: Deploy to dev-gcp
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy to dev-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLUSTER: dev-gcp
+          RESOURCE: apps/${{ env.APP_NAME }}/.nais/dev.yaml
+
+  deploy-prod-gcp:
+    name: Deploy to prod-gcp
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy to prod-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLUSTER: prod-gcp
+          RESOURCE: apps/${{ env.APP_NAME }}/.nais/prod.yaml

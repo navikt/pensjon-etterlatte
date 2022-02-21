@@ -2,7 +2,7 @@ import express from 'express';
 import fetch from 'node-fetch';
 import TokenXClient from './auth/tokenx';
 import config from './config';
-import logger from './monitoring/logger';
+import logger from './log/logger';
 
 const { exchangeToken } = new TokenXClient();
 
@@ -10,9 +10,6 @@ export const sendSoeknad = () => {
     const router = express.Router();
 
     router.post(`${config.app.basePath}/api/api/soeknad`, express.json(), async (req: any, res: any) => {
-        const { authorization } = req.headers
-        const token = authorization!!.split(' ')[1]
-
         const soeknader: any[] = req.body.soeknader.map((soeknad: any) => {
             return {
                 ...soeknad,
@@ -21,11 +18,11 @@ export const sendSoeknad = () => {
         });
 
         try {
-            await exchangeToken(token).then(
+            await exchangeToken(req.session.tokens.access_token).then(
                 (accessToken) => {
                     const headers = {
                         ...req.headers,
-                        authorization:  `Bearer ${accessToken}`
+                        Authorization:  `Bearer ${accessToken}`
                     };
 
                     fetch(`${config.app.apiUrl}/api/soeknad`, {
