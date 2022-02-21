@@ -62,6 +62,13 @@ const velgScenarie = {
 
 const omDeg = {
     tittel: 'Om deg',
+    oppholdHvorfor:
+        'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
+    bostedsadresseBekreftet: 'Bor du på denne adressen?',
+    alternativAdresse: 'Oppgi nåværende bostedsadresse',
+    oppholderSegINorge: 'Oppholder du deg for tiden i Norge?',
+    oppholdsland: 'Oppgi land',
+    medlemFolketrygdenUtland: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
 }
 
 const loggedInUserInfo = {
@@ -77,6 +84,26 @@ const felles = {
     statsborgerskap: 'Statsborgerskap',
     telefonnummer: 'Telefonnummer',
     telefonnummerHjelpetekst: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
+    hvorforSpoerVi: 'Hvorfor spør vi om dette',
+}
+const utbetalingsInformasjon = {
+    tittel: 'Oppgi bankopplysninger',
+    kontonummer: 'Oppgi norsk kontonummer for utbetaling',
+    informasjon: 'Du kan bare ha ett kontonummer registrert hos NAV.',
+    bankkontoType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
+    utenlandskBankNavn: 'Bankens navn',
+    utenlandskBankAdresse: 'Bankens fulle adresse',
+    iban: 'IBAN-nummer',
+    ibanHjelpetekst: 'IBAN står for International Bank Account Number og er en internasjonal standard for kontonummer.',
+    swift: 'Bankens S.W.I.F.T (BIC) adresse',
+    swiftHjelpetekst:
+        'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
+}
+
+const radiobuttons = {
+    ja: 'Ja',
+    nei: 'Nei',
+    vetIkke: 'Vet ikke',
 }
 
 const tekster = {
@@ -85,6 +112,8 @@ const tekster = {
     omDeg,
     loggedInUserInfo,
     felles,
+    radiobuttons,
+    utbetalingsInformasjon,
 }
 
 export default tekster
