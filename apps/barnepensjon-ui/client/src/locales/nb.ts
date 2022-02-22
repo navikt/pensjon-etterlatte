@@ -76,6 +76,27 @@ const omDeg = {
     nei: 'Nei',
 }
 
+const omDenAvdoede = {
+    hvem: 'Hvem er det som er død?',
+    fornavn: 'Fornavn',
+    etternavn: 'Etternavn',
+    datoForDoedsfallet: 'Når skjedde dødsfallet?',
+    dato: 'Dato',
+    doedsfallAarsak: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
+    doedsfallAarsakHvorfor:
+        'Hvis dødsfallet skyldes godkjent yrkesskade eller yrkessykdom kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
+    ja: 'Ja',
+    nei: 'Nei',
+    vetIkke: 'Vet ikke',
+    'boddEllerJobbetUtland.tittel': 'Opphold utenfor Norge',
+    'boddEllerJobbetUtland.ingress':
+        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.',
+    'boddEllerJobbetUtland.svar': 'Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?',
+    fnrDnr: 'Fødselsnummer / d-nummer',
+    'fnrDnr.placeholder': '11 siffer',
+    statsborgerskap: 'Statsborgerskap',
+}
+
 const loggedInUserInfo = {
     advarsel: 'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
     valgfritt: 'Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.',
@@ -90,6 +111,8 @@ const felles = {
     telefonnummer: 'Telefonnummer',
     telefonnummerHjelpetekst: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
     hvorforSpoerVi: 'Hvorfor spør vi om dette',
+    datoformat: '(dd.mm.yyyy)',
+    datoEksempel: 'eks. 01.11.2020',
 }
 const utbetalingsInformasjon = {
     tittel: 'Oppgi bankopplysninger',
@@ -109,13 +132,14 @@ const radiobuttons = {
 }
 
 const tekster = {
-    forside,
-    velgScenarie,
-    omDeg,
-    loggedInUserInfo,
     felles,
+    forside,
+    loggedInUserInfo,
+    omDeg,
+    omDenAvdoede,
     radiobuttons,
     utbetalingsInformasjon,
+    velgScenarie,
 }
 
 export default tekster
