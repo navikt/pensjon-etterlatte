@@ -5,12 +5,10 @@ import { hentAlder } from "../utils/dato";
 import { gyldigAlder } from "../utils/alder";
 import { useBrukerContext } from "../context/bruker/BrukerContext";
 import { useHistory } from "react-router-dom";
-import { useError } from "./useError";
 
 const useInnloggetBruker = () => {
     const history = useHistory();
 
-    const { setError } = useError();
     const { dispatch } = useBrukerContext();
     const [loading, setLoading] = useState(false);
 
@@ -33,7 +31,7 @@ const useInnloggetBruker = () => {
             })
             .catch(() => {
                 setLoading(false);
-                setError("Klarte ikke å hente brukerinformasjon. Vennligst prøv igjen senere.");
+                history.push("/system-utilgjengelig")
             })
             .finally(() => setLoading(false));
     }, []);

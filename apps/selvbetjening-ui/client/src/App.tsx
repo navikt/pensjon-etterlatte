@@ -9,6 +9,7 @@ import { useAmplitude } from "./utils/amplitude";
 import { useSoknadContext } from "./context/soknad/SoknadContext";
 import { useTranslation } from "react-i18next";
 import UtloeptSession from './components/felles/UtloeptSession'
+import SystemUtilgjengelig from "./components/SystemUtilgjengelig";
 
 const App = () => {
     useInnloggetBruker();
@@ -25,6 +26,8 @@ const App = () => {
                     <Redirect from={"/labs"} to={"/skjema/admin"} />
 
                     <Route path={"/ugyldig-alder"} component={UgyldigSoeker} />
+
+                    <Route path={"/system-utilgjengelig"} component={SystemUtilgjengelig} />
 
                     <Route exact path={["/", "/skjema/*"]} component={Soeknad} />
 
