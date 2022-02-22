@@ -512,8 +512,10 @@ export default {
   "systemUtilgjengelig.intro": "There seems to be an error in the application.",
   "systemUtilgjengelig.beskrivelse": "We apologize for the inconvenience and are working on solving the problem. We recommend you take a short break and try again later.",
   "systemUtilgjengelig.tilbakemelding": "If the error persists, you can report it here: ",
-  "systemUtilgjengelig.tilbakemeldingLenke": "https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler",
+  "systemUtilgjengelig.tilbakemeldingLenke": "www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler",
+  "systemUtilgjengelig.tilbakemeldingHref": "https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler",
   "systemUtilgjengelig.merOmYtelsene": "You can read more about survivors benefits here: ",
-  "systemUtilgjengelig.merOmYtelseneLenke": "https://www.nav.no/mistet-noen",
+  "systemUtilgjengelig.merOmYtelseneLenke": "www.nav.no/mistet-noen",
+  "systemUtilgjengelig.merOmYtelseneHref": "https://www.nav.no/mistet-noen",
   "systemUtilgjengelig.knappProevIgjen": "Try again",
 }

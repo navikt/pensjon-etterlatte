@@ -45,7 +45,7 @@ export default function SystemUtilgjengelig() {
                     {t('systemUtilgjengelig.tilbakemelding')}
                 </BodyLong>
 
-                <Link href={t('systemUtilgjengelig.tilbakemeldingLenke')}>
+                <Link href={t('systemUtilgjengelig.tilbakemeldingHref')}>
                     {t('systemUtilgjengelig.tilbakemeldingLenke')}
                 </Link>
             </SkjemaGruppe>
@@ -55,7 +55,7 @@ export default function SystemUtilgjengelig() {
                     {t('systemUtilgjengelig.merOmYtelsene')}
                 </BodyLong>
 
-                <Link href={t('systemUtilgjengelig.merOmYtelseneLenke')}>
+                <Link href={t('systemUtilgjengelig.merOmYtelseneHref')}>
                     {t('systemUtilgjengelig.merOmYtelseneLenke')}
                 </Link>
             </SkjemaGruppe>
