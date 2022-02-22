@@ -75,7 +75,9 @@ export const mockApi = (app: any) => {
   })
 
   app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
-    res.send('3600')
+    const date = new Date()
+    date.setHours(date.getHours() + 1)
+    res.send(`${date.getTime()}`)
   })
 
   app.get(`${config.app.basePath}/logout`, async (req: any, res: any) => {
