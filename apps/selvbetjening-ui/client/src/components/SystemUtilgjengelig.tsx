@@ -1,6 +1,6 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import Veileder from "nav-frontend-veileder";
-import ikon from "../assets/ikoner/veileder_3.svg";
+import ikon from "../assets/ikoner/veileder_2.svg";
 import { Alert, BodyLong, Button, Link } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { Spraakvalg } from "./felles/Spraakvalg";
