@@ -28,7 +28,7 @@ const parseDate = (dato?: Date | string) => {
     }
 }
 
-const isValid = (date: any): boolean => !!parseDate(date)
+// const isValid = (date: any): boolean => !!parseDate(date)
 
 const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, className }: DatepickerProps) => {
     const [value, setValue] = useState<string | undefined>()
