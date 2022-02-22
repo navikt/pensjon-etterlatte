@@ -6,7 +6,7 @@ const personalia = {
     postnummer: "0000",
     poststed: "Poststed-mock",
     statsborgerskap: "Statsborgerskap-mock",
-    sivilstatus: "Sivilstatus-mock"
+    sivilstatus: "GIFT"
 }
 
 export const SEDAT_RIPSBÆRBUSK = {
