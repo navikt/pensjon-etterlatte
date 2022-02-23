@@ -48,7 +48,7 @@ const InnloggetBruker = memo(() => {
                 <Cell xs={6}>
                     <div>
                         <Label>{t("felles.sivilstatus")}</Label>
-                        <BodyShort spacing>{state.sivilstatus}</BodyShort>
+                        <BodyShort spacing>{t(`pdl.sivilstatus.${state.sivilstatus}`)}</BodyShort>
                     </div>
 
                     <div>
