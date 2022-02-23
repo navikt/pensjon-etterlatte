@@ -209,7 +209,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                         name={"harBarnetVerge.fornavn"}
                                                         label={t("omBarn.harBarnetVerge.fornavn")}
                                                         rules={{ pattern: /^\D+$/ }}
-                                                        valgfri={true}
                                                     />
                                                 </Cell>
                                                 <Cell xs={12} md={6}>
@@ -217,7 +216,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                         name={"harBarnetVerge.etternavn"}
                                                         label={t("omBarn.harBarnetVerge.etternavn")}
                                                         rules={{ pattern: /^\D+$/ }}
-                                                        valgfri={true}
                                                     />
                                                 </Cell>
                                             </Grid>
@@ -226,7 +224,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                 bredde={"L"}
                                                 label={t("omBarn.harBarnetVerge.foedselsnummer")}
                                                 placeholder={t("omBarn.harBarnetVerge.foedselsnummerPlaceholder")}
-                                                valgfri={true}
                                             />
                                         </>
                                     )}
