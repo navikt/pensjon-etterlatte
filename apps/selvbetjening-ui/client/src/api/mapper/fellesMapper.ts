@@ -88,15 +88,15 @@ export const mapBarn = (
             type: PersonType.VERGE,
             fornavn: {
                 spoersmaal: t("felles.fornavn"),
-                svar: barn.harBarnetVerge!!.fornavn!!
+                svar: barn.harBarnetVerge!!.fornavn || "-"
             },
             etternavn: {
                 spoersmaal: t("felles.etternavn"),
-                svar: barn.harBarnetVerge!!.etternavn!!
+                svar: barn.harBarnetVerge!!.etternavn || "-"
             },
             foedselsnummer: {
                 spoersmaal: t("felles.foedselsnummer"),
-                svar: barn.harBarnetVerge!!.foedselsnummer!!
+                svar: barn.harBarnetVerge!!.foedselsnummer || "-"
             },
         } : undefined;
 
