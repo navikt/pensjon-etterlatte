@@ -38,9 +38,9 @@ export enum OmsorgspersonType {
 
 export interface Person {
     type: PersonType;
-    fornavn: Opplysning<String>;
-    etternavn: Opplysning<String>;
-    foedselsnummer: Opplysning<Foedselsnummer>;
+    fornavn?: Opplysning<String>;
+    etternavn?: Opplysning<String>;
+    foedselsnummer?: Opplysning<Foedselsnummer>;
 }
 
 export interface Innsender extends Person {
@@ -124,10 +124,11 @@ export interface Avdoed extends Person {
 }
 
 export interface Verge extends Person {
-    fornavn: Opplysning<String>;
-    etternavn: Opplysning<String>;
-    foedselsnummer: Opplysning<Foedselsnummer>;
     type: PersonType.VERGE;
+
+    fornavn?: Opplysning<String>;
+    etternavn?: Opplysning<String>;
+    foedselsnummer?: Opplysning<Foedselsnummer>;
 }
 
 export interface Samboer extends Person {

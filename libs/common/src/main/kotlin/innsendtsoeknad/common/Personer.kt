@@ -11,7 +11,6 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.Utenlandsopphold
 import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.GjenlevendeForelder
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevende
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import java.time.LocalDate
 
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
@@ -30,9 +29,9 @@ import java.time.LocalDate
 )
 interface Person {
     val type: PersonType
-    val fornavn: Opplysning<String>
-    val etternavn: Opplysning<String>
-    val foedselsnummer: Opplysning<Foedselsnummer>
+    val fornavn: Opplysning<String>?
+    val etternavn: Opplysning<String>?
+    val foedselsnummer: Opplysning<Foedselsnummer>?
 }
 
 enum class PersonType {
@@ -94,9 +93,9 @@ data class Avdoed(
 }
 
 data class Verge(
-    override val fornavn: Opplysning<String>,
-    override val etternavn: Opplysning<String>,
-    override val foedselsnummer: Opplysning<Foedselsnummer>,
+    override val fornavn: Opplysning<String>? = null,
+    override val etternavn: Opplysning<String>? = null,
+    override val foedselsnummer: Opplysning<Foedselsnummer>? = null,
 ) : Person {
     override val type = PersonType.VERGE
 }

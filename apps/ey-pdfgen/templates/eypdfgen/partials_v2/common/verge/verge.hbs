@@ -18,7 +18,9 @@
             {{#with this.opplysning}}
                 {{capitalize_names this.fornavn.svar}}
                 {{capitalize_names this.etternavn.svar}}
-                ({{this.foedselsnummer.svar}})
+                {{#if this.foedselsnummer.svar}}
+                    ({{this.foedselsnummer.svar}})
+                {{/if}}
             {{/with}}
         </div>
     </div>
