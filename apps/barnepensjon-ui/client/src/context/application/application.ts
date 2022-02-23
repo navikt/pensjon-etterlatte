@@ -1,12 +1,14 @@
 import { JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
 
 export interface IApplication {
+    aboutChildren?: any
     aboutYou?: any
     firstParent?: Parent
     secondParent?: Parent
 }
 
 export enum ActionTypes {
+    UPDATE_ABOUT_CHILDREN,
     UPDATE_ABOUT_YOU,
     UPDATE_FIRST_PARENT,
     UPDATE_SECOND_PARENT,
