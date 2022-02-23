@@ -7,6 +7,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.BankkontoType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.ForholdTilAvdoede
 import no.nav.etterlatte.libs.common.innsendtsoeknad.ForholdTilAvdoedeType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.HoeyesteUtdanning
+import no.nav.etterlatte.libs.common.innsendtsoeknad.IngenJobb
 import no.nav.etterlatte.libs.common.innsendtsoeknad.InntektType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.JobbStatusType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Kontaktinfo
@@ -188,7 +189,7 @@ object InnsendtSoeknadFixtures {
                         sluttDato = Opplysning(DatoSvar(LocalDate.now().plusYears(2)))
                     )
                 ),
-                annet = Opplysning(FritekstSvar("Driver med mye på fritiden"))
+                annet = Opplysning(EnumSvar(innhold = "Annet", verdi = IngenJobb.ANNET))
             ),
             fullfoertUtdanning = BetingetOpplysning(
                 svar = EnumSvar(HoeyesteUtdanning.ANNEN, "Annen"),

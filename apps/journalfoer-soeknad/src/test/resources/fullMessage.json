@@ -269,7 +269,8 @@
         },
         "annet": {
           "svar": {
-            "innhold": "Driver med mye på fritiden"
+            "innhold": "Er syk",
+            "verdi": "SYK"
           },
           "spoersmaal": null
         }

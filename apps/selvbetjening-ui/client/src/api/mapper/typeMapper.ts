@@ -1,8 +1,9 @@
 import { JobbStatus, Utdanning as GammelUtdanning } from "../../typer/situasjon";
-import { StillingType as GammelStillingType } from "../../typer/arbeidsforhold";
+import { IngenJobb, StillingType as GammelStillingType } from "../../typer/arbeidsforhold";
 import {
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
+    IngenJobbType,
     InntektType,
     JobbStatusType,
     OppholdUtlandType,
@@ -153,3 +154,22 @@ export const konverterOpphold = (type: GammelOppholdUtlandType): OppholdUtlandTy
             throw Error(`Ukjent type opphold utland: ${type}`);
     }
 };
+
+export const konverterIngenJobb = (type: IngenJobb): IngenJobbType => {
+    switch (type) {
+        case IngenJobb.omsorgNaerstaaende:
+            return IngenJobbType.OMSORG_NAERSTAAENDE
+        case IngenJobb.etablererBedrift:
+            return IngenJobbType.ETABLERER_BEDRIFT
+        case IngenJobb.omsorgBarn:
+            return IngenJobbType.OMSORG_BARN
+        case IngenJobb.syk:
+            return IngenJobbType.SYK
+        case IngenJobb.annet:
+            return IngenJobbType.ANNET
+        case IngenJobb.frivilligArbeid:
+            return IngenJobbType.FRIVILLIG_ARBEID
+        case IngenJobb.hjemmearbeidende:
+            return IngenJobbType.HJEMMEARBEIDEND
+    }
+}

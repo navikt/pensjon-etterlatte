@@ -1,13 +1,13 @@
 package no.nav.etterlatte.libs.common.innsendtsoeknad
 
-import com.fasterxml.jackson.annotation.JsonValue
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonValue
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.BetingetOpplysning
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.FritekstSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.DatoSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.EnumSvar
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.FritekstSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
 
 data class Utenlandsadresse(
     val land: Opplysning<FritekstSvar>,
@@ -34,6 +34,16 @@ enum class InntektType { ARBEIDSINNTEKT, PENSJON, KAPITALINNTEKT, ANDRE_YTELSER 
 enum class ForholdTilAvdoedeType { GIFT, SEPARERT, SAMBOER, SKILT, TIDLIGERE_SAMBOER }
 enum class OppholdUtlandType { BODD, ARBEIDET }
 enum class JobbStatusType { ARBEIDSTAKER, SELVSTENDIG, UNDER_UTDANNING, ARBEIDSSOEKER, INGEN }
+enum class IngenJobb {
+    HJEMMEARBEIDENDE,
+    OMSORG_BARN,
+    OMSORG_NAERSTAAENDE,
+    FRIVILLIG_ARBEID,
+    ETABLERER_BEDRIFT,
+    SYK,
+    ANNET
+}
+
 enum class StillingType { FAST, MIDLERTIDIG, SESONGARBEID }
 enum class OmsorgspersonType { GJENLEVENDE, VERGE, ANNET }
 enum class SivilstatusType { ENSLIG, EKTESKAP, SAMBOERSKAP }
@@ -78,7 +88,7 @@ data class ArbeidOgUtdanning(
     val arbeidsforhold: Opplysning<List<Arbeidstaker>>?,
     val selvstendig: Opplysning<List<SelvstendigNaeringsdrivende>>?,
     val utdanning: Opplysning<Utdanning>?,
-    val annet: Opplysning<FritekstSvar>?,
+    val annet: Opplysning<EnumSvar<IngenJobb>>?,
 )
 
 data class Utdanning(
