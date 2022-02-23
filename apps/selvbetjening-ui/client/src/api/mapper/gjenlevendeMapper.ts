@@ -7,19 +7,23 @@ import {
     ArbeidOgUtdanning,
     Arbeidstaker,
     BetingetOpplysning,
+    DatoSvar,
+    EnumSvar,
     ForholdTilAvdoede,
     ForholdTilAvdoedeType,
+    FritekstSvar,
     HoeyesteUtdanning,
     InntektType,
+    JaNeiVetIkke,
     Kontaktinfo,
     OppholdUtland,
     Opplysning,
     SamboerInntekt,
     SelvstendigNaeringsdrivende,
     SivilstatusType,
-    JaNeiVetIkke,
+    Stoenader,
     Utdanning,
-    Ytelser, EnumSvar, FritekstSvar, DatoSvar
+    Ytelser
 } from "../dto/FellesOpplysninger";
 import { Gjenlevende, PersonType, Samboer } from "../dto/Person";
 import { valgTilSvar } from "./fellesMapper";
@@ -125,6 +129,52 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         forholdTilAvdoede: mapForholdTilAvdoede(t, soeknad.omDegOgAvdoed.forholdTilAvdoede!!)
     }
 };
+
+export const mapStoenader = (t: TFunction, soeknad: ISoeknad): Opplysning<EnumSvar<Stoenader>>[] => {
+    const stoenader: Opplysning<EnumSvar<Stoenader>>[] = [];
+
+    if (soeknad.dinSituasjon.utdanning?.soeknadOmSkolepenger) {
+        stoenader.push({
+            spoersmaal: t("dinSituasjon.utdanning.soeknadOmSkolepenger"),
+            svar: {
+                innhold: t("dinSituasjon.utdanning.soeknadOmSkolepenger.bekreftelse"),
+                verdi: Stoenader.SKOLEPENGER
+            }
+        })
+    }
+
+    if (soeknad.dinSituasjon.utdanning?.soeknadOmTilleggsstoenadUtdanning) {
+        stoenader.push({
+            spoersmaal: t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning"),
+            svar: {
+                innhold: t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
+                verdi: Stoenader.TILLEGGSSTOENAD_UTDANNING
+            }
+        })
+    }
+
+    if (soeknad.opplysningerOmBarn.soeknadOmBarnetilsyn) {
+        stoenader.push({
+            spoersmaal: t("omBarn.soeknadOmBarnetilsyn"),
+            svar: {
+                innhold: t("omBarn.soeknadOmBarnetilsyn.bekreftelse"),
+                verdi: Stoenader.BARNETILSYN
+            }
+        })
+    }
+
+    if (soeknad.opplysningerOmBarn.soeknadOmTilleggsstoenadBarnepass) {
+        stoenader.push({
+            spoersmaal: t("omBarn.soeknadOmTilleggsstoenadBarnepass"),
+            svar: {
+                innhold: t("omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse"),
+                verdi: Stoenader.TILLEGGSSTOENAD_BARNEPASS
+            }
+        })
+    }
+
+    return stoenader;
+}
 
 const hentOppholdUtland = (t: TFunction, omDeg: ISoeker): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland> => {
     let opplysning: OppholdUtland | undefined;

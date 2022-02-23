@@ -25,6 +25,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Spraak
+import no.nav.etterlatte.libs.common.innsendtsoeknad.Stoenader
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.EnumSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.FritekstSvar
 import java.time.LocalDateTime
@@ -39,7 +40,8 @@ data class Gjenlevendepensjon(
     override val utbetalingsInformasjon: BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon>?,
 
     val avdoed: Avdoed,
-    val barn: List<Barn>
+    val barn: List<Barn>,
+    val andreStoenader: List<Opplysning<EnumSvar<Stoenader>>>?
 ) : InnsendtSoeknad {
     override val versjon = "2"
     override val type: SoeknadType = SoeknadType.GJENLEVENDEPENSJON

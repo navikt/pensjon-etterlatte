@@ -1,5 +1,6 @@
-import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "./arbeidsforhold";
+import { IArbeidsforhold, IngenJobb, ISelvstendigNaeringsdrivende } from "./arbeidsforhold";
 import { IAndreYtelser } from "./ytelser";
+import {IValg} from "./Spoersmaal";
 
 export interface IUtdanning {
     naavaerendeUtdanning?: {
@@ -7,6 +8,8 @@ export interface IUtdanning {
         startDato?: Date;
         sluttDato?: Date;
     };
+    soeknadOmSkolepenger?: IValg.JA | undefined;
+    soeknadOmTilleggsstoenadUtdanning?: IValg.JA | undefined;
     hoyesteFullfoerteUtdanning?: string;
     annenUtdanning?: string;
 }
@@ -25,12 +28,13 @@ export enum JobbStatus {
     arbeidstaker = "jobbStatus.arbeidstaker",
     selvstendig = "jobbStatus.selvstendig",
     underUtdanning = "jobbStatus.underUtdanning",
+    arbeidssoeker = "jobbStatus.arbeidssoker",
     ingen = "jobbStatus.ingen",
 }
 
 export interface ISituasjon {
     jobbStatus?: JobbStatus[];
-    ingenJobbBeskrivelse?: string;
+    ingenJobbBeskrivelse?: IngenJobb;
     utdanning?: IUtdanning;
     selvstendig?: ISelvstendigNaeringsdrivende[];
     arbeidsforhold?: IArbeidsforhold[];

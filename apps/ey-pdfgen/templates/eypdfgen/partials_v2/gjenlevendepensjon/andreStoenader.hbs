@@ -1,0 +1,15 @@
+{{#eq spraak "en"}}
+   <h2>Information about other benefits</h2>
+   <p><i>You may be entitled to the following benefits (requires a separate application)</i></p>
+{{else}}
+    <h2>Informasjon om andre stønader</h2>
+    {{#eq spraak "nn"}}
+        <p><i>Du kan ha rett på følgande stønader (krev eigen søknad)</i></p>
+    {{else}}
+        <p><i>Du kan ha rett på følgende stønader (krever egen søknad)</i></p>
+    {{/eq}}
+{{/eq}}
+
+{{#each this as | stoenad | }}
+    {{> eypdfgen/partials_v2/common/opplysning stoenad}}
+{{/each}}

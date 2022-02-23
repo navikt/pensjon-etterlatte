@@ -15,6 +15,7 @@ import { Alert, BodyShort, Button, Modal, Panel, Heading } from "@navikt/ds-reac
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import { deepCopy } from "../../../utils/deepCopy";
+import AndreStoenader from "./AndreStoenader";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root"); //Denne er også definert i Navigasjon. Trenger vi den?
 
@@ -134,6 +135,8 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                         </div>
                     </SkjemaGruppe>
                     <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
+
+                    <AndreStoenader soeknad={state} barn={registrerteBarn} />
 
                     <Navigasjon
                         forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}

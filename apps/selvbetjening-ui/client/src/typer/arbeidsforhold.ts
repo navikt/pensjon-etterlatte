@@ -31,6 +31,8 @@ export enum IngenJobb {
     omsorgBarn = "dinSituasjon.ingenJobb.omsorgBarn",
     omsorgNaerstaaende = "dinSituasjon.ingenJobb.omsorgNaerstaaende",
     frivilligArbeid = "dinSituasjon.ingenJobb.frivilligArbeid",
+    etablererBedrift = "dinSituasjon.ingenJobb.etablererBedrift",
+    syk = "dinSituasjon.ingenJobb.syk",
     annet = "dinSituasjon.ingenJobb.annet",
 }
 

@@ -33,7 +33,7 @@ enum class BankkontoType { NORSK, UTENLANDSK }
 enum class InntektType { ARBEIDSINNTEKT, PENSJON, KAPITALINNTEKT, ANDRE_YTELSER }
 enum class ForholdTilAvdoedeType { GIFT, SEPARERT, SAMBOER, SKILT, TIDLIGERE_SAMBOER }
 enum class OppholdUtlandType { BODD, ARBEIDET }
-enum class JobbStatusType { ARBEIDSTAKER, SELVSTENDIG, UNDER_UTDANNING, INGEN }
+enum class JobbStatusType { ARBEIDSTAKER, SELVSTENDIG, UNDER_UTDANNING, ARBEIDSSOEKER, INGEN }
 enum class StillingType { FAST, MIDLERTIDIG, SESONGARBEID }
 enum class OmsorgspersonType { GJENLEVENDE, VERGE, ANNET }
 enum class SivilstatusType { ENSLIG, EKTESKAP, SAMBOERSKAP }
@@ -126,6 +126,13 @@ enum class Ytelser {
     FOSTERHJEMSGODTGJOERING,
     OMSORGSPENGER,
     OPPLAERINGSPENGER
+}
+
+enum class Stoenader {
+    BARNETILSYN,
+    SKOLEPENGER,
+    TILLEGGSSTOENAD_BARNEPASS,
+    TILLEGGSSTOENAD_UTDANNING
 }
 
 typealias Pensjonsordning = FritekstSvar

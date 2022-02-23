@@ -640,5 +640,35 @@
         }
       }
     }
+  ],
+  "andreStoenader": [
+    {
+      "spoersmaal": "Informasjon om stønad til skolepenger",
+      "svar": {
+        "innhold": "Jeg har utgifter til skolepenger",
+        "verdi": "SKOLEPENGER"
+      }
+    },
+    {
+      "spoersmaal": "Informasjon om tilleggsstønad til skoleutgifter",
+      "svar": {
+        "innhold": "Jeg har utgifter til utdanning",
+        "verdi": "BARNETILSYN"
+      }
+    },
+    {
+      "spoersmaal": "Informasjon om stønad til barnetilsyn ",
+      "svar": {
+        "innhold": "Jeg har utgifter til barnetilsyn",
+        "verdi": "TILLEGGSSTOENAD_BARNEPASS"
+      }
+    },
+    {
+      "spoersmaal": "Informasjon om tilleggsstønad til pass av barn",
+      "svar": {
+        "innhold": "Jeg har utgifter til pass av barn",
+        "verdi": "TILLEGGSSTOENAD_UTDANNING"
+      }
+    }
   ]
 }
