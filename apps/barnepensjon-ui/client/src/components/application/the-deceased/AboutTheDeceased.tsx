@@ -1,90 +1,144 @@
-import { useState } from 'react'
 import FormGroup from '../../common/FormGroup'
 import StepHeading from '../../common/StepHeading'
-import { Radio, RadioGroup, Select, TextField, Cell, Grid, Label, BodyLong, Heading } from '@navikt/ds-react'
+import { BodyLong, Cell, Grid, Heading, Label } from '@navikt/ds-react'
 import useTranslation from '../../../hooks/useTranslation'
+import { RHFFoedselsnummerInput, RHFInput } from '../../common/rhf/RHFInput'
+import { RHFSelect } from '../../common/rhf/RHFSelect'
+import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import { FormProvider, useForm } from 'react-hook-form'
 import DatePicker from '../../common/DatePicker'
+import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
+import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import WhyWeAsk from '../../common/WhyWeAsk'
-import { v4 as uuid } from 'uuid'
-
-const selectOptions = [
-    { value: '', label: 'Velg land' },
-    { value: 'norge', label: 'Norge' },
-    { value: 'sverige', label: 'Sverige' },
-]
+import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import Navigation from '../../common/Navigation'
+import useCountries from '../../../hooks/useCountries'
+import SelfEmploymentDetails from './SelfEmploymentDetails'
+import { ActionTypes, DeceasedParent } from '../../../context/application/application'
 
 export default function AboutTheDeceased() {
-    const [typeOfBankAccount, setTypeOfBankAccount] = useState<string>('')
-    const { t } = useTranslation('omDenAvdoede')
+    const { t } = useTranslation('aboutTheDeceased')
+    const { state, dispatch } = useApplicationContext()
+    const { countries }: { countries: any } = useCountries()
+
+    const save = (data: DeceasedParent) => {
+        dispatch({ type: ActionTypes.UPDATE_FIST_PARENT, payload: { ...data } })
+    }
+
+    const methods = useForm<any>({
+        defaultValues: state.aboutYou || {},
+        shouldUnregister: true,
+    })
+
+    const {
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = methods
+
+    const wasSelfEmployed = watch('selfEmplyment.wasSelfEmployed')
+    const completedMilitaryService = watch('militaryService.completed')
 
     return (
-        <FormGroup>
-            <StepHeading>Om den avdøde</StepHeading>
-            <FormGroup>
-                <Label>{t('hvem')}</Label>
-
-                <Grid>
-                    <Cell xs={12} md={6}>
-                        <TextField name={'omDenAvdoede.fornavn'} label={t('fornavn')} />
-                    </Cell>
-
-                    <Cell xs={12} md={6}>
-                        <TextField name={'omDenAvdoede.etternavn'} label={t('etternavn')} />
-                    </Cell>
-                </Grid>
-                <Grid>
-                    <Cell xs={12} md={6}>
-                        <TextField
-                            name={'omDenAvdoede.fnrDnr'}
-                            label={t('fnrDnr')}
-                            placeholder={t('fnrDnr.placeholder')}
-                        />
-                    </Cell>
-
-                    <Cell xs={12} md={6}>
-                        <Select label={t('statsborgerskap')}>
-                            {selectOptions.map((option) => (
-                                <option key={uuid()} value={option.value}>
-                                    {option.label}
-                                </option>
-                            ))}
-                        </Select>
-                    </Cell>
-                </Grid>
-            </FormGroup>
-            <FormGroup>
-                <Label>{t('datoForDoedsfallet')}</Label>
-                <DatePicker name={'avdoed.datoForDoedsfallet'} label={t('dato')} maxDate={new Date()} />
-            </FormGroup>
-
-            <FormGroup>
-                <RadioGroup
-                    legend={t('doedsfallAarsak')}
-                    value={typeOfBankAccount}
-                    onChange={(value: string) => setTypeOfBankAccount(value)}
-                    description={<WhyWeAsk title="omAvdoede.doedsfallAarsak">{t('doedsfallAarsakHvorfor')}</WhyWeAsk>}
-                >
-                    <Radio value={t('ja')}>{t('ja')}</Radio>
-                    <Radio value={t('nei')}>{t('nei')}</Radio>
-                    <Radio value={t('vetIkke')}>{t('vetIkke')}</Radio>
-                </RadioGroup>
-            </FormGroup>
-
-            <FormGroup>
+        <FormProvider {...methods}>
+            <form>
                 <FormGroup>
-                    <Heading size="small">{t('boddEllerJobbetUtland.tittel')}</Heading>
-                    <BodyLong>{t('boddEllerJobbetUtland.ingress')}</BodyLong>
+                    <StepHeading>{t('title')}</StepHeading>
+
+                    <FormGroup>
+                        <Label>{t('who')}</Label>
+
+                        <Grid>
+                            <Cell xs={12} md={6}>
+                                <RHFInput name={'firstName'} label={t('firstName')} />
+                            </Cell>
+
+                            <Cell xs={12} md={6}>
+                                <RHFInput name={'lastName'} label={t('lastName')} />
+                            </Cell>
+                        </Grid>
+                        <Grid>
+                            <Cell xs={12} md={6}>
+                                <RHFFoedselsnummerInput
+                                    name={'fnrDnr'}
+                                    label={t('fnrDnr')}
+                                    placeholder={t('fnrDnr.placeholder')}
+                                />
+                            </Cell>
+
+                            <Cell xs={12} md={6}>
+                                <RHFSelect name={`citizenship`} label={t('citizenship')} selectOptions={countries} />
+                            </Cell>
+                        </Grid>
+                    </FormGroup>
+
+                    <FormGroup>
+                        <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Heading size="small">{t('abroadStays.title')}</Heading>
+                        <BodyLong>{t('abroadStays.ingress')}</BodyLong>
+                        <br />
+                        <RHFGeneralQuestionRadio
+                            name={'abroadStays.hasStaysAbroad'}
+                            legend={t('abroadStays.hasStaysAbroad')}
+                            vetIkke={true}
+                        />
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Heading size="small">{t('selfEmplyment.title')}</Heading>
+                        <BodyLong>{t('selfEmplyment.ingress')}</BodyLong>
+                        <br />
+                        <RHFGeneralQuestionRadio
+                            name={'selfEmplyment.wasSelfEmployed'}
+                            legend={t('selfEmplyment.wasSelfEmployed')}
+                            vetIkke={true}
+                        />
+
+                        {wasSelfEmployed === JaNeiVetIkke.JA && <SelfEmploymentDetails />}
+                    </FormGroup>
+
+                    <FormGroup>
+                        {/* Næringsinntekt og militærtjeneste er kun relevant dersom begge foreldrene er døde. */}
+                        <Heading size="small">{t('other.title')}</Heading>
+
+                        <FormGroup>
+                            <RHFGeneralQuestionRadio
+                                name={'occupationalInjury'}
+                                legend={t('occupationalInjury')}
+                                vetIkke={true}
+                                description={
+                                    <WhyWeAsk title="occupationalInjury">{t('occupationalInjury.why')}</WhyWeAsk>
+                                }
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <RHFGeneralQuestionRadio
+                                name={'militaryService.completed'}
+                                legend={t('militaryService.completed')}
+                                vetIkke={true}
+                                description={<WhyWeAsk title="militaryService">{t('militaryService.why')}</WhyWeAsk>}
+                            />
+                        </FormGroup>
+
+                        {completedMilitaryService === JaNeiVetIkke.JA && (
+                            <FormGroup>
+                                <RHFInput
+                                    name={'militaryService.period'}
+                                    label={t('militaryService.period')}
+                                    valgfri={true}
+                                />
+                            </FormGroup>
+                        )}
+                    </FormGroup>
                 </FormGroup>
-                <RadioGroup
-                    legend={t('boddEllerJobbetUtland.svar')}
-                    value={typeOfBankAccount}
-                    onChange={(value: string) => setTypeOfBankAccount(value)}
-                >
-                    <Radio value={t('ja')}>{t('ja')}</Radio>
-                    <Radio value={t('nei')}>{t('nei')}</Radio>
-                    <Radio value={t('vetIkke')}>{t('vetIkke')}</Radio>
-                </RadioGroup>
-            </FormGroup>
-        </FormGroup>
+
+                <ErrorSummaryWrapper errors={errors} />
+
+                <Navigation next={handleSubmit(save)} />
+            </form>
+        </FormProvider>
     )
 }

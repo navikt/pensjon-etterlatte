@@ -73,25 +73,34 @@ const omDeg = {
     nei: 'Nei',
 }
 
-const omDenAvdoede = {
-    hvem: 'Hvem er det som er død?',
-    fornavn: 'Fornavn',
-    etternavn: 'Etternavn',
-    datoForDoedsfallet: 'Når skjedde dødsfallet?',
-    dato: 'Dato',
-    doedsfallAarsak: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
-    doedsfallAarsakHvorfor:
-        'Hvis dødsfallet skyldes godkjent yrkesskade eller yrkessykdom kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
-    ja: 'Ja',
-    nei: 'Nei',
-    vetIkke: 'Vet ikke',
-    'boddEllerJobbetUtland.tittel': 'Opphold utenfor Norge',
-    'boddEllerJobbetUtland.ingress':
+const aboutTheDeceased = {
+    title: 'Om den avdøde',
+    who: 'Hvem er det som er død?',
+    firstName: 'Fornavn',
+    lastName: 'Etternavn',
+    dateOfDeath: 'Når skjedde dødsfallet?',
+    'abroadStays.title': 'Opphold utenfor Norge',
+    'abroadStays.ingress':
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.',
-    'boddEllerJobbetUtland.svar': 'Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?',
+    'abroadStays.hasStaysAbroad': 'Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?',
     fnrDnr: 'Fødselsnummer / d-nummer',
     'fnrDnr.placeholder': '11 siffer',
-    statsborgerskap: 'Statsborgerskap',
+    citizenship: 'Statsborgerskap',
+    'selfEmplyment.title': 'Næringsinntekt',
+    'selfEmplyment.ingress':
+        'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i gjenlevendepensjon. Vi henter informasjon om andre inntekter.',
+    'selfEmplyment.wasSelfEmployed': 'Var han eller hun selvstendig næringsdrivende?',
+    'selfEmplyment.selfEmplymentDetails.income': 'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
+    'selfEmplyment.selfEmplymentDetails.income.placeholder': 'Samlet årsinntekt før skatt',
+    'selfEmplyment.selfEmplymentDetails.incomeAtDeath': 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
+    'other.title': 'Annet',
+    occupationalInjury: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
+    'occupationalInjury.why':
+        'Hvis dødsfallet skyldes godkjent yrkesskade eller yrkessykdom kan det avgjøre hvor mye du kan få.',
+    'militaryService.completed':
+        'Har han eller hun gjennomført militær eller sivil førstegangstjeneste som varte minst 30 dager?',
+    'militaryService.why': 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',
+    'militaryService.period': 'Hvilke(-t) år? (valgfri)',
 }
 
 const loggedInUserInfo = {
@@ -146,7 +155,7 @@ const tekster = {
     forside,
     loggedInUserInfo,
     omDeg,
-    omDenAvdoede,
+    aboutTheDeceased,
     radiobuttons,
     utbetalingsInformasjon,
     velgScenarie,
