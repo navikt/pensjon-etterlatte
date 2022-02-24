@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import React, { memo, useEffect, useState } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { Alert, BodyLong, Heading } from "@navikt/ds-react";
+import { Alert, BodyLong, Heading, Link } from "@navikt/ds-react";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
@@ -94,7 +94,12 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
             {error && (
                 <SkjemaGruppe>
-                    <Alert variant={"error"}>{t("oppsummering.feilVedSending")}</Alert>
+                    <Alert variant={"error"}>
+                        {t("oppsummering.feilVedSending")}
+                        <Link href={t("oppsummering.feilVedSending.href")}>
+                            {t("oppsummering.feilVedSending.tittel")}
+                        </Link>
+                    </Alert>
                 </SkjemaGruppe>
             )}
 
