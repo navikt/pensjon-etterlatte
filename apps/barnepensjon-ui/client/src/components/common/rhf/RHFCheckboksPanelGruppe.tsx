@@ -17,7 +17,7 @@ interface RHFCheckboksPanelGruppeProps extends Omit<SkjemaGruppeProps, 'onChange
 }
 
 export function RHFCheckboksPanelGruppe({ name, checkboxes, ...rest }: RHFCheckboksPanelGruppeProps) {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
 
     const {
         control,
@@ -93,7 +93,7 @@ interface RHFCheckboksGruppeProps extends Omit<SkjemaGruppeProps, 'onChange' | '
 }
 
 export function RHFCheckboksGruppe({ name, checkboxes, ...rest }: RHFCheckboksGruppeProps) {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
 
     const {
         control,

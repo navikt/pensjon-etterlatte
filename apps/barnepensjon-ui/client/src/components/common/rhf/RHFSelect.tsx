@@ -21,7 +21,7 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: SelectProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
 
     const {
         control,

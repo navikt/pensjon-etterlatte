@@ -13,14 +13,14 @@ const SelectWrapper = styled.div`
 export default function LanguageSelect() {
     const { language, updateLanguage } = useLanguageContext()
 
-    const { t } = useTranslation()
+    const { t } = useTranslation('felles')
 
     return (
         <SelectWrapper>
             <Select
                 onChange={(e) => updateLanguage(e.target.value as Language)}
                 value={language}
-                label={t('felles.spraakValg')}
+                label={t('velgSpraak')}
             >
                 <option value={Language.BOKMAAL}>Bokmål</option>
                 <option value={Language.NYNORSK}>Nynorsk</option>

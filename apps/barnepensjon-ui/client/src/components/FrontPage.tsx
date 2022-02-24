@@ -18,7 +18,7 @@ export default function FrontPage() {
     return (
         <div className={'forside'}>
             <FormGroup>
-                <NavGuide>{t('hei', [fornavn, etternavn])}</NavGuide>
+                <NavGuide>{t('hei', { fornavn, etternavn })}</NavGuide>
             </FormGroup>
 
             <FormGroup>
@@ -107,7 +107,7 @@ export default function FrontPage() {
                 <ConfirmationPanel
                     checked={false}
                     onChange={() => ''}
-                    label={t('samtykke.bekreftelse', [fornavn, etternavn])}
+                    label={t('samtykke.bekreftelse', { fornavn, etternavn })}
                     size="medium"
                 />
             </FormGroup>

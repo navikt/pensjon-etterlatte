@@ -14,14 +14,14 @@ import { BankkontoType, JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger
 import { RHFSelect } from '../../common/rhf/RHFSelect'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
 import LoggedInUserInfo from './LoggedInUserInfo'
-import { useLand } from '../../../hooks/useLand'
 import PaymentDetails from './PaymentDetails'
+import useCountries from '../../../hooks/useCountries'
 
 export default function AboutYou() {
     const { t } = useTranslation('omDeg')
     const { state, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
-    const { land } = useLand()
+    const { countries } = useCountries()
 
     const lagre = (data: any) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
@@ -38,8 +38,6 @@ export default function AboutYou() {
         watch,
         formState: { errors },
     } = methods
-
-    const skalSjekkeFlyktningStatus = user.foedselsaar!! < 1960
 
     const borPaaRegistrertAdresse = watch('bostedsadresseBekreftet')
     const oppholderSegINorge = watch('oppholderSegINorge')
@@ -110,7 +108,7 @@ export default function AboutYou() {
                                             className="kol-50"
                                             name={`oppholdsland`}
                                             label={t('oppholdsland')}
-                                            selectOptions={land as any[]}
+                                            selectOptions={countries as any[]}
                                         />
                                     </SkjemaGruppe>
 
@@ -123,16 +121,6 @@ export default function AboutYou() {
                                 </>
                             )}
                         </>
-                    )}
-
-                    {skalSjekkeFlyktningStatus && (
-                        <SkjemaGruppe>
-                            <RHFGeneralQuestionRadio
-                                name={'flyktning'}
-                                legend={t('flyktning')}
-                                description={<WhyWeAsk title="flyktning">{t('flyktningHvorfor')}</WhyWeAsk>}
-                            />
-                        </SkjemaGruppe>
                     )}
 
                     <br />

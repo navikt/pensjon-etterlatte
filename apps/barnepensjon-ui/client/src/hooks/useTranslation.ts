@@ -1,54 +1,22 @@
-import { useEffect, useState } from 'react'
-import nb from '../locales/nb'
-import nn from '../locales/nn'
-import en from '../locales/en'
 import { useLanguageContext } from '../context/language/LanguageContext'
-import { Language } from '../context/language/language'
+import { Namespace, TKey, TMeta, Translation } from '../context/language/translations'
 
-type TKey = string
-type Namespace = string
-export type TFunction = (key: TKey, meta?: (string | undefined)[]) => string
+export type TFunction = (key: TKey, meta?: TMeta) => Translation
 
-export default function useTranslation(ns?: Namespace) {
-    const { language } = useLanguageContext()
+export default function useTranslation(ns: Namespace) {
+    const { translations } = useLanguageContext()
 
-    const [translations, setTranslations] = useState<Record<Namespace, Record<TKey, any>>>(nb)
-
-    useEffect(() => {
-        if (language === Language.NYNORSK) setTranslations(nn)
-        else if (language === Language.ENGELSK) setTranslations(en)
-        else setTranslations(nb)
-    }, [language])
-
-    const translate = (key: TKey): string => {
-        if (!ns) {
-            const values = key.split(':')
-
-            if (values.length > 1) {
-                const ns = values[0]
-                const key = values[1]
-
-                return translations[ns][key]
-            } else {
-                return '' // Namespace missing. Returning empty string.
-            }
-        }
-
-        // @ts-ignore
-        return translations[ns][key]
-    }
-
-    const t: TFunction = (key: TKey, meta?: (string | undefined)[]): string => {
+    const t: TFunction = (key: TKey, meta?: TMeta): Translation => {
         try {
-            let translation = translate(key)
+            let translation: Translation = translations[meta?.ns || ns][key]
 
-            meta?.forEach((entry) => {
-                translation = translation.replace(`{}`, entry || '')
+            Object.entries(meta || {})?.forEach((entry) => {
+                translation = translation.replace(`{${entry[0]}}`, entry[1] || '')
             })
 
-            return translation
+            return translation || key
         } catch {
-            return ''
+            return key
         }
     }
 

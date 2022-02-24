@@ -62,14 +62,13 @@ export const RHFInlineRadio = ({
     description?: ReactNode
     radios: RadioPanelProps[]
 }) => {
-    const { t } = useTranslation('radiobuttons')
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
     } = useFormContext()
 
     const error: FieldError = get(errors, name)
-    const errorTekst = getErrorKey(error)
 
     return (
         <div id={name}>
@@ -80,7 +79,7 @@ export const RHFInlineRadio = ({
                 render={({ field: { value, onChange, name } }) => (
                     <InlineRadioPanelGroup
                         name={name}
-                        feil={error && t(errorTekst)}
+                        feil={error && t(getErrorKey(error))}
                         legend={legend}
                         description={description}
                         radios={radios}

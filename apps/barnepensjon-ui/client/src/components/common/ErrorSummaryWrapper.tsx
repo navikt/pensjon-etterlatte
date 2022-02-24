@@ -22,6 +22,7 @@ const konverterFeilmeldinger = (errors: FieldErrors, t: TFunction): Feil[] => {
     return getFieldErrors(errors)
         .filter((error) => !!error)
         .map((error) => {
+            console.log(t(getErrorKey(error)))
             return {
                 skjemaelementId: error.ref!!.name,
                 feilmelding: t(getErrorKey(error)),

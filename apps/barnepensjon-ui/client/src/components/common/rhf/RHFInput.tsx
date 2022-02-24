@@ -22,7 +22,7 @@ interface RHFProps extends Omit<InputProps, 'name'> {
 }
 
 export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
@@ -75,7 +75,7 @@ const format = (e: ChangeEvent<HTMLInputElement>, matcher: RegExp, separator = '
 }
 
 export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
@@ -104,7 +104,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
 }
 
 export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
@@ -133,7 +133,7 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
 }
 
 export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
@@ -172,7 +172,7 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
 }
 
 export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
@@ -199,7 +199,7 @@ export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => 
 }
 
 export const RHFFoedselsnummerInput = ({ name, rules, valgfri, ...rest }: RHFProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
@@ -241,7 +241,7 @@ export const RHFFoedselsnummerInput = ({ name, rules, valgfri, ...rest }: RHFPro
 }
 
 export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
@@ -270,7 +270,7 @@ export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
 }
 
 export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
@@ -299,7 +299,7 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
 }
 
 export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
