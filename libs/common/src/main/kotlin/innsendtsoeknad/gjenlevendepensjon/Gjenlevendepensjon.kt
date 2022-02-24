@@ -41,7 +41,7 @@ data class Gjenlevendepensjon(
 
     val avdoed: Avdoed,
     val barn: List<Barn>,
-    val andreStoenader: List<Opplysning<EnumSvar<Stoenader>>>?
+    val andreStoenader: List<Opplysning<EnumSvar<Stoenader>>> = emptyList()
 ) : InnsendtSoeknad {
     override val versjon = "2"
     override val type: SoeknadType = SoeknadType.GJENLEVENDEPENSJON

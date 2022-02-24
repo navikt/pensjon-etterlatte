@@ -13,6 +13,7 @@ import {
     ForholdTilAvdoedeType,
     FritekstSvar,
     HoeyesteUtdanning,
+    IngenJobbType,
     InntektType,
     JaNeiVetIkke,
     Kontaktinfo,
@@ -31,6 +32,7 @@ import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from "../../typ
 import { IValg } from "../../typer/Spoersmaal";
 import { ISituasjon, JobbStatus } from "../../typer/situasjon";
 import {
+    konverterIngenJobb,
     konverterJobbStatus,
     konverterRelasjonAvdoed,
     konverterSamboerInntekt,
@@ -314,12 +316,13 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
         }
     }
 
-    let annet: Opplysning<FritekstSvar> | undefined;
+    let annet: Opplysning<EnumSvar<IngenJobbType>> | undefined;
     if (dinSituasjon.jobbStatus?.includes(JobbStatus.ingen)) {
         annet = {
             spoersmaal: t("dinSituasjon.ingenJobbBeskrivelse"),
             svar: {
-                innhold: t(dinSituasjon.ingenJobbBeskrivelse!!)
+                innhold: t(dinSituasjon.ingenJobbBeskrivelse!!),
+                verdi: konverterIngenJobb(dinSituasjon.ingenJobbBeskrivelse!!)
             }
         }
     }

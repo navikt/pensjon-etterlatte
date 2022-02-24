@@ -310,7 +310,8 @@
       "annet": {
         "spoersmaal": "Gi en beskrivelse av situasjonen din",
         "svar": {
-          "innhold": "Annen beskrivelse av situasjonen"
+          "innhold": "Er syk",
+          "verdi": "SYK"
         }
       }
     },
