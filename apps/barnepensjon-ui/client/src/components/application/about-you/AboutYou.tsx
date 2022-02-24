@@ -1,101 +1,147 @@
-import { useState } from 'react'
 import { useUserContext } from '../../../context/user/UserContext'
-import LoggedInUserInfo from './LoggedInUserInfo'
-import { Radio, RadioGroup, Select, TextField } from '@navikt/ds-react'
+import { Cell, Grid, Heading } from '@navikt/ds-react'
 import useTranslation from '../../../hooks/useTranslation'
+import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import { ActionTypes } from '../../../context/application/application'
+import { FormProvider, useForm } from 'react-hook-form'
 import FormGroup from '../../common/FormGroup'
-import StepHeading from '../../common/StepHeading'
+import { SkjemaGruppe } from 'nav-frontend-skjema'
 import WhyWeAsk from '../../common/WhyWeAsk'
-import ForeignBankInfo from './ForeignBankInfo'
-import { v4 as uuid } from 'uuid'
-
-const selectOptions = [
-    { value: '', label: 'Velg land' },
-    { value: 'norge', label: 'Norge' },
-    { value: 'sverige', label: 'Sverige' },
-]
+import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import Navigation from '../../common/Navigation'
+import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
+import { BankkontoType, JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
+import { RHFSelect } from '../../common/rhf/RHFSelect'
+import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
+import LoggedInUserInfo from './LoggedInUserInfo'
+import { useLand } from '../../../hooks/useLand'
+import PaymentDetails from './PaymentDetails'
 
 export default function AboutYou() {
-    const [livesOnThisAddress, setLivesOnThisAddress] = useState<string>('')
-    const [currentlyInNorway, setCurrentlyInNorway] = useState<string>('')
-    const [typeOfBankAccount, setTypeOfBankAccount] = useState<string>('')
-
-    const { state: user } = useUserContext()
     const { t } = useTranslation('omDeg')
+    const { state, dispatch } = useApplicationContext()
+    const { state: user } = useUserContext()
+    const { land } = useLand()
+
+    const lagre = (data: any) => {
+        dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
+        // neste!!()
+    }
+
+    const methods = useForm<any>({
+        defaultValues: state.aboutYou || {},
+        shouldUnregister: true,
+    })
+
+    const {
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = methods
+
+    const skalSjekkeFlyktningStatus = user.foedselsaar!! < 1960
+
+    const borPaaRegistrertAdresse = watch('bostedsadresseBekreftet')
+    const oppholderSegINorge = watch('oppholderSegINorge')
+    const bankkontoType = watch('utbetalingsInformasjon.bankkontoType')
 
     return (
-        <FormGroup>
-            <StepHeading>{t('tittel')}</StepHeading>
+        <>
+            {/* Steg 2 */}
+            <Heading size={'medium'} className={'center'}>
+                {t('tittel')}
+            </Heading>
 
-            <FormGroup>
-                <LoggedInUserInfo user={user} />
-            </FormGroup>
+            {/* Informasjon om den innloggede brukeren */}
+            <LoggedInUserInfo user={user} />
 
-            <FormGroup>
-                <RadioGroup
-                    legend={t('bostedsadresseBekreftet')}
-                    value={livesOnThisAddress}
-                    onChange={(value: string) => setLivesOnThisAddress(value)}
-                >
-                    <Radio value={t('ja')}>{t('ja')}</Radio>
-                    <Radio value={t('nei')}>{t('nei')}</Radio>
-                </RadioGroup>
-                {livesOnThisAddress === 'Nei' && (
+            {/* Skjema for utfylling av info om innlogget bruker / søker */}
+            <FormProvider {...methods}>
+                <form>
                     <FormGroup>
-                        <TextField label={t('alternativAdresse')}></TextField>
-                    </FormGroup>
-                )}
-            </FormGroup>
+                        {!user.adressebeskyttelse && (
+                            <>
+                                <RHFGeneralQuestionRadio
+                                    name={'bostedsadresseBekreftet'}
+                                    legend={t('bostedsadresseBekreftet')}
+                                />
 
-            <FormGroup>
-                <RadioGroup
-                    legend={t('oppholderSegINorge')}
-                    description={<WhyWeAsk title={t('oppholderSegINorge')}>{t('oppholdHvorfor')}</WhyWeAsk>}
-                    value={currentlyInNorway}
-                    onChange={(value: string) => setCurrentlyInNorway(value)}
-                >
-                    <Radio value={t('ja')}>{t('ja')}</Radio>
-                    <Radio value={t('nei')}>{t('nei')}</Radio>
-                </RadioGroup>
+                                {borPaaRegistrertAdresse === JaNeiVetIkke.NEI && (
+                                    <FormGroup>
+                                        <RHFInput name={'alternativAdresse'} label={t('alternativAdresse')} />
+                                    </FormGroup>
+                                )}
+                            </>
+                        )}
 
-                {currentlyInNorway === 'Ja' && (
-                    <FormGroup>
-                        <TextField label={t('kontonummer')} description={t('informasjon')}></TextField>
-                    </FormGroup>
-                )}
-
-                {currentlyInNorway === 'Nei' && (
-                    <>
-                        <FormGroup>
-                            <Select label={t('oppholdsland')}>
-                                {selectOptions.map((option) => (
-                                    <option key={uuid()} value={option.value}>
-                                        {option.label}
-                                    </option>
-                                ))}
-                            </Select>
-                            <RadioGroup legend={t('medlemFolketrygdenUtland')}>
-                                <Radio value={t('ja')}>{t('ja')}</Radio>
-                                <Radio value={t('nei')}>{t('nei')}</Radio>
-                            </RadioGroup>
-                            <RadioGroup
-                                legend={t('bankkontoType')}
-                                value={typeOfBankAccount}
-                                onChange={(value: string) => setTypeOfBankAccount(value)}
-                            >
-                                <Radio value={'Norsk'}>Norsk</Radio>
-                                <Radio value={'Utenlandsk'}>Utenlandsk</Radio>
-                            </RadioGroup>
-                        </FormGroup>
-                        {typeOfBankAccount === 'Norsk' && (
+                        {!!user.foedselsnummer && !user.telefonnummer && (
                             <FormGroup>
-                                <TextField label={t('kontonummer')} description={t('informasjon')}></TextField>
+                                <Grid>
+                                    <Cell xs={12} md={6} className={'kol'}>
+                                        <RHFTelefonInput
+                                            bredde={'S'}
+                                            name={'kontaktinfo.telefonnummer'}
+                                            label={t('kontaktinfo.telefonnummer')}
+                                            valgfri={true}
+                                        />
+                                    </Cell>
+                                </Grid>
                             </FormGroup>
                         )}
-                        {typeOfBankAccount === 'Utenlandsk' && <ForeignBankInfo />}
-                    </>
-                )}
-            </FormGroup>
-        </FormGroup>
+                    </FormGroup>
+
+                    {/* 2.7 */}
+                    {!user.adressebeskyttelse && (
+                        <>
+                            <RHFGeneralQuestionRadio
+                                name={'oppholderSegINorge'}
+                                legend={t('oppholderSegINorge')}
+                                description={<WhyWeAsk title="oppholderSegINorge">{t('oppholdHvorfor')}</WhyWeAsk>}
+                            />
+
+                            {oppholderSegINorge === JaNeiVetIkke.JA && (
+                                <PaymentDetails accountType={BankkontoType.NORSK} hideSelectType={true} />
+                            )}
+
+                            {oppholderSegINorge === JaNeiVetIkke.NEI && (
+                                <>
+                                    <SkjemaGruppe>
+                                        <RHFSelect
+                                            className="kol-50"
+                                            name={`oppholdsland`}
+                                            label={t('oppholdsland')}
+                                            selectOptions={land as any[]}
+                                        />
+                                    </SkjemaGruppe>
+
+                                    <RHFGeneralQuestionRadio
+                                        name={'medlemFolketrygdenUtland'}
+                                        legend={t('medlemFolketrygdenUtland')}
+                                    />
+
+                                    <PaymentDetails accountType={bankkontoType} />
+                                </>
+                            )}
+                        </>
+                    )}
+
+                    {skalSjekkeFlyktningStatus && (
+                        <SkjemaGruppe>
+                            <RHFGeneralQuestionRadio
+                                name={'flyktning'}
+                                legend={t('flyktning')}
+                                description={<WhyWeAsk title="flyktning">{t('flyktningHvorfor')}</WhyWeAsk>}
+                            />
+                        </SkjemaGruppe>
+                    )}
+
+                    <br />
+
+                    <ErrorSummaryWrapper errors={errors} />
+
+                    <Navigation next={handleSubmit(lagre)} />
+                </form>
+            </FormProvider>
+        </>
     )
 }

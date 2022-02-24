@@ -1,10 +1,15 @@
 import { createContext, FC, useContext, useReducer } from 'react'
-import { IApplication, IApplicationAction, ApplicationProps } from './application'
+import { ActionTypes, ApplicationProps, IApplication, IApplicationAction } from './application'
 
 const initialState: IApplication = {}
 
 const reducer = (state: IApplication, action: IApplicationAction) => {
     switch (action.type) {
+        case ActionTypes.UPDATE_ABOUT_YOU:
+            return {
+                ...state,
+                aboutYou: action.payload,
+            }
         default:
             return state
     }

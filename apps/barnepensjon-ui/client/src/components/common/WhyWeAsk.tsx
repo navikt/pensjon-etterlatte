@@ -1,42 +1,48 @@
 import { FC, useState } from 'react'
-//import { v4 as uuid } from "uuid";
 import { Collapse, Expand } from '@navikt/ds-icons'
 import { BodyLong } from '@navikt/ds-react'
 import useTranslation from '../../hooks/useTranslation'
-// import { LogEvents, useAmplitude } from "../../utils/amplitude";
+import styled from 'styled-components'
 
-const WhyWeAsk: FC<{ title: string; children: any }> = ({ title, children }) => {
-    //const id = uuid();
+const WhyWeAsk: FC<{ title: string; children: any }> = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
-    const { t } = useTranslation()
-    // const { logEvent } = useAmplitude();
+    const { t } = useTranslation('felles')
 
     const click = () => {
-        /* if (!isOpen) {
-            logEvent(LogEvents.KLIKK, { type: "hvorfor spør vi", title });
-        } */
+        // TODO: Sjekke om dette er noe vi skal logge i Amplitude, tilsvarende gjenlevendepensjon søknad
         setIsOpen(!isOpen)
     }
 
+    const HvorforPanel = styled.div`
+        & .toggle {
+            color: #0067c5;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            padding: 0.2rem 0;
+            min-height: 0;
+            margin: 0;
+            cursor: pointer;
+            border-radius: 0.25rem;
+        }
+
+        & .innhold {
+            margin-top: 1rem;
+        }
+    `
     return (
-        <div className={'hvorforPanel'} /*id={id}*/>
-            <button
-                data-testid="hvorforPanel_toggle"
-                type={'button'}
-                className={'hvorforPanel__toggle'}
-                onClick={click}
-                aria-expanded={isOpen}
-            >
-                <span>{t('felles:hvorforSpoerVi')}</span>
+        <HvorforPanel>
+            <button data-testid="toggle" type={'button'} className={'toggle'} onClick={click} aria-expanded={isOpen}>
+                <span>{t('hvorforSpoerVi')}</span>
                 <span>{isOpen ? <Collapse /> : <Expand />}</span>
             </button>
 
             {isOpen && (
-                <div className={'hvorforPanel__innhold'}>
+                <div className={'innhold'}>
                     <BodyLong>{children}</BodyLong>
                 </div>
             )}
-        </div>
+        </HvorforPanel>
     )
 }
 

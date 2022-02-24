@@ -7,6 +7,7 @@ import { Language } from '../context/language/language'
 
 type TKey = string
 type Namespace = string
+export type TFunction = (key: TKey, meta?: (string | undefined)[]) => string
 
 export default function useTranslation(ns?: Namespace) {
     const { language } = useLanguageContext()
@@ -37,14 +38,18 @@ export default function useTranslation(ns?: Namespace) {
         return translations[ns][key]
     }
 
-    const t = (key: TKey, meta?: (string | undefined)[]): string => {
-        let translation = translate(key)
+    const t: TFunction = (key: TKey, meta?: (string | undefined)[]): string => {
+        try {
+            let translation = translate(key)
 
-        meta?.forEach((entry) => {
-            translation = translation.replace(`{}`, entry || '')
-        })
+            meta?.forEach((entry) => {
+                translation = translation.replace(`{}`, entry || '')
+            })
 
-        return translation
+            return translation
+        } catch {
+            return ''
+        }
     }
 
     return {

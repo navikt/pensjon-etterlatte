@@ -1,7 +1,10 @@
-export interface IApplication {}
+export interface IApplication {
+    aboutYou?: any
+}
 
 export enum ActionTypes {
-    RESET = 'RESET',
+    UPDATE_ABOUT_YOU,
+    RESET,
 }
 
 export interface IApplicationAction {

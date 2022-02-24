@@ -4,6 +4,11 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import ContextProviders from './context/ContextProviders'
 import '@navikt/ds-css'
+import 'nav-frontend-js-utils'
+import 'nav-frontend-core/dist/main.css'
+import 'nav-frontend-skjema-style/dist/main.css'
+import 'nav-frontend-typografi-style/dist/main.css'
+import 'nav-frontend-lenker-style/dist/main.css'
 import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
