@@ -69,6 +69,7 @@ export const RHFInlineRadio = ({
     } = useFormContext()
 
     const error: FieldError = get(errors, name)
+    const errorMsg = !!error ? t(getErrorKey(error)) : undefined
 
     return (
         <div id={name}>
@@ -79,7 +80,7 @@ export const RHFInlineRadio = ({
                 render={({ field: { value, onChange, name } }) => (
                     <InlineRadioPanelGroup
                         name={name}
-                        feil={error && t(getErrorKey(error))}
+                        feil={errorMsg}
                         legend={legend}
                         description={description}
                         radios={radios}
@@ -108,6 +109,7 @@ export function RHFRadio({ name, legend, description, radios, rules, ...rest }: 
     } = useFormContext()
 
     const error: FieldError = get(errors, name)
+    const errorMsg = !!error ? t(getErrorKey(error)) : undefined
 
     return (
         <div id={name}>
@@ -119,7 +121,7 @@ export function RHFRadio({ name, legend, description, radios, rules, ...rest }: 
                     <RadioPanelGruppe
                         {...rest}
                         name={name}
-                        feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
+                        feil={errorMsg}
                         description={description}
                         legend={legend}
                         radios={radios}

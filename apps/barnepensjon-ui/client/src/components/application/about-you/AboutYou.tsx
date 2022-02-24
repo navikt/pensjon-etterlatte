@@ -5,7 +5,6 @@ import { useApplicationContext } from '../../../context/application/ApplicationC
 import { ActionTypes } from '../../../context/application/application'
 import { FormProvider, useForm } from 'react-hook-form'
 import FormGroup from '../../common/FormGroup'
-import { SkjemaGruppe } from 'nav-frontend-skjema'
 import WhyWeAsk from '../../common/WhyWeAsk'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import Navigation from '../../common/Navigation'
@@ -103,14 +102,14 @@ export default function AboutYou() {
 
                             {oppholderSegINorge === JaNeiVetIkke.NEI && (
                                 <>
-                                    <SkjemaGruppe>
+                                    <FormGroup>
                                         <RHFSelect
                                             className="kol-50"
                                             name={`oppholdsland`}
                                             label={t('oppholdsland')}
                                             selectOptions={countries as any[]}
                                         />
-                                    </SkjemaGruppe>
+                                    </FormGroup>
 
                                     <RHFGeneralQuestionRadio
                                         name={'medlemFolketrygdenUtland'}

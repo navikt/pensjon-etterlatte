@@ -5,9 +5,9 @@ import FormGroup from './FormGroup'
 import useTranslation, { TFunction } from '../../hooks/useTranslation'
 import { getErrorKey } from '../../utils/errors'
 
-interface Feil {
-    skjemaelementId: string
-    feilmelding: string
+interface Error {
+    elementId: string
+    message: string
 }
 
 const getFieldErrors = (obj: FieldErrors): FieldError[] => {
@@ -18,14 +18,13 @@ const getFieldErrors = (obj: FieldErrors): FieldError[] => {
     })
 }
 
-const konverterFeilmeldinger = (errors: FieldErrors, t: TFunction): Feil[] => {
+const convert = (errors: FieldErrors, t: TFunction): Error[] => {
     return getFieldErrors(errors)
         .filter((error) => !!error)
         .map((error) => {
-            console.log(t(getErrorKey(error)))
             return {
-                skjemaelementId: error.ref!!.name,
-                feilmelding: t(getErrorKey(error)),
+                elementId: error.ref!!.name,
+                message: t(getErrorKey(error)),
             }
         })
 }
@@ -38,9 +37,9 @@ export default function ErrorSummaryWrapper({ errors }: { errors: FieldErrors })
             {!!Object.keys(errors).length && (
                 <FormGroup key={uuid()}>
                     <ErrorSummary heading={t('tittel')}>
-                        {konverterFeilmeldinger(errors, t).map((feil) => (
-                            <ErrorSummary.Item key={feil.skjemaelementId} href={`#${feil.skjemaelementId}`}>
-                                {feil.feilmelding}
+                        {convert(errors, t).map((feil) => (
+                            <ErrorSummary.Item key={feil.elementId} href={`#${feil.elementId}`}>
+                                {feil.message}
                             </ErrorSummary.Item>
                         ))}
                     </ErrorSummary>

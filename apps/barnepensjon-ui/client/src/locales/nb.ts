@@ -146,6 +146,7 @@ const radiobuttons = {
 }
 
 const error = {
+    tittel: 'For å gå videre må du rette opp i dette:',
     'bostedsadresseBekreftet.required': 'Spørsmål om bostedsadresse må besvares',
     'alternativAddresse.required': 'Du må oppgi nåværende bostedsadresse',
 }

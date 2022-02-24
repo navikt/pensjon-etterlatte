@@ -31,10 +31,13 @@ export default function useCountries(): UseCountries {
     useEffect(() => {
         ;(async () => {
             try {
-                const allCountries = ((await getAllCountries()) as Country[]).sort()
+                const allCountries = await getAllCountries()
+                allCountries.sort((a: Country, b: Country) =>
+                    a.beskrivelser.nb.tekst > b.beskrivelser.nb.tekst ? 1 : -1
+                )
                 setAllCountries(allCountries)
 
-                const validCountries = allCountries.filter((land) => new Date(land.gyldigTil) > new Date())
+                const validCountries = allCountries.filter((land: Country) => new Date(land.gyldigTil) > new Date())
                 setCountries(validCountries)
             } catch (e) {
                 console.log(e)

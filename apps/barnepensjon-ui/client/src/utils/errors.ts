@@ -5,5 +5,5 @@ export function getErrorKey(error?: FieldError) {
 
     const name = error.ref?.name?.replace(/\[\d]/, '')
 
-    return `error.${name}.${error.type}`
+    return `${name}.${error.type}`
 }

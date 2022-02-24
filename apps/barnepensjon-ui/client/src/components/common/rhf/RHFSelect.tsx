@@ -29,7 +29,7 @@ export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: Select
     } = useFormContext()
 
     const error: FieldError = get(errors, name)
-    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
+    const errorMsg = !!error ? t(getErrorKey(error)) : undefined
 
     return (
         <div id={name}>
@@ -46,7 +46,7 @@ export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: Select
                         onBlur={onBlur}
                         label={label}
                         bredde={'l'}
-                        feil={feilmelding}
+                        feil={errorMsg}
                     >
                         {selectOptions.map((option) => (
                             <option key={uuid()} value={option.value}>
