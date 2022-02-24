@@ -23,7 +23,7 @@ class SoeknadService(private val db: SoeknadRepository) {
         }
 
         val ider = request.soeknader
-            .map { UlagretSoeknad(it.soeker.foedselsnummer.svar.value, it.toJson(), it.type) }
+            .map { UlagretSoeknad(it.soeker.foedselsnummer!!.svar.value, it.toJson(), it.type) }
             .map {
                 logger.info("Ferdigstiller søknad (type=${it.type})")
                 db.ferdigstillSoeknad(it)

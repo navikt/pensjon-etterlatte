@@ -86,18 +86,18 @@ export const mapBarn = (
     if (!!barn.harBarnetVerge?.svar) {
         const opplysningOmVerge: Verge | undefined = barn.harBarnetVerge?.svar === IValg.JA ? {
             type: PersonType.VERGE,
-            fornavn: {
+            fornavn: barn.harBarnetVerge!!.fornavn ? {
                 spoersmaal: t("felles.fornavn"),
-                svar: barn.harBarnetVerge!!.fornavn!!
-            },
-            etternavn: {
+                svar: barn.harBarnetVerge!!.fornavn
+            } : undefined,
+            etternavn: barn.harBarnetVerge!!.etternavn ? {
                 spoersmaal: t("felles.etternavn"),
-                svar: barn.harBarnetVerge!!.etternavn!!
-            },
-            foedselsnummer: {
+                svar: barn.harBarnetVerge!!.etternavn
+            } : undefined,
+            foedselsnummer: barn.harBarnetVerge!!.foedselsnummer ? {
                 spoersmaal: t("felles.foedselsnummer"),
-                svar: barn.harBarnetVerge!!.foedselsnummer!!
-            },
+                svar: barn.harBarnetVerge!!.foedselsnummer
+            } : undefined,
         } : undefined;
 
         verge = {
