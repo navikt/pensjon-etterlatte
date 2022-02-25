@@ -1,6 +1,7 @@
 import { Heading } from '@navikt/ds-react'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
+import FormGroup from './FormGroup'
 
 const CenterHeading = styled(Heading)`
     margin-top: 3rem;
@@ -8,5 +9,9 @@ const CenterHeading = styled(Heading)`
 `
 
 export default function StepHeading({ children }: { children: ReactNode }) {
-    return <CenterHeading size={'medium'}>{children}</CenterHeading>
+    return (
+        <FormGroup>
+            <CenterHeading size={'medium'}>{children}</CenterHeading>
+        </FormGroup>
+    )
 }

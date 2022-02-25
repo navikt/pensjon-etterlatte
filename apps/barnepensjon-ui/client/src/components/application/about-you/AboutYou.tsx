@@ -1,5 +1,5 @@
 import { useUserContext } from '../../../context/user/UserContext'
-import { Cell, Grid, Heading } from '@navikt/ds-react'
+import { Cell, Grid } from '@navikt/ds-react'
 import useTranslation from '../../../hooks/useTranslation'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { ActionTypes } from '../../../context/application/application'
@@ -15,16 +15,18 @@ import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
 import LoggedInUserInfo from './LoggedInUserInfo'
 import PaymentDetails from './PaymentDetails'
 import useCountries from '../../../hooks/useCountries'
+import { StepProps } from '../Dialogue'
+import StepHeading from '../../common/StepHeading'
 
-export default function AboutYou() {
+export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('omDeg')
     const { state, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
     const { countries } = useCountries()
 
-    const lagre = (data: any) => {
+    const save = (data: any) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
-        // neste!!()
+        next!!()
     }
 
     const methods = useForm<any>({
@@ -38,16 +40,14 @@ export default function AboutYou() {
         formState: { errors },
     } = methods
 
-    const borPaaRegistrertAdresse = watch('bostedsadresseBekreftet')
-    const oppholderSegINorge = watch('oppholderSegINorge')
-    const bankkontoType = watch('utbetalingsInformasjon.bankkontoType')
+    const addressConfirmed = watch('bostedsadresseBekreftet')
+    const residesInNorway = watch('oppholderSegINorge')
+    const accountType = watch('utbetalingsInformasjon.bankkontoType')
 
     return (
         <>
             {/* Steg 2 */}
-            <Heading size={'medium'} className={'center'}>
-                {t('tittel')}
-            </Heading>
+            <StepHeading>{t('tittel')}</StepHeading>
 
             {/* Informasjon om den innloggede brukeren */}
             <LoggedInUserInfo user={user} />
@@ -63,7 +63,7 @@ export default function AboutYou() {
                                     legend={t('bostedsadresseBekreftet')}
                                 />
 
-                                {borPaaRegistrertAdresse === JaNeiVetIkke.NEI && (
+                                {addressConfirmed === JaNeiVetIkke.NEI && (
                                     <FormGroup>
                                         <RHFInput name={'alternativAdresse'} label={t('alternativAdresse')} />
                                     </FormGroup>
@@ -96,11 +96,11 @@ export default function AboutYou() {
                                 description={<WhyWeAsk title="oppholderSegINorge">{t('oppholdHvorfor')}</WhyWeAsk>}
                             />
 
-                            {oppholderSegINorge === JaNeiVetIkke.JA && (
+                            {residesInNorway === JaNeiVetIkke.JA && (
                                 <PaymentDetails accountType={BankkontoType.NORSK} hideSelectType={true} />
                             )}
 
-                            {oppholderSegINorge === JaNeiVetIkke.NEI && (
+                            {residesInNorway === JaNeiVetIkke.NEI && (
                                 <>
                                     <FormGroup>
                                         <RHFSelect
@@ -116,7 +116,7 @@ export default function AboutYou() {
                                         legend={t('medlemFolketrygdenUtland')}
                                     />
 
-                                    <PaymentDetails accountType={bankkontoType} />
+                                    <PaymentDetails accountType={accountType} />
                                 </>
                             )}
                         </>
@@ -126,7 +126,7 @@ export default function AboutYou() {
 
                     <ErrorSummaryWrapper errors={errors} />
 
-                    <Navigation next={handleSubmit(lagre)} />
+                    <Navigation next={handleSubmit(save)} />
                 </form>
             </FormProvider>
         </>

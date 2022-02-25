@@ -2,12 +2,17 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { StepType } from '../../utils/steps'
 import { BodyShort, StepIndicator } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
-import Navigation from '../common/Navigation'
 import React from 'react'
 
 interface DialogueProps {
     steps: StepType[]
     pathPrefix: string
+}
+
+export interface StepProps {
+    next?: () => void
+    prev?: () => void
+    send?: () => void
 }
 
 export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
@@ -36,11 +41,15 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
 
             <Routes>
                 {steps.map((step: StepType) => (
-                    <Route key={uuid()} path={step.path} element={<step.element />} />
+                    <Route
+                        key={uuid()}
+                        path={step.path}
+                        element={<step.element next={next} prev={prev} send={send} />}
+                    />
                 ))}
             </Routes>
 
-            <Navigation next={next} prev={prev} send={send} />
+            {/*<Navigation next={next} prev={prev} send={send} />*/}
         </>
     )
 }

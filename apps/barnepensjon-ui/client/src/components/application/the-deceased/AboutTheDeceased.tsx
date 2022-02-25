@@ -15,14 +15,16 @@ import Navigation from '../../common/Navigation'
 import useCountries from '../../../hooks/useCountries'
 import SelfEmploymentDetails from './SelfEmploymentDetails'
 import { ActionTypes, DeceasedParent } from '../../../context/application/application'
+import { StepProps } from '../Dialogue'
 
-export default function AboutTheDeceased() {
+export default function AboutTheDeceased({ next, prev }: StepProps) {
     const { t } = useTranslation('aboutTheDeceased')
     const { state, dispatch } = useApplicationContext()
     const { countries }: { countries: any } = useCountries()
 
     const save = (data: DeceasedParent) => {
         dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload: { ...data } })
+        next!!()
     }
 
     const methods = useForm<any>({
@@ -137,7 +139,7 @@ export default function AboutTheDeceased() {
 
                 <ErrorSummaryWrapper errors={errors} />
 
-                <Navigation next={handleSubmit(save)} />
+                <Navigation next={handleSubmit(save)} prev={prev} />
             </form>
         </FormProvider>
     )
