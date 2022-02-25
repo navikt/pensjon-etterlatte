@@ -337,7 +337,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                         )}
 
                         {(relation === ChildRelation.egneSaerkullsbarn ||
-                            relation == ChildRelation.avdoedesSaerkullsbarn) && (
+                            relation === ChildRelation.avdoedesSaerkullsbarn) && (
                             <FormGroup>
                                 <RHFGeneralQuestionRadio name={'dagligOmsorg'} legend={t('dagligOmsorg')} />
                             </FormGroup>

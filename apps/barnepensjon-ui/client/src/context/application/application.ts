@@ -1,10 +1,13 @@
 import { JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
+import { IAboutChild } from '../../types/person'
+import { ISituasjon } from '../../types/situation'
 
 export interface IApplication {
-    aboutChildren?: any
+    aboutChildren?: IAboutChild
     aboutYou?: any
     firstParent?: Parent
     secondParent?: Parent
+    yourSituation?: ISituasjon
 }
 
 export enum ActionTypes {

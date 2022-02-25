@@ -8,13 +8,13 @@ import useTranslation from '../../../hooks/useTranslation'
 import ChildInfocard from './ChildInfocard'
 import AddChildToForm from './AddChildToForm'
 import { v4 as uuid } from 'uuid'
-// import Navigasjon from '../../felles/Navigasjon'
+import Navigation from '../../common/Navigation'
 import { Alert, BodyShort, Button, Modal, Panel, Heading } from '@navikt/ds-react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import { deepCopy } from '../../../utils/deepCopy'
 import FormGroup from '../../common/FormGroup'
-// import AndreStoenader from './AndreStoenader'
+import OtherBenefits from './OtherBenefits'
 import styled from 'styled-components'
 
 const AboutChildrenWrapper = styled.div`
@@ -126,7 +126,7 @@ const AboutChildren: ApplicationSteps = ({ next, previous }) => {
 
     const { watch, getValues } = methods
 
-    // const erValidert = state.opplysningerOmBarn.erValidert
+    const isValidated = state.aboutChildren?.erValidert
     const registeredChild = watch('child')
 
     const getFnrRegisteredChild = (): string[] => {
@@ -235,14 +235,12 @@ const AboutChildren: ApplicationSteps = ({ next, previous }) => {
                                 />
                             </FormGroup>
 
-                            {/* <AndreStoenader soeknad={state} barn={registeredChild} /> */}
+                            <OtherBenefits application={state} child={registeredChild} />
 
-                            {/* <Navigasjon
-                            previous={{
-                                onClick: erValidert === true ? handleSubmit(savePrevious) : savePreviousWithoutValidation,
-                            }}
-                            next={{ onClick: handleSubmit(saveNext) }}
-                        /> */}
+                            <Navigation
+                                prev={isValidated === true ? handleSubmit(savePrevious) : savePreviousWithoutValidation}
+                                next={handleSubmit(saveNext)}
+                            />
                         </>
                     )}
 
