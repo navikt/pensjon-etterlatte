@@ -16,6 +16,7 @@ import useCountries from '../../../hooks/useCountries'
 import SelfEmploymentDetails from './SelfEmploymentDetails'
 import { ActionTypes, DeceasedParent } from '../../../context/application/application'
 import { StepProps } from '../Dialogue'
+import StaysAbroad from './StaysAbroad'
 
 export default function AboutTheDeceased({ next, prev }: StepProps) {
     const { t } = useTranslation('aboutTheDeceased')
@@ -40,6 +41,7 @@ export default function AboutTheDeceased({ next, prev }: StepProps) {
 
     const wasSelfEmployed = watch('selfEmplyment.wasSelfEmployed')
     const completedMilitaryService = watch('militaryService.completed')
+    const staysAbroad = watch('abroadStays.hasStaysAbroad')
 
     return (
         <FormProvider {...methods}>
@@ -87,6 +89,8 @@ export default function AboutTheDeceased({ next, prev }: StepProps) {
                             legend={t('abroadStays.hasStaysAbroad')}
                             vetIkke={true}
                         />
+
+                        {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
                     </FormGroup>
 
                     <FormGroup>

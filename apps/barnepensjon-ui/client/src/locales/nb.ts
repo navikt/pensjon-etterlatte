@@ -88,6 +88,14 @@ const aboutTheDeceased = {
     'abroadStays.ingress':
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.',
     'abroadStays.hasStaysAbroad': 'Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?',
+    'staysAbroad.abroadStays.country': 'Land',
+    'staysAbroad.abroadStays.type': 'Bodd og/eller arbeidet?',
+    'staysAbroad.abroadStays.fromDate': 'Fra dato (valgfri)',
+    'staysAbroad.abroadStays.toDate': 'Til dato (valgfri)',
+    'staysAbroad.abroadStays.medlemFolketrygd': 'Var han eller hun medlem av folketrygden under oppholdet?',
+    'staysAbroad.abroadStays.medlemFolketrygd.why':
+        'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',
+    'staysAbroad.abroadStays.pensionAmount': 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
     fnrDnr: 'Fødselsnummer / d-nummer',
     'fnrDnr.placeholder': '11 siffer',
     citizenship: 'Statsborgerskap',
@@ -106,6 +114,10 @@ const aboutTheDeceased = {
         'Har han eller hun gjennomført militær eller sivil førstegangstjeneste som varte minst 30 dager?',
     'militaryService.why': 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',
     'militaryService.period': 'Hvilke(-t) år? (valgfri)',
+    'oppholdUtlandType.BODD': 'Bodd',
+    'oppholdUtlandType.ARBEIDET': 'Arbeidet',
+    'btn.addCountry': '+ Legg til flere land',
+    'btn.delete': 'Fjern',
 }
 
 const omBarn = {

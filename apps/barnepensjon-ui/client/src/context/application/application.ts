@@ -1,4 +1,4 @@
-import { JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
+import { JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/FellesOpplysninger'
 import { IAboutChild } from '../../types/person'
 import { ISituasjon } from '../../types/situation'
 
@@ -40,6 +40,14 @@ export interface DeceasedParent extends Parent {
     dateOfDeath: Date
     abroadStays: {
         hasStaysAbroad: JaNeiVetIkke
+        abroadStays: {
+            country: String
+            fromDate?: Date
+            toDate?: Date
+            type: OppholdUtlandType[]
+            medlemFolketrygd: JaNeiVetIkke
+            pensionAmount?: String
+        }
     }
     selfEmplyment: {
         wasSelfEmployed: JaNeiVetIkke
