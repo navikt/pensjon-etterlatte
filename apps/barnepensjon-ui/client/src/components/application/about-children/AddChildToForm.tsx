@@ -13,7 +13,7 @@ import { Button, Cell, Grid, Heading, Label, Panel } from '@navikt/ds-react'
 import { RHFCheckboksPanel } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import Hjelpetekst from '../../../utils/Hjelpetekst'
 import { RHFSelect } from '../../common/rhf/RHFSelect'
-import { useLand } from '../../../hooks/useLand'
+import useCountries from '../../../hooks/useCountries'
 import ikon from '../../../assets/barn1.svg'
 import { useEffect } from 'react'
 import { useUserContext } from '../../../context/user/UserContext'
@@ -85,7 +85,7 @@ interface Props {
 
 const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCanceledNewChild }: Props) => {
     const { t } = useTranslation('omBarn')
-    const { land }: { land: any } = useLand()
+    const { countries }: { countries: any } = useCountries()
     const { state: bruker } = useUserContext()
 
     const methods = useForm<IChild>({
@@ -204,7 +204,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                                 name={`statsborgerskap`}
                                 label={t('statsborgerskap')}
                                 value={'Norge'}
-                                selectOptions={land}
+                                selectOptions={countries}
                             />
                         </FormGroup>
 
@@ -217,7 +217,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                                         name={'bosattUtland.land'}
                                         label={t('bosattUtland.land')}
                                         value={'Norge'}
-                                        selectOptions={land}
+                                        selectOptions={countries}
                                     />
 
                                     <RHFInput name={'bosattUtland.adresse'} label={t('bosattUtland.adresse')} />
