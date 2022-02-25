@@ -22,7 +22,7 @@ export default function AboutTheDeceased() {
     const { countries }: { countries: any } = useCountries()
 
     const save = (data: DeceasedParent) => {
-        dispatch({ type: ActionTypes.UPDATE_FIST_PARENT, payload: { ...data } })
+        dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload: { ...data } })
     }
 
     const methods = useForm<any>({

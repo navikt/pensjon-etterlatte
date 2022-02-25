@@ -10,7 +10,7 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
                 ...state,
                 aboutYou: action.payload,
             }
-        case ActionTypes.UPDATE_FIST_PARENT:
+        case ActionTypes.UPDATE_FIRST_PARENT:
             return {
                 ...state,
                 firstParent: action.payload,

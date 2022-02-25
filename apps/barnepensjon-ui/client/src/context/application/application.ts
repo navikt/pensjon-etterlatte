@@ -8,7 +8,7 @@ export interface IApplication {
 
 export enum ActionTypes {
     UPDATE_ABOUT_YOU,
-    UPDATE_FIST_PARENT,
+    UPDATE_FIRST_PARENT,
     UPDATE_SECOND_PARENT,
     RESET,
 }
