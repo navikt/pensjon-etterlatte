@@ -58,6 +58,11 @@ const velgScenarie = {
     'alert.beskrivelse2': 'Gå til',
     'alert.lenke.href': 'https://www.nav.no/gjenlevendepensjon/soknad/',
     'alert.lenke.tekst': 'søknad om gjenlevendepensjon og barnepensjon',
+    PARENT: 'Jeg skal søke om barnepensjon for mitt/mine barn',
+    GUARDIAN: 'Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til',
+    CHILD: 'Jeg er over 18 år og søker på vegne av meg selv',
+    BOTH_PARENTS_DECEASED: 'Foreldreløs (begge foreldre døde)',
+    ONE_PARENT_DECEASED: 'Kun én forelder er død',
 }
 
 const omDeg = {

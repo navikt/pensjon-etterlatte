@@ -126,7 +126,7 @@ export function RHFRadio({ name, legend, description, radios, rules, ...rest }: 
                         legend={legend}
                         radios={radios}
                         checked={value}
-                        onChange={(e) => onChange((e.target as HTMLInputElement).value as JaNeiVetIkke)}
+                        onChange={(e) => onChange((e.target as HTMLInputElement).value)}
                     />
                 )}
             />

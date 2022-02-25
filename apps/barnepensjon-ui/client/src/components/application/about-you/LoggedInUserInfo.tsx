@@ -53,7 +53,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
 
                     {user.telefonnummer && (
                         <div>
-                            <Label>
+                            <Label as={'div'}>
                                 {t('telefonnummer')}&nbsp;
                                 <Hjelpetekst>{t('telefonnummerHjelpetekst')}</Hjelpetekst>
                             </Label>
