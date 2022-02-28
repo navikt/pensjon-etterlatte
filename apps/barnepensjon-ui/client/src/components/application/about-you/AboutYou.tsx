@@ -1,25 +1,25 @@
-import { useUserContext } from '../../../context/user/UserContext'
 import { Cell, Grid } from '@navikt/ds-react'
-import useTranslation from '../../../hooks/useTranslation'
-import { useApplicationContext } from '../../../context/application/ApplicationContext'
-import { ActionTypes } from '../../../context/application/application'
 import { FormProvider, useForm } from 'react-hook-form'
-import FormGroup from '../../common/FormGroup'
-import WhyWeAsk from '../../common/WhyWeAsk'
-import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
-import Navigation from '../../common/Navigation'
-import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import { BankkontoType, JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
-import { RHFSelect } from '../../common/rhf/RHFSelect'
+import { ActionTypes } from '../../../context/application/application'
+import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import { useUserContext } from '../../../context/user/UserContext'
+import useCountries from '../../../hooks/useCountries'
+import useTranslation from '../../../hooks/useTranslation'
+import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import FormGroup from '../../common/FormGroup'
+import Navigation from '../../common/Navigation'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
+import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
+import { RHFSelect } from '../../common/rhf/RHFSelect'
+import StepHeading from '../../common/StepHeading'
+import WhyWeAsk from '../../common/WhyWeAsk'
+import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
 import PaymentDetails from './PaymentDetails'
-import useCountries from '../../../hooks/useCountries'
-import { StepProps } from '../Dialogue'
-import StepHeading from '../../common/StepHeading'
 
 export default function AboutYou({ next }: StepProps) {
-    const { t } = useTranslation('omDeg')
+    const { t } = useTranslation('aboutYou')
     const { state, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
     const { countries } = useCountries()
@@ -40,14 +40,14 @@ export default function AboutYou({ next }: StepProps) {
         formState: { errors },
     } = methods
 
-    const addressConfirmed = watch('bostedsadresseBekreftet')
-    const residesInNorway = watch('oppholderSegINorge')
+    const addressConfirmed = watch('addressOfResidenceApproved')
+    const residesInNorway = watch('staysInNorway')
     const accountType = watch('utbetalingsInformasjon.bankkontoType')
 
     return (
         <>
             {/* Steg 2 */}
-            <StepHeading>{t('tittel')}</StepHeading>
+            <StepHeading>{t('title')}</StepHeading>
 
             {/* Informasjon om den innloggede brukeren */}
             <LoggedInUserInfo user={user} />
@@ -59,13 +59,13 @@ export default function AboutYou({ next }: StepProps) {
                         {!user.adressebeskyttelse && (
                             <>
                                 <RHFGeneralQuestionRadio
-                                    name={'bostedsadresseBekreftet'}
-                                    legend={t('bostedsadresseBekreftet')}
+                                    name={'addressOfResidenceApproved'}
+                                    legend={t('addressOfResidenceApproved')}
                                 />
 
                                 {addressConfirmed === JaNeiVetIkke.NEI && (
                                     <FormGroup>
-                                        <RHFInput name={'alternativAdresse'} label={t('alternativAdresse')} />
+                                        <RHFInput name={'alternativAddress'} label={t('alternativAddress')} />
                                     </FormGroup>
                                 )}
                             </>
@@ -91,9 +91,9 @@ export default function AboutYou({ next }: StepProps) {
                     {!user.adressebeskyttelse && (
                         <>
                             <RHFGeneralQuestionRadio
-                                name={'oppholderSegINorge'}
-                                legend={t('oppholderSegINorge')}
-                                description={<WhyWeAsk title="oppholderSegINorge">{t('oppholdHvorfor')}</WhyWeAsk>}
+                                name={'staysInNorway'}
+                                legend={t('staysInNorway')}
+                                description={<WhyWeAsk title="staysInNorway">{t('stayWhy')}</WhyWeAsk>}
                             />
 
                             {residesInNorway === JaNeiVetIkke.JA && (
@@ -105,8 +105,8 @@ export default function AboutYou({ next }: StepProps) {
                                     <FormGroup>
                                         <RHFSelect
                                             className="kol-50"
-                                            name={`oppholdsland`}
-                                            label={t('oppholdsland')}
+                                            name={`countryOfResidence`}
+                                            label={t('countryOfResidence')}
                                             selectOptions={countries as any[]}
                                         />
                                     </FormGroup>

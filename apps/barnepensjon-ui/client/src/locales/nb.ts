@@ -66,16 +66,16 @@ const selectScenario = {
 }
 
 const aboutYou = {
-    tittel: 'Om deg',
-    oppholdHvorfor:
+    title: 'Om deg',
+    stayWhy:
         'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
-    bostedsadresseBekreftet: 'Bor du på denne adressen?',
-    alternativAdresse: 'Oppgi nåværende bostedsadresse',
-    oppholderSegINorge: 'Oppholder du deg for tiden i Norge?',
-    oppholdsland: 'Oppgi land',
+    addressOfResidenceApproved: 'Bor du på denne adressen?',
+    alternativAddress: 'Oppgi nåværende bostedsadresse',
+    staysInNorway: 'Oppholder du deg for tiden i Norge?',
+    countryOfResidence: 'Oppgi land',
     medlemFolketrygdenUtland: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
-    ja: 'Ja',
-    nei: 'Nei',
+    yes: 'Ja',
+    no: 'Nei',
 }
 
 const aboutTheDeceased = {
