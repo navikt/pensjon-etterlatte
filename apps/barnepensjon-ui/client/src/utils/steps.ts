@@ -1,7 +1,6 @@
 import AboutYou from '../components/application/about-you/AboutYou'
 import AboutChildren from '../components/application/about-children/AboutChildren'
 import Summary from '../components/application/summary/Summary'
-import AboutTheDeceased from '../components/application/the-deceased/AboutTheDeceased'
 import FirstParent from '../components/application/parents/FirstParent'
 import SecondParent from '../components/application/parents/SecondParent'
 
@@ -25,7 +24,7 @@ export const ParentApplicantSteps: StepType[] = [
     {
         label: 'Om den avdøde',
         path: 'steg/om-avdoede',
-        element: AboutTheDeceased,
+        element: SecondParent,
     },
     {
         label: 'Opplysninger om barna',
@@ -79,7 +78,7 @@ export const GuardianApplicantSteps: StepType[] = [
  */
 export const ChildApplicantSteps: StepType[] = [
     {
-        label: 'Om deg (og eventuelle søsken)',
+        label: 'Om deg',
         path: 'steg/om-deg',
         element: AboutYou,
     },
@@ -94,7 +93,7 @@ export const ChildApplicantSteps: StepType[] = [
         element: SecondParent,
     },
     {
-        label: 'Opplysninger om barna',
+        label: 'Opplysninger om søsken',
         path: 'steg/om-barn',
         element: AboutChildren,
     },

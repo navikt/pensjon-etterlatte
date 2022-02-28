@@ -1,6 +1,7 @@
 import { JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/FellesOpplysninger'
 import { IAboutChild } from '../../types/person'
 import { ISituasjon } from '../../types/situation'
+import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
 
 export interface IApplication {
     aboutChildren?: IAboutChild
@@ -8,6 +9,7 @@ export interface IApplication {
     firstParent?: Parent
     secondParent?: Parent
     yourSituation?: ISituasjon
+    applicant?: IApplicant
 }
 
 export enum ActionTypes {
@@ -27,6 +29,11 @@ export interface IApplicationAction {
 export interface ApplicationProps {
     state: IApplication
     dispatch: (action: IApplicationAction) => void
+}
+
+export interface IApplicant {
+    applicantRole: ApplicantRole
+    applicantSituation?: ApplicantSituation
 }
 
 export interface Parent {

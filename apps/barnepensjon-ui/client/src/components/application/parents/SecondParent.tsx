@@ -1,14 +1,7 @@
-import FormGroup from '../../common/FormGroup'
-import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import Navigation from '../../common/Navigation'
+import AboutTheDeceased from '../the-deceased/AboutTheDeceased'
+import { ActionTypes } from '../../../context/application/application'
 
 export default function SecondParent({ next, prev }: StepProps) {
-    return (
-        <FormGroup>
-            <StepHeading>Om den andre forelderen</StepHeading>
-
-            <Navigation next={next} prev={prev} />
-        </FormGroup>
-    )
+    return <AboutTheDeceased next={next} prev={prev} type={ActionTypes.UPDATE_SECOND_PARENT} />
 }

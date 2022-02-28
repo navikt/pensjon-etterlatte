@@ -9,13 +9,13 @@ import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 
-enum ApplicantRole {
+export enum ApplicantRole {
     PARENT = 'PARENT',
     GUARDIAN = 'GUARDIAN',
     CHILD = 'CHILD',
 }
 
-enum ApplicantSituation {
+export enum ApplicantSituation {
     BOTH_PARENTS_DECEASED = 'BOTH_PARENTS_DECEASED',
     ONE_PARENT_DECEASED = 'ONE_PARENT_DECEASED',
 }

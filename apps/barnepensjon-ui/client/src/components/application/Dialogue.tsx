@@ -3,6 +3,7 @@ import { StepType } from '../../utils/steps'
 import { BodyShort, StepIndicator } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
 import React from 'react'
+import { ActionTypes } from '../../context/application/application'
 
 interface DialogueProps {
     steps: StepType[]
@@ -13,6 +14,7 @@ export interface StepProps {
     next?: () => void
     prev?: () => void
     send?: () => void
+    type?: ActionTypes
 }
 
 export default function Dialogue({ steps, pathPrefix }: DialogueProps) {

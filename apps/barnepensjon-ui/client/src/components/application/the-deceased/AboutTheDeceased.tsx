@@ -18,18 +18,19 @@ import { ActionTypes, DeceasedParent } from '../../../context/application/applic
 import { StepProps } from '../Dialogue'
 import StaysAbroad from './StaysAbroad'
 
-export default function AboutTheDeceased({ next, prev }: StepProps) {
+export default function AboutTheDeceased({ next, prev, type }: StepProps) {
     const { t } = useTranslation('aboutTheDeceased')
     const { state, dispatch } = useApplicationContext()
     const { countries }: { countries: any } = useCountries()
 
     const save = (data: DeceasedParent) => {
-        dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload: { ...data } })
+        dispatch({ type: type!!, payload: { ...data } })
         next!!()
     }
 
     const methods = useForm<any>({
-        defaultValues: state.aboutYou || {},
+        defaultValues:
+            (type === ActionTypes.UPDATE_FIRST_PARENT ? { ...state.firstParent } : { ...state.secondParent }) || {},
         shouldUnregister: true,
     })
 
