@@ -46,18 +46,18 @@ const frontPage = {
     'consent.approval': 'Jeg, {fornavn} {etternavn}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
 }
 
-const velgScenarie = {
-    tittel: 'Søk barnepensjon',
+const selectScenario = {
+    title: 'Søk barnepensjon',
     ingress: 'Velg din situasjon for å gå videre med søknaden',
-    'knapp.mineBarn': 'Jeg skal søke om barnepensjon for mitt/mine barn',
-    'knapp.verge': 'Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til',
-    'knapp.megSelv': 'Jeg er over 18 år og søker på vegne av meg selv',
-    'alert.tittel': 'Søke gjenlevendepensjon og barnepensjon?',
-    'alert.beskrivelse':
+    'btn.myChildren': 'Jeg skal søke om barnepensjon for mitt/mine barn',
+    'btn.guardian': 'Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til',
+    'btn.me': 'Jeg er over 18 år og søker på vegne av meg selv',
+    'alert.title': 'Søke gjenlevendepensjon og barnepensjon?',
+    'alert.description':
         'Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du søke om gjenlevendepensjon og barnepensjon i en og samme søknad.',
-    'alert.beskrivelse2': 'Gå til',
-    'alert.lenke.href': 'https://www.nav.no/gjenlevendepensjon/soknad/',
-    'alert.lenke.text': 'søknad om gjenlevendepensjon og barnepensjon',
+    'alert.description2': 'Gå til',
+    'alert.link.href': 'https://www.nav.no/gjenlevendepensjon/soknad/',
+    'alert.link.text': 'søknad om gjenlevendepensjon og barnepensjon',
     PARENT: 'Jeg skal søke om barnepensjon for mitt/mine barn',
     GUARDIAN: 'Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til',
     CHILD: 'Jeg er over 18 år og søker på vegne av meg selv',
@@ -65,7 +65,7 @@ const velgScenarie = {
     ONE_PARENT_DECEASED: 'Kun én forelder er død',
 }
 
-const omDeg = {
+const aboutYou = {
     tittel: 'Om deg',
     oppholdHvorfor:
         'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
@@ -238,12 +238,12 @@ const texts = {
     frontPage,
     loggedInUserInfo,
     omBarn,
-    omDeg,
+    aboutYou,
     aboutTheDeceased,
     radiobuttons,
     oppsummering,
     utbetalingsInformasjon,
-    velgScenarie,
+    selectScenario,
     error,
 }
 

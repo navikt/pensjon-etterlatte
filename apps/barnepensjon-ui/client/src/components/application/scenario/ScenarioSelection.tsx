@@ -1,13 +1,13 @@
 import { Alert, BodyLong, Button, Heading, Ingress, Link } from '@navikt/ds-react'
-import useTranslation from '../../../hooks/useTranslation'
-import { useNavigate } from 'react-router-dom'
-import FormGroup from '../../common/FormGroup'
-import { RHFRadio } from '../../common/rhf/RHFRadio'
 import { RadioProps } from 'nav-frontend-skjema'
 import { FormProvider, useForm } from 'react-hook-form'
-import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import { useNavigate } from 'react-router-dom'
 import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import useTranslation from '../../../hooks/useTranslation'
+import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import FormGroup from '../../common/FormGroup'
+import { RHFRadio } from '../../common/rhf/RHFRadio'
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -22,7 +22,7 @@ export enum ApplicantSituation {
 
 export default function ScenarioSelection() {
     const navigate = useNavigate()
-    const { t } = useTranslation('velgScenarie')
+    const { t } = useTranslation('selectScenario')
     const { dispatch } = useApplicationContext()
 
     const methods = useForm<any>({
@@ -50,7 +50,7 @@ export default function ScenarioSelection() {
         <FormProvider {...methods}>
             <FormGroup>
                 <Heading size={'medium'} className={'center'}>
-                    {t('tittel')}
+                    {t('title')}
                 </Heading>
             </FormGroup>
 
@@ -83,14 +83,14 @@ export default function ScenarioSelection() {
             <FormGroup>
                 <Alert inline={true} variant={'info'}>
                     <Heading size={'small'} className={'center'}>
-                        {t('alert.tittel')}
+                        {t('alert.title')}
                     </Heading>
                     <BodyLong className={'center'}>
-                        {t('alert.beskrivelse')}
+                        {t('alert.description')}
                         <br />
                         <br />
-                        {t('alert.beskrivelse2')}&nbsp;
-                        <Link href={t('alert.lenke.href')}>{t('alert.lenke.tekst')}</Link>
+                        {t('alert.description2')}&nbsp;
+                        <Link href={t('alert.link.href')}>{t('alert.link.text')}</Link>
                     </BodyLong>
                 </Alert>
             </FormGroup>
