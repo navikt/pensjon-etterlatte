@@ -6,16 +6,28 @@ import LanguageSelect from './common/LanguageSelect'
 import NavGuide from './common/NavGuide'
 import FormGroup from './common/FormGroup'
 import { useState } from 'react'
+import { useApplicationContext } from '../context/application/ApplicationContext'
+import { ActionTypes } from '../context/application/application'
 
 export default function FrontPage() {
     const navigate = useNavigate()
 
-    const { state: brukerState } = useUserContext()
-    const [confirmed, setConfirmed] = useState(false)
+    const { state: user } = useUserContext()
+    const { state, dispatch } = useApplicationContext()
+
+    const [consent, setConsent] = useState(state?.applicant?.consent || false)
 
     const { t } = useTranslation('forside')
 
-    const { fornavn, etternavn } = brukerState
+    const { fornavn, etternavn } = user
+
+    function next() {
+        dispatch({
+            type: ActionTypes.UPDATE_APPLICANT,
+            payload: { ...state.applicant, consent },
+        })
+        navigate('velg-scenarie')
+    }
 
     return (
         <div className={'forside'}>
@@ -107,20 +119,15 @@ export default function FrontPage() {
                 <BodyLong>{t('samtykke.innhold')}</BodyLong>
 
                 <ConfirmationPanel
-                    checked={confirmed}
-                    onChange={(e) => setConfirmed(e.target.checked)}
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
                     label={t('samtykke.bekreftelse', { fornavn, etternavn })}
                     size="medium"
                 />
             </FormGroup>
 
             <FormGroup>
-                <Button
-                    size={'medium'}
-                    variant={'primary'}
-                    onClick={() => navigate('velg-scenarie')}
-                    disabled={!confirmed}
-                >
+                <Button size={'medium'} variant={'primary'} onClick={next} disabled={!consent}>
                     {t('startSoeknad')}
                 </Button>
             </FormGroup>

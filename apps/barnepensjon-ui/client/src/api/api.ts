@@ -10,7 +10,7 @@ export const getDraft = async () =>
     api
         .get('/api/api/kladd')
         .then((res) => res.data)
-        .then((data) => (!!data ? JSON.parse(data) : undefined))
+        .then((data) => (!!data?.payload ? JSON.parse(data?.payload) : undefined))
         .catch((e) => {
             switch (e.response.status) {
                 case 404:
@@ -22,6 +22,7 @@ export const getDraft = async () =>
             }
         })
 
-export const saveDraft = async (application: IApplication) => api.post('/api/api/', application).then((res) => res.data)
+export const saveDraft = async (application: IApplication) =>
+    api.post('/api/api/kladd', application).then((res) => res.data)
 
 export const deleteDraft = async () => api.delete('/api/api/').then((res) => res.data)

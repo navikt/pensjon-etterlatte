@@ -9,6 +9,7 @@ import styled from 'styled-components'
 import EyModal from './EyModal'
 import { deleteDraft } from '../../api/api'
 import { BodyShortMuted } from './StyledTypography'
+import useTranslation from '../../hooks/useTranslation'
 
 const NavRow = styled.div`
     width: 100%;
@@ -51,6 +52,8 @@ export default function Navigation({
     send?: () => void
     disabled?: boolean
 }) {
+    const { t } = useTranslation('navigation')
+
     const { dispatch: applicationDispatch } = useApplicationContext()
     const { dispatch: userDispatch } = useUserContext()
 
@@ -75,36 +78,38 @@ export default function Navigation({
                 <NavRow>
                     {!!prev && (
                         <Button variant={'primary'} type={'button'} onClick={prev}>
-                            Tilbake
+                            {t('backButton')}
                         </Button>
                     )}
 
                     {!!next && (
                         <Button variant={'primary'} type={'button'} onClick={next}>
-                            Neste
+                            {t('nextButton')}
                         </Button>
                     )}
 
                     {!!send && (
                         <Button variant={'primary'} type={'button'} onClick={send}>
-                            Send søknad
+                            {t('sendApplication')}
                         </Button>
                     )}
                 </NavRow>
-            </NavFooter>
 
-            <NavRow>
-                <Button id={'avbryt-btn'} variant={'secondary'} type={'button'} onClick={() => setIsOpen(true)}>
-                    Avbryt
-                </Button>
-            </NavRow>
+                <NavRow>
+                    <Button id={'avbryt-btn'} variant={'secondary'} type={'button'} onClick={() => setIsOpen(true)}>
+                        {t('cancelButton')}
+                    </Button>
+                </NavRow>
+            </NavFooter>
 
             <EyModal open={isOpen} onClose={() => setIsOpen(false)}>
                 <FormGroup>
-                    <Heading size={'medium'}>Vil du avbryte søknaden?</Heading>
+                    <Heading size={'medium'}>{t('cancelApplicationTitle')}</Heading>
                 </FormGroup>
 
-                <BodyShortMuted size={'medium'}>Litt info om å fortsette søknaden</BodyShortMuted>
+                <FormGroup>
+                    <BodyShortMuted size={'small'}>{t('cancelApplicationBody')}</BodyShortMuted>
+                </FormGroup>
 
                 <NavRow>
                     <Button
@@ -114,7 +119,7 @@ export default function Navigation({
                         onClick={continueApplication}
                         style={{ margin: '10px' }}
                     >
-                        Nei, fortsett
+                        {t('continueApplicationButton')}
                     </Button>
 
                     <Button
@@ -124,7 +129,7 @@ export default function Navigation({
                         onClick={cancelApplication}
                         style={{ margin: '10px' }}
                     >
-                        Ja, avbryt
+                        {t('cancelApplicationButton')}
                     </Button>
                 </NavRow>
 
@@ -135,7 +140,7 @@ export default function Navigation({
                         variant={'tertiary'}
                         onClick={deleteApplication}
                     >
-                        Slett søknad
+                        {t('deleteApplicationButton')}
                     </FlatDangerButton>
                 </FormGroup>
             </EyModal>

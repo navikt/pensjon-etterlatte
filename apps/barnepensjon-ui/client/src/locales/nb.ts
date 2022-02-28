@@ -215,6 +215,18 @@ const utbetalingsInformasjon = {
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
 }
 
+const navigation = {
+    sendApplication: 'Send søknad',
+    backButton: 'Tilbake',
+    nextButton: 'Neste',
+    cancelButton: 'Avbryt',
+    cancelApplicationTitle: 'Vil du avbryte søknaden?',
+    cancelApplicationBody: 'Du kan fortsette nå eller senere. Søknaden din lagres i 72 timer.',
+    continueApplicationButton: 'Nei, jeg vil fortsette',
+    cancelApplicationButton: 'Ja, avbryt og fortsett senere',
+    deleteApplicationButton: 'Ja, avbryt og slett søknaden',
+}
+
 const radiobuttons = {
     JA: 'Ja',
     NEI: 'Nei',
@@ -237,6 +249,7 @@ const tekster = {
     radiobuttons,
     utbetalingsInformasjon,
     velgScenarie,
+    navigation,
     error,
 }
 
