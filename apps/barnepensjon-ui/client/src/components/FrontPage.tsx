@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import LanguageSelect from './common/LanguageSelect'
 import NavGuide from './common/NavGuide'
 import FormGroup from './common/FormGroup'
+import { useState } from 'react'
 
 export default function FrontPage() {
     const navigate = useNavigate()
 
     const { state: brukerState } = useUserContext()
+    const [confirmed, setConfirmed] = useState(false)
 
     const { t } = useTranslation('forside')
 
@@ -105,15 +107,20 @@ export default function FrontPage() {
                 <BodyLong>{t('samtykke.innhold')}</BodyLong>
 
                 <ConfirmationPanel
-                    checked={false}
-                    onChange={() => ''}
+                    checked={confirmed}
+                    onChange={(e) => setConfirmed(e.target.checked)}
                     label={t('samtykke.bekreftelse', { fornavn, etternavn })}
                     size="medium"
                 />
             </FormGroup>
 
             <FormGroup>
-                <Button size={'medium'} variant={'primary'} onClick={() => navigate('velg-scenarie')}>
+                <Button
+                    size={'medium'}
+                    variant={'primary'}
+                    onClick={() => navigate('velg-scenarie')}
+                    disabled={!confirmed}
+                >
                     {t('startSoeknad')}
                 </Button>
             </FormGroup>

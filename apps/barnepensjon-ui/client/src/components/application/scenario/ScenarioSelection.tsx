@@ -6,6 +6,8 @@ import { RHFRadio } from '../../common/rhf/RHFRadio'
 import { RadioProps } from 'nav-frontend-skjema'
 import { FormProvider, useForm } from 'react-hook-form'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import { ActionTypes } from '../../../context/application/application'
+import { useApplicationContext } from '../../../context/application/ApplicationContext'
 
 enum ApplicantRole {
     PARENT = 'PARENT',
@@ -21,7 +23,7 @@ enum ApplicantSituation {
 export default function ScenarioSelection() {
     const navigate = useNavigate()
     const { t } = useTranslation('velgScenarie')
-    // todo: midleridig hack for å gå videre til neste side.
+    const { dispatch } = useApplicationContext()
 
     const methods = useForm<any>({
         defaultValues: {},
@@ -35,6 +37,8 @@ export default function ScenarioSelection() {
     } = methods
 
     function next(data: any) {
+        dispatch({ type: ActionTypes.UPDATE_APPLICANT, payload: data })
+
         if (data.applicantRole === ApplicantRole.PARENT) navigate('/skjema/forelder/steg/om-deg')
         else if (data.applicantRole === ApplicantRole.GUARDIAN) navigate('/skjema/verge/steg/om-deg')
         else if (data.applicantRole === ApplicantRole.CHILD) navigate('/skjema/barn/steg/om-deg')

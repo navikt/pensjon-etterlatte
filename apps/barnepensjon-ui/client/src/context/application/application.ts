@@ -12,6 +12,7 @@ export interface IApplication {
 
 export enum ActionTypes {
     UPDATE_ABOUT_CHILDREN,
+    UPDATE_APPLICANT,
     UPDATE_ABOUT_YOU,
     UPDATE_FIRST_PARENT,
     UPDATE_SECOND_PARENT,

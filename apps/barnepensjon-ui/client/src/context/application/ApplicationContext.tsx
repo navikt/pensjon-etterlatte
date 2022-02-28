@@ -5,6 +5,12 @@ const initialState: IApplication = {}
 
 const reducer = (state: IApplication, action: IApplicationAction) => {
     switch (action.type) {
+        case ActionTypes.UPDATE_APPLICANT: {
+            return {
+                ...state,
+                applicant: action.payload,
+            }
+        }
         case ActionTypes.UPDATE_ABOUT_YOU:
             return {
                 ...state,
