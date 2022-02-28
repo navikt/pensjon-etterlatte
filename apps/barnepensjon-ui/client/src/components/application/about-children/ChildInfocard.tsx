@@ -1,11 +1,11 @@
-import { IChild } from '../../../types/person'
-import ikon from '../../../assets/barn1.svg'
-import { memo } from 'react'
-import useTranslation from '../../../hooks/useTranslation'
-import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
-import { BodyShort, Detail, Link, Heading, BodyLong } from '@navikt/ds-react'
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
+import { BodyLong, BodyShort, Detail, Heading, Link } from '@navikt/ds-react'
+import { memo } from 'react'
 import styled from 'styled-components'
+import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
+import ikon from '../../../assets/barn1.svg'
+import useTranslation from '../../../hooks/useTranslation'
+import { IChild } from '../../../types/person'
 
 const Infocard = styled.div`
     .typo-normal,
@@ -74,7 +74,7 @@ interface Props {
 }
 
 const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props) => {
-    const { t } = useTranslation('omBarn')
+    const { t } = useTranslation('aboutChildren')
 
     const foedselsnummer = child.foedselsnummer?.replace(/(\d{6})(.*)/, '$1 $2')
 
@@ -87,33 +87,35 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
             <InformationBox>
                 <InformationBoxContent>
                     <Heading size={'small'}>
-                        {child.fornavn} {child.etternavn}
+                        {child.firstName} {child.lastName}
                     </Heading>
                 </InformationBoxContent>
                 <InformationElement>
-                    <BodyShort size={'small'}>{t('infokort.foedselsnummer')}</BodyShort>
+                    <BodyShort size={'small'}>{t('infoCard.fnr')}</BodyShort>
                     <BodyShort size={'small'} spacing>
                         {foedselsnummer}
                     </BodyShort>
 
-                    <BodyShort size={'small'}>{t('infokort.foreldre')}</BodyShort>
+                    <BodyShort size={'small'}>{t('infoCard.parents')}</BodyShort>
                     <BodyShort size={'small'} spacing>
-                        {t(`${child.relasjon}`)}
+                        {t(`${child.relation}`)}
                     </BodyShort>
 
-                    <BodyShort size={'small'}>{t('infokort.statsborgerskap')}</BodyShort>
+                    <BodyShort size={'small'}>{t('infoCard.citizenship')}</BodyShort>
                     <BodyShort size={'small'} spacing>
-                        {child.statsborgerskap}
+                        {child.citizenship}
                     </BodyShort>
 
-                    <BodyShort size={'small'}>{t('infokort.bosted')}</BodyShort>
+                    <BodyShort size={'small'}>{t('infoCard.residence')}</BodyShort>
                     <BodyShort size={'small'} spacing>
-                        {t('borI')}&nbsp;
-                        {child.bosattUtland?.svar === JaNeiVetIkke.JA ? child.bosattUtland?.land : t('felles.norge')}
+                        {t('livesIn')}&nbsp;
+                        {child.staysAbroad?.answer === JaNeiVetIkke.JA
+                            ? child.staysAbroad?.country
+                            : t('common.norway')}
                     </BodyShort>
 
                     <Detail size={'small'} spacing className={'mute'}>
-                        {child.barnepensjon?.soeker === JaNeiVetIkke.JA && t('barnepensjon.soekt')}
+                        {child.childrensPension?.applies === JaNeiVetIkke.JA && t('childrensPension.applied')}
                     </Detail>
                 </InformationElement>
             </InformationBox>
@@ -129,13 +131,13 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                         }}
                     >
                         <EditFilled className={'edit-svg'} />
-                        <span>{t('knapp.endre')}</span>
+                        <span>{t('btn.change')}</span>
                     </InfocardFooterItem>
                 </BodyLong>
                 <BodyLong>
                     <InfocardFooterItem href={'#'} className={'infokort__footer-item'} onClick={() => remove(index)}>
                         <DeleteFilled className={'edit-svg'} />
-                        <span>{t('knapp.fjernFraSoeknad')}</span>
+                        <span>{t('btn.removeFromApplication')}</span>
                     </InfocardFooterItem>
                 </BodyLong>
             </InfocardFooter>

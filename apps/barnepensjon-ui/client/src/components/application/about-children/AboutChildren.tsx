@@ -1,21 +1,21 @@
+import { Alert, BodyShort, Button, Heading, Modal, Panel } from '@navikt/ds-react'
 import { useState } from 'react'
-import ikon from '../../../assets/barn1.svg'
-import ApplicationSteps from '../../../types/ApplicationSteps'
-import { useApplicationContext } from '../../../context/application/ApplicationContext'
-import { IChild, IAboutChild } from '../../../types/person'
-import { ActionTypes } from '../../../context/application/application'
-import useTranslation from '../../../hooks/useTranslation'
-import ChildInfocard from './ChildInfocard'
-import AddChildToForm from './AddChildToForm'
-import { v4 as uuid } from 'uuid'
-import Navigation from '../../common/Navigation'
-import { Alert, BodyShort, Button, Modal, Panel, Heading } from '@navikt/ds-react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
-import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
+import styled from 'styled-components'
+import { v4 as uuid } from 'uuid'
+import ikon from '../../../assets/barn1.svg'
+import { ActionTypes } from '../../../context/application/application'
+import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import useTranslation from '../../../hooks/useTranslation'
+import ApplicationSteps from '../../../types/ApplicationSteps'
+import { IAboutChild, IChild } from '../../../types/person'
 import { deepCopy } from '../../../utils/deepCopy'
 import FormGroup from '../../common/FormGroup'
+import Navigation from '../../common/Navigation'
+import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
+import AddChildToForm from './AddChildToForm'
+import ChildInfocard from './ChildInfocard'
 import OtherBenefits from './OtherBenefits'
-import styled from 'styled-components'
 
 const AboutChildrenWrapper = styled.div`
     .center {
@@ -117,7 +117,7 @@ const InformationBox = styled.div`
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement!!('#root') //Denne er også definert i Navigasjon. Trenger vi den?
 
 const AboutChildren: ApplicationSteps = ({ next, previous }) => {
-    const { t } = useTranslation('omBarn')
+    const { t } = useTranslation('aboutChildren')
     const { state, dispatch } = useApplicationContext()
 
     const methods = useForm<IAboutChild>({
@@ -192,14 +192,14 @@ const AboutChildren: ApplicationSteps = ({ next, previous }) => {
                         <>
                             <FormGroup>
                                 <Heading size={'medium'} className={'center'}>
-                                    {t('tittel')}
+                                    {t('title')}
                                 </Heading>
                             </FormGroup>
 
                             <FormGroup>
                                 <Panel border>
                                     <Alert variant={'info'} className={'navds-alert--inline'}>
-                                        <BodyShort size={'small'}>{t('informasjon')}</BodyShort>
+                                        <BodyShort size={'small'}>{t('information')}</BodyShort>
                                     </Alert>
                                 </Panel>
                             </FormGroup>
@@ -222,7 +222,7 @@ const AboutChildren: ApplicationSteps = ({ next, previous }) => {
                                         </InfocardHeader>
                                         <InformationBox>
                                             <Button variant={'primary'} type={'button'} onClick={addNewChild}>
-                                                {t('knapp.leggTilBarn')}
+                                                {t('btn.addChild')}
                                             </Button>
                                         </InformationBox>
                                     </Infocard>
@@ -230,8 +230,8 @@ const AboutChildren: ApplicationSteps = ({ next, previous }) => {
                             </FormGroup>
                             <FormGroup>
                                 <RHFGeneralQuestionRadio
-                                    name={'gravidEllerNyligFoedt'}
-                                    legend={t('gravidEllerNyligFoedt')}
+                                    name={'pregnantOrNewlyBorn'}
+                                    legend={t('pregnantOrNewlyBorn')}
                                 />
                             </FormGroup>
 

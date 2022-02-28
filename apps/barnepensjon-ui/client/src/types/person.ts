@@ -7,38 +7,38 @@ export interface IAboutChild {
 }
 
 export interface IChild {
-    fornavn?: string
-    etternavn?: string
+    firstName?: string
+    lastName?: string
     foedselsnummer?: string
-    harBarnetVerge?: {
-        svar?: JaNeiVetIkke
-        fornavn?: string
-        etternavn?: string
+    childHasGuardianship?: {
+        answer?: JaNeiVetIkke
+        firstName?: string
+        lastName?: string
         foedselsnummer?: string
     }
-    relasjon?: string
-    statsborgerskap?: string
-    bosattUtland?: {
-        svar?: JaNeiVetIkke
-        land?: string
-        adresse?: string
+    relation?: string
+    citizenship?: string
+    staysAbroad?: {
+        answer?: JaNeiVetIkke
+        country?: string
+        address?: string
     }
-    dagligOmsorg?: JaNeiVetIkke
-    barnepensjon?: {
-        soeker?: JaNeiVetIkke.JA | undefined
-        kontonummer?: {
-            svar?: JaNeiVetIkke
-            kontonummer?: string
+    dailyCare?: JaNeiVetIkke
+    childrensPension?: {
+        applies?: JaNeiVetIkke.JA | undefined
+        bankAccount?: {
+            answer?: JaNeiVetIkke
+            bankAccount?: string
         }
-        forskuddstrekk?: {
-            svar?: JaNeiVetIkke
+        taxWithhold?: {
+            answer?: JaNeiVetIkke
             trekkprosent?: string
         }
     }
 }
 
 export enum ChildRelation {
-    fellesbarnMedAvdoede = 'barnRelasjon.fellesbarnMedAvdoede',
-    avdoedesSaerkullsbarn = 'barnRelasjon.avdoedesSaerkullsbarn',
-    egneSaerkullsbarn = 'barnRelasjon.egneSaerkullsbarn',
+    fellesbarnMedAvdoede = 'childrenRelation.fellesbarnMedAvdoede',
+    avdoedesSaerkullsbarn = 'childrenRelation.avdoedesSaerkullsbarn',
+    egneSaerkullsbarn = 'childrenRelation.egneSaerkullsbarn',
 }

@@ -1,24 +1,24 @@
+import { Button, Cell, Grid, Heading, Label, Panel } from '@navikt/ds-react'
+import { fnr } from '@navikt/fnrvalidator'
 import { RadioProps } from 'nav-frontend-skjema'
+import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
+import styled from 'styled-components'
+import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
+import ikon from '../../../assets/barn1.svg'
+import { useUserContext } from '../../../context/user/UserContext'
+import useCountries from '../../../hooks/useCountries'
 import useTranslation from '../../../hooks/useTranslation'
 import { ChildRelation, IChild } from '../../../types/person'
-import { RHFRadio, RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from '../../common/rhf/RHFInput'
-import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
-import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
-import { hentAlderFraFoedselsnummer } from '../../../utils/date'
 import { erMyndig } from '../../../utils/age'
-import { fnr } from '@navikt/fnrvalidator'
-import { Button, Cell, Grid, Heading, Label, Panel } from '@navikt/ds-react'
-import { RHFCheckboksPanel } from '../../common/rhf/RHFCheckboksPanelGruppe'
+import { hentAlderFraFoedselsnummer } from '../../../utils/date'
 import Hjelpetekst from '../../../utils/Hjelpetekst'
-import { RHFSelect } from '../../common/rhf/RHFSelect'
-import useCountries from '../../../hooks/useCountries'
-import ikon from '../../../assets/barn1.svg'
-import { useEffect } from 'react'
-import { useUserContext } from '../../../context/user/UserContext'
+import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormGroup from '../../common/FormGroup'
-import styled from 'styled-components'
+import { RHFCheckboksPanel } from '../../common/rhf/RHFCheckboksPanelGruppe'
+import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from '../../common/rhf/RHFInput'
+import { RHFGeneralQuestionRadio, RHFRadio } from '../../common/rhf/RHFRadio'
+import { RHFSelect } from '../../common/rhf/RHFSelect'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -84,15 +84,15 @@ interface Props {
 }
 
 const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCanceledNewChild }: Props) => {
-    const { t } = useTranslation('omBarn')
+    const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
     const { state: bruker } = useUserContext()
 
     const methods = useForm<IChild>({
         defaultValues: {
             ...child,
-            statsborgerskap: child.statsborgerskap || 'Norge',
-            bosattUtland: { ...child.bosattUtland, land: child.bosattUtland?.land || 'Norge' },
+            citizenship: child.citizenship || 'Norge',
+            staysAbroad: { ...child.staysAbroad, country: child.staysAbroad?.country || 'Norge' },
         },
         shouldUnregister: true,
     })
@@ -118,13 +118,13 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
         window.scrollTo(0, 0)
     }
 
-    const livesAbroadAnswer = watch('bosattUtland.svar')
-    const childHasGuardianship = watch('harBarnetVerge.svar')
-    const relation = watch('relasjon')
+    const livesAbroadAnswer = watch('staysAbroad.answer')
+    const childHasGuardianship = watch('childHasGuardianship.answer')
+    const relation = watch('relation')
     const foedselsnummer: any = watch('foedselsnummer')
-    const appliesForChildrensPension = watch('barnepensjon.soeker')
-    const anotherBankAccountChildrensPension = watch('barnepensjon.kontonummer.svar')
-    const withholdingTaxChildrensPension = watch('barnepensjon.forskuddstrekk.svar')
+    const appliesForChildrensPension = watch('childrensPension.applies')
+    const anotherBankAccountChildrensPension = watch('childrensPension.bankAccount.answer')
+    const withholdingTaxChildrensPension = watch('childrensPension.taxWithhold.answer')
 
     const canApplyForChildrensPension = (): boolean => {
         if (foedselsnummer && fnr(foedselsnummer).status === 'valid') {
@@ -152,7 +152,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                     <ChangeChildPanelHeader>
                         <img alt="barn" className="barneikon" src={ikon} />
                         <Heading size={'small'} className={'overskrift'}>
-                            {t('tittelModal')}
+                            {t('titleModal')}
                         </Heading>
                     </ChangeChildPanelHeader>
                     <br />
@@ -162,13 +162,17 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                             <FormGroup>
                                 <Grid>
                                     <Cell xs={12} md={6}>
-                                        <RHFInput name={'fornavn'} label={t('fornavn')} rules={{ pattern: /^\D+$/ }} />
+                                        <RHFInput
+                                            name={'firstName'}
+                                            label={t('firstName')}
+                                            rules={{ pattern: /^\D+$/ }}
+                                        />
                                     </Cell>
 
                                     <Cell xs={12} md={6}>
                                         <RHFInput
-                                            name={'etternavn'}
-                                            label={t('etternavn')}
+                                            name={'lastName'}
+                                            label={t('lastName')}
                                             rules={{ pattern: /^\D+$/ }}
                                         />
                                     </Cell>
@@ -177,10 +181,10 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
 
                             <FormGroup>
                                 <RHFFoedselsnummerInput
-                                    name={'foedselsnummer'}
+                                    name={'fnr'}
                                     bredde={'L'}
-                                    label={t('foedselsnummer')}
-                                    placeholder={t('felles.fnrPlaceholder')}
+                                    label={t('fnr')}
+                                    placeholder={t('common.fnrPlaceholder')}
                                     rules={{
                                         validate: {
                                             validate: (value) => {
@@ -201,37 +205,37 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
 
                             <RHFSelect
                                 className="kol-50"
-                                name={`statsborgerskap`}
-                                label={t('statsborgerskap')}
+                                name={`citizenship`}
+                                label={t('citizenship')}
                                 value={'Norge'}
                                 selectOptions={countries}
                             />
                         </FormGroup>
 
                         <FormGroup>
-                            <RHFGeneralQuestionRadio name={'bosattUtland.svar'} legend={t('bosattUtland.svar')} />
+                            <RHFGeneralQuestionRadio name={'staysAbroad.answer'} legend={t('staysAbroad.answer')} />
 
                             {livesAbroadAnswer === JaNeiVetIkke.JA && (
                                 <>
                                     <RHFSelect
-                                        name={'bosattUtland.land'}
-                                        label={t('bosattUtland.land')}
+                                        name={'staysAbroad.country'}
+                                        label={t('staysAbroad.country')}
                                         value={'Norge'}
                                         selectOptions={countries}
                                     />
 
-                                    <RHFInput name={'bosattUtland.adresse'} label={t('bosattUtland.adresse')} />
+                                    <RHFInput name={'staysAbroad.address'} label={t('staysAbroad.address')} />
                                 </>
                             )}
                         </FormGroup>
 
                         <FormGroup>
                             <RHFRadio
-                                name={'relasjon'}
+                                name={'relation'}
                                 legend={
                                     <>
-                                        {t('relasjon')}&nbsp;
-                                        <Hjelpetekst>{t('relasjonHjelpetekst')} </Hjelpetekst>
+                                        {t('relation')}&nbsp;
+                                        <Hjelpetekst>{t('relationHelpText')} </Hjelpetekst>
                                     </>
                                 }
                                 radios={Object.values(ChildRelation).map((value) => {
@@ -243,36 +247,36 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                             <>
                                 <FormGroup>
                                     <RHFGeneralQuestionRadio
-                                        name={'harBarnetVerge.svar'}
-                                        legend={t('harBarnetVerge.svar')}
+                                        name={'childHasGuardianship.answer'}
+                                        legend={t('childHasGuardianship.answer')}
                                     />
 
                                     {childHasGuardianship === JaNeiVetIkke.JA && (
                                         <>
-                                            <Label>{t('harBarnetVerge.navn')}</Label>
+                                            <Label>{t('childHasGuardianship.navn')}</Label>
                                             <Grid>
                                                 <Cell xs={12} md={6}>
                                                     <RHFInput
-                                                        name={'harBarnetVerge.fornavn'}
-                                                        label={t('harBarnetVerge.fornavn')}
+                                                        name={'childHasGuardianship.firstName'}
+                                                        label={t('childHasGuardianship.firstName')}
                                                         rules={{ pattern: /^\D+$/ }}
                                                         valgfri={true}
                                                     />
                                                 </Cell>
                                                 <Cell xs={12} md={6}>
                                                     <RHFInput
-                                                        name={'harBarnetVerge.etternavn'}
-                                                        label={t('harBarnetVerge.etternavn')}
+                                                        name={'childHasGuardianship.lastName'}
+                                                        label={t('childHasGuardianship.lastName')}
                                                         rules={{ pattern: /^\D+$/ }}
                                                         valgfri={true}
                                                     />
                                                 </Cell>
                                             </Grid>
                                             <RHFFoedselsnummerInput
-                                                name={'harBarnetVerge.foedselsnummer'}
+                                                name={'childHasGuardianship.fnr'}
                                                 bredde={'L'}
-                                                label={t('harBarnetVerge.foedselsnummer')}
-                                                placeholder={t('harBarnetVerge.foedselsnummerPlaceholder')}
+                                                label={t('childHasGuardianship.fnr')}
+                                                placeholder={t('childHasGuardianship.fnrPlaceholder')}
                                                 valgfri={true}
                                             />
                                         </>
@@ -281,12 +285,12 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
 
                                 <FormGroup>
                                     <RHFCheckboksPanel
-                                        name={'barnepensjon.soeker'}
-                                        legend={t('barnepensjon.soeker')}
-                                        description={t('barnepensjon.soekerInfo')}
+                                        name={'childrensPension.applies'}
+                                        legend={t('childrensPension.applies')}
+                                        description={t('childrensPension.appliesInfo')}
                                         valgfri={true}
                                         checkbox={{
-                                            label: t('barnepensjon.soekerCheckboks'),
+                                            label: t('childrensPension.appliesCheckboks'),
                                             value: JaNeiVetIkke.JA,
                                         }}
                                     />
@@ -294,28 +298,28 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                                     {!bruker.adressebeskyttelse && appliesForChildrensPension === JaNeiVetIkke.JA && (
                                         <>
                                             <RHFGeneralQuestionRadio
-                                                name={'barnepensjon.kontonummer.svar'}
-                                                legend={t('barnepensjon.kontonummer.svar')}
+                                                name={'childrensPension.bankAccount.answer'}
+                                                legend={t('childrensPension.bankAccount.answer')}
                                             />
 
                                             {anotherBankAccountChildrensPension === JaNeiVetIkke.NEI && (
                                                 <RHFKontonummerInput
-                                                    name={'barnepensjon.kontonummer.kontonummer'}
+                                                    name={'childrensPension.bankAccount.bankAccount'}
                                                     bredde={'M'}
-                                                    label={t('barnepensjon.kontonummer.kontonummer')}
-                                                    placeholder={t('barnepensjon.kontonummer.placeholder')}
-                                                    description={t('barnepensjon.kontonummer.informasjon')}
+                                                    label={t('childrensPension.bankAccount.bankAccount')}
+                                                    placeholder={t('childrensPension.bankAccount.placeholder')}
+                                                    description={t('childrensPension.bankAccount.information')}
                                                 />
                                             )}
 
                                             {anotherBankAccountChildrensPension !== JaNeiVetIkke.VET_IKKE && (
                                                 <RHFGeneralQuestionRadio
-                                                    name={'barnepensjon.forskuddstrekk.svar'}
+                                                    name={'childrensPension.taxWithhold.answer'}
                                                     legend={
                                                         <>
-                                                            {t('barnepensjon.forskuddstrekk.svar')}&nbsp;
+                                                            {t('childrensPension.taxWithhold.answer')}&nbsp;
                                                             <Hjelpetekst>
-                                                                {t('barnepensjon.forskuddstrekk.hjelpetekst')}
+                                                                {t('childrensPension.taxWithhold.helpText')}
                                                             </Hjelpetekst>
                                                         </>
                                                     }
@@ -325,9 +329,9 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                                             {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
                                                 <RHFProsentInput
                                                     bredde={'M'}
-                                                    name={'barnepensjon.forskuddstrekk.trekkprosent'}
-                                                    label={t('barnepensjon.forskuddstrekk.trekkprosent')}
-                                                    placeholder={t('barnepensjon.forskuddstrekk.placeholder')}
+                                                    name={'childrensPension.taxWithhold.trekkprosent'}
+                                                    label={t('childrensPension.taxWithhold.trekkprosent')}
+                                                    placeholder={t('childrensPension.taxWithhold.placeholder')}
                                                 />
                                             )}
                                         </>
@@ -339,7 +343,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                         {(relation === ChildRelation.egneSaerkullsbarn ||
                             relation === ChildRelation.avdoedesSaerkullsbarn) && (
                             <FormGroup>
-                                <RHFGeneralQuestionRadio name={'dagligOmsorg'} legend={t('dagligOmsorg')} />
+                                <RHFGeneralQuestionRadio name={'dailyCare'} legend={t('dailyCare')} />
                             </FormGroup>
                         )}
 
@@ -353,7 +357,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                                 onClick={cancelAndClose}
                                 style={{ minWidth: '80px' }}
                             >
-                                {t('knapp.avbryt')}
+                                {t('btn.cancel')}
                             </Button>
 
                             <Button
@@ -363,7 +367,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                                 onClick={handleSubmit(addAndClose)}
                                 style={{ minWidth: '80px' }}
                             >
-                                {t('knapp.lagre')}
+                                {t('btn.save')}
                             </Button>
                         </NavigationRow>
                     </ChangeChildPanelContent>
