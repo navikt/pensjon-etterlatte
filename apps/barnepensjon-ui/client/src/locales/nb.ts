@@ -1,49 +1,49 @@
 // @ts-nocheck
 // prettier-ignore
-const forside = {
-    'tittel': 'Søk om gjenlevendepensjon eller overgangsstønad',
-    'hei': `Hei, {fornavn} {etternavn}`,
-    'startSoeknad': 'Start søknad',
-    'omYtelsene.innhold':
+const frontPage = {
+    'title': 'Søk om gjenlevendepensjon eller overgangsstønad',
+    'hello': `Hei, {fornavn} {etternavn}`,
+    'startApplication': 'Start søknad',
+    'aboutTheBenefit.content':
         'Hvis ektefellen, partneren eller samboeren din er død, kan du ha rett til gjenlevendepensjon eller overgangsstønad til gjenlevende. Du kan også ha rett til støtte hvis du tidligere har vært gift, partner eller samboer med avdøde. Vi vil vurdere om du har rett på gjenlevendepensjon eller overgangsstønad basert på din situasjon. Inntekten din avgjør hvor mye penger du kan få.',
-    'omYtelsene.papirsoeknad.innhold':
+    'aboutTheBenefit.paperApplication.content':
         'Får du alderspensjon eller uføretrygd fra før? Da kan du søke om gjenlevendetillegg i uføretrygd eller gjenlevenderett i alderspensjon. Du må søke på',
-    'omYtelsene.papirsoeknad.href':
+    'aboutTheBenefit.paperApplication.href':
         'https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105',
-    'omYtelsene.papirsoeknad.tekst': 'papir.',
-    'omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/gjenlevendepensjon',
-    'omYtelsene.lenkeGjenlevende.tekst': 'Mer om gjenlevendepensjon',
-    'omYtelsene.lenkeOvergangsstoenad.href': 'https://www.nav.no/overgangsstonad-gjenlevende',
-    'omYtelsene.lenkeOvergangsstoenad.tekst': 'Mer om overgangsstønad',
-    'barnepensjon.tittel': 'Du kan også søke om barnepensjon',
-    'barnepensjon.innhold':
+    'aboutTheBenefit.paperApplication.text': 'papir.',
+    'aboutTheBenefit.linkSurvivor.href': 'https://www.nav.no/gjenlevendepensjon',
+    'aboutTheBenefit.linkSurvivor.text': 'Mer om gjenlevendepensjon',
+    'aboutTheBenefit.linkTransitionalBenefit.href': 'https://www.nav.no/overgangsstonad-gjenlevende',
+    'aboutTheBenefit.linkTransitionalBenefit.text': 'Mer om overgangsstønad',
+    'childrensPension.title': 'Du kan også søke om barnepensjon',
+    'childrensPension.content':
         'Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om gjenlevendepensjon og barnepensjon i denne søknaden.',
-    'barnepensjon.href': 'https://www.nav.no/barnepensjon',
-    'barnepensjon.tekst': 'Mer om barnepensjon',
-    'uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
-    'uthentingAvInfo.innhold':
+    'childrensPension.href': 'https://www.nav.no/barnepensjon',
+    'childrensPension.text': 'Mer om barnepensjon',
+    'retrievalOfInformation.title': 'Vi henter informasjonen vi trenger',
+    'retrievalOfInformation.content':
         'For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell samboer.\nVi henter:',
-    'uthentingAvInfo.innholdListe.li1': '<strong>Personinformasjon</strong> fra Folkeregisteret',
-    'uthentingAvInfo.innholdListe.li2': '<strong>Inntektsinformasjon</strong> fra Skatteetaten',
-    'uthentingAvInfo.innholdListe.li3':
+    'retrievalOfInformation.contentList.li1': '<strong>Personinformasjon</strong> fra Folkeregisteret',
+    'retrievalOfInformation.contentList.li2': '<strong>Inntektsinformasjon</strong> fra Skatteetaten',
+    'retrievalOfInformation.contentList.li3':
         'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
-    'uthentingAvInfo.innholdListe.li4': 'Opplysninger om <strong>annen støtte fra NAV</strong>',
-    'uthentingAvInfo.innholdListe.li5': 'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
-    'uthentingAvInfo.infotekst':
+    'retrievalOfInformation.contentList.li4': 'Opplysninger om <strong>annen støtte fra NAV</strong>',
+    'retrievalOfInformation.contentList.li5': 'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
+    'retrievalOfInformation.infotext':
         'Vi jobber med å forbedre denne søknaden. Inntil videre må du legge inn de fleste opplysningene manuelt.',
-    'uthentingAvInfo.lenke1.href':
+    'retrievalOfInformation.link1.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
-    'uthentingAvInfo.lenke1.tekst': 'Slik behandler vi personopplysningene dine',
-    'uthentingAvInfo.lenke2.href':
+    'retrievalOfInformation.link1.text': 'Slik behandler vi personopplysningene dine',
+    'retrievalOfInformation.link2.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3',
-    'uthentingAvInfo.lenke2.tekst': 'Om personvern og sikkerhet på nav.no',
-    'samtykke.tittel': 'Vi stoler på deg',
-    'samtykke.innhold':
+    'retrievalOfInformation.link2.text': 'Om personvern og sikkerhet på nav.no',
+    'consent.title': 'Vi stoler på deg',
+    'consent.content':
         'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n',
-    'samtykke.lenke.tekst': 'mine plikter på nav.no',
-    'samtykke.lenke.href':
+    'consent.link.text': 'mine plikter på nav.no',
+    'consent.link.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'samtykke.bekreftelse': 'Jeg, {fornavn} {etternavn}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
+    'consent.approval': 'Jeg, {fornavn} {etternavn}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
 }
 
 const velgScenarie = {
@@ -57,7 +57,7 @@ const velgScenarie = {
         'Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du søke om gjenlevendepensjon og barnepensjon i en og samme søknad.',
     'alert.beskrivelse2': 'Gå til',
     'alert.lenke.href': 'https://www.nav.no/gjenlevendepensjon/soknad/',
-    'alert.lenke.tekst': 'søknad om gjenlevendepensjon og barnepensjon',
+    'alert.lenke.text': 'søknad om gjenlevendepensjon og barnepensjon',
     PARENT: 'Jeg skal søke om barnepensjon for mitt/mine barn',
     GUARDIAN: 'Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til',
     CHILD: 'Jeg er over 18 år og søker på vegne av meg selv',
@@ -121,20 +121,20 @@ const aboutTheDeceased = {
 }
 
 const omBarn = {
-    'barnepensjon.soekt': 'Søkt om barnepensjon',
-    'barnepensjon.soeker': 'Søk om barnepensjon',
-    'barnepensjon.soekerInfo': 'Du kan søke om barnepensjon for barn under 18 år som du har felles med avdøde.',
-    'barnepensjon.soekerCheckboks': 'Ja, jeg søker om barnepensjon for barnet',
-    'barnepensjon.kontonummer.svar':
+    'childrensPension.soekt': 'Søkt om barnepensjon',
+    'childrensPension.soeker': 'Søk om barnepensjon',
+    'childrensPension.soekerInfo': 'Du kan søke om barnepensjon for barn under 18 år som du har felles med avdøde.',
+    'childrensPension.soekerCheckboks': 'Ja, jeg søker om barnepensjon for barnet',
+    'childrensPension.kontonummer.svar':
         'Skal barnepensjonen utbetales til samme kontonummer som du har oppgitt tidligere?',
-    'barnepensjon.kontonummer.informasjon': 'Du kan legge til et eget kontonummer for barnet.',
-    'barnepensjon.kontonummer.kontonummer': 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
-    'barnepensjon.kontonummer.placeholder': '11 siffer',
-    'barnepensjon.forskuddstrekk.svar': 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
-    'barnepensjon.forskuddstrekk.hjelpetekst':
+    'childrensPension.kontonummer.informasjon': 'Du kan legge til et eget kontonummer for barnet.',
+    'childrensPension.kontonummer.kontonummer': 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
+    'childrensPension.kontonummer.placeholder': '11 siffer',
+    'childrensPension.forskuddstrekk.svar': 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
+    'childrensPension.forskuddstrekk.hjelpetext':
         'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
-    'barnepensjon.forskuddstrekk.trekkprosent': 'Oppgi ønsket skattetrekk',
-    'barnepensjon.forskuddstrekk.placeholder': 'i prosent, eks. 20%',
+    'childrensPension.forskuddstrekk.trekkprosent': 'Oppgi ønsket skattetrekk',
+    'childrensPension.forskuddstrekk.placeholder': 'i prosent, eks. 20%',
     'barnRelasjon.fellesbarnMedAvdoede': 'Jeg og avdøde',
     'barnRelasjon.avdoedesSaerkullsbarn': 'Avdøde',
     'barnRelasjon.egneSaerkullsbarn': 'Jeg',
@@ -168,7 +168,7 @@ const omBarn = {
     'knapp.lagre': 'Lagre',
     nei: 'Nei',
     relasjon: 'Hvem er foreldre til barnet?',
-    relasjonHjelpetekst:
+    relasjonHjelpetext:
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
     statsborgerskap: 'Statsborgerskap',
     soeknadOmBarnetilsyn: 'Informasjon om stønad til barnetilsyn',
@@ -191,7 +191,7 @@ const felles = {
     sivilstatus: 'Sivilstatus',
     statsborgerskap: 'Statsborgerskap',
     telefonnummer: 'Telefonnummer',
-    telefonnummerHjelpetekst: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
+    telefonnummerHjelpetext: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
     hvorforSpoerVi: 'Hvorfor spør vi om dette',
     datoformat: '(dd.mm.yyyy)',
     datoEksempel: 'eks. 01.11.2020',
@@ -209,10 +209,16 @@ const utbetalingsInformasjon = {
     utenlandskBankNavn: 'Bankens navn',
     utenlandskBankAdresse: 'Bankens fulle adresse',
     iban: 'IBAN-nummer',
-    ibanHjelpetekst: 'IBAN står for International Bank Account Number og er en internasjonal standard for kontonummer.',
+    ibanHjelpetext: 'IBAN står for International Bank Account Number og er en internasjonal standard for kontonummer.',
     swift: 'Bankens S.W.I.F.T (BIC) adresse',
-    swiftHjelpetekst:
+    swiftHjelpetext:
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
+}
+
+const oppsummering = {
+    tittel: 'Oppsummering',
+    beskrivelse:
+        'Les gjennom oppsummeringen av din søknad før du sender. \nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
 }
 
 const radiobuttons = {
@@ -227,17 +233,18 @@ const error = {
     'alternativAddresse.required': 'Du må oppgi nåværende bostedsadresse',
 }
 
-const tekster = {
+const texts = {
     felles,
-    forside,
+    frontPage,
     loggedInUserInfo,
     omBarn,
     omDeg,
     aboutTheDeceased,
     radiobuttons,
+    oppsummering,
     utbetalingsInformasjon,
     velgScenarie,
     error,
 }
 
-export default tekster
+export default texts

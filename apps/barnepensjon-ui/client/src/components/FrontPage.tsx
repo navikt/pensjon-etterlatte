@@ -1,11 +1,11 @@
 import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useUserContext } from '../context/user/UserContext'
 import useTranslation from '../hooks/useTranslation'
-import { useNavigate } from 'react-router-dom'
+import FormGroup from './common/FormGroup'
 import LanguageSelect from './common/LanguageSelect'
 import NavGuide from './common/NavGuide'
-import FormGroup from './common/FormGroup'
-import { useState } from 'react'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -13,14 +13,14 @@ export default function FrontPage() {
     const { state: brukerState } = useUserContext()
     const [confirmed, setConfirmed] = useState(false)
 
-    const { t } = useTranslation('forside')
+    const { t } = useTranslation('frontPage')
 
     const { fornavn, etternavn } = brukerState
 
     return (
         <div className={'forside'}>
             <FormGroup>
-                <NavGuide>{t('hei', { fornavn, etternavn })}</NavGuide>
+                <NavGuide>{t('hello', { fornavn, etternavn })}</NavGuide>
             </FormGroup>
 
             <FormGroup>
@@ -29,87 +29,89 @@ export default function FrontPage() {
 
             <FormGroup>
                 <Alert inline={true} variant={'info'}>
-                    <b>{t('uthentingAvInfo.infotekst')}</b>
+                    <b>{t('retrievalOfInformation.infotext')}</b>
                 </Alert>
             </FormGroup>
 
             <FormGroup>
                 <Heading spacing size={'large'}>
-                    {t('tittel')}
+                    {t('title')}
                 </Heading>
 
-                <BodyLong spacing>{t('omYtelsene.innhold')}</BodyLong>
+                <BodyLong spacing>{t('aboutTheBenefit.content')}</BodyLong>
 
                 <Alert inline={true} variant={'warning'}>
                     <BodyLong spacing>
                         <b>
-                            {t('omYtelsene.papirsoeknad.innhold')}&nbsp;
-                            <Link href={t('omYtelsene.papirsoeknad.href')}>{t('omYtelsene.papirsoeknad.tekst')}</Link>
+                            {t('aboutTheBenefit.paperApplication.content')}&nbsp;
+                            <Link href={t('aboutTheBenefit.paperApplication.href')}>
+                                {t('aboutTheBenefit.paperApplication.text')}
+                            </Link>
                         </b>
                     </BodyLong>
                 </Alert>
 
                 <BodyLong>
-                    <Link href={t('omYtelsene.lenkeGjenlevende.href')}>{t('omYtelsene.lenkeGjenlevende.tekst')}</Link>
+                    <Link href={t('aboutTheBenefit.linkSurvivor.href')}>{t('aboutTheBenefit.linkSurvivor.text')}</Link>
                 </BodyLong>
 
                 <BodyLong>
-                    <Link href={t('omYtelsene.lenkeOvergangsstoenad.href')}>
-                        {t('omYtelsene.lenkeOvergangsstoenad.tekst')}
+                    <Link href={t('aboutTheBenefit.linkTransitionalBenefit.href')}>
+                        {t('aboutTheBenefit.linkTransitionalBenefit.text')}
                     </Link>
                 </BodyLong>
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'small'}>{t('barnepensjon.tittel')}</Heading>
+                <Heading size={'small'}>{t('childrensPension.title')}</Heading>
 
-                <BodyLong spacing>{t('barnepensjon.innhold')}</BodyLong>
+                <BodyLong spacing>{t('childrensPension.content')}</BodyLong>
                 <BodyLong>
-                    <Link href={t('barnepensjon.href')}>{t('barnepensjon.tekst')}</Link>
+                    <Link href={t('childrensPension.href')}>{t('childrensPension.text')}</Link>
                 </BodyLong>
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'small'}>{t('uthentingAvInfo.tittel')}</Heading>
+                <Heading size={'small'}>{t('retrievalOfInformation.title')}</Heading>
 
-                <BodyLong>{t('uthentingAvInfo.innhold')}</BodyLong>
+                <BodyLong>{t('retrievalOfInformation.content')}</BodyLong>
 
                 <ul>
                     <li>
-                        <BodyLong>{t('uthentingAvInfo.innholdListe.li1')}</BodyLong>
+                        <BodyLong>{t('retrievalOfInformation.contentList.li1')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>{t('uthentingAvInfo.innholdListe.li2')}</BodyLong>
+                        <BodyLong>{t('retrievalOfInformation.contentList.li2')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>{t('uthentingAvInfo.innholdListe.li3')}</BodyLong>
+                        <BodyLong>{t('retrievalOfInformation.contentList.li3')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>{t('uthentingAvInfo.innholdListe.li4')}</BodyLong>
+                        <BodyLong>{t('retrievalOfInformation.contentList.li4')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>{t('uthentingAvInfo.innholdListe.li5')}</BodyLong>
+                        <BodyLong>{t('retrievalOfInformation.contentList.li5')}</BodyLong>
                     </li>
                 </ul>
 
                 <BodyLong>
-                    <Link href={t('uthentingAvInfo.lenke1.href')}>{t('uthentingAvInfo.lenke1.tekst')}</Link>
+                    <Link href={t('retrievalOfInformation.link1.href')}>{t('retrievalOfInformation.link1.text')}</Link>
                 </BodyLong>
 
                 <BodyLong>
-                    <Link href={t('uthentingAvInfo.lenke2.href')}>{t('uthentingAvInfo.lenke2.tekst')}</Link>
+                    <Link href={t('retrievalOfInformation.link2.href')}>{t('retrievalOfInformation.link2.text')}</Link>
                 </BodyLong>
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'small'}>{t('samtykke.tittel')}</Heading>
+                <Heading size={'small'}>{t('consent.title')}</Heading>
 
-                <BodyLong>{t('samtykke.innhold')}</BodyLong>
+                <BodyLong>{t('consent.content')}</BodyLong>
 
                 <ConfirmationPanel
                     checked={confirmed}
                     onChange={(e) => setConfirmed(e.target.checked)}
-                    label={t('samtykke.bekreftelse', { fornavn, etternavn })}
+                    label={t('consent.approval', { fornavn, etternavn })}
                     size="medium"
                 />
             </FormGroup>
@@ -121,7 +123,7 @@ export default function FrontPage() {
                     onClick={() => navigate('velg-scenarie')}
                     disabled={!confirmed}
                 >
-                    {t('startSoeknad')}
+                    {t('startApplication')}
                 </Button>
             </FormGroup>
         </div>
