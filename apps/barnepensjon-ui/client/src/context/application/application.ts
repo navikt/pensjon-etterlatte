@@ -4,15 +4,18 @@ import { ISituasjon } from '../../types/situation'
 import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
 
 export interface IApplication {
+    meta?: IApplicationMeta
+    applicant?: IApplicant
     aboutChildren?: IAboutChild
     aboutYou?: any
     firstParent?: Parent
     secondParent?: Parent
     yourSituation?: ISituasjon
-    applicant?: IApplicant
 }
 
 export enum ActionTypes {
+    SET_APPLICATION,
+    SAVE_APPLICATION,
     UPDATE_ABOUT_CHILDREN,
     UPDATE_APPLICANT,
     UPDATE_ABOUT_YOU,
@@ -31,7 +34,13 @@ export interface ApplicationProps {
     dispatch: (action: IApplicationAction) => void
 }
 
+export interface IApplicationMeta {
+    readyForSaving?: boolean
+    savedTimestamp?: Date
+}
+
 export interface IApplicant {
+    consent: boolean
     applicantRole: ApplicantRole
     applicantSituation?: ApplicantSituation
 }

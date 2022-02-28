@@ -1,6 +1,8 @@
 import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ActionTypes } from '../context/application/application'
+import { useApplicationContext } from '../context/application/ApplicationContext'
 import { useUserContext } from '../context/user/UserContext'
 import useTranslation from '../hooks/useTranslation'
 import FormGroup from './common/FormGroup'
@@ -10,12 +12,22 @@ import NavGuide from './common/NavGuide'
 export default function FrontPage() {
     const navigate = useNavigate()
 
-    const { state: brukerState } = useUserContext()
-    const [confirmed, setConfirmed] = useState(false)
+    const { state: user } = useUserContext()
+    const { state, dispatch } = useApplicationContext()
+
+    const [consent, setConsent] = useState(state?.applicant?.consent || false)
 
     const { t } = useTranslation('frontPage')
 
-    const { fornavn, etternavn } = brukerState
+    const { fornavn, etternavn } = user
+
+    function next() {
+        dispatch({
+            type: ActionTypes.UPDATE_APPLICANT,
+            payload: { ...state.applicant, consent },
+        })
+        navigate('velg-scenarie')
+    }
 
     return (
         <div className={'forside'}>
@@ -109,20 +121,15 @@ export default function FrontPage() {
                 <BodyLong>{t('consent.content')}</BodyLong>
 
                 <ConfirmationPanel
-                    checked={confirmed}
-                    onChange={(e) => setConfirmed(e.target.checked)}
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
                     label={t('consent.approval', { fornavn, etternavn })}
                     size="medium"
                 />
             </FormGroup>
 
             <FormGroup>
-                <Button
-                    size={'medium'}
-                    variant={'primary'}
-                    onClick={() => navigate('velg-scenarie')}
-                    disabled={!confirmed}
-                >
+                <Button size={'medium'} variant={'primary'} onClick={next} disabled={!consent}>
                     {t('startApplication')}
                 </Button>
             </FormGroup>

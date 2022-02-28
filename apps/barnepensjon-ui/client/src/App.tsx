@@ -8,6 +8,8 @@ import FrontPage from './components/FrontPage'
 import ScenarioSelection from './components/application/scenario/ScenarioSelection'
 import Dialogue from './components/application/Dialogue'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
+import SpinnerOverlay from './components/common/SpinnerOverlay'
+import useApplication from './hooks/useApplication'
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,
@@ -34,11 +36,15 @@ const SoeknadWrapper = styled(ContentContainer)`
 `
 
 export default function App() {
+    const isLoading = useApplication()
+
     useLoggedInUser()
 
     return (
         <>
             <Banner tekst={'Søknad om barnepensjon'} />
+
+            <SpinnerOverlay visible={isLoading} label={'Henter søknadsinformasjon ...'} />
 
             <SoeknadWrapper>
                 <Routes>

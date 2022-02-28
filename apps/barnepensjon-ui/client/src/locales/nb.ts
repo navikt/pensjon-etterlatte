@@ -222,6 +222,18 @@ const summary = {
         'Les gjennom oppsummeringen av din søknad før du sender. \nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
 }
 
+const navigation = {
+    sendApplication: 'Send søknad',
+    backButton: 'Tilbake',
+    nextButton: 'Neste',
+    cancelButton: 'Avbryt',
+    cancelApplicationTitle: 'Vil du avbryte søknaden?',
+    cancelApplicationBody: 'Du kan fortsette nå eller senere. Søknaden din lagres i 72 timer.',
+    continueApplicationButton: 'Nei, jeg vil fortsette',
+    cancelApplicationButton: 'Ja, avbryt og fortsett senere',
+    deleteApplicationButton: 'Ja, avbryt og slett søknaden',
+}
+
 const radiobuttons = {
     JA: 'Ja',
     NEI: 'Nei',
@@ -242,6 +254,7 @@ const texts = {
     common,
     frontPage,
     loggedInUserInfo,
+    navigation,
     paymentDetails,
     radiobuttons,
     selectScenario,

@@ -21,10 +21,6 @@ export const mockApi = (app: any) => {
         next()
     })
 
-    app.post(`${config.app.basePath}/api/api/soeknad`, async (req: Request, res: Response) => {
-        res.sendStatus(200)
-    })
-
     app.get(`${config.app.basePath}/api/person/innlogget`, (req: Request, res: Response) =>
         setTimeout(() => res.json(innloggetBruker), 1000)
     )
