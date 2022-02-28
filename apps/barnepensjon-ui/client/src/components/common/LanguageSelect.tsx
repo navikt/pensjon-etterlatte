@@ -1,8 +1,8 @@
 import { Select } from '@navikt/ds-react'
+import styled from 'styled-components'
 import { Language } from '../../context/language/language'
 import { useLanguageContext } from '../../context/language/LanguageContext'
 import useTranslation from '../../hooks/useTranslation'
-import styled from 'styled-components'
 
 const SelectWrapper = styled.div`
     max-width: 200px;
@@ -13,14 +13,14 @@ const SelectWrapper = styled.div`
 export default function LanguageSelect() {
     const { language, updateLanguage } = useLanguageContext()
 
-    const { t } = useTranslation('felles')
+    const { t } = useTranslation('common')
 
     return (
         <SelectWrapper>
             <Select
                 onChange={(e) => updateLanguage(e.target.value as Language)}
                 value={language}
-                label={t('velgSpraak')}
+                label={t('chooseLanguage')}
             >
                 <option value={Language.BOKMAAL}>Bokmål</option>
                 <option value={Language.NYNORSK}>Nynorsk</option>

@@ -23,7 +23,7 @@ interface Country {
 }
 
 export default function useCountries(): UseCountries {
-    const { t } = useTranslation('felles')
+    const { t } = useTranslation('common')
 
     const [countries, setCountries] = useState<Country[]>([])
     const [allCountries, setAllCountries] = useState<Country[]>([])
@@ -57,7 +57,7 @@ export default function useCountries(): UseCountries {
         })
 
         landliste.unshift({
-            label: t('velgLand'),
+            label: t('chooseCountry'),
             value: t(''),
         })
         return landliste

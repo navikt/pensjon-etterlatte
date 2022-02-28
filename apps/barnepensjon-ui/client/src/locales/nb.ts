@@ -185,34 +185,34 @@ const loggedInUserInfo = {
     valgfritt: 'Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.',
 }
 
-const felles = {
-    navn: 'Navn',
+const common = {
+    name: 'Navn',
     fnrDnr: 'Fødselsnummer / d-nummer',
-    adresse: 'Bostedsadresse',
-    sivilstatus: 'Sivilstatus',
-    statsborgerskap: 'Statsborgerskap',
-    telefonnummer: 'Telefonnummer',
-    telefonnummerHjelpetext: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
-    hvorforSpoerVi: 'Hvorfor spør vi om dette',
-    datoformat: '(dd.mm.yyyy)',
-    datoEksempel: 'eks. 01.11.2020',
-    velgLand: 'Velg land',
-    velgSpraak: 'Velg språk',
+    address: 'Bostedsadresse',
+    maritalStatus: 'Sivilstatus',
+    citizenship: 'Statsborgerskap',
+    phoneNumber: 'Telefonnummer',
+    phoneNumberHelpText: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
+    whyWeAsk: 'Hvorfor spør vi om dette',
+    dateFormat: '(dd.mm.yyyy)',
+    dateExample: 'eks. 01.11.2020',
+    chooseCountry: 'Velg land',
+    chooseLanguage: 'Velg språk',
 }
 
-const utbetalingsInformasjon = {
-    tittel: 'Oppgi bankopplysninger',
-    NORSK: 'Norsk',
-    UTENLANDSK: 'Utenlandsk',
-    kontonummer: 'Oppgi norsk kontonummer for utbetaling',
-    informasjon: 'Du kan bare ha ett kontonummer registrert hos NAV.',
-    bankkontoType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
-    utenlandskBankNavn: 'Bankens navn',
-    utenlandskBankAdresse: 'Bankens fulle adresse',
+const paymentDetails = {
+    title: 'Oppgi bankopplysninger',
+    NORWEGIAN: 'Norsk',
+    FOREIGN: 'Utenlandsk',
+    bankAccount: 'Oppgi norsk kontonummer for utbetaling',
+    information: 'Du kan bare ha ett kontonummer registrert hos NAV.',
+    accountType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
+    foreignBankName: 'Bankens navn',
+    foreignBankAddress: 'Bankens fulle adresse',
     iban: 'IBAN-nummer',
-    ibanHjelpetext: 'IBAN står for International Bank Account Number og er en internasjonal standard for kontonummer.',
+    ibanHelpText: 'IBAN står for International Bank Account Number og er en internasjonal standard for kontonummer.',
     swift: 'Bankens S.W.I.F.T (BIC) adresse',
-    swiftHjelpetext:
+    swiftHelpText:
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
 }
 
@@ -229,7 +229,7 @@ const radiobuttons = {
 }
 
 const error = {
-    tittel: 'For å gå videre må du rette opp i dette:',
+    title: 'For å gå videre må du rette opp i dette:',
     'bostedsadresseBekreftet.required': 'Spørsmål om bostedsadresse må besvares',
     'alternativAddresse.required': 'Du må oppgi nåværende bostedsadresse',
 }
@@ -239,13 +239,13 @@ const texts = {
     aboutTheDeceased,
     aboutYou,
     error,
-    felles,
+    common,
     frontPage,
     loggedInUserInfo,
+    paymentDetails,
     radiobuttons,
     selectScenario,
     summary,
-    utbetalingsInformasjon,
 }
 
 export default texts

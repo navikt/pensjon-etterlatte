@@ -1,8 +1,8 @@
-import { FC, useState } from 'react'
 import { Collapse, Expand } from '@navikt/ds-icons'
 import { BodyLong } from '@navikt/ds-react'
-import useTranslation from '../../hooks/useTranslation'
+import { FC, useState } from 'react'
 import styled from 'styled-components'
+import useTranslation from '../../hooks/useTranslation'
 
 const HvorforPanel = styled.div`
     & .toggle {
@@ -24,7 +24,7 @@ const HvorforPanel = styled.div`
 
 const WhyWeAsk: FC<{ title: string; children: any }> = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
-    const { t } = useTranslation('felles')
+    const { t } = useTranslation('common')
 
     const click = () => {
         // TODO: Sjekke om dette er noe vi skal logge i Amplitude, tilsvarende gjenlevendepensjon søknad
@@ -34,7 +34,7 @@ const WhyWeAsk: FC<{ title: string; children: any }> = ({ children }) => {
     return (
         <HvorforPanel>
             <button data-testid="toggle" type={'button'} className={'toggle'} onClick={click} aria-expanded={isOpen}>
-                <span>{t('hvorforSpoerVi')}</span>
+                <span>{t('whyWeAsk')}</span>
                 <span>{isOpen ? <Collapse /> : <Expand />}</span>
             </button>
 

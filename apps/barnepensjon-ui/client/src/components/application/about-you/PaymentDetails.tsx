@@ -1,11 +1,11 @@
-import useTranslation from '../../../hooks/useTranslation'
-import { BankkontoType } from '../../../api/dto/FellesOpplysninger'
-import FormGroup from '../../common/FormGroup'
 import { Heading } from '@navikt/ds-react'
-import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput } from '../../common/rhf/RHFInput'
-import Hjelpetekst from '../../../utils/Hjelpetekst'
-import { RHFInlineRadio } from '../../common/rhf/RHFRadio'
 import { RadioProps } from 'nav-frontend-skjema'
+import { BankkontoType } from '../../../api/dto/FellesOpplysninger'
+import useTranslation from '../../../hooks/useTranslation'
+import Hjelpetekst from '../../../utils/Hjelpetekst'
+import FormGroup from '../../common/FormGroup'
+import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput } from '../../common/rhf/RHFInput'
+import { RHFInlineRadio } from '../../common/rhf/RHFRadio'
 
 export default function PaymentDetails({
     hideSelectType,
@@ -14,14 +14,14 @@ export default function PaymentDetails({
     hideSelectType?: boolean
     accountType: BankkontoType
 }) {
-    const { t } = useTranslation('utbetalingsInformasjon')
+    const { t } = useTranslation('paymentDetails')
 
     return (
         <>
             {!hideSelectType && (
                 <RHFInlineRadio
-                    name={'utbetalingsInformasjon.bankkontoType'}
-                    legend={t('bankkontoType')}
+                    name={'accountType'}
+                    legend={t('accountType')}
                     radios={Object.values(BankkontoType).map((value) => {
                         return { label: t(value), value } as RadioProps
                     })}
@@ -32,9 +32,9 @@ export default function PaymentDetails({
                 <FormGroup>
                     <RHFKontonummerInput
                         bredde={'S'}
-                        name={'utbetalingsInformasjon.kontonummer'}
-                        label={t('kontonummer')}
-                        description={t('informasjon')}
+                        name={'bankAccount'}
+                        label={t('bankAccount')}
+                        description={t('information')}
                     />
                 </FormGroup>
             )}
@@ -42,31 +42,31 @@ export default function PaymentDetails({
             {accountType === BankkontoType.UTENLANDSK && (
                 <>
                     <FormGroup>
-                        <Heading size={'small'}>{t('tittel')}</Heading>
+                        <Heading size={'small'}>{t('title')}</Heading>
                     </FormGroup>
 
-                    <RHFInput name={'utenlandskBankNavn'} label={t('utenlandskBankNavn')} />
+                    <RHFInput name={'foreignBankName'} label={t('foreignBankName')} />
 
-                    <RHFInput name={'utenlandskBankAdresse'} label={t('utenlandskBankAdresse')} />
+                    <RHFInput name={'foreignBankAddress'} label={t('foreignBankAddress')} />
 
                     <RHFIbanInput
-                        name={'utbetalingsInformasjon.iban'}
+                        name={'iban'}
                         label={
                             <>
                                 {t('iban')}
                                 &nbsp;
-                                <Hjelpetekst>{t('ibanHjelpetekst')}</Hjelpetekst>
+                                <Hjelpetekst>{t('ibanHelpText')}</Hjelpetekst>
                             </>
                         }
                     />
 
                     <RHFBicInput
-                        name={'utbetalingsInformasjon.swift'}
+                        name={'swift'}
                         label={
                             <>
                                 {t('swift')}
                                 &nbsp;
-                                <Hjelpetekst>{t('swiftHjelpetekst')}</Hjelpetekst>
+                                <Hjelpetekst>{t('swiftHelpText')}</Hjelpetekst>
                             </>
                         }
                     />

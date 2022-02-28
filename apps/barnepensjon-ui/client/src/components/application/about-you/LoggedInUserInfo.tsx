@@ -1,8 +1,8 @@
-import { User } from '../../../context/user/user'
 import { Alert, BodyShort, Cell, Grid, Label } from '@navikt/ds-react'
+import { User } from '../../../context/user/user'
+import useTranslation from '../../../hooks/useTranslation'
 import { fullAdresse } from '../../../utils/adresse'
 import Hjelpetekst from '../../../utils/Hjelpetekst'
-import useTranslation from '../../../hooks/useTranslation'
 import FormGroup from '../../common/FormGroup'
 
 interface LoggedInUserInfoProps {
@@ -10,7 +10,7 @@ interface LoggedInUserInfoProps {
 }
 
 export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
-    const { t } = useTranslation('felles')
+    const { t } = useTranslation('common')
 
     return (
         <FormGroup>
@@ -21,7 +21,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
             <Grid className={'opplysninger'}>
                 <Cell xs={6}>
                     <div>
-                        <Label>{t('navn')}</Label>
+                        <Label>{t('name')}</Label>
                         <BodyShort spacing>
                             {user.fornavn} {user.etternavn}
                         </BodyShort>
@@ -34,7 +34,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
 
                     {user.adresse && !user.adressebeskyttelse && (
                         <div>
-                            <Label>{t('adresse')}</Label>
+                            <Label>{t('address')}</Label>
                             <BodyShort spacing>{fullAdresse(user)}</BodyShort>
                         </div>
                     )}
@@ -42,20 +42,20 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
 
                 <Cell xs={6}>
                     <div>
-                        <Label>{t('sivilstatus')}</Label>
+                        <Label>{t('maritalStatus')}</Label>
                         <BodyShort spacing>{user.sivilstatus}</BodyShort>
                     </div>
 
                     <div>
-                        <Label>{t('statsborgerskap')}</Label>
+                        <Label>{t('citizenship')}</Label>
                         <BodyShort spacing>{user.statsborgerskap}</BodyShort>
                     </div>
 
                     {user.telefonnummer && (
                         <div>
                             <Label as={'div'}>
-                                {t('telefonnummer')}&nbsp;
-                                <Hjelpetekst>{t('telefonnummerHjelpetekst')}</Hjelpetekst>
+                                {t('phoneNumber')}&nbsp;
+                                <Hjelpetekst>{t('phoneNumberHelpText')}</Hjelpetekst>
                             </Label>
                             <BodyShort spacing>{user.telefonnummer}</BodyShort>
                         </div>

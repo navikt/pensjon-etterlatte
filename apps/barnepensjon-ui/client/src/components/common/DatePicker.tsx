@@ -1,16 +1,16 @@
-import { ReactNode } from 'react'
-import '@navikt/ds-datepicker/lib/index.css'
 import { Datepicker } from '@navikt/ds-datepicker'
+import '@navikt/ds-datepicker/lib/index.css'
 import { DatepickerLocales } from '@navikt/ds-datepicker/lib/types'
 import { Label } from '@navikt/ds-react'
-import useTranslation from '../../hooks/useTranslation'
-import { useLanguageContext } from '../../context/language/LanguageContext'
 import { format, parseISO } from 'date-fns'
-import './Datepicker.css'
-import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { get } from 'lodash'
-import { getErrorKey } from '../../utils/errors'
 import { SkjemaelementFeilmelding } from 'nav-frontend-skjema'
+import { ReactNode } from 'react'
+import { Controller, FieldError, useFormContext } from 'react-hook-form'
+import { useLanguageContext } from '../../context/language/LanguageContext'
+import useTranslation from '../../hooks/useTranslation'
+import { getErrorKey } from '../../utils/errors'
+import './Datepicker.css'
 
 interface DatepickerProps {
     name: string
@@ -35,7 +35,7 @@ const parseDate = (dato?: Date | string) => {
 const isValid = (date: any): boolean => !!parseDate(date)
 
 const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, className }: DatepickerProps) => {
-    const { t } = useTranslation('felles')
+    const { t } = useTranslation('common')
     const { language } = useLanguageContext()
 
     const {
@@ -48,7 +48,7 @@ const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, class
 
     return (
         <section className={`skjemaelement ${className}`}>
-            <Label className="label">{`${label} ${t('datoformat')}`}</Label>
+            <Label className="label">{`${label} ${t('dateFormat')}`}</Label>
 
             {description && <div className={'skjemaelement__description'}>{description}</div>}
 
@@ -69,7 +69,7 @@ const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, class
                             inputId={name}
                             inputProps={{
                                 name,
-                                placeholder: t('datoEksempel'),
+                                placeholder: t('dateExample'),
                             }}
                             showYearSelector={true}
                             limitations={{

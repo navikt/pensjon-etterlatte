@@ -1,9 +1,9 @@
+import { ErrorSummary } from '@navikt/ds-react'
 import { FieldError, FieldErrors } from 'react-hook-form/dist/types/errors'
 import { v4 as uuid } from 'uuid'
-import { ErrorSummary } from '@navikt/ds-react'
-import FormGroup from './FormGroup'
 import useTranslation, { TFunction } from '../../hooks/useTranslation'
 import { getErrorKey } from '../../utils/errors'
+import FormGroup from './FormGroup'
 
 interface Error {
     elementId: string
@@ -36,7 +36,7 @@ export default function ErrorSummaryWrapper({ errors }: { errors: FieldErrors })
         <>
             {!!Object.keys(errors).length && (
                 <FormGroup key={uuid()}>
-                    <ErrorSummary heading={t('tittel')}>
+                    <ErrorSummary heading={t('title')}>
                         {convert(errors, t).map((feil) => (
                             <ErrorSummary.Item key={feil.elementId} href={`#${feil.elementId}`}>
                                 {feil.message}
