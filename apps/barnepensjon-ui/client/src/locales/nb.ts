@@ -216,9 +216,9 @@ const utbetalingsInformasjon = {
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
 }
 
-const oppsummering = {
-    tittel: 'Oppsummering',
-    beskrivelse:
+const summary = {
+    title: 'Oppsummering',
+    description:
         'Les gjennom oppsummeringen av din søknad før du sender. \nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
 }
 
@@ -235,17 +235,17 @@ const error = {
 }
 
 const texts = {
+    aboutChildren,
+    aboutTheDeceased,
+    aboutYou,
+    error,
     felles,
     frontPage,
     loggedInUserInfo,
-    aboutChildren,
-    aboutYou,
-    aboutTheDeceased,
     radiobuttons,
-    oppsummering,
-    utbetalingsInformasjon,
     selectScenario,
-    error,
+    summary,
+    utbetalingsInformasjon,
 }
 
 export default texts
