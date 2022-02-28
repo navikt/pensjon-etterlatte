@@ -1,10 +1,10 @@
-import { useUserContext } from '../context/user/UserContext'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getLoggedInUser } from '../api/api'
 import { ActionTypes, User } from '../context/user/user'
-import { hentAlder } from '../utils/date'
+import { useUserContext } from '../context/user/UserContext'
 import { gyldigAlder } from '../utils/age'
-import { useNavigate } from 'react-router-dom'
+import { hentAlder } from '../utils/date'
 
 export default function useLoggedInUser() {
     const navigate = useNavigate()
@@ -34,7 +34,7 @@ export default function useLoggedInUser() {
                 navigate('/system-utilgjengelig')
             })
             .finally(() => setLoading(false))
-    }, [dispatch])
+    }, [dispatch, navigate, state.foedselsnummer])
 
     return loading
 }
