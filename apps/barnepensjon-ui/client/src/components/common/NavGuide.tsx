@@ -52,16 +52,20 @@ const SpeechBubbleArrow = styled.div`
     border-top: 1.25rem solid transparent;
 `
 
-export default function NavGuide({ children }: { children: ReactNode }) {
+export default function NavGuide({ children }: { children?: ReactNode }) {
     return (
         <NavGuideWrapper>
             <NavGuideIcon>
                 <Icon alt="veileder" src={veileder} />
             </NavGuideIcon>
 
-            <SpeechBubbleArrow />
+            {children && (
+                <>
+                    <SpeechBubbleArrow />
 
-            <SpeechBubble>{children}</SpeechBubble>
+                    <SpeechBubble>{children}</SpeechBubble>
+                </>
+            )}
         </NavGuideWrapper>
     )
 }
