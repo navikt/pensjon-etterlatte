@@ -82,7 +82,7 @@ const livingParent = {
     title: 'Om den gjenlevende',
     who: 'Oppgi informasjon om den gjenlevende forelderen.',
     address: 'Adresse',
-    phoneNumber: 'Telefonnummer',
+    phoneNumber: 'Telefonnummer (valgfri)',
 }
 
 const aboutTheDeceased = {

@@ -53,7 +53,7 @@ export interface IParent {
 }
 export interface ILivingParent extends IParent {
     address: String
-    phoneNumber: String
+    phoneNumber?: String
 }
 export interface IDeceasedParent extends IParent {
     dateOfDeath: Date

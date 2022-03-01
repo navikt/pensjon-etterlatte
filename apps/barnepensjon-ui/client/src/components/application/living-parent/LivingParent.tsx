@@ -6,9 +6,10 @@ import { ILivingParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import PersonInfo from '../../common/PersonInfo'
-import { RHFInput } from '../../common/rhf/RHFInput'
+import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
 import FormGroup from '../../common/FormGroup'
 import { Label } from '@navikt/ds-react'
+import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 
 export default function LivingParent({ next, prev, type }: StepProps) {
     const { state, dispatch } = useApplicationContext()
@@ -24,7 +25,10 @@ export default function LivingParent({ next, prev, type }: StepProps) {
         shouldUnregister: true,
     })
 
-    const { handleSubmit } = methods
+    const {
+        handleSubmit,
+        formState: { errors },
+    } = methods
 
     return (
         <FormProvider {...methods}>
@@ -40,8 +44,10 @@ export default function LivingParent({ next, prev, type }: StepProps) {
                 </FormGroup>
 
                 <FormGroup>
-                    <RHFInput name={'phoneNumber'} label={t('phoneNumber')} />
+                    <RHFTelefonInput name={'phoneNumber'} label={t('phoneNumber')} valgfri={true} />
                 </FormGroup>
+
+                <ErrorSummaryWrapper errors={errors} />
 
                 <Navigation next={handleSubmit(save)} prev={prev} />
             </form>
