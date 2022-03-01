@@ -8,8 +8,8 @@ export interface IApplication {
     applicant?: IApplicant
     aboutChildren?: IAboutChild
     aboutYou?: any
-    firstParent?: Parent
-    secondParent?: Parent
+    firstParent?: IParent
+    secondParent?: IParent
     yourSituation?: ISituasjon
 }
 
@@ -45,15 +45,17 @@ export interface IApplicant {
     applicantSituation?: ApplicantSituation
 }
 
-export interface Parent {
+export interface IParent {
     firstName: String
     lastName: String
     fnrDnr: String
     citizenship: String
 }
-export interface SurvivingParent extends Parent {}
-
-export interface DeceasedParent extends Parent {
+export interface ILivingParent extends IParent {
+    address: String
+    phoneNumber: String
+}
+export interface IDeceasedParent extends IParent {
     dateOfDeath: Date
     abroadStays: {
         hasStaysAbroad: JaNeiVetIkke
