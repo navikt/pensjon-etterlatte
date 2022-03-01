@@ -78,6 +78,13 @@ const aboutYou = {
     no: 'Nei',
 }
 
+const livingParent = {
+    title: 'Om den gjenlevende',
+    who: 'Oppgi informasjon om den gjenlevende forelderen.',
+    address: 'Adresse',
+    phoneNumber: 'Telefonnummer',
+}
+
 const aboutTheDeceased = {
     title: 'Om den avdøde',
     who: 'Hvem er det som er død?',
@@ -186,8 +193,12 @@ const loggedInUserInfo = {
 }
 
 const common = {
+    who: '',
+    firstName: 'Fornavn',
+    lastName: 'Etternavn',
     name: 'Navn',
     fnrDnr: 'Fødselsnummer / d-nummer',
+    'fnrDnr.placeholder': '11 siffer',
     address: 'Bostedsadresse',
     maritalStatus: 'Sivilstatus',
     citizenship: 'Statsborgerskap',
@@ -250,6 +261,7 @@ const texts = {
     aboutChildren,
     aboutTheDeceased,
     aboutYou,
+    livingParent,
     error,
     common,
     frontPage,

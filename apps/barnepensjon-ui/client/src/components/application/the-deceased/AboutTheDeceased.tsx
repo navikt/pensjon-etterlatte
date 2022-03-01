@@ -1,9 +1,8 @@
 import FormGroup from '../../common/FormGroup'
 import StepHeading from '../../common/StepHeading'
-import { BodyLong, Cell, Grid, Heading, Label } from '@navikt/ds-react'
+import { BodyLong, Heading, Label } from '@navikt/ds-react'
 import useTranslation from '../../../hooks/useTranslation'
-import { RHFFoedselsnummerInput, RHFInput } from '../../common/rhf/RHFInput'
-import { RHFSelect } from '../../common/rhf/RHFSelect'
+import { RHFInput } from '../../common/rhf/RHFInput'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { FormProvider, useForm } from 'react-hook-form'
 import DatePicker from '../../common/DatePicker'
@@ -14,16 +13,17 @@ import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import Navigation from '../../common/Navigation'
 import useCountries from '../../../hooks/useCountries'
 import SelfEmploymentDetails from './SelfEmploymentDetails'
-import { ActionTypes, DeceasedParent } from '../../../context/application/application'
+import { ActionTypes, IDeceasedParent } from '../../../context/application/application'
 import { StepProps } from '../Dialogue'
 import StaysAbroad from './StaysAbroad'
+import PersonInfo from '../../common/PersonInfo'
 
 export default function AboutTheDeceased({ next, prev, type }: StepProps) {
     const { t } = useTranslation('aboutTheDeceased')
     const { state, dispatch } = useApplicationContext()
     const { countries }: { countries: any } = useCountries()
 
-    const save = (data: DeceasedParent) => {
+    const save = (data: IDeceasedParent) => {
         dispatch({ type: type!!, payload: { ...data } })
         next!!()
     }
@@ -50,32 +50,8 @@ export default function AboutTheDeceased({ next, prev, type }: StepProps) {
                 <FormGroup>
                     <StepHeading>{t('title')}</StepHeading>
 
-                    <FormGroup>
-                        <Label>{t('who')}</Label>
-
-                        <Grid>
-                            <Cell xs={12} md={6}>
-                                <RHFInput name={'firstName'} label={t('firstName')} />
-                            </Cell>
-
-                            <Cell xs={12} md={6}>
-                                <RHFInput name={'lastName'} label={t('lastName')} />
-                            </Cell>
-                        </Grid>
-                        <Grid>
-                            <Cell xs={12} md={6}>
-                                <RHFFoedselsnummerInput
-                                    name={'fnrDnr'}
-                                    label={t('fnrDnr')}
-                                    placeholder={t('fnrDnr.placeholder')}
-                                />
-                            </Cell>
-
-                            <Cell xs={12} md={6}>
-                                <RHFSelect name={`citizenship`} label={t('citizenship')} selectOptions={countries} />
-                            </Cell>
-                        </Grid>
-                    </FormGroup>
+                    <Label>{t('who')}</Label>
+                    <PersonInfo />
 
                     <FormGroup>
                         <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
