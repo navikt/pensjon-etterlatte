@@ -147,6 +147,7 @@ const aboutChildren = {
     'childrenRelation.egneSaerkullsbarn': 'Jeg',
     livesIn: 'Bor i',
     'staysAbroad.answer': 'Bor barnet i et annet land enn Norge?',
+    'staysAbroad.sibling.answer': 'Bor søskenet i et annet land enn Norge?',
     'staysAbroad.country': 'Land',
     'staysAbroad.address': 'Adresse i utlandet',
     dailyCare: 'Har du daglig omsorg for dette barnet?',
@@ -154,6 +155,7 @@ const aboutChildren = {
     'common.fnrPlaceholder': '11 siffer',
     'common.norway': 'Norge',
     fnr: 'Barnets fødselsnummer / d-nummer',
+    'fnr.sibling': 'Søskenets fødselsnummer / d-nummer',
     firstName: 'Fornavn',
     pregnantOrNewlyBorn: 'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
     'childHasGuardianship.lastName': 'Etternavn (valgfri)',
@@ -164,6 +166,7 @@ const aboutChildren = {
     'childHasGuardianship.fnrPlaceholder': '11 siffer',
     information:
         'Dersom du har eller har hatt barn kan det påvirke retten din til gjenlevendepensjon. Derfor må du oppgi alle barn, uavhengig av hvor gamle de er. Dette gjelder barn du har felles med avdøde, avdødes egne barn, og dine egne barn. \n\n Hvis du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke selv.',
+    'information.sibling': 'Her er info hvis det er søsken',
     'infoCard.residence': 'BOSTED',
     'infoCard.fnr': 'FØDSELSNUMMER',
     'infoCard.parents': 'FORELDRE TIL BARNET',
@@ -171,6 +174,7 @@ const aboutChildren = {
     yes: 'Ja',
     'btn.removeFromApplication': 'Fjern fra søknad',
     'btn.addChild': '+ Legg til barn',
+    'btn.addSibling': '+ Legg til søsken',
     'btn.cancel': 'Avbryt',
     'btn.change': 'Endre',
     'btn.save': 'Lagre',
@@ -185,6 +189,9 @@ const aboutChildren = {
     'applicationForChildcare.approval': 'Jeg har utgifter til barnetilsyn',
     title: 'Om barn',
     titleModal: 'Om barnet',
+    'titleModal.sibling': 'Om søskenet',
+    'title.sibling': 'Om søsken',
+    voluntary: 'Dette er valgfritt',
 }
 
 const loggedInUserInfo = {

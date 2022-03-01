@@ -7,7 +7,7 @@ import ikon from '../../../assets/barn1.svg'
 import useTranslation from '../../../hooks/useTranslation'
 import { IChild } from '../../../types/person'
 
-const Infocard = styled.div`
+export const Infocard = styled.div`
     .typo-normal,
     .typo-element {
         margin: 0.3rem 0;
@@ -26,7 +26,7 @@ const Infocard = styled.div`
     }
 `
 
-const InfocardHeader = styled.div`
+export const InfocardHeader = styled.div`
     box-sizing: border-box;
     height: 128px;
     background-color: #4d3e55;
@@ -54,7 +54,7 @@ const InfocardFooterItem = styled(Link)`
     text-align: center;
 `
 
-const InformationBox = styled.div`
+export const InformationBox = styled.div`
     padding: 2rem 2rem;
     text-align: center;
 `
@@ -71,12 +71,13 @@ interface Props {
     index: number
     remove: (index: number) => void
     setActiveChildIndex: () => void
+    isChild: boolean
 }
 
-const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props) => {
+const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex, isChild }: Props) => {
     const { t } = useTranslation('aboutChildren')
 
-    const foedselsnummer = child.foedselsnummer?.replace(/(\d{6})(.*)/, '$1 $2')
+    const foedselsnummer = child.fnr?.replace(/(\d{6})(.*)/, '$1 $2')
 
     return (
         <Infocard>
@@ -96,10 +97,14 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                         {foedselsnummer}
                     </BodyShort>
 
-                    <BodyShort size={'small'}>{t('infoCard.parents')}</BodyShort>
-                    <BodyShort size={'small'} spacing>
-                        {t(`${child.relation}`)}
-                    </BodyShort>
+                    {!isChild && (
+                        <>
+                            <BodyShort size={'small'}>{t('infoCard.parents')}</BodyShort>
+                            <BodyShort size={'small'} spacing>
+                                {t(`${child.relation}`)}
+                            </BodyShort>
+                        </>
+                    )}
 
                     <BodyShort size={'small'}>{t('infoCard.citizenship')}</BodyShort>
                     <BodyShort size={'small'} spacing>

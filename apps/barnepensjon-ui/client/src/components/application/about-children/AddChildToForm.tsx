@@ -1,5 +1,5 @@
 import { Button, Cell, Grid, Heading, Label, Panel } from '@navikt/ds-react'
-import { fnr } from '@navikt/fnrvalidator'
+import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { RadioProps } from 'nav-frontend-skjema'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -15,11 +15,11 @@ import { hentAlderFraFoedselsnummer } from '../../../utils/date'
 import Hjelpetekst from '../../../utils/Hjelpetekst'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormGroup from '../../common/FormGroup'
+import { NavRow } from '../../common/Navigation'
 import { RHFCheckboksPanel } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio, RHFRadio } from '../../common/rhf/RHFRadio'
 import { RHFSelect } from '../../common/rhf/RHFSelect'
-import { NavRow } from '../../common/Navigation'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -74,9 +74,10 @@ interface Props {
     child: IChild
     fnrRegisteredChild: string[]
     removeCanceledNewChild: () => void
+    isChild: boolean
 }
 
-const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCanceledNewChild }: Props) => {
+const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCanceledNewChild, isChild }: Props) => {
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
     const { state: bruker } = useUserContext()
@@ -104,9 +105,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
     }
 
     const cancelAndClose = () => {
-        if (child.foedselsnummer === undefined) {
-            removeCanceledNewChild()
-        }
+        if (child.fnr === undefined) removeCanceledNewChild()
         cancel()
         window.scrollTo(0, 0)
     }
@@ -114,14 +113,14 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
     const livesAbroadAnswer = watch('staysAbroad.answer')
     const childHasGuardianship = watch('childHasGuardianship.answer')
     const relation = watch('relation')
-    const foedselsnummer: any = watch('foedselsnummer')
+    const fnr: any = watch('fnr')
     const appliesForChildrensPension = watch('childrensPension.applies')
     const anotherBankAccountChildrensPension = watch('childrensPension.bankAccount.answer')
     const withholdingTaxChildrensPension = watch('childrensPension.taxWithhold.answer')
 
     const canApplyForChildrensPension = (): boolean => {
-        if (foedselsnummer && fnr(foedselsnummer).status === 'valid') {
-            const alder = hentAlderFraFoedselsnummer(foedselsnummer)
+        if (fnr && fnrValidator(fnr).status === 'valid') {
+            const alder = hentAlderFraFoedselsnummer(fnr)
             return !erMyndig(alder)
         }
 
@@ -129,8 +128,8 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
     }
 
     const showDuplicateError = () => {
-        const isDuplicate = fnrRegisteredChild.includes(foedselsnummer)
-        const validationDontShow = errors.foedselsnummer === undefined
+        const isDuplicate = fnrRegisteredChild.includes(fnr)
+        const validationDontShow = errors.fnr === undefined
         return isDuplicate && validationDontShow
     }
 
@@ -145,7 +144,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                     <ChangeChildPanelHeader>
                         <img alt="barn" className="barneikon" src={ikon} />
                         <Heading size={'small'} className={'overskrift'}>
-                            {t('titleModal')}
+                            {!isChild ? t('titleModal') : t('titleModal.sibling')}
                         </Heading>
                     </ChangeChildPanelHeader>
                     <br />
@@ -174,13 +173,13 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
 
                             <FormGroup>
                                 <RHFFoedselsnummerInput
-                                    name={'foedselsnummer'}
+                                    name={'fnr'}
                                     bredde={'L'}
-                                    label={t('fnr')}
+                                    label={!isChild ? t('fnr') : t('fnr.sibling')}
                                     placeholder={t('common.fnrPlaceholder')}
                                     rules={{
                                         validate: {
-                                            validate: (value) => fnr(value).status === 'valid',
+                                            validate: (value) => fnrValidator(value).status === 'valid',
                                             duplicate: (value) => !fnrRegisteredChild.includes(value),
                                         },
                                     }}
@@ -202,7 +201,10 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                         </FormGroup>
 
                         <FormGroup>
-                            <RHFGeneralQuestionRadio name={'staysAbroad.answer'} legend={t('staysAbroad.answer')} />
+                            <RHFGeneralQuestionRadio
+                                name={'staysAbroad.answer'}
+                                legend={!isChild ? t('staysAbroad.answer') : t('staysAbroad.sibling.answer')}
+                            />
 
                             {livesAbroadAnswer === JaNeiVetIkke.JA && (
                                 <>
@@ -218,20 +220,22 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                             )}
                         </FormGroup>
 
-                        <FormGroup>
-                            <RHFRadio
-                                name={'relation'}
-                                legend={
-                                    <>
-                                        {t('relation')}&nbsp;
-                                        <Hjelpetekst>{t('relationHelpText')} </Hjelpetekst>
-                                    </>
-                                }
-                                radios={Object.values(ChildRelation).map((value) => {
-                                    return { label: t(value), value, required: true } as RadioProps
-                                })}
-                            />
-                        </FormGroup>
+                        {!isChild && (
+                            <FormGroup>
+                                <RHFRadio
+                                    name={'relation'}
+                                    legend={
+                                        <>
+                                            {t('relation')}&nbsp;
+                                            <Hjelpetekst>{t('relationHelpText')} </Hjelpetekst>
+                                        </>
+                                    }
+                                    radios={Object.values(ChildRelation).map((value) => {
+                                        return { label: t(value), value, required: true } as RadioProps
+                                    })}
+                                />
+                            </FormGroup>
+                        )}
                         {relation === ChildRelation.fellesbarnMedAvdoede && canApplyForChildrensPension() && (
                             <>
                                 <FormGroup>

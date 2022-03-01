@@ -56,6 +56,16 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
                     readyForSaving: true,
                 },
             }
+        case ActionTypes.UPDATE_ABOUT_CHILDREN: {
+            return {
+                ...state,
+                aboutChildren: action.payload,
+                meta: {
+                    ...state.meta,
+                    readyForSaving: true,
+                },
+            }
+        }
         default:
             return state
     }

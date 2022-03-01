@@ -12,11 +12,12 @@ import { deepCopy } from '../../../utils/deepCopy'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import { StepProps } from '../Dialogue'
-import AddChildToForm from './AddChildToForm'
-import ChildInfocard from './ChildInfocard'
-import OtherBenefits from './OtherBenefits'
 import StepHeading from '../../common/StepHeading'
+import { StepProps } from '../Dialogue'
+import { ApplicantRole } from '../scenario/ScenarioSelection'
+import AddChildToForm from './AddChildToForm'
+import ChildInfocard, { Infocard, InfocardHeader, InformationBox } from './ChildInfocard'
+import OtherBenefits from './OtherBenefits'
 
 const AboutChildrenWrapper = styled.div`
     .center {
@@ -25,10 +26,6 @@ const AboutChildrenWrapper = styled.div`
 
     .mute {
         color: #666;
-    }
-
-    .informasjonsboks-innhold {
-        text-align: center;
     }
 `
 
@@ -39,84 +36,11 @@ const InfocardWrapper = styled.div`
     column-gap: 1rem;
 `
 
-const Infocard = styled.div`
-    .typo-normal,
-    .typo-element {
-        margin: 0.3rem 0;
-    }
-
-    background-color: #e7e9e9;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-
-    @media screen and (min-width: 650px) {
-        max-width: 49%;
-    }
-
-    &.legg-til {
-        height: 230px;
-    }
-
-    &__footer-item {
-        display: flex;
-        justify-content: center;
-        flex-grow: 1;
-        text-align: center;
-    }
-
-    &__footer {
-        margin-bottom: 1rem;
-    }
-
-    .infokort-knapper {
-        float: right;
-    }
-
-    &__endre-infokort {
-        border: none;
-        text-align: left;
-        padding: inherit;
-    }
-
-    &__fullbredde {
-        width: 100%;
-        max-width: 100%;
-    }
-`
-
-const InfocardHeader = styled.div`
-    box-sizing: border-box;
-    height: 128px;
-    background-color: #4d3e55;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom: 4px solid #826ba1;
-    display: flex;
-    align-items: flex-end;
-
-    img {
-        margin: 0 auto;
-    }
-
-    opacity: 0.4;
-`
-
-const InformationBox = styled.div`
-    padding: 2rem 2rem;
-    text-align: center;
-
-    .informasjonselement {
-        margin: 10px 0 10px 0;
-    }
-`
-
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement!!('#root') //Denne er også definert i Navigasjon. Trenger vi den?
 
 export default function AboutChildren({ next, prev }: StepProps) {
+    const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)
+
     const { t } = useTranslation('aboutChildren')
     const { state, dispatch } = useApplicationContext()
 
@@ -127,9 +51,10 @@ export default function AboutChildren({ next, prev }: StepProps) {
     const { watch, getValues } = methods
 
     const isValidated = state.aboutChildren?.erValidert
+    const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
     const registeredChild = watch('child')
 
-    const getFnrRegisteredChild = (): string[] => registeredChild?.map((child) => child?.foedselsnummer || '') || []
+    const getFnrRegisteredChild = (): string[] => registeredChild?.map((child) => child?.fnr || '') || []
 
     const fnrRegisteredChild = (activeChildIndex: number): string[] => {
         const fnr = getFnrRegisteredChild()
@@ -141,8 +66,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
         name: 'child',
         control: methods.control,
     })
-
-    const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)
 
     const addNewChild = () => {
         append({})
@@ -184,12 +107,14 @@ export default function AboutChildren({ next, prev }: StepProps) {
                 <form>
                     {activeChildIndex === undefined && (
                         <>
-                            <StepHeading>{t('title')}</StepHeading>
+                            <StepHeading>{!isChild ? t('title') : t('title.sibling')}</StepHeading>
 
                             <FormGroup>
                                 <Panel border>
                                     <Alert variant={'info'} className={'navds-alert--inline'}>
-                                        <BodyShort size={'small'}>{t('information')}</BodyShort>
+                                        <BodyShort size={'small'}>
+                                            {!isChild ? t('information') : t('information.sibling')}
+                                        </BodyShort>
                                     </Alert>
                                 </Panel>
                             </FormGroup>
@@ -203,6 +128,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                             index={index}
                                             remove={remove}
                                             setActiveChildIndex={() => setActiveChildIndex(index)}
+                                            isChild={isChild}
                                         />
                                     ))}
 
@@ -212,18 +138,25 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                         </InfocardHeader>
                                         <InformationBox>
                                             <Button variant={'primary'} type={'button'} onClick={addNewChild}>
-                                                {t('btn.addChild')}
+                                                {!isChild ? t('btn.addChild') : t('btn.addSibling')}
                                             </Button>
+                                            {isChild && (
+                                                <BodyShort size={'small'} className={'center mute'}>
+                                                    {t('voluntary')}
+                                                </BodyShort>
+                                            )}
                                         </InformationBox>
                                     </Infocard>
                                 </InfocardWrapper>
                             </FormGroup>
-                            <FormGroup>
-                                <RHFGeneralQuestionRadio
-                                    name={'pregnantOrNewlyBorn'}
-                                    legend={t('pregnantOrNewlyBorn')}
-                                />
-                            </FormGroup>
+                            {!isChild && (
+                                <FormGroup>
+                                    <RHFGeneralQuestionRadio
+                                        name={'pregnantOrNewlyBorn'}
+                                        legend={t('pregnantOrNewlyBorn')}
+                                    />
+                                </FormGroup>
+                            )}
 
                             <OtherBenefits application={state} child={registeredChild} />
 
@@ -241,6 +174,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                             fnrRegisteredChild={fnrRegisteredChild(activeChildIndex)}
                             child={fields[activeChildIndex] as IChild}
                             removeCanceledNewChild={removeNewChild}
+                            isChild={isChild}
                         />
                     )}
                 </form>

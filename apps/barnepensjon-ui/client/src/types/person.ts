@@ -9,12 +9,12 @@ export interface IAboutChild {
 export interface IChild {
     firstName?: string
     lastName?: string
-    foedselsnummer?: string
+    fnr?: string
     childHasGuardianship?: {
         answer?: JaNeiVetIkke
         firstName?: string
         lastName?: string
-        foedselsnummer?: string
+        fnr?: string
     }
     relation?: string
     citizenship?: string
