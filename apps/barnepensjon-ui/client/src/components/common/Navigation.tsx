@@ -11,7 +11,7 @@ import { deleteDraft } from '../../api/api'
 import { BodyShortMuted } from './StyledTypography'
 import useTranslation from '../../hooks/useTranslation'
 
-const NavRow = styled.div`
+export const NavRow = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;

@@ -19,6 +19,7 @@ import { RHFCheckboksPanel } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio, RHFRadio } from '../../common/rhf/RHFRadio'
 import { RHFSelect } from '../../common/rhf/RHFSelect'
+import { NavRow } from '../../common/Navigation'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -31,7 +32,7 @@ const ChangeChildPanel = styled(Panel)`
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 
-    @media screen and (min-width: $width) {
+    @media screen and (min-width: 650px) {
         max-width: 100%;
     }
 `
@@ -65,14 +66,6 @@ const ChangeChildPanelHeader = styled.div`
 
 const ChangeChildPanelContent = styled.div`
     padding: 2em;
-`
-
-const NavigationRow = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    column-gap: 1rem;
-    margin-bottom: 0rem;
 `
 
 interface Props {
@@ -181,18 +174,14 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
 
                             <FormGroup>
                                 <RHFFoedselsnummerInput
-                                    name={'fnr'}
+                                    name={'foedselsnummer'}
                                     bredde={'L'}
                                     label={t('fnr')}
                                     placeholder={t('common.fnrPlaceholder')}
                                     rules={{
                                         validate: {
-                                            validate: (value) => {
-                                                return fnr(value).status === 'valid'
-                                            },
-                                            duplicate: (value) => {
-                                                return !fnrRegisteredChild.includes(value)
-                                            },
+                                            validate: (value) => fnr(value).status === 'valid',
+                                            duplicate: (value) => !fnrRegisteredChild.includes(value),
                                         },
                                     }}
                                 />
@@ -349,7 +338,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
 
                         <ErrorSummaryWrapper errors={errors} />
 
-                        <NavigationRow>
+                        <NavRow>
                             <Button
                                 id={'avbrytLeggTilBarn'}
                                 variant={'secondary'}
@@ -369,7 +358,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                             >
                                 {t('btn.save')}
                             </Button>
-                        </NavigationRow>
+                        </NavRow>
                     </ChangeChildPanelContent>
                 </ChangeChildPanel>
             </form>

@@ -129,13 +129,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
     const isValidated = state.aboutChildren?.erValidert
     const registeredChild = watch('child')
 
-    const getFnrRegisteredChild = (): string[] => {
-        if (registeredChild !== undefined) {
-            return registeredChild.map((child) => (child.foedselsnummer !== undefined ? child.foedselsnummer : ''))
-        } else {
-            return []
-        }
-    }
+    const getFnrRegisteredChild = (): string[] => registeredChild?.map((child) => child?.foedselsnummer || '') || []
 
     const fnrRegisteredChild = (activeChildIndex: number): string[] => {
         const fnr = getFnrRegisteredChild()
