@@ -7,12 +7,12 @@ import ikon from '../../../assets/barn1.svg'
 import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
-import ApplicationSteps from '../../../types/ApplicationSteps'
 import { IAboutChild, IChild } from '../../../types/person'
 import { deepCopy } from '../../../utils/deepCopy'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
+import { StepProps } from '../Dialogue'
 import AddChildToForm from './AddChildToForm'
 import ChildInfocard from './ChildInfocard'
 import OtherBenefits from './OtherBenefits'
@@ -116,7 +116,7 @@ const InformationBox = styled.div`
 
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement!!('#root') //Denne er også definert i Navigasjon. Trenger vi den?
 
-const AboutChildren: ApplicationSteps = ({ next, previous }) => {
+export default function AboutChildren({ next, prev }: StepProps) {
     const { t } = useTranslation('aboutChildren')
     const { state, dispatch } = useApplicationContext()
 
@@ -173,13 +173,13 @@ const AboutChildren: ApplicationSteps = ({ next, previous }) => {
 
     const savePrevious = (data: IAboutChild) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...deepCopy(data), erValidert: true } })
-        previous!!()
+        prev!!()
     }
 
     const savePreviousWithoutValidation = () => {
         const values = getValues()
         dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...deepCopy(values), erValidert: false } })
-        previous!!()
+        prev!!()
     }
 
     const { handleSubmit } = methods
@@ -258,5 +258,3 @@ const AboutChildren: ApplicationSteps = ({ next, previous }) => {
         </AboutChildrenWrapper>
     )
 }
-
-export default AboutChildren
