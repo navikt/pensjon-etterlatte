@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Button, Heading, Modal, Panel } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, Modal, Panel } from '@navikt/ds-react'
 import { useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import styled from 'styled-components'
@@ -16,6 +16,7 @@ import { StepProps } from '../Dialogue'
 import AddChildToForm from './AddChildToForm'
 import ChildInfocard from './ChildInfocard'
 import OtherBenefits from './OtherBenefits'
+import StepHeading from '../../common/StepHeading'
 
 const AboutChildrenWrapper = styled.div`
     .center {
@@ -189,11 +190,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                 <form>
                     {activeChildIndex === undefined && (
                         <>
-                            <FormGroup>
-                                <Heading size={'medium'} className={'center'}>
-                                    {t('title')}
-                                </Heading>
-                            </FormGroup>
+                            <StepHeading>{t('title')}</StepHeading>
 
                             <FormGroup>
                                 <Panel border>
