@@ -12,6 +12,7 @@ import useLoggedInUser from './hooks/useLoggedInUser'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
 import PageNotFound from './components/error/PageNotFound'
 import SystemUnavailable from './components/error/SystemUnavailable'
+import ReceiptPage from './components/application/ReceiptPage'
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,
@@ -70,6 +71,8 @@ export default function App() {
                         path="/skjema/forelder/*"
                         element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
                     />
+
+                    <Route path="/skjema/kvittering" element={<ReceiptPage />} />
 
                     <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
 

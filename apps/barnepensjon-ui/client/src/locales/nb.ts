@@ -287,6 +287,40 @@ const systemUnavailable = {
     retryButton: 'Prøv igjen',
 }
 
+const receipt = {
+    pageTitle: 'Søknaden din er sendt til oss',
+    contact: 'Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.',
+    lifeChangeTitle: 'Du må melde fra om endringer',
+    lifeChangeInfo:
+        '\nDu må melde fra med en gang det skjer viktige endringer i livet ditt. Det kan for eksempel være hvis:',
+    'lifeChangeList.maritialStatus': 'du gifter deg, får samboer eller får barn med samboer',
+    'lifeChangeList.income': 'inntekten din endrer seg',
+    'lifeChangeList.address': 'du skal flytte eller oppholde deg i et annet land over lengre tid',
+    'lifeChange.rightsInfo': 'Du kan lese mer om dine rettigheter og plikter på',
+    'lifeChange.rightsInfoLinkHref':
+        'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
+    'lifeChange.rightsInfoLinkText': 'nav.no/rettogplikt',
+    viewCaseTitle: 'Sjekk status i saken din',
+    viewCaseInfoContent: '\nHvis du logger inn i',
+    viewCaseInfoLinkHref1: 'https://www.nav.no/no/ditt-nav',
+    viewCaseInfoLinkText1: 'Ditt NAV',
+    viewCaseInfoContent2: 'finner du en bekreftelse på at vi har fått søknaden din. Du kan alltid sjekke',
+    viewCaseInfoLinkHref2: 'https://tjenester.nav.no/saksoversikt',
+    viewCaseInfoLinkText2: 'Dine saker',
+    viewCaseInfoContent3: 'om søknaden din er behandlet.',
+    viewCaseInfoLinkHref3: 'https://www.nav.no/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav',
+    viewCaseInfoLinkText3: 'Her kan du sjekke forventet saksbehandlingstid.',
+    otherBenefitsTitle: 'Du kan også ha rett til andre stønader',
+    otherBenefitsInfo: '\nHar dere barn sammen? Da kan du også ha rett på andre støtteordninger:',
+    'otherBenefitsList.skolepengerText': 'Stønad til skolepenger for gjenlevende ektefelle',
+    'otherBenefitsList.skolepengerHref': 'https://www.nav.no/skolepenger-gjenlevende',
+    'otherBenefitsList.barnetilsynText': 'Stønad til barnetilsyn for gjenlevende ektefelle',
+    'otherBenefitsList.barnetilsynHref': 'https://www.nav.no/barnetilsyn-gjenlevende',
+    'otherBenefitsList.barnetrygdText': 'Utvidet barnetrygd',
+    'otherBenefitsList.barnetrygdHref': 'https://www.nav.no/utvidet-barnetrygd',
+    closeApplicationButton: 'Avslutt',
+}
+
 const texts = {
     aboutChildren,
     aboutTheDeceased,
@@ -303,6 +337,7 @@ const texts = {
     pageNotFound,
     systemUnavailable,
     summary,
+    receipt,
 }
 
 export default texts
