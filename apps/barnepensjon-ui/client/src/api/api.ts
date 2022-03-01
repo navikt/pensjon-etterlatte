@@ -25,4 +25,4 @@ export const getDraft = async () =>
 export const saveDraft = async (application: IApplication) =>
     api.post('/api/api/kladd', application).then((res) => res.data)
 
-export const deleteDraft = async () => api.delete('/api/api/').then((res) => res.data)
+export const deleteDraft = async () => api.delete('/api/api/kladd').then((res) => res.data)
