@@ -1,7 +1,7 @@
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 
-const isDev = process.env.NODE_ENV === 'development'
+export const isDev = process.env.NODE_ENV === 'development'
 
 export const baseURL = isDev ? `http://localhost:8080${process.env.PUBLIC_URL}` : '/barnepensjon/soknad'
 

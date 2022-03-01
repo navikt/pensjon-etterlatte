@@ -2,8 +2,9 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { StepType } from '../../utils/steps'
 import { BodyShort, StepIndicator } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
-import React from 'react'
+import React, { useState } from 'react'
 import { ActionTypes } from '../../context/application/application'
+import { isDev } from '../../api/axios'
 import PageNotFound from '../error/PageNotFound'
 
 interface DialogueProps {
@@ -20,15 +21,18 @@ export interface StepProps {
 
 export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
     const navigate = useNavigate()
-
     const { pathname } = useLocation()
-
     const currentIndex = steps.findIndex((step) => pathname.includes(step.path))
 
-    const next =
-        currentIndex < steps.length - 1 ? () => navigate(`${pathPrefix}${steps[currentIndex + 1].path}`) : undefined
+    const [visitedPaths, setVisitedPaths] = useState<StepType[]>(steps.slice(0, currentIndex + 1))
+    const visitNavigate = (step: StepType) => {
+        setVisitedPaths([...visitedPaths, step])
+        navigate(`${pathPrefix}${step.path}`)
+    }
 
-    const prev = currentIndex > 0 ? () => navigate(`${pathPrefix}${steps[currentIndex - 1].path}`) : undefined
+    const next = currentIndex < steps.length - 1 ? () => visitNavigate(steps[currentIndex + 1]) : undefined
+
+    const prev = currentIndex > 0 ? () => visitNavigate(steps[currentIndex - 1]) : undefined
 
     const send = currentIndex === steps.length - 1 ? () => console.log('SEND') : undefined
 
@@ -36,7 +40,11 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
         <>
             <StepIndicator activeStep={currentIndex}>
                 {steps.map((step) => (
-                    <StepIndicator.Step key={uuid()}>
+                    <StepIndicator.Step
+                        key={uuid()}
+                        onClick={() => isDev && visitNavigate(step)}
+                        disabled={isDev && !visitedPaths.includes(step)}
+                    >
                         <BodyShort>{step.label}</BodyShort>
                     </StepIndicator.Step>
                 ))}
