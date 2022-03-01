@@ -1,15 +1,15 @@
+import { ContentContainer } from '@navikt/ds-react'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Banner from './components/common/Banner'
-import useLoggedInUser from './hooks/useLoggedInUser'
-import { ContentContainer } from '@navikt/ds-react'
 import styled from 'styled-components'
-import FrontPage from './components/FrontPage'
-import ScenarioSelection from './components/application/scenario/ScenarioSelection'
 import Dialogue from './components/application/Dialogue'
-import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
+import ScenarioSelection from './components/application/scenario/ScenarioSelection'
+import Banner from './components/common/Banner'
 import SpinnerOverlay from './components/common/SpinnerOverlay'
+import FrontPage from './components/FrontPage'
 import useApplication from './hooks/useApplication'
+import useLoggedInUser from './hooks/useLoggedInUser'
+import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,
@@ -18,6 +18,10 @@ const SoeknadWrapper = styled(ContentContainer)`
     span,
     p {
         font-size: 16px;
+    }
+
+    .navds-step-indicator {
+        justify-content: center;
     }
 
     @media screen and (max-width: 650px) {

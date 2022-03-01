@@ -34,7 +34,6 @@ const AboutChildrenWrapper = styled.div`
 const InfocardWrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
-    //justify-content: space-evenly;
     margin: 0 auto;
     column-gap: 1rem;
 `
