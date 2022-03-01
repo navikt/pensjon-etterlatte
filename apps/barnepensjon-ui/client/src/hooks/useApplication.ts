@@ -16,10 +16,8 @@ export default function useApplication() {
     useEffect(() => {
         if (!user.kanSoeke) return
 
-        console.log('fetchingDraft')
         getDraft()
             .then((application: IApplication | undefined) => {
-                console.log('Draft: ', application)
                 if (!application?.applicant?.consent) {
                     navigate('/')
                 } else {
@@ -43,7 +41,6 @@ export default function useApplication() {
     useEffect(() => {
         if (state?.meta?.readyForSaving) {
             const now = new Date()
-            console.log('Saving: ', state)
 
             saveDraft({ ...state, meta: { ...state.meta, savedTimestamp: now, readyForSaving: undefined } })
                 .then(() => dispatch({ type: ActionTypes.SAVE_APPLICATION, payload: now }))

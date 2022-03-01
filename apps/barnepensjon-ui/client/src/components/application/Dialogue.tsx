@@ -4,6 +4,7 @@ import { BodyShort, StepIndicator } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
 import React from 'react'
 import { ActionTypes } from '../../context/application/application'
+import PageNotFound from '../error/PageNotFound'
 
 interface DialogueProps {
     steps: StepType[]
@@ -49,9 +50,9 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
                         element={<step.element next={next} prev={prev} send={send} />}
                     />
                 ))}
-            </Routes>
 
-            {/*<Navigation next={next} prev={prev} send={send} />*/}
+                <Route path="*" element={<PageNotFound />} />
+            </Routes>
         </>
     )
 }

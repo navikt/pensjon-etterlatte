@@ -257,6 +257,29 @@ const error = {
     'alternativAddresse.required': 'Du må oppgi nåværende bostedsadresse',
 }
 
+const pageNotFound = {
+    title: 'Oi, har du gått deg vill?',
+    intro: 'Denne siden finnes ikke.',
+    body: 'Dersom du har klikket på en lenke på våre sider og endt opp her, kan du rapportere feilen her:',
+    linkText: 'www.nav.no/tilbakemelding-feilogmangler',
+    linkHref: 'http://www.nav.no/tilbakemelding-feilogmangler',
+    backButton: 'Klikk her for å gå tilbake',
+}
+
+const systemUnavailable = {
+    guide: 'Å nei, søknaden fungerer ikke...',
+    intro: 'Det er en feil i søknaden som gjør at den dessverre ikke fungerer som den skal.',
+    description:
+        'Vi beklager dette og jobber med å finne ut av det så raskt som mulig. I mellomtiden er det nok lurt å ta en pause og prøve igjen senere.',
+    feedback: 'Er det fortsatt feil, kan du melde fra om det på ',
+    feedbackLenke: 'www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    feedbackHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    moreAboutBenefits: 'Du kan lese mer om ytelser til etterlatte på',
+    moreAboutBenefitsLenke: 'www.nav.no/mistet-noen',
+    moreAboutBenefitsHref: 'https://www.nav.no/mistet-noen',
+    retryButton: 'Prøv igjen',
+}
+
 const texts = {
     aboutChildren,
     aboutTheDeceased,
@@ -270,6 +293,8 @@ const texts = {
     paymentDetails,
     radiobuttons,
     selectScenario,
+    pageNotFound,
+    systemUnavailable,
     summary,
 }
 

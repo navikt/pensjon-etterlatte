@@ -30,7 +30,7 @@ export default function FrontPage() {
     }
 
     return (
-        <div className={'forside'}>
+        <>
             <FormGroup>
                 <NavGuide>{t('hello', { fornavn, etternavn })}</NavGuide>
             </FormGroup>
@@ -133,6 +133,6 @@ export default function FrontPage() {
                     {t('startApplication')}
                 </Button>
             </FormGroup>
-        </div>
+        </>
     )
 }

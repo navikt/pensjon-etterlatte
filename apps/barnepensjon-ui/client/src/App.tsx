@@ -10,6 +10,8 @@ import FrontPage from './components/FrontPage'
 import useApplication from './hooks/useApplication'
 import useLoggedInUser from './hooks/useLoggedInUser'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
+import PageNotFound from './components/error/PageNotFound'
+import SystemUnavailable from './components/error/SystemUnavailable'
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,
@@ -69,7 +71,9 @@ export default function App() {
                         element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
                     />
 
-                    <Route path="*" element={<h1>404</h1>} />
+                    <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
+
+                    <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </SoeknadWrapper>
         </>
