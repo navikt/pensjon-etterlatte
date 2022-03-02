@@ -1,7 +1,7 @@
 import { JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/FellesOpplysninger'
+import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
 import { IAboutChild } from '../../types/person'
 import { ISituasjon } from '../../types/situation'
-import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
 
 export interface IApplication {
     meta?: IApplicationMeta
@@ -14,6 +14,9 @@ export interface IApplication {
 }
 
 export enum ActionTypes {
+    MOCK_PARENT_APPLICATION,
+    MOCK_GUARDIAN_APPLICATION,
+    MOCK_CHILD_APPLICATION,
     SET_APPLICATION,
     SAVE_APPLICATION,
     UPDATE_ABOUT_CHILDREN,

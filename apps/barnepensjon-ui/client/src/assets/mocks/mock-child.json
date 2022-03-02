@@ -1,0 +1,71 @@
+{
+    "applicant": {
+        "consent": true,
+        "applicantRole": "CHILD",
+        "applicantSituation": "BOTH_PARENTS_DECEASED"
+    },
+    "meta": {
+        "savedTimestamp": "2022-03-02T11:23:29.077Z",
+        "readyForSaving": false
+    },
+    "aboutYou": {
+        "addressOfResidenceApproved": "JA",
+        "staysInNorway": "JA",
+        "bankAccount": "1234.12.12345"
+    },
+    "aboutChildren": {
+        "pregnantOrNewlyBorn": "NEI",
+        "child": [
+            {
+                "firstName": "Nicolas",
+                "lastName": "Waters",
+                "fnr": "10080376621",
+                "citizenship": "Norge",
+                "staysAbroad": {
+                    "answer": "JA",
+                    "country": "Ny-caledonia",
+                    "address": "Oppe i et tre"
+                }
+            }
+        ],
+        "erValidert": true
+    },
+    "secondParent": {
+        "firstName": "Jon",
+        "lastName": "Dough",
+        "fnrDnr": "04096222195",
+        "citizenship": "Algerie",
+        "dateOfDeath": "2022-02-25",
+        "abroadStays": {
+            "hasStaysAbroad": "VET_IKKE"
+        },
+        "selfEmplyment": {
+            "wasSelfEmployed": "JA",
+            "selfEmplymentDetails": {
+                "income": "750440",
+                "incomeAtDeath": "NEI"
+            }
+        },
+        "occupationalInjury": "NEI",
+        "militaryService": {
+            "completed": "NEI"
+        }
+    },
+    "firstParent": {
+        "firstName": "Apple",
+        "lastName": "Bees",
+        "fnrDnr": "11078431921",
+        "citizenship": "Bonaire, sint eustatius og saba",
+        "dateOfDeath": "2022-01-12",
+        "abroadStays": {
+            "hasStaysAbroad": "NEI"
+        },
+        "selfEmplyment": {
+            "wasSelfEmployed": "NEI"
+        },
+        "occupationalInjury": "JA",
+        "militaryService": {
+            "completed": "NEI"
+        }
+    }
+}

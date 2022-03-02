@@ -1,10 +1,27 @@
 import { createContext, FC, useContext, useReducer } from 'react'
+import mockChildJson from '../../assets/mocks/mock-child.json'
+import mockGuardianJson from '../../assets/mocks/mock-guardian.json'
+import mockParentJson from '../../assets/mocks/mock-parent.json'
 import { ActionTypes, ApplicationProps, IApplication, IApplicationAction } from './application'
 
 const initialState: IApplication = {}
 
 const reducer = (state: IApplication, action: IApplicationAction) => {
     switch (action.type) {
+        case ActionTypes.MOCK_PARENT_APPLICATION: {
+            const json = JSON.stringify(mockParentJson)
+            return JSON.parse(json) as IApplication
+        }
+        case ActionTypes.MOCK_GUARDIAN_APPLICATION: {
+            const json = JSON.stringify(mockGuardianJson)
+            return JSON.parse(json) as IApplication
+        }
+        case ActionTypes.MOCK_CHILD_APPLICATION: {
+            const json = JSON.stringify(mockChildJson)
+            return JSON.parse(json) as IApplication
+        }
+        case ActionTypes.RESET:
+            return initialState
         case ActionTypes.SET_APPLICATION:
             return action.payload
         case ActionTypes.SAVE_APPLICATION: {

@@ -1,0 +1,64 @@
+{
+    "applicant": {
+        "consent": true,
+        "applicantRole": "PARENT",
+        "applicantSituation": "BOTH_PARENTS_DECEASED"
+    },
+    "meta": {
+        "savedTimestamp": "2022-03-02T10:53:00.126Z",
+        "readyForSaving": false
+    },
+    "aboutYou": {
+        "addressOfResidenceApproved": "JA",
+        "staysInNorway": "NEI",
+        "countryOfResidence": "Andorra",
+        "medlemFolketrygdenUtland": "NEI",
+        "accountType": "NORSK",
+        "bankAccount": "1234.12.12345"
+    },
+    "aboutChildren": {
+        "pregnantOrNewlyBorn": "NEI",
+        "child": [
+            {
+                "firstName": "Lille",
+                "lastName": "Emil",
+                "fnr": "05111850870",
+                "citizenship": "Norge",
+                "staysAbroad": {
+                    "answer": "NEI"
+                },
+                "relation": "childrenRelation.fellesbarnMedAvdoede",
+                "childHasGuardianship": {
+                    "answer": "NEI"
+                },
+                "childrensPension": {
+                    "applies": "JA",
+                    "bankAccount": {
+                        "answer": "JA"
+                    },
+                    "taxWithhold": {
+                        "answer": "NEI"
+                    }
+                }
+            }
+        ],
+        "erValidert": true
+    },
+    "secondParent": {
+        "firstName": "Emil",
+        "lastName": "Svensson",
+        "fnrDnr": "04096222195",
+        "citizenship": "Algerie",
+        "dateOfDeath": "2022-02-25",
+        "abroadStays": {
+            "hasStaysAbroad": "NEI"
+        },
+        "selfEmplyment": {
+            "wasSelfEmployed": "NEI"
+        },
+        "occupationalInjury": "NEI",
+        "militaryService": {
+            "completed": "NEI"
+        }
+    }
+}

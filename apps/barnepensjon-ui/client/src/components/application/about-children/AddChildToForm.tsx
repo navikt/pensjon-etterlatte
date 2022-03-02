@@ -283,7 +283,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                                         description={t('childrensPension.appliesInfo')}
                                         valgfri={true}
                                         checkbox={{
-                                            label: t('childrensPension.appliesCheckboks'),
+                                            label: t('childrensPension.appliesCheckbox'),
                                             value: JaNeiVetIkke.JA,
                                         }}
                                     />

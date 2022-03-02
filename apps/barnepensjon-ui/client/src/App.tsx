@@ -3,16 +3,17 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Dialogue from './components/application/Dialogue'
+import ReceiptPage from './components/application/ReceiptPage'
 import ScenarioSelection from './components/application/scenario/ScenarioSelection'
 import Banner from './components/common/Banner'
 import SpinnerOverlay from './components/common/SpinnerOverlay'
+import Admin from './components/dev/Admin'
+import PageNotFound from './components/error/PageNotFound'
+import SystemUnavailable from './components/error/SystemUnavailable'
 import FrontPage from './components/FrontPage'
 import useApplication from './hooks/useApplication'
 import useLoggedInUser from './hooks/useLoggedInUser'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
-import PageNotFound from './components/error/PageNotFound'
-import SystemUnavailable from './components/error/SystemUnavailable'
-import ReceiptPage from './components/application/ReceiptPage'
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,
@@ -71,6 +72,8 @@ export default function App() {
                         path="/skjema/forelder/*"
                         element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
                     />
+
+                    <Route path="/skjema/admin" element={<Admin />} />
 
                     <Route path="/skjema/kvittering" element={<ReceiptPage />} />
 
