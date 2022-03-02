@@ -42,7 +42,7 @@ export default function AboutYou({ next }: StepProps) {
 
     const addressConfirmed = watch('addressOfResidenceApproved')
     const residesInNorway = watch('staysInNorway')
-    const accountType = watch('utbetalingsInformasjon.bankkontoType')
+    const accountType = watch('accountType')
 
     return (
         <>
