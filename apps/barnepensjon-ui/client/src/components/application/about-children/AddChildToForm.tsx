@@ -75,9 +75,18 @@ interface Props {
     fnrRegisteredChild: string[]
     removeCanceledNewChild: () => void
     isChild: boolean
+    isGuardian: boolean
 }
 
-const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCanceledNewChild, isChild }: Props) => {
+const AddChildToForm = ({
+    cancel,
+    save,
+    child,
+    fnrRegisteredChild,
+    removeCanceledNewChild,
+    isChild,
+    isGuardian,
+}: Props) => {
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
     const { state: bruker } = useUserContext()
@@ -220,7 +229,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, removeCancele
                             )}
                         </FormGroup>
 
-                        {!isChild && (
+                        {!isChild && !isGuardian && (
                             <FormGroup>
                                 <RHFRadio
                                     name={'relation'}

@@ -52,6 +52,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
     const isValidated = state.aboutChildren?.erValidert
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
+    const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
     const registeredChild = watch('child')
 
     const getFnrRegisteredChild = (): string[] => registeredChild?.map((child) => child?.fnr || '') || []
@@ -149,7 +150,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                     </Infocard>
                                 </InfocardWrapper>
                             </FormGroup>
-                            {!isChild && (
+                            {!isChild && !isGuardian && (
                                 <FormGroup>
                                     <RHFGeneralQuestionRadio
                                         name={'pregnantOrNewlyBorn'}
@@ -175,6 +176,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                             child={fields[activeChildIndex] as IChild}
                             removeCanceledNewChild={removeNewChild}
                             isChild={isChild}
+                            isGuardian={isGuardian}
                         />
                     )}
                 </form>
