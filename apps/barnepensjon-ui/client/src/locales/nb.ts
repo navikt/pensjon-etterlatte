@@ -221,8 +221,8 @@ const common = {
 
 const paymentDetails = {
     title: 'Oppgi bankopplysninger',
-    NORWEGIAN: 'Norsk',
-    FOREIGN: 'Utenlandsk',
+    NORSK: 'Norsk',
+    UTENLANDSK: 'Utenlandsk',
     bankAccount: 'Oppgi norsk kontonummer for utbetaling',
     information: 'Du kan bare ha ett kontonummer registrert hos NAV.',
     accountType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
