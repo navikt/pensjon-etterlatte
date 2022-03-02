@@ -88,7 +88,7 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
     }
 }
 
-const ApplicationContext = createContext<ApplicationProps>({
+export const ApplicationContext = createContext<ApplicationProps>({
     state: initialState,
     dispatch: () => {},
 })
