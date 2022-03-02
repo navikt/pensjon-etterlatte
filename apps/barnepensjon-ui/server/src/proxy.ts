@@ -34,7 +34,7 @@ export default function proxy(host: string): RequestHandler {
                 .then((response: any) => {
                     if ([200, 404, 409].includes(response.status)) {
                         logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
-                        return response.json()
+                        return response.status === 200 ? response.json() : response.text()
                     } else {
                         logger.error(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
                         return response.text()
