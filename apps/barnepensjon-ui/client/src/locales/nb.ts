@@ -76,6 +76,7 @@ const aboutYou = {
     medlemFolketrygdenUtland: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
     yes: 'Ja',
     no: 'Nei',
+    'contactInfo.phoneNumber': 'Telefonnummer',
 }
 
 const livingParent = {

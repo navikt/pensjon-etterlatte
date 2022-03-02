@@ -1,5 +1,6 @@
 import { Cell, Grid } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
+import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
@@ -17,6 +18,12 @@ import WhyWeAsk from '../../common/WhyWeAsk'
 import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
 import PaymentDetails from './PaymentDetails'
+
+const StaysAbroadWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+`
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
@@ -77,8 +84,8 @@ export default function AboutYou({ next }: StepProps) {
                                     <Cell xs={12} md={6} className={'kol'}>
                                         <RHFTelefonInput
                                             bredde={'S'}
-                                            name={'kontaktinfo.telefonnummer'}
-                                            label={t('kontaktinfo.telefonnummer')}
+                                            name={'contactInfo.phoneNumber'}
+                                            label={t('contactInfo.phoneNumber')}
                                             valgfri={true}
                                         />
                                     </Cell>
@@ -90,26 +97,26 @@ export default function AboutYou({ next }: StepProps) {
                     {/* 2.7 */}
                     {!user.adressebeskyttelse && (
                         <>
-                            <RHFGeneralQuestionRadio
-                                name={'staysInNorway'}
-                                legend={t('staysInNorway')}
-                                description={<WhyWeAsk title="staysInNorway">{t('stayWhy')}</WhyWeAsk>}
-                            />
+                            <FormGroup>
+                                <RHFGeneralQuestionRadio
+                                    name={'staysInNorway'}
+                                    legend={t('staysInNorway')}
+                                    description={<WhyWeAsk title="staysInNorway">{t('stayWhy')}</WhyWeAsk>}
+                                />
+                            </FormGroup>
 
                             {residesInNorway === JaNeiVetIkke.JA && (
                                 <PaymentDetails accountType={BankkontoType.NORSK} hideSelectType={true} />
                             )}
 
                             {residesInNorway === JaNeiVetIkke.NEI && (
-                                <>
-                                    <FormGroup>
-                                        <RHFSelect
-                                            className="kol-50"
-                                            name={`countryOfResidence`}
-                                            label={t('countryOfResidence')}
-                                            selectOptions={countries as any[]}
-                                        />
-                                    </FormGroup>
+                                <StaysAbroadWrapper>
+                                    <RHFSelect
+                                        className="kol-50"
+                                        name={`countryOfResidence`}
+                                        label={t('countryOfResidence')}
+                                        selectOptions={countries as any[]}
+                                    />
 
                                     <RHFGeneralQuestionRadio
                                         name={'medlemFolketrygdenUtland'}
@@ -117,7 +124,7 @@ export default function AboutYou({ next }: StepProps) {
                                     />
 
                                     <PaymentDetails accountType={accountType} />
-                                </>
+                                </StaysAbroadWrapper>
                             )}
                         </>
                     )}
