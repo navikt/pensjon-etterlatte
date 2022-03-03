@@ -353,7 +353,7 @@ const AddChildToForm = ({
 
                         <NavRow>
                             <Button
-                                id={'avbrytLeggTilBarn'}
+                                id={'cancelAddChildren'}
                                 variant={'secondary'}
                                 type={'button'}
                                 onClick={cancelAndClose}
@@ -363,7 +363,7 @@ const AddChildToForm = ({
                             </Button>
 
                             <Button
-                                id={'leggTilBarn'}
+                                id={'addChildren'}
                                 variant={'primary'}
                                 type={'button'}
                                 onClick={handleSubmit(addAndClose)}

@@ -1,7 +1,16 @@
-import { axiosInstance as api } from './axios'
 import { IApplication } from '../context/application/application'
+import { axiosInstance as api } from './axios'
 
 export const getLoggedInUser = async () => api.get('/api/person/innlogget').then((res) => res.data)
+
+export const getExpirationTimeForLoggedInUser = async () => {
+    try {
+        const response = await api.get('/session')
+        return response.data
+    } catch (e) {
+        throw new Error('Det skjedde en feil')
+    }
+}
 
 export const getAllCountries = async () => api.get('/api/kodeverk/alleland').then((res) => res.data)
 

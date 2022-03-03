@@ -1,10 +1,9 @@
 import parser from 'body-parser'
-import NodeCache from 'node-cache'
-import mockLand from './landMock'
-
-import { STOR_SNERK } from './mock-user'
-import config from '../config'
 import { NextFunction, Request, Response } from 'express'
+import NodeCache from 'node-cache'
+import config from '../config'
+import mockLand from './landMock'
+import { STOR_SNERK } from './mock-user'
 
 const cache = new NodeCache()
 
@@ -64,8 +63,10 @@ export const mockApi = (app: any) => {
         return res.json(mockLand)
     })
 
-    app.get(`${config.app.basePath}/oauth2/session`, async (req: Request, res: Response) => {
-        res.send('3600')
+    app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
+        const date = new Date()
+        date.setHours(date.getHours() + 1)
+        res.send(`${date.getTime()}`)
     })
 
     app.get(`${config.app.basePath}/logout`, async (req: any, res: any) => {

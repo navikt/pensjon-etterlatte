@@ -288,6 +288,13 @@ const systemUnavailable = {
     retryButton: 'Prøv igjen',
 }
 
+const logOutUser = {
+    btn: 'X-ikon for å lukke meldingen',
+    time: 'minutter',
+    info1: 'Du vil bli logget ut om',
+    info2: 'Du kan sende søknad nå eller fortsette senere. \n Søknaden din lagres i 72 timer.',
+}
+
 const receipt = {
     pageTitle: 'Søknaden din er sendt til oss',
     contact: 'Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.',
@@ -327,6 +334,7 @@ const texts = {
     aboutTheDeceased,
     aboutYou,
     livingParent,
+    logOutUser,
     error,
     common,
     frontPage,
