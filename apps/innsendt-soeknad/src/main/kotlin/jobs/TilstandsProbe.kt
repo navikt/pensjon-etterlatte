@@ -48,7 +48,7 @@ class TilstandsProbe(private val db: StatistikkRepository) {
                     logger.error("Feil oppsto under oppretting av rapport/metrikker: ", e)
                 }
             } else {
-                delay(10_000)
+                delay(60_000)  // 1 min
             }
         }
     }
