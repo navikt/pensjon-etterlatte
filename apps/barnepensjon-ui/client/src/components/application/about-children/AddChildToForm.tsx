@@ -27,6 +27,7 @@ const ChangeChildPanel = styled(Panel)`
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    margin-top: 3rem;
     flex-grow: 1;
     border-radius: 4px;
     border-color: #a0a0a0;
