@@ -184,10 +184,6 @@ const aboutChildren = {
     relationHelpText:
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
     citizenship: 'Statsborgerskap',
-    applicationForChildcare: 'Informasjon om stønad til barnetilsyn',
-    'applicationForChildcare.description':
-        'Du kan få stønad til barnetilsyn hvis du er i arbeid, selvstendig næringsdrivende eller etablerer en egen virksomhet og har omsorg for barn under 18 år. Det er en forutsetning at du overlater barnepasset til andre, og du har utgifter til barnepass.\n\nHvis du har en sykdom som gjør at du ikke kan være i arbeid, kan du få stønad i inntil 1 år. Sykdommen kan ikke være varig. Det er en forutsetning at barnepassordningen ble opprettet fordi du var i eller skulle begynne i arbeid, og at barnepasset fortsetter i den perioden du er syk.\n\nHvis du kombinerer arbeid med utdanning eller jobbsøking, kan du få stønad til barnetilsyn hvis du har utgifter til barnepass når du er på jobb.',
-    'applicationForChildcare.approval': 'Jeg har utgifter til barnetilsyn',
     title: 'Om barn',
     titleModal: 'Om barnet',
     'titleModal.sibling': 'Om søskenet',

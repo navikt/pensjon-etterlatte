@@ -17,7 +17,6 @@ import { StepProps } from '../Dialogue'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
 import AddChildToForm from './AddChildToForm'
 import ChildInfocard, { Infocard, InfocardHeader, InformationBox } from './ChildInfocard'
-import OtherBenefits from './OtherBenefits'
 
 const AboutChildrenWrapper = styled.div`
     .center {
@@ -158,8 +157,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                     />
                                 </FormGroup>
                             )}
-
-                            <OtherBenefits application={state} child={registeredChild} />
 
                             <Navigation
                                 prev={isValidated === true ? handleSubmit(savePrevious) : savePreviousWithoutValidation}
