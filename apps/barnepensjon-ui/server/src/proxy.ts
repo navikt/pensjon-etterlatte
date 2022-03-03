@@ -5,6 +5,12 @@ import TokenXClient from './auth/tokenx'
 
 const { exchangeToken } = new TokenXClient()
 
+const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
+
+const isOK = (status: any) => [200, 404, 409].includes(status)
+
+// TODO: Add imageTag to application on POST /api/soeknad
+
 const prepareSecuredRequest = async (req: Request) => {
     const { authorization } = req.headers
     const token = authorization!!.split(' ')[1]
@@ -16,7 +22,7 @@ const prepareSecuredRequest = async (req: Request) => {
         authorization: `Bearer ${accessToken}`,
     }
 
-    const body = !!req.body ? JSON.stringify(req.body) : undefined
+    const body = !isEmpty(req.body) && req.method === 'POST' ? JSON.stringify(req.body) : undefined
 
     return {
         method: req.method,
@@ -30,17 +36,15 @@ export default function proxy(host: string): RequestHandler {
         try {
             const request = await prepareSecuredRequest(req)
 
-            fetch(`${host}${req.path}`, request)
-                .then((response: any) => {
-                    if ([200, 404, 409].includes(response.status)) {
-                        logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
-                        return response.status === 200 ? response.json() : response.text()
-                    } else {
-                        logger.error(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
-                        return response.text()
-                    }
-                })
-                .then((response) => res.send(response))
+            const response = await fetch(`${host}${req.path}`, request)
+
+            if (isOK(response.status)) {
+                logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
+            } else {
+                logger.error(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
+            }
+
+            return res.status(response.status).send(await response.text())
         } catch (error) {
             logger.error(`Feilet kall (${req.method} - ${req.path}): `, error)
 
