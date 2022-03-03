@@ -5,6 +5,7 @@ import proxy from './proxy'
 import config from './config'
 import prometheus from './monitoring/prometheus'
 import logger from './monitoring/logger'
+import parser from 'body-parser'
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
@@ -13,6 +14,7 @@ const app = express()
 
 app.set('trust proxy', 1)
 app.use(basePath, express.static(buildPath, { index: false }))
+app.use(parser.json())
 
 // Endpoints to verify is app is ready/alive
 app.get(`${basePath}/isAlive|${basePath}/isReady`, (req: Request, res: Response) => {

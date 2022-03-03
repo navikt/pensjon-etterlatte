@@ -17,6 +17,7 @@ import { ActionTypes, IDeceasedParent } from '../../../context/application/appli
 import { StepProps } from '../Dialogue'
 import StaysAbroad from './StaysAbroad'
 import PersonInfo from '../../common/PersonInfo'
+import FormElement from '../../common/FormElement'
 
 export default function AboutTheDeceased({ next, prev, type }: StepProps) {
     const { t } = useTranslation('aboutTheDeceased')
@@ -47,75 +48,71 @@ export default function AboutTheDeceased({ next, prev, type }: StepProps) {
     return (
         <FormProvider {...methods}>
             <form>
+                <StepHeading>{t('title')}</StepHeading>
+
+                <Label>{t('who')}</Label>
+                <PersonInfo />
+
                 <FormGroup>
-                    <StepHeading>{t('title')}</StepHeading>
+                    <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
+                </FormGroup>
 
-                    <Label>{t('who')}</Label>
-                    <PersonInfo />
-
-                    <FormGroup>
-                        <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
-                    </FormGroup>
-
-                    <FormGroup>
-                        <Heading size="small">{t('abroadStays.title')}</Heading>
-                        <BodyLong>{t('abroadStays.ingress')}</BodyLong>
-                        <br />
+                <FormGroup>
+                    <Heading size="small">{t('abroadStays.title')}</Heading>
+                    <BodyLong>{t('abroadStays.ingress')}</BodyLong>
+                    <FormElement>
                         <RHFGeneralQuestionRadio
                             name={'abroadStays.hasStaysAbroad'}
                             legend={t('abroadStays.hasStaysAbroad')}
                             vetIkke={true}
                         />
+                    </FormElement>
+                    {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
+                </FormGroup>
 
-                        {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
-                    </FormGroup>
-
-                    <FormGroup>
-                        <Heading size="small">{t('selfEmplyment.title')}</Heading>
-                        <BodyLong>{t('selfEmplyment.ingress')}</BodyLong>
-                        <br />
+                <FormGroup>
+                    <Heading size="small">{t('selfEmplyment.title')}</Heading>
+                    <BodyLong>{t('selfEmplyment.ingress')}</BodyLong>
+                    <FormElement>
                         <RHFGeneralQuestionRadio
                             name={'selfEmplyment.wasSelfEmployed'}
                             legend={t('selfEmplyment.wasSelfEmployed')}
                             vetIkke={true}
                         />
+                    </FormElement>
+                    {wasSelfEmployed === JaNeiVetIkke.JA && <SelfEmploymentDetails />}
+                </FormGroup>
 
-                        {wasSelfEmployed === JaNeiVetIkke.JA && <SelfEmploymentDetails />}
-                    </FormGroup>
+                <FormGroup>
+                    {/* Næringsinntekt og militærtjeneste er kun relevant dersom begge foreldrene er døde. */}
+                    <Heading size="small">{t('other.title')}</Heading>
 
-                    <FormGroup>
-                        {/* Næringsinntekt og militærtjeneste er kun relevant dersom begge foreldrene er døde. */}
-                        <Heading size="small">{t('other.title')}</Heading>
+                    <FormElement>
+                        <RHFGeneralQuestionRadio
+                            name={'occupationalInjury'}
+                            legend={t('occupationalInjury')}
+                            vetIkke={true}
+                            description={<WhyWeAsk title="occupationalInjury">{t('occupationalInjury.why')}</WhyWeAsk>}
+                        />
+                    </FormElement>
+                    <FormElement>
+                        <RHFGeneralQuestionRadio
+                            name={'militaryService.completed'}
+                            legend={t('militaryService.completed')}
+                            vetIkke={true}
+                            description={<WhyWeAsk title="militaryService">{t('militaryService.why')}</WhyWeAsk>}
+                        />
+                    </FormElement>
 
-                        <FormGroup>
-                            <RHFGeneralQuestionRadio
-                                name={'occupationalInjury'}
-                                legend={t('occupationalInjury')}
-                                vetIkke={true}
-                                description={
-                                    <WhyWeAsk title="occupationalInjury">{t('occupationalInjury.why')}</WhyWeAsk>
-                                }
+                    {completedMilitaryService === JaNeiVetIkke.JA && (
+                        <FormElement>
+                            <RHFInput
+                                name={'militaryService.period'}
+                                label={t('militaryService.period')}
+                                valgfri={true}
                             />
-                        </FormGroup>
-                        <FormGroup>
-                            <RHFGeneralQuestionRadio
-                                name={'militaryService.completed'}
-                                legend={t('militaryService.completed')}
-                                vetIkke={true}
-                                description={<WhyWeAsk title="militaryService">{t('militaryService.why')}</WhyWeAsk>}
-                            />
-                        </FormGroup>
-
-                        {completedMilitaryService === JaNeiVetIkke.JA && (
-                            <FormGroup>
-                                <RHFInput
-                                    name={'militaryService.period'}
-                                    label={t('militaryService.period')}
-                                    valgfri={true}
-                                />
-                            </FormGroup>
-                        )}
-                    </FormGroup>
+                        </FormElement>
+                    )}
                 </FormGroup>
 
                 <ErrorSummaryWrapper errors={errors} />

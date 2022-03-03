@@ -7,9 +7,9 @@ import { useApplicationContext } from '../../../context/application/ApplicationC
 import useTranslation from '../../../hooks/useTranslation'
 import PersonInfo from '../../common/PersonInfo'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
-import FormGroup from '../../common/FormGroup'
 import { Label } from '@navikt/ds-react'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import FormElement from '../../common/FormElement'
 
 export default function LivingParent({ next, prev, type }: StepProps) {
     const { state, dispatch } = useApplicationContext()
@@ -36,17 +36,14 @@ export default function LivingParent({ next, prev, type }: StepProps) {
                 <StepHeading>{t('title')}</StepHeading>
 
                 <Label>{t('who')}</Label>
-                <br />
                 <PersonInfo />
 
-                <FormGroup>
+                <FormElement>
                     <RHFInput name={'address'} label={t('address')} />
-                </FormGroup>
-
-                <FormGroup>
+                </FormElement>
+                <FormElement>
                     <RHFTelefonInput name={'phoneNumber'} label={t('phoneNumber')} valgfri={true} />
-                </FormGroup>
-
+                </FormElement>
                 <ErrorSummaryWrapper errors={errors} />
 
                 <Navigation next={handleSubmit(save)} prev={prev} />
