@@ -45,7 +45,7 @@ const ExpiredSession = () => {
         } else if (timeLeft <= fiveMinuts && !hasBeenClosed) {
             setIsOpen(true)
         }
-    }, [timeLeft])
+    }, [timeLeft, hasBeenClosed])
 
     const logOut = async () => {
         try {
