@@ -1,6 +1,5 @@
 import { Cell, Grid } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
-import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
@@ -18,12 +17,7 @@ import WhyWeAsk from '../../common/WhyWeAsk'
 import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
 import PaymentDetails from './PaymentDetails'
-
-const StaysAbroadWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-`
+import FormElement from '../../common/FormElement'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
@@ -71,52 +65,52 @@ export default function AboutYou({ next }: StepProps) {
                                 />
 
                                 {addressConfirmed === JaNeiVetIkke.NEI && (
-                                    <FormGroup>
+                                    <FormElement>
                                         <RHFInput name={'alternativAddress'} label={t('alternativAddress')} />
-                                    </FormGroup>
+                                    </FormElement>
                                 )}
                             </>
                         )}
 
                         {!!user.foedselsnummer && !user.telefonnummer && (
-                            <FormGroup>
-                                <Grid>
-                                    <Cell xs={12} md={6} className={'kol'}>
+                            <Grid>
+                                <Cell xs={12} md={6} className={'kol'}>
+                                    <FormElement>
                                         <RHFTelefonInput
                                             bredde={'S'}
                                             name={'contactInfo.phoneNumber'}
                                             label={t('contactInfo.phoneNumber')}
                                             valgfri={true}
                                         />
-                                    </Cell>
-                                </Grid>
-                            </FormGroup>
+                                    </FormElement>
+                                </Cell>
+                            </Grid>
                         )}
                     </FormGroup>
 
                     {/* 2.7 */}
                     {!user.adressebeskyttelse && (
-                        <>
-                            <FormGroup>
-                                <RHFGeneralQuestionRadio
-                                    name={'staysInNorway'}
-                                    legend={t('staysInNorway')}
-                                    description={<WhyWeAsk title="staysInNorway">{t('stayWhy')}</WhyWeAsk>}
-                                />
-                            </FormGroup>
+                        <FormGroup>
+                            <RHFGeneralQuestionRadio
+                                name={'staysInNorway'}
+                                legend={t('staysInNorway')}
+                                description={<WhyWeAsk title="staysInNorway">{t('stayWhy')}</WhyWeAsk>}
+                            />
 
                             {residesInNorway === JaNeiVetIkke.JA && (
                                 <PaymentDetails accountType={BankkontoType.NORSK} hideSelectType={true} />
                             )}
 
                             {residesInNorway === JaNeiVetIkke.NEI && (
-                                <StaysAbroadWrapper>
-                                    <RHFSelect
-                                        className="kol-50"
-                                        name={`countryOfResidence`}
-                                        label={t('countryOfResidence')}
-                                        selectOptions={countries as any[]}
-                                    />
+                                <>
+                                    <FormElement>
+                                        <RHFSelect
+                                            className="kol-50"
+                                            name={`countryOfResidence`}
+                                            label={t('countryOfResidence')}
+                                            selectOptions={countries as any[]}
+                                        />
+                                    </FormElement>
 
                                     <RHFGeneralQuestionRadio
                                         name={'medlemFolketrygdenUtland'}
@@ -124,9 +118,9 @@ export default function AboutYou({ next }: StepProps) {
                                     />
 
                                     <PaymentDetails accountType={accountType} />
-                                </StaysAbroadWrapper>
+                                </>
                             )}
-                        </>
+                        </FormGroup>
                     )}
 
                     <br />
