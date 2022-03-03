@@ -12,7 +12,6 @@ import useTranslation from '../../../hooks/useTranslation'
 import { ChildRelation, IChild } from '../../../types/person'
 import { erMyndig } from '../../../utils/age'
 import { hentAlderFraFoedselsnummer } from '../../../utils/date'
-import Hjelpetekst from '../../../utils/Hjelpetekst'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormGroup from '../../common/FormGroup'
 import { NavRow } from '../../common/Navigation'
@@ -20,6 +19,7 @@ import { RHFCheckboksPanel } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio, RHFRadio } from '../../common/rhf/RHFRadio'
 import { RHFSelect } from '../../common/rhf/RHFSelect'
+import WhyWeAsk from '../../common/WhyWeAsk'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -233,12 +233,8 @@ const AddChildToForm = ({
                             <FormGroup>
                                 <RHFRadio
                                     name={'relation'}
-                                    legend={
-                                        <>
-                                            {t('relation')}&nbsp;
-                                            <Hjelpetekst>{t('relationHelpText')} </Hjelpetekst>
-                                        </>
-                                    }
+                                    legend={t('relation')}
+                                    description={<WhyWeAsk title={'relation'}>{t('relationHelpText')}</WhyWeAsk>}
                                     radios={Object.values(ChildRelation).map((value) => {
                                         return { label: t(value), value, required: true } as RadioProps
                                     })}
@@ -317,13 +313,11 @@ const AddChildToForm = ({
                                             {anotherBankAccountChildrensPension !== JaNeiVetIkke.VET_IKKE && (
                                                 <RHFGeneralQuestionRadio
                                                     name={'childrensPension.taxWithhold.answer'}
-                                                    legend={
-                                                        <>
-                                                            {t('childrensPension.taxWithhold.answer')}&nbsp;
-                                                            <Hjelpetekst>
-                                                                {t('childrensPension.taxWithhold.helpText')}
-                                                            </Hjelpetekst>
-                                                        </>
+                                                    legend={t('childrensPension.taxWithhold.answer')}
+                                                    description={
+                                                        <WhyWeAsk title={'tax'}>
+                                                            {t('childrensPension.taxWithhold.helpText')}
+                                                        </WhyWeAsk>
                                                     }
                                                 />
                                             )}

@@ -2,10 +2,15 @@ import { Heading } from '@navikt/ds-react'
 import { RadioProps } from 'nav-frontend-skjema'
 import { BankkontoType } from '../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../hooks/useTranslation'
-import Hjelpetekst from '../../../utils/Hjelpetekst'
-import FormGroup from '../../common/FormGroup'
 import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput } from '../../common/rhf/RHFInput'
 import { RHFInlineRadio } from '../../common/rhf/RHFRadio'
+import FormElement from '../../common/FormElement'
+import Hjelpetekst from '../../../utils/Hjelpetekst'
+import styled from 'styled-components'
+
+const HelpTextLabel = styled.div`
+    display: flex;
+`
 
 export default function PaymentDetails({
     hideSelectType,
@@ -19,57 +24,64 @@ export default function PaymentDetails({
     return (
         <>
             {!hideSelectType && (
-                <RHFInlineRadio
-                    name={'accountType'}
-                    legend={t('accountType')}
-                    radios={Object.values(BankkontoType).map((value) => {
-                        return { label: t(value), value } as RadioProps
-                    })}
-                />
+                <FormElement>
+                    <RHFInlineRadio
+                        name={'accountType'}
+                        legend={t('accountType')}
+                        radios={Object.values(BankkontoType).map((value) => {
+                            return { label: t(value), value } as RadioProps
+                        })}
+                    />
+                </FormElement>
             )}
 
             {accountType === BankkontoType.NORSK && (
-                <FormGroup>
+                <FormElement>
                     <RHFKontonummerInput
                         bredde={'S'}
                         name={'bankAccount'}
                         label={t('bankAccount')}
                         description={t('information')}
                     />
-                </FormGroup>
+                </FormElement>
             )}
 
             {accountType === BankkontoType.UTENLANDSK && (
                 <>
-                    <FormGroup>
-                        <Heading size={'small'}>{t('title')}</Heading>
-                    </FormGroup>
+                    <Heading size={'small'}>{t('title')}</Heading>
 
-                    <RHFInput name={'foreignBankName'} label={t('foreignBankName')} />
+                    <FormElement>
+                        <RHFInput name={'foreignBankName'} label={t('foreignBankName')} />
+                    </FormElement>
 
-                    <RHFInput name={'foreignBankAddress'} label={t('foreignBankAddress')} />
+                    <FormElement>
+                        <RHFInput name={'foreignBankAddress'} label={t('foreignBankAddress')} />
+                    </FormElement>
 
-                    <RHFIbanInput
-                        name={'iban'}
-                        label={
-                            <>
-                                {t('iban')}
-                                &nbsp;
-                                <Hjelpetekst>{t('ibanHelpText')}</Hjelpetekst>
-                            </>
-                        }
-                    />
-
-                    <RHFBicInput
-                        name={'swift'}
-                        label={
-                            <>
-                                {t('swift')}
-                                &nbsp;
-                                <Hjelpetekst>{t('swiftHelpText')}</Hjelpetekst>
-                            </>
-                        }
-                    />
+                    <FormElement>
+                        <RHFIbanInput
+                            name={'iban'}
+                            label={
+                                <HelpTextLabel>
+                                    {t('iban')}
+                                    &nbsp;
+                                    <Hjelpetekst>{t('ibanHelpText')}</Hjelpetekst>
+                                </HelpTextLabel>
+                            }
+                        />
+                    </FormElement>
+                    <FormElement>
+                        <RHFBicInput
+                            name={'swift'}
+                            label={
+                                <HelpTextLabel>
+                                    {t('swift')}
+                                    &nbsp;
+                                    <Hjelpetekst>{t('swiftHelpText')}</Hjelpetekst>
+                                </HelpTextLabel>
+                            }
+                        />
+                    </FormElement>
                 </>
             )}
         </>

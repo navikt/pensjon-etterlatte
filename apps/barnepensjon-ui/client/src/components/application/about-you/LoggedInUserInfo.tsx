@@ -4,10 +4,17 @@ import useTranslation from '../../../hooks/useTranslation'
 import { fullAdresse } from '../../../utils/adresse'
 import Hjelpetekst from '../../../utils/Hjelpetekst'
 import FormGroup from '../../common/FormGroup'
+import styled from 'styled-components'
 
 interface LoggedInUserInfoProps {
     user: User
 }
+
+const HelpTextLabel = styled.div`
+    .navds-label {
+        display: flex;
+    }
+`
 
 export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
     const { t } = useTranslation('common')
@@ -52,13 +59,15 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                     </div>
 
                     {user.telefonnummer && (
-                        <div>
-                            <Label as={'div'}>
-                                {t('phoneNumber')}&nbsp;
-                                <Hjelpetekst>{t('phoneNumberHelpText')}</Hjelpetekst>
-                            </Label>
-                            <BodyShort spacing>{user.telefonnummer}</BodyShort>
-                        </div>
+                        <>
+                            <HelpTextLabel>
+                                <Label>
+                                    {t('phoneNumber')}&nbsp;
+                                    <Hjelpetekst>{t('phoneNumberHelpText')}</Hjelpetekst>
+                                </Label>
+                                <BodyShort spacing>{user.telefonnummer}</BodyShort>
+                            </HelpTextLabel>
+                        </>
                     )}
                 </Cell>
             </Grid>
