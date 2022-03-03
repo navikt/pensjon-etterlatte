@@ -20,6 +20,7 @@ import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput 
 import { RHFGeneralQuestionRadio, RHFRadio } from '../../common/rhf/RHFRadio'
 import { RHFSelect } from '../../common/rhf/RHFSelect'
 import WhyWeAsk from '../../common/WhyWeAsk'
+import FormElement from '../../common/FormElement'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -156,11 +157,9 @@ const AddChildToForm = ({
                             {!isChild ? t('titleModal') : t('titleModal.sibling')}
                         </Heading>
                     </ChangeChildPanelHeader>
-                    <br />
-
                     <ChangeChildPanelContent>
                         <FormGroup>
-                            <FormGroup>
+                            <FormElement>
                                 <Grid>
                                     <Cell xs={12} md={6}>
                                         <RHFInput
@@ -169,7 +168,6 @@ const AddChildToForm = ({
                                             rules={{ pattern: /^\D+$/ }}
                                         />
                                     </Cell>
-
                                     <Cell xs={12} md={6}>
                                         <RHFInput
                                             name={'lastName'}
@@ -178,53 +176,60 @@ const AddChildToForm = ({
                                         />
                                     </Cell>
                                 </Grid>
-                            </FormGroup>
-
-                            <FormGroup>
-                                <RHFFoedselsnummerInput
-                                    name={'fnr'}
-                                    bredde={'L'}
-                                    label={!isChild ? t('fnr') : t('fnr.sibling')}
-                                    placeholder={t('common.fnrPlaceholder')}
-                                    rules={{
-                                        validate: {
-                                            validate: (value) => fnrValidator(value).status === 'valid',
-                                            duplicate: (value) => !fnrRegisteredChild.includes(value),
-                                        },
-                                    }}
-                                />
-                            </FormGroup>
-                            {showDuplicateError() && (
-                                <FormGroup>
-                                    <p className={'typo-feilmelding'}>{t('feil.foedselsnummer.duplicate')}</p>
-                                </FormGroup>
-                            )}
-
-                            <RHFSelect
-                                className="kol-50"
-                                name={`citizenship`}
-                                label={t('citizenship')}
-                                value={'Norge'}
-                                selectOptions={countries}
-                            />
+                            </FormElement>
+                            <FormElement>
+                                <Grid>
+                                    <Cell xs={12} md={6}>
+                                        <RHFFoedselsnummerInput
+                                            name={'fnr'}
+                                            bredde={'L'}
+                                            label={!isChild ? t('fnr') : t('fnr.sibling')}
+                                            placeholder={t('common.fnrPlaceholder')}
+                                            rules={{
+                                                validate: {
+                                                    validate: (value) => fnrValidator(value).status === 'valid',
+                                                    duplicate: (value) => !fnrRegisteredChild.includes(value),
+                                                },
+                                            }}
+                                        />
+                                        {showDuplicateError() && (
+                                            <p className={'typo-feilmelding'}>{t('feil.foedselsnummer.duplicate')}</p>
+                                        )}
+                                    </Cell>
+                                    <Cell xs={12} md={6}>
+                                        <RHFSelect
+                                            className="kol-50"
+                                            name={`citizenship`}
+                                            label={t('citizenship')}
+                                            value={'Norge'}
+                                            selectOptions={countries}
+                                        />
+                                    </Cell>
+                                </Grid>
+                            </FormElement>
                         </FormGroup>
 
                         <FormGroup>
-                            <RHFGeneralQuestionRadio
-                                name={'staysAbroad.answer'}
-                                legend={!isChild ? t('staysAbroad.answer') : t('staysAbroad.sibling.answer')}
-                            />
+                            <FormElement>
+                                <RHFGeneralQuestionRadio
+                                    name={'staysAbroad.answer'}
+                                    legend={!isChild ? t('staysAbroad.answer') : t('staysAbroad.sibling.answer')}
+                                />
+                            </FormElement>
 
                             {livesAbroadAnswer === JaNeiVetIkke.JA && (
                                 <>
-                                    <RHFSelect
-                                        name={'staysAbroad.country'}
-                                        label={t('staysAbroad.country')}
-                                        value={'Norge'}
-                                        selectOptions={countries}
-                                    />
+                                    <FormElement>
+                                        <RHFSelect
+                                            name={'staysAbroad.country'}
+                                            label={t('staysAbroad.country')}
+                                            selectOptions={countries}
+                                        />
+                                    </FormElement>
 
-                                    <RHFInput name={'staysAbroad.address'} label={t('staysAbroad.address')} />
+                                    <FormElement>
+                                        <RHFInput name={'staysAbroad.address'} label={t('staysAbroad.address')} />
+                                    </FormElement>
                                 </>
                             )}
                         </FormGroup>
@@ -244,14 +249,16 @@ const AddChildToForm = ({
                         {relation === ChildRelation.fellesbarnMedAvdoede && canApplyForChildrensPension() && (
                             <>
                                 <FormGroup>
-                                    <RHFGeneralQuestionRadio
-                                        name={'childHasGuardianship.answer'}
-                                        legend={t('childHasGuardianship.answer')}
-                                    />
+                                    <FormElement>
+                                        <RHFGeneralQuestionRadio
+                                            name={'childHasGuardianship.answer'}
+                                            legend={t('childHasGuardianship.answer')}
+                                        />
+                                    </FormElement>
 
                                     {childHasGuardianship === JaNeiVetIkke.JA && (
                                         <>
-                                            <Label>{t('childHasGuardianship.navn')}</Label>
+                                            <Label>{t('childHasGuardianship.name')}</Label>
                                             <Grid>
                                                 <Cell xs={12} md={6}>
                                                     <RHFInput
@@ -270,13 +277,15 @@ const AddChildToForm = ({
                                                     />
                                                 </Cell>
                                             </Grid>
-                                            <RHFFoedselsnummerInput
-                                                name={'childHasGuardianship.fnr'}
-                                                bredde={'L'}
-                                                label={t('childHasGuardianship.fnr')}
-                                                placeholder={t('childHasGuardianship.fnrPlaceholder')}
-                                                valgfri={true}
-                                            />
+                                            <FormElement>
+                                                <RHFFoedselsnummerInput
+                                                    name={'childHasGuardianship.fnr'}
+                                                    bredde={'L'}
+                                                    label={t('childHasGuardianship.fnr')}
+                                                    placeholder={t('childHasGuardianship.fnrPlaceholder')}
+                                                    valgfri={true}
+                                                />
+                                            </FormElement>
                                         </>
                                     )}
                                 </FormGroup>
@@ -295,41 +304,52 @@ const AddChildToForm = ({
 
                                     {!bruker.adressebeskyttelse && appliesForChildrensPension === JaNeiVetIkke.JA && (
                                         <>
-                                            <RHFGeneralQuestionRadio
-                                                name={'childrensPension.bankAccount.answer'}
-                                                legend={t('childrensPension.bankAccount.answer')}
-                                            />
+                                            <FormGroup>
+                                                <FormElement>
+                                                    <RHFGeneralQuestionRadio
+                                                        name={'childrensPension.bankAccount.answer'}
+                                                        legend={t('childrensPension.bankAccount.answer')}
+                                                    />
+                                                </FormElement>
 
-                                            {anotherBankAccountChildrensPension === JaNeiVetIkke.NEI && (
-                                                <RHFKontonummerInput
-                                                    name={'childrensPension.bankAccount.bankAccount'}
-                                                    bredde={'M'}
-                                                    label={t('childrensPension.bankAccount.bankAccount')}
-                                                    placeholder={t('childrensPension.bankAccount.placeholder')}
-                                                    description={t('childrensPension.bankAccount.information')}
-                                                />
-                                            )}
+                                                {anotherBankAccountChildrensPension === JaNeiVetIkke.NEI && (
+                                                    <FormElement>
+                                                        <RHFKontonummerInput
+                                                            name={'childrensPension.bankAccount.bankAccount'}
+                                                            bredde={'M'}
+                                                            label={t('childrensPension.bankAccount.bankAccount')}
+                                                            placeholder={t('childrensPension.bankAccount.placeholder')}
+                                                            description={t('childrensPension.bankAccount.information')}
+                                                        />
+                                                    </FormElement>
+                                                )}
+                                            </FormGroup>
+                                            <FormGroup>
+                                                {anotherBankAccountChildrensPension !== JaNeiVetIkke.VET_IKKE && (
+                                                    <FormElement>
+                                                        <RHFGeneralQuestionRadio
+                                                            name={'childrensPension.taxWithhold.answer'}
+                                                            legend={t('childrensPension.taxWithhold.answer')}
+                                                            description={
+                                                                <WhyWeAsk title={'tax'}>
+                                                                    {t('childrensPension.taxWithhold.helpText')}
+                                                                </WhyWeAsk>
+                                                            }
+                                                        />
+                                                    </FormElement>
+                                                )}
 
-                                            {anotherBankAccountChildrensPension !== JaNeiVetIkke.VET_IKKE && (
-                                                <RHFGeneralQuestionRadio
-                                                    name={'childrensPension.taxWithhold.answer'}
-                                                    legend={t('childrensPension.taxWithhold.answer')}
-                                                    description={
-                                                        <WhyWeAsk title={'tax'}>
-                                                            {t('childrensPension.taxWithhold.helpText')}
-                                                        </WhyWeAsk>
-                                                    }
-                                                />
-                                            )}
-
-                                            {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
-                                                <RHFProsentInput
-                                                    bredde={'M'}
-                                                    name={'childrensPension.taxWithhold.trekkprosent'}
-                                                    label={t('childrensPension.taxWithhold.trekkprosent')}
-                                                    placeholder={t('childrensPension.taxWithhold.placeholder')}
-                                                />
-                                            )}
+                                                {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
+                                                    <FormElement>
+                                                        <RHFProsentInput
+                                                            bredde={'M'}
+                                                            name={'childrensPension.taxWithhold.trekkprosent'}
+                                                            label={t('childrensPension.taxWithhold.trekkprosent')}
+                                                            placeholder={t('childrensPension.taxWithhold.placeholder')}
+                                                        />
+                                                    </FormElement>
+                                                )}
+                                            </FormGroup>
                                         </>
                                     )}
                                 </FormGroup>

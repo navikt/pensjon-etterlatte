@@ -155,7 +155,7 @@ const aboutChildren = {
     lastName: 'Etternavn',
     'common.fnrPlaceholder': '11 siffer',
     'common.norway': 'Norge',
-    fnr: 'Barnets fødselsnummer / d-nummer',
+    fnr: 'Fødselsnummer / d-nummer',
     'fnr.sibling': 'Søskenets fødselsnummer / d-nummer',
     firstName: 'Fornavn',
     pregnantOrNewlyBorn: 'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
