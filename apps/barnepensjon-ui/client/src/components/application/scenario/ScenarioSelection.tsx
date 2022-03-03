@@ -2,7 +2,7 @@ import { Alert, BodyLong, Button, Heading, Ingress, Link } from '@navikt/ds-reac
 import { RadioProps } from 'nav-frontend-skjema'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { ActionTypes } from '../../../context/application/application'
+import { ActionTypes, IApplicant } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
@@ -25,7 +25,7 @@ export default function ScenarioSelection() {
     const { t } = useTranslation('selectScenario')
     const { dispatch } = useApplicationContext()
 
-    const methods = useForm<any>({
+    const methods = useForm<IApplicant>({
         defaultValues: {},
         shouldUnregister: true,
     })

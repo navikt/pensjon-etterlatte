@@ -9,8 +9,8 @@
         "readyForSaving": false
     },
     "aboutYou": {
-        "addressOfResidenceApproved": "JA",
-        "staysInNorway": "JA",
+        "addressOfResidenceConfirmed": "JA",
+        "residesInNorway": "JA",
         "bankAccount": "1234.12.12345"
     },
     "aboutChildren": {

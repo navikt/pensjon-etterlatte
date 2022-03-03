@@ -1,6 +1,6 @@
 import { ContentContainer } from '@navikt/ds-react'
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Outlet, Route, Routes, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Dialogue from './components/application/Dialogue'
 import ReceiptPage from './components/application/ReceiptPage'
@@ -44,6 +44,16 @@ const SoeknadWrapper = styled(ContentContainer)`
     }
 `
 
+const ScrollToTop = () => {
+    const { pathname } = useLocation()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [pathname])
+
+    return null
+}
+
 export default function App() {
     const isLoading = useApplication()
 
@@ -51,6 +61,8 @@ export default function App() {
 
     return (
         <>
+            <ScrollToTop />
+
             <Banner tekst={'Søknad om barnepensjon'} />
 
             <SpinnerOverlay visible={isLoading} label={'Henter søknadsinformasjon ...'} />
@@ -61,22 +73,24 @@ export default function App() {
 
                     <Route path="velg-scenarie" element={<ScenarioSelection />} />
 
-                    <Route
-                        path="/skjema/verge/*"
-                        element={<Dialogue steps={GuardianApplicantSteps} pathPrefix={'/skjema/verge/'} />}
-                    />
-                    <Route
-                        path="/skjema/barn/*"
-                        element={<Dialogue steps={ChildApplicantSteps} pathPrefix={'/skjema/barn/'} />}
-                    />
-                    <Route
-                        path="/skjema/forelder/*"
-                        element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
-                    />
+                    <Route path="/skjema" element={<Outlet />}>
+                        <Route
+                            path="verge/*"
+                            element={<Dialogue steps={GuardianApplicantSteps} pathPrefix={'/skjema/verge/'} />}
+                        />
+                        <Route
+                            path="barn/*"
+                            element={<Dialogue steps={ChildApplicantSteps} pathPrefix={'/skjema/barn/'} />}
+                        />
+                        <Route
+                            path="forelder/*"
+                            element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
+                        />
 
-                    <Route path="/skjema/admin" element={<Admin />} />
+                        <Route path="admin" element={<Admin />} />
 
-                    <Route path="/skjema/kvittering" element={<ReceiptPage />} />
+                        <Route path="kvittering" element={<ReceiptPage />} />
+                    </Route>
 
                     <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
 

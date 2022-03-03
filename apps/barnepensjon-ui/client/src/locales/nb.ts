@@ -69,11 +69,11 @@ const aboutYou = {
     title: 'Om deg',
     stayWhy:
         'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
-    addressOfResidenceApproved: 'Bor du på denne adressen?',
-    alternativAddress: 'Oppgi nåværende bostedsadresse',
-    staysInNorway: 'Oppholder du deg for tiden i Norge?',
+    addressOfResidenceConfirmed: 'Bor du på denne adressen?',
+    alternativeAddress: 'Oppgi nåværende bostedsadresse',
+    residesInNorway: 'Oppholder du deg for tiden i Norge?',
     countryOfResidence: 'Oppgi land',
-    medlemFolketrygdenUtland: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
+    memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
     yes: 'Ja',
     no: 'Nei',
     'contactInfo.phoneNumber': 'Telefonnummer',
@@ -262,7 +262,7 @@ const radiobuttons = {
 const error = {
     title: 'For å gå videre må du rette opp i dette:',
     'bostedsadresseBekreftet.required': 'Spørsmål om bostedsadresse må besvares',
-    'alternativAddresse.required': 'Du må oppgi nåværende bostedsadresse',
+    'alternativeAddresse.required': 'Du må oppgi nåværende bostedsadresse',
 }
 
 const pageNotFound = {

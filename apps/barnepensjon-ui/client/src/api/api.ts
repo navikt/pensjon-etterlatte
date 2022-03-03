@@ -21,17 +21,15 @@ export const getDraft = async () =>
         .then((res) => res.data)
         .then((data) => (!!data?.payload ? JSON.parse(data?.payload) : undefined))
         .catch((e) => {
-            switch (e.response.status) {
-                case 404:
-                    return undefined
-                case 409:
-                    throw new Error('FERDIGSTILT')
-                default:
-                    throw new Error('Det skjedde en feil')
-            }
+            if (e.response.status === 404) return undefined
+            if (e.response.status === 409) throw new Error('FERDIGSTILT')
+            else throw new Error('Det skjedde en feil')
         })
 
 export const saveDraft = async (application: IApplication) =>
     api.post('/api/api/kladd', application).then((res) => res.data)
+
+export const sendApplication = async (application: IApplication) =>
+    api.post('/api/api/soeknad', application).then((res) => res.data)
 
 export const deleteDraft = async () => api.delete('/api/api/kladd').then((res) => res.data)

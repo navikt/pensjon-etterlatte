@@ -1,4 +1,23 @@
-import { JaNeiVetIkke } from '../api/dto/FellesOpplysninger'
+import { BankkontoType, JaNeiVetIkke } from '../api/dto/FellesOpplysninger'
+
+export interface IAboutYou {
+    addressOfResidenceConfirmed?: JaNeiVetIkke
+    alternativeAddress?: string
+    phone?: string
+    paymentDetails?: IPaymentDetails
+    residingInNorway?: JaNeiVetIkke
+    countryOfResidence?: string
+    memberFolketrygdenAbroad?: JaNeiVetIkke
+}
+
+export interface IPaymentDetails {
+    accountType: BankkontoType
+    accountNumber?: string
+    foreignBankName?: string
+    foreignBankAddress?: string
+    iban?: string
+    swift?: string
+}
 
 export interface IAboutChild {
     child?: IChild[]

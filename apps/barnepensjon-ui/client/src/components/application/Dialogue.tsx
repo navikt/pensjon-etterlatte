@@ -15,7 +15,6 @@ interface DialogueProps {
 export interface StepProps {
     next?: () => void
     prev?: () => void
-    send?: () => void
     type?: ActionTypes
 }
 
@@ -34,8 +33,6 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
 
     const prev = currentIndex > 0 ? () => visitNavigate(steps[currentIndex - 1]) : undefined
 
-    const send = currentIndex === steps.length - 1 ? () => console.log('SEND') : undefined
-
     return (
         <>
             <StepIndicator activeStep={currentIndex}>
@@ -52,11 +49,7 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
 
             <Routes>
                 {steps.map((step: StepType) => (
-                    <Route
-                        key={uuid()}
-                        path={step.path}
-                        element={<step.element next={next} prev={prev} send={send} />}
-                    />
+                    <Route key={uuid()} path={step.path} element={<step.element next={next} prev={prev} />} />
                 ))}
 
                 <Route path="*" element={<PageNotFound />} />

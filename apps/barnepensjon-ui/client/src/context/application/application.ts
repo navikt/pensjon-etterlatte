@@ -1,13 +1,13 @@
 import { JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/FellesOpplysninger'
 import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
-import { IAboutChild } from '../../types/person'
+import { IAboutChild, IAboutYou } from '../../types/person'
 import { ISituasjon } from '../../types/situation'
 
 export interface IApplication {
     meta?: IApplicationMeta
     applicant?: IApplicant
     aboutChildren?: IAboutChild
-    aboutYou?: any
+    aboutYou?: IAboutYou
     firstParent?: IParent
     secondParent?: IParent
     yourSituation?: ISituasjon

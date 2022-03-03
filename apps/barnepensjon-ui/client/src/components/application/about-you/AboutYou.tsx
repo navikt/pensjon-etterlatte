@@ -18,6 +18,7 @@ import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
 import PaymentDetails from './PaymentDetails'
 import FormElement from '../../common/FormElement'
+import { IAboutYou } from '../../../types/person'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
@@ -30,7 +31,7 @@ export default function AboutYou({ next }: StepProps) {
         next!!()
     }
 
-    const methods = useForm<any>({
+    const methods = useForm<IAboutYou>({
         defaultValues: state.aboutYou || {},
         shouldUnregister: true,
     })
@@ -41,9 +42,9 @@ export default function AboutYou({ next }: StepProps) {
         formState: { errors },
     } = methods
 
-    const addressConfirmed = watch('addressOfResidenceApproved')
-    const residesInNorway = watch('staysInNorway')
-    const accountType = watch('accountType')
+    const addressConfirmed = watch('addressOfResidenceConfirmed')
+    const residingInNorway = watch('residingInNorway')
+    const accountType = watch('paymentDetails.accountType')
 
     return (
         <>
@@ -60,13 +61,13 @@ export default function AboutYou({ next }: StepProps) {
                         {!user.adressebeskyttelse && (
                             <>
                                 <RHFGeneralQuestionRadio
-                                    name={'addressOfResidenceApproved'}
-                                    legend={t('addressOfResidenceApproved')}
+                                    name={'addressOfResidenceConfirmed'}
+                                    legend={t('addressOfResidenceConfirmed')}
                                 />
 
                                 {addressConfirmed === JaNeiVetIkke.NEI && (
                                     <FormElement>
-                                        <RHFInput name={'alternativAddress'} label={t('alternativAddress')} />
+                                        <RHFInput name={'alternativeAddress'} label={t('alternativeAddress')} />
                                     </FormElement>
                                 )}
                             </>
@@ -92,16 +93,16 @@ export default function AboutYou({ next }: StepProps) {
                     {!user.adressebeskyttelse && (
                         <FormGroup>
                             <RHFGeneralQuestionRadio
-                                name={'staysInNorway'}
-                                legend={t('staysInNorway')}
-                                description={<WhyWeAsk title="staysInNorway">{t('stayWhy')}</WhyWeAsk>}
+                                name={'residesInNorway'}
+                                legend={t('residesInNorway')}
+                                description={<WhyWeAsk title="residesInNorway">{t('stayWhy')}</WhyWeAsk>}
                             />
 
-                            {residesInNorway === JaNeiVetIkke.JA && (
+                            {residingInNorway === JaNeiVetIkke.JA && (
                                 <PaymentDetails accountType={BankkontoType.NORSK} hideSelectType={true} />
                             )}
 
-                            {residesInNorway === JaNeiVetIkke.NEI && (
+                            {residingInNorway === JaNeiVetIkke.NEI && (
                                 <>
                                     <FormElement>
                                         <RHFSelect
@@ -113,8 +114,8 @@ export default function AboutYou({ next }: StepProps) {
                                     </FormElement>
 
                                     <RHFGeneralQuestionRadio
-                                        name={'medlemFolketrygdenUtland'}
-                                        legend={t('medlemFolketrygdenUtland')}
+                                        name={'memberFolketrygdenAbroad'}
+                                        legend={t('memberFolketrygdenAbroad')}
                                     />
 
                                     <PaymentDetails accountType={accountType} />

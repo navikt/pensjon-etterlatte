@@ -9,10 +9,10 @@
         "readyForSaving": false
     },
     "aboutYou": {
-        "addressOfResidenceApproved": "JA",
-        "staysInNorway": "NEI",
+        "addressOfResidenceConfirmed": "JA",
+        "residesInNorway": "NEI",
         "countryOfResidence": "Andorra",
-        "medlemFolketrygdenUtland": "NEI",
+        "memberFolketrygdenAbroad": "NEI",
         "accountType": "NORSK",
         "bankAccount": "1234.12.12345"
     },
