@@ -10,8 +10,7 @@ import { useUserContext } from '../../../context/user/UserContext'
 import useCountries from '../../../hooks/useCountries'
 import useTranslation from '../../../hooks/useTranslation'
 import { ChildRelation, IChild } from '../../../types/person'
-import { erMyndig } from '../../../utils/age'
-import { hentAlderFraFoedselsnummer } from '../../../utils/date'
+import { getAgeFromFoedselsnummer, isLegalAge } from '../../../utils/age'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormGroup from '../../common/FormGroup'
 import { NavRow } from '../../common/Navigation'
@@ -131,8 +130,8 @@ const AddChildToForm = ({
 
     const canApplyForChildrensPension = (): boolean => {
         if (fnr && fnrValidator(fnr).status === 'valid') {
-            const alder = hentAlderFraFoedselsnummer(fnr)
-            return !erMyndig(alder)
+            const alder = getAgeFromFoedselsnummer(fnr)
+            return !isLegalAge(alder)
         }
 
         return false

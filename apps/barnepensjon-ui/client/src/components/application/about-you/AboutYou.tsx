@@ -43,7 +43,7 @@ export default function AboutYou({ next }: StepProps) {
     } = methods
 
     const addressConfirmed = watch('addressOfResidenceConfirmed')
-    const residingInNorway = watch('residingInNorway')
+    const residesInNorway = watch('residesInNorway')
     const accountType = watch('paymentDetails.accountType')
 
     return (
@@ -98,11 +98,11 @@ export default function AboutYou({ next }: StepProps) {
                                 description={<WhyWeAsk title="residesInNorway">{t('stayWhy')}</WhyWeAsk>}
                             />
 
-                            {residingInNorway === JaNeiVetIkke.JA && (
+                            {residesInNorway === JaNeiVetIkke.JA && (
                                 <PaymentDetails accountType={BankkontoType.NORSK} hideSelectType={true} />
                             )}
 
-                            {residingInNorway === JaNeiVetIkke.NEI && (
+                            {residesInNorway === JaNeiVetIkke.NEI && (
                                 <>
                                     <FormElement>
                                         <RHFSelect

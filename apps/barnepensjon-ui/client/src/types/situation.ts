@@ -1,5 +1,4 @@
 import { IArbeidsforhold, IngenJobb, ISelvstendigNaeringsdrivende } from './workingConditions'
-// import { IAndreYtelser } from './ytelser'
 import { JaNeiVetIkke } from '../api/dto/FellesOpplysninger'
 
 export interface IUtdanning {

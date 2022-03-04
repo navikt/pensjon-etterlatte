@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { getLoggedInUser } from '../api/api'
 import { ActionTypes, User } from '../context/user/user'
 import { useUserContext } from '../context/user/UserContext'
-import { gyldigAlder } from '../utils/age'
-import { hentAlder } from '../utils/date'
+import { getAgeFromDate, validAge } from '../utils/age'
 
 export default function useLoggedInUser() {
     const navigate = useNavigate()
@@ -18,8 +17,8 @@ export default function useLoggedInUser() {
 
         getLoggedInUser()
             .then((user: User) => {
-                const alder = hentAlder(user.foedselsdato!!)
-                const kanSoeke = gyldigAlder(alder)
+                const alder = getAgeFromDate(user.foedselsdato!!)
+                const kanSoeke = validAge(alder)
 
                 dispatch({
                     type: ActionTypes.SET_USER,

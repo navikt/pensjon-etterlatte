@@ -5,7 +5,7 @@ export interface IAboutYou {
     alternativeAddress?: string
     phone?: string
     paymentDetails?: IPaymentDetails
-    residingInNorway?: JaNeiVetIkke
+    residesInNorway?: JaNeiVetIkke
     countryOfResidence?: string
     memberFolketrygdenAbroad?: JaNeiVetIkke
 }

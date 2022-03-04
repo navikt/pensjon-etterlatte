@@ -1,6 +1,6 @@
 import { ContentContainer } from '@navikt/ds-react'
-import React, { useEffect } from 'react'
-import { Outlet, Route, Routes, useLocation } from 'react-router-dom'
+import React from 'react'
+import { Outlet, Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Dialogue from './components/application/Dialogue'
 import ReceiptPage from './components/application/ReceiptPage'
@@ -15,6 +15,7 @@ import FrontPage from './components/FrontPage'
 import useApplication from './hooks/useApplication'
 import useLoggedInUser from './hooks/useLoggedInUser'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
+import useScrollToTop from './hooks/useScrollToTop'
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,
@@ -44,25 +45,14 @@ const SoeknadWrapper = styled(ContentContainer)`
     }
 `
 
-const ScrollToTop = () => {
-    const { pathname } = useLocation()
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [pathname])
-
-    return null
-}
-
 export default function App() {
     const isLoading = useApplication()
 
     useLoggedInUser()
+    useScrollToTop()
 
     return (
         <>
-            <ScrollToTop />
-
             <Banner tekst={'Søknad om barnepensjon'} />
 
             <SpinnerOverlay visible={isLoading} label={'Henter søknadsinformasjon ...'} />

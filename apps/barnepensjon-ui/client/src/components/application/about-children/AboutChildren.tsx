@@ -8,7 +8,6 @@ import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import { IAboutChild, IChild } from '../../../types/person'
-import { deepCopy } from '../../../utils/deepCopy'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
@@ -84,18 +83,18 @@ export default function AboutChildren({ next, prev }: StepProps) {
     }
 
     const saveNext = (data: IAboutChild) => {
-        dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...deepCopy(data), erValidert: true } })
+        dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...data, erValidert: true } })
         next!!()
     }
 
     const savePrevious = (data: IAboutChild) => {
-        dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...deepCopy(data), erValidert: true } })
+        dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...data, erValidert: true } })
         prev!!()
     }
 
     const savePreviousWithoutValidation = () => {
         const values = getValues()
-        dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...deepCopy(values), erValidert: false } })
+        dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...values, erValidert: false } })
         prev!!()
     }
 
