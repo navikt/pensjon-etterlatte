@@ -26,7 +26,7 @@ export default function PaymentDetails({
             {!hideSelectType && (
                 <FormElement>
                     <RHFInlineRadio
-                        name={'accountType'}
+                        name={'paymentDetails.accountType'}
                         legend={t('accountType')}
                         radios={Object.values(BankkontoType).map((value) => {
                             return { label: t(value), value } as RadioProps
@@ -39,7 +39,7 @@ export default function PaymentDetails({
                 <FormElement>
                     <RHFKontonummerInput
                         bredde={'S'}
-                        name={'bankAccount'}
+                        name={'paymentDetails.bankAccount'}
                         label={t('bankAccount')}
                         description={t('information')}
                     />
@@ -51,16 +51,16 @@ export default function PaymentDetails({
                     <Heading size={'small'}>{t('title')}</Heading>
 
                     <FormElement>
-                        <RHFInput name={'foreignBankName'} label={t('foreignBankName')} />
+                        <RHFInput name={'paymentDetails.foreignBankName'} label={t('foreignBankName')} />
                     </FormElement>
 
                     <FormElement>
-                        <RHFInput name={'foreignBankAddress'} label={t('foreignBankAddress')} />
+                        <RHFInput name={'paymentDetails.foreignBankAddress'} label={t('foreignBankAddress')} />
                     </FormElement>
 
                     <FormElement>
                         <RHFIbanInput
-                            name={'iban'}
+                            name={'paymentDetails.iban'}
                             label={
                                 <HelpTextLabel>
                                     {t('iban')}
@@ -72,7 +72,7 @@ export default function PaymentDetails({
                     </FormElement>
                     <FormElement>
                         <RHFBicInput
-                            name={'swift'}
+                            name={'paymentDetails.swift'}
                             label={
                                 <HelpTextLabel>
                                     {t('swift')}
