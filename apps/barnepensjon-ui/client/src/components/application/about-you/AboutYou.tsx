@@ -1,30 +1,26 @@
 import { Cell, Grid } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { BankkontoType, JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
+import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { useUserContext } from '../../../context/user/UserContext'
-import useCountries from '../../../hooks/useCountries'
 import useTranslation from '../../../hooks/useTranslation'
+import { IAboutYou } from '../../../types/person'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import { RHFSelect } from '../../common/rhf/RHFSelect'
 import StepHeading from '../../common/StepHeading'
-import WhyWeAsk from '../../common/WhyWeAsk'
 import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
 import PaymentDetails from './PaymentDetails'
-import FormElement from '../../common/FormElement'
-import { IAboutYou } from '../../../types/person'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
     const { state, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
-    const { countries } = useCountries()
 
     const save = (data: any) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
@@ -43,7 +39,6 @@ export default function AboutYou({ next }: StepProps) {
     } = methods
 
     const addressConfirmed = watch('addressOfResidenceConfirmed')
-    const residesInNorway = watch('residesInNorway')
     const accountType = watch('paymentDetails.accountType')
 
     return (
@@ -92,35 +87,7 @@ export default function AboutYou({ next }: StepProps) {
                     {/* 2.7 */}
                     {!user.adressebeskyttelse && (
                         <FormGroup>
-                            <RHFGeneralQuestionRadio
-                                name={'residesInNorway'}
-                                legend={t('residesInNorway')}
-                                description={<WhyWeAsk title="residesInNorway">{t('stayWhy')}</WhyWeAsk>}
-                            />
-
-                            {residesInNorway === JaNeiVetIkke.JA && (
-                                <PaymentDetails accountType={BankkontoType.NORSK} hideSelectType={true} />
-                            )}
-
-                            {residesInNorway === JaNeiVetIkke.NEI && (
-                                <>
-                                    <FormElement>
-                                        <RHFSelect
-                                            className="kol-50"
-                                            name={`countryOfResidence`}
-                                            label={t('countryOfResidence')}
-                                            selectOptions={countries as any[]}
-                                        />
-                                    </FormElement>
-
-                                    <RHFGeneralQuestionRadio
-                                        name={'memberFolketrygdenAbroad'}
-                                        legend={t('memberFolketrygdenAbroad')}
-                                    />
-
-                                    <PaymentDetails accountType={accountType} />
-                                </>
-                            )}
+                            <PaymentDetails accountType={accountType} />
                         </FormGroup>
                     )}
 

@@ -1,10 +1,10 @@
 import { Alert, BodyShort, Cell, Grid, Label } from '@navikt/ds-react'
+import styled from 'styled-components'
 import { User } from '../../../context/user/user'
 import useTranslation from '../../../hooks/useTranslation'
 import { fullAdresse } from '../../../utils/adresse'
 import Hjelpetekst from '../../../utils/Hjelpetekst'
 import FormGroup from '../../common/FormGroup'
-import styled from 'styled-components'
 
 interface LoggedInUserInfoProps {
     user: User
@@ -34,11 +34,6 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                         </BodyShort>
                     </div>
 
-                    <div>
-                        <Label>{t('fnrDnr')}</Label>
-                        <BodyShort spacing>{user.foedselsnummer}</BodyShort>
-                    </div>
-
                     {user.adresse && !user.adressebeskyttelse && (
                         <div>
                             <Label>{t('address')}</Label>
@@ -48,18 +43,12 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                 </Cell>
 
                 <Cell xs={6}>
-                    <div>
-                        <Label>{t('maritalStatus')}</Label>
-                        <BodyShort spacing>{user.sivilstatus}</BodyShort>
-                    </div>
-
-                    <div>
-                        <Label>{t('citizenship')}</Label>
-                        <BodyShort spacing>{user.statsborgerskap}</BodyShort>
-                    </div>
-
                     {user.telefonnummer && (
                         <>
+                            <div>
+                                <Label>{t('fnrDnr')}</Label>
+                                <BodyShort spacing>{user.foedselsnummer}</BodyShort>
+                            </div>
                             <HelpTextLabel>
                                 <Label>
                                     {t('phoneNumber')}&nbsp;
