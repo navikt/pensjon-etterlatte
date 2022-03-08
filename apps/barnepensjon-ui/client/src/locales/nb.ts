@@ -257,8 +257,28 @@ const radiobuttons = {
 
 const error = {
     title: 'For å gå videre må du rette opp i dette:',
-    'bostedsadresseBekreftet.required': 'Spørsmål om bostedsadresse må besvares',
-    'alternativeAddresse.required': 'Du må oppgi nåværende bostedsadresse',
+    'abroadStays.hasStaysAbroad.required': 'Oppgi om den avdøde har bodd eller jobbet i et annet land enn Norge',
+    'addressOfResidenceConfirmed.required': 'Bostedsadresse må bekreftes/avkreftes',
+    'alternativeAddress.required': 'Du må oppgi nåværende bostedsadresse',
+    'citizenship.required': 'Oppgi statsborgerskap',
+    'countryOfResidence.required': 'Oppgi nåværende oppholdsland',
+    'dateOfDeath.required': 'Oppgi når dødsfallet skjedde',
+    'firstName.required': 'Oppgi fornavn',
+    'fnr.required': 'Oppgi fødselsnummer',
+    'fnrDnr.required': 'Oppgi fødselsnummer',
+    'lastName.required': 'Oppgi etternavn',
+    'memberFolketrygdenAbroad.required': 'Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge',
+    'militaryService.completed.required': 'Oppgi om avdøde har gjennomført verneplikt',
+    'occupationalInjury.required': 'Oppgi om dødsfallet skyldes yrkesskade eller yrkessykdom',
+    'paymentDetails.bankAccount.required': 'Norsk kontonummer må fylles ut (11 siffer)',
+    'paymentDetails.accountType.required': 'Du må velge mellom norsk eller utenlandsk bankkonto for utbetaling',
+    'paymentDetails.foreignBankName.required': 'Navnet på den utenlandske banken må fylles ut',
+    'paymentDetails.foreignBankAddress.required': 'Adressen til den utenlandske banken må fylles ut',
+    'paymentDetails.iban.required': 'IBAN-nummer må fylles ut',
+    'paymentDetails.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fylles ut',
+    'residesInNorway.required': 'Opphold må besvares',
+    'selfEmplyment.wasSelfEmployed.required': 'Oppgi om avdøde var selvstendig næringsdrivende',
+    'staysAbroad.answer.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
 }
 
 const pageNotFound = {
