@@ -83,6 +83,16 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
                 },
             }
         }
+        case ActionTypes.UPDATE_YOUR_SITUATION: {
+            return {
+                ...state,
+                yourSituation: action.payload,
+                meta: {
+                    ...state.meta,
+                    readyForSaving: true,
+                },
+            }
+        }
         default:
             return state
     }
