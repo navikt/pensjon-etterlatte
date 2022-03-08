@@ -228,6 +228,7 @@ export default {
   "omBarn.barnepensjon.forskuddstrekk.hjelpetekst": "Children’s pensions are taxable, but we do not deduct tax from the payment amount unless we are instructed to do so. If you have any questions about tax, you must contact the Norwegian Tax Administration (“Skatteetaten”).",
   "omBarn.barnepensjon.forskuddstrekk.trekkprosent": "Enter the desired tax deduction",
   "omBarn.barnepensjon.forskuddstrekk.placeholder": "e.g. 20%",
+  "omBarn.barnepensjon.forskuddstrekk.info": "Please be aware that voluntary tax deductions must be renewed annually.",
   "omBarn.infokort.foedselsnummer": "NORWEGIAN NATIONAL IDENTITY NUMBER",
   "omBarn.infokort.foreldre": "THE CHILD’S PARENTS",
   "omBarn.infokort.bosted": "PLACE OF RESIDENCE",

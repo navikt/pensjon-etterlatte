@@ -9,7 +9,7 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
-import { Button, Cell, Grid, Heading, Label, Panel } from "@navikt/ds-react";
+import { Alert, BodyShort, Button, Cell, Grid, Heading, Label, Panel } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 import Hjelpetekst from "../../felles/Hjelpetekst";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
@@ -254,7 +254,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                             />
 
                                             {annetKontonummerBarnepensjon === IValg.NEI && (
-
                                                 <RHFKontonummerInput
                                                     name={"barnepensjon.kontonummer.kontonummer"}
                                                     bredde={"M"}
@@ -279,12 +278,21 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                             )}
 
                                             {forskuddstrekkBarnepensjon === IValg.JA && (
-                                                <RHFProsentInput
-                                                    bredde={"M"}
-                                                    name={"barnepensjon.forskuddstrekk.trekkprosent"}
-                                                    label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
-                                                    placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
-                                                />
+                                                <>
+                                                    <RHFProsentInput
+                                                        bredde={"M"}
+                                                        name={"barnepensjon.forskuddstrekk.trekkprosent"}
+                                                        label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
+                                                        placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
+                                                    />
+                                                    <Panel border>
+                                                        <Alert variant={"info"} className={"navds-alert--inline"}>
+                                                            <BodyShort size={"small"}>
+                                                                {t("omBarn.barnepensjon.forskuddstrekk.info")}
+                                                            </BodyShort>
+                                                        </Alert>
+                                                    </Panel>
+                                                </>
                                             )}
                                         </>
                                     )}

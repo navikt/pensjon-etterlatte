@@ -143,6 +143,8 @@ const aboutChildren = {
         'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
     'childrensPension.taxWithhold.trekkprosent': 'Oppgi ønsket skattetrekk',
     'childrensPension.taxWithhold.placeholder': 'i prosent, eks. 20%',
+    'childrensPension.taxWithhold.info':
+        'Vær oppmerksom på at frivillig skattetrekk må sendes innpå nytt hvert kalenderår.',
     'childrenRelation.fellesbarnMedAvdoede': 'Jeg og avdøde',
     'childrenRelation.avdoedesSaerkullsbarn': 'Avdøde',
     'childrenRelation.egneSaerkullsbarn': 'Jeg',
