@@ -228,7 +228,7 @@ export default {
   "omBarn.barnepensjon.forskuddstrekk.hjelpetekst": "Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.",
   "omBarn.barnepensjon.forskuddstrekk.trekkprosent": "Oppgi ønsket skattetrekk",
   "omBarn.barnepensjon.forskuddstrekk.placeholder": "i prosent, eks. 20%",
-  "omBarn.barnepensjon.forskuddstrekk.info": "Vær oppmerksom på at frivillig skattetrekk må sendes innpå nytt hvert kalenderår.",
+  "omBarn.barnepensjon.forskuddstrekk.info": "Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.",
   "omBarn.infokort.foedselsnummer": "FØDSELSNUMMER",
   "omBarn.infokort.foreldre": "FORELDRE TIL BARNET",
   "omBarn.infokort.bosted": "BOSTED",
