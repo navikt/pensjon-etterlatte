@@ -15,7 +15,8 @@ import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
 import AddChildToForm from './AddChildToForm'
-import ChildInfocard, { Infocard, InfocardHeader, InformationBox } from './ChildInfocard'
+import { Infocard, InfocardHeader, InformationBox } from '../../common/card/InfoCard'
+import ChildInfocard from './ChildInfocard'
 
 const AboutChildrenWrapper = styled.div`
     .center {
@@ -158,8 +159,13 @@ export default function AboutChildren({ next, prev }: StepProps) {
                             )}
 
                             <Navigation
-                                prev={isValidated === true ? handleSubmit(savePrevious) : savePreviousWithoutValidation}
-                                next={handleSubmit(saveNext)}
+                                left={{
+                                    onClick:
+                                        isValidated === true
+                                            ? handleSubmit(savePrevious)
+                                            : savePreviousWithoutValidation,
+                                }}
+                                right={{ onClick: handleSubmit(saveNext) }}
                             />
                         </>
                     )}

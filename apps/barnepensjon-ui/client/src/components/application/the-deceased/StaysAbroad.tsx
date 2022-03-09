@@ -2,7 +2,7 @@ import useTranslation from '../../../hooks/useTranslation'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
-import { IDeceasedParent } from '../../../context/application/application'
+import { IParent } from '../../../context/application/application'
 import { Button, Cell, Grid, Panel } from '@navikt/ds-react'
 import { RHFSelect } from '../../common/rhf/RHFSelect'
 import { useEffect } from 'react'
@@ -26,7 +26,7 @@ const StaysAbroadCheckboxDiv = styled.div`
 
 export default function StaysAbroad({ countries }: { countries: any }) {
     const { t } = useTranslation('aboutTheDeceased')
-    const { control } = useFormContext<IDeceasedParent>()
+    const { control } = useFormContext<IParent>()
 
     const { fields, append, remove } = useFieldArray<any>({
         control,

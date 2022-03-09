@@ -95,7 +95,7 @@ export default function YourSituation({ next, prev, type }: StepProps) {
                 </FormGroup>
                 <ErrorSummaryWrapper errors={errors} />
 
-                <Navigation next={handleSubmit(save)} prev={prev} />
+                <Navigation right={{ onClick: handleSubmit(save) }} left={{ onClick: prev }} />
             </form>
         </FormProvider>
     )

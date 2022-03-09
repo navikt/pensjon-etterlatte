@@ -88,6 +88,9 @@ const livingParent = {
 
 const aboutTheDeceased = {
     title: 'Om den avdøde',
+    firstParentTitle: 'Om den første forelderen',
+    secondParentTitle: 'Om den andre forelderen',
+    singleParentTitle: 'Om den avdøde',
     who: 'Hvem er det som er død?',
     firstName: 'Fornavn',
     lastName: 'Etternavn',
@@ -199,7 +202,6 @@ const loggedInUserInfo = {
 }
 
 const common = {
-    who: '',
     firstName: 'Fornavn',
     lastName: 'Etternavn',
     name: 'Navn',
@@ -215,6 +217,8 @@ const common = {
     dateExample: 'eks. 01.11.2020',
     chooseCountry: 'Velg land',
     chooseLanguage: 'Velg språk',
+    remove: 'Fjern',
+    edit: 'Endre',
 }
 
 const paymentDetails = {
@@ -243,6 +247,7 @@ const navigation = {
     sendApplication: 'Send søknad',
     backButton: 'Tilbake',
     nextButton: 'Neste',
+    saveButton: 'Lagre',
     cancelButton: 'Avbryt',
     cancelApplicationTitle: 'Vil du avbryte søknaden?',
     cancelApplicationBody: 'Du kan fortsette nå eller senere. Søknaden din lagres i 72 timer.',
@@ -347,6 +352,20 @@ const receipt = {
     closeApplicationButton: 'Avslutt',
 }
 
+const aboutParents = {
+    title: 'Om foreldrene',
+    firstParent: 'Forelder 1',
+    secondParent: 'Forelder 2',
+    survivingParent: 'Gjenlevende forelder',
+    deceasedParent: 'Avdød forelder',
+    addParentBtn: 'Legg til',
+    addSurvivingParentBtn: 'Legg til gjenlevende forelder',
+    addDeceasedParentBtn: 'Legg til avdød forelder',
+    addFirstParentBtn: 'Legg til forelder 1',
+    addSecondParentBtn: 'Legg til forelder 2',
+    bothParentsRequired: 'Du må legge til opplysninger om begge foreldre for å fortsette søknaden.',
+}
+
 const yourSituation = {
     title: 'Din situasjon',
     whatsYourSituation: 'Hva er din situasjon?',
@@ -367,6 +386,7 @@ const texts = {
     aboutTheDeceased,
     aboutYou,
     livingParent,
+    aboutParents,
     logOutUser,
     error,
     common,

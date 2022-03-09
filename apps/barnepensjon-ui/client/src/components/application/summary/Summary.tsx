@@ -47,7 +47,7 @@ export default function Summary({ prev }: StepProps) {
                 </FormGroup>
             )}
 
-            <Navigation send={send} prev={prev} />
+            <Navigation right={{ onClick: send }} left={{ onClick: prev }} />
         </FormGroup>
     )
 }

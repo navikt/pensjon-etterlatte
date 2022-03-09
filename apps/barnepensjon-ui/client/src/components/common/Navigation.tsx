@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
 import { ActionTypes as ApplicationActionTypes } from '../../context/application/application'
 import { ActionTypes as UserActionTypes } from '../../context/user/user'
-import { Button, Heading } from '@navikt/ds-react'
+import { Button, ButtonProps, Heading } from '@navikt/ds-react'
 import FormGroup from './FormGroup'
 import styled from 'styled-components'
 import EyModal from './EyModal'
@@ -41,17 +41,18 @@ const FlatDangerButton = styled(Button)`
     }
 `
 
-export default function Navigation({
-    next,
-    prev,
-    send,
-    disabled,
-}: {
-    next?: () => void
-    prev?: () => void
-    send?: () => void
-    disabled?: boolean
-}) {
+interface NavButtonProps extends Pick<ButtonProps, 'variant' | 'disabled'> {
+    label?: string
+    onClick?: () => void
+}
+
+interface NavigationProps {
+    right?: NavButtonProps
+    left?: NavButtonProps
+    hideCancel?: boolean
+}
+
+export default function Navigation({ right, left, hideCancel }: NavigationProps) {
     const { t } = useTranslation('navigation')
 
     const { dispatch: applicationDispatch } = useApplicationContext()
@@ -76,30 +77,36 @@ export default function Navigation({
         <>
             <NavFooter>
                 <NavRow>
-                    {!!prev && (
-                        <Button variant={'primary'} type={'button'} onClick={prev}>
-                            {t('backButton')}
+                    {!!left && (
+                        <Button
+                            type={'button'}
+                            variant={left?.variant || 'primary'}
+                            onClick={left?.onClick}
+                            disabled={left?.disabled}
+                        >
+                            {left?.label || t('backButton')}
                         </Button>
                     )}
 
-                    {!!next && (
-                        <Button variant={'primary'} type={'button'} onClick={next}>
-                            {t('nextButton')}
-                        </Button>
-                    )}
-
-                    {!!send && (
-                        <Button variant={'primary'} type={'button'} onClick={send}>
-                            {t('sendApplication')}
+                    {!!right && (
+                        <Button
+                            type={'button'}
+                            variant={right?.variant || 'primary'}
+                            onClick={right?.onClick}
+                            disabled={right?.disabled}
+                        >
+                            {right?.label || t('nextButton')}
                         </Button>
                     )}
                 </NavRow>
 
-                <NavRow>
-                    <Button id={'avbryt-btn'} variant={'secondary'} type={'button'} onClick={() => setIsOpen(true)}>
-                        {t('cancelButton')}
-                    </Button>
-                </NavRow>
+                {!hideCancel && (
+                    <NavRow>
+                        <Button id={'avbryt-btn'} variant={'secondary'} type={'button'} onClick={() => setIsOpen(true)}>
+                            {t('cancelButton')}
+                        </Button>
+                    </NavRow>
+                )}
             </NavFooter>
 
             <EyModal open={isOpen} onClose={() => setIsOpen(false)}>

@@ -7,7 +7,6 @@ import { useApplicationContext } from '../../../context/application/ApplicationC
 import useTranslation from '../../../hooks/useTranslation'
 import PersonInfo from '../../common/PersonInfo'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
-import { Label } from '@navikt/ds-react'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
 
@@ -35,7 +34,6 @@ export default function LivingParent({ next, prev, type }: StepProps) {
             <form>
                 <StepHeading>{t('title')}</StepHeading>
 
-                <Label>{t('who')}</Label>
                 <PersonInfo />
 
                 <FormElement>
@@ -46,7 +44,11 @@ export default function LivingParent({ next, prev, type }: StepProps) {
                 </FormElement>
                 <ErrorSummaryWrapper errors={errors} />
 
-                <Navigation next={handleSubmit(save)} prev={prev} />
+                <Navigation
+                    right={{ label: t('saveButton', { ns: 'navigation' }), onClick: handleSubmit(save) }}
+                    left={{ label: t('backButton', { ns: 'navigation' }), variant: 'secondary', onClick: prev }}
+                    hideCancel={true}
+                />
             </form>
         </FormProvider>
     )
