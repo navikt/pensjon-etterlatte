@@ -1,12 +1,12 @@
+import { jest } from '@jest/globals'
 import request from 'supertest'
-import app from './mock-server'
 import config from '../config'
-
-import { STOR_SNERK } from './mock-user'
 import mockLand from './landMock'
+import app from './mock-server'
+import { STOR_SNERK } from './mock-user'
 
 describe('Test at mock-api gir korrekte resultater', () => {
-  afterAll(() => {
+  afterEach(() => {
     app.close()
   })
   test('Skal returnere STOR SNERK som innlogget bruker', async () => {
@@ -40,8 +40,12 @@ describe('Test at mock-api gir korrekte resultater', () => {
     expect(res.body).toEqual(mockLand.default)
   })
 
-  test('Skal returnere 3600 som gjenvaerende tid til utlogging', async () => {
-    const res = await request(app).get(`${config.default.app.basePath}/oauth2/session`).expect(200)
-    expect(res.text).toEqual('3600')
+  test('Skal returnere 1 time etter naavaerende tid som gjenvaerende tid til utlogging', async () => {
+    jest.useFakeTimers()
+    jest.setSystemTime(new Date('2017-01-01').getTime())
+    const res = await request(app).get(`${config.default.app.basePath}/session`).expect(200)
+    const date = new Date()
+    date.setHours(date.getHours() + 1)
+    expect(res.text).toEqual(date.getTime().toString())
   })
 })
