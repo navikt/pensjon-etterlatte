@@ -144,7 +144,7 @@ const aboutChildren = {
     'childrensPension.taxWithhold.trekkprosent': 'Oppgi ønsket skattetrekk',
     'childrensPension.taxWithhold.placeholder': 'i prosent, eks. 20%',
     'childrensPension.taxWithhold.info':
-        'Vær oppmerksom på at frivillig skattetrekk må sendes innpå nytt hvert kalenderår.',
+        'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
     'childrenRelation.fellesbarnMedAvdoede': 'Jeg og avdøde',
     'childrenRelation.avdoedesSaerkullsbarn': 'Avdøde',
     'childrenRelation.egneSaerkullsbarn': 'Jeg',
