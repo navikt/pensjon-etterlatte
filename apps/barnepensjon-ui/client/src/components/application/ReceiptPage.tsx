@@ -8,17 +8,13 @@ export default function ReceiptPage() {
 
     return (
         <div className={'forside'}>
-            <Alert variant={'error'}>TODO: Tekster må tilpasses barnepensjon søknad</Alert>
-
             <FormGroup>
-                <NavGuide />
+                <NavGuide>{t('thankYou')}</NavGuide>
             </FormGroup>
 
-            <FormGroup>
-                <Heading size={'medium'} spacing={true}>
-                    {t('pageTitle')}
-                </Heading>
-            </FormGroup>
+            <Heading size={'medium'} spacing={true}>
+                {t('pageTitle')}
+            </Heading>
 
             <FormGroup>
                 <Alert variant={'info'}>{t('contact')}</Alert>
@@ -31,13 +27,21 @@ export default function ReceiptPage() {
 
                 <ul>
                     <li>
-                        <BodyShort>{t('lifeChangeList.maritialStatus')}</BodyShort>
+                        <BodyShort>{t('lifeChangeList.family')}</BodyShort>
                     </li>
                     <li>
-                        <BodyShort>{t('lifeChangeList.income')}</BodyShort>
+                        <BodyShort>{t('lifeChangeList.moving')}</BodyShort>
+                    </li>
+                </ul>
+
+                <BodyLong>{t('lifeChangeInfo2')}</BodyLong>
+
+                <ul>
+                    <li>
+                        <BodyShort>{t('lifeChangeList2.education')}</BodyShort>
                     </li>
                     <li>
-                        <BodyShort>{t('lifeChangeList.address')}</BodyShort>
+                        <BodyShort>{t('lifeChangeList2.income')}</BodyShort>
                     </li>
                 </ul>
 
@@ -48,54 +52,33 @@ export default function ReceiptPage() {
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'medium'}>{t('viewCaseTitle')}</Heading>
+                <Heading size={'medium'}>{t('benefitsChangingTitle')}</Heading>
 
-                {/* TODO: Sett inn riktig lenke for Dine saker */}
                 <BodyLong>
-                    {t('viewCaseInfoContent')}&nbsp;
-                    <Link href={t('viewCaseInfoLinkHref1')}>{t('viewCaseInfoLinkText1')}</Link>
+                    {t('benefitsChangingDescription1')}&nbsp;
+                    <Link href={t('benefitsChangingDescription1.href')}>{t('benefitsChangingDescription1.link')}</Link>
                     &nbsp;
-                    {t('viewCaseInfoContent2')}&nbsp;
-                    <Link href={t('viewCaseInfoLinkHref2')}>{t('viewCaseInfoLinkText2')}</Link>
-                    &nbsp;
-                    {t('viewCaseInfoContent3')}&nbsp;
-                </BodyLong>
-                <br />
-                <BodyLong>
-                    <Link href={t('viewCaseInfoLinkHref3')}>{t('viewCaseInfoLinkText3')}</Link>
+                    {t('benefitsChangingDescription2')}&nbsp;
                 </BodyLong>
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'medium'}>{t('otherBenefitsTitle')}</Heading>
+                <Heading size={'medium'}>{t('viewCaseTitle')}</Heading>
 
-                <BodyLong>{t('otherBenefitsInfo')}</BodyLong>
-
-                <ul>
-                    <li>
-                        <BodyShort>
-                            <Link href={t('otherBenefitsList.skolepengerHref')}>
-                                {t('otherBenefitsList.skolepengerText')}
-                            </Link>
-                        </BodyShort>
-                    </li>
-                    <li>
-                        <BodyShort>
-                            <Link href={t('otherBenefitsList.barnetilsynHref')}>
-                                {t('otherBenefitsList.barnetilsynText')}
-                            </Link>
-                        </BodyShort>
-                    </li>
-                    <li>
-                        <BodyShort>
-                            <Link href={t('otherBenefitsList.barnetrygdHref')}>
-                                {t('otherBenefitsList.barnetrygdText')}
-                            </Link>
-                        </BodyShort>
-                    </li>
-                </ul>
-
+                <BodyLong>
+                    {t('viewCaseInfoContentPart1')}&nbsp;
+                    <Link href={t('viewCaseInfoLinkHref1')}>{t('viewCaseInfoLinkText1')}</Link>&nbsp;
+                    {t('viewCaseInfoContentPart2')}&nbsp;
+                </BodyLong>
                 <br />
+                <BodyLong>
+                    {t('viewCaseInfoContent3')}&nbsp;
+                    <Link href={t('viewCaseInfoLinkHref3')}>{t('viewCaseInfoLinkText3')}</Link>.
+                </BodyLong>
+                <br />
+                <BodyLong>
+                    <Link href={t('viewCaseInfoLinkHref4')}>{t('viewCaseInfoLinkText4')}</Link>
+                </BodyLong>
             </FormGroup>
 
             <FormGroup>
