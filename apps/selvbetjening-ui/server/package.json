@@ -37,7 +37,7 @@
     "start:prod": "NODE_ENV=production ts-node-dev --project ./tsconfig.json ./build/server.ts",
     "build": "NODE_ENV=production tsc --project ./tsconfig.json",
     "build-dev": "NODE_ENV=dev tsc --project ./tsconfig.json",
-    "test": "node --experimental-vm-modules  node_modules/.bin/jest --config ./jest.config.ts ",
+    "test": "node --experimental-vm-modules  node_modules/.bin/jest --config ./jest.config.ts --force-exit",
     "test:watch": "node --experimental-vm-modules  node_modules/.bin/jest --config ./jest.config.ts --watch"
   },
   "type": "module"
