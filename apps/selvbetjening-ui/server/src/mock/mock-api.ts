@@ -35,20 +35,6 @@ export const mockApi = (app: any) => {
     setTimeout(() => res.json(innloggetBruker), 1000)
   )
 
-  app.post(`${config.app.basePath}/api/api/soeknad`, (req: Request, res: Response) => {
-    const id = cache.get('id')
-
-    if (!!id) return id
-
-    const newID = Math.floor(Math.random() * 100)
-    cache.set('id', newID)
-    cache.del(innloggetBruker.foedselsnummer)
-
-    setTimeout(() => {
-      res.sendStatus(200)
-    }, 1000)
-  })
-
   app.get(`${config.app.basePath}/api/api/kladd`, (req: Request, res: Response) => {
     const soeknad = cache.get(innloggetBruker.foedselsnummer)
 
@@ -78,9 +64,5 @@ export const mockApi = (app: any) => {
     const date = new Date()
     date.setHours(date.getHours() + 1)
     res.send(`${date.getTime()}`)
-  })
-
-  app.get(`${config.app.basePath}/logout`, async (req: any, res: any) => {
-    res.sendStatus(200)
   })
 }
