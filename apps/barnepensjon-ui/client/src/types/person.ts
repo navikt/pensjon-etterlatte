@@ -3,7 +3,7 @@ import { BankkontoType, JaNeiVetIkke } from '../api/dto/FellesOpplysninger'
 export interface IAboutYou {
     addressOfResidenceConfirmed?: JaNeiVetIkke
     alternativeAddress?: string
-    phone?: string
+    phoneNumber?: string
     paymentDetails?: IPaymentDetails
     residesInNorway?: JaNeiVetIkke
     countryOfResidence?: string

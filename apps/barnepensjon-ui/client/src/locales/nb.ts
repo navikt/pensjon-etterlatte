@@ -47,22 +47,25 @@ const frontPage = {
 }
 
 const selectScenario = {
-    title: 'Søk barnepensjon',
-    ingress: 'Velg din situasjon for å gå videre med søknaden',
-    'btn.myChildren': 'Jeg skal søke om barnepensjon for mitt/mine barn',
-    'btn.guardian': 'Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til',
-    'btn.me': 'Jeg er over 18 år og søker på vegne av meg selv',
-    'alert.title': 'Søke gjenlevendepensjon og barnepensjon?',
-    'alert.description':
-        'Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du søke om gjenlevendepensjon og barnepensjon i en og samme søknad.',
-    'alert.description2': 'Gå til',
-    'alert.link.href': 'https://www.nav.no/gjenlevendepensjon/soknad/',
-    'alert.link.text': 'søknad om gjenlevendepensjon og barnepensjon',
-    PARENT: 'Jeg skal søke om barnepensjon for mitt/mine barn',
-    GUARDIAN: 'Jeg skal søke om barnepensjon for ett eller flere barn jeg er verge til',
-    CHILD: 'Jeg er over 18 år og søker på vegne av meg selv',
-    BOTH_PARENTS_DECEASED: 'Foreldreløs (begge foreldre døde)',
-    ONE_PARENT_DECEASED: 'Kun én forelder er død',
+    title: 'Velg situasjon for å gå videre med søknaden',
+    whoIsApplying: 'Hvem søker om barnepensjon?',
+    PARENT: 'Jeg søker på vegne av mitt/mine barn',
+    GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
+    CHILD: 'Jeg er fylt 18 år og søker på vegne av meg selv',
+    parentApplicantInformation:
+        'Du kan søke om barnepensjon til flere barn i denne søknaden. Du må oppgi alle søsken, uansett alder, fordi det kan ha betydning for beregningen av barnepensjon. \n\nDersom barna ikke er helsøsken, skal det benyttes en ny søknadsblankett for hvert barnekull.',
+    childApplicantInformation1:
+        'Hvis du er under 20 år og er under utdanning, er lærling eller praktikant, kan du søke om barnepensjon.',
+    childApplicantInformation2:
+        'Dersom du er under 21 år og er under utdanning, er lærling eller praktikant, kan du søke om barnepensjon dersom dødsfallet til en av foreldrene dine skyldes yrkesskade eller yrkessykdom.',
+    aboutSurvivorsPensionTitle: 'Søke om gjenlevendepensjon til deg selv?',
+    aboutSurvivorsPensionDescription:
+        'Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du',
+    aboutSurvivorsPensionLink: 'velge å søke om gjenlevendepensjon og barnepensjon i samme søknad.',
+    aboutSurvivorsPensionHref: 'https://www.nav.no/gjenlevendepensjon',
+    BOTH_PARENTS_DECEASED: 'Foreldreløs',
+    BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Jeg er foreldreløs',
+    ONE_PARENT_DECEASED: 'En forelder er død',
 }
 
 const aboutYou = {
@@ -76,7 +79,7 @@ const aboutYou = {
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
     yes: 'Ja',
     no: 'Nei',
-    'contactInfo.phoneNumber': 'Telefonnummer',
+    phoneNumber: 'Telefonnummer',
 }
 
 const livingParent = {
