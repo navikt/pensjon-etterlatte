@@ -345,6 +345,21 @@ const receipt = {
     closeApplicationButton: 'Avslutt',
 }
 
+const yourSituation = {
+    title: 'Din situasjon',
+    whatsYourSituation: 'Hva er din situasjon?',
+    timeUsedForEducation: 'Hvor mye tid bruker du på utdanningen?',
+    whyDoYouApply: 'Hvorfor søker du barnepensjon etter fyllte 18 år',
+    doYouGetPaid: 'Har du lønnsinntekt?',
+    BELOW50: 'Under 50%',
+    OVER50: '50% eller mer',
+    ORPHAN: 'Jeg er foreldreløs',
+    OCCUPATIONAL_INJURY: 'Den avdøde moren eller faren min døde som følge av en godkjent yrkesskade',
+    EDUCATION: 'Jeg tar utdanning',
+    APPRENTICE: 'Jeg er lærling',
+    INTERNSHIP: 'Jeg har praksisplass eller er praktikant',
+}
+
 const texts = {
     aboutChildren,
     aboutTheDeceased,
@@ -363,6 +378,7 @@ const texts = {
     systemUnavailable,
     summary,
     receipt,
+    yourSituation,
 }
 
 export default texts

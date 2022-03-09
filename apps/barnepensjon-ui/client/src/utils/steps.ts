@@ -1,8 +1,9 @@
-import AboutYou from '../components/application/about-you/AboutYou'
 import AboutChildren from '../components/application/about-children/AboutChildren'
-import Summary from '../components/application/summary/Summary'
+import AboutYou from '../components/application/about-you/AboutYou'
 import FirstParent from '../components/application/parents/FirstParent'
 import SecondParent from '../components/application/parents/SecondParent'
+import Summary from '../components/application/summary/Summary'
+import YourSituation from '../components/application/your-situation/YourSituation'
 
 export interface StepType {
     label: string
@@ -81,6 +82,11 @@ export const ChildApplicantSteps: StepType[] = [
         label: 'Om deg',
         path: 'steg/om-deg',
         element: AboutYou,
+    },
+    {
+        label: 'Din situasjon',
+        path: 'steg/din-situasjon',
+        element: YourSituation,
     },
     {
         label: 'Om den ene forelderen',

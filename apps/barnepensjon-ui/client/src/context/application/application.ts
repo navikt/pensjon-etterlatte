@@ -1,7 +1,7 @@
 import { JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/FellesOpplysninger'
 import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
 import { IAboutChild, IAboutYou } from '../../types/person'
-import { ISituasjon } from '../../types/situation'
+import { ISituationChild } from '../../types/situation'
 
 export interface IApplication {
     meta?: IApplicationMeta
@@ -10,7 +10,7 @@ export interface IApplication {
     aboutYou?: IAboutYou
     firstParent?: IParent
     secondParent?: IParent
-    yourSituation?: ISituasjon
+    yourSituation?: ISituationChild
 }
 
 export enum ActionTypes {
@@ -24,6 +24,7 @@ export enum ActionTypes {
     UPDATE_ABOUT_YOU,
     UPDATE_FIRST_PARENT,
     UPDATE_SECOND_PARENT,
+    UPDATE_YOUR_SITUATION,
     RESET,
 }
 

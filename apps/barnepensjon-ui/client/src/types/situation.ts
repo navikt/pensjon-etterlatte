@@ -1,5 +1,5 @@
-import { IArbeidsforhold, IngenJobb, ISelvstendigNaeringsdrivende } from './workingConditions'
 import { JaNeiVetIkke } from '../api/dto/FellesOpplysninger'
+import { IArbeidsforhold, IngenJobb, ISelvstendigNaeringsdrivende } from './workingConditions'
 
 export interface IUtdanning {
     naavaerendeUtdanning?: {
@@ -31,6 +31,22 @@ export enum JobbStatus {
     ingen = 'jobbStatus.ingen',
 }
 
+export enum EducationType {
+    BELOW50 = 'BELOW50',
+    OVER50 = 'OVER50',
+}
+
+export enum SituationType {
+    ORPHAN = 'ORPHAN',
+    OCCUPATIONAL_INJURY = 'OCCUPATIONAL_INJURY',
+}
+
+export enum ApplicationReasonType {
+    EDUCATION = 'EDUCATION',
+    APPRENTICE = 'APPRENTICE',
+    INTERNSHIP = 'INTERNSHIP',
+}
+
 export interface ISituasjon {
     jobbStatus?: JobbStatus[]
     ingenJobbBeskrivelse?: IngenJobb
@@ -38,5 +54,13 @@ export interface ISituasjon {
     selvstendig?: ISelvstendigNaeringsdrivende[]
     arbeidsforhold?: IArbeidsforhold[]
     andreYtelser?: any
+    erValidert?: boolean
+}
+
+export interface ISituationChild {
+    doYouGetPaid?: JaNeiVetIkke
+    timeUsedForEducation?: EducationType
+    whatsYourSituation?: SituationType
+    whyDoYouApply?: ApplicationReasonType
     erValidert?: boolean
 }
