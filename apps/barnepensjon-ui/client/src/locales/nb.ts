@@ -371,7 +371,7 @@ const yourSituation = {
     whatsYourSituation: 'Hva er din situasjon?',
     timeUsedForEducation: 'Hvor mye tid bruker du på utdanningen?',
     whyDoYouApply: 'Hvorfor søker du barnepensjon etter fyllte 18 år',
-    doYouGetPaid: 'Har du lønnsinntekt?',
+    doYouHaveIncome: 'Har du lønnsinntekt?',
     BELOW50: 'Under 50%',
     OVER50: '50% eller mer',
     ORPHAN: 'Jeg er foreldreløs',

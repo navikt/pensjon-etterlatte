@@ -3,7 +3,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
-import { ApplicationReasonType, EducationType, ISituationChild, SituationType } from '../../../types/situation'
+import { ApplicationReasonType, EducationType, ISituationChild } from '../../../types/situation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
@@ -36,24 +36,6 @@ export default function YourSituation({ next, prev, type }: StepProps) {
         <FormProvider {...methods}>
             <form>
                 <StepHeading>{t('title')}</StepHeading>
-                <FormElement>
-                    <RHFCheckboksGruppe
-                        name={`whatsYourSituation`}
-                        legend={t('whatsYourSituation')}
-                        checkboxes={[
-                            {
-                                label: t(SituationType.ORPHAN),
-                                value: SituationType.ORPHAN,
-                                required: true,
-                            },
-                            {
-                                label: t(SituationType.OCCUPATIONAL_INJURY),
-                                value: SituationType.OCCUPATIONAL_INJURY,
-                                required: true,
-                            },
-                        ]}
-                    />
-                </FormElement>
 
                 <FormElement>
                     <RHFCheckboksGruppe
@@ -90,7 +72,7 @@ export default function YourSituation({ next, prev, type }: StepProps) {
                 </FormElement>
                 <FormGroup>
                     <FormElement>
-                        <RHFGeneralQuestionRadio name={'doYouGetPaid'} legend={t('doYouGetPaid')} />
+                        <RHFGeneralQuestionRadio name={'doYouHaveIncome'} legend={t('doYouHaveIncome')} />
                     </FormElement>
                 </FormGroup>
                 <ErrorSummaryWrapper errors={errors} />

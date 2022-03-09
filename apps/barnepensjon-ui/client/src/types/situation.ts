@@ -36,11 +36,6 @@ export enum EducationType {
     OVER50 = 'OVER50',
 }
 
-export enum SituationType {
-    ORPHAN = 'ORPHAN',
-    OCCUPATIONAL_INJURY = 'OCCUPATIONAL_INJURY',
-}
-
 export enum ApplicationReasonType {
     EDUCATION = 'EDUCATION',
     APPRENTICE = 'APPRENTICE',
@@ -58,9 +53,8 @@ export interface ISituasjon {
 }
 
 export interface ISituationChild {
-    doYouGetPaid?: JaNeiVetIkke
+    doYouHaveIncome?: JaNeiVetIkke
     timeUsedForEducation?: EducationType
-    whatsYourSituation?: SituationType
     whyDoYouApply?: ApplicationReasonType
     erValidert?: boolean
 }
