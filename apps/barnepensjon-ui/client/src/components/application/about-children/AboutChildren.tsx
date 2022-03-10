@@ -17,6 +17,7 @@ import { ApplicantRole } from '../scenario/ScenarioSelection'
 import AddChildToForm from './AddChildToForm'
 import { Infocard, InfocardHeader, InformationBox } from '../../common/card/InfoCard'
 import ChildInfocard from './ChildInfocard'
+import { RHFInput } from '../../common/rhf/RHFInput'
 
 const AboutChildrenWrapper = styled.div`
     .center {
@@ -47,11 +48,12 @@ export default function AboutChildren({ next, prev }: StepProps) {
         defaultValues: state.aboutChildren || {},
     })
 
-    const { watch, getValues } = methods
+    const { watch, getValues, clearErrors } = methods
 
     const isValidated = state.aboutChildren?.erValidert
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
     const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
+    const isParent = state.applicant?.applicantRole === ApplicantRole.PARENT
     const registeredChild = watch('child')
 
     const getFnrRegisteredChild = (): string[] => registeredChild?.map((child) => child?.fnr || '') || []
@@ -79,6 +81,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
     const updateChild = (child: IChild) => {
         if (activeChildIndex !== undefined) {
             update(activeChildIndex, child)
+            clearErrors()
         }
         setActiveChildIndex(undefined)
     }
@@ -149,7 +152,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                     </Infocard>
                                 </InfocardWrapper>
                             </FormGroup>
-                            {!isChild && !isGuardian && (
+                            {isParent && (
                                 <FormGroup>
                                     <RHFGeneralQuestionRadio
                                         name={'pregnantOrNewlyBorn'}
@@ -157,6 +160,16 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                     />
                                 </FormGroup>
                             )}
+
+                            {/* Ensure validation of child array (cannot be undefined or empty) */}
+                            <FormGroup>
+                                <RHFInput
+                                    hidden={true}
+                                    name={'child'}
+                                    // TODO: Ensure at least ONE child is applying for childrens pension
+                                    // rules={{ validate: (value: IChild[]) => !!value.filter((v) => v.childrensPension?.applies).length }}
+                                />
+                            </FormGroup>
 
                             <Navigation
                                 left={{

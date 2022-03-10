@@ -21,12 +21,10 @@ const getFieldErrors = (obj: FieldErrors): FieldError[] => {
 const convert = (errors: FieldErrors, t: TFunction): Error[] => {
     return getFieldErrors(errors)
         .filter((error) => !!error)
-        .map((error) => {
-            return {
-                elementId: error.ref!!.name,
-                message: t(getErrorKey(error)),
-            }
-        })
+        .map((error) => ({
+            elementId: error.ref!!.name,
+            message: t(getErrorKey(error)),
+        }))
 }
 
 export default function ErrorSummaryWrapper({ errors }: { errors: FieldErrors }) {
