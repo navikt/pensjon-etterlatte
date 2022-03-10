@@ -5,9 +5,7 @@ import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { useUserContext } from '../../../context/user/UserContext'
 import useTranslation from '../../../hooks/useTranslation'
-import { IAboutYou } from '../../../types/person'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
-import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
@@ -15,7 +13,10 @@ import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
-import PaymentDetails from './PaymentDetails'
+import FormElement from '../../common/FormElement'
+import { IAboutYou } from '../../../types/person'
+import PaymentDetails from '../../common/PaymentDetails'
+import { ApplicantRole } from '../scenario/ScenarioSelection'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
@@ -39,7 +40,7 @@ export default function AboutYou({ next }: StepProps) {
     } = methods
 
     const addressConfirmed = watch('addressOfResidenceConfirmed')
-    const accountType = watch('paymentDetails.accountType')
+    const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
 
     return (
         <>
@@ -85,10 +86,8 @@ export default function AboutYou({ next }: StepProps) {
                     </FormGroup>
 
                     {/* 2.7 */}
-                    {!user.adressebeskyttelse && (
-                        <FormGroup>
-                            <PaymentDetails accountType={accountType} />
-                        </FormGroup>
+                    {!user.adressebeskyttelse && isChild && (
+                        <PaymentDetails watch={watch} />
                     )}
 
                     <ErrorSummaryWrapper errors={errors} />

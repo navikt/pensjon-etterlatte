@@ -26,7 +26,7 @@ interface Props {
 const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex, isChild }: Props) => {
     const { t } = useTranslation('aboutChildren')
 
-    const foedselsnummer = child.fnr?.replace(/(\d{6})(.*)/, '$1 $2')
+    const foedselsnummer = child.fnrDnr?.replace(/(\d{6})(.*)/, '$1 $2')
 
     return (
         <Infocard>
@@ -46,14 +46,14 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex, isChild
                         {foedselsnummer}
                     </BodyShort>
 
-                    {!isChild && (
-                        <>
-                            <BodyShort size={'small'}>{t('infoCard.parents')}</BodyShort>
-                            <BodyShort size={'small'} spacing>
-                                {t(`${child.relation}`)}
-                            </BodyShort>
-                        </>
-                    )}
+                    {/*{!isChild && (*/}
+                    {/*    <>*/}
+                    {/*        <BodyShort size={'small'}>{t('infoCard.parents')}</BodyShort>*/}
+                    {/*        <BodyShort size={'small'} spacing>*/}
+                    {/*            {t(`${child.bothParents}`)}*/}
+                    {/*        </BodyShort>*/}
+                    {/*    </>*/}
+                    {/*)}*/}
 
                     <BodyShort size={'small'}>{t('infoCard.citizenship')}</BodyShort>
                     <BodyShort size={'small'} spacing>

@@ -131,34 +131,19 @@ const aboutTheDeceased = {
 const aboutChildren = {
     'childrensPension.applied': 'Søkt om barnepensjon',
     'childrensPension.applies': 'Søk om barnepensjon',
-    'childrensPension.appliesInfo': 'Du kan søke om barnepensjon for barn under 18 år som du har felles med avdøde.',
     'childrensPension.appliesCheckbox': 'Ja, jeg søker om barnepensjon for barnet',
-    'childrensPension.bankAccount.answer':
-        'Skal barnepensjonen utbetales til samme kontonummer som du har oppgitt tidligere?',
-    'childrensPension.bankAccount.information': 'Du kan legge til et eget kontonummer for barnet.',
-    'childrensPension.bankAccount.bankAccount': 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
-    'childrensPension.bankAccount.placeholder': '11 siffer',
-    'childrensPension.taxWithhold.answer': 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
-    'childrensPension.taxWithhold.helpText':
-        'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
-    'childrensPension.taxWithhold.trekkprosent': 'Oppgi ønsket skattetrekk',
-    'childrensPension.taxWithhold.placeholder': 'i prosent, eks. 20%',
-    'childrensPension.taxWithhold.info':
-        'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
-    'childrenRelation.fellesbarnMedAvdoede': 'Jeg og avdøde',
-    'childrenRelation.avdoedesSaerkullsbarn': 'Avdøde',
-    'childrenRelation.egneSaerkullsbarn': 'Jeg',
+    'childrensPension.info':
+        'Det er kun mulig å søke barnepensjon for helsøsken under 18 år i samme søknad. For halvsøsken kreves en separat søknad.',
     livesIn: 'Bor i',
     'staysAbroad.answer': 'Bor barnet i et annet land enn Norge?',
     'staysAbroad.sibling.answer': 'Bor søskenet i et annet land enn Norge?',
     'staysAbroad.country': 'Land',
     'staysAbroad.address': 'Adresse i utlandet',
-    dailyCare: 'Har du daglig omsorg for dette barnet?',
     lastName: 'Etternavn',
     'common.fnrPlaceholder': '11 siffer',
     'common.norway': 'Norge',
     fnr: 'Fødselsnummer / d-nummer',
-    'fnr.sibling': 'Søskenets fødselsnummer / d-nummer',
+    'fnr.sibling': 'Fødselsnummer / d-nummer',
     firstName: 'Fornavn',
     pregnantOrNewlyBorn: 'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
     'childHasGuardianship.lastName': 'Etternavn (valgfri)',
@@ -191,6 +176,9 @@ const aboutChildren = {
     'titleModal.sibling': 'Om søskenet',
     'title.sibling': 'Om søsken',
     voluntary: 'Dette er valgfritt',
+    'bothParents.guardian': 'Er {forelder1} og {forelder2} foreldrene til barnet?',
+    'bothParents.parent': 'Er du og den avdøde foreldrene til barnet?',
+    loggedInUserIsGuardian: 'Er du verge for dette barnet?',
 }
 
 const loggedInUserInfo = {
@@ -232,6 +220,12 @@ const paymentDetails = {
     swift: 'Bankens S.W.I.F.T (BIC) adresse',
     swiftHelpText:
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
+    'taxWithhold.answer': 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
+    'taxWithhold.helpText':
+        'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
+    'taxWithhold.taxPercentage': 'Oppgi ønsket skattetrekk',
+    'taxWithhold.placeholder': 'i prosent, eks. 20%',
+    'taxWithhold.info': 'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
 }
 
 const summary = {

@@ -5,8 +5,13 @@ import { RHFSelect } from './rhf/RHFSelect'
 import FormGroup from './FormGroup'
 import useCountries from '../../hooks/useCountries'
 import FormElement from './FormElement'
+import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 
-export default function PersonInfo() {
+interface Props {
+    duplicateList?: string[]
+}
+
+export default function PersonInfo({ duplicateList }: Props) {
     const { t } = useTranslation('common')
     const { countries }: { countries: any } = useCountries()
 
@@ -29,7 +34,12 @@ export default function PersonInfo() {
                         <RHFFoedselsnummerInput
                             name={'fnrDnr'}
                             label={t('fnrDnr')}
-                            placeholder={t('fnrDnr.placeholder')}
+                            rules={{
+                                validate: {
+                                    validate: (value) => fnrValidator(value).status === 'valid',
+                                    duplicate: (value) => !duplicateList || !duplicateList.includes(value),
+                                },
+                            }}
                         />
                     </Cell>
 

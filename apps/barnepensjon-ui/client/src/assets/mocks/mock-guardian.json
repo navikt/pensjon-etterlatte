@@ -24,7 +24,6 @@
                 "staysAbroad": {
                     "answer": "NEI"
                 },
-                "relation": "childrenRelation.fellesbarnMedAvdoede",
                 "childHasGuardianship": {
                     "answer": "NEI"
                 },

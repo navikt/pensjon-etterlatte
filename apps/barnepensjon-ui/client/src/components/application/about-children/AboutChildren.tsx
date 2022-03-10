@@ -14,10 +14,10 @@ import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
-import AddChildToForm from './AddChildToForm'
 import { Infocard, InfocardHeader, InformationBox } from '../../common/card/InfoCard'
 import ChildInfocard from './ChildInfocard'
 import { RHFInput } from '../../common/rhf/RHFInput'
+import AddChildToForm from './add-child/AddChildToForm'
 
 const AboutChildrenWrapper = styled.div`
     .center {
@@ -56,7 +56,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
     const isParent = state.applicant?.applicantRole === ApplicantRole.PARENT
     const registeredChild = watch('child')
 
-    const getFnrRegisteredChild = (): string[] => registeredChild?.map((child) => child?.fnr || '') || []
+    const getFnrRegisteredChild = (): string[] => registeredChild?.map((child) => child?.fnrDnr || '') || []
 
     const fnrRegisteredChild = (activeChildIndex: number): string[] => {
         const fnr = getFnrRegisteredChild()
