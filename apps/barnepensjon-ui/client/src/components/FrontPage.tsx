@@ -41,7 +41,7 @@ export default function FrontPage() {
 
             <FormGroup>
                 <Alert inline={true} variant={'info'}>
-                    <b>{t('retrievalOfInformation.infotext')}</b>
+                    <b>{t('workInProgress')}</b>
                 </Alert>
             </FormGroup>
 
@@ -54,33 +54,20 @@ export default function FrontPage() {
 
                 <Alert inline={true} variant={'warning'}>
                     <BodyLong spacing>
-                        <b>
-                            {t('aboutTheBenefit.paperApplication.content')}&nbsp;
-                            <Link href={t('aboutTheBenefit.paperApplication.href')}>
-                                {t('aboutTheBenefit.paperApplication.text')}
-                            </Link>
-                        </b>
+                        <b>{t('childrenAboveLegalAge')}</b>
                     </BodyLong>
                 </Alert>
 
                 <BodyLong>
-                    <Link href={t('aboutTheBenefit.linkSurvivor.href')}>{t('aboutTheBenefit.linkSurvivor.text')}</Link>
-                </BodyLong>
-
-                <BodyLong>
-                    <Link href={t('aboutTheBenefit.linkTransitionalBenefit.href')}>
-                        {t('aboutTheBenefit.linkTransitionalBenefit.text')}
-                    </Link>
+                    {t('aboutChildrensPension')}&nbsp;
+                    <Link href={t('aboutChildrensPensionHref')}>{t('aboutChildrensPensionLink')}</Link>
                 </BodyLong>
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'small'}>{t('childrensPension.title')}</Heading>
+                <Heading size={'small'}>{t('weNeedCorrectInformation')}</Heading>
 
-                <BodyLong spacing>{t('childrensPension.content')}</BodyLong>
-                <BodyLong>
-                    <Link href={t('childrensPension.href')}>{t('childrensPension.text')}</Link>
-                </BodyLong>
+                <BodyLong>{t('childrensPension.content')}</BodyLong>
             </FormGroup>
 
             <FormGroup>
@@ -107,23 +94,29 @@ export default function FrontPage() {
                 </ul>
 
                 <BodyLong>
-                    <Link href={t('retrievalOfInformation.link1.href')}>{t('retrievalOfInformation.link1.text')}</Link>
+                    <Link href={t('howWeHandleDataHref')}>{t('howWeHandleDataLink')}</Link>
                 </BodyLong>
 
                 <BodyLong>
-                    <Link href={t('retrievalOfInformation.link2.href')}>{t('retrievalOfInformation.link2.text')}</Link>
+                    <Link href={t('aboutPrivacyHref')}>{t('aboutPrivacyLink')}</Link>
                 </BodyLong>
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'small'}>{t('consent.title')}</Heading>
+                <Heading size={'small'}>{t('aboutTheApplicationTitle')}</Heading>
 
-                <BodyLong>{t('consent.content')}</BodyLong>
+                <BodyLong>{t('aboutTheApplicationDescription')}</BodyLong>
+            </FormGroup>
+
+            <FormGroup>
+                <Heading size={'small'}>{t('consentTitle')}</Heading>
+
+                <BodyLong>{t('consentDescription')}</BodyLong>
 
                 <ConfirmationPanel
                     checked={consent}
                     onChange={(e) => setConsent(e.target.checked)}
-                    label={t('consent.approval', { fornavn, etternavn })}
+                    label={t('consentToNav', { fornavn, etternavn })}
                     size="medium"
                 />
             </FormGroup>

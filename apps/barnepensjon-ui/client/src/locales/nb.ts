@@ -1,49 +1,43 @@
-// @ts-nocheck
-// prettier-ignore
 const frontPage = {
-    'title': 'Søk om gjenlevendepensjon eller overgangsstønad',
-    'hello': `Hei, {fornavn} {etternavn}`,
-    'startApplication': 'Start søknad',
+    title: 'Søknad om barnepensjon',
+    hello: `Hei, {fornavn} {etternavn}`,
+    startApplication: 'Start søknad',
     'aboutTheBenefit.content':
-        'Hvis ektefellen, partneren eller samboeren din er død, kan du ha rett til gjenlevendepensjon eller overgangsstønad til gjenlevende. Du kan også ha rett til støtte hvis du tidligere har vært gift, partner eller samboer med avdøde. Vi vil vurdere om du har rett på gjenlevendepensjon eller overgangsstønad basert på din situasjon. Inntekten din avgjør hvor mye penger du kan få.',
-    'aboutTheBenefit.paperApplication.content':
-        'Får du alderspensjon eller uføretrygd fra før? Da kan du søke om gjenlevendetillegg i uføretrygd eller gjenlevenderett i alderspensjon. Du må søke på',
-    'aboutTheBenefit.paperApplication.href':
-        'https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105',
-    'aboutTheBenefit.paperApplication.text': 'papir.',
-    'aboutTheBenefit.linkSurvivor.href': 'https://www.nav.no/gjenlevendepensjon',
-    'aboutTheBenefit.linkSurvivor.text': 'Mer om gjenlevendepensjon',
-    'aboutTheBenefit.linkTransitionalBenefit.href': 'https://www.nav.no/overgangsstonad-gjenlevende',
-    'aboutTheBenefit.linkTransitionalBenefit.text': 'Mer om overgangsstønad',
-    'childrensPension.title': 'Du kan også søke om barnepensjon',
+        'Barn som mister en eller begge foreldrene, kan motta økonomisk støtte. Pensjonen skal sikre inntekt til å leve og til boutgifter.\n\nDersom barnet er under 18 år, er det vergen som må søke om barnepensjon på barnets vegne. Hvis vergen ikke er en av foreldrene, må det legges ved en bekreftelse på oppnevnelse av verge fra tingretten eller Statsforvalteren.',
+    childrenAboveLegalAge: 'Barn over 18 år, må vanligvis søke selv.',
+    aboutChildrensPension: 'Mer informasjon om barnepensjon finner du på ',
+    aboutChildrensPensionLink: 'nav.no/barnepensjon',
+    aboutChildrensPensionHref: 'https://www.nav.no/barnepensjon',
+    weNeedCorrectInformation: 'For å kunne behandle søknaden må du gi oss riktige opplysninger',
     'childrensPension.content':
-        'Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om gjenlevendepensjon og barnepensjon i denne søknaden.',
-    'childrensPension.href': 'https://www.nav.no/barnepensjon',
-    'childrensPension.text': 'Mer om barnepensjon',
-    'retrievalOfInformation.title': 'Vi henter informasjonen vi trenger',
+        'Mottaker av barnepensjon må melde fra når det skjer viktige endringer som for eksempel endringer i bo- og familiesituasjon og ved flytting til utlandet. Barn over 18 år må også gi beskjed om endringer i inntekt og/eller utdanningssituasjon.',
+    'retrievalOfInformation.title': 'Vi vil hente informasjon',
     'retrievalOfInformation.content':
-        'For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell samboer.\nVi henter:',
+        'I tillegg til den informasjonen du oppgir i søknaden, henter vi inn informasjon om deg, avdøde og søsken for å avgjøre om du har rett til stønad.' +
+        '\nVi henter:',
     'retrievalOfInformation.contentList.li1': '<strong>Personinformasjon</strong> fra Folkeregisteret',
     'retrievalOfInformation.contentList.li2': '<strong>Inntektsinformasjon</strong> fra Skatteetaten',
     'retrievalOfInformation.contentList.li3':
         'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
     'retrievalOfInformation.contentList.li4': 'Opplysninger om <strong>annen støtte fra NAV</strong>',
-    'retrievalOfInformation.contentList.li5': 'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
-    'retrievalOfInformation.infotext':
+    'retrievalOfInformation.contentList.li5':
+        'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
+    workInProgress:
         'Vi jobber med å forbedre denne søknaden. Inntil videre må du legge inn de fleste opplysningene manuelt.',
-    'retrievalOfInformation.link1.href':
+    howWeHandleDataHref:
         'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
-    'retrievalOfInformation.link1.text': 'Slik behandler vi personopplysningene dine',
-    'retrievalOfInformation.link2.href':
+    howWeHandleDataLink: 'Slik behandler vi personopplysningene dine',
+    aboutPrivacyHref:
         'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3',
-    'retrievalOfInformation.link2.text': 'Om personvern og sikkerhet på nav.no',
-    'consent.title': 'Vi stoler på deg',
-    'consent.content':
-        'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n',
-    'consent.link.text': 'mine plikter på nav.no',
-    'consent.link.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'consent.approval': 'Jeg, {fornavn} {etternavn}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
+    aboutPrivacyLink: 'Om personvern og sikkerhet på nav.no',
+    aboutTheApplicationTitle: 'Om søknaden',
+    aboutTheApplicationDescription:
+        'I søknaden stiller vi kun spørsmål som er relevante i din/barnet/barnas situasjon.\n\n' +
+        'Vi lagrer søknaden i 72 timer og du kan ta pauser under utfylling. Søknaden kan også avbrytes og opplysningene som er lagt inn kan slettes.',
+    consentTitle: 'Vi stoler på deg',
+    consentDescription:
+        'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden. Hvis barnepensjon utbetales fordi opplysninger er utelatt eller det er gitt feil opplysninger, må pensjonen vanligvis betales tilbake.\n\n',
+    consentToNav: 'Jeg, {fornavn} {etternavn}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
 }
 
 const selectScenario = {
