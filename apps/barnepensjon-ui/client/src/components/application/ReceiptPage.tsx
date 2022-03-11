@@ -77,7 +77,9 @@ export default function ReceiptPage() {
                 </BodyLong>
                 <br />
                 <BodyLong>
-                    <Link href={t('viewCaseInfoLinkHref4')}>{t('viewCaseInfoLinkText4')}</Link>
+                    {t('processingTimeText_part1')}
+                    <Link href={t('processingTimeHref4')}>{t('processingTimeLink4')}</Link>
+                    {t('processingTimeText_part2')}
                 </BodyLong>
             </FormGroup>
 
