@@ -91,8 +91,6 @@ export default function AboutYou({ next }: StepProps) {
                         </FormGroup>
                     )}
 
-                    <br />
-
                     <ErrorSummaryWrapper errors={errors} />
 
                     <Navigation right={{ onClick: handleSubmit(save) }} />

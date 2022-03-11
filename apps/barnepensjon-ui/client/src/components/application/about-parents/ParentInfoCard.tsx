@@ -31,19 +31,15 @@ const ParentInfoCard = memo(({ parent, edit, remove }: Props) => {
             </InfocardHeader>
 
             <InformationBox>
-                <div>
-                    <BodyShort size={'small'}>
-                        {(parent as IDeceasedParent).dateOfDeath
-                            ? t('deceasedParent', { ns: 'aboutParents' })
-                            : t('survivingParent', { ns: 'aboutParents' })}
-                    </BodyShort>
+                <BodyShort size={'small'}>
+                    {(parent as IDeceasedParent).dateOfDeath
+                        ? t('deceasedParent', { ns: 'aboutParents' })
+                        : t('survivingParent', { ns: 'aboutParents' })}
+                </BodyShort>
 
-                    <Heading size={'small'}>
-                        {parent.firstName} {parent.lastName}
-                    </Heading>
-                </div>
-
-                <br />
+                <Heading size={'small'} spacing>
+                    {parent.firstName} {parent.lastName}
+                </Heading>
 
                 <InformationElement>
                     {/* TODO: Endre fnr / dnr tekst dynamisk ? */}

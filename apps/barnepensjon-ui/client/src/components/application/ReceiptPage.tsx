@@ -65,17 +65,17 @@ export default function ReceiptPage() {
             <FormGroup>
                 <Heading size={'medium'}>{t('viewCaseTitle')}</Heading>
 
-                <BodyLong>
+                <BodyLong spacing>
                     {t('viewCaseInfoContentPart1')}&nbsp;
                     <Link href={t('viewCaseInfoLinkHref1')}>{t('viewCaseInfoLinkText1')}</Link>&nbsp;
                     {t('viewCaseInfoContentPart2')}&nbsp;
                 </BodyLong>
-                <br />
-                <BodyLong>
+
+                <BodyLong spacing>
                     {t('viewCaseInfoContent3')}&nbsp;
                     <Link href={t('viewCaseInfoLinkHref3')}>{t('viewCaseInfoLinkText3')}</Link>.
                 </BodyLong>
-                <br />
+
                 <BodyLong>
                     {t('processingTimeText_part1')}
                     <Link href={t('processingTimeHref4')}>{t('processingTimeLink4')}</Link>

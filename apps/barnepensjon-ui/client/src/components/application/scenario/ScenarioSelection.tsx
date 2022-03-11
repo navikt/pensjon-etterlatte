@@ -114,8 +114,9 @@ export default function ScenarioSelection() {
                     <Alert variant={'info'} inline={true}>
                         {situation === ApplicantSituation.ONE_PARENT_DECEASED && (
                             <>
-                                <BodyLong size={'small'}>{t('childApplicantInformation1')}</BodyLong>
-                                <br />
+                                <BodyLong spacing size={'small'}>
+                                    {t('childApplicantInformation1')}
+                                </BodyLong>
                             </>
                         )}
                         <BodyLong size={'small'}>{t('childApplicantInformation2')}</BodyLong>
