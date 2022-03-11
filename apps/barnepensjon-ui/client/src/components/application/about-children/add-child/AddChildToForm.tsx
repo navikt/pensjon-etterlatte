@@ -167,38 +167,49 @@ const AddChildToForm = ({
                                 </Alert>
                             </Panel>
                         )}
-                        <ParentQuestion isChild={isChild} isGuardian={isGuardian} t={t} watch={watch} />
-                        {isChild && <LivesAbroadQuestion isChild={isChild} countries={countries} t={t} watch={watch} />}
-                        {!isChild && bothParents === JaNeiVetIkke.JA && (
-                            <>
-                                <FormGroup>
+                        {!tooOldChild() && (
+                            <FormGroup>
+                                <ParentQuestion isChild={isChild} isGuardian={isGuardian} t={t} watch={watch} />
+                                {isChild && bothParents === JaNeiVetIkke.JA && (
                                     <LivesAbroadQuestion isChild={isChild} countries={countries} t={t} watch={watch} />
-                                    <IsGuardianQuestion isGuardian={isGuardian} t={t} watch={watch} />
-                                </FormGroup>
-
-                                {canApplyForChildrensPension() && (
+                                )}
+                                {!isChild && bothParents === JaNeiVetIkke.JA && (
                                     <>
-                                        <GuardianDetails isGuardian={isGuardian} t={t} watch={watch} />
-
                                         <FormGroup>
-                                            <RHFCheckboksPanel
-                                                name={'childrensPension.applies'}
-                                                legend={t('childrensPension.applies')}
-                                                valgfri={true}
-                                                checkbox={{
-                                                    label: t('childrensPension.appliesCheckbox'),
-                                                    value: JaNeiVetIkke.JA,
-                                                }}
+                                            <LivesAbroadQuestion
+                                                isChild={isChild}
+                                                countries={countries}
+                                                t={t}
+                                                watch={watch}
                                             />
+                                            <IsGuardianQuestion isGuardian={isGuardian} t={t} watch={watch} />
                                         </FormGroup>
 
-                                        {/*ToDo: This does not rerender when you click yes/no to guardian question*/}
-                                        {appliesForChildrensPension === JaNeiVetIkke.JA && (
-                                            <PaymentDetails statePrefix={'childrensPension'} watch={watch} />
+                                        {canApplyForChildrensPension() && (
+                                            <>
+                                                <GuardianDetails isGuardian={isGuardian} t={t} watch={watch} />
+
+                                                <FormGroup>
+                                                    <RHFCheckboksPanel
+                                                        name={'childrensPension.applies'}
+                                                        legend={t('childrensPension.applies')}
+                                                        valgfri={true}
+                                                        checkbox={{
+                                                            label: t('childrensPension.appliesCheckbox'),
+                                                            value: JaNeiVetIkke.JA,
+                                                        }}
+                                                    />
+                                                </FormGroup>
+
+                                                {/*ToDo: This does not rerender when you click yes/no to guardian question*/}
+                                                {appliesForChildrensPension === JaNeiVetIkke.JA && (
+                                                    <PaymentDetails statePrefix={'childrensPension'} watch={watch} />
+                                                )}
+                                            </>
                                         )}
                                     </>
                                 )}
-                            </>
+                            </FormGroup>
                         )}
 
                         <ErrorSummaryWrapper errors={errors} />
