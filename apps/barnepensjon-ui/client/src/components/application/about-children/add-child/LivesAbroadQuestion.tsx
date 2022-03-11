@@ -2,7 +2,6 @@ import FormElement from '../../../common/FormElement'
 import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { RHFInput } from '../../../common/rhf/RHFInput'
-import FormGroup from '../../../common/FormGroup'
 import { TFunction } from '../../../../hooks/useTranslation'
 import { UseFormWatch } from 'react-hook-form/dist/types/form'
 import { RHFSelect } from '../../../common/rhf/RHFSelect'
@@ -14,11 +13,11 @@ interface Props {
     watch: UseFormWatch<any>
 }
 
-export const LivesAbroad = ({ isChild, countries, t, watch }: Props) => {
+export const LivesAbroadQuestion = ({ isChild, countries, t, watch }: Props) => {
     const livesAbroadAnswer = watch('staysAbroad.answer')
 
     return (
-        <FormGroup>
+        <>
             <FormElement>
                 <RHFGeneralQuestionRadio
                     name={'staysAbroad.answer'}
@@ -41,6 +40,6 @@ export const LivesAbroad = ({ isChild, countries, t, watch }: Props) => {
                     </FormElement>
                 </>
             )}
-        </FormGroup>
+        </>
     )
 }

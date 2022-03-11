@@ -133,7 +133,8 @@ const aboutChildren = {
     'childrensPension.applies': 'Søk om barnepensjon',
     'childrensPension.appliesCheckbox': 'Ja, jeg søker om barnepensjon for barnet',
     'childrensPension.info':
-        'Det er kun mulig å søke barnepensjon for helsøsken under 18 år i samme søknad. For halvsøsken kreves en separat søknad.',
+        'Det er kun nødvendig å opplyse om helsøsken under 20 år i denne søknaden. Det kreves en separat søknad for halvsøsken.',
+    'childrensPension.tooOld.error': 'Det er kun nødvendig å opplyse om barn under 20 år i denne søknaden',
     livesIn: 'Bor i',
     'staysAbroad.answer': 'Bor barnet i et annet land enn Norge?',
     'staysAbroad.sibling.answer': 'Bor søskenet i et annet land enn Norge?',
@@ -176,9 +177,11 @@ const aboutChildren = {
     'titleModal.sibling': 'Om søskenet',
     'title.sibling': 'Om søsken',
     voluntary: 'Dette er valgfritt',
-    'bothParents.guardian': 'Er {forelder1} og {forelder2} foreldrene til barnet?',
+    'bothParents.guardianOrChild': 'Er {forelder1} og {forelder2} foreldrene til barnet?',
     'bothParents.parent': 'Er du og den avdøde foreldrene til barnet?',
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
+    'childrensPension.guardianNotAllowed.info':
+        'Det er kun mulig å søke om barnepensjon for barn du er verge til. Du må likevel oppgi informasjon om helsøsken under 20 år.',
 }
 
 const loggedInUserInfo = {

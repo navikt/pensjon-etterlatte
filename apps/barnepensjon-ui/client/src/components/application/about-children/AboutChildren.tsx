@@ -131,7 +131,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                             index={index}
                                             remove={remove}
                                             setActiveChildIndex={() => setActiveChildIndex(index)}
-                                            isChild={isChild}
                                         />
                                     ))}
 
