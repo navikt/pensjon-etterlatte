@@ -13,14 +13,12 @@ import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
 import FormGroup from '../../../common/FormGroup'
 import { NavRow } from '../../../common/Navigation'
 import { RHFCheckboksPanel } from '../../../common/rhf/RHFCheckboksPanelGruppe'
-import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
-import FormElement from '../../../common/FormElement'
-import { useApplicationContext } from '../../../../context/application/ApplicationContext'
-import { IParent } from '../../../../context/application/application'
 import PaymentDetails from '../../../common/PaymentDetails'
 import { GuardianDetails } from './GuardianDetails'
-import { LivesAbroad } from './LivesAbroad'
+import { LivesAbroadQuestion } from './LivesAbroadQuestion'
 import PersonInfo from '../../../common/PersonInfo'
+import { ParentQuestion } from './ParentQuestion'
+import { IsGuardianQuestion } from './IsGuardianQuestion'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -91,7 +89,6 @@ const AddChildToForm = ({
 }: Props) => {
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
-    const { state: application } = useApplicationContext()
 
     const methods = useForm<IChild>({
         defaultValues: {
@@ -135,19 +132,16 @@ const AddChildToForm = ({
         return false
     }
 
-    const bothParentsText = (): String => {
-        if (isGuardian) {
-            return t('bothParents.guardian', {
-                forelder1: getParentText(application.firstParent!),
-                forelder2: getParentText(application.secondParent!),
-            })
-        } else {
-            return t('bothParents.parent')
-        }
+    const tooOldChild = () => {
+        return fnr && fnrValidator(fnr).status === 'valid' && getAgeFromFoedselsnummer(fnr) >= 20
     }
 
-    const getParentText = (parent: IParent): string => {
-        return `${parent.lastName}, ${parent.firstName} (f. ${parent.fnrDnr.substring(0, 6)})`
+    const childIsRelevantForApplication = () => {
+        // Only full sublings should be added
+        if (bothParents === JaNeiVetIkke.NEI) return false
+
+        // We only need to know about children under the age of 20
+        return !tooOldChild()
     }
 
     useEffect(() => {
@@ -166,22 +160,20 @@ const AddChildToForm = ({
                     </ChangeChildPanelHeader>
                     <ChangeChildPanelContent>
                         <PersonInfo duplicateList={fnrRegisteredChild} />
-                        <LivesAbroad isChild={isChild} countries={countries} t={t} watch={watch} />
-
-                        {!isChild && (
+                        {tooOldChild() && (
+                            <Panel border>
+                                <Alert inline={true} variant={'error'}>
+                                    <BodyLong>{t('childrensPension.tooOld.error')}</BodyLong>
+                                </Alert>
+                            </Panel>
+                        )}
+                        <ParentQuestion isChild={isChild} isGuardian={isGuardian} t={t} watch={watch} />
+                        {isChild && <LivesAbroadQuestion isChild={isChild} countries={countries} t={t} watch={watch} />}
+                        {!isChild && bothParents === JaNeiVetIkke.JA && (
                             <>
                                 <FormGroup>
-                                    <FormElement>
-                                        <RHFGeneralQuestionRadio name={'bothParents'} legend={bothParentsText()} />
-                                    </FormElement>
-                                    {isGuardian && (
-                                        <FormElement>
-                                            <RHFGeneralQuestionRadio
-                                                name={'loggedInUserIsGuardian'}
-                                                legend={t('loggedInUserIsGuardian')}
-                                            />
-                                        </FormElement>
-                                    )}
+                                    <LivesAbroadQuestion isChild={isChild} countries={countries} t={t} watch={watch} />
+                                    <IsGuardianQuestion isGuardian={isGuardian} t={t} watch={watch} />
                                 </FormGroup>
 
                                 {canApplyForChildrensPension() && (
@@ -200,18 +192,11 @@ const AddChildToForm = ({
                                             />
                                         </FormGroup>
 
+                                        {/*ToDo: This does not rerender when you click yes/no to guardian question*/}
                                         {appliesForChildrensPension === JaNeiVetIkke.JA && (
                                             <PaymentDetails statePrefix={'childrensPension'} watch={watch} />
                                         )}
                                     </>
-                                )}
-
-                                {bothParents === JaNeiVetIkke.NEI && (
-                                    <Alert inline={true} variant={'info'}>
-                                        <BodyLong spacing>
-                                            <b>{t('childrensPension.info')}</b>
-                                        </BodyLong>
-                                    </Alert>
                                 )}
                             </>
                         )}
@@ -229,15 +214,17 @@ const AddChildToForm = ({
                                 {t('btn.cancel')}
                             </Button>
 
-                            <Button
-                                id={'addChildren'}
-                                variant={'primary'}
-                                type={'button'}
-                                onClick={handleSubmit(addAndClose)}
-                                style={{ minWidth: '80px' }}
-                            >
-                                {t('btn.save')}
-                            </Button>
+                            {childIsRelevantForApplication() && (
+                                <Button
+                                    id={'addChildren'}
+                                    variant={'primary'}
+                                    type={'button'}
+                                    onClick={handleSubmit(addAndClose)}
+                                    style={{ minWidth: '80px' }}
+                                >
+                                    {t('btn.save')}
+                                </Button>
+                            )}
                         </NavRow>
                     </ChangeChildPanelContent>
                 </ChangeChildPanel>
