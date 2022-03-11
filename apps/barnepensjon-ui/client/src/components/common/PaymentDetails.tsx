@@ -1,4 +1,4 @@
-import { Heading } from '@navikt/ds-react'
+import { Alert, BodyShort, Heading, Panel } from '@navikt/ds-react'
 import { RadioProps } from 'nav-frontend-skjema'
 import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
@@ -102,14 +102,23 @@ export default function PaymentDetails({
             </FormElement>
 
             {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
-                <FormElement>
-                    <RHFProsentInput
-                        bredde={'M'}
-                        name={`${prefix}paymentDetails.taxWithhold.taxPercentage`}
-                        label={t('taxWithhold.taxPercentage')}
-                        placeholder={t('taxWithhold.taxPercentage')}
-                    />
-                </FormElement>
+                <>
+                    <FormElement>
+                        <RHFProsentInput
+                            bredde={'M'}
+                            name={`${prefix}paymentDetails.taxWithhold.taxPercentage`}
+                            label={t('taxWithhold.taxPercentage')}
+                            placeholder={t('taxWithhold.taxPercentage')}
+                        />
+                    </FormElement>
+                    <FormElement>
+                        <Panel border>
+                            <Alert variant={'info'} className={'navds-alert--inline'}>
+                                <BodyShort size={'small'}>{t('taxWithhold.info')}</BodyShort>
+                            </Alert>
+                        </Panel>
+                    </FormElement>
+                </>
             )}
         </FormGroup>
     )
