@@ -40,7 +40,7 @@ const mapTilBarnepensjonSoeknad = (
     }
 
     const siblings: Barn[] = application
-        .aboutChildren!!.child!!.filter((child: IChild) => child.fnr !== user.foedselsnummer)
+        .aboutChildren!!.child!!.filter((child: IChild) => child.fnrDnr !== user.foedselsnummer)
         .map((child) => mapBarn(t, child, application, user))
 
     /*
@@ -141,7 +141,7 @@ const mapBarn = (t: TFunction, child: IChild, soeknad: IApplication, bruker: Use
         },
         foedselsnummer: {
             spoersmaal: t('omBarn.foedselsnummer'),
-            svar: child.fnr!!,
+            svar: child.fnrDnr!!,
         },
         statsborgerskap: {
             spoersmaal: t('omBarn.statsborgerskap'),
