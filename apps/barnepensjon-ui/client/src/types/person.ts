@@ -25,7 +25,6 @@ export interface IPaymentDetails {
 
 export interface IAboutChild {
     child?: IChild[]
-    gravidEllerNyligFoedt?: JaNeiVetIkke
     erValidert?: boolean
 }
 

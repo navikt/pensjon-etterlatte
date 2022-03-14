@@ -203,7 +203,6 @@ const AddChildToForm = ({
                                                     />
                                                 </FormGroup>
 
-                                                {/*ToDo: This does not rerender when you click yes/no to guardian question*/}
                                                 {appliesForChildrensPension === JaNeiVetIkke.JA && (
                                                     <PaymentDetails statePrefix={'childrensPension'} watch={watch} />
                                                 )}
