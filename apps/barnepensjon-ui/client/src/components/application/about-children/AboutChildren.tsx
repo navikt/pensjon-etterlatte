@@ -150,13 +150,16 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                 </InfocardWrapper>
                             </FormGroup>
 
-                            {/* Ensure validation of child array (cannot be undefined or empty) */}
+                            {/* Ensure at least one child is applying for childrens pension */}
                             <FormGroup>
                                 <RHFInput
                                     hidden={true}
                                     name={'child'}
-                                    // TODO: Ensure at least ONE child is applying for childrens pension
-                                    // rules={{ validate: (value: IChild[]) => !!value.filter((v) => v.childrensPension?.applies).length }}
+                                    valgfri={isChild}
+                                    rules={{
+                                        validate: (value: IChild[]) =>
+                                            isChild || !!value.filter((v) => v.childrensPension?.applies).length,
+                                    }}
                                 />
                             </FormGroup>
 
