@@ -58,11 +58,13 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                             : t('common.norway')}
                     </BodyShort>
 
-                    <FormElement>
-                        <Tag variant={'success'} className={'mute'}>
-                            {child.childrensPension?.applies === JaNeiVetIkke.JA && t('childrensPension.applied')}
-                        </Tag>
-                    </FormElement>
+                    {child.childrensPension?.applies === JaNeiVetIkke.JA && (
+                        <FormElement>
+                            <Tag variant={'success'} className={'mute'}>
+                                {t('childrensPension.applied')}
+                            </Tag>
+                        </FormElement>
+                    )}
                 </InformationElement>
             </InformationBox>
 
