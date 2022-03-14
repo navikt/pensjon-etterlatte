@@ -1,22 +1,19 @@
-import { useSoknadContext } from "../../../context/soknad/SoknadContext";
-import { useHistory } from "react-router-dom";
-import React, { memo, useEffect, useState } from "react";
-import { SkjemaGruppe } from "nav-frontend-skjema";
-import SoknadSteg from "../../../typer/SoknadSteg";
 import { Alert, BodyLong, Heading, Link } from "@navikt/ds-react";
-import Navigasjon from "../../felles/Navigasjon";
-import { useTranslation } from "react-i18next";
-import { useBrukerContext } from "../../../context/bruker/BrukerContext";
-import { sendSoeknad } from "../../../api/api";
-import OppsummeringInnhold from "./OppsummeringInnhold";
 import { isEmpty } from "lodash";
-import { LogEvents, useAmplitude } from "../../../utils/amplitude";
-import {
-    mapTilBarnepensjonSoeknadListe,
-    mapTilGjenlevendepensjonSoeknad
-} from "../../../api/mapper/soeknadMapper";
+import { SkjemaGruppe } from "nav-frontend-skjema";
+import React, { memo, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
+import { sendSoeknad } from "../../../api/api";
 import { SoeknadRequest, SoeknadType } from "../../../api/dto/InnsendtSoeknad";
+import { mapTilBarnepensjonSoeknadListe, mapTilGjenlevendepensjonSoeknad } from "../../../api/mapper/soeknadMapper";
+import { useBrukerContext } from "../../../context/bruker/BrukerContext";
+import { useSoknadContext } from "../../../context/soknad/SoknadContext";
+import SoknadSteg from "../../../typer/SoknadSteg";
+import { LogEvents, useAmplitude } from "../../../utils/amplitude";
 import SoeknadMapper from "../../../utils/SoeknadMapper";
+import Navigasjon from "../../felles/Navigasjon";
+import OppsummeringInnhold from "./OppsummeringInnhold";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
@@ -35,13 +32,13 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     useEffect(() => {
         (async () => {
             if (isEmpty(soeknad) || isEmpty(bruker)) {
-                setOppsummering([])
+                setOppsummering([]);
             } else {
                 const soeknadOppsummering = mapper.lagOppsummering(soeknad, bruker);
                 setOppsummering(soeknadOppsummering);
             }
-        })()
-    }, [soeknad, bruker])
+        })();
+    }, [soeknad, bruker]);
 
     const send = () => {
         setSenderSoeknad(true);
@@ -51,7 +48,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         const barnepensjonSoeknader = mapTilBarnepensjonSoeknadListe(t, soeknad, bruker);
 
         const soeknadBody: SoeknadRequest = {
-            soeknader: [gjenlevendepensjon, ...barnepensjonSoeknader]
+            soeknader: [gjenlevendepensjon, ...barnepensjonSoeknader],
         };
 
         sendSoeknad(soeknadBody)
@@ -84,10 +81,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             </SkjemaGruppe>
 
             {!isEmpty(soeknadOppsummering) && (
-                <OppsummeringInnhold
-                    soeknadOppsummering={soeknadOppsummering}
-                    senderSoeknad={senderSoeknad}
-                />
+                <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
             )}
 
             <br />

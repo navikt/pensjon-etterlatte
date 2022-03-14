@@ -1,4 +1,4 @@
-import { BankkontoType, JaNeiVetIkke } from '../api/dto/FellesOpplysninger'
+import { BankkontoType, JaNeiVetIkke } from '../api/dto/FellesOpplysninger';
 
 export interface IAboutYou {
     addressOfResidenceConfirmed?: JaNeiVetIkke

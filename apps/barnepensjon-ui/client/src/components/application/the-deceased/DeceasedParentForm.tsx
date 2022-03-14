@@ -1,18 +1,18 @@
 import { BodyLong, Heading } from '@navikt/ds-react'
-import PersonInfo from '../../common/PersonInfo'
-import FormGroup from '../../common/FormGroup'
-import DatePicker from '../../common/DatePicker'
-import FormElement from '../../common/FormElement'
-import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
-import StaysAbroad from './StaysAbroad'
-import SelfEmploymentDetails from './SelfEmploymentDetails'
-import WhyWeAsk from '../../common/WhyWeAsk'
-import { RHFInput } from '../../common/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
+import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
+import { IDeceasedParent } from '../../../context/application/application'
 import useCountries from '../../../hooks/useCountries'
 import useTranslation from '../../../hooks/useTranslation'
-import { IDeceasedParent } from '../../../context/application/application'
+import DatePicker from '../../common/DatePicker'
+import FormElement from '../../common/FormElement'
+import FormGroup from '../../common/FormGroup'
+import PersonInfo from '../../common/PersonInfo'
+import { RHFInput } from '../../common/rhf/RHFInput'
+import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
+import WhyWeAsk from '../../common/WhyWeAsk'
+import SelfEmploymentDetails from './SelfEmploymentDetails'
+import StaysAbroad from './StaysAbroad'
 
 export default function DeceaseParentForm() {
     const { t } = useTranslation('aboutTheDeceased')
@@ -22,7 +22,7 @@ export default function DeceaseParentForm() {
 
     const wasSelfEmployed = watch('selfEmplyment.wasSelfEmployed')
     const completedMilitaryService = watch('militaryService.completed')
-    const staysAbroad = watch('abroadStays.hasStaysAbroad')
+    const abroadStays = watch('abroadStays.hasStaysAbroad')
 
     return (
         <>
@@ -43,7 +43,7 @@ export default function DeceaseParentForm() {
                         vetIkke={true}
                     />
                 </FormElement>
-                {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
+                {abroadStays === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
             </FormGroup>
 
             <FormGroup>

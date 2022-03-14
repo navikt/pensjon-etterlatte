@@ -1,5 +1,72 @@
 import { TKey, TNamespace, Translation } from '../context/language/translations'
 
+const common = {
+    firstName: 'Fornavn',
+    lastName: 'Etternavn',
+    name: 'Navn',
+    fnrDnr: 'Fødselsnummer / d-nummer',
+    address: 'Bostedsadresse',
+    maritalStatus: 'Sivilstatus',
+    citizenship: 'Statsborgerskap',
+    phoneNumber: 'Telefonnummer',
+    phoneNumberHelpText: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
+    whyWeAsk: 'Hvorfor spør vi om dette',
+    dateFormat: '(dd.mm.yyyy)',
+    dateExample: 'eks. 01.11.2020',
+    chooseCountry: 'Velg land',
+    chooseLanguage: 'Velg språk',
+    remove: 'Fjern',
+    edit: 'Endre',
+    norway: 'Norge',
+}
+
+const navigation = {
+    sendApplication: 'Send søknad',
+    backButton: 'Tilbake',
+    nextButton: 'Neste',
+    saveButton: 'Lagre',
+    cancelButton: 'Avbryt',
+    cancelApplicationTitle: 'Vil du avbryte søknaden?',
+    cancelApplicationBody: 'Du kan fortsette nå eller senere. Søknaden din lagres i 72 timer.',
+    continueApplicationButton: 'Nei, jeg vil fortsette',
+    cancelApplicationButton: 'Ja, avbryt og fortsett senere',
+    deleteApplicationButton: 'Ja, avbryt og slett søknaden',
+}
+
+const loggedInUserInfo = {
+    incorrectInfoMustBeCorrected:
+        'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
+    mostFieldsAreRequired: 'Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.',
+}
+
+const paymentDetails = {
+    title: 'Oppgi bankopplysninger',
+    NORSK: 'Norsk',
+    UTENLANDSK: 'Utenlandsk',
+    bankAccount: 'Oppgi norsk kontonummer for utbetaling',
+    information: 'Du kan bare ha ett kontonummer registrert hos NAV.',
+    accountType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
+    foreignBankName: 'Bankens navn',
+    foreignBankAddress: 'Bankens fulle adresse',
+    iban: 'IBAN-nummer',
+    ibanHelpText: 'IBAN står for International Bank Account Number og er en internasjonal standard for kontonummer.',
+    swift: 'Bankens S.W.I.F.T (BIC) adresse',
+    swiftHelpText:
+        'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
+    'taxWithhold.answer': 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
+    'taxWithhold.helpText':
+        'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
+    'taxWithhold.taxPercentage': 'Oppgi ønsket skattetrekk',
+    'taxWithhold.placeholder': 'i prosent, eks. 20%',
+    'taxWithhold.info': 'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
+}
+
+const radiobuttons = {
+    JA: 'Ja',
+    NEI: 'Nei',
+    VET_IKKE: 'Vet ikke',
+}
+
 const frontPage = {
     title: 'Søknad om barnepensjon',
     hello: `Hei, {fornavn} {etternavn}`,
@@ -71,6 +138,22 @@ const aboutYou = {
     residesInNorway: 'Oppholder du deg for tiden i Norge?',
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
+    yes: 'Ja',
+    no: 'Nei',
+    'contactInfo.phoneNumber': 'Telefonnummer',
+    'subtitle.personalia': 'Personalia',
+    'subtitle.informationAboutApplicant': 'Opplysninger om søker',
+    fnr: 'Fødselsnummer',
+    name: common.name,
+    address: common.address,
+    citizenship: common.citizenship,
+    'paymentDetails.accountType': paymentDetails.accountType,
+    'paymentDetails.bankAccount': paymentDetails.bankAccount,
+    'paymentDetails.foreignBankName': paymentDetails.foreignBankName,
+    'paymentDetails.foreignBankAddress': paymentDetails.foreignBankAddress,
+    'paymentDetails.iban': paymentDetails.iban,
+    'paymentDetails.swift': paymentDetails.swift,
+    'changeAnswerSummary.om-deg': 'Endre svar om deg',
 }
 
 const livingParent = {
@@ -82,6 +165,7 @@ const livingParent = {
 
 const aboutTheDeceased = {
     title: 'Om den avdøde',
+    'title.livingParent': 'Om den gjenlevende',
     firstParentTitle: 'Om den første forelderen',
     secondParentTitle: 'Om den andre forelderen',
     singleParentTitle: 'Om den avdøde',
@@ -89,6 +173,8 @@ const aboutTheDeceased = {
     firstName: 'Fornavn',
     lastName: 'Etternavn',
     dateOfDeath: 'Når skjedde dødsfallet?',
+    address: 'Adresse',
+    phoneNumber: 'Telefonnummer (valgfri)',
     abroadStaysTitle: 'Opphold utenfor Norge',
     workOrLivingAbroadCanAffectPension:
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.',
@@ -101,6 +187,17 @@ const aboutTheDeceased = {
     'staysAbroad.abroadStays.medlemFolketrygd.why':
         'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',
     'staysAbroad.abroadStays.pensionAmount': 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
+    country: 'Land',
+    type: 'Bodd og/eller arbeidet?',
+    fromDate: 'Fra dato (valgfri)',
+    toDate: 'Til dato (valgfri)',
+    medlemFolketrygd: 'Var han eller hun medlem av folketrygden under oppholdet?',
+    'medlemFolketrygd.why':
+        'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',
+    pensionAmount: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
+    fnrDnr: 'Fødselsnummer / d-nummer',
+    'fnrDnr.placeholder': '11 siffer',
+    citizenship: 'Statsborgerskap',
     'selfEmplyment.title': 'Næringsinntekt',
     'selfEmplyment.ingress':
         'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i gjenlevendepensjon. Vi henter informasjon om andre inntekter.',
@@ -120,6 +217,7 @@ const aboutTheDeceased = {
     'oppholdUtlandType.ARBEIDET': 'Arbeidet',
     'btn.addCountry': '+ Legg til flere land',
     'btn.delete': 'Fjern',
+    'changeAnswerSummary.om-foreldrene': 'Endre svar om foreldre',
 }
 
 const aboutChildren = {
@@ -165,79 +263,17 @@ const aboutChildren = {
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
     onlyGuardiansCanApply:
         'Det er kun mulig å søke om barnepensjon for barn du er verge til. Du må likevel oppgi informasjon om helsøsken under 20 år.',
-}
-
-const loggedInUserInfo = {
-    incorrectInfoMustBeCorrected:
-        'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
-    mostFieldsAreRequired: 'Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.',
-}
-
-const common = {
-    firstName: 'Fornavn',
-    lastName: 'Etternavn',
-    name: 'Navn',
-    fnrDnr: 'Fødselsnummer / d-nummer',
-    address: 'Bostedsadresse',
-    maritalStatus: 'Sivilstatus',
-    citizenship: 'Statsborgerskap',
-    phoneNumber: 'Telefonnummer',
-    phoneNumberHelpText: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
-    whyWeAsk: 'Hvorfor spør vi om dette',
-    dateFormat: '(dd.mm.yyyy)',
-    dateExample: 'eks. 01.11.2020',
-    chooseCountry: 'Velg land',
-    chooseLanguage: 'Velg språk',
-    remove: 'Fjern',
-    edit: 'Endre',
-    norway: 'Norge',
-}
-
-const paymentDetails = {
-    title: 'Oppgi bankopplysninger',
-    NORSK: 'Norsk',
-    UTENLANDSK: 'Utenlandsk',
-    bankAccount: 'Oppgi norsk kontonummer for utbetaling',
-    information: 'Du kan bare ha ett kontonummer registrert hos NAV.',
-    accountType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
-    foreignBankName: 'Bankens navn',
-    foreignBankAddress: 'Bankens fulle adresse',
-    iban: 'IBAN-nummer',
-    ibanHelpText: 'IBAN står for International Bank Account Number og er en internasjonal standard for kontonummer.',
-    swift: 'Bankens S.W.I.F.T (BIC) adresse',
-    swiftHelpText:
-        'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
-    'taxWithhold.answer': 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
-    'taxWithhold.helpText':
-        'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
-    'taxWithhold.taxPercentage': 'Oppgi ønsket skattetrekk',
-    'taxWithhold.placeholder': 'i prosent, eks. 20%',
-    'taxWithhold.info': 'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
+    firstName: common.firstName,
+    lastName: common.lastName,
+    fnr: common.fnrDnr,
+    citizenship: common.citizenship,
+    'changeAnswerSummary.om-barn': 'Endre svar om barn',
 }
 
 const summary = {
     summaryTitle: 'Oppsummering',
     readTheSummaryBeforeSending:
         'Les gjennom oppsummeringen av din søknad før du sender. \nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
-}
-
-const navigation = {
-    sendApplication: 'Send søknad',
-    backButton: 'Tilbake',
-    nextButton: 'Neste',
-    saveButton: 'Lagre',
-    cancelButton: 'Avbryt',
-    cancelApplicationTitle: 'Vil du avbryte søknaden?',
-    cancelApplicationBody: 'Du kan fortsette nå eller senere. Søknaden din lagres i 72 timer.',
-    continueApplicationButton: 'Nei, jeg vil fortsette',
-    cancelApplicationButton: 'Ja, avbryt og fortsett senere',
-    deleteApplicationButton: 'Ja, avbryt og slett søknaden',
-}
-
-const radiobuttons = {
-    JA: 'Ja',
-    NEI: 'Nei',
-    VET_IKKE: 'Vet ikke',
 }
 
 const error = {
@@ -389,6 +425,7 @@ const yourSituation = {
     EDUCATION: 'Jeg tar utdanning',
     APPRENTICE: 'Jeg er lærling',
     INTERNSHIP: 'Jeg har praksisplass eller er praktikant',
+    'changeAnswerSummary.din-situasjon': 'Endre svar om din situasjon',
 }
 
 const texts: Record<TNamespace, Record<TKey, Translation>> = {

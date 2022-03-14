@@ -1,11 +1,11 @@
 import { TFunction } from "i18next";
-import ObjectTreeReader, { Element, Gruppe } from "./ObjectTreeReader";
-import { ISituasjon } from "../typer/situasjon";
-import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed } from "../typer/person";
 import { IBruker } from "../context/bruker/bruker";
 import { ISoeknad } from "../context/soknad/soknad";
-import { StegPath } from "../typer/steg";
 import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "../typer/arbeidsforhold";
+import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed } from "../typer/person";
+import { ISituasjon } from "../typer/situasjon";
+import { StegPath } from "../typer/steg";
+import ObjectTreeReader, { Element, Gruppe } from "./ObjectTreeReader";
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader;
@@ -30,8 +30,10 @@ export default class SoeknadMapper {
         const personalia = {
             navn: `${bruker.fornavn} ${bruker.etternavn}`,
             foedselsnummer: bruker.foedselsnummer,
-            adresse: !bruker.adressebeskyttelse ?
-                `${bruker.adresse} ${bruker.husnummer}${bruker.husbokstav || ""}, ${bruker.postnummer} ${bruker.poststed}`
+            adresse: !bruker.adressebeskyttelse
+                ? `${bruker.adresse} ${bruker.husnummer}${bruker.husbokstav || ""}, ${bruker.postnummer} ${
+                      bruker.poststed
+                  }`
                 : null,
             sivilstatus: bruker.sivilstatus,
             statsborgerskap: bruker.statsborgerskap,
@@ -69,10 +71,13 @@ export default class SoeknadMapper {
             path: StegPath.OmDegOgAvdoed,
             elementer: [
                 {
-                    innhold: this.otr.traverse<ISoekerOgAvdoed>({
-                        ...omDegOgAvdoed,
-                        erValidert: undefined
-                    }, "omDegOgAvdoed"),
+                    innhold: this.otr.traverse<ISoekerOgAvdoed>(
+                        {
+                            ...omDegOgAvdoed,
+                            erValidert: undefined,
+                        },
+                        "omDegOgAvdoed"
+                    ),
                 },
             ],
         };
@@ -185,11 +190,14 @@ export default class SoeknadMapper {
             path: StegPath.OmBarn,
             elementer: [
                 {
-                    innhold: this.otr.traverse<IOmBarn>({
-                        ...opplysningerOmBarn,
-                        barn: undefined,
-                        erValidert: undefined
-                    }, "omBarn"),
+                    innhold: this.otr.traverse<IOmBarn>(
+                        {
+                            ...opplysningerOmBarn,
+                            barn: undefined,
+                            erValidert: undefined,
+                        },
+                        "omBarn"
+                    ),
                 },
                 ...barn,
             ],
