@@ -10,7 +10,6 @@ import useTranslation from '../../../hooks/useTranslation'
 import { IAboutChild, IChild } from '../../../types/person'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
-import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
@@ -53,7 +52,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
     const isValidated = state.aboutChildren?.erValidert
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
     const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
-    const isParent = state.applicant?.applicantRole === ApplicantRole.PARENT
     const registeredChild = watch('child')
 
     const getFnrRegisteredChild = (): string[] => registeredChild?.map((child) => child?.fnrDnr || '') || []
@@ -151,14 +149,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                     </Infocard>
                                 </InfocardWrapper>
                             </FormGroup>
-                            {isParent && (
-                                <FormGroup>
-                                    <RHFGeneralQuestionRadio
-                                        name={'pregnantOrNewlyBorn'}
-                                        legend={t('pregnantOrNewlyBorn')}
-                                    />
-                                </FormGroup>
-                            )}
 
                             {/* Ensure validation of child array (cannot be undefined or empty) */}
                             <FormGroup>

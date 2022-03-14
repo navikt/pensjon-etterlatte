@@ -146,7 +146,6 @@ const aboutChildren = {
     fnr: 'Fødselsnummer / d-nummer',
     'fnr.sibling': 'Fødselsnummer / d-nummer',
     firstName: 'Fornavn',
-    pregnantOrNewlyBorn: 'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
     'childHasGuardianship.lastName': 'Etternavn (valgfri)',
     'childHasGuardianship.firstName': 'Fornavn (valgfri)',
     'childHasGuardianship.name': 'Navn på verge',
