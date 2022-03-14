@@ -14,6 +14,7 @@ import {
 } from '../../../utils/matchers'
 import useTranslation from '../../../hooks/useTranslation'
 import { getErrorKey } from '../../../utils/errors'
+import { isValidBIC, isValidIBAN } from 'ibantools'
 
 interface RHFProps extends Omit<InputProps, 'name'> {
     name: FieldPath<FieldValues>
@@ -254,7 +255,7 @@ export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{ required: true }}
+            rules={{ required: true, validate: (value) => isValidIBAN(value) }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
@@ -283,7 +284,7 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{ required: true }}
+            rules={{ required: true, validate: (value) => isValidBIC(value) }}
             render={({ field: { value, onChange } }) => (
                 <Input
                     id={name}
