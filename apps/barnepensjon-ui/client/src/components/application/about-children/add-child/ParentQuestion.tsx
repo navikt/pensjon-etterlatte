@@ -29,7 +29,7 @@ export const ParentQuestion = ({ isChild, isGuardian, t, watch }: Props) => {
     }
 
     const getParentText = (parent: IParent): string => {
-        return `${parent.lastName}, ${parent.firstName} (f. ${parent.fnrDnr.substring(0, 6)})`
+        return `${parent.firstName} ${parent.lastName} (f. ${parent.fnrDnr.substring(0, 6)})`
     }
 
     return (
