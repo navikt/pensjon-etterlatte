@@ -133,8 +133,8 @@ const aboutChildren = {
     'childrensPension.applies': 'Søk om barnepensjon',
     'childrensPension.appliesCheckbox': 'Ja, jeg søker om barnepensjon for barnet',
     'childrensPension.info':
-        'Det er kun nødvendig å opplyse om helsøsken under 20 år i denne søknaden. Det kreves en separat søknad for halvsøsken.',
-    'childrensPension.tooOld.error': 'Det er kun nødvendig å opplyse om barn under 20 år i denne søknaden',
+        'Det er kun nødvendig å opplyse om helsøsken under 22 år i denne søknaden. Det kreves en separat søknad for halvsøsken.',
+    'childrensPension.tooOld.error': 'Det er kun nødvendig å opplyse om barn under 22 år i denne søknaden',
     livesIn: 'Bor i',
     'staysAbroad.answer': 'Bor barnet i et annet land enn Norge?',
     'staysAbroad.sibling.answer': 'Bor søskenet i et annet land enn Norge?',
