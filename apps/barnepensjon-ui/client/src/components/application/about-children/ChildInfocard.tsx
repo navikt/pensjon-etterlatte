@@ -1,5 +1,5 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { BodyLong, BodyShort, Detail, Heading } from '@navikt/ds-react'
+import { BodyLong, BodyShort, Heading, Tag } from '@navikt/ds-react'
 import { memo } from 'react'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import ikon from '../../../assets/barn1.svg'
@@ -14,6 +14,7 @@ import {
     InformationElement,
 } from '../../common/card/InfoCard'
 import { IChild } from '../../../types/person'
+import FormElement from '../../common/FormElement'
 
 interface Props {
     child: IChild
@@ -57,9 +58,11 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                             : t('common.norway')}
                     </BodyShort>
 
-                    <Detail size={'small'} spacing className={'mute'}>
-                        {child.childrensPension?.applies === JaNeiVetIkke.JA && t('childrensPension.applied')}
-                    </Detail>
+                    <FormElement>
+                        <Tag variant={'success'} className={'mute'}>
+                            {child.childrensPension?.applies === JaNeiVetIkke.JA && t('childrensPension.applied')}
+                        </Tag>
+                    </FormElement>
                 </InformationElement>
             </InformationBox>
 
