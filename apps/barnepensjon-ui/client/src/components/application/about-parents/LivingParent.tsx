@@ -9,6 +9,7 @@ import PersonInfo from '../../common/PersonInfo'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
+import FormGroup from '../../common/FormGroup'
 
 export default function LivingParent({ next, prev, type }: StepProps) {
     const { state, dispatch } = useApplicationContext()
@@ -34,8 +35,9 @@ export default function LivingParent({ next, prev, type }: StepProps) {
             <form>
                 <StepHeading>{t('title')}</StepHeading>
 
-                <PersonInfo />
-
+                <FormGroup>
+                    <PersonInfo />
+                </FormGroup>
                 <FormElement>
                     <RHFInput name={'address'} label={t('address')} />
                 </FormElement>

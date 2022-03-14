@@ -26,8 +26,9 @@ export default function DeceaseParentForm() {
 
     return (
         <>
-            <PersonInfo />
-
+            <FormGroup>
+                <PersonInfo />
+            </FormGroup>
             <FormGroup>
                 <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
             </FormGroup>

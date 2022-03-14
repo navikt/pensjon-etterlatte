@@ -133,14 +133,14 @@ const AddChildToForm = ({
     }
 
     const tooOldChild = () => {
-        return fnr && fnrValidator(fnr).status === 'valid' && getAgeFromFoedselsnummer(fnr) >= 20
+        return fnr && fnrValidator(fnr).status === 'valid' && getAgeFromFoedselsnummer(fnr) >= 21
     }
 
     const childIsRelevantForApplication = () => {
         // Only full sublings should be added
         if (bothParents === JaNeiVetIkke.NEI) return false
 
-        // We only need to know about children under the age of 20
+        // We only need to know about children up to 21 years old
         return !tooOldChild()
     }
 
@@ -159,14 +159,16 @@ const AddChildToForm = ({
                         </Heading>
                     </ChangeChildPanelHeader>
                     <ChangeChildPanelContent>
-                        <PersonInfo duplicateList={fnrRegisteredChild} />
-                        {tooOldChild() && (
-                            <Panel border>
-                                <Alert inline={true} variant={'error'}>
-                                    <BodyLong>{t('childrensPension.tooOld.error')}</BodyLong>
-                                </Alert>
-                            </Panel>
-                        )}
+                        <FormGroup>
+                            <PersonInfo duplicateList={fnrRegisteredChild} />
+                            {tooOldChild() && (
+                                <Panel border>
+                                    <Alert inline={true} variant={'error'}>
+                                        <BodyLong>{t('childrensPension.tooOld.error')}</BodyLong>
+                                    </Alert>
+                                </Panel>
+                            )}
+                        </FormGroup>
                         {!tooOldChild() && (
                             <FormGroup>
                                 <ParentQuestion isChild={isChild} isGuardian={isGuardian} t={t} watch={watch} />
