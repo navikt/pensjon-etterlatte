@@ -79,6 +79,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                 <DatePicker
                                     name={`staysAbroad.abroadStays[${index}].fromDate`}
                                     label={t('staysAbroad.abroadStays.fromDate')}
+                                    valgfri={true}
                                     maxDate={new Date()}
                                 />
                             </Cell>
@@ -86,6 +87,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                 <DatePicker
                                     name={`staysAbroad.abroadStays[${index}].toDate`}
                                     label={t('staysAbroad.abroadStays.toDate')}
+                                    valgfri={true}
                                     maxDate={new Date()}
                                 />
                             </Cell>
@@ -107,6 +109,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                             <RHFInput
                                 name={`staysAbroad.abroadStays[${index}].pensionAmount`}
                                 label={t('staysAbroad.abroadStays.pensionAmount')}
+                                valgfri={true}
                             />
                         </FormElement>
 
