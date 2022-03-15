@@ -153,6 +153,8 @@ const aboutYou = {
     'paymentDetails.foreignBankAddress': paymentDetails.foreignBankAddress,
     'paymentDetails.iban': paymentDetails.iban,
     'paymentDetails.swift': paymentDetails.swift,
+    'paymentDetails.taxWithhold.answer': paymentDetails['taxWithhold.answer'],
+    'paymentDetails.taxWithhold.taxPercentage': paymentDetails['taxWithhold.taxPercentage'],
     'changeAnswerSummary.om-deg': 'Endre svar om deg',
 }
 
