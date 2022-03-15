@@ -32,7 +32,7 @@ export default function FrontPage() {
     return (
         <>
             <FormGroup>
-                <NavGuide>{t('hello', { fornavn, etternavn })}</NavGuide>
+                <NavGuide>{t('helloUser', { fornavn, etternavn })}</NavGuide>
             </FormGroup>
 
             <FormGroup>
@@ -47,10 +47,10 @@ export default function FrontPage() {
 
             <FormGroup>
                 <Heading spacing size={'large'}>
-                    {t('title')}
+                    {t('frontPageTitle')}
                 </Heading>
 
-                <BodyLong spacing>{t('aboutTheBenefit.content')}</BodyLong>
+                <BodyLong spacing>{t('childMayBeApplicableForPension')}</BodyLong>
 
                 <Alert inline={true} variant={'warning'}>
                     <BodyLong spacing>

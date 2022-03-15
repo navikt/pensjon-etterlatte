@@ -84,7 +84,7 @@ export default function Navigation({ right, left, hideCancel }: NavigationProps)
                             onClick={left?.onClick}
                             disabled={left?.disabled}
                         >
-                            {left?.label || t('backButton')}
+                            {left?.label || t('backButton', { ns: 'btn' })}
                         </Button>
                     )}
 
@@ -95,7 +95,7 @@ export default function Navigation({ right, left, hideCancel }: NavigationProps)
                             onClick={right?.onClick}
                             disabled={right?.disabled}
                         >
-                            {right?.label || t('nextButton')}
+                            {right?.label || t('nextButton', { ns: 'btn' })}
                         </Button>
                     )}
                 </NavRow>
@@ -103,7 +103,7 @@ export default function Navigation({ right, left, hideCancel }: NavigationProps)
                 {!hideCancel && (
                     <NavRow>
                         <Button id={'avbryt-btn'} variant={'secondary'} type={'button'} onClick={() => setIsOpen(true)}>
-                            {t('cancelButton')}
+                            {t('cancelButton', { ns: 'btn' })}
                         </Button>
                     </NavRow>
                 )}

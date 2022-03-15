@@ -31,7 +31,7 @@ export default function PageNotFound() {
             </FormGroup>
 
             <FormGroup>
-                <Button onClick={() => navigate(-1)}>{t('backButton')}</Button>
+                <Button onClick={() => navigate(-1)}>{t('backButton', { ns: 'btn' })}</Button>
             </FormGroup>
         </CenterDiv>
     )

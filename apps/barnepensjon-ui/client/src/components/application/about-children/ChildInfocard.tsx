@@ -79,7 +79,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                         }}
                     >
                         <EditFilled className={'edit-svg'} />
-                        <span>{t('changeButton')}</span>
+                        <span>{t('editButton', { ns: 'btn' })}</span>
                     </InfocardFooterItem>
                 </BodyLong>
                 <BodyLong>

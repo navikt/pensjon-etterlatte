@@ -9,6 +9,7 @@ import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
+import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
 import { SummaryAboutChildren } from './fragments/SummaryAboutChildren'
 import { SummaryAboutParent } from './fragments/SummaryAboutParent'
@@ -33,8 +34,13 @@ export default function Summary({ prev }: StepProps) {
     const [error] = useState(false)
 
     const send = () => {
+        const innsendtSoeknad = mapTilBarnepensjonSoeknadListe(t, application, user)
+
+        console.log(innsendtSoeknad)
+
         // TODO: Map to InnsendSoeknad and send to backend
-        /* sendApplication({})
+        /*
+        sendApplication({})
             .then((response) => {
                 console.log(response)
 
@@ -43,7 +49,8 @@ export default function Summary({ prev }: StepProps) {
             .catch((e) => {
                 console.error(e)
                 setError(true)
-            })*/
+            })
+            */
     }
 
     return (
@@ -103,7 +110,7 @@ export default function Summary({ prev }: StepProps) {
                 </FormGroup>
             )}
 
-            <Navigation right={{ onClick: send }} left={{ onClick: prev }} />
+            <Navigation right={{ onClick: send, label: t('sendApplicationButton') }} left={{ onClick: prev }} />
         </FormGroup>
     )
 }

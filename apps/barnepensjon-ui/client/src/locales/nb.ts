@@ -15,22 +15,24 @@ const common = {
     dateExample: 'eks. 01.11.2020',
     chooseCountry: 'Velg land',
     chooseLanguage: 'Velg språk',
-    remove: 'Fjern',
-    edit: 'Endre',
     norway: 'Norge',
 }
 
 const navigation = {
-    sendApplication: 'Send søknad',
-    backButton: 'Tilbake',
-    nextButton: 'Neste',
-    saveButton: 'Lagre',
-    cancelButton: 'Avbryt',
     cancelApplicationTitle: 'Vil du avbryte søknaden?',
     cancelApplicationBody: 'Du kan fortsette nå eller senere. Søknaden din lagres i 72 timer.',
     continueApplicationButton: 'Nei, jeg vil fortsette',
     cancelApplicationButton: 'Ja, avbryt og fortsett senere',
     deleteApplicationButton: 'Ja, avbryt og slett søknaden',
+}
+
+const btn = {
+    backButton: 'Tilbake',
+    nextButton: 'Neste',
+    saveButton: 'Lagre',
+    cancelButton: 'Avbryt',
+    removeButton: 'Fjern',
+    editButton: 'Endre',
 }
 
 const loggedInUserInfo = {
@@ -68,10 +70,10 @@ const radiobuttons = {
 }
 
 const frontPage = {
-    title: 'Søknad om barnepensjon',
-    hello: `Hei, {fornavn} {etternavn}`,
+    frontPageTitle: 'Søknad om barnepensjon',
+    helloUser: `Hei, {fornavn} {etternavn}`,
     startApplication: 'Start søknad',
-    'aboutTheBenefit.content':
+    childMayBeApplicableForPension:
         'Barn som mister en eller begge foreldrene, kan motta økonomisk støtte. Pensjonen skal sikre inntekt til å leve og til boutgifter.\n\nDersom barnet er under 18 år, er det vergen som må søke om barnepensjon på barnets vegne. Hvis vergen ikke er en av foreldrene, må det legges ved en bekreftelse på oppnevnelse av verge fra tingretten eller Statsforvalteren.',
     childrenAboveLegalAge: 'Barn over 18 år, må vanligvis søke selv.',
     aboutChildrensPension: 'Mer informasjon om barnepensjon finner du på ',
@@ -138,15 +140,9 @@ const aboutYou = {
     residesInNorway: 'Oppholder du deg for tiden i Norge?',
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
-    yes: 'Ja',
-    no: 'Nei',
     'contactInfo.phoneNumber': 'Telefonnummer',
     'subtitle.personalia': 'Personalia',
     'subtitle.informationAboutApplicant': 'Opplysninger om søker',
-    fnr: 'Fødselsnummer',
-    name: common.name,
-    address: common.address,
-    citizenship: common.citizenship,
     'paymentDetails.accountType': paymentDetails.accountType,
     'paymentDetails.bankAccount': paymentDetails.bankAccount,
     'paymentDetails.foreignBankName': paymentDetails.foreignBankName,
@@ -169,16 +165,12 @@ const aboutTheDeceased = {
     firstParentTitle: 'Om den første forelderen',
     secondParentTitle: 'Om den andre forelderen',
     singleParentTitle: 'Om den avdøde',
-    who: 'Hvem er det som er død?',
-    firstName: 'Fornavn',
-    lastName: 'Etternavn',
     dateOfDeath: 'Når skjedde dødsfallet?',
-    address: 'Adresse',
     phoneNumber: 'Telefonnummer (valgfri)',
     abroadStaysTitle: 'Opphold utenfor Norge',
     workOrLivingAbroadCanAffectPension:
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.',
-    'abroadStays.hasStaysAbroad': 'Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?',
+    didTheDeceasedLiveAbroad: 'Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?',
     'staysAbroad.abroadStays.country': 'Land',
     'staysAbroad.abroadStays.type': 'Bodd og/eller arbeidet?',
     'staysAbroad.abroadStays.fromDate': 'Fra dato (valgfri)',
@@ -187,17 +179,6 @@ const aboutTheDeceased = {
     'staysAbroad.abroadStays.medlemFolketrygd.why':
         'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',
     'staysAbroad.abroadStays.pensionAmount': 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
-    country: 'Land',
-    type: 'Bodd og/eller arbeidet?',
-    fromDate: 'Fra dato (valgfri)',
-    toDate: 'Til dato (valgfri)',
-    medlemFolketrygd: 'Var han eller hun medlem av folketrygden under oppholdet?',
-    'medlemFolketrygd.why':
-        'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',
-    pensionAmount: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
-    fnrDnr: 'Fødselsnummer / d-nummer',
-    'fnrDnr.placeholder': '11 siffer',
-    citizenship: 'Statsborgerskap',
     'selfEmplyment.title': 'Næringsinntekt',
     'selfEmplyment.ingress':
         'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i gjenlevendepensjon. Vi henter informasjon om andre inntekter.',
@@ -216,7 +197,6 @@ const aboutTheDeceased = {
     'oppholdUtlandType.BODD': 'Bodd',
     'oppholdUtlandType.ARBEIDET': 'Arbeidet',
     'btn.addCountry': '+ Legg til flere land',
-    'btn.delete': 'Fjern',
     'changeAnswerSummary.om-foreldrene': 'Endre svar om foreldre',
 }
 
@@ -247,9 +227,6 @@ const aboutChildren = {
     removeChildButton: 'Fjern fra søknad',
     addChildButton: '+ Legg til barn',
     addSiblingButton: '+ Legg til søsken',
-    cancelButton: 'Avbryt',
-    changeButton: 'Endre',
-    saveButton: 'Lagre',
     whoAreTheParents: 'Hvem er foreldre til barnet?',
     relationHelpText:
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
@@ -263,10 +240,6 @@ const aboutChildren = {
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
     onlyGuardiansCanApply:
         'Det er kun mulig å søke om barnepensjon for barn du er verge til. Du må likevel oppgi informasjon om helsøsken under 20 år.',
-    firstName: common.firstName,
-    lastName: common.lastName,
-    fnr: common.fnrDnr,
-    citizenship: common.citizenship,
     'changeAnswerSummary.om-barn': 'Endre svar om barn',
 }
 
@@ -274,10 +247,11 @@ const summary = {
     summaryTitle: 'Oppsummering',
     readTheSummaryBeforeSending:
         'Les gjennom oppsummeringen av din søknad før du sender. \nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
+    sendApplicationButton: 'Send søknad',
 }
 
 const error = {
-    title: 'For å gå videre må du rette opp i dette:',
+    fixTheseErrorsToContinue: 'For å gå videre må du rette opp i dette:',
     'abroadStays.hasStaysAbroad.required': 'Oppgi om den avdøde har bodd eller jobbet i et annet land enn Norge',
     'addressOfResidenceConfirmed.required': 'Bostedsadresse må bekreftes/avkreftes',
     'alternativeAddress.required': 'Du må oppgi nåværende bostedsadresse',
@@ -447,6 +421,7 @@ const texts: Record<TNamespace, Record<TKey, Translation>> = {
     loggedInUserInfo,
     navigation,
     paymentDetails,
+    btn,
     radiobuttons,
     selectScenario,
     pageNotFound,

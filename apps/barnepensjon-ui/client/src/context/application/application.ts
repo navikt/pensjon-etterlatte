@@ -69,11 +69,7 @@ export interface ILivingParent extends IParent {
 
 export interface IDeceasedParent extends IParent {
     dateOfDeath: Date
-    abroadStays: {
-        hasStaysAbroad: JaNeiVetIkke
-        abroadStays: IAbroadStay[]
-    }
-    staysAbroad?: {
+    staysAbroad: {
         hasStaysAbroad?: JaNeiVetIkke
         abroadStays?: IAbroadStay[]
     }
