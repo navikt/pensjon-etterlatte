@@ -47,8 +47,8 @@ export default function LivingParent({ next, prev, type }: StepProps) {
                 <ErrorSummaryWrapper errors={errors} />
 
                 <Navigation
-                    right={{ label: t('saveButton', { ns: 'navigation' }), onClick: handleSubmit(save) }}
-                    left={{ label: t('backButton', { ns: 'navigation' }), variant: 'secondary', onClick: prev }}
+                    right={{ label: t('saveButton', { ns: 'btn' }), onClick: handleSubmit(save) }}
+                    left={{ label: t('backButton', { ns: 'btn' }), variant: 'secondary', onClick: prev }}
                     hideCancel={true}
                 />
             </form>

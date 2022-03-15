@@ -16,6 +16,7 @@ import useApplication from './hooks/useApplication'
 import useLoggedInUser from './hooks/useLoggedInUser'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
 import useScrollToTop from './hooks/useScrollToTop'
+import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,
@@ -56,6 +57,7 @@ export default function App() {
             <Banner tekst={'Søknad om barnepensjon'} />
 
             <SpinnerOverlay visible={isLoading} label={'Henter søknadsinformasjon ...'} />
+            <ContinueApplicationModal />
 
             <SoeknadWrapper>
                 <Routes>

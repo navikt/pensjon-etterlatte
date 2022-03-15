@@ -22,7 +22,7 @@ export default function DeceaseParentForm() {
 
     const wasSelfEmployed = watch('selfEmplyment.wasSelfEmployed')
     const completedMilitaryService = watch('militaryService.completed')
-    const abroadStays = watch('abroadStays.hasStaysAbroad')
+    const staysAbroad = watch('staysAbroad.hasStaysAbroad')
 
     return (
         <>
@@ -38,12 +38,12 @@ export default function DeceaseParentForm() {
                 <BodyLong>{t('workOrLivingAbroadCanAffectPension')}</BodyLong>
                 <FormElement>
                     <RHFGeneralQuestionRadio
-                        name={'abroadStays.hasStaysAbroad'}
-                        legend={t('abroadStays.hasStaysAbroad')}
+                        name={'staysAbroad.hasStaysAbroad'}
+                        legend={t('didTheDeceasedLiveAbroad')}
                         vetIkke={true}
                     />
                 </FormElement>
-                {abroadStays === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
+                {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
             </FormGroup>
 
             <FormGroup>

@@ -59,13 +59,13 @@ const ParentInfoCard = memo(({ parent, edit, remove }: Props) => {
                 <BodyLong>
                     <InfocardFooterItem href={'#'} className={'infokort__footer-item'} onClick={edit}>
                         <EditFilled className={'edit-svg'} />
-                        <span>{t('edit')}</span>
+                        <span>{t('editButton', { ns: 'btn' })}</span>
                     </InfocardFooterItem>
                 </BodyLong>
                 <BodyLong>
                     <InfocardFooterItem href={'#'} className={'infokort__footer-item'} onClick={remove}>
                         <DeleteFilled className={'edit-svg'} />
-                        <span>{t('remove')}</span>
+                        <span>{t('removeButton', { ns: 'btn' })}</span>
                     </InfocardFooterItem>
                 </BodyLong>
             </InfocardFooter>

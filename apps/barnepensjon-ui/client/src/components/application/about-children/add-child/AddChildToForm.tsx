@@ -223,7 +223,7 @@ const AddChildToForm = ({
                                 onClick={cancelAndClose}
                                 style={{ minWidth: '80px' }}
                             >
-                                {t('cancelButton')}
+                                {t('cancelButton', { ns: 'btn' })}
                             </Button>
 
                             {childIsRelevantForApplication() && (
@@ -234,7 +234,7 @@ const AddChildToForm = ({
                                     onClick={handleSubmit(addAndClose)}
                                     style={{ minWidth: '80px' }}
                                 >
-                                    {t('saveButton')}
+                                    {t('saveButton', { ns: 'btn' })}
                                 </Button>
                             )}
                         </NavRow>

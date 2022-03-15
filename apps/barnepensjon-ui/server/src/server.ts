@@ -6,6 +6,7 @@ import config from './config'
 import prometheus from './monitoring/prometheus'
 import logger from './monitoring/logger'
 import parser from 'body-parser'
+import { mockApi } from './mock/mock-api'
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
@@ -26,7 +27,11 @@ app.get(`${basePath}/metrics`, async (req: Request, res: Response) => {
     res.end(await prometheus.register.metrics())
 })
 
-app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
+if (config.env.isLabsCluster) {
+    mockApi(app)
+} else {
+    app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
+}
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))
 

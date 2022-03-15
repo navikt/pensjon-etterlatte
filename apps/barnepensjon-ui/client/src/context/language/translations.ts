@@ -15,9 +15,11 @@ export type Namespace =
     | 'navigation'
     | 'paymentDetails'
     | 'radiobuttons'
+    | 'btn'
     | 'pageNotFound'
     | 'systemUnavailable'
     | 'yourSituation'
+    | 'continueApplicationModal'
 
 export type TNamespace = Readonly<NonNullable<Namespace>>
 export type Translation = Readonly<NonNullable<string>>
