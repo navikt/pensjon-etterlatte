@@ -1,37 +1,40 @@
 import { Accordion } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
-import { memo, useEffect, useState } from 'react'
+import { memo } from 'react'
 import useTranslation from '../../../../hooks/useTranslation'
 import { ISituationChild } from '../../../../types/situation'
+import { StepPath } from '../../../../types/steps'
 import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
-import ApplicationMapper from '../ApplicationMapper'
-import { elementPanel } from './elementPanel'
+import TextGroup from '../TextGroup'
 
 export const SummaryYourSituation = memo(
     ({ yourSituation, pathPrefix }: { yourSituation: ISituationChild; pathPrefix: string }) => {
-        const [applicationSummary, setSummary] = useState<any>([])
-
         const { t } = useTranslation('yourSituation')
-        const mapper = new ApplicationMapper(t)
 
-        useEffect(() => {
-            const applicationSummary = mapper.mapYourSituation(yourSituation)
-            setSummary(applicationSummary)
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [yourSituation])
+        console.log(yourSituation)
 
         return (
             <>
-                {!isEmpty(applicationSummary) && (
+                {!isEmpty(yourSituation) && (
                     <FormElement>
                         <Accordion>
                             <AccordionItem
-                                title={applicationSummary.title}
-                                path={`/skjema/${pathPrefix}/steg/${applicationSummary.path}`}
-                                pathText={t(`changeAnswerSummary.${applicationSummary.path}`)}
+                                title={t('title')}
+                                path={`/skjema/${pathPrefix}/steg/${StepPath.YourSituation}`}
+                                pathText={t(`changeAnswerSummary.${StepPath.YourSituation}`)}
                             >
-                                {applicationSummary.elements.map(elementPanel)}
+                                <>
+                                    <TextGroup
+                                        title={t('whyDoYouApply')}
+                                        content={yourSituation.whyDoYouApply?.map((item) => ` ${t(item)}`)}
+                                    />
+                                    <TextGroup
+                                        title={t('timeUsedForEducation')}
+                                        content={t(yourSituation.timeUsedForEducation as string)}
+                                    />
+                                    <TextGroup title={t('doYouHaveIncome')} content={yourSituation.doYouHaveIncome} />
+                                </>
                             </AccordionItem>
                         </Accordion>
                     </FormElement>

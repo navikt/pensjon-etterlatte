@@ -55,6 +55,6 @@ export interface ISituasjon {
 export interface ISituationChild {
     doYouHaveIncome?: JaNeiVetIkke
     timeUsedForEducation?: EducationType
-    whyDoYouApply?: ApplicationReasonType
+    whyDoYouApply?: ApplicationReasonType[]
     erValidert?: boolean
 }
