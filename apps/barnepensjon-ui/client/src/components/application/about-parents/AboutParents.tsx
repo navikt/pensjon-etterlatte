@@ -61,7 +61,7 @@ export default function AboutParents({ next, prev }: StepProps) {
         <Wrapper>
             {editing === EditParent.NONE && (
                 <>
-                    <StepHeading>{t('title')}</StepHeading>
+                    <StepHeading>{t('aboutParentsTitle')}</StepHeading>
 
                     <FormGroup>
                         <InfocardWrapper>

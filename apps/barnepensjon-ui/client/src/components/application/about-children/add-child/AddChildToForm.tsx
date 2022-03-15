@@ -155,7 +155,7 @@ const AddChildToForm = ({
                     <ChangeChildPanelHeader>
                         <img alt="barn" className="barneikon" src={ikon} />
                         <Heading size={'small'} className={'overskrift'}>
-                            {!isChild ? t('titleModal') : t('titleModal.sibling')}
+                            {!isChild ? t('titleModal') : t('aboutTheSiblingTitle')}
                         </Heading>
                     </ChangeChildPanelHeader>
                     <ChangeChildPanelContent>
@@ -164,7 +164,7 @@ const AddChildToForm = ({
                             {tooOldChild() && (
                                 <Panel border>
                                     <Alert inline={true} variant={'error'}>
-                                        <BodyLong>{t('childrensPension.tooOld.error')}</BodyLong>
+                                        <BodyLong>{t('onlyChildrenUnder22Necessary')}</BodyLong>
                                     </Alert>
                                 </Panel>
                             )}
@@ -194,10 +194,10 @@ const AddChildToForm = ({
                                                 <FormGroup>
                                                     <RHFCheckboksPanel
                                                         name={'childrensPension.applies'}
-                                                        legend={t('childrensPension.applies')}
+                                                        legend={t('applyForThisChild')}
                                                         valgfri={true}
                                                         checkbox={{
-                                                            label: t('childrensPension.appliesCheckbox'),
+                                                            label: t('userAppliesForChildrensPension'),
                                                             value: JaNeiVetIkke.JA,
                                                         }}
                                                     />
@@ -223,7 +223,7 @@ const AddChildToForm = ({
                                 onClick={cancelAndClose}
                                 style={{ minWidth: '80px' }}
                             >
-                                {t('btn.cancel')}
+                                {t('cancelButton')}
                             </Button>
 
                             {childIsRelevantForApplication() && (
@@ -234,7 +234,7 @@ const AddChildToForm = ({
                                     onClick={handleSubmit(addAndClose)}
                                     style={{ minWidth: '80px' }}
                                 >
-                                    {t('btn.save')}
+                                    {t('saveButton')}
                                 </Button>
                             )}
                         </NavRow>

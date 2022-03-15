@@ -41,27 +41,27 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     </Heading>
                 </InformationBoxContent>
                 <InformationElement>
-                    <BodyShort size={'small'}>{t('infoCard.fnr')}</BodyShort>
+                    <BodyShort size={'small'}>{t('infoCard_fnr')}</BodyShort>
                     <BodyShort size={'small'} spacing>
                         {foedselsnummer}
                     </BodyShort>
-                    <BodyShort size={'small'}>{t('infoCard.citizenship')}</BodyShort>
+                    <BodyShort size={'small'}>{t('infoCard_citizenship')}</BodyShort>
                     <BodyShort size={'small'} spacing>
                         {child.citizenship}
                     </BodyShort>
 
-                    <BodyShort size={'small'}>{t('infoCard.residence')}</BodyShort>
+                    <BodyShort size={'small'}>{t('infoCard_residence')}</BodyShort>
                     <BodyShort size={'small'} spacing>
                         {t('livesIn')}&nbsp;
                         {child.staysAbroad?.answer === JaNeiVetIkke.JA
                             ? child.staysAbroad?.country
-                            : t('common.norway')}
+                            : t('norway', { ns: 'common' })}
                     </BodyShort>
 
                     {child.childrensPension?.applies === JaNeiVetIkke.JA && (
                         <FormElement>
                             <Tag variant={'success'} className={'mute'}>
-                                {t('childrensPension.applied')}
+                                {t('childAppliedForPension')}
                             </Tag>
                         </FormElement>
                     )}
@@ -79,13 +79,13 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                         }}
                     >
                         <EditFilled className={'edit-svg'} />
-                        <span>{t('btn.change')}</span>
+                        <span>{t('changeButton')}</span>
                     </InfocardFooterItem>
                 </BodyLong>
                 <BodyLong>
                     <InfocardFooterItem href={'#'} className={'infokort__footer-item'} onClick={() => remove(index)}>
                         <DeleteFilled className={'edit-svg'} />
-                        <span>{t('btn.removeFromApplication')}</span>
+                        <span>{t('removeChildButton')}</span>
                     </InfocardFooterItem>
                 </BodyLong>
             </InfocardFooter>

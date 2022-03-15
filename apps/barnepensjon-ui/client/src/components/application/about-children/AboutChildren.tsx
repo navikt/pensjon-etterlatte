@@ -108,13 +108,13 @@ export default function AboutChildren({ next, prev }: StepProps) {
                 <form>
                     {activeChildIndex === undefined && (
                         <>
-                            <StepHeading>{!isChild ? t('title') : t('title.sibling')}</StepHeading>
+                            <StepHeading>{!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}</StepHeading>
 
                             <FormGroup>
                                 <Panel border>
                                     <Alert variant={'info'} className={'navds-alert--inline'}>
                                         <BodyShort size={'small'}>
-                                            {!isChild ? t('information') : t('information.sibling')}
+                                            {!isChild ? t('information') : t('infoRegardingSiblings')}
                                         </BodyShort>
                                     </Alert>
                                 </Panel>
@@ -138,11 +138,11 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                         </InfocardHeader>
                                         <InformationBox>
                                             <Button variant={'primary'} type={'button'} onClick={addNewChild}>
-                                                {!isChild ? t('btn.addChild') : t('btn.addSibling')}
+                                                {!isChild ? t('addChildButton') : t('addSiblingButton')}
                                             </Button>
                                             {isChild && (
                                                 <BodyShort size={'small'} className={'center mute'}>
-                                                    {t('voluntary')}
+                                                    {t('thisIsOptional')}
                                                 </BodyShort>
                                             )}
                                         </InformationBox>

@@ -51,7 +51,7 @@ export default function ScenarioSelection() {
         <FormProvider {...methods}>
             <FormGroup>
                 <Heading size={'small'} className={'center'}>
-                    {t('title')}
+                    {t('selectSituationToContinue')}
                 </Heading>
             </FormGroup>
 

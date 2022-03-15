@@ -63,14 +63,7 @@ export interface IDeceasedParent extends IParent {
     dateOfDeath: Date
     abroadStays: {
         hasStaysAbroad: JaNeiVetIkke
-        abroadStays: {
-            country: String
-            fromDate?: Date
-            toDate?: Date
-            type: OppholdUtlandType[]
-            medlemFolketrygd: JaNeiVetIkke
-            pensionAmount?: String
-        }
+        abroadStays: IAbroadStay[]
     }
     selfEmplyment: {
         wasSelfEmployed: JaNeiVetIkke
@@ -82,4 +75,12 @@ export interface IDeceasedParent extends IParent {
         completed?: JaNeiVetIkke
         period?: String
     }
+}
+interface IAbroadStay {
+    country: String
+    fromDate?: Date
+    toDate?: Date
+    type: OppholdUtlandType[]
+    medlemFolketrygd: JaNeiVetIkke
+    pensionAmount?: String
 }

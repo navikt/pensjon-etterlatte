@@ -25,7 +25,7 @@ export const IsGuardianQuestion = ({ isGuardian, t, watch }: Props) => {
                     {loggedInUserIsGuardian === JaNeiVetIkke.NEI && (
                         <Panel border>
                             <Alert inline={true} variant={'info'}>
-                                <BodyLong>{t('childrensPension.guardianNotAllowed.info')}</BodyLong>
+                                <BodyLong>{t('onlyGuardiansCanApply')}</BodyLong>
                             </Alert>
                         </Panel>
                     )}

@@ -21,33 +21,33 @@ export default function ReceiptPage() {
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'medium'}>{t('lifeChangeTitle')}</Heading>
+                <Heading size={'medium'}>{t('youMustNotifyRegardingChanges')}</Heading>
 
-                <BodyLong>{t('lifeChangeInfo')}</BodyLong>
+                <BodyLong>{t('importantChangesCanAffectYourRights')}</BodyLong>
 
                 <ul>
                     <li>
-                        <BodyShort>{t('lifeChangeList.family')}</BodyShort>
+                        <BodyShort>{t('changeInLivingSituation')}</BodyShort>
                     </li>
                     <li>
-                        <BodyShort>{t('lifeChangeList.moving')}</BodyShort>
+                        <BodyShort>{t('changeAddressOrMoveAbroad')}</BodyShort>
                     </li>
                 </ul>
 
-                <BodyLong>{t('lifeChangeInfo2')}</BodyLong>
+                <BodyLong>{t('childrenOver18MustNotify')}</BodyLong>
 
                 <ul>
                     <li>
-                        <BodyShort>{t('lifeChangeList2.education')}</BodyShort>
+                        <BodyShort>{t('changeInEduation')}</BodyShort>
                     </li>
                     <li>
-                        <BodyShort>{t('lifeChangeList2.income')}</BodyShort>
+                        <BodyShort>{t('changedIncome')}</BodyShort>
                     </li>
                 </ul>
 
                 <BodyLong>
-                    {t('lifeChange.rightsInfo')}&nbsp;
-                    <Link href={t('lifeChange.rightsInfoLinkHref')}>{t('lifeChange.rightsInfoLinkText')}</Link>
+                    {t('moreAboutRightsAndDuties')}&nbsp;
+                    <Link href={t('moreAboutRightsAndDutiesLinkHref')}>{t('moreAboutRightsAndDutiesLinkText')}</Link>
                 </BodyLong>
             </FormGroup>
 
@@ -56,7 +56,7 @@ export default function ReceiptPage() {
 
                 <BodyLong>
                     {t('benefitsChangingDescription1')}&nbsp;
-                    <Link href={t('benefitsChangingDescription1.href')}>{t('benefitsChangingDescription1.link')}</Link>
+                    <Link href={t('benefitsChangingDescription1_href')}>{t('benefitsChangingDescription1_link')}</Link>
                     &nbsp;
                     {t('benefitsChangingDescription2')}&nbsp;
                 </BodyLong>

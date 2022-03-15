@@ -31,9 +31,9 @@ export default function Summary({ prev }: StepProps) {
 
     return (
         <FormGroup>
-            <StepHeading>{t('title')}</StepHeading>
+            <StepHeading>{t('summaryTitle')}</StepHeading>
             <FormGroup>
-                <BodyLong>{t('description')}</BodyLong>
+                <BodyLong>{t('readTheSummaryBeforeSending')}</BodyLong>
             </FormGroup>
 
             {error && (

@@ -72,12 +72,12 @@ const ExpiredSession = () => {
                             setHasBeenClosed(true)
                         }}
                     >
-                        {`${t('info1')} `}
+                        {`${t('youWillBeLoggedOutIn')} `}
                         <strong>
                             {`${time.minutes.toString().padStart(2, '0')}:${time.seconds.toString().padStart(2, '0')}`}
                         </strong>
                         {` ${t('time')}.
-                            ${t('info2')}`}
+                            ${t('sendNowOrContinueLater')}`}
                     </CloseableAlert>
                 </LogOutAlertWrapper>
             )}

@@ -67,29 +67,29 @@ export default function FrontPage() {
             <FormGroup>
                 <Heading size={'small'}>{t('weNeedCorrectInformation')}</Heading>
 
-                <BodyLong>{t('childrensPension.content')}</BodyLong>
+                <BodyLong>{t('importantChangesMustBeNotified')}</BodyLong>
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'small'}>{t('retrievalOfInformation.title')}</Heading>
+                <Heading size={'small'}>{t('weWillRetrieveInfo')}</Heading>
 
-                <BodyLong>{t('retrievalOfInformation.content')}</BodyLong>
+                <BodyLong>{t('infoWeRetrieve')}</BodyLong>
 
                 <ul>
                     <li>
-                        <BodyLong>{t('retrievalOfInformation.contentList.li1')}</BodyLong>
+                        <BodyLong>{t('infoWeRetrieve_li1')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>{t('retrievalOfInformation.contentList.li2')}</BodyLong>
+                        <BodyLong>{t('infoWeRetrieve_li2')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>{t('retrievalOfInformation.contentList.li3')}</BodyLong>
+                        <BodyLong>{t('infoWeRetrieve_li3')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>{t('retrievalOfInformation.contentList.li4')}</BodyLong>
+                        <BodyLong>{t('infoWeRetrieve_li4')}</BodyLong>
                     </li>
                     <li>
-                        <BodyLong>{t('retrievalOfInformation.contentList.li5')}</BodyLong>
+                        <BodyLong>{t('infoWeRetrieve_li5')}</BodyLong>
                     </li>
                 </ul>
 

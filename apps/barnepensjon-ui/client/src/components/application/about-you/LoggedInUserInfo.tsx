@@ -21,9 +21,9 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
 
     return (
         <FormGroup>
-            <Alert variant={'warning'}>{t('advarsel', { ns: 'loggedInUserInfo' })}</Alert>
+            <Alert variant={'warning'}>{t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })}</Alert>
             <div className="mute" style={{ margin: '2em 0' }}>
-                {t('valgfritt', { ns: 'loggedInUserInfo' })}
+                {t('mostFieldsAreRequired', { ns: 'loggedInUserInfo' })}
             </div>
             <Grid className={'opplysninger'}>
                 <Cell xs={6}>

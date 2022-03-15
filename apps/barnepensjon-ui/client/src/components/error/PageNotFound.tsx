@@ -16,18 +16,18 @@ export default function PageNotFound() {
     return (
         <CenterDiv>
             <FormGroup>
-                <NavGuide>{t('title')}</NavGuide>
+                <NavGuide>{t('notFoundTitle')}</NavGuide>
             </FormGroup>
 
             <FormGroup>
                 <Heading spacing size={'small'}>
-                    {t('intro')}
+                    {t('pageDoesNotExist')}
                 </Heading>
             </FormGroup>
 
             <FormGroup>
-                <BodyShort>{t('body')}</BodyShort>
-                <Link href={'linkHref'}>{t('linkText')}</Link>
+                <BodyShort>{t('pageDoesNotExistInfo')}</BodyShort>
+                <Link href={'reportErrorHref'}>{t('reportErrorLink')}</Link>
             </FormGroup>
 
             <FormGroup>

@@ -42,7 +42,7 @@ export default function LivingParent({ next, prev, type }: StepProps) {
                     <RHFInput name={'address'} label={t('address')} />
                 </FormElement>
                 <FormElement>
-                    <RHFTelefonInput name={'phoneNumber'} label={t('phoneNumber')} valgfri={true} />
+                    <RHFTelefonInput name={'phoneNumber'} label={t('phoneNumberOptional')} valgfri={true} />
                 </FormElement>
                 <ErrorSummaryWrapper errors={errors} />
 

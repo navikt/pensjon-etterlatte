@@ -1,7 +1,28 @@
-export type Namespace = string
-export type Translation = string
-export type TKey = string
+export type Namespace =
+    | 'frontPage'
+    | 'selectScenario'
+    | 'aboutYou'
+    | 'aboutParents'
+    | 'livingParent'
+    | 'aboutTheDeceased'
+    | 'aboutChildren'
+    | 'summary'
+    | 'receipt'
+    | 'logOutUser'
+    | 'error'
+    | 'common'
+    | 'loggedInUserInfo'
+    | 'navigation'
+    | 'paymentDetails'
+    | 'radiobuttons'
+    | 'pageNotFound'
+    | 'systemUnavailable'
+    | 'yourSituation'
+
+export type TNamespace = Readonly<NonNullable<Namespace>>
+export type Translation = Readonly<NonNullable<string>>
+export type TKey = Readonly<NonNullable<string>>
 export type TMeta = {
-    ns?: Namespace | Readonly<Namespace>
-    [key: string]: string | undefined
+    ns?: TNamespace
+    [key: string]: TKey | undefined
 }

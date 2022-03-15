@@ -1,9 +1,9 @@
 import { useLanguageContext } from '../context/language/LanguageContext'
-import { Namespace, TKey, TMeta, Translation } from '../context/language/translations'
+import { TKey, TMeta, TNamespace, Translation } from '../context/language/translations'
 
 export type TFunction = (key: TKey, meta?: TMeta) => Translation
 
-export default function useTranslation(ns: Namespace) {
+export default function useTranslation(ns: TNamespace) {
     const { translations } = useLanguageContext()
 
     const t: TFunction = (key: TKey, meta?: TMeta): Translation => {

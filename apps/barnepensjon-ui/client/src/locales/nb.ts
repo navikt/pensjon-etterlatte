@@ -1,3 +1,5 @@
+import { TKey, TNamespace, Translation } from '../context/language/translations'
+
 const frontPage = {
     title: 'Søknad om barnepensjon',
     hello: `Hei, {fornavn} {etternavn}`,
@@ -9,19 +11,17 @@ const frontPage = {
     aboutChildrensPensionLink: 'nav.no/barnepensjon',
     aboutChildrensPensionHref: 'https://www.nav.no/barnepensjon',
     weNeedCorrectInformation: 'For å kunne behandle søknaden må du gi oss riktige opplysninger',
-    'childrensPension.content':
+    importantChangesMustBeNotified:
         'Mottaker av barnepensjon må melde fra når det skjer viktige endringer som for eksempel endringer i bo- og familiesituasjon og ved flytting til utlandet. Barn over 18 år må også gi beskjed om endringer i inntekt og/eller utdanningssituasjon.',
-    'retrievalOfInformation.title': 'Vi vil hente informasjon',
-    'retrievalOfInformation.content':
+    weWillRetrieveInfo: 'Vi vil hente informasjon',
+    infoWeRetrieve:
         'I tillegg til den informasjonen du oppgir i søknaden, henter vi inn informasjon om deg, avdøde og søsken for å avgjøre om du har rett til stønad.' +
         '\nVi henter:',
-    'retrievalOfInformation.contentList.li1': '<strong>Personinformasjon</strong> fra Folkeregisteret',
-    'retrievalOfInformation.contentList.li2': '<strong>Inntektsinformasjon</strong> fra Skatteetaten',
-    'retrievalOfInformation.contentList.li3':
-        'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
-    'retrievalOfInformation.contentList.li4': 'Opplysninger om <strong>annen støtte fra NAV</strong>',
-    'retrievalOfInformation.contentList.li5':
-        'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
+    infoWeRetrieve_li1: '<strong>Personinformasjon</strong> fra Folkeregisteret',
+    infoWeRetrieve_li2: '<strong>Inntektsinformasjon</strong> fra Skatteetaten',
+    infoWeRetrieve_li3: 'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
+    infoWeRetrieve_li4: 'Opplysninger om <strong>annen støtte fra NAV</strong>',
+    infoWeRetrieve_li5: 'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
     workInProgress:
         'Vi jobber med å forbedre denne søknaden. Inntil videre må du legge inn de fleste opplysningene manuelt.',
     howWeHandleDataHref:
@@ -41,7 +41,7 @@ const frontPage = {
 }
 
 const selectScenario = {
-    title: 'Velg situasjon for å gå videre med søknaden',
+    selectSituationToContinue: 'Velg situasjon for å gå videre med søknaden',
     whoIsApplying: 'Hvem søker om barnepensjon?',
     PARENT: 'Jeg søker på vegne av mitt/mine barn',
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
@@ -71,16 +71,13 @@ const aboutYou = {
     residesInNorway: 'Oppholder du deg for tiden i Norge?',
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
-    yes: 'Ja',
-    no: 'Nei',
-    phoneNumber: 'Telefonnummer',
 }
 
 const livingParent = {
     title: 'Om den gjenlevende',
     who: 'Oppgi informasjon om den gjenlevende forelderen.',
     address: 'Adresse',
-    phoneNumber: 'Telefonnummer (valgfri)',
+    phoneNumberOptional: 'Telefonnummer (valgfri)',
 }
 
 const aboutTheDeceased = {
@@ -92,8 +89,8 @@ const aboutTheDeceased = {
     firstName: 'Fornavn',
     lastName: 'Etternavn',
     dateOfDeath: 'Når skjedde dødsfallet?',
-    'abroadStays.title': 'Opphold utenfor Norge',
-    'abroadStays.ingress':
+    abroadStaysTitle: 'Opphold utenfor Norge',
+    workOrLivingAbroadCanAffectPension:
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.',
     'abroadStays.hasStaysAbroad': 'Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?',
     'staysAbroad.abroadStays.country': 'Land',
@@ -104,9 +101,6 @@ const aboutTheDeceased = {
     'staysAbroad.abroadStays.medlemFolketrygd.why':
         'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',
     'staysAbroad.abroadStays.pensionAmount': 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
-    fnrDnr: 'Fødselsnummer / d-nummer',
-    'fnrDnr.placeholder': '11 siffer',
-    citizenship: 'Statsborgerskap',
     'selfEmplyment.title': 'Næringsinntekt',
     'selfEmplyment.ingress':
         'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i gjenlevendepensjon. Vi henter informasjon om andre inntekter.',
@@ -114,7 +108,7 @@ const aboutTheDeceased = {
     'selfEmplyment.selfEmplymentDetails.income': 'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
     'selfEmplyment.selfEmplymentDetails.income.placeholder': 'Samlet årsinntekt før skatt',
     'selfEmplyment.selfEmplymentDetails.incomeAtDeath': 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
-    'other.title': 'Annet',
+    otherTitle: 'Annet',
     occupationalInjury: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     'occupationalInjury.why':
         'Hvis dødsfallet skyldes godkjent yrkesskade eller yrkessykdom kan det avgjøre hvor mye du kan få.',
@@ -129,23 +123,17 @@ const aboutTheDeceased = {
 }
 
 const aboutChildren = {
-    'childrensPension.applied': 'Søkt om barnepensjon',
-    'childrensPension.applies': 'Søk om barnepensjon',
-    'childrensPension.appliesCheckbox': 'Ja, jeg søker om barnepensjon for barnet',
-    'childrensPension.info':
+    childAppliedForPension: 'Søkt om barnepensjon',
+    applyForThisChild: 'Søk om barnepensjon',
+    userAppliesForChildrensPension: 'Ja, jeg søker om barnepensjon for barnet',
+    onlyJointChildrenNecessary:
         'Det er kun nødvendig å opplyse om helsøsken under 22 år i denne søknaden. Det kreves en separat søknad for halvsøsken.',
-    'childrensPension.tooOld.error': 'Det er kun nødvendig å opplyse om barn under 22 år i denne søknaden',
+    onlyChildrenUnder22Necessary: 'Det er kun nødvendig å opplyse om barn under 22 år i denne søknaden',
     livesIn: 'Bor i',
     'staysAbroad.answer': 'Bor barnet i et annet land enn Norge?',
     'staysAbroad.sibling.answer': 'Bor søskenet i et annet land enn Norge?',
     'staysAbroad.country': 'Land',
     'staysAbroad.address': 'Adresse i utlandet',
-    lastName: 'Etternavn',
-    'common.fnrPlaceholder': '11 siffer',
-    'common.norway': 'Norge',
-    fnr: 'Fødselsnummer / d-nummer',
-    'fnr.sibling': 'Fødselsnummer / d-nummer',
-    firstName: 'Fornavn',
     'childHasGuardianship.lastName': 'Etternavn (valgfri)',
     'childHasGuardianship.firstName': 'Fornavn (valgfri)',
     'childHasGuardianship.name': 'Navn på verge',
@@ -154,38 +142,35 @@ const aboutChildren = {
     'childHasGuardianship.fnrPlaceholder': '11 siffer',
     information:
         'Dersom du har eller har hatt barn kan det påvirke retten din til gjenlevendepensjon. Derfor må du oppgi alle barn, uavhengig av hvor gamle de er. Dette gjelder barn du har felles med avdøde, avdødes egne barn, og dine egne barn. \n\n Hvis du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke selv.',
-    'information.sibling': 'Her er info hvis det er søsken',
-    'infoCard.residence': 'BOSTED',
-    'infoCard.fnr': 'FØDSELSNUMMER',
-    'infoCard.parents': 'FORELDRE TIL BARNET',
-    'infoCard.citizenship': 'STATSBORGERSKAP',
-    yes: 'Ja',
-    'btn.removeFromApplication': 'Fjern fra søknad',
-    'btn.addChild': '+ Legg til barn',
-    'btn.addSibling': '+ Legg til søsken',
-    'btn.cancel': 'Avbryt',
-    'btn.change': 'Endre',
-    'btn.save': 'Lagre',
-    no: 'Nei',
-    relation: 'Hvem er foreldre til barnet?',
+    infoRegardingSiblings: 'Her er info hvis det er søsken',
+    infoCard_residence: 'BOSTED',
+    infoCard_fnr: 'FØDSELSNUMMER',
+    infoCard_citizenship: 'STATSBORGERSKAP',
+    removeChildButton: 'Fjern fra søknad',
+    addChildButton: '+ Legg til barn',
+    addSiblingButton: '+ Legg til søsken',
+    cancelButton: 'Avbryt',
+    changeButton: 'Endre',
+    saveButton: 'Lagre',
+    whoAreTheParents: 'Hvem er foreldre til barnet?',
     relationHelpText:
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
-    citizenship: 'Statsborgerskap',
-    title: 'Om barn',
+    aboutChildrenTitle: 'Om barn',
     titleModal: 'Om barnet',
-    'titleModal.sibling': 'Om søskenet',
-    'title.sibling': 'Om søsken',
-    voluntary: 'Dette er valgfritt',
-    'bothParents.guardianOrChild': 'Er {forelder1} og {forelder2} foreldrene til barnet?',
-    'bothParents.parent': 'Er du og den avdøde foreldrene til barnet?',
+    aboutTheSiblingTitle: 'Om søskenet',
+    aboutSiblingsTitle: 'Om søsken',
+    thisIsOptional: 'Dette er valgfritt',
+    childBelongsToParents: 'Er {forelder1} og {forelder2} foreldrene til barnet?',
+    youAndDeceasedAreTheParents: 'Er du og den avdøde foreldrene til barnet?',
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
-    'childrensPension.guardianNotAllowed.info':
+    onlyGuardiansCanApply:
         'Det er kun mulig å søke om barnepensjon for barn du er verge til. Du må likevel oppgi informasjon om helsøsken under 20 år.',
 }
 
 const loggedInUserInfo = {
-    advarsel: 'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
-    valgfritt: 'Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.',
+    incorrectInfoMustBeCorrected:
+        'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
+    mostFieldsAreRequired: 'Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.',
 }
 
 const common = {
@@ -193,7 +178,6 @@ const common = {
     lastName: 'Etternavn',
     name: 'Navn',
     fnrDnr: 'Fødselsnummer / d-nummer',
-    'fnrDnr.placeholder': '11 siffer',
     address: 'Bostedsadresse',
     maritalStatus: 'Sivilstatus',
     citizenship: 'Statsborgerskap',
@@ -206,6 +190,7 @@ const common = {
     chooseLanguage: 'Velg språk',
     remove: 'Fjern',
     edit: 'Endre',
+    norway: 'Norge',
 }
 
 const paymentDetails = {
@@ -231,8 +216,8 @@ const paymentDetails = {
 }
 
 const summary = {
-    title: 'Oppsummering',
-    description:
+    summaryTitle: 'Oppsummering',
+    readTheSummaryBeforeSending:
         'Les gjennom oppsummeringen av din søknad før du sender. \nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
 }
 
@@ -309,11 +294,12 @@ const error = {
 }
 
 const pageNotFound = {
-    title: 'Oi, har du gått deg vill?',
-    intro: 'Denne siden finnes ikke.',
-    body: 'Dersom du har klikket på en lenke på våre sider og endt opp her, kan du rapportere feilen her:',
-    linkText: 'www.nav.no/tilbakemelding-feilogmangler',
-    linkHref: 'http://www.nav.no/tilbakemelding-feilogmangler',
+    notFoundTitle: 'Oi, har du gått deg vill?',
+    pageDoesNotExist: 'Denne siden finnes ikke.',
+    pageDoesNotExistInfo:
+        'Dersom du har klikket på en lenke på våre sider og endt opp her, kan du rapportere feilen her:',
+    reportErrorLink: 'www.nav.no/tilbakemelding-feilogmangler',
+    reportErrorHref: 'http://www.nav.no/tilbakemelding-feilogmangler',
     backButton: 'Klikk her for å gå tilbake',
 }
 
@@ -334,29 +320,29 @@ const systemUnavailable = {
 const logOutUser = {
     btn: 'X-ikon for å lukke meldingen',
     time: 'minutter',
-    info1: 'Du vil bli logget ut om',
-    info2: 'Du kan sende søknad nå eller fortsette senere. \n Søknaden din lagres i 72 timer.',
+    youWillBeLoggedOutIn: 'Du vil bli logget ut om',
+    sendNowOrContinueLater: 'Du kan sende søknad nå eller fortsette senere. \n Søknaden din lagres i 72 timer.',
 }
 
 const receipt = {
     thankYou: 'Takk for din søknad!',
     pageTitle: 'Søknaden din er sendt til oss',
     contact: 'Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.',
-    lifeChangeTitle: 'Du må melde fra om endringer',
-    lifeChangeInfo:
+    youMustNotifyRegardingChanges: 'Du må melde fra om endringer',
+    importantChangesCanAffectYourRights:
         'Skjer det viktige endringer kan det påvirke retten til og/eller utbetaling av barnepensjon. Det kan for eksempel være ved:',
-    'lifeChangeList.family': 'endring i bo/familiesituasjon',
-    'lifeChangeList.moving': 'flytting eller opphold i et annet land over tid',
-    lifeChangeInfo2: 'Barn over 18 år som mottar barnepensjon må i tillegg gi beskjed om endring:',
-    'lifeChangeList2.education': 'i utdanningssituasjon',
-    'lifeChangeList2.income': 'av arbeidsinntekt',
-    'lifeChange.rightsInfo': 'Les mer om rettigheter og plikter på',
-    'lifeChange.rightsInfoLinkHref': 'https://nav.no/rettogplikt',
-    'lifeChange.rightsInfoLinkText': 'nav.no/rettogplikt',
+    changeInLivingSituation: 'endring i bo/familiesituasjon',
+    changeAddressOrMoveAbroad: 'flytting eller opphold i et annet land over tid',
+    childrenOver18MustNotify: 'Barn over 18 år som mottar barnepensjon må i tillegg gi beskjed om endring:',
+    changeInEduation: 'i utdanningssituasjon',
+    changedIncome: 'av arbeidsinntekt',
+    moreAboutRightsAndDuties: 'Les mer om rettigheter og plikter på',
+    moreAboutRightsAndDutiesLinkHref: 'https://nav.no/rettogplikt',
+    moreAboutRightsAndDutiesLinkText: 'nav.no/rettogplikt',
     benefitsChangingTitle: 'Regelendringer på barnepensjon',
     benefitsChangingDescription1: 'Barnepensjon skal styrkes. ',
-    'benefitsChangingDescription1.link': 'De nye endringene',
-    'benefitsChangingDescription1.href': 'https://www.nav.no/barnepensjon#regel',
+    benefitsChangingDescription1_link: 'De nye endringene',
+    benefitsChangingDescription1_href: 'https://www.nav.no/barnepensjon#regel',
     benefitsChangingDescription2: 'gjelder fra tidligst 1. januar 2023.',
     viewCaseTitle: 'Sjekke status i saken?',
     viewCaseInfoContentPart1: 'Forelder eller verge kan ikke følge saken digitalt i Dine saker i',
@@ -377,7 +363,7 @@ const receipt = {
 }
 
 const aboutParents = {
-    title: 'Om foreldrene',
+    aboutParentsTitle: 'Om foreldrene',
     firstParent: 'Forelder 1',
     secondParent: 'Forelder 2',
     survivingParent: 'Gjenlevende forelder',
@@ -405,7 +391,7 @@ const yourSituation = {
     INTERNSHIP: 'Jeg har praksisplass eller er praktikant',
 }
 
-const texts = {
+const texts: Record<TNamespace, Record<TKey, Translation>> = {
     aboutChildren,
     aboutTheDeceased,
     aboutYou,

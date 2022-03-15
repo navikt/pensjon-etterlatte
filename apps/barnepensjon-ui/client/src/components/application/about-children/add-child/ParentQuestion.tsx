@@ -21,11 +21,11 @@ export const ParentQuestion = ({ isChild, isGuardian, t, watch }: Props) => {
 
     const bothParentsText = (): String => {
         if (isGuardian || isChild) {
-            return t('bothParents.guardianOrChild', {
+            return t('childBelongsToParents', {
                 forelder1: getParentText(application.firstParent!),
                 forelder2: getParentText(application.secondParent!),
             })
-        } else return t('bothParents.parent')
+        } else return t('youAndDeceasedAreTheParents')
     }
 
     const getParentText = (parent: IParent): string => {
@@ -41,7 +41,7 @@ export const ParentQuestion = ({ isChild, isGuardian, t, watch }: Props) => {
             {bothParents === JaNeiVetIkke.NEI && (
                 <Panel border>
                     <Alert inline={true} variant={'error'}>
-                        <BodyLong>{t('childrensPension.info')}</BodyLong>
+                        <BodyLong>{t('onlyJointChildrenNecessary')}</BodyLong>
                     </Alert>
                 </Panel>
             )}

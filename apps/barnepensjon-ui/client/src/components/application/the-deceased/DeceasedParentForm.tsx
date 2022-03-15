@@ -34,8 +34,8 @@ export default function DeceaseParentForm() {
             </FormGroup>
 
             <FormGroup>
-                <Heading size="small">{t('abroadStays.title')}</Heading>
-                <BodyLong>{t('abroadStays.ingress')}</BodyLong>
+                <Heading size="small">{t('abroadStaysTitle')}</Heading>
+                <BodyLong>{t('workOrLivingAbroadCanAffectPension')}</BodyLong>
                 <FormElement>
                     <RHFGeneralQuestionRadio
                         name={'abroadStays.hasStaysAbroad'}
@@ -61,7 +61,7 @@ export default function DeceaseParentForm() {
 
             <FormGroup>
                 {/* Næringsinntekt og militærtjeneste er kun relevant dersom begge foreldrene er døde. */}
-                <Heading size="small">{t('other.title')}</Heading>
+                <Heading size="small">{t('otherTitle')}</Heading>
 
                 <FormElement>
                     <RHFGeneralQuestionRadio
@@ -76,7 +76,7 @@ export default function DeceaseParentForm() {
                         name={'militaryService.completed'}
                         legend={t('militaryService.completed')}
                         vetIkke={true}
-                        description={<WhyWeAsk title="militaryService">{t('militaryService.why')}</WhyWeAsk>}
+                        description={<WhyWeAsk title="militaryService">{t('militaryService_why')}</WhyWeAsk>}
                     />
                 </FormElement>
 

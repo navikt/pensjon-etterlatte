@@ -76,7 +76,7 @@ export default function AboutYou({ next }: StepProps) {
                                         <RHFTelefonInput
                                             bredde={'S'}
                                             name={'phoneNumber'}
-                                            label={t('phoneNumber')}
+                                            label={t('phoneNumber', { ns: 'common' })}
                                             valgfri={true}
                                         />
                                     </FormElement>
@@ -86,9 +86,7 @@ export default function AboutYou({ next }: StepProps) {
                     </FormGroup>
 
                     {/* 2.7 */}
-                    {!user.adressebeskyttelse && isChild && (
-                        <PaymentDetails watch={watch} />
-                    )}
+                    {!user.adressebeskyttelse && isChild && <PaymentDetails watch={watch} />}
 
                     <ErrorSummaryWrapper errors={errors} />
 
