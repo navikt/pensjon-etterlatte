@@ -1,7 +1,6 @@
 import { Alert, BodyLong, Link } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
-import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'
 import { IDeceasedParent, ILivingParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { useUserContext } from '../../../context/user/UserContext'
@@ -35,8 +34,7 @@ export default function Summary({ prev }: StepProps) {
     const [error] = useState(false)
 
     const send = () => {
-        const innsendtSoeknad = mapTilBarnepensjonSoeknadListe(t, application, user)
-
+        // const innsendtSoeknad = mapTilBarnepensjonSoeknadListe(t, application, user)
         // TODO: Map to InnsendSoeknad and send to backend
         /*
         sendApplication({})
