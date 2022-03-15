@@ -1,7 +1,7 @@
 import { StepProps } from '../Dialogue'
 import Navigation from '../../common/Navigation'
 import { FormProvider, useForm } from 'react-hook-form'
-import { IDeceasedParent } from '../../../context/application/application'
+import { ActionTypes, IDeceasedParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
@@ -18,7 +18,8 @@ export default function DeceasedParent({ next, prev, type }: StepProps) {
     }
 
     const methods = useForm<any>({
-        defaultValues: { ...state.secondParent } || {},
+        defaultValues:
+            type === ActionTypes.UPDATE_FIRST_PARENT ? { ...state.firstParent } : { ...state.secondParent } || {},
         shouldUnregister: true,
     })
 
