@@ -2,7 +2,7 @@ import AboutYou from '../components/application/about-you/AboutYou'
 import AboutChildren from '../components/application/about-children/AboutChildren'
 import Summary from '../components/application/summary/Summary'
 import AboutParents from '../components/application/about-parents/AboutParents'
-import AboutTheDeceased from '../components/application/the-deceased/AboutTheDeceased'
+import AboutTheDeceasedParentStep from '../components/application/the-deceased/AboutTheDeceasedParentStep'
 import YourSituation from '../components/application/your-situation/YourSituation'
 
 export interface StepType {
@@ -25,7 +25,7 @@ export const ParentApplicantSteps: StepType[] = [
     {
         label: 'Om den avdøde',
         path: 'steg/om-avdoede',
-        element: AboutTheDeceased,
+        element: AboutTheDeceasedParentStep,
     },
     {
         label: 'Opplysninger om barna',
