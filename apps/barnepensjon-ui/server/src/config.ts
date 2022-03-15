@@ -16,6 +16,7 @@ const testJwk = JSON.stringify({
 const env = {
     isProduction: process.env.NODE_ENV === 'production',
     isProdCluster: process.env.NAIS_CLUSTER_NAME === 'prod-gcp',
+    isLabsCluster: process.env.NAIS_CLUSTER_NAME === 'labs-gcp',
 }
 
 const app = {
