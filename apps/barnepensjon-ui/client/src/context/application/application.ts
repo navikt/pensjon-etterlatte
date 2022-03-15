@@ -77,6 +77,10 @@ export interface IDeceasedParent extends IParent {
         wasSelfEmployed: JaNeiVetIkke
         income?: String
         incomeAtDeath?: JaNeiVetIkke
+        selfEmplymentDetails: {
+            income?: String
+            incomeAtDeath?: JaNeiVetIkke
+        }
     }
     occupationalInjury?: JaNeiVetIkke
     militaryService?: {

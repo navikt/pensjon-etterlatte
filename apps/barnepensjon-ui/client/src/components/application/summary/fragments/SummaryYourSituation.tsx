@@ -12,8 +12,6 @@ export const SummaryYourSituation = memo(
     ({ yourSituation, pathPrefix }: { yourSituation: ISituationChild; pathPrefix: string }) => {
         const { t } = useTranslation('yourSituation')
 
-        console.log(yourSituation)
-
         return (
             <>
                 {!isEmpty(yourSituation) && (

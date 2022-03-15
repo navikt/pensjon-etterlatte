@@ -1,7 +1,8 @@
 import { Alert, BodyLong, Link } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
-import { IDeceasedParent } from '../../../context/application/application'
+import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'
+import { IDeceasedParent, ILivingParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { useUserContext } from '../../../context/user/UserContext'
 import useTranslation from '../../../hooks/useTranslation'
@@ -9,10 +10,10 @@ import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'
-import { ApplicantRole } from '../scenario/ScenarioSelection'
+import { ApplicantRole, ApplicantSituation } from '../scenario/ScenarioSelection'
 import { SummaryAboutChildren } from './fragments/SummaryAboutChildren'
-import { SummaryAboutParent } from './fragments/SummaryAboutParent'
+import { SummaryAboutDeceasedParent } from './fragments/SummaryAboutDeceasedParent'
+import { SummaryAboutLivingParent } from './fragments/SummaryAboutLivingParent'
 import { SummeryAboutYou } from './fragments/SummaryAboutYou'
 import { SummaryYourSituation } from './fragments/SummaryYourSituation'
 
@@ -35,8 +36,6 @@ export default function Summary({ prev }: StepProps) {
 
     const send = () => {
         const innsendtSoeknad = mapTilBarnepensjonSoeknadListe(t, application, user)
-
-        console.log(innsendtSoeknad)
 
         // TODO: Map to InnsendSoeknad and send to backend
         /*
@@ -76,16 +75,21 @@ export default function Summary({ prev }: StepProps) {
                     />
                 )}
 
-                {!isEmpty(application.firstParent) && application.firstParent && (
-                    <SummaryAboutParent
-                        aboutTheParent={application.firstParent as IDeceasedParent}
-                        typeOfParent={application.applicant?.applicantSituation}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                    />
-                )}
+                {!isEmpty(application.firstParent) &&
+                    (application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED ? (
+                        <SummaryAboutLivingParent
+                            aboutTheParent={application.firstParent as ILivingParent}
+                            pathPrefix={pathPrefix(application?.applicant)}
+                        />
+                    ) : (
+                        <SummaryAboutDeceasedParent
+                            aboutTheParent={application.firstParent as IDeceasedParent}
+                            pathPrefix={pathPrefix(application?.applicant)}
+                        />
+                    ))}
 
-                {!isEmpty(application.secondParent) && application.secondParent && (
-                    <SummaryAboutParent
+                {!isEmpty(application.secondParent) && (
+                    <SummaryAboutDeceasedParent
                         aboutTheParent={application.secondParent as IDeceasedParent}
                         pathPrefix={pathPrefix(application?.applicant)}
                     />

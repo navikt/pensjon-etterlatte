@@ -159,6 +159,7 @@ const livingParent = {
     who: 'Oppgi informasjon om den gjenlevende forelderen.',
     address: 'Adresse',
     phoneNumberOptional: 'Telefonnummer (valgfri)',
+    'changeAnswerSummary.om-foreldrene': 'Endre svar om foreldre',
 }
 
 const aboutTheDeceased = {
