@@ -35,7 +35,6 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
         }
         case ActionTypes.UPDATE_APPLICANT: {
             return {
-                ...state,
                 applicant: {
                     ...state.applicant,
                     ...action.payload,
