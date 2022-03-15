@@ -29,6 +29,7 @@ export enum ActionTypes {
     UPDATE_SECOND_PARENT,
     UPDATE_YOUR_SITUATION,
     RESET,
+    CLOSE_CONTINUE_MODAL,
 }
 
 export interface IApplicationAction {
@@ -44,6 +45,8 @@ export interface ApplicationProps {
 export interface IApplicationMeta {
     readyForSaving?: boolean
     savedTimestamp?: Date
+    showContinueModal?: boolean
+    currentPath?: string
 }
 
 export interface IApplicant {
@@ -58,10 +61,12 @@ export interface IParent {
     fnrDnr: String
     citizenship: String
 }
+
 export interface ILivingParent extends IParent {
     address: String
     phoneNumber?: String
 }
+
 export interface IDeceasedParent extends IParent {
     dateOfDeath: Date
     abroadStays: {

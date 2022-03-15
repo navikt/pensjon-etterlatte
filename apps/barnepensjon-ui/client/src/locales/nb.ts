@@ -428,6 +428,12 @@ const yourSituation = {
     'changeAnswerSummary.din-situasjon': 'Endre svar om din situasjon',
 }
 
+const continueApplicationModal = {
+    doYouWantToContinueWithTheApplication: 'Ønsker du å fortsette utfyllingen av påbegynt søknad?',
+    yesContinueWithApplication: 'Ja, jeg vil fortsette der jeg slapp',
+    noRestartApplication: 'Nei, start på nytt',
+}
+
 const texts: Record<TNamespace, Record<TKey, Translation>> = {
     aboutChildren,
     aboutTheDeceased,
@@ -448,6 +454,7 @@ const texts: Record<TNamespace, Record<TKey, Translation>> = {
     summary,
     receipt,
     yourSituation,
+    continueApplicationModal,
 }
 
 export default texts

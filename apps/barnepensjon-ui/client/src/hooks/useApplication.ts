@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useUserContext } from '../context/user/UserContext'
 import { useApplicationContext } from '../context/application/ApplicationContext'
 import { useEffect, useState } from 'react'
@@ -7,6 +7,7 @@ import { ActionTypes, IApplication } from '../context/application/application'
 
 export default function useApplication() {
     const navigate = useNavigate()
+    const location = useLocation()
 
     const { state: user } = useUserContext()
     const { state, dispatch } = useApplicationContext()
@@ -42,8 +43,16 @@ export default function useApplication() {
         if (state?.meta?.readyForSaving) {
             const now = new Date()
 
-            saveDraft({ ...state, meta: { ...state.meta, savedTimestamp: now, readyForSaving: undefined } })
-                .then(() => dispatch({ type: ActionTypes.SAVE_APPLICATION, payload: now }))
+            saveDraft({
+                ...state,
+                meta: { ...state.meta, savedTimestamp: now, readyForSaving: undefined, currentPath: location.pathname },
+            })
+                .then(() =>
+                    dispatch({
+                        type: ActionTypes.SAVE_APPLICATION,
+                        payload: { now: now, currentPath: location.pathname },
+                    })
+                )
                 .catch(() => {
                     // TODO: Handle exception
                 })

@@ -23,13 +23,21 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
         case ActionTypes.RESET:
             return initialState
         case ActionTypes.SET_APPLICATION:
-            return action.payload
+            return {
+                ...action.payload,
+                meta: {
+                    ...action.payload.meta,
+                    showContinueModal: true,
+                },
+            }
         case ActionTypes.SAVE_APPLICATION: {
             return {
                 ...state,
                 meta: {
                     ...state.meta,
                     readyForSaving: false,
+                    currentPath: action.payload.currentPath,
+                    savedTimestamp: action.payload.now,
                 },
             }
         }
@@ -89,6 +97,15 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
                 meta: {
                     ...state.meta,
                     readyForSaving: true,
+                },
+            }
+        }
+        case ActionTypes.CLOSE_CONTINUE_MODAL: {
+            return {
+                ...state,
+                meta: {
+                    ...state.meta,
+                    showContinueModal: false,
                 },
             }
         }
