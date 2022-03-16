@@ -17,6 +17,7 @@ import useLoggedInUser from './hooks/useLoggedInUser'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
 import useScrollToTop from './hooks/useScrollToTop'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
+import useTranslation from './hooks/useTranslation'
 
 Modal.setAppElement!!('#root')
 
@@ -50,15 +51,16 @@ const SoeknadWrapper = styled(ContentContainer)`
 
 export default function App() {
     const isLoading = useApplication()
+    const { t } = useTranslation('app')
 
     useLoggedInUser()
     useScrollToTop()
 
     return (
         <>
-            <Banner tekst={'Søknad om barnepensjon'} />
+            <Banner tekst={t('applicationTitle')} />
 
-            <SpinnerOverlay visible={isLoading} label={'Henter søknadsinformasjon ...'} />
+            <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
             <ContinueApplicationModal />
 
             <SoeknadWrapper>

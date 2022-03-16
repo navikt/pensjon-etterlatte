@@ -84,7 +84,7 @@ export default function ScenarioSelection() {
             {[ApplicantRole.GUARDIAN, ApplicantRole.CHILD].includes(selectedRole) && (
                 <FormGroup>
                     <RHFRadio
-                        legend={'Hva er gjeldende for situasjonen?'}
+                        legend={t('additionalSituationDetails')}
                         name={'applicantSituation'}
                         radios={[
                             {

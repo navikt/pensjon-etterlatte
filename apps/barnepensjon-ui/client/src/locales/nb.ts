@@ -1,5 +1,10 @@
 import { TKey, TNamespace, Translation } from '../context/language/translations'
 
+const app = {
+    applicationTitle: 'Søknad om barnepensjon',
+    fetchingApplicationDetails: 'Henter søknadsinformasjon ...',
+}
+
 const common = {
     firstName: 'Fornavn',
     lastName: 'Etternavn',
@@ -112,6 +117,7 @@ const frontPage = {
 const selectScenario = {
     selectSituationToContinue: 'Velg situasjon for å gå videre med søknaden',
     whoIsApplying: 'Hvem søker om barnepensjon?',
+    additionalSituationDetails: 'Hva er gjeldende for situasjonen?',
     PARENT: 'Jeg søker på vegne av mitt/mine barn',
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
     CHILD: 'Jeg er fylt 18 år og søker på vegne av meg selv',
@@ -391,6 +397,7 @@ const continueApplicationModal = {
 }
 
 const texts: Record<TNamespace, Record<TKey, Translation>> = {
+    app,
     aboutChildren,
     aboutTheDeceased,
     aboutYou,

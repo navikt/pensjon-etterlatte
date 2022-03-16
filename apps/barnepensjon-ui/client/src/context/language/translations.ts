@@ -1,4 +1,5 @@
 export type Namespace =
+    | 'app'
     | 'frontPage'
     | 'selectScenario'
     | 'aboutYou'
