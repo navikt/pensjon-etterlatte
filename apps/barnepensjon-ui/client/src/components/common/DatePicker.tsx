@@ -36,6 +36,7 @@ const isValid = (date: any): boolean => !!parseDate(date)
 
 const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, className }: DatepickerProps) => {
     const { t } = useTranslation('common')
+    const { t: tError } = useTranslation('error')
     const { language } = useLanguageContext()
 
     const {
@@ -44,7 +45,7 @@ const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, class
     } = useFormContext()
 
     const error: FieldError = get(errors, name)
-    const errorMessage = !!error ? t(getErrorKey(error)) : undefined
+    const errorMessage = !!error ? tError(getErrorKey(error)) : undefined
 
     return (
         <section className={`skjemaelement ${className}`}>

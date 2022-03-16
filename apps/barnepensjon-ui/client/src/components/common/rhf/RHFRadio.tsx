@@ -102,7 +102,7 @@ interface RHFRadioProps extends Omit<RadioPanelGruppeProps, 'onChange'> {
 }
 
 export function RHFRadio({ name, legend, description, radios, rules, ...rest }: RHFRadioProps) {
-    const { t } = useTranslation('radiobuttons')
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
