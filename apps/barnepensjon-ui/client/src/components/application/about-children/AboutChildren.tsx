@@ -1,5 +1,5 @@
 import { Alert, BodyShort, Button, Modal, Panel } from '@navikt/ds-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import styled from 'styled-components'
 import { v4 as uuid } from 'uuid'
@@ -45,9 +45,18 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
     const methods = useForm<IAboutChild>({
         defaultValues: state.aboutChildren || {},
+        mode: 'onBlur',
     })
-
-    const { watch, getValues, clearErrors } = methods
+    const { watch, getValues, clearErrors, setValue } = methods
+    const { fields, append, update, remove } = useFieldArray({
+        name: 'child',
+        control: methods.control,
+    })
+    useEffect(() => {
+        if (state.aboutChildren?.child) {
+            setValue('child', state.aboutChildren.child)
+        }
+    }, [state.aboutChildren?.child])
 
     const isValidated = state.aboutChildren?.erValidert
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
@@ -61,11 +70,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
         fnr.splice(activeChildIndex, 1)
         return fnr
     }
-
-    const { fields, append, update, remove } = useFieldArray({
-        name: 'child',
-        control: methods.control,
-    })
 
     const addNewChild = () => {
         append({})
@@ -105,88 +109,84 @@ export default function AboutChildren({ next, prev }: StepProps) {
     return (
         <AboutChildrenWrapper>
             <FormProvider {...methods}>
-                <form>
-                    {activeChildIndex === undefined && (
-                        <>
-                            <StepHeading>{!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}</StepHeading>
+                {activeChildIndex === undefined && (
+                    <>
+                        <StepHeading>{!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}</StepHeading>
 
-                            <FormGroup>
-                                <Panel border>
-                                    <Alert variant={'info'} className={'navds-alert--inline'}>
-                                        <BodyShort size={'small'}>
-                                            {!isChild ? t('information') : t('infoRegardingSiblings')}
-                                        </BodyShort>
-                                    </Alert>
-                                </Panel>
-                            </FormGroup>
+                        <FormGroup>
+                            <Panel border>
+                                <Alert variant={'info'} className={'navds-alert--inline'}>
+                                    <BodyShort size={'small'}>
+                                        {!isChild ? t('information') : t('infoRegardingSiblings')}
+                                    </BodyShort>
+                                </Alert>
+                            </Panel>
+                        </FormGroup>
 
-                            <FormGroup>
-                                <InfocardWrapper>
-                                    {fields?.map((field: FieldArrayWithId, index: number) => (
-                                        <ChildInfocard
-                                            key={uuid()}
-                                            child={field as IChild}
-                                            index={index}
-                                            remove={remove}
-                                            setActiveChildIndex={() => setActiveChildIndex(index)}
-                                        />
-                                    ))}
+                        <FormGroup>
+                            <InfocardWrapper>
+                                {fields?.map((field: FieldArrayWithId, index: number) => (
+                                    <ChildInfocard
+                                        key={uuid()}
+                                        child={field as IChild}
+                                        index={index}
+                                        remove={remove}
+                                        setActiveChildIndex={() => setActiveChildIndex(index)}
+                                    />
+                                ))}
 
-                                    <Infocard>
-                                        <InfocardHeader>
-                                            <img alt="barn" className="barneikon" src={ikon} />
-                                        </InfocardHeader>
-                                        <InformationBox>
-                                            <Button variant={'primary'} type={'button'} onClick={addNewChild}>
-                                                {!isChild ? t('addChildButton') : t('addSiblingButton')}
-                                            </Button>
-                                            {isChild && (
-                                                <BodyShort size={'small'} className={'center mute'}>
-                                                    {t('thisIsOptional')}
-                                                </BodyShort>
-                                            )}
-                                        </InformationBox>
-                                    </Infocard>
-                                </InfocardWrapper>
-                            </FormGroup>
+                                <Infocard>
+                                    <InfocardHeader>
+                                        <img alt="barn" className="barneikon" src={ikon} />
+                                    </InfocardHeader>
+                                    <InformationBox>
+                                        <Button variant={'primary'} type={'button'} onClick={addNewChild}>
+                                            {!isChild ? t('addChildButton') : t('addSiblingButton')}
+                                        </Button>
+                                        {isChild && (
+                                            <BodyShort size={'small'} className={'center mute'}>
+                                                {t('thisIsOptional')}
+                                            </BodyShort>
+                                        )}
+                                    </InformationBox>
+                                </Infocard>
+                            </InfocardWrapper>
+                        </FormGroup>
 
-                            {/* Ensure at least one child is applying for childrens pension */}
-                            <FormGroup>
-                                <RHFInput
-                                    hidden={true}
-                                    name={'child'}
-                                    valgfri={isChild}
-                                    rules={{
-                                        validate: (value: IChild[]) =>
-                                            isChild || !!value.filter((v) => v.childrensPension?.applies).length,
-                                    }}
-                                />
-                            </FormGroup>
-
-                            <Navigation
-                                left={{
-                                    onClick:
-                                        isValidated === true
-                                            ? handleSubmit(savePrevious)
-                                            : savePreviousWithoutValidation,
+                        {/* Ensure at least one child is applying for childrens pension */}
+                        <FormGroup>
+                            <RHFInput
+                                hidden={true}
+                                name={'child'}
+                                valgfri={isChild}
+                                rules={{
+                                    validate: (value: IChild[]) =>
+                                        isChild || !!value.filter((v) => v.childrensPension?.applies).length,
                                 }}
-                                right={{ onClick: handleSubmit(saveNext) }}
                             />
-                        </>
-                    )}
+                        </FormGroup>
 
-                    {activeChildIndex !== undefined && (
-                        <AddChildToForm
-                            save={updateChild}
-                            cancel={() => setActiveChildIndex(undefined)}
-                            fnrRegisteredChild={fnrRegisteredChild(activeChildIndex)}
-                            child={fields[activeChildIndex] as IChild}
-                            removeCanceledNewChild={removeNewChild}
-                            isChild={isChild}
-                            isGuardian={isGuardian}
+                        <Navigation
+                            left={{
+                                onClick:
+                                    isValidated === true ? handleSubmit(savePrevious) : savePreviousWithoutValidation,
+                            }}
+                            right={{ onClick: handleSubmit(saveNext) }}
                         />
-                    )}
-                </form>
+                    </>
+                )}
+
+                {activeChildIndex !== undefined && (
+                    <AddChildToForm
+                        save={updateChild}
+                        cancel={() => setActiveChildIndex(undefined)}
+                        fnrRegisteredChild={fnrRegisteredChild(activeChildIndex)}
+                        child={fields[activeChildIndex] as IChild}
+                        removeCanceledNewChild={removeNewChild}
+                        isChild={isChild}
+                        isGuardian={isGuardian}
+                    />
+                )}
             </FormProvider>
         </AboutChildrenWrapper>
     )
