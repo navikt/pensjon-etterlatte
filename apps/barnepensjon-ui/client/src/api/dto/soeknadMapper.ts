@@ -10,7 +10,7 @@ import { hentForeldre, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 
 export const mapTilBarnepensjonSoeknadListe = (t: TFunction, application: IApplication, user: User): Barnepensjon[] => {
     return application
-        .aboutChildren!!.child!!.filter((barnet) => barnet.childrensPension?.applies === JaNeiVetIkke.JA)
+        .aboutChildren!!.child!!.filter((barnet) => !!barnet.childrensPension?.applies)
         .map((barnet) => mapTilBarnepensjonSoeknad(t, barnet, application, user))
 }
 

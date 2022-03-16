@@ -30,7 +30,6 @@ const Hjelpetekst = ({ children }: PropsWithChildren<React.InputHTMLAttributes<H
                 ref={ref}
                 data-testid="hjelpetekst-button"
                 variant={'secondary'}
-                className={'hvorforPanel__toggle'}
                 onClick={() => setOpen(!open)}
                 type={'button'}
                 aria-haspopup="dialog"

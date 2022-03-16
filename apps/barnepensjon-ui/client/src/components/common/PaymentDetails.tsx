@@ -113,7 +113,7 @@ export default function PaymentDetails({
                     </FormElement>
                     <FormElement>
                         <Panel border>
-                            <Alert variant={'info'} className={'navds-alert--inline'}>
+                            <Alert variant={'info'} inline>
                                 <BodyShort size={'small'}>{t('taxWithhold.info')}</BodyShort>
                             </Alert>
                         </Panel>

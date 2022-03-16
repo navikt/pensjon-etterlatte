@@ -39,7 +39,7 @@ export default function SystemUnavailable() {
             </FormGroup>
 
             <FormGroup>
-                <section className={'navigasjon-rad'}>
+                <section>
                     <Button variant={'primary'} onClick={retry}>
                         {t('retryButton')}
                     </Button>

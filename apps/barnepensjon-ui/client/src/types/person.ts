@@ -47,7 +47,7 @@ export interface IChild {
         address?: string
     }
     childrensPension?: {
-        applies?: JaNeiVetIkke.JA | undefined
+        applies?: boolean
         paymentDetails?: IPaymentDetails
     }
 }

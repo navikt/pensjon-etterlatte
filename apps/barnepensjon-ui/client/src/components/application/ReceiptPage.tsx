@@ -7,7 +7,7 @@ export default function ReceiptPage() {
     const { t } = useTranslation('receipt')
 
     return (
-        <div className={'forside'}>
+        <>
             <FormGroup>
                 <NavGuide>{t('thankYou')}</NavGuide>
             </FormGroup>
@@ -84,7 +84,7 @@ export default function ReceiptPage() {
             </FormGroup>
 
             <FormGroup>
-                <section className={'navigasjon-rad'}>
+                <section>
                     <Button
                         variant={'primary'}
                         type={'button'}
@@ -94,6 +94,6 @@ export default function ReceiptPage() {
                     </Button>
                 </section>
             </FormGroup>
-        </div>
+        </>
     )
 }

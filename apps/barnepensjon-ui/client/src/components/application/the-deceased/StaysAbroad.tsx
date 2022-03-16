@@ -43,8 +43,8 @@ export default function StaysAbroad({ countries }: { countries: any }) {
     return (
         <>
             {fields.map((field: FieldArrayWithId, index: number) => (
-                <FormElement>
-                    <Panel border key={field.id}>
+                <FormElement key={field.id}>
+                    <Panel border>
                         <Grid>
                             <Cell xs={12} md={6}>
                                 <RHFSelect

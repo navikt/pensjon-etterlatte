@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Button, Modal, Panel } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, Panel } from '@navikt/ds-react'
 import { useEffect, useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import styled from 'styled-components'
@@ -35,8 +35,6 @@ const InfocardWrapper = styled.div`
     column-gap: 1rem;
 `
 
-if (process.env.NODE_ENV !== 'test') Modal.setAppElement!!('#root') //Denne er også definert i Navigasjon. Trenger vi den?
-
 export default function AboutChildren({ next, prev }: StepProps) {
     const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)
 
@@ -58,7 +56,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
         }
     }, [state.aboutChildren?.child, setValue])
 
-    const isValidated = state.aboutChildren?.erValidert
+    const isValidated = !!state.aboutChildren?.erValidert
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
     const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
     const registeredChild = watch('child')
@@ -109,13 +107,13 @@ export default function AboutChildren({ next, prev }: StepProps) {
     return (
         <AboutChildrenWrapper>
             <FormProvider {...methods}>
-                {activeChildIndex === undefined && (
+                {!activeChildIndex && (
                     <>
                         <StepHeading>{!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}</StepHeading>
 
                         <FormGroup>
                             <Panel border>
-                                <Alert variant={'info'} className={'navds-alert--inline'}>
+                                <Alert variant={'info'} inline>
                                     <BodyShort size={'small'}>
                                         {!isChild ? t('information') : t('infoRegardingSiblings')}
                                     </BodyShort>
@@ -137,7 +135,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
                                 <Infocard>
                                     <InfocardHeader>
-                                        <img alt="barn" className="barneikon" src={ikon} />
+                                        <img alt="barn" src={ikon} />
                                     </InfocardHeader>
                                     <InformationBox>
                                         <Button variant={'primary'} type={'button'} onClick={addNewChild}>
@@ -161,22 +159,21 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                 valgfri={isChild}
                                 rules={{
                                     validate: (value: IChild[]) =>
-                                        isChild || !!value.filter((v) => v.childrensPension?.applies).length,
+                                        isChild || !!value.filter((v) => !!v.childrensPension?.applies).length,
                                 }}
                             />
                         </FormGroup>
 
                         <Navigation
                             left={{
-                                onClick:
-                                    isValidated === true ? handleSubmit(savePrevious) : savePreviousWithoutValidation,
+                                onClick: isValidated ? handleSubmit(savePrevious) : savePreviousWithoutValidation,
                             }}
                             right={{ onClick: handleSubmit(saveNext) }}
                         />
                     </>
                 )}
 
-                {activeChildIndex !== undefined && (
+                {!!activeChildIndex && (
                     <AddChildToForm
                         save={updateChild}
                         cancel={() => setActiveChildIndex(undefined)}

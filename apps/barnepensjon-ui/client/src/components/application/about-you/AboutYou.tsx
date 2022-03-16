@@ -71,7 +71,7 @@ export default function AboutYou({ next }: StepProps) {
 
                         {!!user.foedselsnummer && !user.telefonnummer && (
                             <Grid>
-                                <Cell xs={12} md={6} className={'kol'}>
+                                <Cell xs={12} md={6}>
                                     <FormElement>
                                         <RHFTelefonInput
                                             bredde={'S'}
