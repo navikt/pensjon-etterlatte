@@ -56,7 +56,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
         if (state.aboutChildren?.child) {
             setValue('child', state.aboutChildren.child)
         }
-    }, [state.aboutChildren?.child])
+    }, [state.aboutChildren?.child, setValue])
 
     const isValidated = state.aboutChildren?.erValidert
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
