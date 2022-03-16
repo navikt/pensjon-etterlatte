@@ -1,19 +1,20 @@
 import { BankkontoType, JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/FellesOpplysninger'
 import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
-import { IAboutChild, IAboutYou } from '../../types/person'
+import { IAboutChildren, IAboutYou } from '../../types/person'
 import { ISituationChild } from '../../types/situation'
 
 export const emptyApplication: IApplication = {
     aboutYou: { paymentDetails: { accountType: BankkontoType.NORSK } },
 }
+
 export interface IApplication {
     meta?: IApplicationMeta
     applicant?: IApplicant
-    aboutChildren?: IAboutChild
     aboutYou: IAboutYou
+    yourSituation?: ISituationChild
     firstParent?: IParent | IDeceasedParent
     secondParent?: IParent | IDeceasedParent
-    yourSituation?: ISituationChild
+    aboutChildren?: IAboutChildren
 }
 
 export enum ActionTypes {

@@ -7,7 +7,7 @@ import ikon from '../../../assets/barn1.svg'
 import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
-import { IAboutChild, IChild } from '../../../types/person'
+import { IAboutChildren, IChild } from '../../../types/person'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
@@ -41,27 +41,27 @@ export default function AboutChildren({ next, prev }: StepProps) {
     const { t } = useTranslation('aboutChildren')
     const { state, dispatch } = useApplicationContext()
 
-    const methods = useForm<IAboutChild>({
+    const methods = useForm<IAboutChildren>({
         defaultValues: state.aboutChildren || {},
         mode: 'onBlur',
     })
     const { watch, getValues, clearErrors, setValue } = methods
     const { fields, append, update, remove } = useFieldArray({
-        name: 'child',
+        name: 'children',
         control: methods.control,
     })
     useEffect(() => {
-        if (state.aboutChildren?.child) {
-            setValue('child', state.aboutChildren.child)
+        if (state.aboutChildren?.children) {
+            setValue('children', state.aboutChildren.children)
         }
-    }, [state.aboutChildren?.child, setValue])
+    }, [state.aboutChildren?.children, setValue])
 
     const isValidated = !!state.aboutChildren?.erValidert
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
     const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
-    const registeredChild = watch('child')
+    const registeredChildren = watch('children')
 
-    const getFnrRegisteredChild = (): string[] => registeredChild?.map((child) => child?.fnrDnr || '') || []
+    const getFnrRegisteredChild = (): string[] => registeredChildren?.map((child) => child?.fnrDnr || '') || []
 
     const fnrRegisteredChild = (activeChildIndex: number): string[] => {
         const fnr = getFnrRegisteredChild()
@@ -86,12 +86,12 @@ export default function AboutChildren({ next, prev }: StepProps) {
         setActiveChildIndex(undefined)
     }
 
-    const saveNext = (data: IAboutChild) => {
+    const saveNext = (data: IAboutChildren) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...data, erValidert: true } })
         next!!()
     }
 
-    const savePrevious = (data: IAboutChild) => {
+    const savePrevious = (data: IAboutChildren) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...data, erValidert: true } })
         prev!!()
     }
@@ -107,7 +107,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
     return (
         <AboutChildrenWrapper>
             <FormProvider {...methods}>
-                {!activeChildIndex && (
+                {activeChildIndex === undefined && (
                     <>
                         <StepHeading>{!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}</StepHeading>
 
@@ -155,11 +155,12 @@ export default function AboutChildren({ next, prev }: StepProps) {
                         <FormGroup>
                             <RHFInput
                                 hidden={true}
-                                name={'child'}
+                                name={'children'}
                                 valgfri={isChild}
                                 rules={{
-                                    validate: (value: IChild[]) =>
-                                        isChild || !!value.filter((v) => !!v.childrensPension?.applies).length,
+                                    validate: (children: IChild[]) =>
+                                        isChild ||
+                                        !!children.filter((child) => !!child.appliesForChildrensPension).length,
                                 }}
                             />
                         </FormGroup>
@@ -173,7 +174,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                     </>
                 )}
 
-                {!!activeChildIndex && (
+                {activeChildIndex !== undefined && (
                     <AddChildToForm
                         save={updateChild}
                         cancel={() => setActiveChildIndex(undefined)}

@@ -9,9 +9,11 @@ import { Language } from '../../context/language/language'
 import { hentForeldre, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 
 export const mapTilBarnepensjonSoeknadListe = (t: TFunction, application: IApplication, user: User): Barnepensjon[] => {
-    return application
-        .aboutChildren!!.child!!.filter((barnet) => !!barnet.childrensPension?.applies)
-        .map((barnet) => mapTilBarnepensjonSoeknad(t, barnet, application, user))
+    const children: IChild[] = application.aboutChildren!!.children!!
+
+    return children
+        .filter((child) => !!child.appliesForChildrensPension)
+        .map((child) => mapTilBarnepensjonSoeknad(t, child, application, user))
 }
 
 const mapTilBarnepensjonSoeknad = (
@@ -102,10 +104,10 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication): Barn =
 }
 
 const mapSoesken = (t: TFunction, child: IChild, application: IApplication): Barn[] => {
+    const allChildren: IChild[] = application.aboutChildren!!.children!!
+
     // TODO: Sjekke at dette fungerer som forventet
-    return application
-        .aboutChildren!!.child!!.filter((c: IChild) => c.fnrDnr !== child.fnrDnr)
-        .map((c: IChild) => mapBarn(t, c, application))
+    return allChildren.filter((c: IChild) => c.fnrDnr !== child.fnrDnr).map((c: IChild) => mapBarn(t, c, application))
 }
 
 const mapSamtykke = (t: TFunction, application: IApplication, user: User): Opplysning<boolean> => ({

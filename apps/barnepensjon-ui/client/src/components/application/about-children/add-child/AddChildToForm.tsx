@@ -120,7 +120,7 @@ const AddChildToForm = ({
 
     const bothParents = watch('bothParents')
     const fnr: any = watch('fnrDnr')
-    const appliesForChildrensPension: boolean | undefined = watch('childrensPension.applies')
+    const appliesForChildrensPension: boolean | undefined = watch('appliesForChildrensPension')
     const loggedInUserIsGuardian = watch('loggedInUserIsGuardian')
 
     const canApplyForChildrensPension = (): boolean => {
@@ -192,16 +192,14 @@ const AddChildToForm = ({
                                                 <FormGroup>
                                                     <Label>{t('applyForThisChild')}</Label>
                                                     <RHFConfirmationPanel
-                                                        name={'childrensPension.applies'}
+                                                        name={'appliesForChildrensPension'}
                                                         label={t('userAppliesForChildrensPension')}
                                                         valgfri={true}
                                                         size={'medium'}
                                                     />
                                                 </FormGroup>
 
-                                                {appliesForChildrensPension && (
-                                                    <PaymentDetails statePrefix={'childrensPension'} watch={watch} />
-                                                )}
+                                                {appliesForChildrensPension && <PaymentDetails />}
                                             </>
                                         )}
                                     </>

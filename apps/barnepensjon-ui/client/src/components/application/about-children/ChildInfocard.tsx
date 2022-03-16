@@ -58,7 +58,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                             : t('norway', { ns: 'common' })}
                     </BodyShort>
 
-                    {!!child.childrensPension?.applies && (
+                    {!!child.appliesForChildrensPension && (
                         <FormElement>
                             <Tag variant={'success'}>{t('childAppliedForPension')}</Tag>
                         </FormElement>

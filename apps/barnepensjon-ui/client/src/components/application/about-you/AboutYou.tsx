@@ -86,7 +86,7 @@ export default function AboutYou({ next }: StepProps) {
                     </FormGroup>
 
                     {/* 2.7 */}
-                    {!user.adressebeskyttelse && isChild && <PaymentDetails watch={watch} />}
+                    {!user.adressebeskyttelse && isChild && <PaymentDetails />}
 
                     <ErrorSummaryWrapper errors={errors} />
 
