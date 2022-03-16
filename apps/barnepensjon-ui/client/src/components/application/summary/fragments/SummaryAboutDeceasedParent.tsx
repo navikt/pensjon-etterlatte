@@ -8,6 +8,7 @@ import { StepPath } from '../../../../types/steps'
 import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
 import TextGroup from '../TextGroup'
+import TextGroupJaNeiVetIkke from '../TextGroupJaNeiVetIkke'
 import { PersonInfoSummary } from './PersonInfoSummery'
 
 export const SummaryAboutDeceasedParent = memo(
@@ -20,7 +21,7 @@ export const SummaryAboutDeceasedParent = memo(
                     <FormElement>
                         <Accordion>
                             <AccordionItem
-                                title={t('title')}
+                                title={t('singleParentTitle')}
                                 path={`/skjema/${pathPrefix}/steg/${StepPath.AboutTheParents}`}
                                 pathText={t(`changeAnswerSummary.${StepPath.AboutTheParents}`)}
                             >
@@ -32,7 +33,7 @@ export const SummaryAboutDeceasedParent = memo(
                                         citizenship={aboutTheParent.citizenship}
                                     />
                                     <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath} />
-                                    <TextGroup
+                                    <TextGroupJaNeiVetIkke
                                         title={t('didTheDeceasedLiveAbroad')}
                                         content={aboutTheParent.staysAbroad.hasStaysAbroad}
                                     />
@@ -63,7 +64,7 @@ export const SummaryAboutDeceasedParent = memo(
                                             )}
                                         </Panel>
                                     ))}
-                                    <TextGroup
+                                    <TextGroupJaNeiVetIkke
                                         title={t('wasTheDeceasedSelfEmployed')}
                                         content={aboutTheParent.selfEmplyment.wasSelfEmployed}
                                     />
@@ -79,11 +80,11 @@ export const SummaryAboutDeceasedParent = memo(
                                             content={aboutTheParent.selfEmplyment.selfEmplymentDetails.incomeAtDeath}
                                         />
                                     )}
-                                    <TextGroup
+                                    <TextGroupJaNeiVetIkke
                                         title={t('occupationalInjury')}
                                         content={aboutTheParent.occupationalInjury}
                                     />
-                                    <TextGroup
+                                    <TextGroupJaNeiVetIkke
                                         title={t('deceasedHasServedInTheMilitary')}
                                         content={aboutTheParent.militaryService?.completed}
                                     />

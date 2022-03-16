@@ -11,6 +11,7 @@ import FormElement from '../../../common/FormElement'
 import { ApplicantRole } from '../../scenario/ScenarioSelection'
 import { AccordionItem } from '../AccordionItem'
 import TextGroup from '../TextGroup'
+import TextGroupJaNeiVetIkke from '../TextGroupJaNeiVetIkke'
 import { PaymentDetailsSummary } from './PaymentDetailsSummary'
 import { PersonInfoSummary } from './PersonInfoSummery'
 
@@ -44,8 +45,6 @@ export const SummaryAboutChildren = memo(
             return `${parent.firstName} ${parent.lastName} (f. ${parent.fnrDnr.substring(0, 6)})`
         }
 
-        console.log(aboutChildren)
-
         return (
             <>
                 {!isEmpty(aboutChildren) && (
@@ -66,47 +65,54 @@ export const SummaryAboutChildren = memo(
                                                 fnrDnr={child.fnrDnr}
                                                 citizenship={child.citizenship}
                                             />
-                                            <TextGroup
-                                                title={t('staysAbroad.answer')}
+                                            <TextGroupJaNeiVetIkke
+                                                title={
+                                                    isChild
+                                                        ? t('doesTheSiblingLiveAbroad')
+                                                        : t('doesTheChildLiveAbroad')
+                                                }
                                                 content={child.staysAbroad?.answer}
                                             />
                                             {child.staysAbroad?.answer === JaNeiVetIkke.JA && (
                                                 <>
                                                     <TextGroup
-                                                        title={t('staysAbroad.country')}
+                                                        title={t('stayAbroadCountry')}
                                                         content={child.staysAbroad?.country}
                                                     />
                                                     <TextGroup
-                                                        title={t('staysAbroad.address')}
+                                                        title={t('addressAbroad')}
                                                         content={child.staysAbroad?.address}
                                                     />
                                                 </>
                                             )}
                                             {child.bothParents && (
-                                                <TextGroup title={bothParentsText()} content={child.bothParents} />
+                                                <TextGroupJaNeiVetIkke
+                                                    title={bothParentsText()}
+                                                    content={child.bothParents}
+                                                />
                                             )}
                                             {child.childHasGuardianship && (
                                                 <>
                                                     <TextGroup
-                                                        title={t('childHasGuardianship.answer')}
+                                                        title={t('childHasGuardian')}
                                                         content={child.childHasGuardianship?.answer}
                                                     />
                                                     <Panel>
                                                         {child.childHasGuardianship.firstName && (
                                                             <TextGroup
-                                                                title={t('childHasGuardianship.firstName')}
+                                                                title={t('guardianFirstName')}
                                                                 content={child.childHasGuardianship?.firstName}
                                                             />
                                                         )}
                                                         {child.childHasGuardianship.lastName && (
                                                             <TextGroup
-                                                                title={t('childHasGuardianship.lastName')}
+                                                                title={t('guardianLastName')}
                                                                 content={child.childHasGuardianship?.lastName}
                                                             />
                                                         )}
                                                         {child.childHasGuardianship.fnr && (
                                                             <TextGroup
-                                                                title={t('childHasGuardianship.fnr')}
+                                                                title={t('guardianFnr')}
                                                                 content={child.childHasGuardianship?.fnr}
                                                             />
                                                         )}

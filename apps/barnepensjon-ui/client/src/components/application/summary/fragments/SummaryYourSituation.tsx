@@ -7,6 +7,7 @@ import { StepPath } from '../../../../types/steps'
 import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
 import TextGroup from '../TextGroup'
+import TextGroupJaNeiVetIkke from '../TextGroupJaNeiVetIkke'
 
 export const SummaryYourSituation = memo(
     ({ yourSituation, pathPrefix }: { yourSituation: ISituationChild; pathPrefix: string }) => {
@@ -31,7 +32,10 @@ export const SummaryYourSituation = memo(
                                         title={t('timeUsedForEducation')}
                                         content={t(yourSituation.timeUsedForEducation as string)}
                                     />
-                                    <TextGroup title={t('doYouHaveIncome')} content={yourSituation.doYouHaveIncome} />
+                                    <TextGroupJaNeiVetIkke
+                                        title={t('doYouHaveIncome')}
+                                        content={yourSituation.doYouHaveIncome}
+                                    />
                                 </>
                             </AccordionItem>
                         </Accordion>

@@ -1,7 +1,7 @@
 import { Accordion, Heading, Panel } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { memo } from 'react'
-import { BankkontoType, JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
+import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { User } from '../../../../context/user/user'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IAboutYou } from '../../../../types/person'
@@ -9,6 +9,9 @@ import { StepPath } from '../../../../types/steps'
 import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
 import TextGroup from '../TextGroup'
+import TextGroupJaNeiVetIkke from '../TextGroupJaNeiVetIkke'
+import { PaymentDetailsSummary } from './PaymentDetailsSummary'
+import { PersonInfoSummary } from './PersonInfoSummery'
 
 export const SummeryAboutYou = memo(
     ({ aboutYou, user, pathPrefix }: { aboutYou: IAboutYou; user: User; pathPrefix: string }) => {
@@ -27,23 +30,23 @@ export const SummeryAboutYou = memo(
                                 <>
                                     <Panel>
                                         <Heading size={'small'}>{t('subtitle.personalia')}</Heading>
-                                        <TextGroup title={t('name')} content={`${user.fornavn} ${user.etternavn}`} />
-                                        <TextGroup title={t('fnr')} content={user.foedselsnummer} />
-                                        {!user.adressebeskyttelse && (
-                                            <TextGroup
-                                                title={t('address')}
-                                                content={`${user.adresse} ${user.husnummer}${user.husbokstav || ''}, ${
-                                                    user.postnummer
-                                                } ${user.poststed}`}
-                                            />
-                                        )}
-
-                                        <TextGroup title={t('citizenship')} content={user.statsborgerskap} />
+                                        <PersonInfoSummary
+                                            name={`${user.fornavn} ${user.etternavn}`}
+                                            fnrDnr={user.foedselsnummer}
+                                            citizenship={user.statsborgerskap}
+                                            address={
+                                                !user.adressebeskyttelse
+                                                    ? `${user.adresse} ${user.husnummer}${user.husbokstav || ''}, ${
+                                                          user.postnummer
+                                                      } ${user.poststed}`
+                                                    : ''
+                                            }
+                                        />
                                     </Panel>
 
                                     <Panel>
                                         <Heading size={'small'}>{t('subtitle.informationAboutApplicant')}</Heading>
-                                        <TextGroup
+                                        <TextGroupJaNeiVetIkke
                                             title={t('addressOfResidenceConfirmed')}
                                             content={aboutYou.addressOfResidenceConfirmed}
                                         />
@@ -54,49 +57,18 @@ export const SummeryAboutYou = memo(
                                             />
                                         )}
                                         {aboutYou.paymentDetails && (
-                                            <>
-                                                <TextGroup
-                                                    title={t('paymentDetails.accountType')}
-                                                    content={aboutYou.paymentDetails.accountType}
-                                                />
-                                                {aboutYou.paymentDetails.accountType === BankkontoType.UTENLANDSK && (
-                                                    <>
-                                                        <TextGroup
-                                                            title={t('paymentDetails.foreignBankName')}
-                                                            content={aboutYou.paymentDetails.foreignBankName}
-                                                        />
-                                                        <TextGroup
-                                                            title={t('paymentDetails.foreignBankAddress')}
-                                                            content={aboutYou.paymentDetails.foreignBankAddress}
-                                                        />
-                                                        <TextGroup
-                                                            title={t('paymentDetails.iban')}
-                                                            content={aboutYou.paymentDetails.iban}
-                                                        />
-                                                        <TextGroup
-                                                            title={t('paymentDetails.swift')}
-                                                            content={aboutYou.paymentDetails.swift}
-                                                        />
-                                                    </>
-                                                )}
-                                                {aboutYou.paymentDetails.accountType === BankkontoType.NORSK && (
-                                                    <TextGroup
-                                                        title={t('paymentDetails.bankAccount')}
-                                                        content={aboutYou.paymentDetails.bankAccount}
-                                                    />
-                                                )}
-
-                                                <TextGroup
-                                                    title={t('paymentDetails.taxWithhold.answer')}
-                                                    content={aboutYou.paymentDetails.taxWithhold?.answer}
-                                                />
-                                                {aboutYou.paymentDetails.taxWithhold?.answer === JaNeiVetIkke.JA && (
-                                                    <TextGroup
-                                                        title={t('paymentDetails.taxWithhold.taxPercentage')}
-                                                        content={aboutYou.paymentDetails.taxWithhold?.taxPercentage}
-                                                    />
-                                                )}
-                                            </>
+                                            <PaymentDetailsSummary
+                                                accountType={aboutYou.paymentDetails?.accountType}
+                                                bankAccount={aboutYou.paymentDetails?.bankAccount}
+                                                foreignBankName={aboutYou.paymentDetails?.foreignBankName}
+                                                foreignBankAddress={aboutYou.paymentDetails?.foreignBankAddress}
+                                                iban={aboutYou.paymentDetails?.iban}
+                                                swift={aboutYou.paymentDetails?.swift}
+                                                taxWithholdAnswer={aboutYou.paymentDetails?.taxWithhold?.answer}
+                                                taxWithholdPercentage={
+                                                    aboutYou.paymentDetails?.taxWithhold?.taxPercentage
+                                                }
+                                            />
                                         )}
                                     </Panel>
                                 </>

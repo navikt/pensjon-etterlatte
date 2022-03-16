@@ -1,6 +1,7 @@
 import { BankkontoType } from '../../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../../hooks/useTranslation'
 import TextGroup from '../TextGroup'
+import TextGroupJaNeiVetIkke from '../TextGroupJaNeiVetIkke'
 
 export const PaymentDetailsSummary = ({
     accountType,
@@ -28,9 +29,9 @@ export const PaymentDetailsSummary = ({
             )}
             {taxWithholdAnswer && (
                 <>
-                    <TextGroup title={t('taxWithhold.answer')} content={taxWithholdAnswer} />
+                    <TextGroupJaNeiVetIkke title={t('doYouWantUsToWithholdTax')} content={taxWithholdAnswer} />
                     {taxWithholdPercentage && (
-                        <TextGroup title={t('taxWithhold.taxPercentage')} content={taxWithholdPercentage} />
+                        <TextGroup title={t('desiredTaxPercentage')} content={taxWithholdPercentage} />
                     )}
                 </>
             )}
