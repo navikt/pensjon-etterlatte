@@ -109,7 +109,7 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
 
                 const utenlandsopphold: Utenlandsopphold = {
                     land: {
-                        spoersmaal: t('staysAbroad.abroadStays.country', {
+                        spoersmaal: t('abroadInWhichCountry', {
                             ns: 'aboutTheDeceased',
                         }),
                         svar: {
@@ -118,7 +118,7 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
                     },
                     fraDato: info.fromDate
                         ? {
-                              spoersmaal: t('staysAbroad.abroadStays.fromDate', {
+                              spoersmaal: t('stayedAbroadFromDate', {
                                   ns: 'aboutTheDeceased',
                               }),
                               svar: {
@@ -128,7 +128,7 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
                         : undefined,
                     tilDato: info.toDate
                         ? {
-                              spoersmaal: t('staysAbroad.abroadStays.toDate', {
+                              spoersmaal: t('stayedAbroadToDate', {
                                   ns: 'aboutTheDeceased',
                               }),
                               svar: {
@@ -137,13 +137,13 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
                           }
                         : undefined,
                     oppholdsType: {
-                        spoersmaal: t('staysAbroad.abroadStays.type', {
+                        spoersmaal: t('livedOrWorkedAbroad', {
                             ns: 'aboutTheDeceased',
                         }),
                         svar: oppholdsTypeListe,
                     },
                     medlemFolketrygd: {
-                        spoersmaal: t('staysAbroad.abroadStays.medlemFolketrygd', {
+                        spoersmaal: t('deceasedWasMemberOfFolketrygdenAbroad', {
                             ns: 'aboutTheDeceased',
                         }),
                         svar: {
@@ -152,7 +152,7 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
                         },
                     },
                     pensjonsutbetaling: {
-                        spoersmaal: t('staysAbroad.abroadStays.pensionAmount', {
+                        spoersmaal: t('pensionReceivedFromAbroad', {
                             ns: 'aboutTheDeceased',
                         }),
                         svar: {
@@ -169,13 +169,13 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
     if (parent.selfEmplyment?.wasSelfEmployed === JaNeiVetIkke.JA) {
         opplysningNaeringsInntekt = {
             naeringsinntektPrAarFoerDoedsfall: {
-                spoersmaal: t('selfEmplyment.selfEmplymentDetails.income', { ns: 'aboutTheDeceased' }),
+                spoersmaal: t('incomeFromSelfEmployymentYearBeforeDeath', { ns: 'aboutTheDeceased' }),
                 svar: {
                     innhold: `${parent.selfEmplyment?.income}`,
                 },
             },
             naeringsinntektVedDoedsfall: {
-                spoersmaal: t('selfEmplyment.selfEmplymentDetails.incomeAtDeath', { ns: 'aboutTheDeceased' }),
+                spoersmaal: t('hadIncomeFromSelfEmployment', { ns: 'aboutTheDeceased' }),
                 svar: {
                     innhold: t(parent.selfEmplyment.incomeAtDeath!!, { ns: 'radiobuttons' }),
                     verdi: parent.selfEmplyment.incomeAtDeath!!,
@@ -187,7 +187,7 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
     let opplysningMilitaertjeneste: Opplysning<FritekstSvar> | undefined
     if (parent.militaryService?.completed === JaNeiVetIkke.JA) {
         opplysningMilitaertjeneste = {
-            spoersmaal: t('militaryService.period', { ns: 'aboutTheDeceased' }),
+            spoersmaal: t('militaryServiceYears', { ns: 'aboutTheDeceased' }),
             svar: {
                 innhold: parent.militaryService?.period || '-',
             },
@@ -231,7 +231,7 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
             opplysning: oppholdUtland,
         },
         naeringsInntekt: {
-            spoersmaal: t('selfEmplyment.wasSelfEmployed', { ns: 'aboutTheDeceased' }),
+            spoersmaal: t('wasTheDeceasedSelfEmployed', { ns: 'aboutTheDeceased' }),
             svar: {
                 innhold: t(parent.selfEmplyment?.wasSelfEmployed, { ns: 'radiobuttons' }),
                 verdi: parent.selfEmplyment?.wasSelfEmployed,
@@ -239,7 +239,7 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
             opplysning: opplysningNaeringsInntekt,
         },
         militaertjeneste: {
-            spoersmaal: t('militaryService.completed', { ns: 'aboutTheDeceased' }),
+            spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
             svar: {
                 innhold: t(parent.militaryService!!.completed!!, { ns: 'radiobuttons' }),
                 verdi: parent.militaryService!!.completed!!,

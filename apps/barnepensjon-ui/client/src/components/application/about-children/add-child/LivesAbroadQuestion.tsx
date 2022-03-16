@@ -21,7 +21,7 @@ export const LivesAbroadQuestion = ({ isChild, countries, t, watch }: Props) => 
             <FormElement>
                 <RHFGeneralQuestionRadio
                     name={'staysAbroad.answer'}
-                    legend={!isChild ? t('staysAbroad.answer') : t('staysAbroad.sibling.answer')}
+                    legend={!isChild ? t('doesTheChildLiveAbroad') : t('doesTheSiblingLiveAbroad')}
                 />
             </FormElement>
 
@@ -30,13 +30,13 @@ export const LivesAbroadQuestion = ({ isChild, countries, t, watch }: Props) => 
                     <FormElement>
                         <RHFSelect
                             name={'staysAbroad.country'}
-                            label={t('staysAbroad.country')}
+                            label={t('stayAbroadCountry')}
                             selectOptions={countries}
                         />
                     </FormElement>
 
                     <FormElement>
-                        <RHFInput name={'staysAbroad.address'} label={t('staysAbroad.address')} />
+                        <RHFInput name={'staysAbroad.address'} label={t('addressAbroad')} />
                     </FormElement>
                 </>
             )}

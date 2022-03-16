@@ -55,12 +55,12 @@ const paymentDetails = {
     swift: 'Bankens S.W.I.F.T (BIC) adresse',
     swiftHelpText:
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
-    'taxWithhold.answer': 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
-    'taxWithhold.helpText':
+    doYouWantUsToWithholdTax: 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
+    childPensionIsTaxable:
         'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
-    'taxWithhold.taxPercentage': 'Oppgi ønsket skattetrekk',
-    'taxWithhold.placeholder': 'i prosent, eks. 20%',
-    'taxWithhold.info': 'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
+    desiredTaxPercentage: 'Oppgi ønsket skattetrekk',
+    desiredTaxPercentagePlaceholder: 'i prosent, eks. 20%',
+    taxWithholdMustBeSentYearly: 'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
 }
 
 const radiobuttons = {
@@ -140,17 +140,8 @@ const aboutYou = {
     residesInNorway: 'Oppholder du deg for tiden i Norge?',
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
-    'contactInfo.phoneNumber': 'Telefonnummer',
     'subtitle.personalia': 'Personalia',
     'subtitle.informationAboutApplicant': 'Opplysninger om søker',
-    'paymentDetails.accountType': paymentDetails.accountType,
-    'paymentDetails.bankAccount': paymentDetails.bankAccount,
-    'paymentDetails.foreignBankName': paymentDetails.foreignBankName,
-    'paymentDetails.foreignBankAddress': paymentDetails.foreignBankAddress,
-    'paymentDetails.iban': paymentDetails.iban,
-    'paymentDetails.swift': paymentDetails.swift,
-    'paymentDetails.taxWithhold.answer': paymentDetails['taxWithhold.answer'],
-    'paymentDetails.taxWithhold.taxPercentage': paymentDetails['taxWithhold.taxPercentage'],
     'changeAnswerSummary.om-deg': 'Endre svar om deg',
 }
 
@@ -163,8 +154,6 @@ const livingParent = {
 }
 
 const aboutTheDeceased = {
-    title: 'Om den avdøde',
-    'title.livingParent': 'Om den gjenlevende',
     firstParentTitle: 'Om den første forelderen',
     secondParentTitle: 'Om den andre forelderen',
     singleParentTitle: 'Om den avdøde',
@@ -174,32 +163,32 @@ const aboutTheDeceased = {
     workOrLivingAbroadCanAffectPension:
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.',
     didTheDeceasedLiveAbroad: 'Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?',
-    'staysAbroad.abroadStays.country': 'Land',
-    'staysAbroad.abroadStays.type': 'Bodd og/eller arbeidet?',
-    'staysAbroad.abroadStays.fromDate': 'Fra dato (valgfri)',
-    'staysAbroad.abroadStays.toDate': 'Til dato (valgfri)',
-    'staysAbroad.abroadStays.medlemFolketrygd': 'Var han eller hun medlem av folketrygden under oppholdet?',
-    'staysAbroad.abroadStays.medlemFolketrygd.why':
+    abroadInWhichCountry: 'Land',
+    livedOrWorkedAbroad: 'Bodd og/eller arbeidet?',
+    stayedAbroadFromDate: 'Fra dato (valgfri)',
+    stayedAbroadToDate: 'Til dato (valgfri)',
+    deceasedWasMemberOfFolketrygdenAbroad: 'Var han eller hun medlem av folketrygden under oppholdet?',
+    whyWeAskAboutFolketrygden:
         'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',
-    'staysAbroad.abroadStays.pensionAmount': 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
-    'selfEmplyment.title': 'Næringsinntekt',
-    'selfEmplyment.ingress':
+    pensionReceivedFromAbroad: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
+    selfEmploymentTitle: 'Næringsinntekt',
+    weNeedToKnowIfDeceasedWasSelfEmployed:
         'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i gjenlevendepensjon. Vi henter informasjon om andre inntekter.',
-    'selfEmplyment.wasSelfEmployed': 'Var han eller hun selvstendig næringsdrivende?',
-    'selfEmplyment.selfEmplymentDetails.income': 'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
-    'selfEmplyment.selfEmplymentDetails.income.placeholder': 'Samlet årsinntekt før skatt',
-    'selfEmplyment.selfEmplymentDetails.incomeAtDeath': 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
+    wasTheDeceasedSelfEmployed: 'Var han eller hun selvstendig næringsdrivende?',
+    incomeFromSelfEmployymentYearBeforeDeath: 'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
+    incomeFromSelfEmploymentBeforeTaxes: 'Samlet årsinntekt før skatt',
+    hadIncomeFromSelfEmployment: 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
     otherTitle: 'Annet',
     occupationalInjury: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
-    'occupationalInjury.why':
+    whyWeAskAboutOccupationalInjury:
         'Hvis dødsfallet skyldes godkjent yrkesskade eller yrkessykdom kan det avgjøre hvor mye du kan få.',
-    'militaryService.completed':
+    deceasedHasServedInTheMilitary:
         'Har han eller hun gjennomført militær eller sivil førstegangstjeneste som varte minst 30 dager?',
-    'militaryService.why': 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',
-    'militaryService.period': 'Hvilke(-t) år? (valgfri)',
-    'oppholdUtlandType.BODD': 'Bodd',
-    'oppholdUtlandType.ARBEIDET': 'Arbeidet',
-    'btn.addCountry': '+ Legg til flere land',
+    whyWeAskAboutMilitaryService: 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',
+    militaryServiceYears: 'Hvilke(-t) år? (valgfri)',
+    BODD: 'Bodd',
+    ARBEIDET: 'Arbeidet',
+    addCountryButton: '+ Legg til flere land',
     'changeAnswerSummary.om-foreldrene': 'Endre svar om foreldre',
 }
 
@@ -211,16 +200,16 @@ const aboutChildren = {
         'Det er kun nødvendig å opplyse om helsøsken under 22 år i denne søknaden. Det kreves en separat søknad for halvsøsken.',
     onlyChildrenUnder22Necessary: 'Det er kun nødvendig å opplyse om barn under 22 år i denne søknaden',
     livesIn: 'Bor i',
-    'staysAbroad.answer': 'Bor barnet i et annet land enn Norge?',
-    'staysAbroad.sibling.answer': 'Bor søskenet i et annet land enn Norge?',
-    'staysAbroad.country': 'Land',
-    'staysAbroad.address': 'Adresse i utlandet',
-    'childHasGuardianship.lastName': 'Etternavn (valgfri)',
-    'childHasGuardianship.firstName': 'Fornavn (valgfri)',
-    'childHasGuardianship.name': 'Navn på verge',
-    'childHasGuardianship.answer': 'Er det oppnevnt en verge for barnet?',
-    'childHasGuardianship.fnr': 'Fødselsnummer til verge (valgfri)',
-    'childHasGuardianship.fnrPlaceholder': '11 siffer',
+    doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
+    doesTheSiblingLiveAbroad: 'Bor søskenet i et annet land enn Norge?',
+    stayAbroadCountry: 'Land',
+    addressAbroad: 'Adresse i utlandet',
+    guardianLastName: 'Etternavn (valgfri)',
+    guardianFirstName: 'Fornavn (valgfri)',
+    guardianName: 'Navn på verge',
+    childHasGuardian: 'Er det oppnevnt en verge for barnet?',
+    guardianFnr: 'Fødselsnummer til verge (valgfri)',
+    guardianFnrPlaceholder: '11 siffer',
     information:
         'Dersom du har eller har hatt barn kan det påvirke retten din til gjenlevendepensjon. Derfor må du oppgi alle barn, uavhengig av hvor gamle de er. Dette gjelder barn du har felles med avdøde, avdødes egne barn, og dine egne barn. \n\n Hvis du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke selv.',
     infoRegardingSiblings: 'Her er info hvis det er søsken',
@@ -290,17 +279,6 @@ const error = {
     'staysAbroad.answer.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
     'bothParents.required': 'Oppgi barnets relasjon til foreldre',
     'loggedInUserIsGuardian.required': 'Oppgi om du er verge for barnet',
-    'childrensPension.paymentDetails.taxWithhold.answer.required': 'Oppgi om det ønskes å legge til skattetrekk ',
-    'childrensPension.paymentDetails.taxWithhold.taxPercentage.required': 'Oppgi ønsket skattetrekk',
-    'childrensPension.paymentDetails.accountType.required':
-        'Du må velge mellom norsk eller utenlandsk bankkonto for utbetaling',
-    'childrensPension.paymentDetails.foreignBankName.required': 'Navnet på den utenlandske banken må fylles ut',
-    'childrensPension.paymentDetails.foreignBankAddress.required': 'Adressen til den utenlandske banken må fylles ut',
-    'childrensPension.paymentDetails.iban.required': 'IBAN-nummer må fylles ut',
-    'childrensPension.paymentDetails.iban.validate': 'Ugyldig IBAN-nummer',
-    'childrensPension.paymentDetails.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fylles ut',
-    'childrensPension.paymentDetails.swift.validate': 'Ugyldig SWIFT-kode',
-    'childrensPension.paymentDetails.bankAccount.required': 'Norsk kontonummer må fylles ut (11 siffer)',
     'staysAbroad.country.required': 'Oppgi hvilke land barnet bor i',
     'staysAbroad.address.required': 'Oppgi barnets bostedsadresse',
     'childHasGuardianship.answer.required': 'Oppgi om det er oppnevnt verge for barnet',
@@ -317,15 +295,16 @@ const pageNotFound = {
 }
 
 const systemUnavailable = {
-    guide: 'Å nei, søknaden fungerer ikke...',
-    intro: 'Det er en feil i søknaden som gjør at den dessverre ikke fungerer som den skal.',
-    description:
+    applicationNotWorking: 'Å nei, søknaden fungerer ikke...',
+    somethingIsWrongWithTheApplication:
+        'Det er en feil i søknaden som gjør at den dessverre ikke fungerer som den skal.',
+    weAreWorkingOnTheError:
         'Vi beklager dette og jobber med å finne ut av det så raskt som mulig. I mellomtiden er det nok lurt å ta en pause og prøve igjen senere.',
-    feedback: 'Er det fortsatt feil, kan du melde fra om det på ',
-    feedbackLenke: 'www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
-    feedbackHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    reportError: 'Er det fortsatt feil, kan du melde fra om det på ',
+    reportErrorLink: 'www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    reportErrorHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     moreAboutBenefits: 'Du kan lese mer om ytelser til etterlatte på',
-    moreAboutBenefitsLenke: 'www.nav.no/mistet-noen',
+    moreAboutBenefitsLink: 'www.nav.no/mistet-noen',
     moreAboutBenefitsHref: 'https://www.nav.no/mistet-noen',
     retryButton: 'Prøv igjen',
 }

@@ -53,7 +53,7 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication): Barn =
     const staysAbroad: JaNeiVetIkke = child.staysAbroad!!.answer!!
 
     const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> = {
-        spoersmaal: t('staysAbroad.answer', { ns: 'aboutChildren' }),
+        spoersmaal: t('doesTheChildLiveAbroad', { ns: 'aboutChildren' }),
         svar: {
             innhold: t(staysAbroad, { ns: 'radiobuttons' }),
             verdi: staysAbroad,
@@ -63,13 +63,13 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication): Barn =
     if (staysAbroad === JaNeiVetIkke.JA) {
         utenlandsAdresse.opplysning = {
             land: {
-                spoersmaal: t('staysAbroad.country', { ns: 'aboutChildren' }),
+                spoersmaal: t('stayAbroadCountry', { ns: 'aboutChildren' }),
                 svar: {
                     innhold: child.staysAbroad!!.country!!,
                 },
             },
             adresse: {
-                spoersmaal: t('staysAbroad.address', { ns: 'aboutChildren' }),
+                spoersmaal: t('addressAbroad', { ns: 'aboutChildren' }),
                 svar: {
                     innhold: child.staysAbroad!!.address!!,
                 },
@@ -161,7 +161,7 @@ const mapVerge = (t: TFunction, child: IChild): BetingetOpplysning<EnumSvar<JaNe
     }
 
     return {
-        spoersmaal: t('childHasGuardianship.answer', { ns: 'aboutChildren' }),
+        spoersmaal: t('childHasGuardian', { ns: 'aboutChildren' }),
         svar: {
             innhold: t(child.childHasGuardianship!!.answer!!, { ns: 'radiobuttons' }),
             verdi: child.childHasGuardianship!!.answer!!,

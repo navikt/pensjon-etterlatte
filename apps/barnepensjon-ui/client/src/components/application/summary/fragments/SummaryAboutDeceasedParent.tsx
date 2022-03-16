@@ -39,52 +39,43 @@ export const SummaryAboutDeceasedParent = memo(
                                     {aboutTheParent.staysAbroad.abroadStays?.map((stay) => (
                                         <Panel key={uuid()}>
                                             <Heading size={'small'}>{`Opphold i ${stay.country}`}</Heading>
+                                            <TextGroup title={t('abroadInWhichCountry')} content={stay.country} />
                                             <TextGroup
-                                                title={t('staysAbroad.abroadStays.country')}
-                                                content={stay.country}
-                                            />
-                                            <TextGroup
-                                                title={t('staysAbroad.abroadStays.type')}
+                                                title={t('livedOrWorkedAbroad')}
                                                 content={stay.type?.map((item) => ` ${t(item)}`)}
                                             />
                                             {stay.toDate && (
-                                                <TextGroup
-                                                    title={t('staysAbroad.abroadStays.toDate')}
-                                                    content={stay.toDate}
-                                                />
+                                                <TextGroup title={t('stayedAbroadToDate')} content={stay.toDate} />
                                             )}
                                             {stay.fromDate && (
-                                                <TextGroup
-                                                    title={t('staysAbroad.abroadStays.fromDate')}
-                                                    content={stay.fromDate}
-                                                />
+                                                <TextGroup title={t('stayedAbroadFromDate')} content={stay.fromDate} />
                                             )}
                                             <TextGroup
-                                                title={t('staysAbroad.abroadStays.medlemFolketrygd')}
+                                                title={t('deceasedWasMemberOfFolketrygdenAbroad')}
                                                 content={stay.medlemFolketrygd}
                                             />
 
                                             {stay.pensionAmount && (
                                                 <TextGroup
-                                                    title={t('staysAbroad.abroadStays.pensionAmount')}
+                                                    title={t('pensionReceivedFromAbroad')}
                                                     content={stay.pensionAmount}
                                                 />
                                             )}
                                         </Panel>
                                     ))}
                                     <TextGroup
-                                        title={t('selfEmplyment.wasSelfEmployed')}
+                                        title={t('wasTheDeceasedSelfEmployed')}
                                         content={aboutTheParent.selfEmplyment.wasSelfEmployed}
                                     />
                                     {aboutTheParent.selfEmplyment?.selfEmplymentDetails?.income && (
                                         <TextGroup
-                                            title={t('selfEmplyment.selfEmplymentDetails.income')}
+                                            title={t('incomeFromSelfEmployymentYearBeforeDeath')}
                                             content={aboutTheParent.selfEmplyment.selfEmplymentDetails.income}
                                         />
                                     )}
                                     {aboutTheParent.selfEmplyment?.selfEmplymentDetails?.incomeAtDeath && (
                                         <TextGroup
-                                            title={t('selfEmplyment.selfEmplymentDetails.incomeAtDeath')}
+                                            title={t('hadIncomeFromSelfEmployment')}
                                             content={aboutTheParent.selfEmplyment.selfEmplymentDetails.incomeAtDeath}
                                         />
                                     )}
@@ -93,12 +84,12 @@ export const SummaryAboutDeceasedParent = memo(
                                         content={aboutTheParent.occupationalInjury}
                                     />
                                     <TextGroup
-                                        title={t('militaryService.completed')}
+                                        title={t('deceasedHasServedInTheMilitary')}
                                         content={aboutTheParent.militaryService?.completed}
                                     />
                                     {aboutTheParent.militaryService?.period && (
                                         <TextGroup
-                                            title={t('militaryService.period')}
+                                            title={t('militaryServiceYears')}
                                             content={aboutTheParent.militaryService?.period}
                                         />
                                     )}

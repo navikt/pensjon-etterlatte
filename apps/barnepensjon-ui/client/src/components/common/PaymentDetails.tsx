@@ -89,8 +89,8 @@ export default function PaymentDetails() {
             <FormElement>
                 <RHFGeneralQuestionRadio
                     name={'paymentDetails.taxWithhold.answer'}
-                    legend={t('taxWithhold.answer')}
-                    description={<WhyWeAsk title={'tax'}>{t('taxWithhold.helpText')}</WhyWeAsk>}
+                    legend={t('doYouWantUsToWithholdTax')}
+                    description={<WhyWeAsk title={'tax'}>{t('childPensionIsTaxable')}</WhyWeAsk>}
                 />
             </FormElement>
 
@@ -100,14 +100,14 @@ export default function PaymentDetails() {
                         <RHFProsentInput
                             bredde={'M'}
                             name={'paymentDetails.taxWithhold.taxPercentage'}
-                            label={t('taxWithhold.taxPercentage')}
-                            placeholder={t('taxWithhold.taxPercentage')}
+                            label={t('desiredTaxPercentage')}
+                            placeholder={t('desiredTaxPercentagePlaceholder')}
                         />
                     </FormElement>
                     <FormElement>
                         <Panel border>
                             <Alert variant={'info'} inline>
-                                <BodyShort size={'small'}>{t('taxWithhold.info')}</BodyShort>
+                                <BodyShort size={'small'}>{t('taxWithholdMustBeSentYearly')}</BodyShort>
                             </Alert>
                         </Panel>
                     </FormElement>

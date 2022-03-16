@@ -14,14 +14,14 @@ export default function SelfEmploymentDetails() {
                     bredde={'L'}
                     valgfri
                     type="tel"
-                    placeholder={t('selfEmplyment.selfEmplymentDetails.income.placeholder')}
-                    label={t('selfEmplyment.selfEmplymentDetails.income')}
+                    placeholder={t('incomeFromSelfEmploymentBeforeTaxes')}
+                    label={t('incomeFromSelfEmployymentYearBeforeDeath')}
                 />
             </FormElement>
             <FormElement>
                 <RHFGeneralQuestionRadio
                     name={'selfEmplyment.selfEmplymentDetails.incomeAtDeath'}
-                    legend={t('selfEmplyment.selfEmplymentDetails.incomeAtDeath')}
+                    legend={t('hadIncomeFromSelfEmployment')}
                     vetIkke
                 />
             </FormElement>
