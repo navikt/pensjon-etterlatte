@@ -23,8 +23,8 @@ export interface IPaymentDetails {
     }
 }
 
-export interface IAboutChild {
-    child?: IChild[]
+export interface IAboutChildren {
+    children?: IChild[]
     erValidert?: boolean
 }
 
@@ -46,8 +46,6 @@ export interface IChild {
         country?: string
         address?: string
     }
-    childrensPension?: {
-        applies?: JaNeiVetIkke.JA | undefined
-        paymentDetails?: IPaymentDetails
-    }
+    appliesForChildrensPension?: boolean
+    paymentDetails?: IPaymentDetails
 }

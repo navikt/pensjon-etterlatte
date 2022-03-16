@@ -13,33 +13,33 @@ export default function SystemUnavailable() {
     return (
         <>
             <FormGroup>
-                <NavGuide>{t('guide')}</NavGuide>
+                <NavGuide>{t('applicationNotWorking')}</NavGuide>
             </FormGroup>
 
             <FormGroup>
                 <Alert variant={'error'}>
-                    <BodyLong>{t('intro')}</BodyLong>
+                    <BodyLong>{t('somethingIsWrongWithTheApplication')}</BodyLong>
                 </Alert>
             </FormGroup>
 
             <FormGroup>
-                <BodyLong>{t('description')}</BodyLong>
+                <BodyLong>{t('weAreWorkingOnTheError')}</BodyLong>
             </FormGroup>
 
             <FormGroup>
-                <BodyLong>{t('feedback')}</BodyLong>
+                <BodyLong>{t('reportError')}</BodyLong>
 
-                <Link href={t('feedbackLenke')}>{t('feedbackHref')}</Link>
+                <Link href={t('reportErrorLink')}>{t('reportErrorHref')}</Link>
             </FormGroup>
 
             <FormGroup>
                 <BodyLong>{t('moreAboutBenefits')}</BodyLong>
 
-                <Link href={t('moreAboutBenefitsLenke')}>{t('moreAboutBenefitsHref')}</Link>
+                <Link href={t('moreAboutBenefitsLink')}>{t('moreAboutBenefitsHref')}</Link>
             </FormGroup>
 
             <FormGroup>
-                <section className={'navigasjon-rad'}>
+                <section>
                     <Button variant={'primary'} onClick={retry}>
                         {t('retryButton')}
                     </Button>

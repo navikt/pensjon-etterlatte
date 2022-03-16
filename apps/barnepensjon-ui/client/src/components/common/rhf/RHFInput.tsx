@@ -22,7 +22,7 @@ interface RHFProps extends Omit<InputProps, 'name'> {
     valgfri?: boolean
 }
 
-export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps) => {
+export const RHFInput = ({ name, rules, valgfri, ...rest }: RHFProps) => {
     const { t } = useTranslation('error')
     const {
         control,
@@ -38,16 +38,14 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
             control={control}
             rules={{ required: !valgfri, ...rules }}
             render={({ field: { value, onChange } }) => (
-                <div className={className}>
-                    <Input
-                        id={name}
-                        value={value || ''}
-                        required={!valgfri}
-                        onChange={onChange}
-                        feil={feilmelding}
-                        {...rest}
-                    />
-                </div>
+                <Input
+                    id={name}
+                    value={value || ''}
+                    required={!valgfri}
+                    onChange={onChange}
+                    feil={feilmelding}
+                    {...rest}
+                />
             )}
         />
     )

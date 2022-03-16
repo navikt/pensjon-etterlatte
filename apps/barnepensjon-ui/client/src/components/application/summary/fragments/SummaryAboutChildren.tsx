@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { IParent } from '../../../../context/application/application'
 import useTranslation from '../../../../hooks/useTranslation'
-import { IAboutChild } from '../../../../types/person'
+import { IAboutChildren } from '../../../../types/person'
 import { StepPath } from '../../../../types/steps'
 import FormElement from '../../../common/FormElement'
 import { ApplicantRole } from '../../scenario/ScenarioSelection'
@@ -21,7 +21,7 @@ export const SummaryAboutChildren = memo(
         applicationRole,
         parents,
     }: {
-        aboutChildren: IAboutChild
+        aboutChildren: IAboutChildren
         pathPrefix: string
         applicationRole?: ApplicantRole
         parents: { firstParent: any; secondParent: any }
@@ -44,6 +44,8 @@ export const SummaryAboutChildren = memo(
             return `${parent.firstName} ${parent.lastName} (f. ${parent.fnrDnr.substring(0, 6)})`
         }
 
+        console.log(aboutChildren)
+
         return (
             <>
                 {!isEmpty(aboutChildren) && (
@@ -54,8 +56,8 @@ export const SummaryAboutChildren = memo(
                                 path={`/skjema/${pathPrefix}/steg/${StepPath.AboutChildren}`}
                                 pathText={t(`changeAnswerSummary.${StepPath.AboutChildren}`)}
                             >
-                                {aboutChildren.child &&
-                                    aboutChildren?.child.map((child) => (
+                                {aboutChildren.children &&
+                                    aboutChildren?.children.map((child) => (
                                         <Panel key={uuid()}>
                                             <Heading size={'small'}>{`${child.firstName} ${child.lastName}`}</Heading>
                                             <PersonInfoSummary
@@ -111,36 +113,27 @@ export const SummaryAboutChildren = memo(
                                                     </Panel>
                                                 </>
                                             )}
-                                            {child.childrensPension && (
+                                            {child.appliesForChildrensPension && (
                                                 <>
                                                     <TextGroup
                                                         title={t('userAppliesForChildrensPension')}
-                                                        content={child.childrensPension.applies}
+                                                        content={child.appliesForChildrensPension}
                                                     />
                                                     <Panel>
                                                         <PaymentDetailsSummary
-                                                            accountType={
-                                                                child.childrensPension.paymentDetails?.accountType
-                                                            }
-                                                            bankAccount={
-                                                                child.childrensPension.paymentDetails?.bankAccount
-                                                            }
-                                                            foreignBankName={
-                                                                child.childrensPension.paymentDetails?.foreignBankName
-                                                            }
+                                                            accountType={child.paymentDetails?.accountType}
+                                                            bankAccount={child.paymentDetails?.bankAccount}
+                                                            foreignBankName={child.paymentDetails?.foreignBankName}
                                                             foreignBankAddress={
-                                                                child.childrensPension.paymentDetails
-                                                                    ?.foreignBankAddress
+                                                                child.paymentDetails?.foreignBankAddress
                                                             }
-                                                            iban={child.childrensPension.paymentDetails?.iban}
-                                                            swift={child.childrensPension.paymentDetails?.swift}
+                                                            iban={child.paymentDetails?.iban}
+                                                            swift={child.paymentDetails?.swift}
                                                             taxWithholdAnswer={
-                                                                child.childrensPension.paymentDetails?.taxWithhold
-                                                                    ?.answer
+                                                                child.paymentDetails?.taxWithhold?.answer
                                                             }
                                                             taxWithholdPercentage={
-                                                                child.childrensPension.paymentDetails?.taxWithhold
-                                                                    ?.taxPercentage
+                                                                child.paymentDetails?.taxWithhold?.taxPercentage
                                                             }
                                                         />
                                                     </Panel>

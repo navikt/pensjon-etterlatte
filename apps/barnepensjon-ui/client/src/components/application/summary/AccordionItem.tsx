@@ -20,7 +20,7 @@ export const AccordionItem = ({ title, children, defaultOpen = false, path, path
             <Accordion.Content>
                 {children}
                 <Link to={path}>
-                    <EditFilled className={'edit-svg'} />
+                    <EditFilled />
                     <span>{pathText}</span>
                 </Link>
             </Accordion.Content>

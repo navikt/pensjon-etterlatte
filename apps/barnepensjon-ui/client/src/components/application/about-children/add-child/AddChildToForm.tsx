@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading, Panel } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Heading, Label, Panel } from '@navikt/ds-react'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -12,7 +12,7 @@ import { getAgeFromFoedselsnummer, isLegalAge } from '../../../../utils/age'
 import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
 import FormGroup from '../../../common/FormGroup'
 import { NavRow } from '../../../common/Navigation'
-import { RHFCheckboksPanel } from '../../../common/rhf/RHFCheckboksPanelGruppe'
+import { RHFConfirmationPanel } from '../../../common/rhf/RHFCheckboksPanelGruppe'
 import PaymentDetails from '../../../common/PaymentDetails'
 import { GuardianDetails } from './GuardianDetails'
 import { LivesAbroadQuestion } from './LivesAbroadQuestion'
@@ -53,15 +53,15 @@ const ChangeChildPanelHeader = styled.div`
         flex: 0 1 auto;
         padding-left: 3em;
     }
+`
 
-    .overskrift {
-        flex: 0 1 auto;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        align-self: center;
-        color: white;
-    }
+const Overskrift = styled(Heading)`
+    flex: 0 1 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    align-self: center;
+    color: white;
 `
 
 const ChangeChildPanelContent = styled.div`
@@ -120,7 +120,7 @@ const AddChildToForm = ({
 
     const bothParents = watch('bothParents')
     const fnr: any = watch('fnrDnr')
-    const appliesForChildrensPension = watch('childrensPension.applies')
+    const appliesForChildrensPension: boolean | undefined = watch('appliesForChildrensPension')
     const loggedInUserIsGuardian = watch('loggedInUserIsGuardian')
 
     const canApplyForChildrensPension = (): boolean => {
@@ -153,10 +153,8 @@ const AddChildToForm = ({
             <form>
                 <ChangeChildPanel>
                     <ChangeChildPanelHeader>
-                        <img alt="barn" className="barneikon" src={ikon} />
-                        <Heading size={'small'} className={'overskrift'}>
-                            {!isChild ? t('titleModal') : t('aboutTheSiblingTitle')}
-                        </Heading>
+                        <img alt="barn" src={ikon} />
+                        <Overskrift size={'small'}>{!isChild ? t('titleModal') : t('aboutTheSiblingTitle')}</Overskrift>
                     </ChangeChildPanelHeader>
                     <ChangeChildPanelContent>
                         <FormGroup>
@@ -192,20 +190,16 @@ const AddChildToForm = ({
                                                 <GuardianDetails isGuardian={isGuardian} t={t} watch={watch} />
 
                                                 <FormGroup>
-                                                    <RHFCheckboksPanel
-                                                        name={'childrensPension.applies'}
-                                                        legend={t('applyForThisChild')}
+                                                    <Label>{t('applyForThisChild')}</Label>
+                                                    <RHFConfirmationPanel
+                                                        name={'appliesForChildrensPension'}
+                                                        label={t('userAppliesForChildrensPension')}
                                                         valgfri={true}
-                                                        checkbox={{
-                                                            label: t('userAppliesForChildrensPension'),
-                                                            value: JaNeiVetIkke.JA,
-                                                        }}
+                                                        size={'medium'}
                                                     />
                                                 </FormGroup>
 
-                                                {appliesForChildrensPension === JaNeiVetIkke.JA && (
-                                                    <PaymentDetails statePrefix={'childrensPension'} watch={watch} />
-                                                )}
+                                                {appliesForChildrensPension && <PaymentDetails />}
                                             </>
                                         )}
                                     </>

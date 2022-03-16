@@ -50,9 +50,7 @@ export default function ScenarioSelection() {
     return (
         <FormProvider {...methods}>
             <FormGroup>
-                <Heading size={'small'} className={'center'}>
-                    {t('selectSituationToContinue')}
-                </Heading>
+                <Heading size={'small'}>{t('selectSituationToContinue')}</Heading>
             </FormGroup>
 
             <FormGroup>
@@ -74,9 +72,7 @@ export default function ScenarioSelection() {
             {selectedRole === ApplicantRole.PARENT && (
                 <FormGroup>
                     <Alert variant={'info'} inline={true}>
-                        <Heading size={'small'} className={'center'}>
-                            {t('aboutSurvivorsPensionTitle')}
-                        </Heading>
+                        <Heading size={'small'}>{t('aboutSurvivorsPensionTitle')}</Heading>
                         <BodyLong>
                             {t('aboutSurvivorsPensionDescription')}&nbsp;
                             <Link href={t('aboutSurvivorsPensionHref')}>{t('aboutSurvivorsPensionLink')}</Link>
@@ -88,7 +84,7 @@ export default function ScenarioSelection() {
             {[ApplicantRole.GUARDIAN, ApplicantRole.CHILD].includes(selectedRole) && (
                 <FormGroup>
                     <RHFRadio
-                        legend={'Hva er gjeldende for situasjonen?'}
+                        legend={t('additionalSituationDetails')}
                         name={'applicantSituation'}
                         radios={[
                             {

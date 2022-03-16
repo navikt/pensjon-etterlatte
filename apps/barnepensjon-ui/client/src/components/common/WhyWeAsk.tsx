@@ -4,22 +4,20 @@ import { FC, useState } from 'react'
 import styled from 'styled-components'
 import useTranslation from '../../hooks/useTranslation'
 
-const HvorforPanel = styled.div`
-    & .toggle {
-        color: #0067c5;
-        text-decoration: underline;
-        background: none;
-        border: none;
-        padding: 0.2rem 0;
-        min-height: 0;
-        margin: 0;
-        cursor: pointer;
-        border-radius: 0.25rem;
-    }
+const ToggleButton = styled.button`
+    color: #0067c5;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0.2rem 0;
+    min-height: 0;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 0.25rem;
+`
 
-    & .innhold {
-        margin-top: 1rem;
-    }
+const Innhold = styled.div`
+    margin-top: 1rem;
 `
 
 const WhyWeAsk: FC<{ title: string; children: any }> = ({ children }) => {
@@ -32,18 +30,18 @@ const WhyWeAsk: FC<{ title: string; children: any }> = ({ children }) => {
     }
 
     return (
-        <HvorforPanel>
-            <button data-testid="toggle" type={'button'} className={'toggle'} onClick={click} aria-expanded={isOpen}>
+        <>
+            <ToggleButton data-testid="toggle" type={'button'} onClick={click} aria-expanded={isOpen}>
                 <span>{t('whyWeAsk')}</span>
                 <span>{isOpen ? <Collapse /> : <Expand />}</span>
-            </button>
+            </ToggleButton>
 
             {isOpen && (
-                <div className={'innhold'}>
+                <Innhold>
                     <BodyLong>{children}</BodyLong>
-                </div>
+                </Innhold>
             )}
-        </HvorforPanel>
+        </>
     )
 }
 

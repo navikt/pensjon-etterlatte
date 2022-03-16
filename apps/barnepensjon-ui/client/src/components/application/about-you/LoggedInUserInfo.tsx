@@ -22,10 +22,8 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
     return (
         <FormGroup>
             <Alert variant={'warning'}>{t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })}</Alert>
-            <div className="mute" style={{ margin: '2em 0' }}>
-                {t('mostFieldsAreRequired', { ns: 'loggedInUserInfo' })}
-            </div>
-            <Grid className={'opplysninger'}>
+            <div style={{ margin: '2em 0' }}>{t('mostFieldsAreRequired', { ns: 'loggedInUserInfo' })}</div>
+            <Grid>
                 <Cell xs={6}>
                     <div>
                         <Label>{t('name')}</Label>
@@ -50,7 +48,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                                 <BodyShort spacing>{user.foedselsnummer}</BodyShort>
                             </div>
                             <HelpTextLabel>
-                                <Label>
+                                <Label as={'span'}>
                                     {t('phoneNumber')}&nbsp;
                                     <Hjelpetekst>{t('phoneNumberHelpText')}</Hjelpetekst>
                                 </Label>

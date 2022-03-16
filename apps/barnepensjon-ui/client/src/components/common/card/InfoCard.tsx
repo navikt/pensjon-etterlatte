@@ -2,11 +2,6 @@ import styled from 'styled-components'
 import { Link } from '@navikt/ds-react'
 
 export const Infocard = styled.div`
-    .typo-normal,
-    .typo-element {
-        margin: 0.3rem 0;
-    }
-
     background-color: #e7e9e9;
     display: flex;
     flex-direction: column;

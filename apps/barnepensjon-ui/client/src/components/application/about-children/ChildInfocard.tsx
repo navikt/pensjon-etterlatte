@@ -31,7 +31,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
     return (
         <Infocard>
             <InfocardHeader>
-                <img alt="barn" className="barneikon" src={ikon} />
+                <img alt="barn" src={ikon} />
             </InfocardHeader>
 
             <InformationBox>
@@ -58,11 +58,9 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                             : t('norway', { ns: 'common' })}
                     </BodyShort>
 
-                    {child.childrensPension?.applies === JaNeiVetIkke.JA && (
+                    {!!child.appliesForChildrensPension && (
                         <FormElement>
-                            <Tag variant={'success'} className={'mute'}>
-                                {t('childAppliedForPension')}
-                            </Tag>
+                            <Tag variant={'success'}>{t('childAppliedForPension')}</Tag>
                         </FormElement>
                     )}
                 </InformationElement>
@@ -72,19 +70,18 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                 <BodyLong>
                     <InfocardFooterItem
                         href={'#'}
-                        className={'infokort__footer-item'}
                         onClick={(e: any) => {
                             e.preventDefault()
                             setActiveChildIndex()
                         }}
                     >
-                        <EditFilled className={'edit-svg'} />
+                        <EditFilled />
                         <span>{t('editButton', { ns: 'btn' })}</span>
                     </InfocardFooterItem>
                 </BodyLong>
                 <BodyLong>
-                    <InfocardFooterItem href={'#'} className={'infokort__footer-item'} onClick={() => remove(index)}>
-                        <DeleteFilled className={'edit-svg'} />
+                    <InfocardFooterItem href={'#'} onClick={() => remove(index)}>
+                        <DeleteFilled />
                         <span>{t('removeChildButton')}</span>
                     </InfocardFooterItem>
                 </BodyLong>

@@ -9,9 +9,11 @@ import { Language } from '../../context/language/language'
 import { hentForeldre, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 
 export const mapTilBarnepensjonSoeknadListe = (t: TFunction, application: IApplication, user: User): Barnepensjon[] => {
-    return application
-        .aboutChildren!!.child!!.filter((barnet) => barnet.childrensPension?.applies === JaNeiVetIkke.JA)
-        .map((barnet) => mapTilBarnepensjonSoeknad(t, barnet, application, user))
+    const children: IChild[] = application.aboutChildren!!.children!!
+
+    return children
+        .filter((child) => !!child.appliesForChildrensPension)
+        .map((child) => mapTilBarnepensjonSoeknad(t, child, application, user))
 }
 
 const mapTilBarnepensjonSoeknad = (
@@ -51,7 +53,7 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication): Barn =
     const staysAbroad: JaNeiVetIkke = child.staysAbroad!!.answer!!
 
     const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> = {
-        spoersmaal: t('staysAbroad.answer', { ns: 'aboutChildren' }),
+        spoersmaal: t('doesTheChildLiveAbroad', { ns: 'aboutChildren' }),
         svar: {
             innhold: t(staysAbroad, { ns: 'radiobuttons' }),
             verdi: staysAbroad,
@@ -61,13 +63,13 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication): Barn =
     if (staysAbroad === JaNeiVetIkke.JA) {
         utenlandsAdresse.opplysning = {
             land: {
-                spoersmaal: t('staysAbroad.country', { ns: 'aboutChildren' }),
+                spoersmaal: t('stayAbroadCountry', { ns: 'aboutChildren' }),
                 svar: {
                     innhold: child.staysAbroad!!.country!!,
                 },
             },
             adresse: {
-                spoersmaal: t('staysAbroad.address', { ns: 'aboutChildren' }),
+                spoersmaal: t('addressAbroad', { ns: 'aboutChildren' }),
                 svar: {
                     innhold: child.staysAbroad!!.address!!,
                 },
@@ -102,10 +104,10 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication): Barn =
 }
 
 const mapSoesken = (t: TFunction, child: IChild, application: IApplication): Barn[] => {
+    const allChildren: IChild[] = application.aboutChildren!!.children!!
+
     // TODO: Sjekke at dette fungerer som forventet
-    return application
-        .aboutChildren!!.child!!.filter((c: IChild) => c.fnrDnr !== child.fnrDnr)
-        .map((c: IChild) => mapBarn(t, c, application))
+    return allChildren.filter((c: IChild) => c.fnrDnr !== child.fnrDnr).map((c: IChild) => mapBarn(t, c, application))
 }
 
 const mapSamtykke = (t: TFunction, application: IApplication, user: User): Opplysning<boolean> => ({
@@ -159,7 +161,7 @@ const mapVerge = (t: TFunction, child: IChild): BetingetOpplysning<EnumSvar<JaNe
     }
 
     return {
-        spoersmaal: t('childHasGuardianship.answer', { ns: 'aboutChildren' }),
+        spoersmaal: t('childHasGuardian', { ns: 'aboutChildren' }),
         svar: {
             innhold: t(child.childHasGuardianship!!.answer!!, { ns: 'radiobuttons' }),
             verdi: child.childHasGuardianship!!.answer!!,

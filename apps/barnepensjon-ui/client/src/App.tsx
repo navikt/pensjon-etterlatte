@@ -1,4 +1,4 @@
-import { ContentContainer } from '@navikt/ds-react'
+import { ContentContainer, Modal } from '@navikt/ds-react'
 import React from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
@@ -17,6 +17,9 @@ import useLoggedInUser from './hooks/useLoggedInUser'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
 import useScrollToTop from './hooks/useScrollToTop'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
+import useTranslation from './hooks/useTranslation'
+
+Modal.setAppElement!!('#root')
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,
@@ -48,15 +51,16 @@ const SoeknadWrapper = styled(ContentContainer)`
 
 export default function App() {
     const isLoading = useApplication()
+    const { t } = useTranslation('app')
 
     useLoggedInUser()
     useScrollToTop()
 
     return (
         <>
-            <Banner tekst={'Søknad om barnepensjon'} />
+            <Banner tekst={t('applicationTitle')} />
 
-            <SpinnerOverlay visible={isLoading} label={'Henter søknadsinformasjon ...'} />
+            <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
             <ContinueApplicationModal />
 
             <SoeknadWrapper>

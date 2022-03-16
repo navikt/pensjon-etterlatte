@@ -43,13 +43,13 @@ export default function StaysAbroad({ countries }: { countries: any }) {
     return (
         <>
             {fields.map((field: FieldArrayWithId, index: number) => (
-                <FormElement>
-                    <Panel border key={field.id}>
+                <FormElement key={field.id}>
+                    <Panel border>
                         <Grid>
                             <Cell xs={12} md={6}>
                                 <RHFSelect
                                     name={`staysAbroad.abroadStays[${index}].country`}
-                                    label={t('staysAbroad.abroadStays.country')}
+                                    label={t('abroadInWhichCountry')}
                                     selectOptions={countries}
                                 />
                             </Cell>
@@ -57,19 +57,10 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                 <StaysAbroadCheckboxDiv>
                                     <RHFCheckboksGruppe
                                         name={`staysAbroad.abroadStays[${index}].type`}
-                                        legend={t('staysAbroad.abroadStays.type')}
-                                        checkboxes={[
-                                            {
-                                                label: t(`oppholdUtlandType.${OppholdUtlandType.BODD.valueOf()}`),
-                                                value: OppholdUtlandType.BODD,
-                                                required: true,
-                                            },
-                                            {
-                                                label: t(`oppholdUtlandType.${OppholdUtlandType.ARBEIDET.valueOf()}`),
-                                                value: OppholdUtlandType.ARBEIDET,
-                                                required: true,
-                                            },
-                                        ]}
+                                        legend={t('livedOrWorkedAbroad')}
+                                        checkboxes={Object.values(OppholdUtlandType).map((value) => {
+                                            return { label: t(value), value, required: true }
+                                        })}
                                     />
                                 </StaysAbroadCheckboxDiv>
                             </Cell>
@@ -78,7 +69,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                             <Cell xs={12} md={6}>
                                 <DatePicker
                                     name={`staysAbroad.abroadStays[${index}].fromDate`}
-                                    label={t('staysAbroad.abroadStays.fromDate')}
+                                    label={t('stayedAbroadFromDate')}
                                     valgfri={true}
                                     maxDate={new Date()}
                                 />
@@ -86,7 +77,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                             <Cell xs={12} md={6}>
                                 <DatePicker
                                     name={`staysAbroad.abroadStays[${index}].toDate`}
-                                    label={t('staysAbroad.abroadStays.toDate')}
+                                    label={t('stayedAbroadToDate')}
                                     valgfri={true}
                                     maxDate={new Date()}
                                 />
@@ -95,20 +86,18 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                         <FormElement>
                             <RHFGeneralQuestionRadio
                                 name={`staysAbroad.abroadStays[${index}].medlemFolketrygd`}
-                                legend={t('staysAbroad.abroadStays.medlemFolketrygd')}
+                                legend={t('deceasedWasMemberOfFolketrygdenAbroad')}
                                 vetIkke={true}
                                 description={
                                     // Usikker på om denne trengs for BP, eller kun for GP?
-                                    <WhyWeAsk title="medlemFolketrygd">
-                                        {t('staysAbroad.abroadStays.medlemFolketrygd.why')}
-                                    </WhyWeAsk>
+                                    <WhyWeAsk title="medlemFolketrygd">{t('whyWeAskAboutFolketrygden')}</WhyWeAsk>
                                 }
                             />
                         </FormElement>
                         <FormElement>
                             <RHFInput
                                 name={`staysAbroad.abroadStays[${index}].pensionAmount`}
-                                label={t('staysAbroad.abroadStays.pensionAmount')}
+                                label={t('pensionReceivedFromAbroad')}
                                 valgfri={true}
                             />
                         </FormElement>
@@ -126,7 +115,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                 </FormElement>
             ))}
             <Button variant={'secondary'} type={'button'} onClick={() => append({}, { shouldFocus: true })}>
-                {t('btn.addCountry')}
+                {t('addCountryButton')}
             </Button>
         </>
     )

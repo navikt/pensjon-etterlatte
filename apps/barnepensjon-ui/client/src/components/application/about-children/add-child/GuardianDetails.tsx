@@ -20,20 +20,17 @@ export const GuardianDetails = ({ isGuardian, t, watch }: Props) => {
             {!isGuardian && (
                 <FormGroup>
                     <FormElement>
-                        <RHFGeneralQuestionRadio
-                            name={'childHasGuardianship.answer'}
-                            legend={t('childHasGuardianship.answer')}
-                        />
+                        <RHFGeneralQuestionRadio name={'childHasGuardianship.answer'} legend={t('childHasGuardian')} />
                     </FormElement>
 
                     {childHasGuardianship === JaNeiVetIkke.JA && (
                         <>
-                            <Label>{t('childHasGuardianship.name')}</Label>
+                            <Label>{t('guardianName')}</Label>
                             <Grid>
                                 <Cell xs={12} md={6}>
                                     <RHFInput
                                         name={'childHasGuardianship.firstName'}
-                                        label={t('childHasGuardianship.firstName')}
+                                        label={t('guardianFirstName')}
                                         rules={{ pattern: /^\D+$/ }}
                                         valgfri={true}
                                     />
@@ -41,7 +38,7 @@ export const GuardianDetails = ({ isGuardian, t, watch }: Props) => {
                                 <Cell xs={12} md={6}>
                                     <RHFInput
                                         name={'childHasGuardianship.lastName'}
-                                        label={t('childHasGuardianship.lastName')}
+                                        label={t('guardianLastName')}
                                         rules={{ pattern: /^\D+$/ }}
                                         valgfri={true}
                                     />
@@ -51,8 +48,8 @@ export const GuardianDetails = ({ isGuardian, t, watch }: Props) => {
                                 <RHFFoedselsnummerInput
                                     name={'childHasGuardianship.fnr'}
                                     bredde={'L'}
-                                    label={t('childHasGuardianship.fnr')}
-                                    placeholder={t('childHasGuardianship.fnrPlaceholder')}
+                                    label={t('guardianFnr')}
+                                    placeholder={t('guardianFnrPlaceholder')}
                                     valgfri={true}
                                 />
                             </FormElement>

@@ -47,12 +47,12 @@ export default function DeceaseParentForm() {
             </FormGroup>
 
             <FormGroup>
-                <Heading size="small">{t('selfEmplyment.title')}</Heading>
-                <BodyLong>{t('selfEmplyment.ingress')}</BodyLong>
+                <Heading size="small">{t('selfEmploymentTitle')}</Heading>
+                <BodyLong>{t('weNeedToKnowIfDeceasedWasSelfEmployed')}</BodyLong>
                 <FormElement>
                     <RHFGeneralQuestionRadio
                         name={'selfEmplyment.wasSelfEmployed'}
-                        legend={t('selfEmplyment.wasSelfEmployed')}
+                        legend={t('wasTheDeceasedSelfEmployed')}
                         vetIkke={true}
                     />
                 </FormElement>
@@ -68,21 +68,23 @@ export default function DeceaseParentForm() {
                         name={'occupationalInjury'}
                         legend={t('occupationalInjury')}
                         vetIkke={true}
-                        description={<WhyWeAsk title="occupationalInjury">{t('occupationalInjury.why')}</WhyWeAsk>}
+                        description={
+                            <WhyWeAsk title="occupationalInjury">{t('whyWeAskAboutOccupationalInjury')}</WhyWeAsk>
+                        }
                     />
                 </FormElement>
                 <FormElement>
                     <RHFGeneralQuestionRadio
                         name={'militaryService.completed'}
-                        legend={t('militaryService.completed')}
+                        legend={t('deceasedHasServedInTheMilitary')}
                         vetIkke={true}
-                        description={<WhyWeAsk title="militaryService">{t('militaryService_why')}</WhyWeAsk>}
+                        description={<WhyWeAsk title="militaryService">{t('whyWeAskAboutMilitaryService')}</WhyWeAsk>}
                     />
                 </FormElement>
 
                 {completedMilitaryService === JaNeiVetIkke.JA && (
                     <FormElement>
-                        <RHFInput name={'militaryService.period'} label={t('militaryService.period')} valgfri={true} />
+                        <RHFInput name={'militaryService.period'} label={t('militaryServiceYears')} valgfri={true} />
                     </FormElement>
                 )}
             </FormGroup>

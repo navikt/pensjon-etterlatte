@@ -9,66 +9,59 @@ import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput, RHFProsentInp
 import Hjelpetekst from '../../utils/Hjelpetekst'
 import FormGroup from './FormGroup'
 import WhyWeAsk from './WhyWeAsk'
-import { UseFormWatch } from 'react-hook-form/dist/types/form'
+import { useFormContext } from 'react-hook-form'
+import { IAboutChildren, IAboutYou } from '../../types/person'
 
 const HelpTextLabel = styled.div`
     display: flex;
 `
 
-export default function PaymentDetails({
-    accountTypeLocked,
-    statePrefix,
-    watch,
-}: {
-    accountTypeLocked?: BankkontoType
-    statePrefix?: String
-    watch: UseFormWatch<any>
-}) {
+export default function PaymentDetails() {
     const { t } = useTranslation('paymentDetails')
-    const prefix = statePrefix ? `${statePrefix}.` : ''
-    const withholdingTaxChildrensPension = watch(`${prefix}paymentDetails.taxWithhold.answer`)
-    const accountType = watch(`${prefix}paymentDetails.accountType`)
+
+    const { watch } = useFormContext<IAboutYou | IAboutChildren>()
+
+    const accountType = watch('paymentDetails.accountType')
+    const withholdingTaxChildrensPension = watch('paymentDetails.taxWithhold.answer')
 
     return (
         <FormGroup>
-            {!accountTypeLocked && (
-                <FormElement>
-                    <RHFInlineRadio
-                        name={`${prefix}paymentDetails.accountType`}
-                        legend={t('accountType')}
-                        radios={Object.values(BankkontoType).map((value) => {
-                            return { label: t(value), value } as RadioProps
-                        })}
-                    />
-                </FormElement>
-            )}
+            <FormElement>
+                <RHFInlineRadio
+                    name={'paymentDetails.accountType'}
+                    legend={t('accountType')}
+                    radios={Object.values(BankkontoType).map((value) => {
+                        return { label: t(value), value } as RadioProps
+                    })}
+                />
+            </FormElement>
 
-            {(accountType === BankkontoType.NORSK || accountTypeLocked === BankkontoType.NORSK) && (
+            {accountType === BankkontoType.NORSK && (
                 <FormElement>
                     <RHFKontonummerInput
                         bredde={'S'}
-                        name={`${prefix}paymentDetails.bankAccount`}
+                        name={'paymentDetails.bankAccount'}
                         label={t('bankAccount')}
                         description={t('information')}
                     />
                 </FormElement>
             )}
 
-            {(accountType === BankkontoType.UTENLANDSK || accountTypeLocked === BankkontoType.UTENLANDSK) && (
+            {accountType === BankkontoType.UTENLANDSK && (
                 <>
                     <Heading size={'small'}>{t('title')}</Heading>
 
                     <FormElement>
-                        <RHFInput name={`${prefix}paymentDetails.foreignBankName`} label={t('foreignBankName')} />
+                        <RHFInput name={'paymentDetails.foreignBankName'} label={t('foreignBankName')} />
                     </FormElement>
 
                     <FormElement>
-                        <RHFInput name={`${prefix}paymentDetails.foreignBankAddress`} label={t('foreignBankAddress')} />
+                        <RHFInput name={'paymentDetails.foreignBankAddress'} label={t('foreignBankAddress')} />
                     </FormElement>
 
                     <FormElement>
                         <RHFIbanInput
-                            name={`${prefix}paymentDetails.iban`}
+                            name={'paymentDetails.iban'}
                             label={
                                 <HelpTextLabel>
                                     {t('iban')}
@@ -80,7 +73,7 @@ export default function PaymentDetails({
                     </FormElement>
                     <FormElement>
                         <RHFBicInput
-                            name={`${prefix}paymentDetails.swift`}
+                            name={'paymentDetails.swift'}
                             label={
                                 <HelpTextLabel>
                                     {t('swift')}
@@ -95,9 +88,9 @@ export default function PaymentDetails({
 
             <FormElement>
                 <RHFGeneralQuestionRadio
-                    name={`${prefix}paymentDetails.taxWithhold.answer`}
-                    legend={t('taxWithhold.answer')}
-                    description={<WhyWeAsk title={'tax'}>{t('taxWithhold.helpText')}</WhyWeAsk>}
+                    name={'paymentDetails.taxWithhold.answer'}
+                    legend={t('doYouWantUsToWithholdTax')}
+                    description={<WhyWeAsk title={'tax'}>{t('childPensionIsTaxable')}</WhyWeAsk>}
                 />
             </FormElement>
 
@@ -106,15 +99,15 @@ export default function PaymentDetails({
                     <FormElement>
                         <RHFProsentInput
                             bredde={'M'}
-                            name={`${prefix}paymentDetails.taxWithhold.taxPercentage`}
-                            label={t('taxWithhold.taxPercentage')}
-                            placeholder={t('taxWithhold.taxPercentage')}
+                            name={'paymentDetails.taxWithhold.taxPercentage'}
+                            label={t('desiredTaxPercentage')}
+                            placeholder={t('desiredTaxPercentagePlaceholder')}
                         />
                     </FormElement>
                     <FormElement>
                         <Panel border>
-                            <Alert variant={'info'} className={'navds-alert--inline'}>
-                                <BodyShort size={'small'}>{t('taxWithhold.info')}</BodyShort>
+                            <Alert variant={'info'} inline>
+                                <BodyShort size={'small'}>{t('taxWithholdMustBeSentYearly')}</BodyShort>
                             </Alert>
                         </Panel>
                     </FormElement>

@@ -1,7 +1,7 @@
 import { TFunction } from 'i18next'
 import { IAbroadStay, IDeceasedParent } from '../../../context/application/application'
 import { User } from '../../../context/user/user'
-import { IAboutChild, IAboutYou } from '../../../types/person'
+import { IAboutChildren, IAboutYou } from '../../../types/person'
 import { ISituationChild } from '../../../types/situation'
 import { StepPath } from '../../../types/steps'
 import ObjectTreeReader, { Content, Element, Gruppe } from '../../../utils/ObjectTreeReader'
@@ -124,9 +124,9 @@ export default class ApplicationMapper {
         }
     }
 
-    mapAboutChildren(aboutChildren: IAboutChild): Gruppe {
+    mapAboutChildren(aboutChildren: IAboutChildren): Gruppe {
         const child: Element[] =
-            aboutChildren.child?.map((child) => {
+            aboutChildren.children?.map((child) => {
                 return {
                     title: `${child.firstName} ${child.lastName}`,
                     content: this.otr.traverse(child),
@@ -139,9 +139,9 @@ export default class ApplicationMapper {
             elements: [
                 ...child,
                 {
-                    content: this.otr.traverse<IAboutChild>({
+                    content: this.otr.traverse<IAboutChildren>({
                         ...aboutChildren,
-                        child: undefined,
+                        children: undefined,
                         erValidert: undefined,
                     }),
                 },
