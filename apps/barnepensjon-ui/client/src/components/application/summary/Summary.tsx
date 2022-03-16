@@ -97,6 +97,8 @@ export default function Summary({ prev }: StepProps) {
                     <SummaryAboutChildren
                         aboutChildren={application.aboutChildren}
                         pathPrefix={pathPrefix(application?.applicant)}
+                        applicationRole={application.applicant?.applicantRole}
+                        parents={{ firstParent: application.firstParent, secondParent: application.secondParent }}
                     />
                 )}
             </FormGroup>
