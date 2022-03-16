@@ -44,7 +44,7 @@ const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, class
     } = useFormContext()
 
     const error: FieldError = get(errors, name)
-    const errorMessage = !!error ? t(getErrorKey(error)) : undefined
+    const errorMessage = !!error ? t(getErrorKey(error), { ns: 'error' }) : undefined
 
     return (
         <section className={`skjemaelement ${className}`}>
