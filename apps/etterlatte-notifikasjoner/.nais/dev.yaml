@@ -18,7 +18,19 @@ spec:
     enabled: true
     path: /metrics
   kafka:
-    pool: nav-dev
+    #pool: nav-dev
+    bootstrap-servers: ${KAFKA_BROKERS}
+    consumer:
+      group-id: ${KAFKA_GROUP_ID}
+      auto-offset-reset: earliest
+    properties:
+      security.protocol: ssl
+      ssl.key.location: ${KAFKA_PRIVATE_KEY_PATH}
+      ssl.certificate.location: ${KAFKA_CERTIFICATE_PATH}
+      ssl.ca.location: ${KAFKA_CA_PATH}
+      ssl.keystore.location: ${KAFKA_KEYSTORE_PATH}
+      ssl.keystore.password: ${KAFKA_CREDSTORE_PASSWORD}
+      ssl.keystore.type: PKCS12
     #beskjedTopic: aapen-brukernotifikasjon-nyBeskjed-v1
   azure:
     application:
