@@ -277,6 +277,7 @@ const error = {
     'paymentDetails.taxWithhold.answer.required': 'Oppgi om det ønskes å legge til skattetrekk ',
     'paymentDetails.taxWithhold.taxPercentage.required': 'Oppgi ønsket skattetrekk',
     'paymentDetails.bankAccount.required': 'Norsk kontonummer må fylles ut (11 siffer)',
+    'paymentDetails.bankAccount.pattern': 'Kontonummer ikke gyldig. Må bestå av 11 siffer',
     'paymentDetails.accountType.required': 'Du må velge mellom norsk eller utenlandsk bankkonto for utbetaling',
     'paymentDetails.foreignBankName.required': 'Navnet på den utenlandske banken må fylles ut',
     'paymentDetails.foreignBankAddress.required': 'Adressen til den utenlandske banken må fylles ut',
@@ -298,6 +299,9 @@ const error = {
     'staysAbroad.country.required': 'Oppgi hvilke land barnet bor i',
     'staysAbroad.address.required': 'Oppgi barnets bostedsadresse',
     'childHasGuardianship.answer.required': 'Oppgi om det er oppnevnt verge for barnet',
+    'childHasGuardianship.firstName.pattern': 'Ugyldig fornavn',
+    'childHasGuardianship.lastName.pattern': 'Ugyldig etternavn',
+    'childHasGuardianship.fnr.validate': 'Ikke et gyldig fødselsnummer',
 }
 
 const pageNotFound = {
