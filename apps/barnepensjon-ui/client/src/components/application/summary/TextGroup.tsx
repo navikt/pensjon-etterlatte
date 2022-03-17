@@ -1,4 +1,6 @@
 import { BodyShort, Label } from '@navikt/ds-react'
+import useTranslation from '../../../hooks/useTranslation'
+import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 
 const stringify = (content?: any) => {
     if (!content) return ''
@@ -6,7 +8,13 @@ const stringify = (content?: any) => {
     else return content
 }
 
-const TextGroup = ({ title, content, id }: { title: string; content?: any; id?: string }) => {
+interface TextGroupProps {
+    id?: string
+    title: string
+    content?: any
+}
+
+export const TextGroup = ({ id, title, content }: TextGroupProps) => {
     return (
         <div className={'tekstgruppe'}>
             <Label>{title}</Label>
@@ -15,4 +23,12 @@ const TextGroup = ({ title, content, id }: { title: string; content?: any; id?: 
     )
 }
 
-export default TextGroup
+interface TextGroupGeneralQuestionProps extends Omit<TextGroupProps, 'content'> {
+    content?: JaNeiVetIkke
+}
+
+export const TextGroupJaNeiVetIkke = ({ id, title, content }: TextGroupGeneralQuestionProps) => {
+    const { t } = useTranslation('radiobuttons')
+
+    return <TextGroup id={id} title={title} content={t(content || '')} />
+}

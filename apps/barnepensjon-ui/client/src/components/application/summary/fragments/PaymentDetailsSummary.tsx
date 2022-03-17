@@ -1,7 +1,6 @@
 import { BankkontoType } from '../../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../../hooks/useTranslation'
-import TextGroup from '../TextGroup'
-import TextGroupJaNeiVetIkke from '../TextGroupJaNeiVetIkke'
+import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 
 export const PaymentDetailsSummary = ({
     accountType,

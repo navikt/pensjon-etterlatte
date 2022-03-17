@@ -5,11 +5,10 @@ import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { User } from '../../../../context/user/user'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IAboutYou } from '../../../../types/person'
-import { StepPath } from '../../../../types/steps'
+import { StepPath } from '../../../../utils/steps'
 import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
-import TextGroup from '../TextGroup'
-import TextGroupJaNeiVetIkke from '../TextGroupJaNeiVetIkke'
+import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import { PaymentDetailsSummary } from './PaymentDetailsSummary'
 import { PersonInfoSummary } from './PersonInfoSummery'
 
@@ -24,7 +23,7 @@ export const SummeryAboutYou = memo(
                         <Accordion>
                             <AccordionItem
                                 title={t('title')}
-                                path={`/skjema/${pathPrefix}/steg/${StepPath.AboutYou}`}
+                                path={`/skjema/${pathPrefix}/${StepPath.AboutYou}`}
                                 pathText={t(`changeAnswerSummary.${StepPath.AboutYou}`)}
                             >
                                 <>

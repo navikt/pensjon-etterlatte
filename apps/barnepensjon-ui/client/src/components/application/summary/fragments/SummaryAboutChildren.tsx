@@ -6,12 +6,11 @@ import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { IParent } from '../../../../context/application/application'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IAboutChildren } from '../../../../types/person'
-import { StepPath } from '../../../../types/steps'
+import { StepPath } from '../../../../utils/steps'
 import FormElement from '../../../common/FormElement'
 import { ApplicantRole } from '../../scenario/ScenarioSelection'
 import { AccordionItem } from '../AccordionItem'
-import TextGroup from '../TextGroup'
-import TextGroupJaNeiVetIkke from '../TextGroupJaNeiVetIkke'
+import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import { PaymentDetailsSummary } from './PaymentDetailsSummary'
 import { PersonInfoSummary } from './PersonInfoSummery'
 
@@ -52,7 +51,7 @@ export const SummaryAboutChildren = memo(
                         <Accordion>
                             <AccordionItem
                                 title={isChild ? t('aboutSiblingsTitle') : t('aboutChildrenTitle')}
-                                path={`/skjema/${pathPrefix}/steg/${StepPath.AboutChildren}`}
+                                path={`/skjema/${pathPrefix}/${StepPath.AboutChildren}`}
                                 pathText={t(`changeAnswerSummary.${StepPath.AboutChildren}`)}
                             >
                                 {aboutChildren.children &&

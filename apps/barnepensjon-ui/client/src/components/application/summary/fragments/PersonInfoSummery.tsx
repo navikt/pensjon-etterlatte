@@ -1,5 +1,5 @@
 import useTranslation from '../../../../hooks/useTranslation'
-import TextGroup from '../TextGroup'
+import { TextGroup } from '../TextGroup'
 
 export const PersonInfoSummary = ({
     name,
