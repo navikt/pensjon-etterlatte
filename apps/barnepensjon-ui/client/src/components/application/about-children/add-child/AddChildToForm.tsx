@@ -70,24 +70,15 @@ const ChangeChildPanelContent = styled.div`
 `
 
 interface Props {
-    cancel: () => void
+    cancel: (removeActive?: boolean) => void
     save: (data: IChild) => void
     child: IChild
     fnrRegisteredChild: string[]
-    removeCanceledNewChild: () => void
     isChild: boolean
     isGuardian: boolean
 }
 
-const AddChildToForm = ({
-    cancel,
-    save,
-    child,
-    fnrRegisteredChild,
-    removeCanceledNewChild,
-    isChild,
-    isGuardian,
-}: Props) => {
+const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian }: Props) => {
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
     const { state: user } = useUserContext()
@@ -115,8 +106,8 @@ const AddChildToForm = ({
     }
 
     const cancelAndClose = () => {
-        if (child.fnrDnr === undefined) removeCanceledNewChild()
-        cancel()
+        if (child.fnrDnr === undefined) cancel(true)
+        else cancel()
         window.scrollTo(0, 0)
     }
 

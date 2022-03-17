@@ -74,8 +74,10 @@ export default function AboutChildren({ next, prev }: StepProps) {
         setActiveChildIndex(fields.length)
     }
 
-    const removeNewChild = () => {
-        remove(activeChildIndex)
+    const cancel = (removeActive?: boolean) => {
+        if (removeActive) remove(activeChildIndex)
+
+        setActiveChildIndex(undefined)
     }
 
     const updateChild = (child: IChild) => {
@@ -177,10 +179,9 @@ export default function AboutChildren({ next, prev }: StepProps) {
                 {activeChildIndex !== undefined && (
                     <AddChildToForm
                         save={updateChild}
-                        cancel={() => setActiveChildIndex(undefined)}
+                        cancel={cancel}
                         fnrRegisteredChild={fnrRegisteredChild(activeChildIndex)}
                         child={fields[activeChildIndex] as IChild}
-                        removeCanceledNewChild={removeNewChild}
                         isChild={isChild}
                         isGuardian={isGuardian}
                     />
