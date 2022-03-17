@@ -93,14 +93,19 @@ export default function Summary({ prev }: StepProps) {
                     />
                 )}
 
-                {!isEmpty(application.aboutChildren) && application.aboutChildren && (
-                    <SummaryAboutChildren
-                        aboutChildren={application.aboutChildren}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                        applicationRole={application.applicant?.applicantRole}
-                        parents={{ firstParent: application.firstParent, secondParent: application.secondParent }}
-                    />
-                )}
+                {!isEmpty(application.aboutChildren) &&
+                    application.aboutChildren &&
+                    application.aboutChildren?.children?.length !== 0 && (
+                        <SummaryAboutChildren
+                            aboutChildren={application.aboutChildren}
+                            pathPrefix={pathPrefix(application?.applicant)}
+                            applicationRole={application.applicant?.applicantRole}
+                            parents={{
+                                firstParent: application.firstParent,
+                                secondParent: application.secondParent,
+                            }}
+                        />
+                    )}
             </FormGroup>
 
             {error && (
