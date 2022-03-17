@@ -120,28 +120,22 @@ export const SummaryAboutChildren = memo(
                                             )}
                                             {child.appliesForChildrensPension && (
                                                 <>
-                                                    <TextGroup
+                                                    <TextGroupJaNeiVetIkke
                                                         title={t('userAppliesForChildrensPension')}
-                                                        content={child.appliesForChildrensPension}
+                                                        content={JaNeiVetIkke.JA}
                                                     />
-                                                    <Panel>
-                                                        <PaymentDetailsSummary
-                                                            accountType={child.paymentDetails?.accountType}
-                                                            bankAccount={child.paymentDetails?.bankAccount}
-                                                            foreignBankName={child.paymentDetails?.foreignBankName}
-                                                            foreignBankAddress={
-                                                                child.paymentDetails?.foreignBankAddress
-                                                            }
-                                                            iban={child.paymentDetails?.iban}
-                                                            swift={child.paymentDetails?.swift}
-                                                            taxWithholdAnswer={
-                                                                child.paymentDetails?.taxWithhold?.answer
-                                                            }
-                                                            taxWithholdPercentage={
-                                                                child.paymentDetails?.taxWithhold?.taxPercentage
-                                                            }
-                                                        />
-                                                    </Panel>
+                                                    <PaymentDetailsSummary
+                                                        accountType={child.paymentDetails?.accountType}
+                                                        bankAccount={child.paymentDetails?.bankAccount}
+                                                        foreignBankName={child.paymentDetails?.foreignBankName}
+                                                        foreignBankAddress={child.paymentDetails?.foreignBankAddress}
+                                                        iban={child.paymentDetails?.iban}
+                                                        swift={child.paymentDetails?.swift}
+                                                        taxWithholdAnswer={child.paymentDetails?.taxWithhold?.answer}
+                                                        taxWithholdPercentage={
+                                                            child.paymentDetails?.taxWithhold?.taxPercentage
+                                                        }
+                                                    />
                                                 </>
                                             )}
                                         </Panel>
