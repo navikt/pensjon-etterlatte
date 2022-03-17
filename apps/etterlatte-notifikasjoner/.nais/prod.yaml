@@ -31,14 +31,14 @@ spec:
   env:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.etterlatteytelser
-    - name: BRUKERNOTIFIKASJON_KAFKA_BROKERS
-      value: "a01apvl00145.adeo.no:8443,a01apvl00146.adeo.no:8443,a01apvl00147.adeo.no:8443,a01apvl00148.adeo.no:8443,a01apvl00149.adeo.no:8443,a01apvl00150.adeo.no:8443"
-    - name: BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY
-      value: "https://kafka-schema-registry.nais.adeo.no/"
+    #- name: BRUKERNOTIFIKASJON_KAFKA_BROKERS
+    #  value: "a01apvl00145.adeo.no:8443,a01apvl00146.adeo.no:8443,a01apvl00147.adeo.no:8443,a01apvl00148.adeo.no:8443,a01apvl00149.adeo.no:8443,a01apvl00150.adeo.no:8443"
+    #- name: BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY
+    #  value: "https://kafka-schema-registry.nais.adeo.no/"
     - name: BRUKERNOTIFIKASJON_KAFKA_GROUP_ID
       value: "etterlatte-v1"
     - name: BRUKERNOTIFIKASJON_BESKJED_TOPIC
-      value: "aapen-brukernotifikasjon-nyBeskjed-v1"
+      value: "min-side.aapen-brukernotifikasjon-beskjed-v1"
   accessPolicy:
     outbound:
       external:

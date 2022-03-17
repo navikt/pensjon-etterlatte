@@ -17,18 +17,18 @@ class SendNotifikasjon(env: Map<String, String>) {
     private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
     private val systembruker = env["srvuser"]
     private val passord = env["srvpwd"]
-    private val bootStrapServer = env["BRUKERNOTIFIKASJON_KAFKA_BROKERS"]!!
+    private val bootStrapServer = env["KAFKA_BROKERS"]!!
     private var producer: Producer<Nokkel, Beskjed>? = null
     private val clientId =
         if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString()
-    private val schemaRegistry = env["BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY"]
+    private val schemaRegistry = env["KAFKA_SCHEMA_REGISTRY"]
     private val trustStorePassword = env["NAV_TRUSTSTORE_PASSWORD"]
     private val trustStore = env["NAV_TRUSTSTORE_PATH"]
     private val acksConfig = "all"
 
     // notifikasjon
     private val notifikasjonsTekst = "Vi har mottatt søknaden din om gjenlevendepensjon"
-    private val grupperingsId = "ETTERLATTE"
+    private val grupperingsId = env["BRUKERNOTIFIKASJON_KAFKA_GROUP_ID"]
 
     // opprettNotifikasjon
     private val sikkerhetsNivaa = 4
@@ -70,7 +70,7 @@ class SendNotifikasjon(env: Map<String, String>) {
             .withTekst(notifikasjonsTekst)
             .withTidspunkt(now)
             .withSynligFremTil(weekFromNow)
-            .withSikkerhetsnivaa(sikkerhetsNivaa)
+            //.withSikkerhetsnivaa(sikkerhetsNivaa)
             .withEksternVarsling(eksternVarsling)
             //.withPrefererteKanaler(null)
             //.withPrefererteKanaler(PreferertKanal.SMS)
