@@ -44,13 +44,10 @@ export default function AboutYou({ next }: StepProps) {
 
     return (
         <>
-            {/* Steg 2 */}
             <StepHeading>{t('title')}</StepHeading>
 
-            {/* Informasjon om den innloggede brukeren */}
             <LoggedInUserInfo user={user} />
 
-            {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <FormProvider {...methods}>
                 <form>
                     <FormGroup>
@@ -85,7 +82,6 @@ export default function AboutYou({ next }: StepProps) {
                         )}
                     </FormGroup>
 
-                    {/* 2.7 */}
                     {!user.adressebeskyttelse && isChild && <PaymentDetails />}
 
                     <ErrorSummaryWrapper errors={errors} />
