@@ -4,13 +4,16 @@ import useTranslation from '../../hooks/useTranslation'
 import EyModal from './EyModal'
 import { deleteDraft } from '../../api/api'
 import { ActionTypes } from '../../context/application/application'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import FormElement from './FormElement'
 
 export const ContinueApplicationModal = () => {
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation('continueApplicationModal')
     const navigate = useNavigate()
+    const location = useLocation()
+
+    const shouldAsk = state.meta?.showContinueModal === true && location.pathname !== '/skjema/admin'
 
     const continueApplication = () => {
         dispatch({ type: ActionTypes.CLOSE_CONTINUE_MODAL })
@@ -25,7 +28,7 @@ export const ContinueApplicationModal = () => {
     }
 
     return (
-        <EyModal open={state.meta?.showContinueModal || false} onClose={() => {}}>
+        <EyModal open={shouldAsk} onClose={() => {}}>
             <Heading size={'medium'}>{t('doYouWantToContinueWithTheApplication')}</Heading>
 
             <FormElement>
