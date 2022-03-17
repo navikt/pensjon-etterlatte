@@ -9,7 +9,7 @@ class SendNotifikasjonTest {
     private val sendNotifikasjon = SendNotifikasjon(
         mapOf(
             "BRUKERNOTIFIKASJON_BESKJED_TOPIC" to "test_topic",
-            "BRUKERNOTIFIKASJON_KAFKA_BROKERS" to "broker1",
+            "KAFKA_BROKERS" to "broker1",
         )
     )
 
