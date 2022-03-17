@@ -17,7 +17,7 @@ export const PaymentDetailsSummary = ({
 
     return (
         <>
-            <TextGroup title={t('accountType')} content={accountType} />
+            <TextGroup title={t('accountType')} content={t(accountType)} />
             {accountType === BankkontoType.NORSK && <TextGroup title={t('bankAccount')} content={bankAccount} />}
             {accountType === BankkontoType.UTENLANDSK && (
                 <>
