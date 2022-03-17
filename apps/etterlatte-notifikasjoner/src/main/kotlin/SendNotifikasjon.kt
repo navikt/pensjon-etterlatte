@@ -20,16 +20,24 @@ import java.util.*
 class SendNotifikasjon(env: Map<String, String>) {
 
     private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
-    private val systembruker = env["srvuser"]
-    private val passord = env["srvpwd"]
-    private val bootStrapServer = env["KAFKA_BROKERS"]!!
+
     private var producer: Producer<NokkelInput, BeskjedInput>? = null
+
+    //Producer
+    private val bootStrapServer = env["KAFKA_BROKERS"]!!
     private val clientId =
         if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString()
+    private val systembruker = env["srvuser"]
+    private val passord = env["srvpwd"]
     private val schemaRegistry = env["KAFKA_SCHEMA_REGISTRY"]
     private val trustStorePassword = env["NAV_TRUSTSTORE_PASSWORD"]
     private val trustStore = env["NAV_TRUSTSTORE_PATH"]
+    private val trustStoreType = "jks"
+    private val keyStore = env["KAFKA_KEYSTORE_PATH"]
+    private val keyStoreType = "PKCS12"
+    private val keystorePassword = env["KAFKA_CREDSTORE_PASSWORD"]
     private val acksConfig = "all"
+
 
     // notifikasjon
     private val notifikasjonsTekst = "Vi har mottatt søknaden din om gjenlevendepensjon"
@@ -43,6 +51,8 @@ class SendNotifikasjon(env: Map<String, String>) {
     private val eksternVarsling = false
 
 
+
+
     fun startuptask() {
         producer = KafkaProducer(
             KafkaConfig(
@@ -53,6 +63,10 @@ class SendNotifikasjon(env: Map<String, String>) {
                 schemaRegistryUrl = schemaRegistry,
                 truststorePassword = trustStorePassword,
                 truststore = trustStore,
+                trustStoreType = trustStoreType,
+                keyStore = keyStore,
+                keyStoreType = keyStoreType,
+                keyStorePassword = keystorePassword,
                 acksConfig = acksConfig
             ).producerConfig()
         )

@@ -17,6 +17,10 @@ class KafkaConfig(
     private val password: String? = null,
     private val truststore: String? = null,
     private val truststorePassword: String? = null,
+    private val trustStoreType: String? = null,
+    private val keyStore: String? = null,
+    private val keyStoreType: String? = null,
+    private val keyStorePassword: String? = null,
     private val schemaRegistryUrl: String? = null,
     private val acksConfig: String? = null,
 
@@ -46,9 +50,17 @@ class KafkaConfig(
 
         if (!truststore.isNullOrBlank()) {
             try {
-                put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL")
-                put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, File(truststore).absolutePath)
-                put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, truststorePassword)
+                this[CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG] = bootstrapServers
+                this[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = "SSL"
+                this[SaslConfigs.SASL_MECHANISM] = "PLAIN"
+                this[SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG] = ""
+                this[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = trustStoreType
+                this[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = keyStoreType
+                this[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = truststore
+                this[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = truststorePassword
+                this[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = keyStore
+                this[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = keyStorePassword
+                this[SslConfigs.SSL_KEY_PASSWORD_CONFIG] = keyStorePassword
                 log.info("Configured '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location ")
             } catch (ex: Exception) {
                 log.error("Failed to set '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location", ex)
