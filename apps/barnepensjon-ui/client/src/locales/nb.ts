@@ -302,6 +302,9 @@ const error = {
     'childHasGuardianship.firstName.pattern': 'Ugyldig fornavn',
     'childHasGuardianship.lastName.pattern': 'Ugyldig etternavn',
     'childHasGuardianship.fnr.validate': 'Ikke et gyldig fødselsnummer',
+    'whyDoYouApply.required': 'Oppgi grunnen til at du søker barnepensjon',
+    'timeUsedForEducation.required': 'Oppgi hvor mye tid du bruker på utdanning',
+    'doYouHaveIncome.required': 'Oppgi om du har lønnsinntekt',
 }
 
 const pageNotFound = {
