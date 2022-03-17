@@ -15,6 +15,10 @@ import { SummaryAboutDeceasedParent } from './fragments/SummaryAboutDeceasedPare
 import { SummaryAboutLivingParent } from './fragments/SummaryAboutLivingParent'
 import { SummeryAboutYou } from './fragments/SummaryAboutYou'
 import { SummaryYourSituation } from './fragments/SummaryYourSituation'
+import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'
+import { sendApplication } from '../../../api/api'
+import { useNavigate } from 'react-router-dom'
+import { Barnepensjon } from '../../../api/dto/InnsendtSoeknad'
 
 const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
     const prefix = {
@@ -26,18 +30,19 @@ const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
 }
 
 export default function Summary({ prev }: StepProps) {
+    const { t } = useTranslation('summary')
+
     const { state: application } = useApplicationContext()
     const { state: user } = useUserContext()
 
-    const { t } = useTranslation('summary')
+    const navigate = useNavigate()
 
-    const [error] = useState(false)
+    const [error, setError] = useState(false)
 
     const send = () => {
-        // const innsendtSoeknad = mapTilBarnepensjonSoeknadListe(t, application, user)
-        // TODO: Map to InnsendSoeknad and send to backend
-        /*
-        sendApplication({})
+        const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user)
+
+        sendApplication({ soeknader })
             .then((response) => {
                 console.log(response)
 
@@ -47,7 +52,6 @@ export default function Summary({ prev }: StepProps) {
                 console.error(e)
                 setError(true)
             })
-            */
     }
 
     return (

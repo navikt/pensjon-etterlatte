@@ -1,5 +1,6 @@
 import { IApplication } from '../context/application/application'
 import { axiosInstance as api } from './axios'
+import { SoeknadRequest } from './dto/InnsendtSoeknad'
 
 export const getLoggedInUser = async () => api.get('/api/person/innlogget').then((res) => res.data)
 
@@ -29,7 +30,7 @@ export const getDraft = async () =>
 export const saveDraft = async (application: IApplication) =>
     api.post('/api/api/kladd', application).then((res) => res.data)
 
-export const sendApplication = async (application: IApplication) =>
+export const sendApplication = async (application: SoeknadRequest) =>
     api.post('/api/api/soeknad', application).then((res) => res.data)
 
 export const deleteDraft = async () => api.delete('/api/api/kladd').then((res) => res.data)

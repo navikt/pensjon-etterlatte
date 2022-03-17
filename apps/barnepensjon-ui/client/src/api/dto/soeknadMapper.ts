@@ -26,9 +26,9 @@ const mapTilBarnepensjonSoeknad = (
 
     const harSamtykket: Opplysning<boolean> = mapSamtykke(t, application, user)
 
-    const foreldre: Person[] = mapForeldreMedUtvidetInfo(t, child, application)
+    const foreldre: Person[] = mapForeldreMedUtvidetInfo(t, child, application, user)
 
-    const soesken: Barn[] = mapSoesken(t, child, application)
+    const soesken: Barn[] = mapSoesken(t, child, application, user)
 
     return {
         type: SoeknadType.BARNEPENSJON,
@@ -43,13 +43,13 @@ const mapTilBarnepensjonSoeknad = (
         // TODO: Legge til "Din situasjon" på barnet.
         // situasjon: undefined,
 
-        soeker: mapBarn(t, child, application),
+        soeker: mapBarn(t, child, application, user),
         foreldre,
         soesken,
     }
 }
 
-const mapBarn = (t: TFunction, child: IChild, application: IApplication): Barn => {
+const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: User): Barn => {
     const staysAbroad: JaNeiVetIkke = child.staysAbroad!!.answer!!
 
     const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> = {
@@ -98,16 +98,18 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication): Barn =
             svar: child.citizenship!!,
         },
         utenlandsAdresse,
-        foreldre: hentForeldre(t, child, application),
+        foreldre: hentForeldre(t, child, application, user),
         verge,
     }
 }
 
-const mapSoesken = (t: TFunction, child: IChild, application: IApplication): Barn[] => {
+const mapSoesken = (t: TFunction, child: IChild, application: IApplication, user: User): Barn[] => {
     const allChildren: IChild[] = application.aboutChildren!!.children!!
 
     // TODO: Sjekke at dette fungerer som forventet
-    return allChildren.filter((c: IChild) => c.fnrDnr !== child.fnrDnr).map((c: IChild) => mapBarn(t, c, application))
+    return allChildren
+        .filter((c: IChild) => c.fnrDnr !== child.fnrDnr)
+        .map((c: IChild) => mapBarn(t, c, application, user))
 }
 
 const mapSamtykke = (t: TFunction, application: IApplication, user: User): Opplysning<boolean> => ({

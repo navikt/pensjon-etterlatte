@@ -70,24 +70,18 @@ export interface ILivingParent extends IParent {
 
 export interface IDeceasedParent extends IParent {
     dateOfDeath: Date
-    staysAbroad: {
-        hasStaysAbroad?: JaNeiVetIkke
-        abroadStays?: IAbroadStay[]
-    }
-    selfEmplyment: {
-        wasSelfEmployed: JaNeiVetIkke
-        income?: string
-        incomeAtDeath?: JaNeiVetIkke
-        selfEmplymentDetails: {
-            income?: string
-            incomeAtDeath?: JaNeiVetIkke
-        }
-    }
+    staysAbroad: IStaysAbroad
+    selfEmplyment: ISelfEmployment
     occupationalInjury?: JaNeiVetIkke
     militaryService?: {
         completed?: JaNeiVetIkke
         period?: string
     }
+}
+
+export interface IStaysAbroad {
+    hasStaysAbroad?: JaNeiVetIkke
+    abroadStays?: IAbroadStay[]
 }
 
 export interface IAbroadStay {
@@ -97,4 +91,14 @@ export interface IAbroadStay {
     type: OppholdUtlandType[]
     medlemFolketrygd: JaNeiVetIkke
     pensionAmount?: string
+}
+
+export interface ISelfEmployment {
+    wasSelfEmployed: JaNeiVetIkke
+    income?: string
+    incomeAtDeath?: JaNeiVetIkke
+    selfEmplymentDetails: {
+        income?: string
+        incomeAtDeath?: JaNeiVetIkke
+    }
 }

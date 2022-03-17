@@ -8,52 +8,67 @@ import {
     Utenlandsopphold,
 } from './FellesOpplysninger'
 import { Avdoed, Forelder, GjenlevendeForelder, Person, PersonType } from './Person'
-import { IAbroadStay, IApplication, IDeceasedParent, ILivingParent } from '../../context/application/application'
+import {
+    IAbroadStay,
+    IApplication,
+    IDeceasedParent,
+    ILivingParent,
+    IParent,
+    ISelfEmployment,
+    IStaysAbroad,
+} from '../../context/application/application'
 import { TFunction } from '../../hooks/useTranslation'
-import { IChild } from '../../types/person'
+import { IAboutYou, IChild } from '../../types/person'
+import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
+import { User } from '../../context/user/user'
 
-export const hentForeldre = (t: TFunction, child: IChild, application: IApplication): Forelder[] => {
-    const forelder1: Forelder = {
-        type: PersonType.FORELDER,
-        fornavn: {
-            spoersmaal: t('firstName', { ns: 'common' }),
-            svar: application.firstParent!!.firstName,
-        },
-        etternavn: {
-            spoersmaal: t('lastName', { ns: 'common' }),
-            svar: application.firstParent!!.lastName,
-        },
-        foedselsnummer: {
-            spoersmaal: t('fnrDnr', { ns: 'common' }),
-            svar: application.firstParent!!.fnrDnr,
-        },
+export const hentForeldre = (t: TFunction, child: IChild, application: IApplication, user: User): Forelder[] => {
+    let firstParent
+    if (application?.applicant?.applicantRole === ApplicantRole.PARENT) {
+        firstParent = mapForelderFraInnloggetBruker(t, application.aboutYou, user)
+    } else {
+        firstParent = application.firstParent!!
     }
 
-    const forelder2: Forelder = {
-        type: PersonType.FORELDER,
-        fornavn: {
-            spoersmaal: t('firstName', { ns: 'common' }),
-            svar: application.secondParent!!.firstName,
-        },
-        etternavn: {
-            spoersmaal: t('lastName', { ns: 'common' }),
-            svar: application.secondParent!!.lastName,
-        },
-        foedselsnummer: {
-            spoersmaal: t('fnrDnr', { ns: 'common' }),
-            svar: application.secondParent!!.fnrDnr,
-        },
-    }
+    const forelder1 = mapTilForelder(t, firstParent)
+    const forelder2 = mapTilForelder(t, application.secondParent!!)
 
     return [forelder1, forelder2]
 }
 
-export const mapForeldreMedUtvidetInfo = (t: TFunction, child: IChild, application: IApplication): Person[] => {
+const mapTilForelder = (t: TFunction, parent: IParent): Forelder => ({
+    type: PersonType.FORELDER,
+    fornavn: {
+        spoersmaal: t('firstName', { ns: 'common' }),
+        svar: parent!!.firstName,
+    },
+    etternavn: {
+        spoersmaal: t('lastName', { ns: 'common' }),
+        svar: parent!!.lastName,
+    },
+    foedselsnummer: {
+        spoersmaal: t('fnrDnr', { ns: 'common' }),
+        svar: parent!!.fnrDnr,
+    },
+})
+
+export const mapForeldreMedUtvidetInfo = (
+    t: TFunction,
+    child: IChild,
+    application: IApplication,
+    user: User
+): Person[] => {
     let forelder1
-    if ((application.firstParent as IDeceasedParent).dateOfDeath) {
+    if (!!(application.firstParent as IDeceasedParent)?.dateOfDeath) {
         forelder1 = mapAvdoed(t, application.firstParent as IDeceasedParent)
     } else {
-        forelder1 = mapGjenlevendeForelder(t, application.firstParent as ILivingParent)
+        if (application.applicant?.applicantRole === ApplicantRole.PARENT) {
+            const livingParent = mapForelderFraInnloggetBruker(t, application.aboutYou, user)
+
+            forelder1 = mapGjenlevendeForelder(t, livingParent)
+        } else {
+            forelder1 = mapGjenlevendeForelder(t, application.firstParent as ILivingParent)
+        }
     }
 
     const avdoed: Avdoed = mapAvdoed(t, application.secondParent as IDeceasedParent)
@@ -61,46 +76,112 @@ export const mapForeldreMedUtvidetInfo = (t: TFunction, child: IChild, applicati
     return [forelder1, avdoed]
 }
 
-const mapGjenlevendeForelder = (t: TFunction, livingParent: ILivingParent): GjenlevendeForelder => {
+const mapForelderFraInnloggetBruker = (t: TFunction, aboutYou: IAboutYou, user: User): ILivingParent => ({
+    firstName: user.fornavn!!,
+    lastName: user.etternavn!!,
+    fnrDnr: user.foedselsnummer!!,
+    citizenship: user.statsborgerskap!!,
+    address: aboutYou?.alternativeAddress || user.adresse!!,
+    phoneNumber: aboutYou?.phoneNumber,
+})
+
+const mapGjenlevendeForelder = (t: TFunction, livingParent: ILivingParent): GjenlevendeForelder => ({
+    type: PersonType.GJENLEVENDE_FORELDER,
+    fornavn: {
+        spoersmaal: t('firstName', { ns: 'common' }),
+        svar: livingParent.firstName,
+    },
+    etternavn: {
+        spoersmaal: t('lastName', { ns: 'common' }),
+        svar: livingParent.lastName,
+    },
+    foedselsnummer: {
+        spoersmaal: t('fnrDnr', { ns: 'common' }),
+        svar: livingParent.fnrDnr,
+    },
+    statsborgerskap: {
+        spoersmaal: t('citizenship', { ns: 'common' }),
+        svar: livingParent.citizenship,
+    },
+    adresse: {
+        spoersmaal: t('address', { ns: 'common' }),
+        svar: livingParent.address,
+    },
+    kontaktinfo: {
+        telefonnummer: {
+            spoersmaal: t('phoneNumber', { ns: 'common' }),
+            svar: {
+                innhold: livingParent.phoneNumber || '-',
+            },
+        },
+    },
+})
+
+const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
+    let opplysningMilitaertjeneste: Opplysning<FritekstSvar> | undefined
+    if (parent.militaryService?.completed === JaNeiVetIkke.JA) {
+        opplysningMilitaertjeneste = {
+            spoersmaal: t('militaryServiceYears', { ns: 'aboutTheDeceased' }),
+            svar: {
+                innhold: parent.militaryService?.period || '-',
+            },
+        }
+    }
+
     return {
-        type: PersonType.GJENLEVENDE_FORELDER,
+        type: PersonType.AVDOED,
+
         fornavn: {
             spoersmaal: t('firstName', { ns: 'common' }),
-            svar: livingParent.firstName,
+            svar: parent.firstName!!,
         },
         etternavn: {
             spoersmaal: t('lastName', { ns: 'common' }),
-            svar: livingParent.lastName,
+            svar: parent.lastName!!,
         },
         foedselsnummer: {
             spoersmaal: t('fnrDnr', { ns: 'common' }),
-            svar: livingParent.fnrDnr,
+            svar: parent.fnrDnr!!,
+        },
+
+        datoForDoedsfallet: {
+            spoersmaal: t('dateOfDeath', { ns: 'aboutTheDeceased' }),
+            svar: {
+                innhold: parent.dateOfDeath!!,
+            },
         },
         statsborgerskap: {
             spoersmaal: t('citizenship', { ns: 'common' }),
-            svar: livingParent.citizenship,
+            svar: {
+                innhold: parent.citizenship!!,
+            },
         },
-        adresse: {
-            spoersmaal: t('address', { ns: 'common' }),
-            svar: livingParent.address,
+        utenlandsopphold: mapUtenlandsopphold(t, parent.staysAbroad),
+        naeringsInntekt: mapNaeringsinntekt(t, parent.selfEmplyment),
+        militaertjeneste: {
+            spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
+            svar: {
+                innhold: t(parent.militaryService!!.completed!!, { ns: 'radiobuttons' }),
+                verdi: parent.militaryService!!.completed!!,
+            },
+            opplysning: opplysningMilitaertjeneste,
         },
-        kontaktinfo: {
-            telefonnummer: {
-                spoersmaal: t('phoneNumber', { ns: 'common' }),
-                svar: {
-                    innhold: livingParent.phoneNumber || '-',
-                },
+        doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
+            spoersmaal: t('occupationalInjury', { ns: 'aboutTheDeceased' }),
+            svar: {
+                innhold: t(parent.occupationalInjury!!, { ns: 'radiobuttons' }),
+                verdi: parent.occupationalInjury!!,
             },
         },
     }
 }
 
-const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
+const mapUtenlandsopphold = (t: TFunction, staysAbroad: IStaysAbroad) => {
     let oppholdUtland: Utenlandsopphold[] | undefined
 
-    if (parent.staysAbroad?.hasStaysAbroad === JaNeiVetIkke.JA) {
+    if (staysAbroad?.hasStaysAbroad === JaNeiVetIkke.JA) {
         oppholdUtland =
-            parent.staysAbroad?.abroadStays?.map((info: IAbroadStay) => {
+            staysAbroad?.abroadStays?.map((info: IAbroadStay) => {
                 const oppholdsTypeListe: EnumSvar<OppholdUtlandType>[] =
                     info.type?.map((type) => ({
                         verdi: type,
@@ -165,93 +246,42 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
             }) || []
     }
 
+    return {
+        spoersmaal: t('didTheDeceasedLiveAbroad', { ns: 'aboutTheDeceased' }),
+        svar: {
+            innhold: t(staysAbroad.hasStaysAbroad!!, { ns: 'radiobuttons' }),
+            verdi: staysAbroad.hasStaysAbroad!!,
+        },
+        opplysning: oppholdUtland,
+    }
+}
+
+const mapNaeringsinntekt = (t: TFunction, selfEmployment: ISelfEmployment) => {
     let opplysningNaeringsInntekt: Naeringsinntekt | undefined
-    if (parent.selfEmplyment?.wasSelfEmployed === JaNeiVetIkke.JA) {
+    if (selfEmployment?.wasSelfEmployed === JaNeiVetIkke.JA) {
         opplysningNaeringsInntekt = {
             naeringsinntektPrAarFoerDoedsfall: {
                 spoersmaal: t('incomeFromSelfEmployymentYearBeforeDeath', { ns: 'aboutTheDeceased' }),
                 svar: {
-                    innhold: `${parent.selfEmplyment?.income}`,
+                    innhold: `${selfEmployment?.income}`,
                 },
             },
             naeringsinntektVedDoedsfall: {
                 spoersmaal: t('hadIncomeFromSelfEmployment', { ns: 'aboutTheDeceased' }),
                 svar: {
-                    innhold: t(parent.selfEmplyment.incomeAtDeath!!, { ns: 'radiobuttons' }),
-                    verdi: parent.selfEmplyment.incomeAtDeath!!,
+                    innhold: t(selfEmployment.incomeAtDeath!!, { ns: 'radiobuttons' }),
+                    verdi: selfEmployment.incomeAtDeath!!,
                 },
             },
         }
     }
 
-    let opplysningMilitaertjeneste: Opplysning<FritekstSvar> | undefined
-    if (parent.militaryService?.completed === JaNeiVetIkke.JA) {
-        opplysningMilitaertjeneste = {
-            spoersmaal: t('militaryServiceYears', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: parent.militaryService?.period || '-',
-            },
-        }
-    }
-
     return {
-        type: PersonType.AVDOED,
-
-        fornavn: {
-            spoersmaal: t('firstName', { ns: 'common' }),
-            svar: parent.firstName!!,
+        spoersmaal: t('wasTheDeceasedSelfEmployed', { ns: 'aboutTheDeceased' }),
+        svar: {
+            innhold: t(selfEmployment?.wasSelfEmployed, { ns: 'radiobuttons' }),
+            verdi: selfEmployment?.wasSelfEmployed,
         },
-        etternavn: {
-            spoersmaal: t('lastName', { ns: 'common' }),
-            svar: parent.lastName!!,
-        },
-        foedselsnummer: {
-            spoersmaal: t('fnrDnr', { ns: 'common' }),
-            svar: parent.fnrDnr!!,
-        },
-
-        datoForDoedsfallet: {
-            spoersmaal: t('dateOfDeath', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: parent.dateOfDeath!!,
-            },
-        },
-        statsborgerskap: {
-            spoersmaal: t('citizenship', { ns: 'common' }),
-            svar: {
-                innhold: parent.citizenship!!,
-            },
-        },
-        utenlandsopphold: {
-            spoersmaal: t('didTheDeceasedLiveAbroad', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: t(parent.staysAbroad.hasStaysAbroad!!, { ns: 'radiobuttons' }),
-                verdi: parent.staysAbroad.hasStaysAbroad!!,
-            },
-            opplysning: oppholdUtland,
-        },
-        naeringsInntekt: {
-            spoersmaal: t('wasTheDeceasedSelfEmployed', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: t(parent.selfEmplyment?.wasSelfEmployed, { ns: 'radiobuttons' }),
-                verdi: parent.selfEmplyment?.wasSelfEmployed,
-            },
-            opplysning: opplysningNaeringsInntekt,
-        },
-        militaertjeneste: {
-            spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: t(parent.militaryService!!.completed!!, { ns: 'radiobuttons' }),
-                verdi: parent.militaryService!!.completed!!,
-            },
-            opplysning: opplysningMilitaertjeneste,
-        },
-        doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
-            spoersmaal: t('occupationalInjury', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: t(parent.occupationalInjury!!, { ns: 'radiobuttons' }),
-                verdi: parent.occupationalInjury!!,
-            },
-        },
+        opplysning: opplysningNaeringsInntekt,
     }
 }
