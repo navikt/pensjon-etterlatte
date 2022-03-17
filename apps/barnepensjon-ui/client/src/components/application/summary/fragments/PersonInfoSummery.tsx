@@ -9,12 +9,12 @@ export const PersonInfoSummary = ({
     citizenship,
     address,
 }: {
-    name?: String
-    firstName?: String
-    lastName?: String
-    fnrDnr?: String
-    citizenship?: String
-    address?: String
+    name?: string
+    firstName?: string
+    lastName?: string
+    fnrDnr?: string
+    citizenship?: string
+    address?: string
 }) => {
     const { t } = useTranslation('common')
 

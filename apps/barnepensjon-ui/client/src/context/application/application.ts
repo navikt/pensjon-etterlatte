@@ -57,15 +57,15 @@ export interface IApplicant {
 }
 
 export interface IParent {
-    firstName: String
-    lastName: String
-    fnrDnr: String
-    citizenship: String
+    firstName: string
+    lastName: string
+    fnrDnr: string
+    citizenship: string
 }
 
 export interface ILivingParent extends IParent {
-    address: String
-    phoneNumber?: String
+    address: string
+    phoneNumber?: string
 }
 
 export interface IDeceasedParent extends IParent {
@@ -76,25 +76,25 @@ export interface IDeceasedParent extends IParent {
     }
     selfEmplyment: {
         wasSelfEmployed: JaNeiVetIkke
-        income?: String
+        income?: string
         incomeAtDeath?: JaNeiVetIkke
         selfEmplymentDetails: {
-            income?: String
+            income?: string
             incomeAtDeath?: JaNeiVetIkke
         }
     }
     occupationalInjury?: JaNeiVetIkke
     militaryService?: {
         completed?: JaNeiVetIkke
-        period?: String
+        period?: string
     }
 }
 
 export interface IAbroadStay {
-    country: String
+    country: string
     fromDate?: Date
     toDate?: Date
     type: OppholdUtlandType[]
     medlemFolketrygd: JaNeiVetIkke
-    pensionAmount?: String
+    pensionAmount?: string
 }

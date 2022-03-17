@@ -19,7 +19,7 @@ export const ParentQuestion = ({ isChild, isGuardian, t, watch }: Props) => {
     const { state: application } = useApplicationContext()
     const bothParents = watch('bothParents')
 
-    const bothParentsText = (): String => {
+    const bothParentsText = (): string => {
         if (isGuardian || isChild) {
             return t('childBelongsToParents', {
                 forelder1: getParentText(application.firstParent!),

@@ -1,6 +1,6 @@
 import { User } from '../context/user/user'
 
-export const fullAdresse = (person: User): String => {
+export const fullAdresse = (person: User): string => {
     if (person.adressebeskyttelse || !person.adresse) return ''
 
     return (
