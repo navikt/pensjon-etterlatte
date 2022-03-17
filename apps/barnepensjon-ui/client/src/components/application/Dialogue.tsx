@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import { ActionTypes } from '../../context/application/application'
 import { isDev } from '../../api/axios'
 import PageNotFound from '../error/PageNotFound'
+import useTranslation from '../../hooks/useTranslation'
 
 interface DialogueProps {
     steps: StepType[]
@@ -19,6 +20,8 @@ export interface StepProps {
 }
 
 export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
+    const { t } = useTranslation('steps')
+
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const currentIndex = steps.findIndex((step) => pathname.includes(step.path))
@@ -42,7 +45,7 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
                         onClick={() => isDev && visitNavigate(step)}
                         disabled={isDev && !visitedPaths.includes(step)}
                     >
-                        <BodyShort>{step.label}</BodyShort>
+                        <BodyShort>{t(step.label)}</BodyShort>
                     </StepIndicator.Step>
                 ))}
             </StepIndicator>

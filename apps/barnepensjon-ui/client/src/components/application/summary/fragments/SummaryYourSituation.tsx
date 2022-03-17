@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash'
 import { memo } from 'react'
 import useTranslation from '../../../../hooks/useTranslation'
 import { ISituationChild } from '../../../../types/situation'
-import { StepPath } from '../../../../utils/steps'
+import { StepLabelKey, StepPath } from '../../../../utils/steps'
 import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
@@ -20,7 +20,7 @@ export const SummaryYourSituation = memo(
                             <AccordionItem
                                 title={t('title')}
                                 path={`/skjema/${pathPrefix}/${StepPath.YourSituation}`}
-                                pathText={t(`changeAnswerSummary.${StepPath.YourSituation}`)}
+                                pathText={t(StepLabelKey.YourSituation, { ns: 'summary' })}
                             >
                                 <>
                                     <TextGroup

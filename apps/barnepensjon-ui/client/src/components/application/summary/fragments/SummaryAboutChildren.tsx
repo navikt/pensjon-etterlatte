@@ -6,7 +6,7 @@ import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { IParent } from '../../../../context/application/application'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IAboutChildren } from '../../../../types/person'
-import { StepPath } from '../../../../utils/steps'
+import { StepLabelKey, StepPath } from '../../../../utils/steps'
 import FormElement from '../../../common/FormElement'
 import { ApplicantRole } from '../../scenario/ScenarioSelection'
 import { AccordionItem } from '../AccordionItem'
@@ -52,7 +52,7 @@ export const SummaryAboutChildren = memo(
                             <AccordionItem
                                 title={isChild ? t('aboutSiblingsTitle') : t('aboutChildrenTitle')}
                                 path={`/skjema/${pathPrefix}/${StepPath.AboutChildren}`}
-                                pathText={t(`changeAnswerSummary.${StepPath.AboutChildren}`)}
+                                pathText={t(StepLabelKey.AboutChildren, { ns: 'summary' })}
                             >
                                 {aboutChildren.children &&
                                     aboutChildren?.children.map((child) => (

@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash'
 import { memo } from 'react'
 import { ILivingParent } from '../../../../context/application/application'
 import useTranslation from '../../../../hooks/useTranslation'
-import { StepPath } from '../../../../utils/steps'
+import { StepLabelKey, StepPath } from '../../../../utils/steps'
 import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
 import { TextGroup } from '../TextGroup'
@@ -20,7 +20,7 @@ export const SummaryAboutLivingParent = memo(
                             <AccordionItem
                                 title={t('title')}
                                 path={`/skjema/${pathPrefix}/${StepPath.AboutTheParents}`}
-                                pathText={t(`changeAnswerSummary.${StepPath.AboutTheParents}`)}
+                                pathText={t(StepLabelKey.AboutTheParents, { ns: 'summary' })}
                             >
                                 <>
                                     <PersonInfoSummary

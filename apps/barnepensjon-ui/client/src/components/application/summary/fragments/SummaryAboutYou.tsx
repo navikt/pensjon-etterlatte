@@ -5,7 +5,7 @@ import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { User } from '../../../../context/user/user'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IAboutYou } from '../../../../types/person'
-import { StepPath } from '../../../../utils/steps'
+import { StepLabelKey, StepPath } from '../../../../utils/steps'
 import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
@@ -24,7 +24,7 @@ export const SummeryAboutYou = memo(
                             <AccordionItem
                                 title={t('title')}
                                 path={`/skjema/${pathPrefix}/${StepPath.AboutYou}`}
-                                pathText={t(`changeAnswerSummary.${StepPath.AboutYou}`)}
+                                pathText={t(StepLabelKey.AboutYou, { ns: 'summary' })}
                             >
                                 <>
                                     <Panel>

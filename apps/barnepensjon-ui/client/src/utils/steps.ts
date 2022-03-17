@@ -5,6 +5,15 @@ import AboutParents from '../components/application/about-parents/AboutParents'
 import AboutTheDeceasedParentStep from '../components/application/the-deceased/AboutTheDeceasedParentStep'
 import YourSituation from '../components/application/your-situation/YourSituation'
 
+export enum StepLabelKey {
+    AboutYou = 'AboutYou',
+    AboutTheParents = 'AboutTheParents',
+    AboutTheDeceased = 'AboutTheDeceased',
+    YourSituation = 'YourSituation',
+    AboutChildren = 'AboutChildren',
+    Summary = 'Summary',
+}
+
 export enum StepPath {
     AboutYou = 'steg/om-deg',
     AboutTheParents = 'steg/om-foreldrene',
@@ -15,8 +24,8 @@ export enum StepPath {
 }
 
 export interface StepType {
-    label: string
-    path: string
+    label: StepLabelKey
+    path: StepPath
     element: any
 }
 
@@ -27,22 +36,22 @@ export interface StepType {
  */
 export const ParentApplicantSteps: StepType[] = [
     {
-        label: 'Om deg (den gjenlevende)',
+        label: StepLabelKey.AboutYou,
         path: StepPath.AboutYou,
         element: AboutYou,
     },
     {
-        label: 'Om den avdøde',
+        label: StepLabelKey.AboutTheDeceased,
         path: StepPath.AboutTheDeceased,
         element: AboutTheDeceasedParentStep,
     },
     {
-        label: 'Opplysninger om barna',
+        label: StepLabelKey.AboutChildren,
         path: StepPath.AboutChildren,
         element: AboutChildren,
     },
     {
-        label: 'Oppsummering',
+        label: StepLabelKey.Summary,
         path: StepPath.Summary,
         element: Summary,
     },
@@ -55,22 +64,22 @@ export const ParentApplicantSteps: StepType[] = [
  */
 export const GuardianApplicantSteps: StepType[] = [
     {
-        label: 'Om deg (vergen)',
+        label: StepLabelKey.AboutYou,
         path: StepPath.AboutYou,
         element: AboutYou,
     },
     {
-        label: 'Om foreldrene',
+        label: StepLabelKey.AboutTheParents,
         path: StepPath.AboutTheParents,
         element: AboutParents,
     },
     {
-        label: 'Opplysninger om barna',
+        label: StepLabelKey.AboutChildren,
         path: StepPath.AboutChildren,
         element: AboutChildren,
     },
     {
-        label: 'Oppsummering',
+        label: StepLabelKey.Summary,
         path: StepPath.Summary,
         element: Summary,
     },
@@ -83,27 +92,27 @@ export const GuardianApplicantSteps: StepType[] = [
  */
 export const ChildApplicantSteps: StepType[] = [
     {
-        label: 'Om deg',
+        label: StepLabelKey.AboutYou,
         path: StepPath.AboutYou,
         element: AboutYou,
     },
     {
-        label: 'Din situasjon',
+        label: StepLabelKey.YourSituation,
         path: StepPath.YourSituation,
         element: YourSituation,
     },
     {
-        label: 'Om foreldrene',
+        label: StepLabelKey.AboutTheParents,
         path: StepPath.AboutTheParents,
         element: AboutParents,
     },
     {
-        label: 'Opplysninger om søsken',
+        label: StepLabelKey.AboutChildren,
         path: StepPath.AboutChildren,
         element: AboutChildren,
     },
     {
-        label: 'Oppsummering',
+        label: StepLabelKey.Summary,
         path: StepPath.Summary,
         element: Summary,
     },

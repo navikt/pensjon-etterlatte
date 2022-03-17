@@ -17,6 +17,7 @@ export type Namespace =
     | 'paymentDetails'
     | 'radiobuttons'
     | 'btn'
+    | 'steps'
     | 'pageNotFound'
     | 'systemUnavailable'
     | 'yourSituation'

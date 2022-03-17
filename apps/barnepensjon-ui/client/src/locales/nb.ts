@@ -148,7 +148,6 @@ const aboutYou = {
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
     'subtitle.personalia': 'Personalia',
     'subtitle.informationAboutApplicant': 'Opplysninger om søker',
-    'changeAnswerSummary.om-deg': 'Endre svar om deg',
 }
 
 const livingParent = {
@@ -156,7 +155,6 @@ const livingParent = {
     who: 'Oppgi informasjon om den gjenlevende forelderen.',
     address: 'Adresse',
     phoneNumberOptional: 'Telefonnummer (valgfri)',
-    'changeAnswerSummary.om-foreldrene': 'Endre svar om foreldre',
 }
 
 const aboutTheDeceased = {
@@ -195,7 +193,6 @@ const aboutTheDeceased = {
     BODD: 'Bodd',
     ARBEIDET: 'Arbeidet',
     addCountryButton: '+ Legg til flere land',
-    'changeAnswerSummary.om-foreldrene': 'Endre svar om foreldre',
 }
 
 const aboutChildren = {
@@ -238,7 +235,6 @@ const aboutChildren = {
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
     onlyGuardiansCanApply:
         'Det er kun mulig å søke om barnepensjon for barn du er verge til. Du må likevel oppgi informasjon om helsøsken under 20 år.',
-    'changeAnswerSummary.om-barn': 'Endre svar om barn',
 }
 
 const summary = {
@@ -246,6 +242,11 @@ const summary = {
     readTheSummaryBeforeSending:
         'Les gjennom oppsummeringen av din søknad før du sender. \nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
     sendApplicationButton: 'Send søknad',
+    AboutYou: 'Endre svar om deg',
+    AboutTheParents: 'Endre svar om foreldre',
+    AboutTheDeceased: 'Endre svar om den avdøde',
+    AboutChildren: 'Endre svar om barn',
+    YourSituation: 'Endre svar om din situasjon',
 }
 
 const error = {
@@ -404,13 +405,21 @@ const yourSituation = {
     EDUCATION: 'Jeg tar utdanning',
     APPRENTICE: 'Jeg er lærling',
     INTERNSHIP: 'Jeg har praksisplass eller er praktikant',
-    'changeAnswerSummary.din-situasjon': 'Endre svar om din situasjon',
 }
 
 const continueApplicationModal = {
     doYouWantToContinueWithTheApplication: 'Ønsker du å fortsette utfyllingen av påbegynt søknad?',
     yesContinueWithApplication: 'Ja, jeg vil fortsette der jeg slapp',
     noRestartApplication: 'Nei, start på nytt',
+}
+
+const steps = {
+    AboutYou: 'Om deg',
+    AboutTheParents: 'Om foreldrene',
+    AboutTheDeceased: 'Om den avdøde',
+    YourSituation: 'Din situasjon',
+    AboutChildren: 'Opplysninger om barna',
+    Summary: 'Oppsummering',
 }
 
 const texts: Record<TNamespace, Record<TKey, Translation>> = {
@@ -428,6 +437,7 @@ const texts: Record<TNamespace, Record<TKey, Translation>> = {
     navigation,
     paymentDetails,
     btn,
+    steps,
     radiobuttons,
     selectScenario,
     pageNotFound,

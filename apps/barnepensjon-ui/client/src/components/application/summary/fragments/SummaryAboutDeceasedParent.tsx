@@ -4,7 +4,7 @@ import { memo } from 'react'
 import { v4 as uuid } from 'uuid'
 import { IDeceasedParent } from '../../../../context/application/application'
 import useTranslation from '../../../../hooks/useTranslation'
-import { StepPath } from '../../../../utils/steps'
+import { StepLabelKey, StepPath } from '../../../../utils/steps'
 import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
@@ -22,7 +22,7 @@ export const SummaryAboutDeceasedParent = memo(
                             <AccordionItem
                                 title={t('singleParentTitle')}
                                 path={`/skjema/${pathPrefix}/${StepPath.AboutTheParents}`}
-                                pathText={t(`changeAnswerSummary.${StepPath.AboutTheParents}`)}
+                                pathText={t(StepLabelKey.AboutTheParents, { ns: 'summary' })}
                             >
                                 <FormElement>
                                     <PersonInfoSummary
