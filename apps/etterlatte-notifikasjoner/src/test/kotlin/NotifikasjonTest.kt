@@ -44,16 +44,16 @@ internal class NotifikasjonTest {
                         mapOf(
                             Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
                             Pair(
-                                "BRUKERNOTIFIKASJON_KAFKA_BROKERS",
+                                "KAFKA_BROKERS",
                                 embeddedKafkaEnvironment.brokersURL.substringAfterLast("/")
                             ),
                             Pair("NAIS_APP_NAME", "etterlatte-notifikasjoner"),
                             Pair("srvuser", user),
                             Pair("srvpwd", pass),
-                            Pair(
-                                "BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY",
-                                embeddedKafkaEnvironment.schemaRegistry!!.url
-                            )
+                            Pair("KAFKA_SCHEMA_REGISTRY",embeddedKafkaEnvironment.schemaRegistry!!.url),
+                            Pair("BRUKERNOTIFIKASJON_KAFKA_GROUP_ID", "etterlatte_v1"),
+                            Pair("NAIS_NAME", "etterlatte_notifikasjon"),
+                            Pair("NAIS_NAMESPACE", "etterlatte")
                         )
                     ),
                     this
