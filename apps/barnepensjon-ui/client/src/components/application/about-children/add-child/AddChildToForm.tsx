@@ -19,6 +19,7 @@ import { LivesAbroadQuestion } from './LivesAbroadQuestion'
 import PersonInfo from '../../../common/PersonInfo'
 import { ParentQuestion } from './ParentQuestion'
 import { IsGuardianQuestion } from './IsGuardianQuestion'
+import { useUserContext } from '../../../../context/user/UserContext'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -89,6 +90,7 @@ const AddChildToForm = ({
 }: Props) => {
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
+    const { state: user } = useUserContext()
 
     const methods = useForm<IChild>({
         defaultValues: {
@@ -199,7 +201,9 @@ const AddChildToForm = ({
                                                     />
                                                 </FormGroup>
 
-                                                {appliesForChildrensPension && <PaymentDetails />}
+                                                {!user.adressebeskyttelse && appliesForChildrensPension && (
+                                                    <PaymentDetails />
+                                                )}
                                             </>
                                         )}
                                     </>
