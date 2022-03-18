@@ -33,34 +33,36 @@ class KafkaConfig(
         put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
         put(ProducerConfig.ACKS_CONFIG, acksConfig)
         put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1")
-        put(ProducerConfig.LINGER_MS_CONFIG, "0")
-        put(ProducerConfig.RETRIES_CONFIG, "0")
-        put(ProducerConfig.BATCH_SIZE_CONFIG, "1")
-        put(ProducerConfig.CLIENT_ID_CONFIG, clientId)
+        //put(ProducerConfig.LINGER_MS_CONFIG, "0")
+        //put(ProducerConfig.RETRIES_CONFIG, "0")
+        //put(ProducerConfig.BATCH_SIZE_CONFIG, "1")
+        put(ProducerConfig.CLIENT_ID_CONFIG, "etterlatte-notifikasjoner") //TODO endre bilbake til clientId
         put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
         put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
         put("schema.registry.url", schemaRegistryUrl)
-        put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT")
-        put(SaslConfigs.SASL_MECHANISM, "PLAIN")
-        put(SaslConfigs.DEFAULT_SASL_MECHANISM, "PLAIN")
-        put(
+        //put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT")
+        //put(SaslConfigs.SASL_MECHANISM, "PLAIN")
+        //put(SaslConfigs.DEFAULT_SASL_MECHANISM, "PLAIN")
+        /*put(
             SaslConfigs.SASL_JAAS_CONFIG,
             "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"$username\" password=\"$password\";"
         )
+
+         */
 
         if (!truststore.isNullOrBlank()) {
             try {
                 this[CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG] = bootstrapServers
                 this[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = "SSL"
-                this[SaslConfigs.SASL_MECHANISM] = "PLAIN"
+                //this[SaslConfigs.SASL_MECHANISM] = "PLAIN"
                 this[SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG] = ""
-                this[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = trustStoreType
-                this[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = keyStoreType
+                //this[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = trustStoreType
+                //this[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = keyStoreType
                 this[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = truststore
                 this[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = truststorePassword
                 this[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = keyStore
                 this[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = keyStorePassword
-                this[SslConfigs.SSL_KEY_PASSWORD_CONFIG] = keyStorePassword
+                //this[SslConfigs.SSL_KEY_PASSWORD_CONFIG] = keyStorePassword
                 log.info("Configured '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location ")
             } catch (ex: Exception) {
                 log.error("Failed to set '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location", ex)

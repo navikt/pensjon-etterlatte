@@ -36,7 +36,7 @@ class SendNotifikasjon(env: Map<String, String>) {
     private val keyStore = env["KAFKA_KEYSTORE_PATH"]
     private val keyStoreType = "PKCS12"
     private val keystorePassword = env["KAFKA_CREDSTORE_PASSWORD"]
-    private val acksConfig = "all"
+    private val acksConfig = "1"
 
 
     // notifikasjon
