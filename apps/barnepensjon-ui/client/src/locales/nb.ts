@@ -214,7 +214,7 @@ const aboutChildren = {
     guardianFnr: 'Fødselsnummer til verge (valgfri)',
     guardianFnrPlaceholder: '11 siffer',
     information:
-        'Dersom du har eller har hatt barn kan det påvirke retten din til gjenlevendepensjon. Derfor må du oppgi alle barn, uavhengig av hvor gamle de er. Dette gjelder barn du har felles med avdøde, avdødes egne barn, og dine egne barn. \n\n Hvis du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke selv.',
+        'Oppgi avdødes biologiske barn og/eller adoptivbarn under 18 år som det skal søkes barnepensjon for. \n\nDersom barna ikke er helsøsken, må det søkes for hvert barnekull av forelder/verge for disse barna.\n\nFosterbarn skal ikke føres opp, fordi de ikke har rett til barnepensjon etter fosterforeldrene.\n\nBarn over 18 år må søke selv om barnepensjon. ',
     infoRegardingSiblings: 'Her er info hvis det er søsken',
     infoCard_residence: 'BOSTED',
     infoCard_fnr: 'FØDSELSNUMMER',
