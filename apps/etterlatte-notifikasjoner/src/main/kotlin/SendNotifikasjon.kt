@@ -26,7 +26,7 @@ class SendNotifikasjon(env: Map<String, String>) {
     //Producer
     private val bootStrapServer = env["KAFKA_BROKERS"]!!
     private val clientId =
-        if (env.containsKey("NAIS_APP_NAME")) InetAddress.getLocalHost().hostName else UUID.randomUUID().toString()
+        if (env.containsKey("NAIS_APP_NAME")) env["NAIS_APP_NAME"] else UUID.randomUUID().toString()
     private val systembruker = env["srvuser"]
     private val passord = env["srvpwd"]
     private val schemaRegistry = env["KAFKA_SCHEMA_REGISTRY"]
