@@ -1,7 +1,6 @@
 import { Alert, BodyShort, Button, Panel } from '@navikt/ds-react'
 import { useEffect, useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
-import styled from 'styled-components'
 import { v4 as uuid } from 'uuid'
 import ikon from '../../../assets/barn1.svg'
 import { ActionTypes } from '../../../context/application/application'
@@ -13,27 +12,11 @@ import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
-import { Infocard, InfocardHeader, InformationBox } from '../../common/card/InfoCard'
+import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
 import ChildInfocard from './ChildInfocard'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import AddChildToForm from './add-child/AddChildToForm'
-
-const AboutChildrenWrapper = styled.div`
-    .center {
-        text-align: center;
-    }
-
-    .mute {
-        color: #666;
-    }
-`
-
-const InfocardWrapper = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    margin: 0 auto;
-    column-gap: 1rem;
-`
+import { BodyShortMuted } from '../../common/StyledTypography'
 
 export default function AboutChildren({ next, prev }: StepProps) {
     const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)
@@ -107,7 +90,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
     const { handleSubmit } = methods
 
     return (
-        <AboutChildrenWrapper>
+        <>
             <FormProvider {...methods}>
                 {activeChildIndex === undefined && (
                     <>
@@ -143,10 +126,8 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                         <Button variant={'primary'} type={'button'} onClick={addNewChild}>
                                             {!isChild ? t('addChildButton') : t('addSiblingButton')}
                                         </Button>
-                                        {isChild && (
-                                            <BodyShort size={'small'} className={'center mute'}>
-                                                {t('thisIsOptional')}
-                                            </BodyShort>
+                                        {!isChild && (
+                                            <BodyShortMuted size={'small'}>{t('thisIsOptional')}</BodyShortMuted>
                                         )}
                                     </InformationBox>
                                 </Infocard>
@@ -187,6 +168,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
                     />
                 )}
             </FormProvider>
-        </AboutChildrenWrapper>
+        </>
     )
 }

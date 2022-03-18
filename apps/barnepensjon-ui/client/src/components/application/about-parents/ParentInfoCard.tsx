@@ -6,7 +6,7 @@ import useTranslation from '../../../hooks/useTranslation'
 import {
     Infocard,
     InfocardFooter,
-    InfocardFooterItem,
+    InfocardFooterLink,
     InfocardHeader,
     InformationBox,
     InformationElement,
@@ -57,16 +57,16 @@ const ParentInfoCard = memo(({ parent, edit, remove }: Props) => {
 
             <InfocardFooter>
                 <BodyLong>
-                    <InfocardFooterItem href={'#'} onClick={edit}>
+                    <InfocardFooterLink href={'#'} onClick={edit}>
                         <EditFilled />
                         <span>{t('editButton', { ns: 'btn' })}</span>
-                    </InfocardFooterItem>
+                    </InfocardFooterLink>
                 </BodyLong>
                 <BodyLong>
-                    <InfocardFooterItem href={'#'} onClick={remove}>
+                    <InfocardFooterLink href={'#'} onClick={remove}>
                         <DeleteFilled />
                         <span>{t('removeButton', { ns: 'btn' })}</span>
-                    </InfocardFooterItem>
+                    </InfocardFooterLink>
                 </BodyLong>
             </InfocardFooter>
         </Infocard>

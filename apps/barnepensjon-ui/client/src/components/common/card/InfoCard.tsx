@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 import { Link } from '@navikt/ds-react'
 
+export const InfocardWrapper = styled.div`
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    column-gap: 1rem;
+`
+
 export const Infocard = styled.div`
     background-color: #e7e9e9;
     display: flex;
@@ -36,7 +43,7 @@ export const InfocardFooter = styled.div`
     margin-bottom: 1rem;
 `
 
-export const InfocardFooterItem = styled(Link)`
+export const InfocardFooterLink = styled(Link)`
     display: flex;
     justify-content: center;
     flex-grow: 1;

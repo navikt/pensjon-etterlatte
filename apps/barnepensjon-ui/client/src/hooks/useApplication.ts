@@ -29,7 +29,7 @@ export default function useApplication() {
                 setLoading(false)
 
                 if (err.message === 'FERDIGSTILT') {
-                    navigate('/skjema/sendt')
+                    navigate('/skjema/kvittering')
                 } else {
                     // TODO: Handle exception
                     navigate('/')

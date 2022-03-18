@@ -95,8 +95,6 @@ export interface IAbroadStay {
 
 export interface ISelfEmployment {
     wasSelfEmployed: JaNeiVetIkke
-    income?: string
-    incomeAtDeath?: JaNeiVetIkke
     selfEmplymentDetails: {
         income?: string
         incomeAtDeath?: JaNeiVetIkke

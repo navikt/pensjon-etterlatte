@@ -263,14 +263,14 @@ const mapNaeringsinntekt = (t: TFunction, selfEmployment: ISelfEmployment) => {
             naeringsinntektPrAarFoerDoedsfall: {
                 spoersmaal: t('incomeFromSelfEmployymentYearBeforeDeath', { ns: 'aboutTheDeceased' }),
                 svar: {
-                    innhold: `${selfEmployment?.income}`,
+                    innhold: selfEmployment.selfEmplymentDetails?.income || '-',
                 },
             },
             naeringsinntektVedDoedsfall: {
                 spoersmaal: t('hadIncomeFromSelfEmployment', { ns: 'aboutTheDeceased' }),
                 svar: {
-                    innhold: t(selfEmployment.incomeAtDeath!!, { ns: 'radiobuttons' }),
-                    verdi: selfEmployment.incomeAtDeath!!,
+                    innhold: t(selfEmployment.selfEmplymentDetails?.incomeAtDeath!!, { ns: 'radiobuttons' }),
+                    verdi: selfEmployment.selfEmplymentDetails?.incomeAtDeath!!,
                 },
             },
         }

@@ -7,7 +7,7 @@ import useTranslation from '../../../hooks/useTranslation'
 import {
     Infocard,
     InfocardFooter,
-    InfocardFooterItem,
+    InfocardFooterLink,
     InfocardHeader,
     InformationBox,
     InformationBoxContent,
@@ -32,6 +32,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
         <Infocard>
             <InfocardHeader>
                 <img alt="barn" src={ikon} />
+                hey
             </InfocardHeader>
 
             <InformationBox>
@@ -68,7 +69,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
 
             <InfocardFooter>
                 <BodyLong>
-                    <InfocardFooterItem
+                    <InfocardFooterLink
                         href={'#'}
                         onClick={(e: any) => {
                             e.preventDefault()
@@ -77,13 +78,13 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     >
                         <EditFilled />
                         <span>{t('editButton', { ns: 'btn' })}</span>
-                    </InfocardFooterItem>
+                    </InfocardFooterLink>
                 </BodyLong>
                 <BodyLong>
-                    <InfocardFooterItem href={'#'} onClick={() => remove(index)}>
+                    <InfocardFooterLink href={'#'} onClick={() => remove(index)}>
                         <DeleteFilled />
                         <span>{t('removeChildButton')}</span>
-                    </InfocardFooterItem>
+                    </InfocardFooterLink>
                 </BodyLong>
             </InfocardFooter>
         </Infocard>

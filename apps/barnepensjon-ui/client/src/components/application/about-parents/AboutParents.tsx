@@ -1,12 +1,11 @@
 import { Alert, BodyShort, Button, Panel } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
-import styled from 'styled-components'
 import ikon from '../../../assets/ukjent_person.svg'
 import { ActionTypes, IParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
-import { Infocard, InfocardHeader, InformationBox } from '../../common/card/InfoCard'
+import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
@@ -15,23 +14,6 @@ import { ApplicantSituation } from '../scenario/ScenarioSelection'
 import DeceasedParent from './DeceasedParent'
 import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
-
-const Wrapper = styled.div`
-    .center {
-        text-align: center;
-    }
-
-    .mute {
-        color: #666;
-    }
-`
-
-const InfocardWrapper = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    margin: 0 auto;
-    column-gap: 1rem;
-`
 
 enum EditParent {
     NONE,
@@ -47,10 +29,7 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const stopEditing = () => setEditing(EditParent.NONE)
 
-    const editFirstParent = () => setEditing(EditParent.FIRST)
     const updateFirstParent = (payload: IParent | {}) => dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload })
-
-    const editSecondParent = () => setEditing(EditParent.SECOND)
     const updateSecondParent = (payload: IParent | {}) => dispatch({ type: ActionTypes.UPDATE_SECOND_PARENT, payload })
 
     const bothParentsDeceased = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
@@ -65,7 +44,7 @@ export default function AboutParents({ next, prev }: StepProps) {
     }
 
     return (
-        <Wrapper>
+        <>
             {editing === EditParent.NONE && (
                 <>
                     <StepHeading>{t('aboutParentsTitle')}</StepHeading>
@@ -84,7 +63,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                             title={bothParentsDeceased ? t('firstParent') : t('addSurvivingParentBtn')}
                                             variant={'primary'}
                                             type={'button'}
-                                            onClick={editFirstParent}
+                                            onClick={() => setEditing(EditParent.FIRST)}
                                         >
                                             {t('addParentBtn')}
                                         </Button>
@@ -93,7 +72,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                             ) : (
                                 <ParentInfoCard
                                     parent={state.firstParent!!}
-                                    edit={editFirstParent}
+                                    edit={() => setEditing(EditParent.FIRST)}
                                     remove={() => updateFirstParent({})}
                                 />
                             )}
@@ -111,7 +90,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                             title={bothParentsDeceased ? t('secondParent') : t('addDeceasedParentBtn')}
                                             variant={'primary'}
                                             type={'button'}
-                                            onClick={editSecondParent}
+                                            onClick={() => setEditing(EditParent.SECOND)}
                                         >
                                             {t('addParentBtn')}
                                         </Button>
@@ -120,7 +99,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                             ) : (
                                 <ParentInfoCard
                                     parent={state.secondParent!!}
-                                    edit={editSecondParent}
+                                    edit={() => setEditing(EditParent.SECOND)}
                                     remove={() => updateSecondParent({})}
                                 />
                             )}
@@ -169,6 +148,6 @@ export default function AboutParents({ next, prev }: StepProps) {
                     />
                 </Panel>
             )}
-        </Wrapper>
+        </>
     )
 }

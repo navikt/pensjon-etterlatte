@@ -24,7 +24,6 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
 
     const { watch } = useFormContext<IDeceasedParent>()
 
-    const wasSelfEmployed = watch('selfEmplyment.wasSelfEmployed')
     const completedMilitaryService = watch('militaryService.completed')
     const staysAbroad = watch('staysAbroad.hasStaysAbroad')
 
@@ -50,18 +49,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                 {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
             </FormGroup>
 
-            <FormGroup>
-                <Heading size="small">{t('selfEmploymentTitle')}</Heading>
-                <BodyLong>{t('weNeedToKnowIfDeceasedWasSelfEmployed')}</BodyLong>
-                <FormElement>
-                    <RHFGeneralQuestionRadio
-                        name={'selfEmplyment.wasSelfEmployed'}
-                        legend={t('wasTheDeceasedSelfEmployed')}
-                        vetIkke={true}
-                    />
-                </FormElement>
-                {wasSelfEmployed === JaNeiVetIkke.JA && <SelfEmploymentDetails />}
-            </FormGroup>
+            <SelfEmploymentDetails />
 
             <FormGroup>
                 {/* Næringsinntekt og militærtjeneste er kun relevant dersom begge foreldrene er døde. */}
