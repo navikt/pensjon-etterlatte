@@ -14,7 +14,11 @@ import WhyWeAsk from '../../common/WhyWeAsk'
 import SelfEmploymentDetails from './SelfEmploymentDetails'
 import StaysAbroad from './StaysAbroad'
 
-export default function DeceaseParentForm() {
+interface Props {
+    fnrRegisteredParent: string[]
+}
+
+export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     const { t } = useTranslation('aboutTheDeceased')
     const { countries }: { countries: any } = useCountries()
 
@@ -27,7 +31,7 @@ export default function DeceaseParentForm() {
     return (
         <>
             <FormGroup>
-                <PersonInfo />
+                <PersonInfo duplicateList={fnrRegisteredParent} />
             </FormGroup>
             <FormGroup>
                 <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />

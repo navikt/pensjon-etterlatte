@@ -1,14 +1,18 @@
-import { StepProps } from '../Dialogue'
-import Navigation from '../../common/Navigation'
 import { FormProvider, useForm } from 'react-hook-form'
 import { ActionTypes, IDeceasedParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import Navigation from '../../common/Navigation'
+import { StepProps } from '../Dialogue'
 import DeceasedParentForm from '../the-deceased/DeceasedParentForm'
 import DeceasedParentTitle from '../the-deceased/DeceasedParentTitle'
 
-export default function DeceasedParent({ next, prev, type }: StepProps) {
+interface Props extends StepProps {
+    fnrRegisteredParent?: string[]
+}
+
+export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }: Props) {
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation()
 
@@ -33,7 +37,7 @@ export default function DeceasedParent({ next, prev, type }: StepProps) {
             <form>
                 <DeceasedParentTitle type={type!!} situation={state?.applicant?.applicantSituation} />
 
-                <DeceasedParentForm />
+                <DeceasedParentForm fnrRegisteredParent={fnrRegisteredParent || ['']} />
 
                 <ErrorSummaryWrapper errors={errors} />
 

@@ -1,17 +1,21 @@
-import { StepProps } from '../Dialogue'
-import StepHeading from '../../common/StepHeading'
-import Navigation from '../../common/Navigation'
 import { FormProvider, useForm } from 'react-hook-form'
 import { ILivingParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
-import PersonInfo from '../../common/PersonInfo'
-import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
+import Navigation from '../../common/Navigation'
+import PersonInfo from '../../common/PersonInfo'
+import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
+import StepHeading from '../../common/StepHeading'
+import { StepProps } from '../Dialogue'
 
-export default function LivingParent({ next, prev, type }: StepProps) {
+interface Props extends StepProps {
+    fnrRegisteredParent?: string[]
+}
+
+export default function LivingParent({ next, prev, type, fnrRegisteredParent }: Props) {
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation('livingParent')
 
@@ -36,7 +40,7 @@ export default function LivingParent({ next, prev, type }: StepProps) {
                 <StepHeading>{t('title')}</StepHeading>
 
                 <FormGroup>
-                    <PersonInfo />
+                    <PersonInfo duplicateList={fnrRegisteredParent} />
                 </FormGroup>
                 <FormElement>
                     <RHFInput name={'address'} label={t('address')} />

@@ -1,20 +1,20 @@
 import { Alert, BodyShort, Button, Panel } from '@navikt/ds-react'
+import { isEmpty } from 'lodash'
+import { useState } from 'react'
 import styled from 'styled-components'
 import ikon from '../../../assets/ukjent_person.svg'
+import { ActionTypes, IParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import useTranslation from '../../../hooks/useTranslation'
+import { Infocard, InfocardHeader, InformationBox } from '../../common/card/InfoCard'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import { Infocard, InfocardHeader, InformationBox } from '../../common/card/InfoCard'
-import { isEmpty } from 'lodash'
-import ParentInfoCard from './ParentInfoCard'
-import { ActionTypes, IParent } from '../../../context/application/application'
-import { useState } from 'react'
 import { ApplicantSituation } from '../scenario/ScenarioSelection'
-import LivingParent from './LivingParent'
 import DeceasedParent from './DeceasedParent'
-import useTranslation from '../../../hooks/useTranslation'
+import LivingParent from './LivingParent'
+import ParentInfoCard from './ParentInfoCard'
 
 const Wrapper = styled.div`
     .center {
@@ -57,12 +57,18 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const isValid = !isEmpty(state?.firstParent) && !isEmpty(state?.secondParent)
 
+    const fnrRegisteredParent = (): string[] => {
+        let fnr = ''
+        if (editing === EditParent.FIRST && state.secondParent?.fnrDnr) fnr = state.secondParent?.fnrDnr
+        if (editing === EditParent.SECOND && state.firstParent?.fnrDnr) fnr = state.firstParent?.fnrDnr
+        return [fnr]
+    }
+
     return (
         <Wrapper>
             {editing === EditParent.NONE && (
                 <>
                     <StepHeading>{t('aboutParentsTitle')}</StepHeading>
-
                     <FormGroup>
                         <InfocardWrapper>
                             {isEmpty(state.firstParent) ? (
@@ -136,16 +142,31 @@ export default function AboutParents({ next, prev }: StepProps) {
             {editing === EditParent.FIRST && (
                 <Panel border={true}>
                     {bothParentsDeceased ? (
-                        <DeceasedParent type={ActionTypes.UPDATE_FIRST_PARENT} prev={stopEditing} next={stopEditing} />
+                        <DeceasedParent
+                            type={ActionTypes.UPDATE_FIRST_PARENT}
+                            prev={stopEditing}
+                            next={stopEditing}
+                            fnrRegisteredParent={fnrRegisteredParent()}
+                        />
                     ) : (
-                        <LivingParent type={ActionTypes.UPDATE_FIRST_PARENT} prev={stopEditing} next={stopEditing} />
+                        <LivingParent
+                            type={ActionTypes.UPDATE_FIRST_PARENT}
+                            prev={stopEditing}
+                            next={stopEditing}
+                            fnrRegisteredParent={fnrRegisteredParent()}
+                        />
                     )}
                 </Panel>
             )}
 
             {editing === EditParent.SECOND && (
                 <Panel border={true}>
-                    <DeceasedParent type={ActionTypes.UPDATE_SECOND_PARENT} prev={stopEditing} next={stopEditing} />
+                    <DeceasedParent
+                        type={ActionTypes.UPDATE_SECOND_PARENT}
+                        prev={stopEditing}
+                        next={stopEditing}
+                        fnrRegisteredParent={fnrRegisteredParent()}
+                    />
                 </Panel>
             )}
         </Wrapper>
