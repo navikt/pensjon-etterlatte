@@ -40,7 +40,7 @@ export const ParentQuestion = ({ isChild, isGuardian, t, watch }: Props) => {
 
             {bothParents === JaNeiVetIkke.NEI && (
                 <Panel border>
-                    <Alert inline={true} variant={'error'}>
+                    <Alert inline={true} variant={'info'}>
                         <BodyLong>{t('onlyJointChildrenNecessary')}</BodyLong>
                     </Alert>
                 </Panel>

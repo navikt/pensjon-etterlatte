@@ -126,15 +126,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     }
 
     const tooOldChild = () => {
-        return fnr && fnrValidator(fnr).status === 'valid' && getAgeFromFoedselsnummer(fnr) >= 21
-    }
-
-    const childIsRelevantForApplication = () => {
-        // Only full sublings should be added
-        if (bothParents === JaNeiVetIkke.NEI) return false
-
-        // We only need to know about children up to 21 years old
-        return !tooOldChild()
+        return fnr && fnrValidator(fnr).status === 'valid' && getAgeFromFoedselsnummer(fnr) >= 18
     }
 
     useEffect(() => {
@@ -154,8 +146,8 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                             <PersonInfo duplicateList={fnrRegisteredChild} />
                             {tooOldChild() && (
                                 <Panel border>
-                                    <Alert inline={true} variant={'error'}>
-                                        <BodyLong>{t('onlyChildrenUnder22Necessary')}</BodyLong>
+                                    <Alert inline={true} variant={'info'}>
+                                        <BodyLong>{t('onlyChildrenUnder18Necessary')}</BodyLong>
                                     </Alert>
                                 </Panel>
                             )}
@@ -163,10 +155,10 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                         {!tooOldChild() && (
                             <FormGroup>
                                 <ParentQuestion isChild={isChild} isGuardian={isGuardian} t={t} watch={watch} />
-                                {isChild && bothParents === JaNeiVetIkke.JA && (
+                                {isChild && (
                                     <LivesAbroadQuestion isChild={isChild} countries={countries} t={t} watch={watch} />
                                 )}
-                                {!isChild && bothParents === JaNeiVetIkke.JA && (
+                                {!isChild && (
                                     <>
                                         <FormGroup>
                                             <LivesAbroadQuestion
@@ -215,17 +207,15 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                 {t('cancelButton', { ns: 'btn' })}
                             </Button>
 
-                            {childIsRelevantForApplication() && (
-                                <Button
-                                    id={'addChildren'}
-                                    variant={'primary'}
-                                    type={'button'}
-                                    onClick={handleSubmit(addAndClose)}
-                                    style={{ minWidth: '80px' }}
-                                >
-                                    {t('saveButton', { ns: 'btn' })}
-                                </Button>
-                            )}
+                            <Button
+                                id={'addChildren'}
+                                variant={'primary'}
+                                type={'button'}
+                                onClick={handleSubmit(addAndClose)}
+                                style={{ minWidth: '80px' }}
+                            >
+                                {t('saveButton', { ns: 'btn' })}
+                            </Button>
                         </NavRow>
                     </ChangeChildPanelContent>
                 </ChangeChildPanel>

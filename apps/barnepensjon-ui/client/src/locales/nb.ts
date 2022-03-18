@@ -199,9 +199,8 @@ const aboutChildren = {
     childAppliedForPension: 'Søkt om barnepensjon',
     applyForThisChild: 'Søk om barnepensjon',
     userAppliesForChildrensPension: 'Ja, jeg søker om barnepensjon for barnet',
-    onlyJointChildrenNecessary:
-        'Det er kun nødvendig å opplyse om helsøsken under 22 år i denne søknaden. Det kreves en separat søknad for halvsøsken.',
-    onlyChildrenUnder22Necessary: 'Det er kun nødvendig å opplyse om barn under 22 år i denne søknaden',
+    onlyJointChildrenNecessary: 'Det kreves en separat søknad for halvsøsken.',
+    onlyChildrenUnder18Necessary: 'Det er kun nødvendig å opplyse om barn under 18 år i denne søknaden',
     livesIn: 'Bor i',
     doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
     doesTheSiblingLiveAbroad: 'Bor søskenet i et annet land enn Norge?',
@@ -234,7 +233,7 @@ const aboutChildren = {
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldrene til barnet?',
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
     onlyGuardiansCanApply:
-        'Det er kun mulig å søke om barnepensjon for barn du er verge til. Du må likevel oppgi informasjon om helsøsken under 20 år.',
+        'Det er kun mulig å søke om barnepensjon for barn du er verge til. Du må likevel legge til helsøsken under 18 år.',
 }
 
 const summary = {
