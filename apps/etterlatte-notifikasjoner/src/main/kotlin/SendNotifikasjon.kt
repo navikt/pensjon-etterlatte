@@ -29,6 +29,8 @@ class SendNotifikasjon(env: Map<String, String>) {
         if (env.containsKey("NAIS_APP_NAME")) env["NAIS_APP_NAME"] else UUID.randomUUID().toString()
     private val systembruker = env["srvuser"]
     private val passord = env["srvpwd"]
+    private val schemauser = env["KAFKA_SCHEMA_REGISTRY_USER"]
+    private val schemapassword = env["KAFKA_SCHEMA_REGISTRY_PASSWORD"]
     private val schemaRegistry = env["KAFKA_SCHEMA_REGISTRY"]
     private val trustStorePassword = env["NAV_TRUSTSTORE_PASSWORD"]
     private val trustStore = env["NAV_TRUSTSTORE_PATH"]
@@ -58,8 +60,8 @@ class SendNotifikasjon(env: Map<String, String>) {
             KafkaConfig(
                 bootstrapServers = bootStrapServer,
                 clientId = clientId,
-                username = systembruker,
-                password = passord,
+                username = schemauser,
+                password = schemapassword,
                 schemaRegistryUrl = schemaRegistry,
                 truststorePassword = trustStorePassword,
                 truststore = trustStore,
@@ -67,7 +69,9 @@ class SendNotifikasjon(env: Map<String, String>) {
                 keyStore = keyStore,
                 keyStoreType = keyStoreType,
                 keyStorePassword = keystorePassword,
-                acksConfig = acksConfig
+                acksConfig = acksConfig,
+
+
             ).producerConfig()
         )
     }

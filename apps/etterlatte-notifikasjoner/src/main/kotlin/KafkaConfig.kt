@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import io.confluent.kafka.schemaregistry.client.SchemaRegistryClientConfig
 import io.confluent.kafka.serializers.KafkaAvroSerializer
 import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.producer.ProducerConfig
@@ -62,6 +63,8 @@ class KafkaConfig(
                 this[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = truststorePassword
                 this[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = keyStore
                 this[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = keyStorePassword
+                this[SchemaRegistryClientConfig.USER_INFO_CONFIG ] = username + ":" + password
+                this[SchemaRegistryClientConfig.BASIC_AUTH_CREDENTIALS_SOURCE] = "USER_INFO"
                 //this[SslConfigs.SSL_KEY_PASSWORD_CONFIG] = keyStorePassword
                 log.info("Configured '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location ")
             } catch (ex: Exception) {
