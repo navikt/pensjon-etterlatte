@@ -57,8 +57,8 @@ class KafkaConfig(
                 this[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = "SSL"
                 //this[SaslConfigs.SASL_MECHANISM] = "PLAIN"
                 this[SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG] = ""
-                //this[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = trustStoreType
-                //this[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = keyStoreType
+                this[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = trustStoreType
+                this[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = keyStoreType
                 this[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = truststore
                 this[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = truststorePassword
                 this[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = keyStore
