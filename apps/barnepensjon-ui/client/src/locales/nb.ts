@@ -153,6 +153,23 @@ const aboutYou = {
     'subtitle.informationAboutApplicant': 'Opplysninger om søker',
 }
 
+const aboutParents = {
+    aboutParentsTitle: 'Om foreldrene',
+    firstParent: 'Forelder 1',
+    secondParent: 'Forelder 2',
+    survivingParent: 'Gjenlevende forelder',
+    deceasedParent: 'Avdød forelder',
+    addParentBtn: 'Legg til',
+    addSurvivingParentBtn: 'Legg til gjenlevende forelder',
+    addDeceasedParentBtn: 'Legg til avdød forelder',
+    addFirstParentBtn: 'Legg til forelder 1',
+    addSecondParentBtn: 'Legg til forelder 2',
+    bothParentsRequired:
+        'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Denne søknaden støtter foreløpig ikke forhold der barnet har mistet mor og farskapet ikke er formelt bestemt. Du kommer til rett søknad ved å følge denne lenken: ',
+    missingOneParentHref:
+        'https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-flere-av-foreldrene/NAV%2018-01.05/dokumentinnsending',
+}
+
 const livingParent = {
     title: 'Om den gjenlevende',
     who: 'Oppgi informasjon om den gjenlevende forelderen.',
@@ -378,20 +395,6 @@ const receipt = {
     processingTimeHref4: 'https://www.nav.no/saksbehandlingstider',
     processingTimeLink4: 'saksbehandlingstid',
     closeApplicationButton: 'Avslutt',
-}
-
-const aboutParents = {
-    aboutParentsTitle: 'Om foreldrene',
-    firstParent: 'Forelder 1',
-    secondParent: 'Forelder 2',
-    survivingParent: 'Gjenlevende forelder',
-    deceasedParent: 'Avdød forelder',
-    addParentBtn: 'Legg til',
-    addSurvivingParentBtn: 'Legg til gjenlevende forelder',
-    addDeceasedParentBtn: 'Legg til avdød forelder',
-    addFirstParentBtn: 'Legg til forelder 1',
-    addSecondParentBtn: 'Legg til forelder 2',
-    bothParentsRequired: 'Du må legge til opplysninger om begge foreldre for å fortsette søknaden.',
 }
 
 const yourSituation = {
