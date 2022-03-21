@@ -52,7 +52,6 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
             <SelfEmploymentDetails />
 
             <FormGroup>
-                {/* Næringsinntekt og militærtjeneste er kun relevant dersom begge foreldrene er døde. */}
                 <Heading size="small">{t('otherTitle')}</Heading>
 
                 <FormElement>
