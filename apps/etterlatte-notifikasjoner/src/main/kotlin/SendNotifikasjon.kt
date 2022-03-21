@@ -22,7 +22,7 @@ class SendNotifikasjon(env: Map<String, String>) {
 
     private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
 
-    private var producer: Producer<NokkelInput, BeskjedInput>? = null
+    private var producer: Producer<NokkelInput, BeskjedInput> = KafkaProducer(KafkaConfig().producerConfig(env))
 
     //Producer
     private val env = env
@@ -56,7 +56,7 @@ class SendNotifikasjon(env: Map<String, String>) {
             .build()
         val beskjed = opprettBeskjed()
 
-        producer?.send(ProducerRecord(brukernotifikasjontopic, nokkel, beskjed))?.get(10, TimeUnit.SECONDS)
+        producer.send(ProducerRecord(brukernotifikasjontopic, nokkel, beskjed)).get(10, TimeUnit.SECONDS)
     }
 
     internal fun opprettBeskjed(): BeskjedInput {
