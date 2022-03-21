@@ -8,6 +8,8 @@ import no.nav.brukernotifikasjon.schemas.input.NokkelInput
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.Producer
 import org.apache.kafka.clients.producer.ProducerRecord
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -18,10 +20,8 @@ class SendNotifikasjon(
     env: Map<String, String>,
     private val producer: Producer<NokkelInput, BeskjedInput> = KafkaProducer(KafkaConfig().getProducerConfig(env))
 ) {
-
+    private val logger: Logger = LoggerFactory.getLogger(SendNotifikasjon::class.java)
     private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
-
-    //private val producer: Producer<NokkelInput, BeskjedInput> = KafkaProducer(KafkaConfig().getProducerConfig(env))
 
     // notifikasjon
     private val notifikasjonsTekst = "Vi har mottatt søknaden din om gjenlevendepensjon"
@@ -34,7 +34,6 @@ class SendNotifikasjon(
     private val sikkerhetsNivaa = 4
     private val eksternVarsling = false
 
-
     fun sendMessage(ident: String) {
         val nokkel = NokkelInputBuilder()
             .withEventId(UUID.randomUUID().toString())
@@ -44,8 +43,15 @@ class SendNotifikasjon(
             .withAppnavn(appname)
             .build()
         val beskjed = opprettBeskjed()
+        try {
+            producer.send(ProducerRecord(brukernotifikasjontopic, nokkel, beskjed)).get(10, TimeUnit.SECONDS)
+        }catch (e: Exception){
+            logger.error(
+                "Beskjed til $brukernotifikasjontopic (Ditt NAV) for søknad med id ${nokkel.getGrupperingsId()} feilet.",
+                e
+            )
+        }
 
-        producer.send(ProducerRecord(brukernotifikasjontopic, nokkel, beskjed)).get(10, TimeUnit.SECONDS)
     }
 
     internal fun opprettBeskjed(): BeskjedInput {

@@ -5,20 +5,18 @@ import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig
 import io.confluent.kafka.serializers.KafkaAvroSerializer
 import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.producer.ProducerConfig
-import org.apache.kafka.common.config.SaslConfigs
 import org.apache.kafka.common.config.SslConfigs
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.io.File
 import java.util.*
 import org.apache.kafka.common.security.auth.SecurityProtocol
 
 class KafkaConfig {
     private val log: Logger = LoggerFactory.getLogger(KafkaConfig::class.java)
 
-   // internal fun producerConfig(env: Map<String, String>) = Properties().apply {
-        fun getProducerConfig(env: Map<String, String>): Map<String, Any> {
-            val props: MutableMap<String, Any> = HashMap()
+    // internal fun producerConfig(env: Map<String, String>) = Properties().apply {
+    fun getProducerConfig(env: Map<String, String>): Map<String, Any> {
+        val props: MutableMap<String, Any> = HashMap()
         props[CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG] = env["KAFKA_BROKERS"] ?: ""
         props[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = SecurityProtocol.SSL.name
 
@@ -31,20 +29,19 @@ class KafkaConfig {
 
         props[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = env["KAFKA_SCHEMA_REGISTRY"] ?: ""
         props[SchemaRegistryClientConfig.BASIC_AUTH_CREDENTIALS_SOURCE] = "USER_INFO"
-        props[SchemaRegistryClientConfig.USER_INFO_CONFIG] = env["KAFKA_SCHEMA_REGISTRY_USER"] + ':' + env["KAFKA_SCHEMA_REGISTRY_PASSWORD"]
+        props[SchemaRegistryClientConfig.USER_INFO_CONFIG] =
+            env["KAFKA_SCHEMA_REGISTRY_USER"] + ':' + env["KAFKA_SCHEMA_REGISTRY_PASSWORD"]
         //props["specific.avro.reader"] = true
 
         props[SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG] = ""
         props[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = "jks"
         props[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = "PKCS12"
-        if (!env["NAV_TRUSTSTORE_PATH"].isNullOrBlank()) {
-            props[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = env["NAV_TRUSTSTORE_PATH"] ?: ""
-            props[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = env["NAV_TRUSTSTORE_PASSWORD"] ?: ""
-            props[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = env["KAFKA_KEYSTORE_PATH"] ?: ""
-            props[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = env["KAFKA_CREDSTORE_PASSWORD"] ?: ""
-        }
+        props[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = env["NAV_TRUSTSTORE_PATH"] ?: ""
+        props[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = env["NAV_TRUSTSTORE_PASSWORD"] ?: ""
+        props[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = env["KAFKA_KEYSTORE_PATH"] ?: ""
+        props[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = env["KAFKA_CREDSTORE_PASSWORD"] ?: ""
+
         log.info("Configured '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location ")
-        println(props)
-       return props
+        return props
     }
 }
