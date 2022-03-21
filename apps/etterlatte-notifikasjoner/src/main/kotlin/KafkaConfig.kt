@@ -1,6 +1,7 @@
 package no.nav.etterlatte
 
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClientConfig
+import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig
 import io.confluent.kafka.serializers.KafkaAvroSerializer
 import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.producer.ProducerConfig
@@ -34,13 +35,14 @@ class KafkaConfig(
         put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
         put(ProducerConfig.ACKS_CONFIG, acksConfig)
         put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1")
-        //put(ProducerConfig.LINGER_MS_CONFIG, "0")
+        put(ProducerConfig.LINGER_MS_CONFIG, "0")
         //put(ProducerConfig.RETRIES_CONFIG, "0")
         //put(ProducerConfig.BATCH_SIZE_CONFIG, "1")
         put(ProducerConfig.CLIENT_ID_CONFIG, clientId) //TODO Må man ha 'producer' her?!
         put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
         put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
-        put("schema.registry.url", schemaRegistryUrl)
+        //put("schema.registry.url", schemaRegistryUrl)
+        put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl)
         //put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT")
         //put(SaslConfigs.SASL_MECHANISM, "PLAIN")
         //put(SaslConfigs.DEFAULT_SASL_MECHANISM, "PLAIN")
