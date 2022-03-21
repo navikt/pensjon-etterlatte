@@ -66,3 +66,6 @@ spec:
     - team: etterlatte
       application: etterlatte-opplysninger-fra-pdl
       access: readwrite
+    - team: etterlatte
+      application: etterlatte-behandling
+      access: write
