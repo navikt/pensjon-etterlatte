@@ -16,7 +16,6 @@ import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../..
 import ChildInfocard from './ChildInfocard'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import AddChildToForm from './add-child/AddChildToForm'
-import { BodyShortMuted } from '../../common/StyledTypography'
 
 export default function AboutChildren({ next, prev }: StepProps) {
     const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)
