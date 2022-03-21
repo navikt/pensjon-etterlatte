@@ -126,9 +126,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                         <Button variant={'primary'} type={'button'} onClick={addNewChild}>
                                             {!isChild ? t('addChildButton') : t('addSiblingButton')}
                                         </Button>
-                                        {!isChild && (
-                                            <BodyShortMuted size={'small'}>{t('thisIsOptional')}</BodyShortMuted>
-                                        )}
                                     </InformationBox>
                                 </Infocard>
                             </InfocardWrapper>

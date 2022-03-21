@@ -22,7 +22,17 @@ const prepareSecuredRequest = async (req: Request) => {
         authorization: `Bearer ${accessToken}`,
     }
 
-    const body = !isEmpty(req.body) && req.method === 'POST' ? JSON.stringify(req.body) : undefined
+    let body = undefined
+    if (!isEmpty(req.body) && req.method === 'POST') {
+        if (req.path === '/api/soeknad') {
+            const request = (req.body as any).soeknader.map(
+                (soeknad: any) => (soeknad.imageTag = process.env.IMAGE_TAG)
+            )
+            body = JSON.stringify(request)
+        } else {
+            body = JSON.stringify(req.body)
+        }
+    }
 
     return {
         method: req.method,
