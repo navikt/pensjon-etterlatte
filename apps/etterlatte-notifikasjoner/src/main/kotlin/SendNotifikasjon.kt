@@ -1,7 +1,7 @@
 package no.nav.etterlatte
 
-import no.nav.brukernotifikasjon.schemas.Beskjed
-import no.nav.brukernotifikasjon.schemas.Nokkel
+//import no.nav.brukernotifikasjon.schemas.Beskjed
+//import no.nav.brukernotifikasjon.schemas.Nokkel
 //import no.nav.brukernotifikasjon.schemas.builders.BeskjedBuilder
 //import no.nav.brukernotifikasjon.schemas.builders.NokkelBuilder
 import no.nav.brukernotifikasjon.schemas.builders.BeskjedInputBuilder
@@ -59,7 +59,7 @@ class SendNotifikasjon(env: Map<String, String>) {
         producer = KafkaProducer(
             KafkaConfig(
                 bootstrapServers = bootStrapServer,
-                clientId = clientId,
+                //clientId = clientId,
                 username = schemauser,
                 password = schemapassword,
                 schemaRegistryUrl = schemaRegistry,

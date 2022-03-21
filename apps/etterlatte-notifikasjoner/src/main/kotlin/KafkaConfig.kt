@@ -13,7 +13,7 @@ import java.util.*
 
 class KafkaConfig(
     private val bootstrapServers: String,
-    private val clientId: String? = null,
+    //private val clientId: String? = null,
     private val username: String? = null,
     private val password: String? = null,
     private val truststore: String? = null,
@@ -37,7 +37,7 @@ class KafkaConfig(
         //put(ProducerConfig.LINGER_MS_CONFIG, "0")
         //put(ProducerConfig.RETRIES_CONFIG, "0")
         //put(ProducerConfig.BATCH_SIZE_CONFIG, "1")
-        put(ProducerConfig.CLIENT_ID_CONFIG, "etterlatte-notifikasjoner") //TODO endre bilbake til clientId
+        put(ProducerConfig.CLIENT_ID_CONFIG, "producer-etterlatte-notifikasjoner") //TODO endre bilbake til clientId
         put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
         put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer::class.java)
         put("schema.registry.url", schemaRegistryUrl)
