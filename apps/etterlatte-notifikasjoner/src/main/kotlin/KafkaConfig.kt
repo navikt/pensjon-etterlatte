@@ -44,7 +44,7 @@ class KafkaConfig {
             props[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = env["KAFKA_CREDSTORE_PASSWORD"] ?: ""
         }
         log.info("Configured '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location ")
-
+        println(props)
        return props
     }
 }
