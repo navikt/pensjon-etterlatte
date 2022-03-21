@@ -111,7 +111,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                             <Alert variant={'info'}>
                                 <BodyShort size={'small'}>
                                     {t('bothParentsRequired')}
-                                    <a href={t('missingOneParentHref')}>{t('missingOneParentHref')}</a>
+                                    <a href={t('missingOneParentHref')}>{t('missingOneParentHrefText')}</a>
                                 </BodyShort>
                             </Alert>
                         </FormGroup>

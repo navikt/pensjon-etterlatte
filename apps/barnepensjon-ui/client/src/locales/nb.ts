@@ -168,6 +168,7 @@ const aboutParents = {
         'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Denne søknaden støtter foreløpig ikke forhold der barnet har mistet mor og farskapet ikke er formelt bestemt. Du kommer til rett søknad ved å følge denne lenken: ',
     missingOneParentHref:
         'https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-flere-av-foreldrene/NAV%2018-01.05/dokumentinnsending',
+    missingOneParentHrefText: 'Søknad om barnepensjon for foreldreløse barn',
 }
 
 const livingParent = {
