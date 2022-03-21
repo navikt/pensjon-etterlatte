@@ -17,7 +17,7 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
     private val rapid = rapidsConnection
 
     init {
-        sendNotifikasjon.startuptask()
+        //sendNotifikasjon.startuptask()
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@dokarkivRetur") }

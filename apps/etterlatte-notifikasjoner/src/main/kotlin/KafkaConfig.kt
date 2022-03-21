@@ -29,7 +29,7 @@ class KafkaConfig {
 
         this[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = env["KAFKA_SCHEMA_REGISTRY"] ?: ""
         this[SchemaRegistryClientConfig.BASIC_AUTH_CREDENTIALS_SOURCE] = "USER_INFO"
-        this[SchemaRegistryClientConfig.USER_INFO_CONFIG] = env["KAFKA_SCHEMA_REGISTRY_USER"]!! + ":" + env["KAFKA_SCHEMA_REGISTRY_PASSWORD"]!!
+        this[SchemaRegistryClientConfig.USER_INFO_CONFIG] = env["KAFKA_SCHEMA_REGISTRY_USER"] + ":" + env["KAFKA_SCHEMA_REGISTRY_PASSWORD"]
         //this["specific.avro.reader"] = true
 
         this[SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG] = ""

@@ -9,13 +9,20 @@ class SendNotifikasjonTest {
     private val sendNotifikasjon = SendNotifikasjon(
         mapOf(
             "BRUKERNOTIFIKASJON_BESKJED_TOPIC" to "test_topic",
-            "KAFKA_BROKERS" to "broker1",
+            "KAFKA_BROKERS" to "host.docker.internal:9092",
+            "KAFKA_SCHEMA_REGISTRY" to "tjoho",
+            "KAFKA_KEYSTORE_PATH" to "",
+            "KAFKA_TRUSTSTORE_PATH" to "",
+            "KAFKA_CREDSTORE_PASSWORD" to "",
+            "KAFKA_SCHEMA_REGISTRY" to "",
+            "KAFKA_SCHEMA_REGISTRY_USER" to "",
+            "KAFKA_SCHEMA_REGISTRY_PASSWORD" to "",
         )
     )
 
-    @Test
+    //@Test
     fun opprettMelding() {
-        val beskjed = sendNotifikasjon.opprettBeskjed("11057523044")
+        val beskjed = sendNotifikasjon.opprettBeskjed()
 
         //assertEquals("11057523044", beskjed.get  .getFodselsnummer())
         //assertEquals("ETTERLATTE", beskjed .getGrupperingsId())
