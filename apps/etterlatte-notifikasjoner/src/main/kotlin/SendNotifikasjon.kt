@@ -59,7 +59,7 @@ class SendNotifikasjon(env: Map<String, String>) {
         producer = KafkaProducer(
             KafkaConfig(
                 bootstrapServers = bootStrapServer,
-                //clientId = clientId,
+                clientId = clientId,
                 username = schemauser,
                 password = schemapassword,
                 schemaRegistryUrl = schemaRegistry,
