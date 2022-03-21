@@ -127,8 +127,8 @@ const selectScenario = {
         'Hvis du er under 20 år og er under utdanning, er lærling eller praktikant, kan du søke om barnepensjon.',
     childApplicantInformation2:
         'Dersom du er under 21 år og er under utdanning, er lærling eller praktikant, kan du søke om barnepensjon dersom dødsfallet til en av foreldrene dine skyldes yrkesskade eller yrkessykdom.',
-    childApplicantInformationOver18:
-        'Denne søknaden støtter foreløpig ikke barn over 18 år. Du kommer til rett søknad ved å følge denne lenken: ',
+    childApplicantInformationOver18: 'Denne søknaden støtter foreløpig ikke barn over 18 år.\n',
+    childApplicantInformationOver18Link: 'Klikk her for benytte skjema NAV 18-04.05.',
     childApplicantInformationOver18Href: 'https://www.nav.no/fyllut/nav180405',
     aboutSurvivorsPensionTitle: 'Søke om gjenlevendepensjon til deg selv?',
     aboutSurvivorsPensionDescription:

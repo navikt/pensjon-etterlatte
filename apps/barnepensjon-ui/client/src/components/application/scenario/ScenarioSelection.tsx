@@ -114,9 +114,8 @@ export default function ScenarioSelection() {
                     <BodyLong size={'small'}>
                         {t('childApplicantInformationOver18')}
                         <a href={t('childApplicantInformationOver18Href')}>
-                            {t('childApplicantInformationOver18Href')}
+                            {t('childApplicantInformationOver18Link')}
                         </a>
-                        .
                     </BodyLong>
                 </FormGroup>
             )}
