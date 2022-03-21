@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
+import { BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes } from '../context/application/application'
@@ -8,6 +8,7 @@ import useTranslation from '../hooks/useTranslation'
 import FormGroup from './common/FormGroup'
 import LanguageSelect from './common/LanguageSelect'
 import NavGuide from './common/NavGuide'
+import { InlineLink } from './common/StyledTypography'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -40,27 +41,48 @@ export default function FrontPage() {
             </FormGroup>
 
             <FormGroup>
-                <Alert inline={true} variant={'info'}>
-                    <b>{t('workInProgress')}</b>
-                </Alert>
-            </FormGroup>
-
-            <FormGroup>
                 <Heading spacing size={'large'}>
                     {t('frontPageTitle')}
                 </Heading>
 
-                <BodyLong spacing>{t('childMayBeApplicableForPension')}</BodyLong>
+                <BodyLong>
+                    {t('childMayBeApplicableForPension')}
+                    <InlineLink href={t('childMayBeApplicableForPensionHref')}>
+                        {t('childMayBeApplicableForPensionLink')}
+                    </InlineLink>
+                </BodyLong>
+            </FormGroup>
 
-                <Alert inline={true} variant={'warning'}>
-                    <BodyLong spacing>
-                        <b>{t('childrenAboveLegalAge')}</b>
-                    </BodyLong>
-                </Alert>
+            <FormGroup>
+                <Heading size={'small'}>{t('childrenAboveLegalAge')}</Heading>
+
+                <BodyLong>{t('aboutChildrensPensionIntro')}</BodyLong>
+
+                <ul>
+                    <li>
+                        <BodyLong>{t('aboutChildrensPension_li1')}</BodyLong>
+                    </li>
+                    <li>
+                        <BodyLong>{t('aboutChildrensPension_li2')}</BodyLong>
+                    </li>
+                </ul>
 
                 <BodyLong>
-                    {t('aboutChildrensPension')}&nbsp;
-                    <Link href={t('aboutChildrensPensionHref')}>{t('aboutChildrensPensionLink')}</Link>
+                    {t('aboutChildrensPensionOutro')}
+
+                    <InlineLink href={t('aboutChildrensPensionHref')}>{t('aboutChildrensPensionLink')}</InlineLink>
+                </BodyLong>
+            </FormGroup>
+
+            <FormGroup>
+                <Heading size={'small'}>{t('aboutChildrensPensionTaxTitle')}</Heading>
+
+                <BodyLong>
+                    {t('aboutChildrensPensionTax')}
+
+                    <InlineLink href={t('aboutChildrensPensionTaxHref')}>
+                        {t('aboutChildrensPensionTaxLink')}
+                    </InlineLink>
                 </BodyLong>
             </FormGroup>
 

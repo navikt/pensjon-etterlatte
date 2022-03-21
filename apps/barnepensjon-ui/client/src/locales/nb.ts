@@ -79,11 +79,23 @@ const frontPage = {
     helloUser: `Hei, {fornavn} {etternavn}`,
     startApplication: 'Start søknad',
     childMayBeApplicableForPension:
-        'Barn som mister en eller begge foreldrene, kan motta økonomisk støtte. Pensjonen skal sikre inntekt til å leve og til boutgifter.\n\nDersom barnet er under 18 år, er det vergen som må søke om barnepensjon på barnets vegne. Hvis vergen ikke er en av foreldrene, må det legges ved en bekreftelse på oppnevnelse av verge fra tingretten eller Statsforvalteren.',
-    childrenAboveLegalAge: 'Barn over 18 år, må vanligvis søke selv.',
-    aboutChildrensPension: 'Mer informasjon om barnepensjon finner du på ',
-    aboutChildrensPensionLink: 'nav.no/barnepensjon',
+        'Når barn mister en eller begge sine foreldre, kan det søkes om økonomisk støtte. Barnepensjon skal sikre inntekt til å leve og til boutgifter. \n\nFor barn under 18 år er det verge som søker om barnepensjon. Hvis vergen ikke er forelder til barnet/barna, ',
+    childMayBeApplicableForPensionLink:
+        'oppnevnelse av verge fra tingretten eller Statsforvalteren på skjema NAV 00-03.00.',
+    childMayBeApplicableForPensionHref: 'https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon',
+    childrenAboveLegalAge: 'Barn over 18 år som har mistet en eller begge foreldrene',
+    aboutChildrensPensionIntro: 'Barn over 18 år må søke selv om barnepensjon. Det gjelder barn som er',
+    aboutChildrensPension_li1: 'under 20 år, foreldreløs og er under utdanning, eller er lærling eller praktikant',
+    aboutChildrensPension_li2:
+        'under 21 år, har mistet en eller begge foreldrene, er under utdanning eller er lærling eller praktikant, og dødsfallet til en av foreldrene skyldes yrkesskade eller yrkessykdom',
+    aboutChildrensPensionOutro: 'Mer informasjon om barnepensjon finner du på ',
+    aboutChildrensPensionLink: 'www.nav.no/barnepensjon',
     aboutChildrensPensionHref: 'https://www.nav.no/barnepensjon',
+    aboutChildrensPensionTaxTitle: 'Skatt på barnepensjon',
+    aboutChildrensPensionTax: 'Barnepensjon er skattepliktig, men det blir ikke trukket skatt på forskudd.',
+    aboutChildrensPensionTaxLink: 'Mer om skatt på barnepensjon finner du på Skatteetaten',
+    aboutChildrensPensionTaxHref:
+        'https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/familie-og-helse/barn/barn-og-ungdom-med-egen-inntekt-eller-formue',
     weNeedCorrectInformation: 'For å kunne behandle søknaden må du gi oss riktige opplysninger',
     importantChangesMustBeNotified:
         'Mottaker av barnepensjon må melde fra når det skjer viktige endringer som for eksempel endringer i bo- og familiesituasjon og ved flytting til utlandet. Barn over 18 år må også gi beskjed om endringer i inntekt og/eller utdanningssituasjon.',
@@ -96,8 +108,6 @@ const frontPage = {
     infoWeRetrieve_li3: 'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
     infoWeRetrieve_li4: 'Opplysninger om <strong>annen støtte fra NAV</strong>',
     infoWeRetrieve_li5: 'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
-    workInProgress:
-        'Vi jobber med å forbedre denne søknaden. Inntil videre må du legge inn de fleste opplysningene manuelt.',
     howWeHandleDataHref:
         'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
     howWeHandleDataLink: 'Slik behandler vi personopplysningene dine',
@@ -249,7 +259,6 @@ const aboutChildren = {
     titleModal: 'Om barnet',
     aboutTheSiblingTitle: 'Om søskenet',
     aboutSiblingsTitle: 'Om søsken',
-    thisIsOptional: 'Dette er valgfritt',
     childBelongsToParents: 'Er {forelder1} og {forelder2} foreldrene til barnet?',
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldrene til barnet?',
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',

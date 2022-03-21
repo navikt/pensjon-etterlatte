@@ -10,11 +10,7 @@ export const validAge = (age: number): boolean => {
     return age >= LEGAL_AGE && age <= PENSION_AGE
 }
 
-export const isTooYoung = (age: number): boolean => age < LEGAL_AGE
-
 export const isLegalAge = (age: number): boolean => age >= LEGAL_AGE
-
-export const isTooOld = (age: number): boolean => age > PENSION_AGE
 
 export const getAgeFromDate = (date: Date | string): number => {
     return Math.floor((Date.now() - new Date(date).getTime()) / MILLIS_IN_YEAR)
