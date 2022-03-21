@@ -9,6 +9,7 @@ import FormGroup from './common/FormGroup'
 import LanguageSelect from './common/LanguageSelect'
 import NavGuide from './common/NavGuide'
 import { InlineLink } from './common/StyledTypography'
+import Trans from './common/Trans'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -99,19 +100,19 @@ export default function FrontPage() {
 
                 <ul>
                     <li>
-                        <BodyLong>{t('infoWeRetrieve_li1')}</BodyLong>
+                        <Trans value={t('infoWeRetrieve_li1')} />
                     </li>
                     <li>
-                        <BodyLong>{t('infoWeRetrieve_li2')}</BodyLong>
+                        <Trans value={t('infoWeRetrieve_li2')} />
                     </li>
                     <li>
-                        <BodyLong>{t('infoWeRetrieve_li3')}</BodyLong>
+                        <Trans value={t('infoWeRetrieve_li3')} />
                     </li>
                     <li>
-                        <BodyLong>{t('infoWeRetrieve_li4')}</BodyLong>
+                        <Trans value={t('infoWeRetrieve_li4')} />
                     </li>
                     <li>
-                        <BodyLong>{t('infoWeRetrieve_li5')}</BodyLong>
+                        <Trans value={t('infoWeRetrieve_li5')} />
                     </li>
                 </ul>
 
