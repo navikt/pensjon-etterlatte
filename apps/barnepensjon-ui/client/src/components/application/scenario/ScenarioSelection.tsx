@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading, Link } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Heading } from '@navikt/ds-react'
 import { RadioProps } from 'nav-frontend-skjema'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -45,7 +45,6 @@ export default function ScenarioSelection() {
     }
 
     const selectedRole = watch('applicantRole')
-    const situation = watch('applicantSituation')
 
     return (
         <FormProvider {...methods}>
@@ -75,13 +74,13 @@ export default function ScenarioSelection() {
                         <Heading size={'small'}>{t('aboutSurvivorsPensionTitle')}</Heading>
                         <BodyLong>
                             {t('aboutSurvivorsPensionDescription')}&nbsp;
-                            <Link href={t('aboutSurvivorsPensionHref')}>{t('aboutSurvivorsPensionLink')}</Link>
+                            <a href={t('aboutSurvivorsPensionHref')}>{t('aboutSurvivorsPensionLink')}</a>
                         </BodyLong>
                     </Alert>
                 </FormGroup>
             )}
 
-            {[ApplicantRole.GUARDIAN, ApplicantRole.CHILD].includes(selectedRole) && (
+            {ApplicantRole.GUARDIAN === selectedRole && (
                 <FormGroup>
                     <RHFRadio
                         legend={t('additionalSituationDetails')}
@@ -93,10 +92,7 @@ export default function ScenarioSelection() {
                                 required: true,
                             },
                             {
-                                label:
-                                    selectedRole === ApplicantRole.CHILD
-                                        ? t('BOTH_PARENTS_DECEASED_CHILD_APPLICANT')
-                                        : t(ApplicantSituation.BOTH_PARENTS_DECEASED),
+                                label: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
                                 value: ApplicantSituation.BOTH_PARENTS_DECEASED,
                                 required: true,
                             },
@@ -105,26 +101,33 @@ export default function ScenarioSelection() {
                 </FormGroup>
             )}
 
-            {!!situation && selectedRole === ApplicantRole.CHILD && (
+            {selectedRole === ApplicantRole.CHILD && (
                 <FormGroup>
                     <Alert variant={'info'} inline={true}>
-                        {situation === ApplicantSituation.ONE_PARENT_DECEASED && (
-                            <>
-                                <BodyLong spacing size={'small'}>
-                                    {t('childApplicantInformation1')}
-                                </BodyLong>
-                            </>
-                        )}
-                        <BodyLong size={'small'}>{t('childApplicantInformation2')}</BodyLong>
+                        <BodyLong spacing size={'small'}>
+                            {t('childApplicantInformation1')}
+                        </BodyLong>
+                        <BodyLong spacing size={'small'}>
+                            {t('childApplicantInformation2')}
+                        </BodyLong>
                     </Alert>
+                    <BodyLong size={'small'}>
+                        {t('childApplicantInformationOver18')}
+                        <a href={t('childApplicantInformationOver18Href')}>
+                            {t('childApplicantInformationOver18Href')}
+                        </a>
+                        .
+                    </BodyLong>
                 </FormGroup>
             )}
 
             <ErrorSummaryWrapper errors={errors} />
 
-            <FormGroup>
-                <Button onClick={handleSubmit(next)}>Fortsett</Button>
-            </FormGroup>
+            {selectedRole !== ApplicantRole.CHILD && (
+                <FormGroup>
+                    <Button onClick={handleSubmit(next)}>Fortsett</Button>
+                </FormGroup>
+            )}
         </FormProvider>
     )
 }
