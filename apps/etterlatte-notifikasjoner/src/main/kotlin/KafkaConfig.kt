@@ -11,9 +11,10 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.io.File
 import java.util.*
+import org.apache.kafka.common.security.auth.SecurityProtocol
 
 class KafkaConfig(
-    private val bootstrapServers: String,
+    /*private val bootstrapServers: String,
     private val clientId: String? = null,
     private val username: String? = null,
     private val password: String? = null,
@@ -26,34 +27,45 @@ class KafkaConfig(
     private val schemaRegistryUrl: String? = null,
     private val acksConfig: String? = null,
 
+
+     */
     ) {
 
 
+
+
+
+    private val trustStoreType = "jks"
+    private val keyStoreType = "PKCS12"
+
     private val log: Logger = LoggerFactory.getLogger(KafkaConfig::class.java)
 
-    internal fun producerConfig() = Properties().apply {
-        this[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = bootstrapServers
-        this[ProducerConfig.ACKS_CONFIG] = acksConfig
-        this[ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION] = "1"
+    internal fun producerConfig(env: Map<String, String>) = Properties().apply {
+        //this[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = env["KAFKA_BROKERS"]
+        this[CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG] = env["KAFKA_BROKERS"] ?: ""
+        this[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = SecurityProtocol.SSL.name
+        //TODO denne er forskjellig:
+        this[ProducerConfig.CLIENT_ID_CONFIG] = if (env.containsKey("NAIS_APP_NAME")) env["NAIS_APP_NAME"] else UUID.randomUUID().toString()
+        this[ProducerConfig.ACKS_CONFIG] = "1"
         this[ProducerConfig.LINGER_MS_CONFIG] = "0"
-        this[ProducerConfig.CLIENT_ID_CONFIG] = clientId //TODO Må man ha 'producer' her?!
+        this[ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION] = "1"
         this[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = KafkaAvroSerializer::class.java
         this[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = KafkaAvroSerializer::class.java
-        this[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = schemaRegistryUrl
+
+        this[AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = env["KAFKA_SCHEMA_REGISTRY"] ?: ""
+        this[SchemaRegistryClientConfig.BASIC_AUTH_CREDENTIALS_SOURCE] = "USER_INFO"
+        this[SchemaRegistryClientConfig.USER_INFO_CONFIG] = env["KAFKA_SCHEMA_REGISTRY_USER"]!! + ":" + env["KAFKA_SCHEMA_REGISTRY_PASSWORD"]!!
         this["specific.avro.reader"] = true
-        this[CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG] = bootstrapServers
-        this[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = "SSL"
+
         this[SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG] = ""
-        this[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = trustStoreType
-        this[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = keyStoreType
-        if (!truststore.isNullOrBlank()) {
-            this[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = truststore
-            this[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = truststorePassword
-            this[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = keyStore
-            this[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = keyStorePassword
-            this[SchemaRegistryClientConfig.USER_INFO_CONFIG] = username + ":" + password
-            this[SchemaRegistryClientConfig.BASIC_AUTH_CREDENTIALS_SOURCE] = "USER_INFO"
-            log.info("Configured '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location ")
-        }
+        this[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = "jks"
+        this[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = "PKCS12"
+        this[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = env["NAV_TRUSTSTORE_PATH"] ?: ""
+        this[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = env["NAV_TRUSTSTORE_PASSWORD"] ?: ""
+        this[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = env["KAFKA_KEYSTORE_PATH"] ?: ""
+        this[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = env["KAFKA_CREDSTORE_PASSWORD"] ?: ""
+
+        log.info("Configured '${SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG}' location ")
+
     }
 }
