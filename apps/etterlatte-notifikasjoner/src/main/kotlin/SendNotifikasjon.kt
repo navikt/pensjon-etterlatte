@@ -14,11 +14,14 @@ import java.time.ZoneOffset
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-class SendNotifikasjon(env: Map<String, String>) {
+class SendNotifikasjon(
+    env: Map<String, String>,
+    private val producer: Producer<NokkelInput, BeskjedInput> = KafkaProducer(KafkaConfig().getProducerConfig(env))
+) {
 
     private val brukernotifikasjontopic = env["BRUKERNOTIFIKASJON_BESKJED_TOPIC"]!!
 
-    private val producer: Producer<NokkelInput, BeskjedInput> = KafkaProducer(KafkaConfig().producerConfig(env))
+    //private val producer: Producer<NokkelInput, BeskjedInput> = KafkaProducer(KafkaConfig().getProducerConfig(env))
 
     // notifikasjon
     private val notifikasjonsTekst = "Vi har mottatt søknaden din om gjenlevendepensjon"

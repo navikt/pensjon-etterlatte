@@ -4,28 +4,24 @@ import org.junit.jupiter.api.Test
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneOffset
+import io.mockk.mockk
+import no.nav.brukernotifikasjon.schemas.input.BeskjedInput
+import no.nav.brukernotifikasjon.schemas.input.NokkelInput
+import org.apache.kafka.clients.producer.Producer
 
 class SendNotifikasjonTest {
+
+    private val mockKafkaProducer = mockk<Producer<NokkelInput, BeskjedInput>>()
+
     private val sendNotifikasjon = SendNotifikasjon(
         mapOf(
-            "BRUKERNOTIFIKASJON_BESKJED_TOPIC" to "test_topic",
-            "KAFKA_BROKERS" to "host.docker.internal:9092",
-            "KAFKA_SCHEMA_REGISTRY" to "tjoho",
-            "KAFKA_KEYSTORE_PATH" to "",
-            "KAFKA_TRUSTSTORE_PATH" to "",
-            "KAFKA_CREDSTORE_PASSWORD" to "",
-            "KAFKA_SCHEMA_REGISTRY" to "",
-            "KAFKA_SCHEMA_REGISTRY_USER" to "",
-            "KAFKA_SCHEMA_REGISTRY_PASSWORD" to "",
-        )
-    )
+        "BRUKERNOTIFIKASJON_BESKJED_TOPIC" to "test_topic",
+    ), mockKafkaProducer)
 
-    //@Test
+    @Test
     fun opprettMelding() {
         val beskjed = sendNotifikasjon.opprettBeskjed()
-
-        //assertEquals("11057523044", beskjed.get  .getFodselsnummer())
-        //assertEquals("ETTERLATTE", beskjed .getGrupperingsId())
+        assertEquals(false, beskjed.getEksternVarsling())
         assertEquals("Vi har mottatt søknaden din om gjenlevendepensjon", beskjed.getTekst())
         assertEquals(true, isWithin10Seconds(beskjed.getTidspunkt().toLocalDateTime()))
         assertEquals(

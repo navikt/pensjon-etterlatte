@@ -1,6 +1,10 @@
 package no.nav.etterlatte
 
+import no.nav.brukernotifikasjon.schemas.input.BeskjedInput
+import no.nav.brukernotifikasjon.schemas.input.NokkelInput
 import no.nav.helse.rapids_rivers.RapidApplication
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.Producer
 
 fun main() {
     val env = System.getenv().toMutableMap().apply {
