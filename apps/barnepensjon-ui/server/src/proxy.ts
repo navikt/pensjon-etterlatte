@@ -9,8 +9,6 @@ const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
 
 const isOK = (status: any) => [200, 404, 409].includes(status)
 
-// TODO: Add imageTag to application on POST /api/soeknad
-
 const prepareSecuredRequest = async (req: Request) => {
     const { authorization } = req.headers
     const token = authorization!!.split(' ')[1]
@@ -25,10 +23,11 @@ const prepareSecuredRequest = async (req: Request) => {
     let body = undefined
     if (!isEmpty(req.body) && req.method === 'POST') {
         if (req.path === '/api/soeknad') {
-            const request = (req.body as any).soeknader.map(
-                (soeknad: any) => (soeknad.imageTag = process.env.IMAGE_TAG)
-            )
-            body = JSON.stringify(request)
+            const soeknader: any[] = req.body.soeknader.map((soeknad: any) => ({
+                ...soeknad,
+                imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*barnepensjon-ui:(.*)/, '$1'),
+            }))
+            body = JSON.stringify({ soeknader })
         } else {
             body = JSON.stringify(req.body)
         }
