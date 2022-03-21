@@ -16,6 +16,7 @@ import java.net.InetAddress
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 class SendNotifikasjon(env: Map<String, String>) {
 
@@ -25,7 +26,6 @@ class SendNotifikasjon(env: Map<String, String>) {
 
     //Producer
     private val env = env
-
 
     // notifikasjon
     private val notifikasjonsTekst = "Vi har mottatt søknaden din om gjenlevendepensjon"
@@ -37,8 +37,6 @@ class SendNotifikasjon(env: Map<String, String>) {
     // opprettNotifikasjon
     private val sikkerhetsNivaa = 4
     private val eksternVarsling = false
-
-
 
 
     fun startuptask() {
@@ -56,25 +54,21 @@ class SendNotifikasjon(env: Map<String, String>) {
             .withNamespace(namespace)
             .withAppnavn(appname)
             .build()
-        val beskjed = opprettBeskjed(ident)
+        val beskjed = opprettBeskjed()
 
-        producer?.send(ProducerRecord(brukernotifikasjontopic, nokkel, beskjed))
+        producer?.send(ProducerRecord(brukernotifikasjontopic, nokkel, beskjed))?.get(10, TimeUnit.SECONDS)
     }
 
-    internal fun opprettBeskjed(ident: String): BeskjedInput {
+    internal fun opprettBeskjed(): BeskjedInput {
         val now = LocalDateTime.now(ZoneOffset.UTC)
         val weekFromNow = now.plusDays(7)
 
         return BeskjedInputBuilder()
-            //.withFodselsnummer(ident)
-            //.withGrupperingsId(grupperingsId)
+            .withTidspunkt(LocalDateTime.now(ZoneOffset.UTC))
             .withTekst(notifikasjonsTekst)
-            .withTidspunkt(now)
             .withSynligFremTil(weekFromNow)
             .withSikkerhetsnivaa(sikkerhetsNivaa)
             .withEksternVarsling(eksternVarsling)
-            //.withPrefererteKanaler(null)
-            //.withPrefererteKanaler(PreferertKanal.SMS)
             .build()
     }
 }
