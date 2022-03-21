@@ -57,8 +57,15 @@ export default function ReceiptPage() {
                 <BodyLong>
                     {t('benefitsChangingDescription1')}&nbsp;
                     <Link href={t('benefitsChangingDescription1_href')}>{t('benefitsChangingDescription1_link')}</Link>
-                    &nbsp;
-                    {t('benefitsChangingDescription2')}&nbsp;
+                </BodyLong>
+            </FormGroup>
+
+            <FormGroup>
+                <Heading size={'medium'}>{t('submissionOfGuardianshipInfo')}</Heading>
+
+                <BodyLong>
+                    {t('guardianshipMustBeConfirmed')}&nbsp;
+                    <Link href={t('guardianshipMustBeConfirmedHref')}>{t('guardianshipMustBeConfirmedLink')}</Link>
                 </BodyLong>
             </FormGroup>
 

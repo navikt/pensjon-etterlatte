@@ -375,25 +375,29 @@ const receipt = {
     moreAboutRightsAndDutiesLinkHref: 'https://nav.no/rettogplikt',
     moreAboutRightsAndDutiesLinkText: 'nav.no/rettogplikt',
     benefitsChangingTitle: 'Regelendringer på barnepensjon',
-    benefitsChangingDescription1: 'Barnepensjon skal styrkes. ',
-    benefitsChangingDescription1_link: 'De nye endringene',
-    benefitsChangingDescription1_href: 'https://www.nav.no/barnepensjon#regel',
-    benefitsChangingDescription2: 'gjelder fra tidligst 1. januar 2023.',
+    benefitsChangingDescription1:
+        'Regelverket for barnepensjon skal styrkes for barn som mister en eller begge foreldrene. Mer informasjon om endringene finner du på ',
+    benefitsChangingDescription1_link: 'www.nav.no/barnepensjon',
+    benefitsChangingDescription1_href: 'https://www.nav.no/barnepensjon',
+    submissionOfGuardianshipInfo: 'Innsendelse av vergeinformajson',
+    guardianshipMustBeConfirmed:
+        'Dersom du har sendt inn søknad som verge må du sende bekreftelse på oppnevnelse av verge fra tingretten eller Statsforvalteren på ',
+    guardianshipMustBeConfirmedLink: 'skjema NAV 00-03.00.',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon',
     viewCaseTitle: 'Sjekke status i saken?',
     viewCaseInfoContentPart1: 'Forelder eller verge kan ikke følge saken digitalt i Dine saker i',
     viewCaseInfoLinkHref1: 'https://www.nav.no/no/ditt-nav',
     viewCaseInfoLinkText1: 'Ditt NAV',
     viewCaseInfoContentPart2:
         'på barn det er søkt barnepensjon for. Hvis du har spørsmål om søknaden, må du kontakt oss på telefon 55 55 33 34.',
-    viewCaseInfoLinkHref2: 'https://tjenester.nav.no/saksoversikt',
     viewCaseInfoContent3:
         'Barn over 18 år kan finne bekreftelse på at søknaden er mottatt i Dine saker og sjekke status i saken ved å logge inn i ',
     viewCaseInfoLinkHref3: 'https://tjenester.nav.no/saksoversikt',
     viewCaseInfoLinkText3: 'Ditt NAV',
     processingTimeText_part1: 'Barnepensjon følger samme ',
-    processingTimeText_part2: ' som søknad om gjenlevendepensjon.',
-    processingTimeHref4: 'https://www.nav.no/saksbehandlingstider',
     processingTimeLink4: 'saksbehandlingstid',
+    processingTimeHref4: 'https://www.nav.no/saksbehandlingstider',
+    processingTimeText_part2: ' som søknad om gjenlevendepensjon.',
     closeApplicationButton: 'Avslutt',
 }
 
