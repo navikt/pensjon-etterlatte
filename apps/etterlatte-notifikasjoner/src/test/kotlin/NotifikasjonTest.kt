@@ -7,6 +7,7 @@ import no.nav.etterlatte.Notifikasjon
 import no.nav.etterlatte.SendNotifikasjon
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
+import org.apache.kafka.clients.producer.MockProducer
 import org.apache.kafka.clients.producer.Producer
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -20,7 +21,16 @@ internal class NotifikasjonTest {
     private val topicname: String = "test_topic"
     private val user = "srvkafkaclient"
     private val pass = "kafkaclient"
-    private val mockKafkaProducer = mockk<Producer<NokkelInput, BeskjedInput>>()
+    private val mockKafkaProducer =
+        MockProducer<NokkelInput, BeskjedInput>(true, mockk(relaxed = true), mockk(relaxed = true))
+    private val sendMelding = SendNotifikasjon(
+        mapOf(
+            "BRUKERNOTIFIKASJON_BESKJED_TOPIC" to "test_topic",
+            "BRUKERNOTIFIKASJON_KAFKA_GROUP_ID" to "bah",
+            "NAIS_NAMESPACE" to "etterlatte",
+            "NAIS_NAME" to "etterlatte-notifikasjoner"
+        ), mockKafkaProducer
+    )
     private val embeddedKafkaEnvironment = KafkaEnvironment(
         autoStart = false,
         noOfBrokers = 1,
@@ -42,32 +52,13 @@ internal class NotifikasjonTest {
         embeddedKafkaEnvironment.withSecurity
     }
 
-    //@Test
+    @Test
     fun `Skal legge bekreftelsesmelding på køen når notifikasjon er sendt`() {
 
         val inspector = TestRapid()
             .apply {
                 Notifikasjon(
-                    SendNotifikasjon(
-                        mapOf(
-                            Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
-                            Pair(
-                                "KAFKA_BROKERS",
-                                embeddedKafkaEnvironment.brokersURL.substringAfterLast("/")
-                            ),
-                            Pair("NAIS_APP_NAME", "etterlatte-notifikasjoner"),
-                            Pair("KAFKA_SCHEMA_REGISTRY_USER", user),
-                            Pair("KAFKA_SCHEMA_REGISTRY_PASSWORD", pass),
-                            Pair("KAFKA_SCHEMA_REGISTRY",embeddedKafkaEnvironment.schemaRegistry!!.url),
-                            Pair("BRUKERNOTIFIKASJON_KAFKA_GROUP_ID", "etterlatte_v1"),
-                            Pair("NAIS_NAME", "etterlatte_notifikasjoner"),
-                            Pair("NAIS_NAMESPACE", "etterlatte"),
-                            "KAFKA_KEYSTORE_PATH" to embeddedKafkaEnvironment.schemaRegistry!!.url,
-                            "KAFKA_TRUSTSTORE_PATH" to embeddedKafkaEnvironment.schemaRegistry!!.url,
-                            "KAFKA_CREDSTORE_PASSWORD" to "",
-
-                        )//, mockKafkaProducer
-                    ),
+                    sendMelding,
                     this
                 )
             }
@@ -93,7 +84,7 @@ internal class NotifikasjonTest {
         assertEquals("SendNotifikasjon 3", inspector.key(0))
     }
 
-   @AfterAll
+    @AfterAll
     fun tearDown() {
         embeddedKafkaEnvironment.tearDown()
     }
