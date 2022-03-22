@@ -7,10 +7,9 @@ import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.config.SaslConfigs
 import org.apache.kafka.common.config.SslConfigs
+import org.apache.kafka.common.security.auth.SecurityProtocol
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.util.*
-import org.apache.kafka.common.security.auth.SecurityProtocol
 
 class KafkaConfig {
     private val log: Logger = LoggerFactory.getLogger(KafkaConfig::class.java)
@@ -37,7 +36,7 @@ class KafkaConfig {
         props[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = "jks"
         props[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = "PKCS12"
         props[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = env["NAV_TRUSTSTORE_PATH"] ?: ""
-        props[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = env["NAV_TRUSTSTORE_PASSWORD"] ?: ""
+        props[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = env["KAFKA_CREDSTORE_PASSWORD"] ?: ""
         props[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = env["KAFKA_KEYSTORE_PATH"] ?: ""
         props[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = env["KAFKA_CREDSTORE_PASSWORD"] ?: ""
         props[SaslConfigs.SASL_MECHANISM] = "PLAIN"
