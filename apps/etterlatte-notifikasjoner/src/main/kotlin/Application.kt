@@ -10,7 +10,8 @@ fun main() {
     val env = System.getenv().toMutableMap().apply {
         put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))
     }
+    val sendNotifikasjonApp = SendNotifikasjon(env)
     RapidApplication.create(env).also {
-        Notifikasjon(SendNotifikasjon(env),it)
+        Notifikasjon(sendNotifikasjonApp,it)
     }.start()
 }
