@@ -25,6 +25,7 @@ interface InnsendtSoeknad {
     val spraak: Spraak
     val imageTag: ImageTag
     val type: SoeknadType
+    val kilde: String
     val mottattDato: LocalDateTime
     val innsender: Innsender
     val soeker: Person

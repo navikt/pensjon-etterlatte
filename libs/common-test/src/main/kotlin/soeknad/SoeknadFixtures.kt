@@ -58,6 +58,7 @@ object InnsendtSoeknadFixtures {
         soekerFnr: Foedselsnummer = Foedselsnummer.of("05111850870"), // BLÅØYD SAKS
     ) = Barnepensjon(
         imageTag = UUID.randomUUID().toString(),
+        kilde = "selvbetjening-ui",
         spraak = Spraak.NB,
         innsender = Innsender(
             fornavn = Opplysning("Ola"),
@@ -97,6 +98,7 @@ object InnsendtSoeknadFixtures {
         soekerFnr: Foedselsnummer = innsenderFnr
     ) = Gjenlevendepensjon(
         imageTag = UUID.randomUUID().toString(),
+        kilde = "selvbetjening-ui",
         spraak = Spraak.NB,
         innsender = Innsender(
             fornavn = Opplysning("Ola"),

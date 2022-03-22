@@ -7,7 +7,7 @@ import soeknad.Queries.CREATE_SOEKNAD
 import soeknad.Queries.FINN_SISTE_STATUS
 import soeknad.Queries.FINN_KLADD
 import soeknad.Queries.OPPDATER_SOEKNAD
-import soeknad.Queries.OPPDATER_SOEKNAD_TYPE
+import soeknad.Queries.OPPDATER_SOEKNAD_META
 import soeknad.Queries.SELECT_OLD
 import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
 import soeknad.Queries.SELECT_OLDEST_UNSENT
@@ -69,15 +69,16 @@ class PostgresSoeknadRepository private constructor(
             .also { id ->
                 logger.info("Ferdigstiller søknad med id $id")
                 nyStatus(id, FERDIGSTILT)
-                oppdaterSoeknadType(id, soeknad.type)
+                oppdaterSoeknadMeta(id, soeknad.type, soeknad.kilde)
             }
     }
 
-    private fun oppdaterSoeknadType(id: SoeknadID, type: SoeknadType?) = connection.use {
-        it.prepareStatement(OPPDATER_SOEKNAD_TYPE)
+    private fun oppdaterSoeknadMeta(id: SoeknadID, type: SoeknadType?, kilde: String?) = connection.use {
+        it.prepareStatement(OPPDATER_SOEKNAD_META)
             .apply {
                 setString(1, type?.name)
-                setLong(2, id)
+                setString(2, kilde)
+                setLong(3, id)
             }
             .executeUpdate()
     }
@@ -281,7 +282,7 @@ private object Queries {
 
     const val OPPDATER_SOEKNAD = "UPDATE innhold SET payload = ? where soeknad_id = ?"
 
-    const val OPPDATER_SOEKNAD_TYPE = "UPDATE soeknad SET type = ? where id = ?"
+    const val OPPDATER_SOEKNAD_META = "UPDATE soeknad SET type = ?, kilde = ? where id = ?"
 
     val SELECT_OLD = """
         SELECT s.id, i.fnr, i.payload

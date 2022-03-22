@@ -26,6 +26,7 @@ const prepareSecuredRequest = async (req: Request) => {
             const soeknader: any[] = req.body.soeknader.map((soeknad: any) => ({
                 ...soeknad,
                 imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*barnepensjon-ui:(.*)/, '$1'),
+                kilde: process.env.NAIS_APP_NAME,
             }))
             body = JSON.stringify({ soeknader })
         } else {
