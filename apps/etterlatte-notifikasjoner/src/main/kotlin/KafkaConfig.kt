@@ -30,7 +30,6 @@ class KafkaConfig {
         props[SchemaRegistryClientConfig.BASIC_AUTH_CREDENTIALS_SOURCE] = "USER_INFO"
         props[SchemaRegistryClientConfig.USER_INFO_CONFIG] =
             env["KAFKA_SCHEMA_REGISTRY_USER"]!! + ':' + env["KAFKA_SCHEMA_REGISTRY_PASSWORD"]!!
-        //props["specific.avro.reader"] = true
 
         props[SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG] = ""
         props[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = "jks"
