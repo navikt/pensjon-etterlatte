@@ -95,12 +95,37 @@ internal class SoeknadDaoIntegrationTest {
         assertNotNull(funnetKladd)
 
         val soeknadUnderArbeid = finnSoeknad(funnetKladd.id)
-        assertNull(soeknadUnderArbeid?.second, "Søknad skal ikke ha type før den er ferdigstilt")
+        assertNull(soeknadUnderArbeid?.type, "Søknad skal ikke ha type før den er ferdigstilt")
 
         val id = db.ferdigstillSoeknad(soeknad)
 
         val ferdigstiltSoeknad = finnSoeknad(id)
-        assertEquals(type, ferdigstiltSoeknad!!.second)
+        assertEquals(type, ferdigstiltSoeknad!!.type)
+
+        assertEquals(lagretKladd, funnetKladd)
+    }
+
+    @Test
+    fun `Lagring av søknad med kilde fungerer`() {
+        val fnr = randomFakeFnr()
+        val json = """{"harSamtykket":true}"""
+        val kilde = "barnepensjon-ui"
+
+        val soeknad = UlagretSoeknad(fnr, json, kilde = kilde)
+
+        val lagretKladd = db.lagreKladd(soeknad)
+        assertNotNull(lagretKladd)
+
+        val funnetKladd = db.finnKladd(fnr)!!
+        assertNotNull(funnetKladd)
+
+        val soeknadUnderArbeid = finnSoeknad(funnetKladd.id)
+        assertNull(soeknadUnderArbeid?.kilde, "Søknad skal ikke ha kilde før den er ferdigstilt")
+
+        val id = db.ferdigstillSoeknad(soeknad)
+
+        val ferdigstiltSoeknad = finnSoeknad(id)
+        assertEquals(kilde, ferdigstiltSoeknad!!.kilde)
 
         assertEquals(lagretKladd, funnetKladd)
     }
@@ -226,7 +251,7 @@ internal class SoeknadDaoIntegrationTest {
         val id = db.ferdigstillSoeknad(soeknad)
 
         val ferdigstiltSoeknad = finnSoeknad(id)
-        assertNull(ferdigstiltSoeknad!!.second) // SoeknadType skal være NULL hvis ikke satt
+        assertNull(ferdigstiltSoeknad!!.type) // SoeknadType skal være NULL hvis ikke satt
 
         assertNull(db.slettKladd(fnr))
     }
@@ -453,16 +478,17 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals(Status.values().size, statusListe.size)
     }
 
-    private fun finnSoeknad(id: SoeknadID): Pair<SoeknadID, SoeknadType?>? =
-        connection.use {
-            val rs = it.prepareStatement("SELECT id, type FROM soeknad WHERE id = ?")
+    private fun finnSoeknad(id: SoeknadID): FerdigstiltSoeknad? =
+        connection.use { conn ->
+            val rs = conn.prepareStatement("SELECT id, type, kilde FROM soeknad WHERE id = ?")
                 .apply { setLong(1, id) }
                 .executeQuery()
 
             return if (rs.next()) {
-                Pair(
+                FerdigstiltSoeknad(
                     rs.getLong("id"),
-                    rs.getString("type")?.let { SoeknadType.valueOf(it) }
+                    rs.getString("type")?.let { SoeknadType.valueOf(it) },
+                    rs.getString("kilde")
                 )
             } else null
         }

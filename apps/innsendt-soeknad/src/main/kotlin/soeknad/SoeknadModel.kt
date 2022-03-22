@@ -5,6 +5,12 @@ import innsendtsoeknad.common.SoeknadType
 
 typealias SoeknadID = Long
 
+data class FerdigstiltSoeknad(
+    val id: SoeknadID,
+    val type: SoeknadType? = null,
+    val kilde: String? = null
+)
+
 data class LagretSoeknad(
     val id: SoeknadID,
     val fnr: String,
@@ -17,7 +23,8 @@ data class LagretSoeknad(
 data class UlagretSoeknad(
     val fnr: String,
     val payload: String,
-    val type: SoeknadType? = null
+    val type: SoeknadType? = null,
+    val kilde: String? = null
 )
 
 enum class Status {

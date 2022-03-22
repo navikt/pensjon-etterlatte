@@ -16,7 +16,8 @@ export const sendSoeknad = () => {
         const soeknader: any[] = req.body.soeknader.map((soeknad: any) => {
             return {
                 ...soeknad,
-                imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1")
+                imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1"),
+                kilde: process.env.NAIS_APP_NAME
             }
         });
 
