@@ -1,9 +1,14 @@
+import io.mockk.mockk
+import no.nav.brukernotifikasjon.schemas.input.BeskjedInput
+import no.nav.brukernotifikasjon.schemas.input.NokkelInput
 import no.nav.common.JAASCredential
 import no.nav.common.KafkaEnvironment
 import no.nav.etterlatte.Notifikasjon
 import no.nav.etterlatte.SendNotifikasjon
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
+import org.apache.kafka.clients.producer.MockProducer
+import org.apache.kafka.clients.producer.Producer
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
@@ -16,12 +21,23 @@ internal class NotifikasjonTest {
     private val topicname: String = "test_topic"
     private val user = "srvkafkaclient"
     private val pass = "kafkaclient"
+    private val mockKafkaProducer =
+        MockProducer<NokkelInput, BeskjedInput>(true, mockk(relaxed = true), mockk(relaxed = true))
+    private val sendMelding = SendNotifikasjon(
+        mapOf(
+            "BRUKERNOTIFIKASJON_BESKJED_TOPIC" to "test_topic",
+            "BRUKERNOTIFIKASJON_KAFKA_GROUP_ID" to "bah",
+            "NAIS_NAMESPACE" to "etterlatte",
+            "NAIS_NAME" to "etterlatte-notifikasjoner"
+        ), mockKafkaProducer
+    )
     private val embeddedKafkaEnvironment = KafkaEnvironment(
         autoStart = false,
         noOfBrokers = 1,
         topicInfos = listOf(KafkaEnvironment.TopicInfo(name = topicname, partitions = 1)),
         withSchemaRegistry = true,
         withSecurity = true,
+
         users = listOf(JAASCredential(user, pass)),
         brokerConfigOverrides = Properties().apply {
             this["auto.leader.rebalance.enable"] = "false"
@@ -33,29 +49,16 @@ internal class NotifikasjonTest {
     @BeforeAll
     fun setUp() {
         embeddedKafkaEnvironment.start()
+        embeddedKafkaEnvironment.withSecurity
     }
 
     @Test
     fun `Skal legge bekreftelsesmelding på køen når notifikasjon er sendt`() {
+
         val inspector = TestRapid()
             .apply {
                 Notifikasjon(
-                    SendNotifikasjon(
-                        mapOf(
-                            Pair("BRUKERNOTIFIKASJON_BESKJED_TOPIC", topicname),
-                            Pair(
-                                "BRUKERNOTIFIKASJON_KAFKA_BROKERS",
-                                embeddedKafkaEnvironment.brokersURL.substringAfterLast("/")
-                            ),
-                            Pair("NAIS_APP_NAME", "etterlatte-notifikasjoner"),
-                            Pair("srvuser", user),
-                            Pair("srvpwd", pass),
-                            Pair(
-                                "BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY",
-                                embeddedKafkaEnvironment.schemaRegistry!!.url
-                            )
-                        )
-                    ),
+                    sendMelding,
                     this
                 )
             }
@@ -81,7 +84,7 @@ internal class NotifikasjonTest {
         assertEquals("SendNotifikasjon 3", inspector.key(0))
     }
 
-   @AfterAll
+    @AfterAll
     fun tearDown() {
         embeddedKafkaEnvironment.tearDown()
     }

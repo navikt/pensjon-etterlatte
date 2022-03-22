@@ -19,7 +19,6 @@ spec:
     path: /metrics
   kafka:
     pool: nav-dev
-    #beskjedTopic: aapen-brukernotifikasjon-nyBeskjed-v1
   azure:
     application:
       enabled: true
@@ -27,19 +26,13 @@ spec:
     cpuThresholdPercentage: 90
     max: 1
     min: 1
-  envFrom:
-    - secret: barnepensjon-secrets
   env:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
-    - name: BRUKERNOTIFIKASJON_KAFKA_BROKERS # Er dette de riktige?
-      value: "b27apvl00045.preprod.local:8443,b27apvl00046.preprod.local:8443,b27apvl00047.preprod.local:8443"
-    - name: BRUKERNOTIFIKASJON_KAFKA_SCHEMA_REGISTRY
-      value: "https://kafka-schema-registry.nais-q.adeo.no/"
     - name: BRUKERNOTIFIKASJON_KAFKA_GROUP_ID
       value: "etterlatte-v1"
     - name: BRUKERNOTIFIKASJON_BESKJED_TOPIC
-      value: "aapen-brukernotifikasjon-nyBeskjed-v1"
+      value: "min-side.aapen-brukernotifikasjon-beskjed-v1"
   accessPolicy:
     outbound:
       external:
