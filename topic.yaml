@@ -69,3 +69,6 @@ spec:
     - team: etterlatte
       application: etterlatte-behandling
       access: write
+    - team: etterlatte
+      application: etterlatte-okonomi-vedtak
+      access: readwrite
