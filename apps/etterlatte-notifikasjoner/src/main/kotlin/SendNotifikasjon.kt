@@ -27,8 +27,8 @@ class SendNotifikasjon(
     private val notifikasjonsTekst = "Vi har mottatt søknaden din om gjenlevendepensjon"
     private val grupperingsId = env["BRUKERNOTIFIKASJON_KAFKA_GROUP_ID"]
 
-    private val namespace = env["NAIS_NAMESPACE"]
-    private val appname = env["NAIS_NAME"]
+    private val namespace = "etterlatte"
+    private val appname = "etterlatte-notifikasjoner"
 
     // opprettNotifikasjon
     private val sikkerhetsNivaa = 4
