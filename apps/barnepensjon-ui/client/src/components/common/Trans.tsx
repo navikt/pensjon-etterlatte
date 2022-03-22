@@ -14,7 +14,7 @@ export default function Trans({ value }: TranslationProps) {
         if (ref.current) {
             ref.current.innerHTML = translation
         }
-    }, [ref.current, translation])
+    }, [translation])
 
     return <span ref={ref} />
 }
