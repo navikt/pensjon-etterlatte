@@ -280,6 +280,10 @@ const summary = {
     AboutTheDeceased: 'Endre svar om den avdøde',
     AboutChildren: 'Endre svar om barn',
     YourSituation: 'Endre svar om din situasjon',
+    errorWhenSending:
+        'En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du melde feil ',
+    errorWhenSendingLink: 'her.',
+    errorWhenSendingHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
 }
 
 const error = {

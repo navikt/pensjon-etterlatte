@@ -115,10 +115,8 @@ export default function Summary({ prev }: StepProps) {
             {error && (
                 <FormGroup>
                     <Alert variant={'error'}>
-                        {t('oppsummering.feilVedSending')}
-                        <Link href={t('oppsummering.feilVedSending.href')}>
-                            {t('oppsummering.feilVedSending.tittel')}
-                        </Link>
+                        {t('errorWhenSending')}
+                        <Link href={t('errorWhenSendingHref')}>{t('errorWhenSendingLink')}</Link>
                     </Alert>
                 </FormGroup>
             )}
