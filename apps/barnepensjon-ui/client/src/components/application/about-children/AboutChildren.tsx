@@ -41,6 +41,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
     const isValidated = !!state.aboutChildren?.erValidert
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
     const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
+    const isParent = state.applicant?.applicantRole === ApplicantRole.PARENT
     const registeredChildren = watch('children')
 
     const getFnrRegisteredChild = (): string[] => registeredChildren?.map((child) => child?.fnrDnr || '') || []
@@ -161,6 +162,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                         child={fields[activeChildIndex] as IChild}
                         isChild={isChild}
                         isGuardian={isGuardian}
+                        isParent={isParent}
                     />
                 )}
             </FormProvider>

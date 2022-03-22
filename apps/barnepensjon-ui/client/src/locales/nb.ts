@@ -253,13 +253,17 @@ const aboutChildren = {
     addChildButton: '+ Legg til barn',
     addSiblingButton: '+ Legg til søsken',
     whoAreTheParents: 'Hvem er foreldre til barnet?',
+    bothOfTheAbove: 'Begge de overnevnte',
+    remainingParentsChild: 'Mitt særkullsbarn',
+    deceasedParentsChild: 'Avdødes særkullsbarn',
+    jointChild: 'Felles barn med avdøde',
     relationHelpText:
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
     aboutChildrenTitle: 'Om barn',
     titleModal: 'Om barnet',
     aboutTheSiblingTitle: 'Om søskenet',
     aboutSiblingsTitle: 'Om søsken',
-    childBelongsToParents: 'Er {forelder1} og {forelder2} foreldrene til barnet?',
+    thisIsOptional: 'Dette er valgfritt',
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldrene til barnet?',
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
     onlyGuardiansCanApply:

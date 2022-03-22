@@ -7,7 +7,7 @@ import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import ikon from '../../../../assets/barn1.svg'
 import useCountries from '../../../../hooks/useCountries'
 import useTranslation from '../../../../hooks/useTranslation'
-import { IChild } from '../../../../types/person'
+import { IChild, ParentRelationType } from '../../../../types/person'
 import { getAgeFromFoedselsnummer, isLegalAge } from '../../../../utils/age'
 import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
 import FormGroup from '../../../common/FormGroup'
@@ -76,9 +76,10 @@ interface Props {
     fnrRegisteredChild: string[]
     isChild: boolean
     isGuardian: boolean
+    isParent: boolean
 }
 
-const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian }: Props) => {
+const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian, isParent }: Props) => {
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
     const { state: user } = useUserContext()
@@ -111,13 +112,13 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
         window.scrollTo(0, 0)
     }
 
-    const bothParents = watch('bothParents')
+    const parents = watch('parents')
     const fnr: any = watch('fnrDnr')
     const appliesForChildrensPension: boolean | undefined = watch('appliesForChildrensPension')
     const loggedInUserIsGuardian = watch('loggedInUserIsGuardian')
 
     const canApplyForChildrensPension = (): boolean => {
-        if (bothParents === JaNeiVetIkke.JA && fnr && fnrValidator(fnr).status === 'valid') {
+        if (parents === ParentRelationType.BOTH && fnr && fnrValidator(fnr).status === 'valid') {
             const alder = getAgeFromFoedselsnummer(fnr)
             if (!isGuardian || loggedInUserIsGuardian === JaNeiVetIkke.JA) return !isLegalAge(alder)
         }
@@ -151,10 +152,10 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                     </Alert>
                                 </Panel>
                             )}
+                            <ParentQuestion isParent={isParent} t={t} watch={watch} />
                         </FormGroup>
                         {!tooOldChild() && (
                             <FormGroup>
-                                <ParentQuestion isChild={isChild} isGuardian={isGuardian} t={t} watch={watch} />
                                 {isChild && (
                                     <LivesAbroadQuestion isChild={isChild} countries={countries} t={t} watch={watch} />
                                 )}

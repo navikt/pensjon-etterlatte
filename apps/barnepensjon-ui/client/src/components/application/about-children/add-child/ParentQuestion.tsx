@@ -1,32 +1,22 @@
 import FormElement from '../../../common/FormElement'
-import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
-import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
+import { RHFRadio } from '../../../common/rhf/RHFRadio'
 import { Alert, BodyLong, Panel } from '@navikt/ds-react'
 import { IParent } from '../../../../context/application/application'
 import { TFunction } from '../../../../hooks/useTranslation'
 import { UseFormWatch } from 'react-hook-form/dist/types/form'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
 import FormGroup from '../../../common/FormGroup'
+import { ParentRelationType } from '../../../../types/person'
 
 interface Props {
-    isChild: boolean
-    isGuardian: boolean
+    isParent: boolean
     t: TFunction
     watch: UseFormWatch<any>
 }
 
-export const ParentQuestion = ({ isChild, isGuardian, t, watch }: Props) => {
+export const ParentQuestion = ({ isParent, t, watch }: Props) => {
     const { state: application } = useApplicationContext()
-    const bothParents = watch('bothParents')
-
-    const bothParentsText = (): string => {
-        if (isGuardian || isChild) {
-            return t('childBelongsToParents', {
-                forelder1: getParentText(application.firstParent!),
-                forelder2: getParentText(application.secondParent!),
-            })
-        } else return t('youAndDeceasedAreTheParents')
-    }
+    const parents = watch('parents')
 
     const getParentText = (parent: IParent): string => {
         return `${parent.firstName} ${parent.lastName} (f. ${parent.fnrDnr.substring(0, 6)})`
@@ -35,10 +25,30 @@ export const ParentQuestion = ({ isChild, isGuardian, t, watch }: Props) => {
     return (
         <FormGroup>
             <FormElement>
-                <RHFGeneralQuestionRadio name={'bothParents'} legend={bothParentsText()} />
+                <RHFRadio
+                    legend={t('whoAreTheParents')}
+                    name={'parents'}
+                    radios={[
+                        {
+                            label: isParent ? t('remainingParentsChild') : getParentText(application.firstParent!),
+                            value: ParentRelationType.FIRST_PARENT,
+                            required: true,
+                        },
+                        {
+                            label: isParent ? t('deceasedParentsChild') : getParentText(application.secondParent!),
+                            value: ParentRelationType.SECOND_PARENT,
+                            required: true,
+                        },
+                        {
+                            label: isParent ? t('jointChild') : t('bothOfTheAbove'),
+                            value: ParentRelationType.BOTH,
+                            required: true,
+                        },
+                    ]}
+                />
             </FormElement>
 
-            {bothParents === JaNeiVetIkke.NEI && (
+            {[ParentRelationType.FIRST_PARENT, ParentRelationType.SECOND_PARENT].includes(parents) && (
                 <Panel border>
                     <Alert inline={true} variant={'info'}>
                         <BodyLong>{t('onlyJointChildrenNecessary')}</BodyLong>

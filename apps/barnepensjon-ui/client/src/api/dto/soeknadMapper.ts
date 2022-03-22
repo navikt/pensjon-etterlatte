@@ -50,17 +50,19 @@ const mapTilBarnepensjonSoeknad = (
 }
 
 const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: User): Barn => {
-    const staysAbroad: JaNeiVetIkke = child.staysAbroad!!.answer!!
+    const staysAbroad = child.staysAbroad?.answer
 
-    const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> = {
-        spoersmaal: t('doesTheChildLiveAbroad', { ns: 'aboutChildren' }),
-        svar: {
-            innhold: t(staysAbroad, { ns: 'radiobuttons' }),
-            verdi: staysAbroad,
-        },
-    }
+    const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> | undefined = staysAbroad
+        ? {
+              spoersmaal: t('doesTheChildLiveAbroad', { ns: 'aboutChildren' }),
+              svar: {
+                  innhold: t(staysAbroad, { ns: 'radiobuttons' }),
+                  verdi: staysAbroad,
+              },
+          }
+        : undefined
 
-    if (staysAbroad === JaNeiVetIkke.JA) {
+    if (staysAbroad === JaNeiVetIkke.JA && !!utenlandsAdresse) {
         utenlandsAdresse.opplysning = {
             land: {
                 spoersmaal: t('stayAbroadCountry', { ns: 'aboutChildren' }),

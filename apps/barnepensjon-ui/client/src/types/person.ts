@@ -39,7 +39,7 @@ export interface IChild {
         fnr?: string
     }
     loggedInUserIsGuardian?: JaNeiVetIkke
-    bothParents?: JaNeiVetIkke
+    parents?: ParentRelationType
     citizenship?: string
     staysAbroad?: {
         answer?: JaNeiVetIkke
@@ -48,4 +48,10 @@ export interface IChild {
     }
     appliesForChildrensPension?: boolean
     paymentDetails?: IPaymentDetails
+}
+
+export enum ParentRelationType {
+    FIRST_PARENT = 'FIRST_PARENT',
+    SECOND_PARENT = 'SECOND_PARENT',
+    BOTH = 'BOTH',
 }

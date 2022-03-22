@@ -3,9 +3,8 @@ import { isEmpty } from 'lodash'
 import { memo } from 'react'
 import { v4 as uuid } from 'uuid'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
-import { IParent } from '../../../../context/application/application'
 import useTranslation from '../../../../hooks/useTranslation'
-import { IAboutChildren } from '../../../../types/person'
+import { IAboutChildren, IChild, ParentRelationType } from '../../../../types/person'
 import { StepLabelKey, StepPath } from '../../../../utils/steps'
 import FormElement from '../../../common/FormElement'
 import { ApplicantRole } from '../../scenario/ScenarioSelection'
@@ -13,6 +12,7 @@ import { AccordionItem } from '../AccordionItem'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import { PaymentDetailsSummary } from './PaymentDetailsSummary'
 import { PersonInfoSummary } from './PersonInfoSummery'
+import { IParent } from '../../../../context/application/application'
 
 export const SummaryAboutChildren = memo(
     ({
@@ -31,13 +31,30 @@ export const SummaryAboutChildren = memo(
         const isParent = applicationRole === ApplicantRole.PARENT
         const isChild = applicationRole === ApplicantRole.CHILD
 
-        const bothParentsText = (): string => {
-            if (!isParent) {
-                return t('childBelongsToParents', {
-                    forelder1: getParentText(parents.firstParent!),
-                    forelder2: getParentText(parents.secondParent!),
-                })
-            } else return t('youAndDeceasedAreTheParents')
+        const parentAnswerText = (child: IChild): string => {
+            switch (child.parents) {
+                case ParentRelationType.FIRST_PARENT:
+                    return t('remainingParentsChild')
+                case ParentRelationType.SECOND_PARENT:
+                    return t('deceasedParentsChild')
+                case ParentRelationType.BOTH:
+                    return t('jointChild')
+                default:
+                    throw Error(`Unexpected parent relation: ${child.parents}`)
+            }
+        }
+
+        const childOrGuardianAnswerText = (child: IChild): string => {
+            switch (child.parents) {
+                case ParentRelationType.FIRST_PARENT:
+                    return getParentText(parents.firstParent)
+                case ParentRelationType.SECOND_PARENT:
+                    return getParentText(parents.secondParent)
+                case ParentRelationType.BOTH:
+                    return t('bothOfTheAbove')
+                default:
+                    throw Error(`Unexpected parent relation: ${child.parents}`)
+            }
         }
 
         const getParentText = (parent: IParent): string => {
@@ -64,14 +81,16 @@ export const SummaryAboutChildren = memo(
                                                 fnrDnr={child.fnrDnr}
                                                 citizenship={child.citizenship}
                                             />
-                                            <TextGroupJaNeiVetIkke
-                                                title={
-                                                    isChild
-                                                        ? t('doesTheSiblingLiveAbroad')
-                                                        : t('doesTheChildLiveAbroad')
-                                                }
-                                                content={child.staysAbroad?.answer}
-                                            />
+                                            {child.staysAbroad?.answer && (
+                                                <TextGroupJaNeiVetIkke
+                                                    title={
+                                                        isChild
+                                                            ? t('doesTheSiblingLiveAbroad')
+                                                            : t('doesTheChildLiveAbroad')
+                                                    }
+                                                    content={child.staysAbroad?.answer}
+                                                />
+                                            )}
                                             {child.staysAbroad?.answer === JaNeiVetIkke.JA && (
                                                 <>
                                                     <TextGroup
@@ -84,10 +103,14 @@ export const SummaryAboutChildren = memo(
                                                     />
                                                 </>
                                             )}
-                                            {child.bothParents && (
-                                                <TextGroupJaNeiVetIkke
-                                                    title={bothParentsText()}
-                                                    content={child.bothParents}
+                                            {child.parents && (
+                                                <TextGroup
+                                                    title={t('whoAreTheParents')}
+                                                    content={
+                                                        isParent
+                                                            ? parentAnswerText(child)
+                                                            : childOrGuardianAnswerText(child)
+                                                    }
                                                 />
                                             )}
                                             {child.childHasGuardianship && (

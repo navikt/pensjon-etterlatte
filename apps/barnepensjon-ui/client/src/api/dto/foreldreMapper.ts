@@ -18,7 +18,7 @@ import {
     IStaysAbroad,
 } from '../../context/application/application'
 import { TFunction } from '../../hooks/useTranslation'
-import { IAboutYou, IChild } from '../../types/person'
+import { IAboutYou, IChild, ParentRelationType } from '../../types/person'
 import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
 import { User } from '../../context/user/user'
 
@@ -33,7 +33,16 @@ export const hentForeldre = (t: TFunction, child: IChild, application: IApplicat
     const forelder1 = mapTilForelder(t, firstParent)
     const forelder2 = mapTilForelder(t, application.secondParent!!)
 
-    return [forelder1, forelder2]
+    switch (child.parents) {
+        case ParentRelationType.FIRST_PARENT:
+            return [forelder1]
+        case ParentRelationType.SECOND_PARENT:
+            return [forelder2]
+        case ParentRelationType.BOTH:
+            return [forelder1, forelder2]
+        default:
+            throw Error(`Unexpected parent relation: ${child.parents}`)
+    }
 }
 
 const mapTilForelder = (t: TFunction, parent: IParent): Forelder => ({
