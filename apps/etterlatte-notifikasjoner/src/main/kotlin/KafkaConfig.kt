@@ -35,7 +35,7 @@ class KafkaConfig {
         props[SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG] = ""
         props[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = "jks"
         props[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = "PKCS12"
-        props[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = env["NAV_TRUSTSTORE_PATH"] ?: ""
+        props[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = env["KAFKA_TRUSTSTORE_PATH"] ?: ""
         props[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = env["KAFKA_CREDSTORE_PASSWORD"] ?: ""
         props[SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG] = env["KAFKA_KEYSTORE_PATH"] ?: ""
         props[SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG] = env["KAFKA_CREDSTORE_PASSWORD"] ?: ""
