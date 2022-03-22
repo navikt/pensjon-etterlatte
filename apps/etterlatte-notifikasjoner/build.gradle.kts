@@ -25,6 +25,6 @@ dependencies {
     }
     implementation("no.nav:kafka-embedded-env:2.8.1")
     testImplementation(Ktor.ClientMock)
-    testImplementation("io.mockk:mockk:1.12.2")
+    testImplementation(MockK.MockK)
     testImplementation(Kafka.EmbeddedEnv)
 }
