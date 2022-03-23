@@ -66,12 +66,13 @@ internal class SoeknadDaoIntegrationTest {
     fun `Lagring og uthenting av kladd fungerer som forventet`() {
         val fnr = randomFakeFnr()
         val json = """{"harSamtykket":true}"""
+        val kilde = "selvbetjening-ui"
 
         val soeknad = UlagretSoeknad(fnr, json)
 
         val lagretKladd = db.lagreKladd(soeknad)
 
-        val funnetKladd = db.finnKladd(fnr)!!
+        val funnetKladd = db.finnKladd(fnr, kilde)!!
 
         assertNotNull(funnetKladd.id)
         assertEquals(fnr, funnetKladd.fnr)
@@ -85,13 +86,14 @@ internal class SoeknadDaoIntegrationTest {
     fun `Lagring av søknad med type fungerer`(type: SoeknadType) {
         val fnr = randomFakeFnr()
         val json = """{"harSamtykket":true}"""
+        val kilde = "selvbetjening-ui"
 
         val soeknad = UlagretSoeknad(fnr, json, type)
 
         val lagretKladd = db.lagreKladd(soeknad)
         assertNotNull(lagretKladd)
 
-        val funnetKladd = db.finnKladd(fnr)!!
+        val funnetKladd = db.finnKladd(fnr, kilde)!!
         assertNotNull(funnetKladd)
 
         val soeknadUnderArbeid = finnSoeknad(funnetKladd.id)
@@ -116,7 +118,7 @@ internal class SoeknadDaoIntegrationTest {
         val lagretKladd = db.lagreKladd(soeknad)
         assertNotNull(lagretKladd)
 
-        val funnetKladd = db.finnKladd(fnr)!!
+        val funnetKladd = db.finnKladd(fnr, kilde)!!
         assertNotNull(funnetKladd)
 
         val soeknadUnderArbeid = finnSoeknad(funnetKladd.id)

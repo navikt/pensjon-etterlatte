@@ -44,7 +44,7 @@ fun Route.soeknadApi(service: SoeknadService) {
         }
 
         get {
-            val soeknad = service.hentKladd(fnrFromToken())
+            val soeknad = service.hentKladd(fnrFromToken(),"selvbetjening-ui")
 
             if (soeknad == null)
                 call.respond(HttpStatusCode.NotFound)

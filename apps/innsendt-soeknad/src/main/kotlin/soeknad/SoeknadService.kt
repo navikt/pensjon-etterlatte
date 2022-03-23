@@ -38,8 +38,8 @@ class SoeknadService(private val db: SoeknadRepository) {
         }
     }
 
-    fun hentKladd(innloggetBruker: Foedselsnummer): LagretSoeknad? {
-        return db.finnKladd(innloggetBruker.value)
+    fun hentKladd(innloggetBruker: Foedselsnummer, kilde: String?): LagretSoeknad? {
+        return db.finnKladd(innloggetBruker.value, kilde)
             ?.also { logger.info("Fant kladd (id=${it.id})") }
     }
 

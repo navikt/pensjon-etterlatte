@@ -12,6 +12,7 @@ import soeknad.Queries.SELECT_OLD
 import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
 import soeknad.Queries.SELECT_OLDEST_UNSENT
 import soeknad.Queries.SELECT_RAPPORT
+import soeknad.Queries.SELECT_KILDE_COUNT
 import soeknad.Queries.SLETT_ARKIVERTE_SOEKNADER
 import soeknad.Queries.SLETT_KLADD
 import soeknad.Queries.SLETT_UTGAATTE_KLADDER
@@ -36,7 +37,7 @@ interface SoeknadRepository {
     fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
     fun slettArkiverteSoeknader(): Int
-    fun finnKladd(fnr: String): LagretSoeknad?
+    fun finnKladd(fnr: String, kilde: String?): LagretSoeknad?
     fun slettKladd(fnr: String): SoeknadID?
     fun slettUtgaatteKladder(): Int
 }
@@ -45,6 +46,7 @@ interface StatistikkRepository {
     fun eldsteUsendte(): LocalDateTime?
     fun eldsteUarkiverte(): LocalDateTime?
     fun rapport(): Map<Status, Long>
+    fun kildeCount(): Map<Status, Long>
     fun ukategorisert(): List<Long>
 }
 
@@ -84,7 +86,7 @@ class PostgresSoeknadRepository private constructor(
     }
 
     private fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
-        val lagretSoeknad = finnKladd(soeknad.fnr)
+        val lagretSoeknad = finnKladd(soeknad.fnr, soeknad.kilde)
 
         return if (lagretSoeknad == null) {
             logger.info("Søknad finnes ikke i databasen. Oppretter ny søknad.")
@@ -170,10 +172,11 @@ class PostgresSoeknadRepository private constructor(
         return slettedeKladder.size
     }
 
-    override fun finnKladd(fnr: String): LagretSoeknad? {
+    override fun finnKladd(fnr: String, kilde: String?): LagretSoeknad? {
         val soeknad = connection.use {
             it.prepareStatement(FINN_KLADD)
                 .apply { setString(1, fnr) }
+                .apply { setString(2, kilde) }
                 .executeQuery()
                 .singleOrNull {
                     LagretSoeknad(getLong("soeknad_id"), fnr, getString("payload"))
@@ -232,6 +235,15 @@ class PostgresSoeknadRepository private constructor(
     override fun rapport(): Map<Status, Long> {
         return connection.use {
             it.prepareStatement(SELECT_RAPPORT)
+                .executeQuery()
+                .toList { Status.valueOf(getString(1)) to getLong(2) }
+                .toMap()
+        }
+    }
+
+    override fun kildeCount(): Map<Status, Long> {
+        return connection.use {
+            it.prepareStatement(SELECT_KILDE_COUNT)
                 .executeQuery()
                 .toList { Status.valueOf(getString(1)) to getLong(2) }
                 .toMap()
@@ -309,7 +321,7 @@ private object Queries {
         and not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL'))
     """.trimIndent()
 
-    val SELECT_RAPPORT = """
+    val SELECT_RAPPORT = """    
         SELECT st.id, count(1)
         FROM (
             SELECT DISTINCT(h.soeknad_id), MAX(s.rang) rang
@@ -323,6 +335,14 @@ private object Queries {
         ORDER BY st.rang;
     """.trimMargin()
 
+    val SELECT_KILDE_COUNT = """
+        SELECT s.kilde, count(1)
+        FROM soeknad s
+        INNER JOIN hendelse h on s.id = h.soeknad_id
+        WHERE h.status_id = 'ARKIVERT'
+        GROUP BY s.kilde
+    """.trimIndent()
+
     val SLETT_ARKIVERTE_SOEKNADER = """
         DELETE FROM innhold i 
         WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id = '$ARKIVERT') 
@@ -331,7 +351,8 @@ private object Queries {
     val FINN_KLADD = """
         SELECT soeknad_id, fnr, payload
         FROM innhold
-        WHERE fnr = ?
+        WHERE fnr = ? 
+        AND kilde = ?
     """.trimIndent()
 
     val FINN_SISTE_STATUS = """
