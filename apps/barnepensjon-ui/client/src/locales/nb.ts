@@ -358,7 +358,9 @@ const systemUnavailable = {
 }
 
 const invalidApplicant = {
-    applicantIsTooYoung: 'For å søke om barnepensjon på egenhånd må du være over 18 år gammel.',
+    applicantIsTooYoung: 'For å søke om barnepensjon må du være over 18 år.',
+    childMayBeApplicableForPension:
+        'Barn som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Barnepensjon skal sikre inntekt til å leve og bo. \n\nFor barn under 18 år er det forelder eller verge som søker om barnepensjon.',
 }
 
 const logOutUser = {
