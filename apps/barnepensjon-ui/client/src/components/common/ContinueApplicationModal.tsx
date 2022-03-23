@@ -13,7 +13,8 @@ export const ContinueApplicationModal = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const shouldAsk = state.meta?.showContinueModal === true && location.pathname !== '/skjema/admin'
+    const disabledSites = ['/ugyldig-soeker', '/skjema/admin', '/system-utilgjengelig']
+    const shouldAsk = state.meta?.showContinueModal === true && !disabledSites.includes(location.pathname)
 
     const continueApplication = () => {
         dispatch({ type: ActionTypes.CLOSE_CONTINUE_MODAL })

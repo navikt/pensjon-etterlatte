@@ -18,6 +18,7 @@ import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } fro
 import useScrollToTop from './hooks/useScrollToTop'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 import useTranslation from './hooks/useTranslation'
+import { InvalidApplicant } from './components/error/InvalidApplicant'
 
 Modal.setAppElement!!('#root')
 
@@ -87,6 +88,8 @@ export default function App() {
 
                         <Route path="kvittering" element={<ReceiptPage />} />
                     </Route>
+
+                    <Route path={'/ugyldig-soeker'} element={<InvalidApplicant />} />
 
                     <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
 

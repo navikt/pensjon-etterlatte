@@ -22,6 +22,7 @@ export type Namespace =
     | 'systemUnavailable'
     | 'yourSituation'
     | 'continueApplicationModal'
+    | 'invalidApplicant'
 
 export type TNamespace = Readonly<NonNullable<Namespace>>
 export type Translation = Readonly<NonNullable<string>>

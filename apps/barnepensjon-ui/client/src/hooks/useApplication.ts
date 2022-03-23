@@ -15,7 +15,10 @@ export default function useApplication() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        if (!user.kanSoeke) return
+        if (!user.kanSoeke) {
+            setLoading(false)
+            return
+        }
 
         getDraft()
             .then((application: IApplication | undefined) => {

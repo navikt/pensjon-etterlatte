@@ -357,6 +357,10 @@ const systemUnavailable = {
     retryButton: 'Prøv igjen',
 }
 
+const invalidApplicant = {
+    applicantIsTooYoung: 'For å søke om barnepensjon på egenhånd må du være over 18 år gammel.',
+}
+
 const logOutUser = {
     btn: 'X-ikon for å lukke meldingen',
     time: 'minutter',
@@ -456,6 +460,7 @@ const texts: Record<TNamespace, Record<TKey, Translation>> = {
     selectScenario,
     pageNotFound,
     systemUnavailable,
+    invalidApplicant,
     summary,
     receipt,
     yourSituation,
