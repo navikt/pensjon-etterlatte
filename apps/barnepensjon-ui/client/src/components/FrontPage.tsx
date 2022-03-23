@@ -1,4 +1,4 @@
-import { BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
+import { BodyLong, Button, ConfirmationPanel, Heading } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes } from '../context/application/application'
@@ -8,7 +8,6 @@ import useTranslation from '../hooks/useTranslation'
 import FormGroup from './common/FormGroup'
 import LanguageSelect from './common/LanguageSelect'
 import NavGuide from './common/NavGuide'
-import { InlineLink } from './common/StyledTypography'
 import Trans from './common/Trans'
 
 export default function FrontPage() {
@@ -47,10 +46,7 @@ export default function FrontPage() {
                 </Heading>
 
                 <BodyLong>
-                    {t('childMayBeApplicableForPension')}
-                    <InlineLink href={t('childMayBeApplicableForPensionHref')}>
-                        {t('childMayBeApplicableForPensionLink')}
-                    </InlineLink>
+                    <Trans value={t('childMayBeApplicableForPension')} />
                 </BodyLong>
             </FormGroup>
 
@@ -68,11 +64,7 @@ export default function FrontPage() {
                     </li>
                 </ul>
 
-                <BodyLong>
-                    {t('aboutChildrensPensionOutro')}
-
-                    <InlineLink href={t('aboutChildrensPensionHref')}>{t('aboutChildrensPensionLink')}</InlineLink>
-                </BodyLong>
+                <Trans value={t('moreAboutChildrensPension')} />
             </FormGroup>
 
             <FormGroup>
@@ -81,9 +73,7 @@ export default function FrontPage() {
                 <BodyLong>
                     {t('aboutChildrensPensionTax')}
 
-                    <InlineLink href={t('aboutChildrensPensionTaxHref')}>
-                        {t('aboutChildrensPensionTaxLink')}
-                    </InlineLink>
+                    <Trans value={t('moreAboutChildrensPensionTax')} />
                 </BodyLong>
             </FormGroup>
 
@@ -117,11 +107,11 @@ export default function FrontPage() {
                 </ul>
 
                 <BodyLong>
-                    <Link href={t('howWeHandleDataHref')}>{t('howWeHandleDataLink')}</Link>
+                    <Trans value={t('howWeHandleData')} />
                 </BodyLong>
 
                 <BodyLong>
-                    <Link href={t('aboutPrivacyHref')}>{t('aboutPrivacyLink')}</Link>
+                    <Trans value={t('aboutPrivacy')} />
                 </BodyLong>
             </FormGroup>
 

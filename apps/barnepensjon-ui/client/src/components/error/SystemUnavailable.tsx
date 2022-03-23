@@ -1,7 +1,8 @@
 import FormGroup from '../common/FormGroup'
 import NavGuide from '../common/NavGuide'
-import { Alert, BodyLong, Button, Link } from '@navikt/ds-react'
+import { Alert, BodyLong, Button } from '@navikt/ds-react'
 import useTranslation from '../../hooks/useTranslation'
+import Trans from '../common/Trans'
 
 export default function SystemUnavailable() {
     const { t } = useTranslation('systemUnavailable')
@@ -29,13 +30,13 @@ export default function SystemUnavailable() {
             <FormGroup>
                 <BodyLong>{t('reportError')}</BodyLong>
 
-                <Link href={t('reportErrorLink')}>{t('reportErrorHref')}</Link>
+                <Trans value={t('reportErrorLink')} />
             </FormGroup>
 
             <FormGroup>
                 <BodyLong>{t('moreAboutBenefits')}</BodyLong>
 
-                <Link href={t('moreAboutBenefitsLink')}>{t('moreAboutBenefitsHref')}</Link>
+                <Trans value={t('moreAboutBenefitsLink')} />
             </FormGroup>
 
             <FormGroup>

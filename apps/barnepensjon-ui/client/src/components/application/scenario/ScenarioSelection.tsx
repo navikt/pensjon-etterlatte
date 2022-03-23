@@ -8,6 +8,7 @@ import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormGroup from '../../common/FormGroup'
 import { RHFRadio } from '../../common/rhf/RHFRadio'
+import Trans from '../../common/Trans'
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -72,9 +73,9 @@ export default function ScenarioSelection() {
                 <FormGroup>
                     <Alert variant={'info'} inline={true}>
                         <Heading size={'small'}>{t('aboutSurvivorsPensionTitle')}</Heading>
+
                         <BodyLong>
-                            {t('aboutSurvivorsPensionDescription')}&nbsp;
-                            <a href={t('aboutSurvivorsPensionHref')}>{t('aboutSurvivorsPensionLink')}</a>
+                            <Trans value={t('aboutSurvivorsPensionDescription')} />
                         </BodyLong>
                     </Alert>
                 </FormGroup>
@@ -112,10 +113,7 @@ export default function ScenarioSelection() {
                         </BodyLong>
                     </Alert>
                     <BodyLong size={'small'}>
-                        {t('childApplicantInformationOver18')}
-                        <a href={t('childApplicantInformationOver18Href')}>
-                            {t('childApplicantInformationOver18Link')}
-                        </a>
+                        <Trans value={t('childApplicantInformationOver18')} />
                     </BodyLong>
                 </FormGroup>
             )}

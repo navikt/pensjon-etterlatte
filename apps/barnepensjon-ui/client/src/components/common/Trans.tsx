@@ -1,20 +1,21 @@
 import { Translation } from '../../context/language/translations'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 interface TranslationProps {
     value: Translation
 }
 
+/**
+ * Supports text containing HTML.
+ */
 export default function Trans({ value }: TranslationProps) {
     const ref = useRef<HTMLSpanElement>(null)
 
-    const [translation] = useState(value)
-
     useEffect(() => {
         if (ref.current) {
-            ref.current.innerHTML = translation
+            ref.current.innerHTML = value
         }
-    }, [translation])
+    }, [value])
 
     return <span ref={ref} />
 }

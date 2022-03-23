@@ -113,7 +113,7 @@ const mapGjenlevendeForelder = (t: TFunction, livingParent: ILivingParent): Gjen
         svar: livingParent.citizenship,
     },
     adresse: {
-        spoersmaal: t('address', { ns: 'common' }),
+        spoersmaal: t('address', { ns: 'livingParent' }),
         svar: livingParent.address,
     },
     kontaktinfo: {

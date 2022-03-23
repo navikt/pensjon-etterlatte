@@ -79,23 +79,18 @@ const frontPage = {
     helloUser: `Hei, {fornavn} {etternavn}`,
     startApplication: 'Start søknad',
     childMayBeApplicableForPension:
-        'Når barn mister en eller begge sine foreldre, kan det søkes om økonomisk støtte. Barnepensjon skal sikre inntekt til å leve og til boutgifter. \n\nFor barn under 18 år er det verge som søker om barnepensjon. Hvis vergen ikke er forelder til barnet/barna, ',
-    childMayBeApplicableForPensionLink:
-        'oppnevnelse av verge fra tingretten eller Statsforvalteren på skjema NAV 00-03.00.',
-    childMayBeApplicableForPensionHref: 'https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon',
+        'Når barn mister en eller begge sine foreldre, kan det søkes om økonomisk støtte. Barnepensjon skal sikre inntekt til å leve og til boutgifter. \n\nFor barn under 18 år er det verge som søker om barnepensjon. Hvis vergen ikke er forelder til barnet/barna, <a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">oppnevnelse av verge fra tingretten eller Statsforvalteren på skjema NAV 00-03.00</a>.',
     childrenAboveLegalAge: 'Barn over 18 år som har mistet en eller begge foreldrene',
     aboutChildrensPensionIntro: 'Barn over 18 år må søke selv om barnepensjon. Det gjelder barn som er',
     aboutChildrensPension_li1: 'under 20 år, foreldreløs og er under utdanning, eller er lærling eller praktikant',
     aboutChildrensPension_li2:
         'under 21 år, har mistet en eller begge foreldrene, er under utdanning eller er lærling eller praktikant, og dødsfallet til en av foreldrene skyldes yrkesskade eller yrkessykdom',
-    aboutChildrensPensionOutro: 'Mer informasjon om barnepensjon finner du på ',
-    aboutChildrensPensionLink: 'www.nav.no/barnepensjon',
-    aboutChildrensPensionHref: 'https://www.nav.no/barnepensjon',
+    moreAboutChildrensPension:
+        'Mer informasjon om barnepensjon finner du på <a href="https://www.nav.no/barnepensjon">www.nav.no/barnepensjon</Link>',
     aboutChildrensPensionTaxTitle: 'Skatt på barnepensjon',
-    aboutChildrensPensionTax: 'Barnepensjon er skattepliktig, men det blir ikke trukket skatt på forskudd.',
-    aboutChildrensPensionTaxLink: 'Mer om skatt på barnepensjon finner du på Skatteetaten',
-    aboutChildrensPensionTaxHref:
-        'https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/familie-og-helse/barn/barn-og-ungdom-med-egen-inntekt-eller-formue',
+    aboutChildrensPensionTax: 'Barnepensjon er skattepliktig, men det blir ikke trukket skatt på forskudd. ',
+    moreAboutChildrensPensionTax:
+        '<a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/familie-og-helse/barn/barn-og-ungdom-med-egen-inntekt-eller-formue">Mer om skatt på barnepensjon finner du på Skatteetaten</a>',
     weNeedCorrectInformation: 'For å kunne behandle søknaden må du gi oss riktige opplysninger',
     importantChangesMustBeNotified:
         'Mottaker av barnepensjon må melde fra når det skjer viktige endringer som for eksempel endringer i bo- og familiesituasjon og ved flytting til utlandet. Barn over 18 år må også gi beskjed om endringer i inntekt og/eller utdanningssituasjon.',
@@ -108,12 +103,10 @@ const frontPage = {
     infoWeRetrieve_li3: 'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
     infoWeRetrieve_li4: 'Opplysninger om <strong>annen støtte fra NAV</strong>',
     infoWeRetrieve_li5: 'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
-    howWeHandleDataHref:
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
-    howWeHandleDataLink: 'Slik behandler vi personopplysningene dine',
-    aboutPrivacyHref:
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3',
-    aboutPrivacyLink: 'Om personvern og sikkerhet på nav.no',
+    howWeHandleData:
+        '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten">Slik behandler vi personopplysningene dine</a>',
+    aboutPrivacy:
+        '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Om personvern og sikkerhet på nav.no</a>',
     aboutTheApplicationTitle: 'Om søknaden',
     aboutTheApplicationDescription:
         'I søknaden stiller vi kun spørsmål som er relevante i din/barnet/barnas situasjon.\n\n' +
@@ -137,14 +130,11 @@ const selectScenario = {
         'Hvis du er under 20 år og er under utdanning, er lærling eller praktikant, kan du søke om barnepensjon.',
     childApplicantInformation2:
         'Dersom du er under 21 år og er under utdanning, er lærling eller praktikant, kan du søke om barnepensjon dersom dødsfallet til en av foreldrene dine skyldes yrkesskade eller yrkessykdom.',
-    childApplicantInformationOver18: 'Denne søknaden støtter foreløpig ikke barn over 18 år.\n',
-    childApplicantInformationOver18Link: 'Klikk her for benytte skjema NAV 18-04.05.',
-    childApplicantInformationOver18Href: 'https://www.nav.no/fyllut/nav180405',
+    childApplicantInformationOver18:
+        'Denne søknaden støtter foreløpig ikke barn over 18 år. \n<a href="https://www.nav.no/fyllut/nav180405">Klikk her for benytte skjema NAV 18-04.05.</a>',
     aboutSurvivorsPensionTitle: 'Søke om gjenlevendepensjon til deg selv?',
     aboutSurvivorsPensionDescription:
-        'Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du',
-    aboutSurvivorsPensionLink: 'velge å søke om gjenlevendepensjon og barnepensjon i samme søknad.',
-    aboutSurvivorsPensionHref: 'https://www.nav.no/gjenlevendepensjon',
+        'Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du <a href="https://www.nav.no/gjenlevendepensjon">velge å søke om gjenlevendepensjon og barnepensjon i samme søknad.</a>',
     BOTH_PARENTS_DECEASED: 'Foreldreløs',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Jeg er foreldreløs',
     ONE_PARENT_DECEASED: 'En forelder er død',
@@ -176,14 +166,12 @@ const aboutParents = {
     addSecondParentBtn: 'Legg til forelder 2',
     bothParentsRequired:
         'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Denne søknaden støtter foreløpig ikke forhold der barnet har mistet mor og farskapet ikke er formelt bestemt. Du kommer til rett søknad ved å følge denne lenken: ',
-    missingOneParentHref:
-        'https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-flere-av-foreldrene/NAV%2018-01.05/dokumentinnsending',
-    missingOneParentHrefText: 'Søknad om barnepensjon for foreldreløse barn',
+    missingOneParentLink:
+        '<a href="https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-flere-av-foreldrene/NAV%2018-01.05/dokumentinnsending">Søknad om barnepensjon for foreldreløse barn</a>',
 }
 
 const livingParent = {
     title: 'Om den gjenlevende',
-    who: 'Oppgi informasjon om den gjenlevende forelderen.',
     address: 'Adresse',
     phoneNumberOptional: 'Telefonnummer (valgfri)',
 }
@@ -350,8 +338,8 @@ const pageNotFound = {
     pageDoesNotExist: 'Denne siden finnes ikke.',
     pageDoesNotExistInfo:
         'Dersom du har klikket på en lenke på våre sider og endt opp her, kan du rapportere feilen her:',
-    reportErrorLink: 'www.nav.no/tilbakemelding-feilogmangler',
-    reportErrorHref: 'http://www.nav.no/tilbakemelding-feilogmangler',
+    reportErrorLink:
+        '<a href="https://www.nav.no/tilbakemelding-feilogmangler">www.nav.no/tilbakemelding-feilogmangler</a>',
     backButton: 'Klikk her for å gå tilbake',
 }
 
@@ -362,11 +350,10 @@ const systemUnavailable = {
     weAreWorkingOnTheError:
         'Vi beklager dette og jobber med å finne ut av det så raskt som mulig. I mellomtiden er det nok lurt å ta en pause og prøve igjen senere.',
     reportError: 'Er det fortsatt feil, kan du melde fra om det på ',
-    reportErrorLink: 'www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
-    reportErrorHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    reportErrorLink:
+        '<a href="https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler">www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler</a>',
     moreAboutBenefits: 'Du kan lese mer om ytelser til etterlatte på',
-    moreAboutBenefitsLink: 'www.nav.no/mistet-noen',
-    moreAboutBenefitsHref: 'https://www.nav.no/mistet-noen',
+    moreAboutBenefitsLink: '<a href="https://www.nav.no/mistet-noen">www.nav.no/mistet-noen</a>',
     retryButton: 'Prøv igjen',
 }
 

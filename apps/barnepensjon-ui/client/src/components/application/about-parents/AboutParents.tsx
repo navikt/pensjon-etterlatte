@@ -14,6 +14,7 @@ import { ApplicantSituation } from '../scenario/ScenarioSelection'
 import DeceasedParent from './DeceasedParent'
 import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
+import Trans from '../../common/Trans'
 
 enum EditParent {
     NONE,
@@ -111,7 +112,8 @@ export default function AboutParents({ next, prev }: StepProps) {
                             <Alert variant={'info'}>
                                 <BodyShort size={'small'}>
                                     {t('bothParentsRequired')}
-                                    <a href={t('missingOneParentHref')}>{t('missingOneParentHrefText')}</a>
+
+                                    <Trans value={t('missingOneParentLink')} />
                                 </BodyShort>
                             </Alert>
                         </FormGroup>
