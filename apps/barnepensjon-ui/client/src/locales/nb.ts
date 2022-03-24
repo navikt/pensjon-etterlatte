@@ -387,7 +387,7 @@ const receipt = {
     viewCaseInfoLinkHref1: 'https://www.nav.no/no/ditt-nav',
     viewCaseInfoLinkText1: 'Ditt NAV',
     viewCaseInfoContentPart2:
-        'på barn det er søkt barnepensjon for. Hvis du har spørsmål om søknaden, må du kontakt oss på telefon 55 55 33 34.',
+        'på barn det er søkt barnepensjon for. Hvis du har spørsmål om søknaden, må du kontakte oss på telefon 55 55 33 34.',
     viewCaseInfoContent3:
         'Barn over 18 år kan finne bekreftelse på at søknaden er mottatt i Dine saker og sjekke status i saken ved å logge inn i ',
     viewCaseInfoLinkHref3: 'https://tjenester.nav.no/saksoversikt',
