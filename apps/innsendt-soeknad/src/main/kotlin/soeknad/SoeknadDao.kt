@@ -12,7 +12,6 @@ import soeknad.Queries.SELECT_OLD
 import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
 import soeknad.Queries.SELECT_OLDEST_UNSENT
 import soeknad.Queries.SELECT_RAPPORT
-import soeknad.Queries.SELECT_KILDE_COUNT
 import soeknad.Queries.SLETT_ARKIVERTE_SOEKNADER
 import soeknad.Queries.SLETT_KLADD
 import soeknad.Queries.SLETT_UTGAATTE_KLADDER
@@ -37,7 +36,7 @@ interface SoeknadRepository {
     fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
     fun slettArkiverteSoeknader(): Int
-    fun finnKladd(fnr: String, kilde: String?): LagretSoeknad?
+    fun finnKladd(fnr: String, kilde: String): LagretSoeknad?
     fun slettKladd(fnr: String): SoeknadID?
     fun slettUtgaatteKladder(): Int
 }
@@ -46,7 +45,6 @@ interface StatistikkRepository {
     fun eldsteUsendte(): LocalDateTime?
     fun eldsteUarkiverte(): LocalDateTime?
     fun rapport(): Map<Status, Long>
-    fun kildeCount(): Map<Status, Long>
     fun ukategorisert(): List<Long>
 }
 
@@ -103,8 +101,9 @@ class PostgresSoeknadRepository private constructor(
         val id = connection.use {
             it.prepareStatement(CREATE_SOEKNAD)
                 .apply {
-                    setString(1, soeknad.fnr)
-                    setString(2, soeknad.payload)
+                    setString(1, soeknad.kilde)
+                    setString(2, soeknad.fnr)
+                    setString(3, soeknad.payload)
                 }
                 .executeQuery()
                 .singleOrNull { getLong(1) }!!
@@ -172,7 +171,7 @@ class PostgresSoeknadRepository private constructor(
         return slettedeKladder.size
     }
 
-    override fun finnKladd(fnr: String, kilde: String?): LagretSoeknad? {
+    override fun finnKladd(fnr: String, kilde: String): LagretSoeknad? {
         val soeknad = connection.use {
             it.prepareStatement(FINN_KLADD)
                 .apply { setString(1, fnr) }
@@ -241,15 +240,6 @@ class PostgresSoeknadRepository private constructor(
         }
     }
 
-    override fun kildeCount(): Map<Status, Long> {
-        return connection.use {
-            it.prepareStatement(SELECT_KILDE_COUNT)
-                .executeQuery()
-                .toList { Status.valueOf(getString(1)) to getLong(2) }
-                .toMap()
-        }
-    }
-
     override fun ukategorisert(): List<Long> = connection.use {
         it.prepareStatement("""SELECT s.id FROM soeknad s where s.id not in (select soeknad_id from hendelse )""")
             .executeQuery()
@@ -285,7 +275,7 @@ class PostgresSoeknadRepository private constructor(
 private object Queries {
     val CREATE_SOEKNAD = """
         WITH ny_soeknad AS (
-            INSERT INTO soeknad DEFAULT VALUES RETURNING id
+            INSERT INTO soeknad (kilde) VALUES (?) RETURNING id
         ) INSERT INTO innhold(soeknad_id, fnr, payload) 
             VALUES((SELECT id FROM ny_soeknad), ?, ?) RETURNING soeknad_id
     """.trimMargin()
@@ -335,24 +325,16 @@ private object Queries {
         ORDER BY st.rang;
     """.trimMargin()
 
-    val SELECT_KILDE_COUNT = """
-        SELECT s.kilde, count(1)
-        FROM soeknad s
-        INNER JOIN hendelse h on s.id = h.soeknad_id
-        WHERE h.status_id = 'ARKIVERT'
-        GROUP BY s.kilde
-    """.trimIndent()
-
     val SLETT_ARKIVERTE_SOEKNADER = """
         DELETE FROM innhold i 
         WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id = '$ARKIVERT') 
     """.trimIndent()
 
     val FINN_KLADD = """
-        SELECT soeknad_id, fnr, payload
-        FROM innhold
-        WHERE fnr = ? 
-        AND kilde = ?
+        SELECT i.soeknad_id, i.fnr, i.payload, s.kilde
+        FROM innhold i
+        INNER JOIN soeknad s on s.id = i.soeknad_id
+        WHERE fnr = ? AND kilde = ?
     """.trimIndent()
 
     val FINN_SISTE_STATUS = """

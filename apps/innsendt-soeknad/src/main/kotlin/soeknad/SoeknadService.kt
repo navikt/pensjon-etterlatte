@@ -23,7 +23,7 @@ class SoeknadService(private val db: SoeknadRepository) {
         }
 
         val ider = request.soeknader
-            .map { UlagretSoeknad(it.soeker.foedselsnummer!!.svar.value, it.toJson(), it.type, it.kilde) }
+            .map { UlagretSoeknad(it.soeker.foedselsnummer!!.svar.value, it.toJson(), it.kilde, it.type) }
             .map {
                 logger.info("Ferdigstiller søknad (type=${it.type})")
                 db.ferdigstillSoeknad(it)
@@ -38,19 +38,19 @@ class SoeknadService(private val db: SoeknadRepository) {
         }
     }
 
-    fun hentKladd(innloggetBruker: Foedselsnummer, kilde: String?): LagretSoeknad? {
+    fun hentKladd(innloggetBruker: Foedselsnummer, kilde: String): LagretSoeknad? {
         return db.finnKladd(innloggetBruker.value, kilde)
             ?.also { logger.info("Fant kladd (id=${it.id})") }
     }
 
-    fun lagreKladd(innloggetBruker: Foedselsnummer, soeknad: JsonNode): SoeknadID {
-        val lagretkladd = db.lagreKladd(UlagretSoeknad(innloggetBruker.value, soeknad.toJson()))
+    fun lagreKladd(innloggetBruker: Foedselsnummer, soeknad: JsonNode, kilde: String): SoeknadID {
+        val lagretkladd = db.lagreKladd(UlagretSoeknad(innloggetBruker.value, soeknad.toJson(), kilde))
             .also { logger.info("Lagret kladd (id=${it.id})") }
 
         return lagretkladd.id
     }
 
-    fun slettKladd(innloggetBruker: Foedselsnummer) {
+    fun slettKladd(innloggetBruker: Foedselsnummer, kilde: String) {
         db.slettKladd(innloggetBruker.value)
             ?.also { logger.info("Slettet kladd (id=${it})") }
     }

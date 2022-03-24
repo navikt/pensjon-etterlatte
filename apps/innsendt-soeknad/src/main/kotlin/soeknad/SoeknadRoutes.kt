@@ -32,19 +32,19 @@ fun Route.soeknadApi(service: SoeknadService) {
 
     route("/api/kladd") {
         post {
-            val id = service.lagreKladd(fnrFromToken(), call.receive<JsonNode>())
+            val id = service.lagreKladd(fnrFromToken(), call.receive<JsonNode>(), call.request.queryParameters["kilde"]!!)
 
             call.respondText(id.toString(), ContentType.Text.Plain)
         }
 
         delete {
-            service.slettKladd(fnrFromToken())
+            service.slettKladd(fnrFromToken(), call.request.queryParameters["kilde"]!!)
 
             call.respond(HttpStatusCode.OK)
         }
 
         get {
-            val soeknad = service.hentKladd(fnrFromToken(),"selvbetjening-ui")
+            val soeknad = service.hentKladd(fnrFromToken(), call.request.queryParameters["kilde"]!!)
 
             if (soeknad == null)
                 call.respond(HttpStatusCode.NotFound)

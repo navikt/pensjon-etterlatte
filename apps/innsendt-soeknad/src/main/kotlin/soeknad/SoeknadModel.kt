@@ -23,8 +23,8 @@ data class LagretSoeknad(
 data class UlagretSoeknad(
     val fnr: String,
     val payload: String,
-    val type: SoeknadType? = null,
-    val kilde: String? = null
+    val kilde: String,
+    val type: SoeknadType? = null
 )
 
 enum class Status {
