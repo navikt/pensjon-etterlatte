@@ -134,12 +134,13 @@ internal class SoeknadDaoIntegrationTest {
     @Test
     fun `Hente ut kladd basert på kilde`() {
         val fnr = randomFakeFnr()
-        val json = """{"harSamtykket":true}"""
+        val jsonBP = """{"harSamtykket":true}"""
+        val jsonGP = """{"harSamtykket":false}"""
 
         val kildeGP = "selvbetjening-ui"
 
-        val soeknadBP = UlagretSoeknad(fnr, json, kilde)
-        val soeknadGP = UlagretSoeknad(fnr, json, kildeGP)
+        val soeknadBP = UlagretSoeknad(fnr, jsonBP, kilde)
+        val soeknadGP = UlagretSoeknad(fnr, jsonGP, kildeGP)
 
         val lagretKladdBP = db.lagreKladd(soeknadBP)
         assertNotNull(lagretKladdBP)
@@ -147,11 +148,14 @@ internal class SoeknadDaoIntegrationTest {
         val lagretKladdGP = db.lagreKladd(soeknadGP)
         assertNotNull(lagretKladdGP)
 
-        val funnetKladd = db.finnKladd(fnr, kilde)!!
-        assertNotNull(funnetKladd)
+        val funnetKladdBP = db.finnKladd(fnr, kilde)!!
+        assertEquals(funnetKladdBP.payload, jsonBP)
 
-        val soeknadUnderArbeid = finnSoeknad(funnetKladd.id)
-        assertEquals(soeknadUnderArbeid?.kilde, kilde)
+        val funnetKladdGP = db.finnKladd(fnr, kildeGP)!!
+        assertEquals(funnetKladdGP.payload, jsonGP)
+
+        // val soeknadUnderArbeid = finnSoeknad(funnetKladd.id)
+        // assertEquals(soeknadUnderArbeid?.kilde, kilde)
 
         // val id = db.ferdigstillSoeknad(soeknad)
 
