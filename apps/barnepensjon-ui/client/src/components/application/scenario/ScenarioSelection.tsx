@@ -9,6 +9,7 @@ import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormGroup from '../../common/FormGroup'
 import { RHFRadio } from '../../common/rhf/RHFRadio'
 import Trans from '../../common/Trans'
+import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -25,6 +26,7 @@ export default function ScenarioSelection() {
     const navigate = useNavigate()
     const { t } = useTranslation('selectScenario')
     const { dispatch } = useApplicationContext()
+    const { logEvent } = useAmplitude()
 
     const methods = useForm<IApplicant>({
         defaultValues: {},
@@ -37,8 +39,11 @@ export default function ScenarioSelection() {
         formState: { errors },
     } = methods
 
-    function next(data: any) {
+    function next(data: IApplicant) {
         dispatch({ type: ActionTypes.UPDATE_APPLICANT, payload: data })
+
+        logEvent(LogEvents.SELECT_SCENARIO, { type: data.applicantRole })
+        logEvent(LogEvents.SELECT_SITUATION, { type: data.applicantSituation })
 
         if (data.applicantRole === ApplicantRole.PARENT) navigate('/skjema/forelder/steg/om-deg')
         else if (data.applicantRole === ApplicantRole.GUARDIAN) navigate('/skjema/verge/steg/om-deg')

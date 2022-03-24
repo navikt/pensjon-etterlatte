@@ -18,7 +18,8 @@ import { SummaryYourSituation } from './fragments/SummaryYourSituation'
 import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'
 import { sendApplication } from '../../../api/api'
 import { useNavigate } from 'react-router-dom'
-import { Barnepensjon } from '../../../api/dto/InnsendtSoeknad'
+import { Barnepensjon, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
+import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
 
 const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
     const prefix = {
@@ -31,6 +32,7 @@ const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
 
 export default function Summary({ prev }: StepProps) {
     const { t } = useTranslation('summary')
+    const { logEvent } = useAmplitude()
 
     const { state: application } = useApplicationContext()
     const { state: user } = useUserContext()
@@ -43,13 +45,14 @@ export default function Summary({ prev }: StepProps) {
         const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user)
 
         sendApplication({ soeknader })
-            .then((response) => {
-                console.log(response)
+            .then(() => {
+                soeknader.forEach(() => logEvent(LogEvents.SEND_APPLICATION, { type: SoeknadType.BARNEPENSJON }))
 
                 navigate('/skjema/kvittering')
             })
             .catch((e) => {
                 console.error(e)
+                logEvent(LogEvents.SEND_APPLICATION_ERROR)
                 setError(true)
             })
     }

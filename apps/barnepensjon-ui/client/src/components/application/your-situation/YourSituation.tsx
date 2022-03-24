@@ -13,7 +13,7 @@ import { RHFGeneralQuestionRadio, RHFInlineRadio } from '../../common/rhf/RHFRad
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 
-export default function YourSituation({ next, prev, type }: StepProps) {
+export default function YourSituation({ next, prev }: StepProps) {
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation('yourSituation')
 

@@ -10,6 +10,7 @@ import EyModal from './EyModal'
 import { deleteDraft } from '../../api/api'
 import { BodyShortMuted } from './StyledTypography'
 import useTranslation from '../../hooks/useTranslation'
+import { EventType, LogEvents, useAmplitude } from '../../hooks/useAmplitude'
 
 export const NavRow = styled.div`
     width: 100%;
@@ -54,6 +55,7 @@ interface NavigationProps {
 
 export default function Navigation({ right, left, hideCancel }: NavigationProps) {
     const { t } = useTranslation('navigation')
+    const { logEvent } = useAmplitude()
 
     const { dispatch: applicationDispatch } = useApplicationContext()
     const { dispatch: userDispatch } = useUserContext()
@@ -61,13 +63,19 @@ export default function Navigation({ right, left, hideCancel }: NavigationProps)
     const [isOpen, setIsOpen] = useState(false)
 
     const cancelApplication = () => {
+        logEvent(LogEvents.CLICK, { type: EventType.CANCEL_APPLICATION, svar: 'ja' })
+
         applicationDispatch({ type: ApplicationActionTypes.RESET })
         userDispatch({ type: UserActionTypes.RESET })
 
         window.location.href = 'https://www.nav.no/barnepensjon'
     }
 
-    const continueApplication = () => setIsOpen(false)
+    const continueApplication = () => {
+        logEvent(LogEvents.CLICK, { type: EventType.CANCEL_APPLICATION, svar: 'nei' })
+
+        setIsOpen(false)
+    }
 
     const deleteApplication = () => {
         deleteDraft().then(() => cancelApplication())

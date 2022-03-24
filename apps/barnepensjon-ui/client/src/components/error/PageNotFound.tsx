@@ -2,9 +2,11 @@ import FormGroup from '../common/FormGroup'
 import NavGuide from '../common/NavGuide'
 import { BodyShort, Button, Heading } from '@navikt/ds-react'
 import useTranslation from '../../hooks/useTranslation'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Trans from '../common/Trans'
+import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
+import { useEffect } from 'react'
 
 const CenterDiv = styled.div`
     text-align: center;
@@ -12,7 +14,14 @@ const CenterDiv = styled.div`
 
 export default function PageNotFound() {
     const navigate = useNavigate()
+    const location = useLocation()
+
     const { t } = useTranslation('pageNotFound')
+    const { logEvent } = useAmplitude()
+
+    useEffect(() => {
+        logEvent(LogEvents.PAGE_NOT_FOUND, { side: location.pathname })
+    }, [])
 
     return (
         <CenterDiv>

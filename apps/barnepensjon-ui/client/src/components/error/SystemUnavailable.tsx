@@ -3,9 +3,16 @@ import NavGuide from '../common/NavGuide'
 import { Alert, BodyLong, Button } from '@navikt/ds-react'
 import useTranslation from '../../hooks/useTranslation'
 import Trans from '../common/Trans'
+import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
+import { useEffect } from 'react'
 
 export default function SystemUnavailable() {
     const { t } = useTranslation('systemUnavailable')
+    const { logEvent } = useAmplitude()
+
+    useEffect(() => {
+        logEvent(LogEvents.SYSTEM_UNAVAILABLE)
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const retry = () => {
         window.location.href = process.env.PUBLIC_URL
