@@ -72,3 +72,6 @@ spec:
     - team: etterlatte
       application: etterlatte-okonomi-vedtak
       access: readwrite
+    - team: etterlatte
+      application: etterlatte-vilkaar-kafka
+      access: readwrite
