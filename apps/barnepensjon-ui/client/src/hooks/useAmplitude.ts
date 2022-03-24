@@ -32,7 +32,6 @@ export const useAmplitude = () => {
             includeReferrer: true,
             platform: window.location.toString(),
         })
-        // @ts-ignore
     }, [])
 
     useEffect(() => {
@@ -40,7 +39,7 @@ export const useAmplitude = () => {
             logEvent(LogEvents.PAGE_CHANGE)
         }
         setPrevLocation(location)
-    }, [location])
+    }, [location]) // eslint-disable-line react-hooks/exhaustive-deps
 
     const logEvent = (eventName: LogEvents, eventData?: any): void => {
         setTimeout(() => {

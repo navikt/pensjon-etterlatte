@@ -21,7 +21,7 @@ export default function PageNotFound() {
 
     useEffect(() => {
         logEvent(LogEvents.PAGE_NOT_FOUND, { side: location.pathname })
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <CenterDiv>
