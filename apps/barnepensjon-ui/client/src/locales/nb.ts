@@ -79,25 +79,13 @@ const frontPage = {
     helloUser: `Hei, {fornavn} {etternavn}`,
     startApplication: 'Start søknad',
     childMayBeApplicableForPension:
-        'Når barn mister en eller begge sine foreldre, kan det søkes om økonomisk støtte. Barnepensjon skal sikre inntekt til å leve og til boutgifter. \n\nFor barn under 18 år er det verge som søker om barnepensjon. Hvis vergen ikke er forelder til barnet/barna, <a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">oppnevnelse av verge fra tingretten eller Statsforvalteren på skjema NAV 00-03.00</a>.',
-    childrenAboveLegalAge: 'Barn over 18 år som har mistet en eller begge foreldrene',
-    aboutChildrensPensionIntro: 'Barn over 18 år må søke selv om barnepensjon. Det gjelder barn som er',
-    aboutChildrensPension_li1: 'under 20 år, foreldreløs og er under utdanning, eller er lærling eller praktikant',
-    aboutChildrensPension_li2:
-        'under 21 år, har mistet en eller begge foreldrene, er under utdanning eller er lærling eller praktikant, og dødsfallet til en av foreldrene skyldes yrkesskade eller yrkessykdom',
-    moreAboutChildrensPension:
-        'Mer informasjon om barnepensjon finner du på <a href="https://www.nav.no/barnepensjon">www.nav.no/barnepensjon</Link>',
-    aboutChildrensPensionTaxTitle: 'Skatt på barnepensjon',
-    aboutChildrensPensionTax: 'Barnepensjon er skattepliktig, men det blir ikke trukket skatt på forskudd. ',
-    moreAboutChildrensPensionTax:
-        '<a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/familie-og-helse/barn/barn-og-ungdom-med-egen-inntekt-eller-formue">Mer om skatt på barnepensjon finner du på Skatteetaten</a>',
-    weNeedCorrectInformation: 'For å kunne behandle søknaden må du gi oss riktige opplysninger',
-    importantChangesMustBeNotified:
-        'Mottaker av barnepensjon må melde fra når det skjer viktige endringer som for eksempel endringer i bo- og familiesituasjon og ved flytting til utlandet. Barn over 18 år må også gi beskjed om endringer i inntekt og/eller utdanningssituasjon.',
-    weWillRetrieveInfo: 'Vi vil hente informasjon',
+        'Barn under 18 år som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Det er forelderen eller vergen til barnet som søker om barnepensjon for barnet hvis det er under 18 år. \n\nBarn som er under utdanning, eller er lærling eller praktikant, kan ha rett til barnepensjon selv om de er over 18 år. Barn over 18 år må som regel søke selv. \n\n <a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>.',
+    tax: 'Skatt',
+    aboutChildrensPensionTax:
+        'Barnepensjon er skattepliktig, men det blir ikke trukket forskuddsskatt. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
+    weWillRetrieveInfo: 'Vi henter informasjonen vi trenger',
     infoWeRetrieve:
-        'I tillegg til den informasjonen du oppgir i søknaden, henter vi inn informasjon om deg, avdøde og søsken for å avgjøre om du har rett til stønad.' +
-        '\nVi henter:',
+        'For å kunne behandle søknaden din trenger vi informasjon om barnet/ barna, foreldrene til barna og eventuelle søsken.\n\nVi henter:',
     infoWeRetrieve_li1: '<strong>Personinformasjon</strong> fra Folkeregisteret',
     infoWeRetrieve_li2: '<strong>Inntektsinformasjon</strong> fra Skatteetaten',
     infoWeRetrieve_li3: 'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
@@ -107,13 +95,12 @@ const frontPage = {
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten">Slik behandler vi personopplysningene dine</a>',
     aboutPrivacy:
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Om personvern og sikkerhet på nav.no</a>',
-    aboutTheApplicationTitle: 'Om søknaden',
+    aboutTheApplicationTitle: 'Utfylling av søknaden',
     aboutTheApplicationDescription:
-        'I søknaden stiller vi kun spørsmål som er relevante i din/barnet/barnas situasjon.\n\n' +
-        'Vi lagrer søknaden i 72 timer og du kan ta pauser under utfylling. Søknaden kan også avbrytes og opplysningene som er lagt inn kan slettes.',
+        'Vi lagrer søknaden i 72 timer og du kan ta pauser underveis. Du kan når som helst avbryte søknaden. Da vil opplysningene du har lagt inn bli slettet.',
     consentTitle: 'Vi stoler på deg',
     consentDescription:
-        'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden. Hvis barnepensjon utbetales fordi opplysninger er utelatt eller det er gitt feil opplysninger, må pensjonen vanligvis betales tilbake.\n\n',
+        'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n',
     consentToNav: 'Jeg, {fornavn} {etternavn}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
 }
 

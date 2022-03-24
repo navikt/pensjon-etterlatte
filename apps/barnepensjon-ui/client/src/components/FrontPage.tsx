@@ -55,36 +55,9 @@ export default function FrontPage() {
             </FormGroup>
 
             <FormGroup>
-                <Heading size={'small'}>{t('childrenAboveLegalAge')}</Heading>
+                <Heading size={'small'}>{t('tax')}</Heading>
 
-                <BodyLong>{t('aboutChildrensPensionIntro')}</BodyLong>
-
-                <ul>
-                    <li>
-                        <BodyLong>{t('aboutChildrensPension_li1')}</BodyLong>
-                    </li>
-                    <li>
-                        <BodyLong>{t('aboutChildrensPension_li2')}</BodyLong>
-                    </li>
-                </ul>
-
-                <Trans value={t('moreAboutChildrensPension')} />
-            </FormGroup>
-
-            <FormGroup>
-                <Heading size={'small'}>{t('aboutChildrensPensionTaxTitle')}</Heading>
-
-                <BodyLong>
-                    {t('aboutChildrensPensionTax')}
-
-                    <Trans value={t('moreAboutChildrensPensionTax')} />
-                </BodyLong>
-            </FormGroup>
-
-            <FormGroup>
-                <Heading size={'small'}>{t('weNeedCorrectInformation')}</Heading>
-
-                <BodyLong>{t('importantChangesMustBeNotified')}</BodyLong>
+                <BodyLong>{t('aboutChildrensPensionTax')}</BodyLong>
             </FormGroup>
 
             <FormGroup>
