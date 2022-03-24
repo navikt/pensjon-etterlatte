@@ -3,6 +3,7 @@ import { BodyLong } from '@navikt/ds-react'
 import { FC, useState } from 'react'
 import styled from 'styled-components'
 import useTranslation from '../../hooks/useTranslation'
+import { EventType, LogEvents, useAmplitude } from '../../hooks/useAmplitude'
 
 const ToggleButton = styled.button`
     color: #0067c5;
@@ -20,12 +21,21 @@ const Innhold = styled.div`
     margin-top: 1rem;
 `
 
-const WhyWeAsk: FC<{ title: string; children: any }> = ({ children }) => {
+interface Props {
+    title: string
+    children: any
+}
+
+const WhyWeAsk: FC<Props> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false)
     const { t } = useTranslation('common')
+    const { logEvent } = useAmplitude()
 
     const click = () => {
-        // TODO: Sjekke om dette er noe vi skal logge i Amplitude, tilsvarende gjenlevendepensjon søknad
+        if (isOpen) {
+            logEvent(LogEvents.CLICK, { type: EventType.WHY_WE_ASK, title })
+        }
+
         setIsOpen(!isOpen)
     }
 

@@ -9,6 +9,7 @@ import FormGroup from './common/FormGroup'
 import LanguageSelect from './common/LanguageSelect'
 import NavGuide from './common/NavGuide'
 import Trans from './common/Trans'
+import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -19,6 +20,7 @@ export default function FrontPage() {
     const [consent, setConsent] = useState(state?.applicant?.consent || false)
 
     const { t } = useTranslation('frontPage')
+    const { logEvent } = useAmplitude()
 
     const { fornavn, etternavn } = user
 
@@ -27,6 +29,7 @@ export default function FrontPage() {
             type: ActionTypes.UPDATE_APPLICANT,
             payload: { ...state.applicant, consent },
         })
+        logEvent(LogEvents.START_APPLICATION)
         navigate('velg-scenarie')
     }
 
