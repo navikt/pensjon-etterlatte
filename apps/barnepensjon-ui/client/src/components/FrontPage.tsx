@@ -6,7 +6,6 @@ import { useApplicationContext } from '../context/application/ApplicationContext
 import { useUserContext } from '../context/user/UserContext'
 import useTranslation from '../hooks/useTranslation'
 import FormGroup from './common/FormGroup'
-import LanguageSelect from './common/LanguageSelect'
 import NavGuide from './common/NavGuide'
 import Trans from './common/Trans'
 import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
@@ -40,7 +39,9 @@ export default function FrontPage() {
             </FormGroup>
 
             <FormGroup>
+                {/* Waiting for translations, see EY-512.
                 <LanguageSelect />
+                */}
             </FormGroup>
 
             <FormGroup>
