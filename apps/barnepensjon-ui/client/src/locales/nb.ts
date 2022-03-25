@@ -85,7 +85,7 @@ const frontPage = {
         'Barnepensjon er skattepliktig, men det blir ikke trukket forskuddsskatt. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
     weWillRetrieveInfo: 'Vi henter informasjonen vi trenger',
     infoWeRetrieve:
-        'For å kunne behandle søknaden din trenger vi informasjon om barnet/ barna, foreldrene til barna og eventuelle søsken.\n\nVi henter:',
+        'For å kunne behandle søknaden din trenger vi informasjon om barnet/barna, foreldrene til barna og eventuelle søsken.\n\nVi henter:',
     infoWeRetrieve_li1: '<strong>Personinformasjon</strong> fra Folkeregisteret',
     infoWeRetrieve_li2: '<strong>Inntektsinformasjon</strong> fra Skatteetaten',
     infoWeRetrieve_li3: 'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
