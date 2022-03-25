@@ -75,11 +75,11 @@ const radiobuttons = {
 }
 
 const frontPage = {
-    frontPageTitle: 'Søknad om barnepensjon',
+    frontPageTitle: 'Søk om barnepensjon',
     helloUser: `Hei, {fornavn} {etternavn}`,
     startApplication: 'Start søknad',
     childMayBeApplicableForPension:
-        'Barn under 18 år som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Det er forelderen eller vergen til barnet som søker om barnepensjon for barnet hvis det er under 18 år. \n\nBarn som er under utdanning, eller er lærling eller praktikant, kan ha rett til barnepensjon selv om de er over 18 år. Barn over 18 år må som regel søke selv. \n\n <a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>.',
+        'Barn under 18 år som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Det er forelderen eller vergen til barnet som søker om barnepensjon for barnet hvis det er under 18 år. \n\nBarn som er under utdanning, eller er lærling eller praktikant, kan ha rett til barnepensjon selv om de er over 18 år. Barn over 18 år må som regel søke selv.\n<a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>.',
     tax: 'Skatt',
     aboutChildrensPensionTax:
         'Barnepensjon er skattepliktig, men det blir ikke trukket forskuddsskatt. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
