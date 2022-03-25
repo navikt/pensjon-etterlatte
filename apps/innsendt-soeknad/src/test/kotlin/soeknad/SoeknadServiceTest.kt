@@ -27,7 +27,7 @@ internal class SoeknadServiceTest {
             InnsendtSoeknadFixtures.barnepensjon()
         ))
 
-        val lagretOK = service.sendSoeknad(Foedselsnummer.of("11057523044"), request)
+        val lagretOK = service.sendSoeknad(Foedselsnummer.of("11057523044"), request, kilde)
 
         lagretOK shouldBe true
 

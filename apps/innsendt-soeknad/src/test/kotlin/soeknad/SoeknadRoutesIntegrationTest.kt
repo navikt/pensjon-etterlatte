@@ -95,7 +95,7 @@ internal class SoeknadApiIntegrationTest {
                 )
             )
 
-            handleRequest(HttpMethod.Post, "/api/soeknad") {
+            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 tokenFor(VAKKER_PENN)
                 setBody(request.toJson())
@@ -114,7 +114,7 @@ internal class SoeknadApiIntegrationTest {
                 )
             )
 
-            handleRequest(HttpMethod.Post, "/api/soeknad") {
+            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 tokenFor(LUR_KOPP)
                 setBody(request.toJson())

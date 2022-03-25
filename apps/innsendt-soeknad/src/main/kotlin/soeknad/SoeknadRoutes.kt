@@ -20,7 +20,8 @@ fun Route.soeknadApi(service: SoeknadService) {
         call.application.environment.log.info("SoeknadRequest mottatt i innsendt-soeknad!")
 
         try {
-            val ferdigstiltOK = service.sendSoeknad(fnrFromToken(), call.receive())
+            val kilde = call.request.queryParameters["kilde"]!!
+            val ferdigstiltOK = service.sendSoeknad(fnrFromToken(), call.receive(), kilde)
             call.application.environment.log.info("SoeknadRequest ferdigstilt ok: $ferdigstiltOK")
         } catch (e: Exception) {
             call.application.environment.log.error("Klarte ikke å lagre søknaden(e)", e)

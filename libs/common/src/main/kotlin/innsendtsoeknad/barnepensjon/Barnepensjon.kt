@@ -21,7 +21,6 @@ import java.time.LocalDateTime
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Barnepensjon(
     override val imageTag: ImageTag,
-    override val kilde: String,
     override val spraak: Spraak,
     override val innsender: Innsender,
     override val harSamtykket: Opplysning<Boolean>,
