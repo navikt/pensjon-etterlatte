@@ -82,6 +82,7 @@ export default function AboutYou({ next }: StepProps) {
                         )}
                     </FormGroup>
 
+                    {/* TODO: Når vi støtter barn og dette blir tilgjengelig må vi justere mappingen av paymentDetails */}
                     {!user.adressebeskyttelse && isChild && <PaymentDetails />}
 
                     <ErrorSummaryWrapper errors={errors} />

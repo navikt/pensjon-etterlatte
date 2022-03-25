@@ -3,7 +3,14 @@ import { Barnepensjon, SoeknadType } from './InnsendtSoeknad'
 import { IApplication } from '../../context/application/application'
 import { Barn, Innsender, Person, PersonType, Verge } from './Person'
 import { User } from '../../context/user/user'
-import { BetingetOpplysning, EnumSvar, JaNeiVetIkke, Opplysning, Utenlandsadresse } from './FellesOpplysninger'
+import {
+    BankkontoType,
+    BetingetOpplysning,
+    EnumSvar,
+    JaNeiVetIkke,
+    Opplysning,
+    Utenlandsadresse,
+} from './FellesOpplysninger'
 import { IChild } from '../../types/person'
 import { Language } from '../../context/language/language'
 import { hentForeldre, mapForeldreMedUtvidetInfo } from './foreldreMapper'
@@ -37,8 +44,7 @@ const mapTilBarnepensjonSoeknad = (
         innsender,
         harSamtykket,
 
-        // TODO: Fikse utbetaling når oppsett er avklart
-        utbetalingsInformasjon: undefined,
+        utbetalingsInformasjon: mapUtbetalingsinfo(t, child),
 
         // TODO: Legge til "Din situasjon" på barnet.
         // situasjon: undefined,
@@ -47,6 +53,60 @@ const mapTilBarnepensjonSoeknad = (
         foreldre,
         soesken,
     }
+}
+
+const mapUtbetalingsinfo = (t: TFunction, child: IChild) => {
+    if (child.paymentDetails?.accountType === BankkontoType.UTENLANDSK) {
+        return {
+            spoersmaal: t('accountType', { ns: 'paymentDetails' }),
+            svar: {
+                verdi: BankkontoType.UTENLANDSK,
+                innhold: t(BankkontoType.UTENLANDSK, { ns: 'paymentDetails' }),
+            },
+            opplysning: {
+                utenlandskBankNavn: {
+                    spoersmaal: t('foreignBankName', { ns: 'paymentDetails' }),
+                    svar: {
+                        innhold: child.paymentDetails.foreignBankName!!,
+                    },
+                },
+                utenlandskBankAdresse: {
+                    spoersmaal: t('foreignBankAddress', { ns: 'paymentDetails' }),
+                    svar: {
+                        innhold: child.paymentDetails.foreignBankAddress!!,
+                    },
+                },
+                iban: {
+                    spoersmaal: t('iban', { ns: 'paymentDetails' }),
+                    svar: {
+                        innhold: child.paymentDetails.iban!!,
+                    },
+                },
+                swift: {
+                    spoersmaal: t('swift', { ns: 'paymentDetails' }),
+                    svar: {
+                        innhold: child.paymentDetails.swift!!,
+                    },
+                },
+            },
+        }
+    } else if (!!child.paymentDetails?.bankAccount) {
+        return {
+            spoersmaal: t('accountType', { ns: 'paymentDetails' }),
+            svar: {
+                verdi: BankkontoType.NORSK,
+                innhold: t(BankkontoType.NORSK, { ns: 'paymentDetails' }),
+            },
+            opplysning: {
+                kontonummer: {
+                    spoersmaal: t('bankAccount', { ns: 'paymentDetails' }),
+                    svar: {
+                        innhold: child.paymentDetails?.bankAccount!!,
+                    },
+                },
+            },
+        }
+    } else return undefined
 }
 
 const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: User): Barn => {
