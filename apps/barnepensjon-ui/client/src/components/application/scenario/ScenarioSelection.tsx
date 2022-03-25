@@ -68,13 +68,13 @@ export default function ScenarioSelection() {
                 />
             </FormGroup>
 
-            {[ApplicantRole.PARENT].includes(selectedRole) && (
+            {ApplicantRole.PARENT === selectedRole && (
                 <FormGroup>
                     <BodyLong size={'small'}>{t('parentApplicantInformation')}</BodyLong>
                 </FormGroup>
             )}
 
-            {[ApplicantRole.GUARDIAN].includes(selectedRole) && (
+            {ApplicantRole.GUARDIAN === selectedRole && (
                 <FormGroup>
                     <BodyLong size={'small'}>{t('guardianApplicantInformation')}</BodyLong>
                 </FormGroup>
@@ -91,54 +91,46 @@ export default function ScenarioSelection() {
             )}
 
             {ApplicantRole.GUARDIAN === selectedRole && (
-                <>
-                    <FormGroup>
-                        <RHFRadio
-                            legend={t('additionalSituationDetails')}
-                            name={'applicantSituation'}
-                            radios={[
-                                {
-                                    label: t(ApplicantSituation.ONE_PARENT_DECEASED),
-                                    value: ApplicantSituation.ONE_PARENT_DECEASED,
-                                    required: true,
-                                },
-                                {
-                                    label: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
-                                    value: ApplicantSituation.BOTH_PARENTS_DECEASED,
-                                    required: true,
-                                },
-                            ]}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Alert variant={'info'} inline={true}>
-                            <BodyLong>
-                                <Trans value={t('childApplicantInformationFatherNotConfirmed')} />
-                            </BodyLong>
-                        </Alert>
-                    </FormGroup>
-                </>
+                <FormGroup>
+                    <RHFRadio
+                        legend={t('additionalSituationDetails')}
+                        name={'applicantSituation'}
+                        radios={[
+                            {
+                                label: t(ApplicantSituation.ONE_PARENT_DECEASED),
+                                value: ApplicantSituation.ONE_PARENT_DECEASED,
+                                required: true,
+                            },
+                            {
+                                label: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
+                                value: ApplicantSituation.BOTH_PARENTS_DECEASED,
+                                required: true,
+                            },
+                        ]}
+                    />
+                </FormGroup>
             )}
 
-            {selectedRole === ApplicantRole.CHILD && (
-                <>
-                    <FormGroup>
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('childApplicantInformation1')} />
-                        </BodyLong>
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('childApplicantInformation2')} />
-                        </BodyLong>
-                        <BodyLong size={'small'}>
-                            <Trans value={t('childApplicantInformationOver18')} />
-                        </BodyLong>
-                    </FormGroup>
-                    <FormGroup>
-                        <Alert variant={'info'} inline={true}>
-                            <Trans value={t('childApplicantInformationFatherNotConfirmed')} />
-                        </Alert>
-                    </FormGroup>
-                </>
+            {ApplicantRole.CHILD === selectedRole && (
+                <FormGroup>
+                    <BodyLong spacing size={'small'}>
+                        <Trans value={t('childApplicantInformation1')} />
+                    </BodyLong>
+                    <BodyLong spacing size={'small'}>
+                        <Trans value={t('childApplicantInformation2')} />
+                    </BodyLong>
+                    <BodyLong size={'small'}>
+                        <Trans value={t('childApplicantInformationOver18')} />
+                    </BodyLong>
+                </FormGroup>
+            )}
+
+            {[ApplicantRole.GUARDIAN, ApplicantRole.CHILD].includes(selectedRole) && (
+                <FormGroup>
+                    <Alert variant={'info'} inline={true}>
+                        <Trans value={t('childApplicantInformationFatherNotConfirmed')} />
+                    </Alert>
+                </FormGroup>
             )}
 
             <ErrorSummaryWrapper errors={errors} />
