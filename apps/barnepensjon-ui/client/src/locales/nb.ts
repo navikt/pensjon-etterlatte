@@ -284,6 +284,7 @@ const error = {
     'lastName.pattern': 'Ugyldig etternavn',
     'address.required': 'Oppgi adresse',
     'phoneNumber.minLength': 'Telefonnummer er for kort',
+    'phoneNumber.pattern': 'Telefonnummer har ugyldig format',
     'children.required': 'Du må søke om barnepensjon for minst ett barn.',
     'children.validate': 'Du må søke om barnepensjon for minst ett barn.',
     'memberFolketrygdenAbroad.required': 'Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge',
