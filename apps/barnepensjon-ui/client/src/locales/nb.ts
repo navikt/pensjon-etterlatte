@@ -173,8 +173,8 @@ const aboutTheDeceased = {
     phoneNumber: 'Telefonnummer (valgfri)',
     abroadStaysTitle: 'Opphold utenfor Norge',
     workOrLivingAbroadCanAffectPension:
-        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.',
-    didTheDeceasedLiveAbroad: 'Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?',
+        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi barnet/barna pensjonsrettigheter fra andre land.',
+    didTheDeceasedLiveAbroad: 'Har han eller hun bodd og/eller arbeidet i et annet land enn Norge etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Bodd og/eller arbeidet?',
     stayedAbroadFromDate: 'Fra dato (valgfri)',
@@ -185,7 +185,7 @@ const aboutTheDeceased = {
     pensionReceivedFromAbroad: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
     selfEmploymentTitle: 'Næringsinntekt',
     weNeedToKnowIfDeceasedWasSelfEmployed:
-        'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i gjenlevendepensjon. Vi henter informasjon om andre inntekter.',
+        'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette kan påvirke beregningen av barnepensjon. Vi henter informasjon om andre inntekter.',
     wasTheDeceasedSelfEmployed: 'Var han eller hun selvstendig næringsdrivende?',
     incomeFromSelfEmployymentYearBeforeDeath: 'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
     incomeFromSelfEmploymentBeforeTaxes: 'Samlet årsinntekt før skatt',
@@ -193,9 +193,9 @@ const aboutTheDeceased = {
     otherTitle: 'Annet',
     occupationalInjury: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     whyWeAskAboutOccupationalInjury:
-        'Hvis dødsfallet skyldes godkjent yrkesskade eller yrkessykdom kan det avgjøre hvor mye du kan få.',
+        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det få betydning for beregning av barnepensjon.',
     deceasedHasServedInTheMilitary:
-        'Har han eller hun gjennomført militær eller sivil førstegangstjeneste som varte minst 30 dager?',
+        'Har han eller hun gjennomført militær eller sivil førstegangstjeneste for Norge som varte minst 30 dager?',
     whyWeAskAboutMilitaryService: 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',
     militaryServiceYears: 'Hvilke(-t) år? (valgfri)',
     BODD: 'Bodd',
