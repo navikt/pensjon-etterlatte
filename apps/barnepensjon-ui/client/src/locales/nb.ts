@@ -106,25 +106,27 @@ const frontPage = {
 
 const selectScenario = {
     selectSituationToContinue: 'Velg situasjon for å gå videre med søknaden',
-    whoIsApplying: 'Hvem søker om barnepensjon?',
-    additionalSituationDetails: 'Hva er gjeldende for situasjonen?',
-    PARENT: 'Jeg søker på vegne av mitt/mine barn',
+    whoIsApplying: 'Hvem søker du barnepensjon for?',
+    additionalSituationDetails: 'Barnet/barna har mistet',
+    PARENT: 'Jeg søker for mitt/mine barn under 18 år',
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
     CHILD: 'Jeg er fylt 18 år og søker på vegne av meg selv',
     parentApplicantInformation:
-        'Du kan søke om barnepensjon til flere barn i denne søknaden. Du må oppgi alle søsken, uansett alder, fordi det kan ha betydning for beregningen av barnepensjon. \n\nDersom barna ikke er helsøsken, skal det benyttes en ny søknadsblankett for hvert barnekull.',
+        'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde. Søsken kan få betydning for beregningen av barnepensjon.',
+    guardianApplicantInformation:
+        'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for beregningen av barnepensjon.\n\nDu må ettersende dokumentasjon på at du er verge for barnet/barna.  ',
     childApplicantInformation1:
-        'Hvis du er under 20 år og er under utdanning, er lærling eller praktikant, kan du søke om barnepensjon.',
+        '<b>Mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
-        'Dersom du er under 21 år og er under utdanning, er lærling eller praktikant, kan du søke om barnepensjon dersom dødsfallet til en av foreldrene dine skyldes yrkesskade eller yrkessykdom.',
-    childApplicantInformationOver18:
-        'Denne søknaden støtter foreløpig ikke barn over 18 år. \n<a href="https://www.nav.no/fyllut/nav180405">Klikk her for benytte skjema NAV 18-04.05.</a>',
-    aboutSurvivorsPensionTitle: 'Søke om gjenlevendepensjon til deg selv?',
+        '<b>Mistet begge foreldrene</b>\nDu kan få barnepensjon inntil du blir 20 år hvis du er under utdanning, eller er lærling eller praktikant. Du kan få barnepensjon inntil du blir 21 år hvis dødsfallet i tillegg skyldes en yrkesskade eller yrkessykdom.',
+    childApplicantInformationOver18: '<a href="https://www.nav.no/fyllut/nav180405">Da må du bruke denne søknaden</a>.',
+    childApplicantInformationFatherNotConfirmed:
+        'Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">denne søknaden</a>.',
     aboutSurvivorsPensionDescription:
-        'Du kan ha rettigheter som gjenlevende hvis den andre forelderen til barnet ditt dør. Da kan du <a href="https://www.nav.no/gjenlevendepensjon">velge å søke om gjenlevendepensjon og barnepensjon i samme søknad.</a>',
-    BOTH_PARENTS_DECEASED: 'Foreldreløs',
+        '<b>Har du mistet ektefellen, samboeren eller partneren din?</b>\nDa kan du søke om gjenlevendepensjon eller overgangsstønad. Hvis du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/gjenlevendepensjon">denne søknaden.</a>',
+    BOTH_PARENTS_DECEASED: 'Begge foreldrene',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Jeg er foreldreløs',
-    ONE_PARENT_DECEASED: 'En forelder er død',
+    ONE_PARENT_DECEASED: 'En forelder',
 }
 
 const aboutYou = {
