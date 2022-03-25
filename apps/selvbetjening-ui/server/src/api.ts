@@ -29,7 +29,7 @@ const options: any = () => ({
     },
     proxyReqPathResolver: (req: any) => {
         const kilde = process.env.NAIS_APP_NAME
-        const newUrl = req.originalUrl.replace(`${config.app.basePath}/api`, `$1$2?kilde=\\${kilde}`)
+        const newUrl = req.originalUrl.replace(`(.*)${config.app.basePath}/api(.*)`, `$1$2?kilde=\\${kilde}`)
         logger.info(`Origin: ${req.originalUrl}`)
         logger.info(`New: ${newUrl}`)
         return newUrl
