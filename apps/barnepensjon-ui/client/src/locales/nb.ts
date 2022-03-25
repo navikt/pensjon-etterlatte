@@ -97,7 +97,7 @@ const frontPage = {
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Om personvern og sikkerhet på nav.no</a>',
     aboutTheApplicationTitle: 'Utfylling av søknaden',
     aboutTheApplicationDescription:
-        'Vi lagrer søknaden i 72 timer og du kan ta pauser underveis. Du kan når som helst avbryte søknaden. Da vil opplysningene du har lagt inn bli slettet.',
+        'Vi lagrer søknaden i 72 timer og du kan ta pauser underveis. Du kan når som helst avbryte søknaden.',
     consentTitle: 'Vi stoler på deg',
     consentDescription:
         'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n',
