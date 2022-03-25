@@ -154,7 +154,7 @@ internal class SoeknadServiceTest {
 
         runBlocking {
             val request = SoeknadRequest(listOf(gjenlevendepensjon(), barnepensjon()))
-            val result = service.sendSoeknader(request) as RetryResult.Success
+            val result = service.sendSoeknader(request, kilde) as RetryResult.Success
 
             assertEquals("OK", result.content)
         }

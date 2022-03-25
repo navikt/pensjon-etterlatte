@@ -25,7 +25,7 @@ class SoeknadService(
 ) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
-    suspend fun sendSoeknader(request: SoeknadRequest): RetryResult {
+    suspend fun sendSoeknader(request: SoeknadRequest, kilde: String): RetryResult {
         logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
 
         request.soeknader.forEach {
@@ -35,6 +35,7 @@ class SoeknadService(
         return retry {
             innsendtSoeknadKlient.post<String>("soeknad") {
                 contentType(Json)
+                parameter("kilde", kilde)
                 body = vurderAdressebeskyttelse(request)
             }
         }
