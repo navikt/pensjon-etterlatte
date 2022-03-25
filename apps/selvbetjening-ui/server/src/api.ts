@@ -29,10 +29,7 @@ const options: any = () => ({
     },
     proxyReqPathResolver: (req: any) => {
         const kilde = process.env.NAIS_APP_NAME
-        const newUrl = req.originalUrl.replace(new RegExp(`${config.app.basePath}/api(.*)`), `$1?kilde=${kilde}`)
-        logger.info(`Origin: ${req.originalUrl}`)
-        logger.info(`New: ${newUrl}`)
-        return newUrl
+        return req.originalUrl.replace(new RegExp(`${config.app.basePath}/api(.*)`), `$1?kilde=${kilde}`)
     },
     proxyErrorHandler: (err: any, res: any, next: any) => {
         logger.error("Proxy error: ", err)

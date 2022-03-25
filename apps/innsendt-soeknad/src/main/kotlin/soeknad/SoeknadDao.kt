@@ -37,7 +37,7 @@ interface SoeknadRepository {
     fun usendteSoeknader(): List<LagretSoeknad>
     fun slettArkiverteSoeknader(): Int
     fun finnKladd(fnr: String, kilde: String): LagretSoeknad?
-    fun slettKladd(fnr: String): SoeknadID?
+    fun slettKladd(fnr: String, kilde: String): SoeknadID?
     fun slettUtgaatteKladder(): Int
 }
 
@@ -174,8 +174,10 @@ class PostgresSoeknadRepository private constructor(
     override fun finnKladd(fnr: String, kilde: String): LagretSoeknad? {
         val soeknad = connection.use {
             it.prepareStatement(FINN_KLADD)
-                .apply { setString(1, fnr) }
-                .apply { setString(2, kilde) }
+                .apply {
+                    setString(1, fnr)
+                    setString(2, kilde)
+                }
                 .executeQuery()
                 .singleOrNull {
                     LagretSoeknad(getLong("soeknad_id"), fnr, getString("payload"))
@@ -196,10 +198,13 @@ class PostgresSoeknadRepository private constructor(
         } else null
     }
 
-    override fun slettKladd(fnr: String): SoeknadID? {
+    override fun slettKladd(fnr: String, kilde: String): SoeknadID? {
         val slettetSoeknadId = connection.use {
             it.prepareStatement(SLETT_KLADD)
-                .apply { setString(1, fnr) }
+                .apply {
+                    setString(1, fnr)
+                    setString(2, kilde)
+                }
                 .executeQuery()
                 .singleOrNull { getLong("soeknad_id") }
         }
@@ -346,8 +351,11 @@ private object Queries {
 
     val SLETT_KLADD = """
         DELETE FROM innhold i
-        WHERE i.fnr = ? AND NOT EXISTS ( 
-            SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id 
+        USING soeknad s 
+        WHERE s.id = i.soeknad_id AND i.fnr = ? AND s.kilde = ?
+        AND NOT EXISTS ( 
+            SELECT 1 FROM hendelse h 
+            WHERE h.soeknad_id = i.soeknad_id 
             AND h.status_id IN (${Status.innsendt.toSqlString()}))
         RETURNING i.soeknad_id
     """.trimIndent()

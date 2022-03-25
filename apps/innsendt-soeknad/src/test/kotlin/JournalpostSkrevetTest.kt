@@ -106,7 +106,7 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
-    override fun slettKladd(fnr: String): SoeknadID? {
+    override fun slettKladd(fnr: String, kilde: String): SoeknadID? {
         TODO("Not yet implemented")
     }
 

@@ -51,7 +51,7 @@ class SoeknadService(private val db: SoeknadRepository) {
     }
 
     fun slettKladd(innloggetBruker: Foedselsnummer, kilde: String) {
-        db.slettKladd(innloggetBruker.value)
+        db.slettKladd(innloggetBruker.value, kilde)
             ?.also { logger.info("Slettet kladd (id=${it})") }
     }
 }
