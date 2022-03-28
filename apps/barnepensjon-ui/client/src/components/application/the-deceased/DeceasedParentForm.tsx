@@ -13,6 +13,8 @@ import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import WhyWeAsk from '../../common/WhyWeAsk'
 import SelfEmploymentDetails from './SelfEmploymentDetails'
 import StaysAbroad from './StaysAbroad'
+import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import { ApplicantSituation } from '../scenario/ScenarioSelection'
 
 interface Props {
     fnrRegisteredParent: string[]
@@ -21,8 +23,10 @@ interface Props {
 export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     const { t } = useTranslation('aboutTheDeceased')
     const { countries }: { countries: any } = useCountries()
+    const { state } = useApplicationContext()
 
     const { watch } = useFormContext<IDeceasedParent>()
+    const bothParentsDecesed = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
 
     const completedMilitaryService = watch('militaryService.completed')
     const staysAbroad = watch('staysAbroad.hasStaysAbroad')
@@ -49,7 +53,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                 {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
             </FormGroup>
 
-            <SelfEmploymentDetails />
+            {bothParentsDecesed && <SelfEmploymentDetails />}
 
             <FormGroup>
                 <Heading size="small">{t('otherTitle')}</Heading>
@@ -64,19 +68,30 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                         }
                     />
                 </FormElement>
-                <FormElement>
-                    <RHFGeneralQuestionRadio
-                        name={'militaryService.completed'}
-                        legend={t('deceasedHasServedInTheMilitary')}
-                        vetIkke={true}
-                        description={<WhyWeAsk title="militaryService">{t('whyWeAskAboutMilitaryService')}</WhyWeAsk>}
-                    />
-                </FormElement>
 
-                {completedMilitaryService === JaNeiVetIkke.JA && (
-                    <FormElement>
-                        <RHFInput name={'militaryService.period'} label={t('militaryServiceYears')} valgfri={true} />
-                    </FormElement>
+                {bothParentsDecesed && (
+                    <>
+                        <FormElement>
+                            <RHFGeneralQuestionRadio
+                                name={'militaryService.completed'}
+                                legend={t('deceasedHasServedInTheMilitary')}
+                                vetIkke={true}
+                                description={
+                                    <WhyWeAsk title="militaryService">{t('whyWeAskAboutMilitaryService')}</WhyWeAsk>
+                                }
+                            />
+                        </FormElement>
+
+                        {completedMilitaryService === JaNeiVetIkke.JA && (
+                            <FormElement>
+                                <RHFInput
+                                    name={'militaryService.period'}
+                                    label={t('militaryServiceYears')}
+                                    valgfri={true}
+                                />
+                            </FormElement>
+                        )}
+                    </>
                 )}
             </FormGroup>
         </>
