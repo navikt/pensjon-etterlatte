@@ -5,6 +5,8 @@ import io.ktor.client.HttpClient
 import io.ktor.client.features.ClientRequestException
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
+import io.ktor.client.request.header
+import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType.Application.Json
@@ -24,7 +26,7 @@ class SoeknadService(
 ) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
-    suspend fun sendSoeknader(request: SoeknadRequest): RetryResult {
+    suspend fun sendSoeknader(request: SoeknadRequest, kilde: String): RetryResult {
         logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
 
         request.soeknader.forEach {
@@ -34,6 +36,8 @@ class SoeknadService(
         return retry {
             innsendtSoeknadKlient.post<String>("soeknad") {
                 contentType(Json)
+                header("kilde", kilde)
+                parameter("kilde", kilde)
                 body = vurderAdressebeskyttelse(request)
             }
         }
@@ -52,22 +56,25 @@ class SoeknadService(
         } else request
     }
 
-    suspend fun lagreKladd(json: JsonNode): RetryResult {
+    suspend fun lagreKladd(json: JsonNode, kilde: String): RetryResult {
         return retry {
             logger.info("Lagrer kladd for innlogget bruker.")
 
             innsendtSoeknadKlient.post<String>("kladd") {
+                parameter("kilde", kilde)
                 contentType(Json)
                 body = json
             }
         }
     }
 
-    suspend fun hentKladd(): RetryResult = retry {
+    suspend fun hentKladd(kilde: String): RetryResult = retry {
         try {
             logger.info("Henter kladd for innlogget bruker.")
 
-            innsendtSoeknadKlient.get<JsonNode>("kladd")
+            innsendtSoeknadKlient.get<JsonNode>("kladd") {
+                parameter("kilde", kilde)
+            }
         } catch (ex: ClientRequestException) {
             when (ex.response.status) {
                 HttpStatusCode.NotFound -> HttpStatusCode.NotFound
@@ -77,9 +84,11 @@ class SoeknadService(
         }
     }
 
-    suspend fun slettKladd(): RetryResult = retry {
+    suspend fun slettKladd(kilde: String): RetryResult = retry {
         logger.info("Sletter kladd for innlogget bruker.")
 
-        innsendtSoeknadKlient.delete<HttpResponse>("kladd").status
+        innsendtSoeknadKlient.delete<HttpResponse>("kladd") {
+            parameter("kilde", kilde)
+        }.status
     }
 }

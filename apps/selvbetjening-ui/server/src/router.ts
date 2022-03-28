@@ -16,8 +16,7 @@ export const sendSoeknad = () => {
         const soeknader: any[] = req.body.soeknader.map((soeknad: any) => {
             return {
                 ...soeknad,
-                imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1"),
-                kilde: process.env.NAIS_APP_NAME
+                imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*selvbetjening-ui:(.*)/, "$1")
             }
         });
 
@@ -29,7 +28,7 @@ export const sendSoeknad = () => {
                         authorization:  `Bearer ${accessToken}`
                     };
 
-                    fetch(`${config.app.apiUrl}/api/soeknad`, {
+                    fetch(`${config.app.apiUrl}/api/soeknad?kilde=${process.env.NAIS_APP_NAME}`, {
                         method: "post",
                         headers: headers,
                         body: JSON.stringify({soeknader}),

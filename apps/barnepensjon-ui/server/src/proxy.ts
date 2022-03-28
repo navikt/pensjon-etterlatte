@@ -1,16 +1,16 @@
-import { Request, RequestHandler, Response } from 'express'
+import {Request, RequestHandler, Response} from 'express'
 import fetch from 'node-fetch'
 import logger from './monitoring/logger'
 import TokenXClient from './auth/tokenx'
 
-const { exchangeToken } = new TokenXClient()
+const {exchangeToken} = new TokenXClient()
 
 const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
 
 const isOK = (status: any) => [200, 404, 409].includes(status)
 
 const prepareSecuredRequest = async (req: Request) => {
-    const { authorization } = req.headers
+    const {authorization} = req.headers
     const token = authorization!!.split(' ')[1]
 
     const accessToken = await exchangeToken(token).then((accessToken) => accessToken)
@@ -22,11 +22,11 @@ const prepareSecuredRequest = async (req: Request) => {
 
     let body = undefined
     if (!isEmpty(req.body) && req.method === 'POST') {
+        const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*barnepensjon-ui:(.*)/, '$1')
         if (req.path === '/api/soeknad') {
             const soeknader: any[] = req.body.soeknader.map((soeknad: any) => ({
                 ...soeknad,
-                imageTag: process.env.NAIS_APP_IMAGE?.replace(/^.*barnepensjon-ui:(.*)/, '$1'),
-                kilde: process.env.NAIS_APP_NAME,
+                imageTag,
             }))
             body = JSON.stringify({ soeknader })
         } else {
@@ -46,7 +46,7 @@ export default function proxy(host: string): RequestHandler {
         try {
             const request = await prepareSecuredRequest(req)
 
-            const response = await fetch(`${host}${req.path}`, request)
+            const response = await fetch(`${host}${req.path}?kilde=${process.env.NAIS_APP_NAME}`, request)
 
             if (isOK(response.status)) {
                 logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)

@@ -33,7 +33,6 @@ import java.time.LocalDateTime
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Gjenlevendepensjon(
     override val imageTag: ImageTag,
-    override val kilde: String,
     override val spraak: Spraak,
     override val innsender: Innsender,
     override val soeker: Gjenlevende,

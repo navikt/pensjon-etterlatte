@@ -68,6 +68,7 @@ internal class SoeknadApiIntegrationTest {
     private lateinit var dsb: DataSourceBuilder
     private lateinit var service: SoeknadService
 
+    private val kilde = "barnepensjon-ui"
     private val dummyKladd = """{"harSamtykket":"true"}"""
     private val mapper = jacksonObjectMapper()
 
@@ -93,7 +94,7 @@ internal class SoeknadApiIntegrationTest {
                 )
             )
 
-            handleRequest(HttpMethod.Post, "/api/soeknad") {
+            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 tokenFor(VAKKER_PENN)
                 setBody(request.toJson())
@@ -112,7 +113,7 @@ internal class SoeknadApiIntegrationTest {
                 )
             )
 
-            handleRequest(HttpMethod.Post, "/api/soeknad") {
+            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 tokenFor(LUR_KOPP)
                 setBody(request.toJson())
@@ -142,7 +143,7 @@ internal class SoeknadApiIntegrationTest {
     @Order(1)
     fun `Skal returnere not found hvis en kladd ikke eksisterer`() {
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
-            handleRequest(HttpMethod.Get, "/api/kladd") {
+            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
                 tokenFor(LUGUBER_MASKIN) // LUGUBER MASKIN
             }.apply {
                 response.status() shouldBe HttpStatusCode.NotFound
@@ -153,17 +154,17 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(2)
     fun `Skal lagre kladd ned i databasen`() {
-        db.finnKladd(STOR_SNERK) shouldBe null
+        db.finnKladd(STOR_SNERK, kilde) shouldBe null
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
-            handleRequest(HttpMethod.Post, "/api/kladd") {
+            handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 tokenFor(STOR_SNERK)
                 setBody(dummyKladd)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
 
-                val kladd = db.finnKladd(STOR_SNERK)
+                val kladd = db.finnKladd(STOR_SNERK, kilde)
                 kladd shouldNotBe null
                 kladd?.id shouldNotBe null
                 kladd?.fnr shouldBe STOR_SNERK
@@ -175,10 +176,10 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(3)
     fun `Skal hente kladd fra databasen`() {
-        db.finnKladd(STOR_SNERK) shouldNotBe null
+        db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
-            handleRequest(HttpMethod.Get, "/api/kladd") {
+            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
                 tokenFor(STOR_SNERK)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
@@ -193,14 +194,14 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(4)
     fun `Skal slette kladd fra databasen`() {
-        db.finnKladd(STOR_SNERK) shouldNotBe null
+        db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
-            handleRequest(HttpMethod.Delete, "/api/kladd") {
+            handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
                 tokenFor(STOR_SNERK)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-                db.finnKladd(STOR_SNERK) shouldBe null
+                db.finnKladd(STOR_SNERK, kilde) shouldBe null
             }
         }
     }

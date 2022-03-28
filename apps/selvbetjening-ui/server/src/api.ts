@@ -27,7 +27,10 @@ const options: any = () => ({
             );
         });
     },
-    proxyReqPathResolver: (req: any) => req.originalUrl.replace(`${config.app.basePath}/api`, ''),
+    proxyReqPathResolver: (req: any) => {
+        const kilde = process.env.NAIS_APP_NAME
+        return req.originalUrl.replace(new RegExp(`${config.app.basePath}/api(.*)`), `$1?kilde=${kilde}`)
+    },
     proxyErrorHandler: (err: any, res: any, next: any) => {
         logger.error("Proxy error: ", err)
         next(err);

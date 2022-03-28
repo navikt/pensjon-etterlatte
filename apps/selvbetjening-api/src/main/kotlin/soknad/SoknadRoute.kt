@@ -10,9 +10,9 @@ import io.ktor.routing.delete
 import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.route
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import libs.common.util.RetryResult.Failure
 import libs.common.util.RetryResult.Success
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
@@ -21,8 +21,9 @@ fun Route.soknadApi(service: SoeknadService) {
                 call.application.environment.log.info("SoeknadRequest mottatt!")
 
                 val request = call.receive<SoeknadRequest>()
+                val kilde = call.request.queryParameters["kilde"]!!
 
-                when (val response = service.sendSoeknader(request)) {
+                when (val response = service.sendSoeknader(request, kilde)) {
                     is Success -> {
                         call.application.environment.log.info("Søknad markert som ferdigstilt")
                         call.respond(HttpStatusCode.OK)
@@ -40,8 +41,9 @@ fun Route.soknadApi(service: SoeknadService) {
 
     route("/api/kladd") {
         post {
+            val kilde = call.request.queryParameters["kilde"]!!
             val soeknadJson = call.receive<JsonNode>()
-            when (val response = service.lagreKladd(soeknadJson)) {
+            when (val response = service.lagreKladd(soeknadJson, kilde)) {
                 is Success -> {
                     call.application.environment.log.info("Lagret ny kladd med id ${response.content}")
                     call.respond(response.content ?: HttpStatusCode.OK)
@@ -54,7 +56,8 @@ fun Route.soknadApi(service: SoeknadService) {
         }
 
         get {
-            when (val response = service.hentKladd()) {
+            val kilde = call.request.queryParameters["kilde"]!!
+            when (val response = service.hentKladd(kilde)) {
                 is Success -> {
                     when (response.content) {
                         HttpStatusCode.NotFound -> {
@@ -79,7 +82,8 @@ fun Route.soknadApi(service: SoeknadService) {
         }
 
         delete {
-            when (val response = service.slettKladd()) {
+            val kilde = call.request.queryParameters["kilde"]!!
+            when (val response = service.slettKladd(kilde)) {
                 is Success -> {
                     call.application.environment.log.info("klarte å slette kladd")
                     call.respond(response.content ?: HttpStatusCode.NoContent)

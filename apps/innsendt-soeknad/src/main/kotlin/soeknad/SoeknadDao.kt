@@ -4,8 +4,8 @@ import innsendtsoeknad.common.SoeknadType
 import org.slf4j.LoggerFactory
 import soeknad.Queries.CREATE_HENDELSE
 import soeknad.Queries.CREATE_SOEKNAD
-import soeknad.Queries.FINN_SISTE_STATUS
 import soeknad.Queries.FINN_KLADD
+import soeknad.Queries.FINN_SISTE_STATUS
 import soeknad.Queries.OPPDATER_SOEKNAD
 import soeknad.Queries.OPPDATER_SOEKNAD_META
 import soeknad.Queries.SELECT_OLD
@@ -36,8 +36,8 @@ interface SoeknadRepository {
     fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
     fun slettArkiverteSoeknader(): Int
-    fun finnKladd(fnr: String): LagretSoeknad?
-    fun slettKladd(fnr: String): SoeknadID?
+    fun finnKladd(fnr: String, kilde: String): LagretSoeknad?
+    fun slettKladd(fnr: String, kilde: String): SoeknadID?
     fun slettUtgaatteKladder(): Int
 }
 
@@ -84,7 +84,7 @@ class PostgresSoeknadRepository private constructor(
     }
 
     private fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
-        val lagretSoeknad = finnKladd(soeknad.fnr)
+        val lagretSoeknad = finnKladd(soeknad.fnr, soeknad.kilde)
 
         return if (lagretSoeknad == null) {
             logger.info("Søknad finnes ikke i databasen. Oppretter ny søknad.")
@@ -101,8 +101,9 @@ class PostgresSoeknadRepository private constructor(
         val id = connection.use {
             it.prepareStatement(CREATE_SOEKNAD)
                 .apply {
-                    setString(1, soeknad.fnr)
-                    setString(2, soeknad.payload)
+                    setString(1, soeknad.kilde)
+                    setString(2, soeknad.fnr)
+                    setString(3, soeknad.payload)
                 }
                 .executeQuery()
                 .singleOrNull { getLong(1) }!!
@@ -170,10 +171,13 @@ class PostgresSoeknadRepository private constructor(
         return slettedeKladder.size
     }
 
-    override fun finnKladd(fnr: String): LagretSoeknad? {
+    override fun finnKladd(fnr: String, kilde: String): LagretSoeknad? {
         val soeknad = connection.use {
             it.prepareStatement(FINN_KLADD)
-                .apply { setString(1, fnr) }
+                .apply {
+                    setString(1, fnr)
+                    setString(2, kilde)
+                }
                 .executeQuery()
                 .singleOrNull {
                     LagretSoeknad(getLong("soeknad_id"), fnr, getString("payload"))
@@ -194,10 +198,13 @@ class PostgresSoeknadRepository private constructor(
         } else null
     }
 
-    override fun slettKladd(fnr: String): SoeknadID? {
+    override fun slettKladd(fnr: String, kilde: String): SoeknadID? {
         val slettetSoeknadId = connection.use {
             it.prepareStatement(SLETT_KLADD)
-                .apply { setString(1, fnr) }
+                .apply {
+                    setString(1, fnr)
+                    setString(2, kilde)
+                }
                 .executeQuery()
                 .singleOrNull { getLong("soeknad_id") }
         }
@@ -273,7 +280,7 @@ class PostgresSoeknadRepository private constructor(
 private object Queries {
     val CREATE_SOEKNAD = """
         WITH ny_soeknad AS (
-            INSERT INTO soeknad DEFAULT VALUES RETURNING id
+            INSERT INTO soeknad (kilde) VALUES (?) RETURNING id
         ) INSERT INTO innhold(soeknad_id, fnr, payload) 
             VALUES((SELECT id FROM ny_soeknad), ?, ?) RETURNING soeknad_id
     """.trimMargin()
@@ -309,7 +316,7 @@ private object Queries {
         and not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL'))
     """.trimIndent()
 
-    val SELECT_RAPPORT = """
+    val SELECT_RAPPORT = """    
         SELECT st.id, count(1)
         FROM (
             SELECT DISTINCT(h.soeknad_id), MAX(s.rang) rang
@@ -329,9 +336,10 @@ private object Queries {
     """.trimIndent()
 
     val FINN_KLADD = """
-        SELECT soeknad_id, fnr, payload
-        FROM innhold
-        WHERE fnr = ?
+        SELECT i.soeknad_id, i.fnr, i.payload, s.kilde
+        FROM innhold i
+        INNER JOIN soeknad s on s.id = i.soeknad_id
+        WHERE i.fnr = ? AND s.kilde = ?
     """.trimIndent()
 
     val FINN_SISTE_STATUS = """
@@ -343,8 +351,11 @@ private object Queries {
 
     val SLETT_KLADD = """
         DELETE FROM innhold i
-        WHERE i.fnr = ? AND NOT EXISTS ( 
-            SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id 
+        USING soeknad s 
+        WHERE s.id = i.soeknad_id AND i.fnr = ? AND s.kilde = ?
+        AND NOT EXISTS ( 
+            SELECT 1 FROM hendelse h 
+            WHERE h.soeknad_id = i.soeknad_id 
             AND h.status_id IN (${Status.innsendt.toSqlString()}))
         RETURNING i.soeknad_id
     """.trimIndent()

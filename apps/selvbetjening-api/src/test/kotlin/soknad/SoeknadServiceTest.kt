@@ -47,6 +47,8 @@ internal class SoeknadServiceTest {
         """{"harSamtykket":true,"sistLagretDato":"2021-10-14T10:43:43.629Z","omDeg":{"bostedsadresseBekreftet":"Nei","kontaktinfo":{"telefonnummer":"999 88 777","epost":"test@nav.no"},"oppholderSegINorge":"Ja","alternativAdresse":"Testveien 123, 0594 Oslo","utbetalingsInformasjon":{"kontonummer":"1351.35.13513"}},"omDegOgAvdoed":{"avdoed":{"fornavn":"Død","etternavn":"Testperson","datoForDoedsfallet":"2021-07-26T22:00:00.000Z"},"forholdTilAvdoede":{"relasjon":"avdoede.relasjon.separert","datoForInngaattPartnerskap":"2001-07-26T22:00:00.000Z"},"nySivilstatus":{"sivilstatus":"nySivilstatus.enslig"}},"omDenAvdoede":{"foedselsnummer":"24014021406","statsborgerskap":"Norsk","boddEllerJobbetUtland":{"svar":"Ja","oppholdUtland":[{"land":"Kongo","beskrivelse":["oppholdUtlandType.bodd","oppholdUtlandType.arbeidet"],"fraDato":"2002-08-10T22:00:00.000Z","tilDato":"2003-08-10T22:00:00.000Z","medlemFolketrygd":"Ja","mottokPensjon":{"beskrivelse":"150.000"}}]},"selvstendigNaeringsdrivende":{"svar":"Ja","beskrivelse":"150 000"},"haddePensjonsgivendeInntekt":{"svar":"Nei"},"doedsfallAarsak":"Ja","harAvtjentMilitaerTjeneste":{"svar":"Ja","beskrivelse":"1984"}},"dinSituasjon":{"jobbStatus":["jobbStatus.arbeidstaker"],"utdanning":{"hoyesteFullfoerteUtdanning":"utdanning.mastergrad"},"andreYtelser":{"kravOmAnnenStonad":{"svar":"Ja","beskrivelse":"Barnepensjon"},"annenPensjon":{"svar":"Ja","beskrivelse":"Skandia"},"mottarPensjonUtland":{"svar":"Ja","hvaSlagsPensjon":"Polsk Uførepensjon","fraHvilketLand":"Polen","bruttobeloepPrAar":"4000 PLN"}},"arbeidsforhold":[{"arbeidsgiver":"Potetskreller AS","ansettelsesforhold":"stillingType.midlertidig","stillingsprosent":"100%","forventerEndretInntekt":{"svar":"Ja","beskrivelse":"Forventer økt inntekt"}}]},"opplysningerOmBarn":{"gravidEllerNyligFoedt":"Ja","barn":[{"fornavn":"Treg","etternavn":"Snøfreser","foedselsnummer":"24014021406","statsborgerskap":"Norsk","bosattUtland":{"svar":"Nei"},"relasjon":"barnRelasjon.fellesbarnMedAvdoede","harBarnetVerge":{"svar":"Nei"}},{"fornavn":"Smålig","etternavn":"Sykkel","foedselsnummer":"19016424830","statsborgerskap":"Norsk","bosattUtland":{"svar":"Nei"},"relasjon":"barnRelasjon.fellesbarnMedAvdoede","harBarnetVerge":{"svar":"Nei"}}]}}""".trimIndent()
     private val soeknadKladdMock = mapper.readTree(soeknadKladdJson)
 
+    private val kilde = "barnepensjon-ui"
+
     private val headers = headersOf(HttpHeaders.ContentType, "application/json")
 
     private val customresponses = mutableListOf<MockRequestHandleScope.() -> HttpResponseData>()
@@ -102,7 +104,7 @@ internal class SoeknadServiceTest {
     @Test
     fun hentKladd() {
         runBlocking {
-            val result = service.hentKladd() as RetryResult.Success
+            val result = service.hentKladd(kilde) as RetryResult.Success
 
             assertEquals(soeknadKladdMock, result.content)
         }
@@ -112,7 +114,7 @@ internal class SoeknadServiceTest {
     fun hentKladdFinnesIkke() {
         customresponses.add { respondError(HttpStatusCode.NotFound) }
         runBlocking {
-            val result = service.hentKladd() as RetryResult.Success
+            val result = service.hentKladd(kilde) as RetryResult.Success
 
             assertEquals(HttpStatusCode.NotFound, result.content)
         }
@@ -122,7 +124,7 @@ internal class SoeknadServiceTest {
     fun hentKladdUhandtertFeil() {
         customresponses.add { respondError(HttpStatusCode.BadRequest) }
         runBlocking {
-            val result = service.hentKladd() as RetryResult.Success
+            val result = service.hentKladd(kilde) as RetryResult.Success
 
             assertEquals(1, result.previousExceptions.size)
             assertEquals(
@@ -135,7 +137,7 @@ internal class SoeknadServiceTest {
     @Test
     fun lagreKladd() {
         runBlocking {
-            val result = service.lagreKladd(soeknadKladdMock) as RetryResult.Success
+            val result = service.lagreKladd(soeknadKladdMock, kilde) as RetryResult.Success
 
             assertEquals("OK", result.content)
         }
@@ -152,7 +154,7 @@ internal class SoeknadServiceTest {
 
         runBlocking {
             val request = SoeknadRequest(listOf(gjenlevendepensjon(), barnepensjon()))
-            val result = service.sendSoeknader(request) as RetryResult.Success
+            val result = service.sendSoeknader(request, kilde) as RetryResult.Success
 
             assertEquals("OK", result.content)
         }
@@ -161,7 +163,7 @@ internal class SoeknadServiceTest {
     @Test
     fun slettKladdOK() {
         runBlocking {
-            val result = service.slettKladd() as RetryResult.Success
+            val result = service.slettKladd(kilde) as RetryResult.Success
 
             assertEquals(HttpStatusCode.NoContent, result.content)
         }

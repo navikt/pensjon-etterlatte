@@ -1,13 +1,13 @@
 package soeknad
 
 import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.mapper
 import no.nav.etterlatte.soeknad.SoeknadService
 import org.junit.jupiter.api.Test
 
@@ -16,8 +16,7 @@ internal class SoeknadServiceTest {
     private val mockRepository = mockk<SoeknadRepository>()
 
     private val service = SoeknadService(mockRepository)
-
-    private val mapper = jacksonObjectMapper()
+    private val kilde = "barnepensjon-ui"
 
     @Test
     fun `Gyldige søknader lagres OK som forventet`() {
@@ -28,7 +27,7 @@ internal class SoeknadServiceTest {
             InnsendtSoeknadFixtures.barnepensjon()
         ))
 
-        val lagretOK = service.sendSoeknad(Foedselsnummer.of("11057523044"), request)
+        val lagretOK = service.sendSoeknad(Foedselsnummer.of("11057523044"), request, kilde)
 
         lagretOK shouldBe true
 
@@ -40,13 +39,13 @@ internal class SoeknadServiceTest {
         val fnr = "24014021406"
         val lagretSoeknad = LagretSoeknad(1, fnr, """{}""")
 
-        every { mockRepository.finnKladd(any()) } returns lagretSoeknad
+        every { mockRepository.finnKladd(any(), any()) } returns lagretSoeknad
 
-        val kladd = service.hentKladd(Foedselsnummer.of(fnr))
+        val kladd = service.hentKladd(Foedselsnummer.of(fnr), kilde)
 
         kladd shouldBe lagretSoeknad
 
-        verify(exactly = 1) { mockRepository.finnKladd(fnr) }
+        verify(exactly = 1) { mockRepository.finnKladd(fnr, kilde) }
     }
 
     @Test
@@ -56,7 +55,7 @@ internal class SoeknadServiceTest {
         every { mockRepository.lagreKladd(any()) } returns LagretSoeknad(1, fnr, """{}""")
 
         val soeknadJsonNode = mapper.valueToTree<JsonNode>("""{}""")
-        val id = service.lagreKladd(Foedselsnummer.of(fnr), soeknadJsonNode)
+        val id = service.lagreKladd(Foedselsnummer.of(fnr), soeknadJsonNode, kilde)
 
         verify(exactly = 1) { mockRepository.lagreKladd(any()) }
 

@@ -100,11 +100,11 @@ class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
         return 1
     }
 
-    override fun finnKladd(fnr: String): LagretSoeknad? {
+    override fun finnKladd(fnr: String, kilde: String): LagretSoeknad? {
         TODO("Not yet implemented")
     }
 
-    override fun slettKladd(fnr: String): SoeknadID? {
+    override fun slettKladd(fnr: String, kilde: String): SoeknadID? {
         TODO("Not yet implemented")
     }
 
