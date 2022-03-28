@@ -5,6 +5,7 @@ import useTranslation from '../../../hooks/useTranslation'
 import { fullAdresse } from '../../../utils/adresse'
 import Hjelpetekst from '../../../utils/Hjelpetekst'
 import FormGroup from '../../common/FormGroup'
+import FormElement from '../../common/FormElement'
 
 interface LoggedInUserInfoProps {
     user: User
@@ -21,8 +22,9 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
 
     return (
         <FormGroup>
-            <Alert variant={'warning'}>{t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })}</Alert>
-            <div style={{ margin: '2em 0' }}>{t('mostFieldsAreRequired', { ns: 'loggedInUserInfo' })}</div>
+            <FormElement>
+                <Alert variant={'warning'}>{t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })}</Alert>
+            </FormElement>
             <Grid>
                 <Cell xs={6}>
                     <div>

@@ -74,7 +74,7 @@ export const SummaryAboutDeceasedParent = memo(
                                         />
                                     )}
                                     {aboutTheParent.selfEmplyment?.selfEmplymentDetails?.incomeAtDeath && (
-                                        <TextGroup
+                                        <TextGroupJaNeiVetIkke
                                             title={t('hadIncomeFromSelfEmployment')}
                                             content={aboutTheParent.selfEmplyment.selfEmplymentDetails.incomeAtDeath}
                                         />

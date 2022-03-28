@@ -12,7 +12,7 @@ import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import { PaymentDetailsSummary } from './PaymentDetailsSummary'
 import { PersonInfoSummary } from './PersonInfoSummery'
 
-export const SummeryAboutYou = memo(
+export const SummaryAboutYou = memo(
     ({ aboutYou, user, pathPrefix }: { aboutYou: IAboutYou; user: User; pathPrefix: string }) => {
         const { t } = useTranslation('aboutYou')
 
@@ -44,7 +44,6 @@ export const SummeryAboutYou = memo(
                                     </Panel>
 
                                     <Panel>
-                                        <Heading size={'small'}>{t('subtitle.informationAboutApplicant')}</Heading>
                                         <TextGroupJaNeiVetIkke
                                             title={t('addressOfResidenceConfirmed')}
                                             content={aboutYou.addressOfResidenceConfirmed}

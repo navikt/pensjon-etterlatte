@@ -154,7 +154,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                             )}
                             <ParentQuestion isParent={isParent} t={t} watch={watch} />
                         </FormGroup>
-                        {!tooOldChild() && (
+                        {!tooOldChild() && parents === ParentRelationType.BOTH && (
                             <FormGroup>
                                 {isChild && (
                                     <LivesAbroadQuestion isChild={isChild} countries={countries} t={t} watch={watch} />

@@ -43,7 +43,6 @@ const btn = {
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
         'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
-    mostFieldsAreRequired: 'Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.',
 }
 
 const paymentDetails = {
@@ -79,7 +78,7 @@ const frontPage = {
     helloUser: `Hei, {fornavn} {etternavn}`,
     startApplication: 'Start søknad',
     childMayBeApplicableForPension:
-        'Barn under 18 år som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Det er forelderen eller vergen til barnet som søker om barnepensjon for barnet hvis det er under 18 år. \n\nBarn som er under utdanning, eller er lærling eller praktikant, kan ha rett til barnepensjon selv om de er over 18 år. Barn over 18 år må som regel søke selv.\n\n<a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>.',
+        'Barn under 18 år som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Det er forelderen eller vergen til barnet som søker om barnepensjon for barnet hvis det er under 18 år. \n\nBarn som er under utdanning, eller er lærling eller praktikant, kan ha rett til barnepensjon selv om de er over 18 år. Barn over 18 år må som regel søke selv.\n\n<a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>',
     tax: 'Skatt',
     aboutChildrensPensionTax:
         'Barnepensjon er skattepliktig, men det blir ikke trukket forskuddsskatt. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
@@ -105,7 +104,6 @@ const frontPage = {
 }
 
 const selectScenario = {
-    selectSituationToContinue: 'Velg situasjon for å gå videre med søknaden',
     whoIsApplying: 'Hvem søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet/barna har mistet',
     PARENT: 'Jeg søker for mitt/mine barn under 18 år',
@@ -116,9 +114,9 @@ const selectScenario = {
     guardianApplicantInformation:
         'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for beregningen av barnepensjon.\n\nDu må ettersende dokumentasjon på at du er verge for barnet/barna.  ',
     childApplicantInformation1:
-        '<b>Mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
+        '<b>Hvis du har mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
-        '<b>Mistet begge foreldrene</b>\nDu kan få barnepensjon inntil du blir 20 år hvis du er under utdanning, eller er lærling eller praktikant. Du kan få barnepensjon inntil du blir 21 år hvis dødsfallet i tillegg skyldes en yrkesskade eller yrkessykdom.',
+        '<b>Hvis du har mistet begge foreldrene dine</b>\nDu kan få barnepensjon inntil du blir 20 år hvis du er under utdanning, eller er lærling eller praktikant. Du kan få barnepensjon inntil du blir 21 år hvis dødsfallet i tillegg skyldes en yrkesskade eller yrkessykdom.',
     childApplicantInformationOver18: '<a href="https://www.nav.no/fyllut/nav180405">Da må du bruke denne søknaden</a>.',
     childApplicantInformationFatherNotConfirmed:
         'Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">denne søknaden</a>.',
@@ -139,7 +137,6 @@ const aboutYou = {
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
     'subtitle.personalia': 'Personalia',
-    'subtitle.informationAboutApplicant': 'Opplysninger om søker',
 }
 
 const aboutParents = {
@@ -208,6 +205,8 @@ const aboutChildren = {
     applyForThisChild: 'Søk om barnepensjon',
     userAppliesForChildrensPension: 'Ja, jeg søker om barnepensjon for barnet',
     onlyJointChildrenNecessary: 'Det kreves en separat søknad for halvsøsken.',
+    onlyChildrenOfDeceasedHaveRights: 'Det er kun barn av avdøde som har rett til barnepensjon.',
+    onlyParentOrGuardianCanApply: 'Det er forelder eller oppnevnt verge som kan søke om barnepensjon for dette barnet.',
     onlyChildrenUnder18Necessary: 'Det er kun nødvendig å opplyse om barn under 18 år i denne søknaden',
     livesIn: 'Bor i',
     doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
@@ -284,6 +283,7 @@ const error = {
     'lastName.pattern': 'Ugyldig etternavn',
     'address.required': 'Oppgi adresse',
     'phoneNumber.minLength': 'Telefonnummer er for kort',
+    'phoneNumber.pattern': 'Telefonnummer har ugyldig format',
     'children.required': 'Du må søke om barnepensjon for minst ett barn.',
     'children.validate': 'Du må søke om barnepensjon for minst ett barn.',
     'memberFolketrygdenAbroad.required': 'Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge',
@@ -305,11 +305,11 @@ const error = {
     'selfEmplyment.selfEmplymentDetails.income.pattern': 'Oppgi gyldig næringsinntekt (kun siffer)',
     'selfEmplyment.selfEmplymentDetails.incomeAtDeath.required': 'Oppgi om avdøde hadde næringsinntekt',
     'staysAbroad.answer.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
-    'staysAbroad.hasStaysAbroad.required': 'Oppgi om bruker har hatt opphold utenfor Norge',
+    'staysAbroad.hasStaysAbroad.required': 'Oppgi om avdøde har hatt opphold utenfor Norge',
     'staysAbroad.abroadStays.type.required': 'Huk av for type opphold',
     'staysAbroad.abroadStays.country.required': 'Oppgi land for opphold',
     'staysAbroad.abroadStays.medlemFolketrygd.required': 'Oppgi om avdøde var medlem av folketryden under oppholdet',
-    'bothParents.required': 'Oppgi barnets relasjon til foreldre',
+    'parents.required': 'Oppgi barnets relasjon til foreldre',
     'loggedInUserIsGuardian.required': 'Oppgi om du er verge for barnet',
     'staysAbroad.country.required': 'Oppgi hvilke land barnet bor i',
     'staysAbroad.address.required': 'Oppgi barnets bostedsadresse',

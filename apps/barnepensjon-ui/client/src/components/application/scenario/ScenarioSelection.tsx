@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading } from '@navikt/ds-react'
+import { Alert, BodyLong, Button } from '@navikt/ds-react'
 import { RadioProps } from 'nav-frontend-skjema'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -54,10 +54,6 @@ export default function ScenarioSelection() {
 
     return (
         <FormProvider {...methods}>
-            <FormGroup>
-                <Heading size={'small'}>{t('selectSituationToContinue')}</Heading>
-            </FormGroup>
-
             <FormGroup>
                 <RHFRadio
                     legend={t('whoIsApplying')}
