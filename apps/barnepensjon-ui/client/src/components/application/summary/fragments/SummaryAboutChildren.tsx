@@ -115,7 +115,7 @@ export const SummaryAboutChildren = memo(
                                             )}
                                             {child.childHasGuardianship && (
                                                 <>
-                                                    <TextGroup
+                                                    <TextGroupJaNeiVetIkke
                                                         title={t('childHasGuardian')}
                                                         content={child.childHasGuardianship?.answer}
                                                     />

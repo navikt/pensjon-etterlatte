@@ -13,7 +13,7 @@ import { ApplicantRole, ApplicantSituation } from '../scenario/ScenarioSelection
 import { SummaryAboutChildren } from './fragments/SummaryAboutChildren'
 import { SummaryAboutDeceasedParent } from './fragments/SummaryAboutDeceasedParent'
 import { SummaryAboutLivingParent } from './fragments/SummaryAboutLivingParent'
-import { SummeryAboutYou } from './fragments/SummaryAboutYou'
+import { SummaryAboutYou } from './fragments/SummaryAboutYou'
 import { SummaryYourSituation } from './fragments/SummaryYourSituation'
 import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'
 import { sendApplication } from '../../../api/api'
@@ -66,7 +66,7 @@ export default function Summary({ prev }: StepProps) {
 
             <FormGroup>
                 {!isEmpty(application.aboutYou) && !isEmpty(user) && (
-                    <SummeryAboutYou
+                    <SummaryAboutYou
                         aboutYou={application.aboutYou}
                         user={user}
                         pathPrefix={pathPrefix(application?.applicant)}

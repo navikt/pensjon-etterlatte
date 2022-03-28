@@ -105,7 +105,6 @@ const frontPage = {
 }
 
 const selectScenario = {
-    selectSituationToContinue: 'Velg situasjon for å gå videre med søknaden',
     whoIsApplying: 'Hvem søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet/barna har mistet',
     PARENT: 'Jeg søker for mitt/mine barn under 18 år',
@@ -139,7 +138,6 @@ const aboutYou = {
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
     'subtitle.personalia': 'Personalia',
-    'subtitle.informationAboutApplicant': 'Opplysninger om søker',
 }
 
 const aboutParents = {
