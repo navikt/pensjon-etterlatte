@@ -48,7 +48,23 @@ export const ParentQuestion = ({ isParent, t, watch }: Props) => {
                 />
             </FormElement>
 
-            {[ParentRelationType.FIRST_PARENT, ParentRelationType.SECOND_PARENT].includes(parents) && (
+            {isParent && ParentRelationType.FIRST_PARENT === parents && (
+                <Panel border>
+                    <Alert inline={true} variant={'info'}>
+                        <BodyLong>{t('onlyChildrenOfDeceasedHaveRights')}</BodyLong>
+                    </Alert>
+                </Panel>
+            )}
+
+            {isParent && ParentRelationType.SECOND_PARENT === parents && (
+                <Panel border>
+                    <Alert inline={true} variant={'info'}>
+                        <BodyLong>{t('onlyParentOrGuardianCanApply')}</BodyLong>
+                    </Alert>
+                </Panel>
+            )}
+
+            {!isParent && [ParentRelationType.FIRST_PARENT, ParentRelationType.SECOND_PARENT].includes(parents) && (
                 <Panel border>
                     <Alert inline={true} variant={'info'}>
                         <BodyLong>{t('onlyJointChildrenNecessary')}</BodyLong>

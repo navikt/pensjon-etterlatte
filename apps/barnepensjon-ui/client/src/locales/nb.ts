@@ -43,7 +43,6 @@ const btn = {
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
         'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
-    mostFieldsAreRequired: 'Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.',
 }
 
 const paymentDetails = {
@@ -206,6 +205,8 @@ const aboutChildren = {
     applyForThisChild: 'Søk om barnepensjon',
     userAppliesForChildrensPension: 'Ja, jeg søker om barnepensjon for barnet',
     onlyJointChildrenNecessary: 'Det kreves en separat søknad for halvsøsken.',
+    onlyChildrenOfDeceasedHaveRights: 'Det er kun barn av avdøde som har rett til barnepensjon.',
+    onlyParentOrGuardianCanApply: 'Det er forelder eller oppnevnt verge som kan søke om barnepensjon for dette barnet.',
     onlyChildrenUnder18Necessary: 'Det er kun nødvendig å opplyse om barn under 18 år i denne søknaden',
     livesIn: 'Bor i',
     doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
@@ -304,11 +305,11 @@ const error = {
     'selfEmplyment.selfEmplymentDetails.income.pattern': 'Oppgi gyldig næringsinntekt (kun siffer)',
     'selfEmplyment.selfEmplymentDetails.incomeAtDeath.required': 'Oppgi om avdøde hadde næringsinntekt',
     'staysAbroad.answer.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
-    'staysAbroad.hasStaysAbroad.required': 'Oppgi om bruker har hatt opphold utenfor Norge',
+    'staysAbroad.hasStaysAbroad.required': 'Oppgi om avdøde har hatt opphold utenfor Norge',
     'staysAbroad.abroadStays.type.required': 'Huk av for type opphold',
     'staysAbroad.abroadStays.country.required': 'Oppgi land for opphold',
     'staysAbroad.abroadStays.medlemFolketrygd.required': 'Oppgi om avdøde var medlem av folketryden under oppholdet',
-    'bothParents.required': 'Oppgi barnets relasjon til foreldre',
+    'parents.required': 'Oppgi barnets relasjon til foreldre',
     'loggedInUserIsGuardian.required': 'Oppgi om du er verge for barnet',
     'staysAbroad.country.required': 'Oppgi hvilke land barnet bor i',
     'staysAbroad.address.required': 'Oppgi barnets bostedsadresse',
