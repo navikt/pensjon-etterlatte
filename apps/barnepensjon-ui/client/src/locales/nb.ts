@@ -229,7 +229,7 @@ const aboutChildren = {
     addChildButton: '+ Legg til barn',
     addSiblingButton: '+ Legg til søsken',
     whoAreTheParents: 'Hvem er foreldre til barnet?',
-    bothOfTheAbove: 'Begge de overnevnte',
+    bothOfTheAbove: '{person1} og {person2}',
     remainingParentsChild: 'Mitt særkullsbarn',
     deceasedParentsChild: 'Avdødes særkullsbarn',
     jointChild: 'Felles barn med avdøde',

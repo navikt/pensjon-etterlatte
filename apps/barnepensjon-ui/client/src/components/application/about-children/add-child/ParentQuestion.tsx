@@ -30,6 +30,16 @@ export const ParentQuestion = ({ isParent, t, watch }: Props) => {
                     name={'parents'}
                     radios={[
                         {
+                            label: isParent
+                                ? t('jointChild')
+                                : t('bothOfTheAbove', {
+                                      person1: getParentText(application.firstParent!),
+                                      person2: getParentText(application.secondParent!),
+                                  }),
+                            value: ParentRelationType.BOTH,
+                            required: true,
+                        },
+                        {
                             label: isParent ? t('remainingParentsChild') : getParentText(application.firstParent!),
                             value: ParentRelationType.FIRST_PARENT,
                             required: true,
@@ -37,11 +47,6 @@ export const ParentQuestion = ({ isParent, t, watch }: Props) => {
                         {
                             label: isParent ? t('deceasedParentsChild') : getParentText(application.secondParent!),
                             value: ParentRelationType.SECOND_PARENT,
-                            required: true,
-                        },
-                        {
-                            label: isParent ? t('jointChild') : t('bothOfTheAbove'),
-                            value: ParentRelationType.BOTH,
                             required: true,
                         },
                     ]}
