@@ -4,8 +4,8 @@ import innsendtsoeknad.common.SoeknadType
 import org.slf4j.LoggerFactory
 import soeknad.Queries.CREATE_HENDELSE
 import soeknad.Queries.CREATE_SOEKNAD
-import soeknad.Queries.FINN_SISTE_STATUS
 import soeknad.Queries.FINN_KLADD
+import soeknad.Queries.FINN_SISTE_STATUS
 import soeknad.Queries.OPPDATER_SOEKNAD
 import soeknad.Queries.OPPDATER_SOEKNAD_META
 import soeknad.Queries.SELECT_OLD
@@ -339,7 +339,7 @@ private object Queries {
         SELECT i.soeknad_id, i.fnr, i.payload, s.kilde
         FROM innhold i
         INNER JOIN soeknad s on s.id = i.soeknad_id
-        WHERE fnr = ? AND kilde = ?
+        WHERE i.fnr = ? AND s.kilde = ?
     """.trimIndent()
 
     val FINN_SISTE_STATUS = """

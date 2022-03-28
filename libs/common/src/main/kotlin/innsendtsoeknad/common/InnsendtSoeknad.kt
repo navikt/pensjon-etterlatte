@@ -1,16 +1,14 @@
 package no.nav.etterlatte.libs.common.innsendtsoeknad.common
 
 import com.fasterxml.jackson.annotation.JsonGetter
-import com.fasterxml.jackson.annotation.JsonRawValue
 import com.fasterxml.jackson.annotation.JsonSubTypes
 import com.fasterxml.jackson.annotation.JsonTypeInfo
-import com.fasterxml.jackson.core.util.RequestPayload
+import innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.BankkontoType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.Spraak
 import no.nav.etterlatte.libs.common.innsendtsoeknad.UtbetalingsInformasjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
-import innsendtsoeknad.common.SoeknadType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.Spraak
 import java.time.LocalDateTime
 
 @JsonTypeInfo(

@@ -10,9 +10,9 @@ import io.ktor.routing.delete
 import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.route
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import libs.common.util.RetryResult.Failure
 import libs.common.util.RetryResult.Success
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {

@@ -1,6 +1,5 @@
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.PlainJWT
@@ -195,14 +194,14 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(4)
     fun `Skal slette kladd fra databasen`() {
-        db.finnKladd(STOR_SNERK,kilde) shouldNotBe null
+        db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
                 tokenFor(STOR_SNERK)
             }.apply {
                 response.status() shouldBe HttpStatusCode.OK
-                db.finnKladd(STOR_SNERK,"") shouldBe null
+                db.finnKladd(STOR_SNERK, kilde) shouldBe null
             }
         }
     }
