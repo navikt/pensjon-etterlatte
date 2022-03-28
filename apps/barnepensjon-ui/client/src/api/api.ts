@@ -15,7 +15,6 @@ export const getExpirationTimeForLoggedInUser = async () => {
 
 export const getAllCountries = async () => api.get('/api/kodeverk/alleland').then((res) => res.data)
 
-// TODO: Handle response and convert to json
 export const getDraft = async () =>
     api
         .get('/api/api/kladd')

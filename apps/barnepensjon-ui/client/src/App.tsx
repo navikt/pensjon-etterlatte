@@ -14,7 +14,7 @@ import SystemUnavailable from './components/error/SystemUnavailable'
 import FrontPage from './components/FrontPage'
 import useApplication from './hooks/useApplication'
 import useLoggedInUser from './hooks/useLoggedInUser'
-import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps } from './utils/steps'
+import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps, StepPrefix } from './utils/steps'
 import useScrollToTop from './hooks/useScrollToTop'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 import useTranslation from './hooks/useTranslation'
@@ -72,15 +72,15 @@ export default function App() {
 
                     <Route path="/skjema" element={<Outlet />}>
                         <Route
-                            path="verge/*"
+                            path={`${StepPrefix.GUARDIAN}/*`}
                             element={<Dialogue steps={GuardianApplicantSteps} pathPrefix={'/skjema/verge/'} />}
                         />
                         <Route
-                            path="barn/*"
+                            path={`${StepPrefix.Child}/*`}
                             element={<Dialogue steps={ChildApplicantSteps} pathPrefix={'/skjema/barn/'} />}
                         />
                         <Route
-                            path="forelder/*"
+                            path={`${StepPrefix.Parent}/*`}
                             element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
                         />
 

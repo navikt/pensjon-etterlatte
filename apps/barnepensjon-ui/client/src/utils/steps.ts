@@ -23,6 +23,12 @@ export enum StepPath {
     Summary = 'steg/oppsummering',
 }
 
+export enum StepPrefix {
+    GUARDIAN = 'verge',
+    Parent = 'forelder',
+    Child = 'barn',
+}
+
 export interface StepType {
     label: StepLabelKey
     path: StepPath

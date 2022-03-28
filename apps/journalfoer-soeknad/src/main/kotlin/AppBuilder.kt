@@ -25,7 +25,6 @@ class AppBuilder(private val props: Map<String, String>) {
         install(Auth) {
             clientCredential {
                 config = System.getenv().toMutableMap().apply {
-                    // put("AZURE_APP_OUTBOUND_SCOPE", "api://dev-fss.etterlatte.etterlatte-proxy/.default")
                     put("AZURE_APP_OUTBOUND_SCOPE", props[CONFIG_AZURE_DOKARKIV_SCOPE])
                 }
             }

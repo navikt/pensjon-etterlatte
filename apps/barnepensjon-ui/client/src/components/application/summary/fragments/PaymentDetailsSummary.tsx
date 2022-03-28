@@ -1,22 +1,17 @@
 import { BankkontoType } from '../../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../../hooks/useTranslation'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
+import { IPaymentDetails } from '../../../../types/person'
 
-export const PaymentDetailsSummary = ({
-    accountType,
-    bankAccount,
-    taxWithholdAnswer,
-    taxWithholdPercentage,
-    foreignBankName,
-    foreignBankAddress,
-    iban,
-    swift,
-}: any) => {
+export default function PaymentDetailsSummary({ paymentDetails }: { paymentDetails: IPaymentDetails }) {
     const { t } = useTranslation('paymentDetails')
+
+    const { accountType, bankAccount, taxWithhold, foreignBankName, foreignBankAddress, iban, swift } = paymentDetails
 
     return (
         <>
             <TextGroup title={t('accountType')} content={t(accountType)} />
+
             {accountType === BankkontoType.NORSK && <TextGroup title={t('bankAccount')} content={bankAccount} />}
             {accountType === BankkontoType.UTENLANDSK && (
                 <>
@@ -26,11 +21,13 @@ export const PaymentDetailsSummary = ({
                     <TextGroup title={t('swift')} content={swift} />
                 </>
             )}
-            {taxWithholdAnswer && (
+
+            {taxWithhold?.answer && (
                 <>
-                    <TextGroupJaNeiVetIkke title={t('doYouWantUsToWithholdTax')} content={taxWithholdAnswer} />
-                    {taxWithholdPercentage && (
-                        <TextGroup title={t('desiredTaxPercentage')} content={taxWithholdPercentage} />
+                    <TextGroupJaNeiVetIkke title={t('doYouWantUsToWithholdTax')} content={taxWithhold.answer} />
+
+                    {taxWithhold.taxPercentage && (
+                        <TextGroup title={t('desiredTaxPercentage')} content={taxWithhold.taxPercentage} />
                     )}
                 </>
             )}

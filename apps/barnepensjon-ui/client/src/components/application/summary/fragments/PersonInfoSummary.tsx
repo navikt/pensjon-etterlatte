@@ -1,7 +1,7 @@
 import useTranslation from '../../../../hooks/useTranslation'
 import { TextGroup } from '../TextGroup'
 
-export const PersonInfoSummary = ({
+export default function PersonInfoSummary({
     name,
     firstName,
     lastName,
@@ -15,7 +15,7 @@ export const PersonInfoSummary = ({
     fnrDnr?: string
     citizenship?: string
     address?: string
-}) => {
+}) {
     const { t } = useTranslation('common')
 
     return (
