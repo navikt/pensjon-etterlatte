@@ -87,8 +87,6 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     const methods = useForm<IChild>({
         defaultValues: {
             ...child,
-            citizenship: child.citizenship || 'Norge',
-            staysAbroad: { ...child.staysAbroad, country: child.staysAbroad?.country || 'Norge' },
         },
         shouldUnregister: true,
     })
