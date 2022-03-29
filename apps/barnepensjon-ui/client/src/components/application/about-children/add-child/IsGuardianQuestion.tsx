@@ -1,5 +1,4 @@
-import { TFunction } from '../../../../hooks/useTranslation'
-import { UseFormWatch } from 'react-hook-form/dist/types/form'
+import useTranslation from '../../../../hooks/useTranslation'
 import FormElement from '../../../common/FormElement'
 import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
@@ -7,12 +6,11 @@ import { Alert, BodyLong, Panel } from '@navikt/ds-react'
 
 interface Props {
     isGuardian: boolean
-    t: TFunction
-    watch: UseFormWatch<any>
+    loggedInUserIsGuardian?: JaNeiVetIkke
 }
 
-export const IsGuardianQuestion = ({ isGuardian, t, watch }: Props) => {
-    const loggedInUserIsGuardian = watch('loggedInUserIsGuardian')
+export const IsGuardianQuestion = ({ isGuardian, loggedInUserIsGuardian }: Props) => {
+    const { t } = useTranslation('aboutChildren')
 
     return (
         <>

@@ -17,7 +17,7 @@ import PaymentDetails from '../../../common/PaymentDetails'
 import { GuardianDetails } from './GuardianDetails'
 import { LivesAbroadQuestion } from './LivesAbroadQuestion'
 import PersonInfo from '../../../common/PersonInfo'
-import { ParentQuestion } from './ParentQuestion'
+import ParentQuestion from './ParentQuestion'
 import { IsGuardianQuestion } from './IsGuardianQuestion'
 import { useUserContext } from '../../../../context/user/UserContext'
 
@@ -76,10 +76,9 @@ interface Props {
     fnrRegisteredChild: string[]
     isChild: boolean
     isGuardian: boolean
-    isParent: boolean
 }
 
-const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian, isParent }: Props) => {
+const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian }: Props) => {
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
     const { state: user } = useUserContext()
@@ -113,7 +112,9 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     const parents = watch('parents')
     const fnr: any = watch('fnrDnr')
     const appliesForChildrensPension: boolean | undefined = watch('appliesForChildrensPension')
+    const childHasGuardianship = watch('childHasGuardianship.answer')
     const loggedInUserIsGuardian = watch('loggedInUserIsGuardian')
+    const livesAbroadAnswer = watch('staysAbroad.answer')
 
     const canApplyForChildrensPension = (): boolean => {
         if (parents === ParentRelationType.BOTH && fnr && fnrValidator(fnr).status === 'valid') {
@@ -140,6 +141,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                         <img alt="barn" src={ikon} />
                         <Overskrift size={'small'}>{!isChild ? t('titleModal') : t('aboutTheSiblingTitle')}</Overskrift>
                     </ChangeChildPanelHeader>
+
                     <ChangeChildPanelContent>
                         <FormGroup>
                             <PersonInfo duplicateList={fnrRegisteredChild} />
@@ -150,12 +152,17 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                     </Alert>
                                 </Panel>
                             )}
-                            <ParentQuestion isParent={isParent} t={t} watch={watch} />
+                            <ParentQuestion parents={parents} />
                         </FormGroup>
+
                         {!tooOldChild() && parents === ParentRelationType.BOTH && (
                             <FormGroup>
                                 {isChild && (
-                                    <LivesAbroadQuestion isChild={isChild} countries={countries} t={t} watch={watch} />
+                                    <LivesAbroadQuestion
+                                        isChild={isChild}
+                                        countries={countries}
+                                        livesAbroadAnswer={livesAbroadAnswer}
+                                    />
                                 )}
                                 {!isChild && (
                                     <>
@@ -163,15 +170,21 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                             <LivesAbroadQuestion
                                                 isChild={isChild}
                                                 countries={countries}
-                                                t={t}
-                                                watch={watch}
+                                                livesAbroadAnswer={livesAbroadAnswer}
                                             />
-                                            <IsGuardianQuestion isGuardian={isGuardian} t={t} watch={watch} />
+
+                                            <IsGuardianQuestion
+                                                isGuardian={isGuardian}
+                                                loggedInUserIsGuardian={loggedInUserIsGuardian}
+                                            />
                                         </FormGroup>
 
                                         {canApplyForChildrensPension() && (
                                             <>
-                                                <GuardianDetails isGuardian={isGuardian} t={t} watch={watch} />
+                                                <GuardianDetails
+                                                    isGuardian={isGuardian}
+                                                    childHasGuardianship={childHasGuardianship}
+                                                />
 
                                                 <FormGroup>
                                                     <Label>{t('applyForThisChild')}</Label>

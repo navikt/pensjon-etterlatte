@@ -1,26 +1,23 @@
 import FormElement from '../../../common/FormElement'
 import { RHFRadio } from '../../../common/rhf/RHFRadio'
 import { Alert, BodyLong, Panel } from '@navikt/ds-react'
-import { IParent } from '../../../../context/application/application'
-import { TFunction } from '../../../../hooks/useTranslation'
-import { UseFormWatch } from 'react-hook-form/dist/types/form'
+import useTranslation from '../../../../hooks/useTranslation'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
 import FormGroup from '../../../common/FormGroup'
 import { ParentRelationType } from '../../../../types/person'
+import { ApplicantRole } from '../../scenario/ScenarioSelection'
+import { nameAndFnr } from '../../../../utils/personalia'
 
 interface Props {
-    isParent: boolean
-    t: TFunction
-    watch: UseFormWatch<any>
+    parents?: ParentRelationType
 }
 
-export const ParentQuestion = ({ isParent, t, watch }: Props) => {
-    const { state: application } = useApplicationContext()
-    const parents = watch('parents')
+export default function ParentQuestion({ parents }: Props) {
+    const { t } = useTranslation('aboutChildren')
 
-    const getParentText = (parent: IParent): string => {
-        return `${parent.firstName} ${parent.lastName} (f. ${parent.fnrDnr.substring(0, 6)})`
-    }
+    const { state: application } = useApplicationContext()
+
+    const isParent = application.applicant?.applicantRole === ApplicantRole.PARENT
 
     return (
         <FormGroup>
@@ -33,19 +30,19 @@ export const ParentQuestion = ({ isParent, t, watch }: Props) => {
                             label: isParent
                                 ? t('jointChild')
                                 : t('bothOfTheAbove', {
-                                      person1: getParentText(application.firstParent!),
-                                      person2: getParentText(application.secondParent!),
+                                      person1: nameAndFnr(application.firstParent!),
+                                      person2: nameAndFnr(application.secondParent!),
                                   }),
                             value: ParentRelationType.BOTH,
                             required: true,
                         },
                         {
-                            label: isParent ? t('remainingParentsChild') : getParentText(application.firstParent!),
+                            label: isParent ? t('remainingParentsChild') : nameAndFnr(application.firstParent!),
                             value: ParentRelationType.FIRST_PARENT,
                             required: true,
                         },
                         {
-                            label: isParent ? t('deceasedParentsChild') : getParentText(application.secondParent!),
+                            label: isParent ? t('deceasedParentsChild') : nameAndFnr(application.secondParent!),
                             value: ParentRelationType.SECOND_PARENT,
                             required: true,
                         },
@@ -69,13 +66,15 @@ export const ParentQuestion = ({ isParent, t, watch }: Props) => {
                 </Panel>
             )}
 
-            {!isParent && [ParentRelationType.FIRST_PARENT, ParentRelationType.SECOND_PARENT].includes(parents) && (
-                <Panel border>
-                    <Alert inline={true} variant={'info'}>
-                        <BodyLong>{t('onlyJointChildrenNecessary')}</BodyLong>
-                    </Alert>
-                </Panel>
-            )}
+            {!isParent &&
+                !!parents &&
+                [ParentRelationType.FIRST_PARENT, ParentRelationType.SECOND_PARENT].includes(parents) && (
+                    <Panel border>
+                        <Alert inline={true} variant={'info'}>
+                            <BodyLong>{t('onlyJointChildrenNecessary')}</BodyLong>
+                        </Alert>
+                    </Panel>
+                )}
         </FormGroup>
     )
 }

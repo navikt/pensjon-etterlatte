@@ -2,19 +2,17 @@ import FormElement from '../../../common/FormElement'
 import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { RHFInput } from '../../../common/rhf/RHFInput'
-import { TFunction } from '../../../../hooks/useTranslation'
-import { UseFormWatch } from 'react-hook-form/dist/types/form'
+import useTranslation from '../../../../hooks/useTranslation'
 import { RHFSelect } from '../../../common/rhf/RHFSelect'
 
 interface Props {
     isChild: boolean
     countries: any
-    t: TFunction
-    watch: UseFormWatch<any>
+    livesAbroadAnswer?: JaNeiVetIkke
 }
 
-export const LivesAbroadQuestion = ({ isChild, countries, t, watch }: Props) => {
-    const livesAbroadAnswer = watch('staysAbroad.answer')
+export const LivesAbroadQuestion = ({ isChild, countries, livesAbroadAnswer }: Props) => {
+    const { t } = useTranslation('aboutChildren')
 
     return (
         <>

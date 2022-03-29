@@ -2,10 +2,10 @@ import { Alert, BodyShort, Cell, Grid, Label } from '@navikt/ds-react'
 import styled from 'styled-components'
 import { User } from '../../../context/user/user'
 import useTranslation from '../../../hooks/useTranslation'
-import { fullAdresse } from '../../../utils/adresse'
 import Hjelpetekst from '../../../utils/Hjelpetekst'
 import FormGroup from '../../common/FormGroup'
 import FormElement from '../../common/FormElement'
+import { fullAdresse } from '../../../utils/personalia'
 
 interface LoggedInUserInfoProps {
     user: User

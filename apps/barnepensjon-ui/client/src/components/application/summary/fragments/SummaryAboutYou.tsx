@@ -11,7 +11,7 @@ import { AccordionItem } from '../AccordionItem'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import PaymentDetailsSummary from './PaymentDetailsSummary'
 import PersonInfoSummary from './PersonInfoSummary'
-import { fullAdresse } from '../../../../utils/adresse'
+import { fullAdresse } from '../../../../utils/personalia'
 
 interface Props {
     aboutYou: IAboutYou
@@ -39,7 +39,7 @@ export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
                                 name={`${user.fornavn} ${user.etternavn}`}
                                 fnrDnr={user.foedselsnummer}
                                 citizenship={user.statsborgerskap}
-                                address={!user.adressebeskyttelse ? fullAdresse(user) : ''}
+                                address={fullAdresse(user)}
                             />
                         </Panel>
 

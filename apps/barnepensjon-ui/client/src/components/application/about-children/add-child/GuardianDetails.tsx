@@ -4,16 +4,15 @@ import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { Cell, Grid, Label } from '@navikt/ds-react'
 import { RHFFoedselsnummerInput, RHFInput } from '../../../common/rhf/RHFInput'
 import FormGroup from '../../../common/FormGroup'
-import { TFunction } from '../../../../hooks/useTranslation'
-import { UseFormWatch } from 'react-hook-form/dist/types/form'
+import useTranslation from '../../../../hooks/useTranslation'
 
 interface Props {
     isGuardian: boolean
-    t: TFunction
-    watch: UseFormWatch<any>
+    childHasGuardianship?: JaNeiVetIkke
 }
-export const GuardianDetails = ({ isGuardian, t, watch }: Props) => {
-    const childHasGuardianship = watch('childHasGuardianship.answer')
+
+export const GuardianDetails = ({ isGuardian, childHasGuardianship }: Props) => {
+    const { t } = useTranslation('aboutChildren')
 
     return (
         <>

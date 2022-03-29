@@ -1,4 +1,5 @@
-import { fullAdresse } from './adresse'
+import { fullAdresse, nameAndFnr } from './personalia'
+import { IParent } from '../context/application/application'
 
 describe('Test at adresse blir korrekt bygget opp', () => {
     it('Skal bygge opp hele adressen', () => {
@@ -34,5 +35,18 @@ describe('Test at adresse blir korrekt bygget opp', () => {
         }
 
         expect(fullAdresse(bruker)).toBe('')
+    })
+})
+
+describe('Test at navn og fnr blir korrekt', () => {
+    it('Skal opprette navn og fnr, med kun fdato', () => {
+        const parent: IParent = {
+            firstName: 'Test',
+            lastName: 'Testesen',
+            fnrDnr: '1234567890',
+            citizenship: '-',
+        }
+
+        expect(nameAndFnr(parent)).toBe('Test Testesen (f. 123456)')
     })
 })

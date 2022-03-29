@@ -11,8 +11,8 @@ import { ApplicantRole } from '../../scenario/ScenarioSelection'
 import { AccordionItem } from '../AccordionItem'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import PaymentDetailsSummary from './PaymentDetailsSummary'
-import { IParent } from '../../../../context/application/application'
 import PersonInfoSummary from './PersonInfoSummary'
+import { nameAndFnr } from '../../../../utils/personalia'
 
 interface Props {
     aboutChildren?: IAboutChildren
@@ -48,21 +48,17 @@ export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicati
     const childOrGuardianAnswerText = (child: IChild): string => {
         switch (child.parents) {
             case ParentRelationType.FIRST_PARENT:
-                return getParentText(parents.firstParent)
+                return nameAndFnr(parents.firstParent)
             case ParentRelationType.SECOND_PARENT:
-                return getParentText(parents.secondParent)
+                return nameAndFnr(parents.secondParent)
             case ParentRelationType.BOTH:
                 return t('bothOfTheAbove', {
-                    person1: getParentText(parents.firstParent),
-                    person2: getParentText(parents.secondParent),
+                    person1: nameAndFnr(parents.firstParent),
+                    person2: nameAndFnr(parents.secondParent),
                 })
             default:
                 throw Error(`Unexpected parent relation: ${child.parents}`)
         }
-    }
-
-    const getParentText = ({ firstName, lastName, fnrDnr }: IParent): string => {
-        return `${firstName} ${lastName} (f. ${fnrDnr.substring(0, 6)})`
     }
 
     return (
