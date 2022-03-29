@@ -1,7 +1,7 @@
 import { Alert, BodyLong, Link } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
-import { IDeceasedParent, ILivingParent } from '../../../context/application/application'
+import { ActionTypes, IDeceasedParent, ILivingParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { useUserContext } from '../../../context/user/UserContext'
 import useTranslation from '../../../hooks/useTranslation'
@@ -34,7 +34,7 @@ export default function Summary({ prev }: StepProps) {
     const { t } = useTranslation('summary')
     const { logEvent } = useAmplitude()
 
-    const { state: application } = useApplicationContext()
+    const { state: application, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
 
     const navigate = useNavigate()
@@ -47,7 +47,7 @@ export default function Summary({ prev }: StepProps) {
         sendApplication({ soeknader })
             .then(() => {
                 soeknader.forEach(() => logEvent(LogEvents.SEND_APPLICATION, { type: SoeknadType.BARNEPENSJON }))
-
+                dispatch({ type: ActionTypes.RESET })
                 navigate('/skjema/kvittering')
             })
             .catch((e) => {
