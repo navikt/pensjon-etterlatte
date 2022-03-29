@@ -62,10 +62,12 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                                 )}
                             </Panel>
                         ))}
-                        <TextGroupJaNeiVetIkke
-                            title={t('wasTheDeceasedSelfEmployed')}
-                            content={aboutTheParent.selfEmplyment.wasSelfEmployed}
-                        />
+                        {aboutTheParent.selfEmplyment?.wasSelfEmployed && (
+                            <TextGroupJaNeiVetIkke
+                                title={t('wasTheDeceasedSelfEmployed')}
+                                content={aboutTheParent.selfEmplyment.wasSelfEmployed}
+                            />
+                        )}
                         {aboutTheParent.selfEmplyment?.selfEmplymentDetails?.income && (
                             <TextGroup
                                 title={t('incomeFromSelfEmployymentYearBeforeDeath')}
