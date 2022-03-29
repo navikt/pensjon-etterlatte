@@ -84,10 +84,12 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                             title={t('occupationalInjury')}
                             content={aboutTheParent.occupationalInjury}
                         />
-                        <TextGroupJaNeiVetIkke
-                            title={t('deceasedHasServedInTheMilitary')}
-                            content={aboutTheParent.militaryService?.completed}
-                        />
+                        {aboutTheParent.militaryService?.completed && (
+                            <TextGroupJaNeiVetIkke
+                                title={t('deceasedHasServedInTheMilitary')}
+                                content={aboutTheParent.militaryService?.completed}
+                            />
+                        )}
                         {aboutTheParent.militaryService?.period && (
                             <TextGroup
                                 title={t('militaryServiceYears')}

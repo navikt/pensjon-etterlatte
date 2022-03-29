@@ -89,8 +89,8 @@ export interface Avdoed extends Person {
     datoForDoedsfallet: Opplysning<DatoSvar>
     statsborgerskap: Opplysning<FritekstSvar>
     utenlandsopphold: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsopphold[] | undefined>
-    naeringsInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt> // Ikke nødvendig nytt regelverk for barnep.
-    militaertjeneste: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<AarstallForMilitaerTjeneste>> // Ikke nødvendig nytt regelverk for barnep.
+    naeringsInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt> | undefined
+    militaertjeneste: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<AarstallForMilitaerTjeneste>> | undefined
     doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 

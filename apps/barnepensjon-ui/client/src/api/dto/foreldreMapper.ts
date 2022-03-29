@@ -166,15 +166,17 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
             },
         },
         utenlandsopphold: mapUtenlandsopphold(t, parent.staysAbroad),
-        naeringsInntekt: mapNaeringsinntekt(t, parent.selfEmplyment),
-        militaertjeneste: {
-            spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: t(parent.militaryService!!.completed!!, { ns: 'radiobuttons' }),
-                verdi: parent.militaryService!!.completed!!,
-            },
-            opplysning: opplysningMilitaertjeneste,
-        },
+        naeringsInntekt: parent.selfEmplyment ? mapNaeringsinntekt(t, parent.selfEmplyment) : undefined,
+        militaertjeneste: parent.militaryService
+            ? {
+                  spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
+                  svar: {
+                      innhold: t(parent.militaryService!!.completed!!, { ns: 'radiobuttons' }),
+                      verdi: parent.militaryService!!.completed!!,
+                  },
+                  opplysning: opplysningMilitaertjeneste,
+              }
+            : undefined,
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
             spoersmaal: t('occupationalInjury', { ns: 'aboutTheDeceased' }),
             svar: {
