@@ -108,7 +108,7 @@ const selectScenario = {
     additionalSituationDetails: 'Barnet/barna har mistet',
     PARENT: 'Jeg søker for mitt/mine barn under 18 år',
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
-    CHILD: 'Jeg er fylt 18 år og søker på vegne av meg selv',
+    CHILD: 'Jeg har fylt 18 år og søker på vegne av meg selv',
     parentApplicantInformation:
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde. Søsken kan få betydning for beregningen av barnepensjon.',
     guardianApplicantInformation:
