@@ -5,7 +5,7 @@ import useTranslation from '../../../../hooks/useTranslation'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
 import FormGroup from '../../../common/FormGroup'
 import { ParentRelationType } from '../../../../types/person'
-import { ApplicantRole } from '../../scenario/ScenarioSelection'
+import { ApplicantRole, ApplicantSituation } from '../../scenario/ScenarioSelection'
 import { nameAndFnr } from '../../../../utils/personalia'
 
 interface Props {
@@ -50,31 +50,27 @@ export default function ParentQuestion({ parents }: Props) {
                 />
             </FormElement>
 
-            {isParent && ParentRelationType.FIRST_PARENT === parents && (
+            {!!parents && ParentRelationType.FIRST_PARENT === parents && (
                 <Panel border>
                     <Alert inline={true} variant={'info'}>
-                        <BodyLong>{t('onlyChildrenOfDeceasedHaveRights')}</BodyLong>
+                        {(isParent ||
+                            ApplicantSituation.ONE_PARENT_DECEASED === application.applicant?.applicantSituation) && (
+                            <BodyLong>{t('onlyChildrenOfDeceasedHaveRights')}</BodyLong>
+                        )}
+                        {ApplicantSituation.BOTH_PARENTS_DECEASED === application.applicant?.applicantSituation && (
+                            <BodyLong>{t('onlyParentOrGuardianCanApply')}</BodyLong>
+                        )}
                     </Alert>
                 </Panel>
             )}
 
-            {isParent && ParentRelationType.SECOND_PARENT === parents && (
+            {!!parents && ParentRelationType.SECOND_PARENT === parents && (
                 <Panel border>
                     <Alert inline={true} variant={'info'}>
                         <BodyLong>{t('onlyParentOrGuardianCanApply')}</BodyLong>
                     </Alert>
                 </Panel>
             )}
-
-            {!isParent &&
-                !!parents &&
-                [ParentRelationType.FIRST_PARENT, ParentRelationType.SECOND_PARENT].includes(parents) && (
-                    <Panel border>
-                        <Alert inline={true} variant={'info'}>
-                            <BodyLong>{t('onlyJointChildrenNecessary')}</BodyLong>
-                        </Alert>
-                    </Panel>
-                )}
         </FormGroup>
     )
 }
