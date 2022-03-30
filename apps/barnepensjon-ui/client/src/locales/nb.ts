@@ -120,6 +120,10 @@ const selectScenario = {
     childApplicantInformation2:
         '<b>Hvis du har mistet begge foreldrene dine</b>\nDu kan få barnepensjon inntil du blir 20 år hvis du er under utdanning, eller er lærling eller praktikant. Du kan få barnepensjon inntil du blir 21 år hvis dødsfallet i tillegg skyldes en yrkesskade eller yrkessykdom.',
     childApplicantInformationOver18: '<a href="https://www.nav.no/fyllut/nav180405">Da må du bruke denne søknaden</a>.',
+    youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
+        'I denne søknaden kreves det fullstendig fødselsnummer til barn/barna og foreldrene. Hvis du ikke har dette må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401">denne søknaden</a>.',
+    youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
+        'I denne søknaden kreves det fullstendig fødselsnummer til barn/barna og foreldrene. Hvis du ikke har dette må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">denne søknaden</a>.',
     childApplicantInformationFatherNotConfirmed:
         'Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">denne søknaden</a>.',
     aboutSurvivorsPensionDescription:
@@ -153,14 +157,14 @@ const aboutParents = {
     addFirstParentBtn: 'Legg til forelder 1',
     addSecondParentBtn: 'Legg til forelder 2',
     bothParentsRequired:
-        'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Denne søknaden støtter foreløpig ikke forhold der barnet har mistet mor og farskapet ikke er formelt bestemt. Du kommer til rett søknad ved å følge denne lenken: ',
+        'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke',
     missingOneParentLink:
-        '<a href="https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-flere-av-foreldrene/NAV%2018-01.05/dokumentinnsending">Søknad om barnepensjon for foreldreløse barn</a>',
+        '<a href="https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-flere-av-foreldrene/NAV%2018-01.05/dokumentinnsending"> denne søknaden</a>.',
 }
 
 const livingParent = {
     title: 'Om den gjenlevende',
-    address: 'Adresse',
+    address: 'Adresse (valgfri)',
     phoneNumberOptional: 'Telefonnummer (valgfri)',
 }
 
@@ -206,9 +210,9 @@ const aboutChildren = {
     childAppliedForPension: 'Søkt om barnepensjon',
     applyForThisChild: 'Søk om barnepensjon',
     userAppliesForChildrensPension: 'Ja, jeg søker om barnepensjon for barnet',
-    onlyJointChildrenNecessary: 'Det kreves en separat søknad for halvsøsken.',
-    onlyChildrenOfDeceasedHaveRights: 'Det er kun barn av avdøde som har rett til barnepensjon.',
-    onlyParentOrGuardianCanApply: 'Det er forelder eller oppnevnt verge som kan søke om barnepensjon for dette barnet.',
+    onlyChildrenOfDeceasedHaveRights: 'Det er kun avdødes barn og adoptivbarn som har rett til barnepensjon.',
+    onlyParentOrGuardianCanApply:
+        'Det er barnets forelder eller oppnevnt verge som kan søke om barnepensjon for dette barnet. Det må søkes om barnepensjon i egen søknad.',
     onlyChildrenUnder18Necessary: 'Det er kun nødvendig å opplyse om barn under 18 år i denne søknaden',
     livesIn: 'Bor i',
     doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
@@ -222,7 +226,7 @@ const aboutChildren = {
     guardianFnr: 'Fødselsnummer til verge (valgfri)',
     guardianFnrPlaceholder: '11 siffer',
     information:
-        'Oppgi avdødes biologiske barn og/eller adoptivbarn under 18 år som det skal søkes barnepensjon for. \n\nDersom barna ikke er helsøsken, må det søkes for hvert barnekull av forelder/verge for disse barna.\n\nFosterbarn skal ikke føres opp, fordi de ikke har rett til barnepensjon etter fosterforeldrene.\n\nBarn over 18 år må søke selv om barnepensjon. ',
+        'Oppgi avdødes biologiske barn og/eller adoptivbarn under 18 år som det skal søkes barnepensjon for. \n\nDersom barna ikke er helsøsken, må forelder eller oppnevnt verge sende inn egen søknad for disse barna.\n\nFosterbarn skal ikke føres opp, fordi de ikke har rett til barnepensjon etter fosterforeldrene.\n\nBarn over 18 år må søke selv om barnepensjon. ',
     infoRegardingSiblings: 'Her er info hvis det er søsken',
     infoCard_residence: 'BOSTED',
     infoCard_fnr: 'FØDSELSNUMMER',
@@ -251,7 +255,7 @@ const aboutChildren = {
 const summary = {
     summaryTitle: 'Oppsummering',
     readTheSummaryBeforeSending:
-        'Les gjennom oppsummeringen av din søknad før du sender. \nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
+        'Les gjennom oppsummeringen av søknaden før du sender.\nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
     sendApplicationButton: 'Send søknad',
     AboutYou: 'Endre svar om deg',
     AboutTheParents: 'Endre svar om foreldre',
@@ -279,7 +283,7 @@ const error = {
     'fnr.required': 'Oppgi fødselsnummer',
     'fnrDnr.duplicate': 'Duplikat fødselsnummer / d-nummer',
     'fnr.validate': 'Ikke et gyldig fødselsnummer',
-    'fnrDnr.required': 'Oppgi fødselsnummer',
+    'fnrDnr.required': 'Oppgi fødselsnummer / d-nummer',
     'fnrDnr.validate': 'Ikke et gyldig fødselsnummer',
     'lastName.required': 'Oppgi etternavn',
     'lastName.pattern': 'Ugyldig etternavn',
@@ -313,7 +317,7 @@ const error = {
     'staysAbroad.abroadStays.medlemFolketrygd.required': 'Oppgi om avdøde var medlem av folketryden under oppholdet',
     'parents.required': 'Oppgi hvem som er barnets foreldre',
     'loggedInUserIsGuardian.required': 'Oppgi om du er verge for barnet',
-    'staysAbroad.country.required': 'Oppgi hvilke land barnet bor i',
+    'staysAbroad.country.required': 'Oppgi hvilket land barnet bor i',
     'staysAbroad.address.required': 'Oppgi barnets bostedsadresse',
     'childHasGuardianship.answer.required': 'Oppgi om det er oppnevnt verge for barnet',
     'childHasGuardianship.firstName.pattern': 'Ugyldig fornavn',

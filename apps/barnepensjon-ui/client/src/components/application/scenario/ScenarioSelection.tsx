@@ -51,6 +51,7 @@ export default function ScenarioSelection() {
     }
 
     const selectedRole = watch('applicantRole')
+    const applicantSituation = watch('applicantSituation')
 
     return (
         <FormProvider {...methods}>
@@ -109,6 +110,17 @@ export default function ScenarioSelection() {
                             ]}
                         />
                     </FormGroup>
+
+                    {ApplicantSituation.ONE_PARENT_DECEASED === applicantSituation && (
+                        <BodyLong spacing size={'small'}>
+                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationOneParentDeceased')} />
+                        </BodyLong>
+                    )}
+                    {ApplicantSituation.BOTH_PARENTS_DECEASED === applicantSituation && (
+                        <BodyLong spacing size={'small'}>
+                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationBothParentsDeceased')} />
+                        </BodyLong>
+                    )}
                 </>
             )}
 
@@ -128,7 +140,7 @@ export default function ScenarioSelection() {
 
             {[ApplicantRole.GUARDIAN, ApplicantRole.CHILD].includes(selectedRole) && (
                 <FormGroup>
-                    <Alert variant={'info'} inline={true}>
+                    <Alert variant={'info'}>
                         <Trans value={t('childApplicantInformationFatherNotConfirmed')} />
                     </Alert>
                 </FormGroup>
