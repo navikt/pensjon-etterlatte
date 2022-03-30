@@ -76,5 +76,8 @@ spec:
       application: etterlatte-vilkaar-kafka
       access: readwrite
     - team: etterlatte
+      application: etterlatte-oppdater-behandling
+      access: readwrite
+    - team: etterlatte
       application: etterlatte-attestering
       access: readwrite
