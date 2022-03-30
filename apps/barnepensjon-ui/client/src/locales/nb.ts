@@ -366,6 +366,7 @@ const logOutUser = {
     time: 'minutter',
     youWillBeLoggedOutIn: 'Du vil bli logget ut om',
     sendNowOrContinueLater: 'Du kan sende søknad nå eller fortsette senere. \n Søknaden din lagres i 72 timer.',
+    wereLoggingYouOut: 'Du vil nå bli logget ut!'
 }
 
 const receipt = {
