@@ -1,5 +1,4 @@
 import { Accordion, Heading, Panel } from '@navikt/ds-react'
-import { isEmpty } from 'lodash'
 import { memo } from 'react'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { User } from '../../../../context/user/user'
@@ -22,8 +21,6 @@ interface Props {
 export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
     const { t } = useTranslation('aboutYou')
 
-    if (!aboutYou || isEmpty(aboutYou)) return null
-
     return (
         <FormElement>
             <Accordion>
@@ -44,10 +41,12 @@ export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
                         </Panel>
 
                         <Panel>
-                            <TextGroupJaNeiVetIkke
-                                title={t('addressOfResidenceConfirmed')}
-                                content={aboutYou.addressOfResidenceConfirmed}
-                            />
+                            {aboutYou.addressOfResidenceConfirmed && (
+                                <TextGroupJaNeiVetIkke
+                                    title={t('addressOfResidenceConfirmed')}
+                                    content={aboutYou.addressOfResidenceConfirmed}
+                                />
+                            )}
                             {aboutYou.addressOfResidenceConfirmed === JaNeiVetIkke.NEI && (
                                 <TextGroup title={t('alternativeAddress')} content={aboutYou.alternativeAddress} />
                             )}

@@ -43,7 +43,7 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
                     <PersonInfo duplicateList={fnrRegisteredParent} />
                 </FormGroup>
                 <FormElement>
-                    <RHFInput name={'address'} label={t('address')} />
+                    <RHFInput name={'address'} label={t('address')} valgfri={true} />
                 </FormElement>
                 <FormElement>
                     <RHFTelefonInput name={'phoneNumber'} label={t('phoneNumberOptional')} valgfri={true} />

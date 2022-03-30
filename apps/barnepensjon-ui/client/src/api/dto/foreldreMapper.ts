@@ -114,7 +114,7 @@ const mapGjenlevendeForelder = (t: TFunction, livingParent: ILivingParent): Gjen
     },
     adresse: {
         spoersmaal: t('address', { ns: 'livingParent' }),
-        svar: livingParent.address,
+        svar: livingParent.address || '-',
     },
     kontaktinfo: {
         telefonnummer: {

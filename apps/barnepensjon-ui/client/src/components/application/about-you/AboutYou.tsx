@@ -41,7 +41,6 @@ export default function AboutYou({ next }: StepProps) {
 
     const addressConfirmed = watch('addressOfResidenceConfirmed')
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
-    const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
 
     return (
         <>
@@ -52,7 +51,7 @@ export default function AboutYou({ next }: StepProps) {
             <FormProvider {...methods}>
                 <form>
                     <FormGroup>
-                        {!user.adressebeskyttelse && !isGuardian && (
+                        {!user.adressebeskyttelse && isChild && (
                             <>
                                 <RHFGeneralQuestionRadio
                                     name={'addressOfResidenceConfirmed'}
