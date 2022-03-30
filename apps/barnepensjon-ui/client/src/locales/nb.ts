@@ -112,7 +112,9 @@ const selectScenario = {
     parentApplicantInformation:
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde. Søsken kan få betydning for beregningen av barnepensjon.',
     guardianApplicantInformation:
-        'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for beregningen av barnepensjon.\n\nDu må ettersende dokumentasjon på at du er verge for barnet/barna.  ',
+        'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for beregningen av barnepensjon.',
+    guardiansMustSendDocumentation:
+        'For å kunne behandle søknad om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
     childApplicantInformation1:
         '<b>Hvis du har mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
@@ -265,7 +267,7 @@ const summary = {
 const error = {
     fixTheseErrorsToContinue: 'For å gå videre må du rette opp i dette:',
     'applicantRole.required': 'Oppgi hvem som søker om barnepensjon',
-    'applicantSituation.required': 'Oppgi hva som er gjeldende for situasjonen',
+    'applicantSituation.required': 'Oppgi hvem barnet/barna har mistet',
     'abroadStays.hasStaysAbroad.required': 'Oppgi om den avdøde har bodd eller jobbet i et annet land enn Norge',
     'addressOfResidenceConfirmed.required': 'Bostedsadresse må bekreftes/avkreftes',
     'alternativeAddress.required': 'Du må oppgi nåværende bostedsadresse',

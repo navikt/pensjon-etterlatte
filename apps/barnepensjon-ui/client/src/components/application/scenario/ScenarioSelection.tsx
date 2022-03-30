@@ -65,46 +65,51 @@ export default function ScenarioSelection() {
             </FormGroup>
 
             {ApplicantRole.PARENT === selectedRole && (
-                <FormGroup>
-                    <BodyLong size={'small'}>{t('parentApplicantInformation')}</BodyLong>
-                </FormGroup>
+                <>
+                    <FormGroup>
+                        <BodyLong size={'small'}>{t('parentApplicantInformation')}</BodyLong>
+                    </FormGroup>
+                    <FormGroup>
+                        <Alert variant={'info'} inline={true}>
+                            <BodyLong>
+                                <Trans value={t('aboutSurvivorsPensionDescription')} />
+                            </BodyLong>
+                        </Alert>
+                    </FormGroup>
+                </>
             )}
 
             {ApplicantRole.GUARDIAN === selectedRole && (
-                <FormGroup>
-                    <BodyLong size={'small'}>{t('guardianApplicantInformation')}</BodyLong>
-                </FormGroup>
-            )}
-
-            {selectedRole === ApplicantRole.PARENT && (
-                <FormGroup>
-                    <Alert variant={'info'} inline={true}>
-                        <BodyLong>
-                            <Trans value={t('aboutSurvivorsPensionDescription')} />
-                        </BodyLong>
-                    </Alert>
-                </FormGroup>
-            )}
-
-            {ApplicantRole.GUARDIAN === selectedRole && (
-                <FormGroup>
-                    <RHFRadio
-                        legend={t('additionalSituationDetails')}
-                        name={'applicantSituation'}
-                        radios={[
-                            {
-                                label: t(ApplicantSituation.ONE_PARENT_DECEASED),
-                                value: ApplicantSituation.ONE_PARENT_DECEASED,
-                                required: true,
-                            },
-                            {
-                                label: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
-                                value: ApplicantSituation.BOTH_PARENTS_DECEASED,
-                                required: true,
-                            },
-                        ]}
-                    />
-                </FormGroup>
+                <>
+                    <FormGroup>
+                        <BodyLong size={'small'}>{t('guardianApplicantInformation')}</BodyLong>
+                    </FormGroup>
+                    <FormGroup>
+                        <Alert variant={'info'} inline={true}>
+                            <BodyLong>
+                                <Trans value={t('guardiansMustSendDocumentation')} />
+                            </BodyLong>
+                        </Alert>
+                    </FormGroup>
+                    <FormGroup>
+                        <RHFRadio
+                            legend={t('additionalSituationDetails')}
+                            name={'applicantSituation'}
+                            radios={[
+                                {
+                                    label: t(ApplicantSituation.ONE_PARENT_DECEASED),
+                                    value: ApplicantSituation.ONE_PARENT_DECEASED,
+                                    required: true,
+                                },
+                                {
+                                    label: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
+                                    value: ApplicantSituation.BOTH_PARENTS_DECEASED,
+                                    required: true,
+                                },
+                            ]}
+                        />
+                    </FormGroup>
+                </>
             )}
 
             {ApplicantRole.CHILD === selectedRole && (
@@ -131,7 +136,7 @@ export default function ScenarioSelection() {
 
             <ErrorSummaryWrapper errors={errors} />
 
-            {selectedRole !== ApplicantRole.CHILD && (
+            {ApplicantRole.CHILD !== selectedRole && (
                 <FormGroup>
                     <Button onClick={handleSubmit(next)}>Fortsett</Button>
                 </FormGroup>
