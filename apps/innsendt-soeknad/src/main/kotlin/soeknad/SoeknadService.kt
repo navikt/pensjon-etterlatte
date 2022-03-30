@@ -31,6 +31,12 @@ class SoeknadService(private val db: SoeknadRepository) {
 
         return if (ider.size == request.soeknader.size) {
             logger.info("Lagret alle (${ider.size}) innsendte søknader.")
+
+            val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer?.svar == innloggetBrukerFnr }
+            if (innsenderSoekerIkke) {
+                db.slettOgKonverterKladd(innloggetBrukerFnr.value, kilde)
+            }
+
             true
         } else {
             logger.error("Kun ${ider.size} av ${request.soeknader.size} ble lagret.")

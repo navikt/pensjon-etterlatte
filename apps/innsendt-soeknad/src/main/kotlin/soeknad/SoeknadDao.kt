@@ -18,6 +18,7 @@ import soeknad.Queries.SLETT_UTGAATTE_KLADDER
 import soeknad.Status.ARKIVERINGSFEIL
 import soeknad.Status.ARKIVERT
 import soeknad.Status.FERDIGSTILT
+import soeknad.Status.KONVERTERT
 import soeknad.Status.LAGRETKLADD
 import soeknad.Status.SENDT
 import soeknad.Status.SLETTET
@@ -38,6 +39,7 @@ interface SoeknadRepository {
     fun slettArkiverteSoeknader(): Int
     fun finnKladd(fnr: String, kilde: String): LagretSoeknad?
     fun slettKladd(fnr: String, kilde: String): SoeknadID?
+    fun slettOgKonverterKladd(fnr: String, kilde: String): SoeknadID?
     fun slettUtgaatteKladder(): Int
 }
 
@@ -198,7 +200,13 @@ class PostgresSoeknadRepository private constructor(
         } else null
     }
 
-    override fun slettKladd(fnr: String, kilde: String): SoeknadID? {
+    override fun slettOgKonverterKladd(fnr: String, kilde: String): SoeknadID? =
+        slettKladd(fnr, kilde, nyStatus = KONVERTERT)
+
+    override fun slettKladd(fnr: String, kilde: String): SoeknadID? =
+        slettKladd(fnr, kilde, nyStatus = SLETTET)
+
+    private fun slettKladd(fnr: String, kilde: String, nyStatus: Status = SLETTET): SoeknadID? {
         val slettetSoeknadId = connection.use {
             it.prepareStatement(SLETT_KLADD)
                 .apply {
@@ -210,7 +218,7 @@ class PostgresSoeknadRepository private constructor(
         }
 
         return slettetSoeknadId?.also {
-            nyStatus(soeknadId = slettetSoeknadId, status = SLETTET)
+            nyStatus(slettetSoeknadId, nyStatus)
         }
     }
 

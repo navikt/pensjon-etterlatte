@@ -267,6 +267,40 @@ internal class SoeknadDaoIntegrationTest {
         assertNull(db.finnKladd(s3.fnr, kildeBarnepensjon))
     }
 
+
+
+    @Test
+    fun `Kladd slettes og markeres som konvertert`() {
+        val json = """{"harSamtykket":true}"""
+
+        val ulagretBarnep = UlagretSoeknad(randomFakeFnr(), json, kildeBarnepensjon)
+        val ulagretGjenlevendep = UlagretSoeknad(randomFakeFnr(), json, kildeGjenlevende)
+
+        assertNull(db.finnKladd(ulagretBarnep.fnr, kildeBarnepensjon))
+        assertNull(db.finnKladd(ulagretGjenlevendep.fnr, kildeGjenlevende))
+
+        val lagretKladd1 = db.lagreKladd(ulagretBarnep)
+        val lagretKladd2 = db.lagreKladd(ulagretGjenlevendep)
+
+        assertNotNull(lagretKladd1)
+        assertNotNull(lagretKladd2)
+
+        assertEquals(ulagretBarnep.fnr, lagretKladd1.fnr)
+        assertEquals(ulagretGjenlevendep.fnr, lagretKladd2.fnr)
+
+        assertEquals(json, lagretKladd1.payload)
+        assertEquals(json, lagretKladd2.payload)
+
+        assertEquals(lagretKladd1.id, db.slettOgKonverterKladd(ulagretBarnep.fnr, kildeBarnepensjon))
+        assertEquals(lagretKladd2.id, db.slettKladd(ulagretGjenlevendep.fnr, kildeGjenlevende))
+
+        assertNull(db.finnKladd(ulagretBarnep.fnr, kildeBarnepensjon))
+        assertNull(db.finnKladd(ulagretGjenlevendep.fnr, kildeGjenlevende))
+
+        assertEquals(Status.KONVERTERT, finnSisteStatus(lagretKladd1.id))
+        assertEquals(Status.SLETTET, finnSisteStatus(lagretKladd2.id))
+    }
+
     @Test
     fun `Skal kun slette kladd med riktig kilde`() {
         val json = """{"harSamtykket":true}"""
@@ -668,6 +702,22 @@ internal class SoeknadDaoIntegrationTest {
             val rs = pstmt.executeQuery()
 
             if (rs.next()) LagretSoeknad(rs.getLong("soeknad_id"), rs.getString("fnr"), rs.getString("payload"))
+            else null
+        }
+    }
+
+    private fun finnSisteStatus(id: SoeknadID): Status? {
+        return connection.use {
+            val rs = it.prepareStatement("""
+                    SELECT h.status_id FROM hendelse h
+                    WHERE h.soeknad_id = ?
+                    ORDER BY h.opprettet DESC
+                    LIMIT 1;
+                """.trimIndent())
+                .apply { setLong(1, id) }
+                .executeQuery()
+
+            if (rs.next()) rs.getString("status_id")?.let { id -> Status.valueOf(id) }
             else null
         }
     }
