@@ -7,7 +7,7 @@ internal class StatusTest {
 
     @Test
     fun `Antall statuser er korrekt`() {
-        Status.values().size shouldBe 7
+        Status.values().size shouldBe 8
     }
 
     @Test
@@ -27,10 +27,11 @@ internal class StatusTest {
 
         val resterendeStatuser = Status.values().filterNot { it in forventetInnsendt }
 
-        resterendeStatuser.size shouldBe 3
+        resterendeStatuser.size shouldBe 4
 
         val forventetResterende = listOf(
             Status.LAGRETKLADD,
+            Status.KONVERTERT,
             Status.SLETTET,
             Status.UTGAATT
         )

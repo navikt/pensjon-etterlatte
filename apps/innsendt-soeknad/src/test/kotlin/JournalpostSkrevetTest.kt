@@ -110,6 +110,10 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
+    override fun slettOgKonverterKladd(fnr: String, kilde: String): SoeknadID? {
+        TODO("Not yet implemented")
+    }
+
     override fun slettUtgaatteKladder(): Int {
         TODO("Not yet implemented")
     }

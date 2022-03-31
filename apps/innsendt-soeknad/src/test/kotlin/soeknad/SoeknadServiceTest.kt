@@ -5,11 +5,12 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.mapper
 import no.nav.etterlatte.soeknad.SoeknadService
 import org.junit.jupiter.api.Test
+import kotlin.random.Random
 
 internal class SoeknadServiceTest {
 
@@ -22,10 +23,12 @@ internal class SoeknadServiceTest {
     fun `Gyldige søknader lagres OK som forventet`() {
         every { mockRepository.ferdigstillSoeknad(any()) } returns 1
 
-        val request = SoeknadRequest(listOf(
-            InnsendtSoeknadFixtures.gjenlevendepensjon(),
-            InnsendtSoeknadFixtures.barnepensjon()
-        ))
+        val request = SoeknadRequest(
+            listOf(
+                InnsendtSoeknadFixtures.gjenlevendepensjon(),
+                InnsendtSoeknadFixtures.barnepensjon()
+            )
+        )
 
         val lagretOK = service.sendSoeknad(Foedselsnummer.of("11057523044"), request, kilde)
 
@@ -60,5 +63,48 @@ internal class SoeknadServiceTest {
         verify(exactly = 1) { mockRepository.lagreKladd(any()) }
 
         id shouldBe 1
+    }
+
+    @Test
+    fun `Send søknad for seg selv OG på vegne av andre`() {
+        val gjenlevFnr = Foedselsnummer.of("24014021406")
+
+        every { mockRepository.ferdigstillSoeknad(any()) } returns Random.nextLong(0, 100)
+
+        val request = SoeknadRequest(
+            listOf(
+                InnsendtSoeknadFixtures.gjenlevendepensjon(gjenlevFnr),
+                InnsendtSoeknadFixtures.barnepensjon(gjenlevFnr, Foedselsnummer.of("05111850870"))
+            )
+        )
+
+        val isSuccess = service.sendSoeknad(gjenlevFnr, request, kilde)
+
+        verify(exactly = 2) { mockRepository.ferdigstillSoeknad(any()) }
+        verify(exactly = 0) { mockRepository.slettOgKonverterKladd(any(), any()) }
+
+        isSuccess shouldBe true
+    }
+
+    @Test
+    fun `Send søknad på vegne av andre`() {
+        val fnr = Foedselsnummer.of("24014021406")
+
+        every { mockRepository.ferdigstillSoeknad(any()) } returns Random.nextLong(0, 100)
+        every { mockRepository.slettOgKonverterKladd(any(), any()) } returns Random.nextLong(0, 100)
+
+        val request = SoeknadRequest(
+            listOf(
+                InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("11057523044")),
+                InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870"))
+            )
+        )
+
+        val isSuccess = service.sendSoeknad(fnr, request, kilde)
+
+        verify(exactly = 2) { mockRepository.ferdigstillSoeknad(any()) }
+        verify(exactly = 1) { mockRepository.slettOgKonverterKladd(fnr.value, kilde) }
+
+        isSuccess shouldBe true
     }
 }

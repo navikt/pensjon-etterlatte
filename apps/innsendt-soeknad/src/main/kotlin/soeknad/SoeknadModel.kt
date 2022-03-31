@@ -33,6 +33,7 @@ enum class Status {
     SENDT,
     ARKIVERT,
     ARKIVERINGSFEIL,
+    KONVERTERT,
     SLETTET,
     UTGAATT;
 
