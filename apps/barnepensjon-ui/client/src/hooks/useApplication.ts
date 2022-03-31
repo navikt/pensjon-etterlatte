@@ -20,6 +20,8 @@ export default function useApplication() {
             return
         }
 
+        if (location.pathname === '/skjema/kvittering') return
+
         getDraft()
             .then((application: IApplication | undefined) => {
                 if (!application?.applicant?.consent) {
