@@ -81,3 +81,6 @@ spec:
     - team: etterlatte
       application: etterlatte-attestering
       access: readwrite
+    - team: etterlatte
+      application: etterlatte-gyldig-soeknad
+      access: readwrite
