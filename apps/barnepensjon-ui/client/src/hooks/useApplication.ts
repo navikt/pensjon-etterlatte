@@ -20,7 +20,7 @@ export default function useApplication() {
             return
         }
 
-        if (location.pathname === '/skjema/kvittering') return
+        if (['/skjema/kvittering', '/skjema/admin'].includes(location.pathname)) return
 
         getDraft()
             .then((application: IApplication | undefined) => {

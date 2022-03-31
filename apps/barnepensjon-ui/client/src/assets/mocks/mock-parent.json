@@ -1,62 +1,66 @@
 {
-    "applicant": {
-        "consent": true,
-        "applicantRole": "PARENT",
-        "applicantSituation": "BOTH_PARENTS_DECEASED"
-    },
-    "meta": {
-        "savedTimestamp": "2022-03-02T10:53:00.126Z",
-        "readyForSaving": false
-    },
-    "aboutYou": {
-        "addressOfResidenceConfirmed": "JA",
-        "residesInNorway": "NEI",
-        "countryOfResidence": "Andorra",
-        "memberFolketrygdenAbroad": "NEI",
-        "accountType": "NORSK",
-        "bankAccount": "1234.12.12345"
-    },
-    "aboutChildren": {
-        "child": [
-            {
-                "firstName": "Lille",
-                "lastName": "Emil",
-                "fnr": "05111850870",
-                "citizenship": "Norge",
-                "staysAbroad": {
-                    "answer": "NEI"
-                },
-                "childHasGuardianship": {
-                    "answer": "NEI"
-                },
-                "childrensPension": {
-                    "applies": "JA",
-                    "bankAccount": {
-                        "answer": "JA"
-                    },
-                    "taxWithhold": {
-                        "answer": "NEI"
-                    }
-                }
-            }
-        ],
-        "erValidert": true
-    },
-    "secondParent": {
-        "firstName": "Emil",
-        "lastName": "Svensson",
-        "fnrDnr": "04096222195",
-        "citizenship": "Algerie",
-        "dateOfDeath": "2022-02-25",
-        "abroadStays": {
-            "hasStaysAbroad": "NEI"
-        },
-        "selfEmplyment": {
-            "wasSelfEmployed": "NEI"
-        },
-        "occupationalInjury": "NEI",
-        "militaryService": {
-            "completed": "NEI"
+  "applicant": {
+    "consent": true,
+    "applicantRole": "PARENT"
+  },
+  "meta": {
+    "readyForSaving": false,
+    "currentPath": "/skjema/forelder/steg/om-barn",
+    "savedTimestamp": "2022-03-31T10:45:57.413Z"
+  },
+  "aboutYou": {},
+  "secondParent": {
+    "firstName": "Stor",
+    "lastName": "Sjøbjørn",
+    "fnrDnr": "20110875720",
+    "citizenship": "Angola",
+    "dateOfDeath": "2020-01-01",
+    "staysAbroad": {
+      "hasStaysAbroad": "JA",
+      "abroadStays": [
+        {
+          "country": "Algerie",
+          "type": [
+            "ARBEIDET"
+          ],
+          "fromDate": "2019-01-01",
+          "medlemFolketrygd": "JA",
+          "pensionAmount": "1000"
         }
-    }
+      ]
+    },
+    "occupationalInjury": "JA"
+  },
+  "aboutChildren": {
+    "children": [
+      {
+        "firstName": "Poppy",
+        "lastName": "Solomon",
+        "fnrDnr": "09011350027",
+        "citizenship": "Belgia",
+        "parents": "BOTH",
+        "staysAbroad": {
+          "answer": "JA",
+          "country": "Am. samoa",
+          "address": "Utenlandsveien 23"
+        },
+        "childHasGuardianship": {
+          "answer": "JA",
+          "firstName": "Verge",
+          "lastName": "Vergeson",
+          "fnr": "09011350027"
+        },
+        "appliesForChildrensPension": true,
+        "paymentDetails": {
+          "accountType": "NORSK",
+          "taxWithhold": {
+            "answer": "JA",
+            "taxPercentage": "22"
+          },
+          "bankAccount": "1231.23.12312"
+        }
+      }
+    ],
+    "erValidert": true
+  }
 }
