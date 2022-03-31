@@ -121,29 +121,33 @@ export default function ScenarioSelection() {
                             <Trans value={t('youNeedFnrForEveryoneInThisApplicationBothParentsDeceased')} />
                         </BodyLong>
                     )}
+                    <FormGroup>
+                        <Alert variant={'info'}>
+                            <Trans value={t('guardianApplicantInformationFatherNotConfirmed')} />
+                        </Alert>
+                    </FormGroup>
                 </>
             )}
 
             {ApplicantRole.CHILD === selectedRole && (
-                <FormGroup>
-                    <BodyLong spacing size={'small'}>
-                        <Trans value={t('childApplicantInformation1')} />
-                    </BodyLong>
-                    <BodyLong spacing size={'small'}>
-                        <Trans value={t('childApplicantInformation2')} />
-                    </BodyLong>
-                    <BodyLong size={'small'}>
-                        <Trans value={t('childApplicantInformationOver18')} />
-                    </BodyLong>
-                </FormGroup>
-            )}
-
-            {[ApplicantRole.GUARDIAN, ApplicantRole.CHILD].includes(selectedRole) && (
-                <FormGroup>
-                    <Alert variant={'info'}>
-                        <Trans value={t('childApplicantInformationFatherNotConfirmed')} />
-                    </Alert>
-                </FormGroup>
+                <>
+                    <FormGroup>
+                        <BodyLong spacing size={'small'}>
+                            <Trans value={t('childApplicantInformation1')} />
+                        </BodyLong>
+                        <BodyLong spacing size={'small'}>
+                            <Trans value={t('childApplicantInformation2')} />
+                        </BodyLong>
+                        <BodyLong size={'small'}>
+                            <Trans value={t('childApplicantInformationOver18')} />
+                        </BodyLong>
+                    </FormGroup>
+                    <FormGroup>
+                        <Alert variant={'info'}>
+                            <Trans value={t('childApplicantInformationFatherNotConfirmed')} />
+                        </Alert>
+                    </FormGroup>
+                </>
             )}
 
             <ErrorSummaryWrapper errors={errors} />
