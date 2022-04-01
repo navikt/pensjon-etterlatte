@@ -59,6 +59,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "cy:test": "TZ=Europe/Oslo cypress run",
+    "cy:open": "TZ=Europe/Oslo cypress open",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

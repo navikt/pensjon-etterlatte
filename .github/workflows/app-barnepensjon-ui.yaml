@@ -40,6 +40,14 @@ jobs:
         working-directory: apps/${{ env.APP_NAME }}/client
         run: |
           CI=true yarn test
+      - name: Start application
+        working-directory: apps/${{ env.APP_NAME }}/client
+        run: |
+          yarn start & npx wait-on http://localhost:3000
+      - name: Run e2e tests (Cypress)
+        working-directory: apps/${{ env.APP_NAME }}/client
+        run: |
+          yarn cy:test
       - name: Build and publish Docker image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
