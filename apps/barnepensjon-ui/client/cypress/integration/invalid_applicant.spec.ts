@@ -1,6 +1,6 @@
 import { basePath } from '../util/constants'
 
-describe('Invalid applicant', () => {
+describe('Invalid Applicant', () => {
     beforeEach(() => {
         cy.intercept('GET', `${basePath}/api/person/innlogget`, { fixture: 'user-too-young' }).as('loggedInUser')
         cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')

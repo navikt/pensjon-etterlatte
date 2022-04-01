@@ -1,7 +1,7 @@
 import { basePath } from '../util/constants'
 
 describe('Front Page', () => {
-    beforeEach(() => {
+    before(() => {
         cy.intercept('GET', `${basePath}/api/person/innlogget`, { fixture: 'user' }).as('loggedInUser')
         cy.intercept('GET', `${basePath}/api/api/kladd`, '10000000').as('getApplication')
         cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')
