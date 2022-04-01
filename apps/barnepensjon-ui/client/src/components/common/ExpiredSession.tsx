@@ -19,6 +19,7 @@ const LogOutAlertWrapper = styled.div`
 const ExpiredSession = () => {
     const [open, setIsOpen] = useState<boolean>(false)
     const [hasBeenClosed, setHasBeenClosed] = useState<boolean>(false)
+    const [loggingOut, setLoggingOut] = useState<boolean>(false)
     const [timeLeft, setTimeLeft] = useState<number>()
     const [time, setTime] = useState(convertSecondsToTime(0))
     const { t } = useTranslation('logOutUser')
@@ -37,12 +38,13 @@ const ExpiredSession = () => {
     useEffect(() => {
         if (typeof timeLeft !== 'number') return
 
-        const fiveMinuts = 5 * 60
+        const fiveMinutes = 5 * 60
         setTime(convertSecondsToTime(timeLeft))
 
         if (timeLeft <= 0) {
+            setLoggingOut(true)
             logOut()
-        } else if (timeLeft <= fiveMinuts && !hasBeenClosed) {
+        } else if (timeLeft <= fiveMinutes && !hasBeenClosed) {
             setIsOpen(true)
         }
     }, [timeLeft, hasBeenClosed])
@@ -51,11 +53,15 @@ const ExpiredSession = () => {
         try {
             const response: string = await getExpirationTimeForLoggedInUser()
 
-            if (parseInt(response) === 0) {
+            const endTime = new Date(response).getTime()
+            const now = new Date().getTime()
+
+            if (endTime <= now) {
                 window.location.reload()
             } else {
                 const endTime = new Date(response)
                 WebWorker.updateEndTime(endTime.getTime())
+                setLoggingOut(false)
             }
         } catch (error) {
             window.location.reload()
@@ -72,12 +78,20 @@ const ExpiredSession = () => {
                             setHasBeenClosed(true)
                         }}
                     >
-                        {`${t('youWillBeLoggedOutIn')} `}
-                        <strong>
-                            {`${time.minutes.toString().padStart(2, '0')}:${time.seconds.toString().padStart(2, '0')}`}
-                        </strong>
-                        {` ${t('time')}.
-                            ${t('sendNowOrContinueLater')}`}
+                        {loggingOut ? (
+                            <div>{t('wereLoggingYouOut')}</div>
+                        ) : (
+                            <span>
+                                {`${t('youWillBeLoggedOutIn')} `}
+                                <strong>
+                                    {`${time.minutes.toString().padStart(2, '0')}:${time.seconds
+                                        .toString()
+                                        .padStart(2, '0')}`}
+                                </strong>
+                                {` ${t('time')}.
+                                ${t('sendNowOrContinueLater')}`}
+                            </span>
+                        )}
                     </CloseableAlert>
                 </LogOutAlertWrapper>
             )}

@@ -7,6 +7,7 @@ import prometheus from './monitoring/prometheus'
 import logger from './monitoring/logger'
 import parser from 'body-parser'
 import { mockApi } from './mock/mock-api'
+import jwt from "jsonwebtoken";
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
@@ -31,6 +32,23 @@ if (config.env.isLabsCluster) {
     mockApi(app)
 } else {
     app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
+
+    app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
+        const { authorization } = req.headers
+        const token = authorization!!.split(' ')[1]
+
+        if (token) {
+            const decoded = jwt.decode(token)
+            if (!decoded || typeof decoded === 'string') {
+                res.sendStatus(500)
+            } else {
+                const exp = decoded['exp'] as number
+                res.send(`${exp * 1000}`);
+            }
+        } else {
+            res.sendStatus(401);
+        }
+    });
 }
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))

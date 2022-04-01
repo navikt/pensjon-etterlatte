@@ -594,6 +594,7 @@ export default {
     "brukerLoggesUt.tid": "minutter",
     "brukerLoggesUt.knapp": "X-ikon for å lukke meldingen",
     "brukerLoggesUt.info2": "Du kan sende søknad nå eller fortsette senere. \n Søknaden din lagres i 72 timer.",
+    "brukerLoggesUt.loggerUt": "Du blir nå logget ut!",
     "systemUtilgjengelig.veileder": "Å nei, søknaden fungerer ikke...",
     "systemUtilgjengelig.intro": "Det er en feil i søknaden som gjør at den dessverre ikke fungerer som den skal.",
     "systemUtilgjengelig.beskrivelse":

@@ -83,6 +83,7 @@
     "printWidth": 120,
     "tabWidth": 4,
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "bracketSpacing": true
   }
 }
