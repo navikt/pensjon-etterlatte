@@ -37,6 +37,7 @@ const btn = {
     saveButton: 'Lagre',
     cancelButton: 'Avbryt',
     removeButton: 'Fjern',
+    deleteButton: 'Slette',
     editButton: 'Endre',
 }
 

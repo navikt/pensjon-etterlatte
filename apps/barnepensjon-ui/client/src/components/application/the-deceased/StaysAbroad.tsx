@@ -106,7 +106,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                             <div style={{ textAlign: 'right' }}>
                                 <FormElement>
                                     <Button variant={'secondary'} type={'button'} onClick={() => remove(index)}>
-                                        <DeleteFilled /> &nbsp;{t('deletebutton', { ns: 'btn' })}
+                                        <DeleteFilled /> &nbsp;{t('deleteButton', { ns: 'btn' })}
                                     </Button>
                                 </FormElement>
                             </div>
