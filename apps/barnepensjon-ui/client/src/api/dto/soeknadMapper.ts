@@ -7,8 +7,10 @@ import {
     BankkontoType,
     BetingetOpplysning,
     EnumSvar,
+    FritekstSvar,
     JaNeiVetIkke,
     Opplysning,
+    UtbetalingsInformasjon,
     Utenlandsadresse,
 } from './FellesOpplysninger'
 import { IChild } from '../../types/person'
@@ -55,7 +57,27 @@ const mapTilBarnepensjonSoeknad = (
     }
 }
 
-const mapUtbetalingsinfo = (t: TFunction, child: IChild) => {
+const mapUtbetalingsinfo = (
+    t: TFunction,
+    child: IChild
+): BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon> | undefined => {
+    let skattetrekk: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar> | undefined> | undefined
+    if (!!child.paymentDetails?.taxWithhold?.answer) {
+        skattetrekk = {
+            spoersmaal: t('doYouWantUsToWithholdTax', { ns: 'paymentDetails' }),
+            svar: {
+                verdi: child.paymentDetails.taxWithhold.answer,
+                innhold: t(child.paymentDetails.taxWithhold.answer, { ns: 'radiobuttons' }),
+            },
+            opplysning: child.paymentDetails.taxWithhold.answer === JaNeiVetIkke.JA ? {
+                spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
+                svar: {
+                    innhold: child.paymentDetails.taxWithhold.taxPercentage || '-'
+                }
+            } : undefined
+        }
+    }
+
     if (child.paymentDetails?.accountType === BankkontoType.UTENLANDSK) {
         return {
             spoersmaal: t('accountType', { ns: 'paymentDetails' }),
@@ -88,6 +110,7 @@ const mapUtbetalingsinfo = (t: TFunction, child: IChild) => {
                         innhold: child.paymentDetails.swift!!,
                     },
                 },
+                skattetrekk,
             },
         }
     } else if (!!child.paymentDetails?.bankAccount) {
@@ -104,6 +127,7 @@ const mapUtbetalingsinfo = (t: TFunction, child: IChild) => {
                         innhold: child.paymentDetails?.bankAccount!!,
                     },
                 },
+                skattetrekk,
             },
         }
     } else return undefined

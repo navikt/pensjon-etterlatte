@@ -1,4 +1,5 @@
 import {
+    BetingetOpplysning,
     EnumSvar,
     FritekstSvar,
     JaNeiVetIkke,
@@ -166,8 +167,8 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
             },
         },
         utenlandsopphold: mapUtenlandsopphold(t, parent.staysAbroad),
-        naeringsInntekt: parent.selfEmplyment ? mapNaeringsinntekt(t, parent.selfEmplyment) : undefined,
-        militaertjeneste: parent.militaryService
+        naeringsInntekt: !!parent.selfEmplyment ? mapNaeringsinntekt(t, parent.selfEmplyment) : undefined,
+        militaertjeneste: !!parent.militaryService
             ? {
                   spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
                   svar: {
@@ -267,7 +268,13 @@ const mapUtenlandsopphold = (t: TFunction, staysAbroad: IStaysAbroad) => {
     }
 }
 
-const mapNaeringsinntekt = (t: TFunction, selfEmployment: ISelfEmployment) => {
+const mapNaeringsinntekt = (
+    t: TFunction,
+    selfEmployment: ISelfEmployment
+): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt> | undefined => {
+    if (!selfEmployment?.wasSelfEmployed)
+        return undefined
+
     let opplysningNaeringsInntekt: Naeringsinntekt | undefined
     if (selfEmployment?.wasSelfEmployed === JaNeiVetIkke.JA) {
         opplysningNaeringsInntekt = {
@@ -290,8 +297,8 @@ const mapNaeringsinntekt = (t: TFunction, selfEmployment: ISelfEmployment) => {
     return {
         spoersmaal: t('wasTheDeceasedSelfEmployed', { ns: 'aboutTheDeceased' }),
         svar: {
-            innhold: t(selfEmployment?.wasSelfEmployed, { ns: 'radiobuttons' }),
-            verdi: selfEmployment?.wasSelfEmployed,
+            innhold: t(selfEmployment!!.wasSelfEmployed, { ns: 'radiobuttons' }),
+            verdi: selfEmployment!!.wasSelfEmployed,
         },
         opplysning: opplysningNaeringsInntekt,
     }
