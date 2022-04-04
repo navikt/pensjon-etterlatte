@@ -91,8 +91,8 @@ const mapForelderFraInnloggetBruker = (t: TFunction, aboutYou: IAboutYou, user: 
     lastName: user.etternavn!!,
     fnrDnr: user.foedselsnummer!!,
     citizenship: user.statsborgerskap!!,
-    address: aboutYou?.alternativeAddress || user.adresse!!,
-    phoneNumber: aboutYou?.phoneNumber,
+    address: user.adresse,
+    phoneNumber: user.telefonnummer || aboutYou.phoneNumber,
 })
 
 const mapGjenlevendeForelder = (t: TFunction, livingParent: ILivingParent): GjenlevendeForelder => ({
@@ -114,7 +114,7 @@ const mapGjenlevendeForelder = (t: TFunction, livingParent: ILivingParent): Gjen
         svar: livingParent.citizenship,
     },
     adresse: {
-        spoersmaal: t('address', { ns: 'livingParent' }),
+        spoersmaal: t('address', { ns: 'common' }),
         svar: livingParent.address || '-',
     },
     kontaktinfo: {

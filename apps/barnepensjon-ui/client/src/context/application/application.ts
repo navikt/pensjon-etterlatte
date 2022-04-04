@@ -64,7 +64,7 @@ export interface IParent {
 }
 
 export interface ILivingParent extends IParent {
-    address: string
+    address?: string
     phoneNumber?: string
 }
 
