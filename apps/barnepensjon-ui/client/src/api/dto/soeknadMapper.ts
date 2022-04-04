@@ -20,6 +20,10 @@ import { hentForeldre, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 export const mapTilBarnepensjonSoeknadListe = (t: TFunction, application: IApplication, user: User): Barnepensjon[] => {
     const children: IChild[] = application.aboutChildren!!.children!!
 
+    if (!children.length) {
+        throw Error('Kan ikke sende inn søknad med tom liste over barn!')
+    }
+
     return children
         .filter((child) => !!child.appliesForChildrensPension)
         .map((child) => mapTilBarnepensjonSoeknad(t, child, application, user))
@@ -69,12 +73,15 @@ const mapUtbetalingsinfo = (
                 verdi: child.paymentDetails.taxWithhold.answer,
                 innhold: t(child.paymentDetails.taxWithhold.answer, { ns: 'radiobuttons' }),
             },
-            opplysning: child.paymentDetails.taxWithhold.answer === JaNeiVetIkke.JA ? {
-                spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
-                svar: {
-                    innhold: child.paymentDetails.taxWithhold.taxPercentage || '-'
-                }
-            } : undefined
+            opplysning:
+                child.paymentDetails.taxWithhold.answer === JaNeiVetIkke.JA
+                    ? {
+                          spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
+                          svar: {
+                              innhold: child.paymentDetails.taxWithhold.taxPercentage || '-',
+                          },
+                      }
+                    : undefined,
         }
     }
 
@@ -198,10 +205,14 @@ const mapSoesken = (t: TFunction, child: IChild, application: IApplication, user
         .map((c: IChild) => mapBarn(t, c, application, user))
 }
 
-const mapSamtykke = (t: TFunction, application: IApplication, user: User): Opplysning<boolean> => ({
-    spoersmaal: t('consentToNav', { ns: 'frontPage', fornavn: user.fornavn!!, etternavn: user.etternavn!! }),
-    svar: !!application.applicant?.consent,
-})
+const mapSamtykke = (t: TFunction, application: IApplication, user: User): Opplysning<boolean> => {
+    if (!application.applicant!!.consent) throw Error('Kan ikke sende inn søknad uten å ha samtykket!')
+
+    return {
+        spoersmaal: t('consentToNav', { ns: 'frontPage', fornavn: user.fornavn!!, etternavn: user.etternavn!! }),
+        svar: !!application.applicant?.consent,
+    }
+}
 
 const mapInnsender = (t: TFunction, user: User): Innsender => ({
     type: PersonType.INNSENDER,
