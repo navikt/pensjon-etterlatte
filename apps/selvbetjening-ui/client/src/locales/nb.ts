@@ -38,7 +38,7 @@ export default {
     "forside.omYtelsene.lenkeOvergangsstoenad.tekst": "Mer om overgangsstønad",
     "forside.barnepensjon.tittel": "Du kan også søke om barnepensjon",
     "forside.barnepensjon.innhold":
-        "Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om gjenlevendepensjon og barnepensjon i denne søknaden.",
+        "Har du felles barn under 18 år med avdøde, kan barnet/barna ha rett til barnepensjon. Du kan både søke om gjenlevendepensjon og barnepensjon i denne søknaden.",
     "forside.barnepensjon.href": "https://www.nav.no/barnepensjon",
     "forside.barnepensjon.tekst": "Mer om barnepensjon",
     "forside.soeknad.tittel": "Utfylling av søknaden",
