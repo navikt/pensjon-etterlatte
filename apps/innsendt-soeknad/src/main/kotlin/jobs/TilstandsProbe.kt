@@ -8,14 +8,17 @@ import soeknad.StatistikkRepository
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
-class TilstandsProbe(private val db: StatistikkRepository){
+class TilstandsProbe(private val db: StatistikkRepository) {
     private val usendtAlder = Gauge.build("alder_eldste_usendte", "Alder på elste usendte søknad").register()
-    private val ikkeJournalfoertAlder = Gauge.build("alder_eldste_uarkiverte", "Alder på eldste ikke-arkiverte søknad").register()
-    private val soknadTilstand = Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand").register()
+    private val ikkeJournalfoertAlder =
+        Gauge.build("alder_eldste_uarkiverte", "Alder på eldste ikke-arkiverte søknad").register()
+    private val soknadTilstand =
+        Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand").register()
+    private val soknadsKilder = Gauge.build("soknad_kilde", "Kilden søknadene er fra").labelNames("kilde").register()
 
     private val logger = LoggerFactory.getLogger(TilstandsProbe::class.java)
 
-    internal fun gatherMetrics(){
+    internal fun gatherMetrics() {
         db.eldsteUsendte()?.apply {
             usendtAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
         }
@@ -27,14 +30,18 @@ class TilstandsProbe(private val db: StatistikkRepository){
             .also { rapport -> logger.info(rapport.toString()) }
             .forEach { (status, antall) -> soknadTilstand.labels(status.name).set(antall.toDouble()) }
 
+        db.kilder()
+            .also { kilde -> logger.info(kilde.toString()) }
+            .forEach{(kilde, antall) -> soknadsKilder.labels(kilde).set(antall.toDouble())}
+
         logger.info("Ukategoriserte søknader: " + db.ukategorisert().toString())
     }
 
-    suspend fun start(running: Job){
+    suspend fun start(running: Job) {
         var cycle = Cycle(6, 0)
-        while(!running.isCompleted) {
+        while (!running.isCompleted) {
             cycle = cycle.step()
-            if(cycle.currentStep == 0){
+            if (cycle.currentStep == 0) {
                 try {
                     gatherMetrics()
                 } catch (e: Exception) {

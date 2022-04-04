@@ -604,6 +604,51 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals(Status.values().size, statusListe.size)
     }
 
+    @Test
+    fun `Sjekk antall av hver kilde`() {
+        // To stk stopper på status KLADD
+        db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeGjenlevende))
+        db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon))
+
+        // Stopp på status "FERDIGSTILT"
+        val ferdigstilt = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
+        db.lagreKladd(ferdigstilt)
+        db.ferdigstillSoeknad(ferdigstilt)
+
+        // Stopp på status "SENDT"
+        val sendt = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
+        db.lagreKladd(sendt)
+        val sendtId = db.ferdigstillSoeknad(sendt)
+        db.soeknadSendt(sendtId)
+
+        // Stopp på status "SENDT"
+        val sendt2 = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
+        db.lagreKladd(sendt2)
+        val sendt2Id = db.ferdigstillSoeknad(sendt2)
+        db.soeknadSendt(sendt2Id)
+
+        // Stopp på status "ARKIVERINGSFEIL"
+        val arkiveringsfeil = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
+
+        // Lagre kladd 3 ganger
+        db.lagreKladd(arkiveringsfeil)
+        db.lagreKladd(arkiveringsfeil)
+        db.lagreKladd(arkiveringsfeil)
+
+        val lagretSoeknadID = db.lagreKladd(arkiveringsfeil).id
+        db.ferdigstillSoeknad(arkiveringsfeil)
+        db.soeknadSendt(lagretSoeknadID)
+        db.soeknadFeiletArkivering(lagretSoeknadID, """{"error":"test"}""")
+
+        val kilder = db.kilder()
+
+        assertEquals(2, kilder.size)
+
+        assertEquals(5, kilder[kildeBarnepensjon])
+        assertEquals(1, kilder[kildeGjenlevende])
+
+    }
+
     private fun finnSoeknad(id: SoeknadID): FerdigstiltSoeknad? =
         connection.use { conn ->
             val rs = conn.prepareStatement("SELECT id, type, kilde FROM soeknad WHERE id = ?")

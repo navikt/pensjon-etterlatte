@@ -12,6 +12,7 @@ import soeknad.Queries.SELECT_OLD
 import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
 import soeknad.Queries.SELECT_OLDEST_UNSENT
 import soeknad.Queries.SELECT_RAPPORT
+import soeknad.Queries.SELECT_KILDE
 import soeknad.Queries.SLETT_ARKIVERTE_SOEKNADER
 import soeknad.Queries.SLETT_KLADD
 import soeknad.Queries.SLETT_UTGAATTE_KLADDER
@@ -47,6 +48,7 @@ interface StatistikkRepository {
     fun eldsteUsendte(): LocalDateTime?
     fun eldsteUarkiverte(): LocalDateTime?
     fun rapport(): Map<Status, Long>
+    fun kilder(): Map<String, Long>
     fun ukategorisert(): List<Long>
 }
 
@@ -253,6 +255,15 @@ class PostgresSoeknadRepository private constructor(
         }
     }
 
+    override fun kilder(): Map<String, Long> {
+        return connection.use {
+            it.prepareStatement(SELECT_KILDE)
+                .executeQuery()
+                .toList { getString(1) to getLong(2) }
+                .toMap()
+        }
+    }
+
     override fun ukategorisert(): List<Long> = connection.use {
         it.prepareStatement("""SELECT s.id FROM soeknad s where s.id not in (select soeknad_id from hendelse )""")
             .executeQuery()
@@ -337,6 +348,12 @@ private object Queries {
         GROUP BY st.id
         ORDER BY st.rang;
     """.trimMargin()
+
+    val SELECT_KILDE = """
+        SELECT kilde, count(*) 
+        FROM soeknad 
+        GROUP BY kilde;
+    """.trimIndent()
 
     val SLETT_ARKIVERTE_SOEKNADER = """
         DELETE FROM innhold i 
