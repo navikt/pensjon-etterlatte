@@ -230,7 +230,7 @@ export default {
     "omDenAvdoede.selvstendigNaeringsdrivende.placeholder": "Samla årsinntekt før skatt",
     "omDenAvdoede.annenOpptjening.tittel": "Anna",
     "omDenAvdoede.harAvtjentMilitaerTjeneste.svar":
-        "Har han eller ho gjennomført militær eller sivil førstegongsteneste som varte minst 30 dagar?",
+        "Har han eller ho gjennomført militær eller sivil førstegongsteneste for Noreg som varte minst 30 dagar?",
     "omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst":
         "Dette kan gi opptening som blir teke med i utrekninga av attlevandepensjonen din",
     "omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse": "Kva for år? (valfri)",

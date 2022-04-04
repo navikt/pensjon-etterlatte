@@ -233,7 +233,7 @@ export default {
     "omDenAvdoede.selvstendigNaeringsdrivende.placeholder": "Samlet årsinntekt før skatt",
     "omDenAvdoede.annenOpptjening.tittel": "Annet",
     "omDenAvdoede.harAvtjentMilitaerTjeneste.svar":
-        "Har han eller hun gjennomført militær eller sivil førstegangstjeneste som varte minst 30 dager?",
+        "Har han eller hun gjennomført militær eller sivil førstegangstjeneste for Norge som varte minst 30 dager?",
     "omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst":
         "Dette kan gi opptjening som tas med i beregningen av gjenlevendepensjonen din",
     "omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse": "Hvilke(-t) år? (valgfri)",
