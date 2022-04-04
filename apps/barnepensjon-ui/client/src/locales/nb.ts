@@ -115,7 +115,7 @@ const selectScenario = {
     guardianApplicantInformation:
         'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for beregningen av barnepensjon.',
     guardiansMustSendDocumentation:
-        'For å kunne behandle søknad om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
+        'For å kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
     childApplicantInformation1:
         '<b>Hvis du har mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
@@ -123,9 +123,9 @@ const selectScenario = {
     childApplicantInformationOver18:
         'Har du mistet en eller begge foreldrene dine må du bruke <a href="https://www.nav.no/fyllut/nav180405">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
-        'I denne søknaden kreves det fullstendig fødselsnummer til barn/barna og foreldrene. Hvis du ikke har dette må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401">denne søknaden</a>.',
+        'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
-        'I denne søknaden kreves det fullstendig fødselsnummer til barn/barna og foreldrene. Hvis du ikke har dette må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">denne søknaden</a>.',
+        'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">denne søknaden</a>.',
     guardianApplicantInformationFatherNotConfirmed:
         'Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">denne søknaden</a>.',
     childApplicantInformationFatherNotConfirmed:
