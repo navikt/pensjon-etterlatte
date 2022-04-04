@@ -38,6 +38,12 @@ export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
                                 citizenship={user.statsborgerskap}
                                 address={fullAdresse(user)}
                             />
+                            {(user.telefonnummer || aboutYou.phoneNumber) && (
+                                <TextGroup
+                                    title={t('phoneNumber', { ns: 'common' })}
+                                    content={user.telefonnummer || aboutYou.phoneNumber}
+                                />
+                            )}
                         </Panel>
 
                         <Panel>
