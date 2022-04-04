@@ -45,7 +45,7 @@ const SoknadForside = () => {
 
             <Spraakvalg />
 
-            <SkjemaGruppe >
+            <SkjemaGruppe>
                 <Alert inline={true} variant={"info"}>
                     <b>{t("forside.uthentingAvInfo.infotekst")}</b>
                 </Alert>
@@ -70,11 +70,15 @@ const SoknadForside = () => {
                 </BodyLong>
 
                 <BodyLong>
-                    <Link href={t("forside.omYtelsene.lenkeGjenlevende.href")}>{t("forside.omYtelsene.lenkeGjenlevende.tekst")}</Link>
+                    <Link href={t("forside.omYtelsene.lenkeGjenlevende.href")}>
+                        {t("forside.omYtelsene.lenkeGjenlevende.tekst")}
+                    </Link>
                 </BodyLong>
 
                 <BodyLong>
-                    <Link href={t("forside.omYtelsene.lenkeOvergangsstoenad.href")}>{t("forside.omYtelsene.lenkeOvergangsstoenad.tekst")}</Link>
+                    <Link href={t("forside.omYtelsene.lenkeOvergangsstoenad.href")}>
+                        {t("forside.omYtelsene.lenkeOvergangsstoenad.tekst")}
+                    </Link>
                 </BodyLong>
             </SkjemaGruppe>
 
@@ -131,6 +135,10 @@ const SoknadForside = () => {
                         {t("forside.uthentingAvInfo.lenke2.tekst")}
                     </Link>
                 </BodyLong>
+            </SkjemaGruppe>
+            <SkjemaGruppe>
+                <Heading size={"small"}>{t("forside.soeknad.tittel")}</Heading>
+                <BodyLong spacing>{t("forside.soeknad.innhold")}</BodyLong>
             </SkjemaGruppe>
             <SkjemaGruppe>
                 <Heading size={"small"}>{t("forside.samtykke.tittel")}</Heading>

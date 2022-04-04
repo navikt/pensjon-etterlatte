@@ -2,6 +2,7 @@ import { Alert, BodyLong, BodyShort, Button, Heading, Link } from '@navikt/ds-re
 import FormGroup from '../common/FormGroup'
 import NavGuide from '../common/NavGuide'
 import useTranslation from '../../hooks/useTranslation'
+import FormElement from '../common/FormElement'
 
 export default function ReceiptPage() {
     const { t } = useTranslation('receipt')
@@ -34,16 +35,9 @@ export default function ReceiptPage() {
                     </li>
                 </ul>
 
-                <BodyLong>{t('childrenOver18MustNotify')}</BodyLong>
-
-                <ul>
-                    <li>
-                        <BodyShort>{t('changeInEduation')}</BodyShort>
-                    </li>
-                    <li>
-                        <BodyShort>{t('changedIncome')}</BodyShort>
-                    </li>
-                </ul>
+                <FormElement>
+                    <BodyLong>{t('childrenOver18MustNotify')}</BodyLong>
+                </FormElement>
 
                 <BodyLong>
                     {t('moreAboutRightsAndDuties')}&nbsp;
@@ -72,16 +66,16 @@ export default function ReceiptPage() {
             <FormGroup>
                 <Heading size={'medium'}>{t('viewCaseTitle')}</Heading>
 
-                <BodyLong spacing>
-                    {t('viewCaseInfoContentPart1')}&nbsp;
-                    <Link href={t('viewCaseInfoLinkHref1')}>{t('viewCaseInfoLinkText1')}</Link>&nbsp;
-                    {t('viewCaseInfoContentPart2')}&nbsp;
-                </BodyLong>
+                <FormElement>
+                    <BodyLong>{t('viewCaseInfoContentPart1')}&nbsp;</BodyLong>
+                </FormElement>
 
-                <BodyLong spacing>
-                    {t('viewCaseInfoContent3')}&nbsp;
-                    <Link href={t('viewCaseInfoLinkHref3')}>{t('viewCaseInfoLinkText3')}</Link>.
-                </BodyLong>
+                <FormElement>
+                    <BodyLong>
+                        {t('viewCaseInfoContent2')}&nbsp;
+                        <Link href={t('viewCaseInfoLinkHref2')}>{t('viewCaseInfoLinkText2')}</Link>.
+                    </BodyLong>
+                </FormElement>
 
                 <BodyLong>
                     {t('processingTimeText_part1')}

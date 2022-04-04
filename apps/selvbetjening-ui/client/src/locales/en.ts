@@ -63,6 +63,9 @@ export default {
     "forside.uthentingAvInfo.lenke2.href":
         "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3",
     "forside.uthentingAvInfo.lenke2.tekst": "Read more about data protection and security on the nav.no website",
+    "forside.soeknad.tittel": "Filling in the application",
+    "forside.soeknad.innhold":
+        "We will save your application for 72 hours so that you can take breaks. You can discard your application at any time.",
     "forside.samtykke.tittel": "We trust you",
     "forside.samtykke.innhold":
         "You must provide us with the correct information so that we can process your application. \nIf you receive money that you are not entitled to because you withheld information or provided incorrect information, you usually have to pay this money back.\n\n",

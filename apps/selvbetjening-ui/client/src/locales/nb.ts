@@ -41,6 +41,9 @@ export default {
         "Har du felles barn under 18 år med avdøde, kan barnet/ barna ha rett til barnepensjon. Du kan både søke om gjenlevendepensjon og barnepensjon i denne søknaden.",
     "forside.barnepensjon.href": "https://www.nav.no/barnepensjon",
     "forside.barnepensjon.tekst": "Mer om barnepensjon",
+    "forside.soeknad.tittel": "Utfylling av søknaden",
+    "forside.soeknad.innhold":
+        "Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.",
     "forside.uthentingAvInfo.tittel": "Vi henter informasjonen vi trenger",
     "forside.uthentingAvInfo.innhold":
         "For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell samboer.\nVi henter:",
@@ -208,7 +211,7 @@ export default {
     "omDenAvdoede.boddEllerJobbetUtland.ingress":
         "Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.",
     "omDenAvdoede.boddEllerJobbetUtland.svar":
-        "Bodde eller arbeidet han eller hun i et annet land enn Norge etter fylte 16 år?",
+        "Har han eller hun bodd og/eller arbeidet i et annet land enn Norge etter fylte 16 år?",
     "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land": "Land",
     "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse": "Bodd og/eller arbeidet?",
     "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato": "Fra dato (valgfri)",
@@ -236,7 +239,7 @@ export default {
     "omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse": "Hvilke(-t) år? (valgfri)",
     "omDenAvdoede.doedsfallAarsak": "Skyldes dødsfallet yrkesskade eller yrkessykdom?",
     "omDenAvdoede.doedsfallAarsakHvorfor":
-        "Hvis dødsfallet skyldes godkjent yrkesskade eller yrkessykdom kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.",
+        "Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få",
     "omBarn.tittel": "Om barn",
     "omBarn.tittelModal": "Om barnet",
     "omBarn.informasjon":

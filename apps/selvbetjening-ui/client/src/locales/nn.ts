@@ -59,6 +59,9 @@ export default {
     "forside.uthentingAvInfo.lenke2.href":
         "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3",
     "forside.uthentingAvInfo.lenke2.tekst": "Om personvern og sikkerheit på nav.no",
+    "forside.soeknad.tittel": "Utfylling av søknaden",
+    "forside.soeknad.innhold":
+        "Vi lagrar søknaden i 72 timar så du kan ta pauser undervegs. Du kan når som helst avbryte søknaden.",
     "forside.samtykke.tittel": "Vi stoler på deg",
     "forside.samtykke.innhold":
         "Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din. \nViss du får pengar du ikkje har rett til fordi du har gitt feil opplysingar, må du vanlegvis betale tilbake.\n\n",

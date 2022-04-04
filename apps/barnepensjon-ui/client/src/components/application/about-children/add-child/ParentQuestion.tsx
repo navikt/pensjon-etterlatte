@@ -28,7 +28,7 @@ export default function ParentQuestion({ parents }: Props) {
                     radios={[
                         {
                             label: isParent
-                                ? t('jointChild')
+                                ? t('jointChild', { person1: nameAndFnr(application.secondParent!) })
                                 : t('bothOfTheAbove', {
                                       person1: nameAndFnr(application.firstParent!),
                                       person2: nameAndFnr(application.secondParent!),
@@ -42,7 +42,7 @@ export default function ParentQuestion({ parents }: Props) {
                             required: true,
                         },
                         {
-                            label: isParent ? t('deceasedParentsChild') : nameAndFnr(application.secondParent!),
+                            label: nameAndFnr(application.secondParent!),
                             value: ParentRelationType.SECOND_PARENT,
                             required: true,
                         },

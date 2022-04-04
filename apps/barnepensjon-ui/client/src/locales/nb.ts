@@ -96,7 +96,7 @@ const frontPage = {
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Om personvern og sikkerhet på nav.no</a>',
     aboutTheApplicationTitle: 'Utfylling av søknaden',
     aboutTheApplicationDescription:
-        'Vi lagrer søknaden i 72 timer og du kan ta pauser underveis. Du kan når som helst avbryte søknaden.',
+        'Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.',
     consentTitle: 'Vi stoler på deg',
     consentDescription:
         'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n',
@@ -199,7 +199,7 @@ const aboutTheDeceased = {
     otherTitle: 'Annet',
     occupationalInjury: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     whyWeAskAboutOccupationalInjury:
-        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det få betydning for beregning av barnepensjon.',
+        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det avgjøre om barnet/barna får barnepensjon og hvor mye det/de kan få.',
     deceasedHasServedInTheMilitary:
         'Har han eller hun gjennomført militær eller sivil førstegangstjeneste for Norge som varte minst 30 dager?',
     whyWeAskAboutMilitaryService: 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',
@@ -216,7 +216,7 @@ const aboutChildren = {
     onlyChildrenOfDeceasedHaveRights: 'Det er kun avdødes barn og adoptivbarn som har rett til barnepensjon.',
     onlyParentOrGuardianCanApply:
         'Det er barnets forelder eller oppnevnt verge som kan søke om barnepensjon for dette barnet. Det må søkes om barnepensjon i egen søknad.',
-    onlyChildrenUnder18Necessary: 'Det er kun nødvendig å opplyse om barn under 18 år i denne søknaden',
+    onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år.',
     livesIn: 'Bor i',
     doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
     doesTheSiblingLiveAbroad: 'Bor søskenet i et annet land enn Norge?',
@@ -240,8 +240,7 @@ const aboutChildren = {
     whoAreTheParents: 'Hvem er foreldre til barnet?',
     bothOfTheAbove: '{person1} og {person2}',
     remainingParentsChild: 'Mitt særkullsbarn',
-    deceasedParentsChild: 'Avdødes særkullsbarn',
-    jointChild: 'Felles barn med avdøde',
+    jointChild: 'Jeg og {person1}',
     relationHelpText:
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
     aboutChildrenTitle: 'Om barn',
@@ -366,7 +365,7 @@ const logOutUser = {
     time: 'minutter',
     youWillBeLoggedOutIn: 'Du vil bli logget ut om',
     sendNowOrContinueLater: 'Du kan sende søknad nå eller fortsette senere. \n Søknaden din lagres i 72 timer.',
-    wereLoggingYouOut: 'Du vil nå bli logget ut!'
+    wereLoggingYouOut: 'Du vil nå bli logget ut!',
 }
 
 const receipt = {
@@ -375,35 +374,30 @@ const receipt = {
     contact: 'Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.',
     youMustNotifyRegardingChanges: 'Du må melde fra om endringer',
     importantChangesCanAffectYourRights:
-        'Skjer det viktige endringer kan det påvirke retten til og/eller utbetaling av barnepensjon. Det kan for eksempel være ved:',
+        'Du må melde fra med en gang det skjer viktige endringer i livet til barnet eller barna. Det kan for eksempel være ved:',
     changeInLivingSituation: 'endring i bo/familiesituasjon',
     changeAddressOrMoveAbroad: 'flytting eller opphold i et annet land over tid',
-    childrenOver18MustNotify: 'Barn over 18 år som mottar barnepensjon må i tillegg gi beskjed om endring:',
-    changeInEduation: 'i utdanningssituasjon',
-    changedIncome: 'av arbeidsinntekt',
-    moreAboutRightsAndDuties: 'Les mer om rettigheter og plikter på',
+    childrenOver18MustNotify:
+        'Barn over 18 år som mottar barnepensjon må i tillegg gi beskjed om endring i utdanningssituasjon og/eller arbeidsinntekt.',
+    changeInEduation: 'utdanningssituasjon og/eller arbeidsinntekt',
+    moreAboutRightsAndDuties: 'Du kan lese mer om rettigheter og plikter på',
     moreAboutRightsAndDutiesLinkHref: 'https://nav.no/rettogplikt',
     moreAboutRightsAndDutiesLinkText: 'nav.no/rettogplikt',
-    benefitsChangingTitle: 'Regelendringer på barnepensjon',
-    benefitsChangingDescription1:
-        'Regelverket for barnepensjon skal styrkes for barn som mister en eller begge foreldrene. Mer informasjon om endringene finner du på ',
+    benefitsChangingTitle: 'Regelendringer',
+    benefitsChangingDescription1: 'Barnepensjon skal styrkes. Les mer om endringene her: ',
     benefitsChangingDescription1_link: 'www.nav.no/barnepensjon',
-    benefitsChangingDescription1_href: 'https://www.nav.no/barnepensjon',
-    submissionOfGuardianshipInfo: 'Innsendelse av vergeinformajson',
+    benefitsChangingDescription1_href: 'https://www.nav.no/barnepensjon#regel',
+    submissionOfGuardianshipInfo: 'Verge',
     guardianshipMustBeConfirmed:
         'Dersom du har sendt inn søknad som verge må du sende bekreftelse på oppnevnelse av verge fra tingretten eller Statsforvalteren på ',
     guardianshipMustBeConfirmedLink: 'skjema NAV 00-03.00.',
     guardianshipMustBeConfirmedHref: 'https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon',
     viewCaseTitle: 'Sjekke status i saken?',
-    viewCaseInfoContentPart1: 'Forelder eller verge kan ikke følge saken digitalt i Dine saker i',
-    viewCaseInfoLinkHref1: 'https://www.nav.no/no/ditt-nav',
-    viewCaseInfoLinkText1: 'Ditt NAV',
-    viewCaseInfoContentPart2:
-        'på barn det er søkt barnepensjon for. Hvis du har spørsmål om søknaden, må du kontakte oss på telefon 55 55 33 34.',
-    viewCaseInfoContent3:
-        'Barn over 18 år kan finne bekreftelse på at søknaden er mottatt i Dine saker og sjekke status i saken ved å logge inn i ',
-    viewCaseInfoLinkHref3: 'https://tjenester.nav.no/saksoversikt',
-    viewCaseInfoLinkText3: 'Ditt NAV',
+    viewCaseInfoContentPart1:
+        'Forelder eller verge kan ikke følge saken til barnet digitalt. Hvis du har spørsmål om søknaden, må du kontakte oss på telefon 55 55 33 34.',
+    viewCaseInfoContent2: 'Barn over 18 år kan selv sjekke status i saken sin ved å logge inn i ',
+    viewCaseInfoLinkHref2: 'https://tjenester.nav.no/saksoversikt',
+    viewCaseInfoLinkText2: 'Ditt NAV',
     processingTimeText_part1: 'Barnepensjon følger samme ',
     processingTimeLink4: 'saksbehandlingstid',
     processingTimeHref4: 'https://www.nav.no/saksbehandlingstider',
