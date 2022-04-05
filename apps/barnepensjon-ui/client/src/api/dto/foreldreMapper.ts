@@ -14,6 +14,7 @@ import {
     IApplication,
     IDeceasedParent,
     ILivingParent,
+    IMilitaryService,
     IParent,
     ISelfEmployment,
     IStaysAbroad,
@@ -22,6 +23,7 @@ import { TFunction } from '../../hooks/useTranslation'
 import { IAboutYou, IChild, ParentRelationType } from '../../types/person'
 import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
 import { User } from '../../context/user/user'
+import { fullAdresse } from '../../utils/personalia'
 
 export const hentForeldre = (t: TFunction, child: IChild, application: IApplication, user: User): Forelder[] => {
     let firstParent
@@ -91,7 +93,7 @@ const mapForelderFraInnloggetBruker = (t: TFunction, aboutYou: IAboutYou, user: 
     lastName: user.etternavn!!,
     fnrDnr: user.foedselsnummer!!,
     citizenship: user.statsborgerskap!!,
-    address: user.adresse,
+    address: fullAdresse(user),
     phoneNumber: user.telefonnummer || aboutYou.phoneNumber,
 })
 
@@ -128,16 +130,6 @@ const mapGjenlevendeForelder = (t: TFunction, livingParent: ILivingParent): Gjen
 })
 
 const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
-    let opplysningMilitaertjeneste: Opplysning<FritekstSvar> | undefined
-    if (parent.militaryService?.completed === JaNeiVetIkke.JA) {
-        opplysningMilitaertjeneste = {
-            spoersmaal: t('militaryServiceYears', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: parent.militaryService?.period || '-',
-            },
-        }
-    }
-
     return {
         type: PersonType.AVDOED,
 
@@ -167,17 +159,8 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
             },
         },
         utenlandsopphold: mapUtenlandsopphold(t, parent.staysAbroad),
-        naeringsInntekt: !!parent.selfEmplyment ? mapNaeringsinntekt(t, parent.selfEmplyment) : undefined,
-        militaertjeneste: !!parent.militaryService
-            ? {
-                  spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
-                  svar: {
-                      innhold: t(parent.militaryService!!.completed!!, { ns: 'radiobuttons' }),
-                      verdi: parent.militaryService!!.completed!!,
-                  },
-                  opplysning: opplysningMilitaertjeneste,
-              }
-            : undefined,
+        naeringsInntekt: mapNaeringsinntekt(t, parent.selfEmplyment),
+        militaertjeneste: mapMilitaertjeneste(t, parent.militaryService),
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
             spoersmaal: t('occupationalInjury', { ns: 'aboutTheDeceased' }),
             svar: {
@@ -185,6 +168,29 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
                 verdi: parent.occupationalInjury!!,
             },
         },
+    }
+}
+
+const mapMilitaertjeneste = (t: TFunction, militaryService?: IMilitaryService) => {
+    if (!militaryService) return undefined
+
+    let opplysningMilitaertjeneste: Opplysning<FritekstSvar> | undefined
+    if (militaryService.completed === JaNeiVetIkke.JA) {
+        opplysningMilitaertjeneste = {
+            spoersmaal: t('militaryServiceYears', { ns: 'aboutTheDeceased' }),
+            svar: {
+                innhold: militaryService.period || '-',
+            },
+        }
+    }
+
+    return {
+        spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
+        svar: {
+            innhold: t(militaryService!!.completed!!, { ns: 'radiobuttons' }),
+            verdi: militaryService!!.completed!!,
+        },
+        opplysning: opplysningMilitaertjeneste,
     }
 }
 
@@ -272,8 +278,7 @@ const mapNaeringsinntekt = (
     t: TFunction,
     selfEmployment: ISelfEmployment
 ): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt> | undefined => {
-    if (!selfEmployment?.wasSelfEmployed)
-        return undefined
+    if (!selfEmployment?.wasSelfEmployed) return undefined
 
     let opplysningNaeringsInntekt: Naeringsinntekt | undefined
     if (selfEmployment?.wasSelfEmployed === JaNeiVetIkke.JA) {
@@ -302,4 +307,14 @@ const mapNaeringsinntekt = (
         },
         opplysning: opplysningNaeringsInntekt,
     }
+}
+
+export const _test = {
+    mapTilForelder,
+    mapForelderFraInnloggetBruker,
+    mapGjenlevendeForelder,
+    mapAvdoed,
+    mapMilitaertjeneste,
+    mapUtenlandsopphold,
+    mapNaeringsinntekt,
 }
