@@ -17,7 +17,7 @@ export const InvalidApplicant = () => {
                 <BodyLong spacing>
                     <Trans value={t('childMayBeApplicableForPension')} />
                 </BodyLong>
-                <Trans value={t('moreAboutChildrensPension', { ns: 'frontPage' })} />
+                <Trans value={t('moreAboutChildrensPension')} />
             </FormGroup>
         </>
     )
