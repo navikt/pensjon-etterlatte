@@ -2,8 +2,12 @@ import { mapTilBarnepensjonSoeknadListe } from './soeknadMapper'
 import { BankkontoType, JaNeiVetIkke } from './FellesOpplysninger'
 import { ParentRelationType } from '../../types/person'
 import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
+import { IApplication } from '../../context/application/application'
+import { User } from '../../context/user/user'
+import { Avdoed, GjenlevendeForelder } from './Person'
+import { Barnepensjon } from './InnsendtSoeknad'
 
-const user = {
+const user: User = {
     fornavn: 'STOR',
     etternavn: 'SNERK',
     foedselsnummer: '11057523044',
@@ -12,21 +16,21 @@ const user = {
     telefonnummer: '11111111',
     spraak: 'nb',
     adresse: 'Adresse-mock',
-    husnummer: 1,
-    husbokstav: null,
+    husnummer: '1',
+    husbokstav: undefined,
     postnummer: '0000',
     poststed: 'Poststed-mock',
     statsborgerskap: 'Statsborgerskap-mock',
     sivilstatus: 'GIFT',
 }
 
-const t = (key, _) => key
+const t = (key: string, _: any) => key
 
 describe('Generelle tester', () => {
     it('Mapping av søknad uten barn kaster feil', () => {
         expect.assertions(1)
 
-        const application = { aboutChildren: { children: [] } }
+        const application: IApplication = { aboutChildren: { children: [] }, aboutYou: {} }
 
         try {
             mapTilBarnepensjonSoeknadListe(t, application, user)
@@ -37,7 +41,7 @@ describe('Generelle tester', () => {
 
     it('Stopp mapping hvis bruker har ikke samtykket', () => {
         try {
-            const application = { aboutChildren: { children: [{}] } }
+            const application: IApplication = { aboutChildren: { children: [{}] }, aboutYou: {} }
             mapTilBarnepensjonSoeknadListe(t, application, user)
         } catch (e) {
             expect(e.message).toEqual('Kan ikke sende inn søknad uten å ha samtykket!')
@@ -76,29 +80,29 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
             },
         }
 
-        const soeknader = mapTilBarnepensjonSoeknadListe(t, application, user)
+        const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user)
 
         expect(soeknader.length).toBe(1)
 
         const soeknad = soeknader[0]
 
-        expect(soeknad.foreldre.length).toBe(2)
+        expect(soeknad.foreldre?.length).toBe(2)
 
-        const gjenlevende = soeknad.foreldre[0]
+        const gjenlevende = soeknad.foreldre?.[0]!! as GjenlevendeForelder
         expect(gjenlevende.fornavn.svar).toEqual(user.fornavn)
         expect(gjenlevende.etternavn.svar).toEqual(user.etternavn)
         expect(gjenlevende.foedselsnummer.svar).toEqual(user.foedselsnummer)
         expect(gjenlevende.statsborgerskap.svar).toEqual(user.statsborgerskap)
-        expect(gjenlevende.adresse.svar).toEqual(user.adresse)
-        expect(gjenlevende.kontaktinfo.telefonnummer.svar.innhold).toEqual(user.telefonnummer)
+        expect(gjenlevende.adresse?.svar).toEqual(user.adresse)
+        expect(gjenlevende.kontaktinfo?.telefonnummer.svar.innhold).toEqual(user.telefonnummer)
 
-        const avdoed = soeknad.foreldre[1]
+        const avdoed = soeknad.foreldre?.[1]!! as Avdoed
         expect(avdoed.fornavn.svar).toEqual(application.secondParent.firstName)
         expect(avdoed.etternavn.svar).toEqual(application.secondParent.lastName)
         expect(avdoed.foedselsnummer.svar).toEqual(application.secondParent.fnrDnr)
         expect(avdoed.statsborgerskap.svar.innhold).toEqual(application.secondParent.citizenship)
         expect(avdoed.datoForDoedsfallet.svar.innhold).toEqual(application.secondParent.dateOfDeath)
-        expect(avdoed.militaertjeneste.svar.verdi).toBe(application.secondParent.militaryService.completed)
+        expect(avdoed.militaertjeneste?.svar.verdi).toBe(application.secondParent.militaryService.completed)
     })
 })
 
@@ -108,7 +112,7 @@ describe('Test mapping foreldre', () => {
     it('Mapping av gjenlenvende og/eller avdøde foreldre fungerer', () => {})
 })
 
-const createTestChild = (firstName, lastName, fnrDnr) => ({
+const createTestChild = (firstName: string, lastName: string, fnrDnr: string) => ({
     firstName,
     lastName,
     fnrDnr,
