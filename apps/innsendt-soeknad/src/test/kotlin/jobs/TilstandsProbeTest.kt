@@ -19,12 +19,15 @@ internal class TilstandsProbeTest {
     private val tilstandsProbe = TilstandsProbe(dbMock)
     private val eldsteUsendt = LocalDateTime.now().minusHours(1)
     private val eldsteUarkivert = LocalDateTime.now().minusHours(2)
+    private val KildeBP = "barnepensjon-ui"
+    private val KildeGP = "selvbetjening-ui"
 
     @BeforeAll
     fun setUp() {
         every { dbMock.eldsteUsendte() } returns eldsteUsendt
         every { dbMock.eldsteUarkiverte() } returns eldsteUarkivert
         every { dbMock.rapport() } returns mapOf(Status.SENDT to 45L, Status.FERDIGSTILT to 30L)
+        every { dbMock.kilder() } returns mapOf(KildeBP to 40L, KildeGP to 25L)
         every { dbMock.ukategorisert() } returns listOf(1L)
     }
 
@@ -47,6 +50,17 @@ internal class TilstandsProbeTest {
             arrayOf("tilstand"),
             arrayOf(Status.FERDIGSTILT.name)
         ) shouldBe 30.0
+        verify(exactly = 1) { dbMock.kilder() }
+        CollectorRegistry.defaultRegistry.getSampleValue(
+            "soknad_kilde",
+            arrayOf("kilde"),
+            arrayOf(KildeBP)
+        ) shouldBe 40.0
+        CollectorRegistry.defaultRegistry.getSampleValue(
+            "soknad_kilde",
+            arrayOf("kilde"),
+            arrayOf(KildeGP)
+        ) shouldBe 25.0
         verify(exactly = 1) { dbMock.ukategorisert() }
     }
 }
