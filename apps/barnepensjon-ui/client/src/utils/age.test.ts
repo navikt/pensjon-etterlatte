@@ -1,6 +1,8 @@
 import { getAgeFromDate, getAgeFromFoedselsnummer, isLegalAge } from './age'
 
-describe('Testing av alder', () => {
+const age = new Date().getFullYear() - 2000
+
+describe('Test of age', () => {
     it('Sjekk om person er myndig', () => {
         expect(isLegalAge(47)).toBeTruthy()
         expect(isLegalAge(19)).toBeTruthy()
@@ -10,13 +12,14 @@ describe('Testing av alder', () => {
     })
 
     it('should return age from date', () => {
-        const dateString = 'Sun Jul 23 1994 00:00:00 GMT+0000 (GMT)'
-        expect(getAgeFromDate(dateString)).toEqual(27)
+        const dateString = 'Sat Jan 01 2000 00:00:00 GMT+0000 (GMT)'
         const dateObject = new Date(dateString)
-        expect(getAgeFromDate(dateObject)).toEqual(27)
+
+        expect(getAgeFromDate(dateString)).toEqual(age)
+        expect(getAgeFromDate(dateObject)).toEqual(age)
     })
 
     it('should return age from foedselsnummer', () => {
-        expect(getAgeFromFoedselsnummer('23079433441')).toEqual(27)
+        expect(getAgeFromFoedselsnummer('01010050027')).toEqual(age)
     })
 })
