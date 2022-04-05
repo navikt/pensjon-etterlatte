@@ -121,7 +121,7 @@ const selectScenario = {
     guardianApplicantInformation:
         'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for beregningen av barnepensjon.',
     guardiansMustSendDocumentation:
-        'For å kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
+        'Hvis barna ikke er helsøsken, må man søke for hvert barnekull. \nFor å kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
     childApplicantInformation1:
         '<b>Hvis du har mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
@@ -220,9 +220,9 @@ const aboutChildren = {
     childAppliedForPension: 'Søkt om barnepensjon',
     applyForThisChild: 'Søk om barnepensjon',
     userAppliesForChildrensPension: 'Ja, jeg søker om barnepensjon for barnet',
-    onlyChildrenOfDeceasedHaveRights: 'Det er kun avdødes barn og adoptivbarn som har rett til barnepensjon.',
+    onlyChildrenOfDeceasedHaveRights: 'Det er kun avdødes barn og adoptivbarn som kan ha rett til barnepensjon.',
     onlyParentOrGuardianCanApply:
-        'Det er kun barnets forelder eller oppnevnt verge som kan søke om barnepensjon for dette barnet. Det må søkes om barnepensjon i egen søknad.',
+        'Har barnet mistet en forelder så må forelder eller oppnevnt verge sende egen søknad.',
     onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år.',
     livesIn: 'Bor i',
     doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
@@ -236,7 +236,7 @@ const aboutChildren = {
     guardianFnr: 'Fødselsnummer til verge (valgfri)',
     guardianFnrPlaceholder: '11 siffer',
     information:
-        'Oppgi avdødes biologiske barn og/eller adoptivbarn under 18 år som det skal søkes barnepensjon for. \n\nDersom barna ikke er helsøsken, må forelder eller oppnevnt verge sende inn egen søknad for disse barna.\n\nFosterbarn skal ikke føres opp, fordi de ikke har rett til barnepensjon etter fosterforeldrene.\n\nBarn over 18 år må søke selv om barnepensjon. ',
+        'Oppgi avdødes biologiske barn og/eller adoptivbarn under 18 år. \n\nDersom barna ikke er helsøsken, må forelder eller oppnevnt verge sende inn egen søknad for disse barna.\n\nFosterbarn skal ikke føres opp, fordi de ikke har rett til barnepensjon etter fosterforeldrene.\n\nBarn over 18 år må søke selv om barnepensjon. ',
     infoRegardingSiblings: 'Her er info hvis det er søsken',
     infoCard_residence: 'BOSTED',
     infoCard_fnr: 'FØDSELSNUMMER',
@@ -260,7 +260,7 @@ const aboutChildren = {
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldrene til barnet?',
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
     onlyGuardiansCanApply:
-        'Det er kun mulig å søke om barnepensjon for barn du er verge til. Du må likevel legge til helsøsken under 18 år.',
+        'Du kan kun søke om barnepensjon for barn du er verge for. \nAlle avdødes barn under 18 år kan legges til.',
 }
 
 const summary = {

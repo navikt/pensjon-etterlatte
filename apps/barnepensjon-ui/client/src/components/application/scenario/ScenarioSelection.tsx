@@ -86,11 +86,7 @@ export default function ScenarioSelection() {
                         <BodyLong size={'small'}>{t('guardianApplicantInformation')}</BodyLong>
                     </FormGroup>
                     <FormGroup>
-                        <Alert variant={'info'} inline={true}>
-                            <BodyLong>
-                                <Trans value={t('guardiansMustSendDocumentation')} />
-                            </BodyLong>
-                        </Alert>
+                        <BodyLong>{t('guardiansMustSendDocumentation')}</BodyLong>
                     </FormGroup>
                     <FormGroup>
                         <RHFRadio
