@@ -101,7 +101,6 @@ jobs:
     name: Deploy to prod-gcp
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
     needs: [test-and-verify, deploy-to-dev-gcp]
-    needs: deploy-to-dev-gcp
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
