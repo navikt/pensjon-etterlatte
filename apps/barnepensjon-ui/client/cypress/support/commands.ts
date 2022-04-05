@@ -28,3 +28,9 @@ Cypress.Commands.add('gotoAboutYou', (role: string, situation: string = null) =>
 
     cy.url().should('include', 'om-deg')
 })
+
+Cypress.Commands.add('gotoAboutTheDeceased', () => {
+    cy.get('.navds-button--primary').should('be.enabled').click()
+
+    cy.url().should('include', 'om-avdoede')
+})

@@ -3,5 +3,6 @@ declare namespace Cypress {
         gotoScenarioSelection(): Chainable<null>
         gotoFrontPage(userFixture: string): Chainable<null>
         gotoAboutYou(role: string, situation?: string): Chainable<null>
+        gotoAboutTheDeceased(): Chainable<null>
     }
 }
