@@ -19,11 +19,10 @@ on:
       - fix/*
     paths:
       - apps/selvbetjening-ui/**
-      - "!apps/selvbetjening-ui/nais/redis-dev-gcp.yaml"
 
 jobs:
   build-and-publish:
-    name: Build, test and publish
+    name: Build and publish docker image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -37,22 +36,6 @@ jobs:
         run: |
           yarn --cwd client install && yarn --cwd client build
           yarn --cwd server install && yarn --cwd server build
-      - name: Run tests (client)
-        working-directory: apps/${{ env.APP_NAME }}/client
-        run: |
-          CI=true yarn test
-      - name: Run tests (server)
-        working-directory: apps/${{ env.APP_NAME }}/server
-        run: |
-          CI=true yarn test
-      - name: Start application
-        working-directory: apps/${{ env.APP_NAME }}/client
-        run: |
-          yarn start & npx wait-on http://localhost:3000
-      - name: Run e2e tests (Cypress)
-        working-directory: apps/${{ env.APP_NAME }}/client
-        run: |
-          yarn cy:test
       - name: Build and publish Docker image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -60,6 +43,34 @@ jobs:
           docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
           docker build --tag ${IMAGE} apps/${APP_NAME}
           docker push ${IMAGE}
+
+    test-and-verify:
+      name: Test and verify
+      needs: build-and-publish
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - name: Setup Node 14
+          uses: actions/setup-node@v2
+          with:
+            node-version: '14.x'
+        - name: Install and build
+          working-directory: apps/${{ env.APP_NAME }}/client
+          run: |
+            yarn install && yarn build
+        - name: Run unit tests
+          working-directory: apps/${{ env.APP_NAME }}/client
+          run: |
+            CI=true yarn test
+        - name: Start application
+          working-directory: apps/${{ env.APP_NAME }}/client
+          run: |
+            yarn start & npx wait-on http://localhost:3000
+        - name: Run e2e tests (Cypress)
+          working-directory: apps/${{ env.APP_NAME }}/client
+          run: |
+            yarn cy:test
 
   deploy-to-dev-gcp:
     name: Deploy to dev-gcp
@@ -89,6 +100,7 @@ jobs:
   deploy-to-prod-gcp:
     name: Deploy to prod-gcp
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
+    needs: [test-and-verify, deploy-to-dev-gcp]
     needs: deploy-to-dev-gcp
     runs-on: ubuntu-latest
     steps:
