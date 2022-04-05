@@ -16,3 +16,15 @@ Cypress.Commands.add('gotoScenarioSelection', () => {
 
     cy.url().should('include', 'velg-scenarie')
 })
+
+Cypress.Commands.add('gotoAboutYou', (role: string, situation: string = null) => {
+    cy.get('[id="applicantRole"]').find(`[value="${role}"]`).check({ force: true })
+
+    if (situation) {
+        cy.get('[id="applicantSituation"]').find(`[value="${situation}"]`).check({ force: true })
+    }
+
+    cy.get('.navds-button').should('be.enabled').click()
+
+    cy.url().should('include', 'om-deg')
+})
