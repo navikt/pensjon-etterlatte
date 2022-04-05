@@ -1,16 +1,24 @@
 import FormElement from '../../../common/FormElement'
 import { RHFRadio } from '../../../common/rhf/RHFRadio'
-import { Alert, BodyLong, Panel } from '@navikt/ds-react'
+import { Alert, BodyLong, Label, Panel } from '@navikt/ds-react'
 import useTranslation from '../../../../hooks/useTranslation'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
 import FormGroup from '../../../common/FormGroup'
 import { ParentRelationType } from '../../../../types/person'
 import { ApplicantRole, ApplicantSituation } from '../../scenario/ScenarioSelection'
 import { nameAndFnr } from '../../../../utils/personalia'
+import Hjelpetekst from '../../../../utils/Hjelpetekst'
+import styled from 'styled-components'
 
 interface Props {
     parents?: ParentRelationType
 }
+
+const HelpTextLabel = styled.div`
+    .navds-label {
+        display: flex;
+    }
+`
 
 export default function ParentQuestion({ parents }: Props) {
     const { t } = useTranslation('aboutChildren')
@@ -23,7 +31,13 @@ export default function ParentQuestion({ parents }: Props) {
         <FormGroup>
             <FormElement>
                 <RHFRadio
-                    legend={t('whoAreTheParents')}
+                    legend={
+                        <HelpTextLabel>
+                            <Label as={'span'}>
+                                {t('whoAreTheParents')}&nbsp;<Hjelpetekst>{t('whoAreTheParentsHelpText')}</Hjelpetekst>
+                            </Label>
+                        </HelpTextLabel>
+                    }
                     name={'parents'}
                     radios={[
                         {

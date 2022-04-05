@@ -222,7 +222,7 @@ const aboutChildren = {
     userAppliesForChildrensPension: 'Ja, jeg søker om barnepensjon for barnet',
     onlyChildrenOfDeceasedHaveRights: 'Det er kun avdødes barn og adoptivbarn som har rett til barnepensjon.',
     onlyParentOrGuardianCanApply:
-        'Det er barnets forelder eller oppnevnt verge som kan søke om barnepensjon for dette barnet. Det må søkes om barnepensjon i egen søknad.',
+        'Det er kun barnets forelder eller oppnevnt verge som kan søke om barnepensjon for dette barnet. Det må søkes om barnepensjon i egen søknad.',
     onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år.',
     livesIn: 'Bor i',
     doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
@@ -245,8 +245,10 @@ const aboutChildren = {
     addChildButton: '+ Legg til barn',
     addSiblingButton: '+ Legg til søsken',
     whoAreTheParents: 'Hvem er foreldre til barnet?',
+    whoAreTheParentsHelpText:
+        'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
     bothOfTheAbove: '{person1} og {person2}',
-    remainingParentsChild: 'Mitt særkullsbarn',
+    remainingParentsChild: 'Jeg',
     jointChild: 'Jeg og {person1}',
     relationHelpText:
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',

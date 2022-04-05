@@ -11,8 +11,4 @@ describe('Test that seconds are converted to hours, minutes and seconds', () => 
         expect(convertSecondsToTime(3601)).toStrictEqual({ hours: 1, minutes: 0, seconds: 1 })
         expect(convertSecondsToTime(3661)).toStrictEqual({ hours: 1, minutes: 1, seconds: 1 })
     })
-
-    it('Should not convert string', () => {
-        expect(convertSecondsToTime('test')).toStrictEqual({ hours: NaN, minutes: NaN, seconds: NaN })
-    })
 })
