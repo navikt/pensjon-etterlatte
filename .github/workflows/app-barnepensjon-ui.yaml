@@ -22,7 +22,7 @@ on:
 
 jobs:
   build-and-publish:
-    name: Build, test and publish
+    name: Build and publish docker image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

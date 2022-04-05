@@ -66,4 +66,4 @@ spec:
     inbound:
       rules:
         - application: selvbetjening-ui
-        - application: barnpensjon-ui
+        - application: barnepensjon-ui
