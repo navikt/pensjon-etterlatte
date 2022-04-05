@@ -44,33 +44,33 @@ jobs:
           docker build --tag ${IMAGE} apps/${APP_NAME}
           docker push ${IMAGE}
 
-    test-and-verify:
-      name: Test and verify
-      needs: build-and-publish
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
-        - name: Setup Node 14
-          uses: actions/setup-node@v2
-          with:
-            node-version: '14.x'
-        - name: Install and build
-          working-directory: apps/${{ env.APP_NAME }}/client
-          run: |
-            yarn install && yarn build
-        - name: Run unit tests
-          working-directory: apps/${{ env.APP_NAME }}/client
-          run: |
-            CI=true yarn test
-        - name: Start application
-          working-directory: apps/${{ env.APP_NAME }}/client
-          run: |
-            yarn start & npx wait-on http://localhost:3000
-        - name: Run e2e tests (Cypress)
-          working-directory: apps/${{ env.APP_NAME }}/client
-          run: |
-            yarn cy:test
+  test-and-verify:
+    name: Test and verify
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install and build
+        working-directory: apps/${{ env.APP_NAME }}/client
+        run: |
+          yarn install && yarn build
+      - name: Run unit tests
+        working-directory: apps/${{ env.APP_NAME }}/client
+        run: |
+          CI=true yarn test
+      - name: Start application
+        working-directory: apps/${{ env.APP_NAME }}/client
+        run: |
+          yarn start & npx wait-on http://localhost:3000
+      - name: Run e2e tests (Cypress)
+        working-directory: apps/${{ env.APP_NAME }}/client
+        run: |
+          yarn cy:test
 
   deploy-to-dev-gcp:
     name: Deploy to dev-gcp
