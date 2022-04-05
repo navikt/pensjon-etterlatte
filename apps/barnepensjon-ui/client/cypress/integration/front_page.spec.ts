@@ -1,14 +1,6 @@
-import { basePath } from '../util/constants'
-
 describe('Front Page', () => {
     before(() => {
-        cy.intercept('GET', `${basePath}/api/person/innlogget`, { fixture: 'user' }).as('loggedInUser')
-        cy.intercept('GET', `${basePath}/api/api/kladd`, '10000000').as('getApplication')
-        cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')
-
-        cy.visit('http://localhost:3000/barnepensjon/soknad')
-
-        cy.wait(['@loggedInUser', '@getApplication', '@getExpirationTimeForLoggedInUser'])
+        cy.gotoFrontPage('user')
     })
 
     it('should require user to agree with the terms in order to continue', function () {
