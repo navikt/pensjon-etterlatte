@@ -1,11 +1,11 @@
 import { mapTilBarnepensjonSoeknadListe } from './soeknadMapper'
-import { BankkontoType, JaNeiVetIkke } from './FellesOpplysninger'
-import { ParentRelationType } from '../../types/person'
+import { BankkontoType, JaNeiVetIkke, OppholdUtlandType } from './FellesOpplysninger'
+import { IChild, ParentRelationType } from '../../types/person'
 import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
-import { IApplication } from '../../context/application/application'
+import { IApplicant, IApplication, IDeceasedParent, IParent } from '../../context/application/application'
 import { User } from '../../context/user/user'
-import { Avdoed, GjenlevendeForelder } from './Person'
-import { Barnepensjon } from './InnsendtSoeknad'
+import { Avdoed, Forelder, GjenlevendeForelder, PersonType } from './Person'
+import { hentForeldre, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 
 const user: User = {
     fornavn: 'STOR',
@@ -51,23 +51,18 @@ describe('Generelle tester', () => {
 
 describe('Gjenlevende forelder søker på vegne av barn', () => {
     it('Mapper søknad som forventet', () => {
-        const application = {
-            applicant: {
-                applicantRole: ApplicantRole.PARENT,
-                consent: true,
-            },
+        const application: IApplication = {
+            applicant: createApplicant(ApplicantRole.PARENT),
             aboutYou: {},
             secondParent: {
-                firstName: 'Sedat',
-                lastName: 'Ripsbærbusk',
-                fnrDnr: '26117512737',
-                citizenship: 'Norge',
-                dateOfDeath: '01-01-2022',
+                ...createParent('Sedat', 'Ripsbærbusk', '26117512737'),
+                dateOfDeath: new Date(2022, 1, 1),
                 staysAbroad: {
                     hasStaysAbroad: JaNeiVetIkke.NEI,
                 },
                 selfEmplyment: {
                     wasSelfEmployed: JaNeiVetIkke.NEI,
+                    selfEmplymentDetails: {},
                 },
                 occupationalInjury: JaNeiVetIkke.VET_IKKE,
                 militaryService: {
@@ -76,43 +71,164 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
                 },
             },
             aboutChildren: {
-                children: [createTestChild('Blåøyd', 'Saks', '05111850870')],
+                children: [createChild('Blåøyd', 'Saks', '05111850870')],
             },
         }
 
-        const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user)
+        const soeknader = mapTilBarnepensjonSoeknadListe(t, application, user)
 
         expect(soeknader.length).toBe(1)
 
         const soeknad = soeknader[0]
 
-        expect(soeknad.foreldre?.length).toBe(2)
+        const foreldre = soeknad.foreldre!!
+        expect(foreldre.length).toBe(2)
 
-        const gjenlevende = soeknad.foreldre?.[0]!! as GjenlevendeForelder
+        const gjenlevende = foreldre[0] as GjenlevendeForelder
         expect(gjenlevende.fornavn.svar).toEqual(user.fornavn)
         expect(gjenlevende.etternavn.svar).toEqual(user.etternavn)
         expect(gjenlevende.foedselsnummer.svar).toEqual(user.foedselsnummer)
         expect(gjenlevende.statsborgerskap.svar).toEqual(user.statsborgerskap)
-        expect(gjenlevende.adresse?.svar).toEqual(user.adresse)
-        expect(gjenlevende.kontaktinfo?.telefonnummer.svar.innhold).toEqual(user.telefonnummer)
+        expect(gjenlevende.adresse!!.svar).toEqual(user.adresse)
+        expect(gjenlevende.kontaktinfo.telefonnummer.svar.innhold).toEqual(user.telefonnummer)
 
-        const avdoed = soeknad.foreldre?.[1]!! as Avdoed
-        expect(avdoed.fornavn.svar).toEqual(application.secondParent.firstName)
-        expect(avdoed.etternavn.svar).toEqual(application.secondParent.lastName)
-        expect(avdoed.foedselsnummer.svar).toEqual(application.secondParent.fnrDnr)
-        expect(avdoed.statsborgerskap.svar.innhold).toEqual(application.secondParent.citizenship)
-        expect(avdoed.datoForDoedsfallet.svar.innhold).toEqual(application.secondParent.dateOfDeath)
-        expect(avdoed.militaertjeneste?.svar.verdi).toBe(application.secondParent.militaryService.completed)
+        const secondParent = application.secondParent!! as IDeceasedParent
+        const avdoed = foreldre[1] as Avdoed
+        expect(avdoed.fornavn.svar).toEqual(secondParent.firstName)
+        expect(avdoed.etternavn.svar).toEqual(secondParent.lastName)
+        expect(avdoed.foedselsnummer.svar).toEqual(secondParent.fnrDnr)
+        expect(avdoed.statsborgerskap.svar.innhold).toEqual(secondParent.citizenship)
+        expect(avdoed.datoForDoedsfallet.svar.innhold).toEqual(secondParent.dateOfDeath)
+        expect(avdoed.militaertjeneste!!.svar.verdi).toBe(secondParent.militaryService!!.completed)
     })
 })
 
-// TODO:
 describe('Test mapping foreldre', () => {
-    it('Mapping av forenklede foreldre fungerer', () => {})
-    it('Mapping av gjenlenvende og/eller avdøde foreldre fungerer', () => {})
+    const compareParents = (forelder: Forelder, parent: IParent) => {
+        expect(forelder.type).toEqual(PersonType.FORELDER)
+        expect(forelder.fornavn.svar).toEqual(parent.firstName)
+        expect(forelder.etternavn.svar).toEqual(parent.lastName)
+        expect(forelder.foedselsnummer.svar).toEqual(parent.fnrDnr)
+    }
+
+    const compareParentsWithUser = (forelder: Forelder, user: User) => {
+        expect(forelder.type).toEqual(PersonType.FORELDER)
+        expect(forelder.fornavn.svar).toEqual(user.fornavn)
+        expect(forelder.etternavn.svar).toEqual(user.etternavn)
+        expect(forelder.foedselsnummer.svar).toEqual(user.foedselsnummer)
+    }
+
+    it('Mapping av forenklede foreldre fungerer - forelder søker', () => {
+        expect.assertions(19)
+
+        const application: IApplication = {
+            applicant: createApplicant(ApplicantRole.PARENT),
+            aboutYou: {},
+            firstParent: undefined,
+            secondParent: createParent('Sedat', 'Ripsbærbusk', '26117512737'),
+        }
+
+        const child: IChild = { parents: ParentRelationType.BOTH }
+        const foreldreListe1 = hentForeldre(t, child, application, user)
+
+        expect(foreldreListe1.length).toEqual(2)
+        compareParentsWithUser(foreldreListe1[0], user)
+        compareParents(foreldreListe1[1], application.secondParent!!)
+
+        const childToFirstParent: IChild = { parents: ParentRelationType.FIRST_PARENT }
+        const foreldreListe2 = hentForeldre(t, childToFirstParent, application, user)
+        expect(foreldreListe2.length).toEqual(1)
+        compareParentsWithUser(foreldreListe2[0], user)
+
+        const childToSecondParent: IChild = { parents: ParentRelationType.SECOND_PARENT }
+        const foreldreListe3 = hentForeldre(t, childToSecondParent, application, user)
+        expect(foreldreListe3.length).toEqual(1)
+
+        compareParents(foreldreListe3[0], application.secondParent!!)
+    })
+
+    it('Mapping av forenklede foreldre fungerer - verge søker', () => {
+        expect.assertions(19)
+
+        const application: IApplication = {
+            applicant: createApplicant(ApplicantRole.GUARDIAN),
+            aboutYou: {},
+            firstParent: createParent('Grønn', 'Kopp', '29018322402'),
+            secondParent: createParent('Sedat', 'Ripsbærbusk', '26117512737'),
+        }
+
+        const child: IChild = { parents: ParentRelationType.BOTH }
+        const foreldreListe1 = hentForeldre(t, child, application, user)
+
+        expect(foreldreListe1.length).toEqual(2)
+        compareParents(foreldreListe1[0], application.firstParent!!)
+        compareParents(foreldreListe1[1], application.secondParent!!)
+
+        const childToFirstParent: IChild = { parents: ParentRelationType.FIRST_PARENT }
+        const foreldreListe2 = hentForeldre(t, childToFirstParent, application, user)
+        expect(foreldreListe2.length).toEqual(1)
+        compareParents(foreldreListe2[0], application.firstParent!!)
+
+        const childToSecondParent: IChild = { parents: ParentRelationType.SECOND_PARENT }
+        const foreldreListe3 = hentForeldre(t, childToSecondParent, application, user)
+        expect(foreldreListe3.length).toEqual(1)
+        compareParents(foreldreListe3[0], application.secondParent!!)
+    })
+
+    /*it('Mapping av gjenlenvende/avdød fungerer - gjenlevende søker', () => {
+        const child = createChild('Blåøyd', 'Saks', '05111850870')
+        const application: IApplication = {
+            applicant: createApplicant(ApplicantRole.PARENT),
+            aboutYou: {},
+            secondParent: createDeceased(createParent('Sedat', 'Ripsbærbusk', '26117512737')),
+            aboutChildren: {
+                children: [createChild('Blåøyd', 'Saks', '05111850870')],
+            },
+        }
+        const foreldre = mapForeldreMedUtvidetInfo(t, child, application, user)
+    })*/
 })
 
-const createTestChild = (firstName: string, lastName: string, fnrDnr: string) => ({
+const createApplicant = (role: ApplicantRole, consent?: boolean): IApplicant => ({
+    consent: consent || true,
+    applicantRole: role,
+})
+
+const createParent = (firstName: string, lastName: string, fnrDnr: string): IParent => ({
+    firstName,
+    lastName,
+    fnrDnr,
+    citizenship: 'Norge',
+})
+
+const createDeceased = (parent: IParent) => ({
+    ...parent,
+    dateOfDeath: new Date(2022, 1, 1),
+    staysAbroad: {
+        hasStaysAbroad: JaNeiVetIkke.JA,
+        abroadStays: [
+            {
+                type: [OppholdUtlandType.BODD, OppholdUtlandType.ARBEIDET],
+                country: '',
+                fromDate: new Date(1990, 1, 1),
+                toDate: new Date(1995, 1, 1),
+                medlemFolketrygd: JaNeiVetIkke.VET_IKKE,
+                pensionAmount: '',
+            },
+        ],
+    },
+    selfEmplyment: {
+        wasSelfEmployed: JaNeiVetIkke.NEI,
+        selfEmplymentDetails: {},
+    },
+    occupationalInjury: JaNeiVetIkke.VET_IKKE,
+    militaryService: {
+        completed: JaNeiVetIkke.JA,
+        period: '1984',
+    },
+})
+
+const createChild = (firstName: string, lastName: string, fnrDnr: string): IChild => ({
     firstName,
     lastName,
     fnrDnr,
