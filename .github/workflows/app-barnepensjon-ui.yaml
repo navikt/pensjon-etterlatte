@@ -36,6 +36,25 @@ jobs:
         run: |
           yarn --cwd client install && yarn --cwd client build
           yarn --cwd server install && yarn --cwd server build
+      - name: Build and publish Docker image
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
+          docker build --tag ${IMAGE} apps/${APP_NAME}
+          docker push ${IMAGE}
+
+  test-and-verify:
+    name: Deploy to dev-gcp
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
       - name: Run tests
         working-directory: apps/${{ env.APP_NAME }}/client
         run: |
@@ -48,18 +67,12 @@ jobs:
         working-directory: apps/${{ env.APP_NAME }}/client
         run: |
           yarn cy:test
-      - name: Build and publish Docker image
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
-          docker build --tag ${IMAGE} apps/${APP_NAME}
-          docker push ${IMAGE}
 
   deploy-to-dev-gcp:
     name: Deploy to dev-gcp
     needs: build-and-publish
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: nais/deploy/actions/deploy@v1
@@ -84,7 +97,7 @@ jobs:
   deploy-to-prod-gcp:
     name: Deploy to prod-gcp
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
-    needs: deploy-to-dev-gcp
+    needs: [test-and-verify, deploy-to-dev-gcp]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
