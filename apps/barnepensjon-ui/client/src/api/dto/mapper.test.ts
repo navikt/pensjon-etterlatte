@@ -34,7 +34,7 @@ describe('Generelle tester', () => {
 
         try {
             mapTilBarnepensjonSoeknadListe(t, application, user)
-        } catch (e) {
+        } catch (e: any) {
             expect(e.message).toEqual('Kan ikke sende inn søknad med tom liste over barn!')
         }
     })
@@ -43,7 +43,7 @@ describe('Generelle tester', () => {
         try {
             const application: IApplication = { aboutChildren: { children: [{}] }, aboutYou: {} }
             mapTilBarnepensjonSoeknadListe(t, application, user)
-        } catch (e) {
+        } catch (e: any) {
             expect(e.message).toEqual('Kan ikke sende inn søknad uten å ha samtykket!')
         }
     })
