@@ -55,6 +55,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
+      - name: Install and build
+        working-directory: apps/${{ env.APP_NAME }}
+        run: |
+          yarn --cwd client install && yarn --cwd client build
       - name: Run unit tests
         working-directory: apps/${{ env.APP_NAME }}/client
         run: |
