@@ -45,7 +45,7 @@ jobs:
           docker push ${IMAGE}
 
   test-and-verify:
-    name: Deploy to dev-gcp
+    name: Test and verify
     needs: build-and-publish
     runs-on: ubuntu-latest
     steps:
@@ -55,7 +55,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-      - name: Run tests
+      - name: Run unit tests
         working-directory: apps/${{ env.APP_NAME }}/client
         run: |
           CI=true yarn test
