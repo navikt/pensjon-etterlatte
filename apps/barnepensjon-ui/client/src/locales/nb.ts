@@ -79,7 +79,12 @@ const frontPage = {
     helloUser: `Hei, {fornavn} {etternavn}`,
     startApplication: 'Start søknad',
     childMayBeApplicableForPension:
-        'Barn under 18 år som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Det er forelderen eller vergen til barnet som søker om barnepensjon for barnet hvis det er under 18 år. \n\nHvis dødsfallet skyldes yrkesskade eller yrkessykdom, eller barnet har mistet begge foreldrene sine, kan det ha rett til barnepensjon inntil det blir 21 år. Barnet må være under utdanning, eller være lærling eller praktikant.\n' +
+        'Barn under 18 år som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Det er forelderen eller vergen til barnet som må søke om barnepensjon for barnet hvis det er under 18 år. \n\nBarn som er under utdanning, eller er lærling eller praktikant, kan ha rett til barnepensjon selv om det er over 18 år:\n',
+    childMayBeApplicableForPension_li1:
+        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom, kan barnet ha rett til barnepensjon inntil fylte 21 år.',
+    childMayBeApplicableForPension_li2:
+        'Hvis barnet har mistet begge foreldrene dine, kan barnet ha rett til barnepensjon inntil fylte 20 år.',
+    childOver18HasToApplyByThemself:
         'Barn over 18 år må søke selv.\n\n<a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>',
     tax: 'Skatt',
     aboutChildrensPensionTax:

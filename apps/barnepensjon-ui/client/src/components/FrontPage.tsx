@@ -51,6 +51,15 @@ export default function FrontPage() {
 
                 <BodyLong>
                     <Trans value={t('childMayBeApplicableForPension')} />
+                    <ul>
+                        <li>
+                            <Trans value={t('childMayBeApplicableForPension_li1')} />
+                        </li>
+                        <li>
+                            <Trans value={t('childMayBeApplicableForPension_li2')} />
+                        </li>
+                    </ul>
+                    <Trans value={t('childOver18HasToApplyByThemself')} />
                 </BodyLong>
             </FormGroup>
 
