@@ -76,7 +76,6 @@ jobs:
     name: Deploy to dev-gcp
     needs: build-and-publish
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: nais/deploy/actions/deploy@v1
