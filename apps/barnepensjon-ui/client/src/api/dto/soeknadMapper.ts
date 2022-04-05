@@ -1,7 +1,7 @@
 import { TFunction } from '../../hooks/useTranslation'
 import { Barnepensjon, SoeknadType } from './InnsendtSoeknad'
 import { IApplication } from '../../context/application/application'
-import { Barn, Innsender, Person, PersonType, Verge } from './Person'
+import { Barn, Innsender, Person, PersonType } from './Person'
 import { User } from '../../context/user/user'
 import {
     BankkontoType,
@@ -16,6 +16,7 @@ import {
 import { IChild } from '../../types/person'
 import { Language } from '../../context/language/language'
 import { hentForeldre, mapForeldreMedUtvidetInfo } from './foreldreMapper'
+import { mapVerge } from './mapVerge'
 
 export const mapTilBarnepensjonSoeknadListe = (t: TFunction, application: IApplication, user: User): Barnepensjon[] => {
     const children: IChild[] = application.aboutChildren!!.children!!
@@ -170,8 +171,6 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
         }
     }
 
-    const verge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge> | undefined = mapVerge(t, child)
-
     return {
         type: PersonType.BARN,
         fornavn: {
@@ -192,7 +191,7 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
         },
         utenlandsAdresse,
         foreldre: hentForeldre(t, child, application, user),
-        verge,
+        verge: mapVerge(t, child, user),
     }
 }
 
@@ -229,42 +228,3 @@ const mapInnsender = (t: TFunction, user: User): Innsender => ({
         svar: user.foedselsnummer!!,
     },
 })
-
-const mapVerge = (t: TFunction, child: IChild): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge> | undefined => {
-    if (!child.childHasGuardianship?.answer) return undefined
-
-    let opplysningOmVerge: Verge | undefined
-
-    if (child.childHasGuardianship!!.answer === JaNeiVetIkke.JA) {
-        opplysningOmVerge = {
-            type: PersonType.VERGE,
-            fornavn: child.childHasGuardianship!!.firstName
-                ? {
-                      spoersmaal: t('firstName', { ns: 'common' }),
-                      svar: child.childHasGuardianship!!.firstName,
-                  }
-                : undefined,
-            etternavn: child.childHasGuardianship!!.lastName
-                ? {
-                      spoersmaal: t('lastName', { ns: 'common' }),
-                      svar: child.childHasGuardianship!!.lastName,
-                  }
-                : undefined,
-            foedselsnummer: child.childHasGuardianship!!.fnr
-                ? {
-                      spoersmaal: t('fnr', { ns: 'common' }),
-                      svar: child.childHasGuardianship!!.fnr,
-                  }
-                : undefined,
-        }
-    }
-
-    return {
-        spoersmaal: t('childHasGuardian', { ns: 'aboutChildren' }),
-        svar: {
-            innhold: t(child.childHasGuardianship!!.answer!!, { ns: 'radiobuttons' }),
-            verdi: child.childHasGuardianship!!.answer!!,
-        },
-        opplysning: opplysningOmVerge,
-    }
-}
