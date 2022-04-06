@@ -83,7 +83,7 @@ const frontPage = {
     childMayBeApplicableForPension_li1:
         'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom, kan barnet ha rett til barnepensjon inntil fylte 21 år.',
     childMayBeApplicableForPension_li2:
-        'Hvis barnet har mistet begge foreldrene dine, kan barnet ha rett til barnepensjon inntil fylte 20 år.',
+        'Hvis barnet har mistet begge foreldrene sine, kan barnet ha rett til barnepensjon inntil fylte 20 år.',
     childOver18HasToApplyByThemself:
         'Barn over 18 år må søke selv.\n\n<a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>',
     tax: 'Skatt',
@@ -105,8 +105,7 @@ const frontPage = {
     aboutTheApplicationDescription:
         'Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.',
     consentTitle: 'Vi stoler på deg',
-    consentDescription:
-        'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n',
+    consentDescription: 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Jeg, {fornavn} {etternavn}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
 }
 
