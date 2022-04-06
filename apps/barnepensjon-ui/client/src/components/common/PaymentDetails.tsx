@@ -28,6 +28,7 @@ export default function PaymentDetails() {
         <FormGroup>
             <FormElement>
                 <RHFInlineRadio
+                    id={'accountTypeSelection'}
                     name={'paymentDetails.accountType'}
                     legend={t('accountType')}
                     radios={Object.values(BankkontoType).map((value) => {
@@ -88,6 +89,7 @@ export default function PaymentDetails() {
 
             <FormElement>
                 <RHFGeneralQuestionRadio
+                    id={'taxWithholdAnswer'}
                     name={'paymentDetails.taxWithhold.answer'}
                     legend={t('doYouWantUsToWithholdTax')}
                     description={<WhyWeAsk title={'tax'}>{t('childPensionIsTaxable')}</WhyWeAsk>}

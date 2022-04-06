@@ -19,7 +19,11 @@ export const GuardianDetails = ({ isGuardian, childHasGuardianship }: Props) => 
             {!isGuardian && (
                 <FormGroup>
                     <FormElement>
-                        <RHFGeneralQuestionRadio name={'childHasGuardianship.answer'} legend={t('childHasGuardian')} />
+                        <RHFGeneralQuestionRadio
+                            id={'hasGuardianQuestion'}
+                            name={'childHasGuardianship.answer'}
+                            legend={t('childHasGuardian')}
+                        />
                     </FormElement>
 
                     {childHasGuardianship === JaNeiVetIkke.JA && (

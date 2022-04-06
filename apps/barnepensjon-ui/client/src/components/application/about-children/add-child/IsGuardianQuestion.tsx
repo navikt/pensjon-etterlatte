@@ -17,7 +17,11 @@ export const IsGuardianQuestion = ({ isGuardian, loggedInUserIsGuardian }: Props
             {isGuardian && (
                 <>
                     <FormElement>
-                        <RHFGeneralQuestionRadio name={'loggedInUserIsGuardian'} legend={t('loggedInUserIsGuardian')} />
+                        <RHFGeneralQuestionRadio
+                            id={'isGuardianQuestion'}
+                            name={'loggedInUserIsGuardian'}
+                            legend={t('loggedInUserIsGuardian')}
+                        />
                     </FormElement>
 
                     {loggedInUserIsGuardian === JaNeiVetIkke.NEI && (

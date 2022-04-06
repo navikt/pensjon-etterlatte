@@ -11,11 +11,13 @@ import { getErrorKey } from '../../../utils/errors'
 import styled from 'styled-components'
 
 export const RHFGeneralQuestionRadio = ({
+    id,
     name,
     description,
     legend,
     vetIkke,
 }: {
+    id?: string
     name: FieldPath<FieldValues>
     legend?: ReactNode
     description?: ReactNode
@@ -29,7 +31,7 @@ export const RHFGeneralQuestionRadio = ({
 
     if (vetIkke) defaultRadios.push({ label: t(JaNeiVetIkke.VET_IKKE), value: JaNeiVetIkke.VET_IKKE, required: true })
 
-    return <RHFInlineRadio name={name} legend={legend} description={description} radios={defaultRadios} />
+    return <RHFInlineRadio id={id} name={name} legend={legend} description={description} radios={defaultRadios} />
 }
 
 const InlineRadioPanelGroup = styled(RadioPanelGruppe)`
@@ -52,11 +54,13 @@ const InlineRadioPanelGroup = styled(RadioPanelGruppe)`
 `
 
 export const RHFInlineRadio = ({
+    id,
     name,
     legend,
     description,
     radios,
 }: {
+    id?: string
     name: FieldPath<FieldValues>
     legend?: ReactNode
     description?: ReactNode
@@ -72,7 +76,7 @@ export const RHFInlineRadio = ({
     const errorMsg = !!error ? t(getErrorKey(error)) : undefined
 
     return (
-        <div id={name}>
+        <div id={id || name}>
             <Controller
                 name={name}
                 control={control}

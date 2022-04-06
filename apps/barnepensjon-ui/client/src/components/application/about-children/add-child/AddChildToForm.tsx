@@ -147,7 +147,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                             <PersonInfo duplicateList={fnrRegisteredChild} />
                             {tooOldChild() && (
                                 <Panel border>
-                                    <Alert inline={true} variant={'info'}>
+                                    <Alert id={'above18Warning'} inline={true} variant={'info'}>
                                         <BodyLong>{t('onlyChildrenUnder18Necessary')}</BodyLong>
                                     </Alert>
                                 </Panel>

@@ -18,6 +18,7 @@ export const LivesAbroadQuestion = ({ isChild, countries, livesAbroadAnswer }: P
         <>
             <FormElement>
                 <RHFGeneralQuestionRadio
+                    id={'staysAbroadAnswer'}
                     name={'staysAbroad.answer'}
                     legend={!isChild ? t('doesTheChildLiveAbroad') : t('doesTheSiblingLiveAbroad')}
                 />
@@ -27,6 +28,7 @@ export const LivesAbroadQuestion = ({ isChild, countries, livesAbroadAnswer }: P
                 <>
                     <FormElement>
                         <RHFSelect
+                            id={'staysAbroadCountry'}
                             name={'staysAbroad.country'}
                             label={t('stayAbroadCountry')}
                             selectOptions={countries}
