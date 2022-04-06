@@ -1,6 +1,13 @@
+import { basePath } from '../util/constants'
+
 describe('About The Deceased', () => {
+    before(() => {
+        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'alleland' }).as('getCountries')
+    })
+
     it('Should request information about the deceased', function () {
         cy.gotoFrontPage('user').gotoScenarioSelection().gotoAboutYou('PARENT').gotoAboutTheDeceased()
+        cy.wait(['@getCountries'])
 
         cy.get('#firstName').type('Ola')
         cy.get('#lastName').type('Nordmann')
