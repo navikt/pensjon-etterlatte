@@ -82,7 +82,11 @@ export default function ParentQuestion({ parents }: Props) {
             {!!parents && ParentRelationType.SECOND_PARENT === parents && (
                 <Panel border>
                     <Alert inline={true} variant={'info'}>
-                        <BodyLong>{t('onlyParentOrGuardianCanApply')}</BodyLong>
+                        {isParent ? (
+                            <BodyLong>{t('onlyParentOrGuardianCanApplyOnLivingParent')}</BodyLong>
+                        ) : (
+                            <BodyLong>{t('onlyParentOrGuardianCanApply')}</BodyLong>
+                        )}
                     </Alert>
                 </Panel>
             )}

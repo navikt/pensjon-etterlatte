@@ -205,7 +205,7 @@ const aboutTheDeceased = {
     otherTitle: 'Annet',
     occupationalInjury: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     whyWeAskAboutOccupationalInjury:
-        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det avgjøre om barnet/barna får barnepensjon og hvor mye det/de kan få.',
+        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om barnet/barna får barnepensjon og hvor mye det/de kan få.',
     deceasedHasServedInTheMilitary:
         'Har han eller hun gjennomført militær eller sivil førstegangstjeneste for Norge som varte minst 30 dager?',
     whyWeAskAboutMilitaryService: 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',
@@ -222,6 +222,8 @@ const aboutChildren = {
     onlyChildrenOfDeceasedHaveRights: 'Det er kun avdødes barn og adoptivbarn som kan ha rett til barnepensjon.',
     onlyParentOrGuardianCanApply:
         'Har barnet mistet en forelder så må forelder eller oppnevnt verge sende egen søknad.',
+    onlyParentOrGuardianCanApplyOnLivingParent:
+        'Det er kun barnets foreldre eller oppnevnt verge som kan søke om barnepensjon for dette barnet. Det må søkes om barnepensjon i egen søknad.',
     onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år.',
     livesIn: 'Bor i',
     doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
