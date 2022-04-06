@@ -25,7 +25,8 @@ internal class JournalpostSkrevet(
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        val dokumentInfoId = packet["@dokarkivRetur"].path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
+        val dokarkivRetur = packet["@dokarkivRetur"]
+        val dokumentInfoId = dokarkivRetur.path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
 
         val soeknadId = packet["@lagret_soeknad_id"]
         if (soeknadId.toString().startsWith("TEST-") || soeknadId.asLong() == 0L) {
@@ -34,7 +35,7 @@ internal class JournalpostSkrevet(
         }
 
         if (dokumentInfoId != 0L) {
-            soeknader.soeknadArkivert(soeknadId.asLong())
+            soeknader.soeknadArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
         } else {
             logger.error("Arkivering feilet: ", packet.toJson())
             soeknader.soeknadFeiletArkivering(

@@ -1,4 +1,6 @@
 
+import io.mockk.spyk
+import io.mockk.verify
 import no.nav.etterlatte.JournalpostSkrevet
 import no.nav.etterlatte.mapper
 import no.nav.helse.rapids_rivers.JsonMessage
@@ -15,7 +17,7 @@ class JournalpostSkrevetTest {
 
     @Test
     fun `meldinger med journalpostferdigstilt blir arkivert`(){
-        val db = TestRepo()
+        val db = spyk<TestRepo>()
 
         val testRapid = TestRapid().apply {
             JournalpostSkrevet(this, db)
@@ -31,11 +33,12 @@ class JournalpostSkrevetTest {
         assertEquals(22L, db.arkiveringOk[1])
         assertEquals(32L, db.arkiveringOk[2])
 
+        verify(exactly = 3) { db.soeknadArkivert(any(), any()) }
     }
 
     @Test
     fun `meldinger uten journalpostferdigstilt blir ansett som feilet`(){
-        val db = TestRepo()
+        val db = spyk<TestRepo>()
 
         val testRapid = TestRapid().apply {
             JournalpostSkrevet(this, db)
@@ -51,6 +54,7 @@ class JournalpostSkrevetTest {
         assertEquals(22L, db.arkiveringFeilet[1])
         assertEquals(32L, db.arkiveringFeilet[2])
 
+        verify(exactly = 0) { db.soeknadArkivert(any(), any()) }
     }
 }
 
@@ -85,7 +89,7 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
-    override fun soeknadArkivert(id: SoeknadID) {
+    override fun soeknadArkivert(id: SoeknadID, payload: String?) {
         arkiveringOk += id
     }
 
