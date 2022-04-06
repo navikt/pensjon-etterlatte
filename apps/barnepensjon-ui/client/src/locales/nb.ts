@@ -120,7 +120,7 @@ const selectScenario = {
     guardianApplicantInformation:
         'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for beregningen av barnepensjon.',
     guardiansMustSendDocumentation:
-        'Hvis barna ikke er helsøsken, må man søke for hvert barnekull. \nFor å kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
+        'Hvis barna ikke er helsøsken, må man søke for hvert barnekull. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
     childApplicantInformation1:
         '<b>Hvis du har mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
@@ -378,9 +378,9 @@ const logOutUser = {
 }
 
 const receipt = {
-    thankYou: 'Takk for din søknad!',
-    pageTitle: 'Søknaden din er sendt til oss',
-    contact: 'Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.',
+    thankYou: 'Takk for søknaden!',
+    pageTitle: 'Søknaden er sendt til oss',
+    contact: 'Hvis vi mangler informasjon for å behandle søknaden, kontakter vi deg.',
     youMustNotifyRegardingChanges: 'Du må melde fra om endringer',
     importantChangesCanAffectYourRights:
         'Du må melde fra med en gang det skjer viktige endringer i livet til barnet eller barna. Det kan for eksempel være ved:',

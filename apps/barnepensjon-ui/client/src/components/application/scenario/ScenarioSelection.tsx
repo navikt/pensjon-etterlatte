@@ -10,6 +10,7 @@ import FormGroup from '../../common/FormGroup'
 import { RHFRadio } from '../../common/rhf/RHFRadio'
 import Trans from '../../common/Trans'
 import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
+import FormElement from '../../common/FormElement'
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -83,10 +84,10 @@ export default function ScenarioSelection() {
             {ApplicantRole.GUARDIAN === selectedRole && (
                 <>
                     <FormGroup>
-                        <BodyLong size={'small'}>{t('guardianApplicantInformation')}</BodyLong>
-                    </FormGroup>
-                    <FormGroup>
-                        <BodyLong>{t('guardiansMustSendDocumentation')}</BodyLong>
+                        <BodyLong spacing size={'small'}>
+                            {t('guardianApplicantInformation')}
+                        </BodyLong>
+                        <BodyLong size={'small'}>{t('guardiansMustSendDocumentation')}</BodyLong>
                     </FormGroup>
                     <FormGroup>
                         <RHFRadio

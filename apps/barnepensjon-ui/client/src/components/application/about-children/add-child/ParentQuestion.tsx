@@ -34,7 +34,8 @@ export default function ParentQuestion({ parents }: Props) {
                     legend={
                         <HelpTextLabel>
                             <Label as={'span'}>
-                                {t('whoAreTheParents')}&nbsp;<Hjelpetekst>{t('whoAreTheParentsHelpText')}</Hjelpetekst>
+                                {t('whoAreTheParents')}&nbsp;
+                                {isParent && <Hjelpetekst>{t('whoAreTheParentsHelpText')}</Hjelpetekst>}
                             </Label>
                         </HelpTextLabel>
                     }

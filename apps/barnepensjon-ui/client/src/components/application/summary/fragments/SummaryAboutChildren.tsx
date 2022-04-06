@@ -39,7 +39,7 @@ export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicati
             case ParentRelationType.SECOND_PARENT:
                 return t('deceasedParentsChild')
             case ParentRelationType.BOTH:
-                return t('jointChild')
+                return t('jointChild', { person1: nameAndFnr(parents.secondParent!) })
             default:
                 throw Error(`Unexpected parent relation: ${child.parents}`)
         }
