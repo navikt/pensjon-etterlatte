@@ -1,3 +1,5 @@
+import { basePath } from '../util/constants'
+
 describe('About Children', () => {
     before(() => {
         cy.gotoFrontPage('user')
@@ -9,12 +11,15 @@ describe('About Children', () => {
 
     it('should not be allowed to continue without adding a child', function () {
         cy.get('button:contains("Neste")').should('be.enabled').click()
-
         cy.get('.typo-feilmelding').should('have.text', 'Du må søke om barnepensjon for minst ett barn.')
     })
 
     it('should be able to apply for joint child under 18 years', function () {
+        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'alleland' }).as('getCountries')
+
         cy.get('button:contains("Legg til barn")').should('be.enabled').click()
+        cy.wait(['@getCountries'])
+
         cy.get('#firstName').type('Lite')
         cy.get('#lastName').type('Barn')
         cy.get('#fnrDnr').type('09011350027')
@@ -38,7 +43,11 @@ describe('About Children', () => {
     })
 
     it('should display warning when child is above 18', function () {
+        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'alleland' }).as('getCountries')
+
         cy.get('button:contains("Legg til barn")').should('be.enabled').click()
+        cy.wait(['@getCountries'])
+
         cy.get('#firstName').type('Stort')
         cy.get('#lastName').type('Barn')
         cy.get('#fnrDnr').type('11058019471')
