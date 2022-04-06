@@ -157,7 +157,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
 
                         {!tooOldChild() && parents === ParentRelationType.BOTH && (
                             <FormGroup>
-                                {isChild && (
+                                {isChild && !user.adressebeskyttelse && (
                                     <LivesAbroadQuestion
                                         isChild={isChild}
                                         countries={countries}
@@ -167,11 +167,13 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                 {!isChild && (
                                     <>
                                         <FormGroup>
-                                            <LivesAbroadQuestion
-                                                isChild={isChild}
-                                                countries={countries}
-                                                livesAbroadAnswer={livesAbroadAnswer}
-                                            />
+                                            {!user.adressebeskyttelse && (
+                                                <LivesAbroadQuestion
+                                                    isChild={isChild}
+                                                    countries={countries}
+                                                    livesAbroadAnswer={livesAbroadAnswer}
+                                                />
+                                            )}
 
                                             <IsGuardianQuestion
                                                 isGuardian={isGuardian}
