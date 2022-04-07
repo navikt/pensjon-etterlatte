@@ -13,7 +13,7 @@ class TilstandsProbe(private val db: StatistikkRepository) {
     private val ikkeJournalfoertAlder =
         Gauge.build("alder_eldste_uarkiverte", "Alder på eldste ikke-arkiverte søknad").register()
     private val soknadTilstand =
-        Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand").register()
+        Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand", "kilde").register()
     private val soknadsKilder = Gauge.build("soknad_kilde", "Kilden søknadene er fra").labelNames("kilde").register()
 
     private val logger = LoggerFactory.getLogger(TilstandsProbe::class.java)
@@ -28,7 +28,7 @@ class TilstandsProbe(private val db: StatistikkRepository) {
 
         db.rapport()
             .also { rapport -> logger.info(rapport.toString()) }
-            .forEach { (status, antall) -> soknadTilstand.labels(status.name).set(antall.toDouble()) }
+            .forEach { (status, kilde, antall) -> soknadTilstand.labels(status.name, kilde).set(antall.toDouble()) }
 
         db.kilder()
             .also { kilde -> logger.info(kilde.toString()) }

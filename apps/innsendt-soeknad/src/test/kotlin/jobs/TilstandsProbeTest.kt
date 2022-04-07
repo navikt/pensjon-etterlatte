@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import soeknad.PostgresSoeknadRepository
+import soeknad.RapportLinje
 import soeknad.Status
 import java.time.LocalDateTime
 
@@ -19,15 +20,15 @@ internal class TilstandsProbeTest {
     private val tilstandsProbe = TilstandsProbe(dbMock)
     private val eldsteUsendt = LocalDateTime.now().minusHours(1)
     private val eldsteUarkivert = LocalDateTime.now().minusHours(2)
-    private val KildeBP = "barnepensjon-ui"
-    private val KildeGP = "selvbetjening-ui"
+    private val kildeBP = "barnepensjon-ui"
+    private val kildeGP = "selvbetjening-ui"
 
     @BeforeAll
     fun setUp() {
         every { dbMock.eldsteUsendte() } returns eldsteUsendt
         every { dbMock.eldsteUarkiverte() } returns eldsteUarkivert
-        every { dbMock.rapport() } returns mapOf(Status.SENDT to 45L, Status.FERDIGSTILT to 30L)
-        every { dbMock.kilder() } returns mapOf(KildeBP to 40L, KildeGP to 25L)
+        every { dbMock.rapport() } returns listOf(RapportLinje(Status.FERDIGSTILT, kildeBP, "12"), RapportLinje(Status.SENDT, kildeGP, "34"))
+        every { dbMock.kilder() } returns mapOf(kildeBP to 40L, kildeGP to 25L)
         every { dbMock.ukategorisert() } returns listOf(1L)
     }
 
@@ -42,24 +43,24 @@ internal class TilstandsProbeTest {
         verify(exactly = 1) { dbMock.rapport() }
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_tilstand",
-            arrayOf("tilstand"),
-            arrayOf(Status.SENDT.name)
-        ) shouldBe 45.0
+            arrayOf("tilstand", "kilde"),
+            arrayOf(Status.FERDIGSTILT.name, kildeBP)
+        ) shouldBe 12.0
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_tilstand",
-            arrayOf("tilstand"),
-            arrayOf(Status.FERDIGSTILT.name)
-        ) shouldBe 30.0
+            arrayOf("tilstand", "kilde"),
+            arrayOf(Status.SENDT.name, kildeGP)
+        ) shouldBe 34.0
         verify(exactly = 1) { dbMock.kilder() }
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_kilde",
             arrayOf("kilde"),
-            arrayOf(KildeBP)
+            arrayOf(kildeBP)
         ) shouldBe 40.0
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_kilde",
             arrayOf("kilde"),
-            arrayOf(KildeGP)
+            arrayOf(kildeGP)
         ) shouldBe 25.0
         verify(exactly = 1) { dbMock.ukategorisert() }
     }
