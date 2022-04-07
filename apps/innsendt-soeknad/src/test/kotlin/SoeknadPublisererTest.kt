@@ -88,7 +88,7 @@ class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
     }
 
     override fun soeknadSendt(id: SoeknadID) = op()
-    override fun soeknadArkivert(id: SoeknadID) = op()
+    override fun soeknadArkivert(id: SoeknadID, payload: String?) = op()
     override fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)  = op()
     override fun usendteSoeknader(): List<LagretSoeknad> {
         op()

@@ -34,7 +34,7 @@ interface SoeknadRepository {
     fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID
     fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad
     fun soeknadSendt(id: SoeknadID)
-    fun soeknadArkivert(id: SoeknadID)
+    fun soeknadArkivert(id: SoeknadID, payload: String? = null)
     fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
     fun slettArkiverteSoeknader(): Int
@@ -139,8 +139,8 @@ class PostgresSoeknadRepository private constructor(
         nyStatus(id, SENDT, """{}""")
     }
 
-    override fun soeknadArkivert(id: SoeknadID) {
-        nyStatus(id, ARKIVERT, "{}")
+    override fun soeknadArkivert(id: SoeknadID, payload: String?) {
+        nyStatus(id, ARKIVERT, payload ?: """{}""")
     }
 
     override fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String) {
