@@ -10,11 +10,23 @@ const TextGroupDiv = styled.div`
         margin: 0.2rem 0;
     }
 `
+const dtf = Intl.DateTimeFormat('no-NO', {
+    timeZone: 'Europe/Oslo',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+})
 
 const stringify = (content?: any) => {
     if (!content) return ''
     else if (typeof content !== 'string') return content.toString()
-    else return content
+    else {
+        if (!!content.match(/\d{4}-\d{2}-\d{2}.*/)?.length) {
+            return dtf.format(new Date(content))
+        } else {
+            return content
+        }
+    }
 }
 
 interface TextGroupProps {
