@@ -15,7 +15,7 @@ const prepareSecuredRequest = async (req: Request) => {
 
     const accessToken = await exchangeToken(token).then((accessToken) => accessToken)
 
-    const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*barnepensjon-ui:(.*)/, '$1')
+    const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*:(.*)/, '$1')
 
     const headers: any = {
         ...req.headers,
