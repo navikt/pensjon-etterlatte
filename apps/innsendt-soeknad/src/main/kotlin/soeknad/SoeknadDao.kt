@@ -47,7 +47,7 @@ interface SoeknadRepository {
 interface StatistikkRepository {
     fun eldsteUsendte(): LocalDateTime?
     fun eldsteUarkiverte(): LocalDateTime?
-    fun rapport(): Map<Status, Long>
+    fun rapport(): List<RapportLinje>
     fun kilder(): Map<String, Long>
     fun ukategorisert(): List<Long>
 }
@@ -246,12 +246,11 @@ class PostgresSoeknadRepository private constructor(
             }
     }
 
-    override fun rapport(): Map<Status, Long> {
+    override fun rapport(): List<RapportLinje> {
         return connection.use {
             it.prepareStatement(SELECT_RAPPORT)
                 .executeQuery()
-                .toList { Status.valueOf(getString(1)) to getLong(2) }
-                .toMap()
+                .toList { RapportLinje(Status.valueOf(getString(1)), getString(2), getString(3))  }
         }
     }
 
@@ -336,16 +335,20 @@ private object Queries {
     """.trimIndent()
 
     val SELECT_RAPPORT = """    
-        SELECT st.id, count(1)
+        SELECT st.id as status, h2.kilde, count(1)
         FROM (
-            SELECT DISTINCT(h.soeknad_id), MAX(s.rang) rang
-            FROM hendelse h
-            INNER JOIN status s on h.status_id = s.id
-            GROUP BY h.soeknad_id
+            SELECT DISTINCT(h.soeknad_id), MAX(s.rang) rang, h.kilde
+            FROM (
+                SELECT soeknad_id, status_id, s.kilde 
+                FROM hendelse h2 
+                INNER JOIN soeknad s on s.id = h2.soeknad_id
+            ) h
+            INNER JOIN status s ON h.status_id = s.id
+            GROUP BY h.soeknad_id, h.kilde
         ) h2
-            INNER JOIN
-            status st ON st.rang = h2.rang
-        GROUP BY st.id
+        INNER JOIN
+        status st ON st.rang = h2.rang
+        GROUP BY st.id, h2.kilde
         ORDER BY st.rang;
     """.trimMargin()
 

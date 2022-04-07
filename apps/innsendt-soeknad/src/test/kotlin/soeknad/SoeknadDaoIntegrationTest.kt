@@ -547,6 +547,7 @@ internal class SoeknadDaoIntegrationTest {
         // To stk stopper på status KLADD
         db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon))
         db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon))
+        db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeGjenlevende))
 
         // Stopp på status "FERDIGSTILT"
         val ferdigstilt = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
@@ -559,14 +560,20 @@ internal class SoeknadDaoIntegrationTest {
         val sendtId = db.ferdigstillSoeknad(sendt)
         db.soeknadSendt(sendtId)
 
-        // Stopp på status "SENDT"
         val sendt2 = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
         db.lagreKladd(sendt2)
         val sendt2Id = db.ferdigstillSoeknad(sendt2)
         db.soeknadSendt(sendt2Id)
 
+        // Stopp på status "SENDT"
+        val sendt3 = UlagretSoeknad(randomFakeFnr(), """{}""", kildeGjenlevende)
+        db.lagreKladd(sendt3)
+        val sendt3Id = db.ferdigstillSoeknad(sendt3)
+        db.soeknadSendt(sendt3Id)
+
         // Stopp på status "ARKIVERINGSFEIL"
         val arkiveringsfeil = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
+        val arkiveringsfeil2 = UlagretSoeknad(randomFakeFnr(), """{}""", kildeGjenlevende)
 
         // Lagre kladd 3 ganger
         db.lagreKladd(arkiveringsfeil)
@@ -578,14 +585,24 @@ internal class SoeknadDaoIntegrationTest {
         db.soeknadSendt(lagretSoeknadID)
         db.soeknadFeiletArkivering(lagretSoeknadID, """{"error":"test"}""")
 
+        db.lagreKladd(arkiveringsfeil2)
+        val lagretSoeknad2ID = db.lagreKladd(arkiveringsfeil2).id
+        db.ferdigstillSoeknad(arkiveringsfeil2)
+        db.soeknadSendt(lagretSoeknad2ID)
+        db.soeknadFeiletArkivering(lagretSoeknad2ID, """{"error":"test"}""")
+
         val rapport = db.rapport()
 
-        assertEquals(4, rapport.size)
+        assertEquals(7, rapport.size)
 
-        assertEquals(2, rapport[Status.LAGRETKLADD])
-        assertEquals(1, rapport[Status.FERDIGSTILT])
-        assertEquals(2, rapport[Status.SENDT])
-        assertEquals(1, rapport[Status.ARKIVERINGSFEIL])
+        assertEquals("2", rapport.filter { it.status == Status.LAGRETKLADD && it.kilde == kildeBarnepensjon }[0].count)
+        assertEquals("1", rapport.filter { it.status == Status.FERDIGSTILT && it.kilde == kildeBarnepensjon }[0].count)
+        assertEquals("2", rapport.filter { it.status == Status.SENDT && it.kilde == kildeBarnepensjon }[0].count)
+        assertEquals("1", rapport.filter { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeBarnepensjon }[0].count)
+        assertEquals("1", rapport.filter { it.status == Status.LAGRETKLADD && it.kilde == kildeGjenlevende }[0].count)
+        assertEquals("1", rapport.filter { it.status == Status.SENDT && it.kilde == kildeGjenlevende }[0].count)
+        assertEquals("1", rapport.filter { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeGjenlevende }[0].count)
+
     }
 
     @Test

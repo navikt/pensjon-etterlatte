@@ -27,6 +27,12 @@ data class UlagretSoeknad(
     val type: SoeknadType? = null
 )
 
+data class RapportLinje(
+    val status: Status,
+    val kilde: String,
+    val count: String
+)
+
 enum class Status {
     LAGRETKLADD,
     FERDIGSTILT,
