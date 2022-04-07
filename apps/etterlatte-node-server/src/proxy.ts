@@ -15,16 +15,24 @@ const prepareSecuredRequest = async (req: Request) => {
 
     const accessToken = await exchangeToken(token).then((accessToken) => accessToken)
 
-    const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*:(.*)/, '$1')
-
     const headers: any = {
         ...req.headers,
         authorization: `Bearer ${accessToken}`,
-        'Nais-App-Name': process.env.NAIS_APP_NAME,
-        'Image-Tag': imageTag,
     }
 
-    const body = !isEmpty(req.body) ? JSON.stringify(req.body) : undefined
+    let body = undefined
+    if (!isEmpty(req.body) && req.method === 'POST') {
+        const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*:(.*)/, '$1')
+        if (req.path === '/api/soeknad') {
+            const soeknader: any[] = req.body.soeknader.map((soeknad: any) => ({
+                ...soeknad,
+                imageTag,
+            }))
+            body = JSON.stringify({ soeknader })
+        } else {
+            body = JSON.stringify(req.body)
+        }
+    }
 
     return {
         method: req.method,
@@ -38,7 +46,7 @@ export default function proxy(host: string): RequestHandler {
         try {
             const request = await prepareSecuredRequest(req)
 
-            const response = await fetch(`${host}${req.path}`, request)
+            const response = await fetch(`${host}${req.path}?kilde=${process.env.NAIS_APP_NAME}`, request)
 
             if (isOK(response.status)) {
                 logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
