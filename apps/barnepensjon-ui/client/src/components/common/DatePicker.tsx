@@ -71,6 +71,7 @@ const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, class
                                 name,
                                 placeholder: t('dateExample'),
                             }}
+                            inputLabel={t('dateSRLabel')}
                             showYearSelector={true}
                             limitations={{
                                 minDate: parseDate(minDate),

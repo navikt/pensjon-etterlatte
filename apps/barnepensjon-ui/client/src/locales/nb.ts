@@ -18,6 +18,7 @@ const common = {
     whyWeAsk: 'Hvorfor spør vi om dette',
     dateFormat: '(dd.mm.yyyy)',
     dateExample: 'eks. 01.11.2020',
+    dateSRLabel: 'Oppgi dato',
     chooseCountry: 'Velg land',
     chooseLanguage: 'Velg språk',
     norway: 'Norge',
