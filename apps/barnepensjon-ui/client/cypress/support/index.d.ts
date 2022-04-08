@@ -1,9 +1,11 @@
 declare namespace Cypress {
     interface Chainable<Subject = any> {
-        gotoScenarioSelection(): Chainable<null>
-        gotoFrontPage(userFixture: string): Chainable<null>
-        gotoAboutYou(role: string, situation?: string): Chainable<null>
-        gotoAboutTheDeceased(): Chainable<null>
-        gotoAboutChildren(): Chainable<null>
+        startApplication(userFixture: string): Chainable<null>
+        agreeToTerms(gotoNext?: boolean): Chainable<null>
+        useScenario(role: string, situation?: string, gotoNext?: boolean): Chainable<null>
+        acceptInformationAboutYou(): Chainable<null>
+        useSimpleDeceased(gotoNext?: boolean): Chainable<null>
+        addChild(gotoNext?: boolean): Chainable<null>
+        clickBtn(btn: string): Chainable<null>
     }
 }

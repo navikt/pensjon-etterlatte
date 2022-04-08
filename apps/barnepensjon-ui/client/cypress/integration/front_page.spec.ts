@@ -1,6 +1,8 @@
+import { Button } from '../util/constants'
+
 describe('Front Page', () => {
     before(() => {
-        cy.gotoFrontPage('user')
+        cy.startApplication('user')
     })
 
     it('should require user to agree with the terms in order to continue', function () {
@@ -9,8 +11,10 @@ describe('Front Page', () => {
     })
 
     it('should let the user start the application after agreeing with the terms', function () {
-        cy.get('.navds-confirmation-panel').get('[type="checkbox"]').click()
-        cy.get('.navds-button').should('be.enabled').click()
+        cy.agreeToTerms(false)
+
+        cy.get('.navds-confirmation-panel').get('[type="checkbox"]').should('be.checked')
+        cy.clickBtn(Button.StartApplication)
 
         cy.url().should('include', 'velg-scenarie')
     })
