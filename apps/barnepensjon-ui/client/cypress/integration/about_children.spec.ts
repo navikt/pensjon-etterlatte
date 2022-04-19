@@ -64,7 +64,7 @@ describe('About Children', () => {
         cy.startApplication('user-with-protected-address')
             .agreeToTerms()
             .useScenario('PARENT')
-            .clickBtn(Button.Next)
+            .acceptInformationAboutYou()
             .useSimpleDeceased(true)
 
         cy.clickBtn(Button.AddChild)
