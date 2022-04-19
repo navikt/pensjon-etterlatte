@@ -13,7 +13,6 @@ describe('About Children', () => {
 
     it('should not be allowed to continue without adding a child', function () {
         cy.clickBtn(Button.Next)
-
         cy.get('.typo-feilmelding').should('have.text', 'Du må søke om barnepensjon for minst ett barn.')
     })
 

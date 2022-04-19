@@ -43,6 +43,7 @@ export default function Summary({ prev }: StepProps) {
 
     const send = () => {
         const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user)
+        console.log(application)
 
         sendApplication({ soeknader })
             .then(() => {

@@ -62,10 +62,18 @@ export default function AboutChildren({ next, prev }: StepProps) {
         setActiveChildIndex(undefined)
     }
 
+    const removeChild = (index: number) => {
+        remove(index)
+        const values = getValues()
+        dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...values } })
+    }
+
     const updateChild = (child: IChild) => {
         if (activeChildIndex !== undefined) {
             update(activeChildIndex, child)
             clearErrors()
+            const values = getValues()
+            dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...values } })
         }
         setActiveChildIndex(undefined)
     }
@@ -112,7 +120,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                         key={uuid()}
                                         child={field as IChild}
                                         index={index}
-                                        remove={remove}
+                                        remove={removeChild}
                                         setActiveChildIndex={() => setActiveChildIndex(index)}
                                     />
                                 ))}
