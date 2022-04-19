@@ -13,6 +13,7 @@ import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import soeknad.InnsendtSoeknadFixtures
@@ -61,6 +62,7 @@ internal class NotifikasjonTest {
 
     @Test
     fun `Skal legge bekreftelsesmelding på køen når notifikasjon er sendt`() {
+        val soeknad: String = mapper.writeValueAsString(InnsendtSoeknadFixtures.gjenlevendepensjon())
         val inspector = TestRapid()
             .apply {
                 Notifikasjon(
@@ -75,7 +77,7 @@ internal class NotifikasjonTest {
                             "@event_name" to "soeknad_innsendt",
                             "@dokarkivRetur" to "123456",
                             "@fnr_soeker" to "07106123912",
-                            "@skjema_info" to mapper.writeValueAsString(InnsendtSoeknadFixtures.gjenlevendepensjon()),
+                            "@skjema_info" to mapper.readTree(soeknad),
                             "@lagret_soeknad_id" to "4",
                             "@dokarkivRetur" to (mapOf("journalpostId" to "3"))
                         )
@@ -90,12 +92,15 @@ internal class NotifikasjonTest {
         assertEquals("4", inspector.message(0).get("@lagret_soeknad_id").asText())
         assertEquals("SendNotifikasjon 3", inspector.key(0))
         assertEquals(mockKafkaProducer.history().size, 1)
-        assertEquals(mockKafkaProducer.history()[0].value().getTekst(), "Vi har mottatt søknaden din om gjenlevendepensjon")
+        assertEquals(
+            mockKafkaProducer.history()[0].value().getTekst(),
+            "Vi har mottatt søknaden din om gjenlevendepensjon"
+        )
     }
-
 
     @Test
     fun `Skal opprette to notifikasjoner dersom innsender ikke er samme som søker`() {
+        val soeknad: String = mapper.writeValueAsString(InnsendtSoeknadFixtures.barnepensjon())
         val inspector = TestRapid()
             .apply {
                 Notifikasjon(
@@ -110,7 +115,7 @@ internal class NotifikasjonTest {
                             "@event_name" to "soeknad_innsendt",
                             "@dokarkivRetur" to "123456",
                             "@fnr_soeker" to "07106123912",
-                            "@skjema_info" to mapper.writeValueAsString(InnsendtSoeknadFixtures.barnepensjon()),
+                            "@skjema_info" to mapper.readTree(soeknad),
                             "@lagret_soeknad_id" to "4",
                             "@dokarkivRetur" to (mapOf("journalpostId" to "5"))
                         )

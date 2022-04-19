@@ -30,7 +30,7 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         runBlocking {
-            val soeknad: InnsendtSoeknad = mapper.readValue(packet["@skjema_info"].asText())
+            val soeknad: InnsendtSoeknad = mapper.readValue(packet["@skjema_info"].toString())
 
             sendNotifikasjon.sendMessage(soeknad)
 

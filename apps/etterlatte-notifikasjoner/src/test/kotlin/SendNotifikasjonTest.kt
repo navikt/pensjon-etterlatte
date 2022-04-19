@@ -1,21 +1,22 @@
-import no.nav.etterlatte.SendNotifikasjon
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneOffset
 import io.mockk.mockk
 import no.nav.brukernotifikasjon.schemas.input.BeskjedInput
 import no.nav.brukernotifikasjon.schemas.input.NokkelInput
+import no.nav.etterlatte.SendNotifikasjon
 import org.apache.kafka.clients.producer.Producer
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 import soeknad.InnsendtSoeknadFixtures
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 class SendNotifikasjonTest {
     private val mockKafkaProducer = mockk<Producer<NokkelInput, BeskjedInput>>()
     private val sendNotifikasjon = SendNotifikasjon(
         mapOf(
-        "BRUKERNOTIFIKASJON_BESKJED_TOPIC" to "test_topic",
-    ), mockKafkaProducer)
+            "BRUKERNOTIFIKASJON_BESKJED_TOPIC" to "test_topic",
+        ), mockKafkaProducer
+    )
 
     @Test
     fun `skal opprette melding for gjenlevendepensjon`() {
