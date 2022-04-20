@@ -35,17 +35,11 @@ class SendNotifikasjon(
         val innsender = soeknad.innsender.foedselsnummer.svar.value
         val soeker = soeknad.soeker.foedselsnummer!!.svar.value
 
-        val nokkelBuilder = NokkelInputBuilder()
-            .withEventId(UUID.randomUUID().toString())
-            .withGrupperingsId(grupperingsId)
-            .withNamespace(namespace)
-            .withAppnavn(appname)
-
         if (innsender != soeker) {
-            send(nokkelBuilder.withFodselsnummer(innsender).build(), opprettBeskjed(soeknad))
+            send(opprettNokkel(innsender), opprettBeskjed(soeknad))
         }
 
-        send(nokkelBuilder.withFodselsnummer(soeker).build(), opprettBeskjed(soeknad))
+        send(opprettNokkel(soeker), opprettBeskjed(soeknad))
     }
 
     internal fun opprettBeskjed(soeknad: InnsendtSoeknad): BeskjedInput {
@@ -64,6 +58,14 @@ class SendNotifikasjon(
             .withEksternVarsling(eksternVarsling)
             .build()
     }
+
+    private fun opprettNokkel(ident: String) = NokkelInputBuilder()
+        .withEventId(UUID.randomUUID().toString())
+        .withGrupperingsId(grupperingsId)
+        .withNamespace(namespace)
+        .withAppnavn(appname)
+        .withFodselsnummer(ident)
+        .build()
 
     private fun send(nokkel: NokkelInput, beskjed: BeskjedInput) = try {
         producer.send(ProducerRecord(brukernotifikasjontopic, nokkel, beskjed)).get(10, TimeUnit.SECONDS)
