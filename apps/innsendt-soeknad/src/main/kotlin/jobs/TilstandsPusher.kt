@@ -28,7 +28,7 @@ class TilstandsPusher(private val db: SoeknadRepository, private val publiserSoe
                     logger.error("Feil under kjøring av jobb: ", e)
                 }
             } else {
-                delay(300_000) // 5 min
+                delay(60_000) // 1 min
             }
         }
     }
