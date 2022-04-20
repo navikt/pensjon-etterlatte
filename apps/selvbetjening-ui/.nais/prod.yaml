@@ -52,14 +52,12 @@ spec:
       autoLogin: true
       errorPath: ""
   env:
+    - name: BASE_PATH
+      value: /gjenlevendepensjon/soknad
     - name: API_URL
       value: http://selvbetjening-api
-    - name: SELVBETJENING_AUDIENCE
+    - name: AUDIENCE
       value: prod-gcp:etterlatte:selvbetjening-api
-    - name: NODE_LOG_LEVEL
-      value: info
-    - name: IDPORTEN_POST_LOGOUT_REDIRECT_URI
-      value: https://www.nav.no/gjenlevendepensjon/soknad/logout/callback
   accessPolicy:
     outbound:
       external:
