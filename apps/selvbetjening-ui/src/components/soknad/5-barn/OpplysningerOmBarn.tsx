@@ -65,9 +65,17 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
         remove(aktivBarnIndex)
     }
 
+    const fjernBarn = (index: number) => {
+        remove(index)
+        const verdier = getValues()
+        dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(verdier) } });
+    }
+
     const oppdaterBarn = (barn: IBarn) => {
         if (aktivBarnIndex !== undefined) {
             update(aktivBarnIndex, barn)
+            const verdier = getValues()
+            dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(verdier) } });
         }
         setAktivBarnIndex(undefined)
     }
@@ -112,7 +120,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                     <SkjemaGruppe>
                         <div className={"infokort-wrapper"}>
                             {fields?.map((field: FieldArrayWithId, index: number) => (
-                                <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={remove}
+                                <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={fjernBarn}
                                               setAktivBarnIndex={() => setAktivBarnIndex(index)}/>
                             ))}
 
