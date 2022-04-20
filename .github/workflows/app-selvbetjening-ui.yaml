@@ -110,7 +110,7 @@ jobs:
         run: CI=true yarn test
       - name: Start application
         working-directory: apps/${{ env.APP_NAME }}
-        run: yarn start & npx wait-on http://localhost:3000
+        run: yarn start:mock & npx wait-on http://localhost:3000
       - name: Run e2e tests (Cypress)
         working-directory: apps/${{ env.APP_NAME }}
         run: yarn cy:test

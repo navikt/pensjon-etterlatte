@@ -21,7 +21,7 @@ Installere prosjektet:\
 Kjøre prosjektet (med labs sitt mock-api):\
 `yarn start` eller `yarn start:labs` 
 
-Kjøre prosjektet (mot [etterlatte-node-server](../etterlatte-node-server)):\
+Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
 `yarn start:mock`
 
 Åpne [http://localhost:3000/gjenlevendepensjon/soknad](http://localhost:3000/gjenlevendepensjon/soknad) i nettleseren.
