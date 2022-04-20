@@ -32,6 +32,9 @@ spec:
     requests:
       cpu: 200m
       memory: 256Mi
+  env:
+    - name: BASE_PATH
+      value: /barnepensjon/soknad
   accessPolicy:
     outbound:
       external:

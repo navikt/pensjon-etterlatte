@@ -52,10 +52,12 @@ spec:
       autoLogin: true
       errorPath: ""
   env:
+    - name: BASE_PATH
+      value: /barnepensjon/soknad
     - name: API_URL
       value: http://selvbetjening-api
-    - name: SELVBETJENING_AUDIENCE
-      value: prod-gcp:etterlatte:selvbetjening-api
+    - name: AUDIENCE
+      value: dev-gcp:etterlatte:selvbetjening-api
   accessPolicy:
     outbound:
       external:

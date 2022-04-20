@@ -1,13 +1,3 @@
-FROM node:14
+FROM ghcr.io/navikt/pensjon-etterlatte/etterlatte-node-server:d728b1e37f9d709fdfeb43e0c4ef7eabc79f3cfd
 
-WORKDIR /usr/src/app
-
-COPY client/build ./build
-COPY server/build ./server
-COPY server/node_modules ./node_modules
-
-ENV NODE_ENV="production"
-
-EXPOSE 8080
-
-CMD ["node", "./server/server.js"]
+COPY build ./build

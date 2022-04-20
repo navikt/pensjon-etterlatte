@@ -3,7 +3,7 @@ import axiosRetry from 'axios-retry'
 
 export const isDev = process.env.NODE_ENV === 'development'
 
-export const baseURL = isDev ? `http://localhost:8080${process.env.PUBLIC_URL}` : '/barnepensjon/soknad'
+const baseURL = isDev ? `${process.env.REACT_APP_MOCK_API}${process.env.PUBLIC_URL}` : process.env.PUBLIC_URL
 
 export const axiosInstance = axios.create({
     withCredentials: true,

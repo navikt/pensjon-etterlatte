@@ -56,7 +56,9 @@
     "prettier": "^2.6.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "yarn start:labs",
+    "start:labs": "REACT_APP_MOCK_API=https://etterlatte.labs.nais.io react-scripts start",
+    "start:mock": "REACT_APP_MOCK_API=http://localhost:8080 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "cy:test": "TZ=Europe/Oslo cypress run",
