@@ -31,6 +31,8 @@ app.get(`${basePath}/metrics`, async (req: Request, res: Response) => {
 if (config.env.isLabsCluster) {
     mockApi(app)
 } else {
+    logger.info('Setting up session and proxy')
+
     app.get(`${basePath}/session`, session())
 
     app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))

@@ -78,7 +78,9 @@
     "stylelint-config-standard": "22.0.0"
   },
   "scripts": {
-    "start": "env REACT_APP_ENVIRONMENT=development react-scripts start",
+    "start": "yarn start:labs",
+    "start:labs": "REACT_APP_MOCK_API=https://etterlatte.labs.nais.io react-scripts start",
+    "start:mock": "REACT_APP_MOCK_API=http://localhost:8080 react-scripts start",
     "build:dev": "env REACT_APP_ENVIRONMENT=development react-scripts build",
     "build:prod": "env REACT_APP_ENVIRONMENT=production react-scripts build",
     "build": "react-scripts build",
@@ -96,7 +98,14 @@
     "rules": {},
     "ignoreFiles": []
   },
-  "prettier": {},
+  "prettier": {
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": true
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
