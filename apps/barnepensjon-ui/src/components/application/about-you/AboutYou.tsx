@@ -41,6 +41,7 @@ export default function AboutYou({ next }: StepProps) {
 
     const addressConfirmed = watch('addressOfResidenceConfirmed')
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
+    const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
 
     return (
         <>
@@ -66,7 +67,7 @@ export default function AboutYou({ next }: StepProps) {
                             </>
                         )}
 
-                        {!!user.foedselsnummer && !user.telefonnummer && (
+                        {!!user.foedselsnummer && !user.telefonnummer && !isGuardian && (
                             <Grid>
                                 <Cell xs={12} md={6}>
                                     <FormElement>
