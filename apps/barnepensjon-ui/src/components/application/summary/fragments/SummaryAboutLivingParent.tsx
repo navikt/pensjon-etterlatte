@@ -36,7 +36,10 @@ export const SummaryAboutLivingParent = memo(({ aboutTheParent, pathPrefix }: Pr
                         />
                         <TextGroup title={t('address')} content={aboutTheParent?.address} />
                         {aboutTheParent.phoneNumber && (
-                            <TextGroup title={t('phoneNumberOptional')} content={aboutTheParent.phoneNumber} />
+                            <TextGroup
+                                title={t('phoneNumberOptional', { ns: 'common' })}
+                                content={aboutTheParent.phoneNumber}
+                            />
                         )}
                     </>
                 </AccordionItem>

@@ -14,6 +14,7 @@ const common = {
     maritalStatus: 'Sivilstatus',
     citizenship: 'Statsborgerskap',
     phoneNumber: 'Telefonnummer',
+    phoneNumberOptional: 'Telefonnummer (valgfri)',
     phoneNumberHelpText: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
     whyWeAsk: 'Hvorfor spør vi om dette',
     dateFormat: '(dd.mm.yyyy)',
@@ -175,7 +176,6 @@ const aboutParents = {
 const livingParent = {
     title: 'Om den gjenlevende',
     address: 'Adresse (valgfri)',
-    phoneNumberOptional: 'Telefonnummer (valgfri)',
 }
 
 const aboutTheDeceased = {

@@ -46,7 +46,11 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
                     <RHFInput name={'address'} label={t('address')} valgfri={true} />
                 </FormElement>
                 <FormElement>
-                    <RHFTelefonInput name={'phoneNumber'} label={t('phoneNumberOptional')} valgfri={true} />
+                    <RHFTelefonInput
+                        name={'phoneNumber'}
+                        label={t('phoneNumberOptional', { ns: 'common' })}
+                        valgfri={true}
+                    />
                 </FormElement>
                 <ErrorSummaryWrapper errors={errors} />
 
