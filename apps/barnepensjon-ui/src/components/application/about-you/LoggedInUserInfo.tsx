@@ -43,12 +43,12 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                 </Cell>
 
                 <Cell xs={6}>
-                    {user.telefonnummer && (
-                        <>
-                            <div>
-                                <Label>{t('fnrDnr')}</Label>
-                                <BodyShort spacing>{user.foedselsnummer}</BodyShort>
-                            </div>
+                    <>
+                        <div>
+                            <Label>{t('fnrDnr')}</Label>
+                            <BodyShort spacing>{user.foedselsnummer}</BodyShort>
+                        </div>
+                        {user.telefonnummer && (
                             <HelpTextLabel>
                                 <Label as={'span'}>
                                     {t('phoneNumber')}&nbsp;
@@ -56,8 +56,8 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                                 </Label>
                                 <BodyShort spacing>{user.telefonnummer}</BodyShort>
                             </HelpTextLabel>
-                        </>
-                    )}
+                        )}
+                    </>
                 </Cell>
             </Grid>
         </FormGroup>
