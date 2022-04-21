@@ -74,7 +74,7 @@ export default function AboutYou({ next }: StepProps) {
                                         <RHFTelefonInput
                                             bredde={'S'}
                                             name={'phoneNumber'}
-                                            label={t('phoneNumber', { ns: 'common' })}
+                                            label={t('phoneNumberOptional', { ns: 'common' })}
                                             valgfri={true}
                                         />
                                     </FormElement>
