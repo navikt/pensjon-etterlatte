@@ -94,7 +94,7 @@ class PostgresSoeknadRepository private constructor(
             logger.info("Søknad finnes ikke i databasen. Oppretter ny søknad.")
             opprettNySoeknad(soeknad)
         } else if (lagretSoeknad.status != null && lagretSoeknad.status != LAGRETKLADD)
-            throw Exception("Bruker har allerede en ferdigstilt søknad under behandling")
+            throw Exception("Bruker har allerede en ferdigstilt søknad (id=${lagretSoeknad.id}) under behandling")
         else {
             logger.info("Søknad finnes allerede (id=${lagretSoeknad.id}). Oppdaterer søknad med nytt innhold.")
             oppdaterSoeknad(lagretSoeknad, soeknad.payload)
