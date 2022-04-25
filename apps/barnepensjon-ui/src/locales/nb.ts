@@ -275,10 +275,9 @@ const summary = {
     AboutTheDeceased: 'Endre svar om den avdøde',
     AboutChildren: 'Endre svar om barn',
     YourSituation: 'Endre svar om din situasjon',
+    errorFromConflict: 'Vi har allerede mottatt en søknad på en eller flere av personene det søkes for. Dersom du forsøker å endre på en allerede innsendt søknad må du kontakte oss på telefon 55 55 33 34.',
     errorWhenSending:
-        'En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du melde feil ',
-    errorWhenSendingLink: 'her.',
-    errorWhenSendingHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+        'En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du melde feil <a href="https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler">her.</a>',
 }
 
 const error = {

@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory
 import soeknad.LagretSoeknad
 import soeknad.SoeknadID
 import soeknad.SoeknadRepository
+import soeknad.Status
 import soeknad.UlagretSoeknad
 
 class SoeknadService(private val db: SoeknadRepository) {
@@ -16,18 +17,9 @@ class SoeknadService(private val db: SoeknadRepository) {
     fun sendSoeknad(innloggetBrukerFnr: Foedselsnummer, request: SoeknadRequest, kilde: String): Boolean {
         logger.info("Forsøker lagring av mottatte søknader (antall=${request.soeknader.size})")
         // Verifisere at det er innlogget bruker som er registrert som innsender
-        val innsenderErInnlogget = request.soeknader.all { innloggetBrukerFnr == it.innsender.foedselsnummer.svar }
-        if (!innsenderErInnlogget) {
-            logger.error("Søknad innsender er ikke samme som innlogget bruker!")
-            throw RuntimeException("Ugyldig innsender")
-        }
+        validerInnsender(innloggetBrukerFnr, request)
 
-        val ider = request.soeknader
-            .map { UlagretSoeknad(it.soeker.foedselsnummer!!.svar.value, it.toJson(), kilde, it.type) }
-            .map {
-                logger.info("Ferdigstiller søknad (type=${it.type})")
-                db.ferdigstillSoeknad(it)
-            }
+        val ider = validerOgFerdigstillSoeknader(request, kilde)
 
         return if (ider.size == request.soeknader.size) {
             logger.info("Lagret alle (${ider.size}) innsendte søknader.")
@@ -41,6 +33,32 @@ class SoeknadService(private val db: SoeknadRepository) {
         } else {
             logger.error("Kun ${ider.size} av ${request.soeknader.size} ble lagret.")
             false
+        }
+    }
+
+    private fun validerInnsender(innloggetBrukerFnr: Foedselsnummer, request: SoeknadRequest) {
+        val innsenderErInnlogget = request.soeknader.all { innloggetBrukerFnr == it.innsender.foedselsnummer.svar }
+
+        if (!innsenderErInnlogget) {
+            logger.error("Søknad innsender er ikke samme som innlogget bruker!")
+            throw RuntimeException("Ugyldig innsender")
+        }
+    }
+
+    private fun validerOgFerdigstillSoeknader(request: SoeknadRequest, kilde: String): List<SoeknadID> {
+        val soeknader = request.soeknader
+            .map { UlagretSoeknad(it.soeker.foedselsnummer!!.svar.value, it.toJson(), kilde, it.type) }
+
+        val finnesKonlflikter = soeknader
+            .mapNotNull { db.finnKladd(it.fnr, it.kilde)?.status }
+            .any { it != Status.LAGRETKLADD }
+
+        if (finnesKonlflikter) throw SoeknadConflictException()
+
+        return soeknader.map {
+            db.ferdigstillSoeknad(it).also { ferdigstiltID ->
+                logger.info("Ferdigstilt søknad $ferdigstiltID (type=${it.type})")
+            }
         }
     }
 
@@ -61,3 +79,5 @@ class SoeknadService(private val db: SoeknadRepository) {
             ?.also { logger.info("Slettet kladd (id=${it})") }
     }
 }
+
+class SoeknadConflictException : RuntimeException("Bruker")
