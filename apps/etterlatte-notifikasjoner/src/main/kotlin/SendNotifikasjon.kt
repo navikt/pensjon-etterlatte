@@ -6,16 +6,14 @@ import no.nav.brukernotifikasjon.schemas.builders.NokkelInputBuilder
 import no.nav.brukernotifikasjon.schemas.input.BeskjedInput
 import no.nav.brukernotifikasjon.schemas.input.NokkelInput
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
-
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.Producer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-
 import java.time.LocalDateTime
 import java.time.ZoneOffset
-import java.util.*
+import java.util.UUID
 import java.util.concurrent.TimeUnit
 
 class SendNotifikasjon(
@@ -33,13 +31,8 @@ class SendNotifikasjon(
 
     fun sendMessage(soeknad: InnsendtSoeknad) {
         val innsender = soeknad.innsender.foedselsnummer.svar.value
-        val soeker = soeknad.soeker.foedselsnummer!!.svar.value
 
-        if (innsender != soeker) {
-            send(opprettNokkel(innsender), opprettBeskjed(soeknad))
-        }
-
-        send(opprettNokkel(soeker), opprettBeskjed(soeknad))
+        send(opprettNokkel(innsender), opprettBeskjed(soeknad))
     }
 
     internal fun opprettBeskjed(soeknad: InnsendtSoeknad): BeskjedInput {

@@ -13,7 +13,6 @@ import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import soeknad.InnsendtSoeknadFixtures
@@ -61,7 +60,7 @@ internal class NotifikasjonTest {
     }
 
     @Test
-    fun `Skal legge bekreftelsesmelding på køen når notifikasjon er sendt`() {
+    fun `Skal opprette notifikasjon til innsender ved innsending av gjenlevendepensjon`() {
         val soeknad: String = mapper.writeValueAsString(InnsendtSoeknadFixtures.gjenlevendepensjon())
         val inspector = TestRapid()
             .apply {
@@ -96,10 +95,14 @@ internal class NotifikasjonTest {
             mockKafkaProducer.history()[0].value().getTekst(),
             "Vi har mottatt søknaden din om gjenlevendepensjon"
         )
+        assertEquals(
+            InnsendtSoeknadFixtures.gjenlevendepensjon().innsender.foedselsnummer.svar.value,
+            mockKafkaProducer.history()[0].key().getFodselsnummer()
+        )
     }
 
     @Test
-    fun `Skal opprette to notifikasjoner dersom innsender ikke er samme som søker`() {
+    fun `Skal opprette notifikasjon til innsender ved innsending av barnepensjon`() {
         val soeknad: String = mapper.writeValueAsString(InnsendtSoeknadFixtures.barnepensjon())
         val inspector = TestRapid()
             .apply {
@@ -129,9 +132,12 @@ internal class NotifikasjonTest {
         assertEquals("5", inspector.message(0).get("@journalpostId").asText())
         assertEquals("4", inspector.message(0).get("@lagret_soeknad_id").asText())
         assertEquals("SendNotifikasjon 5", inspector.key(0))
-        assertEquals(mockKafkaProducer.history().size, 2)
+        assertEquals(mockKafkaProducer.history().size, 1)
         assertEquals(mockKafkaProducer.history()[0].value().getTekst(), "Vi har mottatt søknaden din om barnepensjon")
-        assertEquals(mockKafkaProducer.history()[1].value().getTekst(), "Vi har mottatt søknaden din om barnepensjon")
+        assertEquals(
+            InnsendtSoeknadFixtures.barnepensjon().innsender.foedselsnummer.svar.value,
+            mockKafkaProducer.history()[0].key().getFodselsnummer()
+        )
     }
 
     @AfterAll
