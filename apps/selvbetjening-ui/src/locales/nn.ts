@@ -148,11 +148,10 @@ export default {
     "omDeg.valgfritt": "Alle felt må fyllast ut, bortsett frå dei som er markerte som valfrie.",
     "omDeg.bostedsadresseBekreftet": "Bur du på denne adressa?",
     "omDeg.alternativAdresse": "Oppgi noverande bustadsadresse",
-    "omDeg.oppholderSegINorge": "Oppheld du deg for tida i Noreg?",
+    "omDeg.oppholderSegINorge": "Har du oppheldt deg i Noreg dei siste 12 månadane?",
     "omDeg.oppholdHvorfor":
         "Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
     "omDeg.oppholdsland": "Oppgi land",
-    "omDeg.medlemFolketrygdenUtland": "Er du medlem i folketrygda under opphald i eit anna land enn Noreg?",
     "omDeg.flyktning": "Har du status som flyktning?",
     "omDeg.flyktningHvorfor":
         "Hvis du er registrert som flyktning hos UDI kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
@@ -464,8 +463,6 @@ export default {
         "Oppgi om avdøde var medlem i folketrygda under opphald i eit anna land enn Noreg",
     "feil.alternativAdresse.required": "Oppgi noverande bustadsadresse",
     "feil.oppholdsland.required": "Oppgi noverande opphaldsland",
-    "feil.medlemFolketrygdenUtland.required":
-        "Oppgi om du er medlem i folketrygda under opphald i eit anna land enn Noreg",
     "feil.doedsfallAarsak.required": "Oppgi om dødsfallet skuldast yrkesskade eller yrkessjukdom",
     "feil.avdoed.fornavn.required": "Oppgi avdøde sitt førenamn",
     "feil.avdoed.etternavn.required": "Oppgi avdøde sitt etternamn",

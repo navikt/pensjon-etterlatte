@@ -205,7 +205,6 @@ export interface PensjonUtland {
 
 export interface OppholdUtland {
     land: Opplysning<FritekstSvar>;
-    medlemFolketrygd: Opplysning<EnumSvar<JaNeiVetIkke>>;
 }
 
 export enum Stoenader {

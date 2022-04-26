@@ -149,11 +149,10 @@ export default {
     "omDeg.valgfritt": "Alle felt må fylles ut, bortsett fra de som er markert som valgfrie.",
     "omDeg.bostedsadresseBekreftet": "Bor du på denne adressen?",
     "omDeg.alternativAdresse": "Oppgi nåværende bostedsadresse",
-    "omDeg.oppholderSegINorge": "Oppholder du deg for tiden i Norge?",
+    "omDeg.oppholderSegINorge": "Har du oppholdt deg i Norge de siste 12 månedene?",
     "omDeg.oppholdHvorfor":
         "Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.",
     "omDeg.oppholdsland": "Oppgi land",
-    "omDeg.medlemFolketrygdenUtland": "Er du medlem i folketrygden under opphold i et annet land enn Norge?",
     "omDeg.flyktning": "Har du status som flyktning?",
     "omDeg.flyktningHvorfor":
         "Hvis du er registrert som flyktning hos UDI kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.",
@@ -466,8 +465,6 @@ export default {
         "Oppgi om avdøde var medlem i folketrygden under opphold i et annet land enn Norge",
     "feil.alternativAdresse.required": "Oppgi nåværende bostedsadresse",
     "feil.oppholdsland.required": "Oppgi nåværende oppholdsland",
-    "feil.medlemFolketrygdenUtland.required":
-        "Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge",
     "feil.doedsfallAarsak.required": "Oppgi om dødsfallet skyldes yrkesskade eller yrkessykdom",
     "feil.avdoed.fornavn.required": "Oppgi avdødes fornavn",
     "feil.avdoed.etternavn.required": "Oppgi avdødes etternavn",

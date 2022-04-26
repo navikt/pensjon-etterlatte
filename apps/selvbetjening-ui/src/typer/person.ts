@@ -154,7 +154,6 @@ export interface ISoeker {
     flyktning?: IValg;
     oppholderSegINorge?: IValg;
     oppholdsland?: string;
-    medlemFolketrygdenUtland?: IValg;
     nySivilstatus?: INySivilstatus;
     erValidert?: boolean;
 }

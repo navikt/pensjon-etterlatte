@@ -51,21 +51,18 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
     return (
         <>
-            {/* Steg 2 */}
             <Heading size={"medium"} className={"center"}>
                 {t("omDeg.tittel")}
             </Heading>
 
-            {/* Informasjon om den innloggede brukeren */}
             <InnloggetBruker/>
 
-            {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <FormProvider {...methods}>
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
                 <form>
                     <SkjemaGruppering>
-                        {!brukerState.adressebeskyttelse && (
+                        {!brukerState.adressebeskyttelse && !brukerState.adresse && (
                             <>
                                 <RHFSpoersmaalRadio
                                     name={"bostedsadresseBekreftet"}
@@ -134,11 +131,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                             selectOptions={land}
                                         />
                                     </SkjemaGruppe>
-
-                                    <RHFSpoersmaalRadio
-                                        name={"medlemFolketrygdenUtland"}
-                                        legend={t("omDeg.medlemFolketrygdenUtland")}
-                                    />
 
                                     <RHFInlineRadio
                                         name={"utbetalingsInformasjon.bankkontoType"}

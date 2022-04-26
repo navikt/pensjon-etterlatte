@@ -159,12 +159,10 @@ export default {
     "omDeg.valgfritt": "All fields must be filled in, apart from those marked as optional.",
     "omDeg.bostedsadresseBekreftet": "Do you live at this address?",
     "omDeg.alternativAdresse": "Enter your current residential address",
-    "omDeg.oppholderSegINorge": "Are you currently in Norway?",
+    "omDeg.oppholderSegINorge": "Have you been staying in Norway the last 12 months?",
     "omDeg.oppholdHvorfor":
         "If you spend a prolonged period in a country other than Norway, this may affect whether you get a survivor’s pension and how much money you get.",
     "omDeg.oppholdsland": "State which country",
-    "omDeg.medlemFolketrygdenUtland":
-        "Are you a member of the Norwegian National Insurance Scheme during your period outside Norway?",
     "omDeg.flyktning": "Do you have refugee status?",
     "omDeg.flyktningHvorfor":
         "If you are registered as a refugee with the Norwegian Directorate of Immigration (UDI), this may affect whether you get a survivor’s pension and how much money you get.",
@@ -487,8 +485,6 @@ export default {
         "State whether the deceased was a member of the Norwegian National Insurance Scheme during their stay in a country other than Norway",
     "feil.alternativAdresse.required": "Enter your current residential address",
     "feil.oppholdsland.required": "Enter your current country of residence",
-    "feil.medlemFolketrygdenUtland.required":
-        "State whether you are a member of the Norwegian National Insurance Scheme during your stay in a country other than Norway",
     "feil.doedsfallAarsak.required": "State whether the death was due to an occupational injury or illness",
     "feil.avdoed.fornavn.required": "Enter the deceased’s first name(s)",
     "feil.avdoed.etternavn.required": "Enter the deceased’s family name",

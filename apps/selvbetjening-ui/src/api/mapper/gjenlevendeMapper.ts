@@ -189,10 +189,6 @@ const hentOppholdUtland = (t: TFunction, omDeg: ISoeker): BetingetOpplysning<Enu
                     innhold: omDeg.oppholdsland!!
                 }
             },
-            medlemFolketrygd: {
-                spoersmaal: t("omDeg.medlemFolketrygdenUtland"),
-                svar: valgTilSvar(t, omDeg.medlemFolketrygdenUtland!!),
-            }
         };
     }
 

@@ -161,5 +161,5 @@ data class PensjonUtland(
 
 data class OppholdUtland(
     val land: Opplysning<FritekstSvar>,
-    val medlemFolketrygd: Opplysning<EnumSvar<JaNeiVetIkke>>
+    val medlemFolketrygd: Opplysning<EnumSvar<JaNeiVetIkke>>?
 )
