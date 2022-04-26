@@ -34,7 +34,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         // Verifiser felter og fyll ut skjema.
         const omDeg = mockSoeknad.omDeg;
-        cy.get("#alternativAdresse").type(omDeg.alternativAdresse);
+        cy.get("#alternativAdresse").should('not.exist');
         getById("kontaktinfo.telefonnummer").type(omDeg.kontaktinfo.telefonnummer);
         selectValueForId("oppholderSegINorge", omDeg.oppholderSegINorge);
         getById("utbetalingsInformasjon.kontonummer").type(omDeg.utbetalingsInformasjon.kontonummer);
