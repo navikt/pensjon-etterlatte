@@ -146,12 +146,11 @@ export default {
     "omDeg.undertittel.opplysningerOmSoeker": "Opplysingar om søkaren",
     "omDeg.advarsel": "Viss opplysingane vi har om deg ikkje stemmer, må du endre desse hos Folkeregisteret.",
     "omDeg.valgfritt": "Alle felt må fyllast ut, bortsett frå dei som er markerte som valfrie.",
-    "omDeg.bostedsadresseBekreftet": "Bur du på denne adressa?",
     "omDeg.alternativAdresse": "Oppgi noverande bustadsadresse",
     "omDeg.oppholderSegINorge": "Har du oppheldt deg i Noreg dei siste 12 månadane?",
     "omDeg.oppholdHvorfor":
         "Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
-    "omDeg.oppholdsland": "Oppgi land",
+    "omDeg.oppholdsland": "Oppgi hvilket land du oppheldt deg i",
     "omDeg.flyktning": "Har du status som flyktning?",
     "omDeg.flyktningHvorfor":
         "Hvis du er registrert som flyktning hos UDI kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
@@ -453,7 +452,6 @@ export default {
     "feil.hovedytelse.required": "Hovedytinga må være valt",
     "feil.fraDato.required": "Frå dato må vere valt",
     "feil.fraDato.validate": "Dato må vere i eit gyldig format",
-    "feil.bostedsadresseBekreftet.required": "Bustadsadresse må bekreftast/avkreftast",
     "feil.boddEllerJobbetUtland.svar.required": "Oppgi om den avdøde har budd eller arbeidd i eit anna land enn Noreg",
     "feil.boddEllerJobbetUtland.oppholdUtland.land.required": "Oppgi land",
     "feil.boddEllerJobbetUtland.oppholdUtland.beskrivelse.required": "Vel eit eller begge alternativ",

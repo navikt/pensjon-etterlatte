@@ -45,7 +45,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
     const skalSjekkeFlyktningStatus = brukerState.foedselsaar!! < 1960;
 
-    const borPaaRegistrertAdresse = watch("bostedsadresseBekreftet");
     const oppholderSegINorge = watch("oppholderSegINorge");
     const bankkontoType = watch("utbetalingsInformasjon.bankkontoType");
 
@@ -63,21 +62,12 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                 <form>
                     <SkjemaGruppering>
                         {!brukerState.adressebeskyttelse && !brukerState.adresse && (
-                            <>
-                                <RHFSpoersmaalRadio
-                                    name={"bostedsadresseBekreftet"}
-                                    legend={t("omDeg.bostedsadresseBekreftet")}
+                            <SkjemaGruppe>
+                                <RHFInput
+                                    name={"alternativAdresse"}
+                                    label={t("omDeg.alternativAdresse")}
                                 />
-
-                                {borPaaRegistrertAdresse === IValg.NEI && (
-                                    <SkjemaGruppe>
-                                        <RHFInput
-                                            name={"alternativAdresse"}
-                                            label={t("omDeg.alternativAdresse")}
-                                        />
-                                    </SkjemaGruppe>
-                                )}
-                            </>
+                            </SkjemaGruppe>
                         )}
 
                         {!brukerState.telefonnummer && (

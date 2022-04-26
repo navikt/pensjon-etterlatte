@@ -1,5 +1,5 @@
 const personalia = {
-    adresse: 'Adresse-mock',
+//adresse: 'Adresse-mock',
     husnummer: 1,
     husbokstav: null,
     postnummer: '0000',

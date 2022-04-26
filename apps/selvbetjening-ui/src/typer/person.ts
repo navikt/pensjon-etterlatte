@@ -147,7 +147,6 @@ export interface IForholdAvdoede {
 }
 
 export interface ISoeker {
-    bostedsadresseBekreftet?: IValg;
     alternativAdresse?: string;
     kontaktinfo?: IKontaktinfo;
     utbetalingsInformasjon?: IUtbetalingsInformasjon;

@@ -1,6 +1,6 @@
-import { TFunction } from "i18next";
-import { ISoeknad } from "../../context/soknad/soknad";
-import { IBruker } from "../../context/bruker/bruker";
+import {TFunction} from "i18next";
+import {ISoeknad} from "../../context/soknad/soknad";
+import {IBruker} from "../../context/bruker/bruker";
 import {
     AndreYtelser,
     AnnenUtdanning,
@@ -26,11 +26,11 @@ import {
     Utdanning,
     Ytelser
 } from "../dto/FellesOpplysninger";
-import { Gjenlevende, PersonType, Samboer } from "../dto/Person";
-import { valgTilSvar } from "./fellesMapper";
-import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from "../../typer/person";
-import { IValg } from "../../typer/Spoersmaal";
-import { ISituasjon, JobbStatus } from "../../typer/situasjon";
+import {Gjenlevende, PersonType, Samboer} from "../dto/Person";
+import {valgTilSvar} from "./fellesMapper";
+import {IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus} from "../../typer/person";
+import {IValg} from "../../typer/Spoersmaal";
+import {ISituasjon, JobbStatus} from "../../typer/situasjon";
 import {
     konverterIngenJobb,
     konverterJobbStatus,
@@ -41,7 +41,7 @@ import {
     konverterTilHoyesteUtdanning,
     konverterYtelser
 } from "./typeMapper";
-import { fullAdresse } from "../../utils/adresse";
+import {fullAdresse} from "../../utils/adresse";
 
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
@@ -66,7 +66,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         }
     } : undefined;
 
-    const opplysningAlternativAdresse: Opplysning<FritekstSvar> | undefined = soeknad.omDeg.bostedsadresseBekreftet === IValg.NEI ? {
+    const opplysningAlternativAdresse: Opplysning<FritekstSvar> | undefined = soeknad.omDeg.alternativAdresse ? {
         spoersmaal: t("omDeg.alternativAdresse"),
         svar: {
             innhold: soeknad.omDeg.alternativAdresse!!
@@ -112,9 +112,9 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
             spoersmaal: t("felles.adresse"),
             svar: fullAdresse(bruker)
         } : undefined,
-        bostedsAdresse: !bruker.adressebeskyttelse ? {
-            spoersmaal: t("omDeg.bostedsadresseBekreftet"),
-            svar: valgTilSvar(t, soeknad.omDeg.bostedsadresseBekreftet!!),
+        bostedsAdresse: !bruker.adressebeskyttelse && soeknad.omDeg.alternativAdresse ? {
+            spoersmaal: "-", // todo: Spørsmålet er fjernet. Skal bort fra modellen.
+            svar: valgTilSvar(t, IValg.JA),
             opplysning: opplysningAlternativAdresse
         } : undefined,
         kontaktinfo,

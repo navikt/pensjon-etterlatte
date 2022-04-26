@@ -157,7 +157,6 @@ export default {
     "omDeg.undertittel.opplysningerOmSoeker": "Information about the applicant",
     "omDeg.advarsel": "If the information we have about you is incorrect, you must change it in the National Registry.",
     "omDeg.valgfritt": "All fields must be filled in, apart from those marked as optional.",
-    "omDeg.bostedsadresseBekreftet": "Do you live at this address?",
     "omDeg.alternativAdresse": "Enter your current residential address",
     "omDeg.oppholderSegINorge": "Have you been staying in Norway the last 12 months?",
     "omDeg.oppholdHvorfor":
@@ -474,7 +473,6 @@ export default {
     "feil.hovedytelse.required": "A main benefit must be selected",
     "feil.fraDato.required": "A “from” date must be selected",
     "feil.fraDato.validate": "Invalid date format",
-    "feil.bostedsadresseBekreftet.required": "You must confirm whether this is your current residential address or not",
     "feil.boddEllerJobbetUtland.svar.required":
         "State whether the deceased has ever lived or worked in a country other than Norway",
     "feil.boddEllerJobbetUtland.oppholdUtland.land.required": "State which country",
