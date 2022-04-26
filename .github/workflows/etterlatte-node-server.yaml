@@ -1,7 +1,6 @@
 name: etterlatte-node-server
 
 env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
   APP_NAME: ${{ github.workflow }}
 
 on:
@@ -13,6 +12,7 @@ on:
       - fix/*
     paths:
       - apps/etterlatte-node-server/**
+      - '!apps/etterlatte-node-server/src/mock/**'
 
 jobs:
   build-and-publish:
@@ -54,7 +54,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
+        run: echo "VERSION=$(npm -s run env echo '$npm_package_version')" >> $GITHUB_ENV
         with:
           context: apps/${{ env.APP_NAME }}
           push: true
-          tags: ${{ env.IMAGE }}
+          tags: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ VERSION }}
