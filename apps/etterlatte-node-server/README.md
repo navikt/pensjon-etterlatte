@@ -4,6 +4,11 @@
 
 Felles node backend for Team Etterlatte sine React-apper.
 
+## Bygge nytt docker image
+
+For å bygget nytt docker image, må versjon manuelt bumpes. 
+Dette gjøres i [package.json](package.json)
+
 ## Hvordan ta i bruk
 
 `etterlatte-node-server` bygges til et Docker-image som kan brukes av eksempelvis en React app.

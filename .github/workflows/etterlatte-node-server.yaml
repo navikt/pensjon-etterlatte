@@ -59,4 +59,4 @@ jobs:
         with:
           context: apps/${{ env.APP_NAME }}
           push: true
-          tags: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ VERSION }}
+          tags: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ env.VERSION }}
