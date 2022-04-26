@@ -43,7 +43,9 @@ jobs:
         run: yarn install
       - name: Yarn build
         working-directory: apps/${{ env.APP_NAME }}
-        run: yarn build
+        run: |
+          yarn build
+          echo "VERSION=$(npm -s run env echo '$npm_package_version')" >> $GITHUB_ENV
 
       # Docker login, build and push
       - name: Login to Docker
@@ -54,7 +56,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
-        run: echo "VERSION=$(npm -s run env echo '$npm_package_version')" >> $GITHUB_ENV
         with:
           context: apps/${{ env.APP_NAME }}
           push: true
