@@ -9,6 +9,11 @@ Felles node backend for Team Etterlatte sine React-apper.
 For å bygget nytt docker image, må versjon manuelt bumpes. 
 Dette gjøres i [package.json](package.json)
 
+Du kan bruke yarn til oppdatering av versjon, men det er da viktig å kjøre med `--no-git-tag-version
+`. Git tags fungerer litt dårlig med monorepo, så det er greit å unngå det.
+
+`yarn version --no-git-tag-version`
+
 ## Hvordan ta i bruk
 
 `etterlatte-node-server` bygges til et Docker-image som kan brukes av eksempelvis en React app.
