@@ -42,7 +42,7 @@ const InlineRadioPanelGroup = styled(RadioPanelGruppe)`
         column-gap: 1rem;
 
         .radioPanel {
-            margin-bottom: 0;
+            margin-bottom: 0 !important;
             width: 100%;
             min-width: calc(33.3% - 1rem);
 
