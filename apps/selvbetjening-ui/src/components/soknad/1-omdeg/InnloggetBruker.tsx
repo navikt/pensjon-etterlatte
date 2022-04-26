@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Cell, Grid, Label } from "@navikt/ds-react";
+import { BodyShort, Cell, Grid, Label } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import { SkjemaGruppe } from "nav-frontend-skjema";
@@ -16,8 +16,6 @@ const InnloggetBruker = memo(() => {
 
     return (
         <SkjemaGruppe>
-            <br />
-            <Alert variant={"warning"}>{t("omDeg.advarsel")}</Alert>
             <div className="mute" style={{ margin: "2em 0" }}>
                 {t("omDeg.valgfritt")}
             </div>

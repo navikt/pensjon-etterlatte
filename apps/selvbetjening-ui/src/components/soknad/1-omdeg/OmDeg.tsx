@@ -13,7 +13,7 @@ import { RHFInlineRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
-import { Cell, Grid, Heading } from "@navikt/ds-react";
+import {Alert, Cell, Grid, Heading} from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
@@ -67,6 +67,17 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                     name={"alternativAdresse"}
                                     label={t("omDeg.alternativAdresse")}
                                 />
+                            </SkjemaGruppe>
+                        )}
+
+                        {!brukerState.adressebeskyttelse && brukerState.adresse && (
+                            <SkjemaGruppe>
+                                <Alert variant={"warning"} className={"navds-alert--inline"}>
+                                    <a href={t("omDeg.advarsel.href")} target="_blank" rel="noreferrer">
+                                        {/* todo: Ikon for endring*/}
+                                        {t("omDeg.advarsel")}
+                                    </a>
+                                </Alert>
                             </SkjemaGruppe>
                         )}
 
