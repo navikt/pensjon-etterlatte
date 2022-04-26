@@ -1,6 +1,7 @@
 name: etterlatte-node-server
 
 env:
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
   APP_NAME: ${{ github.workflow }}
 
 on:
@@ -13,6 +14,7 @@ on:
     paths:
       - apps/etterlatte-node-server/**
       - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
 
 jobs:
   build-and-publish:
@@ -43,9 +45,7 @@ jobs:
         run: yarn install
       - name: Yarn build
         working-directory: apps/${{ env.APP_NAME }}
-        run: |
-          yarn build
-          echo "VERSION=$(npm -s run env echo '$npm_package_version')" >> $GITHUB_ENV
+        run: yarn build
 
       # Docker login, build and push
       - name: Login to Docker
@@ -59,4 +59,4 @@ jobs:
         with:
           context: apps/${{ env.APP_NAME }}
           push: true
-          tags: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ env.VERSION }}
+          tags: ${{ env.IMAGE }}
