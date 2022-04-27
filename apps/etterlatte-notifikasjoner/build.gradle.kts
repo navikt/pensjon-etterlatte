@@ -3,15 +3,14 @@ plugins {
 }
 
 dependencies {
-    //implementation(Kafka.Clients)
-
     implementation(Ktor.OkHttp)
     implementation(Ktor.ClientCore)
     implementation(Ktor.ClientLoggingJvm)
     implementation(Ktor.ClientAuth)
     implementation(Ktor.ClientJackson)
 
-    //implementation("com.github.navikt:brukernotifikasjon-schemas:1.2021.08.27-09.12-f8a8cbc76319")
+    implementation(project(":libs:common"))
+
     implementation("com.github.navikt:brukernotifikasjon-schemas:v2.5.1")
     implementation(project(":libs:ktorclient-auth-clientcredentials"))
     implementation ("com.nfeld.jsonpathkt:jsonpathkt:2.0.0")
@@ -27,4 +26,6 @@ dependencies {
     testImplementation(Ktor.ClientMock)
     testImplementation(MockK.MockK)
     testImplementation(Kafka.EmbeddedEnv)
+
+    testImplementation(project(":libs:common-test"))
 }
