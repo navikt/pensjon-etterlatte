@@ -30,6 +30,12 @@ export const saveDraft = async (application: IApplication) =>
     api.post('/api/api/kladd', application).then((res) => res.data)
 
 export const sendApplication = async (application: SoeknadRequest) =>
-    api.post('/api/api/soeknad', application).then((res) => res.data)
+    api
+        .post('/api/api/soeknad', application)
+        .then((res) => res.data)
+        .catch((e) => {
+            if (e.response.status === 409) throw new Error('FERDIGSTILT')
+            else throw new Error('Det skjedde en feil')
+        })
 
 export const deleteDraft = async () => api.delete('/api/api/kladd').then((res) => res.data)

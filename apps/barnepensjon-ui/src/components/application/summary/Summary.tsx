@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Link } from '@navikt/ds-react'
+import { Alert, BodyLong } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
 import { ActionTypes, IDeceasedParent, ILivingParent } from '../../../context/application/application'
@@ -20,6 +20,8 @@ import { sendApplication } from '../../../api/api'
 import { useNavigate } from 'react-router-dom'
 import { Barnepensjon, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
 import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
+import Trans from "../../common/Trans";
+import { Translation } from "../../../context/language/translations";
 
 const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
     const prefix = {
@@ -39,7 +41,7 @@ export default function Summary({ prev }: StepProps) {
 
     const navigate = useNavigate()
 
-    const [error, setError] = useState(false)
+    const [error, setError] = useState<Translation>()
     const [loading, setLoading] = useState(false)
 
     const send = () => {
@@ -54,11 +56,12 @@ export default function Summary({ prev }: StepProps) {
                 setLoading(false)
                 navigate('/skjema/kvittering')
             })
-            .catch((e) => {
-                console.error(e)
-                logEvent(LogEvents.SEND_APPLICATION_ERROR)
-                setError(true)
+            .catch((e: Error) => {
                 setLoading(false)
+                logEvent(LogEvents.SEND_APPLICATION_ERROR)
+
+                if (e.message === 'FERDIGSTILT') setError(t('errorFromConflict'))
+                else setError(t('errorWhenSending'))
             })
     }
 
@@ -113,8 +116,7 @@ export default function Summary({ prev }: StepProps) {
             {error && (
                 <FormGroup>
                     <Alert variant={'error'}>
-                        {t('errorWhenSending')}
-                        <Link href={t('errorWhenSendingHref')}>{t('errorWhenSendingLink')}</Link>
+                        <Trans value={error} />
                     </Alert>
                 </FormGroup>
             )}

@@ -2,6 +2,7 @@ package no.nav.etterlatte.soknad
 
 import com.fasterxml.jackson.databind.JsonNode
 import io.ktor.application.call
+import io.ktor.client.features.ClientRequestException
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
 import io.ktor.response.respond
@@ -29,8 +30,11 @@ fun Route.soknadApi(service: SoeknadService) {
                         call.respond(HttpStatusCode.OK)
                     }
                     is Failure -> {
-                        call.application.environment.log.error("Innsending av søknad feilet ", response.lastError())
-                        call.respond(HttpStatusCode.InternalServerError)
+                        val error = response.lastError()
+                        call.application.environment.log.error("Innsending av søknad feilet ", error)
+
+                        if (error is ClientRequestException) call.respond(error.response.status)
+                        else call.respond(HttpStatusCode.InternalServerError)
                     }
                 }
             } catch (ex: Exception) {

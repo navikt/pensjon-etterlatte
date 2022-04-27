@@ -33,7 +33,7 @@ class SoeknadService(
             Metrikker.soeknadTotal.labels(it.type.name).inc()
         }
 
-        return retry {
+        return retry(0) {
             innsendtSoeknadKlient.post<String>("soeknad") {
                 contentType(Json)
                 header("kilde", kilde)

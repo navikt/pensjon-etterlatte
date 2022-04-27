@@ -1,14 +1,18 @@
 package soeknad
 
 import com.fasterxml.jackson.databind.JsonNode
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.beInstanceOf
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.mapper
+import no.nav.etterlatte.soeknad.SoeknadConflictException
 import no.nav.etterlatte.soeknad.SoeknadService
+import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
 import kotlin.random.Random
 
@@ -21,6 +25,7 @@ internal class SoeknadServiceTest {
 
     @Test
     fun `Gyldige søknader lagres OK som forventet`() {
+        every { mockRepository.finnKladd(any(), any()) } returns LagretSoeknad(Random.nextLong(), "", """{}""")
         every { mockRepository.ferdigstillSoeknad(any()) } returns 1
 
         val request = SoeknadRequest(
@@ -34,6 +39,7 @@ internal class SoeknadServiceTest {
 
         lagretOK shouldBe true
 
+        verify(exactly = 1) { mockRepository.finnKladd("11057523044", any()) }
         verify(exactly = 2) { mockRepository.ferdigstillSoeknad(any()) }
     }
 
@@ -69,6 +75,7 @@ internal class SoeknadServiceTest {
     fun `Send søknad for seg selv OG på vegne av andre`() {
         val gjenlevFnr = Foedselsnummer.of("24014021406")
 
+        every { mockRepository.finnKladd(any(), any()) } returns LagretSoeknad(Random.nextLong(), "", """{}""")
         every { mockRepository.ferdigstillSoeknad(any()) } returns Random.nextLong(0, 100)
 
         val request = SoeknadRequest(
@@ -80,6 +87,8 @@ internal class SoeknadServiceTest {
 
         val isSuccess = service.sendSoeknad(gjenlevFnr, request, kilde)
 
+        verify(exactly = 1) { mockRepository.finnKladd("24014021406", any()) }
+        verify(exactly = 1) { mockRepository.finnKladd("05111850870", any()) }
         verify(exactly = 2) { mockRepository.ferdigstillSoeknad(any()) }
         verify(exactly = 0) { mockRepository.slettOgKonverterKladd(any(), any()) }
 
@@ -90,6 +99,8 @@ internal class SoeknadServiceTest {
     fun `Send søknad på vegne av andre`() {
         val fnr = Foedselsnummer.of("24014021406")
 
+        every { mockRepository.finnKladd("11057523044", any()) } returns LagretSoeknad(1, "11057523044", """{}""")
+        every { mockRepository.finnKladd("05111850870", any()) } returns LagretSoeknad(2, "05111850870", """{}""")
         every { mockRepository.ferdigstillSoeknad(any()) } returns Random.nextLong(0, 100)
         every { mockRepository.slettOgKonverterKladd(any(), any()) } returns Random.nextLong(0, 100)
 
@@ -102,9 +113,38 @@ internal class SoeknadServiceTest {
 
         val isSuccess = service.sendSoeknad(fnr, request, kilde)
 
+        verify(exactly = 1) { mockRepository.finnKladd("11057523044", any()) }
+        verify(exactly = 1) { mockRepository.finnKladd("05111850870", any()) }
         verify(exactly = 2) { mockRepository.ferdigstillSoeknad(any()) }
         verify(exactly = 1) { mockRepository.slettOgKonverterKladd(fnr.value, kilde) }
 
         isSuccess shouldBe true
+    }
+
+    @Test
+    fun `Bruker har allerede innsendt søknad som medfører konflikt`() {
+        val fnr = Foedselsnummer.of("24014021406")
+
+        every { mockRepository.finnKladd("11057523044", any()) } returns LagretSoeknad(1, "11057523044", """{}""")
+        every { mockRepository.finnKladd("05111850870", any()) } returns LagretSoeknad(2, "05111850870", """{}""").apply { status = Status.FERDIGSTILT }
+
+        val request = SoeknadRequest(
+            listOf(
+                InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("11057523044")),
+                InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870"))
+            )
+        )
+
+        try {
+            service.sendSoeknad(fnr, request, kilde)
+            fail()
+        } catch (e: Exception) {
+            e should beInstanceOf<SoeknadConflictException>()
+        }
+
+        verify(exactly = 1) { mockRepository.finnKladd("11057523044", any()) }
+        verify(exactly = 1) { mockRepository.finnKladd("05111850870", any()) }
+        verify(exactly = 0) { mockRepository.ferdigstillSoeknad(any()) }
+        verify(exactly = 0) { mockRepository.slettOgKonverterKladd(any(), any()) }
     }
 }

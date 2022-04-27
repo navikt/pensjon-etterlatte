@@ -3,9 +3,17 @@ import FormGroup from '../common/FormGroup'
 import NavGuide from '../common/NavGuide'
 import useTranslation from '../../hooks/useTranslation'
 import FormElement from '../common/FormElement'
+import { useEffect } from "react";
 
 export default function ReceiptPage() {
     const { t } = useTranslation('receipt')
+
+    useEffect(() => {
+        window.history.pushState(null, document.title, window.location.href)
+        window.addEventListener('popstate', () => {
+            window.history.pushState(null, document.title, window.location.href);
+        })
+    }, [])
 
     return (
         <>
