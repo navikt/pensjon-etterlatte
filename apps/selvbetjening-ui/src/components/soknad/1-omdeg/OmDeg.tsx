@@ -74,7 +74,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             <SkjemaGruppe>
                                 <Alert variant={"warning"} className={"navds-alert--inline"}>
                                     <a href={t("omDeg.advarsel.href")} target="_blank" rel="noreferrer">
-                                        {/* todo: Ikon for endring*/}
                                         {t("omDeg.advarsel")}
                                     </a>
                                 </Alert>
