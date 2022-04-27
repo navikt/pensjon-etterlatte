@@ -17,11 +17,11 @@
     "avdoed": {
       "fornavn": "Død",
       "etternavn": "Testperson",
-      "datoForDoedsfallet": "2021-07-26T22:00:00.000Z"
+      "datoForDoedsfallet": "2021-07-26"
     },
     "forholdTilAvdoede": {
       "relasjon": "avdoede.relasjon.separert",
-      "datoForInngaattPartnerskap": "2001-07-26T22:00:00.000Z"
+      "datoForInngaattPartnerskap": "2001-07-26"
     },
     "nySivilstatus": {
       "sivilstatus": "nySivilstatus.enslig"
@@ -39,8 +39,8 @@
             "oppholdUtlandType.bodd",
             "oppholdUtlandType.arbeidet"
           ],
-          "fraDato": "2002-08-10T22:00:00.000Z",
-          "tilDato": "2003-08-10T22:00:00.000Z",
+          "fraDato": "2002-08-10",
+          "tilDato": "2003-08-10",
           "medlemFolketrygd": "radiobuttons.ja",
           "mottokPensjon": {
             "beskrivelse": "150.000"
