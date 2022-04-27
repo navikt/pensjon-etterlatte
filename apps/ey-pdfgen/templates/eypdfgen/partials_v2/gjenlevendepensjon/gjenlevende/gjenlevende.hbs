@@ -46,11 +46,7 @@
 {{/if}}
 
 {{#if this.bostedsAdresse}}
-    {{> eypdfgen/partials_v2/common/opplysning this.bostedsAdresse}}
-
-    {{#eq this.bostedsAdresse.svar.verdi "NEI"}}
-        {{> eypdfgen/partials_v2/common/opplysning this.bostedsAdresse.opplysning}}
-    {{/eq}}
+    {{> eypdfgen/partials_v2/common/opplysning this.bostedsAdresse.opplysning}}
 {{/if}}
 
 {{> eypdfgen/partials_v2/common/personalia/kontaktinfo this.kontaktinfo}}
