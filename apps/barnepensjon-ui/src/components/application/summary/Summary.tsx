@@ -42,18 +42,22 @@ export default function Summary({ prev }: StepProps) {
     const navigate = useNavigate()
 
     const [error, setError] = useState<Translation>()
+    const [loading, setLoading] = useState(false)
 
     const send = () => {
         const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user)
+
+        setLoading(true)
 
         sendApplication({ soeknader })
             .then(() => {
                 soeknader.forEach(() => logEvent(LogEvents.SEND_APPLICATION, { type: SoeknadType.BARNEPENSJON }))
                 dispatch({ type: ActionTypes.RESET })
+                setLoading(false)
                 navigate('/skjema/kvittering')
             })
             .catch((e: Error) => {
-                console.error(e)
+                setLoading(false)
                 logEvent(LogEvents.SEND_APPLICATION_ERROR)
 
                 if (e.message === 'FERDIGSTILT') setError(t('errorFromConflict'))
@@ -117,7 +121,11 @@ export default function Summary({ prev }: StepProps) {
                 </FormGroup>
             )}
 
-            <Navigation right={{ onClick: send, label: t('sendApplicationButton') }} left={{ onClick: prev }} />
+            <Navigation
+                right={{ onClick: send, label: t('sendApplicationButton') }}
+                left={{ onClick: prev }}
+                loading={loading}
+            />
         </FormGroup>
     )
 }

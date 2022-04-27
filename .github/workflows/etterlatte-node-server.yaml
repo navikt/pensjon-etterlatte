@@ -13,6 +13,8 @@ on:
       - fix/*
     paths:
       - apps/etterlatte-node-server/**
+      - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
 
 jobs:
   build-and-publish:

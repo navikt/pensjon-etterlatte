@@ -58,7 +58,7 @@ spec:
       application: test-fordeler
       access: readwrite
     - team: etterlatte
-      application: etterlatte-behandling-fra-soeknad
+      application: etterlatte-opplysninger-fra-soeknad
       access: readwrite
     - team: etterlatte
       application: etterlatte-testdata

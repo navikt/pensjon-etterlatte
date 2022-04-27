@@ -1,6 +1,8 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.module.kotlin.readValue
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
@@ -21,13 +23,16 @@ class Notifikasjon(private val sendNotifikasjon: SendNotifikasjon, rapidsConnect
             validate { it.demandValue("@event_name", "soeknad_innsendt") }
             validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@fnr_soeker") }
+            validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@lagret_soeknad_id") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         runBlocking {
-            sendNotifikasjon.sendMessage(packet["@fnr_soeker"].textValue())
+            val soeknad: InnsendtSoeknad = mapper.readValue(packet["@skjema_info"].toString())
+
+            sendNotifikasjon.sendMessage(soeknad)
 
             val journalpostId = packet["@dokarkivRetur"]["journalpostId"]
             JsonMessage.newMessage(
