@@ -3,16 +3,16 @@ import { useState } from 'react'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
 import { ActionTypes as ApplicationActionTypes } from '../../context/application/application'
 import { ActionTypes as UserActionTypes } from '../../context/user/user'
-import { Button, ButtonProps, Heading } from '@navikt/ds-react'
+import { Button, ButtonProps, Heading, Loader } from '@navikt/ds-react'
 import FormGroup from './FormGroup'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import EyModal from './EyModal'
 import { deleteDraft } from '../../api/api'
 import { BodyShortMuted } from './StyledTypography'
 import useTranslation from '../../hooks/useTranslation'
 import { EventType, LogEvents, useAmplitude } from '../../hooks/useAmplitude'
 
-export const NavRow = styled.div`
+export const NavRow = styled.div<{ disabled?: boolean }>`
     width: 100%;
     display: flex;
     justify-content: center;
@@ -22,6 +22,15 @@ export const NavRow = styled.div`
     .knapp {
         margin-bottom: 0;
     }
+  
+    ${(props) => {
+        if (props.disabled) {
+            return css`
+              opacity: 0.6;
+              pointer-events: none;
+            `
+        }
+    }}
 `
 
 const NavFooter = styled(FormGroup)`
@@ -51,9 +60,10 @@ interface NavigationProps {
     right?: NavButtonProps
     left?: NavButtonProps
     hideCancel?: boolean
+    loading?: boolean
 }
 
-export default function Navigation({ right, left, hideCancel }: NavigationProps) {
+export default function Navigation({ right, left, hideCancel, loading }: NavigationProps) {
     const { t } = useTranslation('navigation')
     const { logEvent } = useAmplitude()
 
@@ -84,7 +94,7 @@ export default function Navigation({ right, left, hideCancel }: NavigationProps)
     return (
         <>
             <NavFooter>
-                <NavRow>
+                <NavRow disabled={loading}>
                     {!!left && (
                         <Button
                             type={'button'}
@@ -103,7 +113,7 @@ export default function Navigation({ right, left, hideCancel }: NavigationProps)
                             onClick={right?.onClick}
                             disabled={right?.disabled}
                         >
-                            {right?.label || t('nextButton', { ns: 'btn' })}
+                            {right?.label || t('nextButton', { ns: 'btn' })} {loading && <Loader/>}
                         </Button>
                     )}
                 </NavRow>
