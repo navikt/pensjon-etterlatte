@@ -1,4 +1,4 @@
-import { BodyShort, Cell, Grid, Label } from "@navikt/ds-react";
+import {Alert, BodyShort, Cell, Grid, Label} from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import { SkjemaGruppe } from "nav-frontend-skjema";
@@ -16,9 +16,6 @@ const InnloggetBruker = memo(() => {
 
     return (
         <SkjemaGruppe>
-            <div className="mute" style={{ margin: "2em 0" }}>
-                {t("omDeg.valgfritt")}
-            </div>
             <Grid className={"opplysninger"}>
                 <Cell xs={6}>
                     <div>
@@ -63,6 +60,14 @@ const InnloggetBruker = memo(() => {
                     )}
                 </Cell>
             </Grid>
+
+            {!state.adressebeskyttelse && state.adresse && (
+                    <Alert variant={"warning"} className={"navds-alert--inline"}>
+                        <a href={t("omDeg.advarsel.href")} target="_blank" rel="noreferrer">
+                            {t("omDeg.advarsel")}
+                        </a>
+                    </Alert>
+            )}
         </SkjemaGruppe>
     );
 });

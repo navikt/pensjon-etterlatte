@@ -157,7 +157,6 @@ export default {
     "omDeg.undertittel.opplysningerOmSoeker": "Information about the applicant",
     "omDeg.advarsel": "If the address is wrong you will have to change it at the National Population Registry before you continue the application (opens in a new tab)",
     "omDeg.advarsel.href": "https://www.skatteetaten.no/person/folkeregister/flytte/i-norge/",
-    "omDeg.valgfritt": "All fields must be filled in, apart from those marked as optional.",
     "omDeg.alternativAdresse": "Enter your current residential address",
     "omDeg.oppholderSegINorge": "Have you been staying in Norway the last 12 months?",
     "omDeg.oppholdHvorfor":

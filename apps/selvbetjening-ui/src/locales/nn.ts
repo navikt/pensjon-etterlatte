@@ -146,7 +146,6 @@ export default {
     "omDeg.undertittel.opplysningerOmSoeker": "Opplysingar om søkaren",
     "omDeg.advarsel": "Ved feil adresse må du endre denne hos Folkeregisteret før du går vidare med søknaden (opnast i ny fane)",
     "omDeg.advarsel.href": "https://www.skatteetaten.no/person/folkeregister/flytte/i-norge/",
-    "omDeg.valgfritt": "Alle felt må fyllast ut, bortsett frå dei som er markerte som valfrie.",
     "omDeg.alternativAdresse": "Oppgi noverande bustadsadresse",
     "omDeg.oppholderSegINorge": "Har du oppheldt deg i Noreg dei siste 12 månadane?",
     "omDeg.oppholdHvorfor":
