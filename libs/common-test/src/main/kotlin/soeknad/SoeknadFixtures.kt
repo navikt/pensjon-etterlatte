@@ -129,7 +129,6 @@ object InnsendtSoeknadFixtures {
                 svar = EnumSvar(NEI, "Nei"),
                 opplysning = OppholdUtland(
                     land = Opplysning(FritekstSvar("Sverige")),
-                    medlemFolketrygd = Opplysning(EnumSvar(JA, "Ja"))
                 )
             ),
             nySivilstatus = BetingetOpplysning(

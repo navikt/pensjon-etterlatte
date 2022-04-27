@@ -1,6 +1,6 @@
-import {TFunction} from "i18next";
-import {ISoeknad} from "../../context/soknad/soknad";
-import {IBruker} from "../../context/bruker/bruker";
+import { TFunction } from "i18next";
+import { ISoeknad } from "../../context/soknad/soknad";
+import { IBruker } from "../../context/bruker/bruker";
 import {
     AndreYtelser,
     AnnenUtdanning,
@@ -26,11 +26,11 @@ import {
     Utdanning,
     Ytelser
 } from "../dto/FellesOpplysninger";
-import {Gjenlevende, PersonType, Samboer} from "../dto/Person";
-import {valgTilSvar} from "./fellesMapper";
-import {IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus} from "../../typer/person";
-import {IValg} from "../../typer/Spoersmaal";
-import {ISituasjon, JobbStatus} from "../../typer/situasjon";
+import { Gjenlevende, PersonType, Samboer } from "../dto/Person";
+import { valgTilSvar } from "./fellesMapper";
+import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from "../../typer/person";
+import { IValg } from "../../typer/Spoersmaal";
+import { ISituasjon, JobbStatus } from "../../typer/situasjon";
 import {
     konverterIngenJobb,
     konverterJobbStatus,
@@ -41,7 +41,7 @@ import {
     konverterTilHoyesteUtdanning,
     konverterYtelser
 } from "./typeMapper";
-import {fullAdresse} from "../../utils/adresse";
+import { fullAdresse } from "../../utils/adresse";
 
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {

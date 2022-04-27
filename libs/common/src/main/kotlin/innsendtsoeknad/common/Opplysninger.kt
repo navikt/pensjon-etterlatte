@@ -159,7 +159,7 @@ data class PensjonUtland(
     val bruttobeloepPrAar: Opplysning<FritekstSvar>?,
 )
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class OppholdUtland(
     val land: Opplysning<FritekstSvar>,
-    val medlemFolketrygd: Opplysning<EnumSvar<JaNeiVetIkke>>? // todo: skal bort når alle kladder er igjennom
 )
