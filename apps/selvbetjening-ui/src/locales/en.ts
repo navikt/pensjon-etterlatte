@@ -55,8 +55,6 @@ export default {
         "Information about <strong>other support you are receiving from NAV</strong>",
     "forside.uthentingAvInfo.innholdListe.li5":
         "As applicable, information from <strong>foreign social security authorities</strong>",
-    "forside.uthentingAvInfo.infotekst":
-        "We are currently working on improving this application. For the time being, you have to enter most of the information manually.",
     "forside.uthentingAvInfo.lenke1.href":
         "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten",
     "forside.uthentingAvInfo.lenke1.tekst": "Read more about how we process your personal data",
