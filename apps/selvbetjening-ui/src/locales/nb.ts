@@ -54,8 +54,6 @@ export default {
     "forside.uthentingAvInfo.innholdListe.li4": "Opplysninger om <strong>annen støtte fra NAV</strong>",
     "forside.uthentingAvInfo.innholdListe.li5":
         "Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>",
-    "forside.uthentingAvInfo.infotekst":
-        "Vi jobber med å forbedre denne søknaden. Inntil videre må du legge inn de fleste opplysningene manuelt.",
     "forside.uthentingAvInfo.lenke1.href":
         "https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten",
     "forside.uthentingAvInfo.lenke1.tekst": "Slik behandler vi personopplysningene dine",

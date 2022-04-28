@@ -46,8 +46,13 @@ const SoknadForside = () => {
             <Spraakvalg />
 
             <SkjemaGruppe>
-                <Alert inline={true} variant={"info"}>
-                    <b>{t("forside.uthentingAvInfo.infotekst")}</b>
+                <Alert inline={true} variant={"warning"}>
+                    <b>
+                        {t("forside.omYtelsene.papirsoeknad.innhold")}&nbsp;
+                        <Link href={t("forside.omYtelsene.papirsoeknad.href")}>
+                            {t("forside.omYtelsene.papirsoeknad.tekst")}
+                        </Link>
+                    </b>
                 </Alert>
             </SkjemaGruppe>
 
@@ -57,17 +62,6 @@ const SoknadForside = () => {
                 </Heading>
 
                 <BodyLong spacing>{t("forside.omYtelsene.innhold")}</BodyLong>
-
-                <BodyLong spacing>
-                    <Alert inline={true} variant={"warning"}>
-                        <b>
-                            {t("forside.omYtelsene.papirsoeknad.innhold")}&nbsp;
-                            <Link href={t("forside.omYtelsene.papirsoeknad.href")}>
-                                {t("forside.omYtelsene.papirsoeknad.tekst")}
-                            </Link>
-                        </b>
-                    </Alert>
-                </BodyLong>
 
                 <BodyLong>
                     <Link href={t("forside.omYtelsene.lenkeGjenlevende.href")}>
