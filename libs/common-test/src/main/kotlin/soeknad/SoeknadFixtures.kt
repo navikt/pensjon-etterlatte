@@ -117,10 +117,7 @@ object InnsendtSoeknadFixtures {
             statsborgerskap = Opplysning("Norsk"),
             sivilstatus = Opplysning("Ugift"),
             adresse = Opplysning("Fyrstikkalleen 1"),
-            bostedsAdresse = BetingetOpplysning(
-                svar = EnumSvar(NEI, "Nei"),
-                opplysning = Opplysning(FritekstSvar("Kirkeveien 1")),
-            ),
+            bostedsAdresse = Opplysning(FritekstSvar("Kirkeveien 1")),
             kontaktinfo = Kontaktinfo(
                 telefonnummer = Opplysning(FritekstSvar("97611679"))
             ),

@@ -56,7 +56,7 @@ data class Gjenlevende(
     val statsborgerskap: Opplysning<String>,
     val sivilstatus: Opplysning<String>,
     val adresse: Opplysning<String>?,
-    val bostedsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar>?>?,
+    val bostedsAdresse: Opplysning<FritekstSvar>?,
     val kontaktinfo: Kontaktinfo,
     val flyktning: Opplysning<EnumSvar<JaNeiVetIkke>>?,
     val oppholdUtland: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland?>?,

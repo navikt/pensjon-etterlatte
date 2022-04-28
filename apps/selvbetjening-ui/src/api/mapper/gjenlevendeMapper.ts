@@ -11,7 +11,6 @@ import {
     EnumSvar,
     ForholdTilAvdoede,
     ForholdTilAvdoedeType,
-    FritekstSvar,
     HoeyesteUtdanning,
     IngenJobbType,
     InntektType,
@@ -66,13 +65,6 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         }
     } : undefined;
 
-    const opplysningAlternativAdresse: Opplysning<FritekstSvar> | undefined = soeknad.omDeg.alternativAdresse ? {
-        spoersmaal: t("omDeg.alternativAdresse"),
-        svar: {
-            innhold: soeknad.omDeg.alternativAdresse!!
-        }
-    } : undefined;
-
     // TODO: Slå sammen med ArbeidOgUtdanning ... ?
     const fullfoertUtdanning: BetingetOpplysning<EnumSvar<HoeyesteUtdanning>, Opplysning<AnnenUtdanning>> | undefined = !bruker.adressebeskyttelse ? {
         spoersmaal: t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning"),
@@ -113,9 +105,10 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
             svar: fullAdresse(bruker)
         } : undefined,
         bostedsAdresse: !bruker.adressebeskyttelse && soeknad.omDeg.alternativAdresse ? {
-            spoersmaal: "-", // todo: Spørsmålet er fjernet. Skal bort fra modellen.
-            svar: valgTilSvar(t, IValg.JA),
-            opplysning: opplysningAlternativAdresse
+            spoersmaal: t("omDeg.alternativAdresse"),
+            svar: {
+                innhold: soeknad.omDeg.alternativAdresse!!
+            }
         } : undefined,
         kontaktinfo,
         flyktning,
