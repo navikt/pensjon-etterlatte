@@ -170,7 +170,7 @@ const aboutParents = {
     bothParentsRequired:
         'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke',
     missingOneParentLink:
-        '<a href="https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-flere-av-foreldrene/NAV%2018-01.05/dokumentinnsending"> denne søknaden</a>.',
+        '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105"> denne søknaden</a>.',
 }
 
 const livingParent = {
