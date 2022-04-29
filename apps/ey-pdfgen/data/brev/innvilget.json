@@ -1,0 +1,20 @@
+{
+  "saksnummer": "143",
+  "utbetalingsinfo": {
+    "beloep": "kr. 48 000,-",
+    "kontonummer": "1200.34.23321",
+    "virkningsdato": "4. April 2022"
+  },
+  "barn": {
+    "navn": "Blåøyd Saks",
+    "fnr": "05111850870"
+  },
+  "avdoed": {
+    "navn": "Grønn Koppie",
+    "doedsdato": "29018322402"
+  },
+  "aktuelleParagrafer": [
+    "13§",
+    "47§"
+  ]
+}
