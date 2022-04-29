@@ -14,13 +14,14 @@ import { LogEvents, useAmplitude } from "../../../utils/amplitude";
 import SoeknadMapper from "../../../utils/SoeknadMapper";
 import Navigasjon from "../../felles/Navigasjon";
 import OppsummeringInnhold from "./OppsummeringInnhold";
+import { ActionTypes } from "../../../context/soknad/soknad";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
     const [soeknadOppsummering, setOppsummering] = useState<any>([]);
     const { t } = useTranslation();
 
-    const { state: soeknad } = useSoknadContext();
+    const { state: soeknad, dispatch } = useSoknadContext();
     const { state: bruker } = useBrukerContext();
     const { logEvent } = useAmplitude();
 
@@ -59,6 +60,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                     logEvent(LogEvents.SEND_SOKNAD, { type: SoeknadType.BARNEPENSJON });
                 });
 
+                dispatch({ type: ActionTypes.TILBAKESTILL });
                 history.push(`/skjema/sendt`);
             })
             .catch((error) => {
