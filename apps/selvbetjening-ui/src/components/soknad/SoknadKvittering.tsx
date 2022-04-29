@@ -1,21 +1,22 @@
 import "./SoknadForside.scss";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
-import { useSoknadContext } from "../../context/soknad/SoknadContext";
-import { ActionTypes } from "../../context/soknad/soknad";
 import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Alert, BodyLong, BodyShort, Button, Link, Heading } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../../hooks/useLanguage";
+
 const SoknadKvittering = () => {
     const { t } = useTranslation();
     useLanguage();
-    const { dispatch } = useSoknadContext();
 
     useEffect(() => {
-        dispatch({ type: ActionTypes.TILBAKESTILL });
-    }, [dispatch])
+        window.history.pushState(null, document.title, window.location.href)
+        window.addEventListener('popstate', () => {
+            window.history.pushState(null, document.title, window.location.href);
+        })
+    }, [])
 
     return (
         <div className={"forside"}>
