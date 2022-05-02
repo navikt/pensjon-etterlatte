@@ -45,7 +45,7 @@ Cypress.Commands.add('useSimpleDeceased', (gotoNext: boolean = true) => {
     cy.get(`[value="NEI"]`).first().check({ force: true })
     cy.get('#occupationalInjury').find('[value="JA"]').check({ force: true })
 
-    if (gotoNext) cy.clickBtn(Button.Save)
+    if (gotoNext) cy.clickBtn(Button.Next)
 })
 
 Cypress.Commands.add('addChild', (gotoNext: boolean = false) => {

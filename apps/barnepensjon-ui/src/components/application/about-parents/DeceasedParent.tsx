@@ -42,9 +42,12 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
                 <ErrorSummaryWrapper errors={errors} />
 
                 <Navigation
-                    right={{ label: t('saveButton', { ns: 'btn' }), onClick: handleSubmit(save) }}
+                    right={{
+                        label: t(fnrRegisteredParent ? 'saveButton' : 'nextButton', { ns: 'btn' }),
+                        onClick: handleSubmit(save),
+                    }}
                     left={{ label: t('backButton', { ns: 'btn' }), variant: 'secondary', onClick: prev }}
-                    hideCancel={true}
+                    hideCancel={fnrRegisteredParent ? true : false}
                 />
             </form>
         </FormProvider>

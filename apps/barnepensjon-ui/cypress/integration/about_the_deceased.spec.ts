@@ -11,7 +11,8 @@ describe('About The Deceased', () => {
         // todo: Test more scenarios and stays abroad
         cy.useSimpleDeceased(false)
 
-        cy.clickBtn(Button.Save)
+        cy.get('#avbryt-btn').should('exist')
+        cy.clickBtn(Button.Next)
 
         cy.url().should('include', 'skjema/forelder/steg/om-barn')
     })
