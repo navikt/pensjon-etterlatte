@@ -11,7 +11,6 @@ import {
     EnumSvar,
     ForholdTilAvdoede,
     ForholdTilAvdoedeType,
-    FritekstSvar,
     HoeyesteUtdanning,
     IngenJobbType,
     InntektType,
@@ -66,13 +65,6 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         }
     } : undefined;
 
-    const opplysningAlternativAdresse: Opplysning<FritekstSvar> | undefined = soeknad.omDeg.bostedsadresseBekreftet === IValg.NEI ? {
-        spoersmaal: t("omDeg.alternativAdresse"),
-        svar: {
-            innhold: soeknad.omDeg.alternativAdresse!!
-        }
-    } : undefined;
-
     // TODO: Slå sammen med ArbeidOgUtdanning ... ?
     const fullfoertUtdanning: BetingetOpplysning<EnumSvar<HoeyesteUtdanning>, Opplysning<AnnenUtdanning>> | undefined = !bruker.adressebeskyttelse ? {
         spoersmaal: t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning"),
@@ -112,10 +104,11 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
             spoersmaal: t("felles.adresse"),
             svar: fullAdresse(bruker)
         } : undefined,
-        bostedsAdresse: !bruker.adressebeskyttelse ? {
-            spoersmaal: t("omDeg.bostedsadresseBekreftet"),
-            svar: valgTilSvar(t, soeknad.omDeg.bostedsadresseBekreftet!!),
-            opplysning: opplysningAlternativAdresse
+        bostedsAdresse: !bruker.adressebeskyttelse && soeknad.omDeg.alternativAdresse ? {
+            spoersmaal: t("omDeg.alternativAdresse"),
+            svar: {
+                innhold: soeknad.omDeg.alternativAdresse!!
+            }
         } : undefined,
         kontaktinfo,
         flyktning,
@@ -189,10 +182,6 @@ const hentOppholdUtland = (t: TFunction, omDeg: ISoeker): BetingetOpplysning<Enu
                     innhold: omDeg.oppholdsland!!
                 }
             },
-            medlemFolketrygd: {
-                spoersmaal: t("omDeg.medlemFolketrygdenUtland"),
-                svar: valgTilSvar(t, omDeg.medlemFolketrygdenUtland!!),
-            }
         };
     }
 

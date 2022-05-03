@@ -117,10 +117,7 @@ object InnsendtSoeknadFixtures {
             statsborgerskap = Opplysning("Norsk"),
             sivilstatus = Opplysning("Ugift"),
             adresse = Opplysning("Fyrstikkalleen 1"),
-            bostedsAdresse = BetingetOpplysning(
-                svar = EnumSvar(NEI, "Nei"),
-                opplysning = Opplysning(FritekstSvar("Kirkeveien 1")),
-            ),
+            bostedsAdresse = Opplysning(FritekstSvar("Kirkeveien 1")),
             kontaktinfo = Kontaktinfo(
                 telefonnummer = Opplysning(FritekstSvar("97611679"))
             ),
@@ -129,7 +126,6 @@ object InnsendtSoeknadFixtures {
                 svar = EnumSvar(NEI, "Nei"),
                 opplysning = OppholdUtland(
                     land = Opplysning(FritekstSvar("Sverige")),
-                    medlemFolketrygd = Opplysning(EnumSvar(JA, "Ja"))
                 )
             ),
             nySivilstatus = BetingetOpplysning(

@@ -2,80 +2,54 @@
 
 exports[`Om deg og avdød Snapshot 1`] = `
 <div>
-  <h1
-    class="center navds-heading navds-heading--medium"
+  <fieldset
+    aria-invalid="false"
+    class="skjemagruppe"
   >
-    omDeg.tittel
-  </h1>
+    <h1
+      class="center navds-heading navds-heading--medium"
+    >
+      omDeg.tittel
+    </h1>
+    <div
+      aria-live="polite"
+      id="123"
+    />
+  </fieldset>
   <form>
     <fieldset
       aria-invalid="false"
       class="skjemagruppe skjemagruppering"
     >
-      <div
-        id="bostedsadresseBekreftet"
+      <fieldset
+        aria-invalid="false"
+        class="skjemagruppe"
       >
-        <fieldset
-          aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe inline"
-        >
-          <legend
-            class="skjemagruppe__legend"
-          >
-            omDeg.bostedsadresseBekreftet
-          </legend>
+        <div>
           <div
-            class="inputPanelGruppe__inner"
+            class="skjemaelement"
           >
             <label
-              class="inputPanel radioPanel"
-              for="123"
+              class="skjemaelement__label"
+              for="alternativAdresse"
             >
-              <input
-                aria-checked="false"
-                aria-errormessage="123"
-                aria-invalid="false"
-                class="inputPanel__field"
-                id="123"
-                name="bostedsadresseBekreftet"
-                required=""
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <span
-                class="inputPanel__label"
-              >
-                radiobuttons.ja
-              </span>
+              omDeg.alternativAdresse
             </label>
-            <label
-              class="inputPanel radioPanel"
-              for="123"
-            >
-              <input
-                aria-checked="false"
-                aria-errormessage="123"
-                aria-invalid="false"
-                class="inputPanel__field"
-                id="123"
-                name="bostedsadresseBekreftet"
-                required=""
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <span
-                class="inputPanel__label"
-              >
-                radiobuttons.nei
-              </span>
-            </label>
+            <input
+              aria-invalid="false"
+              class="skjemaelement__input input--fullbredde"
+              id="alternativAdresse"
+              required=""
+              type="text"
+              value=""
+            />
           </div>
-          <div
-            aria-live="polite"
-            id="123"
-          />
-        </fieldset>
-      </div>
+        </div>
+        <div
+          aria-live="polite"
+          id="123"
+        />
+      </fieldset>
       <fieldset
         aria-invalid="false"
         class="skjemagruppe"
@@ -258,70 +232,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
           id="123"
         />
       </fieldset>
-      <div
-        id="medlemFolketrygdenUtland"
-      >
-        <fieldset
-          aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe inline"
-        >
-          <legend
-            class="skjemagruppe__legend"
-          >
-            omDeg.medlemFolketrygdenUtland
-          </legend>
-          <div
-            class="inputPanelGruppe__inner"
-          >
-            <label
-              class="inputPanel radioPanel"
-              for="123"
-            >
-              <input
-                aria-checked="false"
-                aria-errormessage="123"
-                aria-invalid="false"
-                class="inputPanel__field"
-                id="123"
-                name="medlemFolketrygdenUtland"
-                required=""
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <span
-                class="inputPanel__label"
-              >
-                radiobuttons.ja
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel"
-              for="123"
-            >
-              <input
-                aria-checked="false"
-                aria-errormessage="123"
-                aria-invalid="false"
-                class="inputPanel__field"
-                id="123"
-                name="medlemFolketrygdenUtland"
-                required=""
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <span
-                class="inputPanel__label"
-              >
-                radiobuttons.nei
-              </span>
-            </label>
-          </div>
-          <div
-            aria-live="polite"
-            id="123"
-          />
-        </fieldset>
-      </div>
       <div
         id="utbetalingsInformasjon.bankkontoType"
       >

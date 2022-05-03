@@ -13,7 +13,7 @@ import { RHFInlineRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
-import { Cell, Grid, Heading } from "@navikt/ds-react";
+import {Cell, Grid, Heading} from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
@@ -45,42 +45,30 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
     const skalSjekkeFlyktningStatus = brukerState.foedselsaar!! < 1960;
 
-    const borPaaRegistrertAdresse = watch("bostedsadresseBekreftet");
     const oppholderSegINorge = watch("oppholderSegINorge");
     const bankkontoType = watch("utbetalingsInformasjon.bankkontoType");
 
     return (
         <>
-            {/* Steg 2 */}
-            <Heading size={"medium"} className={"center"}>
-                {t("omDeg.tittel")}
-            </Heading>
-
-            {/* Informasjon om den innloggede brukeren */}
+            <SkjemaGruppe>
+                <Heading size={"medium"} className={"center"}>
+                    {t("omDeg.tittel")}
+                </Heading>
+            </SkjemaGruppe>
             <InnloggetBruker/>
 
-            {/* Skjema for utfylling av info om innlogget bruker / søker */}
             <FormProvider {...methods}>
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
                 <form>
                     <SkjemaGruppering>
-                        {!brukerState.adressebeskyttelse && (
-                            <>
-                                <RHFSpoersmaalRadio
-                                    name={"bostedsadresseBekreftet"}
-                                    legend={t("omDeg.bostedsadresseBekreftet")}
+                        {!brukerState.adressebeskyttelse && !brukerState.adresse && (
+                            <SkjemaGruppe>
+                                <RHFInput
+                                    name={"alternativAdresse"}
+                                    label={t("omDeg.alternativAdresse")}
                                 />
-
-                                {borPaaRegistrertAdresse === IValg.NEI && (
-                                    <SkjemaGruppe>
-                                        <RHFInput
-                                            name={"alternativAdresse"}
-                                            label={t("omDeg.alternativAdresse")}
-                                        />
-                                    </SkjemaGruppe>
-                                )}
-                            </>
+                            </SkjemaGruppe>
                         )}
 
                         {!brukerState.telefonnummer && (
@@ -134,11 +122,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                             selectOptions={land}
                                         />
                                     </SkjemaGruppe>
-
-                                    <RHFSpoersmaalRadio
-                                        name={"medlemFolketrygdenUtland"}
-                                        legend={t("omDeg.medlemFolketrygdenUtland")}
-                                    />
 
                                     <RHFInlineRadio
                                         name={"utbetalingsInformasjon.bankkontoType"}

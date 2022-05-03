@@ -147,14 +147,12 @@ export interface IForholdAvdoede {
 }
 
 export interface ISoeker {
-    bostedsadresseBekreftet?: IValg;
     alternativAdresse?: string;
     kontaktinfo?: IKontaktinfo;
     utbetalingsInformasjon?: IUtbetalingsInformasjon;
     flyktning?: IValg;
     oppholderSegINorge?: IValg;
     oppholdsland?: string;
-    medlemFolketrygdenUtland?: IValg;
     nySivilstatus?: INySivilstatus;
     erValidert?: boolean;
 }

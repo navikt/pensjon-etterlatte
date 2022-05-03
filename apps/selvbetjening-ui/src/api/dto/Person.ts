@@ -82,7 +82,7 @@ export interface Gjenlevende extends Person {
     sivilstatus: Opplysning<String>
 
     adresse?: Opplysning<String>;
-    bostedsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar>>;
+    bostedsAdresse?: Opplysning<FritekstSvar>;
     kontaktinfo: Kontaktinfo;
     flyktning?: Opplysning<EnumSvar<JaNeiVetIkke>>;
     oppholdUtland?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland>;

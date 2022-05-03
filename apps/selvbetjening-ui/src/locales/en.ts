@@ -153,16 +153,13 @@ export default {
     "omDeg.tittel": "About you",
     "omDeg.undertittel.personalia": "Personalia",
     "omDeg.undertittel.opplysningerOmSoeker": "Information about the applicant",
-    "omDeg.advarsel": "If the information we have about you is incorrect, you must change it in the National Registry.",
-    "omDeg.valgfritt": "All fields must be filled in, apart from those marked as optional.",
-    "omDeg.bostedsadresseBekreftet": "Do you live at this address?",
+    "omDeg.advarsel": "If the address is wrong you will have to change it at the National Population Registry before you continue the application (opens in a new tab)",
+    "omDeg.advarsel.href": "https://www.skatteetaten.no/person/folkeregister/flytte/i-norge/",
     "omDeg.alternativAdresse": "Enter your current residential address",
-    "omDeg.oppholderSegINorge": "Are you currently in Norway?",
+    "omDeg.oppholderSegINorge": "Have you been staying in Norway the last 12 months?",
     "omDeg.oppholdHvorfor":
         "If you spend a prolonged period in a country other than Norway, this may affect whether you get a survivor’s pension and how much money you get.",
     "omDeg.oppholdsland": "State which country",
-    "omDeg.medlemFolketrygdenUtland":
-        "Are you a member of the Norwegian National Insurance Scheme during your period outside Norway?",
     "omDeg.flyktning": "Do you have refugee status?",
     "omDeg.flyktningHvorfor":
         "If you are registered as a refugee with the Norwegian Directorate of Immigration (UDI), this may affect whether you get a survivor’s pension and how much money you get.",
@@ -474,7 +471,6 @@ export default {
     "feil.hovedytelse.required": "A main benefit must be selected",
     "feil.fraDato.required": "A “from” date must be selected",
     "feil.fraDato.validate": "Invalid date format",
-    "feil.bostedsadresseBekreftet.required": "You must confirm whether this is your current residential address or not",
     "feil.boddEllerJobbetUtland.svar.required":
         "State whether the deceased has ever lived or worked in a country other than Norway",
     "feil.boddEllerJobbetUtland.oppholdUtland.land.required": "State which country",
@@ -485,8 +481,6 @@ export default {
         "State whether the deceased was a member of the Norwegian National Insurance Scheme during their stay in a country other than Norway",
     "feil.alternativAdresse.required": "Enter your current residential address",
     "feil.oppholdsland.required": "Enter your current country of residence",
-    "feil.medlemFolketrygdenUtland.required":
-        "State whether you are a member of the Norwegian National Insurance Scheme during your stay in a country other than Norway",
     "feil.doedsfallAarsak.required": "State whether the death was due to an occupational injury or illness",
     "feil.avdoed.fornavn.required": "Enter the deceased’s first name(s)",
     "feil.avdoed.etternavn.required": "Enter the deceased’s family name",
