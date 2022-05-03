@@ -1,4 +1,4 @@
-import { Alert, BodyLong } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Heading } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
 import { ActionTypes, IDeceasedParent, ILivingParent } from '../../../context/application/application'
@@ -6,7 +6,7 @@ import { useApplicationContext } from '../../../context/application/ApplicationC
 import { useUserContext } from '../../../context/user/UserContext'
 import useTranslation from '../../../hooks/useTranslation'
 import FormGroup from '../../common/FormGroup'
-import Navigation from '../../common/Navigation'
+import Navigation, { NavRow } from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import { ApplicantRole, ApplicantSituation } from '../scenario/ScenarioSelection'
@@ -20,8 +20,11 @@ import { sendApplication } from '../../../api/api'
 import { useNavigate } from 'react-router-dom'
 import { Barnepensjon, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
 import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
-import Trans from "../../common/Trans";
-import { Translation } from "../../../context/language/translations";
+import Trans from '../../common/Trans'
+import { Translation } from '../../../context/language/translations'
+import EyModal from '../../common/EyModal'
+import FormElement from '../../common/FormElement'
+import { BodyShortMuted } from '../../common/StyledTypography'
 
 const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
     const prefix = {
@@ -43,10 +46,12 @@ export default function Summary({ prev }: StepProps) {
 
     const [error, setError] = useState<Translation>()
     const [loading, setLoading] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
     const send = () => {
         const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user)
 
+        setIsOpen(false)
         setLoading(true)
 
         sendApplication({ soeknader })
@@ -64,6 +69,8 @@ export default function Summary({ prev }: StepProps) {
                 else setError(t('errorWhenSending'))
             })
     }
+
+    const openModal = () => setIsOpen(true)
 
     return (
         <FormGroup>
@@ -122,10 +129,40 @@ export default function Summary({ prev }: StepProps) {
             )}
 
             <Navigation
-                right={{ onClick: send, label: t('sendApplicationButton') }}
+                right={{ onClick: openModal, label: t('sendApplicationButton') }}
                 left={{ onClick: prev }}
                 loading={loading}
             />
+
+            <EyModal open={isOpen} onClose={() => setIsOpen(false)}>
+                <FormElement>
+                    <Heading size={'medium'}>{t('sendApplicationTitle')}</Heading>
+                </FormElement>
+
+                <FormGroup>
+                    <BodyShortMuted size={'small'}>{t('sendApplicationBody')}</BodyShortMuted>
+                </FormGroup>
+                <NavRow>
+                    <Button
+                        id={'avbryt-ja-btn'}
+                        variant={'secondary'}
+                        type={'button'}
+                        onClick={() => setIsOpen(false)}
+                        style={{ margin: '10px' }}
+                    >
+                        {t('noButton', { ns: 'btn' })}
+                    </Button>
+                    <Button
+                        id={'avbryt-nei-btn'}
+                        variant={'primary'}
+                        type={'button'}
+                        onClick={send}
+                        style={{ margin: '10px' }}
+                    >
+                        {t('yesButton', { ns: 'btn' })}
+                    </Button>
+                </NavRow>
+            </EyModal>
         </FormGroup>
     )
 }

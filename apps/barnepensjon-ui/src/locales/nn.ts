@@ -277,6 +277,8 @@ const summary = {
     errorWhenSending: 'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil ',
     errorWhenSendingLink: 'her.',
     errorWhenSendingHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    sendApplicationTitle: 'Ønsker du å sende inn søknaden no?',
+    sendApplicationBody: 'Når du har sendt inn søknaden kan du ikkje endre på opplysingane som du har lagt inn.',
 }
 
 const error = {
