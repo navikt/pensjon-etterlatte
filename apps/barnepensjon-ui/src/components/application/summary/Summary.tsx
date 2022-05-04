@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Heading, Loader } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
 import { ActionTypes, IDeceasedParent, ILivingParent } from '../../../context/application/application'
@@ -51,7 +51,6 @@ export default function Summary({ prev }: StepProps) {
     const send = () => {
         const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user)
 
-        setIsOpen(false)
         setLoading(true)
 
         sendApplication({ soeknader })
@@ -63,6 +62,7 @@ export default function Summary({ prev }: StepProps) {
             })
             .catch((e: Error) => {
                 setLoading(false)
+                setIsOpen(false)
                 logEvent(LogEvents.SEND_APPLICATION_ERROR)
 
                 if (e.message === 'FERDIGSTILT') setError(t('errorFromConflict'))
@@ -134,34 +134,45 @@ export default function Summary({ prev }: StepProps) {
                 loading={loading}
             />
 
-            <EyModal open={isOpen} onClose={() => setIsOpen(false)}>
+            <EyModal
+                open={isOpen}
+                onClose={() => {
+                    if (!loading) setIsOpen(false)
+                }}
+            >
                 <FormElement>
-                    <Heading size={'medium'}>{t('sendApplicationTitle')}</Heading>
+                    <Heading size={'medium'}>{t(loading ? 'sendingApplicationTitle' : 'sendApplicationTitle')}</Heading>
                 </FormElement>
 
                 <FormGroup>
-                    <BodyShortMuted size={'small'}>{t('sendApplicationBody')}</BodyShortMuted>
+                    {loading ? (
+                        <Loader size={'xlarge'} />
+                    ) : (
+                        <BodyShortMuted size={'small'}>{t('sendApplicationBody')}</BodyShortMuted>
+                    )}
                 </FormGroup>
-                <NavRow>
-                    <Button
-                        id={'avbryt-ja-btn'}
-                        variant={'secondary'}
-                        type={'button'}
-                        onClick={() => setIsOpen(false)}
-                        style={{ margin: '10px' }}
-                    >
-                        {t('noButton', { ns: 'btn' })}
-                    </Button>
-                    <Button
-                        id={'avbryt-nei-btn'}
-                        variant={'primary'}
-                        type={'button'}
-                        onClick={send}
-                        style={{ margin: '10px' }}
-                    >
-                        {t('yesButton', { ns: 'btn' })}
-                    </Button>
-                </NavRow>
+                {!loading && (
+                    <NavRow>
+                        <Button
+                            id={'avbryt-ja-btn'}
+                            variant={'secondary'}
+                            type={'button'}
+                            onClick={() => setIsOpen(false)}
+                            style={{ margin: '10px' }}
+                        >
+                            {t('noButton', { ns: 'btn' })}
+                        </Button>
+                        <Button
+                            id={'avbryt-nei-btn'}
+                            variant={'primary'}
+                            type={'button'}
+                            onClick={send}
+                            style={{ margin: '10px' }}
+                        >
+                            {t('yesButton', { ns: 'btn' })}
+                        </Button>
+                    </NavRow>
+                )}
             </EyModal>
         </FormGroup>
     )

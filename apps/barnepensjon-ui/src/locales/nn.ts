@@ -278,6 +278,7 @@ const summary = {
     errorWhenSendingLink: 'her.',
     errorWhenSendingHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     sendApplicationTitle: 'Ønsker du å sende inn søknaden no?',
+    sendingApplicationTitle: 'Sender inn søknad',
     sendApplicationBody: 'Når du har sendt inn søknaden kan du ikkje endre på opplysingane som du har lagt inn.',
 }
 
