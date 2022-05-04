@@ -200,6 +200,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         // Send inn søknad
         cy.get('[type="button"').contains("Send søknad").click();
+        cy.get('[type="button"').contains("Ja, send søknad").click();
 
         // Verifiser søknad mottatt
         // TODO: Vil ikke lenger fungere nå som sendt data er annerledes fra state

@@ -22,6 +22,8 @@ export default {
     "knapp.lagre": "Save",
     "knapp.slett": "Delete the application",
     "knapp.endre": "Change",
+    "knapp.ja" : "Yes, send application",
+    "knapp.nei" : "No, go back",
     "forside.tittel": "Apply for survivor’s pension or transitional benefit",
     "forside.hei": "Hello {{navn}}!",
     "forside.startSoeknad": "Start the application",
@@ -311,6 +313,9 @@ export default {
     "oppsummering.tittel": "Summary",
     "oppsummering.beskrivelse":
         "Please read through the summary of your application before submitting it.\nIf you need to make any changes, you can go back and make them.",
+    "oppsummering.sendSoeknad.tittel":"Do you wish to submit the application now?",
+    "oppsummering.sendSoeknad.innhold":"You will not be able to change your information after submitting the application",
+    "oppsummering.senderSoeknad.tittel":"Submitting the application",
     "oppsummering.feilVedSending":
         "An error occurred while submitting. Please wait and try again. If the error persists, you can report techical errors ",
     "oppsummering.feilVedSending.tittel": "here.",
