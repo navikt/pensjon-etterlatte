@@ -34,6 +34,17 @@ Cypress.Commands.add('useScenario', (role: string, situation: string = null, got
     if (gotoNext) cy.clickBtn(Button.Continue)
 })
 
+Cypress.Commands.add('useSimpleLiving', (gotoNext: boolean = true) => {
+    cy.wait(['@getCountries'])
+
+    cy.get('#firstName').type('Ola')
+    cy.get('#lastName').type('Nordmann')
+    cy.get('#fnrDnr').type('26104500284')
+    cy.get('#citizenship').get('select').select('Norge')
+
+    if (gotoNext) cy.clickBtn(Button.Next)
+})
+
 Cypress.Commands.add('useSimpleDeceased', (gotoNext: boolean = true) => {
     cy.wait(['@getCountries'])
 
@@ -44,6 +55,22 @@ Cypress.Commands.add('useSimpleDeceased', (gotoNext: boolean = true) => {
     cy.get('#dateOfDeath').type('010120')
     cy.get(`[value="NEI"]`).first().check({ force: true })
     cy.get('#occupationalInjury').find('[value="JA"]').check({ force: true })
+
+    if (gotoNext) cy.clickBtn(Button.Next)
+})
+
+Cypress.Commands.add('useAdvancedDeceased', (gotoNext: boolean = true) => {
+    cy.wait(['@getCountries'])
+
+    cy.get('#firstName').type('Ola')
+    cy.get('#lastName').type('Nordmann')
+    cy.get('#fnrDnr').type('11057523044')
+    cy.get('#citizenship').get('select').select('Norge')
+    cy.get('#dateOfDeath').type('010120')
+    cy.get(`[value="NEI"]`).first().check({ force: true })
+    cy.get('div[id="selfEmplyment.wasSelfEmployed"]').find('[value="NEI"]').check({ force: true })
+    cy.get('#occupationalInjury').find('[value="JA"]').check({ force: true })
+    cy.get(`div[id="militaryService.completed"]`).find('[value="NEI"]').check({ force: true })
 
     if (gotoNext) cy.clickBtn(Button.Next)
 })
