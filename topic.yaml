@@ -87,3 +87,6 @@ spec:
     - team: etterlatte
       application: etterlatte-beregning
       access: readwrite
+    - team: etterlatte
+      application: etterlatte-grunnlag
+      access: readwrite
