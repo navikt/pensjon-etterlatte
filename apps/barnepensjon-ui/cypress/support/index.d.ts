@@ -8,6 +8,6 @@ declare namespace Cypress {
         useSimpleDeceased(gotoNext?: boolean): Chainable<null>
         useAdvancedDeceased(gotoNext?: boolean): Chainable<null>
         addChild(gotoNext?: boolean): Chainable<null>
-        clickBtn(btn: string): Chainable<null>
+        clickBtn(btn: string, index?: number): Chainable<null>
     }
 }

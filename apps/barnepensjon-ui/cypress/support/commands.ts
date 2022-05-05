@@ -11,8 +11,8 @@ Cypress.Commands.add('startApplication', (userFixture: string) => {
     cy.wait(['@loggedInUser', '@getApplication', '@getExpirationTimeForLoggedInUser'])
 })
 
-Cypress.Commands.add('clickBtn', (btn: string) => {
-    cy.get(`button:contains(${btn.valueOf()})`).should('be.enabled').click()
+Cypress.Commands.add('clickBtn', (btn: string, index: number = 0) => {
+    cy.get(`button:contains(${btn.valueOf()})`).eq(index).should('be.enabled').click()
 })
 
 Cypress.Commands.add('agreeToTerms', (gotoNext: boolean = true) => {
