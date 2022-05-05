@@ -22,6 +22,8 @@ export default {
     "knapp.lagre": "Lagre",
     "knapp.slett": "Slett søknad",
     "knapp.endre": "Endre",
+    "knapp.ja" : "Ja, send søknad",
+    "knapp.nei" : "Nei, gå tilbake",
     "forside.tittel": "Søk om attlevandepensjon eller overgangsstønad",
     "forside.hei": "Hei, {{navn}}",
     "forside.startSoeknad": "Start søknad",
@@ -291,6 +293,9 @@ export default {
     "oppsummering.tittel": "Oppsummering",
     "oppsummering.beskrivelse":
         "Les gjennom oppsummeringa av søknaden din før du sender.\nViss du vil endre noko, kan du gå tilbake og gjere det.",
+    "oppsummering.sendSoeknad.tittel":"Ønsker du å sende inn søknaden no?",
+    "oppsummering.sendSoeknad.innhold":"Når du har sendt inn søknaden kan du ikkje endre på opplysingane som du har lagt inn.",
+    "oppsummering.senderSoeknad.tittel":"Sender inn søknad",
     "oppsummering.feilVedSending":
         "Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil ",
     "oppsummering.feilVedSending.tittel": "her.",

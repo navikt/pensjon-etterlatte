@@ -19,14 +19,23 @@ describe('Summary and Receipt', () => {
             .should('include.text', 'Om barn')
     })
 
+    it('should close the send application modal', function () {
+        cy.clickBtn(Button.Send)
+        cy.clickBtn(Button.No)
+
+        cy.get('.navds-heading').should('not.contain.text', 'Send inn søknad')
+    })
+
     it('should show error message if application cannot be sent', function () {
         cy.clickBtn(Button.Send)
+        cy.clickBtn(Button.Yes)
         cy.get('.navds-alert').should('include.text', 'En feil oppsto ved sending.')
     })
 
     it('should send application', function () {
         cy.intercept('POST', `${basePath}/api/api/soeknad`, {}).as('application')
         cy.clickBtn(Button.Send)
+        cy.clickBtn(Button.Yes)
 
         cy.wait(['@application'])
         cy.url().should('include', '/kvittering')

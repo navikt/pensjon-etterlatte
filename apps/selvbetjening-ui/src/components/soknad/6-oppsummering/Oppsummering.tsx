@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Heading, Link } from "@navikt/ds-react";
+import { Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
 import { isEmpty } from "lodash";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import React, { memo, useEffect, useState } from "react";
@@ -27,6 +27,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     const [senderSoeknad, setSenderSoeknad] = useState(false);
     const [error, setError] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const mapper = new SoeknadMapper(t);
 
@@ -64,6 +65,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 history.push(`/skjema/sendt`);
             })
             .catch((error) => {
+                setIsOpen(false)
                 console.log(error);
                 setSenderSoeknad(false);
                 setError(true);
@@ -99,7 +101,51 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 </SkjemaGruppe>
             )}
 
-            <Navigasjon forrige={{ onClick: forrige }} send={{ onClick: send }} disabled={senderSoeknad} />
+            <Navigasjon forrige={{ onClick: forrige }} send={{ onClick: () => setIsOpen(true) }} disabled={senderSoeknad} />
+
+            <Modal open={isOpen}
+                    onClose={() => {
+                        if (!senderSoeknad) setIsOpen(false)
+                    }}
+                shouldCloseOnOverlayClick={false}
+                className="spoersmaal-modal skjul-modal-knapp ey-modal"
+                >
+
+
+                <SkjemaGruppe>
+                    <Heading size={'medium'}>{t(senderSoeknad ? 'oppsummering.senderSoeknad.tittel' : 'oppsummering.sendSoeknad.tittel')}</Heading>
+                </SkjemaGruppe>
+
+                <SkjemaGruppe>
+                    {senderSoeknad ? (
+                            <Loader size={'xlarge'} />
+                    ) : (
+                            <BodyLong size={'small'}>{t('oppsummering.sendSoeknad.innhold')}</BodyLong>
+                    )}
+                </SkjemaGruppe>
+                {!senderSoeknad && (
+                        <div className={"navigasjon-rad"}>
+                            <Button
+                                    id={'avbryt-ja-btn'}
+                                    variant={'secondary'}
+                                    type={'button'}
+                                    onClick={() => setIsOpen(false)}
+                                    style={{ margin: '10px' }}
+                            >
+                                {t('knapp.nei')}
+                            </Button>
+                            <Button
+                                    id={'avbryt-nei-btn'}
+                                    variant={'primary'}
+                                    type={'button'}
+                                    onClick={send}
+                                    style={{ margin: '10px' }}
+                            >
+                                {t('knapp.ja')}
+                            </Button>
+                        </div>
+                )}
+            </Modal>
         </>
     );
 });
