@@ -1,7 +1,7 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: selvbetjening-ui
+  name: gjenlevendepensjon-ui
   namespace: etterlatte
   labels:
     team: etterlatte

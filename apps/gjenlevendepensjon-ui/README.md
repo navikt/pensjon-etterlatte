@@ -1,4 +1,4 @@
-# selvbetjening-ui
+# gjenlevendepensjon-ui
 
 ## Kom i gang
 

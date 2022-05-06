@@ -24,7 +24,7 @@ Frontend appen sin NAIS config må også inneholde følgende verdier under `env`
 |`API_URL`   | URL til APIet i Kubernetes-clusteret |   
 |`AUDIENCE`  | Audience for å kalle på APIet |   
 
-(se [barnepensjon-ui](../barnepensjon-ui/.nais) eller [selvbetjening-ui](../selvbetjening-ui/.nais) for referanser)
+(se [barnepensjon-ui](../barnepensjon-ui/.nais) eller [gjenlevendepensjon-ui](../gjenlevendepensjon-ui/.nais) for referanser)
 
 ## Kjøre lokalt 
 

@@ -1,4 +1,4 @@
-name: selvbetjening-ui
+name: gjenlevendepensjon-ui
 
 env:
   IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
@@ -18,8 +18,8 @@ on:
       - feature/*
       - fix/*
     paths:
-      - apps/selvbetjening-ui/**
-      - ./github/workflows/app-selvbetjening-ui.yaml
+      - apps/gjenlevendepensjon-ui/**
+      - ./github/workflows/app-gjenlevendepensjon-ui.yaml
 
 jobs:
   build-and-publish:
@@ -38,7 +38,7 @@ jobs:
       # Hash yarn.lock file to see if it has changed
       - name: Create hash from yarn.lock
         id: keys
-        run: echo ::set-output name=yarn-lock-hash::${{ env.APP_NAME }}-${{ hashFiles('apps/selvbetjening-ui/yarn.lock') }}
+        run: echo ::set-output name=yarn-lock-hash::${{ env.APP_NAME }}-${{ hashFiles('apps/gjenlevendepensjon-ui/yarn.lock') }}
 
       # Client cache
       - name: Cache node modules (client)

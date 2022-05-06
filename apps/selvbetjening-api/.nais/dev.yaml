@@ -62,5 +62,5 @@ spec:
         - application: digdir-krr-proxy
     inbound:
       rules:
-        - application: selvbetjening-ui
+        - application: gjenlevendepensjon-ui
         - application: barnepensjon-ui
