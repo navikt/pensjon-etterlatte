@@ -11,6 +11,7 @@
     "kontonummer": "1200.34.23321",
     "virkningsdato": "4. April 2022"
   },
+  "grunnbeloep": "106.399",
   "barn": {
     "navn": "Blåøyd Saks",
     "fnr": "05111850870"
@@ -28,5 +29,6 @@
     "adresse" : "Postboks 8 alnabru",
     "postnummer" : "1640 Oslo",
     "telefon" : "92323232"
-  }
+  },
+  "nksTelefon" : "55 55 33 33"
 }
