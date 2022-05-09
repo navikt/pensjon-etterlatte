@@ -1,5 +1,11 @@
 {
   "saksnummer": "143",
+  "utsendingsDato": "4. mai 2022",
+  "mottaker" : {
+    "navn" : "Nicco nicolaison",
+    "adresse" : "ADRESSEVEIEN 10",
+    "postnummer" : "0652 OSLO"
+  },
   "utbetalingsinfo": {
     "beloep": "kr. 48 000,-",
     "kontonummer": "1200.34.23321",
@@ -16,5 +22,11 @@
   "aktuelleParagrafer": [
     "13§",
     "47§"
-  ]
+  ],
+  "avsender": {
+    "kontor": "Nav Ullern",
+    "adresse" : "Postboks 8 alnabru",
+    "postnummer" : "1640 Oslo",
+    "telefon" : "92323232"
+  }
 }

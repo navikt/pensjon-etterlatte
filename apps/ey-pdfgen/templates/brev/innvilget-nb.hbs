@@ -2,227 +2,29 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8"/>
-    <style>
-        @page {
-            size: A4 portrait;
-            /*margin: 1cm 0.3cm 0.5cm;*/
-            padding-bottom: 1cm;
-            @bottom-left {
-                content: element(footer);
-            }
-        }
-
-        @page :first {
-            /*margin-top: 0;*/
-            @top-left {
-                content: element(header);
-            }
-        }
-
-        #currentpage:before {
-            content: counter(page);
-        }
-
-        #pagecount:before {
-            content: counter(pages)
-        }
-
-
-        * {
-            font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro, ArialSystem, sans-serif;
-        }
-
-        h1 {
-            font-weight: 700;
-            font-style: normal;
-            font-size: 20px;
-            font-family: "Source Sans Pro";
-        }
-
-        .row {
-            width: 100%;
-            padding: 0.1cm;
-        }
-
-        .col {
-            width: 49%;
-            display: inline-block;
-            vertical-align: middle;
-            font-size: 14px;
-        }
-    </style>
+    {{> brev/partials/style}}
     <title>Innvilget brev</title>
 </head>
 <body>
 
+
+
 <div class="container">
+    {{> brev/partials/header this}}
     <h1>Vi har innvilget søknaden din om barnepensjon</h1>
+    {{> brev/partials/barn this}}
+    {{> brev/partials/vedtaksInformasjon this}}
+    {{> brev/partials/kontonummer}}
+    {{> brev/partials/etterbetaling}}
+    {{> brev/partials/beregning}}
+    {{> brev/partials/endringer}}
+    {{> brev/partials/klage}}
+    {{> brev/partials/innsyn}}
+    {{> brev/partials/sporsmaal}}
 
-    <div class="row">
-        <p>NAVs saksnummer: {{saksnummer}}</p>
-
-        <p>Navn: {{barn.navn}}</p>
-
-        <p>Fødselsnummer: {{barn.fnr}}</p>
-    </div>
-
-    <div class="row">
-        <p>
-            Du får {{utbetalingsinfo.beloep}} kroner før skatt fra {{utbetalingsinfo.virkningsdato}}
-            fordi {{avdoed.navn}} døde {{avdoed.doedsdato}}.
-        </p>
-
-        <p>
-            Vi kan tidligst innvilge søknaden din DATO. Dette går frem av folketrygdloven § 22-13.
-        </p>
-
-        <p>
-            Barnepensjonen din utbetales til kontonummer {{utbetalingsinfo.kontonummer}} innen den 20. hver måned.
-            Du finner oversikt over utbetalingsdatoene på
-            <a href="https://www.nav.no/utbetalinger">nav.no/utbetalinger</a>.
-        </p>
-
-        <p>
-            Vi forutsetter at du bor i Norge. Hvis du skal flytte til et annet land, må du kontakte oss slik at vi kan
-            vurdere om du fortsatt har rett til barnepensjon.
-        </p>
-
-        <p>
-            Vedtaket er gjort etter folketrygdloven kapittel 18
-            {{#each aktuelleParagrafer}}
-                {{this}},
-            {{/each}}
-            og § 22-12.
-        </p>
-
-        <p>
-            Barnepensjonen skal styrkes. Les mer om regelendringene <a href="https://www.nav.no">her</a>.
-        </p>
-    </div>
-
-    <div class="row">
-        <h3>Ønsker du å endre kontonummer?</h3>
-
-        <p>
-            Hvis du som forelder skal endre på kontonummeret senere kan du sende melding via
-            <a href="https://www.nav.no/skrivtiloss">www.nav.no/skrivtiloss</a>
-            eller bruke skjema NAV 95-20.00. Adressen vår står på førstesiden til skjemaet du skriver ut.
-            Du må legge ved kopi av din (forelders) legitimasjon.
-        </p>
-
-        <p>
-            Hvis du er verge må du i tillegg til egen legitimasjon legge ved en kopi av vergefullmakten.
-        </p>
-
-        <p>
-            Barn mellom 15-18 år, som har egen BankID, kan endre kontonummer selv ved å logge inn på/i DittNAV.
-        </p>
-
-        <p>
-            Vil du legge inn skattetrekk på barnepensjonen?
-        </p>
-
-        <p>
-            Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det.
-        </p>
-
-        <p>Forelder/verge kan be om trekk i barnepensjon på to måter:</p>
-        <ol>
-            <li>
-                Be NAV om frivillig skattetrekk i barnepensjonen.
-            </li>
-            <li>
-                Be Skatteetaten om nytt skattekort med høyere trekk i egen inntekt.
-                <br/>
-                Informasjon om dette finner du på <a href="https://www.nav.no/frivillig-skattetrekk">www.nav.no/frivillig-skattetrekk</a>.
-                Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.
-            </li>
-        </ol>
-
-        <p>
-            Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.
-        </p>
-    </div>
-
-    <div class="row">
-        <h3>
-            Etterbetaling
-        </h3>
-
-        <p>
-            Du får etterbetalt pensjon fra {{utbetalingsinfo.virkningsdato}}. Etterbetalingen blir vanligvis utbetalt i
-            løpet av syv virkedager.
-        </p>
-    </div>
-
-
-    <div class="row">
-        <h3>
-            Beregning og regulering
-        </h3>
-
-        <p>Barnepensjon utgjør 40 prosent av folketrygdens grunnbeløp (G), som for tiden er (beløp) kr.</p>
-
-        <p>Reguleringen skjer med virkning fra 1. mai og selve økningen blir vanligvis etterbetalt i juni.</p>
-    </div>
-
-
-    <div class="row">
-        <h3>Du må melde fra om endringer</h3>
-
-        <p>
-            Hvis du planlegger opphold i utlandet kan det ha betydning for beløpet du får utbetalt fra NAV. I slike
-            tilfeller må
-            du derfor straks melde fra til oss.
-        </p>
-
-        <p>
-            Hvis du har fått utbetalt for mye fordi du ikke har gitt oss beskjed, må du vanligvis betale tilbake
-            pengene. Du er selv ansvarlig for å holde deg orientert om bevegelser på kontoen din, og du må melde
-            fra om eventuelle feil til NAV.
-        </p>
-    </div>
-
-    <div class="row">
-        <h3>
-            Du har rett til å klage
-        </h3>
-
-        <p>
-            Hvis du mener vedtaket er feil, kan du klage innen seks uker fra den datoen du mottok vedtaket. Klagen skal
-            være skriftlig. Du finner skjema og informasjon på nav.no/klage.
-        </p>
-    </div>
-
-
-    <div class="row">
-        <h3>
-            Du har rett til innsyn
-        </h3>
-
-        <p>
-            Du har rett til å se dokumentene i saken din. I vedlegget får du vite hvordan du går fram.
-        </p>
-    </div>
-
-
-    <div class="row">
-        <h3>
-            Har du spørsmål?
-        </h3>
-
-        <p>
-            Kontakt oss gjerne på nav.no eller på telefon {{nksTelefon}}. Hvis du oppgir
-            fødselsnummeret ditt når du tar kontakt med NAV, kan vi lettere gi deg rask og god hjelp.
-        </p>
-    </div>
 </div>
 
-<div>
-    <span class="sidetall">
-        Side <span id="currentpage"></span> av <span id="pagecount"></span>
-    </span>
-</div>
+{{> brev/partials/footer this}}
 
 </body>
 </html>
