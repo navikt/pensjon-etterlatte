@@ -1,0 +1,35 @@
+{
+  "saksnummer": "143",
+  "utsendingsDato": "4. mai 2022",
+  "innvilgelsesFrist" : "DATO",
+  "mottaker" : {
+    "navn" : "Nicco nicolaison",
+    "adresse" : "ADRESSEVEIEN 10",
+    "postnummer" : "0652 OSLO"
+  },
+  "utbetalingsinfo": {
+    "beloep": "kr. 48 000,-",
+    "kontonummer": "1200.34.23321",
+    "virkningsdato": "4. April 2022"
+  },
+  "grunnbeloep": "106.399",
+  "barn": {
+    "navn": "Blåøyd Saks",
+    "fnr": "05111850870"
+  },
+  "avdoed": {
+    "navn": "Grønn Koppie",
+    "doedsdato": "29018322402"
+  },
+  "aktuelleParagrafer": [
+    "13§",
+    "47§"
+  ],
+  "avsender": {
+    "kontor": "Nav Ullern",
+    "adresse" : "Postboks 8 alnabru",
+    "postnummer" : "1640 Oslo",
+    "telefon" : "92323232"
+  },
+  "nksTelefon" : "55 55 33 33"
+}
