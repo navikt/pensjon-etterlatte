@@ -1,6 +1,7 @@
 {
   "saksnummer": "143",
   "utsendingsDato": "4. mai 2022",
+  "innvilgelsesFrist" : "DATO",
   "mottaker" : {
     "navn" : "Nicco nicolaison",
     "adresse" : "ADRESSEVEIEN 10",
