@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8"/>
+    {{> brev/partials/style}}
+    <title>Avslagsbrev</title>
+</head>
+<body>
+
+<div class="container">
+    {{> brev/partials/header this}}
+    <h1>Vi har avslått søknaden din om barnepensjon</h1>
+    {{> brev/partials/barn this}}
+    {{> brev/partials/klage}}
+    {{> brev/partials/innsyn}}
+    {{> brev/partials/sporsmaal}}
+</div>
+
+{{> brev/partials/footer this}}
+
+</body>
+</html>
