@@ -222,7 +222,7 @@ export default {
     "omDenAvdoede.boddEllerJobbetUtland.ingress":
         "We need to know if the deceased has lived or worked outside Norway. This may both affectthe size of the survivor’s pension you receive and give you pension rights from other countries.",
     "omDenAvdoede.boddEllerJobbetUtland.svar":
-        "Had the deceased lived or worked in a country other than Norway after the age of 16?",
+        "Has he or she lived and/or worked in a country other than Norway after the age of 16?",
     "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land": "Country",
     "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse": "Lived and/or worked?",
     "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato": "From date (optional)",
@@ -252,7 +252,7 @@ export default {
     "omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse": "In which year(s)? (optional)",
     "omDenAvdoede.doedsfallAarsak": "Was the death caused by an occupational injury or occupational illness?",
     "omDenAvdoede.doedsfallAarsakHvorfor":
-        "If the death was caused by an approved occupational injury or occupational illness, this may affect whether you get a survivor’s pension and the size of the pension.",
+        "A death caused by an occupational injury or illness approved by NAV may be decisive as to whether you are entitled to a survivor's pension and the size of the pension.",
     "omBarn.tittel": "About children",
     "omBarn.tittelModal": "About the child",
     "omBarn.informasjon":

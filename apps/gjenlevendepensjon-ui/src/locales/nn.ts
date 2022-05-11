@@ -206,7 +206,7 @@ export default {
     "omDenAvdoede.boddEllerJobbetUtland.ingress":
         "Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i attlevandepensjon og gi deg pensjonsrettar frå andre land.",
     "omDenAvdoede.boddEllerJobbetUtland.svar":
-        "Budde eller arbeidde han eller ho i eit anna land enn Noreg etter fylte 16 år?",
+        "Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?",
     "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land": "Land",
     "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse": "Budd og/eller arbeidd?",
     "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato": "Frå dato (valfri)",
@@ -234,7 +234,7 @@ export default {
     "omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse": "Kva for år? (valfri)",
     "omDenAvdoede.doedsfallAarsak": "Skuldast dødsfallet yrkesskade eller yrkessjukdom?",
     "omDenAvdoede.doedsfallAarsakHvorfor":
-        "Viss dødsfallet skuldast godkjent yrkesskade eller yrkessjukdom kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
+        "Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV kan det avgjere om du får attlevandepensjon og kor mykje du kan få.",
     "omBarn.tittel": "Om barn",
     "omBarn.tittelModal": "Om barnet",
     "omBarn.informasjon":

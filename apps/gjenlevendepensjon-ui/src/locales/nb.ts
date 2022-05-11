@@ -237,7 +237,7 @@ export default {
     "omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse": "Hvilke(-t) år? (valgfri)",
     "omDenAvdoede.doedsfallAarsak": "Skyldes dødsfallet yrkesskade eller yrkessykdom?",
     "omDenAvdoede.doedsfallAarsakHvorfor":
-        "Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få",
+        "Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.",
     "omBarn.tittel": "Om barn",
     "omBarn.tittelModal": "Om barnet",
     "omBarn.informasjon":
