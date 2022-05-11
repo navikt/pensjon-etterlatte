@@ -21,7 +21,7 @@ internal class TilstandsProbeTest {
     private val eldsteUsendt = LocalDateTime.now().minusHours(1)
     private val eldsteUarkivert = LocalDateTime.now().minusHours(2)
     private val kildeBP = "barnepensjon-ui"
-    private val kildeGP = "selvbetjening-ui"
+    private val kildeGP = "gjenlevendepensjon-ui"
 
     @BeforeAll
     fun setUp() {

@@ -36,7 +36,7 @@ internal class SoeknadDaoIntegrationTest {
 
     private val connection get() = dataSource.connection
     private val kildeBarnepensjon = "barnepensjon-ui"
-    private val kildeGjenlevende = "selvbetjening-ui"
+    private val kildeGjenlevende = "gjenlevendepensjon-ui"
 
 
     @BeforeAll

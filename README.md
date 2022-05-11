@@ -27,9 +27,9 @@ Database app for håndtering av søknader (lagring, uthenting, sending, m.m.).
 Sikrer korrekt Journalføring av innsendt søknad.
 
 [selvbetjening-api](apps/selvbetjening-api) \
-API som gjør det mulig for [frontend](apps/selvbetjening-ui) å kommunisere med diverse apper. 
+API som tilgjengeliggjør data for frontend å kommunisere med diverse apper. 
 
-[selvbetjening-ui](apps/selvbetjening-ui) \
+[gjenlevendepensjon-ui](apps/gjenlevendepensjon-ui) \
 Brukergrensesnittet for "Søknad om gjenlevendepensjon".
 
 [sjekk-adressebeskyttelse](apps/sjekk-adressebeskyttelse) \

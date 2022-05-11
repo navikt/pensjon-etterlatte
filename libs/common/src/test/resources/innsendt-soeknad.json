@@ -4,7 +4,7 @@
       "versjon": "1",
       "imageTag": "124091248124",
       "type": "GJENLEVENDEPENSJON",
-      "kilde":"selvbetjening-ui",
+      "kilde":"gjenlevendepensjon-ui",
       "harSamtykket": {
         "spoersmaal": "Jeg, , bekrefter at jeg vil gi riktige og fullstendige opplysninger.",
         "svar": true
