@@ -29,12 +29,12 @@
   },
   "omDenAvdoede": {
     "foedselsnummer": "24014021406",
-    "statsborgerskap": "Norsk",
+    "statsborgerskap": "Norge",
     "boddEllerJobbetUtland": {
       "svar": "radiobuttons.ja",
       "oppholdUtland": [
         {
-          "land": "Kongo",
+          "land": "Irak",
           "beskrivelse": [
             "oppholdUtlandType.bodd",
             "oppholdUtlandType.arbeidet"
@@ -103,7 +103,7 @@
         "fornavn": "Treg",
         "etternavn": "Snøfreser",
         "foedselsnummer": "24014021406",
-        "statsborgerskap": "Norsk",
+        "statsborgerskap": "Norge",
         "bosattUtland": {
           "svar": "radiobuttons.nei"
         },
@@ -116,7 +116,7 @@
         "fornavn": "Lunken",
         "etternavn": "Floskel",
         "foedselsnummer": "07010776133",
-        "statsborgerskap": "Norsk",
+        "statsborgerskap": "Norge",
         "bosattUtland": {
           "svar": "radiobuttons.nei"
         },

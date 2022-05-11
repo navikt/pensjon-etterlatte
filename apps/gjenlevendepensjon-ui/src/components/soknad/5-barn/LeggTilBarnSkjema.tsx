@@ -36,8 +36,8 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     const methods = useForm<IBarn>({
         defaultValues: {
             ...barn,
-            statsborgerskap: barn.statsborgerskap || "Norge",
-            bosattUtland: { ...barn.bosattUtland, land: barn.bosattUtland?.land || "Norge" }
+            statsborgerskap: barn.statsborgerskap,
+            bosattUtland: { ...barn.bosattUtland, land: barn.bosattUtland?.land }
         },
         shouldUnregister: true
     });

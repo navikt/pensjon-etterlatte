@@ -71,7 +71,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         // Verifiser felter og fyll ut skjema.
         const omDenAvdoede = mockSoeknad.omDenAvdoede;
         getById("foedselsnummer").type(omDenAvdoede.foedselsnummer);
-        getById("statsborgerskap").type(omDenAvdoede.statsborgerskap);
+        getById("statsborgerskap").find("select").select(omDenAvdoede.statsborgerskap);
         selectValueForId("boddEllerJobbetUtland.svar", omDenAvdoede.boddEllerJobbetUtland.svar);
 
         // Legg til land
@@ -156,7 +156,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             getById("fornavn").type(barn.fornavn);
             getById("etternavn").type(barn.etternavn);
             getById("foedselsnummer").type(barn.foedselsnummer);
-            getById("statsborgerskap").type(barn.statsborgerskap);
+            getById("statsborgerskap").find("select").select(barn.statsborgerskap);
             selectValueForId("bosattUtland.svar", barn.bosattUtland.svar);
             selectValue("barnRelasjon.fellesbarnMedAvdoede");
             if (barn.foedselsnummer === "07010776133") {

@@ -23,7 +23,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useSoknadContext();
     const { land } : { land: any } = useLand();
     const methods = useForm<IAvdoed>({
-        defaultValues: { ...state.omDenAvdoede, statsborgerskap: state.omDenAvdoede.statsborgerskap || "Norge" } || {},
+        defaultValues: { ...state.omDenAvdoede, statsborgerskap: state.omDenAvdoede.statsborgerskap } || {},
         shouldUnregister: true,
     });
 
