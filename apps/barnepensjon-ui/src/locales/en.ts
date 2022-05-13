@@ -80,7 +80,7 @@ const radiobuttons = {
 
 const frontPage = {
     frontPageTitle: 'Apply for children’s pension',
-    helloUser: `Hei, {fornavn} {etternavn}`,
+    helloUser: `Hi, {fornavn} {etternavn}`,
     startApplication: 'Start the application',
     childMayBeApplicableForPension:
         'Children under the age of 18 who have lost one or both of their parents may receive financial support. It is the parent or guardian of the child who must apply for the children’s pension for the child if he/she is under the age of 18. \n Children who are studying or serving as an apprentice or trainee may be entitled to the children’s pension even if they are over the age of 18: \n',
