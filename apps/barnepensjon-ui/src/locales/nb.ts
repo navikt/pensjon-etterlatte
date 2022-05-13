@@ -43,6 +43,7 @@ const btn = {
     editButton: 'Endre',
     yesButton: 'Ja, send søknad',
     noButton: 'Nei, gå tilbake',
+    continueButton: 'Fortsett',
 }
 
 const loggedInUserInfo = {

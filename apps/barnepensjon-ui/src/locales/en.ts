@@ -14,6 +14,7 @@ const common = {
     maritalStatus: 'Marital status',
     citizenship: 'Nationality',
     phoneNumber: 'Telephone number',
+    phoneNumberOptional: 'Telephone number (optional)',
     phoneNumberHelpText: 'The telephone number has been obtained from the Contact and Reservation Register.',
     whyWeAsk: 'Why are we asking you about this?',
     dateFormat: '(dd.mm.yyyy)',
@@ -40,6 +41,7 @@ const btn = {
     removeButton: 'Remove',
     deleteButton: 'Delete',
     editButton: 'Change',
+    continueButton: 'Continue',
 }
 
 const loggedInUserInfo = {
@@ -81,19 +83,19 @@ const frontPage = {
     helloUser: `Hei, {fornavn} {etternavn}`,
     startApplication: 'Start the application',
     childMayBeApplicableForPension:
-        'Children under the age of 18 who have lost one or both of their parents may receive financial support. It is the parent or guardian of the child who must apply for the children’s pension for the child if he/she is under the age of 18.  n Children who are studying or serving as an apprentice or trainee may be entitled to the children’s pension even if they are over the age of 18: n',
+        'Children under the age of 18 who have lost one or both of their parents may receive financial support. It is the parent or guardian of the child who must apply for the children’s pension for the child if he/she is under the age of 18. \n Children who are studying or serving as an apprentice or trainee may be entitled to the children’s pension even if they are over the age of 18: \n',
     childMayBeApplicableForPension_li1:
         'If the death was caused by occupational injury or occupational illness, the child may be entitled to the children’s pension until the age of 21.',
     childMayBeApplicableForPension_li2:
         'If the child has lost both parents, the child may be entitled to the children’s pension until the age of 20.',
     childOver18HasToApplyByThemself:
-        'Children over the age of 18 must apply for the children’s pension themselves.  n n<a href="https://www.nav.no/barnepensjon">More about the children’s pension</a>',
+        'Children over the age of 18 must apply for the children’s pension themselves.  \n \n<a href="https://www.nav.no/barnepensjon">More about the children’s pension</a>',
     tax: 'Tax',
     aboutChildrensPensionTax:
         'The children’s pension is taxable, however advance tax is not deducted. If you have any questions about tax, you must contact the Norwegian Tax Administration (“Skatteetaten”).',
     weWillRetrieveInfo: 'We collect the information we require',
     infoWeRetrieve:
-        'In order to process your application we require information about the child/children, the parents of the children and any siblings.  n n We retrieve:',
+        'In order to process your application we require information about the child/children, the parents of the children and any siblings.  \n \n We retrieve:',
     infoWeRetrieve_li1:
         '<strong>Personal information</strong> from the Norwegian National Registry (“Folkeregisteret”)',
     infoWeRetrieve_li2:
@@ -125,7 +127,7 @@ const selectScenario = {
     guardianApplicantInformation:
         'In the application, you must list all of the deceased’s children and/or adoptive children who are under the age of 18. Siblings may be of importance when calculating the children’s pension.',
     guardiansMustSendDocumentation:
-        'If the children are not full siblings, an application must be submitted for each family of children.  n nIn order for us to process the application for the children’s pension, you must submit documentation that you are the guardian of the child/children.',
+        'If the children are not full siblings, an application must be submitted for each family of children.  \n \nIn order for us to process the application for the children’s pension, you must submit documentation that you are the guardian of the child/children.',
     childApplicantInformation1:
         '<b>If you have lost a parent</b> nWhen the death was due to an occupational injury or occupational illness you are entitled to receive the children’s pension until the age of 21 if you are studying or serving as an apprentice or trainee.',
     childApplicantInformation2:
@@ -172,7 +174,7 @@ const aboutParents = {
     addFirstParentBtn: 'Add parent 1',
     addSecondParentBtn: 'Add parent 2',
     bothParentsRequired:
-        'You will need to add information about both parents to continue with the application.  n n If the child has lost his/her mother and paternity has not been determined, you will need to use',
+        'You will need to add information about both parents to continue with the application.  \n \n If the child has lost his/her mother and paternity has not been determined, you will need to use',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-flere-av-foreldrene/NAV%2018-01.05/dokumentinnsending"> this application</a>.',
 }
@@ -180,7 +182,6 @@ const aboutParents = {
 const livingParent = {
     title: 'Information about the survivor',
     address: 'Address (optional)',
-    phoneNumberOptional: 'Telephone number (optional)',
 }
 
 const aboutTheDeceased = {
@@ -380,7 +381,7 @@ const systemUnavailable = {
 const invalidApplicant = {
     applicantIsTooYoung: 'To apply for the children’s pension, you must be over the age of 18.',
     childMayBeApplicableForPension:
-        'Children who have lost one or both of their parents may receive financial support. The children’s pension shall ensure there is an income to cover living and housing expenses.  n nFor children under the age of 18, it is the parent or guardian who must apply for a children’s pension.',
+        'Children who have lost one or both of their parents may receive financial support. The children’s pension shall ensure there is an income to cover living and housing expenses.  \n \nFor children under the age of 18, it is the parent or guardian who must apply for a children’s pension.',
     moreAboutChildrensPension: '<a href="https://www.nav.no/barnepensjon">Read more about the children’s pension</a>',
 }
 
@@ -389,7 +390,7 @@ const logOutUser = {
     time: 'minutes',
     youWillBeLoggedOutIn: 'You will be logged out in',
     sendNowOrContinueLater:
-        'You can submit the application now or continue later.  n Your application will be saved for 72 hours.',
+        'You can submit the application now or continue later.  \n Your application will be saved for 72 hours.',
     wereLoggingYouOut: 'You will be logged out!',
 }
 

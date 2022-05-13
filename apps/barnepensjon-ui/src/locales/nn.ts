@@ -40,6 +40,7 @@ const btn = {
     removeButton: 'Fjern',
     deleteButton: 'Slette',
     editButton: 'Endre',
+    continueButton: 'Fortsett',
 }
 
 const loggedInUserInfo = {
