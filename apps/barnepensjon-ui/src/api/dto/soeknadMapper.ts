@@ -46,7 +46,7 @@ const mapTilBarnepensjonSoeknad = (
 
     return {
         type: SoeknadType.BARNEPENSJON,
-        spraak: Language.BOKMAAL, // TODO: Lagre språk i søknad
+        spraak: application.meta?.language || Language.BOKMAAL,
 
         innsender,
         harSamtykket,
