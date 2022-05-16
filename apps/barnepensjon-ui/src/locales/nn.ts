@@ -41,6 +41,8 @@ const btn = {
     deleteButton: 'Slette',
     editButton: 'Endre',
     continueButton: 'Fortsett',
+    yesButton: 'Ja, send søknad',
+    noButton: 'Nei, gå tilbake',
 }
 
 const loggedInUserInfo = {

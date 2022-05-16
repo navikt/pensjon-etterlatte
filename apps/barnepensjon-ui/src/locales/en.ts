@@ -42,6 +42,8 @@ const btn = {
     deleteButton: 'Delete',
     editButton: 'Change',
     continueButton: 'Continue',
+    yesButton: 'Yes, submit application',
+    noButton: 'No, go back',
 }
 
 const loggedInUserInfo = {
@@ -287,6 +289,9 @@ const summary = {
         'An error occurred while submitting. Please wait a moment and try again. If the error persists, you can report it ',
     errorWhenSendingLink: 'here.',
     errorWhenSendingHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    sendApplicationTitle: 'Do you wish to submit the application now?',
+    sendingApplicationTitle: 'Submitting the application',
+    sendApplicationBody: 'You will not be able to change your information after submitting the application.',
 }
 
 const error = {
