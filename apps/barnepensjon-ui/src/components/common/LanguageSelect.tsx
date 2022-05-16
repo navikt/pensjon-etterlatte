@@ -4,6 +4,8 @@ import { Language } from '../../context/language/language'
 import { useLanguageContext } from '../../context/language/LanguageContext'
 import useTranslation from '../../hooks/useTranslation'
 import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
+import { ActionTypes } from '../../context/application/application'
+import { useApplicationContext } from '../../context/application/ApplicationContext'
 
 const SelectWrapper = styled.div`
     max-width: 200px;
@@ -13,6 +15,7 @@ const SelectWrapper = styled.div`
 
 export default function LanguageSelect() {
     const { language, updateLanguage } = useLanguageContext()
+    const { dispatch } = useApplicationContext()
 
     const { t } = useTranslation('common')
     const { logEvent } = useAmplitude()
@@ -20,6 +23,7 @@ export default function LanguageSelect() {
     const update = (lang: Language) => {
         updateLanguage(lang)
         logEvent(LogEvents.CHANGE_LANGUAGE, { type: lang })
+        dispatch({ type: ActionTypes.UPDATE_LANGUAGE, payload: lang })
     }
 
     return (
