@@ -14,6 +14,7 @@ const common = {
     maritalStatus: 'Sivilstatus',
     citizenship: 'Statsborgarskap',
     phoneNumber: 'Telefonnummer',
+    phoneNumberOptional: 'Telefonnummer (valgfri)',
     phoneNumberHelpText: 'Telefonnummeret er henta frå Kontakt- og reservasjonsregisteret.',
     whyWeAsk: 'Kvifor spør vi om dette',
     dateFormat: '(dd.mm.yyyy)',
@@ -178,7 +179,6 @@ const aboutParents = {
 const livingParent = {
     title: 'Om den attlevande',
     address: 'Adresse (valgfri)',
-    phoneNumberOptional: 'Telefonnummer (valgfri)',
 }
 
 const aboutTheDeceased = {
@@ -236,8 +236,8 @@ const aboutChildren = {
     guardianLastName: 'Etternamn (valfri)',
     guardianFirstName: 'Fornamn (valfri)',
     guardianName: 'Namn på verje',
-    childHasGuardian: 'Er det oppnemnt en verge for barnet?',
-    guardianFnr: 'Fødselsnummer til verge (valgfri)',
+    childHasGuardian: 'Er det oppnemnt en verje for barnet?',
+    guardianFnr: 'Fødselsnummer til verje (valgfri)',
     guardianFnrPlaceholder: '11 siffer',
     information:
         'Oppgi avdøde sine biologiske barn og/eller adoptivbarn under 18 år. \n\nDersom barna ikkje er heilsøsken, må forelder eller oppnemnt verje sende inn eigen søknad for desse barna.\n\nFosterbarn skal ikkje førasts opp, fordi dei ikkje har rett til barnepensjon etter fosterforeldra.\n\nBarn over 18 år må søke sjølv om barnepensjon. ',
