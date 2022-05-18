@@ -150,7 +150,7 @@ export default function ScenarioSelection() {
 
             {ApplicantRole.CHILD !== selectedRole && (
                 <FormGroup>
-                    <Button onClick={handleSubmit(next)}>Fortsett</Button>
+                    <Button onClick={handleSubmit(next)}>{t('continueButton', { ns: 'btn' })}</Button>
                 </FormGroup>
             )}
         </FormProvider>

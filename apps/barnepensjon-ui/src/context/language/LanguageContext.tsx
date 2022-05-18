@@ -16,9 +16,15 @@ const LanguageContext = createContext({
 
 const useLanguageContext = () => useContext(LanguageContext)
 
+const languages = {
+    nb,
+    nn,
+    en,
+}
+
 const LanguageProvider: FC = ({ children }) => {
     const [language, setLanguage] = useState<Language>(initialLanguage)
-    const [translations, setTranslations] = useState<Record<Namespace, Record<TKey, any>>>(nb)
+    const [translations, setTranslations] = useState<Record<Namespace, Record<TKey, any>>>(languages[language])
 
     const updateLanguage = (lang: Language) => {
         console.log('setting language and translations')

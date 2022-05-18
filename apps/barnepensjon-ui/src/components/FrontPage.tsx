@@ -9,6 +9,7 @@ import FormGroup from './common/FormGroup'
 import NavGuide from './common/NavGuide'
 import Trans from './common/Trans'
 import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
+import LanguageSelect from './common/LanguageSelect'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -39,9 +40,7 @@ export default function FrontPage() {
             </FormGroup>
 
             <FormGroup>
-                {/* Waiting for translations, see EY-512.
                 <LanguageSelect />
-                */}
             </FormGroup>
 
             <FormGroup>

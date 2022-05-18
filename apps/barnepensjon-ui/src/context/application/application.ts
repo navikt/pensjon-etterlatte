@@ -2,6 +2,7 @@ import { BankkontoType, JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/Fe
 import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
 import { IAboutChildren, IAboutYou } from '../../types/person'
 import { ISituationChild } from '../../types/situation'
+import { Language } from '../language/language'
 
 export const emptyApplication: IApplication = {
     aboutYou: { paymentDetails: { accountType: BankkontoType.NORSK } },
@@ -29,6 +30,7 @@ export enum ActionTypes {
     UPDATE_FIRST_PARENT,
     UPDATE_SECOND_PARENT,
     UPDATE_YOUR_SITUATION,
+    UPDATE_LANGUAGE,
     RESET,
     CLOSE_CONTINUE_MODAL,
 }
@@ -48,6 +50,7 @@ export interface IApplicationMeta {
     savedTimestamp?: Date
     showContinueModal?: boolean
     currentPath?: string
+    language?: Language
 }
 
 export interface IApplicant {

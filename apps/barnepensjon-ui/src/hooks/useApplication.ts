@@ -4,6 +4,7 @@ import { useApplicationContext } from '../context/application/ApplicationContext
 import { useEffect, useState } from 'react'
 import { getDraft, saveDraft } from '../api/api'
 import { ActionTypes, IApplication } from '../context/application/application'
+import { useLanguageContext } from '../context/language/LanguageContext'
 
 export default function useApplication() {
     const navigate = useNavigate()
@@ -11,6 +12,7 @@ export default function useApplication() {
 
     const { state: user } = useUserContext()
     const { state, dispatch } = useApplicationContext()
+    const { updateLanguage } = useLanguageContext()
 
     const [loading, setLoading] = useState(true)
 
@@ -28,6 +30,7 @@ export default function useApplication() {
                     navigate('/')
                 } else {
                     dispatch({ type: ActionTypes.SET_APPLICATION, payload: application })
+                    if (application.meta?.language) updateLanguage(application.meta?.language)
                 }
             })
             .catch((err: Error) => {
