@@ -1,0 +1,4 @@
+package logging
+
+class LogUtils {
+}
