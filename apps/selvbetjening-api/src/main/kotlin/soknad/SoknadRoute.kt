@@ -7,6 +7,9 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.request.contentType
 import io.ktor.request.header
 import io.ktor.request.receive
+import io.ktor.request.receiveChannel
+import io.ktor.request.receiveStream
+import io.ktor.request.receiveText
 import io.ktor.request.uri
 import io.ktor.response.respond
 import io.ktor.routing.Route
@@ -67,9 +70,10 @@ fun Route.soknadApi(service: SoeknadService) {
 
         get {
             val kilde = call.request.queryParameters["kilde"]!!
-            val correlation = call.request.header("x_correlation_id")!!
+            val correlation = call.request.headers.toString()
+            logger.info("correlation: ${correlation}")
             logger.info("Uri: ${call.request.uri}")
-            logger.info("Corr: $correlation")
+            logger.info("receiveText: ${call.receiveText()}")
             when (val response = service.hentKladd(kilde)) {
                 is Success -> {
                     when (response.content) {
