@@ -70,7 +70,7 @@ fun Route.soknadApi(service: SoeknadService) {
 
         get {
             val kilde = call.request.queryParameters["kilde"]!!
-            val correlation = call.request.headers.toString()
+            val correlation = call.request.headers["x_correlation_id"]
             logger.info("correlation: ${correlation}")
             logger.info("Uri: ${call.request.uri}")
             logger.info("receiveText: ${call.receiveText()}")
