@@ -53,10 +53,8 @@ fun Route.soeknadApi(service: SoeknadService) {
 
         get {
             val soeknad = service.hentKladd(fnrFromToken(), call.request.queryParameters["kilde"]!!)
-            val correlationId = call.request.queryParameters["x_correlation_id"]!!
 
             logger.info("Request: ${call.request}")
-            logger.info("correlation id: $correlationId")
 
             if (soeknad == null)
                 call.respond(HttpStatusCode.NotFound)
