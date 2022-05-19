@@ -66,8 +66,6 @@ fun Route.soknadApi(service: SoeknadService) {
 
         get {
             val kilde = call.request.queryParameters["kilde"]!!
-            val correlation_id = call.request.headers.get("x_correlation_id")!!
-            logger.info("Correlation id: $correlation_id")
             logger.info("Uri: ${call.request.uri}")
             when (val response = service.hentKladd(kilde)) {
                 is Success -> {
