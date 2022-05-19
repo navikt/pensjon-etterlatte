@@ -15,6 +15,9 @@ import io.ktor.routing.route
 import no.nav.etterlatte.fnrFromToken
 import no.nav.etterlatte.soeknad.SoeknadConflictException
 import no.nav.etterlatte.soeknad.SoeknadService
+import org.slf4j.LoggerFactory
+
+private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
 fun Route.soeknadApi(service: SoeknadService) {
     post("/api/soeknad") {
@@ -50,6 +53,10 @@ fun Route.soeknadApi(service: SoeknadService) {
 
         get {
             val soeknad = service.hentKladd(fnrFromToken(), call.request.queryParameters["kilde"]!!)
+            val correlationId = call.request.queryParameters["x_correlation_id"]!!
+
+            logger.info("Request: ${call.request}")
+            logger.info("correlation id: $correlationId")
 
             if (soeknad == null)
                 call.respond(HttpStatusCode.NotFound)
