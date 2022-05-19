@@ -14,6 +14,9 @@ import io.ktor.routing.route
 import libs.common.util.RetryResult.Failure
 import libs.common.util.RetryResult.Success
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import org.slf4j.LoggerFactory
+
+private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
@@ -61,6 +64,8 @@ fun Route.soknadApi(service: SoeknadService) {
 
         get {
             val kilde = call.request.queryParameters["kilde"]!!
+            val correlation_id = call.request.headers
+            logger.info("Correlation id: $correlation_id")
             when (val response = service.hentKladd(kilde)) {
                 is Success -> {
                     when (response.content) {
