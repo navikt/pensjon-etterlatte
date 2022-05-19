@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode
 import io.ktor.application.call
 import io.ktor.client.features.ClientRequestException
 import io.ktor.http.HttpStatusCode
+import io.ktor.request.contentType
 import io.ktor.request.receive
+import io.ktor.request.uri
 import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.delete
@@ -66,6 +68,7 @@ fun Route.soknadApi(service: SoeknadService) {
             val kilde = call.request.queryParameters["kilde"]!!
             val correlation_id = call.request.headers.get("x_correlation_id")!!
             logger.info("Correlation id: $correlation_id")
+            logger.info("Uri: ${call.request.uri}")
             when (val response = service.hentKladd(kilde)) {
                 is Success -> {
                     when (response.content) {
