@@ -67,7 +67,9 @@ internal class SoeknadRouteKtTest {
     fun `Skal hente kladd`() {
         withTestApplication({ testModule { soknadApi(service) } }) {
             coEvery { service.hentKladd(kilde) } returns RetryResult.Success(dummyJson)
-            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde").apply {
+            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde"){
+                addHeader("x_correlation_id", "test")
+            }.apply {
                 assertEquals(HttpStatusCode.OK, response.status())
                 assertEquals(dummyJson, response.content)
                 coVerify(exactly = 1) { service.hentKladd(kilde) }
@@ -79,7 +81,9 @@ internal class SoeknadRouteKtTest {
     fun `Skal håndtere at kladd ikke finnes`() {
         withTestApplication({ testModule { soknadApi(service) } }) {
             coEvery { service.hentKladd(kilde) } returns RetryResult.Success(HttpStatusCode.NotFound)
-            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde").apply {
+            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde"){
+                addHeader("x_correlation_id", "test")
+            }.apply {
                 assertEquals(HttpStatusCode.NotFound, response.status())
                 coVerify(exactly = 1) { service.hentKladd(kilde) }
             }
