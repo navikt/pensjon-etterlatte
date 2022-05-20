@@ -55,8 +55,6 @@ fun Route.soknadApi(service: SoeknadService) {
     route("/api/kladd") {
         post {
             val kilde = call.request.queryParameters["kilde"]!!
-            val correlation = call.request.queryParameters["x_correlation_id"]
-            logger.info("Post correlation: ${correlation}")
             val correlationHeader = call.request.headers["x_correlation_id"]
             logger.info("Get correlation from header: ${correlationHeader}")
             val soeknadJson = call.receive<JsonNode>()
@@ -74,8 +72,6 @@ fun Route.soknadApi(service: SoeknadService) {
 
         get {
             val kilde = call.request.queryParameters["kilde"]!!
-            val correlation = call.request.queryParameters["x_correlation_id"]
-            logger.info("Get correlation: ${correlation}")
             val correlationHeader = call.request.headers["x_correlation_id"]
             logger.info("Get correlation from header: ${correlationHeader}")
             when (val response = service.hentKladd(kilde)) {

@@ -47,11 +47,7 @@ export default function proxy(host: string): RequestHandler {
     return async (req: Request, res: Response) => {
         try {
             const request = await prepareSecuredRequest(req)
-            const correlationId = uuid()
-            const response = await fetch(
-                `${host}${req.path}?kilde=${process.env.NAIS_APP_NAME}&x_correlation_id=${correlationId}`,
-                request
-            )
+            const response = await fetch(`${host}${req.path}?kilde=${process.env.NAIS_APP_NAME}`, request)
 
             if (isOK(response.status)) {
                 logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
