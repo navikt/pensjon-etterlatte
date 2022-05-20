@@ -19,6 +19,7 @@ const prepareSecuredRequest = async (req: Request) => {
     const headers: any = {
         ...req.headers,
         authorization: `Bearer ${accessToken}`,
+        x_correlation_id: uuid(),
     }
 
     let body = undefined
