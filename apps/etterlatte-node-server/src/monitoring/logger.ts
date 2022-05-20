@@ -11,10 +11,8 @@ const production = combine(timestamp(), json())
 /* Bruker simple() for lettlest logg (lokal stdout/stderr) */
 const dev = combine(colorize(), simple())
 
-const x_correlation_id = uuid()
-
 const WinstonLogger = createLogger({
-    defaultMeta: { x_correlation_id },
+    defaultMeta: { x_correlation_id: uuid() },
     level: 'info',
     format: !!process.env.NAIS_CLUSTER_NAME ? production : dev,
     transports: [new Console(), new PrometheusTransport()],
