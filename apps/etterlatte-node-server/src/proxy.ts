@@ -22,6 +22,8 @@ const prepareSecuredRequest = async (req: Request) => {
         x_correlation_id: uuid(),
     }
 
+    logger.info(`Correlation: ${headers.x_correlation_id}`)
+
     let body = undefined
     if (!isEmpty(req.body) && req.method === 'POST') {
         const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*:(.*)/, '$1')
