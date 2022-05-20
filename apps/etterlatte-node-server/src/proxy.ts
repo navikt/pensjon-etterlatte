@@ -2,7 +2,6 @@ import { Request, RequestHandler, Response } from 'express'
 import fetch from 'node-fetch'
 import logger from './monitoring/logger'
 import TokenXClient from './auth/tokenx'
-import { v4 as uuid } from 'uuid'
 
 const { exchangeToken } = new TokenXClient()
 
@@ -19,10 +18,7 @@ const prepareSecuredRequest = async (req: Request) => {
     const headers: any = {
         ...req.headers,
         authorization: `Bearer ${accessToken}`,
-        x_correlation_id: uuid(),
     }
-
-    logger.info(`Correlation: ${headers.x_correlation_id}`)
 
     let body = undefined
     if (!isEmpty(req.body) && req.method === 'POST') {

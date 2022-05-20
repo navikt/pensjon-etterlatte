@@ -14,7 +14,7 @@ const dev = combine(colorize(), simple())
 const correlationId = uuid()
 
 const WinstonLogger = createLogger({
-    defaultMeta: { x_correlation_id: correlationId },
+    defaultMeta: { x_correlation_id: 'testing' },
     level: 'info',
     format: !!process.env.NAIS_CLUSTER_NAME ? production : dev,
     transports: [new Console(), new PrometheusTransport()],
