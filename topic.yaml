@@ -93,3 +93,6 @@ spec:
     - team: etterlatte
       application: etterlatte-vedtaksvurdering
       access: readwrite
+    - team: etterlatte
+      application: etterlatte-avkorting
+      access: readwrite
