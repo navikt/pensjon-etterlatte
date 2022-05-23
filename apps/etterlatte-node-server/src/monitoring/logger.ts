@@ -13,10 +13,16 @@ const production = combine(timestamp(), json())
 const dev = combine(colorize(), simple())
 
 const WinstonLogger = createLogger({
-    defaultMeta: { x_correlation_id: rTracer.id() },
+    defaultMeta: {
+        get x_correlation_id() {
+            return rTracer.id()
+        },
+    },
     level: 'info',
     format: !!process.env.NAIS_CLUSTER_NAME ? production : dev,
     transports: [new Console(), new PrometheusTransport()],
 })
+
+WinstonLogger.info(`rtracer: ${rTracer.id()}`)
 
 export default WinstonLogger

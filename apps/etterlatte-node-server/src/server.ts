@@ -14,16 +14,16 @@ const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
 
 const app = express()
-
-app.set('trust proxy', 1)
-app.use(basePath, express.static(buildPath, { index: false }))
-app.use(parser.json())
 app.use(
     rTracer.expressMiddleware({
         useHeader: true,
         headerName: 'x_correlation_id',
     })
 )
+
+app.set('trust proxy', 1)
+app.use(basePath, express.static(buildPath, { index: false }))
+app.use(parser.json())
 
 // Endpoints to verify is app is ready/alive
 app.get(`${basePath}/isAlive|${basePath}/isReady`, (req: Request, res: Response) => {
