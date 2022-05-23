@@ -3,6 +3,7 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":libs:common"))
     implementation(project(":libs:ktorclient-auth-clientcredentials"))
 
     implementation(NavFelles.TokenClientCore)

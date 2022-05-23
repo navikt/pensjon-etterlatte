@@ -23,6 +23,4 @@ const WinstonLogger = createLogger({
     transports: [new Console(), new PrometheusTransport()],
 })
 
-WinstonLogger.info(`rtracer: ${rTracer.id()}`)
-
 export default WinstonLogger
