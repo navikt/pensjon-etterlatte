@@ -25,6 +25,7 @@ import no.nav.etterlatte.soknad.soknadApi
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import libs.common.util.RetryResult
+import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
 
 internal class SoeknadRouteKtTest {
     private val service = mockk<SoeknadService>()
@@ -68,7 +69,7 @@ internal class SoeknadRouteKtTest {
         withTestApplication({ testModule { soknadApi(service) } }) {
             coEvery { service.hentKladd(kilde) } returns RetryResult.Success(dummyJson)
             handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde"){
-                addHeader("x_correlation_id", "test")
+                addHeader(X_CORRELATION_ID, "test")
             }.apply {
                 assertEquals(HttpStatusCode.OK, response.status())
                 assertEquals(dummyJson, response.content)
@@ -82,7 +83,7 @@ internal class SoeknadRouteKtTest {
         withTestApplication({ testModule { soknadApi(service) } }) {
             coEvery { service.hentKladd(kilde) } returns RetryResult.Success(HttpStatusCode.NotFound)
             handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde"){
-                addHeader("x_correlation_id", "test")
+                addHeader(X_CORRELATION_ID, "test")
             }.apply {
                 assertEquals(HttpStatusCode.NotFound, response.status())
                 coVerify(exactly = 1) { service.hentKladd(kilde) }
