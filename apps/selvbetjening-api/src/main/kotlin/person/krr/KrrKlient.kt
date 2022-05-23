@@ -8,6 +8,7 @@ import io.ktor.client.request.url
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.contentType
+import no.nav.etterlatte.libs.common.logging.getCorrelationId
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -27,6 +28,7 @@ class KrrKlient(private val client: HttpClient) : Krr {
             client.get("person") {
                 header(HttpHeaders.NavPersonIdent, fnr.value)
                 header(HttpHeaders.NavCallId, UUID.randomUUID().toString())
+                header("x_correlation_id", getCorrelationId())
                 accept(ContentType.Application.Json)
                 contentType(ContentType.Application.Json)
             }

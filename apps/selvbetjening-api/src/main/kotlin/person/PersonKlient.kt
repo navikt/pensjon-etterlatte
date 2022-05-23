@@ -15,6 +15,7 @@ import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.pdl.PersonResponse
 import org.slf4j.LoggerFactory
 import libs.common.util.unsafeRetry
+import no.nav.etterlatte.libs.common.logging.getCorrelationId
 
 interface Pdl {
     suspend fun hentPerson(fnr: Foedselsnummer): PersonResponse
@@ -37,6 +38,7 @@ class PersonKlient(private val httpClient: HttpClient) : Pdl {
         val responseNode = unsafeRetry {
             httpClient.post<ObjectNode> {
                 header("Tema", TEMA)
+                header("x_correlation_id", getCorrelationId())
                 accept(Json)
                 body = TextContent(request, Json)
             }
