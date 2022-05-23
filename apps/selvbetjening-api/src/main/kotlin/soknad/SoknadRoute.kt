@@ -4,13 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode
 import io.ktor.application.call
 import io.ktor.client.features.ClientRequestException
 import io.ktor.http.HttpStatusCode
-import io.ktor.request.contentType
-import io.ktor.request.header
 import io.ktor.request.receive
-import io.ktor.request.receiveChannel
-import io.ktor.request.receiveStream
-import io.ktor.request.receiveText
-import io.ktor.request.uri
 import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.delete
@@ -20,9 +14,7 @@ import io.ktor.routing.route
 import libs.common.util.RetryResult.Failure
 import libs.common.util.RetryResult.Success
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
-import org.slf4j.LoggerFactory
 
-private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
@@ -55,8 +47,6 @@ fun Route.soknadApi(service: SoeknadService) {
     route("/api/kladd") {
         post {
             val kilde = call.request.queryParameters["kilde"]!!
-            val correlationHeader = call.request.headers["x_correlation_id"]
-            logger.info("Get correlation from header: ${correlationHeader}")
             val soeknadJson = call.receive<JsonNode>()
             when (val response = service.lagreKladd(soeknadJson, kilde)) {
                 is Success -> {
@@ -72,8 +62,6 @@ fun Route.soknadApi(service: SoeknadService) {
 
         get {
             val kilde = call.request.queryParameters["kilde"]!!
-            val correlationHeader = call.request.headers["x_correlation_id"]
-            logger.info("Get correlation from header: ${correlationHeader}")
             when (val response = service.hentKladd(kilde)) {
                 is Success -> {
                     when (response.content) {

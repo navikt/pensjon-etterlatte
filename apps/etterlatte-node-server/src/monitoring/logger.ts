@@ -1,7 +1,6 @@
 import { createLogger, format, transports } from 'winston'
 import { PrometheusTransport } from './transport'
 import rTracer from 'cls-rtracer'
-// import { v4 as uuid } from 'uuid'
 
 const { Console } = transports
 const { colorize, combine, timestamp, simple, json } = format
