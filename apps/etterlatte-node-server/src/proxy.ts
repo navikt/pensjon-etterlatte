@@ -18,6 +18,7 @@ const prepareSecuredRequest = async (req: Request) => {
     const headers: any = {
         ...req.headers,
         authorization: `Bearer ${accessToken}`,
+        x_correlation_id: logger.defaultMeta.x_correlation_id,
     }
 
     let body = undefined
@@ -45,7 +46,6 @@ export default function proxy(host: string): RequestHandler {
     return async (req: Request, res: Response) => {
         try {
             const request = await prepareSecuredRequest(req)
-
             const response = await fetch(`${host}${req.path}?kilde=${process.env.NAIS_APP_NAME}`, request)
 
             if (isOK(response.status)) {

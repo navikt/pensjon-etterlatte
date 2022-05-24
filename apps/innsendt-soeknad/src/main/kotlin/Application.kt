@@ -15,6 +15,7 @@ import io.ktor.config.HoconApplicationConfig
 import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.jackson.jackson
+import io.ktor.request.header
 import io.ktor.request.path
 import io.ktor.routing.IgnoreTrailingSlash
 import io.ktor.routing.Route
@@ -26,6 +27,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.jobs.TilstandsProbe
 import no.nav.etterlatte.jobs.TilstandsPusher
+import no.nav.etterlatte.libs.common.logging.CORRELATION_ID
+import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.helse.rapids_rivers.RapidApplication
@@ -35,6 +38,7 @@ import no.nav.security.token.support.ktor.tokenValidationSupport
 import org.slf4j.event.Level
 import soeknad.PostgresSoeknadRepository
 import soeknad.soeknadApi
+import java.util.*
 
 fun main() {
     val datasourceBuilder = DataSourceBuilder(System.getenv())
@@ -97,6 +101,7 @@ fun Application.apiModule(routes: Route.() -> Unit) {
     install(CallLogging) {
         level = Level.INFO
         filter { call -> !call.request.path().matches(Regex(".*/isready|.*/isalive")) }
+        mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
     }
 
     routing {

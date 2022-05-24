@@ -8,11 +8,18 @@ import logger from './monitoring/logger'
 import parser from 'body-parser'
 import { mockApi } from './mock/mock-api'
 import session from './auth/session'
+import rTracer from 'cls-rtracer'
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
 
 const app = express()
+app.use(
+    rTracer.expressMiddleware({
+        useHeader: true,
+        headerName: 'x_correlation_id',
+    })
+)
 
 app.set('trust proxy', 1)
 app.use(basePath, express.static(buildPath, { index: false }))

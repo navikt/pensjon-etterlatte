@@ -3,6 +3,8 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":libs:common"))
+
     implementation(Ktor.ServerNetty)
     implementation(Ktor.ClientCore)
     implementation(Ktor.ClientCoreJvm)

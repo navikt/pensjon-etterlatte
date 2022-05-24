@@ -9,6 +9,7 @@ import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.jackson.jackson
 import io.ktor.metrics.micrometer.MicrometerMetrics
+import io.ktor.request.header
 import io.ktor.request.path
 import io.ktor.routing.routing
 import io.ktor.server.cio.CIO
@@ -26,10 +27,13 @@ import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.kodeverk.kodeverkApi
 import no.nav.etterlatte.ktortokenexchange.installAuthUsing
 import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
+import no.nav.etterlatte.libs.common.logging.CORRELATION_ID
+import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
 import org.slf4j.event.Level
 import java.time.LocalDate
+import java.util.*
 
 class Server(applicationContext: ApplicationContext) {
     private val personService = applicationContext.personService
@@ -53,6 +57,7 @@ class Server(applicationContext: ApplicationContext) {
             install(CallLogging) {
                 level = Level.INFO
                 filter { call -> !call.request.path().startsWith("/internal") }
+                mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
             }
 
             install(MicrometerMetrics) {

@@ -15,6 +15,7 @@ import libs.common.util.RetryResult.Failure
 import libs.common.util.RetryResult.Success
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 
+
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {

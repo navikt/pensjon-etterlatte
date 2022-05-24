@@ -1,3 +1,3 @@
-FROM ghcr.io/navikt/pensjon-etterlatte/etterlatte-node-server:d728b1e37f9d709fdfeb43e0c4ef7eabc79f3cfd
+FROM ghcr.io/navikt/pensjon-etterlatte/etterlatte-node-server:8e62da030792a6601b947ae0dfa17e220b2b073f
 
 COPY build ./build

@@ -19,6 +19,8 @@ import no.nav.etterlatte.libs.common.pdl.Gradering
 import org.slf4j.LoggerFactory
 import libs.common.util.RetryResult
 import libs.common.util.retry
+import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
+import no.nav.etterlatte.libs.common.logging.getCorrelationId
 
 class SoeknadService(
     private val innsendtSoeknadKlient: HttpClient,
@@ -37,6 +39,7 @@ class SoeknadService(
             innsendtSoeknadKlient.post<String>("soeknad") {
                 contentType(Json)
                 header("kilde", kilde)
+                header(X_CORRELATION_ID, getCorrelationId())
                 parameter("kilde", kilde)
                 body = vurderAdressebeskyttelse(request)
             }
@@ -62,6 +65,7 @@ class SoeknadService(
 
             innsendtSoeknadKlient.post<String>("kladd") {
                 parameter("kilde", kilde)
+                header(X_CORRELATION_ID, getCorrelationId())
                 contentType(Json)
                 body = json
             }
@@ -74,6 +78,7 @@ class SoeknadService(
 
             innsendtSoeknadKlient.get<JsonNode>("kladd") {
                 parameter("kilde", kilde)
+                header(X_CORRELATION_ID, getCorrelationId())
             }
         } catch (ex: ClientRequestException) {
             when (ex.response.status) {
@@ -89,6 +94,7 @@ class SoeknadService(
 
         innsendtSoeknadKlient.delete<HttpResponse>("kladd") {
             parameter("kilde", kilde)
+            header(X_CORRELATION_ID, getCorrelationId())
         }.status
     }
 }

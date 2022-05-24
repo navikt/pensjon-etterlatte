@@ -25,6 +25,7 @@ import no.nav.etterlatte.soknad.soknadApi
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import libs.common.util.RetryResult
+import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
 
 internal class SoeknadRouteKtTest {
     private val service = mockk<SoeknadService>()
