@@ -2,7 +2,8 @@
 
 ## Kom i gang
 
-For å kjøre prosjektet må du installere Node/NPM. Dette kan forenkles ved å [installere nvm](https://github.com/nvm-sh/nvm) (Node Version Manager).
+For å kjøre prosjektet må du installere Node/NPM. Dette kan forenkles ved å [installere nvm](https://github.com/nvm-sh/nvm) (Node Version Manager).\
+*Må bruke en stabil versjon av node (f.eks 14 eller 16).*
 
 Dersom du ikke har installert Yarn kan du kjøre:\
 `npm install --global yarn`
