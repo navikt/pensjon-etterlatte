@@ -26,6 +26,13 @@ API som tilgjengeliggjør data for frontend å kommunisere med diverse apper.
 [sjekk-adressebeskyttelse](apps/sjekk-adressebeskyttelse) \
 Går igjennom alle fødselsnummer i søknaden og sjekker om noen av de har adressebeskyttelse.
 
+## Felles apper
+
+Alle apper som er felles for Team Etterlatte ligger i [etterlatte-pensjon-felles](https://github.com/navikt/pensjon-etterlatte-felles).  
+
+# Kafka / Rapids & Rivers
+
+Topic.yaml-filer er flyttet til [etterlatte-pensjon-felles](https://github.com/navikt/pensjon-etterlatte-felles).
 
 # Bygg og deploy
 
