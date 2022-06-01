@@ -70,7 +70,7 @@ spec:
       application: etterlatte-behandling
       access: write
     - team: etterlatte
-      application: etterlatte-okonomi-vedtak
+      application: etterlatte-utbetaling
       access: readwrite
     - team: etterlatte
       application: etterlatte-vilkaar-kafka
