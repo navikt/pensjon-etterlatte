@@ -2,7 +2,7 @@
 
 ## Om prosjektet
 
-Felles node backend for Team Etterlatte sine React-apper.
+Felles node backend for Team Etterlatte.
 
 ## Hvordan ta i bruk
 

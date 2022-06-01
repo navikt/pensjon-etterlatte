@@ -9,7 +9,7 @@ Monorepo for ny løsning for ytelser til etterlatte
 Brukergrensesnittet for "Søknad om barnepensjon".
 
 [etterlatte-node-server](apps/etterlatte-node-server) \
-Felles node backend for Team Etterlatte sine React-apper.
+Felles node backend for søknadsdialogene (gjenlevendepensjon og barnepensjon).
 
 [gjenlevendepensjon-ui](apps/gjenlevendepensjon-ui) \
 Brukergrensesnittet for "Søknad om gjenlevendepensjon".
