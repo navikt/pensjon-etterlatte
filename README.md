@@ -8,23 +8,8 @@ Monorepo for ny løsning for ytelser til etterlatte
 [barnepensjon-ui](apps/barnepensjon-ui) \
 Brukergrensesnittet for "Søknad om barnepensjon".
 
-[etterlatte-kafkamanager](apps/etterlatte-kafkamanager) \
-Kafka Manager for å enkelt se flyten til en søknad.
-
 [etterlatte-node-server](apps/etterlatte-node-server) \
 Felles node backend for Team Etterlatte sine React-apper.
-
-[etterlatte-notifikasjoner](apps/etterlatte-notifikasjoner) \
-App som sender notifikasjoner (e-post, sms, melding på nav.no) til sluttbrukeren.
-
-[etterlatte-pdl-proxy](apps/etterlatte-pdl-proxy) \
-Ny proxy for å tillate kommunikasjon mellom GCP og On-Prem.
-
-[etterlatte-proxy](apps/etterlatte-proxy) \
-Proxy for å tillate kommunikasjon mellom GCP og On-Prem.
-
-[ey-pdfgen](apps/ey-pdfgen) \
-Enkel app for opprettelse av PDF til journalføring. Benytter seg av [pdfgen](https://github.com/navikt/pdfgen)
 
 [gjenlevendepensjon-ui](apps/gjenlevendepensjon-ui) \
 Brukergrensesnittet for "Søknad om gjenlevendepensjon".
