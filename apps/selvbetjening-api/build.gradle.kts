@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":libs:common"))
-    implementation(project(":libs:ktorclient-auth-clientcredentials"))
+    implementation(Etterlatte.Common)
+    implementation(Etterlatte.KtorClientAuth)
 
     implementation(Ktor.OkHttp)
     implementation(Ktor.ServerCore)
@@ -27,11 +27,11 @@ dependencies {
     implementation(NavFelles.TokenClientCore)
     implementation(NavFelles.TokenValidationKtor)
 
-    testImplementation(project(":libs:common-test"))
     testImplementation(MockK.MockK)
     testImplementation(Kotest.AssertionsCore)
     testImplementation(Ktor.ClientMock)
     testImplementation(Ktor.ServerTests)
     testImplementation(Kotlinx.CoroutinesCore)
     testImplementation(NavFelles.MockOauth2Server)
+    testImplementation(Etterlatte.CommonTest)
 }

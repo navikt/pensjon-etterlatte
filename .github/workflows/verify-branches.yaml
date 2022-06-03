@@ -1,6 +1,7 @@
 name: Verify branches
 
 on:
+  workflow_dispatch: # Allow manually triggered workflow run
   push:
     branches:
       - '*'
@@ -18,6 +19,8 @@ jobs:
 
       # Build
       - name: Run Gradle Check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x ./gradlew
-          ./gradlew check
+          ./gradlew test

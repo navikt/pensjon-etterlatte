@@ -9,8 +9,8 @@ dependencies {
     implementation(Ktor.ClientAuth)
     implementation(Ktor.ClientJackson)
 
-    implementation(project(":libs:ktorclient-auth-clientcredentials"))
-    implementation(project(":libs:common"))
+    implementation(Etterlatte.Common)
+    implementation(Etterlatte.KtorClientAuth)
 
     testImplementation(MockK.MockK)
     testImplementation(Ktor.ClientMock)

@@ -1,7 +1,7 @@
 package soeknad
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 
 typealias SoeknadID = Long
 

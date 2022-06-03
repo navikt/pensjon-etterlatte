@@ -1,6 +1,6 @@
 package soeknad
 
-import innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import org.slf4j.LoggerFactory
 import soeknad.Queries.CREATE_HENDELSE
 import soeknad.Queries.CREATE_SOEKNAD

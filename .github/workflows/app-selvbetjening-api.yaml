@@ -19,8 +19,6 @@ on:
       - fix/*
     paths:
       - apps/selvbetjening-api/**
-      - libs/ktorclient-auth-clientcredentials/**
-      - libs/common/**
 
 jobs:
   build-and-publish:
@@ -34,6 +32,8 @@ jobs:
         with:
           java-version: '16.x'
       - name: Gradle test and build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x ./gradlew
           ./gradlew :apps:${APP_NAME}:test :apps:${APP_NAME}:build

@@ -29,6 +29,7 @@ import io.ktor.server.testing.withTestApplication
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
 import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
@@ -43,7 +44,6 @@ import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestMethodOrder
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
-import soeknad.InnsendtSoeknadFixtures
 import soeknad.LagretSoeknad
 import soeknad.PostgresSoeknadRepository
 import soeknad.soeknadApi

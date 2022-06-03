@@ -1,10 +1,10 @@
 package soeknad
 
-import innsendtsoeknad.common.SoeknadType
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.DataSourceBuilder
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals

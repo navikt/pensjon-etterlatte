@@ -9,6 +9,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
 import no.nav.etterlatte.mapper
 import no.nav.etterlatte.soeknad.SoeknadConflictException
 import no.nav.etterlatte.soeknad.SoeknadService

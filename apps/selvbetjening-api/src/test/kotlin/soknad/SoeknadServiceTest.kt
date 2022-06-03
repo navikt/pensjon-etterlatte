@@ -34,9 +34,9 @@ import no.nav.etterlatte.libs.common.pdl.HentAdressebeskyttelse
 import no.nav.etterlatte.soknad.SoeknadService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import soeknad.InnsendtSoeknadFixtures.barnepensjon
-import soeknad.InnsendtSoeknadFixtures.gjenlevendepensjon
 import libs.common.util.RetryResult
+import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures.barnepensjon
+import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures.gjenlevendepensjon
 
 internal class SoeknadServiceTest {
 
