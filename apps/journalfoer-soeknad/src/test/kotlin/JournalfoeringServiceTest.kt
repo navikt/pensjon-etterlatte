@@ -14,11 +14,11 @@ import no.nav.etterlatte.dokarkiv.DokarkivDokument
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import soeknad.InnsendtSoeknadFixtures
 
 internal class JournalfoeringServiceTest {
 

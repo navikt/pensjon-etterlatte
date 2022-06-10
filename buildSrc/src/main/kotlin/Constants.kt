@@ -5,6 +5,12 @@ object NavFelles {
     const val MockOauth2Server = "no.nav.security:mock-oauth2-server:0.3.1"
 }
 
+object Etterlatte {
+    const val Common = "no.nav.etterlatte:common:2022.06.03-14.21.58ab99be716f"
+    const val CommonTest = "no.nav.etterlatte:common-test:2022.06.03-14.21.58ab99be716f"
+    const val KtorClientAuth = "no.nav.etterlatte:ktor-client-auth:2022.06.03-14.21.58ab99be716f"
+}
+
 object Kotlinx {
     const val CoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
 }

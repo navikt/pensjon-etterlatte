@@ -6,10 +6,10 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
 import no.nav.etterlatte.soknad.finnUnikeBarn
 import no.nav.etterlatte.soknad.fjernStedslokaliserendeInfo
 import org.junit.jupiter.api.Test
-import soeknad.InnsendtSoeknadFixtures
 
 internal class AdressebeskyttelseUtilsKtTest {
 

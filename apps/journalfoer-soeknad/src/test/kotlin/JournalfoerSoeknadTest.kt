@@ -19,7 +19,6 @@ import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.pdl.Gradering
-import innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
