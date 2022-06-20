@@ -143,7 +143,7 @@ const selectScenario = {
     childApplicantInformationFatherNotConfirmed:
         'Viss du har mista mora di og farskapet ikkje er fastsatt må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">denne søknaden</a>.',
     aboutSurvivorsPensionDescription:
-        '<b>Har du mista ektefellen, sambuaren eller partnaren din?</b>\nDå kan du søke om attlevandepensjon eller overgangsstønad. Viss du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/gjenlevendepensjon">denne søknaden.</a>',
+        '<b>Har du mista ektefellen, sambuaren eller partnaren din?</b>\nDå kan du søke om attlevandepensjon eller overgangsstønad. Viss du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/soknader/nb/person/pensjon/gjenlevende-ektefelle-partner-eller-samboer#NAV170105">denne søknaden.</a>',
     BOTH_PARENTS_DECEASED: 'Begge foreldra',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Eg er foreldrelaus',
     ONE_PARENT_DECEASED: 'Ein forelder',
