@@ -45,7 +45,9 @@ export default {
     "forside.barnepensjon.tekst": "Mer om barnepensjon",
     "forside.soeknad.tittel": "Utfylling av søknaden",
     "forside.soeknad.innhold":
-        "Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.",
+        "Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.\n\nDu må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis du ikke har det, må du bruke",
+    "forside.soeknad.innhold.lenke.tekst": "denne søknaden.",
+    "forside.soeknad.innhold.lenke.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev",
     "forside.uthentingAvInfo.tittel": "Vi henter informasjonen vi trenger",
     "forside.uthentingAvInfo.innhold":
         "For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell samboer.\nVi henter:",
