@@ -131,9 +131,9 @@ const selectScenario = {
     guardiansMustSendDocumentation:
         'If the children are not full siblings, an application must be submitted for each family of children.  \n \nIn order for us to process the application for the children’s pension, you must submit documentation that you are the guardian of the child/children.',
     childApplicantInformation1:
-        '<b>If you have lost a parent</b> nWhen the death was due to an occupational injury or occupational illness you are entitled to receive the children’s pension until the age of 21 if you are studying or serving as an apprentice or trainee.',
+        '<b>If you have lost a parent</b> \nWhen the death was due to an occupational injury or occupational illness you are entitled to receive the children’s pension until the age of 21 if you are studying or serving as an apprentice or trainee.',
     childApplicantInformation2:
-        '<b>If you have lost both of your parents</b> nYou are entitled to receive the children’s pension until the age of 20 if you are studying or serving as an apprentice or trainee. You can receive the children’s pension until the age of 21 if the death was also due to occupational injury or occupational illness.',
+        '<b>If you have lost both of your parents</b> \nYou are entitled to receive the children’s pension until the age of 20 if you are studying or serving as an apprentice or trainee. You can receive the children’s pension until the age of 21 if the death was also due to occupational injury or occupational illness.',
     childApplicantInformationOver18:
         'If you have lost one or both of your parents you must use <a href="https://www.nav.no/fyllut/nav180405">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
