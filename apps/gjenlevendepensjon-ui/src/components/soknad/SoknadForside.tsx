@@ -132,7 +132,12 @@ const SoknadForside = () => {
             </SkjemaGruppe>
             <SkjemaGruppe>
                 <Heading size={"small"}>{t("forside.soeknad.tittel")}</Heading>
-                <BodyLong spacing>{t("forside.soeknad.innhold")}</BodyLong>
+                <BodyLong spacing>
+                    {t("forside.soeknad.innhold")}&nbsp;
+                    <Link href={t("forside.soeknad.innhold.lenke.href")}>
+                        {t("forside.soeknad.innhold.lenke.tekst")}
+                    </Link>
+                </BodyLong>
             </SkjemaGruppe>
             <SkjemaGruppe>
                 <Heading size={"small"}>{t("forside.samtykke.tittel")}</Heading>
