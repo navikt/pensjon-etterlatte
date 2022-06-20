@@ -10,6 +10,7 @@ import FormGroup from '../../common/FormGroup'
 import { RHFRadio } from '../../common/rhf/RHFRadio'
 import Trans from '../../common/Trans'
 import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
+import FormElement from "../../common/FormElement";
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -69,6 +70,9 @@ export default function ScenarioSelection() {
                 <>
                     <FormGroup>
                         <BodyLong size={'small'}>{t('parentApplicantInformation')}</BodyLong>
+                        <FormElement>
+                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationOneParentDeceased')} />
+                        </FormElement>
                     </FormGroup>
                     <FormGroup>
                         <Alert variant={'info'} inline={true}>
