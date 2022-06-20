@@ -138,6 +138,8 @@ const selectScenario = {
         'If you have lost one or both of your parents you must use <a href="https://www.nav.no/fyllut/nav180405">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
         'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401">this application</a>.',
+    youNeedFnrForEveryoneInThisApplicationSurvivingParent:
+        'You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
         'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">this application</a>.',
     guardianApplicantInformationFatherNotConfirmed:

@@ -63,7 +63,7 @@ export default {
     "forside.soeknad.innhold":
         "Vi lagrar søknaden i 72 timar så du kan ta pauser undervegs. Du kan når som helst avbryte søknaden.\n\nDu må oppgi heile fødselsnummeret til barnet/barna og avdøde. Viss du ikkje har det, må du bruke",
     "forside.soeknad.innhold.lenke.tekst": "denne søknaden.",
-    "forside.soeknad.innhold.lenke.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev",
+    "forside.soeknad.innhold.lenke.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401",
     "forside.samtykke.tittel": "Vi stoler på deg",
     "forside.samtykke.innhold":
         "Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din. \nViss du får pengar du ikkje har rett til fordi du har gitt feil opplysingar, må du vanlegvis betale tilbake.\n\n",
