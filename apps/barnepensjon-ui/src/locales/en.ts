@@ -147,7 +147,7 @@ const selectScenario = {
     childApplicantInformationFatherNotConfirmed:
         'If you have lost your mother and your paternity has not been determined, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">this application</a>.',
     aboutSurvivorsPensionDescription:
-        '<b>Have you lost your spouse, cohabiting partner or partner? </b> nYou may then apply for a survivor’s pension or transitional benefit. If you would like to apply for the children’s pension at the same time, you can use <a href="https://www.nav.no/gjenlevendepensjon">this application.</a>',
+        '<b>Have you lost your spouse, cohabiting partner or partner? </b> nYou may then apply for a survivor’s pension or transitional benefit. If you would like to apply for the children’s pension at the same time, you can use <a href="https://www.nav.no/soknader/en/person/pensjon/gjenlevende-ektefelle-partner-eller-samboer#NAV170105">this application.</a>',
     BOTH_PARENTS_DECEASED: 'Both parents',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'I have no parents',
     ONE_PARENT_DECEASED: 'One parent',
