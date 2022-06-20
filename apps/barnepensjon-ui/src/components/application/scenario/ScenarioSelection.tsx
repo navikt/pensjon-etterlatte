@@ -71,7 +71,7 @@ export default function ScenarioSelection() {
                     <FormGroup>
                         <BodyLong size={'small'}>{t('parentApplicantInformation')}</BodyLong>
                         <FormElement>
-                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationOneParentDeceased')} />
+                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationSurvivingParent')} />
                         </FormElement>
                     </FormGroup>
                     <FormGroup>

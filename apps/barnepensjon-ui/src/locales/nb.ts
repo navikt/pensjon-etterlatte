@@ -134,6 +134,8 @@ const selectScenario = {
         'Har du mistet en eller begge foreldrene dine må du bruke <a href="https://www.nav.no/fyllut/nav180405">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
         'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401">denne søknaden</a>.',
+    youNeedFnrForEveryoneInThisApplicationSurvivingParent:
+        'Du må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
         'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">denne søknaden</a>.',
     guardianApplicantInformationFatherNotConfirmed:

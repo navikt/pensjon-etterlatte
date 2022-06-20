@@ -67,7 +67,7 @@ export default {
     "forside.soeknad.innhold":
         "We will save your application for 72 hours so that you can take breaks. You can discard your application at any time.\n\nYou must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use",
     "forside.soeknad.innhold.lenke.tekst": "this application.",
-    "forside.soeknad.innhold.lenke.href": "https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev",
+    "forside.soeknad.innhold.lenke.href": "https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401",
     "forside.samtykke.tittel": "We trust you",
     "forside.samtykke.innhold":
         "You must provide us with the correct information so that we can process your application. \nIf you receive money that you are not entitled to because you withheld information or provided incorrect information, you usually have to pay this money back.\n\n",
