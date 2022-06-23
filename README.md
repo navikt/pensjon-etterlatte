@@ -1,6 +1,8 @@
 # pensjon-etterlatte
 
-Monorepo for ny løsning for ytelser til etterlatte
+Monorepo for ny løsning for ytelser til etterlatte.
+
+Hvordan appene henger sammen kan du se her: [Arkitekturskisse - Confluence](https://confluence.adeo.no/display/TE/Arkitektur)
 
 
 # Apper
