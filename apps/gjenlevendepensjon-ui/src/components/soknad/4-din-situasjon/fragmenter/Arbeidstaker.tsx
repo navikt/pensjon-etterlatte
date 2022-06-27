@@ -23,6 +23,12 @@ const Arbeidstaker = () => {
         }
     });
 
+    const nyttArbeidsforhold = () => {
+        if (fields.length < 10) {
+            append({}, { shouldFocus: true })
+        }
+    }
+
     return (
         <SkjemaGruppering>
             <SkjemaGruppe>
@@ -33,7 +39,7 @@ const Arbeidstaker = () => {
                 <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={remove} />
             ))}
 
-            <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
+            <Button variant={"secondary"} type={"button"} onClick={nyttArbeidsforhold}>
                 + {t("knapp.leggTilArbeidsforhold")}
             </Button>
         </SkjemaGruppering>
