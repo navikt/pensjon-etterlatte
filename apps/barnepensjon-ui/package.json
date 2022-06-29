@@ -9,6 +9,7 @@
     "@navikt/ds-icons": "^0.8.10",
     "@navikt/ds-react": "^0.16.1",
     "@navikt/fnrvalidator": "^1.2.0",
+    "@sanity/client": "^3.3.2",
     "amplitude-js": "^8.17.0",
     "axios": "^0.26.1",
     "axios-retry": "^3.2.4",
