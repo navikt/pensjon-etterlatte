@@ -6,7 +6,7 @@ export default {
          {
             name: "metaDescription",
             title: "Metabeskrivelse",
-            type: "string",
+            type: "localeString",
             description:
                 "Søkemotorer kan bruke denne teksten i søkeresultater. Kan i de fleste tilfeller være tom, da Google etc helst genererer egne tekster basert på innholdet på siden",
         },

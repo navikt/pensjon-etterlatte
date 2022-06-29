@@ -1,5 +1,5 @@
 import { BodyLong, Button, ConfirmationPanel, Heading } from '@navikt/ds-react'
-import { useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes } from '../context/application/application'
 import { useApplicationContext } from '../context/application/ApplicationContext'
@@ -12,6 +12,7 @@ import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
 import LanguageSelect from './common/LanguageSelect'
 import SanityClientConstructor from '@sanity/client'
 import sanityClient from '@sanity/client'
+import { useLanguageContext } from '../context/language/LanguageContext'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -31,18 +32,21 @@ export default function FrontPage() {
         dataset: 'production'
     })
 
-    const [title, setTitle] = useState("")
+    const [title, setTitle] = useState<String>()
     useEffect(() => {
 
         client.fetch(
             `*[_type == "frontpage"]`
         ).then( (data) => { 
             console.log(data)
-            setTitle(data[0].metaDescription) })
-    
+            if (localStorage.getItem('language') == 'nn') setTitle(data[0].metaDescription.nn) 
+            else if (localStorage.getItem('language') == 'nb') setTitle(data[0].metaDescription.nb)
+            else setTitle(data[0].metaDescription.en)
+            })
     })
-    
-    function next() {
+  
+     
+      function next() {
         dispatch({
             type: ActionTypes.UPDATE_APPLICANT,
             payload: { ...state.applicant, consent },
