@@ -139,7 +139,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: labs-gcp
           RESOURCE: apps/${{ env.APP_NAME }}/.nais/labs.yaml
-
+  # Kommentert ut
   # deploy-to-prod-gcp:
   #   name: Deploy to prod-gcp
   #   if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
