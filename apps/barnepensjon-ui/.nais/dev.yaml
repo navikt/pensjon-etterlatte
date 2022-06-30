@@ -53,7 +53,7 @@ spec:
       errorPath: ""
   env:
     - name: BASE_PATH
-      value: /
+      value: /barnepensjon/soknad
     - name: API_URL
       value: http://selvbetjening-api
     - name: AUDIENCE
