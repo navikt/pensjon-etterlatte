@@ -1,10 +1,10 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: journalfoer-soeknad
-  namespace: etterlatte
+  name: journalfoer-soeknad-tolk
+  namespace: team-tolk
   labels:
-    team: etterlatte
+    team: team-tolk
 spec:
   image: {{image}}
   port: 8080

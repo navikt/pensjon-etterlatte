@@ -1,10 +1,10 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: innsendt-soeknad
-  namespace: etterlatte
+  name: innsendt-soeknad-tolk
+  namespace: team-tolk
   labels:
-    team: etterlatte
+    team: team-tolk
 spec:
   image: {{image}}
   port: 8080
@@ -25,9 +25,9 @@ spec:
   gcp:
     sqlInstances:
       - type: POSTGRES_12
-        name: innsendt-soeknad-v2
+        name: innsendt-soeknad-v2-tolk
         databases:
-          - name: innsendte-soeknader
+          - name: innsendte-soeknader-tolk
             envVarPrefix: DB
   replicas:
     cpuThresholdPercentage: 90
@@ -39,4 +39,4 @@ spec:
   accessPolicy:
     inbound:
       rules:
-        - application: selvbetjening-api
+        - application: selvbetjening-api-tolk

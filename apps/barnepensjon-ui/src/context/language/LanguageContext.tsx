@@ -21,7 +21,7 @@ const languages = {
     nn,
     en,
 }
-
+// Component for language
 const LanguageProvider: FC = ({ children }) => {
     const [language, setLanguage] = useState<Language>(initialLanguage)
     const [translations, setTranslations] = useState<Record<Namespace, Record<TKey, any>>>(languages[language])
