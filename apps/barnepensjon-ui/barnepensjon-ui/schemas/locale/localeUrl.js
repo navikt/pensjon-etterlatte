@@ -1,4 +1,4 @@
-import {supportedLanguages} from "../utils/lang";
+import { supportedLanguages } from "../utils/lang";
 
 const localeUrl = {
     title: "Localized URL",

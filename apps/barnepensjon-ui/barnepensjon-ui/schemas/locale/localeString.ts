@@ -1,10 +1,4 @@
-const supportedLanguages = [
-    { id: 'nb', title: 'Bokmål', isDefault: true },
-    { id: 'nn', title: 'Nynorsk' },
-    { id: 'en', title: 'English' }
-]
-
-
+import { supportedLanguages } from "../utils/lang";
 
 export default {
     title: 'Localized string',
