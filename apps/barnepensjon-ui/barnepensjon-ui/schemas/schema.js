@@ -5,8 +5,8 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 import frontpage from './frontpage'
 import localeString from './locale/localeString'
-import summary from "./summary";
-import localeBlockContent from "./locale/localeBlockContent";
+// import summary from "./summary";
+// import localeBlockContent from "./locale/localeBlockContent";
 import localeUrl from "./locale/localeUrl";
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -19,8 +19,8 @@ export default createSchema({
     /* Your types here! */
     frontpage,
     localeString,
-      localeBlockContent,
+      // localeBlockContent,
       localeUrl,
-      summary
+      // summary
   ]),
 })

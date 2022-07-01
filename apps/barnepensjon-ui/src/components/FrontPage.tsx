@@ -11,6 +11,7 @@ import Trans from './common/Trans'
 import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
 import LanguageSelect from './common/LanguageSelect'
 import sanityClient from '@sanity/client'
+import { getContext, getFrontPage } from '../utils/sanity'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -30,19 +31,28 @@ export default function FrontPage() {
         dataset: 'production'
     })
 
-    const [title, setTitle] = useState<String>()
-    useEffect(() => {
+    // const getTextThing = (key: string) =
 
-        client.fetch(
-            `*[_type == "frontpage"]`
-        ).then( (data) => { 
-            console.log(data)
-            if (localStorage.getItem('language') === 'nn') setTitle(data[0].metaDescription.nn) 
-            else if (localStorage.getItem('language') === 'nb') setTitle(data[0].metaDescription.nb)
-            else setTitle(data[0].metaDescription.en)
-            })
-    })
-  
+    // const [title, setTitle] = useState<String>()
+    const [textData, setTextData] = useState<any>();
+    useEffect(() => {
+        getFrontPage().then((data) => {
+            setTextData(data);
+            console.log(data);
+        })
+        // client.fetch(
+        //     `*[_type == "frontpage"]`
+        // ).then( (data) => {
+        //     console.log(data)
+        //     if (localStorage.getItem('language') === 'nn') setTitle(data[0].metaDescription.nn)
+        //     else if (localStorage.getItem('language') === 'nb') setTitle(data[0].metaDescription.nb)
+        //     else setTitle(data[0].metaDescription.en)
+        //     })
+
+        // console.log(textData);
+    }, []);
+
+    const cont = getContext();
      
       function next() {
         dispatch({
@@ -65,7 +75,7 @@ export default function FrontPage() {
 
             <FormGroup>
                 <Heading spacing size={'large'}>
-                    {title}
+                  {textData ? textData[0].metaDescription.nn : "loading"}
                 </Heading>
 
                 <BodyLong>
