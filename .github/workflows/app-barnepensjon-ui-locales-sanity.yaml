@@ -1,0 +1,43 @@
+name: barnepensjon-ui-locales-sanity
+
+on:
+  push:
+    branches: [ master, test-sanity ]
+    paths:
+      - apps/barnepensjon-ui/locales-sanity/**
+
+env:
+  IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
+  CLUSTER: dev-gcp
+  RESOURCE: ./nais/dev.yaml
+
+jobs:
+  build:
+    name: Build and push docker container
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v2
+        with:
+          context: . 
+          push: true
+          tags: ${{ env.IMAGE }}
+  deploy:
+    name: Deploy to dev-gcp
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v1
+      - name: Deploy to dev
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: .nais/dev.yaml
+          VAR: image=${{ env.IMAGE }}
