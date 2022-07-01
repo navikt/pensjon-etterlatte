@@ -1,10 +1,10 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: gjenlevendepensjon-ui
-  namespace: etterlatte
+  name: gjenlevendepensjon-ui-tolk
+  namespace: team-tolk
   labels:
-    team: etterlatte
+    team: team-tolk
 spec:
   image: {{ image }}
   port: 8080
@@ -13,7 +13,7 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad
+    - https://team-tolk.dev.nav.no/gjenlevendepensjon/soknad
   liveness:
     path: /gjenlevendepensjon/soknad/isAlive
     initialDelay: 10
@@ -42,7 +42,7 @@ spec:
     clientUri: https://www.dev.nav.no
     frontchannelLogoutPath: /gjenlevendepensjon/soknad/logout
     postLogoutRedirectURIs:
-      - https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
+      - https://team-tolk.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
     accessTokenLifetime: 3600
     sessionLifetime: 3600
     sidecar:
@@ -55,13 +55,13 @@ spec:
     - name: BASE_PATH
       value: /gjenlevendepensjon/soknad
     - name: API_URL
-      value: http://selvbetjening-api
+      value: http://selvbetjening-api-tolk
     - name: AUDIENCE
-      value: dev-gcp:etterlatte:selvbetjening-api
+      value: dev-gcp:team-tolk:selvbetjening-api-tolk
   accessPolicy:
     outbound:
       external:
         - host: dekoratoren.dev.nav.no
         - host: tokendings.dev-gcp.nais.io
       rules:
-        - application: selvbetjening-api
+        - application: selvbetjening-api-tolk

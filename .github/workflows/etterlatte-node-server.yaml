@@ -8,9 +8,10 @@ on:
   push:
     branches:
       - main
-      - release/*
-      - feature/*
-      - fix/*
+      #- test-sanity
+      #- release/*
+      #- feature/*
+      #- fix/*
     paths:
       - apps/etterlatte-node-server/**
       - '!apps/etterlatte-node-server/src/mock/**'

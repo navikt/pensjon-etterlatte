@@ -10,9 +10,7 @@ import NavGuide from './common/NavGuide'
 import Trans from './common/Trans'
 import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
 import LanguageSelect from './common/LanguageSelect'
-import SanityClientConstructor from '@sanity/client'
 import sanityClient from '@sanity/client'
-import { useLanguageContext } from '../context/language/LanguageContext'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -39,8 +37,8 @@ export default function FrontPage() {
             `*[_type == "frontpage"]`
         ).then( (data) => { 
             console.log(data)
-            if (localStorage.getItem('language') == 'nn') setTitle(data[0].metaDescription.nn) 
-            else if (localStorage.getItem('language') == 'nb') setTitle(data[0].metaDescription.nb)
+            if (localStorage.getItem('language') === 'nn') setTitle(data[0].metaDescription.nn) 
+            else if (localStorage.getItem('language') === 'nb') setTitle(data[0].metaDescription.nb)
             else setTitle(data[0].metaDescription.en)
             })
     })
