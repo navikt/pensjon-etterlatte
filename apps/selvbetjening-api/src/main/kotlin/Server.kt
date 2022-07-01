@@ -34,7 +34,7 @@ import no.nav.etterlatte.soknad.soknadApi
 import org.slf4j.event.Level
 import java.time.LocalDate
 import java.util.*
-
+// Root class
 class Server(applicationContext: ApplicationContext) {
     private val personService = applicationContext.personService
     private val securityContext = applicationContext.securityMediator
