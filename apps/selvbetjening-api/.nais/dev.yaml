@@ -1,10 +1,10 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: selvbetjening-api
-  namespace: etterlatte
+  name: selvbetjening-api-tolk
+  namespace: team-tolk
   labels:
-    team: etterlatte
+    team: team-tolk
 spec:
   image: {{image}}
   port: 8080
@@ -58,9 +58,9 @@ spec:
     outbound:
       rules:
         - application: etterlatte-pdl-proxy
-        - application: innsendt-soeknad
+        - application: innsendt-soeknad-tolk
         - application: digdir-krr-proxy
     inbound:
       rules:
-        - application: gjenlevendepensjon-ui
-        - application: barnepensjon-ui
+        - application: gjenlevendepensjon-ui-tolk
+        - application: barnepensjon-ui-tolk

@@ -1,5 +1,5 @@
 import { BodyLong, Button, ConfirmationPanel, Heading } from '@navikt/ds-react'
-import { useState } from 'react'
+import {  useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes } from '../context/application/application'
 import { useApplicationContext } from '../context/application/ApplicationContext'
@@ -10,6 +10,7 @@ import NavGuide from './common/NavGuide'
 import Trans from './common/Trans'
 import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
 import LanguageSelect from './common/LanguageSelect'
+import sanityClient from '@sanity/client'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -24,7 +25,26 @@ export default function FrontPage() {
 
     const { fornavn, etternavn } = user
 
-    function next() {
+    const client = sanityClient({
+        projectId: '57rxrfr3',
+        dataset: 'production'
+    })
+
+    const [title, setTitle] = useState<String>()
+    useEffect(() => {
+
+        client.fetch(
+            `*[_type == "frontpage"]`
+        ).then( (data) => { 
+            console.log(data)
+            if (localStorage.getItem('language') === 'nn') setTitle(data[0].metaDescription.nn) 
+            else if (localStorage.getItem('language') === 'nb') setTitle(data[0].metaDescription.nb)
+            else setTitle(data[0].metaDescription.en)
+            })
+    })
+  
+     
+      function next() {
         dispatch({
             type: ActionTypes.UPDATE_APPLICANT,
             payload: { ...state.applicant, consent },
@@ -45,7 +65,7 @@ export default function FrontPage() {
 
             <FormGroup>
                 <Heading spacing size={'large'}>
-                    {t('frontPageTitle')}
+                    {title}
                 </Heading>
 
                 <BodyLong>
