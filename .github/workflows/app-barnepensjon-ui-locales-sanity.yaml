@@ -16,8 +16,8 @@ jobs:
     name: Build and push docker container
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
       - uses: actions/checkout@v1
+      - name: Checkout branch
       - uses: docker/login-action@v1
         with:
           registry: ghcr.io
