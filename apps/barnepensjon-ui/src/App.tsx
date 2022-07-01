@@ -49,7 +49,7 @@ const SoeknadWrapper = styled(ContentContainer)`
         white-space: pre-line;
     }
 `
-
+// Root of the project
 export default function App() {
     const isLoading = useApplication()
     const { t } = useTranslation('app')
