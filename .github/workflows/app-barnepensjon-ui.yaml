@@ -14,7 +14,7 @@ on:
   push:
     branches:
       - main
-      - test-sanity
+      #- test-sanity
       #- release/*
       #- feature/*
       #- fix/*
