@@ -10,8 +10,9 @@ import NavGuide from './common/NavGuide'
 import Trans from './common/Trans'
 import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
 import LanguageSelect from './common/LanguageSelect'
-import sanityClient from '@sanity/client'
-import { getContext, getFrontPage } from '../utils/sanity'
+import { filterLocaleData, getFrontPage, returnText} from '../utils/sanity'
+import { frontPage, localeString } from '../utils/sanityTypes'
+import { createSecureContext } from 'tls'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -26,34 +27,16 @@ export default function FrontPage() {
 
     const { fornavn, etternavn } = user
 
-    const client = sanityClient({
-        projectId: '57rxrfr3',
-        dataset: 'production'
-    })
+    const [textData, setTextData] = useState<frontPage>();
 
-    // const getTextThing = (key: string) =
-
-    // const [title, setTitle] = useState<String>()
-    const [textData, setTextData] = useState<any>();
     useEffect(() => {
-        getFrontPage().then((data) => {
-            setTextData(data);
-            console.log(data);
+        getFrontPage().then((data: any) => {
+            setTextData(data.result[0])
         })
-        // client.fetch(
-        //     `*[_type == "frontpage"]`
-        // ).then( (data) => {
-        //     console.log(data)
-        //     if (localStorage.getItem('language') === 'nn') setTitle(data[0].metaDescription.nn)
-        //     else if (localStorage.getItem('language') === 'nb') setTitle(data[0].metaDescription.nb)
-        //     else setTitle(data[0].metaDescription.en)
-        //     })
+            console.log(textData)
 
-        // console.log(textData);
     }, []);
 
-    const cont = getContext();
-     
       function next() {
         dispatch({
             type: ActionTypes.UPDATE_APPLICANT,
@@ -63,7 +46,11 @@ export default function FrontPage() {
         navigate('velg-scenarie')
     }
 
-    return (
+    const language = localStorage.getItem("language")
+
+
+    return textData ? (
+
         <>
             <FormGroup>
                 <NavGuide>{t('helloUser', { fornavn, etternavn })}</NavGuide>
@@ -75,7 +62,7 @@ export default function FrontPage() {
 
             <FormGroup>
                 <Heading spacing size={'large'}>
-                  {textData ? textData[0].metaDescription.nn : "loading"}
+                  {textData.frontPageTitle[language as keyof localeString]}
                 </Heading>
 
                 <BodyLong>
@@ -155,5 +142,5 @@ export default function FrontPage() {
                 </Button>
             </FormGroup>
         </>
-    )
+    ) : null
 }
