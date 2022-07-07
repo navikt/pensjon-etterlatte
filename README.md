@@ -28,6 +28,43 @@ API som tilgjengeliggjør data for frontend å kommunisere med diverse apper.
 [sjekk-adressebeskyttelse](apps/sjekk-adressebeskyttelse) \
 Går igjennom alle fødselsnummer i søknaden og sjekker om noen av de har adressebeskyttelse.
 
+# Flyt
+
+### Søknad mottatt
+```mermaid
+flowchart LR
+
+classDef app fill:#88AACC,color:#000,stroke:#335577
+classDef db fill:#ccc,color:#000,stroke:#777
+classDef text fill:none,color:#ddd
+
+barnepensjon-ui:::app --> selvbetjening-api
+gjenlevendepensjon-ui:::app --> selvbetjening-api
+
+subgraph frontend["Soeknad frontend"]
+    barnepensjon-ui
+    gjenlevendepensjon-ui
+end
+
+selvbetjening-api:::app --> innsendt-soeknad
+innsendt-soeknad:::app <--> innsendt-soeknad-v2[(soeknad\ndatabase)]:::db
+innsendt-soeknad -.-> sjekk-adressebeskyttelse
+sjekk-adressebeskyttelse:::app -.-> journalfoer-soeknad
+journalfoer-soeknad:::app --> dokarkiv
+journalfoer-soeknad -. dokarkivResponse .-> innsendt-soeknad
+journalfoer-soeknad --> ey-pdfgen:::app
+
+selvbetjening-api --> pdl
+selvbetjening-api --> kodeverk
+sjekk-adressebeskyttelse --> pdl
+
+subgraph ekstern["NAV felles"]
+    dokarkiv
+    kodeverk
+    pdl
+end
+```
+
 # Kom i gang
 
 Noen avhengigheter i prosjektet ligger i Github Package Registry som krever autentisering. Det enkleste er å lage en [PAT (Personal Access Token)](https://github.com/settings/tokens). 
