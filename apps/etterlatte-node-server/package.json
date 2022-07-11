@@ -6,7 +6,7 @@
   "private": true,
   "main": "server.js",
   "dependencies": {
-    "@navikt/nav-dekoratoren-moduler": "1.6.9",
+    "@navikt/nav-dekoratoren-moduler": "1.6.17",
     "cls-rtracer": "^2.6.0",
     "express": "4.17.1",
     "jsonwebtoken": "8.5.1",

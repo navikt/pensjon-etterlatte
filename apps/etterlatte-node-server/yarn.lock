@@ -16,10 +16,10 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
-"@navikt/nav-dekoratoren-moduler@1.6.9":
-  version "1.6.9"
-  resolved "https://registry.yarnpkg.com/@navikt/nav-dekoratoren-moduler/-/nav-dekoratoren-moduler-1.6.9.tgz#4f7f1151c94fe753af78c3b0c495d5ec3ce20534"
-  integrity sha512-SmDNC+yI7eef4lneaFAwZKYqkJ7k9Iu71DMlUIRL+duQ14P3vpsSfIMFsSzkxmN+6OXdTFYaOece6NZfkBT6fQ==
+"@navikt/nav-dekoratoren-moduler@1.6.17":
+  version "1.6.17"
+  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/1.6.17/62426185e6ee9fd69e04239e2cd28a44917fe8af9efaedd47797402da808eb77#fe46d9467676d9e2c66a8bc9377528cec4389d30"
+  integrity sha512-oyQOErnPuJjdDeoJBjTI+9TtdULl5JXANpGo+pem5Od1Y5ZRhTyGXyoAE0g5GQZI1TZ9kiWzpvVrbKsozpccQg==
   dependencies:
     html-react-parser "^1.2.7"
     jsdom "^16.6.0"
