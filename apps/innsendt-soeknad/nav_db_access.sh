@@ -23,11 +23,12 @@ usage() {
 	echo -e "\t-u <firstname.lastname@nav.no> \n\t\tYour email address at nav."
 	echo -e "\t-p <gcloud project id> \n\t\tThe gcp PROJECT_ID. Can be found using 'gcloud projects list --filter=<namespace>"
 	echo -e "\t-i <db instance name> \n\t\tThe gcp database instance NAME. Can be found using 'gcloud beta sql instances list --project <PROJECT_ID>'"
-	echo -e "\n\t(optional) \n\t-h <int hours access> \n\t\tNumber of hours the temp access should be valid. Max 8 hours."
+	echo -e "\n\t(optional) \n\t-t <port> \n\t\tWhich port to use."
+	echo -e "\t-h <int hours access> \n\t\tNumber of hours the temp access should be valid. Max 8 hours."
 }
 
 # Initialize provided options
-while getopts ":u:p:i:h:" opt; do
+while getopts ":u:p:i:h:t:" opt; do
 	case "$opt" in 
 		u)
 			user=${OPTARG}
@@ -41,6 +42,9 @@ while getopts ":u:p:i:h:" opt; do
 		h)
 			hours=${OPTARG}
 			;;
+	  t)
+	    port=${OPTARG}
+	    ;;
 		*)
 			usage
 			;;
@@ -53,6 +57,8 @@ if [ -z "${user}" ] || [ -z "${project}" ] || [ -z "${instance}" ]; then
     usage
     exit 1;
 fi
+
+[[ -z "${port}" ]] &>/dev/null && port=5433
 
 # Ensure user is authenicated, and run login if not.
 [[ "$(gcloud auth list)" =~ "${user}" ]] &>/dev/null || gcloud auth login
@@ -86,7 +92,8 @@ fi
 info "Setting up temporary access (+${hours}H) for"
 echo -e "\tUser: \t\t\033[0;36m${user}\033[0m"
 echo -e "\tProject: \t\033[0;36m${project}\033[0m"
-echo -e "\tSQL-instance: \t\033[0;36m${instance}\033[0m\n"
+echo -e "\tSQL-instance: \t\033[0;36m${instance}\033[0m"
+echo -e "\tPort: \t\t\033[0;36m${port}\033[0m\n"
 read -p "Is this correct? [Y/n] " continue
 
 # Stop script if user input == n
@@ -141,7 +148,6 @@ connection_name=$(gcloud sql instances describe ${instance} \
   --format="get(connectionName)" \
   --project ${project});
 
-port=5433
 
 # Create proxy with $port
 createProxyConnection() {
