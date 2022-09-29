@@ -5,7 +5,6 @@ plugins {
 dependencies {
     implementation(Ktor.OkHttp)
     implementation(Ktor.ClientCore)
-    implementation(Ktor.ClientLogging)
     implementation(Ktor.ClientAuth)
     implementation(Ktor.Jackson)
 

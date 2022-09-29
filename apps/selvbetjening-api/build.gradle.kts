@@ -13,7 +13,6 @@ dependencies {
     implementation(Ktor.ClientCore)
     implementation(Ktor.ClientAuth)
     implementation(Ktor.MetricsMicrometer)
-    implementation(Ktor.ClientLogging)
     implementation(Ktor.Jackson)
     implementation(Ktor.ServerAuth)
     implementation(Ktor.ClientContentNegotiation)

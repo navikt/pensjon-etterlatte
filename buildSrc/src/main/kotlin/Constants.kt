@@ -36,6 +36,12 @@ object Ktor {
     const val ServerTests = "io.ktor:ktor-server-tests:$version"
 }
 
+object Database {
+    const val HikariCp = "com.zaxxer:HikariCP:3.4.5"
+    const val FlywayCore = "org.flywaydb:flyway-core:6.5.0"
+    const val Postgresql = "org.postgresql:postgresql:42.2.5"
+}
+
 object Jackson {
     private const val version = "2.13.4"
 
@@ -70,4 +76,11 @@ object Kotest {
     private const val version = "5.4.2"
 
     const val AssertionsCore = "io.kotest:kotest-assertions-core:$version"
+}
+
+object TestContainers {
+    private const val version = "1.17.3"
+
+    const val JunitJupiter = "org.testcontainers:junit-jupiter:$version"
+    const val Postgresql = "org.testcontainers:postgresql:$version"
 }
