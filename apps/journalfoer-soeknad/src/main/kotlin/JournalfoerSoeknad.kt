@@ -1,7 +1,7 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.module.kotlin.readValue
-import io.ktor.client.features.ResponseException
+import io.ktor.client.plugins.ResponseException
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.pdl.Gradering

@@ -8,11 +8,12 @@ import com.typesafe.config.ConfigFactory
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.features.auth.Auth
-import io.ktor.client.features.defaultRequest
-import io.ktor.client.features.json.JacksonSerializer
-import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.plugins.auth.Auth
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
+import io.ktor.http.encodedPath
 import io.ktor.http.takeFrom
+import io.ktor.serialization.jackson.jackson
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
@@ -65,8 +66,8 @@ class ApplicationContext(configLocation: String? = null) {
     }
 
     private fun tokenSecuredEndpoint(endpointConfig: Config) = HttpClient(CIO) {
-        install(JsonFeature) {
-            serializer = JacksonSerializer {
+        install(ContentNegotiation) {
+            jackson {
                 configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 setSerializationInclusion(JsonInclude.Include.NON_NULL)
                 registerModule(JavaTimeModule())
@@ -87,7 +88,7 @@ class ApplicationContext(configLocation: String? = null) {
     // OBS: Denne klienten kaller PDL med en systembruker.
     // Informasjon fra denne klienten kan inneholde informasjon sluttbruker ikke har rett til å se.
     private fun systemPdlHttpClient() = HttpClient(OkHttp) {
-        install(JsonFeature) { serializer = JacksonSerializer() }
+        install(ContentNegotiation) { jackson() }
         install(Auth) {
             clientCredential {
                 config = System.getenv().toMutableMap()

@@ -1,14 +1,14 @@
 package no.nav.etterlatte.person
 
-import io.ktor.features.NotFoundException
+import io.ktor.server.plugins.NotFoundException
 import no.nav.etterlatte.kodeverk.KodeverkService
-import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
-import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
+import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.pdl.ResponseError
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.krr.Krr
 import no.nav.etterlatte.person.pdl.HentPerson
 import org.slf4j.LoggerFactory
+
 
 class PersonService(
     private val klient: PersonKlient,
@@ -16,7 +16,7 @@ class PersonService(
     private val krrKlient: Krr
 ) {
     private val logger = LoggerFactory.getLogger(PersonService::class.java)
-    private val adressebeskyttet = listOf(STRENGT_FORTROLIG, STRENGT_FORTROLIG_UTLAND)
+    private val adressebeskyttet = listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND)
 
     suspend fun hentPerson(fnr: Foedselsnummer): Person {
         logger.info("Henter person fra PDL")

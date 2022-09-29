@@ -3,9 +3,9 @@ package no.nav.etterlatte
 import dokarkiv.DokarkivKlient
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.features.auth.Auth
-import io.ktor.client.features.json.JacksonSerializer
-import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.plugins.auth.Auth
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.jackson.jackson
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.etterlatte.security.ktor.clientCredential
 import pdf.PdfGeneratorKlient
@@ -21,7 +21,7 @@ class AppBuilder(private val props: Map<String, String>) {
     fun journalfoerDok() = JournalfoeringService(opprettJournalfoeringKlient())
 
     private fun opprettJournalfoeringKlient() = HttpClient(OkHttp) {
-        install(JsonFeature) { serializer = JacksonSerializer() }
+        install(ContentNegotiation) { jackson() }
         install(Auth) {
             clientCredential {
                 config = System.getenv().toMutableMap().apply {
@@ -36,7 +36,7 @@ class AppBuilder(private val props: Map<String, String>) {
     }
 
     private fun pdfhttpclient() = HttpClient(OkHttp) {
-        install(JsonFeature) { serializer = JacksonSerializer() }
+        install(ContentNegotiation) { jackson() }
 
     }.also {
         Runtime.getRuntime().addShutdownHook(Thread { it.close() })

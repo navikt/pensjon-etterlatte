@@ -5,9 +5,9 @@ import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.mockk
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
-import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.AfterEach

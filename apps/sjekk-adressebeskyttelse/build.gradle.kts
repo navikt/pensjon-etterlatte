@@ -7,7 +7,9 @@ dependencies {
     implementation(Ktor.ClientCore)
     implementation(Ktor.ClientLoggingJvm)
     implementation(Ktor.ClientAuth)
-    implementation(Ktor.ClientJackson)
+//    implementation(Ktor.ClientJackson)
+    implementation(Ktor.ClientContentNegotiation)
+    implementation(Ktor.Jackson)
 
     implementation(Etterlatte.Common)
     implementation(Etterlatte.KtorClientAuth)

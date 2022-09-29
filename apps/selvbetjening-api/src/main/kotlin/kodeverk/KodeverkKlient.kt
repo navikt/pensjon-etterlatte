@@ -1,6 +1,7 @@
 package no.nav.etterlatte.kodeverk
 
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
 import io.ktor.client.request.accept
 import io.ktor.client.request.get
 import io.ktor.http.ContentType
@@ -23,7 +24,7 @@ class KodeverkKlient(private val httpClient: HttpClient) : Kodeverk {
 
             httpClient.get("Postnummer?ekskluderUgyldige=true") {
                 accept(ContentType.Application.Json)
-            }
+            }.body()
         } catch (e: Exception) {
             logger.error("Henting av postnummere feilet", e)
             throw e
@@ -35,7 +36,7 @@ class KodeverkKlient(private val httpClient: HttpClient) : Kodeverk {
 
             httpClient.get("Landkoder?ekskluderUgyldige=false") {
                 accept(ContentType.Application.Json)
-            }
+            }.body()
         } catch (e: Exception) {
             logger.error("Henting av landkoder feilet", e)
             throw e

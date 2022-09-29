@@ -9,6 +9,7 @@ dependencies {
     implementation(Ktor.OkHttp)
     implementation(Ktor.ServerCore)
     implementation(Ktor.ServerCio)
+    implementation(Ktor.CallLogging)
     implementation(Ktor.ClientCore)
     implementation(Ktor.ClientJackson)
     implementation(Ktor.ClientCioJvm)
@@ -16,7 +17,9 @@ dependencies {
     implementation(Ktor.MetricsMicrometer)
     implementation(Ktor.ClientLogging)
     implementation(Ktor.Jackson)
-    implementation(Ktor.Auth)
+    implementation(Ktor.ServerAuth)
+    implementation(Ktor.ClientContentNegotiation)
+    implementation(Ktor.ServerContentNegotiation)
 
     implementation(Micrometer.Prometheus)
 

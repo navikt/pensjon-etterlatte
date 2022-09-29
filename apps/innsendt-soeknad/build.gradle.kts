@@ -8,11 +8,14 @@ dependencies {
     implementation("com.zaxxer:HikariCP:3.4.5")
     implementation("org.flywaydb:flyway-core:6.5.0")
     implementation("org.postgresql:postgresql:42.2.5")
-    implementation("no.nav.security:token-validation-ktor:1.3.3")
+    implementation(NavFelles.TokenValidationKtor)
 
-    implementation(Ktor.Auth)
+    implementation(Ktor.ServerAuth)
+    implementation(Ktor.ServerContentNegotiation)
     implementation(Ktor.Jackson)
     implementation(Ktor.ClientCore)
+    implementation(Ktor.CallLogging)
+    implementation(Ktor.ClientContentNegotiation)
     implementation(Ktor.ClientJackson)
     implementation(Ktor.ClientCioJvm)
 

@@ -3,17 +3,17 @@ package soknad
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import io.ktor.application.Application
-import io.ktor.application.install
-import io.ktor.features.ContentNegotiation
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
-import io.ktor.http.parametersOf
-import io.ktor.jackson.jackson
-import io.ktor.routing.Route
-import io.ktor.routing.routing
+import io.ktor.serialization.jackson.jackson
+import io.ktor.server.application.Application
+import io.ktor.server.application.install
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.routing
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
@@ -25,7 +25,7 @@ import no.nav.etterlatte.soknad.soknadApi
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import libs.common.util.RetryResult
-import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
+import no.nav.etterlatte.common.toJson
 
 internal class SoeknadRouteKtTest {
     private val service = mockk<SoeknadService>()
@@ -67,7 +67,7 @@ internal class SoeknadRouteKtTest {
     @Test
     fun `Skal hente kladd`() {
         withTestApplication({ testModule { soknadApi(service) } }) {
-            coEvery { service.hentKladd(kilde) } returns RetryResult.Success(dummyJson)
+            coEvery { service.hentKladd(kilde) } returns RetryResult.Success(jacksonObjectMapper().readTree(dummyJson))
             handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde").apply {
                 assertEquals(HttpStatusCode.OK, response.status())
                 assertEquals(dummyJson, response.content)

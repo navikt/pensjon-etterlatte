@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
-import io.ktor.client.features.defaultRequest
-import io.ktor.client.features.json.JacksonSerializer
-import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.takeFrom
+import io.ktor.serialization.jackson.jackson
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.kodeverk.KodeverkKlient
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -25,8 +25,8 @@ internal class KodeverkKlientTest {
     @BeforeAll
     fun setupClient() {
         httpClient = HttpClient(CIO) {
-            install(JsonFeature) {
-                serializer = JacksonSerializer {
+            install(ContentNegotiation) {
+                jackson {
                     configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                     setSerializationInclusion(JsonInclude.Include.NON_NULL)
                 }

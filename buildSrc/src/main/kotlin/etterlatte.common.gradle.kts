@@ -40,14 +40,6 @@ tasks {
                 it.name
             }
         }
-
-        doLast {
-            configurations.runtimeClasspath.get().forEach {
-                val file = File("$buildDir/libs/${it.name}")
-                if (!file.exists())
-                    it.copyTo(file)
-            }
-        }
     }
 
     tasks.withType<Test> {

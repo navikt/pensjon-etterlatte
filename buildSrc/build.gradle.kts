@@ -30,6 +30,11 @@ tasks {
         kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     withType<AnalyzeDependenciesTask> {
         warnUsedUndeclared = true
         warnUnusedDeclared = true

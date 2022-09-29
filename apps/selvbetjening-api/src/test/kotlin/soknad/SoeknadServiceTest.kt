@@ -9,18 +9,19 @@ import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.MockRequestHandleScope
 import io.ktor.client.engine.mock.respond
 import io.ktor.client.engine.mock.respondError
-import io.ktor.client.features.ClientRequestException
-import io.ktor.client.features.json.JacksonSerializer
-import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.plugins.ClientRequestException
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.HttpResponseData
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.headersOf
+import io.ktor.serialization.jackson.jackson
 import io.ktor.utils.io.ByteReadChannel
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
+import libs.common.util.RetryResult
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
@@ -31,12 +32,11 @@ import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelsePerson
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.pdl.HentAdressebeskyttelse
+import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures.barnepensjon
+import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures.gjenlevendepensjon
 import no.nav.etterlatte.soknad.SoeknadService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import libs.common.util.RetryResult
-import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures.barnepensjon
-import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures.gjenlevendepensjon
 
 internal class SoeknadServiceTest {
 
@@ -90,8 +90,8 @@ internal class SoeknadServiceTest {
 
     private val service = SoeknadService(
         HttpClient(mockEngine) {
-            install(JsonFeature) {
-                serializer = JacksonSerializer {
+            install(ContentNegotiation) {
+                jackson {
                     configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                     setSerializationInclusion(JsonInclude.Include.NON_NULL)
                     registerModule(JavaTimeModule())

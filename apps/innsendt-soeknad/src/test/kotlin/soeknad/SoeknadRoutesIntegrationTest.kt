@@ -5,23 +5,23 @@ import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.PlainJWT
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import io.ktor.application.Application
-import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.auth.Authentication
-import io.ktor.auth.AuthenticationPipeline
-import io.ktor.auth.AuthenticationProvider
-import io.ktor.auth.authenticate
-import io.ktor.features.ContentNegotiation
 import io.ktor.http.ContentType
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
-import io.ktor.jackson.jackson
-import io.ktor.routing.IgnoreTrailingSlash
-import io.ktor.routing.Route
-import io.ktor.routing.routing
+import io.ktor.serialization.jackson.jackson
+import io.ktor.server.application.Application
+import io.ktor.server.application.install
+import io.ktor.server.auth.Authentication
+import io.ktor.server.auth.AuthenticationConfig
+import io.ktor.server.auth.AuthenticationContext
+import io.ktor.server.auth.AuthenticationProvider
+import io.ktor.server.auth.authenticate
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.routing.IgnoreTrailingSlash
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.routing
 import io.ktor.server.testing.TestApplicationRequest
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
@@ -34,7 +34,7 @@ import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
-import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
+import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
@@ -47,7 +47,7 @@ import org.testcontainers.junit.jupiter.Container
 import soeknad.LagretSoeknad
 import soeknad.PostgresSoeknadRepository
 import soeknad.soeknadApi
-import java.util.*
+import java.util.Arrays
 import java.util.stream.Collectors
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -220,7 +220,7 @@ internal class SoeknadApiIntegrationTest {
 
 fun Application.apiTestModule(routes: Route.() -> Unit) {
     install(ContentNegotiation) {
-        jackson() {
+        jackson {
             registerModule(JavaTimeModule())
         }
     }
@@ -243,14 +243,9 @@ fun TestApplicationRequest.tokenFor(fnr: String) {
     )
 }
 
-class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration()) {
-    class ProviderConfiguration : AuthenticationProvider.Configuration(null)
+class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration(null)) {
 
-    init {
-        pipeline.intercept(AuthenticationPipeline.RequestAuthentication) { context ->
-            context.principal(TokenValidationContextPrincipal(TokenValidationContext(getTokensFromHeader(call.request.headers).associateBy { it.issuer })))
-        }
-    }
+    class ProviderConfiguration internal constructor(name: String?) : Config(name)
 
     private fun getTokensFromHeader(request: Headers): List<JwtToken> {
         try {
@@ -266,11 +261,10 @@ class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfigurati
                     }
                     .collect(Collectors.toList())
             }
-        } catch (e: java.lang.Exception) {
+        } catch (_: Exception) {
         }
         return emptyList()
     }
-
 
     private fun extractBearerTokens(vararg headerValues: String): List<String> {
         return Arrays.stream(headerValues)
@@ -289,6 +283,14 @@ class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfigurati
             }
             .collect(Collectors.toList())
     }
+
+    override suspend fun onAuthenticate(context: AuthenticationContext) {
+        context.principal(
+            TokenValidationContextPrincipal(
+                TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer })
+            )
+        )
+    }
 }
 
-fun Authentication.Configuration.tokenTestSupportAcceptsAllTokens() = register(TokenSupportAcceptAllProvider())
+fun AuthenticationConfig.tokenTestSupportAcceptsAllTokens() = register(TokenSupportAcceptAllProvider())

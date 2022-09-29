@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-import no.nav.etterlatte.libs.common.innsendtsoeknad.OppholdUtlandType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Avdoed
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad

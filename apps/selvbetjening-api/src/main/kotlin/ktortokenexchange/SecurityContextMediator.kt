@@ -1,10 +1,10 @@
 package no.nav.etterlatte.ktortokenexchange
 
 import com.typesafe.config.Config
-import io.ktor.application.Application
 import io.ktor.auth.LolSecMediator
-import io.ktor.config.HoconApplicationConfig
-import io.ktor.routing.Route
+import io.ktor.server.application.Application
+import io.ktor.server.config.HoconApplicationConfig
+import io.ktor.server.routing.Route
 
 object ThreadBoundSecCtx : ThreadLocal<SecurityContext>()
 

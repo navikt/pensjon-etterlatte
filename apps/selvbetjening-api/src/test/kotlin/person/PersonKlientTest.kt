@@ -3,11 +3,12 @@ package person
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
-import io.ktor.client.features.json.JacksonSerializer
-import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.jackson.JacksonSerializer
 import io.ktor.http.ContentType
 import io.ktor.http.fullPath
 import io.ktor.http.headersOf
+import io.ktor.serialization.jackson.jackson
 import no.nav.etterlatte.person.Pdl
 import no.nav.etterlatte.person.PersonKlient
 import org.junit.jupiter.api.BeforeAll
@@ -36,7 +37,7 @@ internal class PersonKlientTest {
                     }
                 }
             }
-            install(JsonFeature) { serializer = JacksonSerializer() }
+            install(ContentNegotiation) { jackson() }
         }
 
         personKlient = PersonKlient(httpClient)

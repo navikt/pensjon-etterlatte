@@ -1,10 +1,10 @@
 package no.nav.etterlatte.person
 
-import io.ktor.application.call
-import io.ktor.response.respondText
-import io.ktor.routing.Route
-import io.ktor.routing.get
-import io.ktor.routing.route
+import io.ktor.server.application.call
+import io.ktor.server.response.respondText
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.get
+import io.ktor.server.routing.route
 import no.nav.etterlatte.common.Auth.Companion.innloggetBrukerFnr
 import no.nav.etterlatte.common.toJson
 
