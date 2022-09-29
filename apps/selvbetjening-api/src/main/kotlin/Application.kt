@@ -6,7 +6,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.auth.Auth
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -65,7 +64,7 @@ class ApplicationContext(configLocation: String? = null) {
             .let { SoeknadService(it, adressebeskyttelseService) }
     }
 
-    private fun tokenSecuredEndpoint(endpointConfig: Config) = HttpClient(CIO) {
+    private fun tokenSecuredEndpoint(endpointConfig: Config) = HttpClient(OkHttp) {
         install(ContentNegotiation) {
             jackson {
                 configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)

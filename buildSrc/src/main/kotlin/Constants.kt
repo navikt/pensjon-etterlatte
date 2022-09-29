@@ -6,12 +6,9 @@ object NavFelles {
 }
 
 object Etterlatte {
-//    const val Common = "no.nav.etterlatte:common:2022.06.03-14.21.58ab99be716f"
-//    const val CommonTest = "no.nav.etterlatte:common-test:2022.06.03-14.21.58ab99be716f"
     const val Common = "no.nav.etterlatte:common:2022.09.27-14.09.182856a1fda5"
     const val CommonTest = "no.nav.etterlatte:common-test:2022.09.27-14.10.182856a1fda5"
     const val KtorClientAuth = "no.nav.etterlatte:ktor-client-auth:2022.09.28-10.09.cce630926582"
-//    const val KtorClientAuth = "no.nav.etterlatte:ktor-client-auth:2022.09.27-14.09.182856a1fda5"
 }
 
 object Kotlinx {
@@ -22,15 +19,11 @@ object Ktor {
     private const val version = "2.0.3"
 
     const val ServerAuth = "io.ktor:ktor-server-auth:$version"
-    const val ServerAuthJwt = "io.ktor:ktor-server-auth-jwt:$version"
     const val CallLogging = "io.ktor:ktor-server-call-logging:$version"
     const val ClientCore = "io.ktor:ktor-client-core:$version"
     const val ClientAuth = "io.ktor:ktor-client-auth:$version"
-    const val ClientAuthJvm = "io.ktor:ktor-client-auth-jvm:$version"
     const val ClientContentNegotiation = "io.ktor:ktor-client-content-negotiation:$version"
-    const val ClientJackson = "io.ktor:ktor-client-jackson:$version"
     const val ClientLogging = "io.ktor:ktor-client-logging:$version"
-    const val ClientLoggingJvm = "io.ktor:ktor-client-logging-jvm:$version"
     const val ClientCioJvm = "io.ktor:ktor-client-cio-jvm:$version"
     const val Jackson = "io.ktor:ktor-serialization-jackson:$version"
     const val MetricsMicrometer = "io.ktor:ktor-server-metrics-micrometer:$version"

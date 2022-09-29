@@ -11,8 +11,6 @@ dependencies {
     implementation(Ktor.ServerCio)
     implementation(Ktor.CallLogging)
     implementation(Ktor.ClientCore)
-    implementation(Ktor.ClientJackson)
-    implementation(Ktor.ClientCioJvm)
     implementation(Ktor.ClientAuth)
     implementation(Ktor.MetricsMicrometer)
     implementation(Ktor.ClientLogging)

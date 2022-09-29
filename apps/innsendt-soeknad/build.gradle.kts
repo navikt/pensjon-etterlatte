@@ -16,7 +16,6 @@ dependencies {
     implementation(Ktor.ClientCore)
     implementation(Ktor.CallLogging)
     implementation(Ktor.ClientContentNegotiation)
-    implementation(Ktor.ClientJackson)
     implementation(Ktor.ClientCioJvm)
 
     testImplementation(Etterlatte.CommonTest)

@@ -3,7 +3,7 @@ package no.nav.etterlatte.ktortokenexchange
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
+import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
@@ -36,7 +36,7 @@ class TokenSecurityContext(private val tokens: TokenValidationContext): Security
 
 class TokenSupportSecurityContextMediator(private val configuration: ApplicationConfig): SecurityContextMediator {
 
-    private val defaultHttpClient = HttpClient(CIO) {
+    private val defaultHttpClient = HttpClient(OkHttp) {
         install(ContentNegotiation) {
             jackson {
                 configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
