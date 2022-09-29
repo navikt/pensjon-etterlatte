@@ -57,6 +57,7 @@ class Server(applicationContext: ApplicationContext) {
 
             install(CallLogging) {
                 level = Level.INFO
+                disableDefaultColors()
                 filter { call -> !call.request.path().startsWith("/internal") }
                 mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
             }
