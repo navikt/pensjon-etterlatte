@@ -16,7 +16,7 @@ object Kotlinx {
 }
 
 object Ktor {
-    private const val version = "2.0.3"
+    private const val version = "2.1.1"
 
     const val ServerAuth = "io.ktor:ktor-server-auth:$version"
     const val CallLogging = "io.ktor:ktor-server-call-logging:$version"
