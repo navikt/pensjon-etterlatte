@@ -3,7 +3,7 @@ import ca.cutterslade.gradle.analyze.AnalyzeDependenciesTask
 
 plugins {
     `kotlin-dsl`
-    id("ca.cutterslade.analyze") version "1.8.1" apply true
+    id("ca.cutterslade.analyze") version "1.9.0" apply true
 }
 
 group = "no.nav.etterlatte"
