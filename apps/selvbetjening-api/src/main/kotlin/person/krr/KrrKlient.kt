@@ -49,6 +49,8 @@ class KrrKlient(private val client: HttpClient) : Krr {
 class KrrException(cause: Throwable) :
     Exception("Klarte ikke å hente digital kontaktinfo fra Krr", cause)
 
+val HttpHeaders.NavConsumerId: String
+    get() = "Nav-Consumer-Id"
 val HttpHeaders.NavCallId: String
     get() = "Nav-Call-Id"
 val HttpHeaders.NavPersonIdent: String

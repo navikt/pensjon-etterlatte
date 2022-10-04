@@ -43,9 +43,9 @@ class ApplicationContext(configLocation: String? = null) {
     private val adressebeskyttelseService: AdressebeskyttelseService
 
     init {
-        kodeverkService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.kodeverk"))
+        kodeverkService = kodeverkHttpClient()
             .also { closables.add(it::close) }
-            .let { KodeverkService(KodeverkKlient(it)) }
+            .let { KodeverkService(KodeverkKlient(it, System.getenv("KODEVERK_URL"))) }
 
         krrKlient = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.krr"))
             .also { closables.add(it::close) }
@@ -81,6 +81,16 @@ class ApplicationContext(configLocation: String? = null) {
 
         defaultRequest {
             url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
+        }
+    }
+
+    private fun kodeverkHttpClient() = HttpClient(OkHttp) {
+        install(ContentNegotiation) {
+            jackson {
+                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                registerModule(JavaTimeModule())
+            }
         }
     }
 

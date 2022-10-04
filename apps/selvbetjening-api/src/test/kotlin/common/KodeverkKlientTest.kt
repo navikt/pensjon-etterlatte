@@ -41,7 +41,7 @@ internal class KodeverkKlientTest {
     @Test
     fun hentPostnummere() {
         runBlocking {
-            val client = KodeverkKlient(httpClient)
+            val client = KodeverkKlient(httpClient, "")
 
             val kodeverkResponse = client.hentPostnummer()
 

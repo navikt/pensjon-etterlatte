@@ -43,9 +43,7 @@ spec:
     - name: ROOT_LOGLEVEL
       value: "INFO"
     - name: KODEVERK_URL
-      value: "https://etterlatte-proxy.prod-fss-pub.nais.io/tokenx/kodeverk/"
-    - name: KODEVERK_AUDIENCE
-      value: "prod-fss:etterlatte:etterlatte-proxy"
+      value: "https://kodeverk.prod-fss-pub.nais.io/api/v1/kodeverk"
     - name: NAV_CONSUMER_ID
       value: "srvbarnepensjon"
     - name: KRR_ENDPOINT_URL
@@ -63,6 +61,8 @@ spec:
         - application: etterlatte-pdl-proxy
         - application: innsendt-soeknad
         - application: digdir-krr-proxy
+      external:
+        - host: kodeverk.prod-fss-pub.nais.io
     inbound:
       rules:
         - application: gjenlevendepensjon-ui
