@@ -2,19 +2,19 @@ package no.nav.etterlatte.ktortokenexchange
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
-import io.ktor.application.Application
-import io.ktor.application.ApplicationCallPipeline
-import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.auth.Authentication
-import io.ktor.auth.authenticate
-import io.ktor.auth.principal
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.features.json.JacksonSerializer
-import io.ktor.client.features.json.JsonFeature
-import io.ktor.config.ApplicationConfig
-import io.ktor.routing.Route
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.jackson.jackson
+import io.ktor.server.application.Application
+import io.ktor.server.application.ApplicationCallPipeline
+import io.ktor.server.application.call
+import io.ktor.server.application.install
+import io.ktor.server.auth.Authentication
+import io.ktor.server.auth.authenticate
+import io.ktor.server.auth.principal
+import io.ktor.server.config.ApplicationConfig
+import io.ktor.server.routing.Route
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asContextElement
 import kotlinx.coroutines.delay
@@ -23,8 +23,8 @@ import kotlinx.coroutines.withContext
 import no.nav.etterlatte.oauth.ClientConfig
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
-import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
-import no.nav.security.token.support.ktor.tokenValidationSupport
+import no.nav.security.token.support.v2.TokenValidationContextPrincipal
+import no.nav.security.token.support.v2.tokenValidationSupport
 
 class TokenSecurityContext(private val tokens: TokenValidationContext): SecurityContext {
     fun tokenIssuedBy(issuer: String): JwtToken? {
@@ -36,9 +36,9 @@ class TokenSecurityContext(private val tokens: TokenValidationContext): Security
 
 class TokenSupportSecurityContextMediator(private val configuration: ApplicationConfig): SecurityContextMediator {
 
-    private val defaultHttpClient = HttpClient(CIO) {
-        install(JsonFeature) {
-            serializer = JacksonSerializer {
+    private val defaultHttpClient = HttpClient(OkHttp) {
+        install(ContentNegotiation) {
+            jackson {
                 configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 setSerializationInclusion(JsonInclude.Include.NON_NULL)
             }

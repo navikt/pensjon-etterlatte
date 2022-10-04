@@ -1,16 +1,16 @@
 package no.nav.etterlatte.soknad
 
 import com.fasterxml.jackson.databind.JsonNode
-import io.ktor.application.call
-import io.ktor.client.features.ClientRequestException
+import io.ktor.client.plugins.ClientRequestException
 import io.ktor.http.HttpStatusCode
-import io.ktor.request.receive
-import io.ktor.response.respond
-import io.ktor.routing.Route
-import io.ktor.routing.delete
-import io.ktor.routing.get
-import io.ktor.routing.post
-import io.ktor.routing.route
+import io.ktor.server.application.call
+import io.ktor.server.request.receive
+import io.ktor.server.response.respond
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.delete
+import io.ktor.server.routing.get
+import io.ktor.server.routing.post
+import io.ktor.server.routing.route
 import libs.common.util.RetryResult.Failure
 import libs.common.util.RetryResult.Success
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest

@@ -2,8 +2,8 @@ package no.nav.etterlatte
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.features.json.JacksonSerializer
-import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.jackson.jackson
 import kotlinx.coroutines.runBlocking
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
@@ -39,7 +39,7 @@ class JournalfoerSoeknadIntegrasjonsTestTest {
         message.interestedIn("@skjema_info")
 
         val httpClient = HttpClient(OkHttp) {
-            install(JsonFeature) { serializer = JacksonSerializer() }
+            install(ContentNegotiation) { jackson() }
         }
 
         runBlocking {

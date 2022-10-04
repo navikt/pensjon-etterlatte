@@ -12,8 +12,8 @@ import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.pdl.HentAdressebeskyttelse
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 

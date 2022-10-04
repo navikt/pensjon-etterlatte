@@ -6,11 +6,11 @@ import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.pdl.Adressebeskyttelse
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseBolkPerson
+import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelsePerson
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.pdl.HentAdressebeskyttelse
-import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

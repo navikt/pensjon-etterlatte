@@ -5,10 +5,10 @@ import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.kodeverk.Beskrivelse
-import no.nav.etterlatte.kodeverk.KodeverkKlient
-import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.kodeverk.Betydning
+import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkResponse
+import no.nav.etterlatte.kodeverk.KodeverkService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test

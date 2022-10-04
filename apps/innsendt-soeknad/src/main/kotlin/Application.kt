@@ -4,22 +4,22 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.typesafe.config.ConfigFactory
-import io.ktor.application.Application
-import io.ktor.application.ApplicationCall
-import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.auth.Authentication
-import io.ktor.auth.authenticate
-import io.ktor.auth.principal
-import io.ktor.config.HoconApplicationConfig
-import io.ktor.features.CallLogging
-import io.ktor.features.ContentNegotiation
-import io.ktor.jackson.jackson
-import io.ktor.request.header
-import io.ktor.request.path
-import io.ktor.routing.IgnoreTrailingSlash
-import io.ktor.routing.Route
-import io.ktor.routing.routing
+import io.ktor.serialization.jackson.jackson
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.application.Application
+import io.ktor.server.application.ApplicationCall
+import io.ktor.server.application.call
+import io.ktor.server.application.install
+import io.ktor.server.auth.Authentication
+import io.ktor.server.auth.authenticate
+import io.ktor.server.auth.principal
+import io.ktor.server.config.HoconApplicationConfig
+import io.ktor.server.plugins.callloging.CallLogging
+import io.ktor.server.request.header
+import io.ktor.server.request.path
+import io.ktor.server.routing.IgnoreTrailingSlash
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
@@ -33,8 +33,8 @@ import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
-import no.nav.security.token.support.ktor.TokenValidationContextPrincipal
-import no.nav.security.token.support.ktor.tokenValidationSupport
+import no.nav.security.token.support.v2.TokenValidationContextPrincipal
+import no.nav.security.token.support.v2.tokenValidationSupport
 import org.slf4j.event.Level
 import soeknad.PostgresSoeknadRepository
 import soeknad.soeknadApi
@@ -100,6 +100,7 @@ fun Application.apiModule(routes: Route.() -> Unit) {
     install(IgnoreTrailingSlash)
     install(CallLogging) {
         level = Level.INFO
+        disableDefaultColors()
         filter { call -> !call.request.path().matches(Regex(".*/isready|.*/isalive")) }
         mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
     }

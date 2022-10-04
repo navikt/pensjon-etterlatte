@@ -4,18 +4,18 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import io.ktor.application.install
-import io.ktor.features.CallLogging
-import io.ktor.features.ContentNegotiation
-import io.ktor.jackson.jackson
-import io.ktor.metrics.micrometer.MicrometerMetrics
-import io.ktor.request.header
-import io.ktor.request.path
-import io.ktor.routing.routing
+import io.ktor.serialization.jackson.jackson
+import io.ktor.server.application.install
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
+import io.ktor.server.metrics.micrometer.MicrometerMetrics
+import io.ktor.server.plugins.callloging.CallLogging
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.request.header
+import io.ktor.server.request.path
+import io.ktor.server.routing.routing
 import io.micrometer.core.instrument.binder.jvm.JvmMemoryMetrics
 import io.micrometer.core.instrument.binder.logging.LogbackMetrics
 import io.micrometer.core.instrument.binder.system.ProcessorMetrics
@@ -33,7 +33,8 @@ import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
 import org.slf4j.event.Level
 import java.time.LocalDate
-import java.util.*
+import java.util.UUID
+
 
 class Server(applicationContext: ApplicationContext) {
     private val personService = applicationContext.personService
@@ -56,6 +57,7 @@ class Server(applicationContext: ApplicationContext) {
 
             install(CallLogging) {
                 level = Level.INFO
+                disableDefaultColors()
                 filter { call -> !call.request.path().startsWith("/internal") }
                 mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
             }

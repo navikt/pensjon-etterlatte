@@ -75,6 +75,10 @@ internal class MessageContextStub : MessageContext {
         publishedMessages += key to message
     }
 
+    override fun rapidName(): String {
+        TODO("Not yet implemented")
+    }
+
 }
 
 class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {

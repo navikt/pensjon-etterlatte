@@ -2,9 +2,9 @@ package no.nav.etterlatte
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.features.auth.Auth
-import io.ktor.client.features.json.JacksonSerializer
-import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.plugins.auth.Auth
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.jackson.jackson
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.security.ktor.clientCredential
 
@@ -20,7 +20,7 @@ class AppBuilder(private val props: Map<String, String>) {
     }
 
     private fun pdlHttpClient() = HttpClient(OkHttp) {
-        install(JsonFeature) { serializer = JacksonSerializer() }
+        install(ContentNegotiation) { jackson() }
         install(Auth) {
             clientCredential {
                 config = props.toMutableMap()

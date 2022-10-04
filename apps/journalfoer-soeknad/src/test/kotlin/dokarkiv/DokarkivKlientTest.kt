@@ -3,13 +3,13 @@ package dokarkiv
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
-import io.ktor.client.features.ResponseException
-import io.ktor.client.features.json.JacksonSerializer
-import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.plugins.ResponseException
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.fullPath
 import io.ktor.http.headersOf
+import io.ktor.serialization.jackson.jackson
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.fail
 
 internal class DokarkivKlientTest {
 
-    private val baseUrl = "https://localhost.nav.no"
+    private val baseUrl = "https://localhost.nav.no/"
 
     private fun opprettKlient(responseContent: String, status: HttpStatusCode): DokarkivKlient {
         val httpClient = HttpClient(MockEngine) {
@@ -37,7 +37,7 @@ internal class DokarkivKlientTest {
                     }
                 }
             }
-            install(JsonFeature) { serializer = JacksonSerializer() }
+            install(ContentNegotiation) { jackson() }
         }
 
         return DokarkivKlient(httpClient, baseUrl)
