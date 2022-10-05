@@ -33,11 +33,11 @@ spec:
     pool: nav-dev
   env:
     - name: PDL_URL
-      value: http://etterlatte-pdl-proxy/pdl
+      value: https://pdl-api.dev-fss-pub.nais.io/graphql
     - name: PDL_AZURE_SCOPE
-      value: api://dev-gcp.etterlatte.etterlatte-pdl-proxy/.default
+      value: api://dev-fss.pdl.pdl-api/.default
     - name: PDL_AUDIENCE
-      value: "dev-gcp:etterlatte:etterlatte-pdl-proxy"
+      value: "dev-fss:pdl:pdl-api"
     - name: INNSENDTSOEKNAD_AUDIENCE
       value: "dev-gcp:etterlatte:innsendt-soeknad"
     - name: ROOT_LOGLEVEL
@@ -55,11 +55,11 @@ spec:
   accessPolicy:
     outbound:
       rules:
-        - application: etterlatte-pdl-proxy
         - application: innsendt-soeknad
         - application: digdir-krr-proxy
       external:
         - host: kodeverk.dev-fss-pub.nais.io
+        - host: pdl-api.dev-fss-pub.nais.io
     inbound:
       rules:
         - application: gjenlevendepensjon-ui

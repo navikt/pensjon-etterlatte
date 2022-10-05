@@ -29,13 +29,11 @@ spec:
   env:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.etterlatteytelser
-  #  - name: KAFKA_RESET_POLICY
-  #    value: none
     - name: PDL_URL
-      value: http://etterlatte-pdl-proxy/pdl
+      value: https://pdl-api.prod-fss-pub.nais.io/graphql
     - name: PDL_AZURE_SCOPE
-      value: api://prod-gcp.etterlatte.etterlatte-pdl-proxy/.default
+      value: api://prod-fss.pdl.pdl-api/.default
   accessPolicy:
     outbound:
-      rules:
-        - application: etterlatte-pdl-proxy
+      external:
+        - host: pdl-api.prod-fss-pub.nais.io

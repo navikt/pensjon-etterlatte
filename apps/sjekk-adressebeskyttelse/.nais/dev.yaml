@@ -32,10 +32,10 @@ spec:
     - name: KAFKA_RESET_POLICY
       value: none
     - name: PDL_URL
-      value: http://etterlatte-pdl-proxy/pdl
+      value: https://pdl-api.dev-fss-pub.nais.io/graphql
     - name: PDL_AZURE_SCOPE
-      value: api://dev-gcp.etterlatte.etterlatte-pdl-proxy/.default
+      value: api://dev-fss.pdl.pdl-api/.default
   accessPolicy:
     outbound:
-      rules:
-        - application: etterlatte-pdl-proxy
+      external:
+        - host: pdl-api.dev-fss-pub.nais.io
