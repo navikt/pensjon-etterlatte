@@ -57,7 +57,6 @@ spec:
   accessPolicy:
     outbound:
       rules:
-        - application: etterlatte-proxy
         - application: etterlatte-pdl-proxy
         - application: innsendt-soeknad
         - application: digdir-krr-proxy
