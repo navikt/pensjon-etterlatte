@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        app: [barnepensjon-ui, gjenlevendepensjon-ui, selvbetjening-ui, innsendt-soeknad, sjekk-adressebeskyttelse, journalfoer-soeknad]
+        app: [barnepensjon-ui, gjenlevendepensjon-ui, selvbetjening-api, innsendt-soeknad, sjekk-adressebeskyttelse, journalfoer-soeknad]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
