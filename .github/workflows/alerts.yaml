@@ -8,23 +8,27 @@ on:
       - 'apps/*/.nais/alerts.yaml'
       - '.github/workflows/alerts.yaml'
 jobs:
-  apply-alerts:
-    name: Apply alerts to cluster
+  deploy-alerts:
+    name: Deploy alert changes
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [barnepensjon-ui, gjenlevendepensjon-ui, selvbetjening-ui, innsendt-soeknad, sjekk-adressebeskyttelse, journalfoer-soeknad]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: deploy to dev
+      - name: Deploy to dev-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: alerts.yaml
+          RESOURCE: apps/${{ matrix.app }}/.nais/alerts.yaml
           VAR: SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,LOGS_URL=https://logs.adeo.no/goto/e3cd5dc0-39ee-11ed-b3e8-d969437dd878
-      - name: deploy to prod
+
+      - name: Deploy to prod-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: alerts.yaml
+          RESOURCE: apps/${{ matrix.app }}/.nais/alerts.yaml
           VAR: SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,LOGS_URL=https://logs.adeo.no/goto/25018180-3a4a-11ed-b3e8-d969437dd878
