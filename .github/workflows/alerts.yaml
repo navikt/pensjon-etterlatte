@@ -5,16 +5,17 @@ on:
     branches:
       - main
     paths:
-      - 'alerts.yaml'
-      - 'apps/*/.nais/alerts.yaml'
+      - 'alerts-frontend.yaml'
+      - 'alerts-backend.yaml'
+#      - 'apps/*/.nais/alerts.yaml'
       - '.github/workflows/alerts.yaml'
 jobs:
-  deploy-alerts:
-    name: Deploy alert changes
+  frontend-alerts:
+    name: Deploy frontend alerts
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        app: [barnepensjon-ui, gjenlevendepensjon-ui, selvbetjening-api, innsendt-soeknad, sjekk-adressebeskyttelse, journalfoer-soeknad]
+        app: [barnepensjon-ui, gjenlevendepensjon-ui]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,7 +24,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: alerts.yaml
+          RESOURCE: alerts-frontend.yaml
           VAR: >
             SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
             APP_NAME=${{ matrix.app }},
@@ -36,6 +37,37 @@ jobs:
           CLUSTER: prod-gcp
           RESOURCE: alerts.yaml
           VAR: > 
+            SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
+            APP_NAME=${{ matrix.app }},
+            LOGS_URL=https://logs.adeo.no/goto/4becdec0-460c-11ed-8607-d590fd125f80
+
+  backend-alerts:
+    name: Deploy backend alerts
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [selvbetjening-api, innsendt-soeknad, sjekk-adressebeskyttelse, journalfoer-soeknad]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Deploy to dev-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: alerts-backend.yaml
+          VAR: >
+            SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
+            APP_NAME=${{ matrix.app }},
+            LOGS_URL=https://logs.adeo.no/goto/412b1dd0-460c-11ed-8607-d590fd125f80
+
+      - name: Deploy to prod-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: alerts.yaml
+          VAR: >
             SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
             APP_NAME=${{ matrix.app }},
             LOGS_URL=https://logs.adeo.no/goto/4becdec0-460c-11ed-8607-d590fd125f80
