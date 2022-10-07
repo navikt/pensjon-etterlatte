@@ -26,7 +26,7 @@ jobs:
           RESOURCE: alerts.yaml
           VAR: >
             SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
-            APP_NAME=${{ matrix.app }}
+            APP_NAME=${{ matrix.app }},
             LOGS_URL=https://logs.adeo.no/goto/412b1dd0-460c-11ed-8607-d590fd125f80
 
       - name: Deploy to prod-gcp
@@ -37,5 +37,5 @@ jobs:
           RESOURCE: alerts.yaml
           VAR: > 
             SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
-            APP_NAME=${{ matrix.app }}
+            APP_NAME=${{ matrix.app }},
             LOGS_URL=https://logs.adeo.no/goto/4becdec0-460c-11ed-8607-d590fd125f80
