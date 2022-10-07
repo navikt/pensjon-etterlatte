@@ -27,15 +27,3 @@ spec:
       expr: selftests_aggregate_result_status{app="\{{ APP_NAME }}"} > 0
       for: 1m
       action: "Sjekk app {{ $labels.app }} i namespace {{ $labels.kubernetes_namespace }} sine selftest for å se hva som er galt"
-
-    - alert: Høy andel HTTP serverfeil (5xx responser)
-      severity: danger
-      expr: (100 * (sum by (backend) (rate(response_total{status_code=~"^5\\d\\d", namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])) / sum by (backend) (rate(response_total{namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])))) > 10
-      for: 3m
-      action: "`kubectl logs \{{ $labels.kubernetes_pod_name }} -n \{{ $labels.kubernetes_namespace }}`"
-
-    - alert: Høy andel HTTP klientfeil (4xx responser)
-      severity: warning
-      expr: (100 * (sum by (backend) (rate(response_total{status_code=~"^4\\d\\d", namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])) / sum by (backend) (rate(response_total{namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])))) > 10
-      for: 3m
-      action: "`kubectl logs \{{ $labels.kubernetes_pod_name }} -n \{{ $labels.kubernetes_namespace }}`"
