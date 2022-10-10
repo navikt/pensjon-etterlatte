@@ -21,7 +21,7 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/.build.yaml
+    uses: ./.github/workflows/.build-backend.yaml
     secrets: inherit
 
   deploy:

@@ -1,4 +1,4 @@
-name: .build.yaml
+name: .build-backend.yaml
 
 on:
   workflow_call:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-publish:
-    name: Build, test, and publish
+    name: Build & publish
     runs-on: ubuntu-latest
     env:
       image: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}

@@ -1,9 +1,5 @@
 name: journalfoer-soeknad
 
-env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
-  APP_NAME: ${{ github.workflow }}
-
 on:
   workflow_dispatch: # Allow manually triggered workflow run
     inputs:
@@ -11,6 +7,10 @@ on:
         description: 'Deploy til produksjon'
         required: false
         default: 'false'
+        type: choice
+        options:
+          - true
+          - false
   push:
     branches:
       - main
@@ -21,7 +21,7 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/.build.yaml
+    uses: ./.github/workflows/.build-backend.yaml
     secrets: inherit
 
   deploy:
