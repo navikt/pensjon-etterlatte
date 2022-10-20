@@ -1,0 +1,69 @@
+name: .build-frontend.yaml
+
+on:
+  workflow_call:
+    outputs:
+      image:
+        description: "Docker image url"
+        value: ${{ jobs.build-and-publish.outputs.image }}
+      yarn-lock-hash:
+        description: "Docker image url"
+        value: ${{ jobs.build-and-publish.outputs.yarn-lock-hash }}
+
+jobs:
+  build-and-publish:
+    name: Build & publish
+    runs-on: ubuntu-latest
+    env:
+      image: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+    outputs:
+      yarn-lock-hash: ${{ steps.keys.outputs.yarn-lock-hash }}
+      image: ${{ env.image }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      # Hash yarn.lock file to see if it has changed
+      - name: Create hash from yarn.lock
+        id: keys
+        run: |
+          WORKFLOW=$(echo ${{ github.workflow }})
+          echo ::set-output name=yarn-lock-hash::$WORKFLOW-${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}
+
+      # Client cache
+      - name: Cache node modules (client)
+        id: yarn-cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            apps/${{ github.workflow }}/node_modules
+            ~/.cache/Cypress
+          key: ${{ steps.keys.outputs.yarn-lock-hash }}
+
+      # Install and build client
+      - name: Install node modules
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        working-directory: apps/${{ github.workflow }}
+        run: yarn install
+      - name: Build
+        working-directory: apps/${{ github.workflow }}
+        run: yarn build
+
+      # Docker login, build and push
+      - name: Login to Docker
+        uses: docker/login-action@v1
+        with:
+          registry: docker.pkg.github.com
+          username: ${{ github.repository }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: apps/${{ github.workflow }}
+          file: docker/frontend.Dockerfile
+          push: true
+          tags: ${{ env.image }}

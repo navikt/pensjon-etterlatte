@@ -1,0 +1,50 @@
+name: .build-frontend.yaml
+
+on:
+  workflow_call:
+    inputs:
+      yarn-lock-hash:
+        required: true
+        type: string
+
+jobs:
+  test-and-verify:
+    name: Test and verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      # Client cache
+      - name: Cache node modules (client)
+        id: yarn-cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            apps/${{ github.workflow }}/node_modules
+            ~/.cache/Cypress
+          key: ${{ inputs.yarn-lock-hash }}
+
+      # Install and build
+      - name: Install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        working-directory: apps/${{ github.workflow }}
+        run: yarn install
+      - name: Build
+        working-directory: apps/${{ github.workflow }}
+        run: yarn build
+
+      # Run tests
+      - name: Run unit tests
+        working-directory: apps/${{ github.workflow }}
+        run: CI=true yarn test
+      - name: Start application
+        working-directory: apps/${{ github.workflow }}
+        run: yarn start:mock & npx wait-on http://localhost:3000
+      - name: Run e2e tests (Cypress)
+        working-directory: apps/${{ github.workflow }}
+        run: yarn cy:test
