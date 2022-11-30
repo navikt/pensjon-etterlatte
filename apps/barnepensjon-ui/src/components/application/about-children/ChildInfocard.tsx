@@ -32,7 +32,6 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
         <Infocard>
             <InfocardHeader>
                 <img alt="barn" src={ikon} />
-                hey
             </InfocardHeader>
 
             <InformationBox>
