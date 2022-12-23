@@ -2,7 +2,7 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { StepType } from '../../utils/steps'
 import { BodyShort, StepIndicator } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ActionTypes } from '../../context/application/application'
 import { isDev } from '../../api/axios'
 import PageNotFound from '../error/PageNotFound'
@@ -32,13 +32,26 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
         navigate(`${pathPrefix}${step.path}`)
     }
 
+    const [width, setWindowWidth] = useState(0)
+
     const next = currentIndex < steps.length - 1 ? () => visitNavigate(steps[currentIndex + 1]) : undefined
 
     const prev = currentIndex > 0 ? () => visitNavigate(steps[currentIndex - 1]) : undefined
 
+    useEffect(() => {
+        updateDimensions()
+        window.addEventListener('resize', updateDimensions)
+        return () => window.removeEventListener('resize', updateDimensions)
+    }, [])
+
+    const updateDimensions = () => {
+        const width = window.innerWidth
+        setWindowWidth(width)
+    }
+
     return (
         <>
-            <StepIndicator activeStep={currentIndex}>
+            <StepIndicator activeStep={currentIndex} responsive={width < 1024}>
                 {steps.map((step) => (
                     <StepIndicator.Step
                         key={uuid()}
