@@ -32,14 +32,13 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
         navigate(`${pathPrefix}${step.path}`)
     }
 
-    const [width, setWindowWidth] = useState(0)
+    const [width, setWindowWidth] = useState(window.innerWidth)
 
     const next = currentIndex < steps.length - 1 ? () => visitNavigate(steps[currentIndex + 1]) : undefined
 
     const prev = currentIndex > 0 ? () => visitNavigate(steps[currentIndex - 1]) : undefined
 
     useEffect(() => {
-        updateDimensions()
         window.addEventListener('resize', updateDimensions)
         return () => window.removeEventListener('resize', updateDimensions)
     }, [])
