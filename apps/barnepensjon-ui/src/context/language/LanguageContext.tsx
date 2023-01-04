@@ -8,6 +8,8 @@ import en from '../../locales/en'
 const initialLanguage = (localStorage.getItem('language') as Language) || Language.BOKMAAL
 const initialTranslations = (nb as Record<Namespace, Record<TKey, any>>) || {}
 
+document.documentElement.lang = initialLanguage
+
 const LanguageContext = createContext({
     language: initialLanguage,
     translations: initialTranslations,
@@ -31,6 +33,7 @@ const LanguageProvider: FC = ({ children }) => {
 
         localStorage.setItem('language', lang)
         setLanguage(lang)
+        document.documentElement.lang = lang
 
         if (lang === Language.NYNORSK) setTranslations(nn)
         else if (lang === Language.ENGELSK) setTranslations(en)

@@ -30,7 +30,7 @@ export default function CloseableAlert({ children, onClose, ...rest }: AlertProp
     const { t } = useTranslation('logOutUser')
 
     return (
-        <Alert size={'medium'} variant={'warning'} {...rest}>
+        <Alert size={'medium'} variant={'warning'} {...rest} role="alert">
             <LogOutAlertButton size="small" variant="tertiary" aria-label="lukk melding" onClick={onClose}>
                 <Close title={t('btn')} />
             </LogOutAlertButton>
