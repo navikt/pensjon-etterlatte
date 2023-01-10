@@ -97,7 +97,7 @@
     "id": "_:selectSample",
     "structuredSample": [
       {
-        "id": "https://www.nav.no/soknader/nb/person/pensjon/gjenlevende-ektefelle-partner-eller-samboer#NAV170105",
+        "id": "https://www.nav.no/gjenlevendepensjon/soknad/",
         "type": [
           "TestSubject",
           "Webpage"
@@ -107,7 +107,7 @@
         "title": "Digital søknad gjenlevendepensjon"
       },
       {
-        "id": "https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene",
+        "id": "https://www.nav.no/barnepensjon/soknad/",
         "type": [
           "TestSubject",
           "Webpage"
@@ -131,1840 +131,7 @@
   "auditSample": [
     {
       "type": "Assertion",
-      "date": "2022-12-15T08:05:15.377Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T08:49:00.970Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:error-identification",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.378Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T09:26:55.632Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:labels-or-instructions",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.378Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T10:03:23.277Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:error-suggestion",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.378Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T10:03:29.108Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:error-prevention-legal-financial-data",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T10:43:20.096Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:parsing",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-15T08:37:31.118Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:cantTell",
-          "type": [
-            "OutcomeValue",
-            "CannotTell"
-          ],
-          "title": "Cannot tell"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:name-role-value",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-15T08:42:12.327Z",
-        "description": "Mangler status på alert ved beskjed om utlogging.",
-        "outcome": {
-          "id": "earl:failed",
-          "type": [
-            "OutcomeValue",
-            "Fail"
-          ],
-          "title": "Failed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:status-messages",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:09:01.716Z",
-        "description": "Har ikke lyd eller video på siden",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:audio-description-or-media-alternative-prerecorded",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:09:04.131Z",
-        "description": "Har ikke lyd eller video på siden",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:captions-live",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:09:07.915Z",
-        "description": "Har ikke lyd eller video på siden",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:audio-description-prerecorded",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:17:05.635Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:info-and-relationships",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:18:35.659Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:meaningful-sequence",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:19:10.525Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:sensory-characteristics",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.379Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:21:24.450Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:orientation",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:22:00.904Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:identify-input-purpose",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:24:36.578Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:use-of-color",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:09:59.317Z",
-        "description": "Har ikke lyd eller video på sidene",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:audio-control",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:53:07.055Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:contrast-minimum",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:53:00.122Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:resize-text",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:09:53.968Z",
-        "description": "Har ikke bilder på sidene",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:images-of-text",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:18:18.787Z",
-        "description": "Ved 320 pixler i bredde så vil information forsvinne fra siden og opprette en horisontal rullefelt. ",
-        "outcome": {
-          "id": "earl:failed",
-          "type": [
-            "OutcomeValue",
-            "Fail"
-          ],
-          "title": "Failed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:reflow",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:58:07.464Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:non-text-contrast",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:40:43.124Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:text-spacing",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T14:59:54.503Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:content-on-hover-or-focus",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.380Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T15:08:13.409Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:keyboard",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.381Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T15:09:23.324Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:no-keyboard-trap",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.381Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:08:00.611Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:non-text-content",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.797Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.381Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-11-30T15:13:24.472Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:character-key-shortcuts",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.381Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-15T08:26:15.147Z",
-        "description": "Systemene støtter ikke utvidelse av innlogget sesjon",
-        "outcome": {
-          "id": "earl:failed",
-          "type": [
-            "OutcomeValue",
-            "Fail"
-          ],
-          "title": "Failed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:timing-adjustable",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.381Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:12:20.003Z",
-        "description": "Har ingen Bevegelse, blinking, rulling eller automatiske oppdateringer.",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:pause-stop-hide",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.381Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:12:56.989Z",
-        "description": "Ingen ting som blinker på siden",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:three-flashes-or-below-threshold",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.381Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-01T08:49:21.218Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:bypass-blocks",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.382Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-01T08:27:00.031Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:page-titled",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.382Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-01T08:49:25.435Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:focus-order",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.382Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-01T11:16:33.997Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:link-purpose-in-context",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.382Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-01T11:12:50.820Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:multiple-ways",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.382Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-01T11:13:40.487Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:headings-and-labels",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.382Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-01T11:13:21.740Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:focus-visible",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.382Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:07:47.635Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:pointer-gestures",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.382Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:09:00.214Z",
-        "description": "Har ikke lyd eller video på siden",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:captions-prerecorded",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.382Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:07:30.849Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:pointer-cancellation",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.383Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:13:53.647Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:label-in-name",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.383Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-01T11:45:02.412Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:motion-actuation",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.383Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:08:58.247Z",
-        "description": "Har ikke lyd eller video på siden",
-        "outcome": {
-          "id": "earl:inapplicable",
-          "type": [
-            "OutcomeValue",
-            "NotApplicable"
-          ],
-          "title": "Not present"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:audio-only-and-video-only-prerecorded",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.798Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.383Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:46:29.825Z",
-        "description": "Kan endre språk ved å klikke, men mangler å endre html delen av koden",
-        "outcome": {
-          "id": "earl:failed",
-          "type": [
-            "OutcomeValue",
-            "Fail"
-          ],
-          "title": "Failed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:language-of-page",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.383Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:52:16.013Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:language-of-parts",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.383Z",
-      "mode": {
-        "type": "TestMode",
-        "@value": "earl:manual"
-      },
-      "result": {
-        "type": "TestResult",
-        "date": "2022-12-02T09:57:14.956Z",
-        "description": "",
-        "outcome": {
-          "id": "earl:passed",
-          "type": [
-            "OutcomeValue",
-            "Pass"
-          ],
-          "title": "Passed"
-        }
-      },
-      "subject": {
-        "id": "_:subject_1",
-        "type": [
-          "TestSubject",
-          "Website"
-        ],
-        "date": "2022-12-15T08:03:01.796Z",
-        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
-        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
-      },
-      "test": {
-        "id": "WCAG21:on-focus",
-        "type": [
-          "TestCriterion",
-          "TestRequirement"
-        ],
-        "date": "2022-12-15T08:03:01.799Z"
-      }
-    },
-    {
-      "type": "Assertion",
-      "date": "2022-12-15T08:05:15.384Z",
+      "date": "2023-01-10T08:17:24.914Z",
       "mode": {
         "type": "TestMode",
         "@value": "earl:manual"
@@ -1988,7 +155,7 @@
           "TestSubject",
           "Website"
         ],
-        "date": "2022-12-15T08:03:01.796Z",
+        "date": "2023-01-10T08:15:24.571Z",
         "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
         "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
       },
@@ -1998,12 +165,12 @@
           "TestCriterion",
           "TestRequirement"
         ],
-        "date": "2022-12-15T08:03:01.799Z"
+        "date": "2023-01-10T08:15:24.573Z"
       }
     },
     {
       "type": "Assertion",
-      "date": "2022-12-15T08:05:15.384Z",
+      "date": "2023-01-10T08:17:24.914Z",
       "mode": {
         "type": "TestMode",
         "@value": "earl:manual"
@@ -2027,7 +194,7 @@
           "TestSubject",
           "Website"
         ],
-        "date": "2022-12-15T08:03:01.796Z",
+        "date": "2023-01-10T08:15:24.571Z",
         "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
         "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
       },
@@ -2037,12 +204,12 @@
           "TestCriterion",
           "TestRequirement"
         ],
-        "date": "2022-12-15T08:03:01.799Z"
+        "date": "2023-01-10T08:15:24.573Z"
       }
     },
     {
       "type": "Assertion",
-      "date": "2022-12-15T08:05:15.384Z",
+      "date": "2023-01-10T08:17:24.915Z",
       "mode": {
         "type": "TestMode",
         "@value": "earl:manual"
@@ -2066,7 +233,7 @@
           "TestSubject",
           "Website"
         ],
-        "date": "2022-12-15T08:03:01.796Z",
+        "date": "2023-01-10T08:15:24.571Z",
         "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
         "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
       },
@@ -2076,7 +243,1840 @@
           "TestCriterion",
           "TestRequirement"
         ],
-        "date": "2022-12-15T08:03:01.799Z"
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.915Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T10:03:23.277Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:error-suggestion",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.915Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T10:03:29.108Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:error-prevention-legal-financial-data",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.915Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T10:43:20.096Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:parsing",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-15T08:37:31.118Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:cantTell",
+          "type": [
+            "OutcomeValue",
+            "CannotTell"
+          ],
+          "title": "Cannot tell"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:name-role-value",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2023-01-10T08:18:30.714Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:status-messages",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:09:01.716Z",
+        "description": "Har ikke lyd eller video på siden",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:audio-description-or-media-alternative-prerecorded",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:09:04.131Z",
+        "description": "Har ikke lyd eller video på siden",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:captions-live",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:09:07.915Z",
+        "description": "Har ikke lyd eller video på siden",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:audio-description-prerecorded",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:17:05.635Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:info-and-relationships",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:18:35.659Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:meaningful-sequence",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:19:10.525Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:sensory-characteristics",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:21:24.450Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:orientation",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:22:00.904Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:identify-input-purpose",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:24:36.578Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:use-of-color",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:09:59.317Z",
+        "description": "Har ikke lyd eller video på sidene",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:audio-control",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:53:07.055Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:contrast-minimum",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:53:00.122Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:resize-text",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.916Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:09:53.968Z",
+        "description": "Har ikke bilder på sidene",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:images-of-text",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2023-01-10T08:17:57.111Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:reflow",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:58:07.464Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:non-text-contrast",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:40:43.124Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:text-spacing",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T14:59:54.503Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:content-on-hover-or-focus",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T15:08:13.409Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:keyboard",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T15:09:23.324Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:no-keyboard-trap",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:08:00.611Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:non-text-content",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.571Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T08:49:00.970Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:error-identification",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T15:13:24.472Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:character-key-shortcuts",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-15T08:26:15.147Z",
+        "description": "Systemene støtter ikke utvidelse av innlogget sesjon",
+        "outcome": {
+          "id": "earl:failed",
+          "type": [
+            "OutcomeValue",
+            "Fail"
+          ],
+          "title": "Failed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:timing-adjustable",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:12:20.003Z",
+        "description": "Har ingen Bevegelse, blinking, rulling eller automatiske oppdateringer.",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:pause-stop-hide",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.917Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:12:56.989Z",
+        "description": "Ingen ting som blinker på siden",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:three-flashes-or-below-threshold",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.918Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-01T08:49:21.218Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:bypass-blocks",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.918Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-01T08:27:00.031Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:page-titled",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.918Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-01T08:49:25.435Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:focus-order",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.918Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-01T11:16:33.997Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:link-purpose-in-context",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.918Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-01T11:12:50.820Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:multiple-ways",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.918Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-01T11:13:40.487Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:headings-and-labels",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.918Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-01T11:13:21.740Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:focus-visible",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.918Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:07:47.635Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:pointer-gestures",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.918Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:09:00.214Z",
+        "description": "Har ikke lyd eller video på siden",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:captions-prerecorded",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.919Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:07:30.849Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:pointer-cancellation",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.919Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:13:53.647Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:label-in-name",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.919Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-11-30T09:26:55.632Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:labels-or-instructions",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.919Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-01T11:45:02.412Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:motion-actuation",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.919Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:08:58.247Z",
+        "description": "Har ikke lyd eller video på siden",
+        "outcome": {
+          "id": "earl:inapplicable",
+          "type": [
+            "OutcomeValue",
+            "NotApplicable"
+          ],
+          "title": "Not present"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:audio-only-and-video-only-prerecorded",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.572Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.919Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2023-01-10T08:18:19.062Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:language-of-page",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.920Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:52:16.013Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:language-of-parts",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2023-01-10T08:17:24.920Z",
+      "mode": {
+        "type": "TestMode",
+        "@value": "earl:manual"
+      },
+      "result": {
+        "type": "TestResult",
+        "date": "2022-12-02T09:57:14.956Z",
+        "description": "",
+        "outcome": {
+          "id": "earl:passed",
+          "type": [
+            "OutcomeValue",
+            "Pass"
+          ],
+          "title": "Passed"
+        }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": [
+          "TestSubject",
+          "Website"
+        ],
+        "date": "2023-01-10T08:15:24.571Z",
+        "description": "- Søknad om gjenlevendepensjon eller overgangsstønad (https://www.nav.no/gjenlevendepensjon/soknad/)\n- Søknad om barnepensjon (https://www.nav.no/barnepensjon/soknad/)",
+        "title": "Søknader om gjenlevendepensjon og barnepensjon på nav.no"
+      },
+      "test": {
+        "id": "WCAG21:on-focus",
+        "type": [
+          "TestCriterion",
+          "TestRequirement"
+        ],
+        "date": "2023-01-10T08:15:24.573Z"
       }
     }
   ],
