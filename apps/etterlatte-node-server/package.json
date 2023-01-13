@@ -8,7 +8,7 @@
   "dependencies": {
     "@navikt/nav-dekoratoren-moduler": "1.6.17",
     "cls-rtracer": "^2.6.0",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "jsonwebtoken": "9.0.0",
     "node-cache": "5.1.2",
     "node-fetch": "^2.6.7",
