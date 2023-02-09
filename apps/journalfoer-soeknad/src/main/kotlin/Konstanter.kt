@@ -4,6 +4,7 @@ object Konstanter {
     const val SOEKNAD_TITTEL = "Søknad om etterlatteytelser"
     const val ENHET_VIKAFOSSEN = "2103"
     const val ENHET_UTLAND = "4862" // NFP UTLAND ÅLESUND
+    const val ENHET_AUTOMATISK_JOURNALFOERING = "9999"
 
     // https://navno.sharepoint.com/sites/fag-og-ytelser-eos-lovvalg-medlemskap/SitePages/Oversikt-over-land-og-omr%C3%A5der-som-er-omfattet-av-E%C3%98S-reglene-om-trygdekoordinering.aspx
     val avtaleland = listOf(

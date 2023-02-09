@@ -6,6 +6,7 @@ import dokarkiv.Dokarkiv
 import dokarkiv.JournalPostType
 import dokarkiv.JournalpostDokument
 import dokarkiv.JournalpostRequest
+import dokarkiv.Sak
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
@@ -22,23 +23,28 @@ class JournalfoeringService(private val klient: Dokarkiv) {
         fnrSoeker: String,
         gradering: Gradering,
         dokument: JournalpostDokument,
-        soeknad: InnsendtSoeknad
+        soeknad: InnsendtSoeknad,
+        tema: String,
+        forsoekFerdigstill: Boolean,
+        sakId: String?
     ): DokarkivResponse {
         logger.info("Oppretter journalpost for søknad ID $soeknadId")
 
         val request = JournalpostRequest(
             tittel = SOEKNAD_TITTEL,
+            tema = tema,
             journalpostType = JournalPostType.INNGAAENDE,
             behandlingstema = soeknad.type.behandlingstema,
-            journalfoerendeEnhet = finnJournalfoerendeEnhet(soeknad, gradering),
+            journalfoerendeEnhet = finnJournalfoerendeEnhet(soeknad, gradering, forsoekFerdigstill),
             avsenderMottaker = AvsenderMottaker(id = fnrSoeker),
             bruker = Bruker(id = fnrSoeker),
             eksternReferanseId = SOEKNAD_TITTEL + soeknadId,
-            dokumenter = listOf(dokument)
+            dokumenter = listOf(dokument),
+            sak = if(forsoekFerdigstill) Sak(sakId!!) else null
         )
 
         return runBlocking(Dispatchers.IO) {
-            klient.journalfoerDok(request)
+            klient.journalfoerDok(request, forsoekFerdigstill)
         }.also {
             logger.info("Journalført PDF (søknad id $soeknadId) med respons: $it")
         }

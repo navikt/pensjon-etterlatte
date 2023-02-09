@@ -28,7 +28,7 @@ internal class JournalfoeringServiceTest {
 
     @Test
     fun `Verifiser at request blir opprettet korrekt`() {
-        coEvery { mockKlient.journalfoerDok(any()) } returns journalfoeringResponse()
+        coEvery { mockKlient.journalfoerDok(any(), any()) } returns journalfoeringResponse()
 
         val soeknadId = "123"
         val fnrSoeker = "24014021406"
@@ -37,20 +37,24 @@ internal class JournalfoeringServiceTest {
             soeknadId,
             fnrSoeker,
             Gradering.UGRADERT,
+
             JournalpostDokument(
                 SOEKNAD_TITTEL,
                 DokumentKategori.SOK,
                 "",
                 listOf(DokumentVariant.ArkivPDF(""), DokumentVariant.OriginalJson(""))
             ),
-            soeknad
-        )
+            soeknad,
+            "PEN",
+            false,
+            null
+            )
 
         assertNotNull(response)
 
         val requestSlot = slot<JournalpostRequest>()
 
-        coVerify(exactly = 1) { mockKlient.journalfoerDok(capture(requestSlot)) }
+        coVerify(exactly = 1) { mockKlient.journalfoerDok(capture(requestSlot), false) }
 
         val actualRequest = requestSlot.captured
 
