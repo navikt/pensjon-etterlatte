@@ -133,7 +133,7 @@ const selectScenario = {
     childApplicantInformation1:
         '<b>If you have lost a parent</b> \nWhen the death was due to an occupational injury or occupational illness you are entitled to receive the children’s pension until the age of 21 if you are studying or serving as an apprentice or trainee.',
     childApplicantInformation2:
-        '<b>If you have lost both of your parents</b> \nYou are entitled to receive the children’s pension until the age of 20 if you are studying or serving as an apprentice or trainee. You can receive the children’s pension until the age of 21 if the death was also due to occupational injury or occupational illness.',
+        '<b>If you have lost both of your parents or your paternity has not been determined</b> \nYou are entitled to receive the children’s pension until the age of 20 if you are studying or serving as an apprentice or trainee. You can receive the children’s pension until the age of 21 if the death was also due to occupational injury or occupational illness.',
     childApplicantInformationOver18:
         'If you have lost one or both of your parents you must use <a href="https://www.nav.no/fyllut/nav180405">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
@@ -144,8 +144,6 @@ const selectScenario = {
         'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">this application</a>.',
     guardianApplicantInformationFatherNotConfirmed:
         'If the child has lost his/her mother and paternity has not been determined, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">this application</a>.',
-    childApplicantInformationFatherNotConfirmed:
-        'If you have lost your mother and your paternity has not been determined, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">this application</a>.',
     aboutSurvivorsPensionDescription:
         '<b>Have you lost your spouse, cohabiting partner or partner? </b> nYou may then apply for a survivor’s pension or transitional benefit. If you would like to apply for the children’s pension at the same time, you can use <a href="https://www.nav.no/soknader/en/person/pensjon/gjenlevende-ektefelle-partner-eller-samboer#NAV170105">this application.</a>',
     BOTH_PARENTS_DECEASED: 'Both parents',

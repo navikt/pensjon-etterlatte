@@ -10,7 +10,7 @@ import FormGroup from '../../common/FormGroup'
 import { RHFRadio } from '../../common/rhf/RHFRadio'
 import Trans from '../../common/Trans'
 import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
-import FormElement from "../../common/FormElement";
+import FormElement from '../../common/FormElement'
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -141,11 +141,6 @@ export default function ScenarioSelection() {
                         <BodyLong size={'small'}>
                             <Trans value={t('childApplicantInformationOver18')} />
                         </BodyLong>
-                    </FormGroup>
-                    <FormGroup>
-                        <Alert variant={'info'}>
-                            <Trans value={t('childApplicantInformationFatherNotConfirmed')} />
-                        </Alert>
                     </FormGroup>
                 </>
             )}
