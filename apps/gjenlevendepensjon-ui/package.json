@@ -63,7 +63,7 @@
     "@types/lodash": "^4.14.172",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
-    "axe-core": "^4.3.3",
+    "axe-core": "^4.6.3",
     "cypress": "^8.3.0",
     "cypress-axe": "^0.13.0",
     "eslint": "^7.32.0",
