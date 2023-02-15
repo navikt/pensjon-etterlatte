@@ -1,0 +1,52 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/apps/barnepensjon-ui"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "npm"
+    directory: "/apps/etterlatte-node-server"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "npm"
+    directory: "/apps/gjenlevendepensjon-ui"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "gradle"
+    directory: "/apps/innsendt-soeknad"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "gradle"
+    directory: "/apps/journalfoer-soeknad"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "gradle"
+    directory: "/apps/selvbetjening-api"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "gradle"
+    directory: "/apps/sjekk-adressebeskyttelse"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "docker"
+    directory: "/docker/backend.Dockerfile"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+  - package-ecosystem: "docker"
+    directory: "/docker/frontend.Dockerfile"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
