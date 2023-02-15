@@ -403,12 +403,12 @@ clone@2.x:
   resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
 
-cls-rtracer@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/cls-rtracer/-/cls-rtracer-2.6.0.tgz#2d1965d8be80311bf9ba4782a7f53b921b267ab3"
-  integrity sha512-AkerGNOczlS5mj7giIGi0KvqwLy2sckUF7RQe5r0dV4Z/SWUclUwVEhIOJQ3rOcTOBqlBVAtmGbSWirkW1GK4w==
+cls-rtracer@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/cls-rtracer/-/cls-rtracer-2.6.2.tgz#249e53051a2356af8d80fd649d22ab7a8eafc339"
+  integrity sha512-9TYlTXQkjaytD2oe+WCEAXArgqlrHzvVW5WnwpUgenuY8D3rMfJVgsCogY77YHM9R3dUOMv3XpKRRn+LQnrUEQ==
   dependencies:
-    uuid "8.3.1"
+    uuid "^8.3.2"
 
 color-convert@^1.9.3:
   version "1.9.3"
@@ -1804,11 +1804,6 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
-
-uuid@8.3.1:
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.1.tgz#2ba2e6ca000da60fce5a196954ab241131e05a31"
-  integrity sha512-FOmRr+FmWEIG8uhZv6C2bTgEVXsHk08kE7mPlrBbEe+c3r9pjceVPgupIfNIhc4yx55H69OXANrUaSuu9eInKg==
 
 uuid@^3.3.3:
   version "3.4.0"
