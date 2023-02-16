@@ -55,7 +55,7 @@ jobs:
 
       # Docker login, build and push
       - name: Login to Docker
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: docker.pkg.github.com
           username: ${{ github.repository }}
