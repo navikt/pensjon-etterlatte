@@ -1,6 +1,7 @@
 package no.nav.etterlatte.dokarkiv
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import io.ktor.http.HttpStatusCode
 
 data class DokarkivDokument(
     val dokumentInfoId: String
@@ -13,4 +14,12 @@ data class DokarkivResponse(
     val melding: String? = null,
     val journalpostferdigstilt: Boolean,
     val dokumenter: List<DokarkivDokument> = emptyList()
+)
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+data class DokarkivErrorResponse(
+    val status: HttpStatusCode,
+    val error: String? = null,
+    val message: String? = null,
+    val path: String? = null
 )

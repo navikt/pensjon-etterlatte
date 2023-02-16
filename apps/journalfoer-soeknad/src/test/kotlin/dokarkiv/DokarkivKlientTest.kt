@@ -1,5 +1,7 @@
 package dokarkiv
 
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
@@ -11,9 +13,13 @@ import io.ktor.http.fullPath
 import io.ktor.http.headersOf
 import io.ktor.serialization.jackson.jackson
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.dokarkiv.DokarkivErrorResponse
+import no.nav.etterlatte.mapper
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
+import java.time.LocalDateTime
 
 internal class DokarkivKlientTest {
 
@@ -33,11 +39,12 @@ internal class DokarkivKlientTest {
                                 )
                             )
                         }
+
                         else -> error("Unhandled ${request.url.fullPath}")
                     }
                 }
             }
-            install(ContentNegotiation) { jackson() }
+            install(ContentNegotiation) { jackson { registerModule(JavaTimeModule()) } }
         }
 
         return DokarkivKlient(httpClient, baseUrl)
@@ -58,9 +65,9 @@ internal class DokarkivKlientTest {
 
     @Test
     fun `Soeknad har allerede blitt journalfoert`() {
-        val successResponse = javaClass.getResource("/dokarkiv/errorResponse.json")!!.readText()
+        val duplikatResponse = javaClass.getResource("/dokarkiv/journalfoerResponse.json")!!.readText()
 
-        val klient = opprettKlient(successResponse, HttpStatusCode.Conflict)
+        val klient = opprettKlient(duplikatResponse, HttpStatusCode.Conflict)
 
         try {
             runBlocking { klient.journalfoerDok(dummyRequest()) }
@@ -68,6 +75,20 @@ internal class DokarkivKlientTest {
             fail("Skal kaste feil ved HttpStatusCode.Conflict (409)")
         } catch (re: ResponseException) {
             assertEquals(HttpStatusCode.Conflict, re.response.status)
+        }
+    }
+
+    @Test
+    fun `Error response håndteres korrekt`() {
+        val response =
+            DokarkivErrorResponse(HttpStatusCode.BadRequest, "some error", "message", "/test/url")
+
+        val klient = opprettKlient(mapper.writeValueAsString(response), response.status)
+
+        try {
+            runBlocking { klient.journalfoerDok(dummyRequest()) }
+        } catch (re: ResponseException) {
+            assertTrue(response.message!! in re.message!!)
         }
     }
 

@@ -7,10 +7,14 @@ import io.ktor.client.request.accept
 import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
+import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
+import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.http.isSuccess
+import no.nav.etterlatte.dokarkiv.DokarkivErrorResponse
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
+import no.nav.etterlatte.mapper
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import java.util.*
@@ -28,17 +32,22 @@ class DokarkivKlient(private val client: HttpClient, private val baseUrl: String
                 accept(ContentType.Application.Json)
                 contentType(ContentType.Application.Json)
                 header("X-Correlation-ID", MDC.get("X-Correlation-ID") ?: UUID.randomUUID().toString())
+                header("Nav-CallId", MDC.get("X-Correlation-ID") ?: UUID.randomUUID().toString())
                 setBody(request)
             }
 
             if (response.status.isSuccess()) response.body()
-            else throw ResponseException(response, response.toString())
-        } catch (re: ResponseException) {
-            if (re.response.status.value == 409) {
-                logger.error("Duplikat journalpost: ", re)
-            }
+            else if (response.status == HttpStatusCode.Conflict) {
+                throw ResponseException(
+                    response,
+                    "Duplikat journalpost - søknaden med tittel '${request.tittel}' har allerede blitt journalført"
+                )
+            } else {
+                val error = response.body<DokarkivErrorResponse>()
+                logger.error(mapper.writeValueAsString(error))
 
-            throw re
+                throw ResponseException(response, error.message ?: response.toString())
+            }
         } catch (e: Exception) {
             logger.error("Feil i kall mot Dokarkiv: ", e)
 
