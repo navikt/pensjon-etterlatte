@@ -8,6 +8,7 @@ import io.ktor.client.engine.mock.respond
 import io.ktor.client.plugins.ResponseException
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.http.ContentType
+import io.ktor.http.ContentType.Message.Http
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.fullPath
 import io.ktor.http.headersOf
@@ -80,10 +81,9 @@ internal class DokarkivKlientTest {
 
     @Test
     fun `Error response håndteres korrekt`() {
-        val response =
-            DokarkivErrorResponse(HttpStatusCode.BadRequest, "some error", "message", "/test/url")
+        val response = DokarkivErrorResponse("some error", "message", "/test/url")
 
-        val klient = opprettKlient(mapper.writeValueAsString(response), response.status)
+        val klient = opprettKlient(mapper.writeValueAsString(response), HttpStatusCode.BadRequest)
 
         try {
             runBlocking { klient.journalfoerDok(dummyRequest()) }

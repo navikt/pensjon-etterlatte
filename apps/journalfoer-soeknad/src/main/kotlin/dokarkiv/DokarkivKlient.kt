@@ -7,17 +7,15 @@ import io.ktor.client.request.accept
 import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
-import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.http.isSuccess
 import no.nav.etterlatte.dokarkiv.DokarkivErrorResponse
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
-import no.nav.etterlatte.mapper
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
-import java.util.*
+import java.util.UUID
 
 interface Dokarkiv {
     suspend fun journalfoerDok(request: JournalpostRequest): DokarkivResponse
@@ -43,10 +41,10 @@ class DokarkivKlient(private val client: HttpClient, private val baseUrl: String
                     "Duplikat journalpost - søknaden med tittel '${request.tittel}' har allerede blitt journalført"
                 )
             } else {
-                val error = response.body<DokarkivErrorResponse>()
-                logger.error(mapper.writeValueAsString(error))
+                val errorResponse = response.body<DokarkivErrorResponse>()
+                    .also { logger.error("${it.message}: ${response.status} ${it.error}") }
 
-                throw ResponseException(response, error.message ?: response.toString())
+                throw ResponseException(response, errorResponse.message ?: response.toString())
             }
         } catch (e: Exception) {
             logger.error("Feil i kall mot Dokarkiv: ", e)
