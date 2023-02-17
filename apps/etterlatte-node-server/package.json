@@ -6,18 +6,18 @@
   "private": true,
   "main": "server.js",
   "dependencies": {
-    "@navikt/nav-dekoratoren-moduler": "1.6.17",
+    "@navikt/nav-dekoratoren-moduler": "1.9.0",
     "cls-rtracer": "^2.6.0",
-    "express": "4.17.3",
+    "express": "4.18.2",
     "jsonwebtoken": "9.0.0",
     "node-cache": "5.1.2",
-    "node-fetch": "^2.6.7",
-    "node-jose": "2.0.0",
-    "openid-client": "4.7.4",
+    "node-fetch": "2.6.7",
+    "node-jose": "2.1.1",
+    "openid-client": "5.4.0",
     "prom-client": "^14.0.1",
-    "typescript": "4.3.5",
-    "uuid": "^8.3.2",
-    "winston": "3.3.3",
+    "typescript": "4.9.5",
+    "uuid": "^9.0.0",
+    "winston": "3.8.2",
     "winston-transport": "^4.4.0"
   },
   "devDependencies": {
@@ -26,9 +26,9 @@
     "@types/jsonwebtoken": "^9.0.1",
     "@types/node-fetch": "^2.5.12",
     "@types/node-jose": "^1.1.8",
-    "@types/uuid": "^8.3.4",
+    "@types/uuid": "^9.0.0",
     "prettier": "^2.5.1",
-    "ts-node-dev": "^1.1.8"
+    "ts-node-dev": "^2.0.0"
   },
   "scripts": {
     "start": "ts-node-dev --project ./tsconfig.json src/server.ts",
