@@ -1,5 +1,6 @@
 import { SkjemaGruppe } from "nav-frontend-skjema";
-import { TFunction, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
+import { TFunction } from "i18next";
 import { FieldError, FieldErrors } from "react-hook-form/dist/types/errors";
 import { v4 as uuid } from "uuid";
 import { getTransKey } from "../../utils/translation";
