@@ -7074,10 +7074,10 @@ nav-frontend-lenker-style@^2.0.1:
   resolved "https://registry.yarnpkg.com/nav-frontend-lenker-style/-/nav-frontend-lenker-style-2.0.1.tgz#91a17adf67258639538f2496be7487c7ea216cd3"
   integrity sha512-F9UVJpN2i9tepmp/61UvEN5U7O2eHGIYBcVJdUp678BtokXH4SNt7G32y+fqOxW87vWaG1FKR1zXpWf5saw02g==
 
-nav-frontend-lenker@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/nav-frontend-lenker/-/nav-frontend-lenker-2.0.1.tgz#61544d0148dabd1a7c94f0be29921296a742359e"
-  integrity sha512-OYHNKMZE6W2T1DvBdfeR7m6EWKYb27s013RhrmDT9P2j3paC6b0e/6nYuepftHyE4ydxv2GJUKTr6byRvVlmzg==
+nav-frontend-lenker@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/nav-frontend-lenker/-/nav-frontend-lenker-2.0.2.tgz#a33563a9f68cd16938c7581d2e2bcbcec2760232"
+  integrity sha512-Gib0qoJuuWgN60ZWqlGR+d47yRymPvlMQmgflgdTRIvvgpATwxTNaTD3qY5lFtIOJQcxImNCIuhw1y4eEjSyOg==
 
 nav-frontend-skjema-style@^3.0.2:
   version "3.0.2"
