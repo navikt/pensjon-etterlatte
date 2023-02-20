@@ -18,12 +18,12 @@ import java.time.Month
 import java.time.ZoneId
 import java.time.ZoneOffset
 
-class JournalfoerBarnepensjonSoeknadForPesysTest{
+internal class JournalfoerBarnepensjonSoeknadForPesysTest{
     val clock: Clock = Clock
         .fixed(LocalDateTime.of(2020, Month.MAY, 5, 14, 5, 2)
             .toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
-    val journalfoeringService = mockk<JournalfoeringService>()
-    val dokumentservice = mockk<DokumentService>()
+    private val journalfoeringService = mockk<JournalfoeringService>()
+    private val dokumentservice = mockk<DokumentService>()
     @Test
     fun `Skal lese søknader som er fordelt til Pesys`(){
 
