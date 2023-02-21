@@ -15,7 +15,7 @@ jobs:
     name: Build & publish
     runs-on: ubuntu-latest
     env:
-      image: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+      image: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
     outputs:
       yarn-lock-hash: ${{ steps.keys.outputs.yarn-lock-hash }}
       image: ${{ env.image }}
@@ -57,7 +57,7 @@ jobs:
       - name: Login to Docker
         uses: docker/login-action@v2
         with:
-          registry: docker.pkg.github.com
+          registry: ghcr.io
           username: ${{ github.repository }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Docker image
