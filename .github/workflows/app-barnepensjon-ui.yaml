@@ -1,7 +1,7 @@
 name: barnepensjon-ui
 
 env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+  IMAGE: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
   APP_NAME: ${{ github.workflow }}
 
 on:

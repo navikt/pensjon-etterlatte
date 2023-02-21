@@ -1,7 +1,7 @@
 name: etterlatte-node-server
 
 env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+  IMAGE: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
   APP_NAME: ${{ github.workflow }}
 
 on:
@@ -65,7 +65,7 @@ jobs:
       - name: Login to Docker
         uses: docker/login-action@v2
         with:
-          registry: docker.pkg.github.com
+          registry: ghcr.io
           username: ${GITHUB_REPOSITORY}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Docker image
