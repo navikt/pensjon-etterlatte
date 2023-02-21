@@ -14,6 +14,8 @@ jobs:
   build-and-publish:
     name: Build & publish
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     env:
       image: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
     outputs:
@@ -21,7 +23,7 @@ jobs:
       image: ${{ env.image }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node 14
         uses: actions/setup-node@v3
         with:
