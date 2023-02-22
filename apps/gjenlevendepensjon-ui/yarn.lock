@@ -1697,10 +1697,10 @@
     less "^4.1.2"
     uuid "^8.3.2"
 
-"@navikt/ds-icons@0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-0.5.2.tgz#3f1525def3c51a247a1f59c4d8fddd112521be9f"
-  integrity sha512-e4bqKbUaWNQ8UewrmJPM1Z43ylMD+uYZJwo3+DOWQKUW1Y5U7ucvVSO0lNtYO1gADXgGiTF2LjCPZbw7BhmdSQ==
+"@navikt/ds-icons@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.3.0.tgz#badd0cf0a455548f8f403909cd888787c0834dc2"
+  integrity sha512-YJH5dqSxfJdGJOwj6AABQvcL+w2OHs+HoqqsDlGc1fG8/xP5e620UOIgRLD7HisS+dmE2t9OJESPjuI42agkCw==
 
 "@navikt/ds-icons@^0.5.10", "@navikt/ds-icons@^0.5.6":
   version "0.5.10"
