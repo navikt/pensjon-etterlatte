@@ -141,6 +141,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                         {/* Ensure at least one child is applying for childrens pension */}
                         <FormGroup>
                             <RHFInput
+                                label={''}
                                 hidden={true}
                                 name={'children'}
                                 valgfri={isChild}

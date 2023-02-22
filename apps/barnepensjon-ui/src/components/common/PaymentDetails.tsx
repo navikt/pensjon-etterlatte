@@ -39,10 +39,10 @@ export default function PaymentDetails() {
             {accountType === BankkontoType.NORSK && (
                 <FormElement>
                     <RHFKontonummerInput
-                        bredde={'S'}
                         name={'paymentDetails.bankAccount'}
                         label={t('bankAccount')}
                         description={t('information')}
+                        htmlSize={15}
                     />
                 </FormElement>
             )}
@@ -99,10 +99,10 @@ export default function PaymentDetails() {
                 <>
                     <FormElement>
                         <RHFProsentInput
-                            bredde={'M'}
                             name={'paymentDetails.taxWithhold.taxPercentage'}
                             label={t('desiredTaxPercentage')}
                             placeholder={t('desiredTaxPercentagePlaceholder')}
+                            htmlSize={40}
                         />
                     </FormElement>
                     <FormElement>

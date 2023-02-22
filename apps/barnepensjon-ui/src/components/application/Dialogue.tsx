@@ -40,7 +40,7 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
     return (
         <>
             <Stepper
-                activeStep={currentIndex}
+                activeStep={currentIndex + 1}
                 onStepChange={(step) => isDev && visitNavigate(step - 1)}
                 orientation={'horizontal'}
             >
