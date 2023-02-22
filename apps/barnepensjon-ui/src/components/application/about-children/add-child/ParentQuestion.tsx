@@ -1,13 +1,12 @@
 import FormElement from '../../../common/FormElement'
 import { RHFRadio } from '../../../common/rhf/RHFRadio'
-import { Alert, BodyLong, Label, Panel } from '@navikt/ds-react'
+import { Alert, BodyLong, HelpText, Label, Panel } from '@navikt/ds-react'
 import useTranslation from '../../../../hooks/useTranslation'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
 import FormGroup from '../../../common/FormGroup'
 import { ParentRelationType } from '../../../../types/person'
 import { ApplicantRole, ApplicantSituation } from '../../scenario/ScenarioSelection'
 import { nameAndFnr } from '../../../../utils/personalia'
-import Hjelpetekst from '../../../../utils/Hjelpetekst'
 import styled from 'styled-components'
 
 interface Props {
@@ -35,7 +34,7 @@ export default function ParentQuestion({ parents }: Props) {
                         <HelpTextLabel>
                             <Label as={'span'}>
                                 {t('whoAreTheParents')}&nbsp;
-                                {isParent && <Hjelpetekst>{t('whoAreTheParentsHelpText')}</Hjelpetekst>}
+                                {isParent && <HelpText placement={'top'}>{t('whoAreTheParentsHelpText')}</HelpText>}
                             </Label>
                         </HelpTextLabel>
                     }

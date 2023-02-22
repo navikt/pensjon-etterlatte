@@ -1,8 +1,8 @@
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { StepType } from '../../utils/steps'
-import { BodyShort, StepIndicator } from '@navikt/ds-react'
+import { Stepper } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { ActionTypes } from '../../context/application/application'
 import { isDev } from '../../api/axios'
 import PageNotFound from '../error/PageNotFound'
@@ -27,40 +27,29 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
     const currentIndex = steps.findIndex((step) => pathname.includes(step.path))
 
     const [visitedPaths, setVisitedPaths] = useState<StepType[]>(steps.slice(0, currentIndex + 1))
-    const visitNavigate = (step: StepType) => {
+    const visitNavigate = (stepIndex: number) => {
+        const step = steps[stepIndex]
         setVisitedPaths([...visitedPaths, step])
         navigate(`${pathPrefix}${step.path}`)
     }
 
-    const [width, setWindowWidth] = useState(window.innerWidth)
+    const next = currentIndex < steps.length - 1 ? () => visitNavigate(currentIndex + 1) : undefined
 
-    const next = currentIndex < steps.length - 1 ? () => visitNavigate(steps[currentIndex + 1]) : undefined
-
-    const prev = currentIndex > 0 ? () => visitNavigate(steps[currentIndex - 1]) : undefined
-
-    useEffect(() => {
-        window.addEventListener('resize', updateDimensions)
-        return () => window.removeEventListener('resize', updateDimensions)
-    }, [])
-
-    const updateDimensions = () => {
-        const width = window.innerWidth
-        setWindowWidth(width)
-    }
+    const prev = currentIndex > 0 ? () => visitNavigate(currentIndex - 1) : undefined
 
     return (
         <>
-            <StepIndicator activeStep={currentIndex} responsive={width < 1024}>
+            <Stepper
+                activeStep={currentIndex}
+                onStepChange={(step) => isDev && visitNavigate(step - 1)}
+                orientation={'horizontal'}
+            >
                 {steps.map((step) => (
-                    <StepIndicator.Step
-                        key={uuid()}
-                        onClick={() => isDev && visitNavigate(step)}
-                        disabled={isDev && !visitedPaths.includes(step)}
-                    >
-                        <BodyShort>{t(step.label)}</BodyShort>
-                    </StepIndicator.Step>
+                    <Stepper.Step key={uuid()} interactive={visitedPaths.includes(step)}>
+                        {t(step.label)}
+                    </Stepper.Step>
                 ))}
-            </StepIndicator>
+            </Stepper>
 
             <Routes>
                 {steps.map((step: StepType) => (

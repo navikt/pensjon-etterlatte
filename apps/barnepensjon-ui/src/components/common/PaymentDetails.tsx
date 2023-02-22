@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Heading, Panel } from '@navikt/ds-react'
+import { Alert, BodyShort, Heading, HelpText, Panel } from '@navikt/ds-react'
 import { RadioProps } from 'nav-frontend-skjema'
 import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
@@ -6,7 +6,6 @@ import useTranslation from '../../hooks/useTranslation'
 import FormElement from './FormElement'
 import { RHFGeneralQuestionRadio, RHFInlineRadio } from './rhf/RHFRadio'
 import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from './rhf/RHFInput'
-import Hjelpetekst from '../../utils/Hjelpetekst'
 import FormGroup from './FormGroup'
 import WhyWeAsk from './WhyWeAsk'
 import { useFormContext } from 'react-hook-form'
@@ -67,7 +66,7 @@ export default function PaymentDetails() {
                                 <HelpTextLabel>
                                     {t('iban')}
                                     &nbsp;
-                                    <Hjelpetekst>{t('ibanHelpText')}</Hjelpetekst>
+                                    <HelpText placement={'top'}>{t('ibanHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
                         />
@@ -79,7 +78,7 @@ export default function PaymentDetails() {
                                 <HelpTextLabel>
                                     {t('swift')}
                                     &nbsp;
-                                    <Hjelpetekst>{t('swiftHelpText')}</Hjelpetekst>
+                                    <HelpText placement={'top'}>{t('swiftHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
                         />
