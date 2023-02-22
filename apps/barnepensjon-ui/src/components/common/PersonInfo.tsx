@@ -44,7 +44,7 @@ export default function PersonInfo({ duplicateList }: Props) {
                     </Cell>
 
                     <Cell xs={12} md={6}>
-                        <RHFSelect name={`citizenship`} label={t('citizenship')} selectOptions={countries} />
+                        <RHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
                     </Cell>
                 </Grid>
             </FormElement>

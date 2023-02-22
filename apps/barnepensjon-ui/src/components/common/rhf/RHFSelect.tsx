@@ -1,5 +1,5 @@
-import React, { SelectHTMLAttributes, ReactNode } from 'react'
-import { Select } from 'nav-frontend-skjema'
+import React from 'react'
+import { Select, SelectProps } from '@navikt/ds-react'
 import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
 import { get } from 'lodash'
@@ -13,14 +13,13 @@ interface SelectOption {
     label: string
 }
 
-interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+interface RHFProps extends Omit<SelectProps, 'name'> {
     name: FieldPath<FieldValues>
-    label?: ReactNode
-    selectOptions: SelectOption[]
+    children: SelectOption[]
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
 }
 
-export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: SelectProps) => {
+export const RHFSelect = ({ name, label, children, rules, ...rest }: RHFProps) => {
     const { t } = useTranslation('error')
 
     const {
@@ -41,14 +40,12 @@ export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: Select
                     <Select
                         {...rest}
                         value={value || ''}
-                        selected={value || ''}
                         onChange={(e) => onChange((e.target as HTMLSelectElement).value)}
                         onBlur={onBlur}
                         label={label}
-                        bredde={'l'}
-                        feil={errorMsg}
+                        error={errorMsg}
                     >
-                        {selectOptions.map((option) => (
+                        {children.map((option) => (
                             <option key={uuid()} value={option.value}>
                                 {option.label}
                             </option>

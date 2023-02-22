@@ -50,7 +50,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                 <RHFSelect
                                     name={`staysAbroad.abroadStays[${index}].country`}
                                     label={t('abroadInWhichCountry')}
-                                    selectOptions={countries}
+                                    children={countries}
                                 />
                             </Cell>
                             <Cell xs={12} md={6}>
