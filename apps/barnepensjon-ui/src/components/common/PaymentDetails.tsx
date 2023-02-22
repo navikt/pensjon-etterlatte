@@ -1,5 +1,4 @@
-import { Alert, BodyShort, Heading, HelpText, Panel } from '@navikt/ds-react'
-import { RadioProps } from 'nav-frontend-skjema'
+import { Alert, BodyShort, Heading, HelpText, Panel, RadioProps } from '@navikt/ds-react'
 import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
 import useTranslation from '../../hooks/useTranslation'
@@ -30,8 +29,8 @@ export default function PaymentDetails() {
                     id={'accountTypeSelection'}
                     name={'paymentDetails.accountType'}
                     legend={t('accountType')}
-                    radios={Object.values(BankkontoType).map((value) => {
-                        return { label: t(value), value } as RadioProps
+                    children={Object.values(BankkontoType).map((value) => {
+                        return { children: t(value), value } as RadioProps
                     })}
                 />
             </FormElement>

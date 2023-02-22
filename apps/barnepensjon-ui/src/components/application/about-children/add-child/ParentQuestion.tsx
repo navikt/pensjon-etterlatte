@@ -39,9 +39,9 @@ export default function ParentQuestion({ parents }: Props) {
                         </HelpTextLabel>
                     }
                     name={'parents'}
-                    radios={[
+                    children={[
                         {
-                            label: isParent
+                            children: isParent
                                 ? t('jointChild', { person1: nameAndFnr(application.secondParent!) })
                                 : t('bothOfTheAbove', {
                                       person1: nameAndFnr(application.firstParent!),
@@ -51,12 +51,12 @@ export default function ParentQuestion({ parents }: Props) {
                             required: true,
                         },
                         {
-                            label: isParent ? t('remainingParentsChild') : nameAndFnr(application.firstParent!),
+                            children: isParent ? t('remainingParentsChild') : nameAndFnr(application.firstParent!),
                             value: ParentRelationType.FIRST_PARENT,
                             required: true,
                         },
                         {
-                            label: nameAndFnr(application.secondParent!),
+                            children: nameAndFnr(application.secondParent!),
                             value: ParentRelationType.SECOND_PARENT,
                             required: true,
                         },
