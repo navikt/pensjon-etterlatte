@@ -59,7 +59,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                         name={`staysAbroad.abroadStays[${index}].type`}
                                         legend={t('livedOrWorkedAbroad')}
                                         checkboxes={Object.values(OppholdUtlandType).map((value) => {
-                                            return { label: t(value), value, required: true }
+                                            return { children: t(value), value, required: true }
                                         })}
                                     />
                                 </StaysAbroadCheckboxDiv>

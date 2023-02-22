@@ -43,17 +43,17 @@ export default function YourSituation({ next, prev }: StepProps) {
                         legend={t('whyDoYouApply')}
                         checkboxes={[
                             {
-                                label: t(ApplicationReasonType.EDUCATION),
+                                children: t(ApplicationReasonType.EDUCATION),
                                 value: ApplicationReasonType.EDUCATION,
                                 required: true,
                             },
                             {
-                                label: t(ApplicationReasonType.APPRENTICE),
+                                children: t(ApplicationReasonType.APPRENTICE),
                                 value: ApplicationReasonType.APPRENTICE,
                                 required: true,
                             },
                             {
-                                label: t(ApplicationReasonType.INTERNSHIP),
+                                children: t(ApplicationReasonType.INTERNSHIP),
                                 value: ApplicationReasonType.INTERNSHIP,
                                 required: true,
                             },
