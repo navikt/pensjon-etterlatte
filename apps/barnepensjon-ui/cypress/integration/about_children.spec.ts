@@ -13,7 +13,7 @@ describe('About Children', () => {
 
     it('should not be allowed to continue without adding a child', function () {
         cy.clickBtn(Button.Next)
-        cy.get('.typo-feilmelding').should('have.text', 'Du må søke om barnepensjon for minst ett barn.')
+        cy.get('.navds-error-message').should('have.text', 'Du må søke om barnepensjon for minst ett barn.')
     })
 
     it('should be able to apply for joint child under 18 years', function () {

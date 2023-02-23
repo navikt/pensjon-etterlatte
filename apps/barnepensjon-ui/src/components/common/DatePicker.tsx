@@ -69,6 +69,7 @@ const DatePicker = ({
                     }}
                     render={({ field: { onChange, value } }) => (
                         <Datepicker
+                            id={name}
                             showYearSelector={true}
                             locale={language as DatepickerLocales}
                             value={value}
