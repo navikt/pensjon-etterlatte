@@ -32,7 +32,15 @@ const parseDate = (dato?: Date | string) => {
 
 const isValid = (date: any): boolean => !!parseDate(date)
 
-const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, className }: DatePickerProps) => {
+const DatePicker = ({
+    name,
+    label,
+    description,
+    minDate = new Date('01-01-1900'),
+    maxDate = new Date(),
+    valgfri,
+    className,
+}: DatePickerProps) => {
     const { t } = useTranslation('common')
     const { language } = useLanguageContext()
 
