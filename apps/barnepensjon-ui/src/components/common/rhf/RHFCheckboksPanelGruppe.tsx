@@ -50,7 +50,7 @@ export function RHFCheckboksGruppe({ name, checkboxes, ...rest }: RHFCheckboksGr
         formState: { errors },
     } = useFormContext()
 
-    const error: FieldError = get(errors, name)
+    const error: FieldError = get(errors, name) as FieldError
     const feilmelding = !!error ? t(getErrorKey(error)) : undefined
 
     return (

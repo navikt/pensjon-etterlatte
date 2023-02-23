@@ -13,7 +13,7 @@ interface SelectOption {
     label: string
 }
 
-interface RHFProps extends Omit<SelectProps, 'name'> {
+interface RHFProps extends Omit<SelectProps, 'name' | 'children'> {
     name: FieldPath<FieldValues>
     children: SelectOption[]
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
@@ -27,7 +27,7 @@ export const RHFSelect = ({ name, label, children, rules, ...rest }: RHFProps) =
         formState: { errors },
     } = useFormContext()
 
-    const error: FieldError = get(errors, name)
+    const error: FieldError = get(errors, name) as FieldError
     const errorMsg = !!error ? t(getErrorKey(error)) : undefined
 
     return (

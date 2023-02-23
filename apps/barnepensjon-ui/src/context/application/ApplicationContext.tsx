@@ -1,8 +1,9 @@
-import { createContext, FC, useContext, useReducer } from 'react'
+import React, { createContext, FC, useContext, useReducer } from 'react'
 import mockChildJson from '../../assets/mocks/mock-child.json'
 import mockGuardianJson from '../../assets/mocks/mock-guardian.json'
 import mockParentJson from '../../assets/mocks/mock-parent.json'
 import { ActionTypes, ApplicationProps, emptyApplication, IApplication, IApplicationAction } from './application'
+import { FCProps } from '../../types/FCProps'
 
 const initialState: IApplication = emptyApplication
 
@@ -130,7 +131,7 @@ export const ApplicationContext = createContext<ApplicationProps>({
 
 const useApplicationContext = () => useContext(ApplicationContext)
 
-const ApplicationProvider: FC = ({ children }) => {
+const ApplicationProvider: FC<FCProps> = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     return <ApplicationContext.Provider value={{ state, dispatch }}>{children}</ApplicationContext.Provider>

@@ -41,7 +41,7 @@ const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, class
         formState: { errors },
     } = useFormContext()
 
-    const error: FieldError = get(errors, name)
+    const error: FieldError = get(errors, name) as FieldError
     const errorMessage = !!error ? t(getErrorKey(error), { ns: 'error' }) : undefined
 
     return (

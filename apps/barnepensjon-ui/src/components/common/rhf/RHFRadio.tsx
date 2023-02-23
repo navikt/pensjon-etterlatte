@@ -74,7 +74,7 @@ export const RHFInlineRadio = ({
         formState: { errors },
     } = useFormContext()
 
-    const error: FieldError = get(errors, name)
+    const error: FieldError = get(errors, name) as FieldError
     const errorMsg = !!error ? t(getErrorKey(error)) : undefined
 
     return (
@@ -108,7 +108,7 @@ export const RHFInlineRadio = ({
     )
 }
 
-interface RHFRadioProps extends Omit<RadioGroupProps, 'onChange'> {
+interface RHFRadioProps extends Omit<RadioGroupProps, 'onChange' | 'children'> {
     name: FieldPath<FieldValues>
     description?: ReactNode
     children: RadioProps[]
@@ -122,7 +122,7 @@ export function RHFRadio({ name, legend, description, children, rules, ...rest }
         formState: { errors },
     } = useFormContext()
 
-    const error: FieldError = get(errors, name)
+    const error: FieldError = get(errors, name) as FieldError
     const errorMsg = !!error ? t(getErrorKey(error)) : undefined
 
     return (
