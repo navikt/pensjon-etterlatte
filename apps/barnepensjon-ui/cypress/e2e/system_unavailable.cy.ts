@@ -1,6 +1,6 @@
 import { basePath } from '../util/constants'
 
-describe('System Unavailable', () => {
+describe('System Unavailable', { testIsolation: false }, () => {
     before(() => {
         cy.intercept('GET', `${basePath}/api/person/innlogget`, { statusCode: 404 }).as('loggedInUser')
         cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')
@@ -24,6 +24,7 @@ describe('System Unavailable', () => {
         cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')
 
         cy.get('.navds-button').should('be.enabled').should('have.text', 'Prøv igjen').click()
+        cy.on('uncaught:exception', () => false)
 
         cy.wait(['@loggedInUser', '@getApplication', '@getExpirationTimeForLoggedInUser'])
         cy.url().should('not.include', 'system-utilgjengelig')

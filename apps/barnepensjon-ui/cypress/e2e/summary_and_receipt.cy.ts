@@ -1,6 +1,6 @@
 import { basePath, Button } from '../util/constants'
 
-describe('Summary and Receipt', () => {
+describe('Summary and Receipt', { testIsolation: false }, () => {
     before(() => {
         cy.startApplication('user')
             .agreeToTerms()
