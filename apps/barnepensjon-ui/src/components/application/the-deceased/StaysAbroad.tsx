@@ -36,10 +36,9 @@ export default function StaysAbroad({ countries }: { countries: any }) {
 
     useEffect(() => {
         if (fields.length === 0) {
-            remove(0)
             append({})
         }
-    }, [append, fields, remove])
+    })
 
     return (
         <>
