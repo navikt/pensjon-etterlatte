@@ -1553,10 +1553,10 @@
   resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.3.1.tgz#32b98dda7ee929efae13ff5f3f1c77f9716e4bb1"
   integrity sha512-YFfgVi+zvPqd51ZNJgKWXMoYt7rhElPwkhgRPCuY44wFk9bwq8GczeENcp+KEDiJ2EqpxwuqVmzaV4C3PYcv9Q==
 
-"@navikt/ds-datepicker@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-datepicker/-/ds-datepicker-4.1.0.tgz#4afa0fd74ed5dd4b5f54eb42ff5a57985188f388"
-  integrity sha512-41TkCQuCzh+zymFMEOJF4jH0RfSAocD3wxVExxfo0yA2NzK87PgjU3Reg36ulbRhGBGyQNwmtNGlIEAfQU0HwA==
+"@navikt/ds-datepicker@4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-datepicker/-/ds-datepicker-4.1.2.tgz#a03079dfe482ffd281e7073f7471d1da88d23243"
+  integrity sha512-inpK8HxUzVwmfT088N6ZzVtInYIWTSm2JWI1MWAStZ7ti/+mfi1U6akzg7g1VW23anmPXb5wL2GncBX417oLcA==
   dependencies:
     "@navikt/ds-css" "2.3.1"
     "@navikt/ds-react" "2.3.1"
