@@ -1617,12 +1617,10 @@
   dependencies:
     uuid "^8.3.2"
 
-"@navikt/ds-icons@^0.8.10":
-  version "0.8.10"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-0.8.10.tgz#4d593b4ec98a44cbace34918f6c40d1071ee4a84"
-  integrity sha512-oijRsA3qNCtRZjQ6J2KABtW0PVCuE/LBE8w/03K5zZPa6naJG7Jyyjo8i0p/9GMoef5p7H42o36jOBUGIstznw==
-  dependencies:
-    uuid "^8.3.2"
+"@navikt/ds-icons@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.4.0.tgz#3878e7930fe35a9a569204a07a0b5514fe9971b4"
+  integrity sha512-FEEX0qFkaYHT5SMHkRcnX+pSeDxPALbf+GcmJI0k0mshb2bE336PsfM3peAECr+PQV/2axjgMl448I1sAll3Sg==
 
 "@navikt/ds-react@^0.11.0":
   version "0.11.10"
