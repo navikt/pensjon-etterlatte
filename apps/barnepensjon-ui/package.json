@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "/barnepensjon/soknad",
   "dependencies": {
-    "@navikt/ds-css": "^0.15.1",
+    "@navikt/ds-css": "^2.4.0",
     "@navikt/ds-datepicker": "^2.0.0",
     "@navikt/ds-icons": "^0.8.10",
     "@navikt/ds-react": "^0.16.1",
