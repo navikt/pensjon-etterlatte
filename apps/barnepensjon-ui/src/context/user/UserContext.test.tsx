@@ -1,10 +1,12 @@
-import { act, renderHook } from '@testing-library/react-hooks'
+import { act } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { ActionTypes, User } from './user'
 import { UserProvider, useUserContext } from './UserContext'
 import React from 'react'
+import { FCProps } from '../../types/FCProps'
 
 const setup = () => {
-    const wrapper: React.FC = ({ children }) => <UserProvider>{children}</UserProvider>
+    const wrapper: React.FC<FCProps> = ({ children }) => <UserProvider>{children}</UserProvider>
 
     return renderHook(() => useUserContext(), { wrapper })
 }

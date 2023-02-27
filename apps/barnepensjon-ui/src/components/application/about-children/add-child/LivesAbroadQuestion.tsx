@@ -31,7 +31,7 @@ export const LivesAbroadQuestion = ({ isChild, countries, livesAbroadAnswer }: P
                             id={'staysAbroadCountry'}
                             name={'staysAbroad.country'}
                             label={t('stayAbroadCountry')}
-                            selectOptions={countries}
+                            children={countries}
                         />
                     </FormElement>
 

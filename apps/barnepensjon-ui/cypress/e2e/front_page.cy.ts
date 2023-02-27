@@ -1,6 +1,6 @@
 import { Button } from '../util/constants'
 
-describe('Front Page', () => {
+describe('Front Page', { testIsolation: false }, () => {
     before(() => {
         cy.startApplication('user')
     })

@@ -1,8 +1,7 @@
-import { Alert, BodyShort, Cell, Grid, Label } from '@navikt/ds-react'
+import { Alert, BodyShort, Cell, Grid, Label, HelpText } from '@navikt/ds-react'
 import styled from 'styled-components'
 import { User } from '../../../context/user/user'
 import useTranslation from '../../../hooks/useTranslation'
-import Hjelpetekst from '../../../utils/Hjelpetekst'
 import FormGroup from '../../common/FormGroup'
 import FormElement from '../../common/FormElement'
 import { fullAdresse } from '../../../utils/personalia'
@@ -52,7 +51,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                             <HelpTextLabel>
                                 <Label as={'span'}>
                                     {t('phoneNumber')}&nbsp;
-                                    <Hjelpetekst>{t('phoneNumberHelpText')}</Hjelpetekst>
+                                    <HelpText placement={'top'}>{t('phoneNumberHelpText')}</HelpText>
                                 </Label>
                                 <BodyShort spacing>{user.telefonnummer}</BodyShort>
                             </HelpTextLabel>

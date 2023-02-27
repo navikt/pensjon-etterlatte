@@ -18,7 +18,7 @@ describe('About The Deceased - PARENT', () => {
     })
 })
 
-describe('About The Deceased - GUARDIAN - ONE PARENT', () => {
+describe('About The Deceased - GUARDIAN - ONE PARENT', { testIsolation: false }, () => {
     before(() => {
         cy.startApplication('user')
             .agreeToTerms()
@@ -51,7 +51,7 @@ describe('About The Deceased - GUARDIAN - ONE PARENT', () => {
     })
 })
 
-describe('About The Deceased - GUARDIAN - BOTH PARENTS', () => {
+describe('About The Deceased - GUARDIAN - BOTH PARENTS', { testIsolation: false }, () => {
     before(() => {
         cy.startApplication('user')
             .agreeToTerms()

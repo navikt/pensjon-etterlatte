@@ -1,9 +1,10 @@
-import { FC } from 'react'
+import React from 'react'
 import { ApplicationProvider } from './application/ApplicationContext'
 import { UserProvider } from './user/UserContext'
 import { LanguageProvider } from './language/LanguageContext'
+import { FCProps } from '../types/FCProps'
 
-const ContextProviders: FC = ({ children }) => {
+const ContextProviders: React.FC<FCProps> = ({ children }) => {
     return (
         <LanguageProvider>
             <ApplicationProvider>

@@ -1,13 +1,12 @@
 import FormElement from '../../../common/FormElement'
 import { RHFRadio } from '../../../common/rhf/RHFRadio'
-import { Alert, BodyLong, Label, Panel } from '@navikt/ds-react'
+import { Alert, BodyLong, HelpText, Label, Panel } from '@navikt/ds-react'
 import useTranslation from '../../../../hooks/useTranslation'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
 import FormGroup from '../../../common/FormGroup'
 import { ParentRelationType } from '../../../../types/person'
 import { ApplicantRole, ApplicantSituation } from '../../scenario/ScenarioSelection'
 import { nameAndFnr } from '../../../../utils/personalia'
-import Hjelpetekst from '../../../../utils/Hjelpetekst'
 import styled from 'styled-components'
 
 interface Props {
@@ -35,14 +34,14 @@ export default function ParentQuestion({ parents }: Props) {
                         <HelpTextLabel>
                             <Label as={'span'}>
                                 {t('whoAreTheParents')}&nbsp;
-                                {isParent && <Hjelpetekst>{t('whoAreTheParentsHelpText')}</Hjelpetekst>}
+                                {isParent && <HelpText placement={'top'}>{t('whoAreTheParentsHelpText')}</HelpText>}
                             </Label>
                         </HelpTextLabel>
                     }
                     name={'parents'}
-                    radios={[
+                    children={[
                         {
-                            label: isParent
+                            children: isParent
                                 ? t('jointChild', { person1: nameAndFnr(application.secondParent!) })
                                 : t('bothOfTheAbove', {
                                       person1: nameAndFnr(application.firstParent!),
@@ -52,12 +51,12 @@ export default function ParentQuestion({ parents }: Props) {
                             required: true,
                         },
                         {
-                            label: isParent ? t('remainingParentsChild') : nameAndFnr(application.firstParent!),
+                            children: isParent ? t('remainingParentsChild') : nameAndFnr(application.firstParent!),
                             value: ParentRelationType.FIRST_PARENT,
                             required: true,
                         },
                         {
-                            label: nameAndFnr(application.secondParent!),
+                            children: nameAndFnr(application.secondParent!),
                             value: ParentRelationType.SECOND_PARENT,
                             required: true,
                         },
