@@ -45,7 +45,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
     "@types/uuid": "^9.0.1",
-    "cypress": "^12.6.0",
+    "cypress": "^12.7.0",
     "prettier": "^2.6.2"
   },
   "scripts": {
