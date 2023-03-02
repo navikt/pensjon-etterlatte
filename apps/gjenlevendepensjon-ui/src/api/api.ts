@@ -80,7 +80,7 @@ export const sendSoeknad = async (request: SoeknadRequest) => {
         const response = await api.post("/api/api/soeknad", body);
         return response.status;
     } catch (e) {
-        throw new Error(`Det skjedde en feil: ${e.message}`);
+        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`);
     }
 };
 
@@ -92,6 +92,11 @@ export const hentLand = async () => {
         const response = await api.get("/api/kodeverk/alleland");
         return response.data;
     } catch (e) {
-        throw new Error(`Det skjedde en feil: ${e.message}`);
+        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`);
     }
 };
+
+const getErrorMessage = (error: unknown) => {
+    if (error instanceof Error) return error.message
+    else return String(error)
+}

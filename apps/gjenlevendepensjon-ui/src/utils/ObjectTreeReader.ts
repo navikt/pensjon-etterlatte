@@ -54,7 +54,7 @@ export default class ObjectTreeReader {
         });
     }
 
-    traverse<T>(object: T, baseKey?: string): Innhold[] {
+    traverse<T extends object>(object: T, baseKey?: string): Innhold[] {
         return Object.entries(object)
             .filter(value => !!value[1])
             .flatMap(value => {
