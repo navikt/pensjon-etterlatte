@@ -13,7 +13,7 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad
+    - https://etterlatte.intern.dev.nav.no/gjenlevendepensjon/soknad
   liveness:
     path: /gjenlevendepensjon/soknad/isAlive
     initialDelay: 10
@@ -42,7 +42,7 @@ spec:
     clientUri: https://www.dev.nav.no
     frontchannelLogoutPath: /gjenlevendepensjon/soknad/logout
     postLogoutRedirectURIs:
-      - https://etterlatte.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
+      - https://etterlatte.intern.dev.nav.no/gjenlevendepensjon/soknad/logout/callback
     accessTokenLifetime: 3600
     sessionLifetime: 3600
     sidecar:
