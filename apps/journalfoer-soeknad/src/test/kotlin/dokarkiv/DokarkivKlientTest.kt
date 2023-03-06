@@ -86,7 +86,7 @@ internal class DokarkivKlientTest {
         val klient = opprettKlient(mapper.writeValueAsString(response), HttpStatusCode.BadRequest)
 
         try {
-            runBlocking { klient.journalfoerDok(dummyRequest()) }
+            runBlocking { klient.journalfoerDok(dummyRequest(), false) }
         } catch (re: ResponseException) {
             assertTrue(response.message!! in re.message!!)
         }
