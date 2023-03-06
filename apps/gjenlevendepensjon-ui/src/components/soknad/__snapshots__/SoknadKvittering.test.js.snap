@@ -46,8 +46,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
         class="navds-alert navds-alert--info navds-alert--medium"
       >
         <svg
-          alt="info-ikon"
-          aria-label="info-ikon"
+          aria-labelledby="title-aksel-icon-1"
           class="navds-alert__icon"
           fill="none"
           focusable="false"
@@ -57,10 +56,15 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <title
+            id="title-aksel-icon-1"
+          >
+            Informasjon
+          </title>
           <path
             clip-rule="evenodd"
-            d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0zM9 19v-2h2v-5H9v-2h4v7h2v2H9zm3-14a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"
-            fill="currentColor"
+            d="M0 12C0 5.382 5.382 0 12 0c6.617 0 12 5.382 12 12s-5.383 12-12 12C5.382 24 0 18.618 0 12Zm12-7a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM9 19v-2h2v-5H9v-2h4v7h2v2H9Z"
+            fill="#368DA8"
             fill-rule="evenodd"
           />
         </svg>
@@ -260,7 +264,8 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             soeknadKvittering.spoersmaal.knapp
           </span>

@@ -2,8 +2,12 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFBicInput, RHFIbanInput, RHFInput } from "../../../felles/RHFInput";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Hjelpetekst from "../../../felles/Hjelpetekst";
-import { Heading } from "@navikt/ds-react";
+import {Heading, HelpText} from "@navikt/ds-react";
+import styled from "styled-components";
+
+const HelpTextLabel = styled.div`
+    display: flex;
+`
 
 const UtenlandskBankInfo = () => {
     const { t } = useTranslation()
@@ -28,10 +32,10 @@ const UtenlandskBankInfo = () => {
                 name={"utbetalingsInformasjon.iban"}
                 bredde={"XL"}
                 label={(
-                    <>
+                    <HelpTextLabel>
                         {t("omDeg.utbetalingsInformasjon.iban")}
-                        &nbsp;<Hjelpetekst>{t("omDeg.utbetalingsInformasjon.ibanHjelpetekst")}</Hjelpetekst>
-                    </>
+                        &nbsp;<HelpText>{t("omDeg.utbetalingsInformasjon.ibanHjelpetekst")}</HelpText>
+                    </HelpTextLabel>
                 )}
             />
 
@@ -39,10 +43,10 @@ const UtenlandskBankInfo = () => {
                 name={"utbetalingsInformasjon.swift"}
                 bredde={"M"}
                 label={(
-                    <>
+                    <HelpTextLabel>
                         {t("omDeg.utbetalingsInformasjon.swift")}
-                        &nbsp;<Hjelpetekst>{t("omDeg.utbetalingsInformasjon.swiftHjelpetekst")}</Hjelpetekst>
-                    </>
+                        &nbsp;<HelpText>{t("omDeg.utbetalingsInformasjon.swiftHjelpetekst")}</HelpText>
+                    </HelpTextLabel>
                 )}
             />
 

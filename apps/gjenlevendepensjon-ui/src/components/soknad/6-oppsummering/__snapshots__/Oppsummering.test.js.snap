@@ -41,7 +41,8 @@ exports[`Oppsummering Snapshot 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.tilbake
         </span>
@@ -51,7 +52,8 @@ exports[`Oppsummering Snapshot 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.sendSoeknad
            
@@ -72,7 +74,8 @@ exports[`Oppsummering Snapshot 1`] = `
       type="button"
     >
       <span
-        class="navds-button__inner navds-body-short"
+        aria-live="polite"
+        class="navds-label"
       >
         knapp.avbryt
       </span>

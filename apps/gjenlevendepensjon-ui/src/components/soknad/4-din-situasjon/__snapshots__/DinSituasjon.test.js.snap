@@ -329,7 +329,8 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           + 
           knapp.leggTilArbeidsforhold
@@ -489,7 +490,8 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           + 
           knapp.leggTilNaeringer
@@ -843,7 +845,8 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 type="button"
               >
                 <span
-                  class="navds-button__inner navds-body-short"
+                  aria-live="polite"
+                  class="navds-label"
                 >
                   <span>
                     hvorforSpoerVi
@@ -929,7 +932,8 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.tilbake
           </span>
@@ -939,7 +943,8 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.neste
           </span>
@@ -959,7 +964,8 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.avbryt
         </span>
@@ -1301,7 +1307,8 @@ exports[`Om den avdøde Snapshot 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           + 
           knapp.leggTilArbeidsforhold
@@ -1655,7 +1662,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                 type="button"
               >
                 <span
-                  class="navds-button__inner navds-body-short"
+                  aria-live="polite"
+                  class="navds-label"
                 >
                   <span>
                     hvorforSpoerVi
@@ -1741,7 +1749,8 @@ exports[`Om den avdøde Snapshot 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.tilbake
           </span>
@@ -1751,7 +1760,8 @@ exports[`Om den avdøde Snapshot 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.neste
           </span>
@@ -1771,7 +1781,8 @@ exports[`Om den avdøde Snapshot 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.avbryt
         </span>

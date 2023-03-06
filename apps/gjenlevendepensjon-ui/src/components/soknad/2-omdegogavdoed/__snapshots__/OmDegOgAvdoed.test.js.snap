@@ -20,11 +20,11 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       aria-invalid="false"
       class="skjemagruppe"
     >
-      <p
+      <label
         class="navds-label"
       >
         omDegOgAvdoed.avdoed.hvem
-      </p>
+      </label>
       <div
         class="navds-grid"
       >
@@ -85,11 +85,11 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       aria-invalid="false"
       class="skjemagruppe"
     >
-      <p
+      <label
         class="navds-label"
       >
         omDegOgAvdoed.avdoed.datoForDoedsfallet
-      </p>
+      </label>
       <section
         class="sc-dmyDGi chgRCf"
       >
@@ -555,7 +555,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.tilbake
           </span>
@@ -565,7 +566,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.neste
           </span>
@@ -585,7 +587,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.avbryt
         </span>
@@ -618,11 +621,11 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       aria-invalid="false"
       class="skjemagruppe"
     >
-      <p
+      <label
         class="navds-label"
       >
         omDegOgAvdoed.avdoed.hvem
-      </p>
+      </label>
       <div
         class="navds-grid"
       >
@@ -683,11 +686,11 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       aria-invalid="false"
       class="skjemagruppe"
     >
-      <p
+      <label
         class="navds-label"
       >
         omDegOgAvdoed.avdoed.datoForDoedsfallet
-      </p>
+      </label>
       <section
         class="sc-dmyDGi chgRCf"
       >
@@ -1004,7 +1007,8 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.tilbake
           </span>
@@ -1014,7 +1018,8 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.neste
           </span>
@@ -1034,7 +1039,8 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.avbryt
         </span>

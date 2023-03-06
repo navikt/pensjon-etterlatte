@@ -27,11 +27,11 @@ exports[`Om den avdøde Snapshot 1`] = `
         <div
           class="kol"
         >
-          <p
+          <label
             class="navds-label"
           >
             omDenAvdoede.fornavn
-          </p>
+          </label>
           <p
             class="navds-body-long"
           />
@@ -39,11 +39,11 @@ exports[`Om den avdøde Snapshot 1`] = `
         <div
           class="kol"
         >
-          <p
+          <label
             class="navds-label"
           >
             omDenAvdoede.etternavn
-          </p>
+          </label>
           <p
             class="navds-body-long"
           />
@@ -369,7 +369,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                   type="button"
                 >
                   <span
-                    class="navds-button__inner navds-body-short"
+                    aria-live="polite"
+                    class="navds-label"
                   >
                     <span>
                       hvorforSpoerVi
@@ -484,7 +485,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                 type="button"
               >
                 <span
-                  class="navds-button__inner navds-body-short"
+                  aria-live="polite"
+                  class="navds-label"
                 >
                   <span>
                     hvorforSpoerVi
@@ -588,7 +590,8 @@ exports[`Om den avdøde Snapshot 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.tilbake
           </span>
@@ -598,7 +601,8 @@ exports[`Om den avdøde Snapshot 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.neste
           </span>
@@ -618,7 +622,8 @@ exports[`Om den avdøde Snapshot 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.avbryt
         </span>

@@ -4,7 +4,7 @@ import { TFunction } from "i18next";
 import { FieldError, FieldErrors } from "react-hook-form/dist/types/errors";
 import { v4 as uuid } from "uuid";
 import { getTransKey } from "../../utils/translation";
-import { ErrorSummary, ErrorSummaryItem } from "@navikt/ds-react";
+import { ErrorSummary } from "@navikt/ds-react";
 
 interface Feil {
     skjemaelementId: string;
@@ -39,9 +39,9 @@ const Feilmeldinger = ({ errors }: { errors: FieldErrors }) => {
                 <SkjemaGruppe key={uuid()}>
                     <ErrorSummary heading={t("feil.tittel")}>
                         {konverterFeilmeldinger(errors, t).map((feil) => (
-                            <ErrorSummaryItem key={feil.skjemaelementId} href={`#${feil.skjemaelementId}`}>
+                            <ErrorSummary.Item key={feil.skjemaelementId} href={`#${feil.skjemaelementId}`}>
                                 {feil.feilmelding}
-                            </ErrorSummaryItem>
+                            </ErrorSummary.Item>
                         ))}
                     </ErrorSummary>
                 </SkjemaGruppe>

@@ -1,17 +1,22 @@
-import {Alert, BodyShort, Cell, Grid, Label} from "@navikt/ds-react";
+import {Alert, BodyShort, Cell, Grid, Label, HelpText} from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { isEmpty } from "lodash";
 import React, { memo } from "react";
 import { fullAdresse } from "../../../utils/adresse";
-import Hjelpetekst from "../../felles/Hjelpetekst";
 import styled from "styled-components";
 
 const InnloggetBrukerAlert = styled(Alert)`
   background: none;
   border: none;
   padding: 0;
+`
+
+const HjelpeTekstLabel = styled.div`
+    .navds-label {
+        display: flex;
+    }
 `
 
 const InnloggetBruker = memo(() => {
@@ -59,11 +64,13 @@ const InnloggetBruker = memo(() => {
                     </div>
 
                     {state.telefonnummer && (
-                        <div>
-                            <Label>{t("felles.telefonnummer")}&nbsp;
-                                <Hjelpetekst>{t("felles.telefonnummerHjelpetekst")}</Hjelpetekst></Label>
+                        <HjelpeTekstLabel>
+                            <Label as={'span'}>
+                                {t("felles.telefonnummer")}&nbsp;
+                                <HelpText>{t("felles.telefonnummerHjelpetekst")}</HelpText>
+                            </Label>
                             <BodyShort spacing>{state.telefonnummer}</BodyShort>
-                        </div>
+                        </HjelpeTekstLabel>
                     )}
                 </Cell>
             </Grid>

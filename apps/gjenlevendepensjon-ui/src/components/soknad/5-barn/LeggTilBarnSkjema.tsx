@@ -9,9 +9,8 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
-import { Alert, BodyShort, Button, Cell, Grid, Heading, Label, Panel } from "@navikt/ds-react";
+import { Alert, BodyShort, Button, Cell, Grid, Heading, Label, Panel, HelpText } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
-import Hjelpetekst from "../../felles/Hjelpetekst";
 import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
@@ -20,6 +19,10 @@ import { useEffect } from "react";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import styled from "styled-components";
 import {NavigasjonsRad, SkjemaGruppeRad, TypoFeilmelding} from "../../felles/StyledComponents";
+
+const HelpTextLabel = styled.div`
+    display: flex;
+`
 
 const EndreBarnKort = styled(Panel)`
     padding: 0;
@@ -227,10 +230,10 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                             <RHFRadio
                                 name={"relasjon"}
                                 legend={(
-                                    <>
+                                    <HelpTextLabel>
                                         {t("omBarn.relasjon")}&nbsp;
-                                        <Hjelpetekst>{t("omBarn.relasjonHjelpetekst")} </Hjelpetekst>
-                                    </>
+                                        <HelpText>{t("omBarn.relasjonHjelpetekst")} </HelpText>
+                                    </HelpTextLabel>
                                 )}
 
                                 radios={Object.values(BarnRelasjon).map(value => {
@@ -313,12 +316,12 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                 <RHFSpoersmaalRadio
                                                     name={"barnepensjon.forskuddstrekk.svar"}
                                                     legend={(
-                                                        <>
+                                                        <HelpTextLabel>
                                                             {t("omBarn.barnepensjon.forskuddstrekk.svar")}&nbsp;
-                                                            <Hjelpetekst>
+                                                            <HelpText>
                                                                 {t("omBarn.barnepensjon.forskuddstrekk.hjelpetekst")}
-                                                            </Hjelpetekst>
-                                                        </>
+                                                            </HelpText>
+                                                        </HelpTextLabel>
                                                     )}
                                                 />
                                             )}

@@ -58,7 +58,8 @@ exports[`HvorforSpoerVi skal rendre hvorfor spør vi som lukket boks 1`] = `
       type="button"
     >
       <span
-        class="navds-button__inner navds-body-short"
+        aria-live="polite"
+        class="navds-label"
       >
         <span>
           hvorforSpoerVi
