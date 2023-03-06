@@ -1,5 +1,4 @@
-import Veileder from "nav-frontend-veileder";
-import ikon from "../../assets/ikoner/veileder.svg";
+import { Veileder } from '../felles/Veileder'
 import React, { useEffect } from "react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Alert, BodyLong, BodyShort, Button, Link, Heading } from "@navikt/ds-react";
@@ -21,9 +20,7 @@ const SoknadKvittering = () => {
     return (
         <ForsideWrapper>
             <SkjemaGruppe className={"center"}>
-                <Veileder>
-                    <img alt="veileder" src={ikon}/>
-                </Veileder>
+                <Veileder></Veileder>
             </SkjemaGruppe>
 
             <SkjemaGruppe className={"center"}>

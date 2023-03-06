@@ -4,8 +4,7 @@ import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import { BekreftCheckboksPanel, SkjemaGruppe } from "nav-frontend-skjema";
-import Veileder from "nav-frontend-veileder";
-import ikon from "../../assets/ikoner/veileder.svg";
+import { Veileder } from '../felles/Veileder'
 import { Alert, BodyLong, Button, Heading, Link } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
@@ -38,8 +37,8 @@ const SoknadForside = () => {
     return (
         <ForsideWrapper>
             <SkjemaGruppe>
-                <Veileder tekst={heiTekst} posisjon="høyre">
-                    <img alt="veileder" src={ikon} />
+                <Veileder>
+                    {heiTekst}
                 </Veileder>
             </SkjemaGruppe>
 

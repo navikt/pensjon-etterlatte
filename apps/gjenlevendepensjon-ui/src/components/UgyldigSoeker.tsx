@@ -1,6 +1,5 @@
 import { useBrukerContext } from "../context/bruker/BrukerContext";
-import Veileder from "nav-frontend-veileder";
-import ikon from "../assets/ikoner/veileder.svg";
+import { Veileder } from './felles/Veileder'
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ActionTypes } from "../context/bruker/bruker";
 import { erForUng } from "../utils/alder";
@@ -8,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { BodyLong, Button, Link } from "@navikt/ds-react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import {NavigasjonsRadSection} from "./felles/StyledComponents";
+import { NavigasjonsRadSection } from "./felles/StyledComponents";
 
 const UgyldigSoeker = () => {
     const history = useHistory();
@@ -37,15 +36,9 @@ const UgyldigSoeker = () => {
     return (
         <>
             <SkjemaGruppe>
-                {brukerErForUng ? (
-                    <Veileder tekst={heiTekst} posisjon="høyre">
-                        <img alt="veileder" src={ikon}/>
+                    <Veileder>
+                        {heiTekst}
                     </Veileder>
-                ) : (
-                    <Veileder tekst={heiTekst} posisjon="høyre">
-                        <img alt="veileder" src={ikon}/>
-                    </Veileder>
-                )}
             </SkjemaGruppe>
 
             <SkjemaGruppe>
