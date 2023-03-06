@@ -3,20 +3,21 @@
 exports[`SoknadKvittering skal matche snapshot 1`] = `
 <div>
   <div
-    class="sc-ktwOSD hWVGfk"
+    class="sc-ifyqMZ iZHBZI"
   >
     <fieldset
       aria-invalid="false"
       class="skjemagruppe center"
     >
       <div
-        class="nav-veileder nav-veileder--flytende"
+        class="sc-beySbM jduCtf"
       >
         <div
-          class="nav-veileder__frame nav-veileder__frame--m"
+          class="sc-guDLRT bqAkam"
         >
           <img
             alt="veileder"
+            class="sc-dmyDGi jfDKjZ"
             src="veileder.svg"
           />
         </div>
@@ -257,7 +258,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       class="skjemagruppe"
     >
       <section
-        class="sc-eDLJxc gaGxPb"
+        class="sc-qZqnM dWTBcO"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
