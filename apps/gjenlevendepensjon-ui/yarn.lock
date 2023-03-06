@@ -1799,10 +1799,10 @@
     less "^4.1.2"
     uuid "^8.3.2"
 
-"@navikt/ds-icons@0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-0.5.2.tgz#3f1525def3c51a247a1f59c4d8fddd112521be9f"
-  integrity sha512-e4bqKbUaWNQ8UewrmJPM1Z43ylMD+uYZJwo3+DOWQKUW1Y5U7ucvVSO0lNtYO1gADXgGiTF2LjCPZbw7BhmdSQ==
+"@navikt/ds-icons@2.6.0", "@navikt/ds-icons@^2.6.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.6.0.tgz#0b6155d61669d9817708bfb703c4b57b23e1754b"
+  integrity sha512-//0sXWPL8TmjP4pcfcPn+tzm4t0gafLhUqs0WRGf/jCQTWO16yHod4PPEc7jXTJeisZpWkcjjsGlasIU5wMMdg==
 
 "@navikt/ds-icons@^0.5.10":
   version "0.5.10"
@@ -1810,11 +1810,6 @@
   integrity sha512-quBaILBT6mznJOUaSXH1bLx5Ao8LFW6Xj5wc/txy9zg07yOAl+60vxyADl2Uk5pl8hfXrflejV9bcxY6zWv/Lg==
   dependencies:
     uuid "^8.3.2"
-
-"@navikt/ds-icons@^2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.6.0.tgz#0b6155d61669d9817708bfb703c4b57b23e1754b"
-  integrity sha512-//0sXWPL8TmjP4pcfcPn+tzm4t0gafLhUqs0WRGf/jCQTWO16yHod4PPEc7jXTJeisZpWkcjjsGlasIU5wMMdg==
 
 "@navikt/ds-react@^0.11.0":
   version "0.11.10"
