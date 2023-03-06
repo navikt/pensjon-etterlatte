@@ -1,25 +1,19 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import ContextProviders from './context/ContextProviders'
 import '@navikt/ds-css'
-import 'nav-frontend-js-utils'
-import 'nav-frontend-core/dist/main.css'
-import 'nav-frontend-skjema-style/dist/main.css'
-import 'nav-frontend-typografi-style/dist/main.css'
-import 'nav-frontend-lenker-style/dist/main.css'
 import { BrowserRouter } from 'react-router-dom'
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <ContextProviders>
                 <App />
             </ContextProviders>
         </BrowserRouter>
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function

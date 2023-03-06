@@ -14,16 +14,18 @@ jobs:
   build-and-publish:
     name: Build & publish
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     env:
-      image: docker.pkg.github.com/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+      image: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
     outputs:
       yarn-lock-hash: ${{ steps.keys.outputs.yarn-lock-hash }}
       image: ${{ env.image }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node 14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
 
@@ -55,13 +57,13 @@ jobs:
 
       # Docker login, build and push
       - name: Login to Docker
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
-          registry: docker.pkg.github.com
+          registry: ghcr.io
           username: ${{ github.repository }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           context: apps/${{ github.workflow }}
           file: docker/frontend.Dockerfile

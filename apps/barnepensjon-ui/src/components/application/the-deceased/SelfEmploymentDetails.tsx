@@ -32,7 +32,6 @@ export default function SelfEmploymentDetails() {
                     <FormElement>
                         <RHFValutaInput
                             name={'selfEmplyment.selfEmplymentDetails.income'}
-                            bredde={'L'}
                             valgfri
                             type="tel"
                             placeholder={t('incomeFromSelfEmploymentBeforeTaxes')}

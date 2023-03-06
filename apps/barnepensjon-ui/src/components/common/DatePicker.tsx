@@ -4,15 +4,13 @@ import { DatepickerLocales } from '@navikt/ds-datepicker/lib/types'
 import { Label } from '@navikt/ds-react'
 import { format, parseISO } from 'date-fns'
 import { get } from 'lodash'
-import { SkjemaelementFeilmelding } from 'nav-frontend-skjema'
 import { ReactNode } from 'react'
 import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { useLanguageContext } from '../../context/language/LanguageContext'
 import useTranslation from '../../hooks/useTranslation'
 import { getErrorKey } from '../../utils/errors'
-import './Datepicker.css'
 
-interface DatepickerProps {
+interface DatePickerProps {
     name: string
     label: ReactNode
     description?: ReactNode
@@ -34,7 +32,15 @@ const parseDate = (dato?: Date | string) => {
 
 const isValid = (date: any): boolean => !!parseDate(date)
 
-const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, className }: DatepickerProps) => {
+const DatePicker = ({
+    name,
+    label,
+    description,
+    minDate = new Date('01-01-1900'),
+    maxDate = new Date(),
+    valgfri,
+    className,
+}: DatePickerProps) => {
     const { t } = useTranslation('common')
     const { language } = useLanguageContext()
 
@@ -43,7 +49,7 @@ const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, class
         formState: { errors },
     } = useFormContext()
 
-    const error: FieldError = get(errors, name)
+    const error: FieldError = get(errors, name) as FieldError
     const errorMessage = !!error ? t(getErrorKey(error), { ns: 'error' }) : undefined
 
     return (
@@ -63,16 +69,17 @@ const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, class
                     }}
                     render={({ field: { onChange, value } }) => (
                         <Datepicker
+                            id={name}
+                            showYearSelector={true}
                             locale={language as DatepickerLocales}
                             value={value}
                             onChange={(date) => onChange(parseDate(date))}
-                            inputId={name}
+                            inputName={name}
                             inputProps={{
-                                name,
                                 placeholder: t('dateExample'),
                             }}
-                            inputLabel={t('dateSRLabel')}
-                            showYearSelector={true}
+                            label={t('dateSRLabel')}
+                            error={errorMessage}
                             limitations={{
                                 minDate: parseDate(minDate),
                                 maxDate: parseDate(maxDate),
@@ -81,8 +88,6 @@ const DatePicker = ({ name, label, description, minDate, maxDate, valgfri, class
                     )}
                 />
             </div>
-
-            {errorMessage && <SkjemaelementFeilmelding>{errorMessage}</SkjemaelementFeilmelding>}
         </section>
     )
 }

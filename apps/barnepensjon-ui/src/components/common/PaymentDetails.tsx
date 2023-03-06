@@ -1,12 +1,10 @@
-import { Alert, BodyShort, Heading, Panel } from '@navikt/ds-react'
-import { RadioProps } from 'nav-frontend-skjema'
+import { Alert, BodyShort, Heading, HelpText, Panel, RadioProps } from '@navikt/ds-react'
 import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
 import useTranslation from '../../hooks/useTranslation'
 import FormElement from './FormElement'
 import { RHFGeneralQuestionRadio, RHFInlineRadio } from './rhf/RHFRadio'
 import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from './rhf/RHFInput'
-import Hjelpetekst from '../../utils/Hjelpetekst'
 import FormGroup from './FormGroup'
 import WhyWeAsk from './WhyWeAsk'
 import { useFormContext } from 'react-hook-form'
@@ -31,8 +29,8 @@ export default function PaymentDetails() {
                     id={'accountTypeSelection'}
                     name={'paymentDetails.accountType'}
                     legend={t('accountType')}
-                    radios={Object.values(BankkontoType).map((value) => {
-                        return { label: t(value), value } as RadioProps
+                    children={Object.values(BankkontoType).map((value) => {
+                        return { children: t(value), value } as RadioProps
                     })}
                 />
             </FormElement>
@@ -40,10 +38,10 @@ export default function PaymentDetails() {
             {accountType === BankkontoType.NORSK && (
                 <FormElement>
                     <RHFKontonummerInput
-                        bredde={'S'}
                         name={'paymentDetails.bankAccount'}
                         label={t('bankAccount')}
                         description={t('information')}
+                        htmlSize={15}
                     />
                 </FormElement>
             )}
@@ -67,7 +65,7 @@ export default function PaymentDetails() {
                                 <HelpTextLabel>
                                     {t('iban')}
                                     &nbsp;
-                                    <Hjelpetekst>{t('ibanHelpText')}</Hjelpetekst>
+                                    <HelpText placement={'top'}>{t('ibanHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
                         />
@@ -79,7 +77,7 @@ export default function PaymentDetails() {
                                 <HelpTextLabel>
                                     {t('swift')}
                                     &nbsp;
-                                    <Hjelpetekst>{t('swiftHelpText')}</Hjelpetekst>
+                                    <HelpText placement={'top'}>{t('swiftHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
                         />
@@ -100,10 +98,10 @@ export default function PaymentDetails() {
                 <>
                     <FormElement>
                         <RHFProsentInput
-                            bredde={'M'}
                             name={'paymentDetails.taxWithhold.taxPercentage'}
                             label={t('desiredTaxPercentage')}
                             placeholder={t('desiredTaxPercentagePlaceholder')}
+                            htmlSize={40}
                         />
                     </FormElement>
                     <FormElement>

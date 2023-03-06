@@ -1,4 +1,3 @@
-import { RadioProps } from 'nav-frontend-skjema'
 import { FormProvider, useForm } from 'react-hook-form'
 import { ActionTypes } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
@@ -12,6 +11,7 @@ import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { RHFGeneralQuestionRadio, RHFInlineRadio } from '../../common/rhf/RHFRadio'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
+import { RadioProps } from '@navikt/ds-react'
 
 export default function YourSituation({ next, prev }: StepProps) {
     const { state, dispatch } = useApplicationContext()
@@ -43,17 +43,17 @@ export default function YourSituation({ next, prev }: StepProps) {
                         legend={t('whyDoYouApply')}
                         checkboxes={[
                             {
-                                label: t(ApplicationReasonType.EDUCATION),
+                                children: t(ApplicationReasonType.EDUCATION),
                                 value: ApplicationReasonType.EDUCATION,
                                 required: true,
                             },
                             {
-                                label: t(ApplicationReasonType.APPRENTICE),
+                                children: t(ApplicationReasonType.APPRENTICE),
                                 value: ApplicationReasonType.APPRENTICE,
                                 required: true,
                             },
                             {
-                                label: t(ApplicationReasonType.INTERNSHIP),
+                                children: t(ApplicationReasonType.INTERNSHIP),
                                 value: ApplicationReasonType.INTERNSHIP,
                                 required: true,
                             },
@@ -65,8 +65,8 @@ export default function YourSituation({ next, prev }: StepProps) {
                     <RHFInlineRadio
                         name={'timeUsedForEducation'}
                         legend={t('timeUsedForEducation')}
-                        radios={Object.values(EducationType).map((value) => {
-                            return { label: t(value), value } as RadioProps
+                        children={Object.values(EducationType).map((value) => {
+                            return { children: t(value), value } as RadioProps
                         })}
                     />
                 </FormElement>

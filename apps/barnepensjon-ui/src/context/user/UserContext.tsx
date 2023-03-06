@@ -1,5 +1,6 @@
-import { createContext, FC, useContext, useReducer } from 'react'
+import React, { createContext, FC, useContext, useReducer } from 'react'
 import { ActionTypes, User, IBrukerAction, StegProps } from './user'
+import { FCProps } from '../../types/FCProps'
 
 const initialState: User = {}
 
@@ -23,7 +24,7 @@ const UserContext = createContext<StegProps>({
 
 const useUserContext = () => useContext(UserContext)
 
-const UserProvider: FC = ({ children }) => {
+const UserProvider: FC<FCProps> = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     return <UserContext.Provider value={{ state, dispatch }}>{children}</UserContext.Provider>

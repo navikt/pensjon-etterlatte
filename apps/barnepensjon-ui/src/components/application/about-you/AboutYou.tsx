@@ -72,10 +72,10 @@ export default function AboutYou({ next }: StepProps) {
                                 <Cell xs={12} md={6}>
                                     <FormElement>
                                         <RHFTelefonInput
-                                            bredde={'S'}
                                             name={'phoneNumber'}
                                             label={t('phoneNumberOptional', { ns: 'common' })}
                                             valgfri={true}
+                                            htmlSize={20}
                                         />
                                     </FormElement>
                                 </Cell>

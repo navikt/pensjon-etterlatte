@@ -31,6 +31,7 @@ i18n.use(initReactI18next).init({
     react: {
         useSuspense: false,
     },
+    returnNull: false,
     resources
 });
 

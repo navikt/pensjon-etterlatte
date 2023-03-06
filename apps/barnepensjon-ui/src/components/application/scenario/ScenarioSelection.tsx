@@ -1,5 +1,4 @@
-import { Alert, BodyLong, Button } from '@navikt/ds-react'
-import { RadioProps } from 'nav-frontend-skjema'
+import { Alert, BodyLong, Button, RadioProps } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes, IApplicant } from '../../../context/application/application'
@@ -10,7 +9,7 @@ import FormGroup from '../../common/FormGroup'
 import { RHFRadio } from '../../common/rhf/RHFRadio'
 import Trans from '../../common/Trans'
 import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
-import FormElement from "../../common/FormElement";
+import FormElement from '../../common/FormElement'
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -60,8 +59,8 @@ export default function ScenarioSelection() {
                 <RHFRadio
                     legend={t('whoIsApplying')}
                     name={'applicantRole'}
-                    radios={Object.values(ApplicantRole).map((value) => {
-                        return { label: t(value), value, required: true } as RadioProps
+                    children={Object.values(ApplicantRole).map((value) => {
+                        return { children: t(value), value, required: true } as RadioProps
                     })}
                 />
             </FormGroup>
@@ -96,14 +95,14 @@ export default function ScenarioSelection() {
                         <RHFRadio
                             legend={t('additionalSituationDetails')}
                             name={'applicantSituation'}
-                            radios={[
+                            children={[
                                 {
-                                    label: t(ApplicantSituation.ONE_PARENT_DECEASED),
+                                    children: t(ApplicantSituation.ONE_PARENT_DECEASED),
                                     value: ApplicantSituation.ONE_PARENT_DECEASED,
                                     required: true,
                                 },
                                 {
-                                    label: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
+                                    children: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
                                     value: ApplicantSituation.BOTH_PARENTS_DECEASED,
                                     required: true,
                                 },
@@ -141,11 +140,6 @@ export default function ScenarioSelection() {
                         <BodyLong size={'small'}>
                             <Trans value={t('childApplicantInformationOver18')} />
                         </BodyLong>
-                    </FormGroup>
-                    <FormGroup>
-                        <Alert variant={'info'}>
-                            <Trans value={t('childApplicantInformationFatherNotConfirmed')} />
-                        </Alert>
                     </FormGroup>
                 </>
             )}

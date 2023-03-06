@@ -48,7 +48,7 @@ Dette er ikke en ideel løsning og burde på sikt forbedres.
 ## Testmiljøet
 
 Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:
-[https://etterlatte.dev.nav.no/barnepensjon/soknad](https://etterlatte.dev.nav.no/barnepensjon/soknad)
+[https://etterlatte.intern.dev.nav.no/barnepensjon/soknad](https://etterlatte.intern.dev.nav.no/barnepensjon/soknad)
 
 Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via Citrix/Utviklerimage.
 

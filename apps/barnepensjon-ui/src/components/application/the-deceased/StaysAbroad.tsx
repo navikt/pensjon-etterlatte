@@ -50,7 +50,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                 <RHFSelect
                                     name={`staysAbroad.abroadStays[${index}].country`}
                                     label={t('abroadInWhichCountry')}
-                                    selectOptions={countries}
+                                    children={countries}
                                 />
                             </Cell>
                             <Cell xs={12} md={6}>
@@ -59,7 +59,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                         name={`staysAbroad.abroadStays[${index}].type`}
                                         legend={t('livedOrWorkedAbroad')}
                                         checkboxes={Object.values(OppholdUtlandType).map((value) => {
-                                            return { label: t(value), value, required: true }
+                                            return { children: t(value), value, required: true }
                                         })}
                                     />
                                 </StaysAbroadCheckboxDiv>

@@ -2,7 +2,7 @@ import { TFunction } from "i18next";
 import { IBruker } from "../context/bruker/bruker";
 import { ISoeknad } from "../context/soknad/soknad";
 import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from "../typer/arbeidsforhold";
-import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed } from "../typer/person";
+import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed, Sivilstatus } from "../typer/person";
 import { ISituasjon } from "../typer/situasjon";
 import { StegPath } from "../typer/steg";
 import ObjectTreeReader, { Element, Gruppe } from "./ObjectTreeReader";
@@ -54,7 +54,7 @@ export default class SoeknadMapper {
                             ...omDeg,
                             nySivilstatus: {
                                 ...omDeg.nySivilstatus,
-                                sivilstatus: this.t(omDeg.nySivilstatus?.sivilstatus || ""),
+                                sivilstatus: this.t(omDeg.nySivilstatus?.sivilstatus || "") as Sivilstatus,
                             },
                             erValidert: undefined,
                         },

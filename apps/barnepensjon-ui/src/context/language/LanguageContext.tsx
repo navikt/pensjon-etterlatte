@@ -1,9 +1,10 @@
-import { createContext, FC, useContext, useState } from 'react'
+import React, { createContext, FC, useContext, useState } from 'react'
 import { Language } from './language'
 import { Namespace, TKey } from './translations'
 import nb from '../../locales/nb'
 import nn from '../../locales/nn'
 import en from '../../locales/en'
+import { FCProps } from '../../types/FCProps'
 
 const initialLanguage = (localStorage.getItem('language') as Language) || Language.BOKMAAL
 const initialTranslations = (nb as Record<Namespace, Record<TKey, any>>) || {}
@@ -24,7 +25,7 @@ const languages = {
     en,
 }
 
-const LanguageProvider: FC = ({ children }) => {
+const LanguageProvider: FC<FCProps> = ({ children }) => {
     const [language, setLanguage] = useState<Language>(initialLanguage)
     const [translations, setTranslations] = useState<Record<Namespace, Record<TKey, any>>>(languages[language])
 
