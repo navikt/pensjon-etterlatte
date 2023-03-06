@@ -151,7 +151,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         // Legg til barn
         mockSoeknad.opplysningerOmBarn.barn.map((barn) => {
-            cy.get(".infokort-wrapper").find('[type="button"]').click();
+            cy.get("[data-testid=legg-til-barn-knapp]").click();
 
             getById("fornavn").type(barn.fornavn);
             getById("etternavn").type(barn.etternavn);

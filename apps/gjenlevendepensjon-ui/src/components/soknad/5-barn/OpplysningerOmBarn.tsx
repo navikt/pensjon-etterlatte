@@ -131,7 +131,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                                 </InfokortHeader>
                                 <InfokortInformasjonsboks>
                                     <div className={"center"}>
-                                        <Button variant={"primary"} type={"button"} onClick={leggtilNyttBarn}>
+                                        <Button data-testid={"legg-til-barn-knapp"} variant={"primary"} type={"button"} onClick={leggtilNyttBarn}>
                                             {t("knapp.leggTilBarn")}
                                         </Button>
                                     </div>

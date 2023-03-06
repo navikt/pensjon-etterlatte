@@ -13,7 +13,7 @@ describe("Skal fortsette og slette tidligere søknad", () => {
         cy.wait(["@hentInnloggetPerson"]);
         cy.wait(["@hentSoeknad"]);
 
-        getById("spoersmaal-modal");
+        cy.get("[data-testid=spoersmaal-modal]");
     });
 
     it("Fortsett søknad skal sende deg til neste side som er klar for utfylling", () => {
