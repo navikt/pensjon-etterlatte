@@ -65,25 +65,24 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="skjemagruppe"
     >
       <div
-        class="infokort-wrapper"
+        class="sc-dmXXqC gnDleB"
       >
         <div
-          class="infokort"
+          class="sc-fsYeqs dbxvg"
         >
           <div
-            class="infokort__header gjennomsiktig"
+            class="sc-jTQDnj FvYRF"
           >
             <img
               alt="barn"
-              class="barneikon"
               src="barn1.svg"
             />
           </div>
           <div
-            class="infokort__informasjonsboks"
+            class="sc-gLLvby ihIMxG"
           >
             <div
-              class="informasjonsboks-innhold"
+              class="center"
             >
               <button
                 class="navds-button navds-button--primary navds-button--medium"
@@ -113,7 +112,7 @@ exports[`Om den avdøde Snapshot 1`] = `
     >
       <fieldset
         aria-invalid="false"
-        class="skjemagruppe inputPanelGruppe inline"
+        class="skjemagruppe inputPanelGruppe sc-hABAzo hrfYkW"
       >
         <legend
           class="skjemagruppe__legend"
@@ -167,10 +166,10 @@ exports[`Om den avdøde Snapshot 1`] = `
     </div>
     <fieldset
       aria-invalid="false"
-      class="skjemagruppe navigasjon-footer"
+      class="skjemagruppe sc-dJGLCQ knSlcY"
     >
       <div
-        class="navigasjon-rad"
+        class="sc-dmyDGi cEmFkl undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -199,7 +198,7 @@ exports[`Om den avdøde Snapshot 1`] = `
     </fieldset>
     <fieldset
       aria-invalid="false"
-      class="skjemagruppe navigasjon-rad"
+      class="skjemagruppe sc-hLQRIN kjwTfL undefined"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

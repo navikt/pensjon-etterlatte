@@ -19,7 +19,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
   <form>
     <fieldset
       aria-invalid="false"
-      class="skjemagruppe skjemagruppering"
+      class="skjemagruppe sc-ifyqMZ eYRqmz"
     >
       <fieldset
         aria-invalid="false"
@@ -92,7 +92,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
     </fieldset>
     <fieldset
       aria-invalid="false"
-      class="skjemagruppe skjemagruppering"
+      class="skjemagruppe sc-ifyqMZ eYRqmz"
     >
       <div
         id="oppholderSegINorge"
@@ -100,7 +100,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         <fieldset
           aria-describedby="123"
           aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe inline"
+          class="skjemagruppe inputPanelGruppe sc-fmKESZ jtyivh"
         >
           <legend
             class="skjemagruppe__legend"
@@ -111,33 +111,35 @@ exports[`Om deg og avdød Snapshot 1`] = `
             class="skjemagruppe__description"
             id="123"
           >
-            <div
-              class="hvorforPanel"
-            >
+            <div>
               <button
                 aria-expanded="false"
-                class="hvorforPanel__toggle"
+                class="sc-beySbM dlVazJ navds-button navds-button--primary navds-button--medium"
                 data-testid="hvorforPanel_toggle"
                 type="button"
               >
-                <span>
-                  hvorforSpoerVi
-                </span>
-                <span>
-                  <svg
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M12 17L3 8.429 4.5 7l7.5 7.143L19.5 7 21 8.429 12 17z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
+                <span
+                  class="navds-button__inner navds-body-short"
+                >
+                  <span>
+                    hvorforSpoerVi
+                  </span>
+                  <span>
+                    <svg
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M12 17L3 8.429 4.5 7l7.5 7.143L19.5 7 21 8.429 12 17z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </button>
             </div>
@@ -237,7 +239,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       >
         <fieldset
           aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe inline"
+          class="skjemagruppe inputPanelGruppe sc-fmKESZ jtyivh"
         >
           <legend
             class="skjemagruppe__legend"
@@ -361,7 +363,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-controls="456"
             aria-expanded="false"
             aria-haspopup="dialog"
-            class="hvorforPanel__toggle navds-button navds-button--secondary navds-button--medium"
+            class="sc-beySbM dlVazJ navds-button navds-button--secondary navds-button--medium"
             data-testid="hjelpetekst-button"
             style="min-width: 30px;"
             type="button"
@@ -422,7 +424,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-controls="456"
             aria-expanded="false"
             aria-haspopup="dialog"
-            class="hvorforPanel__toggle navds-button navds-button--secondary navds-button--medium"
+            class="sc-beySbM dlVazJ navds-button navds-button--secondary navds-button--medium"
             data-testid="hjelpetekst-button"
             style="min-width: 30px;"
             type="button"
@@ -478,10 +480,10 @@ exports[`Om deg og avdød Snapshot 1`] = `
     <br />
     <fieldset
       aria-invalid="false"
-      class="skjemagruppe navigasjon-footer"
+      class="skjemagruppe sc-fHekdT erljpX"
     >
       <div
-        class="navigasjon-rad"
+        class="sc-dmyDGi cEmFkl undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -501,7 +503,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
     </fieldset>
     <fieldset
       aria-invalid="false"
-      class="skjemagruppe navigasjon-rad"
+      class="skjemagruppe sc-hLQRIN kjwTfL undefined"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

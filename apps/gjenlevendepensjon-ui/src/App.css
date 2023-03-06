@@ -1,0 +1,158 @@
+.knapp--hoved {
+    transform: translateY(0) !important;
+}
+
+.knapp--fare {
+    transform: translateY(0) !important;
+}
+
+.mute {
+    color: #666;
+}
+
+.center {
+    text-align: center;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.avbryt-text {
+    margin: 0.5em 0 1em 0;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.kol-75 {
+    flex-basis: 75%;
+}
+
+.kol-50 {
+    flex-basis: 50%;
+}
+
+.kol-25 {
+    flex-basis: 25%;
+}
+
+.kol {
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+.luft-under {
+    margin-bottom: 1.5rem;
+}
+
+.edit-svg {
+    margin-right: 10px;
+    text-underline: none;
+}
+
+.navds-alert--inline {
+     background: none;
+     border: none;
+}
+
+.navds-popover {
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.navds-link,
+.navds-label,
+.navds-body-short,
+.navds-body-long {
+    font-size: 16px;
+}
+
+.bottom-spacing-none {
+    margin-bottom: 0;
+}
+
+.bekreftCheckboksPanel .skjemaelement {
+    margin: 1rem !important;
+}
+
+.blur-text {
+    filter: blur(5px);
+}
+
+.typo-normal {
+    margin: revert; // Bruke p-elementet sin default margin
+}
+
+.typo-element {
+    margin-bottom: 0.5rem;
+}
+
+.tekstgruppe {
+    padding-bottom: 1rem;
+}
+
+.tekstgruppe .typo-normal {
+    margin: 0.2rem 0;
+}
+
+.inputPanelGruppe.inline > .inputPanelGruppe__inner {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 1rem;
+
+}
+
+.inputPanelGruppe.inline > .inputPanelGruppe__inner.radioPanel {
+    margin-bottom: 0;
+    width: 100%;
+    min-width: calc(33.3% - 1rem);
+
+}
+
+@media screen and (min-width: 650px) {
+    .inputPanelGruppe.inline > .inputPanelGruppe__inner.radioPanel {
+        max-width: 33.3%;
+    }
+
+    .skjemagruppe {
+        margin-bottom: 3rem !important;
+    }
+}
+
+.skjemagruppe {
+    margin-bottom: 2rem !important;
+}
+
+.oppsummering.ekspanderbartPanel--border,
+.oppsummering.ekspanderbartPanel--border:hover,
+.oppsummering.ekspanderbartPanel--border.ekspanderbartPanel--apen,
+.oppsummering.ekspanderbartPanel--border.ekspanderbartPanel--apen:hover {
+     border: 0;
+     border-top: 1px solid #6a6a6a;
+     border-radius: 0 !important;
+     box-shadow: none;
+ }
+
+.oppsummering.ekspanderbartPanel__hode:focus {
+    border-radius: 0 !important;
+}
+
+
+
+/**
+Override av snodig oppførsel
+*/
+.skjemaelement__input {
+    width: 100%;
+}
+
+.checkboxgruppe.inline {
+    display: flex;
+    column-gap: 2rem;
+}

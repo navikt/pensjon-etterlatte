@@ -9,7 +9,42 @@ import { useTranslation } from "react-i18next";
 import { parseISO, format } from "date-fns";
 import { get } from "lodash";
 import { getTransKey } from "../../utils/translation";
-import "./Datovelger.scss";
+import styled from "styled-components"
+
+const DatovelgerWrapper = styled.div`
+    > div {
+    width: 100%;
+  }
+  
+  .ds-datepicker {
+  width: 100%;
+
+  input {
+    min-height: 40px;
+  }
+
+  .skjemaelement__input--harFeil:not(:focus):not(:hover):not(:active):not(.inputPanel--focused) {
+    border: none;
+    box-shadow: none;
+    input {
+      border-color: #ba3a26;
+      box-shadow: 0 0 0 1px #ba3a26;
+    }
+  }
+}
+`
+
+interface StyledProps {
+    kol: boolean
+}
+
+const DatovelgerSection = styled.section<StyledProps>`
+    margin-bottom: 0 !important;
+
+    ${props => 
+        props.kol ? "flex-grow: 1; flex-basis: auto;" : ""
+    }  
+`
 
 interface DatovelgerProps {
     name: FieldPath<any>;
@@ -19,6 +54,7 @@ interface DatovelgerProps {
     maxDate?: Date | string;
     valgfri?: boolean;
     className?: string;
+    kol?: boolean;
 }
 
 const parseDate = (dato?: Date | string) => {
@@ -36,7 +72,7 @@ const parseDate = (dato?: Date | string) => {
 
 const isValid = (date: any): boolean => !!parseDate(date);
 
-const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, className }: DatovelgerProps) => {
+const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, kol = false }: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
     const {
         control,
@@ -47,12 +83,12 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
     const feilmelding = t(getTransKey(error));
 
     return (
-        <section className={`skjemaelement ${className}`}>
+        <DatovelgerSection kol={kol}>
             <Label htmlFor={name}>{`${label} ${t("felles.datoformat")}`}</Label>
 
             {description && <div className={"skjemaelement__description"}>{description}</div>}
 
-            <div className="datovelger">
+            <DatovelgerWrapper>
                 <Controller
                     name={name}
                     control={control}
@@ -80,10 +116,10 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
                         />
                     )}
                 />
-            </div>
+            </DatovelgerWrapper>
 
             {feilmelding && <SkjemaelementFeilmelding>{feilmelding}</SkjemaelementFeilmelding>}
-        </section>
+        </DatovelgerSection>
     );
 };
 

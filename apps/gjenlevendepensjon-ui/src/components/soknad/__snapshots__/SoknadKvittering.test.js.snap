@@ -3,7 +3,7 @@
 exports[`SoknadKvittering skal matche snapshot 1`] = `
 <div>
   <div
-    class="forside"
+    class="sc-ktwOSD hWVGfk"
   >
     <fieldset
       aria-invalid="false"
@@ -253,7 +253,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       class="skjemagruppe"
     >
       <section
-        class="navigasjon-rad"
+        class="sc-eDLJxc gaGxPb"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"

@@ -1,12 +1,11 @@
 import { FC, useState } from "react";
-//import { v4 as uuid } from "uuid";
 import { Collapse, Expand } from "@navikt/ds-icons";
 import { BodyLong } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
+import {HvorforPanelButton, HvorforPanelInnhold} from "./StyledComponents";
 
 const HvorforSpoerVi: FC<{title: string, children: any}> = ({ title, children }) => {
-    //const id = uuid();
     const [erApen, setErApen] = useState(false);
     const { t } = useTranslation();
     const { logEvent } = useAmplitude();
@@ -19,22 +18,21 @@ const HvorforSpoerVi: FC<{title: string, children: any}> = ({ title, children })
     };
 
     return (
-        <div className={"hvorforPanel"} /*id={id}*/>
-            <button
+        <div>
+            <HvorforPanelButton
                 data-testid="hvorforPanel_toggle"
                 type={"button"}
-                className={"hvorforPanel__toggle"}
                 onClick={click}
                 aria-expanded={erApen}
             >
                 <span>{t("hvorforSpoerVi")}</span>
                 <span>{erApen ? <Collapse /> : <Expand />}</span>
-            </button>
+            </HvorforPanelButton>
 
             {erApen && (
-                <div className={"hvorforPanel__innhold"}>
+                <HvorforPanelInnhold>
                     <BodyLong>{children}</BodyLong>
-                </div>
+                </HvorforPanelInnhold>
             )}
         </div>
     );

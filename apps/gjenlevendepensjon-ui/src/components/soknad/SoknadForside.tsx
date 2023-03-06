@@ -1,4 +1,3 @@
-import "./SoknadForside.scss";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
@@ -12,6 +11,7 @@ import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Spraakvalg } from "../felles/Spraakvalg";
 import { MuligeSteg } from "../../typer/steg";
+import {ForsideWrapper} from "../felles/StyledComponents";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -36,7 +36,7 @@ const SoknadForside = () => {
     );
 
     return (
-        <div className={"forside"}>
+        <ForsideWrapper>
             <SkjemaGruppe>
                 <Veileder tekst={heiTekst} posisjon="høyre">
                     <img alt="veileder" src={ikon} />
@@ -160,7 +160,7 @@ const SoknadForside = () => {
                     {t("forside.startSoeknad")}
                 </Button>
             )}
-        </div>
+        </ForsideWrapper>
     );
 };
 

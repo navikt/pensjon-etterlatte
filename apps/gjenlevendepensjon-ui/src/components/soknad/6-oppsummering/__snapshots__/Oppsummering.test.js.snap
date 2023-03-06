@@ -31,10 +31,10 @@ exports[`Oppsummering Snapshot 1`] = `
   <br />
   <fieldset
     aria-invalid="false"
-    class="skjemagruppe navigasjon-footer"
+    class="skjemagruppe sc-hABAzo bRVWZM"
   >
     <div
-      class="navigasjon-rad"
+      class="sc-dmyDGi cEmFkl false"
     >
       <button
         class="navds-button navds-button--primary navds-button--medium"
@@ -64,7 +64,7 @@ exports[`Oppsummering Snapshot 1`] = `
   </fieldset>
   <fieldset
     aria-invalid="false"
-    class="skjemagruppe navigasjon-rad"
+    class="skjemagruppe sc-hLQRIN kjwTfL false"
   >
     <button
       class="navds-button navds-button--secondary navds-button--medium"

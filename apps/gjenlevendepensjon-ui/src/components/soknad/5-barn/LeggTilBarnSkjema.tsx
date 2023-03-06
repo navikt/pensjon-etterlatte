@@ -16,9 +16,55 @@ import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
 import ikon from "../../../assets/ikoner/barn1.svg";
-import "./LeggTilBarnSkjema.scss"
 import { useEffect } from "react";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
+import styled from "styled-components";
+import {NavigasjonsRad, SkjemaGruppeRad, TypoFeilmelding} from "../../felles/StyledComponents";
+
+const EndreBarnKort = styled(Panel)`
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    @media screen and (min-width: 650px) {
+      max-width: 100%;
+    }
+`
+
+const EndreBarnKortHeader = styled.header`
+    box-sizing: border-box;
+    height: 128px;
+    background-color: #4d3e55;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: 4px solid #826ba1;
+    display: flex;
+    padding: 0;
+    position: relative;
+
+    img {
+      align-self: flex-end;
+      flex: 0 1 auto;       
+      padding-left: 3em;    
+    }
+
+    .overskrift {
+      flex: 0 1 auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      align-self: center;
+      color: white;
+    }
+`
+
+const EndreBarnKortInnhold = styled.div`
+    padding: 2em;
+`
 
 interface Props {
     avbryt: () => void;
@@ -93,16 +139,16 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     return (
         <FormProvider {...methods} >
             <form>
-                <Panel border className={"endre-barn-kort"}>
-                    <div className={"endre-barn-kort__header"}>
-                        <img alt="barn" className="barneikon" src={ikon}/>
+                <EndreBarnKort border>
+                    <EndreBarnKortHeader>
+                        <img alt="barn" src={ikon}/>
                         <Heading size={"small"} className={"overskrift"}>{t("omBarn.tittelModal")}</Heading>
-                    </div>
+                    </EndreBarnKortHeader>
                     <br/>
 
-                    <div className={"innhold"}>
+                    <EndreBarnKortInnhold>
                         <SkjemaGruppering>
-                            <SkjemaGruppe className={"rad"}>
+                            <SkjemaGruppeRad>
                                 <div className={"kol-50"}>
                                     <RHFInput
                                         name={"fornavn"}
@@ -118,7 +164,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                         rules={{ pattern: /^\D+$/ }}
                                     />
                                 </div>
-                            </SkjemaGruppe>
+                            </SkjemaGruppeRad>
 
                             <RHFFoedselsnummerInput
                                 name={"foedselsnummer"}
@@ -137,11 +183,11 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                 }}
                             />
 
-                            {visDuplikatFeilmelding() && (
-                                <SkjemaGruppe className={"skjemaelement__feilmelding"}>
-                                    <p className={"typo-feilmelding"}>
+                            {!visDuplikatFeilmelding() && (
+                                <SkjemaGruppe>
+                                    <TypoFeilmelding>
                                         {t("feil.foedselsnummer.duplicate")}
-                                    </p>
+                                    </TypoFeilmelding>
                                 </SkjemaGruppe>
                             )}
 
@@ -311,7 +357,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
 
                         <Feilmeldinger errors={errors}/>
 
-                        <div className={"navigasjon-rad bottom-spacing-none"}>
+                        <NavigasjonsRad className={"bottom-spacing-none"}>
                             <Button
                                 id={"avbrytLeggTilBarn"}
                                 variant={"secondary"}
@@ -331,9 +377,9 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                             >
                                 {t("knapp.lagre")}
                             </Button>
-                        </div>
-                    </div>
-                </Panel>
+                        </NavigasjonsRad>
+                    </EndreBarnKortInnhold>
+                </EndreBarnKort>
             </form>
         </FormProvider>
     );

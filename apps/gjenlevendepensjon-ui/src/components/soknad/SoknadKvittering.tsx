@@ -1,4 +1,3 @@
-import "./SoknadForside.scss";
 import Veileder from "nav-frontend-veileder";
 import ikon from "../../assets/ikoner/veileder.svg";
 import React, { useEffect } from "react";
@@ -6,6 +5,7 @@ import { SkjemaGruppe } from "nav-frontend-skjema";
 import { Alert, BodyLong, BodyShort, Button, Link, Heading } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../../hooks/useLanguage";
+import {ForsideWrapper, NavigasjonsRadSection} from "../felles/StyledComponents";
 
 const SoknadKvittering = () => {
     const { t } = useTranslation();
@@ -19,7 +19,7 @@ const SoknadKvittering = () => {
     }, [])
 
     return (
-        <div className={"forside"}>
+        <ForsideWrapper>
             <SkjemaGruppe className={"center"}>
                 <Veileder>
                     <img alt="veileder" src={ikon}/>
@@ -133,7 +133,7 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <section className={"navigasjon-rad"}>
+                <NavigasjonsRadSection>
                     <Button
                         variant={"primary"}
                         type={"button"}
@@ -141,9 +141,9 @@ const SoknadKvittering = () => {
                     >
                         {t("soeknadKvittering.spoersmaal.knapp")}
                     </Button>
-                </section>
+                </NavigasjonsRadSection>
             </SkjemaGruppe>
-        </div>
+        </ForsideWrapper>
     );
 };
 

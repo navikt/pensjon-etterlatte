@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../felles/Infokort.scss";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
@@ -16,6 +15,8 @@ import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-ho
 import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import { deepCopy } from "../../../utils/deepCopy";
 import AndreStoenader from "./AndreStoenader";
+import styled from "styled-components";
+import {Infokort, InfokortHeader, InfokortInformasjonsboks} from "../../felles/StyledComponents";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root"); //Denne er også definert i Navigasjon. Trenger vi den?
 
@@ -118,18 +119,18 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaGruppe>
 
                     <SkjemaGruppe>
-                        <div className={"infokort-wrapper"}>
+                        <InfokortWrapper>
                             {fields?.map((field: FieldArrayWithId, index: number) => (
                                 <BarnInfokort key={uuid()} barn={field as IBarn} index={index} fjern={fjernBarn}
                                               setAktivBarnIndex={() => setAktivBarnIndex(index)}/>
                             ))}
 
-                            <div className={"infokort"}>
-                                <div className={"infokort__header gjennomsiktig"}>
-                                    <img alt="barn" className="barneikon" src={ikon}/>
-                                </div>
-                                <div className={"infokort__informasjonsboks"}>
-                                    <div className={"informasjonsboks-innhold"}>
+                            <Infokort>
+                                <InfokortHeader gjennomsiktig>
+                                    <img alt="barn" src={ikon}/>
+                                </InfokortHeader>
+                                <InfokortInformasjonsboks>
+                                    <div className={"center"}>
                                         <Button variant={"primary"} type={"button"} onClick={leggtilNyttBarn}>
                                             {t("knapp.leggTilBarn")}
                                         </Button>
@@ -138,9 +139,9 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                                     <BodyShort size={"small"} className={"center mute"}>
                                         {t("omBarn.valgfritt")}
                                     </BodyShort>
-                                </div>
-                            </div>
-                        </div>
+                                </InfokortInformasjonsboks>
+                            </Infokort>
+                        </InfokortWrapper>
                     </SkjemaGruppe>
                     <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
 
@@ -167,3 +168,10 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
 };
 
 export default OpplysningerOmBarn;
+
+const InfokortWrapper = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  column-gap: 1rem;
+`

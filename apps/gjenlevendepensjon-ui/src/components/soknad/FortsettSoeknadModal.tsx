@@ -1,4 +1,4 @@
-import { Button, Modal, Heading } from "@navikt/ds-react";
+import { Button, Heading } from "@navikt/ds-react";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -7,6 +7,7 @@ import { ActionTypes, ActionTypes as SoknadActionTypes } from "../../context/sok
 import { StegPath } from "../../typer/steg";
 import { slettSoeknad } from "../../api/api";
 import { useTranslation } from "react-i18next";
+import {SpoersmaalModal} from "../felles/StyledComponents";
 
 export const FortsettSoeknadModal = () => {
     const history = useHistory();
@@ -44,11 +45,11 @@ export const FortsettSoeknadModal = () => {
     }
 
     return (
-        <Modal
+        <SpoersmaalModal
             open={state.visFortsettSoeknadModal}
             onClose={() => {}}
             shouldCloseOnOverlayClick={false}
-            className="spoersmaal-modal skjul-modal-knapp ey-modal"
+            data-testid="spoersmaal-modal"
         >
             <SkjemaGruppe>
                 <Heading size={"medium"}>{t("fortsettSoeknad.beskrivelse")}</Heading>
@@ -65,6 +66,6 @@ export const FortsettSoeknadModal = () => {
                     {t("fortsettSoeknad.startPaaNytt")}
                 </Button>
             </SkjemaGruppe>
-        </Modal>
+        </SpoersmaalModal>
     )
 }

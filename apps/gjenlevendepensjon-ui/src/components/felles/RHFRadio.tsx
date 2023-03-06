@@ -8,6 +8,26 @@ import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { RadioPanelGruppeProps } from "nav-frontend-skjema/lib/radio-panel-gruppe";
 import { getTransKey } from "../../utils/translation";
+import styled from "styled-components";
+
+const RadioPanelGruppeInline = styled(RadioPanelGruppe)`
+ .inputPanelGruppe__inner{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 1rem;
+
+  .radioPanel {
+    margin-bottom: 0;
+    width: 100%;
+    min-width: calc(33.3% - 1rem);
+
+    @media screen and (min-width: 650px) {
+      max-width: 33.3%;
+    }
+  }
+  }
+`
 
 export const RHFSpoersmaalRadio = ({
     name,
@@ -57,11 +77,10 @@ export const RHFInlineRadio = ({
                 control={control}
                 rules={{ required: true }}
                 render={({ field: { value, onChange, name } }) => (
-                    <RadioPanelGruppe
+                    <RadioPanelGruppeInline
                         name={name}
                         feil={error && t(errorTekst)}
                         legend={legend}
-                        className={"inline"}
                         description={description}
                         radios={radios}
                         checked={value}

@@ -17,6 +17,7 @@ import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
+import {SkjemaGruppeIngress, SkjemaGruppeRad} from "../../felles/StyledComponents";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -62,16 +63,16 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
             <form>
                 <SkjemaGruppering>
-                    <SkjemaGruppe className={"rad"}>
-                        <div className={"kolonne"}>
+                    <SkjemaGruppeRad>
+                        <div className={"kol"}>
                             <Label>{t("omDenAvdoede.fornavn")}</Label>
                             <BodyLong>{state.omDegOgAvdoed.avdoed?.fornavn || ""}</BodyLong>
                         </div>
-                        <div className={"kolonne"}>
+                        <div className={"kol"}>
                             <Label>{t("omDenAvdoede.etternavn")}</Label>
                             <BodyLong>{state.omDegOgAvdoed.avdoed?.etternavn || ""}</BodyLong>
                         </div>
-                    </SkjemaGruppe>
+                    </SkjemaGruppeRad>
 
                     <SkjemaGruppe>
                         <Grid style={{alignItems: "end" }}>
@@ -97,10 +98,10 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet}/>
 
                 <SkjemaGruppering>
-                    <SkjemaGruppe className="ingress">
+                    <SkjemaGruppeIngress>
                         <Heading size="small">{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}</Heading>
                         <BodyLong>{t("omDenAvdoede.selvstendigNaeringsdrivende.ingress")}</BodyLong>
-                    </SkjemaGruppe>
+                    </SkjemaGruppeIngress>
 
                     <RHFSpoersmaalRadio
                         name={"selvstendigNaeringsdrivende.svar"}
@@ -131,9 +132,9 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaGruppering>
 
                 <SkjemaGruppering>
-                    <SkjemaGruppe className="ingress">
+                    <SkjemaGruppeIngress>
                         <Heading size="small">{t("omDenAvdoede.annenOpptjening.tittel")}</Heading>
-                    </SkjemaGruppe>
+                    </SkjemaGruppeIngress>
 
                     <SkjemaGruppe>
                         <RHFSpoersmaalRadio

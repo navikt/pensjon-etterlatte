@@ -7,6 +7,7 @@ import { Heading, Panel } from "@navikt/ds-react";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 import { RHFCheckboksPanel } from "../../../felles/RHFCheckboksPanelGruppe";
 import { IValg } from "../../../../typer/Spoersmaal";
+import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
 
 const UnderUtdanning = () => {
     const { t } = useTranslation();
@@ -26,7 +27,7 @@ const UnderUtdanning = () => {
                     placeholder={t("dinSituasjon.utdanning.naavaerendeUtdanning.navnPlaceholder")}
                 />
 
-                <SkjemaGruppe className={"rad"}>
+                <SkjemaGruppeRad>
                     <Datovelger
                         name={"utdanning.naavaerendeUtdanning.startDato"}
                         label={t("dinSituasjon.utdanning.naavaerendeUtdanning.startDato")}
@@ -39,7 +40,7 @@ const UnderUtdanning = () => {
                         label={t("dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato")}
                         minDate={new Date()}
                     />
-                </SkjemaGruppe>
+                </SkjemaGruppeRad>
             </Panel>
 
 

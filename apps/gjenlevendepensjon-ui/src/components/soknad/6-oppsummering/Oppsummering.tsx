@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Heading, Link, Loader } from '@navikt/ds-react'
 import { isEmpty } from "lodash";
 import { SkjemaGruppe } from "nav-frontend-skjema";
 import React, { memo, useEffect, useState } from "react";
@@ -15,6 +15,7 @@ import SoeknadMapper from "../../../utils/SoeknadMapper";
 import Navigasjon from "../../felles/Navigasjon";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { ActionTypes } from "../../../context/soknad/soknad";
+import {NavigasjonsRad, SpoersmaalModal} from "../../felles/StyledComponents";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
@@ -103,12 +104,12 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
             <Navigasjon forrige={{ onClick: forrige }} send={{ onClick: () => setIsOpen(true) }} disabled={senderSoeknad} />
 
-            <Modal open={isOpen}
+            <SpoersmaalModal open={isOpen}
                     onClose={() => {
                         if (!senderSoeknad) setIsOpen(false)
                     }}
                 shouldCloseOnOverlayClick={false}
-                className="spoersmaal-modal skjul-modal-knapp ey-modal"
+                 data-testid={"spoersmaal-modal"}
                 >
 
 
@@ -124,7 +125,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                     )}
                 </SkjemaGruppe>
                 {!senderSoeknad && (
-                        <div className={"navigasjon-rad"}>
+                        <NavigasjonsRad>
                             <Button
                                     id={'avbryt-ja-btn'}
                                     variant={'secondary'}
@@ -143,9 +144,9 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                             >
                                 {t('knapp.ja')}
                             </Button>
-                        </div>
+                        </NavigasjonsRad>
                 )}
-            </Modal>
+            </SpoersmaalModal>
         </>
     );
 });

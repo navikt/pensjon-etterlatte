@@ -5,6 +5,7 @@ import { Alert, BodyLong, Button, Link } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { Spraakvalg } from "./felles/Spraakvalg";
 import { useLanguage } from "../hooks/useLanguage";
+import {NavigasjonsRadSection} from "./felles/StyledComponents";
 
 
 export default function SystemUtilgjengelig() {
@@ -61,11 +62,11 @@ export default function SystemUtilgjengelig() {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <section className={"navigasjon-rad"}>
+                <NavigasjonsRadSection>
                     <Button variant={"primary"} onClick={omstart}>
                         {t('systemUtilgjengelig.knappProevIgjen')}
                     </Button>
-                </section>
+                </NavigasjonsRadSection>
             </SkjemaGruppe>
         </>
     );

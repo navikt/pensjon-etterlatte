@@ -14,6 +14,7 @@ import { BodyLong, Button, Panel, Heading } from "@navikt/ds-react";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { RHFSelect } from "../../../felles/RHFSelect";
 import { useLand } from "../../../../hooks/useLand";
+import {Rad, SkjemaGruppeIngress} from "../../../felles/StyledComponents";
 
 interface Props {
     datoForDoedsfallet?: Date;
@@ -41,10 +42,10 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
 
     return (
         <SkjemaGruppering>
-            <SkjemaGruppe className="ingress">
+            <SkjemaGruppeIngress>
                 <Heading size="small">{t("omDenAvdoede.boddEllerJobbetUtland.tittel")}</Heading>
                 <BodyLong>{t("omDenAvdoede.boddEllerJobbetUtland.ingress")}</BodyLong>
-            </SkjemaGruppe>
+            </SkjemaGruppeIngress>
             <RHFSpoersmaalRadio
                 name={"boddEllerJobbetUtland.svar"}
                 legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
@@ -55,7 +56,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                 <SkjemaGruppering>
                     {fields.map((field: FieldArrayWithId, index: number) => (
                         <Panel border key={field.id} className={"luft-under"}>
-                            <div className={"rad"}>
+                            <Rad>
                                 <RHFSelect
                                     className="kol"
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].land` as const}
@@ -79,10 +80,10 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                         },
                                     ]}
                                 />
-                            </div>
+                            </Rad>
 
                             <SkjemaGruppe>
-                                <div className={"rad"}>
+                                <Rad>
                                     <div className={"kol"}>
                                         <Datovelger
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
@@ -99,7 +100,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                             valgfri
                                         />
                                     </div>
-                                </div>
+                                </Rad>
                             </SkjemaGruppe>
 
                             <RHFSpoersmaalRadio

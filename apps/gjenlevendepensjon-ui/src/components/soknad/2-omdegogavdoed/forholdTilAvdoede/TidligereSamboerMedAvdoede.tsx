@@ -3,11 +3,11 @@ import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import Datovelger from "../../../felles/Datovelger";
-import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
 import { useTranslation } from "react-i18next";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
+import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
 
 const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation();
@@ -32,7 +32,7 @@ const TidligereSamboerMedAvdoede = () => {
             {fellesBarn === IValg.JA && (
                 <>
                     {/* TODO: Burde være eget felt for inngått samboerskap? */}
-                    <SkjemaGruppe className={"rad"}>
+                    <SkjemaGruppeRad>
                         <div className={"kol"}>
                             <Datovelger
                                 name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
@@ -50,7 +50,7 @@ const TidligereSamboerMedAvdoede = () => {
                                 maxDate={datoForDoedsfallet || new Date()}
                             />
                         </div>
-                    </SkjemaGruppe>
+                    </SkjemaGruppeRad>
 
                     {bidragMaaUtfylles && (
                         <RHFSpoersmaalRadio

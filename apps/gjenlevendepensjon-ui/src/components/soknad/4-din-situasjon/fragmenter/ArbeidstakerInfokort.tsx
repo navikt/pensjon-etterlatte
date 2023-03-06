@@ -3,12 +3,12 @@ import { ForventerEndretInntektType, StillingType } from "../../../../typer/arbe
 import { useTranslation } from "react-i18next";
 import { Button, Panel } from "@navikt/ds-react";
 import { RHFInput, RHFProsentInput } from "../../../felles/RHFInput";
-import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFSelect } from "../../../felles/RHFSelect";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { useFormContext } from "react-hook-form";
+import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
 
 interface Props {
     lengde: number;
@@ -33,7 +33,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 label={t("dinSituasjon.arbeidsforhold.arbeidsgiver")}
             />
 
-            <SkjemaGruppe className={"rad"}>
+            <SkjemaGruppeRad>
                 <RHFSelect
                     name={`arbeidsforhold[${index}].ansettelsesforhold` as const}
                     label={t("dinSituasjon.arbeidsforhold.ansettelsesforhold")}
@@ -59,7 +59,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     label={t("dinSituasjon.arbeidsforhold.stillingsprosent")}
                     placeholder={t("dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder")}
                 />
-            </SkjemaGruppe>
+            </SkjemaGruppeRad>
 
             <RHFSpoersmaalRadio
                 name={`arbeidsforhold[${index}].forventerEndretInntekt.svar` as const}

@@ -1,7 +1,8 @@
 import { HelptextFilled } from "@navikt/ds-icons";
 import { PropsWithChildren, useRef, useState } from "react";
-import { Button, Popover } from "@navikt/ds-react";
+import { Popover } from "@navikt/ds-react";
 import { v4 as uuid } from "uuid";
+import { HvorforPanelButton } from "./StyledComponents";
 
 const Hjelpetekst = ({ children }: PropsWithChildren<React.InputHTMLAttributes<HTMLInputElement>>) => {
     const [open, setOpen] = useState(false);
@@ -11,11 +12,10 @@ const Hjelpetekst = ({ children }: PropsWithChildren<React.InputHTMLAttributes<H
 
     return (
         <>
-            <Button
+            <HvorforPanelButton
                 ref={ref}
                 data-testid="hjelpetekst-button"
                 variant={"secondary"}
-                className={"hvorforPanel__toggle"}
                 onClick={() => setOpen(!open)}
                 type={"button"}
                 aria-haspopup="dialog"
@@ -24,7 +24,7 @@ const Hjelpetekst = ({ children }: PropsWithChildren<React.InputHTMLAttributes<H
                 style={{minWidth: "30px"}}
             >
                 <HelptextFilled />
-            </Button>
+            </HvorforPanelButton>
 
             <Popover anchorEl={ref.current} open={open} placement={"top"} onClose={() => setOpen(false)}>
                 {children}

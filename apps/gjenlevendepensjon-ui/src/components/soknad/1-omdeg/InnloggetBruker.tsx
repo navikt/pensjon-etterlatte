@@ -6,6 +6,13 @@ import { isEmpty } from "lodash";
 import React, { memo } from "react";
 import { fullAdresse } from "../../../utils/adresse";
 import Hjelpetekst from "../../felles/Hjelpetekst";
+import styled from "styled-components";
+
+const InnloggetBrukerAlert = styled(Alert)`
+  background: none;
+  border: none;
+  padding: 0;
+`
 
 const InnloggetBruker = memo(() => {
     const { t } = useTranslation();
@@ -16,7 +23,7 @@ const InnloggetBruker = memo(() => {
 
     return (
         <SkjemaGruppe>
-            <Grid className={"opplysninger"}>
+            <Grid>
                 <Cell xs={6}>
                     <div>
                         <Label>{t("felles.navn")}</Label>
@@ -62,11 +69,11 @@ const InnloggetBruker = memo(() => {
             </Grid>
 
             {!state.adressebeskyttelse && state.adresse && (
-                    <Alert variant={"warning"} className={"navds-alert--inline"}>
+                    <InnloggetBrukerAlert variant={"warning"}>
                         <a href={t("omDeg.advarsel.href")} target="_blank" rel="noreferrer">
                             {t("omDeg.advarsel")}
                         </a>
-                    </Alert>
+                    </InnloggetBrukerAlert>
             )}
         </SkjemaGruppe>
     );

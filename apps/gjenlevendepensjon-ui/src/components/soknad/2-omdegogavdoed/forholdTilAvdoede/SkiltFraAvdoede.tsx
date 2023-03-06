@@ -4,10 +4,10 @@ import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { antallAarMellom } from "../../../../utils/dato";
 import { IValg } from "../../../../typer/Spoersmaal";
-import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
+import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
 
 const giftMerEnn25aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0;
@@ -50,9 +50,9 @@ const SkiltFraAvdoede = () => {
 
     return (
         <SkjemaGruppering>
-            <SkjemaGruppe className={"rad col-mobile"}>
+            <SkjemaGruppeRad className={"col-mobile"}>
                 <Datovelger
-                    className={"kol"}
+                    kol={true}
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
                     label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
                     minDate={state.foedselsdato}
@@ -60,13 +60,13 @@ const SkiltFraAvdoede = () => {
                 />
 
                 <Datovelger
-                    className={"kol"}
+                    kol={true}
                     name={"forholdTilAvdoede.datoForSkilsmisse"}
                     label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse")}
                     minDate={datoForInngaattPartnerskap}
                     maxDate={datoForDoedsfallet || new Date()}
                 />
-            </SkjemaGruppe>
+            </SkjemaGruppeRad>
 
             <RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}

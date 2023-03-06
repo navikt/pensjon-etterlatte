@@ -1,0 +1,191 @@
+import styled from "styled-components";
+import {Button, Link, Modal} from "@navikt/ds-react";
+import {SkjemaGruppe} from "nav-frontend-skjema";
+
+export const HvorforPanelButton = styled(Button)`
+    color: #0067C5;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0.2rem 0;
+    min-height: 0;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    
+    &:hover {
+       color: white;
+    }
+`
+
+export const HvorforPanelInnhold = styled.div`
+    margin-top: 1rem;
+`
+
+const navigasjonsRad = `
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+  margin-bottom: 2rem;
+
+  .knapp {
+    margin-bottom: 0;
+ }
+`
+
+export const NavigasjonsRad = styled.div`
+  ${navigasjonsRad}
+`
+
+export const NavigasjonsRadSkjemaGruppe = styled(SkjemaGruppe)`
+  ${navigasjonsRad}
+`
+
+export const NavigasjonsRadSection = styled.section`
+  ${navigasjonsRad}
+`
+
+export const InfokortHeader = styled.div<{gjennomsiktig?: boolean}>`
+    box-sizing: border-box;
+    height: 128px;
+    background-color: #4d3e55;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: 4px solid #826ba1;
+    display: flex;
+    align-items: flex-end;
+    opacity: ${props => props.gjennomsiktig ? 0.4 : 1};
+    img {
+      margin: 0 auto;
+    }
+`
+
+export const InfokortInformasjonsboks = styled.div`
+    padding: 2rem 2rem;
+`
+
+export const InfokortInformasjonsElement = styled.div`
+      margin: 10px 0 10px 0;
+`
+
+export const Infokort =  styled.div`
+    .typo-normal,
+    .typo-element {
+      margin: 0.3rem 0;
+    }
+
+    background-color: #e7e9e9;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    @media screen and (min-width: 650px) {
+      max-width: 49%;
+    }
+`
+
+export const InfokortFooter = styled.div`
+    margin-bottom: 1rem;
+`
+
+export const InfokortFooterItem = styled(Link)`
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+`
+
+export const SkjemaGruppeRad = styled(SkjemaGruppe)`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  column-gap: 1rem;
+  
+  @media screen and (max-width: 650px) {
+    .col-mobile {
+      flex-direction: column;
+    }
+  }
+`
+
+export const SkjemaGruppeIngress = styled(SkjemaGruppe)`
+  margin-bottom: 1em !important;
+`
+
+export const Rad = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  column-gap: 1rem;
+`
+
+export const TypoFeilmelding = styled.p`
+    color: #ba3a26;
+    font-weight: 600;
+`
+
+export const SpoersmaalModal = styled(Modal)`
+  max-width: 650px;
+  width: 100%;
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .skjemagruppering {
+    margin-bottom: 2rem !important;
+
+    .skjemagruppe {
+      margin-bottom: 1rem !important;
+
+      .skjemaelement {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .skjemaelement {
+      margin-bottom: 1rem !important;
+    }
+  }
+  
+  text-align: center;
+  padding: 3rem;
+
+  @media screen and (max-width: 650px) {
+    .knapp {
+      font-size: 0.8em;
+      padding: 0 1em;
+    }
+  }
+
+  .skjemagruppe {
+    margin-bottom: 2rem !important;
+  }
+  
+  .navds-modal__button {
+    visibility: hidden;
+  }
+
+`
+
+export const ForsideWrapper = styled.div`
+    .typo-normal {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .typo-undertittel {
+    font-size: 1.25rem;
+    line-height: 1.5625rem;
+    font-weight: 600;
+  }
+
+`
+
+export {}

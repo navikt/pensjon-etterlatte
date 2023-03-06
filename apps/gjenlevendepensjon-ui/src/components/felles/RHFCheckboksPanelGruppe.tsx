@@ -34,7 +34,6 @@ export const RHFCheckboksPanelGruppe = ({ name, checkboxes, ...rest }: RHFCheckb
                     <CheckboxGruppe
                         {...rest}
                         feil={feilmelding}
-                        className={"inputPanelGruppe"}
                     >
                         {checkboxes.map((checkbox: CheckboxProps) => (
                             <CheckboksPanel
@@ -73,7 +72,6 @@ export const RHFCheckboksPanel = ({ name, checkbox, valgfri, ...rest }: RHFCheck
                 render={({ field: { value, onChange } }) => (
                     <CheckboxGruppe
                         {...rest}
-                        className={"inputPanelGruppe"}
                     >
                         <CheckboksPanel
                             key={checkbox.value as string}
