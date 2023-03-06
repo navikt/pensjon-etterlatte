@@ -86,6 +86,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             >
               <button
                 class="navds-button navds-button--primary navds-button--medium"
+                data-testid="legg-til-barn-knapp"
                 type="button"
               >
                 <span
