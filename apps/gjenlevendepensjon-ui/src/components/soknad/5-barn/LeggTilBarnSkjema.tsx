@@ -1,4 +1,5 @@
-import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { BarnRelasjon, IBarn } from "../../../typer/person";
@@ -11,7 +12,6 @@ import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
 import { Alert, BodyShort, Button, Cell, Grid, Heading, Label, Panel, HelpText } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
-import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
 import ikon from "../../../assets/ikoner/barn1.svg";
@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import styled from "styled-components";
 import {NavigasjonsRad, SkjemaGruppeRad, TypoFeilmelding} from "../../felles/StyledComponents";
+import {SkjemaElement} from "../../felles/SkjemaElement";
 
 const HelpTextLabel = styled.div`
     display: flex;
@@ -150,24 +151,26 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                     <br/>
 
                     <EndreBarnKortInnhold>
-                        <SkjemaGruppering>
-                            <SkjemaGruppeRad>
-                                <div className={"kol-50"}>
-                                    <RHFInput
-                                        name={"fornavn"}
-                                        label={t("omBarn.fornavn")}
-                                        rules={{ pattern: /^\D+$/ }}
-                                    />
-                                </div>
+                        <SkjemaGruppe>
+                            <SkjemaElement>
+                                <SkjemaGruppeRad>
+                                    <div className={"kol-50"}>
+                                        <RHFInput
+                                            name={"fornavn"}
+                                            label={t("omBarn.fornavn")}
+                                            rules={{ pattern: /^\D+$/ }}
+                                        />
+                                    </div>
 
-                                <div className={"kol-50"}>
-                                    <RHFInput
-                                        name={"etternavn"}
-                                        label={t("omBarn.etternavn")}
-                                        rules={{ pattern: /^\D+$/ }}
-                                    />
-                                </div>
-                            </SkjemaGruppeRad>
+                                    <div className={"kol-50"}>
+                                        <RHFInput
+                                            name={"etternavn"}
+                                            label={t("omBarn.etternavn")}
+                                            rules={{ pattern: /^\D+$/ }}
+                                        />
+                                    </div>
+                                </SkjemaGruppeRad>
+                            </SkjemaElement>
 
                             <RHFFoedselsnummerInput
                                 name={"foedselsnummer"}
@@ -201,9 +204,9 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                 value={"Norge"}
                                 selectOptions={land}
                             />
-                        </SkjemaGruppering>
+                        </SkjemaGruppe>
 
-                        <SkjemaGruppering>
+                        <SkjemaGruppe>
                             <RHFSpoersmaalRadio
                                 name={"bosattUtland.svar"}
                                 legend={t("omBarn.bosattUtland.svar")}
@@ -211,22 +214,23 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
 
                             {bosattUtlandSvar === IValg.JA && (
                                 <>
-                                    <RHFSelect
-                                        name={"bosattUtland.land"}
-                                        label={t("omBarn.bosattUtland.land")}
-                                        value={"Norge"}
-                                        selectOptions={land}
-                                    />
-
+                                    <SkjemaElement>
+                                        <RHFSelect
+                                            name={"bosattUtland.land"}
+                                            label={t("omBarn.bosattUtland.land")}
+                                            value={"Norge"}
+                                            selectOptions={land}
+                                        />
+                                    </SkjemaElement>
                                     <RHFInput
                                         name={"bosattUtland.adresse"}
                                         label={t("omBarn.bosattUtland.adresse")}
                                     />
                                 </>
                             )}
-                        </SkjemaGruppering>
+                        </SkjemaGruppe>
 
-                        <SkjemaGruppering>
+                        <SkjemaGruppe>
                             <RHFRadio
                                 name={"relasjon"}
                                 legend={(
@@ -240,36 +244,38 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                     return { label: t(value), value, required: true } as RadioProps
                                 })}
                             />
-                        </SkjemaGruppering>
+                        </SkjemaGruppe>
                         {relasjon === BarnRelasjon.fellesbarnMedAvdoede && kanSoekeOmBarnepensjon() && (
                             <>
-                                <SkjemaGruppering>
+                                <SkjemaElement>
                                     <RHFSpoersmaalRadio
                                         name={"harBarnetVerge.svar"}
                                         legend={t("omBarn.harBarnetVerge.svar")}
                                     />
 
                                     {harBarnetVerge === IValg.JA && (
-                                        <>
+                                        <SkjemaGruppe>
                                             <Label>{t("omBarn.harBarnetVerge.navn")}</Label>
-                                            <Grid>
-                                                <Cell xs={12} md={6}>
-                                                    <RHFInput
-                                                        name={"harBarnetVerge.fornavn"}
-                                                        label={t("omBarn.harBarnetVerge.fornavn")}
-                                                        rules={{ pattern: /^\D+$/ }}
-                                                        valgfri={true}
-                                                    />
-                                                </Cell>
-                                                <Cell xs={12} md={6}>
-                                                    <RHFInput
-                                                        name={"harBarnetVerge.etternavn"}
-                                                        label={t("omBarn.harBarnetVerge.etternavn")}
-                                                        rules={{ pattern: /^\D+$/ }}
-                                                        valgfri={true}
-                                                    />
-                                                </Cell>
-                                            </Grid>
+                                            <SkjemaElement>
+                                                <Grid>
+                                                    <Cell xs={12} md={6}>
+                                                        <RHFInput
+                                                            name={"harBarnetVerge.fornavn"}
+                                                            label={t("omBarn.harBarnetVerge.fornavn")}
+                                                            rules={{ pattern: /^\D+$/ }}
+                                                            valgfri={true}
+                                                        />
+                                                    </Cell>
+                                                    <Cell xs={12} md={6}>
+                                                        <RHFInput
+                                                            name={"harBarnetVerge.etternavn"}
+                                                            label={t("omBarn.harBarnetVerge.etternavn")}
+                                                            rules={{ pattern: /^\D+$/ }}
+                                                            valgfri={true}
+                                                        />
+                                                    </Cell>
+                                                </Grid>
+                                            </SkjemaElement>
                                             <RHFFoedselsnummerInput
                                                 name={"harBarnetVerge.foedselsnummer"}
                                                 bredde={"L"}
@@ -277,11 +283,11 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                 placeholder={t("omBarn.harBarnetVerge.foedselsnummerPlaceholder")}
                                                 valgfri={true}
                                             />
-                                        </>
+                                        </SkjemaGruppe>
                                     )}
-                                </SkjemaGruppering>
+                                </SkjemaElement>
 
-                                <SkjemaGruppering>
+                                <SkjemaGruppe>
                                     <RHFCheckboksPanel
                                         name={"barnepensjon.soeker"}
                                         legend={t("omBarn.barnepensjon.soeker")}
@@ -327,13 +333,15 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                             )}
 
                                             {forskuddstrekkBarnepensjon === IValg.JA && (
-                                                <>
-                                                    <RHFProsentInput
-                                                        bredde={"M"}
-                                                        name={"barnepensjon.forskuddstrekk.trekkprosent"}
-                                                        label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
-                                                        placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
-                                                    />
+                                                <SkjemaGruppe>
+                                                    <SkjemaElement>
+                                                        <RHFProsentInput
+                                                                bredde={"M"}
+                                                                name={"barnepensjon.forskuddstrekk.trekkprosent"}
+                                                                label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
+                                                                placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
+                                                        />
+                                                    </SkjemaElement>
                                                     <Panel border>
                                                         <Alert variant={"info"} className={"navds-alert--inline"}>
                                                             <BodyShort size={"small"}>
@@ -341,11 +349,11 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                             </BodyShort>
                                                         </Alert>
                                                     </Panel>
-                                                </>
+                                                </SkjemaGruppe>
                                             )}
                                         </>
                                     )}
-                                </SkjemaGruppering>
+                                </SkjemaGruppe>
                             </>
                         )}
 

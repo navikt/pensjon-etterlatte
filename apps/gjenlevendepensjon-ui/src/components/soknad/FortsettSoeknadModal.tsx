@@ -1,5 +1,5 @@
 import { Button, Heading } from "@navikt/ds-react";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaElement } from "../felles/SkjemaElement";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
@@ -51,21 +51,21 @@ export const FortsettSoeknadModal = () => {
             shouldCloseOnOverlayClick={false}
             data-testid="spoersmaal-modal"
         >
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"medium"}>{t("fortsettSoeknad.beskrivelse")}</Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Button variant={"primary"} type={"button"} onClick={fortsettSoeknad} id={"fortsett_soeknad"}>
                     {t("fortsettSoeknad.fortsettSoeknad")}
                 </Button>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Button variant={"primary"} type={"button"} onClick={startPaaNytt} id={"start_paa_nytt"}>
                     {t("fortsettSoeknad.startPaaNytt")}
                 </Button>
-            </SkjemaGruppe>
+            </SkjemaElement>
         </SpoersmaalModal>
     )
 }

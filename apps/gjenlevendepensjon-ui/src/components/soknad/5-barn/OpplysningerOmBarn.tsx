@@ -7,7 +7,7 @@ import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import BarnInfokort from "./BarnInfokort";
 import LeggTilBarnSkjema from "./LeggTilBarnSkjema";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
 import { Alert, BodyShort, Button, Modal, Panel, Heading } from "@navikt/ds-react";
@@ -17,6 +17,7 @@ import { deepCopy } from "../../../utils/deepCopy";
 import AndreStoenader from "./AndreStoenader";
 import styled from "styled-components";
 import {Infokort, InfokortHeader, InfokortInformasjonsboks} from "../../felles/StyledComponents";
+import {SkjemaElement} from "../../felles/SkjemaElement";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root"); //Denne er også definert i Navigasjon. Trenger vi den?
 
@@ -104,19 +105,19 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
             <form>
                 {aktivBarnIndex === undefined &&
                 <>
-                    <SkjemaGruppe>
+                    <SkjemaElement>
                         <Heading size={"medium"} className={"center"}>
                             {t("omBarn.tittel")}
                         </Heading>
-                    </SkjemaGruppe>
+                    </SkjemaElement>
 
-                    <SkjemaGruppe>
+                    <SkjemaElement>
                         <Panel border>
                             <Alert variant={"info"} className={"navds-alert--inline"}>
                                 <BodyShort size={"small"}>{t("omBarn.informasjon")}</BodyShort>
                             </Alert>
                         </Panel>
-                    </SkjemaGruppe>
+                    </SkjemaElement>
 
                     <SkjemaGruppe>
                         <InfokortWrapper>

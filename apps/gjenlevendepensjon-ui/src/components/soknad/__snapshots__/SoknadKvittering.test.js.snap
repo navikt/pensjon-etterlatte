@@ -3,11 +3,10 @@
 exports[`SoknadKvittering skal matche snapshot 1`] = `
 <div>
   <div
-    class="sc-ifyqMZ iZHBZI"
+    class="sc-dJGLCQ lpmZVn"
   >
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe center"
+      class="sc-jTQDnj iUdujU"
     >
       <div
         class="sc-beySbM jduCtf"
@@ -22,26 +21,18 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
           />
         </div>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe center"
+      class="sc-jTQDnj iUdujU"
     >
       <h1
-        class="navds-heading navds-heading--medium navds-typo--spacing"
+        class="center navds-heading navds-heading--medium navds-typo--spacing"
       >
         soeknadKvittering.tittel
       </h1>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+      class="sc-jTQDnj iUdujU"
     >
       <div
         class="navds-alert navds-alert--info navds-alert--medium"
@@ -75,13 +66,9 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
           soeknadKvittering.kontakt
         </div>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+      class="sc-jTQDnj iUdujU"
     >
       <h1
         class="navds-heading navds-heading--medium"
@@ -128,13 +115,9 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
           soeknadKvittering.endring.rettigheter.lenke.tekst
         </a>
       </p>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+      class="sc-jTQDnj iUdujU"
     >
       <h1
         class="navds-heading navds-heading--medium"
@@ -176,13 +159,9 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
           soeknadKvittering.seSaken.behandlingstidInfo.lenke.tekst
         </a>
       </p>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+      class="sc-jTQDnj iUdujU"
     >
       <h1
         class="navds-heading navds-heading--medium"
@@ -249,16 +228,12 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
         </a>
       </p>
       <br />
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+      class="sc-jTQDnj iUdujU"
     >
       <section
-        class="sc-qZqnM dWTBcO"
+        class="sc-jsEegt dWSWxh"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -272,9 +247,6 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
           </span>
         </button>
       </section>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
   </div>
 </div>

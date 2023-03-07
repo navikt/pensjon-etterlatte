@@ -1,5 +1,6 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
 import { IngenJobb } from "../../../typer/arbeidsforhold";
 import { FormProvider, useForm } from "react-hook-form";
@@ -15,9 +16,9 @@ import UnderUtdanning from "./fragmenter/UnderUtdanning";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
-import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
+import {SkjemaElement} from "../../felles/SkjemaElement";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -63,11 +64,11 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     return (
         <FormProvider {...methods}>
             <form>
-                <SkjemaGruppe>
+                <SkjemaElement>
                     <Heading size={"medium"} className={"center"}>
                         {t("dinSituasjon.tittel")}
                     </Heading>
-                </SkjemaGruppe>
+                </SkjemaElement>
 
                 <SkjemaGruppe>
                     <Heading size={"small"}>{t("dinSituasjon.undertittel")}</Heading>
@@ -90,16 +91,16 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                         {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
 
                         {jobbStatus?.includes(JobbStatus.ingen) && (
-                            <SkjemaGruppering>
-                                <SkjemaGruppe>
+                            <SkjemaGruppe>
+                                <SkjemaElement>
                                     <Heading size={"small"}>{t("dinSituasjon.ingenJobbTittel")}</Heading>
-                                </SkjemaGruppe>
+                                </SkjemaElement>
                                 <RHFSelect
                                     name={"ingenJobbBeskrivelse"}
                                     label={t("dinSituasjon.ingenJobbBeskrivelse")}
                                     selectOptions={[{ label: t("felles.velg"), value: "" }].concat(ingenJobbAlternativer)}
                                 />
-                            </SkjemaGruppering>
+                            </SkjemaGruppe>
                         )}
 
                         <HoeyesteUtdanning />

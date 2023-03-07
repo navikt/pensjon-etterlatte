@@ -1,7 +1,8 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";
-import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
+import { RadioProps } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { FormProvider, useForm } from "react-hook-form";
 import { IValg } from "../../../typer/Spoersmaal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
@@ -12,14 +13,14 @@ import { RHFInlineRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
-import {Cell, Grid, Heading} from "@navikt/ds-react";
+import { Cell, Grid, Heading } from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
-import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
+import { SkjemaElement } from "../../felles/SkjemaElement";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
@@ -49,18 +50,18 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
     return (
         <>
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"medium"} className={"center"}>
                     {t("omDeg.tittel")}
                 </Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
             <InnloggetBruker/>
 
             <FormProvider {...methods}>
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
                 <form>
-                    <SkjemaGruppering>
+                    <SkjemaGruppe>
                         {!brukerState.adressebeskyttelse && !brukerState.adresse && (
                             <SkjemaGruppe>
                                 <RHFInput
@@ -84,11 +85,11 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 </Grid>
                             </SkjemaGruppe>
                         )}
-                    </SkjemaGruppering>
+                    </SkjemaGruppe>
 
                     {/* 2.7 */}
                     {!brukerState.adressebeskyttelse && (
-                        <SkjemaGruppering>
+                        <SkjemaGruppe>
                             <RHFSpoersmaalRadio
                                 name={"oppholderSegINorge"}
                                 legend={t("omDeg.oppholderSegINorge")}
@@ -142,7 +143,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                     {bankkontoType === BankkontoType.utenlandsk && <UtenlandskBankInfo/>}
                                 </>
                             )}
-                        </SkjemaGruppering>
+                        </SkjemaGruppe>
                     )}
 
                     {skalSjekkeFlyktningStatus && (

@@ -1,4 +1,4 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IAvdoed } from "../../../typer/person";
@@ -13,11 +13,11 @@ import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
 import { BodyLong, Label, Heading, Cell, Grid } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
-import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
 import {SkjemaGruppeIngress, SkjemaGruppeRad} from "../../felles/StyledComponents";
+import {SkjemaElement} from "../../felles/SkjemaElement";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -57,12 +57,12 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     return (
         <FormProvider {...methods}>
-            <SkjemaGruppe className={"center"}>
-                <Heading size={"medium"}>{t("omDenAvdoede.tittel")}</Heading>
-            </SkjemaGruppe>
+            <SkjemaElement>
+                <Heading className={"center"} size={"medium"}>{t("omDenAvdoede.tittel")}</Heading>
+            </SkjemaElement>
 
             <form>
-                <SkjemaGruppering>
+                <SkjemaGruppe>
                     <SkjemaGruppeRad>
                         <div className={"kol"}>
                             <Label>{t("omDenAvdoede.fornavn")}</Label>
@@ -74,7 +74,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         </div>
                     </SkjemaGruppeRad>
 
-                    <SkjemaGruppe>
+                    <SkjemaElement>
                         <Grid style={{alignItems: "end" }}>
                             <Cell xs={12} md={6} className={"kol"}>
                                 <RHFFoedselsnummerInput
@@ -92,12 +92,12 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                                 />
                             </Cell>
                         </Grid>
-                    </SkjemaGruppe>
-                </SkjemaGruppering>
+                    </SkjemaElement>
+                </SkjemaGruppe>
 
                 <BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet}/>
 
-                <SkjemaGruppering>
+                <SkjemaGruppe>
                     <SkjemaGruppeIngress>
                         <Heading size="small">{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}</Heading>
                         <BodyLong>{t("omDenAvdoede.selvstendigNaeringsdrivende.ingress")}</BodyLong>
@@ -129,14 +129,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             />
                         </>
                     )}
-                </SkjemaGruppering>
+                </SkjemaGruppe>
 
-                <SkjemaGruppering>
+                <SkjemaGruppe>
                     <SkjemaGruppeIngress>
                         <Heading size="small">{t("omDenAvdoede.annenOpptjening.tittel")}</Heading>
                     </SkjemaGruppeIngress>
 
-                    <SkjemaGruppe>
+                    <SkjemaElement>
                         <RHFSpoersmaalRadio
                             name={"doedsfallAarsak"}
                             legend={t("omDenAvdoede.doedsfallAarsak")}
@@ -144,7 +144,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                                 <HvorforSpoerVi title="omDenAvdoede.doedsfallAarsak">{t("omDenAvdoede.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
                             vetIkke
                         />
-                    </SkjemaGruppe>
+                    </SkjemaElement>
 
                     <RHFSpoersmaalRadio
                         name={"harAvtjentMilitaerTjeneste.svar"}
@@ -166,7 +166,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         </SkjemaGruppe>
                     )}
 
-                </SkjemaGruppering>
+                </SkjemaGruppe>
 
                 <Feilmeldinger errors={errors}/>
 

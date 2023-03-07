@@ -4,9 +4,8 @@ import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { hentAlder } from "../../../../utils/dato";
 import Datovelger from "../../../felles/Datovelger";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 import { useTranslation } from "react-i18next";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 
 const SamboerMedAvdoede = () => {
@@ -23,7 +22,7 @@ const SamboerMedAvdoede = () => {
     const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
 
     return (
-        <SkjemaGruppering>
+        <>
             <RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
@@ -56,7 +55,7 @@ const SamboerMedAvdoede = () => {
                     )}
                 </>
             )}
-        </SkjemaGruppering>
+        </>
     );
 };
 

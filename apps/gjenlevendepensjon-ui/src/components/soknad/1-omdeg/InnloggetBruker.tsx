@@ -1,7 +1,7 @@
 import {Alert, BodyShort, Cell, Grid, Label, HelpText} from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { isEmpty } from "lodash";
 import React, { memo } from "react";
 import { fullAdresse } from "../../../utils/adresse";

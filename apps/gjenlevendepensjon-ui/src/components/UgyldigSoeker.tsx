@@ -1,6 +1,6 @@
 import { useBrukerContext } from "../context/bruker/BrukerContext";
 import { Veileder } from './felles/Veileder'
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import {SkjemaGruppe} from "./felles/SkjemaGruppe";
 import { ActionTypes } from "../context/bruker/bruker";
 import { erForUng } from "../utils/alder";
 import { useHistory } from "react-router-dom";

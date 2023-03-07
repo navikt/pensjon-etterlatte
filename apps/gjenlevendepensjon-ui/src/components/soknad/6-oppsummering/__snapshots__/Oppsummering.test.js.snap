@@ -2,39 +2,30 @@
 
 exports[`Oppsummering Snapshot 1`] = `
 <div>
-  <fieldset
-    aria-invalid="false"
-    class="skjemagruppe"
+  <div
+    class="sc-blmETK cUCoJu"
   >
     <h1
       class="center navds-heading navds-heading--medium"
     >
       oppsummering.tittel
     </h1>
-    <div
-      aria-live="polite"
-    />
-  </fieldset>
-  <fieldset
-    aria-invalid="false"
-    class="skjemagruppe"
+  </div>
+  <div
+    class="sc-blmETK cUCoJu"
   >
     <p
       class="navds-body-long"
     >
       oppsummering.beskrivelse
     </p>
-    <div
-      aria-live="polite"
-    />
-  </fieldset>
+  </div>
   <br />
   <fieldset
-    aria-invalid="false"
-    class="skjemagruppe sc-hABAzo bRVWZM"
+    class="sc-beySbM kuevld"
   >
     <div
-      class="sc-dmyDGi cEmFkl false"
+      class="sc-hLQRIN kjwTfL false"
     >
       <button
         class="navds-button navds-button--primary navds-button--medium"
@@ -60,13 +51,9 @@ exports[`Oppsummering Snapshot 1`] = `
         </span>
       </button>
     </div>
-    <div
-      aria-live="polite"
-    />
   </fieldset>
-  <fieldset
-    aria-invalid="false"
-    class="skjemagruppe sc-hLQRIN kjwTfL false"
+  <div
+    class="sc-hLQRIN sc-eDLJxc kjwTfL bnEsAH"
   >
     <button
       class="navds-button navds-button--secondary navds-button--medium"
@@ -80,9 +67,6 @@ exports[`Oppsummering Snapshot 1`] = `
         knapp.avbryt
       </span>
     </button>
-    <div
-      aria-live="polite"
-    />
-  </fieldset>
+  </div>
 </div>
 `;

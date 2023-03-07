@@ -43,6 +43,7 @@ const SoknadDialog = () => {
                     activeStep={aktivtSteg + 1}
                     onStepChange={(step) => isDev && settSteg(step - 1)}
                     orientation={'horizontal'}
+                    interactive={isDev}
             >
                 {muligeSteg.map((steg) => (
                         <Stepper.Step key={uuid()} interactive={besoekteSteg.includes(steg)}>

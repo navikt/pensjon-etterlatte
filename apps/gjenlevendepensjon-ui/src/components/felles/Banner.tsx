@@ -16,7 +16,7 @@ const BannerWrapper = styled.header`
 const Banner = ({ tekst }: { tekst: string }) => {
     return (
         <BannerWrapper role="banner">
-            <Heading size={"xlarge"}>{tekst}</Heading>
+            <Heading size={"large"}>{tekst}</Heading>
         </BannerWrapper>
     );
 };

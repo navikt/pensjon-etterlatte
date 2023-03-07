@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {Button, Link, Modal} from "@navikt/ds-react";
-import {SkjemaGruppe} from "nav-frontend-skjema";
+import { SkjemaGruppe } from "./SkjemaGruppe"
 
 export const HvorforPanelButton = styled(Button)`
     color: #0067C5;
@@ -38,8 +38,8 @@ export const NavigasjonsRad = styled.div`
   ${navigasjonsRad}
 `
 
-export const NavigasjonsRadSkjemaGruppe = styled(SkjemaGruppe)`
-  ${navigasjonsRad}
+export const NavigasjonsRadSkjemaGruppe = styled(NavigasjonsRad)<{disabled?: boolean}>`
+  ${props => props.disabled ? "opacity: 0.6; pointer-events: none;" : ""}
 `
 
 export const NavigasjonsRadSection = styled.section`
@@ -99,7 +99,7 @@ export const InfokortFooterItem = styled(Link)`
     text-align: center;
 `
 
-export const SkjemaGruppeRad = styled(SkjemaGruppe)`
+export const SkjemaGruppeRad = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -107,9 +107,7 @@ export const SkjemaGruppeRad = styled(SkjemaGruppe)`
   column-gap: 1rem;
   
   @media screen and (max-width: 650px) {
-    .col-mobile {
       flex-direction: column;
-    }
   }
 `
 
@@ -137,22 +135,6 @@ export const SpoersmaalModal = styled(Modal)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  .skjemagruppering {
-    margin-bottom: 2rem !important;
-
-    .skjemagruppe {
-      margin-bottom: 1rem !important;
-
-      .skjemaelement {
-        margin-bottom: 0 !important;
-      }
-    }
-
-    .skjemaelement {
-      margin-bottom: 1rem !important;
-    }
-  }
   
   text-align: center;
   padding: 3rem;
@@ -162,10 +144,6 @@ export const SpoersmaalModal = styled(Modal)`
       font-size: 0.8em;
       padding: 0 1em;
     }
-  }
-
-  .skjemagruppe {
-    margin-bottom: 2rem !important;
   }
   
   .navds-modal__button {

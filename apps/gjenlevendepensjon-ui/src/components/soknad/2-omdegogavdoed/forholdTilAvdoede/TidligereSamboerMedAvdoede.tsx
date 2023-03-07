@@ -5,9 +5,9 @@ import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import Datovelger from "../../../felles/Datovelger";
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
 import { useTranslation } from "react-i18next";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
+import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
 
 const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation();
@@ -23,7 +23,7 @@ const TidligereSamboerMedAvdoede = () => {
     const bidragMaaUtfylles = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet);
 
     return (
-        <SkjemaGruppering>
+        <SkjemaGruppe>
             <RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
@@ -60,7 +60,7 @@ const TidligereSamboerMedAvdoede = () => {
                     )}
                 </>
             )}
-        </SkjemaGruppering>
+        </SkjemaGruppe>
     )
 }
 

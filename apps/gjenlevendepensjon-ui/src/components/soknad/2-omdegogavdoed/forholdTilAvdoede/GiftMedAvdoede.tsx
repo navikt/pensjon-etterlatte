@@ -5,9 +5,9 @@ import { hentAlder } from "../../../../utils/dato";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useTranslation } from "react-i18next";
-import { SkjemaGruppe } from "nav-frontend-skjema";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
+import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
 
 const GiftMedAvdoede = () => {
     const { t } = useTranslation();
@@ -22,7 +22,7 @@ const GiftMedAvdoede = () => {
     const datoforDoedsfallet = watch("avdoed.datoForDoedsfallet");
 
     return (
-        <SkjemaGruppering>
+        <>
             <SkjemaGruppe>
                 <Datovelger
                     name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
@@ -32,7 +32,7 @@ const GiftMedAvdoede = () => {
                 />
             </SkjemaGruppe>
             {partnerskapMindreEnnFemAar && (
-                <>
+                <SkjemaElement>
                     <RHFSpoersmaalRadio
                         name={"forholdTilAvdoede.fellesBarn"}
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
@@ -44,9 +44,9 @@ const GiftMedAvdoede = () => {
                             legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
                         />
                     )}
-                </>
+                </SkjemaElement>
             )}
-        </SkjemaGruppering>
+        </>
     );
 };
 

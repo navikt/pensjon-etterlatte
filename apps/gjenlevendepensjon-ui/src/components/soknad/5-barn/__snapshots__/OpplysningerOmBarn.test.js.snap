@@ -3,22 +3,17 @@
 exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <form>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+    <div
+      class="sc-fHekdT fJRgZD"
     >
       <h1
         class="center navds-heading navds-heading--medium"
       >
         omBarn.tittel
       </h1>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+    </div>
+    <div
+      class="sc-fHekdT fJRgZD"
     >
       <div
         class="navds-panel navds-panel--border"
@@ -60,22 +55,18 @@ exports[`Om den avdøde Snapshot 1`] = `
           </div>
         </div>
       </div>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
+    </div>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+      class="sc-beySbM kuevld"
     >
       <div
-        class="sc-khjJjR gtOEod"
+        class="sc-fLsdZI dCoypc"
       >
         <div
-          class="sc-fsYeqs dbxvg"
+          class="sc-qZqnM cRGgOO"
         >
           <div
-            class="sc-jTQDnj FvYRF"
+            class="sc-gLLvby dfISMg"
           >
             <img
               alt="barn"
@@ -83,7 +74,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             />
           </div>
           <div
-            class="sc-gLLvby ihIMxG"
+            class="sc-iBdmCd iJRlsR"
           >
             <div
               class="center"
@@ -109,16 +100,13 @@ exports[`Om den avdøde Snapshot 1`] = `
           </div>
         </div>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <div
       id="gravidEllerNyligFoedt"
     >
       <fieldset
         aria-invalid="false"
-        class="skjemagruppe inputPanelGruppe sc-hABAzo hrfYkW"
+        class="skjemagruppe inputPanelGruppe sc-fmKESZ jtyivh"
       >
         <legend
           class="skjemagruppe__legend"
@@ -171,11 +159,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </fieldset>
     </div>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-hIPCAL byYeMQ"
+      class="sc-beySbM kuevld"
     >
       <div
-        class="sc-dmyDGi cEmFkl undefined"
+        class="sc-hLQRIN kjwTfL undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -200,13 +187,9 @@ exports[`Om den avdøde Snapshot 1`] = `
           </span>
         </button>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-hLQRIN kjwTfL undefined"
+    <div
+      class="sc-hLQRIN sc-eDLJxc kjwTfL bnEsAH"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -220,10 +203,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           knapp.avbryt
         </span>
       </button>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
+    </div>
   </form>
 </div>
 `;

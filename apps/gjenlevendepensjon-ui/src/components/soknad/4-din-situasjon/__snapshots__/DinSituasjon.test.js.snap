@@ -3,22 +3,17 @@
 exports[`Om den avdøde Skal rendre selvstendig 1`] = `
 <div>
   <form>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+    <div
+      class="sc-fHekdT fJRgZD"
     >
       <h1
         class="center navds-heading navds-heading--medium"
       >
         dinSituasjon.tittel
       </h1>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
+    </div>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+      class="sc-beySbM kuevld"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -30,9 +25,6 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       >
         dinSituasjon.ingress
       </p>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <div
       id="jobbStatus"
@@ -138,116 +130,115 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </fieldset>
     </div>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe"
+      <div
+        class="sc-fHekdT fJRgZD"
       >
         <h1
           class="navds-heading navds-heading--small"
         >
           dinSituasjon.arbeidsforhold.tittel
         </h1>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
+      </div>
       <div
         class="navds-panel luft-under navds-panel--border"
       >
         <div
-          class="kol-75"
+          class="sc-fHekdT fJRgZD"
         >
           <div
-            class="skjemaelement"
-          >
-            <label
-              class="skjemaelement__label"
-              for="arbeidsforhold[0].arbeidsgiver"
-            >
-              dinSituasjon.arbeidsforhold.arbeidsgiver
-            </label>
-            <input
-              aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
-              id="arbeidsforhold[0].arbeidsgiver"
-              required=""
-              type="text"
-              value="Potetskreller AS"
-            />
-          </div>
-        </div>
-        <fieldset
-          aria-invalid="false"
-          class="skjemagruppe sc-csKIKE eJBcFQ"
-        >
-          <div
-            id="arbeidsforhold[0].ansettelsesforhold"
+            class="kol-75"
           >
             <div
               class="skjemaelement"
             >
               <label
                 class="skjemaelement__label"
+                for="arbeidsforhold[0].arbeidsgiver"
               >
-                dinSituasjon.arbeidsforhold.ansettelsesforhold
+                dinSituasjon.arbeidsforhold.arbeidsgiver
               </label>
-              <div
-                class="selectContainer input--l"
-              >
-                <select
-                  aria-invalid="false"
-                  class="skjemaelement__input"
-                >
-                  <option
-                    value=""
-                  >
-                    felles.velg
-                  </option>
-                  <option
-                    value="stillingType.fast"
-                  >
-                    stillingType.fast
-                  </option>
-                  <option
-                    value="stillingType.midlertidig"
-                  >
-                    stillingType.midlertidig
-                  </option>
-                  <option
-                    value="stillingType.sesongarbeid"
-                  >
-                    stillingType.sesongarbeid
-                  </option>
-                </select>
-              </div>
+              <input
+                aria-invalid="false"
+                class="skjemaelement__input input--fullbredde"
+                id="arbeidsforhold[0].arbeidsgiver"
+                required=""
+                type="text"
+                value="Potetskreller AS"
+              />
             </div>
           </div>
+        </div>
+        <div
+          class="sc-fHekdT fJRgZD"
+        >
           <div
-            class="skjemaelement"
+            class="sc-csKIKE ehvZwR"
           >
-            <label
-              class="skjemaelement__label"
-              for="arbeidsforhold[0].stillingsprosent"
+            <div
+              id="arbeidsforhold[0].ansettelsesforhold"
             >
-              dinSituasjon.arbeidsforhold.stillingsprosent
-            </label>
-            <input
-              aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
-              id="arbeidsforhold[0].stillingsprosent"
-              placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
-              required=""
-              type="text"
-              value="100%"
-            />
+              <div
+                class="skjemaelement"
+              >
+                <label
+                  class="skjemaelement__label"
+                >
+                  dinSituasjon.arbeidsforhold.ansettelsesforhold
+                </label>
+                <div
+                  class="selectContainer input--l"
+                >
+                  <select
+                    aria-invalid="false"
+                    class="skjemaelement__input"
+                  >
+                    <option
+                      value=""
+                    >
+                      felles.velg
+                    </option>
+                    <option
+                      value="stillingType.fast"
+                    >
+                      stillingType.fast
+                    </option>
+                    <option
+                      value="stillingType.midlertidig"
+                    >
+                      stillingType.midlertidig
+                    </option>
+                    <option
+                      value="stillingType.sesongarbeid"
+                    >
+                      stillingType.sesongarbeid
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              class="skjemaelement"
+            >
+              <label
+                class="skjemaelement__label"
+                for="arbeidsforhold[0].stillingsprosent"
+              >
+                dinSituasjon.arbeidsforhold.stillingsprosent
+              </label>
+              <input
+                aria-invalid="false"
+                class="skjemaelement__input input--fullbredde"
+                id="arbeidsforhold[0].stillingsprosent"
+                placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
+                required=""
+                type="text"
+                value="100%"
+              />
+            </div>
           </div>
-          <div
-            aria-live="polite"
-          />
-        </fieldset>
+        </div>
         <div
           id="arbeidsforhold[0].forventerEndretInntekt.svar"
         >
@@ -336,27 +327,19 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           knapp.leggTilArbeidsforhold
         </span>
       </button>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe"
+      <div
+        class="sc-fHekdT fJRgZD"
       >
         <h1
           class="navds-heading navds-heading--small"
         >
           dinSituasjon.selvstendig.tittel
         </h1>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
+      </div>
       <div
         class="navds-panel luft-under navds-panel--border"
       >
@@ -382,9 +365,8 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             />
           </div>
         </div>
-        <fieldset
-          aria-invalid="false"
-          class="skjemagruppe"
+        <div
+          class="sc-fHekdT fJRgZD"
         >
           <div
             class="skjemaelement"
@@ -405,10 +387,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               value=""
             />
           </div>
-          <div
-            aria-live="polite"
-          />
-        </fieldset>
+        </div>
         <div
           id="selvstendig[0].forventerEndretInntekt.svar"
         >
@@ -497,27 +476,19 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           knapp.leggTilNaeringer
         </span>
       </button>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe"
+      <div
+        class="sc-fHekdT fJRgZD"
       >
         <h1
           class="navds-heading navds-heading--small"
         >
           dinSituasjon.utdanning.tittelFullfoert
         </h1>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
+      </div>
       <div
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
@@ -666,17 +637,12 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           />
         </fieldset>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
       <fieldset
-        aria-invalid="false"
-        class="skjemagruppe"
+        class="sc-beySbM kuevld"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -688,9 +654,6 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
         >
           dinSituasjon.andreYtelser.ingress
         </p>
-        <div
-          aria-live="polite"
-        />
       </fieldset>
       <div
         id="andreYtelser.kravOmAnnenStonad.svar"
@@ -749,13 +712,9 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           />
         </fieldset>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
       <div
         id="andreYtelser.annenPensjon.svar"
@@ -814,13 +773,9 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           />
         </fieldset>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
       <div
         id="andreYtelser.mottarPensjonUtland.svar"
@@ -918,13 +873,9 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           />
         </fieldset>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-fHekdT erljpX"
+      class="sc-beySbM kuevld"
     >
       <div
         class="sc-eDLJxc gaGxPb undefined"
@@ -952,13 +903,9 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           </span>
         </button>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-jTQDnj emAaXc undefined"
+    <div
+      class="sc-eDLJxc sc-jTQDnj gaGxPb lkqjDg"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -972,10 +919,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           knapp.avbryt
         </span>
       </button>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
+    </div>
   </form>
 </div>
 `;
@@ -983,22 +927,17 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
 exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <form>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+    <div
+      class="sc-fHekdT fJRgZD"
     >
       <h1
         class="center navds-heading navds-heading--medium"
       >
         dinSituasjon.tittel
       </h1>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
+    </div>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe"
+      class="sc-beySbM kuevld"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1010,9 +949,6 @@ exports[`Om den avdøde Snapshot 1`] = `
       >
         dinSituasjon.ingress
       </p>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <div
       id="jobbStatus"
@@ -1118,116 +1054,115 @@ exports[`Om den avdøde Snapshot 1`] = `
       </fieldset>
     </div>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe"
+      <div
+        class="sc-fHekdT fJRgZD"
       >
         <h1
           class="navds-heading navds-heading--small"
         >
           dinSituasjon.arbeidsforhold.tittel
         </h1>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
+      </div>
       <div
         class="navds-panel luft-under navds-panel--border"
       >
         <div
-          class="kol-75"
+          class="sc-fHekdT fJRgZD"
         >
           <div
-            class="skjemaelement"
-          >
-            <label
-              class="skjemaelement__label"
-              for="arbeidsforhold[0].arbeidsgiver"
-            >
-              dinSituasjon.arbeidsforhold.arbeidsgiver
-            </label>
-            <input
-              aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
-              id="arbeidsforhold[0].arbeidsgiver"
-              required=""
-              type="text"
-              value="Potetskreller AS"
-            />
-          </div>
-        </div>
-        <fieldset
-          aria-invalid="false"
-          class="skjemagruppe sc-csKIKE eJBcFQ"
-        >
-          <div
-            id="arbeidsforhold[0].ansettelsesforhold"
+            class="kol-75"
           >
             <div
               class="skjemaelement"
             >
               <label
                 class="skjemaelement__label"
+                for="arbeidsforhold[0].arbeidsgiver"
               >
-                dinSituasjon.arbeidsforhold.ansettelsesforhold
+                dinSituasjon.arbeidsforhold.arbeidsgiver
               </label>
-              <div
-                class="selectContainer input--l"
-              >
-                <select
-                  aria-invalid="false"
-                  class="skjemaelement__input"
-                >
-                  <option
-                    value=""
-                  >
-                    felles.velg
-                  </option>
-                  <option
-                    value="stillingType.fast"
-                  >
-                    stillingType.fast
-                  </option>
-                  <option
-                    value="stillingType.midlertidig"
-                  >
-                    stillingType.midlertidig
-                  </option>
-                  <option
-                    value="stillingType.sesongarbeid"
-                  >
-                    stillingType.sesongarbeid
-                  </option>
-                </select>
-              </div>
+              <input
+                aria-invalid="false"
+                class="skjemaelement__input input--fullbredde"
+                id="arbeidsforhold[0].arbeidsgiver"
+                required=""
+                type="text"
+                value="Potetskreller AS"
+              />
             </div>
           </div>
+        </div>
+        <div
+          class="sc-fHekdT fJRgZD"
+        >
           <div
-            class="skjemaelement"
+            class="sc-csKIKE ehvZwR"
           >
-            <label
-              class="skjemaelement__label"
-              for="arbeidsforhold[0].stillingsprosent"
+            <div
+              id="arbeidsforhold[0].ansettelsesforhold"
             >
-              dinSituasjon.arbeidsforhold.stillingsprosent
-            </label>
-            <input
-              aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
-              id="arbeidsforhold[0].stillingsprosent"
-              placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
-              required=""
-              type="text"
-              value="100%"
-            />
+              <div
+                class="skjemaelement"
+              >
+                <label
+                  class="skjemaelement__label"
+                >
+                  dinSituasjon.arbeidsforhold.ansettelsesforhold
+                </label>
+                <div
+                  class="selectContainer input--l"
+                >
+                  <select
+                    aria-invalid="false"
+                    class="skjemaelement__input"
+                  >
+                    <option
+                      value=""
+                    >
+                      felles.velg
+                    </option>
+                    <option
+                      value="stillingType.fast"
+                    >
+                      stillingType.fast
+                    </option>
+                    <option
+                      value="stillingType.midlertidig"
+                    >
+                      stillingType.midlertidig
+                    </option>
+                    <option
+                      value="stillingType.sesongarbeid"
+                    >
+                      stillingType.sesongarbeid
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              class="skjemaelement"
+            >
+              <label
+                class="skjemaelement__label"
+                for="arbeidsforhold[0].stillingsprosent"
+              >
+                dinSituasjon.arbeidsforhold.stillingsprosent
+              </label>
+              <input
+                aria-invalid="false"
+                class="skjemaelement__input input--fullbredde"
+                id="arbeidsforhold[0].stillingsprosent"
+                placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
+                required=""
+                type="text"
+                value="100%"
+              />
+            </div>
           </div>
-          <div
-            aria-live="polite"
-          />
-        </fieldset>
+        </div>
         <div
           id="arbeidsforhold[0].forventerEndretInntekt.svar"
         >
@@ -1316,27 +1251,19 @@ exports[`Om den avdøde Snapshot 1`] = `
           knapp.leggTilArbeidsforhold
         </span>
       </button>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe"
+      <div
+        class="sc-fHekdT fJRgZD"
       >
         <h1
           class="navds-heading navds-heading--small"
         >
           dinSituasjon.utdanning.tittelFullfoert
         </h1>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
+      </div>
       <div
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
@@ -1485,17 +1412,12 @@ exports[`Om den avdøde Snapshot 1`] = `
           />
         </fieldset>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
       <fieldset
-        aria-invalid="false"
-        class="skjemagruppe"
+        class="sc-beySbM kuevld"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1507,9 +1429,6 @@ exports[`Om den avdøde Snapshot 1`] = `
         >
           dinSituasjon.andreYtelser.ingress
         </p>
-        <div
-          aria-live="polite"
-        />
       </fieldset>
       <div
         id="andreYtelser.kravOmAnnenStonad.svar"
@@ -1568,13 +1487,9 @@ exports[`Om den avdøde Snapshot 1`] = `
           />
         </fieldset>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
       <div
         id="andreYtelser.annenPensjon.svar"
@@ -1633,13 +1548,9 @@ exports[`Om den avdøde Snapshot 1`] = `
           />
         </fieldset>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-beySbM decPBp"
+      class="sc-beySbM kuevld"
     >
       <div
         id="andreYtelser.mottarPensjonUtland.svar"
@@ -1737,13 +1648,9 @@ exports[`Om den avdøde Snapshot 1`] = `
           />
         </fieldset>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-fHekdT erljpX"
+      class="sc-beySbM kuevld"
     >
       <div
         class="sc-eDLJxc gaGxPb undefined"
@@ -1771,13 +1678,9 @@ exports[`Om den avdøde Snapshot 1`] = `
           </span>
         </button>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe sc-jTQDnj emAaXc undefined"
+    <div
+      class="sc-eDLJxc sc-jTQDnj gaGxPb lkqjDg"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -1791,10 +1694,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           knapp.avbryt
         </span>
       </button>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
+    </div>
   </form>
 </div>
 `;

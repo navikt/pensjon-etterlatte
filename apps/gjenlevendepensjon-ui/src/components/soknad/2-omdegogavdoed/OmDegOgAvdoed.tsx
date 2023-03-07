@@ -5,7 +5,7 @@ import { ISoekerOgAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { FormProvider, useForm } from "react-hook-form";
 import { RHFInput } from "../../felles/RHFInput";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
@@ -13,6 +13,7 @@ import { Cell, Grid, Label, Heading } from "@navikt/ds-react";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
 import { deepCopy } from "../../../utils/deepCopy";
+import {SkjemaElement} from "../../felles/SkjemaElement";
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -49,11 +50,11 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
     return (
         <>
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"medium"} className={"center"}>
                     {t("omDegOgAvdoed.tittel")}
                 </Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             <FormProvider {...methods}>
                 <form>

@@ -1,6 +1,6 @@
 import { Veileder } from '../felles/Veileder'
 import React, { useEffect } from "react";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../felles/SkjemaGruppe";
 import { Alert, BodyLong, BodyShort, Button, Link, Heading } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../../hooks/useLanguage";
@@ -19,12 +19,12 @@ const SoknadKvittering = () => {
 
     return (
         <ForsideWrapper>
-            <SkjemaGruppe className={"center"}>
+            <SkjemaGruppe>
                 <Veileder></Veileder>
             </SkjemaGruppe>
 
-            <SkjemaGruppe className={"center"}>
-                <Heading size={"medium"} spacing={true}>{t("soeknadKvittering.tittel")}</Heading>
+            <SkjemaGruppe>
+                <Heading className={"center"} size={"medium"} spacing={true}>{t("soeknadKvittering.tittel")}</Heading>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

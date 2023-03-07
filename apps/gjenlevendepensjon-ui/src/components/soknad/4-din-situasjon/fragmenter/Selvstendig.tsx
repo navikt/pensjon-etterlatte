@@ -1,10 +1,10 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { Button, Heading } from "@navikt/ds-react";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useEffect } from "react";
 import SelvstendigInfokort from "./SelvstendigInfokort";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
+import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
 
 const Selvstendig = () => {
     const { t } = useTranslation();
@@ -23,10 +23,10 @@ const Selvstendig = () => {
     });
 
     return (
-        <SkjemaGruppering>
-            <SkjemaGruppe>
+        <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"small"}>{t("dinSituasjon.selvstendig.tittel")}</Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             {fields.map((field: FieldArrayWithId, index: number) => (
                 <SelvstendigInfokort key={field.id} lengde={fields.length} index={index} fjern={remove}/>
@@ -35,7 +35,7 @@ const Selvstendig = () => {
             <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
                 + {t("knapp.leggTilNaeringer")}
             </Button>
-        </SkjemaGruppering>
+        </SkjemaGruppe>
     );
 };
 

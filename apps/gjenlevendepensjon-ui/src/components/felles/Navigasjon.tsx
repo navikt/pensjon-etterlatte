@@ -1,4 +1,4 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import {SkjemaGruppe} from "./SkjemaGruppe";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
@@ -33,9 +33,6 @@ const NavigasjonModal = styled(Modal)`
     }
   }
 
-  .skjemagruppe {
-    margin-bottom: 2rem !important;
-  }
   
   .navds-modal__button {
     visibility: hidden;
@@ -47,22 +44,6 @@ const NavigasjonModal = styled(Modal)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  .skjemagruppering {
-    margin-bottom: 2rem !important;
-
-    .skjemagruppe {
-      margin-bottom: 1rem !important;
-
-      .skjemaelement {
-        margin-bottom: 0 !important;
-      }
-    }
-
-    .skjemaelement {
-      margin-bottom: 1rem !important;
-    }
-  }
 `
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root");
@@ -152,7 +133,7 @@ const Navigasjon = ({
                 )}
             </NavigasjonWrapper>
 
-            <NavigasjonsRadSkjemaGruppe className={`${disabled && "disabled"}`}>
+            <NavigasjonsRadSkjemaGruppe disabled={disabled}>
                 <Button id={"avbryt-btn"} variant={"secondary"} type={"button"} onClick={() => setIsOpen(true)}>
                     {t("knapp.avbryt")}
                 </Button>

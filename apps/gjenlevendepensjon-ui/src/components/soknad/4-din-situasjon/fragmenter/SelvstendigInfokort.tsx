@@ -2,11 +2,11 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Panel } from "@navikt/ds-react";
 import { RHFInput, RHFNumberInput } from "../../../felles/RHFInput";
-import { SkjemaGruppe } from "nav-frontend-skjema";
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { useFormContext } from "react-hook-form";
+import { SkjemaElement } from "../../../felles/SkjemaElement";
 
 interface Props {
     lengde: number;
@@ -29,7 +29,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                 label={t("dinSituasjon.selvstendig.beskrivelse")}
             />
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <RHFNumberInput
                     name={`selvstendig[${index}].orgnr` as const}
                     placeholder={t("dinSituasjon.selvstendig.orgnrplaceholder")}
@@ -37,7 +37,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     maxLength={9}
                     minLength={9}
                 />
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             <RHFSpoersmaalRadio
                 name={`selvstendig[${index}].forventerEndretInntekt.svar` as const}

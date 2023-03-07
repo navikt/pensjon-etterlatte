@@ -5,9 +5,10 @@ import { useFormContext } from "react-hook-form";
 import { antallAarMellom } from "../../../../utils/dato";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useTranslation } from "react-i18next";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
+import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
 
 const giftMerEnn25aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0;
@@ -49,24 +50,26 @@ const SkiltFraAvdoede = () => {
     const mindreEnnFemAar = mindreEnnFemaarMellomSkillsmisseOgDodsfall(datoForSkilsmisse, datoForDoedsfallet);
 
     return (
-        <SkjemaGruppering>
-            <SkjemaGruppeRad className={"col-mobile"}>
-                <Datovelger
-                    kol={true}
-                    name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
-                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
-                    minDate={state.foedselsdato}
-                    maxDate={datoForDoedsfallet || new Date()}
-                />
+        <SkjemaGruppe>
+            <SkjemaElement>
+                <SkjemaGruppeRad>
+                    <Datovelger
+                        kol={true}
+                        name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
+                        label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
+                        minDate={state.foedselsdato}
+                        maxDate={datoForDoedsfallet || new Date()}
+                    />
 
-                <Datovelger
-                    kol={true}
-                    name={"forholdTilAvdoede.datoForSkilsmisse"}
-                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse")}
-                    minDate={datoForInngaattPartnerskap}
-                    maxDate={datoForDoedsfallet || new Date()}
-                />
-            </SkjemaGruppeRad>
+                    <Datovelger
+                        kol={true}
+                        name={"forholdTilAvdoede.datoForSkilsmisse"}
+                        label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse")}
+                        minDate={datoForInngaattPartnerskap}
+                        maxDate={datoForDoedsfallet || new Date()}
+                    />
+                </SkjemaGruppeRad>
+            </SkjemaElement>
 
             <RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
@@ -91,7 +94,7 @@ const SkiltFraAvdoede = () => {
                     />
                 </>
             ) : null}
-        </SkjemaGruppering>
+        </SkjemaGruppe>
     );
 };
 

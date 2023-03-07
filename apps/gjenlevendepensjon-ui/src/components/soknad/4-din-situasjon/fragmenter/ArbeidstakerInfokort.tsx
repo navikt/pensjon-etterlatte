@@ -9,6 +9,7 @@ import { IValg } from "../../../../typer/Spoersmaal";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { useFormContext } from "react-hook-form";
 import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
 
 interface Props {
     lengde: number;
@@ -27,39 +28,43 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
 
     return (
         <Panel border className={"luft-under"}>
-            <RHFInput
-                className={"kol-75"}
-                name={`arbeidsforhold[${index}].arbeidsgiver` as const}
-                label={t("dinSituasjon.arbeidsforhold.arbeidsgiver")}
-            />
-
-            <SkjemaGruppeRad>
-                <RHFSelect
-                    name={`arbeidsforhold[${index}].ansettelsesforhold` as const}
-                    label={t("dinSituasjon.arbeidsforhold.ansettelsesforhold")}
-                    selectOptions={[
-                        { label: t("felles.velg"), value: "" },
-                        {
-                            label: t(StillingType.fast),
-                            value: StillingType.fast,
-                        },
-                        {
-                            label: t(StillingType.midlertidig),
-                            value: StillingType.midlertidig,
-                        },
-                        {
-                            label: t(StillingType.sesongarbeid),
-                            value: StillingType.sesongarbeid,
-                        },
-                    ]}
+            <SkjemaElement>
+                <RHFInput
+                    className={"kol-75"}
+                    name={`arbeidsforhold[${index}].arbeidsgiver` as const}
+                    label={t("dinSituasjon.arbeidsforhold.arbeidsgiver")}
                 />
+            </SkjemaElement>
 
-                <RHFProsentInput
-                    name={`arbeidsforhold[${index}].stillingsprosent` as const}
-                    label={t("dinSituasjon.arbeidsforhold.stillingsprosent")}
-                    placeholder={t("dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder")}
-                />
-            </SkjemaGruppeRad>
+            <SkjemaElement>
+                <SkjemaGruppeRad>
+                    <RHFSelect
+                        name={`arbeidsforhold[${index}].ansettelsesforhold` as const}
+                        label={t("dinSituasjon.arbeidsforhold.ansettelsesforhold")}
+                        selectOptions={[
+                            { label: t("felles.velg"), value: "" },
+                            {
+                                label: t(StillingType.fast),
+                                value: StillingType.fast,
+                            },
+                            {
+                                label: t(StillingType.midlertidig),
+                                value: StillingType.midlertidig,
+                            },
+                            {
+                                label: t(StillingType.sesongarbeid),
+                                value: StillingType.sesongarbeid,
+                            },
+                        ]}
+                    />
+
+                    <RHFProsentInput
+                        name={`arbeidsforhold[${index}].stillingsprosent` as const}
+                        label={t("dinSituasjon.arbeidsforhold.stillingsprosent")}
+                        placeholder={t("dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder")}
+                    />
+                </SkjemaGruppeRad>
+            </SkjemaElement>
 
             <RHFSpoersmaalRadio
                 name={`arbeidsforhold[${index}].forventerEndretInntekt.svar` as const}

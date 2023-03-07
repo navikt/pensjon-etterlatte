@@ -1,24 +1,24 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { Heading, Panel } from "@navikt/ds-react";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 import { RHFCheckboksPanel } from "../../../felles/RHFCheckboksPanelGruppe";
 import { IValg } from "../../../../typer/Spoersmaal";
 import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
 
 const UnderUtdanning = () => {
     const { t } = useTranslation();
     const { state } = useBrukerContext();
 
     return (
-        <SkjemaGruppering>
+        <SkjemaGruppe>
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"small"}>{t("dinSituasjon.utdanning.tittel")}</Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             <Panel border>
                 <RHFInput
@@ -26,25 +26,26 @@ const UnderUtdanning = () => {
                     label={t("dinSituasjon.utdanning.naavaerendeUtdanning.navn")}
                     placeholder={t("dinSituasjon.utdanning.naavaerendeUtdanning.navnPlaceholder")}
                 />
+                <SkjemaElement>
+                    <SkjemaGruppeRad>
+                        <Datovelger
+                            name={"utdanning.naavaerendeUtdanning.startDato"}
+                            label={t("dinSituasjon.utdanning.naavaerendeUtdanning.startDato")}
+                            minDate={state.foedselsdato}
+                            maxDate={new Date()}
+                        />
 
-                <SkjemaGruppeRad>
-                    <Datovelger
-                        name={"utdanning.naavaerendeUtdanning.startDato"}
-                        label={t("dinSituasjon.utdanning.naavaerendeUtdanning.startDato")}
-                        minDate={state.foedselsdato}
-                        maxDate={new Date()}
-                    />
-
-                    <Datovelger
-                        name={"utdanning.naavaerendeUtdanning.sluttDato"}
-                        label={t("dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato")}
-                        minDate={new Date()}
-                    />
-                </SkjemaGruppeRad>
+                        <Datovelger
+                            name={"utdanning.naavaerendeUtdanning.sluttDato"}
+                            label={t("dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato")}
+                            minDate={new Date()}
+                        />
+                    </SkjemaGruppeRad>
+                </SkjemaElement>
             </Panel>
 
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <br />
                 <RHFCheckboksPanel
                     name={"utdanning.soeknadOmSkolepenger"}
@@ -58,9 +59,9 @@ const UnderUtdanning = () => {
                         }
                     }
                 />
-            </SkjemaGruppe>
+            </SkjemaElement>
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <RHFCheckboksPanel
                     name={"utdanning.soeknadOmTilleggsstoenadUtdanning"}
                     legend={t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning")}
@@ -73,8 +74,8 @@ const UnderUtdanning = () => {
                         }
                     }
                 />
-            </SkjemaGruppe>
-        </SkjemaGruppering>
+            </SkjemaElement>
+        </SkjemaGruppe>
     );
 };
 

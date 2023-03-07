@@ -6,15 +6,15 @@ import { RHFInput } from "../../../felles/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useEffect } from "react";
 import { RHFCheckboksGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
-import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
 import { DeleteFilled } from "@navikt/ds-icons";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Button, Panel, Heading } from "@navikt/ds-react";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { RHFSelect } from "../../../felles/RHFSelect";
 import { useLand } from "../../../../hooks/useLand";
 import {Rad, SkjemaGruppeIngress} from "../../../felles/StyledComponents";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
+import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
 
 interface Props {
     datoForDoedsfallet?: Date;
@@ -41,7 +41,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     });
 
     return (
-        <SkjemaGruppering>
+        <SkjemaGruppe>
             <SkjemaGruppeIngress>
                 <Heading size="small">{t("omDenAvdoede.boddEllerJobbetUtland.tittel")}</Heading>
                 <BodyLong>{t("omDenAvdoede.boddEllerJobbetUtland.ingress")}</BodyLong>
@@ -53,7 +53,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
             />
 
             {boddEllerArbeidetUtland === IValg.JA && (
-                <SkjemaGruppering>
+                <SkjemaGruppe>
                     {fields.map((field: FieldArrayWithId, index: number) => (
                         <Panel border key={field.id} className={"luft-under"}>
                             <Rad>
@@ -82,7 +82,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                 />
                             </Rad>
 
-                            <SkjemaGruppe>
+                            <SkjemaElement>
                                 <Rad>
                                     <div className={"kol"}>
                                         <Datovelger
@@ -101,7 +101,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                         />
                                     </div>
                                 </Rad>
-                            </SkjemaGruppe>
+                            </SkjemaElement>
 
                             <RHFSpoersmaalRadio
                                 name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygd` as const}
@@ -116,17 +116,19 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                 vetIkke
                             />
 
-                            <RHFInput
-                                name={
-                                    `boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const
-                                }
-                                bredde={"S"}
-                                valgfri
-                                label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
-                                placeholder={t(
-                                    "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder"
-                                )}
-                            />
+                            <SkjemaElement>
+                                <RHFInput
+                                        name={
+                                            `boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const
+                                        }
+                                        bredde={"S"}
+                                        valgfri
+                                        label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
+                                        placeholder={t(
+                                                "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder"
+                                        )}
+                                />
+                            </SkjemaElement>
 
                             {fields.length > 1 && (
                                 <div style={{ textAlign: "right" }}>
@@ -141,9 +143,9 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
                         + {t("knapp.leggTilLand")}
                     </Button>
-                </SkjemaGruppering>
+                </SkjemaGruppe>
             )}
-        </SkjemaGruppering>
+        </SkjemaGruppe>
     );
 };
 

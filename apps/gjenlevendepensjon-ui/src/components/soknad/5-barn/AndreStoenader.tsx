@@ -1,4 +1,4 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 import { IValg } from "../../../typer/Spoersmaal";
 import React from "react";

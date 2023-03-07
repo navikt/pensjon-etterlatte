@@ -1,4 +1,4 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import {SkjemaGruppe} from "./SkjemaGruppe";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
 import { FieldError, FieldErrors } from "react-hook-form/dist/types/errors";

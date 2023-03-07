@@ -1,6 +1,6 @@
 import { Alert, BodyLong, Button, Heading, Link, Loader } from '@navikt/ds-react'
 import { isEmpty } from "lodash";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import React, { memo, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
@@ -16,6 +16,7 @@ import Navigasjon from "../../felles/Navigasjon";
 import OppsummeringInnhold from "./OppsummeringInnhold";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import {NavigasjonsRad, SpoersmaalModal} from "../../felles/StyledComponents";
+import { SkjemaElement } from "../../felles/SkjemaElement";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const history = useHistory();
@@ -75,15 +76,15 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
     return (
         <>
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"medium"} className={"center"}>
                     {t("oppsummering.tittel")}
                 </Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <BodyLong>{t("oppsummering.beskrivelse")}</BodyLong>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             {!isEmpty(soeknadOppsummering) && (
                 <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
@@ -113,17 +114,17 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 >
 
 
-                <SkjemaGruppe>
+                <SkjemaElement>
                     <Heading size={'medium'}>{t(senderSoeknad ? 'oppsummering.senderSoeknad.tittel' : 'oppsummering.sendSoeknad.tittel')}</Heading>
-                </SkjemaGruppe>
+                </SkjemaElement>
 
-                <SkjemaGruppe>
+                <SkjemaElement>
                     {senderSoeknad ? (
                             <Loader size={'xlarge'} />
                     ) : (
                             <BodyLong size={'small'}>{t('oppsummering.sendSoeknad.innhold')}</BodyLong>
                     )}
-                </SkjemaGruppe>
+                </SkjemaElement>
                 {!senderSoeknad && (
                         <NavigasjonsRad>
                             <Button

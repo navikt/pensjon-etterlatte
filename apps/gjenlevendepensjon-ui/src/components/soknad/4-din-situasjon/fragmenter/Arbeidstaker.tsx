@@ -1,10 +1,10 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Button, Heading } from "@navikt/ds-react";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import ArbeidstakerInfokort from "./ArbeidstakerInfokort";
 import { useEffect } from "react";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
+import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
 
 const Arbeidstaker = () => {
     const { t } = useTranslation();
@@ -30,10 +30,10 @@ const Arbeidstaker = () => {
     }
 
     return (
-        <SkjemaGruppering>
-            <SkjemaGruppe>
+        <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"small"}>{t("dinSituasjon.arbeidsforhold.tittel")}</Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             {fields.map((field: FieldArrayWithId, index: number) => (
                 <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={remove} />
@@ -42,7 +42,7 @@ const Arbeidstaker = () => {
             <Button variant={"secondary"} type={"button"} onClick={nyttArbeidsforhold} disabled={fields.length >= 10}>
                 + {t("knapp.leggTilArbeidsforhold")}
             </Button>
-        </SkjemaGruppering>
+        </SkjemaGruppe>
     );
 };
 

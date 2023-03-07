@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 import { ISoeker, SamboerInntekt } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { RHFFoedselsnummerInput, RHFInput, RHFNumberInput } from "../../../felles/RHFInput";
@@ -8,6 +8,7 @@ import { IValg } from "../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
 import { RHFCheckboksPanelGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
 import { Panel, Heading, Grid, Cell } from "@navikt/ds-react";
+import { SkjemaElement } from "../../../felles/SkjemaElement";
 
 const SamboerSkjema = () => {
     const { t } = useTranslation();
@@ -19,9 +20,9 @@ const SamboerSkjema = () => {
 
     return (
         <Panel border>
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"small"}>{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}</Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             <Grid>
                 <Cell xs={12} md={6}>

@@ -1,4 +1,4 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import {SkjemaGruppe} from "./felles/SkjemaGruppe";
 import { Alert, BodyLong, Button, Link } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { Spraakvalg } from "./felles/Spraakvalg";
