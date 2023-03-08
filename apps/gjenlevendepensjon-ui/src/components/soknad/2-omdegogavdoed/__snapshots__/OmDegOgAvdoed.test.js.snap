@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 <div>
   <div
-    class="sc-eDLJxc kKuaXb"
+    class="sc-guDLRT gSrTwn"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -48,7 +48,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-3"
+                id="textField-error-aksel-id-15"
               />
             </div>
           </div>
@@ -78,7 +78,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-4"
+                id="textField-error-aksel-id-16"
               />
             </div>
           </div>
@@ -94,7 +94,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         omDegOgAvdoed.avdoed.datoForDoedsfallet
       </label>
       <section
-        class="sc-hLQRIN inkSXR"
+        class="sc-eDLJxc kobyUl"
       >
         <label
           class="skjemaelement__label"
@@ -103,7 +103,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           omDegOgAvdoed.avdoed.dato felles.datoformat
         </label>
         <div
-          class="sc-dmyDGi gwrxXS"
+          class="sc-hLQRIN djofpo"
         >
           <div>
             <div
@@ -190,362 +190,466 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
     <div
       id="forholdTilAvdoede.relasjon"
     >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe inputPanelGruppe"
-      >
-        <legend
-          class="skjemagruppe__legend"
-        >
-          omDegOgAvdoed.forholdTilAvdoede.relasjon
-        </legend>
-        <div
-          class="inputPanelGruppe__inner"
-        >
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.gift"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              avdoede.relasjon.gift
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.separert"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              avdoede.relasjon.separert
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.samboer"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              avdoede.relasjon.samboer
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.skilt"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              avdoede.relasjon.skilt
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.tidligereSamboer"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              avdoede.relasjon.tidligereSamboer
-            </span>
-          </label>
-        </div>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
-    </div>
-    <div
-      class="sc-eDLJxc kKuaXb"
-    >
-      <h1
-        class="navds-heading navds-heading--small"
-      >
-        omDegOgAvdoed.nySivilstatus.sivilstatus
-      </h1>
-      <p
-        class="navds-body-long"
-      >
-        omDegOgAvdoed.nySivilstatus.beskrivelse
-      </p>
-    </div>
-    <div
-      id="nySivilstatus.sivilstatus"
-    >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe inputPanelGruppe"
-      >
-        <div
-          class="inputPanelGruppe__inner"
-        >
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="nySivilstatus.sivilstatus"
-              required=""
-              type="radio"
-              value="nySivilstatus.enslig"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              nySivilstatus.enslig
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="nySivilstatus.sivilstatus"
-              required=""
-              type="radio"
-              value="nySivilstatus.ekteskap"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              nySivilstatus.ekteskap
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel inputPanel--checked"
-          >
-            <input
-              aria-checked="true"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="nySivilstatus.sivilstatus"
-              required=""
-              type="radio"
-              value="nySivilstatus.samboerskap"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              nySivilstatus.samboerskap
-            </span>
-          </label>
-        </div>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
-    </div>
-    <div
-      class="navds-panel navds-panel--border"
-    >
       <div
-        class="sc-eDLJxc kKuaXb"
-      >
-        <h1
-          class="navds-heading navds-heading--small"
-        >
-          omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel
-        </h1>
-      </div>
-      <div
-        class="navds-grid"
-      >
-        <div
-          class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
-        >
-          <div
-            class="kol-50"
-          >
-            <div
-              class="navds-form-field navds-form-field--medium"
-            >
-              <label
-                class="navds-form-field__label navds-label"
-                for="nySivilstatus.samboerskap.samboer.fornavn"
-              >
-                omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn
-              </label>
-              <input
-                aria-invalid="false"
-                class="navds-text-field__input navds-body-short navds-body-medium"
-                id="nySivilstatus.samboerskap.samboer.fornavn"
-                required=""
-                type="text"
-                value=""
-              />
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="textField-error-aksel-id-5"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
-        >
-          <div
-            class="kol-50"
-          >
-            <div
-              class="navds-form-field navds-form-field--medium"
-            >
-              <label
-                class="navds-form-field__label navds-label"
-                for="nySivilstatus.samboerskap.samboer.etternavn"
-              >
-                omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn
-              </label>
-              <input
-                aria-invalid="false"
-                class="navds-text-field__input navds-body-short navds-body-medium"
-                id="nySivilstatus.samboerskap.samboer.etternavn"
-                required=""
-                type="text"
-                value=""
-              />
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="textField-error-aksel-id-6"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="navds-form-field navds-form-field--medium"
-      >
-        <label
-          class="navds-form-field__label navds-label"
-          for="nySivilstatus.samboerskap.samboer.foedselsnummer"
-        >
-          felles.fnr
-        </label>
-        <input
-          aria-invalid="false"
-          class="navds-text-field__input navds-body-short navds-body-medium"
-          id="nySivilstatus.samboerskap.samboer.foedselsnummer"
-          placeholder="felles.fnrPlaceholder"
-          required=""
-          size="25"
-          type="tel"
-          value=""
-        />
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-form-field__error"
-          id="textField-error-aksel-id-7"
-        />
-      </div>
-      <div
-        id="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+        class="sc-guDLRT gSrTwn"
       >
         <fieldset
           aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe sc-guDLRT iRKjLN"
+          class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
-            class="skjemagruppe__legend"
+            class="navds-fieldset__legend navds-label"
           >
-            omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift
+            omDegOgAvdoed.forholdTilAvdoede.relasjon
           </legend>
           <div
-            class="inputPanelGruppe__inner"
+            class="navds-radio-buttons"
           >
-            <label
-              class="inputPanel radioPanel"
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
               <input
-                aria-checked="false"
                 aria-invalid="false"
-                class="inputPanel__field"
-                name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
-                required=""
+                class="navds-radio__input"
+                id="radio-aksel-id-17"
+                name="forholdTilAvdoede.relasjon"
                 type="radio"
-                value="radiobuttons.ja"
+                value="avdoede.relasjon.gift"
               />
-              <span
-                class="inputPanel__label"
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-17"
               >
-                radiobuttons.ja
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel"
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.gift
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
               <input
-                aria-checked="false"
                 aria-invalid="false"
-                class="inputPanel__field"
-                name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
-                required=""
+                class="navds-radio__input"
+                id="radio-aksel-id-18"
+                name="forholdTilAvdoede.relasjon"
                 type="radio"
-                value="radiobuttons.nei"
+                value="avdoede.relasjon.separert"
               />
-              <span
-                class="inputPanel__label"
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-18"
               >
-                radiobuttons.nei
-              </span>
-            </label>
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.separert
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-19"
+                name="forholdTilAvdoede.relasjon"
+                type="radio"
+                value="avdoede.relasjon.samboer"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-19"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.samboer
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-20"
+                name="forholdTilAvdoede.relasjon"
+                type="radio"
+                value="avdoede.relasjon.skilt"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-20"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.skilt
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-21"
+                name="forholdTilAvdoede.relasjon"
+                type="radio"
+                value="avdoede.relasjon.tidligereSamboer"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-21"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.tidligereSamboer
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
           <div
             aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-aksel-id-22"
           />
         </fieldset>
       </div>
     </div>
+    <fieldset
+      class="sc-beySbM kuevld"
+    >
+      <div
+        class="sc-guDLRT gSrTwn"
+      >
+        <h1
+          class="navds-heading navds-heading--small"
+        >
+          omDegOgAvdoed.nySivilstatus.sivilstatus
+        </h1>
+        <p
+          class="navds-body-long"
+        >
+          omDegOgAvdoed.nySivilstatus.beskrivelse
+        </p>
+      </div>
+      <div
+        id="nySivilstatus.sivilstatus"
+      >
+        <div
+          class="sc-guDLRT gSrTwn"
+        >
+          <fieldset
+            aria-invalid="false"
+            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          >
+            <legend
+              class="navds-fieldset__legend navds-label"
+            />
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-24"
+                  name="nySivilstatus.sivilstatus"
+                  type="radio"
+                  value="nySivilstatus.enslig"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-24"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      nySivilstatus.enslig
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-25"
+                  name="nySivilstatus.sivilstatus"
+                  type="radio"
+                  value="nySivilstatus.ekteskap"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-25"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      nySivilstatus.ekteskap
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-26"
+                  name="nySivilstatus.sivilstatus"
+                  type="radio"
+                  value="nySivilstatus.samboerskap"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-26"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      nySivilstatus.samboerskap
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-27"
+            />
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="navds-panel navds-panel--border"
+      >
+        <div
+          class="sc-guDLRT gSrTwn"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel
+          </h1>
+        </div>
+        <div
+          class="navds-grid"
+        >
+          <div
+            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
+          >
+            <div
+              class="kol-50"
+            >
+              <div
+                class="navds-form-field navds-form-field--medium"
+              >
+                <label
+                  class="navds-form-field__label navds-label"
+                  for="nySivilstatus.samboerskap.samboer.fornavn"
+                >
+                  omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn
+                </label>
+                <input
+                  aria-invalid="false"
+                  class="navds-text-field__input navds-body-short navds-body-medium"
+                  id="nySivilstatus.samboerskap.samboer.fornavn"
+                  required=""
+                  type="text"
+                  value=""
+                />
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="textField-error-aksel-id-29"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
+          >
+            <div
+              class="kol-50"
+            >
+              <div
+                class="navds-form-field navds-form-field--medium"
+              >
+                <label
+                  class="navds-form-field__label navds-label"
+                  for="nySivilstatus.samboerskap.samboer.etternavn"
+                >
+                  omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn
+                </label>
+                <input
+                  aria-invalid="false"
+                  class="navds-text-field__input navds-body-short navds-body-medium"
+                  id="nySivilstatus.samboerskap.samboer.etternavn"
+                  required=""
+                  type="text"
+                  value=""
+                />
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="textField-error-aksel-id-30"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="navds-form-field navds-form-field--medium"
+        >
+          <label
+            class="navds-form-field__label navds-label"
+            for="nySivilstatus.samboerskap.samboer.foedselsnummer"
+          >
+            felles.fnr
+          </label>
+          <input
+            aria-invalid="false"
+            class="navds-text-field__input navds-body-short navds-body-medium"
+            id="nySivilstatus.samboerskap.samboer.foedselsnummer"
+            placeholder="felles.fnrPlaceholder"
+            required=""
+            size="25"
+            type="tel"
+            value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-aksel-id-31"
+          />
+        </div>
+        <div
+          id="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+        >
+          <fieldset
+            aria-invalid="false"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          >
+            <legend
+              class="navds-fieldset__legend navds-label"
+            >
+              omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-32"
+                  name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-32"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-33"
+                  name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-33"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-34"
+            />
+          </fieldset>
+        </div>
+      </div>
+    </fieldset>
     <fieldset
       class="sc-beySbM kuevld"
     >
@@ -599,7 +703,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
 <div>
   <div
-    class="sc-eDLJxc kKuaXb"
+    class="sc-guDLRT gSrTwn"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -690,7 +794,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         omDegOgAvdoed.avdoed.datoForDoedsfallet
       </label>
       <section
-        class="sc-hLQRIN inkSXR"
+        class="sc-eDLJxc kobyUl"
       >
         <label
           class="skjemaelement__label"
@@ -699,7 +803,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           omDegOgAvdoed.avdoed.dato felles.datoformat
         </label>
         <div
-          class="sc-dmyDGi gwrxXS"
+          class="sc-hLQRIN djofpo"
         >
           <div>
             <div
@@ -786,198 +890,283 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
     <div
       id="forholdTilAvdoede.relasjon"
     >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe inputPanelGruppe"
+      <div
+        class="sc-guDLRT gSrTwn"
       >
-        <legend
-          class="skjemagruppe__legend"
+        <fieldset
+          aria-invalid="false"
+          class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
-          omDegOgAvdoed.forholdTilAvdoede.relasjon
-        </legend>
-        <div
-          class="inputPanelGruppe__inner"
-        >
-          <label
-            class="inputPanel radioPanel"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.gift"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              avdoede.relasjon.gift
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
+            omDegOgAvdoed.forholdTilAvdoede.relasjon
+          </legend>
+          <div
+            class="navds-radio-buttons"
           >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.separert"
-            />
-            <span
-              class="inputPanel__label"
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              avdoede.relasjon.separert
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.samboer"
-            />
-            <span
-              class="inputPanel__label"
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-3"
+                name="forholdTilAvdoede.relasjon"
+                type="radio"
+                value="avdoede.relasjon.gift"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-3"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.gift
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              avdoede.relasjon.samboer
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.skilt"
-            />
-            <span
-              class="inputPanel__label"
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-4"
+                name="forholdTilAvdoede.relasjon"
+                type="radio"
+                value="avdoede.relasjon.separert"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-4"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.separert
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              avdoede.relasjon.skilt
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="forholdTilAvdoede.relasjon"
-              required=""
-              type="radio"
-              value="avdoede.relasjon.tidligereSamboer"
-            />
-            <span
-              class="inputPanel__label"
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-5"
+                name="forholdTilAvdoede.relasjon"
+                type="radio"
+                value="avdoede.relasjon.samboer"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-5"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.samboer
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              avdoede.relasjon.tidligereSamboer
-            </span>
-          </label>
-        </div>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-6"
+                name="forholdTilAvdoede.relasjon"
+                type="radio"
+                value="avdoede.relasjon.skilt"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-6"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.skilt
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-7"
+                name="forholdTilAvdoede.relasjon"
+                type="radio"
+                value="avdoede.relasjon.tidligereSamboer"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-7"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    avdoede.relasjon.tidligereSamboer
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-aksel-id-8"
+          />
+        </fieldset>
+      </div>
     </div>
-    <div
-      class="sc-eDLJxc kKuaXb"
+    <fieldset
+      class="sc-beySbM kuevld"
     >
-      <h1
-        class="navds-heading navds-heading--small"
+      <div
+        class="sc-guDLRT gSrTwn"
       >
-        omDegOgAvdoed.nySivilstatus.sivilstatus
-      </h1>
-      <p
-        class="navds-body-long"
-      >
-        omDegOgAvdoed.nySivilstatus.beskrivelse
-      </p>
-    </div>
-    <div
-      id="nySivilstatus.sivilstatus"
-    >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe inputPanelGruppe"
-      >
-        <div
-          class="inputPanelGruppe__inner"
+        <h1
+          class="navds-heading navds-heading--small"
         >
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="nySivilstatus.sivilstatus"
-              required=""
-              type="radio"
-              value="nySivilstatus.enslig"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              nySivilstatus.enslig
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="nySivilstatus.sivilstatus"
-              required=""
-              type="radio"
-              value="nySivilstatus.ekteskap"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              nySivilstatus.ekteskap
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
-          >
-            <input
-              aria-checked="false"
-              aria-invalid="false"
-              class="inputPanel__field"
-              name="nySivilstatus.sivilstatus"
-              required=""
-              type="radio"
-              value="nySivilstatus.samboerskap"
-            />
-            <span
-              class="inputPanel__label"
-            >
-              nySivilstatus.samboerskap
-            </span>
-          </label>
-        </div>
+          omDegOgAvdoed.nySivilstatus.sivilstatus
+        </h1>
+        <p
+          class="navds-body-long"
+        >
+          omDegOgAvdoed.nySivilstatus.beskrivelse
+        </p>
+      </div>
+      <div
+        id="nySivilstatus.sivilstatus"
+      >
         <div
-          aria-live="polite"
-        />
-      </fieldset>
-    </div>
+          class="sc-guDLRT gSrTwn"
+        >
+          <fieldset
+            aria-invalid="false"
+            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          >
+            <legend
+              class="navds-fieldset__legend navds-label"
+            />
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-10"
+                  name="nySivilstatus.sivilstatus"
+                  type="radio"
+                  value="nySivilstatus.enslig"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-10"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      nySivilstatus.enslig
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-11"
+                  name="nySivilstatus.sivilstatus"
+                  type="radio"
+                  value="nySivilstatus.ekteskap"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-11"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      nySivilstatus.ekteskap
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-12"
+                  name="nySivilstatus.sivilstatus"
+                  type="radio"
+                  value="nySivilstatus.samboerskap"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-12"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      nySivilstatus.samboerskap
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-13"
+            />
+          </fieldset>
+        </div>
+      </div>
+    </fieldset>
     <fieldset
       class="sc-beySbM kuevld"
     >

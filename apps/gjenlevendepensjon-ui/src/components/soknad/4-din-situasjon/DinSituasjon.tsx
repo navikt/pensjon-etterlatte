@@ -1,5 +1,4 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { RadioProps } from "nav-frontend-skjema";
 import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
 import { IngenJobb } from "../../../typer/arbeidsforhold";
@@ -15,7 +14,7 @@ import { useTranslation } from "react-i18next";
 import UnderUtdanning from "./fragmenter/UnderUtdanning";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
+import {RHFCheckboksGruppe} from "../../felles/RHFCheckboksPanelGruppe";
 import { deepCopy } from "../../../utils/deepCopy";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import {SkjemaElement} from "../../felles/SkjemaElement";
@@ -77,11 +76,11 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
 
                 {!brukerState.adressebeskyttelse && (
                     <>
-                        <RHFCheckboksPanelGruppe
+                        <RHFCheckboksGruppe
                             name={"jobbStatus"}
                             legend={t("dinSituasjon.jobbStatus")}
                             checkboxes={Object.values(JobbStatus).map((value) => {
-                                return { label: t(value), value, required: true } as RadioProps;
+                                return { children: t(value), value, required: true };
                             })}
                         />
 

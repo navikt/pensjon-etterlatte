@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot 1`] = `
 <div>
   <div
-    class="sc-hIPCAL BqZfI"
+    class="sc-hLQRIN eHkpLv"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -90,23 +90,22 @@ exports[`Om deg og avdød Snapshot 1`] = `
         id="oppholderSegINorge"
       >
         <fieldset
-          aria-describedby="123"
           aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe sc-hLQRIN djQiEp"
+          class="sc-eDLJxc gflUiN navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
-            class="skjemagruppe__legend"
+            class="navds-fieldset__legend navds-label"
           >
             omDeg.oppholderSegINorge
           </legend>
           <div
-            class="skjemagruppe__description"
-            id="123"
+            class="navds-fieldset__description navds-body-long navds-body-long--small"
+            id="fieldset-description-aksel-id-5"
           >
             <div>
               <button
                 aria-expanded="false"
-                class="sc-eDLJxc epqjyz navds-button navds-button--primary navds-button--medium"
+                class="sc-jTQDnj fhyrsI navds-button navds-button--primary navds-button--medium"
                 data-testid="hvorforPanel_toggle"
                 type="button"
               >
@@ -140,54 +139,66 @@ exports[`Om deg og avdød Snapshot 1`] = `
             </div>
           </div>
           <div
-            class="inputPanelGruppe__inner"
+            class="navds-radio-buttons"
           >
-            <label
-              class="inputPanel radioPanel"
-              for="123"
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
               <input
-                aria-checked="false"
-                aria-errormessage="123"
                 aria-invalid="false"
-                class="inputPanel__field"
-                id="123"
+                class="navds-radio__input"
+                id="radio-aksel-id-3"
                 name="oppholderSegINorge"
-                required=""
                 type="radio"
                 value="radiobuttons.ja"
               />
-              <span
-                class="inputPanel__label"
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-3"
               >
-                radiobuttons.ja
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel inputPanel--checked"
-              for="123"
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    radiobuttons.ja
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
               <input
-                aria-checked="true"
-                aria-errormessage="123"
                 aria-invalid="false"
-                class="inputPanel__field"
-                id="123"
+                class="navds-radio__input"
+                id="radio-aksel-id-4"
                 name="oppholderSegINorge"
-                required=""
                 type="radio"
                 value="radiobuttons.nei"
               />
-              <span
-                class="inputPanel__label"
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-4"
               >
-                radiobuttons.nei
-              </span>
-            </label>
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    radiobuttons.nei
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
           <div
             aria-live="polite"
-            id="123"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-aksel-id-5"
           />
         </fieldset>
       </div>
@@ -202,7 +213,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
           >
             <label
               class="navds-form-field__label navds-label"
-              for="textField-aksel-id-3"
+              for="textField-aksel-id-7"
             >
               omDeg.oppholdsland
             </label>
@@ -212,7 +223,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               <select
                 aria-invalid="false"
                 class="navds-select__input navds-body-short navds-body--medium"
-                id="textField-aksel-id-3"
+                id="textField-aksel-id-7"
               >
                 <option
                   value=""
@@ -243,7 +254,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-3"
+              id="textField-error-aksel-id-7"
             />
           </div>
         </div>
@@ -253,65 +264,79 @@ exports[`Om deg og avdød Snapshot 1`] = `
       >
         <fieldset
           aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe sc-hLQRIN djQiEp"
+          class="sc-eDLJxc gflUiN navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
-            class="skjemagruppe__legend"
+            class="navds-fieldset__legend navds-label"
           >
             omDeg.utbetalingsInformasjon.bankkontoType
           </legend>
           <div
-            class="inputPanelGruppe__inner"
+            class="navds-radio-buttons"
           >
-            <label
-              class="inputPanel radioPanel"
-              for="123"
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
               <input
-                aria-checked="false"
-                aria-errormessage="123"
                 aria-invalid="false"
-                class="inputPanel__field"
-                id="123"
+                class="navds-radio__input"
+                id="radio-aksel-id-8"
                 name="utbetalingsInformasjon.bankkontoType"
                 type="radio"
                 value="bankkontoType.norsk"
               />
-              <span
-                class="inputPanel__label"
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-8"
               >
-                bankkontoType.norsk
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel inputPanel--checked"
-              for="123"
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    bankkontoType.norsk
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
               <input
-                aria-checked="true"
-                aria-errormessage="123"
                 aria-invalid="false"
-                class="inputPanel__field"
-                id="123"
+                class="navds-radio__input"
+                id="radio-aksel-id-9"
                 name="utbetalingsInformasjon.bankkontoType"
                 type="radio"
                 value="bankkontoType.utenlandsk"
               />
-              <span
-                class="inputPanel__label"
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-9"
               >
-                bankkontoType.utenlandsk
-              </span>
-            </label>
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    bankkontoType.utenlandsk
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
           <div
             aria-live="polite"
-            id="123"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-aksel-id-10"
           />
         </fieldset>
       </div>
       <div
-        class="sc-hIPCAL BqZfI"
+        class="sc-hLQRIN eHkpLv"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -320,7 +345,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-hIPCAL BqZfI"
+        class="sc-hLQRIN eHkpLv"
       >
         <div>
           <div
@@ -344,13 +369,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-4"
+              id="textField-error-aksel-id-12"
             />
           </div>
         </div>
       </div>
       <div
-        class="sc-hIPCAL BqZfI"
+        class="sc-hLQRIN eHkpLv"
       >
         <div>
           <div
@@ -374,13 +399,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-5"
+              id="textField-error-aksel-id-13"
             />
           </div>
         </div>
       </div>
       <div
-        class="sc-hIPCAL BqZfI"
+        class="sc-hLQRIN eHkpLv"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -482,12 +507,12 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-aksel-id-6"
+            id="textField-error-aksel-id-14"
           />
         </div>
       </div>
       <div
-        class="sc-hIPCAL BqZfI"
+        class="sc-hLQRIN eHkpLv"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -589,7 +614,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-aksel-id-7"
+            id="textField-error-aksel-id-15"
           />
         </div>
       </div>
@@ -599,7 +624,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-gLLvby idHBWd undefined"
+        class="sc-iBdmCd dgiWjO undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -615,7 +640,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gLLvby sc-iBdmCd idHBWd fZbhsy"
+      class="sc-iBdmCd sc-fsYeqs dgiWjO ildosw"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

@@ -59,7 +59,6 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                         <Panel border key={field.id} className={"luft-under"}>
                             <Rad>
                                 <RHFSelect
-                                    className="kol"
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].land` as const}
                                     label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land")}
                                     selectOptions={alleLand}
@@ -67,15 +66,15 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                 <RHFCheckboksGruppe
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].beskrivelse` as const}
                                     legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse")}
-                                    className={"kol inline"}
+                                    inline={true}
                                     checkboxes={[
                                         {
-                                            label: t(OppholdUtlandType.bodd.valueOf()),
+                                            children: t(OppholdUtlandType.bodd.valueOf()),
                                             value: OppholdUtlandType.bodd,
                                             required: true
                                         },
                                         {
-                                            label: t(OppholdUtlandType.arbeidet.valueOf()),
+                                            children: t(OppholdUtlandType.arbeidet.valueOf()),
                                             value: OppholdUtlandType.arbeidet,
                                             required: true
                                         },

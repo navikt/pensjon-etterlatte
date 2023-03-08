@@ -6,7 +6,7 @@ import { RHFFoedselsnummerInput, RHFInput, RHFNumberInput } from "../../../felle
 import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { fnr } from "@navikt/fnrvalidator";
-import { RHFCheckboksPanelGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
+import {RHFCheckboksGruppe} from "../../../felles/RHFCheckboksPanelGruppe";
 import { Panel, Heading, Grid, Cell } from "@navikt/ds-react";
 import { SkjemaElement } from "../../../felles/SkjemaElement";
 import {Bredde} from "../../../../typer/bredde";
@@ -64,12 +64,13 @@ const SamboerSkjema = () => {
 
             {samboerHarInntekt === IValg.JA && (
                 <>
-                    <RHFCheckboksPanelGruppe
+                    <RHFCheckboksGruppe
+                        legend={''}
                         name={"nySivilstatus.samboerskap.samboer.harInntekt.inntektstype"}
                         checkboxes={Object.values(SamboerInntekt).map((type) => {
                             return {
                                 value: type,
-                                label: t(type),
+                                children: t(type),
                                 required: true
                             };
                         })}

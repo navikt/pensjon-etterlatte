@@ -10,7 +10,7 @@ import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
 import { Alert, BodyShort, Button, Cell, Grid, Heading, Label, Panel, HelpText, RadioProps } from "@navikt/ds-react";
-import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
+import {RHFCheckboksGruppe} from "../../felles/RHFCheckboksPanelGruppe";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
 import ikon from "../../../assets/ikoner/barn1.svg";
@@ -288,16 +288,16 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                 </SkjemaElement>
 
                                 <SkjemaGruppe>
-                                    <RHFCheckboksPanel
+                                    <RHFCheckboksGruppe
                                         name={"barnepensjon.soeker"}
                                         legend={t("omBarn.barnepensjon.soeker")}
                                         description={t("omBarn.barnepensjon.soekerInfo")}
-                                        valgfri={true}
-                                        checkbox={
-                                            {
-                                                label: t("omBarn.barnepensjon.soekerCheckboks"),
+                                        required={false}
+                                        checkboxes={
+                                            [{
+                                                children: t("omBarn.barnepensjon.soekerCheckboks"),
                                                 value: IValg.JA
-                                            }
+                                            }]
                                         }
                                     />
 

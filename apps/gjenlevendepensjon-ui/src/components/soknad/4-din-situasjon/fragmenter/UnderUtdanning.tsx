@@ -4,7 +4,7 @@ import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
 import { Heading, Panel } from "@navikt/ds-react";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
-import { RHFCheckboksPanel } from "../../../felles/RHFCheckboksPanelGruppe";
+import {RHFCheckboksGruppe} from "../../../felles/RHFCheckboksPanelGruppe";
 import { IValg } from "../../../../typer/Spoersmaal";
 import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
 import {SkjemaElement} from "../../../felles/SkjemaElement";
@@ -47,31 +47,31 @@ const UnderUtdanning = () => {
 
             <SkjemaElement>
                 <br />
-                <RHFCheckboksPanel
+                <RHFCheckboksGruppe
                     name={"utdanning.soeknadOmSkolepenger"}
                     legend={t("dinSituasjon.utdanning.soeknadOmSkolepenger")}
                     description={t("dinSituasjon.utdanning.soeknadOmSkolepenger.beskrivelse")}
-                    valgfri={true}
-                    checkbox={
-                        {
-                            label: t("dinSituasjon.utdanning.soeknadOmSkolepenger.bekreftelse"),
+                    required={false}
+                    checkboxes={
+                        [{
+                            children: t("dinSituasjon.utdanning.soeknadOmSkolepenger.bekreftelse"),
                             value: IValg.JA
-                        }
+                        }]
                     }
                 />
             </SkjemaElement>
 
             <SkjemaElement>
-                <RHFCheckboksPanel
+                <RHFCheckboksGruppe
                     name={"utdanning.soeknadOmTilleggsstoenadUtdanning"}
                     legend={t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning")}
                     description={t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse")}
-                    valgfri={true}
-                    checkbox={
-                        {
-                            label: t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
+                    required={false}
+                    checkboxes={
+                        [{
+                            children: t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
                             value: IValg.JA
-                        }
+                        }]
                     }
                 />
             </SkjemaElement>

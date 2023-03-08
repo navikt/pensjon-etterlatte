@@ -4,7 +4,7 @@ exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-fHekdT fJRgZD"
+      class="sc-fmKESZ lmaYvb"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </h1>
     </div>
     <div
-      class="sc-fHekdT fJRgZD"
+      class="sc-fmKESZ lmaYvb"
     >
       <div
         class="navds-panel navds-panel--border"
@@ -60,7 +60,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-fLsdZI dCoypc"
+        class="sc-bBkKQz iSubfx"
       >
         <div
           class="sc-qZqnM cRGgOO"
@@ -106,55 +106,74 @@ exports[`Om den avdøde Snapshot 1`] = `
     >
       <fieldset
         aria-invalid="false"
-        class="skjemagruppe inputPanelGruppe sc-fmKESZ jtyivh"
+        class="sc-fHekdT cNczdF navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
       >
         <legend
-          class="skjemagruppe__legend"
+          class="navds-fieldset__legend navds-label"
         >
           omBarn.gravidEllerNyligFoedt
         </legend>
         <div
-          class="inputPanelGruppe__inner"
+          class="navds-radio-buttons"
         >
-          <label
-            class="inputPanel radioPanel"
+          <div
+            class="radioBorder navds-radio navds-radio--medium"
           >
             <input
-              aria-checked="false"
               aria-invalid="false"
-              class="inputPanel__field"
+              class="navds-radio__input"
+              id="radio-aksel-id-1"
               name="gravidEllerNyligFoedt"
-              required=""
               type="radio"
               value="radiobuttons.ja"
             />
-            <span
-              class="inputPanel__label"
+            <label
+              class="navds-radio__label"
+              for="radio-aksel-id-1"
             >
-              radiobuttons.ja
-            </span>
-          </label>
-          <label
-            class="inputPanel radioPanel"
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short"
+                >
+                  radiobuttons.ja
+                </span>
+              </span>
+            </label>
+          </div>
+          <div
+            class="radioBorder navds-radio navds-radio--medium"
           >
             <input
-              aria-checked="false"
               aria-invalid="false"
-              class="inputPanel__field"
+              class="navds-radio__input"
+              id="radio-aksel-id-2"
               name="gravidEllerNyligFoedt"
-              required=""
               type="radio"
               value="radiobuttons.nei"
             />
-            <span
-              class="inputPanel__label"
+            <label
+              class="navds-radio__label"
+              for="radio-aksel-id-2"
             >
-              radiobuttons.nei
-            </span>
-          </label>
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short"
+                >
+                  radiobuttons.nei
+                </span>
+              </span>
+            </label>
+          </div>
         </div>
         <div
           aria-live="polite"
+          aria-relevant="additions removals"
+          class="navds-fieldset__error"
+          id="fieldset-error-aksel-id-3"
         />
       </fieldset>
     </div>
