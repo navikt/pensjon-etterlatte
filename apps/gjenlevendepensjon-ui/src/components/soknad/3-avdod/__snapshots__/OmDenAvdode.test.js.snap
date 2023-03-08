@@ -54,22 +54,28 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
           >
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="foedselsnummer"
               >
                 omDenAvdoede.foedselsnummer
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="foedselsnummer"
                 placeholder="felles.fnrPlaceholder"
                 required=""
                 type="tel"
                 value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-1"
               />
             </div>
           </div>

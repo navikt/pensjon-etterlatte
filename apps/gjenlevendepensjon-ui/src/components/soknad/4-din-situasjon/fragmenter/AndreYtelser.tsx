@@ -11,6 +11,7 @@ import { RHFSelect } from "../../../felles/RHFSelect";
 import { useLand } from "../../../../hooks/useLand";
 import SelectYtelser from "./SelectYtelser";
 import {SkjemaElement} from "../../../felles/SkjemaElement";
+import {Bredde} from "../../../../typer/bredde";
 
 
 const AndreYtelser = () => {
@@ -48,7 +49,6 @@ const AndreYtelser = () => {
 
                 {annenPensjon === IValg.JA && (
                     <RHFInput
-                        bredde={"XXL"}
                         name={"andreYtelser.annenPensjon.beskrivelse"}
                         label={t("dinSituasjon.andreYtelser.annenPensjon.beskrivelse")}
                         placeholder={t("dinSituasjon.andreYtelser.annenPensjon.placeholder")}
@@ -69,7 +69,6 @@ const AndreYtelser = () => {
                     <>
                         <SkjemaElement>
                             <RHFInput
-                                bredde={"XXL"}
                                 name={"andreYtelser.mottarPensjonUtland.hvaSlagsPensjon"}
                                 label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon")}
                                 placeholder={t("dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder")}
@@ -85,7 +84,7 @@ const AndreYtelser = () => {
                         </SkjemaElement>
                         <SkjemaElement>
                             <RHFInput
-                                bredde={"L"}
+                                htmlSize={Bredde.S}
                                 name={"andreYtelser.mottarPensjonUtland.bruttobeloepPrAar"}
                                 label={t("dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar")}
                             />

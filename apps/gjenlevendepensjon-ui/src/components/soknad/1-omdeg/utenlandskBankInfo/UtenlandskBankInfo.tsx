@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import {Heading, HelpText} from "@navikt/ds-react";
 import styled from "styled-components";
 import {SkjemaElement} from "../../../felles/SkjemaElement";
+import {Bredde} from "../../../../typer/bredde";
 
 const HelpTextLabel = styled.div`
     display: flex;
@@ -34,7 +35,7 @@ const UtenlandskBankInfo = () => {
             <SkjemaElement>
                 <RHFIbanInput
                     name={"utbetalingsInformasjon.iban"}
-                    bredde={"XL"}
+                    htmlSize={Bredde.M}
                     label={(
                         <HelpTextLabel>
                             {t("omDeg.utbetalingsInformasjon.iban")}
@@ -46,7 +47,7 @@ const UtenlandskBankInfo = () => {
             <SkjemaElement>
                 <RHFBicInput
                     name={"utbetalingsInformasjon.swift"}
-                    bredde={"M"}
+                    htmlSize={Bredde.S}
                     label={(
                         <HelpTextLabel>
                             {t("omDeg.utbetalingsInformasjon.swift")}

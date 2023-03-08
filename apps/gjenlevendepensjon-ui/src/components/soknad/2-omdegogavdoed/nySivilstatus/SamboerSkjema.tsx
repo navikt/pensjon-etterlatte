@@ -9,6 +9,7 @@ import { fnr } from "@navikt/fnrvalidator";
 import { RHFCheckboksPanelGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
 import { Panel, Heading, Grid, Cell } from "@navikt/ds-react";
 import { SkjemaElement } from "../../../felles/SkjemaElement";
+import {Bredde} from "../../../../typer/bredde";
 
 const SamboerSkjema = () => {
     const { t } = useTranslation();
@@ -43,7 +44,7 @@ const SamboerSkjema = () => {
 
             <RHFFoedselsnummerInput
                 name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
-                bredde={"S"}
+                htmlSize={Bredde.S}
                 label={t("felles.fnr")}
                 placeholder={t("felles.fnrPlaceholder")}
                 rules={{ validate: (value) => fnr(value).status === "valid" }}
@@ -78,7 +79,7 @@ const SamboerSkjema = () => {
                         <RHFNumberInput
                             name={"nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"}
                             type="tel"
-                            bredde={"S"}
+                            htmlSize={Bredde.S}
                             label={t(
                                 "omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"
                             )}

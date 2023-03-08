@@ -151,21 +151,27 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             class="kol-75"
           >
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="arbeidsforhold[0].arbeidsgiver"
               >
                 dinSituasjon.arbeidsforhold.arbeidsgiver
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="arbeidsforhold[0].arbeidsgiver"
                 required=""
                 type="text"
                 value="Potetskreller AS"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-3"
               />
             </div>
           </div>
@@ -219,22 +225,28 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               </div>
             </div>
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="arbeidsforhold[0].stillingsprosent"
               >
                 dinSituasjon.arbeidsforhold.stillingsprosent
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="arbeidsforhold[0].stillingsprosent"
                 placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
                 required=""
                 type="text"
                 value="100%"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-4"
               />
             </div>
           </div>
@@ -347,21 +359,27 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           class="kol-75"
         >
           <div
-            class="skjemaelement"
+            class="navds-form-field navds-form-field--medium"
           >
             <label
-              class="skjemaelement__label"
+              class="navds-form-field__label navds-label"
               for="selvstendig[0].beskrivelse"
             >
               dinSituasjon.selvstendig.beskrivelse
             </label>
             <input
               aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
+              class="navds-text-field__input navds-body-short navds-body-medium"
               id="selvstendig[0].beskrivelse"
               required=""
               type="text"
               value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-aksel-id-5"
             />
           </div>
         </div>
@@ -369,22 +387,29 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           class="sc-fHekdT fJRgZD"
         >
           <div
-            class="skjemaelement"
+            class="navds-form-field navds-form-field--medium"
           >
             <label
-              class="skjemaelement__label"
+              class="navds-form-field__label navds-label"
               for="selvstendig[0].orgnr"
             >
               dinSituasjon.selvstendig.orgnr
             </label>
             <input
               aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
+              class="navds-text-field__input navds-body-short navds-body-medium"
               id="selvstendig[0].orgnr"
               placeholder="dinSituasjon.selvstendig.orgnrplaceholder"
               required=""
+              size="25"
               type="text"
               value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-aksel-id-6"
             />
           </div>
         </div>
@@ -1075,21 +1100,27 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="kol-75"
           >
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="arbeidsforhold[0].arbeidsgiver"
               >
                 dinSituasjon.arbeidsforhold.arbeidsgiver
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="arbeidsforhold[0].arbeidsgiver"
                 required=""
                 type="text"
                 value="Potetskreller AS"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-1"
               />
             </div>
           </div>
@@ -1143,22 +1174,28 @@ exports[`Om den avdøde Snapshot 1`] = `
               </div>
             </div>
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="arbeidsforhold[0].stillingsprosent"
               >
                 dinSituasjon.arbeidsforhold.stillingsprosent
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="arbeidsforhold[0].stillingsprosent"
                 placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
                 required=""
                 type="text"
                 value="100%"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-2"
               />
             </div>
           </div>

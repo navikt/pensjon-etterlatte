@@ -18,6 +18,7 @@ import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
 import {SkjemaGruppeIngress, SkjemaGruppeRad} from "../../felles/StyledComponents";
 import {SkjemaElement} from "../../felles/SkjemaElement";
+import {Bredde} from "../../../typer/bredde";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -114,7 +115,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             <SkjemaGruppe>
                                 <RHFValutaInput
                                     name={"selvstendigNaeringsdrivende.beskrivelse"}
-                                    bredde={"L"}
+                                    htmlSize={Bredde.S}
                                     valgfri
                                     type="tel"
                                     placeholder={t("omDenAvdoede.selvstendigNaeringsdrivende.placeholder")}
@@ -159,7 +160,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <SkjemaGruppe>
                             <RHFInput
                                 name={"harAvtjentMilitaerTjeneste.beskrivelse"}
-                                bredde={"S"}
+                                htmlSize={Bredde.S}
                                 valgfri
                                 label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
                             />

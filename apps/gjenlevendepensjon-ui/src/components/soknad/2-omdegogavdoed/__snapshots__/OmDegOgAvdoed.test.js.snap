@@ -28,21 +28,27 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         >
           <div>
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="avdoed.fornavn"
               >
                 omDegOgAvdoed.avdoed.fornavn
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="avdoed.fornavn"
                 required=""
                 type="text"
                 value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-3"
               />
             </div>
           </div>
@@ -52,21 +58,27 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         >
           <div>
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="avdoed.etternavn"
               >
                 omDegOgAvdoed.avdoed.etternavn
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="avdoed.etternavn"
                 required=""
                 type="text"
                 value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-4"
               />
             </div>
           </div>
@@ -392,21 +404,27 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             class="kol-50"
           >
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="nySivilstatus.samboerskap.samboer.fornavn"
               >
                 omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="nySivilstatus.samboerskap.samboer.fornavn"
                 required=""
                 type="text"
                 value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-5"
               />
             </div>
           </div>
@@ -418,43 +436,56 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             class="kol-50"
           >
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="nySivilstatus.samboerskap.samboer.etternavn"
               >
                 omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="nySivilstatus.samboerskap.samboer.etternavn"
                 required=""
                 type="text"
                 value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-6"
               />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="skjemaelement"
+        class="navds-form-field navds-form-field--medium"
       >
         <label
-          class="skjemaelement__label"
+          class="navds-form-field__label navds-label"
           for="nySivilstatus.samboerskap.samboer.foedselsnummer"
         >
           felles.fnr
         </label>
         <input
           aria-invalid="false"
-          class="skjemaelement__input input--s"
+          class="navds-text-field__input navds-body-short navds-body-medium"
           id="nySivilstatus.samboerskap.samboer.foedselsnummer"
           placeholder="felles.fnrPlaceholder"
           required=""
+          size="25"
           type="tel"
           value=""
+        />
+        <div
+          aria-live="polite"
+          aria-relevant="additions removals"
+          class="navds-form-field__error"
+          id="textField-error-aksel-id-7"
         />
       </div>
       <div
@@ -593,21 +624,27 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         >
           <div>
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="avdoed.fornavn"
               >
                 omDegOgAvdoed.avdoed.fornavn
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="avdoed.fornavn"
                 required=""
                 type="text"
                 value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-1"
               />
             </div>
           </div>
@@ -617,21 +654,27 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         >
           <div>
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="avdoed.etternavn"
               >
                 omDegOgAvdoed.avdoed.etternavn
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="avdoed.etternavn"
                 required=""
                 type="text"
                 value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-2"
               />
             </div>
           </div>

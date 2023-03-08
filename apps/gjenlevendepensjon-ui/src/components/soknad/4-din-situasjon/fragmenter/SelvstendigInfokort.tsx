@@ -7,6 +7,7 @@ import { IValg } from "../../../../typer/Spoersmaal";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { useFormContext } from "react-hook-form";
 import { SkjemaElement } from "../../../felles/SkjemaElement";
+import {Bredde} from "../../../../typer/bredde";
 
 interface Props {
     lengde: number;
@@ -36,6 +37,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     label={t("dinSituasjon.selvstendig.orgnr")}
                     maxLength={9}
                     minLength={9}
+                    htmlSize={Bredde.S}
                 />
             </SkjemaElement>
 
@@ -48,7 +50,6 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
             {endretInntekt === IValg.JA && (
                 <RHFInput
                     name={`selvstendig[${index}].forventerEndretInntekt.beskrivelse` as const}
-                    bredde={"S"}
                     label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
                     placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
                     maxLength={200}

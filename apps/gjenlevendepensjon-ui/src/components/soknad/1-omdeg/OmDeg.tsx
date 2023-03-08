@@ -21,6 +21,7 @@ import { deepCopy } from "../../../utils/deepCopy";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
 import { SkjemaElement } from "../../felles/SkjemaElement";
+import {Bredde} from "../../../typer/bredde";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
@@ -76,7 +77,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 <Grid>
                                     <Cell xs={12} md={6} className={"kol"}>
                                         <RHFTelefonInput
-                                            bredde={"S"}
+                                            htmlSize={Bredde.S}
                                             name={"kontaktinfo.telefonnummer"}
                                             label={t("omDeg.kontaktinfo.telefonnummer")}
                                             valgfri={true}
@@ -103,7 +104,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             {oppholderSegINorge === IValg.JA && (
                                 <SkjemaGruppe>
                                     <RHFKontonummerInput
-                                        bredde={"S"}
+                                        htmlSize={Bredde.S}
                                         name={"utbetalingsInformasjon.kontonummer"}
                                         label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                         placeholder={t("felles.elleveSiffer")}
@@ -133,7 +134,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
                                     {bankkontoType === BankkontoType.norsk && (
                                         <RHFKontonummerInput
-                                            bredde={"S"}
+                                            htmlSize={Bredde.S}
                                             name={"utbetalingsInformasjon.kontonummer"}
                                             label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                             placeholder={t("felles.elleveSiffer")}

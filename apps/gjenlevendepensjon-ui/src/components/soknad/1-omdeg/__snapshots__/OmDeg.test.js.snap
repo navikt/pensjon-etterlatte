@@ -20,21 +20,27 @@ exports[`Om deg og avdød Snapshot 1`] = `
       >
         <div>
           <div
-            class="skjemaelement"
+            class="navds-form-field navds-form-field--medium"
           >
             <label
-              class="skjemaelement__label"
+              class="navds-form-field__label navds-label"
               for="alternativAdresse"
             >
               omDeg.alternativAdresse
             </label>
             <input
               aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
+              class="navds-text-field__input navds-body-short navds-body-medium"
               id="alternativAdresse"
               required=""
               type="text"
               value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-aksel-id-1"
             />
           </div>
         </div>
@@ -49,21 +55,28 @@ exports[`Om deg og avdød Snapshot 1`] = `
             class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
           >
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="kontaktinfo.telefonnummer"
               >
                 omDeg.kontaktinfo.telefonnummer
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--s"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="kontaktinfo.telefonnummer"
                 required=""
+                size="25"
                 type="text"
                 value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-2"
               />
             </div>
           </div>
@@ -287,21 +300,27 @@ exports[`Om deg og avdød Snapshot 1`] = `
       >
         <div>
           <div
-            class="skjemaelement"
+            class="navds-form-field navds-form-field--medium"
           >
             <label
-              class="skjemaelement__label"
+              class="navds-form-field__label navds-label"
               for="utbetalingsInformasjon.utenlandskBankNavn"
             >
               omDeg.utbetalingsInformasjon.utenlandskBankNavn
             </label>
             <input
               aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
+              class="navds-text-field__input navds-body-short navds-body-medium"
               id="utbetalingsInformasjon.utenlandskBankNavn"
               required=""
               type="text"
               value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-aksel-id-3"
             />
           </div>
         </div>
@@ -311,21 +330,27 @@ exports[`Om deg og avdød Snapshot 1`] = `
       >
         <div>
           <div
-            class="skjemaelement"
+            class="navds-form-field navds-form-field--medium"
           >
             <label
-              class="skjemaelement__label"
+              class="navds-form-field__label navds-label"
               for="utbetalingsInformasjon.utenlandskBankAdresse"
             >
               omDeg.utbetalingsInformasjon.utenlandskBankAdresse
             </label>
             <input
               aria-invalid="false"
-              class="skjemaelement__input input--fullbredde"
+              class="navds-text-field__input navds-body-short navds-body-medium"
               id="utbetalingsInformasjon.utenlandskBankAdresse"
               required=""
               type="text"
               value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-aksel-id-4"
             />
           </div>
         </div>
@@ -334,10 +359,10 @@ exports[`Om deg og avdød Snapshot 1`] = `
         class="sc-hIPCAL BqZfI"
       >
         <div
-          class="skjemaelement"
+          class="navds-form-field navds-form-field--medium"
         >
           <label
-            class="skjemaelement__label"
+            class="navds-form-field__label navds-label"
             for="utbetalingsInformasjon.iban"
           >
             <div
@@ -422,11 +447,18 @@ exports[`Om deg og avdød Snapshot 1`] = `
           </label>
           <input
             aria-invalid="false"
-            class="skjemaelement__input input--xl"
+            class="navds-text-field__input navds-body-short navds-body-medium"
             id="utbetalingsInformasjon.iban"
             required=""
+            size="40"
             type="text"
             value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-aksel-id-5"
           />
         </div>
       </div>
@@ -434,10 +466,10 @@ exports[`Om deg og avdød Snapshot 1`] = `
         class="sc-hIPCAL BqZfI"
       >
         <div
-          class="skjemaelement"
+          class="navds-form-field navds-form-field--medium"
         >
           <label
-            class="skjemaelement__label"
+            class="navds-form-field__label navds-label"
             for="utbetalingsInformasjon.swift"
           >
             <div
@@ -522,11 +554,18 @@ exports[`Om deg og avdød Snapshot 1`] = `
           </label>
           <input
             aria-invalid="false"
-            class="skjemaelement__input input--m"
+            class="navds-text-field__input navds-body-short navds-body-medium"
             id="utbetalingsInformasjon.swift"
             required=""
+            size="25"
             type="text"
             value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-aksel-id-6"
           />
         </div>
       </div>

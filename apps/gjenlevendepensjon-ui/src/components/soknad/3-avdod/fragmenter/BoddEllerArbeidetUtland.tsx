@@ -15,6 +15,7 @@ import { useLand } from "../../../../hooks/useLand";
 import {Rad, SkjemaGruppeIngress} from "../../../felles/StyledComponents";
 import {SkjemaElement} from "../../../felles/SkjemaElement";
 import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
+import {Bredde} from "../../../../typer/bredde";
 
 interface Props {
     datoForDoedsfallet?: Date;
@@ -121,7 +122,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                         name={
                                             `boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const
                                         }
-                                        bredde={"S"}
+                                        htmlSize={Bredde.S}
                                         valgfri
                                         label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
                                         placeholder={t(

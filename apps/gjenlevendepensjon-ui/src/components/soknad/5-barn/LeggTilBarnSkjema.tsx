@@ -20,6 +20,7 @@ import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import styled from "styled-components";
 import {NavigasjonsRad, SkjemaGruppeRad, TypoFeilmelding} from "../../felles/StyledComponents";
 import {SkjemaElement} from "../../felles/SkjemaElement";
+import { Bredde } from '../../../typer/bredde'
 
 const HelpTextLabel = styled.div`
     display: flex;
@@ -174,7 +175,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
 
                             <RHFFoedselsnummerInput
                                 name={"foedselsnummer"}
-                                bredde={"L"}
+                                htmlSize={Bredde.S}
                                 label={t("omBarn.foedselsnummer")}
                                 placeholder={t("felles.fnrPlaceholder")}
                                 rules={{
@@ -278,7 +279,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                             </SkjemaElement>
                                             <RHFFoedselsnummerInput
                                                 name={"harBarnetVerge.foedselsnummer"}
-                                                bredde={"L"}
+                                                htmlSize={Bredde.S}
                                                 label={t("omBarn.harBarnetVerge.foedselsnummer")}
                                                 placeholder={t("omBarn.harBarnetVerge.foedselsnummerPlaceholder")}
                                                 valgfri={true}
@@ -309,13 +310,15 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                             />
 
                                             {annetKontonummerBarnepensjon === IValg.NEI && (
-                                                <RHFKontonummerInput
-                                                    name={"barnepensjon.kontonummer.kontonummer"}
-                                                    bredde={"M"}
-                                                    label={t("omBarn.barnepensjon.kontonummer.kontonummer")}
-                                                    placeholder={t("omBarn.barnepensjon.kontonummer.placeholder")}
-                                                    description={t("omBarn.barnepensjon.kontonummer.informasjon")}
-                                                />
+                                                <SkjemaElement>
+                                                    <RHFKontonummerInput
+                                                        name={"barnepensjon.kontonummer.kontonummer"}
+                                                        htmlSize={Bredde.S}
+                                                        label={t("omBarn.barnepensjon.kontonummer.kontonummer")}
+                                                        placeholder={t("omBarn.barnepensjon.kontonummer.placeholder")}
+                                                        description={t("omBarn.barnepensjon.kontonummer.informasjon")}
+                                                    />
+                                                </SkjemaElement>
                                             )}
 
                                             {annetKontonummerBarnepensjon !== IValg.VET_IKKE && (
@@ -336,7 +339,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                 <SkjemaGruppe>
                                                     <SkjemaElement>
                                                         <RHFProsentInput
-                                                                bredde={"M"}
+                                                                htmlSize={Bredde.S}
                                                                 name={"barnepensjon.forskuddstrekk.trekkprosent"}
                                                                 label={t("omBarn.barnepensjon.forskuddstrekk.trekkprosent")}
                                                                 placeholder={t("omBarn.barnepensjon.forskuddstrekk.placeholder")}
