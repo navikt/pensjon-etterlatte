@@ -1,5 +1,4 @@
 import { act, render, fireEvent } from "@testing-library/react";
-import * as JSutils from "nav-frontend-js-utils";
 import DinSituasjon from "./DinSituasjon";
 
 jest.mock("react-i18next", () => ({
@@ -55,8 +54,6 @@ jest.mock("../../../context/soknad/SoknadContext", () => ({
         dispatch: jest.fn(),
     }),
 }));
-
-JSutils.guid = jest.fn(() => "123");
 
 describe("Om den avdøde", () => {
     it("Snapshot", () => {

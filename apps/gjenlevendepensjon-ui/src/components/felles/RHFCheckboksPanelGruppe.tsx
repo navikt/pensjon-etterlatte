@@ -8,8 +8,8 @@ import { getTransKey } from "../../utils/translation";
 const CheckboxGroupWrapper = styled(CheckboxGroup)<{inline?: boolean}>`
     .navds-checkboxes {
         ${props => props.inline 
-        ? "display: inline-flex; gap: 1rem;"
-        : ""
+        ? "display: flex; gap: 1rem;"
+        : ''
         }
     }
 `
@@ -46,7 +46,7 @@ export const RHFCheckboksGruppe = ({ name, checkboxes, required = true, inline =
                         {...rest}
                         error={feilmelding}
                         defaultValue={value}
-                        inline={inline}
+                        inline={inline ? true : undefined}
                     >
                         {checkboxes.map((checkbox: CheckboxProps) => (
                             <Checkbox

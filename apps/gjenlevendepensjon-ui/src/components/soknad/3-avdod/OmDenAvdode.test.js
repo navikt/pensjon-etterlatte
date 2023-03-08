@@ -1,5 +1,4 @@
 import { render } from "@testing-library/react";
-import * as JSutils from "nav-frontend-js-utils";
 import OmDenAvdode from "./OmDenAvdode";
 
 jest.mock("react-i18next", () => ({
@@ -15,7 +14,6 @@ jest.mock("react-i18next", () => ({
     },
 }));
 
-JSutils.guid = jest.fn(() => "123");
 describe("Om den avdøde", () => {
     it("Snapshot", () => {
         const { container } = render(<OmDenAvdode />);

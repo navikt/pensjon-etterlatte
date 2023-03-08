@@ -1,7 +1,6 @@
 import { render } from "@testing-library/react";
 import { renderHook } from "@testing-library/react-hooks";
 import { FormProvider, useForm } from "react-hook-form";
-import * as JSutils from "nav-frontend-js-utils";
 import ForholdTilAvdoedeSkjema from "./ForholdTilAvdoedeSkjema";
 
 jest.mock("react-i18next", () => ({
@@ -15,8 +14,6 @@ jest.mock("react-i18next", () => ({
         };
     },
 }));
-
-JSutils.guid = jest.fn(() => "123");
 
 describe("Forhold til avdoede", () => {
     it("Separert skal vise inngått partnerskap", () => {
