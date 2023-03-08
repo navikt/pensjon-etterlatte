@@ -2,13 +2,13 @@ import { ReactNode } from "react";
 import "@navikt/ds-datepicker/lib/index.css";
 import { Datepicker } from "@navikt/ds-datepicker";
 import { DatepickerLocales } from "@navikt/ds-datepicker/lib/types";
-import { Label, SkjemaelementFeilmelding } from "nav-frontend-skjema";
 import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath } from "react-hook-form/dist/types";
 import { useTranslation } from "react-i18next";
 import { parseISO, format } from "date-fns";
 import { get } from "lodash";
 import { getTransKey } from "../../utils/translation";
+import { Label } from '@navikt/ds-react'
 import styled from "styled-components"
 
 const DatovelgerWrapper = styled.div`
@@ -118,7 +118,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, kol =
                 />
             </DatovelgerWrapper>
 
-            {feilmelding && <SkjemaelementFeilmelding>{feilmelding}</SkjemaelementFeilmelding>}
+            {feilmelding && <Label as={'p'} style={{color: "#ba3a26"}}>{feilmelding}</Label>}
         </DatovelgerSection>
     );
 };

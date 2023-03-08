@@ -97,7 +97,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         class="sc-eDLJxc kobyUl"
       >
         <label
-          class="skjemaelement__label"
+          class="navds-label"
           for="avdoed.datoForDoedsfallet"
         >
           omDegOgAvdoed.avdoed.dato felles.datoformat
@@ -797,7 +797,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         class="sc-eDLJxc kobyUl"
       >
         <label
-          class="skjemaelement__label"
+          class="navds-label"
           for="avdoed.datoForDoedsfallet"
         >
           omDegOgAvdoed.avdoed.dato felles.datoformat

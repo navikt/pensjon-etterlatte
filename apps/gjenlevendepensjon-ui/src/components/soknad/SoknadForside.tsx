@@ -3,9 +3,8 @@ import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
-import { BekreftCheckboksPanel } from "nav-frontend-skjema";
 import { Veileder } from '../felles/Veileder'
-import { Alert, BodyLong, Button, Heading, Link } from "@navikt/ds-react";
+import {Alert, BodyLong, Button, ConfirmationPanel, Heading, Link} from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Spraakvalg } from "../felles/Spraakvalg";
@@ -144,7 +143,7 @@ const SoknadForside = () => {
 
                 <BodyLong>{t("forside.samtykke.innhold")}</BodyLong>
 
-                <BekreftCheckboksPanel
+                <ConfirmationPanel
                     label={t("forside.samtykke.bekreftelse", { navn: innloggetBrukerNavn })}
                     checked={soknadState.harSamtykket}
                     onChange={(e) =>
