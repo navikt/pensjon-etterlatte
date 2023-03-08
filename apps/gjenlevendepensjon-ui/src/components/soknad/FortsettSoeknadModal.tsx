@@ -49,7 +49,6 @@ export const FortsettSoeknadModal = () => {
             open={state.visFortsettSoeknadModal}
             onClose={() => {}}
             shouldCloseOnOverlayClick={false}
-            data-testid="spoersmaal-modal"
         >
             <SkjemaElement>
                 <Heading size={"medium"}>{t("fortsettSoeknad.beskrivelse")}</Heading>

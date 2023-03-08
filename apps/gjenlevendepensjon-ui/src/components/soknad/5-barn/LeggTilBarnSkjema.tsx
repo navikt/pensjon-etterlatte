@@ -189,7 +189,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                 }}
                             />
 
-                            {!visDuplikatFeilmelding() && (
+                            {visDuplikatFeilmelding() && (
                                 <SkjemaGruppe>
                                     <TypoFeilmelding>
                                         {t("feil.foedselsnummer.duplicate")}
