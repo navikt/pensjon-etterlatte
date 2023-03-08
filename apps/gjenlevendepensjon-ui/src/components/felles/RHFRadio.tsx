@@ -1,33 +1,14 @@
 import React, { ReactNode } from "react";
-import { RadioPanelGruppe, RadioPanelProps } from "nav-frontend-skjema";
 import { IValg } from "../../typer/Spoersmaal";
 import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath, FieldValues } from "react-hook-form/dist/types";
 import { get } from "lodash";
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
-import { RadioPanelGruppeProps } from "nav-frontend-skjema/lib/radio-panel-gruppe";
 import { getTransKey } from "../../utils/translation";
 import styled from "styled-components";
-
-const RadioPanelGruppeInline = styled(RadioPanelGruppe)`
- .inputPanelGruppe__inner{
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  column-gap: 1rem;
-
-  .radioPanel {
-    margin-bottom: 0;
-    width: 100%;
-    min-width: calc(33.3% - 1rem);
-
-    @media screen and (min-width: 650px) {
-      max-width: 33.3%;
-    }
-  }
-  }
-`
+import { Radio, RadioGroup, RadioGroupProps, RadioProps } from '@navikt/ds-react'
+import {SkjemaElement} from "./SkjemaElement";
 
 export const RHFSpoersmaalRadio = ({
     name,
@@ -42,25 +23,44 @@ export const RHFSpoersmaalRadio = ({
 }) => {
     const { t } = useTranslation();
     const defaultRadios = [
-        { label: t(IValg.JA), value: IValg.JA, required: true },
-        { label: t(IValg.NEI), value: IValg.NEI, required: true },
+        { children: t(IValg.JA), value: IValg.JA, required: true },
+        { children: t(IValg.NEI), value: IValg.NEI, required: true },
     ];
 
-    if (vetIkke) defaultRadios.push({ label: t(IValg.VET_IKKE), value: IValg.VET_IKKE, required: true });
+    if (vetIkke) defaultRadios.push({ children: t(IValg.VET_IKKE), value: IValg.VET_IKKE, required: true });
 
-    return <RHFInlineRadio name={name} legend={legend} description={description} radios={defaultRadios} />;
+    return <RHFInlineRadio name={name} legend={legend} description={description} children={defaultRadios} />;
 };
+
+const InlineRadioPanelGroup = styled(RadioGroup)`
+    .navds-radio-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        column-gap: 1rem;
+
+        .radioBorder {
+            margin-bottom: 0 !important;
+            width: 100%;
+            min-width: calc(33.3% - 1rem);
+
+            @media screen and (min-width: 650px) {
+                max-width: 33.3%;
+            }
+        }
+    }
+`
 
 export const RHFInlineRadio = ({
     name,
     legend,
     description,
-    radios,
+    children,
 }: {
     name: FieldPath<FieldValues>;
     legend?: ReactNode;
     description?: ReactNode;
-    radios: RadioPanelProps[];
+    children: RadioProps[];
 }) => {
     const { t } = useTranslation();
     const {
@@ -77,30 +77,37 @@ export const RHFInlineRadio = ({
                 control={control}
                 rules={{ required: true }}
                 render={({ field: { value, onChange, name } }) => (
-                    <RadioPanelGruppeInline
+                    <InlineRadioPanelGroup
                         name={name}
-                        feil={error && t(errorTekst)}
+                        error={error && t(errorTekst)}
                         legend={legend}
                         description={description}
-                        radios={radios}
-                        checked={value}
-                        onChange={(e) => onChange((e.target as HTMLInputElement).value as IValg)}
-                    />
+                        value={value ?? ''}
+                        onChange={(val) => onChange(val as IValg)}
+                    >
+                        {children.map((child, index) => (
+                                <Radio
+                                        key={index}
+                                        value={child.value}
+                                        children={child.children}
+                                        className={'radioBorder'}
+                                />
+                        ))}
+                    </InlineRadioPanelGroup>
                 )}
             />
         </div>
     );
 };
 
-interface RHFRadioProps extends Omit<RadioPanelGruppeProps, "onChange"> {
+interface RHFRadioProps extends Omit<RadioGroupProps, "onChange" | "children"> {
     name: FieldPath<FieldValues>;
-    legend?: ReactNode;
     description?: ReactNode;
-    radios: RadioPanelProps[];
+    children: RadioProps[];
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, "required">;
 }
 
-export const RHFRadio = ({ name, legend, description, radios, rules, ...rest }: RHFRadioProps) => {
+export const RHFRadio = ({ name, legend, description, children, rules, ...rest }: RHFRadioProps) => {
     const { t } = useTranslation();
     const {
         control,
@@ -111,23 +118,33 @@ export const RHFRadio = ({ name, legend, description, radios, rules, ...rest }: 
 
     return (
         <div id={name}>
-            <Controller
-                name={name}
-                control={control}
-                rules={{ required: true, ...rules }}
-                render={({ field: { value, onChange, name } }) => (
-                    <RadioPanelGruppe
-                        {...rest}
-                        name={name}
-                        feil={error && t(`feil.${error.ref?.name}.${error.type}`)}
-                        description={description}
-                        legend={legend}
-                        radios={radios}
-                        checked={value}
-                        onChange={(e) => onChange((e.target as HTMLInputElement).value as IValg)}
-                    />
-                )}
-            />
+            <SkjemaElement>
+                <Controller
+                    name={name}
+                    control={control}
+                    rules={{ required: true, ...rules }}
+                    render={({ field: { value, onChange, name } }) => (
+                        <RadioGroup
+                            {...rest}
+                            name={name}
+                            error={error && t(`feil.${error.ref?.name}.${error.type}`)}
+                            description={description}
+                            legend={legend}
+                            value={value ?? ''}
+                            onChange={(val) => onChange(val as IValg)}
+                        >
+                            {children.map((child, index) => (
+                                    <Radio
+                                            key={index}
+                                            value={child.value}
+                                            children={child.children}
+                                            className={'radioBorder'}
+                                    />
+                            ))}
+                        </RadioGroup>
+                    )}
+                />
+            </SkjemaElement>
         </div>
     );
 };

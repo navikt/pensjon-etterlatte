@@ -1,11 +1,10 @@
 import { RHFRadio } from "../../../felles/RHFRadio";
 import { useTranslation } from "react-i18next";
-import { RadioProps } from "nav-frontend-skjema";
 import React from "react";
 import { ISituasjon, Utdanning } from "../../../../typer/situasjon";
 import { RHFInput } from "../../../felles/RHFInput";
 import { useFormContext } from "react-hook-form";
-import { Heading } from "@navikt/ds-react";
+import { Heading, RadioProps } from "@navikt/ds-react";
 import { SkjemaElement } from "../../../felles/SkjemaElement";
 import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 
@@ -24,8 +23,8 @@ const HoeyesteUtdanning = () => {
             <RHFRadio
                 name={"utdanning.hoyesteFullfoerteUtdanning"}
                 legend={t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning")}
-                radios={Object.values(Utdanning).map(value => {
-                    return { label: t(value), value, required: true } as RadioProps
+                children={Object.values(Utdanning).map(value => {
+                    return { children: t(value), value, required: true } as RadioProps
                 })}
             />
 

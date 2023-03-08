@@ -34,7 +34,8 @@ rules: {
      '@typescript-eslint/no-empty-interface': 'off',
      '@typescript-eslint/no-extra-non-null-assertion': 'off',
      '@typescript-eslint/ban-types': 'off',
-     '@typescript-eslint/no-non-null-assertion': 'off'
+     '@typescript-eslint/no-non-null-assertion': 'off',
+     'react/no-children-prop': 'off'
 }
 globals: 
   'process': true

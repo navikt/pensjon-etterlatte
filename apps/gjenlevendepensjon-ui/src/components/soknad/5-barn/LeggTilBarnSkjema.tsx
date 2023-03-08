@@ -1,4 +1,3 @@
-import { RadioProps } from "nav-frontend-skjema";
 import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -10,7 +9,7 @@ import Feilmeldinger from "../../felles/Feilmeldinger";
 import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
 import { erMyndig } from "../../../utils/alder";
 import { fnr } from "@navikt/fnrvalidator";
-import { Alert, BodyShort, Button, Cell, Grid, Heading, Label, Panel, HelpText } from "@navikt/ds-react";
+import { Alert, BodyShort, Button, Cell, Grid, Heading, Label, Panel, HelpText, RadioProps } from "@navikt/ds-react";
 import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
 import { RHFSelect } from "../../felles/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
@@ -241,8 +240,8 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                     </HelpTextLabel>
                                 )}
 
-                                radios={Object.values(BarnRelasjon).map(value => {
-                                    return { label: t(value), value, required: true } as RadioProps
+                                children={Object.values(BarnRelasjon).map(value => {
+                                    return { children: t(value), value, required: true } as RadioProps
                                 })}
                             />
                         </SkjemaGruppe>

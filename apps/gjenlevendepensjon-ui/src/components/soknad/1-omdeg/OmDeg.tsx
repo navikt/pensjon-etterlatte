@@ -1,7 +1,6 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";
-import { RadioProps } from "nav-frontend-skjema";
 import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { FormProvider, useForm } from "react-hook-form";
 import { IValg } from "../../../typer/Spoersmaal";
@@ -13,7 +12,7 @@ import { RHFInlineRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
-import { Cell, Grid, Heading } from "@navikt/ds-react";
+import { Cell, Grid, Heading, RadioProps } from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
@@ -127,8 +126,8 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                     <RHFInlineRadio
                                         name={"utbetalingsInformasjon.bankkontoType"}
                                         legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
-                                        radios={Object.values(BankkontoType).map((value) => {
-                                            return { label: t(value), value } as RadioProps;
+                                        children={Object.values(BankkontoType).map((value) => {
+                                            return { children: t(value), value } as RadioProps;
                                         })}
                                     />
 
