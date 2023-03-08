@@ -1,5 +1,5 @@
 import { Language } from "../../i18n";
-import { Select } from "nav-frontend-skjema";
+import { Select } from "@navikt/ds-react";
 import { SkjemaGruppe } from "../felles/SkjemaGruppe";
 import { useTranslation } from "react-i18next";
 import { ActionTypes } from "../../context/soknad/soknad";
@@ -13,6 +13,10 @@ const SpraakvalgWrapper = styled.div`
   max-width: 200px;
   text-align: center;
   margin: 0 auto;
+  
+  label {
+    width: 100%;
+  }
 `
 
 export const Spraakvalg = () => {

@@ -198,21 +198,21 @@ exports[`Om deg og avdød Snapshot 1`] = `
           id="oppholdsland"
         >
           <div
-            class="skjemaelement kol-50"
+            class="kol-50 navds-form-field navds-form-field--medium"
           >
             <label
-              class="skjemaelement__label"
-              for="123"
+              class="navds-form-field__label navds-label"
+              for="textField-aksel-id-3"
             >
               omDeg.oppholdsland
             </label>
             <div
-              class="selectContainer input--l"
+              class="navds-select__container"
             >
               <select
                 aria-invalid="false"
-                class="skjemaelement__input"
-                id="123"
+                class="navds-select__input navds-body-short navds-body--medium"
+                id="textField-aksel-id-3"
               >
                 <option
                   value=""
@@ -220,7 +220,31 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   felles.velgLand
                 </option>
               </select>
+              <svg
+                aria-hidden="true"
+                class="navds-select__chevron"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-aksel-id-3"
+            />
           </div>
         </div>
       </fieldset>
@@ -320,7 +344,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-3"
+              id="textField-error-aksel-id-4"
             />
           </div>
         </div>
@@ -350,7 +374,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-4"
+              id="textField-error-aksel-id-5"
             />
           </div>
         </div>
@@ -379,7 +403,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-aksel-icon-2"
+                    aria-labelledby="title-aksel-icon-3"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -390,7 +414,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-aksel-icon-2"
+                      id="title-aksel-icon-3"
                     >
                       hjelp
                     </title>
@@ -402,7 +426,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-aksel-icon-3"
+                    aria-labelledby="title-aksel-icon-4"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -413,7 +437,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-aksel-icon-3"
+                      id="title-aksel-icon-4"
                     >
                       hjelp
                     </title>
@@ -458,7 +482,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-aksel-id-5"
+            id="textField-error-aksel-id-6"
           />
         </div>
       </div>
@@ -486,7 +510,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-aksel-icon-4"
+                    aria-labelledby="title-aksel-icon-5"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -497,7 +521,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-aksel-icon-4"
+                      id="title-aksel-icon-5"
                     >
                       hjelp
                     </title>
@@ -509,7 +533,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-aksel-icon-5"
+                    aria-labelledby="title-aksel-icon-6"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -520,7 +544,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-aksel-icon-5"
+                      id="title-aksel-icon-6"
                     >
                       hjelp
                     </title>
@@ -565,7 +589,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-aksel-id-6"
+            id="textField-error-aksel-id-7"
           />
         </div>
       </div>
