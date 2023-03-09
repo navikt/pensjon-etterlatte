@@ -85,7 +85,10 @@
 }
 
 .typo-normal {
-    margin: revert; // Bruke p-elementet sin default margin
+    margin: revert;
+    /*
+    Bruke p-elementet sin default margin
+    */
 }
 
 .typo-element {

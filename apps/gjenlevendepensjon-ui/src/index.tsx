@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import "./index.scss";
+import "./app.css";
 import '@navikt/ds-css'
 import App from "./App";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
