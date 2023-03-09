@@ -301,7 +301,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                         }
                                     />
 
-                                    {!bruker.adressebeskyttelse && soekerBarnepensjon === IValg.JA && (
+                                    {!bruker.adressebeskyttelse && String(soekerBarnepensjon) === IValg.JA && (
                                         <>
                                             <RHFSpoersmaalRadio
                                                 name={"barnepensjon.kontonummer.svar"}

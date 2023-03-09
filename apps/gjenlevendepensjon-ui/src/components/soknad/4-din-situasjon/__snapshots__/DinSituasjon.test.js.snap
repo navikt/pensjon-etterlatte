@@ -27,11 +27,12 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </p>
     </fieldset>
     <div
+      class="sc-hIPCAL hMDjEC"
       id="jobbStatus"
     >
       <fieldset
         aria-invalid="false"
-        class="sc-hIPCAL hMDjEC navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
       >
         <legend
           class="navds-fieldset__legend navds-label"
@@ -1230,11 +1231,12 @@ exports[`Om den avdøde Snapshot 1`] = `
       </p>
     </fieldset>
     <div
+      class="sc-hIPCAL hMDjEC"
       id="jobbStatus"
     >
       <fieldset
         aria-invalid="false"
-        class="sc-hIPCAL hMDjEC navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
       >
         <legend
           class="navds-fieldset__legend navds-label"

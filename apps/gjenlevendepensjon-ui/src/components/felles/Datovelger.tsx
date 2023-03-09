@@ -5,7 +5,7 @@ import { DatepickerLocales } from "@navikt/ds-datepicker/lib/types";
 import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath } from "react-hook-form/dist/types";
 import { useTranslation } from "react-i18next";
-import { parseISO, format } from "date-fns";
+import {parseISO, format, addYears} from "date-fns";
 import { get } from "lodash";
 import { getTransKey } from "../../utils/translation";
 import { Label } from '@navikt/ds-react'
@@ -54,7 +54,7 @@ const Datovelger = ({
     label,
     description,
     minDate = new Date('01-01-1920'),
-    maxDate = new Date(),
+    maxDate = new Date(addYears(new Date(), 20)),
     valgfri,
     kol = false
 }: DatovelgerProps) => {

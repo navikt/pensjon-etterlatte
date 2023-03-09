@@ -8,6 +8,7 @@ import {RHFCheckboksGruppe} from "../../../felles/RHFCheckboksPanelGruppe";
 import { IValg } from "../../../../typer/Spoersmaal";
 import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
 import {SkjemaElement} from "../../../felles/SkjemaElement";
+import { addYears } from 'date-fns'
 
 const UnderUtdanning = () => {
     const { t } = useTranslation();
@@ -39,6 +40,7 @@ const UnderUtdanning = () => {
                             name={"utdanning.naavaerendeUtdanning.sluttDato"}
                             label={t("dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato")}
                             minDate={new Date()}
+                            maxDate={addYears(new Date(), 10)}
                         />
                     </SkjemaGruppeRad>
                 </SkjemaElement>

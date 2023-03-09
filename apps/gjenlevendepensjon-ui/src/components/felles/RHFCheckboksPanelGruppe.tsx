@@ -5,7 +5,7 @@ import { get } from "lodash";
 import { useTranslation } from "react-i18next";
 import { getTransKey } from "../../utils/translation";
 
-const CheckboxGroupWrapper = styled(CheckboxGroup)<{inline?: boolean}>`
+const CheckboxGroupWrapper = styled.div<{inline?: boolean}>`
     .navds-checkboxes {
         ${props => props.inline 
         ? "display: flex; gap: 1rem;"
@@ -36,17 +36,17 @@ export const RHFCheckboksGruppe = ({ name, checkboxes, required = true, inline =
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
-        <div id={name}>
+        <CheckboxGroupWrapper id={name} inline={inline}>
             <Controller
                 name={name}
                 control={control}
                 rules={{ required }}
                 render={({ field: { value, onChange } }) => (
-                    <CheckboxGroupWrapper
+                    <CheckboxGroup
                         {...rest}
                         error={feilmelding}
                         defaultValue={value}
-                        inline={inline ? true : undefined}
+
                     >
                         {checkboxes.map((checkbox: CheckboxProps) => (
                             <Checkbox
@@ -60,9 +60,9 @@ export const RHFCheckboksGruppe = ({ name, checkboxes, required = true, inline =
                                 {checkbox.children}
                             </Checkbox>
                         ))}
-                    </CheckboxGroupWrapper>
+                    </CheckboxGroup>
                 )}
             />
-        </div>
+        </CheckboxGroupWrapper>
     )
 };
