@@ -1,13 +1,13 @@
 import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
-import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
-import { RHFInput } from "../../../felles/RHFInput";
+import { RHFSpoersmaalRadio } from "../../../felles/rhf/RHFRadio";
+import { RHFInput } from "../../../felles/rhf/RHFInput";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { ISituasjon } from "../../../../typer/situasjon";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import { RHFSelect } from "../../../felles/RHFSelect";
+import { RHFSelect } from "../../../felles/rhf/RHFSelect";
 import { useLand } from "../../../../hooks/useLand";
 import SelectYtelser from "./SelectYtelser";
 import {SkjemaElement} from "../../../felles/SkjemaElement";

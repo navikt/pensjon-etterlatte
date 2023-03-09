@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Panel } from "@navikt/ds-react";
-import { RHFInput, RHFNumberInput } from "../../../felles/RHFInput";
-import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
+import { RHFInput, RHFNumberInput } from "../../../felles/rhf/RHFInput";
+import { RHFSpoersmaalRadio } from "../../../felles/rhf/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { useFormContext } from "react-hook-form";

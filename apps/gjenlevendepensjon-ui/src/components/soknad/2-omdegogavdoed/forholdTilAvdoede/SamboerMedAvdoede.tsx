@@ -1,7 +1,7 @@
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
-import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/rhf/RHFRadio";
 import { hentAlder } from "../../../../utils/dato";
 import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";

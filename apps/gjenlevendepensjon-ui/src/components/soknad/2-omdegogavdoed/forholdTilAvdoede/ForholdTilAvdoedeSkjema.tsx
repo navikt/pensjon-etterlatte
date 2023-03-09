@@ -1,4 +1,4 @@
-import { RHFRadio } from "../../../felles/RHFRadio";
+import { RHFRadio } from "../../../felles/rhf/RHFRadio";
 import { useFormContext } from "react-hook-form";
 import { ForholdTilAvdoede, ISoekerOgAvdoed } from "../../../../typer/person";
 import GiftMedAvdoede from "./GiftMedAvdoede";

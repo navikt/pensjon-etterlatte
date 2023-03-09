@@ -5,7 +5,7 @@ import { TextField, TextFieldProps } from "@navikt/ds-react";
 import { get } from "lodash";
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
-import { getTransKey } from "../../utils/translation";
+import { getTransKey } from "../../../utils/translation";
 import { fnr } from "@navikt/fnrvalidator";
 import {
     kontonrMatcher,
@@ -13,7 +13,7 @@ import {
     partialProsentMatcher,
     prosentMatcher,
     telefonnrMatcher,
-} from "../../utils/matchers";
+} from "../../../utils/matchers";
 import { isValidBIC, isValidIBAN } from "ibantools";
 
 interface RHFProps extends Omit<TextFieldProps, "name"> {

@@ -32,7 +32,6 @@ const NavigasjonModal = styled(Modal)`
       padding: 0 1em;
     }
   }
-
   
   .navds-modal__button {
     visibility: hidden;

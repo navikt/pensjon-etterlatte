@@ -12,7 +12,7 @@ import { v4 as uuid } from "uuid";
 import Navigasjon from "../../felles/Navigasjon";
 import { Alert, BodyShort, Button, Modal, Panel, Heading } from "@navikt/ds-react";
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../felles/rhf/RHFRadio";
 import { deepCopy } from "../../../utils/deepCopy";
 import AndreStoenader from "./AndreStoenader";
 import styled from "styled-components";

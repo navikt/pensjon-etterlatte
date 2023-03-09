@@ -1,8 +1,8 @@
-import { RHFRadio } from "../../../felles/RHFRadio";
+import { RHFRadio } from "../../../felles/rhf/RHFRadio";
 import { useTranslation } from "react-i18next";
 import React from "react";
 import { ISituasjon, Utdanning } from "../../../../typer/situasjon";
-import { RHFInput } from "../../../felles/RHFInput";
+import { RHFInput } from "../../../felles/rhf/RHFInput";
 import { useFormContext } from "react-hook-form";
 import { Heading, RadioProps } from "@navikt/ds-react";
 import { SkjemaElement } from "../../../felles/SkjemaElement";

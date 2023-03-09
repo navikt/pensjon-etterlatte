@@ -4,7 +4,7 @@ import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { ISoekerOgAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { FormProvider, useForm } from "react-hook-form";
-import { RHFInput } from "../../felles/RHFInput";
+import { RHFInput } from "../../felles/rhf/RHFInput";
 import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";

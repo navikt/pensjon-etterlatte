@@ -6,7 +6,7 @@ import { get } from "lodash";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
 import { useTranslation } from "react-i18next";
 import { v4 as uuid } from "uuid";
-import { getTransKey } from "../../utils/translation";
+import { getTransKey } from "../../../utils/translation";
 
 interface SelectOption {
     value?: string;

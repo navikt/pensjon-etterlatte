@@ -3,7 +3,7 @@ import { CheckboxGroup, Checkbox, CheckboxProps, CheckboxGroupProps } from '@nav
 import styled from 'styled-components'
 import { get } from "lodash";
 import { useTranslation } from "react-i18next";
-import { getTransKey } from "../../utils/translation";
+import { getTransKey } from "../../../utils/translation";
 
 const CheckboxGroupWrapper = styled.div<{inline?: boolean}>`
     .navds-checkboxes {

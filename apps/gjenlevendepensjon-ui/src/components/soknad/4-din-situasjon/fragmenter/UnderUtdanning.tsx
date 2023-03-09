@@ -1,10 +1,10 @@
 import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
-import { RHFInput } from "../../../felles/RHFInput";
+import { RHFInput } from "../../../felles/rhf/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
 import { Heading, Panel } from "@navikt/ds-react";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
-import {RHFCheckboksGruppe} from "../../../felles/RHFCheckboksPanelGruppe";
+import {RHFCheckboksGruppe} from "../../../felles/rhf/RHFCheckboksPanelGruppe";
 import { IValg } from "../../../../typer/Spoersmaal";
 import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
 import {SkjemaElement} from "../../../felles/SkjemaElement";

@@ -1,5 +1,5 @@
 import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
-import {RHFCheckboksGruppe} from "../../felles/RHFCheckboksPanelGruppe";
+import {RHFCheckboksGruppe} from "../../felles/rhf/RHFCheckboksPanelGruppe";
 import { IValg } from "../../../typer/Spoersmaal";
 import React from "react";
 import { ISoeknad } from "../../../context/soknad/soknad";

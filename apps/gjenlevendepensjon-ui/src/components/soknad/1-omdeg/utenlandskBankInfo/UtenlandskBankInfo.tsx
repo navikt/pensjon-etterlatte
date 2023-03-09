@@ -1,4 +1,4 @@
-import { RHFBicInput, RHFIbanInput, RHFInput } from "../../../felles/RHFInput";
+import { RHFBicInput, RHFIbanInput, RHFInput } from "../../../felles/rhf/RHFInput";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import {Heading, HelpText} from "@navikt/ds-react";
