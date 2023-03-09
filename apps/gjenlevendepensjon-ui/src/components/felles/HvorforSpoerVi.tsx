@@ -3,7 +3,23 @@ import { Collapse, Expand } from "@navikt/ds-icons";
 import { BodyLong } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
-import {HvorforPanelButton, HvorforPanelInnhold} from "./StyledComponents";
+import styled from "styled-components";
+
+const ToggleButton = styled.button`
+    color: #0067c5;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0.2rem 0;
+    min-height: 0;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 0.25rem;
+`
+
+const Innhold = styled.div`
+    margin-top: 1rem;
+`
 
 const HvorforSpoerVi: FC<{title: string, children: any}> = ({ title, children }) => {
     const [erApen, setErApen] = useState(false);
@@ -19,7 +35,7 @@ const HvorforSpoerVi: FC<{title: string, children: any}> = ({ title, children })
 
     return (
         <div>
-            <HvorforPanelButton
+            <ToggleButton
                 data-testid="hvorforPanel_toggle"
                 type={"button"}
                 onClick={click}
@@ -27,12 +43,12 @@ const HvorforSpoerVi: FC<{title: string, children: any}> = ({ title, children })
             >
                 <span>{t("hvorforSpoerVi")}</span>
                 <span>{erApen ? <Collapse /> : <Expand />}</span>
-            </HvorforPanelButton>
+            </ToggleButton>
 
             {erApen && (
-                <HvorforPanelInnhold>
+                <Innhold>
                     <BodyLong>{children}</BodyLong>
-                </HvorforPanelInnhold>
+                </Innhold>
             )}
         </div>
     );

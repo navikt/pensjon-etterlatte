@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
-import cl from "classnames";
-import { Close, InformationFilled } from "@navikt/ds-icons";
-import { Button } from "@navikt/ds-react";
+import { Close } from "@navikt/ds-icons";
+import { Alert, Button } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
@@ -23,27 +22,17 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
     onClose: () => void;
 }
 
-const Alert = forwardRef<HTMLDivElement, AlertProps>(({ children, onClose, ...rest }, ref) => {
+const LukkbarAlert = forwardRef<HTMLDivElement, AlertProps>(({ children, onClose, ...rest }, ref) => {
     const { t } = useTranslation();
 
     return (
-        <div
-            {...rest}
-            ref={ref}
-            className={cl("navds-alert", `navds-alert--warning`, `navds-alert--medium`)}
-        >
-            <UtloggingAlertButton
-                size="small"
-                variant="tertiary"
-                aria-label="lukk melding"
-                onClick={onClose}
-            >
-                <Close title={t("brukerLoggesUt.knapp")} />
+        <Alert {...rest} ref={ref} role={'alert'} size={'medium'} variant={'warning'}>
+            <UtloggingAlertButton size="small" variant="tertiary" aria-label="lukk melding" onClick={onClose}>
+                <Close title={t('brukerLoggesUt.knapp')} />
             </UtloggingAlertButton>
-            <InformationFilled title={`warning-ikon`} className="navds-alert__icon" />
             <div className="navds-alert__wrapper">{children}</div>
-        </div>
-    );
+        </Alert>
+    )
 });
 
-export default Alert;
+export default LukkbarAlert;

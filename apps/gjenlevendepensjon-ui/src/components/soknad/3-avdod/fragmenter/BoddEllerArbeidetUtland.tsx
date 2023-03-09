@@ -12,10 +12,19 @@ import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Button, Panel, Heading } from "@navikt/ds-react";
 import { RHFSelect } from "../../../felles/RHFSelect";
 import { useLand } from "../../../../hooks/useLand";
-import {Rad, SkjemaGruppeIngress} from "../../../felles/StyledComponents";
-import {SkjemaElement} from "../../../felles/SkjemaElement";
-import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
-import {Bredde} from "../../../../typer/bredde";
+import { SkjemaGruppeIngress } from "../../../felles/StyledComponents";
+import { SkjemaElement } from "../../../felles/SkjemaElement";
+import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
+import { Bredde } from "../../../../typer/bredde";
+import styled from "styled-components";
+
+const Rad = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  column-gap: 1rem;
+`
 
 interface Props {
     datoForDoedsfallet?: Date;

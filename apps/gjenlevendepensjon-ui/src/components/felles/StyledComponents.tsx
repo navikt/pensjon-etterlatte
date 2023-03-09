@@ -1,26 +1,6 @@
 import styled from "styled-components";
-import {Button, Link, Modal} from "@navikt/ds-react";
+import { Modal } from "@navikt/ds-react";
 import { SkjemaGruppe } from "./SkjemaGruppe"
-
-export const HvorforPanelButton = styled(Button)`
-    color: #0067C5;
-    text-decoration: underline;
-    background: none;
-    border: none;
-    padding: 0.2rem 0;
-    min-height: 0;
-    margin: 0;
-    cursor: pointer;
-    border-radius: 0.25rem;
-    
-    &:hover {
-       color: white;
-    }
-`
-
-export const HvorforPanelInnhold = styled.div`
-    margin-top: 1rem;
-`
 
 const navigasjonsRad = `
   width: 100%;
@@ -65,10 +45,6 @@ export const InfokortInformasjonsboks = styled.div`
     padding: 2rem 2rem;
 `
 
-export const InfokortInformasjonsElement = styled.div`
-      margin: 10px 0 10px 0;
-`
-
 export const Infokort =  styled.div`
     .typo-normal,
     .typo-element {
@@ -88,17 +64,6 @@ export const Infokort =  styled.div`
     }
 `
 
-export const InfokortFooter = styled.div`
-    margin-bottom: 1rem;
-`
-
-export const InfokortFooterItem = styled(Link)`
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-    text-align: center;
-`
-
 export const SkjemaGruppeRad = styled.div`
   width: 100%;
   display: flex;
@@ -113,19 +78,6 @@ export const SkjemaGruppeRad = styled.div`
 
 export const SkjemaGruppeIngress = styled(SkjemaGruppe)`
   margin-bottom: 1em !important;
-`
-
-export const Rad = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  column-gap: 1rem;
-  column-gap: 1rem;
-`
-
-export const TypoFeilmelding = styled.p`
-    color: #ba3a26;
-    font-weight: 600;
 `
 
 export const SpoersmaalModal = styled(Modal)`

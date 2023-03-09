@@ -4,7 +4,7 @@ exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-fmKESZ lmaYvb"
+      class="sc-eTNep bpCESZ"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </h1>
     </div>
     <div
-      class="sc-fmKESZ lmaYvb"
+      class="sc-eTNep bpCESZ"
     >
       <div
         class="navds-panel navds-panel--border"
@@ -60,13 +60,13 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-bBkKQz iSubfx"
+        class="sc-dmXXqC gnDleB"
       >
         <div
-          class="sc-qZqnM cRGgOO"
+          class="sc-gLLvby hpRqHN"
         >
           <div
-            class="sc-gLLvby dfISMg"
+            class="sc-eDLJxc kHVhwG"
           >
             <img
               alt="barn"
@@ -74,7 +74,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             />
           </div>
           <div
-            class="sc-iBdmCd iJRlsR"
+            class="sc-jTQDnj iPqxpn"
           >
             <div
               class="center"
@@ -106,7 +106,7 @@ exports[`Om den avdøde Snapshot 1`] = `
     >
       <fieldset
         aria-invalid="false"
-        class="sc-fHekdT cNczdF navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        class="sc-brSaZW jbJNqK navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
       >
         <legend
           class="navds-fieldset__legend navds-label"
@@ -181,7 +181,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-hLQRIN kjwTfL undefined"
+        class="sc-guDLRT gtDjfr undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -208,7 +208,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hLQRIN sc-eDLJxc kjwTfL bnEsAH"
+      class="sc-guDLRT sc-dmyDGi gtDjfr fQXvsx"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

@@ -3,15 +3,29 @@ import ikon from "../../../assets/ikoner/barn1.svg";
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { IValg } from "../../../typer/Spoersmaal";
-import { BodyShort, Detail, Heading, BodyLong } from "@navikt/ds-react";
+import {BodyShort, Detail, Heading, BodyLong, Link} from "@navikt/ds-react";
 import { DeleteFilled, EditFilled } from "@navikt/ds-icons";
 import {
     Infokort,
-    InfokortFooter,
-    InfokortFooterItem,
     InfokortHeader,
-    InfokortInformasjonsboks, InfokortInformasjonsElement
+    InfokortInformasjonsboks
 } from "../../felles/StyledComponents";
+import styled from "styled-components";
+
+const InfokortInformasjonsElement = styled.div`
+      margin: 10px 0 10px 0;
+`
+
+const InfokortFooter = styled.div`
+    margin-bottom: 1rem;
+`
+
+const InfokortFooterItem = styled(Link)`
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+`
 
 interface Props {
     barn: IBarn;

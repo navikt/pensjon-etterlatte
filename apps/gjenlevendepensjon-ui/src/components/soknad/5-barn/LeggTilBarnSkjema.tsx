@@ -17,8 +17,8 @@ import ikon from "../../../assets/ikoner/barn1.svg";
 import { useEffect } from "react";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import styled from "styled-components";
-import {NavigasjonsRad, SkjemaGruppeRad, TypoFeilmelding} from "../../felles/StyledComponents";
-import {SkjemaElement} from "../../felles/SkjemaElement";
+import { NavigasjonsRad, SkjemaGruppeRad } from "../../felles/StyledComponents";
+import { SkjemaElement } from "../../felles/SkjemaElement";
 import { Bredde } from '../../../typer/bredde'
 
 const HelpTextLabel = styled.div`
@@ -68,6 +68,11 @@ const EndreBarnKortHeader = styled.header`
 
 const EndreBarnKortInnhold = styled.div`
     padding: 2em;
+`
+
+const TypoFeilmelding = styled.p`
+    color: #ba3a26;
+    font-weight: 600;
 `
 
 interface Props {
