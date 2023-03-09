@@ -32,7 +32,7 @@ export const RHFCheckboksGruppe = ({ name, checkboxes, required = true, inline =
 
     const { control, formState: { errors } } = useFormContext();
 
-    const error: FieldError = get(errors, name)
+    const error: FieldError = get(errors, name) as FieldError
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (

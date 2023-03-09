@@ -79,7 +79,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, kol =
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = t(getTransKey(error));
 
     return (

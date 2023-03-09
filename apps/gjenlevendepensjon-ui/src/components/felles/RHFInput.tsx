@@ -29,7 +29,7 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -82,7 +82,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -111,7 +111,7 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -140,7 +140,7 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
     const maxLength = 4;
 
@@ -179,7 +179,7 @@ export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => 
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -213,7 +213,7 @@ export const RHFFoedselsnummerInput = ({ name, rules, valgfri, ...rest }: RHFPro
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     const isValid = (e: ChangeEvent<HTMLInputElement>) => {
@@ -255,7 +255,7 @@ export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -284,7 +284,7 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -313,7 +313,7 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     const re = /^[0-9\b]+$/;

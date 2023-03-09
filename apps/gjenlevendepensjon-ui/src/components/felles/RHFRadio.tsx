@@ -68,7 +68,7 @@ export const RHFInlineRadio = ({
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const errorTekst = getTransKey(error);
     return (
         <div id={name}>
@@ -114,7 +114,7 @@ export const RHFRadio = ({ name, legend, description, children, rules, ...rest }
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
 
     return (
         <div id={name}>
