@@ -16,7 +16,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-hABAzo kPPnXS"
+        class="sc-ktwOSD jgWdcN"
       >
         <div
           class="kol"
@@ -413,7 +413,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               <div>
                 <button
                   aria-expanded="false"
-                  class="sc-gLLvby jXeqHl navds-button navds-button--primary navds-button--medium"
+                  class="sc-jTQDnj fhyrsI navds-button navds-button--primary navds-button--medium"
                   data-testid="hvorforPanel_toggle"
                   type="button"
                 >
@@ -556,7 +556,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             <div>
               <button
                 aria-expanded="false"
-                class="sc-gLLvby jXeqHl navds-button navds-button--primary navds-button--medium"
+                class="sc-jTQDnj fhyrsI navds-button navds-button--primary navds-button--medium"
                 data-testid="hvorforPanel_toggle"
                 type="button"
               >
@@ -684,7 +684,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-fsYeqs tOkGY undefined"
+        class="sc-iBdmCd dgiWjO undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -711,7 +711,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-fsYeqs sc-qZqnM tOkGY jDTGJW"
+      class="sc-iBdmCd sc-fsYeqs dgiWjO ildosw"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

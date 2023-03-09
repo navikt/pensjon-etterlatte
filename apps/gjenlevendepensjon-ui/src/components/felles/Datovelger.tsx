@@ -11,29 +11,6 @@ import { getTransKey } from "../../utils/translation";
 import { Label } from '@navikt/ds-react'
 import styled from "styled-components"
 
-const DatovelgerWrapper = styled.div`
-    > div {
-    width: 100%;
-  }
-  
-  .ds-datepicker {
-  width: 100%;
-
-  input {
-    min-height: 40px;
-  }
-
-  .skjemaelement__input--harFeil:not(:focus):not(:hover):not(:active):not(.inputPanel--focused) {
-    border: none;
-    box-shadow: none;
-    input {
-      border-color: #ba3a26;
-      box-shadow: 0 0 0 1px #ba3a26;
-    }
-  }
-}
-`
-
 interface StyledProps {
     kol: boolean
 }
@@ -72,7 +49,15 @@ const parseDate = (dato?: Date | string) => {
 
 const isValid = (date: any): boolean => !!parseDate(date);
 
-const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, kol = false }: DatovelgerProps) => {
+const Datovelger = ({
+    name,
+    label,
+    description,
+    minDate = new Date('01-01-1920'),
+    maxDate = new Date(),
+    valgfri,
+    kol = false
+}: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
     const {
         control,
@@ -88,7 +73,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, kol =
 
             {description && <div className={"skjemaelement__description"}>{description}</div>}
 
-            <DatovelgerWrapper>
+            <div className="datepicker">
                 <Controller
                     name={name}
                     control={control}
@@ -99,16 +84,17 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, kol =
                     }}
                     render={({ field: { onChange, value } }) => (
                         <Datepicker
+                            id={name}
+                            showYearSelector={true}
                             locale={i18n.language as DatepickerLocales}
                             value={value}
                             onChange={(date) => onChange(parseDate(date))}
-                            inputId={name}
+                            inputName={name}
                             inputProps={{
-                                name,
-                                "aria-invalid": feilmelding.length !== 0,
                                 placeholder: t("felles.datoEksempel"),
                             }}
-                            showYearSelector={true}
+                            label={""}
+                            error={feilmelding}
                             limitations={{
                                 minDate: parseDate(minDate),
                                 maxDate: parseDate(maxDate),
@@ -116,9 +102,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, kol =
                         />
                     )}
                 />
-            </DatovelgerWrapper>
-
-            {feilmelding && <Label as={'p'} style={{color: "#ba3a26"}}>{feilmelding}</Label>}
+            </div>
         </DatovelgerSection>
     );
 };

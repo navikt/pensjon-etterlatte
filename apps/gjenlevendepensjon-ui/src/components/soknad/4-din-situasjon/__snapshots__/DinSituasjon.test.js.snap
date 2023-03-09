@@ -31,7 +31,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
     >
       <fieldset
         aria-invalid="false"
-        class="sc-dmXXqC jNlvEy navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+        class="sc-hIPCAL hMDjEC navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
       >
         <legend
           class="navds-fieldset__legend navds-label"
@@ -1234,7 +1234,7 @@ exports[`Om den avdøde Snapshot 1`] = `
     >
       <fieldset
         aria-invalid="false"
-        class="sc-dmXXqC jNlvEy navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+        class="sc-hIPCAL hMDjEC navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
       >
         <legend
           class="navds-fieldset__legend navds-label"

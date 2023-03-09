@@ -94,7 +94,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         omDegOgAvdoed.avdoed.datoForDoedsfallet
       </label>
       <section
-        class="sc-eDLJxc kobyUl"
+        class="sc-hLQRIN inkSXR"
       >
         <label
           class="navds-label"
@@ -103,24 +103,22 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           omDegOgAvdoed.avdoed.dato felles.datoformat
         </label>
         <div
-          class="sc-hLQRIN djofpo"
+          class="datepicker"
         >
           <div>
             <div
               class="ds-datepicker"
             >
               <div
-                class="ds-datepicker"
+                class="navds-form-field navds-form-field--medium"
               >
+                <label
+                  class="navds-form-field__label navds-label"
+                  for="avdoed.datoForDoedsfallet"
+                />
                 <div
-                  class="ds-datepicker__input navds-form-field navds-form-field--medium"
+                  style="position: relative;"
                 >
-                  <label
-                    class="navds-text-field__label sr-only navds-label"
-                    for="avdoed.datoForDoedsfallet"
-                  >
-                    abc
-                  </label>
                   <input
                     aria-invalid="false"
                     autocomplete="off"
@@ -134,57 +132,57 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                     type="text"
                     value=""
                   />
-                  <div
-                    aria-live="polite"
-                    aria-relevant="additions removals"
-                    id="textField-error-456"
-                  />
-                </div>
-                <button
-                  aria-expanded="false"
-                  class="ds-datepicker__kalenderknapp"
-                  type="button"
-                >
-                  <span
-                    class="sr-only"
+                  <button
+                    aria-expanded="false"
+                    class="ds-datepicker__calendarButton ds-datepicker__calendarButton--medium"
+                    type="button"
                   >
-                    Kalender
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    class="ds-datepicker__kalenderknapp__icon"
-                  >
-                    <svg
-                      focusable="false"
-                      height="16"
-                      role="presentation"
-                      style="pointer-events: none;"
-                      viewBox="0 0 18 18"
-                      width="16"
+                    <span
+                      class="sr-only"
                     >
-                      <title>
-                        Kalenderikon
-                      </title>
-                      <g
-                        fill="none"
-                        fill-rule="evenodd"
-                        stroke="#0067C5"
+                      Kalender
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      class="ds-datepicker__calendarButton__icon"
+                    >
+                      <svg
+                        focusable="false"
+                        height="16"
+                        role="presentation"
+                        style="pointer-events: none;"
+                        viewBox="0 0 18 18"
+                        width="16"
                       >
-                        <path
-                          d="M4 2.667H1.333v14h15.334v-14H14"
-                        />
-                        <path
-                          d="M4 1.333h2V4H4zm8 0h2V4h-2zM6 2h6M1.333 6h15.334"
-                        />
-                      </g>
-                    </svg>
-                  </span>
-                </button>
+                        <title>
+                          Kalenderikon
+                        </title>
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="#0067C5"
+                        >
+                          <path
+                            d="M4 2.667H1.333v14h15.334v-14H14"
+                          />
+                          <path
+                            d="M4 1.333h2V4H4zm8 0h2V4h-2zM6 2h6M1.333 6h15.334"
+                          />
+                        </g>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="textField-error-aksel-id-2"
+                />
               </div>
             </div>
           </div>
         </div>
-        
       </section>
     </fieldset>
     <div
@@ -654,7 +652,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-iBdmCd dgiWjO undefined"
+        class="sc-gLLvby idHBWd undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -681,7 +679,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-iBdmCd sc-fsYeqs dgiWjO ildosw"
+      class="sc-gLLvby sc-iBdmCd idHBWd fZbhsy"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -794,7 +792,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         omDegOgAvdoed.avdoed.datoForDoedsfallet
       </label>
       <section
-        class="sc-eDLJxc kobyUl"
+        class="sc-hLQRIN inkSXR"
       >
         <label
           class="navds-label"
@@ -803,24 +801,22 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           omDegOgAvdoed.avdoed.dato felles.datoformat
         </label>
         <div
-          class="sc-hLQRIN djofpo"
+          class="datepicker"
         >
           <div>
             <div
               class="ds-datepicker"
             >
               <div
-                class="ds-datepicker"
+                class="navds-form-field navds-form-field--medium"
               >
+                <label
+                  class="navds-form-field__label navds-label"
+                  for="avdoed.datoForDoedsfallet"
+                />
                 <div
-                  class="ds-datepicker__input navds-form-field navds-form-field--medium"
+                  style="position: relative;"
                 >
-                  <label
-                    class="navds-text-field__label sr-only navds-label"
-                    for="avdoed.datoForDoedsfallet"
-                  >
-                    abc
-                  </label>
                   <input
                     aria-invalid="false"
                     autocomplete="off"
@@ -834,57 +830,57 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                     type="text"
                     value=""
                   />
-                  <div
-                    aria-live="polite"
-                    aria-relevant="additions removals"
-                    id="textField-error-456"
-                  />
-                </div>
-                <button
-                  aria-expanded="false"
-                  class="ds-datepicker__kalenderknapp"
-                  type="button"
-                >
-                  <span
-                    class="sr-only"
+                  <button
+                    aria-expanded="false"
+                    class="ds-datepicker__calendarButton ds-datepicker__calendarButton--medium"
+                    type="button"
                   >
-                    Kalender
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    class="ds-datepicker__kalenderknapp__icon"
-                  >
-                    <svg
-                      focusable="false"
-                      height="16"
-                      role="presentation"
-                      style="pointer-events: none;"
-                      viewBox="0 0 18 18"
-                      width="16"
+                    <span
+                      class="sr-only"
                     >
-                      <title>
-                        Kalenderikon
-                      </title>
-                      <g
-                        fill="none"
-                        fill-rule="evenodd"
-                        stroke="#0067C5"
+                      Kalender
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      class="ds-datepicker__calendarButton__icon"
+                    >
+                      <svg
+                        focusable="false"
+                        height="16"
+                        role="presentation"
+                        style="pointer-events: none;"
+                        viewBox="0 0 18 18"
+                        width="16"
                       >
-                        <path
-                          d="M4 2.667H1.333v14h15.334v-14H14"
-                        />
-                        <path
-                          d="M4 1.333h2V4H4zm8 0h2V4h-2zM6 2h6M1.333 6h15.334"
-                        />
-                      </g>
-                    </svg>
-                  </span>
-                </button>
+                        <title>
+                          Kalenderikon
+                        </title>
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="#0067C5"
+                        >
+                          <path
+                            d="M4 2.667H1.333v14h15.334v-14H14"
+                          />
+                          <path
+                            d="M4 1.333h2V4H4zm8 0h2V4h-2zM6 2h6M1.333 6h15.334"
+                          />
+                        </g>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="textField-error-aksel-id-1"
+                />
               </div>
             </div>
           </div>
         </div>
-        
       </section>
     </fieldset>
     <div
@@ -1171,7 +1167,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-iBdmCd dgiWjO undefined"
+        class="sc-gLLvby idHBWd undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -1198,7 +1194,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-iBdmCd sc-fsYeqs dgiWjO ildosw"
+      class="sc-gLLvby sc-iBdmCd idHBWd fZbhsy"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
