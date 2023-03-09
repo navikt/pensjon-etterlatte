@@ -64,12 +64,10 @@ https://github.com/navikt/nav-dekoratoren
 
 Tar i bruk designsystemet til NAV.
 
-Les mer her: https://design.nav.no eller se [prosjektet sitt repo](https://github.com/navikt/nav-frontend-moduler).
-
-Vil på sikt gå helt over til [Designsystemet](https://navikt.github.io/Designsystemet) når det er ferdig. 
+Les mer her: [https://aksel.nav.no/komponenter](https://aksel.nav.no/komponenter).
 
 # Annet
 
-Bruker `react-scripts`: https://www.npmjs.com/package/react-scripts med `SCSS`.
+Bruker `react-scripts`: https://www.npmjs.com/package/react-scripts med `CSS`.
 
 Prosjektet kjører `pretty-quick` on-`git commit` for automatisk kjøring av prettier, samt linting av js/ts og less on-`git push`.
