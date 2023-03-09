@@ -4,7 +4,7 @@ exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-eTNep bpCESZ"
+      class="sc-csKIKE lgLnmv"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </h1>
     </div>
     <div
-      class="sc-eTNep bpCESZ"
+      class="sc-csKIKE lgLnmv"
     >
       <div
         class="navds-panel navds-panel--border"
@@ -60,10 +60,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-dmXXqC gnDleB"
+        class="sc-hIPCAL chDnVd"
       >
         <div
-          class="sc-gLLvby hpRqHN"
+          class="sc-gLLvby bNzGCV"
         >
           <div
             class="sc-eDLJxc kHVhwG"
@@ -106,7 +106,7 @@ exports[`Om den avdøde Snapshot 1`] = `
     >
       <fieldset
         aria-invalid="false"
-        class="sc-brSaZW jbJNqK navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        class="sc-eTNep oMixL navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
       >
         <legend
           class="navds-fieldset__legend navds-label"

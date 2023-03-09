@@ -46,7 +46,6 @@ export const InfokortInformasjonsboks = styled.div`
 `
 
 export const Infokort =  styled.div`
-    .typo-normal,
     .typo-element {
       margin: 0.3rem 0;
     }
@@ -101,21 +100,6 @@ export const SpoersmaalModal = styled(Modal)`
   .navds-modal__button {
     visibility: hidden;
   }
-
-`
-
-export const ForsideWrapper = styled.div`
-    .typo-normal {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .typo-undertittel {
-    font-size: 1.25rem;
-    line-height: 1.5625rem;
-    font-weight: 600;
-  }
-
 `
 
 export {}

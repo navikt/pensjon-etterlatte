@@ -27,7 +27,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </p>
     </fieldset>
     <div
-      class="sc-fmKESZ fOtRLd"
+      class="sc-hABAzo kWzsli"
       id="jobbStatus"
     >
       <fieldset
@@ -1056,7 +1056,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             <div>
               <button
                 aria-expanded="false"
-                class="sc-csKIKE jyaAiU"
+                class="sc-irLwvL kLjCsa"
                 data-testid="hvorforPanel_toggle"
                 type="button"
               >
@@ -1226,7 +1226,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </p>
     </fieldset>
     <div
-      class="sc-fmKESZ fOtRLd"
+      class="sc-hABAzo kWzsli"
       id="jobbStatus"
     >
       <fieldset
@@ -2065,7 +2065,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             <div>
               <button
                 aria-expanded="false"
-                class="sc-csKIKE jyaAiU"
+                class="sc-irLwvL kLjCsa"
                 data-testid="hvorforPanel_toggle"
                 type="button"
               >

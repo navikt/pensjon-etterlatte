@@ -4,13 +4,12 @@ import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import { Veileder } from '../felles/Veileder'
-import {Alert, BodyLong, Button, ConfirmationPanel, Heading, Link} from "@navikt/ds-react";
+import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Spraakvalg } from "../felles/Spraakvalg";
 import { MuligeSteg } from "../../typer/steg";
-import {ForsideWrapper} from "../felles/StyledComponents";
-import {SkjemaGruppe} from "../felles/SkjemaGruppe";
+import { SkjemaGruppe } from "../felles/SkjemaGruppe";
 
 const SoknadForside = () => {
     const history = useHistory();
@@ -35,7 +34,7 @@ const SoknadForside = () => {
     );
 
     return (
-        <ForsideWrapper>
+        <>
             <SkjemaGruppe>
                 <Veileder>
                     {heiTekst}
@@ -159,7 +158,7 @@ const SoknadForside = () => {
                     {t("forside.startSoeknad")}
                 </Button>
             )}
-        </ForsideWrapper>
+        </>
     );
 };
 

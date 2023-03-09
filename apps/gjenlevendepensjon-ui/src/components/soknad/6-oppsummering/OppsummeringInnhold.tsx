@@ -7,7 +7,7 @@ import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { AccordionItem } from "./AccordionItem";
-import {SkjemaGruppe} from "../../felles/SkjemaGruppe";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 
 const OppsummeringInnhold = memo(
     ({ soeknadOppsummering, senderSoeknad }: { soeknadOppsummering: Gruppe[]; senderSoeknad: boolean }) => {

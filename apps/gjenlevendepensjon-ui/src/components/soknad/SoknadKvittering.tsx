@@ -4,7 +4,7 @@ import { SkjemaGruppe } from "../felles/SkjemaGruppe";
 import { Alert, BodyLong, BodyShort, Button, Link, Heading } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../../hooks/useLanguage";
-import {ForsideWrapper, NavigasjonsRadSection} from "../felles/StyledComponents";
+import { NavigasjonsRadSection } from "../felles/StyledComponents";
 
 const SoknadKvittering = () => {
     const { t } = useTranslation();
@@ -18,7 +18,7 @@ const SoknadKvittering = () => {
     }, [])
 
     return (
-        <ForsideWrapper>
+        <>
             <SkjemaGruppe>
                 <Veileder></Veileder>
             </SkjemaGruppe>
@@ -140,7 +140,7 @@ const SoknadKvittering = () => {
                     </Button>
                 </NavigasjonsRadSection>
             </SkjemaGruppe>
-        </ForsideWrapper>
+        </>
     );
 };
 
