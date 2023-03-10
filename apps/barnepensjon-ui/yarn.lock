@@ -1667,10 +1667,10 @@
     "@navikt/ds-react" "2.3.1"
     focus-trap-react "^10.1.0"
 
-"@navikt/ds-icons@^2.3.1", "@navikt/ds-icons@^2.5.1":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.5.1.tgz#31cb03a09ae4fd62464a926e0c4ffd620642d1c7"
-  integrity sha512-ridL/Nm69j50hgqm4CEtaE/3+f/EOPbE9LV1pTZdUWFAJLYJe3C3v+E/QcHj8p6Eh7xaPnK1AC3vKa1/fKS4KQ==
+"@navikt/ds-icons@^2.3.1", "@navikt/ds-icons@^2.5.1", "@navikt/ds-icons@^2.7.3":
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.7.3.tgz#de718dda563f1d2473d82d6ef4221a1731970a8d"
+  integrity sha512-zWGK/SqUuwNxvHpfOdwWO6ZAbGpKvaCcPejewOe6BtmBDR/4yj/3cYHvpGoVREzEDPWbKhP/a+5nFBtb+/leSw==
 
 "@navikt/ds-react@2.3.1":
   version "2.3.1"
@@ -1686,13 +1686,13 @@
     react-day-picker "8.3.4"
     react-modal "3.15.1"
 
-"@navikt/ds-react@^2.5.1":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-2.5.1.tgz#c5988109f825591a7a23be81f394549fb1db0525"
-  integrity sha512-VtXeZ+EEeJBcNQskoSxJI+pD8ua3GpB6JKNNPfzl9zGinHM0OMI61KjyeTeTjpX0xtKat/QROlM2L3ZwWeElww==
+"@navikt/ds-react@^2.7.3":
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-2.7.3.tgz#d943d36ff8ef0b09a07d25cd3e90b74dbb963046"
+  integrity sha512-xPeHEsE8AizWJ4bBSTtOZBKFvoEqGkE2/UZ8UAZH+FHPDSkmgU6aJdsg6S+49gddCexnTu9iCCZOdsiQTWlMnQ==
   dependencies:
     "@floating-ui/react" "0.17.0"
-    "@navikt/ds-icons" "^2.5.1"
+    "@navikt/ds-icons" "^2.7.3"
     "@radix-ui/react-tabs" "1.0.0"
     "@radix-ui/react-toggle-group" "1.0.0"
     clsx "^1.2.1"
