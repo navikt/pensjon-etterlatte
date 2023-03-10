@@ -20,7 +20,7 @@ import { deepCopy } from "../../../utils/deepCopy";
 import { RHFSelect } from "../../felles/rhf/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
 import { SkjemaElement } from "../../felles/SkjemaElement";
-import {Bredde} from "../../../typer/bredde";
+import Bredde from "../../../typer/bredde";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();

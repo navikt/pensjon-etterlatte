@@ -18,7 +18,7 @@ import { RHFSelect } from "../../felles/rhf/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
 import {SkjemaGruppeIngress, SkjemaGruppeRad} from "../../felles/StyledComponents";
 import {SkjemaElement} from "../../felles/SkjemaElement";
-import {Bredde} from "../../../typer/bredde";
+import Bredde from "../../../typer/bredde";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import {Heading, HelpText} from "@navikt/ds-react";
 import styled from "styled-components";
 import {SkjemaElement} from "../../../felles/SkjemaElement";
-import {Bredde} from "../../../../typer/bredde";
+import Bredde from "../../../../typer/bredde";
 
 const HelpTextLabel = styled.div`
     display: flex;

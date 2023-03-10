@@ -9,7 +9,7 @@ import { fnr } from "@navikt/fnrvalidator";
 import {RHFCheckboksGruppe} from "../../../felles/rhf/RHFCheckboksPanelGruppe";
 import { Panel, Heading, Grid, Cell } from "@navikt/ds-react";
 import { SkjemaElement } from "../../../felles/SkjemaElement";
-import {Bredde} from "../../../../typer/bredde";
+import Bredde from "../../../../typer/bredde";
 
 const SamboerSkjema = () => {
     const { t } = useTranslation();

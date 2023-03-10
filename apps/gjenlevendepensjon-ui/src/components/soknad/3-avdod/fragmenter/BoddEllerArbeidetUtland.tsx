@@ -15,7 +15,7 @@ import { useLand } from "../../../../hooks/useLand";
 import { SkjemaGruppeIngress } from "../../../felles/StyledComponents";
 import { SkjemaElement } from "../../../felles/SkjemaElement";
 import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
-import { Bredde } from "../../../../typer/bredde";
+import Bredde from "../../../../typer/bredde";
 import styled from "styled-components";
 
 const Rad = styled.div`

@@ -19,7 +19,7 @@ import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import styled from "styled-components";
 import { NavigasjonsRad, SkjemaGruppeRad } from "../../felles/StyledComponents";
 import { SkjemaElement } from "../../felles/SkjemaElement";
-import { Bredde } from '../../../typer/bredde'
+import Bredde from '../../../typer/bredde'
 
 const HelpTextLabel = styled.div`
     display: flex;

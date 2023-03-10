@@ -11,7 +11,7 @@ import { RHFSelect } from "../../../felles/rhf/RHFSelect";
 import { useLand } from "../../../../hooks/useLand";
 import SelectYtelser from "./SelectYtelser";
 import {SkjemaElement} from "../../../felles/SkjemaElement";
-import {Bredde} from "../../../../typer/bredde";
+import Bredde from "../../../../typer/bredde";
 
 
 const AndreYtelser = () => {

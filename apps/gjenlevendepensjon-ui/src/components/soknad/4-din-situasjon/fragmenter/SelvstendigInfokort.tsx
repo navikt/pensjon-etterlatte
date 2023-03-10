@@ -7,7 +7,7 @@ import { IValg } from "../../../../typer/Spoersmaal";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { useFormContext } from "react-hook-form";
 import { SkjemaElement } from "../../../felles/SkjemaElement";
-import {Bredde} from "../../../../typer/bredde";
+import Bredde from "../../../../typer/bredde";
 
 interface Props {
     lengde: number;

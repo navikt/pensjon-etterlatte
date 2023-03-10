@@ -101,5 +101,3 @@ export const SpoersmaalModal = styled(Modal)`
     visibility: hidden;
   }
 `
-
-export {}
