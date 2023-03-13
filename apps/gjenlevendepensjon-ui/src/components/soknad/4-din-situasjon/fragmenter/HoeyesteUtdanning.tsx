@@ -23,10 +23,11 @@ const HoeyesteUtdanning = () => {
             <RHFRadio
                 name={"utdanning.hoyesteFullfoerteUtdanning"}
                 legend={t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning")}
-                children={Object.values(Utdanning).map(value => {
+            >
+                {Object.values(Utdanning).map(value => {
                     return { children: t(value), value, required: true } as RadioProps
                 })}
-            />
+            </RHFRadio>
 
             {hoyesteFullfoerteUtdanning === Utdanning.annen && (
                 <RHFInput

@@ -29,7 +29,7 @@ export const RHFSpoersmaalRadio = ({
 
     if (vetIkke) defaultRadios.push({ children: t(IValg.VET_IKKE), value: IValg.VET_IKKE, required: true });
 
-    return <RHFInlineRadio name={name} legend={legend} description={description} children={defaultRadios} />;
+    return <RHFInlineRadio name={name} legend={legend} description={description}>{defaultRadios}</RHFInlineRadio>;
 };
 
 const InlineRadioPanelGroup = styled(RadioGroup)`
@@ -89,9 +89,10 @@ export const RHFInlineRadio = ({
                                 <Radio
                                         key={index}
                                         value={child.value}
-                                        children={child.children}
                                         className={'radioBorder'}
-                                />
+                                >
+                                    {child.children}
+                                </Radio>
                         ))}
                     </InlineRadioPanelGroup>
                 )}
@@ -137,9 +138,10 @@ export const RHFRadio = ({ name, legend, description, children, rules, ...rest }
                                     <Radio
                                             key={index}
                                             value={child.value}
-                                            children={child.children}
                                             className={'radioBorder'}
-                                    />
+                                    >
+                                        {child.children}
+                                    </Radio>
                             ))}
                         </RadioGroup>
                     )}

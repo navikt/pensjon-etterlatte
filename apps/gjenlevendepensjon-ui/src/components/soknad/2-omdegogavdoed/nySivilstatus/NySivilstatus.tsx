@@ -24,10 +24,11 @@ const NySivilstatus = () => {
             <RHFRadio
                 legend={''}
                 name={"nySivilstatus.sivilstatus"}
-                children={Object.values(Sivilstatus).map((value) => {
+            >
+                {Object.values(Sivilstatus).map((value) => {
                     return { children: t(value), value, required: true } as RadioProps;
                 })}
-            />
+            </RHFRadio>
 
             {sivilstatus === Sivilstatus.samboerskap && <SamboerSkjema/>}
         </SkjemaGruppe>

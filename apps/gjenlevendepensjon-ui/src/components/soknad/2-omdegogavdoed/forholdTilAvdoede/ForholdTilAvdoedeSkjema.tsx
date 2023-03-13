@@ -20,10 +20,11 @@ const ForholdTilAvdoedeSkjema = () => {
             <RHFRadio
                 name={"forholdTilAvdoede.relasjon"}
                 legend={t("omDegOgAvdoed.forholdTilAvdoede.relasjon")}
-                children={Object.values(ForholdTilAvdoede).map((value) => {
+            >
+                {Object.values(ForholdTilAvdoede).map((value) => {
                     return { children: t(value), value, required: true } as RadioProps;
                 })}
-            />
+            </RHFRadio>
             {/** Gift og Separert gir samme etterfølgende spørsmål */}
             {forholdTilAvdoede === ForholdTilAvdoede.gift && <GiftMedAvdoede />}
 

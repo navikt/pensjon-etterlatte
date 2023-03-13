@@ -129,10 +129,11 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                         <RHFInlineRadio
                                             name={"utbetalingsInformasjon.bankkontoType"}
                                             legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
-                                            children={Object.values(BankkontoType).map((value) => {
+                                        >
+                                            {Object.values(BankkontoType).map((value) => {
                                                 return { children: t(value), value } as RadioProps;
                                             })}
-                                        />
+                                        </RHFInlineRadio>
                                     </SkjemaElement>
 
                                     {bankkontoType === BankkontoType.norsk && (

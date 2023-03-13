@@ -245,11 +245,11 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                         <HelpText>{t("omBarn.relasjonHjelpetekst")} </HelpText>
                                     </HelpTextLabel>
                                 )}
-
-                                children={Object.values(BarnRelasjon).map(value => {
+                            >
+                                {Object.values(BarnRelasjon).map(value => {
                                     return { children: t(value), value, required: true } as RadioProps
                                 })}
-                            />
+                            </RHFRadio>
                         </SkjemaGruppe>
                         {relasjon === BarnRelasjon.fellesbarnMedAvdoede && kanSoekeOmBarnepensjon() && (
                             <>
