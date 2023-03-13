@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 import { ISoeker, SamboerInntekt } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { RHFFoedselsnummerInput, RHFInput, RHFNumberInput } from "../../../felles/rhf/RHFInput";
