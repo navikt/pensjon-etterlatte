@@ -7,6 +7,7 @@ import Datovelger from "../../../felles/Datovelger";
 import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
 
 const SamboerMedAvdoede = () => {
     const { t } = useTranslation();
@@ -23,16 +24,20 @@ const SamboerMedAvdoede = () => {
 
     return (
         <>
-            <RHFSpoersmaalRadio
-                name={"forholdTilAvdoede.fellesBarn"}
-                legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
-            />
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={"forholdTilAvdoede.fellesBarn"}
+                    legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
+                />
+            </SkjemaElement>
 
             {ingenFellesBarn && (
-                <RHFSpoersmaalRadio
-                    name={"forholdTilAvdoede.tidligereGift"}
-                    legend={t("omDegOgAvdoed.forholdTilAvdoede.tidligereGift")}
-                />
+                <SkjemaElement>
+                    <RHFSpoersmaalRadio
+                        name={"forholdTilAvdoede.tidligereGift"}
+                        legend={t("omDegOgAvdoed.forholdTilAvdoede.tidligereGift")}
+                    />
+                </SkjemaElement>
             )}
 
             {tidligereGift === IValg.JA && (

@@ -77,22 +77,22 @@ const SkiltFraAvdoede = () => {
             />
 
             {fellesBarn === IValg.JA && mindreEnn15aar === IValg.JA && (
-                <>
+                <SkjemaElement>
                     <RHFSpoersmaalRadio
                         name={"forholdTilAvdoede.samboereMedFellesBarn"}
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn")}
                     />
-                </>
+                </SkjemaElement>
             )}
 
             {(mindreEnnFemAar === IValg.NEI && merEnn25aar === IValg.JA) ||
             (fellesBarn === IValg.JA && mindreEnn15aar === IValg.NEI && mindreEnnFemAar === IValg.NEI) ? (
-                <>
+                <SkjemaElement>
                     <RHFSpoersmaalRadio
                         name={"forholdTilAvdoede.mottokEktefelleBidrag"}
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag")}
                     />
-                </>
+                </SkjemaElement>
             ) : null}
         </SkjemaGruppe>
     );

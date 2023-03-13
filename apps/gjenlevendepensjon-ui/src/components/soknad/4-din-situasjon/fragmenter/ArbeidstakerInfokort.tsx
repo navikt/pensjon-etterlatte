@@ -66,18 +66,22 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 </SkjemaGruppeRad>
             </SkjemaElement>
 
-            <RHFSpoersmaalRadio
-                name={`arbeidsforhold[${index}].forventerEndretInntekt.svar` as const}
-                legend={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar")}
-                vetIkke
-            />
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={`arbeidsforhold[${index}].forventerEndretInntekt.svar` as const}
+                    legend={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar")}
+                    vetIkke
+                />
+            </SkjemaElement>
 
             {endretInntekt === IValg.JA && (
-                <RHFSelect
-                    name={`arbeidsforhold[${index}].forventerEndretInntekt.beskrivelse` as const}
-                    label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
-                    selectOptions={[{ label: t("felles.velg"), value: "" }].concat(forventerEndretInntektValg)}
-                />
+                <SkjemaElement>
+                    <RHFSelect
+                        name={`arbeidsforhold[${index}].forventerEndretInntekt.beskrivelse` as const}
+                        label={t("dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse")}
+                        selectOptions={[{ label: t("felles.velg"), value: "" }].concat(forventerEndretInntektValg)}
+                    />
+                </SkjemaElement>
             )}
 
             {lengde > 1 && (

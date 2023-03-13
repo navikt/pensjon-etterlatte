@@ -131,11 +131,11 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                                     <img alt="barn" src={ikon}/>
                                 </InfokortHeader>
                                 <InfokortInformasjonsboks>
-                                    <div className={"center"}>
+                                    <LeggTilBarnKnappWrapper>
                                         <Button data-testid={"legg-til-barn-knapp"} variant={"primary"} type={"button"} onClick={leggtilNyttBarn}>
                                             {t("knapp.leggTilBarn")}
                                         </Button>
-                                    </div>
+                                    </LeggTilBarnKnappWrapper>
 
                                     <BodyShort size={"small"} className={"center mute"}>
                                         {t("omBarn.valgfritt")}
@@ -144,7 +144,9 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                             </Infokort>
                         </InfokortWrapper>
                     </SkjemaGruppe>
-                    <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio name={"gravidEllerNyligFoedt"} legend={t("omBarn.gravidEllerNyligFoedt")}/>
+                    </SkjemaElement>
 
                     <AndreStoenader soeknad={state} barn={registrerteBarn} />
 
@@ -175,4 +177,9 @@ const InfokortWrapper = styled.div`
   flex-flow: row wrap;
   margin: 0 auto;
   column-gap: 1rem;
+`
+
+const LeggTilBarnKnappWrapper = styled.div`
+    text-align: center;
+    margin-bottom: 1rem;
 `

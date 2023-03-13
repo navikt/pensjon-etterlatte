@@ -27,7 +27,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </p>
     </fieldset>
     <div
-      class="sc-hABAzo kWzsli"
+      class="sc-ktwOSD ekOieB"
       id="jobbStatus"
     >
       <fieldset
@@ -332,106 +332,110 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           </div>
         </div>
         <div
-          id="arbeidsforhold[0].forventerEndretInntekt.svar"
+          class="sc-guDLRT gSrTwn"
         >
-          <fieldset
-            aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <div
+            id="arbeidsforhold[0].forventerEndretInntekt.svar"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
+            <fieldset
+              aria-invalid="false"
+              class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
-              dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar
-            </legend>
-            <div
-              class="navds-radio-buttons"
-            >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <legend
+                class="navds-fieldset__legend navds-label"
               >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-45"
-                  name="arbeidsforhold[0].forventerEndretInntekt.svar"
-                  type="radio"
-                  value="radiobuttons.ja"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-45"
+                dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-45"
+                    name="arbeidsforhold[0].forventerEndretInntekt.svar"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-45"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.ja
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.ja
+                      </span>
                     </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-46"
-                  name="arbeidsforhold[0].forventerEndretInntekt.svar"
-                  type="radio"
-                  value="radiobuttons.nei"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-46"
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-46"
+                    name="arbeidsforhold[0].forventerEndretInntekt.svar"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-46"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.nei
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.nei
+                      </span>
                     </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-47"
-                  name="arbeidsforhold[0].forventerEndretInntekt.svar"
-                  type="radio"
-                  value="radiobuttons.vetIkke"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-47"
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-47"
+                    name="arbeidsforhold[0].forventerEndretInntekt.svar"
+                    type="radio"
+                    value="radiobuttons.vetIkke"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-47"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.vetIkke
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.vetIkke
+                      </span>
                     </span>
-                  </span>
-                </label>
+                  </label>
+                </div>
               </div>
-            </div>
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-48"
-            />
-          </fieldset>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-aksel-id-48"
+              />
+            </fieldset>
+          </div>
         </div>
       </div>
       <button
@@ -521,106 +525,110 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           </div>
         </div>
         <div
-          id="selvstendig[0].forventerEndretInntekt.svar"
+          class="sc-guDLRT gSrTwn"
         >
-          <fieldset
-            aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <div
+            id="selvstendig[0].forventerEndretInntekt.svar"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
+            <fieldset
+              aria-invalid="false"
+              class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
-              dinSituasjon.selvstendig.forventerEndretInntekt.svar
-            </legend>
-            <div
-              class="navds-radio-buttons"
-            >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <legend
+                class="navds-fieldset__legend navds-label"
               >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-73"
-                  name="selvstendig[0].forventerEndretInntekt.svar"
-                  type="radio"
-                  value="radiobuttons.ja"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-73"
+                dinSituasjon.selvstendig.forventerEndretInntekt.svar
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-73"
+                    name="selvstendig[0].forventerEndretInntekt.svar"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-73"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.ja
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.ja
+                      </span>
                     </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-74"
-                  name="selvstendig[0].forventerEndretInntekt.svar"
-                  type="radio"
-                  value="radiobuttons.nei"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-74"
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-74"
+                    name="selvstendig[0].forventerEndretInntekt.svar"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-74"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.nei
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.nei
+                      </span>
                     </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-75"
-                  name="selvstendig[0].forventerEndretInntekt.svar"
-                  type="radio"
-                  value="radiobuttons.vetIkke"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-75"
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-75"
+                    name="selvstendig[0].forventerEndretInntekt.svar"
+                    type="radio"
+                    value="radiobuttons.vetIkke"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-75"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.vetIkke
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.vetIkke
+                      </span>
                     </span>
-                  </span>
-                </label>
+                  </label>
+                </div>
               </div>
-            </div>
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-76"
-            />
-          </fieldset>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-aksel-id-76"
+              />
+            </fieldset>
+          </div>
         </div>
       </div>
       <button
@@ -878,160 +886,168 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
         </p>
       </fieldset>
       <div
-        id="andreYtelser.kravOmAnnenStonad.svar"
+        class="sc-guDLRT gSrTwn"
       >
-        <fieldset
-          aria-invalid="false"
-          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        <div
+          id="andreYtelser.kravOmAnnenStonad.svar"
         >
-          <legend
-            class="navds-fieldset__legend navds-label"
+          <fieldset
+            aria-invalid="false"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
-            dinSituasjon.andreYtelser.kravOmAnnenStonad.svar
-          </legend>
-          <div
-            class="navds-radio-buttons"
-          >
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
+            <legend
+              class="navds-fieldset__legend navds-label"
             >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-59"
-                name="andreYtelser.kravOmAnnenStonad.svar"
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-59"
+              dinSituasjon.andreYtelser.kravOmAnnenStonad.svar
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-59"
+                  name="andreYtelser.kravOmAnnenStonad.svar"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-59"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.ja
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
                   </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-60"
-                name="andreYtelser.kravOmAnnenStonad.svar"
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-60"
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-60"
+                  name="andreYtelser.kravOmAnnenStonad.svar"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-60"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.nei
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
                   </span>
-                </span>
-              </label>
+                </label>
+              </div>
             </div>
-          </div>
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-61"
-          />
-        </fieldset>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-61"
+            />
+          </fieldset>
+        </div>
       </div>
     </fieldset>
     <fieldset
       class="sc-beySbM kuevld"
     >
       <div
-        id="andreYtelser.annenPensjon.svar"
+        class="sc-guDLRT gSrTwn"
       >
-        <fieldset
-          aria-invalid="false"
-          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        <div
+          id="andreYtelser.annenPensjon.svar"
         >
-          <legend
-            class="navds-fieldset__legend navds-label"
+          <fieldset
+            aria-invalid="false"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
-            dinSituasjon.andreYtelser.annenPensjon.svar
-          </legend>
-          <div
-            class="navds-radio-buttons"
-          >
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
+            <legend
+              class="navds-fieldset__legend navds-label"
             >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-63"
-                name="andreYtelser.annenPensjon.svar"
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-63"
+              dinSituasjon.andreYtelser.annenPensjon.svar
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-63"
+                  name="andreYtelser.annenPensjon.svar"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-63"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.ja
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
                   </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-64"
-                name="andreYtelser.annenPensjon.svar"
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-64"
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-64"
+                  name="andreYtelser.annenPensjon.svar"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-64"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.nei
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
                   </span>
-                </span>
-              </label>
+                </label>
+              </div>
             </div>
-          </div>
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-65"
-          />
-        </fieldset>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-65"
+            />
+          </fieldset>
+        </div>
       </div>
     </fieldset>
     <fieldset
@@ -1226,7 +1242,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </p>
     </fieldset>
     <div
-      class="sc-hABAzo kWzsli"
+      class="sc-ktwOSD ekOieB"
       id="jobbStatus"
     >
       <fieldset
@@ -1530,106 +1546,110 @@ exports[`Om den avdøde Snapshot 1`] = `
           </div>
         </div>
         <div
-          id="arbeidsforhold[0].forventerEndretInntekt.svar"
+          class="sc-guDLRT gSrTwn"
         >
-          <fieldset
-            aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <div
+            id="arbeidsforhold[0].forventerEndretInntekt.svar"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
+            <fieldset
+              aria-invalid="false"
+              class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
-              dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar
-            </legend>
-            <div
-              class="navds-radio-buttons"
-            >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <legend
+                class="navds-fieldset__legend navds-label"
               >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-10"
-                  name="arbeidsforhold[0].forventerEndretInntekt.svar"
-                  type="radio"
-                  value="radiobuttons.ja"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-10"
+                dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-10"
+                    name="arbeidsforhold[0].forventerEndretInntekt.svar"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-10"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.ja
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.ja
+                      </span>
                     </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-11"
-                  name="arbeidsforhold[0].forventerEndretInntekt.svar"
-                  type="radio"
-                  value="radiobuttons.nei"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-11"
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-11"
+                    name="arbeidsforhold[0].forventerEndretInntekt.svar"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-11"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.nei
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.nei
+                      </span>
                     </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-12"
-                  name="arbeidsforhold[0].forventerEndretInntekt.svar"
-                  type="radio"
-                  value="radiobuttons.vetIkke"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-12"
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-12"
+                    name="arbeidsforhold[0].forventerEndretInntekt.svar"
+                    type="radio"
+                    value="radiobuttons.vetIkke"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-12"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.vetIkke
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.vetIkke
+                      </span>
                     </span>
-                  </span>
-                </label>
+                  </label>
+                </div>
               </div>
-            </div>
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-13"
-            />
-          </fieldset>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-aksel-id-13"
+              />
+            </fieldset>
+          </div>
         </div>
       </div>
       <button
@@ -1887,160 +1907,168 @@ exports[`Om den avdøde Snapshot 1`] = `
         </p>
       </fieldset>
       <div
-        id="andreYtelser.kravOmAnnenStonad.svar"
+        class="sc-guDLRT gSrTwn"
       >
-        <fieldset
-          aria-invalid="false"
-          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        <div
+          id="andreYtelser.kravOmAnnenStonad.svar"
         >
-          <legend
-            class="navds-fieldset__legend navds-label"
+          <fieldset
+            aria-invalid="false"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
-            dinSituasjon.andreYtelser.kravOmAnnenStonad.svar
-          </legend>
-          <div
-            class="navds-radio-buttons"
-          >
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
+            <legend
+              class="navds-fieldset__legend navds-label"
             >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-24"
-                name="andreYtelser.kravOmAnnenStonad.svar"
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-24"
+              dinSituasjon.andreYtelser.kravOmAnnenStonad.svar
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-24"
+                  name="andreYtelser.kravOmAnnenStonad.svar"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-24"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.ja
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
                   </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-25"
-                name="andreYtelser.kravOmAnnenStonad.svar"
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-25"
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-25"
+                  name="andreYtelser.kravOmAnnenStonad.svar"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-25"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.nei
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
                   </span>
-                </span>
-              </label>
+                </label>
+              </div>
             </div>
-          </div>
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-26"
-          />
-        </fieldset>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-26"
+            />
+          </fieldset>
+        </div>
       </div>
     </fieldset>
     <fieldset
       class="sc-beySbM kuevld"
     >
       <div
-        id="andreYtelser.annenPensjon.svar"
+        class="sc-guDLRT gSrTwn"
       >
-        <fieldset
-          aria-invalid="false"
-          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        <div
+          id="andreYtelser.annenPensjon.svar"
         >
-          <legend
-            class="navds-fieldset__legend navds-label"
+          <fieldset
+            aria-invalid="false"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
-            dinSituasjon.andreYtelser.annenPensjon.svar
-          </legend>
-          <div
-            class="navds-radio-buttons"
-          >
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
+            <legend
+              class="navds-fieldset__legend navds-label"
             >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-28"
-                name="andreYtelser.annenPensjon.svar"
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-28"
+              dinSituasjon.andreYtelser.annenPensjon.svar
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-28"
+                  name="andreYtelser.annenPensjon.svar"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-28"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.ja
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
                   </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-29"
-                name="andreYtelser.annenPensjon.svar"
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-29"
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-29"
+                  name="andreYtelser.annenPensjon.svar"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-29"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.nei
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
                   </span>
-                </span>
-              </label>
+                </label>
+              </div>
             </div>
-          </div>
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-30"
-          />
-        </fieldset>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-30"
+            />
+          </fieldset>
+        </div>
       </div>
     </fieldset>
     <fieldset

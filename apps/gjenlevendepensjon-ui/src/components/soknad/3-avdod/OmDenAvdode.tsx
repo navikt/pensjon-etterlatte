@@ -104,11 +104,13 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <BodyLong>{t("omDenAvdoede.selvstendigNaeringsdrivende.ingress")}</BodyLong>
                     </SkjemaGruppeIngress>
 
-                    <RHFSpoersmaalRadio
-                        name={"selvstendigNaeringsdrivende.svar"}
-                        legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
-                        vetIkke
-                    />
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio
+                            name={"selvstendigNaeringsdrivende.svar"}
+                            legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
+                            vetIkke
+                        />
+                    </SkjemaElement>
 
                     {selvstendigNaeringsdrivende === IValg.JA && (
                         <>
@@ -137,7 +139,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <Heading size="small">{t("omDenAvdoede.annenOpptjening.tittel")}</Heading>
                     </SkjemaGruppeIngress>
 
-                    <SkjemaElement>
+                    <SkjemaGruppe>
                         <RHFSpoersmaalRadio
                             name={"doedsfallAarsak"}
                             legend={t("omDenAvdoede.doedsfallAarsak")}
@@ -145,27 +147,27 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                                 <HvorforSpoerVi title="omDenAvdoede.doedsfallAarsak">{t("omDenAvdoede.doedsfallAarsakHvorfor")}</HvorforSpoerVi>}
                             vetIkke
                         />
-                    </SkjemaElement>
+                    </SkjemaGruppe>
 
-                    <RHFSpoersmaalRadio
-                        name={"harAvtjentMilitaerTjeneste.svar"}
-                        legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
-                        description={
-                            <HvorforSpoerVi title="omDenAvdoede.harAvtjentMilitaerTjeneste.svar">{t("omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst")}</HvorforSpoerVi>
-                        }
-                        vetIkke
-                    />
+                        <RHFSpoersmaalRadio
+                            name={"harAvtjentMilitaerTjeneste.svar"}
+                            legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
+                            description={
+                                <HvorforSpoerVi title="omDenAvdoede.harAvtjentMilitaerTjeneste.svar">{t("omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst")}</HvorforSpoerVi>
+                            }
+                            vetIkke
+                        />
 
-                    {harAvtjentMilitaerTjeneste === IValg.JA && (
-                        <SkjemaGruppe>
-                            <RHFInput
-                                name={"harAvtjentMilitaerTjeneste.beskrivelse"}
-                                htmlSize={Bredde.S}
-                                valgfri
-                                label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
-                            />
-                        </SkjemaGruppe>
-                    )}
+                        {harAvtjentMilitaerTjeneste === IValg.JA && (
+                            <SkjemaElement>
+                                <RHFInput
+                                    name={"harAvtjentMilitaerTjeneste.beskrivelse"}
+                                    htmlSize={Bredde.S}
+                                    valgfri
+                                    label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
+                                />
+                            </SkjemaElement>
+                        )}
 
                 </SkjemaGruppe>
 

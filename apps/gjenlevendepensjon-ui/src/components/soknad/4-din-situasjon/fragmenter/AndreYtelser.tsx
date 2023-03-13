@@ -31,10 +31,12 @@ const AndreYtelser = () => {
                     <BodyLong>{t("dinSituasjon.andreYtelser.ingress")}</BodyLong>
                 </SkjemaGruppe>
 
-                <RHFSpoersmaalRadio
-                    name={"andreYtelser.kravOmAnnenStonad.svar"}
-                    legend={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.svar")}
-                />
+                <SkjemaElement>
+                    <RHFSpoersmaalRadio
+                        name={"andreYtelser.kravOmAnnenStonad.svar"}
+                        legend={t("dinSituasjon.andreYtelser.kravOmAnnenStonad.svar")}
+                    />
+                </SkjemaElement>
 
                 {kravOmAnnenStonad === IValg.JA && (
                     <SelectYtelser/>
@@ -42,10 +44,12 @@ const AndreYtelser = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <RHFSpoersmaalRadio
-                    name={"andreYtelser.annenPensjon.svar"}
-                    legend={t("dinSituasjon.andreYtelser.annenPensjon.svar")}
-                />
+                <SkjemaElement>
+                    <RHFSpoersmaalRadio
+                        name={"andreYtelser.annenPensjon.svar"}
+                        legend={t("dinSituasjon.andreYtelser.annenPensjon.svar")}
+                    />
+                </SkjemaElement>
 
                 {annenPensjon === IValg.JA && (
                     <RHFInput

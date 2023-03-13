@@ -32,19 +32,23 @@ const GiftMedAvdoede = () => {
                 />
             </SkjemaGruppe>
             {partnerskapMindreEnnFemAar && (
-                <SkjemaElement>
-                    <RHFSpoersmaalRadio
-                        name={"forholdTilAvdoede.fellesBarn"}
-                        legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
-                    />
+                <>
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio
+                            name={"forholdTilAvdoede.fellesBarn"}
+                            legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
+                        />
+                    </SkjemaElement>
 
                     {ingenFellesBarn && (
-                        <RHFSpoersmaalRadio
-                            name={"forholdTilAvdoede.omsorgForBarn"}
-                            legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
-                        />
+                        <SkjemaElement>
+                            <RHFSpoersmaalRadio
+                                name={"forholdTilAvdoede.omsorgForBarn"}
+                                legend={t("omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn")}
+                            />
+                        </SkjemaElement>
                     )}
-                </SkjemaElement>
+                </>
             )}
         </>
     );

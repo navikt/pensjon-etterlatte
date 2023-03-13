@@ -17,10 +17,6 @@ const ToggleButton = styled.button`
     border-radius: 0.25rem;
 `
 
-const Innhold = styled.div`
-    margin-top: 1rem;
-`
-
 const HvorforSpoerVi: FC<{title: string, children: any}> = ({ title, children }) => {
     const [erApen, setErApen] = useState(false);
     const { t } = useTranslation();
@@ -46,9 +42,7 @@ const HvorforSpoerVi: FC<{title: string, children: any}> = ({ title, children })
             </ToggleButton>
 
             {erApen && (
-                <Innhold>
-                    <BodyLong>{children}</BodyLong>
-                </Innhold>
+                <BodyLong>{children}</BodyLong>
             )}
         </div>
     );

@@ -477,174 +477,186 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </h1>
         </div>
         <div
-          class="navds-grid"
+          class="sc-guDLRT gSrTwn"
         >
           <div
-            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
+            class="navds-grid"
           >
             <div
-              class="kol-50"
+              class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
             >
               <div
-                class="navds-form-field navds-form-field--medium"
+                class="kol-50"
               >
-                <label
-                  class="navds-form-field__label navds-label"
-                  for="nySivilstatus.samboerskap.samboer.fornavn"
-                >
-                  omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn
-                </label>
-                <input
-                  aria-invalid="false"
-                  class="navds-text-field__input navds-body-short navds-body-medium"
-                  id="nySivilstatus.samboerskap.samboer.fornavn"
-                  required=""
-                  type="text"
-                  value=""
-                />
                 <div
-                  aria-live="polite"
-                  aria-relevant="additions removals"
-                  class="navds-form-field__error"
-                  id="textField-error-aksel-id-29"
-                />
+                  class="navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-form-field__label navds-label"
+                    for="nySivilstatus.samboerskap.samboer.fornavn"
+                  >
+                    omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn
+                  </label>
+                  <input
+                    aria-invalid="false"
+                    class="navds-text-field__input navds-body-short navds-body-medium"
+                    id="nySivilstatus.samboerskap.samboer.fornavn"
+                    required=""
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-form-field__error"
+                    id="textField-error-aksel-id-29"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
-          >
             <div
-              class="kol-50"
+              class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
             >
               <div
-                class="navds-form-field navds-form-field--medium"
+                class="kol-50"
               >
-                <label
-                  class="navds-form-field__label navds-label"
-                  for="nySivilstatus.samboerskap.samboer.etternavn"
-                >
-                  omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn
-                </label>
-                <input
-                  aria-invalid="false"
-                  class="navds-text-field__input navds-body-short navds-body-medium"
-                  id="nySivilstatus.samboerskap.samboer.etternavn"
-                  required=""
-                  type="text"
-                  value=""
-                />
                 <div
-                  aria-live="polite"
-                  aria-relevant="additions removals"
-                  class="navds-form-field__error"
-                  id="textField-error-aksel-id-30"
-                />
+                  class="navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-form-field__label navds-label"
+                    for="nySivilstatus.samboerskap.samboer.etternavn"
+                  >
+                    omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn
+                  </label>
+                  <input
+                    aria-invalid="false"
+                    class="navds-text-field__input navds-body-short navds-body-medium"
+                    id="nySivilstatus.samboerskap.samboer.etternavn"
+                    required=""
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-form-field__error"
+                    id="textField-error-aksel-id-30"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="navds-form-field navds-form-field--medium"
+          class="sc-guDLRT gSrTwn"
         >
-          <label
-            class="navds-form-field__label navds-label"
-            for="nySivilstatus.samboerskap.samboer.foedselsnummer"
-          >
-            felles.fnr
-          </label>
-          <input
-            aria-invalid="false"
-            class="navds-text-field__input navds-body-short navds-body-medium"
-            id="nySivilstatus.samboerskap.samboer.foedselsnummer"
-            placeholder="felles.fnrPlaceholder"
-            required=""
-            size="25"
-            type="tel"
-            value=""
-          />
           <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-form-field__error"
-            id="textField-error-aksel-id-31"
-          />
-        </div>
-        <div
-          id="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
-        >
-          <fieldset
-            aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="navds-form-field navds-form-field--medium"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
+            <label
+              class="navds-form-field__label navds-label"
+              for="nySivilstatus.samboerskap.samboer.foedselsnummer"
             >
-              omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift
-            </legend>
-            <div
-              class="navds-radio-buttons"
-            >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-32"
-                  name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
-                  type="radio"
-                  value="radiobuttons.ja"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-32"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short"
-                    >
-                      radiobuttons.ja
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-aksel-id-33"
-                  name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
-                  type="radio"
-                  value="radiobuttons.nei"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-aksel-id-33"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short"
-                    >
-                      radiobuttons.nei
-                    </span>
-                  </span>
-                </label>
-              </div>
-            </div>
+              felles.fnr
+            </label>
+            <input
+              aria-invalid="false"
+              class="navds-text-field__input navds-body-short navds-body-medium"
+              id="nySivilstatus.samboerskap.samboer.foedselsnummer"
+              placeholder="felles.fnrPlaceholder"
+              required=""
+              size="25"
+              type="tel"
+              value=""
+            />
             <div
               aria-live="polite"
               aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-34"
+              class="navds-form-field__error"
+              id="textField-error-aksel-id-31"
             />
-          </fieldset>
+          </div>
+        </div>
+        <div
+          class="sc-guDLRT gSrTwn"
+        >
+          <div
+            id="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+          >
+            <fieldset
+              aria-invalid="false"
+              class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            >
+              <legend
+                class="navds-fieldset__legend navds-label"
+              >
+                omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-32"
+                    name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-32"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.ja
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-aksel-id-33"
+                    name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-aksel-id-33"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.nei
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-aksel-id-34"
+              />
+            </fieldset>
+          </div>
         </div>
       </div>
     </fieldset>

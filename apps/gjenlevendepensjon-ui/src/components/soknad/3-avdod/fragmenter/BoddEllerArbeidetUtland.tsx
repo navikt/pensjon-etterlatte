@@ -56,11 +56,14 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                 <Heading size="small">{t("omDenAvdoede.boddEllerJobbetUtland.tittel")}</Heading>
                 <BodyLong>{t("omDenAvdoede.boddEllerJobbetUtland.ingress")}</BodyLong>
             </SkjemaGruppeIngress>
-            <RHFSpoersmaalRadio
-                name={"boddEllerJobbetUtland.svar"}
-                legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
-                vetIkke
-            />
+
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={"boddEllerJobbetUtland.svar"}
+                    legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
+                    vetIkke
+                />
+            </SkjemaElement>
 
             {boddEllerArbeidetUtland === IValg.JA && (
                 <SkjemaGruppe>

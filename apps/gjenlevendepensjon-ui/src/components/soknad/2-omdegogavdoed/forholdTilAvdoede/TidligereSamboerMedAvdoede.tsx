@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
 import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
 import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
 
 const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation();
@@ -24,33 +25,37 @@ const TidligereSamboerMedAvdoede = () => {
 
     return (
         <SkjemaGruppe>
-            <RHFSpoersmaalRadio
-                name={"forholdTilAvdoede.fellesBarn"}
-                legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
-            />
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={"forholdTilAvdoede.fellesBarn"}
+                    legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
+                />
+            </SkjemaElement>
 
             {fellesBarn === IValg.JA && (
                 <>
                     {/* TODO: Burde være eget felt for inngått samboerskap? */}
-                    <SkjemaGruppeRad>
-                        <div className={"kol"}>
-                            <Datovelger
-                                name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
-                                label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
-                                minDate={state.foedselsdato}
-                                maxDate={datoForDoedsfallet || new Date()}
-                            />
-                        </div>
+                    <SkjemaElement>
+                        <SkjemaGruppeRad>
+                            <div className={"kol"}>
+                                <Datovelger
+                                    name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
+                                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
+                                    minDate={state.foedselsdato}
+                                    maxDate={datoForDoedsfallet || new Date()}
+                                />
+                            </div>
 
-                        <div className={"kol"}>
-                            <Datovelger
-                                name={"forholdTilAvdoede.datoForSamlivsbrudd"}
-                                label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd")}
-                                minDate={datoForInngaattSamboerskap}
-                                maxDate={datoForDoedsfallet || new Date()}
-                            />
-                        </div>
-                    </SkjemaGruppeRad>
+                            <div className={"kol"}>
+                                <Datovelger
+                                    name={"forholdTilAvdoede.datoForSamlivsbrudd"}
+                                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd")}
+                                    minDate={datoForInngaattSamboerskap}
+                                    maxDate={datoForDoedsfallet || new Date()}
+                                />
+                            </div>
+                        </SkjemaGruppeRad>
+                    </SkjemaElement>
 
                     {bidragMaaUtfylles && (
                         <RHFSpoersmaalRadio

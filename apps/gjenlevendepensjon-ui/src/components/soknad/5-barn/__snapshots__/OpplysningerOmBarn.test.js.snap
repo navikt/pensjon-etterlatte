@@ -77,7 +77,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="sc-jTQDnj iPqxpn"
           >
             <div
-              class="center"
+              class="sc-dmXXqC hEDnzc"
             >
               <button
                 class="navds-button navds-button--primary navds-button--medium"
@@ -102,80 +102,84 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      id="gravidEllerNyligFoedt"
+      class="sc-jsEegt ciQEHV"
     >
-      <fieldset
-        aria-invalid="false"
-        class="sc-eTNep oMixL navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+      <div
+        id="gravidEllerNyligFoedt"
       >
-        <legend
-          class="navds-fieldset__legend navds-label"
+        <fieldset
+          aria-invalid="false"
+          class="sc-eTNep oMixL navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
-          omBarn.gravidEllerNyligFoedt
-        </legend>
-        <div
-          class="navds-radio-buttons"
-        >
-          <div
-            class="radioBorder navds-radio navds-radio--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <input
-              aria-invalid="false"
-              class="navds-radio__input"
-              id="radio-aksel-id-1"
-              name="gravidEllerNyligFoedt"
-              type="radio"
-              value="radiobuttons.ja"
-            />
-            <label
-              class="navds-radio__label"
-              for="radio-aksel-id-1"
+            omBarn.gravidEllerNyligFoedt
+          </legend>
+          <div
+            class="navds-radio-buttons"
+          >
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              <span
-                class="navds-radio__content"
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-1"
+                name="gravidEllerNyligFoedt"
+                type="radio"
+                value="radiobuttons.ja"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-1"
               >
                 <span
-                  class="navds-body-short"
+                  class="navds-radio__content"
                 >
-                  radiobuttons.ja
+                  <span
+                    class="navds-body-short"
+                  >
+                    radiobuttons.ja
+                  </span>
                 </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="radioBorder navds-radio navds-radio--medium"
-          >
-            <input
-              aria-invalid="false"
-              class="navds-radio__input"
-              id="radio-aksel-id-2"
-              name="gravidEllerNyligFoedt"
-              type="radio"
-              value="radiobuttons.nei"
-            />
-            <label
-              class="navds-radio__label"
-              for="radio-aksel-id-2"
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              <span
-                class="navds-radio__content"
+              <input
+                aria-invalid="false"
+                class="navds-radio__input"
+                id="radio-aksel-id-2"
+                name="gravidEllerNyligFoedt"
+                type="radio"
+                value="radiobuttons.nei"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-2"
               >
                 <span
-                  class="navds-body-short"
+                  class="navds-radio__content"
                 >
-                  radiobuttons.nei
+                  <span
+                    class="navds-body-short"
+                  >
+                    radiobuttons.nei
+                  </span>
                 </span>
-              </span>
-            </label>
+              </label>
+            </div>
           </div>
-        </div>
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-fieldset__error"
-          id="fieldset-error-aksel-id-3"
-        />
-      </fieldset>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-aksel-id-3"
+          />
+        </fieldset>
+      </div>
     </div>
     <fieldset
       class="sc-beySbM kuevld"

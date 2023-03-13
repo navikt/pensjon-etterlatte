@@ -90,15 +90,17 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                     {/* 2.7 */}
                     {!brukerState.adressebeskyttelse && (
                         <SkjemaGruppe>
-                            <RHFSpoersmaalRadio
-                                name={"oppholderSegINorge"}
-                                legend={t("omDeg.oppholderSegINorge")}
-                                description={
-                                    <HvorforSpoerVi title="omDeg.oppholderSegINorge">
-                                        {t("omDeg.oppholdHvorfor")}
-                                    </HvorforSpoerVi>
-                                }
-                            />
+                            <SkjemaElement>
+                                <RHFSpoersmaalRadio
+                                    name={"oppholderSegINorge"}
+                                    legend={t("omDeg.oppholderSegINorge")}
+                                    description={
+                                        <HvorforSpoerVi title="omDeg.oppholderSegINorge">
+                                            {t("omDeg.oppholdHvorfor")}
+                                        </HvorforSpoerVi>
+                                    }
+                                />
+                            </SkjemaElement>
 
                             {oppholderSegINorge === IValg.JA && (
                                 <SkjemaGruppe>
@@ -123,13 +125,15 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                         />
                                     </SkjemaGruppe>
 
-                                    <RHFInlineRadio
-                                        name={"utbetalingsInformasjon.bankkontoType"}
-                                        legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
-                                        children={Object.values(BankkontoType).map((value) => {
-                                            return { children: t(value), value } as RadioProps;
-                                        })}
-                                    />
+                                    <SkjemaElement>
+                                        <RHFInlineRadio
+                                            name={"utbetalingsInformasjon.bankkontoType"}
+                                            legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
+                                            children={Object.values(BankkontoType).map((value) => {
+                                                return { children: t(value), value } as RadioProps;
+                                            })}
+                                        />
+                                    </SkjemaElement>
 
                                     {bankkontoType === BankkontoType.norsk && (
                                         <RHFKontonummerInput

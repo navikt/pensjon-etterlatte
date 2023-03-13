@@ -176,23 +176,24 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                     </div>
                                 </SkjemaGruppeRad>
                             </SkjemaElement>
-
-                            <RHFFoedselsnummerInput
-                                name={"foedselsnummer"}
-                                htmlSize={Bredde.S}
-                                label={t("omBarn.foedselsnummer")}
-                                placeholder={t("felles.fnrPlaceholder")}
-                                rules={{
-                                    validate: {
-                                        validate: (value) => {
-                                            return fnr(value).status === "valid";
-                                        },
-                                        duplicate: (value) => {
-                                            return !fnrRegistrerteBarn.includes(value);
+                            <SkjemaElement>
+                                <RHFFoedselsnummerInput
+                                    name={"foedselsnummer"}
+                                    htmlSize={Bredde.S}
+                                    label={t("omBarn.foedselsnummer")}
+                                    placeholder={t("felles.fnrPlaceholder")}
+                                    rules={{
+                                        validate: {
+                                            validate: (value) => {
+                                                return fnr(value).status === "valid";
+                                            },
+                                            duplicate: (value) => {
+                                                return !fnrRegistrerteBarn.includes(value);
+                                            }
                                         }
-                                    }
-                                }}
-                            />
+                                    }}
+                                />
+                            </SkjemaElement>
 
                             {visDuplikatFeilmelding() && (
                                 <SkjemaGruppe>
@@ -252,14 +253,16 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                         </SkjemaGruppe>
                         {relasjon === BarnRelasjon.fellesbarnMedAvdoede && kanSoekeOmBarnepensjon() && (
                             <>
-                                <SkjemaElement>
-                                    <RHFSpoersmaalRadio
-                                        name={"harBarnetVerge.svar"}
-                                        legend={t("omBarn.harBarnetVerge.svar")}
-                                    />
+                                <SkjemaGruppe>
+                                    <SkjemaElement>
+                                        <RHFSpoersmaalRadio
+                                            name={"harBarnetVerge.svar"}
+                                            legend={t("omBarn.harBarnetVerge.svar")}
+                                        />
+                                    </SkjemaElement>
 
                                     {harBarnetVerge === IValg.JA && (
-                                        <SkjemaGruppe>
+                                        <>
                                             <Label>{t("omBarn.harBarnetVerge.navn")}</Label>
                                             <SkjemaElement>
                                                 <Grid>
@@ -288,37 +291,43 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                 placeholder={t("omBarn.harBarnetVerge.foedselsnummerPlaceholder")}
                                                 valgfri={true}
                                             />
-                                        </SkjemaGruppe>
+                                        </>
                                     )}
-                                </SkjemaElement>
+                                </SkjemaGruppe>
 
                                 <SkjemaGruppe>
-                                    <Label>{t("omBarn.barnepensjon.soekerInfo")}</Label>
-                                    <RHFConfirmationPanel
-                                        name={"barnepensjon.soeker"}
-                                        label={t("omBarn.barnepensjon.soeker")}
-                                        valgfri={true}
-                                        size={'medium'}
-                                    />
+                                    <SkjemaElement>
+                                        <Label>{t("omBarn.barnepensjon.soekerInfo")}</Label>
+                                        <RHFConfirmationPanel
+                                            name={"barnepensjon.soeker"}
+                                            label={t("omBarn.barnepensjon.soeker")}
+                                            valgfri={true}
+                                            size={'medium'}
+                                        />
+                                    </SkjemaElement>
 
                                     {!bruker.adressebeskyttelse && soekerBarnepensjon && (
                                         <>
-                                            <RHFSpoersmaalRadio
-                                                name={"barnepensjon.kontonummer.svar"}
-                                                legend={t("omBarn.barnepensjon.kontonummer.svar")}
-                                            />
-
-                                            {annetKontonummerBarnepensjon === IValg.NEI && (
+                                            <SkjemaGruppe>
                                                 <SkjemaElement>
-                                                    <RHFKontonummerInput
-                                                        name={"barnepensjon.kontonummer.kontonummer"}
-                                                        htmlSize={Bredde.S}
-                                                        label={t("omBarn.barnepensjon.kontonummer.kontonummer")}
-                                                        placeholder={t("omBarn.barnepensjon.kontonummer.placeholder")}
-                                                        description={t("omBarn.barnepensjon.kontonummer.informasjon")}
+                                                    <RHFSpoersmaalRadio
+                                                        name={"barnepensjon.kontonummer.svar"}
+                                                        legend={t("omBarn.barnepensjon.kontonummer.svar")}
                                                     />
                                                 </SkjemaElement>
-                                            )}
+
+                                                {annetKontonummerBarnepensjon === IValg.NEI && (
+                                                    <SkjemaElement>
+                                                        <RHFKontonummerInput
+                                                            name={"barnepensjon.kontonummer.kontonummer"}
+                                                            htmlSize={Bredde.S}
+                                                            label={t("omBarn.barnepensjon.kontonummer.kontonummer")}
+                                                            placeholder={t("omBarn.barnepensjon.kontonummer.placeholder")}
+                                                            description={t("omBarn.barnepensjon.kontonummer.informasjon")}
+                                                        />
+                                                    </SkjemaElement>
+                                                )}
+                                            </SkjemaGruppe>
 
                                             {annetKontonummerBarnepensjon !== IValg.VET_IKKE && (
                                                 <RHFSpoersmaalRadio

@@ -25,41 +25,49 @@ const SamboerSkjema = () => {
                 <Heading size={"small"}>{t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel")}</Heading>
             </SkjemaElement>
 
-            <Grid>
-                <Cell xs={12} md={6}>
-                    <RHFInput
-                        className={"kol-50"}
-                        name={"nySivilstatus.samboerskap.samboer.fornavn"}
-                        label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn")}
-                    />
-                </Cell>
-                <Cell xs={12} md={6}>
-                    <RHFInput
-                        className={"kol-50"}
-                        name={"nySivilstatus.samboerskap.samboer.etternavn"}
-                        label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn")}
-                    />
-                </Cell>
-            </Grid>
+            <SkjemaElement>
+                <Grid>
+                    <Cell xs={12} md={6}>
+                        <RHFInput
+                            className={"kol-50"}
+                            name={"nySivilstatus.samboerskap.samboer.fornavn"}
+                            label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn")}
+                        />
+                    </Cell>
+                    <Cell xs={12} md={6}>
+                        <RHFInput
+                            className={"kol-50"}
+                            name={"nySivilstatus.samboerskap.samboer.etternavn"}
+                            label={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn")}
+                        />
+                    </Cell>
+                </Grid>
+            </SkjemaElement>
 
-            <RHFFoedselsnummerInput
-                name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
-                htmlSize={Bredde.S}
-                label={t("felles.fnr")}
-                placeholder={t("felles.fnrPlaceholder")}
-                rules={{ validate: (value) => fnr(value).status === "valid" }}
-            />
+            <SkjemaElement>
+                <RHFFoedselsnummerInput
+                    name={"nySivilstatus.samboerskap.samboer.foedselsnummer"}
+                    htmlSize={Bredde.S}
+                    label={t("felles.fnr")}
+                    placeholder={t("felles.fnrPlaceholder")}
+                    rules={{ validate: (value) => fnr(value).status === "valid" }}
+                />
+            </SkjemaElement>
 
-            <RHFSpoersmaalRadio
-                name={"nySivilstatus.samboerskap.hattBarnEllerVaertGift"}
-                legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
-            />
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={"nySivilstatus.samboerskap.hattBarnEllerVaertGift"}
+                    legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift")}
+                />
+            </SkjemaElement>
 
             {harVaertGift === IValg.NEI && (
-                <RHFSpoersmaalRadio
-                    name={"nySivilstatus.samboerskap.samboer.harInntekt.svar"}
-                    legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar")}
-                />
+                <SkjemaElement>
+                    <RHFSpoersmaalRadio
+                        name={"nySivilstatus.samboerskap.samboer.harInntekt.svar"}
+                        legend={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar")}
+                    />
+                </SkjemaElement>
             )}
 
             {samboerHarInntekt === IValg.JA && (
@@ -76,7 +84,7 @@ const SamboerSkjema = () => {
                         })}
                     />
 
-                    <SkjemaGruppe>
+                    <SkjemaElement>
                         <RHFNumberInput
                             name={"nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar"}
                             type="tel"
@@ -86,7 +94,7 @@ const SamboerSkjema = () => {
                             )}
                             placeholder={t("omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar")}
                         />
-                    </SkjemaGruppe>
+                    </SkjemaElement>
                 </>
             )}
         </Panel>

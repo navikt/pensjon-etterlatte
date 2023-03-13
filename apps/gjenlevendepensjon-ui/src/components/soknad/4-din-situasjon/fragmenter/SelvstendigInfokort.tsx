@@ -41,20 +41,23 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                 />
             </SkjemaElement>
 
-            <RHFSpoersmaalRadio
-                name={`selvstendig[${index}].forventerEndretInntekt.svar` as const}
-                legend={t("dinSituasjon.selvstendig.forventerEndretInntekt.svar")}
-                vetIkke
-            />
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={`selvstendig[${index}].forventerEndretInntekt.svar` as const}
+                    legend={t("dinSituasjon.selvstendig.forventerEndretInntekt.svar")}
+                    vetIkke
+                />
+            </SkjemaElement>
 
             {endretInntekt === IValg.JA && (
-                <RHFInput
-                    name={`selvstendig[${index}].forventerEndretInntekt.beskrivelse` as const}
-                    label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
-                    placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
-                    maxLength={200}
-                />
-
+                <SkjemaElement>
+                    <RHFInput
+                        name={`selvstendig[${index}].forventerEndretInntekt.beskrivelse` as const}
+                        label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
+                        placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
+                        maxLength={200}
+                    />
+                </SkjemaElement>
             )}
 
             {lengde > 1 && (

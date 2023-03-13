@@ -16,7 +16,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-csKIKE ehvZwR"
+        class="sc-irLwvL jncFQD"
       >
         <div
           class="kol"
@@ -157,106 +157,110 @@ exports[`Om den avdøde Snapshot 1`] = `
         </p>
       </fieldset>
       <div
-        id="boddEllerJobbetUtland.svar"
+        class="sc-guDLRT gSrTwn"
       >
-        <fieldset
-          aria-invalid="false"
-          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        <div
+          id="boddEllerJobbetUtland.svar"
         >
-          <legend
-            class="navds-fieldset__legend navds-label"
+          <fieldset
+            aria-invalid="false"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
-            omDenAvdoede.boddEllerJobbetUtland.svar
-          </legend>
-          <div
-            class="navds-radio-buttons"
-          >
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
+            <legend
+              class="navds-fieldset__legend navds-label"
             >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-3"
-                name="boddEllerJobbetUtland.svar"
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-3"
+              omDenAvdoede.boddEllerJobbetUtland.svar
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-3"
+                  name="boddEllerJobbetUtland.svar"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-3"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.ja
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
                   </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-4"
-                name="boddEllerJobbetUtland.svar"
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-4"
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-4"
+                  name="boddEllerJobbetUtland.svar"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-4"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.nei
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
                   </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-5"
-                name="boddEllerJobbetUtland.svar"
-                type="radio"
-                value="radiobuttons.vetIkke"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-5"
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-5"
+                  name="boddEllerJobbetUtland.svar"
+                  type="radio"
+                  value="radiobuttons.vetIkke"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-5"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.vetIkke
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.vetIkke
+                    </span>
                   </span>
-                </span>
-              </label>
+                </label>
+              </div>
             </div>
-          </div>
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-6"
-          />
-        </fieldset>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-6"
+            />
+          </fieldset>
+        </div>
       </div>
     </fieldset>
     <fieldset
@@ -277,106 +281,110 @@ exports[`Om den avdøde Snapshot 1`] = `
         </p>
       </fieldset>
       <div
-        id="selvstendigNaeringsdrivende.svar"
+        class="sc-guDLRT gSrTwn"
       >
-        <fieldset
-          aria-invalid="false"
-          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        <div
+          id="selvstendigNaeringsdrivende.svar"
         >
-          <legend
-            class="navds-fieldset__legend navds-label"
+          <fieldset
+            aria-invalid="false"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
-            omDenAvdoede.selvstendigNaeringsdrivende.svar
-          </legend>
-          <div
-            class="navds-radio-buttons"
-          >
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
+            <legend
+              class="navds-fieldset__legend navds-label"
             >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-8"
-                name="selvstendigNaeringsdrivende.svar"
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-8"
+              omDenAvdoede.selvstendigNaeringsdrivende.svar
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-8"
+                  name="selvstendigNaeringsdrivende.svar"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-8"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.ja
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
                   </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-9"
-                name="selvstendigNaeringsdrivende.svar"
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-9"
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-9"
+                  name="selvstendigNaeringsdrivende.svar"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-9"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.nei
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
                   </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                aria-invalid="false"
-                class="navds-radio__input"
-                id="radio-aksel-id-10"
-                name="selvstendigNaeringsdrivende.svar"
-                type="radio"
-                value="radiobuttons.vetIkke"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-aksel-id-10"
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                <span
-                  class="navds-radio__content"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-10"
+                  name="selvstendigNaeringsdrivende.svar"
+                  type="radio"
+                  value="radiobuttons.vetIkke"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-10"
                 >
                   <span
-                    class="navds-body-short"
+                    class="navds-radio__content"
                   >
-                    radiobuttons.vetIkke
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.vetIkke
+                    </span>
                   </span>
-                </span>
-              </label>
+                </label>
+              </div>
             </div>
-          </div>
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-11"
-          />
-        </fieldset>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-11"
+            />
+          </fieldset>
+        </div>
       </div>
     </fieldset>
     <fieldset
@@ -391,8 +399,8 @@ exports[`Om den avdøde Snapshot 1`] = `
           omDenAvdoede.annenOpptjening.tittel
         </h1>
       </fieldset>
-      <div
-        class="sc-guDLRT gSrTwn"
+      <fieldset
+        class="sc-beySbM kuevld"
       >
         <div
           id="doedsfallAarsak"
@@ -531,7 +539,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             />
           </fieldset>
         </div>
-      </div>
+      </fieldset>
       <div
         id="harAvtjentMilitaerTjeneste.svar"
       >
@@ -674,7 +682,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beySbM kuevld"
     >
       <div
-        class="sc-iBdmCd dgiWjO undefined"
+        class="sc-gLLvby idHBWd undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -701,7 +709,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-iBdmCd sc-fsYeqs dgiWjO ildosw"
+      class="sc-gLLvby sc-iBdmCd idHBWd fZbhsy"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
