@@ -1,5 +1,6 @@
 import { TFunction } from "i18next";
 import { StegPath } from "../typer/steg";
+import {IValg} from "../typer/Spoersmaal";
 
 export interface Innhold {
     key: string;
@@ -68,7 +69,7 @@ export default class ObjectTreeReader {
                     return {
                         key,
                         spoersmaal: this.t(key),
-                        svar: this.stringify(val)
+                        svar: val === true ? this.stringify(IValg.JA) : this.stringify(val)
                     }
                 }
             })

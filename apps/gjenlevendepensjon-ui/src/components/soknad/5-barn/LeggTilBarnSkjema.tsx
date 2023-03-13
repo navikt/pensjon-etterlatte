@@ -1,24 +1,24 @@
-import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
-import { FormProvider, useForm } from "react-hook-form";
-import { useTranslation } from "react-i18next";
-import { BarnRelasjon, IBarn } from "../../../typer/person";
-import { RHFRadio, RHFSpoersmaalRadio } from "../../felles/rhf/RHFRadio";
-import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from "../../felles/rhf/RHFInput";
-import { IValg } from "../../../typer/Spoersmaal";
-import Feilmeldinger from "../../felles/Feilmeldinger";
-import { hentAlderFraFoedselsnummer } from "../../../utils/dato";
-import { erMyndig } from "../../../utils/alder";
-import { fnr } from "@navikt/fnrvalidator";
-import { Alert, BodyShort, Button, Cell, Grid, Heading, Label, Panel, HelpText, RadioProps } from "@navikt/ds-react";
-import {RHFCheckboksGruppe} from "../../felles/rhf/RHFCheckboksPanelGruppe";
-import { RHFSelect } from "../../felles/rhf/RHFSelect";
-import { useLand } from "../../../hooks/useLand";
-import ikon from "../../../assets/ikoner/barn1.svg";
-import { useEffect } from "react";
-import { useBrukerContext } from "../../../context/bruker/BrukerContext";
-import styled from "styled-components";
-import { NavigasjonsRad, SkjemaGruppeRad } from "../../felles/StyledComponents";
-import { SkjemaElement } from "../../felles/SkjemaElement";
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import { FormProvider, useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { BarnRelasjon, IBarn } from '../../../typer/person'
+import { RHFRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
+import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from '../../felles/rhf/RHFInput'
+import { IValg } from '../../../typer/Spoersmaal'
+import Feilmeldinger from '../../felles/Feilmeldinger'
+import { hentAlderFraFoedselsnummer } from '../../../utils/dato'
+import { erMyndig } from '../../../utils/alder'
+import { fnr } from '@navikt/fnrvalidator'
+import { Alert, BodyShort, Button, Cell, Grid, Heading, HelpText, Label, Panel, RadioProps } from '@navikt/ds-react'
+import { RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFSelect } from '../../felles/rhf/RHFSelect'
+import { useLand } from '../../../hooks/useLand'
+import ikon from '../../../assets/ikoner/barn1.svg'
+import { useEffect } from 'react'
+import { useBrukerContext } from '../../../context/bruker/BrukerContext'
+import styled from 'styled-components'
+import { NavigasjonsRad, SkjemaGruppeRad } from '../../felles/StyledComponents'
+import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 
 const HelpTextLabel = styled.div`
@@ -293,20 +293,15 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                 </SkjemaElement>
 
                                 <SkjemaGruppe>
-                                    <RHFCheckboksGruppe
+                                    <Label>{t("omBarn.barnepensjon.soekerInfo")}</Label>
+                                    <RHFConfirmationPanel
                                         name={"barnepensjon.soeker"}
-                                        legend={t("omBarn.barnepensjon.soeker")}
-                                        description={t("omBarn.barnepensjon.soekerInfo")}
-                                        required={false}
-                                        checkboxes={
-                                            [{
-                                                children: t("omBarn.barnepensjon.soekerCheckboks"),
-                                                value: IValg.JA
-                                            }]
-                                        }
+                                        label={t("omBarn.barnepensjon.soeker")}
+                                        valgfri={true}
+                                        size={'medium'}
                                     />
 
-                                    {!bruker.adressebeskyttelse && String(soekerBarnepensjon) === IValg.JA && (
+                                    {!bruker.adressebeskyttelse && soekerBarnepensjon && (
                                         <>
                                             <RHFSpoersmaalRadio
                                                 name={"barnepensjon.kontonummer.svar"}

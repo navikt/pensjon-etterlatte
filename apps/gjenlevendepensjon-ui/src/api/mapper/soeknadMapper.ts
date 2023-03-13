@@ -4,7 +4,6 @@ import { Barn, Innsender, PersonType } from "../dto/Person";
 import { TFunction } from "i18next";
 import { IBruker } from "../../context/bruker/bruker";
 import { IBarn } from "../../typer/person";
-import { IValg } from "../../typer/Spoersmaal";
 import {
     hentForeldreMedUtvidetInfo,
     hentUtbetalingsInformasjonBarn,
@@ -62,7 +61,7 @@ export const mapTilBarnepensjonSoeknadListe = (
     bruker: IBruker
 ): Barnepensjon[] => {
     return soeknad.opplysningerOmBarn.barn!!
-        .filter(barnet => barnet.barnepensjon?.soeker === IValg.JA)
+        .filter(barnet => !!barnet.barnepensjon?.soeker)
         .map(barnet => mapTilBarnepensjonSoeknad(t, barnet, soeknad, bruker))
 };
 

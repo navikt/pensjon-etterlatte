@@ -3,7 +3,7 @@ import ikon from "../../../assets/ikoner/barn1.svg";
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { IValg } from "../../../typer/Spoersmaal";
-import {BodyShort, Detail, Heading, BodyLong, Link} from "@navikt/ds-react";
+import { BodyShort, Heading, BodyLong, Link, Tag } from "@navikt/ds-react";
 import { DeleteFilled, EditFilled } from "@navikt/ds-icons";
 import {
     Infokort,
@@ -11,6 +11,7 @@ import {
     InfokortInformasjonsboks
 } from "../../felles/StyledComponents";
 import styled from "styled-components";
+import { SkjemaElement } from "../../felles/SkjemaElement";
 
 const InfokortInformasjonsElement = styled.div`
       margin: 10px 0 10px 0;
@@ -81,9 +82,11 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                         {barn.bosattUtland?.svar === IValg.JA ? barn.bosattUtland?.land : t("felles.norge")}
                     </BodyShort>
 
-                    <Detail size={"small"} spacing className={"mute"}>
-                        {barn.barnepensjon?.soeker === IValg.JA && t("omBarn.barnepensjon.soekt")}
-                    </Detail>
+                    {barn.barnepensjon?.soeker  && (
+                        <SkjemaElement>
+                            <Tag variant={'success'}>{t("omBarn.barnepensjon.soekt")}</Tag>
+                        </SkjemaElement>
+                    )}
                 </InfokortInformasjonsElement>
             </InfokortInformasjonsboks>
 
