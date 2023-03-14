@@ -1,5 +1,6 @@
 import { createContext, FC, useContext, useReducer } from "react";
 import { ActionTypes, IBruker, IBrukerAction, StegProps } from "./bruker";
+import { FCProps } from "../../typer/FCProps";
 
 const initialState: IBruker = {};
 
@@ -23,7 +24,7 @@ const StegContext = createContext<StegProps>({
 
 const useBrukerContext = () => useContext(StegContext);
 
-const BrukerProvider: FC = ({ children }) => {
+const BrukerProvider: FC<FCProps> = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return <StegContext.Provider value={{ state, dispatch }}>{children}</StegContext.Provider>;

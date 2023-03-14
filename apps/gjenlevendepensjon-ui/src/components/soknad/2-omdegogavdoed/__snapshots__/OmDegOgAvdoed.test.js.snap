@@ -48,7 +48,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-15"
+                id="textField-error-rf"
               />
             </div>
           </div>
@@ -78,7 +78,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-16"
+                id="textField-error-rg"
               />
             </div>
           </div>
@@ -177,7 +177,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-aksel-id-2"
+                  id="textField-error-rh"
                 />
               </div>
             </div>
@@ -209,14 +209,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-17"
+                id="radio-rk"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.gift"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-17"
+                for="radio-rk"
               >
                 <span
                   class="navds-radio__content"
@@ -235,14 +235,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-18"
+                id="radio-rl"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.separert"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-18"
+                for="radio-rl"
               >
                 <span
                   class="navds-radio__content"
@@ -261,14 +261,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-19"
+                id="radio-rm"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.samboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-19"
+                for="radio-rm"
               >
                 <span
                   class="navds-radio__content"
@@ -287,14 +287,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-20"
+                id="radio-rn"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.skilt"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-20"
+                for="radio-rn"
               >
                 <span
                   class="navds-radio__content"
@@ -313,14 +313,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-21"
+                id="radio-ro"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.tidligereSamboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-21"
+                for="radio-ro"
               >
                 <span
                   class="navds-radio__content"
@@ -338,7 +338,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-22"
+            id="fieldset-error-rj"
           />
         </fieldset>
       </div>
@@ -382,14 +382,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-24"
+                  id="radio-rr"
                   name="nySivilstatus.sivilstatus"
                   type="radio"
                   value="nySivilstatus.enslig"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-24"
+                  for="radio-rr"
                 >
                   <span
                     class="navds-radio__content"
@@ -408,14 +408,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-25"
+                  id="radio-rs"
                   name="nySivilstatus.sivilstatus"
                   type="radio"
                   value="nySivilstatus.ekteskap"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-25"
+                  for="radio-rs"
                 >
                   <span
                     class="navds-radio__content"
@@ -434,14 +434,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-26"
+                  id="radio-rt"
                   name="nySivilstatus.sivilstatus"
                   type="radio"
                   value="nySivilstatus.samboerskap"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-26"
+                  for="radio-rt"
                 >
                   <span
                     class="navds-radio__content"
@@ -459,7 +459,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-27"
+              id="fieldset-error-rq"
             />
           </fieldset>
         </div>
@@ -509,7 +509,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                     aria-live="polite"
                     aria-relevant="additions removals"
                     class="navds-form-field__error"
-                    id="textField-error-aksel-id-29"
+                    id="textField-error-ru"
                   />
                 </div>
               </div>
@@ -541,7 +541,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                     aria-live="polite"
                     aria-relevant="additions removals"
                     class="navds-form-field__error"
-                    id="textField-error-aksel-id-30"
+                    id="textField-error-rv"
                   />
                 </div>
               </div>
@@ -574,7 +574,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-31"
+              id="textField-error-r10"
             />
           </div>
         </div>
@@ -602,14 +602,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-32"
+                    id="radio-r13"
                     name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-32"
+                    for="radio-r13"
                   >
                     <span
                       class="navds-radio__content"
@@ -628,14 +628,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-33"
+                    id="radio-r14"
                     name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-33"
+                    for="radio-r14"
                   >
                     <span
                       class="navds-radio__content"
@@ -653,7 +653,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-aksel-id-34"
+                id="fieldset-error-r12"
               />
             </fieldset>
           </div>
@@ -758,7 +758,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-1"
+                id="textField-error-r0"
               />
             </div>
           </div>
@@ -788,7 +788,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-2"
+                id="textField-error-r1"
               />
             </div>
           </div>
@@ -887,7 +887,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-aksel-id-1"
+                  id="textField-error-r2"
                 />
               </div>
             </div>
@@ -919,14 +919,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-3"
+                id="radio-r5"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.gift"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-3"
+                for="radio-r5"
               >
                 <span
                   class="navds-radio__content"
@@ -945,14 +945,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-4"
+                id="radio-r6"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.separert"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-4"
+                for="radio-r6"
               >
                 <span
                   class="navds-radio__content"
@@ -971,14 +971,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-5"
+                id="radio-r7"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.samboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-5"
+                for="radio-r7"
               >
                 <span
                   class="navds-radio__content"
@@ -997,14 +997,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-6"
+                id="radio-r8"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.skilt"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-6"
+                for="radio-r8"
               >
                 <span
                   class="navds-radio__content"
@@ -1023,14 +1023,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-7"
+                id="radio-r9"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.tidligereSamboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-7"
+                for="radio-r9"
               >
                 <span
                   class="navds-radio__content"
@@ -1048,7 +1048,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-8"
+            id="fieldset-error-r4"
           />
         </fieldset>
       </div>
@@ -1092,14 +1092,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-10"
+                  id="radio-rc"
                   name="nySivilstatus.sivilstatus"
                   type="radio"
                   value="nySivilstatus.enslig"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-10"
+                  for="radio-rc"
                 >
                   <span
                     class="navds-radio__content"
@@ -1118,14 +1118,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-11"
+                  id="radio-rd"
                   name="nySivilstatus.sivilstatus"
                   type="radio"
                   value="nySivilstatus.ekteskap"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-11"
+                  for="radio-rd"
                 >
                   <span
                     class="navds-radio__content"
@@ -1144,14 +1144,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-12"
+                  id="radio-re"
                   name="nySivilstatus.sivilstatus"
                   type="radio"
                   value="nySivilstatus.samboerskap"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-12"
+                  for="radio-re"
                 >
                   <span
                     class="navds-radio__content"
@@ -1169,7 +1169,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-13"
+              id="fieldset-error-rb"
             />
           </fieldset>
         </div>

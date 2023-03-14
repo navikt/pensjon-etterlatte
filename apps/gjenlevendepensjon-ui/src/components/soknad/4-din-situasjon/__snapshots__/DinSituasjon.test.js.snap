@@ -49,14 +49,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               aria-invalid="false"
               checked=""
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-36"
+              id="checkbox-r16"
               required=""
               type="checkbox"
               value="jobbStatus.arbeidstaker"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-36"
+              for="checkbox-r16"
             >
               <span
                 class="navds-checkbox__content"
@@ -76,14 +76,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               aria-invalid="false"
               checked=""
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-37"
+              id="checkbox-r17"
               required=""
               type="checkbox"
               value="jobbStatus.selvstendig"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-37"
+              for="checkbox-r17"
             >
               <span
                 class="navds-checkbox__content"
@@ -102,14 +102,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             <input
               aria-invalid="false"
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-38"
+              id="checkbox-r18"
               required=""
               type="checkbox"
               value="jobbStatus.underUtdanning"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-38"
+              for="checkbox-r18"
             >
               <span
                 class="navds-checkbox__content"
@@ -128,14 +128,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             <input
               aria-invalid="false"
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-39"
+              id="checkbox-r19"
               required=""
               type="checkbox"
               value="jobbStatus.arbeidssoker"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-39"
+              for="checkbox-r19"
             >
               <span
                 class="navds-checkbox__content"
@@ -154,14 +154,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             <input
               aria-invalid="false"
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-40"
+              id="checkbox-r1a"
               required=""
               type="checkbox"
               value="jobbStatus.ingen"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-40"
+              for="checkbox-r1a"
             >
               <span
                 class="navds-checkbox__content"
@@ -179,7 +179,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           aria-live="polite"
           aria-relevant="additions removals"
           class="navds-fieldset__error"
-          id="fieldset-error-aksel-id-41"
+          id="fieldset-error-r15"
         />
       </fieldset>
     </div>
@@ -225,7 +225,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-42"
+                id="textField-error-r1b"
               />
             </div>
           </div>
@@ -244,7 +244,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               >
                 <label
                   class="navds-form-field__label navds-label"
-                  for="textField-aksel-id-43"
+                  for="textField-r1c"
                 >
                   dinSituasjon.arbeidsforhold.ansettelsesforhold
                 </label>
@@ -254,7 +254,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   <select
                     aria-invalid="false"
                     class="navds-select__input navds-body-short navds-body--medium"
-                    id="textField-aksel-id-43"
+                    id="textField-r1c"
                   >
                     <option
                       value=""
@@ -300,7 +300,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-aksel-id-43"
+                  id="textField-error-r1c"
                 />
               </div>
             </div>
@@ -326,7 +326,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-44"
+                id="textField-error-r1e"
               />
             </div>
           </div>
@@ -355,14 +355,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-45"
+                    id="radio-r1h"
                     name="arbeidsforhold[0].forventerEndretInntekt.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-45"
+                    for="radio-r1h"
                   >
                     <span
                       class="navds-radio__content"
@@ -381,14 +381,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-46"
+                    id="radio-r1i"
                     name="arbeidsforhold[0].forventerEndretInntekt.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-46"
+                    for="radio-r1i"
                   >
                     <span
                       class="navds-radio__content"
@@ -407,14 +407,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-47"
+                    id="radio-r1j"
                     name="arbeidsforhold[0].forventerEndretInntekt.svar"
                     type="radio"
                     value="radiobuttons.vetIkke"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-47"
+                    for="radio-r1j"
                   >
                     <span
                       class="navds-radio__content"
@@ -432,7 +432,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-aksel-id-48"
+                id="fieldset-error-r1g"
               />
             </fieldset>
           </div>
@@ -490,7 +490,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-71"
+              id="textField-error-r2a"
             />
           </div>
         </div>
@@ -520,7 +520,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-72"
+              id="textField-error-r2b"
             />
           </div>
         </div>
@@ -548,14 +548,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-73"
+                    id="radio-r2e"
                     name="selvstendig[0].forventerEndretInntekt.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-73"
+                    for="radio-r2e"
                   >
                     <span
                       class="navds-radio__content"
@@ -574,14 +574,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-74"
+                    id="radio-r2f"
                     name="selvstendig[0].forventerEndretInntekt.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-74"
+                    for="radio-r2f"
                   >
                     <span
                       class="navds-radio__content"
@@ -600,14 +600,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-75"
+                    id="radio-r2g"
                     name="selvstendig[0].forventerEndretInntekt.svar"
                     type="radio"
                     value="radiobuttons.vetIkke"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-75"
+                    for="radio-r2g"
                   >
                     <span
                       class="navds-radio__content"
@@ -625,7 +625,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-aksel-id-76"
+                id="fieldset-error-r2d"
               />
             </fieldset>
           </div>
@@ -680,14 +680,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-50"
+                  id="radio-r1m"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.grunnskole"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-50"
+                  for="radio-r1m"
                 >
                   <span
                     class="navds-radio__content"
@@ -706,14 +706,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-51"
+                  id="radio-r1n"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.videregående"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-51"
+                  for="radio-r1n"
                 >
                   <span
                     class="navds-radio__content"
@@ -732,14 +732,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-52"
+                  id="radio-r1o"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.fagbrev"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-52"
+                  for="radio-r1o"
                 >
                   <span
                     class="navds-radio__content"
@@ -758,14 +758,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-53"
+                  id="radio-r1p"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.bachelorgrad"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-53"
+                  for="radio-r1p"
                 >
                   <span
                     class="navds-radio__content"
@@ -785,14 +785,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                   aria-invalid="false"
                   checked=""
                   class="navds-radio__input"
-                  id="radio-aksel-id-54"
+                  id="radio-r1q"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.mastergrad"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-54"
+                  for="radio-r1q"
                 >
                   <span
                     class="navds-radio__content"
@@ -811,14 +811,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-55"
+                  id="radio-r1r"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.ingen"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-55"
+                  for="radio-r1r"
                 >
                   <span
                     class="navds-radio__content"
@@ -837,14 +837,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-56"
+                  id="radio-r1s"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.annen"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-56"
+                  for="radio-r1s"
                 >
                   <span
                     class="navds-radio__content"
@@ -862,7 +862,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-57"
+              id="fieldset-error-r1l"
             />
           </fieldset>
         </div>
@@ -909,14 +909,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-59"
+                  id="radio-r1v"
                   name="andreYtelser.kravOmAnnenStonad.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-59"
+                  for="radio-r1v"
                 >
                   <span
                     class="navds-radio__content"
@@ -935,14 +935,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-60"
+                  id="radio-r20"
                   name="andreYtelser.kravOmAnnenStonad.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-60"
+                  for="radio-r20"
                 >
                   <span
                     class="navds-radio__content"
@@ -960,7 +960,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-61"
+              id="fieldset-error-r1u"
             />
           </fieldset>
         </div>
@@ -993,14 +993,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-63"
+                  id="radio-r23"
                   name="andreYtelser.annenPensjon.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-63"
+                  for="radio-r23"
                 >
                   <span
                     class="navds-radio__content"
@@ -1019,14 +1019,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-64"
+                  id="radio-r24"
                   name="andreYtelser.annenPensjon.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-64"
+                  for="radio-r24"
                 >
                   <span
                     class="navds-radio__content"
@@ -1044,7 +1044,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-65"
+              id="fieldset-error-r22"
             />
           </fieldset>
         </div>
@@ -1067,7 +1067,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           </legend>
           <div
             class="navds-fieldset__description navds-body-long navds-body-long--small"
-            id="fieldset-description-aksel-id-69"
+            id="fieldset-description-r26"
           >
             <div>
               <button
@@ -1109,14 +1109,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-67"
+                id="radio-r28"
                 name="andreYtelser.mottarPensjonUtland.svar"
                 type="radio"
                 value="radiobuttons.ja"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-67"
+                for="radio-r28"
               >
                 <span
                   class="navds-radio__content"
@@ -1135,14 +1135,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-68"
+                id="radio-r29"
                 name="andreYtelser.mottarPensjonUtland.svar"
                 type="radio"
                 value="radiobuttons.nei"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-68"
+                for="radio-r29"
               >
                 <span
                   class="navds-radio__content"
@@ -1160,7 +1160,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-69"
+            id="fieldset-error-r26"
           />
         </fieldset>
       </div>
@@ -1264,14 +1264,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-invalid="false"
               checked=""
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-1"
+              id="checkbox-r1"
               required=""
               type="checkbox"
               value="jobbStatus.arbeidstaker"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-1"
+              for="checkbox-r1"
             >
               <span
                 class="navds-checkbox__content"
@@ -1290,14 +1290,14 @@ exports[`Om den avdøde Snapshot 1`] = `
             <input
               aria-invalid="false"
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-2"
+              id="checkbox-r2"
               required=""
               type="checkbox"
               value="jobbStatus.selvstendig"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-2"
+              for="checkbox-r2"
             >
               <span
                 class="navds-checkbox__content"
@@ -1316,14 +1316,14 @@ exports[`Om den avdøde Snapshot 1`] = `
             <input
               aria-invalid="false"
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-3"
+              id="checkbox-r3"
               required=""
               type="checkbox"
               value="jobbStatus.underUtdanning"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-3"
+              for="checkbox-r3"
             >
               <span
                 class="navds-checkbox__content"
@@ -1342,14 +1342,14 @@ exports[`Om den avdøde Snapshot 1`] = `
             <input
               aria-invalid="false"
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-4"
+              id="checkbox-r4"
               required=""
               type="checkbox"
               value="jobbStatus.arbeidssoker"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-4"
+              for="checkbox-r4"
             >
               <span
                 class="navds-checkbox__content"
@@ -1368,14 +1368,14 @@ exports[`Om den avdøde Snapshot 1`] = `
             <input
               aria-invalid="false"
               class="navds-checkbox__input"
-              id="checkbox-aksel-id-5"
+              id="checkbox-r5"
               required=""
               type="checkbox"
               value="jobbStatus.ingen"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-aksel-id-5"
+              for="checkbox-r5"
             >
               <span
                 class="navds-checkbox__content"
@@ -1393,7 +1393,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           aria-live="polite"
           aria-relevant="additions removals"
           class="navds-fieldset__error"
-          id="fieldset-error-aksel-id-6"
+          id="fieldset-error-r0"
         />
       </fieldset>
     </div>
@@ -1439,7 +1439,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-7"
+                id="textField-error-r6"
               />
             </div>
           </div>
@@ -1458,7 +1458,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               >
                 <label
                   class="navds-form-field__label navds-label"
-                  for="textField-aksel-id-8"
+                  for="textField-r7"
                 >
                   dinSituasjon.arbeidsforhold.ansettelsesforhold
                 </label>
@@ -1468,7 +1468,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                   <select
                     aria-invalid="false"
                     class="navds-select__input navds-body-short navds-body--medium"
-                    id="textField-aksel-id-8"
+                    id="textField-r7"
                   >
                     <option
                       value=""
@@ -1514,7 +1514,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-aksel-id-8"
+                  id="textField-error-r7"
                 />
               </div>
             </div>
@@ -1540,7 +1540,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-9"
+                id="textField-error-r9"
               />
             </div>
           </div>
@@ -1569,14 +1569,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-10"
+                    id="radio-rc"
                     name="arbeidsforhold[0].forventerEndretInntekt.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-10"
+                    for="radio-rc"
                   >
                     <span
                       class="navds-radio__content"
@@ -1595,14 +1595,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-11"
+                    id="radio-rd"
                     name="arbeidsforhold[0].forventerEndretInntekt.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-11"
+                    for="radio-rd"
                   >
                     <span
                       class="navds-radio__content"
@@ -1621,14 +1621,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                   <input
                     aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-aksel-id-12"
+                    id="radio-re"
                     name="arbeidsforhold[0].forventerEndretInntekt.svar"
                     type="radio"
                     value="radiobuttons.vetIkke"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-aksel-id-12"
+                    for="radio-re"
                   >
                     <span
                       class="navds-radio__content"
@@ -1646,7 +1646,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-aksel-id-13"
+                id="fieldset-error-rb"
               />
             </fieldset>
           </div>
@@ -1701,14 +1701,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-15"
+                  id="radio-rh"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.grunnskole"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-15"
+                  for="radio-rh"
                 >
                   <span
                     class="navds-radio__content"
@@ -1727,14 +1727,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-16"
+                  id="radio-ri"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.videregående"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-16"
+                  for="radio-ri"
                 >
                   <span
                     class="navds-radio__content"
@@ -1753,14 +1753,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-17"
+                  id="radio-rj"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.fagbrev"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-17"
+                  for="radio-rj"
                 >
                   <span
                     class="navds-radio__content"
@@ -1779,14 +1779,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-18"
+                  id="radio-rk"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.bachelorgrad"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-18"
+                  for="radio-rk"
                 >
                   <span
                     class="navds-radio__content"
@@ -1806,14 +1806,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                   aria-invalid="false"
                   checked=""
                   class="navds-radio__input"
-                  id="radio-aksel-id-19"
+                  id="radio-rl"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.mastergrad"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-19"
+                  for="radio-rl"
                 >
                   <span
                     class="navds-radio__content"
@@ -1832,14 +1832,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-20"
+                  id="radio-rm"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.ingen"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-20"
+                  for="radio-rm"
                 >
                   <span
                     class="navds-radio__content"
@@ -1858,14 +1858,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-21"
+                  id="radio-rn"
                   name="utdanning.hoyesteFullfoerteUtdanning"
                   type="radio"
                   value="utdanning.annen"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-21"
+                  for="radio-rn"
                 >
                   <span
                     class="navds-radio__content"
@@ -1883,7 +1883,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-22"
+              id="fieldset-error-rg"
             />
           </fieldset>
         </div>
@@ -1930,14 +1930,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-24"
+                  id="radio-rq"
                   name="andreYtelser.kravOmAnnenStonad.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-24"
+                  for="radio-rq"
                 >
                   <span
                     class="navds-radio__content"
@@ -1956,14 +1956,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-25"
+                  id="radio-rr"
                   name="andreYtelser.kravOmAnnenStonad.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-25"
+                  for="radio-rr"
                 >
                   <span
                     class="navds-radio__content"
@@ -1981,7 +1981,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-26"
+              id="fieldset-error-rp"
             />
           </fieldset>
         </div>
@@ -2014,14 +2014,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-28"
+                  id="radio-ru"
                   name="andreYtelser.annenPensjon.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-28"
+                  for="radio-ru"
                 >
                   <span
                     class="navds-radio__content"
@@ -2040,14 +2040,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-29"
+                  id="radio-rv"
                   name="andreYtelser.annenPensjon.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-29"
+                  for="radio-rv"
                 >
                   <span
                     class="navds-radio__content"
@@ -2065,7 +2065,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-30"
+              id="fieldset-error-rt"
             />
           </fieldset>
         </div>
@@ -2088,7 +2088,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           </legend>
           <div
             class="navds-fieldset__description navds-body-long navds-body-long--small"
-            id="fieldset-description-aksel-id-34"
+            id="fieldset-description-r11"
           >
             <div>
               <button
@@ -2130,14 +2130,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-32"
+                id="radio-r13"
                 name="andreYtelser.mottarPensjonUtland.svar"
                 type="radio"
                 value="radiobuttons.ja"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-32"
+                for="radio-r13"
               >
                 <span
                   class="navds-radio__content"
@@ -2156,14 +2156,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-33"
+                id="radio-r14"
                 name="andreYtelser.mottarPensjonUtland.svar"
                 type="radio"
                 value="radiobuttons.nei"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-33"
+                for="radio-r14"
               >
                 <span
                   class="navds-radio__content"
@@ -2181,7 +2181,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-34"
+            id="fieldset-error-r11"
           />
         </fieldset>
       </div>

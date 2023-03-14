@@ -22,7 +22,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           class="navds-alert--inline navds-alert navds-alert--info navds-alert--medium"
         >
           <svg
-            aria-labelledby="title-aksel-icon-1"
+            aria-labelledby="title-r0"
             class="navds-alert__icon"
             fill="none"
             focusable="false"
@@ -33,7 +33,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <title
-              id="title-aksel-icon-1"
+              id="title-r0"
             >
               Informasjon
             </title>
@@ -125,14 +125,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-1"
+                id="radio-r3"
                 name="gravidEllerNyligFoedt"
                 type="radio"
                 value="radiobuttons.ja"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-1"
+                for="radio-r3"
               >
                 <span
                   class="navds-radio__content"
@@ -151,14 +151,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-2"
+                id="radio-r4"
                 name="gravidEllerNyligFoedt"
                 type="radio"
                 value="radiobuttons.nei"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-2"
+                for="radio-r4"
               >
                 <span
                   class="navds-radio__content"
@@ -176,7 +176,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-3"
+            id="fieldset-error-r2"
           />
         </fieldset>
       </div>
