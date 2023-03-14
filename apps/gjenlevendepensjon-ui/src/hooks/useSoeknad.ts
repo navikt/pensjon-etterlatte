@@ -3,11 +3,12 @@ import { useSoknadContext } from "../context/soknad/SoknadContext";
 import { useEffect, useState } from "react";
 import { hentSoeknad, lagreSoeknad } from "../api/api";
 import { ActionTypes, ISoeknad } from "../context/soknad/soknad";
-import { useHistory } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useError } from "./useError";
 
 const useSoeknad = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const { state: bruker } = useBrukerContext();
     const { state, dispatch } = useSoknadContext();
@@ -17,15 +18,18 @@ const useSoeknad = () => {
     const [lasterSoeknad, settLasterSoeknad] = useState(true);
 
     useEffect(() => {
-        if (!bruker.kanSoeke) return;
+        if (!bruker.kanSoeke) {
+            settLasterSoeknad(false)
+            return
+        }
 
-        if (history.location.pathname === "/skjema/admin") {
+        if (location.pathname === "/skjema/admin") {
             settLasterSoeknad(false);
         } else {
             hentSoeknad()
                 .then((soeknad: ISoeknad | undefined) => {
                     if (!soeknad?.harSamtykket) {
-                        history.push("/");
+                        navigate("/");
                     } else {
                         dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad });
                     }
@@ -34,10 +38,10 @@ const useSoeknad = () => {
                     settLasterSoeknad(false);
 
                     if (err.message === "FERDIGSTILT") {
-                        history.push("/skjema/sendt")
+                        navigate("/skjema/sendt")
                     } else {
                         setError("Det skjedde en feil. Prøv igjen senere.");
-                        history.push("/");
+                        navigate("/");
                     }
                 })
                 .finally(() => settLasterSoeknad(false));

@@ -1,4 +1,4 @@
-import {SkjemaGruppe} from "./SkjemaGruppe";
+import { SkjemaGruppe } from "./SkjemaGruppe";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
@@ -10,7 +10,7 @@ import { BodyShort, Button, Heading, Loader, Modal } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { slettSoeknad } from "../../api/api";
 import styled from "styled-components";
-import {NavigasjonsRad, NavigasjonsRadSkjemaGruppe} from "./StyledComponents";
+import { NavigasjonsRad, NavigasjonsRadSkjemaGruppe } from "./StyledComponents";
 
 const NavigasjonWrapper = styled(SkjemaGruppe)`
     @media screen and (max-width: 650px) {

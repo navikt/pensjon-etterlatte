@@ -1,8 +1,7 @@
-import { Redirect, Route, Switch } from "react-router";
+import { Navigate, Outlet, Route, Routes } from "react-router";
 import SideIkkeFunnet from "./components/SideIkkeFunnet";
 import Banner from "./components/felles/Banner";
 import UgyldigSoeker from "./components/UgyldigSoeker";
-import Soeknad from "./components/soknad/Soeknad";
 import { ContentContainer, Alert } from "@navikt/ds-react";
 import useInnloggetBruker from "./hooks/useInnloggetBruker";
 import { useAmplitude } from "./utils/amplitude";
@@ -11,6 +10,13 @@ import { useTranslation } from "react-i18next";
 import UtloeptSession from './components/felles/UtloeptSession'
 import SystemUtilgjengelig from "./components/SystemUtilgjengelig";
 import styled from "styled-components";
+import useSoeknad from "./hooks/useSoeknad";
+import LoaderOverlay from "./components/felles/LoaderOverlay";
+import { FortsettSoeknadModal } from "./components/soknad/FortsettSoeknadModal";
+import Admin from "./components/dev/Admin";
+import SoknadDialog from "./components/soknad/SoknadDialog";
+import SoknadKvittering from "./components/soknad/SoknadKvittering";
+import SoknadForside from "./components/soknad/SoknadForside";
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,
@@ -56,22 +62,36 @@ const App = () => {
     useAmplitude();
     const { t } = useTranslation();
 
+    const lasterSoeknad = useSoeknad();
+
     return (
         <>
             <Banner tekst={t("banner.tittel")} />
 
+            <LoaderOverlay visible={lasterSoeknad} label={"Henter søknadsinformasjon ..."} />
+            {!lasterSoeknad && <FortsettSoeknadModal />}
+
             <SoeknadWrapper role="main">
-                <Switch>
-                    <Redirect from={"/labs"} to={"/skjema/admin"} />
+                <Routes>
+                    <Route index path={"/"} element={<SoknadForside />} />
 
-                    <Route path={"/ugyldig-alder"} component={UgyldigSoeker} />
+                    <Route path={"skjema"} element={<Outlet />} >
+                        <Route path={"steg/*"} element={<SoknadDialog />} />
+                    </Route>
 
-                    <Route path={"/system-utilgjengelig"} component={SystemUtilgjengelig} />
+                    <Route path={"/skjema/admin"} element={<Admin />} />
 
-                    <Route exact path={["/", "/skjema/*"]} component={Soeknad} />
+                    <Route path={"/skjema/sendt"} element={<SoknadKvittering />} />
 
-                    <Route component={SideIkkeFunnet} />
-                </Switch>
+                    <Route path={"/ugyldig-alder"} element={<UgyldigSoeker />} />
+
+                    <Route path={"/system-utilgjengelig"} element={<SystemUtilgjengelig />} />
+
+                    <Route path={"/labs"} element={<Navigate replace to="/skjema/admin" />} />
+
+                    <Route path={"*"} element={<SideIkkeFunnet />} />
+
+                </Routes>
                 {soknadContext?.state?.error && (
                     <GlobalAlertWrap>
                         <Alert variant="error">{soknadContext?.state?.error}</Alert>

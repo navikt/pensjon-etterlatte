@@ -5,6 +5,13 @@ import * as api from "../api/api";
 const mock = jest.fn(async () => {
     return "Ok"
 })
+
+const mockedUsedNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockedUsedNavigate,
+}));
+
 jest.mock("../api/api", () => {
     return {
         hentInnloggetPerson: async () => {

@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
@@ -12,7 +12,7 @@ import { MuligeSteg } from "../../typer/steg";
 import { SkjemaGruppe } from "../felles/SkjemaGruppe";
 
 const SoknadForside = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const { logEvent } = useAmplitude();
     const { t } = useTranslation();
     const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext();
@@ -22,7 +22,7 @@ const SoknadForside = () => {
     const startSoeknad = () => {
         const foersteSteg = MuligeSteg[0];
         logEvent(LogEvents.AAPNE_SOKNAD);
-        history.push(`/skjema/steg/${foersteSteg.path}`);
+        navigate(`/skjema/steg/${foersteSteg.path}`);
     };
 
     const innloggetBrukerNavn = `${brukerState?.fornavn} ${brukerState?.etternavn}`;

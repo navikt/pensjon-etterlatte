@@ -30,6 +30,12 @@ jest.mock("react-router", () => ({
     }),
 }));
 
+const mockedUsedNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockedUsedNavigate,
+}));
+
 // Hacker til språk, Kan påvirke andre steder som bruker navigator
 const navigator = { language: "nb-NO" };
 Object.defineProperty(window, "navigator", {
