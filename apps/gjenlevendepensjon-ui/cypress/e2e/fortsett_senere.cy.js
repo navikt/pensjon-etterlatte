@@ -1,6 +1,6 @@
 import { basePath, getById } from "../util/cy-functions";
 
-describe("Skal fortsette og slette tidligere søknad", () => {
+describe("Skal fortsette og slette tidligere søknad", { testIsolation: false }, () => {
     it("Gå til søknad med eksisterende kladd", () => {
         cy.intercept("GET", `${basePath}/api/person/innlogget`, {fixture: "testbruker"}).as("hentInnloggetPerson");
         cy.intercept("GET", `${basePath}/api/api/kladd`, {fixture: "kladd"}).as("hentSoeknad");

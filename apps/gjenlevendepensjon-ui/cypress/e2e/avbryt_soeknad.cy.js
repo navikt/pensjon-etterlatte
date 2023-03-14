@@ -27,6 +27,7 @@ describe("Skal avbryte en soeknad", () => {
     })
 
     it("Avbryt og fortsett senere", () => {
+        startSoeknad()
         getById("avbryt-btn").click();
 
         getById("avbryt-ja-btn").click();
