@@ -3219,10 +3219,10 @@ ajv@^8.0.0, ajv@^8.0.1, ajv@^8.6.0, ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-amplitude-js@^8.6.0:
-  version "8.21.5"
-  resolved "https://registry.yarnpkg.com/amplitude-js/-/amplitude-js-8.21.5.tgz#4586685c52e879b6d4958761375bda92a5ed5d51"
-  integrity sha512-Y6s13jBHj79gZtcvoOXCyX2f5VTUeVJQDAzlYfnsKzr622SWvUUVFAWoCJCJUKsyTH0NkYQw+/lXPkh8iyt2Iw==
+amplitude-js@^8.21.6:
+  version "8.21.6"
+  resolved "https://registry.yarnpkg.com/amplitude-js/-/amplitude-js-8.21.6.tgz#57e239ac3309c546dda647aeec1a8a226673e821"
+  integrity sha512-bfKvLEdujaSWK5NRWfOjQSiu+isTROlw1dxrYMNazQvEnq2M1fhqwAfn7ERmTG4sFLZH++56q3dm7gE/yJue4g==
   dependencies:
     "@amplitude/analytics-connector" "^1.4.6"
     "@amplitude/ua-parser-js" "0.7.31"
@@ -6630,10 +6630,10 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-i18next@22.4.10:
-  version "22.4.10"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.4.10.tgz#cfbfc412c6bc83e3c16564f47e6a5c145255960e"
-  integrity sha512-3EqgGK6fAJRjnGgfkNSStl4mYLCjUoJID338yVyLMj5APT67HUtWoqSayZewiiC5elzMUB1VEUwcmSCoeQcNEA==
+i18next@22.4.11:
+  version "22.4.11"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.4.11.tgz#8b6c9be95176de90d3f10a78af125d95d3a3258d"
+  integrity sha512-ShfTzXVMjXdF2iPiT/wbizOrssLh9Ab6VpuVROihLCAu+u25KbZiEYVgsA0W6g0SgjPa/JmGWcUEV/g6cKzEjQ==
   dependencies:
     "@babel/runtime" "^7.20.6"
 
@@ -10280,10 +10280,10 @@ react-hook-form@7.43.5:
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.43.5.tgz#b320405594f1506d8d57b954383166d4ff563778"
   integrity sha512-YcaXhuFHoOPipu5pC7ckxrLrialiOcU91pKu8P+isAcXZyMgByUK9PkI9j5fENO4+6XU5PwWXRGMIFlk9u9UBQ==
 
-react-i18next@12.1.5:
-  version "12.1.5"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-12.1.5.tgz#b65f5733dd2f96188a9359c009b7dbe27443f009"
-  integrity sha512-7PQAv6DA0TcStG96fle+8RfTwxVbHVlZZJPoEszwUNvDuWpGldJmNWa3ZPesEsZQZGF6GkzwvEh6p57qpFD2gQ==
+react-i18next@12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-12.2.0.tgz#010e3f6070b8d700442947233352ebe4b252d7a1"
+  integrity sha512-5XeVgSygaGfyFmDd2WcXvINRw2WEC1XviW1LXY/xLOEMzsCFRwKqfnHN+hUjla8ZipbVJR27GCMSuTr0BhBBBQ==
   dependencies:
     "@babel/runtime" "^7.20.6"
     html-parse-stringify "^3.0.1"
