@@ -1,4 +1,5 @@
-import { act, renderHook } from "@testing-library/react-hooks";
+import { act } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react";
 import { SoknadProvider, useSoknadContext } from "./SoknadContext";
 import { ActionTypes, tomSoeknad } from "./soknad";
 
