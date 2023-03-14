@@ -1714,10 +1714,10 @@
   resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.3.1.tgz#32b98dda7ee929efae13ff5f3f1c77f9716e4bb1"
   integrity sha512-YFfgVi+zvPqd51ZNJgKWXMoYt7rhElPwkhgRPCuY44wFk9bwq8GczeENcp+KEDiJ2EqpxwuqVmzaV4C3PYcv9Q==
 
-"@navikt/ds-css@^2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.6.0.tgz#6398a31d3a289deef89608262ba0ee5d18b719cf"
-  integrity sha512-6TOGywogGNJgpmlY4GoQZ/UngUxdKq927uWYeIwrFBRZufU0xFhZlxWbEJRQB9UcWp1ARs4Sr9swkFxRxp717w==
+"@navikt/ds-css@^2.7.7":
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.7.7.tgz#bc4d88b4285b9219e9ee66602c69e7acde684f0f"
+  integrity sha512-w/ihpg1+AQ5qJyJ6J8a5ptyIDcqArNdPKPvHY4+Ddz54s8W2dg4f/m4FneSPd1wwypPuyAuCKN21fY2dLZEi3w==
 
 "@navikt/ds-datepicker@^4.1.2":
   version "4.1.2"
@@ -1728,10 +1728,10 @@
     "@navikt/ds-react" "2.3.1"
     focus-trap-react "^10.1.0"
 
-"@navikt/ds-icons@2.6.0", "@navikt/ds-icons@^2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.6.0.tgz#0b6155d61669d9817708bfb703c4b57b23e1754b"
-  integrity sha512-//0sXWPL8TmjP4pcfcPn+tzm4t0gafLhUqs0WRGf/jCQTWO16yHod4PPEc7jXTJeisZpWkcjjsGlasIU5wMMdg==
+"@navikt/ds-icons@2.7.7", "@navikt/ds-icons@^2.7.7":
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.7.7.tgz#ae165fdbafb7dc9480b54bf07fe84040d2503caa"
+  integrity sha512-wyhHD8xLRJK66yt0nitHW5nIVw36fl60yk5swLZR3dcJi158lBxroRkMUXLLnBGXnzc11dzyJ8MFOnQ+IGnWow==
 
 "@navikt/ds-icons@^2.3.1":
   version "2.7.1"
@@ -1752,13 +1752,13 @@
     react-day-picker "8.3.4"
     react-modal "3.15.1"
 
-"@navikt/ds-react@^2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-2.6.0.tgz#e086a6763da9890fc99c69f14b9b80e1c964bf42"
-  integrity sha512-wRf8SzP2b84FM8nZmsQJWWpclG0EVH4m6YaptUoU+KurAuVkLnIPMf0PYL+NqUVxG+9Q08WInzy2tn46f7NJ/A==
+"@navikt/ds-react@^2.7.7":
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-2.7.7.tgz#123a4dbe9defb08cee04b3dde6e06a0259e6d053"
+  integrity sha512-xrEnL9+Uvo12hh/9h5ddJkT9Yqw5ScPWZWh5b96g7Y6myl17HWn1gUK8Z/JY1dtEPizzidOMbTUFlB3RZfeyjw==
   dependencies:
     "@floating-ui/react" "0.17.0"
-    "@navikt/ds-icons" "^2.6.0"
+    "@navikt/ds-icons" "^2.7.7"
     "@radix-ui/react-tabs" "1.0.0"
     "@radix-ui/react-toggle-group" "1.0.0"
     clsx "^1.2.1"
