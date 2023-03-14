@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 <div>
   <div
-    class="sc-guDLRT gSrTwn"
+    class="sc-gueYoa qDReO"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <label
         class="navds-label"
@@ -86,7 +86,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <label
         class="navds-label"
@@ -94,7 +94,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         omDegOgAvdoed.avdoed.datoForDoedsfallet
       </label>
       <section
-        class="sc-hLQRIN inkSXR"
+        class="sc-hLseeU hWUgbO"
       >
         <label
           class="navds-label"
@@ -189,7 +189,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       id="forholdTilAvdoede.relasjon"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <fieldset
           aria-invalid="false"
@@ -344,10 +344,10 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </div>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -364,7 +364,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         id="nySivilstatus.sivilstatus"
       >
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <fieldset
             aria-invalid="false"
@@ -468,7 +468,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         class="navds-panel navds-panel--border"
       >
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -477,7 +477,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </h1>
         </div>
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
             class="navds-grid"
@@ -549,7 +549,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </div>
         </div>
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
             class="navds-form-field navds-form-field--medium"
@@ -579,14 +579,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </div>
         </div>
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
             id="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
           >
             <fieldset
               aria-invalid="false"
-              class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
                 class="navds-fieldset__legend navds-label"
@@ -661,10 +661,10 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-eDLJxc gaGxPb undefined"
+        class="sc-eDDNvR kQySBB undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -691,7 +691,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-eDLJxc sc-jTQDnj gaGxPb lkqjDg"
+      class="sc-eDDNvR sc-jTrPJq kQySBB ivqkGZ"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -713,7 +713,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
 <div>
   <div
-    class="sc-guDLRT gSrTwn"
+    class="sc-gueYoa qDReO"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -723,7 +723,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <label
         class="navds-label"
@@ -796,7 +796,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <label
         class="navds-label"
@@ -804,7 +804,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         omDegOgAvdoed.avdoed.datoForDoedsfallet
       </label>
       <section
-        class="sc-hLQRIN inkSXR"
+        class="sc-hLseeU hWUgbO"
       >
         <label
           class="navds-label"
@@ -899,7 +899,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       id="forholdTilAvdoede.relasjon"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <fieldset
           aria-invalid="false"
@@ -1054,10 +1054,10 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </div>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1074,7 +1074,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         id="nySivilstatus.sivilstatus"
       >
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <fieldset
             aria-invalid="false"
@@ -1176,10 +1176,10 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-eDLJxc gaGxPb undefined"
+        class="sc-eDDNvR kQySBB undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -1206,7 +1206,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-eDLJxc sc-jTQDnj gaGxPb lkqjDg"
+      class="sc-eDDNvR sc-jTrPJq kQySBB ivqkGZ"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

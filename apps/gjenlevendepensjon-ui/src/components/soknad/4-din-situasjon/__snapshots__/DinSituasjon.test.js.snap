@@ -4,7 +4,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
-      class="sc-guDLRT gSrTwn"
+      class="sc-gueYoa qDReO"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </h1>
     </div>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -27,7 +27,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </p>
     </fieldset>
     <div
-      class="sc-ktwOSD ekOieB"
+      class="sc-ktEKTO kCFNgi"
       id="jobbStatus"
     >
       <fieldset
@@ -184,10 +184,10 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </fieldset>
     </div>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -199,7 +199,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
         class="navds-panel luft-under navds-panel--border"
       >
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
             class="kol-75"
@@ -231,10 +231,10 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           </div>
         </div>
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
-            class="sc-qZqnM bWGLaM"
+            class="sc-qRumB iVBhLd"
           >
             <div
               id="arbeidsforhold[0].ansettelsesforhold"
@@ -332,14 +332,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           </div>
         </div>
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
             id="arbeidsforhold[0].forventerEndretInntekt.svar"
           >
             <fieldset
               aria-invalid="false"
-              class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
                 class="navds-fieldset__legend navds-label"
@@ -452,10 +452,10 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </button>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -495,7 +495,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           </div>
         </div>
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
             class="navds-form-field navds-form-field--medium"
@@ -525,14 +525,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
           </div>
         </div>
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
             id="selvstendig[0].forventerEndretInntekt.svar"
           >
             <fieldset
               aria-invalid="false"
-              class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
                 class="navds-fieldset__legend navds-label"
@@ -645,10 +645,10 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </button>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -660,7 +660,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <fieldset
             aria-invalid="false"
@@ -869,10 +869,10 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <fieldset
-        class="sc-beySbM kuevld"
+        class="sc-beqWaB kWPIyU"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -886,14 +886,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
         </p>
       </fieldset>
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <div
           id="andreYtelser.kravOmAnnenStonad.svar"
         >
           <fieldset
             aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
@@ -967,17 +967,17 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <div
           id="andreYtelser.annenPensjon.svar"
         >
           <fieldset
             aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
@@ -1051,14 +1051,14 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
         id="andreYtelser.mottarPensjonUtland.svar"
       >
         <fieldset
           aria-invalid="false"
-          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
             class="navds-fieldset__legend navds-label"
@@ -1072,7 +1072,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             <div>
               <button
                 aria-expanded="false"
-                class="sc-irLwvL kLjCsa"
+                class="sc-irTswW fZoIZZ"
                 data-testid="hvorforPanel_toggle"
                 type="button"
               >
@@ -1166,10 +1166,10 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-hLQRIN kjwTfL undefined"
+        class="sc-hLseeU dVtVlU undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -1196,7 +1196,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hLQRIN sc-eDLJxc kjwTfL bnEsAH"
+      class="sc-hLseeU sc-eDDNvR dVtVlU jjjTtV"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -1219,7 +1219,7 @@ exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-guDLRT gSrTwn"
+      class="sc-gueYoa qDReO"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -1228,7 +1228,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </h1>
     </div>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1242,7 +1242,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </p>
     </fieldset>
     <div
-      class="sc-ktwOSD ekOieB"
+      class="sc-ktEKTO kCFNgi"
       id="jobbStatus"
     >
       <fieldset
@@ -1398,10 +1398,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </fieldset>
     </div>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1413,7 +1413,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="navds-panel luft-under navds-panel--border"
       >
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
             class="kol-75"
@@ -1445,10 +1445,10 @@ exports[`Om den avdøde Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
-            class="sc-qZqnM bWGLaM"
+            class="sc-qRumB iVBhLd"
           >
             <div
               id="arbeidsforhold[0].ansettelsesforhold"
@@ -1546,14 +1546,14 @@ exports[`Om den avdøde Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <div
             id="arbeidsforhold[0].forventerEndretInntekt.svar"
           >
             <fieldset
               aria-invalid="false"
-              class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
                 class="navds-fieldset__legend navds-label"
@@ -1666,10 +1666,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </button>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1681,7 +1681,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <div
-          class="sc-guDLRT gSrTwn"
+          class="sc-gueYoa qDReO"
         >
           <fieldset
             aria-invalid="false"
@@ -1890,10 +1890,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <fieldset
-        class="sc-beySbM kuevld"
+        class="sc-beqWaB kWPIyU"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1907,14 +1907,14 @@ exports[`Om den avdøde Snapshot 1`] = `
         </p>
       </fieldset>
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <div
           id="andreYtelser.kravOmAnnenStonad.svar"
         >
           <fieldset
             aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
@@ -1988,17 +1988,17 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <div
           id="andreYtelser.annenPensjon.svar"
         >
           <fieldset
             aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
@@ -2072,14 +2072,14 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
         id="andreYtelser.mottarPensjonUtland.svar"
       >
         <fieldset
           aria-invalid="false"
-          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
             class="navds-fieldset__legend navds-label"
@@ -2093,7 +2093,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             <div>
               <button
                 aria-expanded="false"
-                class="sc-irLwvL kLjCsa"
+                class="sc-irTswW fZoIZZ"
                 data-testid="hvorforPanel_toggle"
                 type="button"
               >
@@ -2187,10 +2187,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-hLQRIN kjwTfL undefined"
+        class="sc-hLseeU dVtVlU undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -2217,7 +2217,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hLQRIN sc-eDLJxc kjwTfL bnEsAH"
+      class="sc-hLseeU sc-eDDNvR dVtVlU jjjTtV"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
