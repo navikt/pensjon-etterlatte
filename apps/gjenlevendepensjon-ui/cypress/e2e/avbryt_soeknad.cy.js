@@ -5,6 +5,8 @@ describe("Skal avbryte en soeknad", { testIsolation: false },() => {
         // Gå til søknad med eksisterende kladd
         cy.intercept("GET", `${basePath}/api/person/innlogget`, {fixture: "testbruker"}).as("hentInnloggetPerson");
         cy.intercept("GET", `${basePath}/api/api/kladd`, {fixture: "kladd"}).as("hentSoeknad");
+        cy.intercept("GET", `${basePath}/session`, {fixture: "session"}).as("hentSession");
+
         cy.visit("localhost:3000/gjenlevendepensjon/soknad", {
             onBeforeLoad: (obj) => {
                 Object.defineProperty(obj.navigator, "language", {value: "nb-NO"});
@@ -20,6 +22,8 @@ describe("Skal avbryte en soeknad", { testIsolation: false },() => {
 
     it("Fortsett søknad etter å ha trykket avbryt", () => {
         startSoeknad()
+        cy.wait(["@hentSession"]);
+
         getById("avbryt-btn").click();
 
         getById("avbryt-nei-btn").click();
