@@ -15,13 +15,13 @@ import org.slf4j.LoggerFactory
 import java.time.Clock
 import java.time.OffsetDateTime
 
-internal class JournalfoerSoeknad(
+internal class JournalfoerBarnepensjonSoeknadForDoffen(
     rapidsConnection: RapidsConnection,
     private val dokumentService: DokumentService,
     private val journalfoeringService: JournalfoeringService,
     private val klokke: Clock = Clock.systemUTC()
 ) : River.PacketListener {
-    private val logger = LoggerFactory.getLogger(JournalfoerSoeknad::class.java)
+    private val logger = LoggerFactory.getLogger(JournalfoerBarnepensjonSoeknadForDoffen::class.java)
 
     init {
         River(rapidsConnection).apply {
@@ -32,7 +32,8 @@ internal class JournalfoerSoeknad(
             validate { it.requireKey("@fnr_soeker") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("@hendelse_gyldig_til") }
-            validate { it.rejectValue("@skjema_info.type", "BARNEPENSJON") }
+            validate { it.requireValue("soeknadFordelt", true) }
+            validate { it.requireKey("sakId") }
             validate { it.rejectKey("@dokarkivRetur") }
         }.register(this)
     }
@@ -69,6 +70,14 @@ internal class JournalfoerSoeknad(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
-        return journalfoeringService.journalfoer(soeknadId, fnrSoeker, gradering, dokument, soeknad, "PEN", false, null)
+        return journalfoeringService.journalfoer(
+            soeknadId,
+            fnrSoeker,
+            gradering,
+            dokument,
+            soeknad,
+            "EYB",
+            true,
+            packet["sakId"].asText())
     }
 }

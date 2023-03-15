@@ -9,12 +9,14 @@ internal class JournalpostModelTest {
     fun `Tema og kanal skal alltid være satt`() {
         val request = JournalpostRequest(
             "tittel",
+            "PEN",
             JournalPostType.INNGAAENDE,
             "behandlingstema",
             "enhet",
             AvsenderMottaker(id = "123"),
             Bruker(id = "123"),
             "eksternRef",
+            null,
             emptyList()
         )
 

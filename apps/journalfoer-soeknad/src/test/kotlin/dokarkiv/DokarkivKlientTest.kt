@@ -57,7 +57,7 @@ internal class DokarkivKlientTest {
 
         val klient = opprettKlient(successResponse, HttpStatusCode.OK)
 
-        val response = runBlocking { klient.journalfoerDok(dummyRequest()) }
+        val response = runBlocking { klient.journalfoerDok(dummyRequest(), false) }
 
         assertEquals("467010363", response.journalpostId)
         assertEquals(true, response.journalpostferdigstilt)
@@ -71,7 +71,7 @@ internal class DokarkivKlientTest {
         val klient = opprettKlient(duplikatResponse, HttpStatusCode.Conflict)
 
         try {
-            runBlocking { klient.journalfoerDok(dummyRequest()) }
+            runBlocking { klient.journalfoerDok(dummyRequest(), false) }
 
             fail("Skal kaste feil ved HttpStatusCode.Conflict (409)")
         } catch (re: ResponseException) {
@@ -86,7 +86,7 @@ internal class DokarkivKlientTest {
         val klient = opprettKlient(mapper.writeValueAsString(response), HttpStatusCode.BadRequest)
 
         try {
-            runBlocking { klient.journalfoerDok(dummyRequest()) }
+            runBlocking { klient.journalfoerDok(dummyRequest(), false) }
         } catch (re: ResponseException) {
             assertTrue(response.message!! in re.message!!)
         }
@@ -95,12 +95,14 @@ internal class DokarkivKlientTest {
     private fun dummyRequest(): JournalpostRequest {
         return JournalpostRequest(
             "tittel",
+            "PEN",
             JournalPostType.INNGAAENDE,
             "behandlingstema",
             "journalfoerendeEnhet",
             AvsenderMottaker("id", navn = "navn"),
             Bruker("id"),
             "eksternReferanseId",
+            null,
             emptyList()
         )
     }

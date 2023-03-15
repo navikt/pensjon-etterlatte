@@ -2,15 +2,16 @@ package dokarkiv
 
 data class JournalpostRequest(
     val tittel: String,
+    val tema: String,
     val journalpostType: JournalPostType,
     val behandlingstema: String,
     val journalfoerendeEnhet: String?,
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,
     val eksternReferanseId: String,
+    val sak: Sak? = null,
     var dokumenter: List<JournalpostDokument>
 ) {
-    val tema: String = "PEN"
     val kanal: String = "NAV_NO"
 }
 
@@ -30,6 +31,12 @@ data class JournalpostDokument(
     val dokumentKategori: DokumentKategori,
     val brevkode: String = "XX.YY-ZZ",
     val dokumentvarianter: List<DokumentVariant>
+)
+
+data class Sak (
+    val fagsakId: String,
+    val sakstype: String = "FAGSAK",
+    val fagsaksystem: String = "EY"
 )
 
 sealed class DokumentVariant {

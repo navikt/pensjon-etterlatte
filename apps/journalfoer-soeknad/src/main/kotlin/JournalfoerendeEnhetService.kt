@@ -6,13 +6,13 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import no.nav.etterlatte.libs.common.pdl.Gradering
 
-fun finnJournalfoerendeEnhet(soeknad: InnsendtSoeknad, gradering: Gradering): String? =
+fun finnJournalfoerendeEnhet(soeknad: InnsendtSoeknad, gradering: Gradering, forsoekFerdigstill: Boolean = false): String? =
     when (gradering) {
         Gradering.STRENGT_FORTROLIG_UTLAND,
         Gradering.STRENGT_FORTROLIG -> Konstanter.ENHET_VIKAFOSSEN
         Gradering.FORTROLIG,
         Gradering.UGRADERT -> finnEnhet(soeknad)
-    }
+    } ?: (Konstanter.ENHET_AUTOMATISK_JOURNALFOERING.takeIf { forsoekFerdigstill })
 
 private fun finnEnhet(soeknad: InnsendtSoeknad): String? {
     val avdoede: List<Avdoed> = when (soeknad) {

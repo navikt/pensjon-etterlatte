@@ -8,7 +8,11 @@ fun main() {
     }.also { env ->
         AppBuilder(env).also { appBuilder ->
             RapidApplication.create(env).apply {
-                JournalfoerSoeknad(this, appBuilder.pdfService(), appBuilder.journalfoerDok())
+                val pdfService = appBuilder.pdfService()
+                val journalfoering = appBuilder.journalfoerDok()
+                JournalfoerSoeknad(this, pdfService, journalfoering)
+                JournalfoerBarnepensjonSoeknadForDoffen(this, pdfService, journalfoering)
+                JournalfoerBarnepensjonSoeknadForPesys(this, pdfService, journalfoering)
             }.start()
         }
     }
