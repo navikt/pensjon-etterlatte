@@ -1,5 +1,4 @@
 import { render, fireEvent } from "@testing-library/react";
-import * as JSutils from "nav-frontend-js-utils";
 import { AccordionItem } from "./AccordionItem";
 import TekstGruppe from "./fragmenter/TekstGruppe";
 import Oppsummering from "./Oppsummering";
@@ -14,7 +13,6 @@ jest.mock("react-i18next", () => ({
     })
 }));
 
-JSutils.guid = jest.fn(() => "123");
 describe("Oppsummering", () => {
     it("Snapshot", () => {
         const { container } = render(<Oppsummering />);

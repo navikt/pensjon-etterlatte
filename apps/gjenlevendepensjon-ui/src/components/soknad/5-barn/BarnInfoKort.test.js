@@ -1,5 +1,4 @@
 import { render } from "@testing-library/react";
-import * as JSutils from "nav-frontend-js-utils";
 import BarnInfokort from "./BarnInfokort";
 
 jest.mock("react-i18next", () => ({
@@ -14,7 +13,6 @@ jest.mock("react-i18next", () => ({
     },
 }));
 
-JSutils.guid = jest.fn(() => "123");
 describe("BarnInfoKort", () => {
     it("Snapshot", () => {
         const { getByText } = render(<BarnInfokort barn={{fornavn: "Treig", etternavn: "Floskel", foedselsnummer: "04096222195"}} />);

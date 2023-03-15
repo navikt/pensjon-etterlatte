@@ -1,23 +1,25 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
-import { RHFInput } from "../../../felles/RHFInput";
+import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
+import { RHFInput } from "../../../felles/rhf/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useTranslation } from "react-i18next";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { Heading, Panel } from "@navikt/ds-react";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
-import { RHFCheckboksPanel } from "../../../felles/RHFCheckboksPanelGruppe";
+import {RHFCheckboksGruppe} from "../../../felles/rhf/RHFCheckboksPanelGruppe";
 import { IValg } from "../../../../typer/Spoersmaal";
+import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
+import { addYears } from 'date-fns'
 
 const UnderUtdanning = () => {
     const { t } = useTranslation();
     const { state } = useBrukerContext();
 
     return (
-        <SkjemaGruppering>
+        <SkjemaGruppe>
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"small"}>{t("dinSituasjon.utdanning.tittel")}</Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             <Panel border>
                 <RHFInput
@@ -25,55 +27,57 @@ const UnderUtdanning = () => {
                     label={t("dinSituasjon.utdanning.naavaerendeUtdanning.navn")}
                     placeholder={t("dinSituasjon.utdanning.naavaerendeUtdanning.navnPlaceholder")}
                 />
+                <SkjemaElement>
+                    <SkjemaGruppeRad>
+                        <Datovelger
+                            name={"utdanning.naavaerendeUtdanning.startDato"}
+                            label={t("dinSituasjon.utdanning.naavaerendeUtdanning.startDato")}
+                            minDate={state.foedselsdato}
+                            maxDate={new Date()}
+                        />
 
-                <SkjemaGruppe className={"rad"}>
-                    <Datovelger
-                        name={"utdanning.naavaerendeUtdanning.startDato"}
-                        label={t("dinSituasjon.utdanning.naavaerendeUtdanning.startDato")}
-                        minDate={state.foedselsdato}
-                        maxDate={new Date()}
-                    />
-
-                    <Datovelger
-                        name={"utdanning.naavaerendeUtdanning.sluttDato"}
-                        label={t("dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato")}
-                        minDate={new Date()}
-                    />
-                </SkjemaGruppe>
+                        <Datovelger
+                            name={"utdanning.naavaerendeUtdanning.sluttDato"}
+                            label={t("dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato")}
+                            minDate={new Date()}
+                            maxDate={addYears(new Date(), 10)}
+                        />
+                    </SkjemaGruppeRad>
+                </SkjemaElement>
             </Panel>
 
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <br />
-                <RHFCheckboksPanel
+                <RHFCheckboksGruppe
                     name={"utdanning.soeknadOmSkolepenger"}
                     legend={t("dinSituasjon.utdanning.soeknadOmSkolepenger")}
                     description={t("dinSituasjon.utdanning.soeknadOmSkolepenger.beskrivelse")}
-                    valgfri={true}
-                    checkbox={
-                        {
-                            label: t("dinSituasjon.utdanning.soeknadOmSkolepenger.bekreftelse"),
+                    required={false}
+                    checkboxes={
+                        [{
+                            children: t("dinSituasjon.utdanning.soeknadOmSkolepenger.bekreftelse"),
                             value: IValg.JA
-                        }
+                        }]
                     }
                 />
-            </SkjemaGruppe>
+            </SkjemaElement>
 
-            <SkjemaGruppe>
-                <RHFCheckboksPanel
+            <SkjemaElement>
+                <RHFCheckboksGruppe
                     name={"utdanning.soeknadOmTilleggsstoenadUtdanning"}
                     legend={t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning")}
                     description={t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse")}
-                    valgfri={true}
-                    checkbox={
-                        {
-                            label: t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
+                    required={false}
+                    checkboxes={
+                        [{
+                            children: t("dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse"),
                             value: IValg.JA
-                        }
+                        }]
                     }
                 />
-            </SkjemaGruppe>
-        </SkjemaGruppering>
+            </SkjemaElement>
+        </SkjemaGruppe>
     );
 };
 

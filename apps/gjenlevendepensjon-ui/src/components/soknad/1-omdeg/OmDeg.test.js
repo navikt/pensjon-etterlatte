@@ -1,5 +1,4 @@
 import { render, fireEvent } from "@testing-library/react";
-import * as JSutils from "nav-frontend-js-utils";
 import * as uuid from "uuid";
 import OmDeg from "./OmDeg";
 
@@ -22,8 +21,6 @@ jest.mock("uuid", () => ({
 }))
 describe("Om deg og avdød", () => {
     it("Snapshot", () => {
-        jest.spyOn(JSutils, "guid").mockReturnValue("123");
-
         const { container, getByText } = render(<OmDeg />);
         
         const oppholderSegINorge = container.querySelectorAll("[name='oppholderSegINorge'][value='radiobuttons.nei']")[0];

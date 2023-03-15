@@ -2,46 +2,38 @@
 
 exports[`Oppsummering Snapshot 1`] = `
 <div>
-  <fieldset
-    aria-invalid="false"
-    class="skjemagruppe"
+  <div
+    class="sc-irLwvL kAlsaZ"
   >
     <h1
       class="center navds-heading navds-heading--medium"
     >
       oppsummering.tittel
     </h1>
-    <div
-      aria-live="polite"
-    />
-  </fieldset>
-  <fieldset
-    aria-invalid="false"
-    class="skjemagruppe"
+  </div>
+  <div
+    class="sc-irLwvL kAlsaZ"
   >
     <p
       class="navds-body-long"
     >
       oppsummering.beskrivelse
     </p>
-    <div
-      aria-live="polite"
-    />
-  </fieldset>
+  </div>
   <br />
   <fieldset
-    aria-invalid="false"
-    class="skjemagruppe navigasjon-footer"
+    class="sc-beySbM kuevld"
   >
     <div
-      class="navigasjon-rad"
+      class="sc-guDLRT gtDjfr false"
     >
       <button
         class="navds-button navds-button--primary navds-button--medium"
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.tilbake
         </span>
@@ -51,20 +43,17 @@ exports[`Oppsummering Snapshot 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.sendSoeknad
            
         </span>
       </button>
     </div>
-    <div
-      aria-live="polite"
-    />
   </fieldset>
-  <fieldset
-    aria-invalid="false"
-    class="skjemagruppe navigasjon-rad"
+  <div
+    class="sc-guDLRT sc-dmyDGi gtDjfr fQXvsx"
   >
     <button
       class="navds-button navds-button--secondary navds-button--medium"
@@ -72,14 +61,12 @@ exports[`Oppsummering Snapshot 1`] = `
       type="button"
     >
       <span
-        class="navds-button__inner navds-body-short"
+        aria-live="polite"
+        class="navds-label"
       >
         knapp.avbryt
       </span>
     </button>
-    <div
-      aria-live="polite"
-    />
-  </fieldset>
+  </div>
 </div>
 `;

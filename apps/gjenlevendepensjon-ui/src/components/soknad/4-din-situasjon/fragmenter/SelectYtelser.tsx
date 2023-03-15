@@ -1,6 +1,6 @@
 import { Ytelser } from "../../../../typer/ytelser";
 import { useTranslation } from "react-i18next";
-import { RHFSelect } from "../../../felles/RHFSelect";
+import { RHFSelect } from "../../../felles/rhf/RHFSelect";
 
 
 const SelectYtelser = () => {

@@ -1,6 +1,6 @@
 import mockSoeknad from "../../src/assets/dummy-soeknad.json";
 import { IValg } from "../../src/typer/Spoersmaal";
-import { basePath, gaaTilNesteSide, getById, selectValue, selectValueForId } from "../util/cy-functions";
+import {a11yCheck, basePath, gaaTilNesteSide, getById, selectValue, selectValueForId} from "../util/cy-functions";
 
 describe("Skal gå igjennom hele søknaden uten feil", () => {
     it("Skal åpne startsiden og starte en søknad", () => {
@@ -39,7 +39,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         selectValueForId("oppholderSegINorge", omDeg.oppholderSegINorge);
         getById("utbetalingsInformasjon.kontonummer").type(omDeg.utbetalingsInformasjon.kontonummer);
 
-        cy.checkA11y();
+        a11yCheck()
 
         gaaTilNesteSide();
     });
@@ -59,7 +59,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         selectValue(omDegOgAvdoed.nySivilstatus.sivilstatus);
 
-        cy.checkA11y();
+        a11yCheck();
 
         gaaTilNesteSide();
     });
@@ -95,7 +95,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         selectValueForId("harAvtjentMilitaerTjeneste.svar", omDenAvdoede.harAvtjentMilitaerTjeneste.svar);
         getById("harAvtjentMilitaerTjeneste.beskrivelse").type(omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse);
 
-        cy.checkA11y();
+        a11yCheck();
 
         gaaTilNesteSide();
     });
@@ -140,7 +140,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             .select(mottarPensjonUtland.fraHvilketLand);
         getById("andreYtelser.mottarPensjonUtland.bruttobeloepPrAar").type(mottarPensjonUtland.bruttobeloepPrAar);
 
-        cy.checkA11y();
+        a11yCheck();
 
         gaaTilNesteSide();
     });
@@ -151,7 +151,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         // Legg til barn
         mockSoeknad.opplysningerOmBarn.barn.map((barn) => {
-            cy.get(".infokort-wrapper").find('[type="button"]').click();
+            cy.get("[data-testid=legg-til-barn-knapp]").click();
 
             getById("fornavn").type(barn.fornavn);
             getById("etternavn").type(barn.etternavn);
@@ -168,7 +168,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         selectValue(IValg.JA);
 
-        cy.checkA11y();
+        a11yCheck();
 
         gaaTilNesteSide();
     });

@@ -1,13 +1,13 @@
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
-import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/rhf/RHFRadio";
 import { hentAlder } from "../../../../utils/dato";
 import Datovelger from "../../../felles/Datovelger";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 import { useTranslation } from "react-i18next";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
 
 const SamboerMedAvdoede = () => {
     const { t } = useTranslation();
@@ -23,17 +23,21 @@ const SamboerMedAvdoede = () => {
     const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false;
 
     return (
-        <SkjemaGruppering>
-            <RHFSpoersmaalRadio
-                name={"forholdTilAvdoede.fellesBarn"}
-                legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
-            />
+        <>
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={"forholdTilAvdoede.fellesBarn"}
+                    legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
+                />
+            </SkjemaElement>
 
             {ingenFellesBarn && (
-                <RHFSpoersmaalRadio
-                    name={"forholdTilAvdoede.tidligereGift"}
-                    legend={t("omDegOgAvdoed.forholdTilAvdoede.tidligereGift")}
-                />
+                <SkjemaElement>
+                    <RHFSpoersmaalRadio
+                        name={"forholdTilAvdoede.tidligereGift"}
+                        legend={t("omDegOgAvdoed.forholdTilAvdoede.tidligereGift")}
+                    />
+                </SkjemaElement>
             )}
 
             {tidligereGift === IValg.JA && (
@@ -56,7 +60,7 @@ const SamboerMedAvdoede = () => {
                     )}
                 </>
             )}
-        </SkjemaGruppering>
+        </>
     );
 };
 

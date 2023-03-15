@@ -1,22 +1,24 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { IAvdoed } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
-import { RHFFoedselsnummerInput, RHFInput, RHFValutaInput } from "../../felles/RHFInput";
-import { RHFSpoersmaalRadio } from "../../felles/RHFRadio";
+import { RHFFoedselsnummerInput, RHFInput, RHFValutaInput } from "../../felles/rhf/RHFInput";
+import { RHFSpoersmaalRadio } from "../../felles/rhf/RHFRadio";
 import { IValg } from "../../../typer/Spoersmaal";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import BoddEllerArbeidetUtland from "./fragmenter/BoddEllerArbeidetUtland";
 import Navigasjon from "../../felles/Navigasjon";
 import { BodyLong, Label, Heading, Cell, Grid } from "@navikt/ds-react";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
-import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
-import { RHFSelect } from "../../felles/RHFSelect";
+import { RHFSelect } from "../../felles/rhf/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
+import {SkjemaGruppeIngress, SkjemaGruppeRad} from "../../felles/StyledComponents";
+import {SkjemaElement} from "../../felles/SkjemaElement";
+import Bredde from "../../../typer/bredde";
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -56,24 +58,24 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     return (
         <FormProvider {...methods}>
-            <SkjemaGruppe className={"center"}>
-                <Heading size={"medium"}>{t("omDenAvdoede.tittel")}</Heading>
-            </SkjemaGruppe>
+            <SkjemaElement>
+                <Heading className={"center"} size={"medium"}>{t("omDenAvdoede.tittel")}</Heading>
+            </SkjemaElement>
 
             <form>
-                <SkjemaGruppering>
-                    <SkjemaGruppe className={"rad"}>
-                        <div className={"kolonne"}>
+                <SkjemaGruppe>
+                    <SkjemaGruppeRad>
+                        <div className={"kol"}>
                             <Label>{t("omDenAvdoede.fornavn")}</Label>
                             <BodyLong>{state.omDegOgAvdoed.avdoed?.fornavn || ""}</BodyLong>
                         </div>
-                        <div className={"kolonne"}>
+                        <div className={"kol"}>
                             <Label>{t("omDenAvdoede.etternavn")}</Label>
                             <BodyLong>{state.omDegOgAvdoed.avdoed?.etternavn || ""}</BodyLong>
                         </div>
-                    </SkjemaGruppe>
+                    </SkjemaGruppeRad>
 
-                    <SkjemaGruppe>
+                    <SkjemaElement>
                         <Grid style={{alignItems: "end" }}>
                             <Cell xs={12} md={6} className={"kol"}>
                                 <RHFFoedselsnummerInput
@@ -91,29 +93,31 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                                 />
                             </Cell>
                         </Grid>
-                    </SkjemaGruppe>
-                </SkjemaGruppering>
+                    </SkjemaElement>
+                </SkjemaGruppe>
 
                 <BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet}/>
 
-                <SkjemaGruppering>
-                    <SkjemaGruppe className="ingress">
+                <SkjemaGruppe>
+                    <SkjemaGruppeIngress>
                         <Heading size="small">{t("omDenAvdoede.selvstendigNaeringsdrivende.tittel")}</Heading>
                         <BodyLong>{t("omDenAvdoede.selvstendigNaeringsdrivende.ingress")}</BodyLong>
-                    </SkjemaGruppe>
+                    </SkjemaGruppeIngress>
 
-                    <RHFSpoersmaalRadio
-                        name={"selvstendigNaeringsdrivende.svar"}
-                        legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
-                        vetIkke
-                    />
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio
+                            name={"selvstendigNaeringsdrivende.svar"}
+                            legend={t("omDenAvdoede.selvstendigNaeringsdrivende.svar")}
+                            vetIkke
+                        />
+                    </SkjemaElement>
 
                     {selvstendigNaeringsdrivende === IValg.JA && (
                         <>
                             <SkjemaGruppe>
                                 <RHFValutaInput
                                     name={"selvstendigNaeringsdrivende.beskrivelse"}
-                                    bredde={"L"}
+                                    htmlSize={Bredde.S}
                                     valgfri
                                     type="tel"
                                     placeholder={t("omDenAvdoede.selvstendigNaeringsdrivende.placeholder")}
@@ -128,12 +132,12 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             />
                         </>
                     )}
-                </SkjemaGruppering>
+                </SkjemaGruppe>
 
-                <SkjemaGruppering>
-                    <SkjemaGruppe className="ingress">
+                <SkjemaGruppe>
+                    <SkjemaGruppeIngress>
                         <Heading size="small">{t("omDenAvdoede.annenOpptjening.tittel")}</Heading>
-                    </SkjemaGruppe>
+                    </SkjemaGruppeIngress>
 
                     <SkjemaGruppe>
                         <RHFSpoersmaalRadio
@@ -145,27 +149,27 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         />
                     </SkjemaGruppe>
 
-                    <RHFSpoersmaalRadio
-                        name={"harAvtjentMilitaerTjeneste.svar"}
-                        legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
-                        description={
-                            <HvorforSpoerVi title="omDenAvdoede.harAvtjentMilitaerTjeneste.svar">{t("omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst")}</HvorforSpoerVi>
-                        }
-                        vetIkke
-                    />
+                        <RHFSpoersmaalRadio
+                            name={"harAvtjentMilitaerTjeneste.svar"}
+                            legend={t("omDenAvdoede.harAvtjentMilitaerTjeneste.svar")}
+                            description={
+                                <HvorforSpoerVi title="omDenAvdoede.harAvtjentMilitaerTjeneste.svar">{t("omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst")}</HvorforSpoerVi>
+                            }
+                            vetIkke
+                        />
 
-                    {harAvtjentMilitaerTjeneste === IValg.JA && (
-                        <SkjemaGruppe>
-                            <RHFInput
-                                name={"harAvtjentMilitaerTjeneste.beskrivelse"}
-                                bredde={"S"}
-                                valgfri
-                                label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
-                            />
-                        </SkjemaGruppe>
-                    )}
+                        {harAvtjentMilitaerTjeneste === IValg.JA && (
+                            <SkjemaElement>
+                                <RHFInput
+                                    name={"harAvtjentMilitaerTjeneste.beskrivelse"}
+                                    htmlSize={Bredde.S}
+                                    valgfri
+                                    label={t("omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse")}
+                                />
+                            </SkjemaElement>
+                        )}
 
-                </SkjemaGruppering>
+                </SkjemaGruppe>
 
                 <Feilmeldinger errors={errors}/>
 

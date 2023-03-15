@@ -1,5 +1,5 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
-import { RHFCheckboksPanel } from "../../felles/RHFCheckboksPanelGruppe";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
+import {RHFCheckboksGruppe} from "../../felles/rhf/RHFCheckboksPanelGruppe";
 import { IValg } from "../../../typer/Spoersmaal";
 import React from "react";
 import { ISoeknad } from "../../../context/soknad/soknad";
@@ -26,16 +26,16 @@ const AndreStoenader = ({ soeknad, barn }: { soeknad: ISoeknad, barn?: IBarn[] }
         <>
             {rettTilBarnetilsyn &&
             <SkjemaGruppe>
-                <RHFCheckboksPanel
+                <RHFCheckboksGruppe
                     name={"soeknadOmBarnetilsyn"}
                     legend={t("omBarn.soeknadOmBarnetilsyn")}
                     description={t("omBarn.soeknadOmBarnetilsyn.beskrivelse")}
-                    valgfri={true}
-                    checkbox={
-                        {
-                            label: t("omBarn.soeknadOmBarnetilsyn.bekreftelse"),
+                    required={false}
+                    checkboxes={
+                        [{
+                            children: t("omBarn.soeknadOmBarnetilsyn.bekreftelse"),
                             value: IValg.JA
-                        }
+                        }]
                     }
                 />
             </SkjemaGruppe>
@@ -43,16 +43,16 @@ const AndreStoenader = ({ soeknad, barn }: { soeknad: ISoeknad, barn?: IBarn[] }
 
             {rettTilBarnStoenad &&
             <SkjemaGruppe>
-                <RHFCheckboksPanel
+                <RHFCheckboksGruppe
                     name={"soeknadOmTilleggsstoenadBarnepass"}
                     legend={t("omBarn.soeknadOmTilleggsstoenadBarnepass")}
                     description={t("omBarn.soeknadOmTilleggsstoenadBarnepass.beskrivelse")}
-                    valgfri={true}
-                    checkbox={
-                        {
-                            label: t("omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse"),
+                    required={false}
+                    checkboxes={
+                        [{
+                            children: t("omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse"),
                             value: IValg.JA
-                        }
+                        }]
                     }
                 />
             </SkjemaGruppe>

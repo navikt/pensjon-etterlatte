@@ -1,11 +1,11 @@
 import { ChangeEvent } from "react";
 import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath, FieldValues } from "react-hook-form/dist/types";
-import { Input, InputProps } from "nav-frontend-skjema";
+import { TextField, TextFieldProps } from "@navikt/ds-react";
 import { get } from "lodash";
 import { useTranslation } from "react-i18next";
 import { RegisterOptions } from "react-hook-form/dist/types/validator";
-import { getTransKey } from "../../utils/translation";
+import { getTransKey } from "../../../utils/translation";
 import { fnr } from "@navikt/fnrvalidator";
 import {
     kontonrMatcher,
@@ -13,10 +13,10 @@ import {
     partialProsentMatcher,
     prosentMatcher,
     telefonnrMatcher,
-} from "../../utils/matchers";
+} from "../../../utils/matchers";
 import { isValidBIC, isValidIBAN } from "ibantools";
 
-interface RHFProps extends Omit<InputProps, "name"> {
+interface RHFProps extends Omit<TextFieldProps, "name"> {
     name: FieldPath<FieldValues>;
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, "required">;
     valgfri?: boolean;
@@ -29,7 +29,7 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -39,12 +39,12 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
             rules={{ required: !valgfri, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <div className={className}>
-                    <Input
+                    <TextField
                         id={name}
                         value={value || ""}
                         required={!valgfri}
                         onChange={onChange}
-                        feil={feilmelding}
+                        error={feilmelding}
                         {...rest}
                     />
                 </div>
@@ -82,7 +82,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -91,12 +91,12 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
             control={control}
             rules={{ required: true, pattern: kontonrMatcher, ...rules }}
             render={({ field: { value, onChange } }) => (
-                <Input
+                <TextField
                     id={name}
                     value={value || ""}
                     required
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialKontonrMatcher, "."))}
-                    feil={feilmelding}
+                    error={feilmelding}
                     {...rest}
                 />
             )}
@@ -111,7 +111,7 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -120,12 +120,12 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
             control={control}
             rules={{ required: !valgfri, pattern: /^\d[0-9\s]*$/ }}
             render={({ field: { value, onChange } }) => (
-                <Input
+                <TextField
                     id={name}
                     value={value || ""}
                     required={!valgfri}
                     onChange={onChange}
-                    feil={feilmelding}
+                    error={feilmelding}
                     {...rest}
                 />
             )}
@@ -140,7 +140,7 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
     const maxLength = 4;
 
@@ -157,14 +157,14 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
             control={control}
             rules={{ required: true, pattern: prosentMatcher, ...rules }}
             render={({ field: { value, onChange } }) => (
-                <Input
+                <TextField
                     id={name}
                     required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         if (isValid(e)) onChange(e);
                     }}
-                    feil={feilmelding}
+                    error={feilmelding}
                     {...rest}
                 />
             )}
@@ -179,7 +179,7 @@ export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => 
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -193,12 +193,12 @@ export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => 
                 ...rules
             }}
             render={({ field: { value, onChange } }) => (
-                <Input
+                <TextField
                     id={name}
                     required
                     value={value || ""}
                     onChange={onChange}
-                    feil={feilmelding}
+                    error={feilmelding}
                     {...rest}
                 />
             )}
@@ -213,7 +213,7 @@ export const RHFFoedselsnummerInput = ({ name, rules, valgfri, ...rest }: RHFPro
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     const isValid = (e: ChangeEvent<HTMLInputElement>) => {
@@ -232,7 +232,7 @@ export const RHFFoedselsnummerInput = ({ name, rules, valgfri, ...rest }: RHFPro
                 ...rules
             }}
             render={({ field: { value, onChange } }) => (
-                <Input
+                <TextField
                     id={name}
                     type="tel"
                     required
@@ -240,7 +240,7 @@ export const RHFFoedselsnummerInput = ({ name, rules, valgfri, ...rest }: RHFPro
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         if (isValid(e)) onChange(e);
                     }}
-                    feil={feilmelding}
+                    error={feilmelding}
                     {...rest}
                 />
             )}
@@ -255,7 +255,7 @@ export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -264,12 +264,12 @@ export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
             control={control}
             rules={{ required: true, validate: (value) => isValidIBAN(value) }}
             render={({ field: { value, onChange } }) => (
-                <Input
+                <TextField
                     id={name}
                     required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value.toUpperCase())}
-                    feil={feilmelding}
+                    error={feilmelding}
                     {...rest}
                 />
             )}
@@ -284,7 +284,7 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     return (
@@ -293,12 +293,12 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
             control={control}
             rules={{ required: true, validate: (value) => isValidBIC(value) }}
             render={({ field: { value, onChange } }) => (
-                <Input
+                <TextField
                     id={name}
                     required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value.toUpperCase())}
-                    feil={feilmelding}
+                    error={feilmelding}
                     {...rest}
                 />
             )}
@@ -313,7 +313,7 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = !!error ? t(getTransKey(error)) : undefined;
 
     const re = /^[0-9\b]+$/;
@@ -327,14 +327,14 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
             control={control}
             rules={{ required: true, minLength, maxLength }}
             render={({ field: { value, onChange } }) => (
-                <Input
+                <TextField
                     id={name}
                     required
                     value={value || ""}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         if (isValid(e)) onChange(e);
                     }}
-                    feil={feilmelding}
+                    error={feilmelding}
                     {...rest}
                 />
             )}

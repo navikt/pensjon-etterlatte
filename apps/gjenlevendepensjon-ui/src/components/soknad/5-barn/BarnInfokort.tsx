@@ -1,11 +1,32 @@
-import "./BarnInfoKort.scss";
 import { IBarn } from "../../../typer/person";
 import ikon from "../../../assets/ikoner/barn1.svg";
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { IValg } from "../../../typer/Spoersmaal";
-import { BodyShort, Detail, Link, Heading, BodyLong } from "@navikt/ds-react";
+import { BodyShort, Heading, BodyLong, Link, Tag } from "@navikt/ds-react";
 import { DeleteFilled, EditFilled } from "@navikt/ds-icons";
+import {
+    Infokort,
+    InfokortHeader,
+    InfokortInformasjonsboks
+} from "../../felles/StyledComponents";
+import styled from "styled-components";
+import { SkjemaElement } from "../../felles/SkjemaElement";
+
+const InfokortInformasjonsElement = styled.div`
+      margin: 10px 0 10px 0;
+`
+
+const InfokortFooter = styled.div`
+    margin-bottom: 1rem;
+`
+
+const InfokortFooterItem = styled(Link)`
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+`
 
 interface Props {
     barn: IBarn;
@@ -20,18 +41,18 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
     const foedselsnummer = barn.foedselsnummer?.replace(/(\d{6})(.*)/, "$1 $2");
 
     return (
-        <div className={"infokort"}>
-            <div className={"infokort__header"}>
-                <img alt="barn" className="barneikon" src={ikon}/>
-            </div>
+        <Infokort>
+            <InfokortHeader>
+                <img alt="barn"  src={ikon}/>
+            </InfokortHeader>
 
-            <div className={"infokort__informasjonsboks center"}>
-                <div className={"informasjonsboks-innhold"}>
+            <InfokortInformasjonsboks className={"center"}>
+                <div className={"center"}>
                     <Heading size={"small"}>
                         {barn.fornavn} {barn.etternavn}
                     </Heading>
                 </div>
-                <div className="informasjonselement">
+                <InfokortInformasjonsElement>
                     <BodyShort size={"small"}>
                         {t("omBarn.infokort.foedselsnummer")}
                     </BodyShort>
@@ -61,31 +82,33 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                         {barn.bosattUtland?.svar === IValg.JA ? barn.bosattUtland?.land : t("felles.norge")}
                     </BodyShort>
 
-                    <Detail size={"small"} spacing className={"mute"}>
-                        {barn.barnepensjon?.soeker === IValg.JA && t("omBarn.barnepensjon.soekt")}
-                    </Detail>
-                </div>
-            </div>
+                    {barn.barnepensjon?.soeker  && (
+                        <SkjemaElement>
+                            <Tag variant={'success'}>{t("omBarn.barnepensjon.soekt")}</Tag>
+                        </SkjemaElement>
+                    )}
+                </InfokortInformasjonsElement>
+            </InfokortInformasjonsboks>
 
-            <div className={"infokort__footer"}>
+            <InfokortFooter>
                 <BodyLong>
-                    <Link href={"#"} className={"infokort__footer-item"} onClick={(e) => {
+                    <InfokortFooterItem href={"#"} onClick={(e:Event) => {
                         e.preventDefault();
                         setAktivBarnIndex()
                     }}>
                         <EditFilled className={"edit-svg"}/>
                         <span>{t("knapp.endre")}</span>
-                    </Link>
+                    </InfokortFooterItem>
                 </BodyLong>
                 <BodyLong>
-                    <Link href={"#"} className={"infokort__footer-item"} onClick={() => fjern(index)}>
+                    <InfokortFooterItem href={"#"} onClick={() => fjern(index)}>
                         <DeleteFilled className={"edit-svg"}/>
                         <span>{t("knapp.fjernFraSoeknad")}</span>
-                    </Link>
+                    </InfokortFooterItem>
                 </BodyLong>
 
-            </div>
-        </div>
+            </InfokortFooter>
+        </Infokort>
     );
 });
 

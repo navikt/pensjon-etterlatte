@@ -1,11 +1,23 @@
-import "./Spraakvalg.scss";
 import { Language } from "../../i18n";
-import { Select, SkjemaGruppe } from "nav-frontend-skjema";
+import { Select } from "@navikt/ds-react";
+import { SkjemaGruppe } from "../felles/SkjemaGruppe";
 import { useTranslation } from "react-i18next";
 import { ActionTypes } from "../../context/soknad/soknad";
 import { useEffect } from "react";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
+import styled from "styled-components";
+
+
+const SpraakvalgWrapper = styled.div`
+  max-width: 200px;
+  text-align: center;
+  margin: 0 auto;
+  
+  label {
+    width: 100%;
+  }
+`
 
 export const Spraakvalg = () => {
     const { t } = useTranslation();
@@ -28,8 +40,8 @@ export const Spraakvalg = () => {
     }, [soknadState.spraak, brukerState.spraak]);
 
     return (
-        <SkjemaGruppe id="language-selector">
-            <SkjemaGruppe className="dropdown_alt2">
+        <SkjemaGruppe>
+            <SpraakvalgWrapper>
                 <Select onChange={(e) => oppdaterSpraak(e.target.value)}
                         value={soknadState.spraak}
                         label={t("felles.spraakValg")}>
@@ -37,7 +49,7 @@ export const Spraakvalg = () => {
                     <option value={Language.NORSK_NYNORSK}>Nynorsk</option>
                     <option value={Language.ENGELSK}>English</option>
                 </Select>
-            </SkjemaGruppe>
+            </SpraakvalgWrapper>
         </SkjemaGruppe>
     );
 };

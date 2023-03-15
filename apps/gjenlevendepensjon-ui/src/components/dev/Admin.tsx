@@ -3,6 +3,7 @@ import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useState } from "react";
 import { Alert, Button, Panel } from "@navikt/ds-react";
 import { useHistory } from "react-router-dom";
+import { NavigasjonsRad } from "../felles/StyledComponents";
 
 const Admin = () => {
     const history = useHistory();
@@ -39,7 +40,7 @@ const Admin = () => {
 
     return (
         <Panel>
-            <div className={"navigasjon-rad"}>
+            <NavigasjonsRad>
                 <Button variant={"primary"} onClick={mockSoeknad}>
                     Mock Søknad
                 </Button>
@@ -47,7 +48,7 @@ const Admin = () => {
                 <Button variant={"danger"} onClick={tilbakestill}>
                     Tilbakestill søknad
                 </Button>
-            </div>
+            </NavigasjonsRad>
 
             {state.mocked && (
                 <Alert variant={"success"}>

@@ -1,11 +1,23 @@
-import {Alert, BodyShort, Cell, Grid, Label} from "@navikt/ds-react";
+import {Alert, BodyShort, Cell, Grid, Label, HelpText} from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { isEmpty } from "lodash";
 import React, { memo } from "react";
 import { fullAdresse } from "../../../utils/adresse";
-import Hjelpetekst from "../../felles/Hjelpetekst";
+import styled from "styled-components";
+
+const InnloggetBrukerAlert = styled(Alert)`
+  background: none;
+  border: none;
+  padding: 0;
+`
+
+const HjelpeTekstLabel = styled.div`
+    .navds-label {
+        display: flex;
+    }
+`
 
 const InnloggetBruker = memo(() => {
     const { t } = useTranslation();
@@ -16,7 +28,7 @@ const InnloggetBruker = memo(() => {
 
     return (
         <SkjemaGruppe>
-            <Grid className={"opplysninger"}>
+            <Grid>
                 <Cell xs={6}>
                     <div>
                         <Label>{t("felles.navn")}</Label>
@@ -52,21 +64,23 @@ const InnloggetBruker = memo(() => {
                     </div>
 
                     {state.telefonnummer && (
-                        <div>
-                            <Label>{t("felles.telefonnummer")}&nbsp;
-                                <Hjelpetekst>{t("felles.telefonnummerHjelpetekst")}</Hjelpetekst></Label>
+                        <HjelpeTekstLabel>
+                            <Label as={'span'}>
+                                {t("felles.telefonnummer")}&nbsp;
+                                <HelpText>{t("felles.telefonnummerHjelpetekst")}</HelpText>
+                            </Label>
                             <BodyShort spacing>{state.telefonnummer}</BodyShort>
-                        </div>
+                        </HjelpeTekstLabel>
                     )}
                 </Cell>
             </Grid>
 
             {!state.adressebeskyttelse && state.adresse && (
-                    <Alert variant={"warning"} className={"navds-alert--inline"}>
+                    <InnloggetBrukerAlert variant={"warning"}>
                         <a href={t("omDeg.advarsel.href")} target="_blank" rel="noreferrer">
                             {t("omDeg.advarsel")}
                         </a>
-                    </Alert>
+                    </InnloggetBrukerAlert>
             )}
         </SkjemaGruppe>
     );

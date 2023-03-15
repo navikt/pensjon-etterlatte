@@ -1,7 +1,7 @@
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 
-const isDev = process.env.NODE_ENV === 'development'
+export const isDev = process.env.NODE_ENV === 'development'
 
 const baseURL = isDev ? `${process.env.REACT_APP_MOCK_API}${process.env.PUBLIC_URL}` : process.env.PUBLIC_URL
 

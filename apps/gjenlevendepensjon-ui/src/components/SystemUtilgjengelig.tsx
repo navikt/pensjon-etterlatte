@@ -1,10 +1,10 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
-import Veileder from "nav-frontend-veileder";
-import ikon from "../assets/ikoner/veileder_2.svg";
+import {SkjemaGruppe} from "./felles/SkjemaGruppe";
 import { Alert, BodyLong, Button, Link } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { Spraakvalg } from "./felles/Spraakvalg";
 import { useLanguage } from "../hooks/useLanguage";
+import {NavigasjonsRadSection} from "./felles/StyledComponents";
+import {Veileder} from "./felles/Veileder";
 
 
 export default function SystemUtilgjengelig() {
@@ -19,8 +19,8 @@ export default function SystemUtilgjengelig() {
     return (
         <>
             <SkjemaGruppe>
-                <Veileder tekst={t('systemUtilgjengelig.veileder')} posisjon="høyre">
-                    <img alt="veileder" src={ikon} />
+                <Veileder>
+                    {t('systemUtilgjengelig.veileder')}
                 </Veileder>
             </SkjemaGruppe>
 
@@ -61,11 +61,11 @@ export default function SystemUtilgjengelig() {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <section className={"navigasjon-rad"}>
+                <NavigasjonsRadSection>
                     <Button variant={"primary"} onClick={omstart}>
                         {t('systemUtilgjengelig.knappProevIgjen')}
                     </Button>
-                </section>
+                </NavigasjonsRadSection>
             </SkjemaGruppe>
         </>
     );

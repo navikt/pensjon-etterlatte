@@ -4,6 +4,17 @@ import LukkbarAlert from "./LukkbarAlert";
 import { hentUtloepstidForInnlogging } from "../../api/api";
 import { konverterSekunderTilTid } from "../../utils/konverterSekunderTilTid";
 import WebWorker from "../../utils/workers/WebWorker";
+import styled from "styled-components";
+
+const UtloggingAlertWrapper = styled.div`
+  position: fixed;
+  top: calc(80px + 2rem);
+  right: 1em;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+  padding-left: 2rem;
+`
 
 const UtloeptSession = () => {
     const [open, setIsOpen] = useState<boolean>(false);
@@ -60,7 +71,7 @@ const UtloeptSession = () => {
     return (
         <>
             {open && (
-                <div className="utlogging-alert-wrap">
+                <UtloggingAlertWrapper>
                     <LukkbarAlert
                         onClose={() => {
                             setIsOpen(false);
@@ -82,7 +93,7 @@ const UtloeptSession = () => {
                             </span>
                         )}
                     </LukkbarAlert>
-                </div>
+                </UtloggingAlertWrapper>
             )}
         </>
     );

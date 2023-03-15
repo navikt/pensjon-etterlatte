@@ -1,11 +1,10 @@
-import "./SoknadForside.scss";
-import Veileder from "nav-frontend-veileder";
-import ikon from "../../assets/ikoner/veileder.svg";
+import { Veileder } from '../felles/Veileder'
 import React, { useEffect } from "react";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../felles/SkjemaGruppe";
 import { Alert, BodyLong, BodyShort, Button, Link, Heading } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../../hooks/useLanguage";
+import { NavigasjonsRadSection } from "../felles/StyledComponents";
 
 const SoknadKvittering = () => {
     const { t } = useTranslation();
@@ -19,15 +18,13 @@ const SoknadKvittering = () => {
     }, [])
 
     return (
-        <div className={"forside"}>
-            <SkjemaGruppe className={"center"}>
-                <Veileder>
-                    <img alt="veileder" src={ikon}/>
-                </Veileder>
+        <>
+            <SkjemaGruppe>
+                <Veileder></Veileder>
             </SkjemaGruppe>
 
-            <SkjemaGruppe className={"center"}>
-                <Heading size={"medium"} spacing={true}>{t("soeknadKvittering.tittel")}</Heading>
+            <SkjemaGruppe>
+                <Heading className={"center"} size={"medium"} spacing={true}>{t("soeknadKvittering.tittel")}</Heading>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -133,7 +130,7 @@ const SoknadKvittering = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <section className={"navigasjon-rad"}>
+                <NavigasjonsRadSection>
                     <Button
                         variant={"primary"}
                         type={"button"}
@@ -141,9 +138,9 @@ const SoknadKvittering = () => {
                     >
                         {t("soeknadKvittering.spoersmaal.knapp")}
                     </Button>
-                </section>
+                </NavigasjonsRadSection>
             </SkjemaGruppe>
-        </div>
+        </>
     );
 };
 

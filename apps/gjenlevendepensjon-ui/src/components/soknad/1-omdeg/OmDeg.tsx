@@ -1,26 +1,26 @@
-import "./OmDeg.scss";
 import SoknadSteg from "../../../typer/SoknadSteg";
 import { useTranslation } from "react-i18next";
 import InnloggetBruker from "./InnloggetBruker";
-import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { FormProvider, useForm } from "react-hook-form";
 import { IValg } from "../../../typer/Spoersmaal";
 import { useSoknadContext } from "../../../context/soknad/SoknadContext";
 import { ISoeker } from "../../../typer/person";
 import { ActionTypes } from "../../../context/soknad/soknad";
-import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/RHFInput";
-import { RHFInlineRadio, RHFSpoersmaalRadio } from "../../felles/RHFRadio";
+import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from "../../felles/rhf/RHFInput";
+import { RHFInlineRadio, RHFSpoersmaalRadio } from "../../felles/rhf/RHFRadio";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
 import Navigasjon from "../../felles/Navigasjon";
-import {Cell, Grid, Heading} from "@navikt/ds-react";
+import { Cell, Grid, Heading, RadioProps } from "@navikt/ds-react";
 import { BankkontoType } from "../../../typer/utbetaling";
 import UtenlandskBankInfo from "./utenlandskBankInfo/UtenlandskBankInfo";
 import HvorforSpoerVi from "../../felles/HvorforSpoerVi";
-import SkjemaGruppering from "../../felles/SkjemaGruppering";
 import { deepCopy } from "../../../utils/deepCopy";
-import { RHFSelect } from "../../felles/RHFSelect";
+import { RHFSelect } from "../../felles/rhf/RHFSelect";
 import { useLand } from "../../../hooks/useLand";
+import { SkjemaElement } from "../../felles/SkjemaElement";
+import Bredde from "../../../typer/bredde";
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation();
@@ -50,18 +50,18 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
     return (
         <>
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"medium"} className={"center"}>
                     {t("omDeg.tittel")}
                 </Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
             <InnloggetBruker/>
 
             <FormProvider {...methods}>
                 {/* TODO: Flytte dette til start eller eget steg? */}
 
                 <form>
-                    <SkjemaGruppering>
+                    <SkjemaGruppe>
                         {!brukerState.adressebeskyttelse && !brukerState.adresse && (
                             <SkjemaGruppe>
                                 <RHFInput
@@ -76,7 +76,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 <Grid>
                                     <Cell xs={12} md={6} className={"kol"}>
                                         <RHFTelefonInput
-                                            bredde={"S"}
+                                            htmlSize={Bredde.S}
                                             name={"kontaktinfo.telefonnummer"}
                                             label={t("omDeg.kontaktinfo.telefonnummer")}
                                             valgfri={true}
@@ -85,25 +85,27 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 </Grid>
                             </SkjemaGruppe>
                         )}
-                    </SkjemaGruppering>
+                    </SkjemaGruppe>
 
                     {/* 2.7 */}
                     {!brukerState.adressebeskyttelse && (
-                        <SkjemaGruppering>
-                            <RHFSpoersmaalRadio
-                                name={"oppholderSegINorge"}
-                                legend={t("omDeg.oppholderSegINorge")}
-                                description={
-                                    <HvorforSpoerVi title="omDeg.oppholderSegINorge">
-                                        {t("omDeg.oppholdHvorfor")}
-                                    </HvorforSpoerVi>
-                                }
-                            />
+                        <SkjemaGruppe>
+                            <SkjemaElement>
+                                <RHFSpoersmaalRadio
+                                    name={"oppholderSegINorge"}
+                                    legend={t("omDeg.oppholderSegINorge")}
+                                    description={
+                                        <HvorforSpoerVi title="omDeg.oppholderSegINorge">
+                                            {t("omDeg.oppholdHvorfor")}
+                                        </HvorforSpoerVi>
+                                    }
+                                />
+                            </SkjemaElement>
 
                             {oppholderSegINorge === IValg.JA && (
                                 <SkjemaGruppe>
                                     <RHFKontonummerInput
-                                        bredde={"S"}
+                                        htmlSize={Bredde.S}
                                         name={"utbetalingsInformasjon.kontonummer"}
                                         label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                         placeholder={t("felles.elleveSiffer")}
@@ -123,17 +125,20 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                         />
                                     </SkjemaGruppe>
 
-                                    <RHFInlineRadio
-                                        name={"utbetalingsInformasjon.bankkontoType"}
-                                        legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
-                                        radios={Object.values(BankkontoType).map((value) => {
-                                            return { label: t(value), value } as RadioProps;
-                                        })}
-                                    />
+                                    <SkjemaElement>
+                                        <RHFInlineRadio
+                                            name={"utbetalingsInformasjon.bankkontoType"}
+                                            legend={t("omDeg.utbetalingsInformasjon.bankkontoType")}
+                                        >
+                                            {Object.values(BankkontoType).map((value) => {
+                                                return { children: t(value), value } as RadioProps;
+                                            })}
+                                        </RHFInlineRadio>
+                                    </SkjemaElement>
 
                                     {bankkontoType === BankkontoType.norsk && (
                                         <RHFKontonummerInput
-                                            bredde={"S"}
+                                            htmlSize={Bredde.S}
                                             name={"utbetalingsInformasjon.kontonummer"}
                                             label={t("omDeg.utbetalingsInformasjon.kontonummer")}
                                             placeholder={t("felles.elleveSiffer")}
@@ -143,7 +148,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                     {bankkontoType === BankkontoType.utenlandsk && <UtenlandskBankInfo/>}
                                 </>
                             )}
-                        </SkjemaGruppering>
+                        </SkjemaGruppe>
                     )}
 
                     {skalSjekkeFlyktningStatus && (

@@ -1,13 +1,14 @@
 import { IValg } from "../../../../typer/Spoersmaal";
 import { useFormContext } from "react-hook-form";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
-import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/rhf/RHFRadio";
 import Datovelger from "../../../felles/Datovelger";
-import { SkjemaGruppe } from "nav-frontend-skjema";
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from "../../../../utils/dato";
 import { useTranslation } from "react-i18next";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
+import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
+import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
 
 const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation();
@@ -23,34 +24,38 @@ const TidligereSamboerMedAvdoede = () => {
     const bidragMaaUtfylles = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet);
 
     return (
-        <SkjemaGruppering>
-            <RHFSpoersmaalRadio
-                name={"forholdTilAvdoede.fellesBarn"}
-                legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
-            />
+        <SkjemaGruppe>
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={"forholdTilAvdoede.fellesBarn"}
+                    legend={t("omDegOgAvdoed.forholdTilAvdoede.fellesBarn")}
+                />
+            </SkjemaElement>
 
             {fellesBarn === IValg.JA && (
                 <>
                     {/* TODO: Burde være eget felt for inngått samboerskap? */}
-                    <SkjemaGruppe className={"rad"}>
-                        <div className={"kol"}>
-                            <Datovelger
-                                name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
-                                label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
-                                minDate={state.foedselsdato}
-                                maxDate={datoForDoedsfallet || new Date()}
-                            />
-                        </div>
+                    <SkjemaElement>
+                        <SkjemaGruppeRad>
+                            <div className={"kol"}>
+                                <Datovelger
+                                    name={"forholdTilAvdoede.datoForInngaattSamboerskap"}
+                                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap")}
+                                    minDate={state.foedselsdato}
+                                    maxDate={datoForDoedsfallet || new Date()}
+                                />
+                            </div>
 
-                        <div className={"kol"}>
-                            <Datovelger
-                                name={"forholdTilAvdoede.datoForSamlivsbrudd"}
-                                label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd")}
-                                minDate={datoForInngaattSamboerskap}
-                                maxDate={datoForDoedsfallet || new Date()}
-                            />
-                        </div>
-                    </SkjemaGruppe>
+                            <div className={"kol"}>
+                                <Datovelger
+                                    name={"forholdTilAvdoede.datoForSamlivsbrudd"}
+                                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd")}
+                                    minDate={datoForInngaattSamboerskap}
+                                    maxDate={datoForDoedsfallet || new Date()}
+                                />
+                            </div>
+                        </SkjemaGruppeRad>
+                    </SkjemaElement>
 
                     {bidragMaaUtfylles && (
                         <RHFSpoersmaalRadio
@@ -60,7 +65,7 @@ const TidligereSamboerMedAvdoede = () => {
                     )}
                 </>
             )}
-        </SkjemaGruppering>
+        </SkjemaGruppe>
     )
 }
 

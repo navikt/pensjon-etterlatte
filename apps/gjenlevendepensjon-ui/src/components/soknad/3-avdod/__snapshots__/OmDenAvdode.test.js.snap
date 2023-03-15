@@ -2,59 +2,49 @@
 
 exports[`Om den avdøde Snapshot 1`] = `
 <div>
-  <fieldset
-    aria-invalid="false"
-    class="skjemagruppe center"
+  <div
+    class="sc-guDLRT gSrTwn"
   >
     <h1
-      class="navds-heading navds-heading--medium"
+      class="center navds-heading navds-heading--medium"
     >
       omDenAvdoede.tittel
     </h1>
-    <div
-      aria-live="polite"
-    />
-  </fieldset>
+  </div>
   <form>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe skjemagruppering"
+      class="sc-beySbM kuevld"
     >
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe rad"
+      <div
+        class="sc-irLwvL jncFQD"
       >
         <div
-          class="kolonne"
+          class="kol"
         >
-          <p
+          <label
             class="navds-label"
           >
             omDenAvdoede.fornavn
-          </p>
+          </label>
           <p
             class="navds-body-long"
           />
         </div>
         <div
-          class="kolonne"
+          class="kol"
         >
-          <p
+          <label
             class="navds-label"
           >
             omDenAvdoede.etternavn
-          </p>
+          </label>
           <p
             class="navds-body-long"
           />
         </div>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
-      <fieldset
-        aria-invalid="false"
-        class="skjemagruppe"
+      </div>
+      <div
+        class="sc-guDLRT gSrTwn"
       >
         <div
           class="navds-grid"
@@ -64,22 +54,28 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
           >
             <div
-              class="skjemaelement"
+              class="navds-form-field navds-form-field--medium"
             >
               <label
-                class="skjemaelement__label"
+                class="navds-form-field__label navds-label"
                 for="foedselsnummer"
               >
                 omDenAvdoede.foedselsnummer
               </label>
               <input
                 aria-invalid="false"
-                class="skjemaelement__input input--fullbredde"
+                class="navds-text-field__input navds-body-short navds-body-medium"
                 id="foedselsnummer"
                 placeholder="felles.fnrPlaceholder"
                 required=""
                 type="tel"
                 value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-aksel-id-1"
               />
             </div>
           </div>
@@ -90,19 +86,21 @@ exports[`Om den avdøde Snapshot 1`] = `
               id="statsborgerskap"
             >
               <div
-                class="skjemaelement"
+                class="navds-form-field navds-form-field--medium"
               >
                 <label
-                  class="skjemaelement__label"
+                  class="navds-form-field__label navds-label"
+                  for="textField-aksel-id-2"
                 >
                   omDenAvdoede.statsborgerskap
                 </label>
                 <div
-                  class="selectContainer input--l"
+                  class="navds-select__container"
                 >
                   <select
                     aria-invalid="false"
-                    class="skjemaelement__input"
+                    class="navds-select__input navds-body-short navds-body--medium"
+                    id="textField-aksel-id-2"
                   >
                     <option
                       value=""
@@ -110,26 +108,42 @@ exports[`Om den avdøde Snapshot 1`] = `
                       felles.velgLand
                     </option>
                   </select>
+                  <svg
+                    aria-hidden="true"
+                    class="navds-select__chevron"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="textField-error-aksel-id-2"
+                />
               </div>
             </div>
           </div>
         </div>
-        <div
-          aria-live="polite"
-        />
-      </fieldset>
-      <div
-        aria-live="polite"
-      />
+      </div>
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe skjemagruppering"
+      class="sc-beySbM kuevld"
     >
       <fieldset
-        aria-invalid="false"
-        class="skjemagruppe ingress"
+        class="sc-beySbM kuevld"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -141,96 +155,119 @@ exports[`Om den avdøde Snapshot 1`] = `
         >
           omDenAvdoede.boddEllerJobbetUtland.ingress
         </p>
-        <div
-          aria-live="polite"
-        />
       </fieldset>
       <div
-        id="boddEllerJobbetUtland.svar"
+        class="sc-guDLRT gSrTwn"
       >
-        <fieldset
-          aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe inline"
+        <div
+          id="boddEllerJobbetUtland.svar"
         >
-          <legend
-            class="skjemagruppe__legend"
+          <fieldset
+            aria-invalid="false"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
-            omDenAvdoede.boddEllerJobbetUtland.svar
-          </legend>
-          <div
-            class="inputPanelGruppe__inner"
-          >
-            <label
-              class="inputPanel radioPanel"
+            <legend
+              class="navds-fieldset__legend navds-label"
             >
-              <input
-                aria-checked="false"
-                aria-invalid="false"
-                class="inputPanel__field"
-                name="boddEllerJobbetUtland.svar"
-                required=""
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <span
-                class="inputPanel__label"
-              >
-                radiobuttons.ja
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel"
+              omDenAvdoede.boddEllerJobbetUtland.svar
+            </legend>
+            <div
+              class="navds-radio-buttons"
             >
-              <input
-                aria-checked="false"
-                aria-invalid="false"
-                class="inputPanel__field"
-                name="boddEllerJobbetUtland.svar"
-                required=""
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <span
-                class="inputPanel__label"
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                radiobuttons.nei
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel"
-            >
-              <input
-                aria-checked="false"
-                aria-invalid="false"
-                class="inputPanel__field"
-                name="boddEllerJobbetUtland.svar"
-                required=""
-                type="radio"
-                value="radiobuttons.vetIkke"
-              />
-              <span
-                class="inputPanel__label"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-3"
+                  name="boddEllerJobbetUtland.svar"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-3"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                radiobuttons.vetIkke
-              </span>
-            </label>
-          </div>
-          <div
-            aria-live="polite"
-          />
-        </fieldset>
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-4"
+                  name="boddEllerJobbetUtland.svar"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-4"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-5"
+                  name="boddEllerJobbetUtland.svar"
+                  type="radio"
+                  value="radiobuttons.vetIkke"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-5"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.vetIkke
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-6"
+            />
+          </fieldset>
+        </div>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe skjemagruppering"
+      class="sc-beySbM kuevld"
     >
       <fieldset
-        aria-invalid="false"
-        class="skjemagruppe ingress"
+        class="sc-beySbM kuevld"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -242,131 +279,149 @@ exports[`Om den avdøde Snapshot 1`] = `
         >
           omDenAvdoede.selvstendigNaeringsdrivende.ingress
         </p>
-        <div
-          aria-live="polite"
-        />
       </fieldset>
       <div
-        id="selvstendigNaeringsdrivende.svar"
+        class="sc-guDLRT gSrTwn"
       >
-        <fieldset
-          aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe inline"
+        <div
+          id="selvstendigNaeringsdrivende.svar"
         >
-          <legend
-            class="skjemagruppe__legend"
+          <fieldset
+            aria-invalid="false"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
-            omDenAvdoede.selvstendigNaeringsdrivende.svar
-          </legend>
-          <div
-            class="inputPanelGruppe__inner"
-          >
-            <label
-              class="inputPanel radioPanel"
+            <legend
+              class="navds-fieldset__legend navds-label"
             >
-              <input
-                aria-checked="false"
-                aria-invalid="false"
-                class="inputPanel__field"
-                name="selvstendigNaeringsdrivende.svar"
-                required=""
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <span
-                class="inputPanel__label"
-              >
-                radiobuttons.ja
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel"
+              omDenAvdoede.selvstendigNaeringsdrivende.svar
+            </legend>
+            <div
+              class="navds-radio-buttons"
             >
-              <input
-                aria-checked="false"
-                aria-invalid="false"
-                class="inputPanel__field"
-                name="selvstendigNaeringsdrivende.svar"
-                required=""
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <span
-                class="inputPanel__label"
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                radiobuttons.nei
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel"
-            >
-              <input
-                aria-checked="false"
-                aria-invalid="false"
-                class="inputPanel__field"
-                name="selvstendigNaeringsdrivende.svar"
-                required=""
-                type="radio"
-                value="radiobuttons.vetIkke"
-              />
-              <span
-                class="inputPanel__label"
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-8"
+                  name="selvstendigNaeringsdrivende.svar"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-8"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
-                radiobuttons.vetIkke
-              </span>
-            </label>
-          </div>
-          <div
-            aria-live="polite"
-          />
-        </fieldset>
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-9"
+                  name="selvstendigNaeringsdrivende.svar"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-9"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-invalid="false"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-10"
+                  name="selvstendigNaeringsdrivende.svar"
+                  type="radio"
+                  value="radiobuttons.vetIkke"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-10"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.vetIkke
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-11"
+            />
+          </fieldset>
+        </div>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe skjemagruppering"
+      class="sc-beySbM kuevld"
     >
       <fieldset
-        aria-invalid="false"
-        class="skjemagruppe ingress"
+        class="sc-beySbM kuevld"
       >
         <h1
           class="navds-heading navds-heading--small"
         >
           omDenAvdoede.annenOpptjening.tittel
         </h1>
-        <div
-          aria-live="polite"
-        />
       </fieldset>
       <fieldset
-        aria-invalid="false"
-        class="skjemagruppe"
+        class="sc-beySbM kuevld"
       >
         <div
           id="doedsfallAarsak"
         >
           <fieldset
             aria-invalid="false"
-            class="skjemagruppe inputPanelGruppe inline"
+            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
-              class="skjemagruppe__legend"
+              class="navds-fieldset__legend navds-label"
             >
               omDenAvdoede.doedsfallAarsak
             </legend>
             <div
-              class="skjemagruppe__description"
+              class="navds-fieldset__description navds-body-long navds-body-long--small"
+              id="fieldset-description-aksel-id-16"
             >
-              <div
-                class="hvorforPanel"
-              >
+              <div>
                 <button
                   aria-expanded="false"
-                  class="hvorforPanel__toggle"
+                  class="sc-jTQDnj llMVeD"
                   data-testid="hvorforPanel_toggle"
                   type="button"
                 >
@@ -376,14 +431,16 @@ exports[`Om den avdøde Snapshot 1`] = `
                   <span>
                     <svg
                       fill="none"
+                      focusable="false"
                       height="1em"
+                      role="img"
                       viewBox="0 0 24 24"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M12 17L3 8.429 4.5 7l7.5 7.143L19.5 7 21 8.429 12 17z"
+                        d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
                         fill="currentColor"
                         fill-rule="evenodd"
                       />
@@ -393,93 +450,116 @@ exports[`Om den avdøde Snapshot 1`] = `
               </div>
             </div>
             <div
-              class="inputPanelGruppe__inner"
+              class="navds-radio-buttons"
             >
-              <label
-                class="inputPanel radioPanel"
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-checked="false"
                   aria-invalid="false"
-                  class="inputPanel__field"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-13"
                   name="doedsfallAarsak"
-                  required=""
                   type="radio"
                   value="radiobuttons.ja"
                 />
-                <span
-                  class="inputPanel__label"
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-13"
                 >
-                  radiobuttons.ja
-                </span>
-              </label>
-              <label
-                class="inputPanel radioPanel"
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.ja
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-checked="false"
                   aria-invalid="false"
-                  class="inputPanel__field"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-14"
                   name="doedsfallAarsak"
-                  required=""
                   type="radio"
                   value="radiobuttons.nei"
                 />
-                <span
-                  class="inputPanel__label"
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-14"
                 >
-                  radiobuttons.nei
-                </span>
-              </label>
-              <label
-                class="inputPanel radioPanel"
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.nei
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-checked="false"
                   aria-invalid="false"
-                  class="inputPanel__field"
+                  class="navds-radio__input"
+                  id="radio-aksel-id-15"
                   name="doedsfallAarsak"
-                  required=""
                   type="radio"
                   value="radiobuttons.vetIkke"
                 />
-                <span
-                  class="inputPanel__label"
+                <label
+                  class="navds-radio__label"
+                  for="radio-aksel-id-15"
                 >
-                  radiobuttons.vetIkke
-                </span>
-              </label>
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short"
+                    >
+                      radiobuttons.vetIkke
+                    </span>
+                  </span>
+                </label>
+              </div>
             </div>
             <div
               aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-aksel-id-16"
             />
           </fieldset>
         </div>
-        <div
-          aria-live="polite"
-        />
       </fieldset>
       <div
         id="harAvtjentMilitaerTjeneste.svar"
       >
         <fieldset
           aria-invalid="false"
-          class="skjemagruppe inputPanelGruppe inline"
+          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
-            class="skjemagruppe__legend"
+            class="navds-fieldset__legend navds-label"
           >
             omDenAvdoede.harAvtjentMilitaerTjeneste.svar
           </legend>
           <div
-            class="skjemagruppe__description"
+            class="navds-fieldset__description navds-body-long navds-body-long--small"
+            id="fieldset-description-aksel-id-21"
           >
-            <div
-              class="hvorforPanel"
-            >
+            <div>
               <button
                 aria-expanded="false"
-                class="hvorforPanel__toggle"
+                class="sc-jTQDnj llMVeD"
                 data-testid="hvorforPanel_toggle"
                 type="button"
               >
@@ -489,14 +569,16 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <span>
                   <svg
                     fill="none"
+                    focusable="false"
                     height="1em"
+                    role="img"
                     viewBox="0 0 24 24"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       clip-rule="evenodd"
-                      d="M12 17L3 8.429 4.5 7l7.5 7.143L19.5 7 21 8.429 12 17z"
+                      d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
                       fill="currentColor"
                       fill-rule="evenodd"
                     />
@@ -506,85 +588,109 @@ exports[`Om den avdøde Snapshot 1`] = `
             </div>
           </div>
           <div
-            class="inputPanelGruppe__inner"
+            class="navds-radio-buttons"
           >
-            <label
-              class="inputPanel radioPanel"
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
               <input
-                aria-checked="false"
                 aria-invalid="false"
-                class="inputPanel__field"
+                class="navds-radio__input"
+                id="radio-aksel-id-18"
                 name="harAvtjentMilitaerTjeneste.svar"
-                required=""
                 type="radio"
                 value="radiobuttons.ja"
               />
-              <span
-                class="inputPanel__label"
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-18"
               >
-                radiobuttons.ja
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel"
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    radiobuttons.ja
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
               <input
-                aria-checked="false"
                 aria-invalid="false"
-                class="inputPanel__field"
+                class="navds-radio__input"
+                id="radio-aksel-id-19"
                 name="harAvtjentMilitaerTjeneste.svar"
-                required=""
                 type="radio"
                 value="radiobuttons.nei"
               />
-              <span
-                class="inputPanel__label"
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-19"
               >
-                radiobuttons.nei
-              </span>
-            </label>
-            <label
-              class="inputPanel radioPanel"
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    radiobuttons.nei
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
               <input
-                aria-checked="false"
                 aria-invalid="false"
-                class="inputPanel__field"
+                class="navds-radio__input"
+                id="radio-aksel-id-20"
                 name="harAvtjentMilitaerTjeneste.svar"
-                required=""
                 type="radio"
                 value="radiobuttons.vetIkke"
               />
-              <span
-                class="inputPanel__label"
+              <label
+                class="navds-radio__label"
+                for="radio-aksel-id-20"
               >
-                radiobuttons.vetIkke
-              </span>
-            </label>
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short"
+                  >
+                    radiobuttons.vetIkke
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
           <div
             aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-aksel-id-21"
           />
         </fieldset>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
     <fieldset
-      aria-invalid="false"
-      class="skjemagruppe navigasjon-footer"
+      class="sc-beySbM kuevld"
     >
       <div
-        class="navigasjon-rad"
+        class="sc-gLLvby idHBWd undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.tilbake
           </span>
@@ -594,19 +700,16 @@ exports[`Om den avdøde Snapshot 1`] = `
           type="button"
         >
           <span
-            class="navds-button__inner navds-body-short"
+            aria-live="polite"
+            class="navds-label"
           >
             knapp.neste
           </span>
         </button>
       </div>
-      <div
-        aria-live="polite"
-      />
     </fieldset>
-    <fieldset
-      aria-invalid="false"
-      class="skjemagruppe navigasjon-rad"
+    <div
+      class="sc-gLLvby sc-iBdmCd idHBWd fZbhsy"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -614,15 +717,13 @@ exports[`Om den avdøde Snapshot 1`] = `
         type="button"
       >
         <span
-          class="navds-button__inner navds-body-short"
+          aria-live="polite"
+          class="navds-label"
         >
           knapp.avbryt
         </span>
       </button>
-      <div
-        aria-live="polite"
-      />
-    </fieldset>
+    </div>
   </form>
 </div>
 `;

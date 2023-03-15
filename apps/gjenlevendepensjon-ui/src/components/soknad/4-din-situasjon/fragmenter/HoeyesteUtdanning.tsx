@@ -1,12 +1,12 @@
-import { RHFRadio } from "../../../felles/RHFRadio";
+import { RHFRadio } from "../../../felles/rhf/RHFRadio";
 import { useTranslation } from "react-i18next";
-import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
 import React from "react";
 import { ISituasjon, Utdanning } from "../../../../typer/situasjon";
-import { RHFInput } from "../../../felles/RHFInput";
+import { RHFInput } from "../../../felles/rhf/RHFInput";
 import { useFormContext } from "react-hook-form";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
-import { Heading } from "@navikt/ds-react";
+import { Heading, RadioProps } from "@navikt/ds-react";
+import { SkjemaElement } from "../../../felles/SkjemaElement";
+import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
 
 const HoeyesteUtdanning = () => {
     const { t } = useTranslation();
@@ -16,17 +16,18 @@ const HoeyesteUtdanning = () => {
     const hoyesteFullfoerteUtdanning = watch("utdanning.hoyesteFullfoerteUtdanning")
 
     return (
-        <SkjemaGruppering>
-            <SkjemaGruppe>
+        <SkjemaGruppe>
+            <SkjemaElement>
                 <Heading size={"small"}>{t("dinSituasjon.utdanning.tittelFullfoert")}</Heading>
-            </SkjemaGruppe>
+            </SkjemaElement>
             <RHFRadio
                 name={"utdanning.hoyesteFullfoerteUtdanning"}
                 legend={t("dinSituasjon.utdanning.hoyesteFullfoerteUtdanning")}
-                radios={Object.values(Utdanning).map(value => {
-                    return { label: t(value), value, required: true } as RadioProps
+            >
+                {Object.values(Utdanning).map(value => {
+                    return { children: t(value), value, required: true } as RadioProps
                 })}
-            />
+            </RHFRadio>
 
             {hoyesteFullfoerteUtdanning === Utdanning.annen && (
                 <RHFInput
@@ -35,7 +36,7 @@ const HoeyesteUtdanning = () => {
                     placeholder={t("dinSituasjon.utdanning.annenUtdanningPlaceholder")}
                 />
             )}
-        </SkjemaGruppering>
+        </SkjemaGruppe>
     )
 }
 

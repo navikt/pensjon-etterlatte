@@ -1,13 +1,13 @@
 import { useBrukerContext } from "../context/bruker/BrukerContext";
-import Veileder from "nav-frontend-veileder";
-import ikon from "../assets/ikoner/veileder.svg";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { Veileder } from './felles/Veileder'
+import {SkjemaGruppe} from "./felles/SkjemaGruppe";
 import { ActionTypes } from "../context/bruker/bruker";
 import { erForUng } from "../utils/alder";
 import { useHistory } from "react-router-dom";
 import { BodyLong, Button, Link } from "@navikt/ds-react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { NavigasjonsRadSection } from "./felles/StyledComponents";
 
 const UgyldigSoeker = () => {
     const history = useHistory();
@@ -36,15 +36,9 @@ const UgyldigSoeker = () => {
     return (
         <>
             <SkjemaGruppe>
-                {brukerErForUng ? (
-                    <Veileder tekst={heiTekst} posisjon="høyre">
-                        <img alt="veileder" src={ikon}/>
+                    <Veileder>
+                        {heiTekst}
                     </Veileder>
-                ) : (
-                    <Veileder tekst={heiTekst} posisjon="høyre">
-                        <img alt="veileder" src={ikon}/>
-                    </Veileder>
-                )}
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -74,9 +68,9 @@ const UgyldigSoeker = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <section className={"navigasjon-rad"}>
+                <NavigasjonsRadSection>
                     <Button variant={"primary"} onClick={tilbake}>{t("knapp.tilbake")}</Button>
-                </section>
+                </NavigasjonsRadSection>
             </SkjemaGruppe>
         </>
     );

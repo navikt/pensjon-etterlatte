@@ -1,19 +1,30 @@
-import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/rhf/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { FieldArrayWithId, useFieldArray, useFormContext } from "react-hook-form";
 import { IAvdoed, OppholdUtlandType } from "../../../../typer/person";
-import { RHFInput } from "../../../felles/RHFInput";
+import { RHFInput } from "../../../felles/rhf/RHFInput";
 import Datovelger from "../../../felles/Datovelger";
 import { useEffect } from "react";
-import { RHFCheckboksGruppe } from "../../../felles/RHFCheckboksPanelGruppe";
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import { RHFCheckboksGruppe } from "../../../felles/rhf/RHFCheckboksPanelGruppe";
 import { useTranslation } from "react-i18next";
 import { DeleteFilled } from "@navikt/ds-icons";
 import HvorforSpoerVi from "../../../felles/HvorforSpoerVi";
 import { BodyLong, Button, Panel, Heading } from "@navikt/ds-react";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
-import { RHFSelect } from "../../../felles/RHFSelect";
+import { RHFSelect } from "../../../felles/rhf/RHFSelect";
 import { useLand } from "../../../../hooks/useLand";
+import { SkjemaGruppeIngress } from "../../../felles/StyledComponents";
+import { SkjemaElement } from "../../../felles/SkjemaElement";
+import { SkjemaGruppe } from "../../../felles/SkjemaGruppe";
+import Bredde from "../../../../typer/bredde";
+import styled from "styled-components";
+
+const Rad = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  column-gap: 1rem;
+`
 
 interface Props {
     datoForDoedsfallet?: Date;
@@ -40,24 +51,26 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     });
 
     return (
-        <SkjemaGruppering>
-            <SkjemaGruppe className="ingress">
+        <SkjemaGruppe>
+            <SkjemaGruppeIngress>
                 <Heading size="small">{t("omDenAvdoede.boddEllerJobbetUtland.tittel")}</Heading>
                 <BodyLong>{t("omDenAvdoede.boddEllerJobbetUtland.ingress")}</BodyLong>
-            </SkjemaGruppe>
-            <RHFSpoersmaalRadio
-                name={"boddEllerJobbetUtland.svar"}
-                legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
-                vetIkke
-            />
+            </SkjemaGruppeIngress>
+
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={"boddEllerJobbetUtland.svar"}
+                    legend={t("omDenAvdoede.boddEllerJobbetUtland.svar")}
+                    vetIkke
+                />
+            </SkjemaElement>
 
             {boddEllerArbeidetUtland === IValg.JA && (
-                <SkjemaGruppering>
+                <SkjemaGruppe>
                     {fields.map((field: FieldArrayWithId, index: number) => (
                         <Panel border key={field.id} className={"luft-under"}>
-                            <div className={"rad"}>
+                            <Rad>
                                 <RHFSelect
-                                    className="kol"
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].land` as const}
                                     label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land")}
                                     selectOptions={alleLand}
@@ -65,24 +78,24 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                 <RHFCheckboksGruppe
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].beskrivelse` as const}
                                     legend={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse")}
-                                    className={"kol inline"}
+                                    inline={true}
                                     checkboxes={[
                                         {
-                                            label: t(OppholdUtlandType.bodd.valueOf()),
+                                            children: t(OppholdUtlandType.bodd.valueOf()),
                                             value: OppholdUtlandType.bodd,
                                             required: true
                                         },
                                         {
-                                            label: t(OppholdUtlandType.arbeidet.valueOf()),
+                                            children: t(OppholdUtlandType.arbeidet.valueOf()),
                                             value: OppholdUtlandType.arbeidet,
                                             required: true
                                         },
                                     ]}
                                 />
-                            </div>
+                            </Rad>
 
-                            <SkjemaGruppe>
-                                <div className={"rad"}>
+                            <SkjemaElement>
+                                <Rad>
                                     <div className={"kol"}>
                                         <Datovelger
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
@@ -99,8 +112,8 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                             valgfri
                                         />
                                     </div>
-                                </div>
-                            </SkjemaGruppe>
+                                </Rad>
+                            </SkjemaElement>
 
                             <RHFSpoersmaalRadio
                                 name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygd` as const}
@@ -115,17 +128,19 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                 vetIkke
                             />
 
-                            <RHFInput
-                                name={
-                                    `boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const
-                                }
-                                bredde={"S"}
-                                valgfri
-                                label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
-                                placeholder={t(
-                                    "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder"
-                                )}
-                            />
+                            <SkjemaElement>
+                                <RHFInput
+                                        name={
+                                            `boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const
+                                        }
+                                        htmlSize={Bredde.S}
+                                        valgfri
+                                        label={t("omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse")}
+                                        placeholder={t(
+                                                "omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder"
+                                        )}
+                                />
+                            </SkjemaElement>
 
                             {fields.length > 1 && (
                                 <div style={{ textAlign: "right" }}>
@@ -140,9 +155,9 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     <Button variant={"secondary"} type={"button"} onClick={() => append({}, { shouldFocus: true })}>
                         + {t("knapp.leggTilLand")}
                     </Button>
-                </SkjemaGruppering>
+                </SkjemaGruppe>
             )}
-        </SkjemaGruppering>
+        </SkjemaGruppe>
     );
 };
 

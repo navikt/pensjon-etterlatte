@@ -1,12 +1,23 @@
 import { FC, useState } from "react";
-//import { v4 as uuid } from "uuid";
 import { Collapse, Expand } from "@navikt/ds-icons";
 import { BodyLong } from "@navikt/ds-react";
 import { useTranslation } from "react-i18next";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
+import styled from "styled-components";
+
+const ToggleButton = styled.button`
+    color: #0067c5;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0.2rem 0;
+    min-height: 0;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 0.25rem;
+`
 
 const HvorforSpoerVi: FC<{title: string, children: any}> = ({ title, children }) => {
-    //const id = uuid();
     const [erApen, setErApen] = useState(false);
     const { t } = useTranslation();
     const { logEvent } = useAmplitude();
@@ -19,22 +30,19 @@ const HvorforSpoerVi: FC<{title: string, children: any}> = ({ title, children })
     };
 
     return (
-        <div className={"hvorforPanel"} /*id={id}*/>
-            <button
+        <div>
+            <ToggleButton
                 data-testid="hvorforPanel_toggle"
                 type={"button"}
-                className={"hvorforPanel__toggle"}
                 onClick={click}
                 aria-expanded={erApen}
             >
                 <span>{t("hvorforSpoerVi")}</span>
                 <span>{erApen ? <Collapse /> : <Expand />}</span>
-            </button>
+            </ToggleButton>
 
             {erApen && (
-                <div className={"hvorforPanel__innhold"}>
-                    <BodyLong>{children}</BodyLong>
-                </div>
+                <BodyLong>{children}</BodyLong>
             )}
         </div>
     );

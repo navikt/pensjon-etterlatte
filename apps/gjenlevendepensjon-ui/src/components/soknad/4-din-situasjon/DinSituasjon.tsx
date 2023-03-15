@@ -1,5 +1,5 @@
 import SoknadSteg from "../../../typer/SoknadSteg";
-import { RadioProps, SkjemaGruppe } from "nav-frontend-skjema";
+import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import { ISituasjon, JobbStatus } from "../../../typer/situasjon";
 import { IngenJobb } from "../../../typer/arbeidsforhold";
 import { FormProvider, useForm } from "react-hook-form";
@@ -12,12 +12,12 @@ import HoeyesteUtdanning from "./fragmenter/HoeyesteUtdanning";
 import Navigasjon from "../../felles/Navigasjon";
 import { useTranslation } from "react-i18next";
 import UnderUtdanning from "./fragmenter/UnderUtdanning";
-import { RHFSelect } from "../../felles/RHFSelect";
+import { RHFSelect } from "../../felles/rhf/RHFSelect";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import { RHFCheckboksPanelGruppe } from "../../felles/RHFCheckboksPanelGruppe";
-import SkjemaGruppering from "../../felles/SkjemaGruppering";
+import {RHFCheckboksGruppe} from "../../felles/rhf/RHFCheckboksPanelGruppe";
 import { deepCopy } from "../../../utils/deepCopy";
 import { useBrukerContext } from "../../../context/bruker/BrukerContext";
+import {SkjemaElement} from "../../felles/SkjemaElement";
 
 const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation();
@@ -63,11 +63,11 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     return (
         <FormProvider {...methods}>
             <form>
-                <SkjemaGruppe>
+                <SkjemaElement>
                     <Heading size={"medium"} className={"center"}>
                         {t("dinSituasjon.tittel")}
                     </Heading>
-                </SkjemaGruppe>
+                </SkjemaElement>
 
                 <SkjemaGruppe>
                     <Heading size={"small"}>{t("dinSituasjon.undertittel")}</Heading>
@@ -76,11 +76,11 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
 
                 {!brukerState.adressebeskyttelse && (
                     <>
-                        <RHFCheckboksPanelGruppe
+                        <RHFCheckboksGruppe
                             name={"jobbStatus"}
                             legend={t("dinSituasjon.jobbStatus")}
                             checkboxes={Object.values(JobbStatus).map((value) => {
-                                return { label: t(value), value, required: true } as RadioProps;
+                                return { children: t(value), value, required: true };
                             })}
                         />
 
@@ -90,16 +90,16 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                         {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
 
                         {jobbStatus?.includes(JobbStatus.ingen) && (
-                            <SkjemaGruppering>
-                                <SkjemaGruppe>
+                            <SkjemaGruppe>
+                                <SkjemaElement>
                                     <Heading size={"small"}>{t("dinSituasjon.ingenJobbTittel")}</Heading>
-                                </SkjemaGruppe>
+                                </SkjemaElement>
                                 <RHFSelect
                                     name={"ingenJobbBeskrivelse"}
                                     label={t("dinSituasjon.ingenJobbBeskrivelse")}
                                     selectOptions={[{ label: t("felles.velg"), value: "" }].concat(ingenJobbAlternativer)}
                                 />
-                            </SkjemaGruppering>
+                            </SkjemaGruppe>
                         )}
 
                         <HoeyesteUtdanning />

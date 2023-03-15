@@ -1,5 +1,4 @@
 import { act, render, fireEvent } from "@testing-library/react";
-import * as JSutils from "nav-frontend-js-utils";
 import OmDegOgAvdoed from "./OmDegOgAvdoed";
 
 jest.mock("react-i18next", () => ({
@@ -12,8 +11,6 @@ jest.mock("react-i18next", () => ({
         },
     }),
 }));
-
-JSutils.guid = jest.fn(() => "123");
 
 jest.mock("uuid", () => ({
     v4: () => "456",

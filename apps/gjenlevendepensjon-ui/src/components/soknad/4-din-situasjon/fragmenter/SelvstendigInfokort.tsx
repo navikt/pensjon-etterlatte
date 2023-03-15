@@ -1,12 +1,13 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Panel } from "@navikt/ds-react";
-import { RHFInput, RHFNumberInput } from "../../../felles/RHFInput";
-import { SkjemaGruppe } from "nav-frontend-skjema";
-import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
+import { RHFInput, RHFNumberInput } from "../../../felles/rhf/RHFInput";
+import { RHFSpoersmaalRadio } from "../../../felles/rhf/RHFRadio";
 import { IValg } from "../../../../typer/Spoersmaal";
 import { DeleteFilled } from "@navikt/ds-icons";
 import { useFormContext } from "react-hook-form";
+import { SkjemaElement } from "../../../felles/SkjemaElement";
+import Bredde from "../../../../typer/bredde";
 
 interface Props {
     lengde: number;
@@ -29,31 +30,34 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                 label={t("dinSituasjon.selvstendig.beskrivelse")}
             />
 
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <RHFNumberInput
                     name={`selvstendig[${index}].orgnr` as const}
                     placeholder={t("dinSituasjon.selvstendig.orgnrplaceholder")}
                     label={t("dinSituasjon.selvstendig.orgnr")}
                     maxLength={9}
                     minLength={9}
+                    htmlSize={Bredde.S}
                 />
-            </SkjemaGruppe>
+            </SkjemaElement>
 
-            <RHFSpoersmaalRadio
-                name={`selvstendig[${index}].forventerEndretInntekt.svar` as const}
-                legend={t("dinSituasjon.selvstendig.forventerEndretInntekt.svar")}
-                vetIkke
-            />
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={`selvstendig[${index}].forventerEndretInntekt.svar` as const}
+                    legend={t("dinSituasjon.selvstendig.forventerEndretInntekt.svar")}
+                    vetIkke
+                />
+            </SkjemaElement>
 
             {endretInntekt === IValg.JA && (
-                <RHFInput
-                    name={`selvstendig[${index}].forventerEndretInntekt.beskrivelse` as const}
-                    bredde={"S"}
-                    label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
-                    placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
-                    maxLength={200}
-                />
-
+                <SkjemaElement>
+                    <RHFInput
+                        name={`selvstendig[${index}].forventerEndretInntekt.beskrivelse` as const}
+                        label={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")}
+                        placeholder={t("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder")}
+                        maxLength={200}
+                    />
+                </SkjemaElement>
             )}
 
             {lengde > 1 && (

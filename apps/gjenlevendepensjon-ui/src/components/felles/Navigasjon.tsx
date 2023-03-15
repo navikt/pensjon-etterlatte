@@ -1,7 +1,6 @@
-import { SkjemaGruppe } from "nav-frontend-skjema";
+import {SkjemaGruppe} from "./SkjemaGruppe";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import classNames from "classnames";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { ActionTypes as BrukerAction } from "../../context/bruker/bruker";
@@ -10,6 +9,41 @@ import { erDato } from "../../utils/dato";
 import { BodyShort, Button, Heading, Loader, Modal } from "@navikt/ds-react";
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { slettSoeknad } from "../../api/api";
+import styled from "styled-components";
+import {NavigasjonsRad, NavigasjonsRadSkjemaGruppe} from "./StyledComponents";
+
+const NavigasjonWrapper = styled(SkjemaGruppe)`
+    @media screen and (max-width: 650px) {
+    .knapp {
+      font-size: 1rem;
+      padding: 0 1rem;
+      width: 50%;
+    }
+  }
+`
+
+const NavigasjonModal = styled(Modal)`
+  text-align: center;
+  padding: 3rem;
+
+  @media screen and (max-width: 650px) {
+    .knapp {
+      font-size: 0.8em;
+      padding: 0 1em;
+    }
+  }
+  
+  .navds-modal__button {
+    visibility: hidden;
+  }
+  
+  max-width: 650px;
+  width: 100%;
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement!!("#root");
 
@@ -70,8 +104,8 @@ const Navigasjon = ({
 
     return (
         <>
-            <SkjemaGruppe className="navigasjon-footer">
-                <div className={classNames("navigasjon-rad", disabled && "disabled")}>
+            <NavigasjonWrapper>
+                <NavigasjonsRad className={`${disabled && "disabled"}`}>
                     {!!forrige && (
                         <Button variant={"primary"} type={"button"} onClick={forrige.onClick}>
                             {forrige.label || t("knapp.tilbake")}
@@ -89,23 +123,22 @@ const Navigasjon = ({
                             {send.label || t("knapp.sendSoeknad")} {disabled && <Loader/>}
                         </Button>
                     )}
-                </div>
+                </NavigasjonsRad>
 
                 {!!sistLagret && (
                     <BodyShort size={"small"} spacing className={"center mute"}>
                         {t("felles.sistLagret")}: {sistLagret}
                     </BodyShort>
                 )}
-            </SkjemaGruppe>
+            </NavigasjonWrapper>
 
-            <SkjemaGruppe className={classNames("navigasjon-rad", disabled && "disabled")}>
+            <NavigasjonsRadSkjemaGruppe disabled={disabled}>
                 <Button id={"avbryt-btn"} variant={"secondary"} type={"button"} onClick={() => setIsOpen(true)}>
                     {t("knapp.avbryt")}
                 </Button>
-            </SkjemaGruppe>
+            </NavigasjonsRadSkjemaGruppe>
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)}
-                   className="spoersmaal-modal skjul-modal-knapp ey-modal">
+            <NavigasjonModal open={isOpen} onClose={() => setIsOpen(false)}>
 
                 <SkjemaGruppe>
                     <Heading size={"medium"}>{t("avbrytModal.spoersmaal")}</Heading>
@@ -132,7 +165,7 @@ const Navigasjon = ({
                        onClick={avbrytOgslettSoeknad}>{t("avbrytModal.svarSlett")}
                     </a>
                 </SkjemaGruppe>
-            </Modal>
+            </NavigasjonModal>
         </>
     );
 };

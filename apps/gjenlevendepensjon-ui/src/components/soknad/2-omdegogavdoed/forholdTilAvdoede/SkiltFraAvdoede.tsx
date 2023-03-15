@@ -1,13 +1,14 @@
-import { RHFSpoersmaalRadio } from "../../../felles/RHFRadio";
+import { RHFSpoersmaalRadio } from "../../../felles/rhf/RHFRadio";
 import Datovelger from "../../../felles/Datovelger";
 import { ISoekerOgAvdoed } from "../../../../typer/person";
 import { useFormContext } from "react-hook-form";
 import { antallAarMellom } from "../../../../utils/dato";
 import { IValg } from "../../../../typer/Spoersmaal";
-import { SkjemaGruppe } from "nav-frontend-skjema";
 import { useTranslation } from "react-i18next";
-import SkjemaGruppering from "../../../felles/SkjemaGruppering";
 import { useBrukerContext } from "../../../../context/bruker/BrukerContext";
+import {SkjemaGruppeRad} from "../../../felles/StyledComponents";
+import {SkjemaGruppe} from "../../../felles/SkjemaGruppe";
+import {SkjemaElement} from "../../../felles/SkjemaElement";
 
 const giftMerEnn25aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0;
@@ -49,24 +50,26 @@ const SkiltFraAvdoede = () => {
     const mindreEnnFemAar = mindreEnnFemaarMellomSkillsmisseOgDodsfall(datoForSkilsmisse, datoForDoedsfallet);
 
     return (
-        <SkjemaGruppering>
-            <SkjemaGruppe className={"rad col-mobile"}>
-                <Datovelger
-                    className={"kol"}
-                    name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
-                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
-                    minDate={state.foedselsdato}
-                    maxDate={datoForDoedsfallet || new Date()}
-                />
+        <SkjemaGruppe>
+            <SkjemaElement>
+                <SkjemaGruppeRad>
+                    <Datovelger
+                        kol={true}
+                        name={"forholdTilAvdoede.datoForInngaattPartnerskap"}
+                        label={t("omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap")}
+                        minDate={state.foedselsdato}
+                        maxDate={datoForDoedsfallet || new Date()}
+                    />
 
-                <Datovelger
-                    className={"kol"}
-                    name={"forholdTilAvdoede.datoForSkilsmisse"}
-                    label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse")}
-                    minDate={datoForInngaattPartnerskap}
-                    maxDate={datoForDoedsfallet || new Date()}
-                />
-            </SkjemaGruppe>
+                    <Datovelger
+                        kol={true}
+                        name={"forholdTilAvdoede.datoForSkilsmisse"}
+                        label={t("omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse")}
+                        minDate={datoForInngaattPartnerskap}
+                        maxDate={datoForDoedsfallet || new Date()}
+                    />
+                </SkjemaGruppeRad>
+            </SkjemaElement>
 
             <RHFSpoersmaalRadio
                 name={"forholdTilAvdoede.fellesBarn"}
@@ -74,24 +77,24 @@ const SkiltFraAvdoede = () => {
             />
 
             {fellesBarn === IValg.JA && mindreEnn15aar === IValg.JA && (
-                <>
+                <SkjemaElement>
                     <RHFSpoersmaalRadio
                         name={"forholdTilAvdoede.samboereMedFellesBarn"}
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn")}
                     />
-                </>
+                </SkjemaElement>
             )}
 
             {(mindreEnnFemAar === IValg.NEI && merEnn25aar === IValg.JA) ||
             (fellesBarn === IValg.JA && mindreEnn15aar === IValg.NEI && mindreEnnFemAar === IValg.NEI) ? (
-                <>
+                <SkjemaElement>
                     <RHFSpoersmaalRadio
                         name={"forholdTilAvdoede.mottokEktefelleBidrag"}
                         legend={t("omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag")}
                     />
-                </>
+                </SkjemaElement>
             ) : null}
-        </SkjemaGruppering>
+        </SkjemaGruppe>
     );
 };
 

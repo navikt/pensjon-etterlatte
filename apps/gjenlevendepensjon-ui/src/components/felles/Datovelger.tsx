@@ -2,14 +2,26 @@ import { ReactNode } from "react";
 import "@navikt/ds-datepicker/lib/index.css";
 import { Datepicker } from "@navikt/ds-datepicker";
 import { DatepickerLocales } from "@navikt/ds-datepicker/lib/types";
-import { Label, SkjemaelementFeilmelding } from "nav-frontend-skjema";
 import { Controller, FieldError, useFormContext } from "react-hook-form";
 import { FieldPath } from "react-hook-form/dist/types";
 import { useTranslation } from "react-i18next";
-import { parseISO, format } from "date-fns";
+import {parseISO, format, addYears} from "date-fns";
 import { get } from "lodash";
 import { getTransKey } from "../../utils/translation";
-import "./Datovelger.scss";
+import { Label } from '@navikt/ds-react'
+import styled from "styled-components"
+
+interface StyledProps {
+    kol: boolean
+}
+
+const DatovelgerSection = styled.section<StyledProps>`
+    margin-bottom: 0 !important;
+
+    ${props => 
+        props.kol ? "flex-grow: 1; flex-basis: auto;" : ""
+    }  
+`
 
 interface DatovelgerProps {
     name: FieldPath<any>;
@@ -19,6 +31,7 @@ interface DatovelgerProps {
     maxDate?: Date | string;
     valgfri?: boolean;
     className?: string;
+    kol?: boolean;
 }
 
 const parseDate = (dato?: Date | string) => {
@@ -36,23 +49,31 @@ const parseDate = (dato?: Date | string) => {
 
 const isValid = (date: any): boolean => !!parseDate(date);
 
-const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, className }: DatovelgerProps) => {
+const Datovelger = ({
+    name,
+    label,
+    description,
+    minDate = new Date('01-01-1920'),
+    maxDate = new Date(addYears(new Date(), 20)),
+    valgfri,
+    kol = false
+}: DatovelgerProps) => {
     const { t, i18n } = useTranslation();
     const {
         control,
         formState: { errors },
     } = useFormContext();
 
-    const error: FieldError = get(errors, name);
+    const error: FieldError = get(errors, name) as FieldError;
     const feilmelding = t(getTransKey(error));
 
     return (
-        <section className={`skjemaelement ${className}`}>
+        <DatovelgerSection kol={kol}>
             <Label htmlFor={name}>{`${label} ${t("felles.datoformat")}`}</Label>
 
             {description && <div className={"skjemaelement__description"}>{description}</div>}
 
-            <div className="datovelger">
+            <div className="datepicker">
                 <Controller
                     name={name}
                     control={control}
@@ -63,16 +84,17 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
                     }}
                     render={({ field: { onChange, value } }) => (
                         <Datepicker
+                            id={name}
+                            showYearSelector={true}
                             locale={i18n.language as DatepickerLocales}
                             value={value}
                             onChange={(date) => onChange(parseDate(date))}
-                            inputId={name}
+                            inputName={name}
                             inputProps={{
-                                name,
-                                "aria-invalid": feilmelding.length !== 0,
                                 placeholder: t("felles.datoEksempel"),
                             }}
-                            showYearSelector={true}
+                            label={""}
+                            error={feilmelding}
                             limitations={{
                                 minDate: parseDate(minDate),
                                 maxDate: parseDate(maxDate),
@@ -81,9 +103,7 @@ const Datovelger = ({ name, label, description, minDate, maxDate, valgfri, class
                     )}
                 />
             </div>
-
-            {feilmelding && <SkjemaelementFeilmelding>{feilmelding}</SkjemaelementFeilmelding>}
-        </section>
+        </DatovelgerSection>
     );
 };
 
