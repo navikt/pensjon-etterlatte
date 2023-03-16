@@ -1714,10 +1714,10 @@
   resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.3.1.tgz#32b98dda7ee929efae13ff5f3f1c77f9716e4bb1"
   integrity sha512-YFfgVi+zvPqd51ZNJgKWXMoYt7rhElPwkhgRPCuY44wFk9bwq8GczeENcp+KEDiJ2EqpxwuqVmzaV4C3PYcv9Q==
 
-"@navikt/ds-css@^2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.6.0.tgz#6398a31d3a289deef89608262ba0ee5d18b719cf"
-  integrity sha512-6TOGywogGNJgpmlY4GoQZ/UngUxdKq927uWYeIwrFBRZufU0xFhZlxWbEJRQB9UcWp1ARs4Sr9swkFxRxp717w==
+"@navikt/ds-css@^2.7.7":
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.7.7.tgz#bc4d88b4285b9219e9ee66602c69e7acde684f0f"
+  integrity sha512-w/ihpg1+AQ5qJyJ6J8a5ptyIDcqArNdPKPvHY4+Ddz54s8W2dg4f/m4FneSPd1wwypPuyAuCKN21fY2dLZEi3w==
 
 "@navikt/ds-datepicker@^4.1.2":
   version "4.1.2"
