@@ -69,9 +69,10 @@ end
 
 Noen avhengigheter i prosjektet ligger i Github Package Registry som krever autentisering. Det enkleste er å lage en [PAT (Personal Access Token)](https://github.com/settings/tokens). 
 
-1. Opprett [PAT](https://github.com/settings/tokens). I tilfelle lenken ikke fungerer går man til `Github -> Settings -> Developer settings -> Personal access tokens`
+1. [Opprett PAT her](https://github.com/settings/tokens). I tilfelle lenken ikke fungerer går man til `Github -> Settings -> Developer settings -> Personal access tokens`
 2. Huk av `read:packages`. Ikke legg til flere scopes enn nødvendig.
-3. Tokenet legges i `.zshrc` med `export GITHUB_TOKEN=<token>` 
+3. Autoriser navikt-organisasjonen for SSO ved å velge "Configure SSO" på tokenet
+4. Tokenet legges i `.zshrc` med `export GITHUB_TOKEN=<token>`
 
 # Felles apper
 
