@@ -322,7 +322,7 @@ private object Queries {
         INNER JOIN innhold i ON i.soeknad_id = s.id
         where not exists ( select 1 from hendelse h where h.soeknad_id = s.id 
         and ((h.status_id = '$SENDT' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
-        OR (h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL'))))
+        OR (h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL', '$BEHANDLINGLAGRET'))))
         and exists(select 1 from hendelse h where h.soeknad_id = s.id and h.status_id = '$FERDIGSTILT')
         and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
         fetch first 10 rows only
@@ -338,7 +338,7 @@ private object Queries {
         SELECT MIN(s.opprettet)
         FROM soeknad s 
         where exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$FERDIGSTILT'))
-        and not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL'))
+        and not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL', '$BEHANDLINGLAGRET'))
     """.trimIndent()
 
     val SELECT_RAPPORT = """    
@@ -367,7 +367,7 @@ private object Queries {
 
     val SLETT_ARKIVERTE_SOEKNADER = """
         DELETE FROM innhold i 
-        WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id = '$ARKIVERT') 
+        WHERE EXISTS (SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id in ('$ARKIVERT', '$BEHANDLINGLAGRET')) 
     """.trimIndent()
 
     val FINN_KLADD = """
