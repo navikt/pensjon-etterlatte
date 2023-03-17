@@ -6,7 +6,7 @@
   "dependencies": {
     "@navikt/ds-css": "^2.6.0",
     "@navikt/ds-datepicker": "^4.1.2",
-    "@navikt/ds-icons": "2.6.0",
+    "@navikt/ds-icons": "2.7.8",
     "@navikt/ds-react": "^2.6.0",
     "@navikt/fnrvalidator": "1.3.0",
     "@types/react": "17.0.19",
