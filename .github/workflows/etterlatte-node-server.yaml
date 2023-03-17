@@ -19,13 +19,20 @@ on:
     branches:
       - main
       - release/*
-      - feature/*
       - fix/*
     paths:
       - apps/etterlatte-node-server/**
       - '!apps/etterlatte-node-server/src/mock/**'
       - '!apps/etterlatte-node-server/README.md'
-
+  pull_request:
+    branches:
+      - main
+      - release/*
+      - fix/*
+    paths:
+      - apps/etterlatte-node-server/**
+      - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
 jobs:
   build-and-publish:
     name: Build, test and publish
