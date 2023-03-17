@@ -42,15 +42,14 @@ enum class Status {
     KONVERTERT,
     SLETTET,
     UTGAATT,
-    SAKID_REGISTRERT,
-    BEHANDLING_LAGET,
+    BEHANDLINGLAGRET,
     ;
 
     companion object {
         /**
          * Alle Status-IDer som indikerer at en søknad er innsendt og under maskinelt arbeid
          */
-        val innsendt = listOf(FERDIGSTILT, SENDT, ARKIVERT, ARKIVERINGSFEIL, SAKID_REGISTRERT, BEHANDLING_LAGET)
+        val innsendt = listOf(FERDIGSTILT, SENDT, ARKIVERT, ARKIVERINGSFEIL, BEHANDLINGLAGRET)
     }
 }
 

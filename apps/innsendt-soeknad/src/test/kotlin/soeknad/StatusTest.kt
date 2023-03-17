@@ -7,22 +7,21 @@ internal class StatusTest {
 
     @Test
     fun `Antall statuser er korrekt`() {
-        Status.values().size shouldBe 10
+        Status.values().size shouldBe 9
     }
 
     @Test
     fun `Innsendt funksjon returnerer korrekte statuser`() {
         val innsendt = Status.innsendt
 
-        innsendt.size shouldBe 6
+        innsendt.size shouldBe 5
 
         val forventetInnsendt = listOf(
             Status.FERDIGSTILT,
             Status.SENDT,
             Status.ARKIVERT,
             Status.ARKIVERINGSFEIL,
-            Status.SAKID_REGISTRERT,
-            Status.BEHANDLING_LAGET
+            Status.BEHANDLINGLAGRET
         )
 
         innsendt shouldBe forventetInnsendt

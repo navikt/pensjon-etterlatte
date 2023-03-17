@@ -12,6 +12,7 @@ import soeknad.LagretSoeknad
 import soeknad.SoeknadID
 import soeknad.SoeknadRepository
 import soeknad.UlagretSoeknad
+import java.util.*
 
 class JournalpostSkrevetTest {
 
@@ -91,6 +92,10 @@ class TestRepo: SoeknadRepository {
 
     override fun soeknadArkivert(id: SoeknadID, payload: String?) {
         arkiveringOk += id
+    }
+
+    override fun soeknadHarBehandling(id: SoeknadID, sakId: Long, behandlingId: UUID) {
+        TODO("Not yet implemented")
     }
 
     override fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String) {

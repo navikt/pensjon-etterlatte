@@ -18,6 +18,7 @@ import soeknad.Queries.SLETT_KLADD
 import soeknad.Queries.SLETT_UTGAATTE_KLADDER
 import soeknad.Status.ARKIVERINGSFEIL
 import soeknad.Status.ARKIVERT
+import soeknad.Status.BEHANDLINGLAGRET
 import soeknad.Status.FERDIGSTILT
 import soeknad.Status.KONVERTERT
 import soeknad.Status.LAGRETKLADD
@@ -28,6 +29,7 @@ import java.sql.ResultSet
 import java.sql.Timestamp
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.util.UUID
 import javax.sql.DataSource
 
 interface SoeknadRepository {
@@ -35,6 +37,7 @@ interface SoeknadRepository {
     fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad
     fun soeknadSendt(id: SoeknadID)
     fun soeknadArkivert(id: SoeknadID, payload: String? = null)
+    fun soeknadHarBehandling(id: SoeknadID, sakId: Long, behandlingId: UUID)
     fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
     fun slettArkiverteSoeknader(): Int
@@ -141,6 +144,10 @@ class PostgresSoeknadRepository private constructor(
 
     override fun soeknadArkivert(id: SoeknadID, payload: String?) {
         nyStatus(id, ARKIVERT, payload ?: """{}""")
+    }
+
+    override fun soeknadHarBehandling(id: SoeknadID, sakId: Long, behandlingId: UUID) {
+        nyStatus(id, BEHANDLINGLAGRET, """{"behandlingId": "$behandlingId","sakId": $sakId}""")
     }
 
     override fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String) {
@@ -301,7 +308,7 @@ private object Queries {
             INSERT INTO soeknad (kilde) VALUES (?) RETURNING id
         ) INSERT INTO innhold(soeknad_id, fnr, payload) 
             VALUES((SELECT id FROM ny_soeknad), ?, ?) RETURNING soeknad_id
-    """.trimMargin()
+    """.trimIndent()
 
     const val CREATE_HENDELSE = "INSERT INTO hendelse(soeknad_id, status_id, payload) VALUES(?, ?, ?) RETURNING id"
 
@@ -350,7 +357,7 @@ private object Queries {
         status st ON st.rang = h2.rang
         GROUP BY st.id, h2.kilde
         ORDER BY st.rang;
-    """.trimMargin()
+    """.trimIndent()
 
     val SELECT_KILDE = """
         SELECT kilde, count(*) 

@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import BehandlingOpprettetDoffen
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
@@ -76,6 +77,7 @@ fun main() {
             })
 
             JournalpostSkrevet(rapidConnection, db)
+            BehandlingOpprettetDoffen(rapidConnection, db)
         }
 
     rapidApplication.start()

@@ -14,6 +14,7 @@ import java.time.Month
 import java.time.OffsetDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
+import java.util.*
 
 class SoeknadPublisererTest {
 
@@ -93,6 +94,10 @@ class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
 
     override fun soeknadSendt(id: SoeknadID) = op()
     override fun soeknadArkivert(id: SoeknadID, payload: String?) = op()
+    override fun soeknadHarBehandling(id: SoeknadID, sakId: Long, behandlingId: UUID) {
+        TODO("Not yet implemented")
+    }
+
     override fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)  = op()
     override fun usendteSoeknader(): List<LagretSoeknad> {
         op()
