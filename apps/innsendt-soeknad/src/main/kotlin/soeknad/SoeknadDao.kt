@@ -14,7 +14,7 @@ import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
 import soeknad.Queries.SELECT_OLDEST_UNSENT
 import soeknad.Queries.SELECT_RAPPORT
 import soeknad.Queries.SELECT_KILDE
-import soeknad.Queries.SELECT_OLD_UNBEHANDLINGD
+import soeknad.Queries.SELECT_OLD_NO_BEHANDLING
 import soeknad.Queries.SLETT_ARKIVERTE_SOEKNADER
 import soeknad.Queries.SLETT_KLADD
 import soeknad.Queries.SLETT_UTGAATTE_KLADDER
@@ -250,7 +250,7 @@ class PostgresSoeknadRepository private constructor(
     }
 
     override fun arkiverteUtenBehandlingIDoffen(): List<LagretSoeknad> = connection.use {
-        it.prepareStatement(SELECT_OLD_UNBEHANDLINGD)
+        it.prepareStatement(SELECT_OLD_NO_BEHANDLING)
             .executeQuery()
             .toList {
                 LagretSoeknad(getLong("id"), getString("fnr"), getString("payload"))
@@ -346,7 +346,7 @@ private object Queries {
         fetch first 10 rows only
     """.trimIndent()
 
-    val SELECT_OLD_UNBEHANDLINGD = """
+    val SELECT_OLD_NO_BEHANDLING = """
         SELECT s.id, i.fnr, i.payload
         FROM soeknad s 
         INNER JOIN innhold i ON i.soeknad_id = s.id
