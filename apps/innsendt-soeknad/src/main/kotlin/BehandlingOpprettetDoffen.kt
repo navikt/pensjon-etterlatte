@@ -42,7 +42,7 @@ internal class BehandlingOpprettetDoffen(
         if (!packet["@hendelse_gyldig_til"].isMissingOrNull()) {
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
                 if (it.isBefore(OffsetDateTime.now())) {
-                    logger.info("${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadId.asLong()} er arkivert, men hendelsen gikk ut på dato $it")
+                    logger.info("${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadId.asLong()} har behandling, men hendelsen gikk ut på dato $it")
                 }
             }
         }

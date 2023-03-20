@@ -12,7 +12,7 @@ class SoeknadPubliserer(private val rapid: MessageContext, private val db: Soekn
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
-    fun publiser(soeknad: LagretSoeknad){
+    fun publiser(soeknad: LagretSoeknad) {
         val message = JsonMessage.newMessage(mapOf(
             "@event_name" to "soeknad_innsendt",
             "@skjema_info" to mapper.readTree(soeknad.payload),
