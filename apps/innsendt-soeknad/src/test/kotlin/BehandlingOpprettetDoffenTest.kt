@@ -1,4 +1,3 @@
-import io.kotest.assertions.any
 import io.mockk.spyk
 import io.mockk.verify
 import no.nav.etterlatte.BehandlingOpprettetDoffen
