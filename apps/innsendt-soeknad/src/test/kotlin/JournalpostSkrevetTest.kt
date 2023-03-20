@@ -33,8 +33,30 @@ class JournalpostSkrevetTest {
         assertEquals(12L, db.arkiveringOk[0])
         assertEquals(22L, db.arkiveringOk[1])
         assertEquals(32L, db.arkiveringOk[2])
+        assertEquals(0, db.venterPaaBehandlingDoffen.size)
 
         verify(exactly = 3) { db.soeknadArkivert(any(), any()) }
+    }
+
+    @Test
+    fun `meldinger som har soeknadFordelt satt til true får status venter på behandling`() {
+        val db = spyk<TestRepo>()
+        val testMessage = jsonTestMessage(11, 12, 1)
+            .apply {
+                this["soeknadFordelt"] = true
+            }.toJson()
+
+        val testRapid = TestRapid().apply {
+            JournalpostSkrevet(this, db)
+        }
+
+        testRapid.sendTestMessage(testMessage)
+
+        assertEquals(1, db.arkiveringOk.size)
+        assertEquals(1, db.venterPaaBehandlingDoffen.size)
+
+        verify(exactly = 1) { db.soeknadTilDoffenArkivert(any(), any()) }
+        verify(exactly = 0) { db.soeknadArkivert(any(), any()) }
     }
 
     @Test
@@ -59,7 +81,7 @@ class JournalpostSkrevetTest {
     }
 }
 
-fun testMessage(journalpost: Long, soeknad: Long, dokumentInfoId: Long? = null) =
+fun jsonTestMessage(journalpost: Long, soeknad: Long, dokumentInfoId: Long? = null) =
     JsonMessage("{}", MessageProblems("{}")).apply {
         this["@dokarkivRetur"] = mapper.createObjectNode().also {
             it.put("journalpostferdigstilt", false)
@@ -70,13 +92,16 @@ fun testMessage(journalpost: Long, soeknad: Long, dokumentInfoId: Long? = null) 
             }
         }
         this["@lagret_soeknad_id"] = soeknad
+    }
 
-    }.toJson()
+fun testMessage(journalpost: Long, soeknad: Long, dokumentInfoId: Long? = null) =
+    jsonTestMessage(journalpost, soeknad, dokumentInfoId).toJson()
 
 
 class TestRepo: SoeknadRepository {
     val arkiveringOk = mutableListOf<SoeknadID>()
     val arkiveringFeilet = mutableListOf<SoeknadID>()
+    val venterPaaBehandlingDoffen = mutableListOf<SoeknadID>()
 
     override fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID {
         TODO("Not yet implemented")
@@ -92,6 +117,11 @@ class TestRepo: SoeknadRepository {
 
     override fun soeknadArkivert(id: SoeknadID, payload: String?) {
         arkiveringOk += id
+    }
+
+    override fun soeknadTilDoffenArkivert(id: SoeknadID, payload: String?) {
+        arkiveringOk += id
+        venterPaaBehandlingDoffen += id
     }
 
     override fun soeknadHarBehandling(id: SoeknadID, sakId: Long, behandlingId: UUID) {
@@ -124,6 +154,10 @@ class TestRepo: SoeknadRepository {
     }
 
     override fun slettUtgaatteKladder(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun arkiverteUtenBehandlingIDoffen(): List<LagretSoeknad> {
         TODO("Not yet implemented")
     }
 

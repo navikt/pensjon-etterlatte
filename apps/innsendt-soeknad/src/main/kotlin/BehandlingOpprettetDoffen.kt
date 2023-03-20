@@ -18,9 +18,7 @@ internal class BehandlingOpprettetDoffen(
 
     init {
         River(rapidsConnection).apply {
-            validate { it.requireKey("@dokarkivRetur") }
-            validate { it.requireKey("@lagret_soeknad_id") }
-            validate { it.requireKey("sakId") }
+            validate { it.demandValue("@event_name", "trenger_behandling") }
             validate { it.requireKey("behandlingId") }
             validate { it.interestedIn("@hendelse_gyldig_til") }
         }.register(this)

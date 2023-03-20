@@ -42,6 +42,7 @@ enum class Status {
     KONVERTERT,
     SLETTET,
     UTGAATT,
+    VENTERBEHANDLING,
     BEHANDLINGLAGRET,
     ;
 
@@ -49,7 +50,7 @@ enum class Status {
         /**
          * Alle Status-IDer som indikerer at en søknad er innsendt og under maskinelt arbeid
          */
-        val innsendt = listOf(FERDIGSTILT, SENDT, ARKIVERT, ARKIVERINGSFEIL, BEHANDLINGLAGRET)
+        val innsendt = listOf(FERDIGSTILT, SENDT, ARKIVERT, ARKIVERINGSFEIL, VENTERBEHANDLING, BEHANDLINGLAGRET)
     }
 }
 

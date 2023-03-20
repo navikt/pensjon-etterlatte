@@ -1,7 +1,9 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.node.BooleanNode
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
+import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import no.nav.helse.rapids_rivers.isMissingOrNull
@@ -18,10 +20,11 @@ internal class JournalpostSkrevet(
 
     init {
         River(rapidsConnection).apply {
+            validate { it.rejectValue("@event_name", TRENGER_BEHANDLING_EVENT)}
             validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.interestedIn("@hendelse_gyldig_til") }
-            validate { it.rejectKey("sakId") }
+            validate { it.interestedIn("soeknadFordelt") }
             validate { it.rejectKey("behandlingId") }
         }.register(this)
     }
@@ -36,8 +39,19 @@ internal class JournalpostSkrevet(
             return
         }
 
+        val soeknadSkalTilDoffen = when (val fordelt = packet["soeknadFordelt"]) {
+            is BooleanNode -> fordelt.booleanValue()
+            else -> false
+        }
+
         if (dokumentInfoId != 0L) {
-            soeknader.soeknadArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
+            if (soeknadSkalTilDoffen) {
+                soeknader.soeknadTilDoffenArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
+                packet["@event_name"] = TRENGER_BEHANDLING_EVENT
+                context.publish(packet.toJson())
+            } else {
+                soeknader.soeknadArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
+            }
         } else {
             logger.error("Arkivering feilet: {}", packet.toJson())
             soeknader.soeknadFeiletArkivering(

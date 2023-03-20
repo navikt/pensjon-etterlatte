@@ -1,6 +1,7 @@
 package soeknad
 
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.toJson
 import org.slf4j.LoggerFactory
 import soeknad.Queries.CREATE_HENDELSE
 import soeknad.Queries.CREATE_SOEKNAD
@@ -13,6 +14,7 @@ import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
 import soeknad.Queries.SELECT_OLDEST_UNSENT
 import soeknad.Queries.SELECT_RAPPORT
 import soeknad.Queries.SELECT_KILDE
+import soeknad.Queries.SELECT_OLD_UNBEHANDLINGD
 import soeknad.Queries.SLETT_ARKIVERTE_SOEKNADER
 import soeknad.Queries.SLETT_KLADD
 import soeknad.Queries.SLETT_UTGAATTE_KLADDER
@@ -25,6 +27,7 @@ import soeknad.Status.LAGRETKLADD
 import soeknad.Status.SENDT
 import soeknad.Status.SLETTET
 import soeknad.Status.UTGAATT
+import soeknad.Status.VENTERBEHANDLING
 import java.sql.ResultSet
 import java.sql.Timestamp
 import java.time.LocalDateTime
@@ -37,6 +40,7 @@ interface SoeknadRepository {
     fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad
     fun soeknadSendt(id: SoeknadID)
     fun soeknadArkivert(id: SoeknadID, payload: String? = null)
+    fun soeknadTilDoffenArkivert(id: SoeknadID, payload: String? = null)
     fun soeknadHarBehandling(id: SoeknadID, sakId: Long, behandlingId: UUID)
     fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String)
     fun usendteSoeknader(): List<LagretSoeknad>
@@ -45,6 +49,7 @@ interface SoeknadRepository {
     fun slettKladd(fnr: String, kilde: String): SoeknadID?
     fun slettOgKonverterKladd(fnr: String, kilde: String): SoeknadID?
     fun slettUtgaatteKladder(): Int
+    fun arkiverteUtenBehandlingIDoffen(): List<LagretSoeknad>
 }
 
 interface StatistikkRepository {
@@ -147,7 +152,7 @@ class PostgresSoeknadRepository private constructor(
     }
 
     override fun soeknadHarBehandling(id: SoeknadID, sakId: Long, behandlingId: UUID) {
-        nyStatus(id, BEHANDLINGLAGRET, """{"behandlingId": "$behandlingId","sakId": $sakId}""")
+        nyStatus(id, BEHANDLINGLAGRET, mapOf("sakId" to sakId, "behandlingId" to behandlingId.toString()).toJson())
     }
 
     override fun soeknadFeiletArkivering(id: SoeknadID, jsonFeil: String) {
@@ -180,6 +185,11 @@ class PostgresSoeknadRepository private constructor(
         slettedeKladder.forEach { nyStatus(soeknadId = it, status = UTGAATT) }
 
         return slettedeKladder.size
+    }
+
+
+    override fun soeknadTilDoffenArkivert(soeknadId: SoeknadID, payload: String?) {
+        nyStatus(soeknadId = soeknadId, status = VENTERBEHANDLING, payload = payload ?: """{}""")
     }
 
     override fun finnKladd(fnr: String, kilde: String): LagretSoeknad? {
@@ -233,6 +243,14 @@ class PostgresSoeknadRepository private constructor(
 
     override fun usendteSoeknader(): List<LagretSoeknad> = connection.use {
         it.prepareStatement(SELECT_OLD)
+            .executeQuery()
+            .toList {
+                LagretSoeknad(getLong("id"), getString("fnr"), getString("payload"))
+            }
+    }
+
+    override fun arkiverteUtenBehandlingIDoffen(): List<LagretSoeknad> = connection.use {
+        it.prepareStatement(SELECT_OLD_UNBEHANDLINGD)
             .executeQuery()
             .toList {
                 LagretSoeknad(getLong("id"), getString("fnr"), getString("payload"))
@@ -322,8 +340,20 @@ private object Queries {
         INNER JOIN innhold i ON i.soeknad_id = s.id
         where not exists ( select 1 from hendelse h where h.soeknad_id = s.id 
         and ((h.status_id = '$SENDT' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
-        OR (h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL', '$BEHANDLINGLAGRET'))))
+        OR (h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL', '$VENTERBEHANDLING', '$BEHANDLINGLAGRET'))))
         and exists(select 1 from hendelse h where h.soeknad_id = s.id and h.status_id = '$FERDIGSTILT')
+        and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
+        fetch first 10 rows only
+    """.trimIndent()
+
+    val SELECT_OLD_UNBEHANDLINGD = """
+        SELECT s.id, i.fnr, i.payload
+        FROM soeknad s 
+        INNER JOIN innhold i ON i.soeknad_id = s.id
+        where not exists ( select 1 from hendelse h where h.soeknad_id = s.id 
+        and ((h.status_id = '$SENDT' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
+        OR (h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL', '$BEHANDLINGLAGRET'))))
+        and exists(select 1 from hendelse h where h.soeknad_id = s.id and h.status_id = '${VENTERBEHANDLING}')
         and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
         fetch first 10 rows only
     """.trimIndent()
@@ -338,7 +368,7 @@ private object Queries {
         SELECT MIN(s.opprettet)
         FROM soeknad s 
         where exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$FERDIGSTILT'))
-        and not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL', '$BEHANDLINGLAGRET'))
+        and not exists (select 1 from hendelse h where h.soeknad_id = s.id and h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL', '$VENTERBEHANDLING', '$BEHANDLINGLAGRET'))
     """.trimIndent()
 
     val SELECT_RAPPORT = """    
