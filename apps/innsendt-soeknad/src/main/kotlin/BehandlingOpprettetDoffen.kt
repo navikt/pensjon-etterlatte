@@ -19,15 +19,14 @@ internal class BehandlingOpprettetDoffen(
     init {
         River(rapidsConnection).apply {
             validate { it.demandValue("@event_name", "trenger_behandling") }
+            validate { it.requireKey("@lagret_soeknad_id") }
+            validate { it.requireKey("sakId") }
             validate { it.requireKey("behandlingId") }
             validate { it.interestedIn("@hendelse_gyldig_til") }
         }.register(this)
     }
 
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
-        val dokarkivRetur = packet["@dokarkivRetur"]
-        val dokumentInfoId = dokarkivRetur.path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
-
         val sakId = packet["sakId"].longValue()
         val behandlingId = packet["behandlingId"].textValue().let {
             UUID.fromString(it)
@@ -35,19 +34,10 @@ internal class BehandlingOpprettetDoffen(
 
         val soeknadId = packet["@lagret_soeknad_id"]
         if (soeknadId.toString().startsWith("TEST-") || soeknadId.asLong() == 0L) {
-            logger.info("Verifiseringssøknad med id $soeknadId lest med dokumentInfoId $dokumentInfoId")
+            logger.info("Verifiseringssøknad med id $soeknadId lest")
             return
         }
-
-        if (dokumentInfoId != 0L) {
-            soeknader.soeknadHarBehandling(soeknadId.asLong(), sakId, behandlingId)
-        } else {
-            logger.error("Arkivering feilet: {}", packet.toJson())
-            soeknader.soeknadFeiletArkivering(
-                soeknadId.asLong(),
-                packet["@dokarkivRetur"].toJson()
-            )
-        }
+        soeknader.soeknadHarBehandling(soeknadId.asLong(), sakId, behandlingId)
 
         if (!packet["@hendelse_gyldig_til"].isMissingOrNull()) {
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
