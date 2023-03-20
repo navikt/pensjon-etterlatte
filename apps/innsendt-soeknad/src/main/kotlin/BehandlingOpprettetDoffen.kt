@@ -19,7 +19,7 @@ internal class BehandlingOpprettetDoffen(
 
     init {
         River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", "trenger_behandling") }
+            validate { it.demandValue("@event_name", TRENGER_BEHANDLING_EVENT) }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("sakId") }
             validate { it.requireKey("behandlingId") }

@@ -518,6 +518,8 @@ internal class SoeknadDaoIntegrationTest {
         db.soeknadSendt(lagretSoeknadID)
         db.soeknadFeiletArkivering(lagretSoeknadID, """{"error":"test"}""")
         db.soeknadArkivert(lagretSoeknadID)
+        db.soeknadTilDoffenArkivert(lagretSoeknadID)
+        db.soeknadHarBehandling(lagretSoeknadID, 1337L, UUID.randomUUID())
 
         finnHendelser(lagretSoeknadID) shouldContainExactly listOf(
             Status.LAGRETKLADD,
@@ -525,7 +527,9 @@ internal class SoeknadDaoIntegrationTest {
             Status.FERDIGSTILT,
             Status.SENDT,
             Status.ARKIVERT,
-            Status.ARKIVERINGSFEIL
+            Status.ARKIVERINGSFEIL,
+            Status.VENTERBEHANDLING,
+            Status.BEHANDLINGLAGRET
         )
     }
 
@@ -541,6 +545,31 @@ internal class SoeknadDaoIntegrationTest {
 
         finnSoeknad(lagretSoeknad.fnr, kildeBarnepensjon) shouldBe null
     }
+
+    @Test
+    fun `Søknader som har behandling i Doffen skal slettes`() {
+        val soeknad = UlagretSoeknad("SlettBehandling", """{"harSamtykket":"true"}""", kildeBarnepensjon)
+        val lagretSoeknad = db.lagreKladd(soeknad)
+        db.soeknadHarBehandling(lagretSoeknad.id, 1337L, UUID.randomUUID())
+
+        finnSoeknad(lagretSoeknad.fnr, kildeBarnepensjon) shouldBe lagretSoeknad
+
+        db.slettArkiverteSoeknader()
+
+        finnSoeknad(lagretSoeknad.fnr, kildeBarnepensjon) shouldBe null
+    }
+
+    @Test
+    fun `Søknader som skal til Doffen og venter på behandling skal ikke slettes`() {
+        val soeknad = UlagretSoeknad("Ikke slett meg", """{"harSamtykket": "true"}""", kildeBarnepensjon)
+        val lagretSoeknad = db.lagreKladd(soeknad)
+        db.soeknadTilDoffenArkivert(lagretSoeknad.id)
+
+        finnSoeknad(lagretSoeknad.fnr, kildeBarnepensjon) shouldBe lagretSoeknad
+        db.slettArkiverteSoeknader()
+        finnSoeknad(lagretSoeknad.fnr, kildeBarnepensjon) shouldBe lagretSoeknad
+    }
+
 
     @Test
     fun `Sjekk innhold i rapport, skal kun være siste status på hver søknad`() {
@@ -591,9 +620,17 @@ internal class SoeknadDaoIntegrationTest {
         db.soeknadSendt(lagretSoeknad2ID)
         db.soeknadFeiletArkivering(lagretSoeknad2ID, """{"error":"test"}""")
 
+        // Stopp på status "VENTERBEHANDLING"
+        val venterBehandling = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
+        db.lagreKladd(venterBehandling)
+        val venterBehandlingId = db.lagreKladd(venterBehandling).id
+        db.ferdigstillSoeknad(venterBehandling)
+        db.soeknadSendt(venterBehandlingId)
+        db.soeknadTilDoffenArkivert(venterBehandlingId)
+
         val rapport = db.rapport()
 
-        assertEquals(7, rapport.size)
+        assertEquals(8, rapport.size)
 
         assertEquals("2", rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeBarnepensjon }?.count)
         assertEquals("1", rapport.find { it.status == Status.FERDIGSTILT && it.kilde == kildeBarnepensjon }?.count)
@@ -602,6 +639,7 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals("1", rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeGjenlevende }?.count)
         assertEquals("1", rapport.find { it.status == Status.SENDT && it.kilde == kildeGjenlevende }?.count)
         assertEquals("1", rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeGjenlevende }?.count)
+        assertEquals("1", rapport.find { it.status == Status.VENTERBEHANDLING }?.count)
 
     }
 
