@@ -39,5 +39,7 @@ class SoeknadPubliserer(private val rapid: MessageContext, private val db: Soekn
             "@hendelse_gyldig_til" to OffsetDateTime.now(klokke).plusMinutes(30L).toString()
         ))
         rapid.publish(soeknad.id.toString(), message.toJson())
+
+        db.soeknadSendt(soeknad.id)
     }
 }
