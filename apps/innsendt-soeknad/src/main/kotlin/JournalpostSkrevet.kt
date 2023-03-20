@@ -25,7 +25,6 @@ internal class JournalpostSkrevet(
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.interestedIn("@hendelse_gyldig_til") }
             validate { it.interestedIn("soeknadFordelt") }
-            validate { it.rejectKey("behandlingId") }
         }.register(this)
     }
 
