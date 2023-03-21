@@ -76,6 +76,7 @@ fun main() {
             })
 
             JournalpostSkrevet(rapidConnection, db)
+            BehandlingOpprettetDoffen(rapidConnection, db)
         }
 
     rapidApplication.start()

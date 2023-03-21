@@ -19,6 +19,7 @@ internal class SjekkAdressebeskyttelse(
 
     init {
         River(rapidsConnection).apply {
+            validate { it.rejectValue("@event_name", "trenger_behandling") }
             validate { it.requireKey("@fnr_soeker") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("@skjema_info") }
