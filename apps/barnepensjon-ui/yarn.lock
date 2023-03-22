@@ -1648,6 +1648,11 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@navikt/aksel-icons@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-2.8.2.tgz#40626652511e67a697f93b5cd5325f5cc7e24cfc"
+  integrity sha512-AleT3/ysw7BTGaMqcvRfkmXjeDwWDq0VaU1AON5AX0HLriKUd/j99dERTRRP6/vl0notF7e3lm13ZeF6Glv3mw==
+
 "@navikt/ds-css@2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.3.1.tgz#32b98dda7ee929efae13ff5f3f1c77f9716e4bb1"
@@ -1667,10 +1672,10 @@
     "@navikt/ds-react" "2.3.1"
     focus-trap-react "^10.1.0"
 
-"@navikt/ds-icons@^2.3.1", "@navikt/ds-icons@^2.5.1":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.5.1.tgz#31cb03a09ae4fd62464a926e0c4ffd620642d1c7"
-  integrity sha512-ridL/Nm69j50hgqm4CEtaE/3+f/EOPbE9LV1pTZdUWFAJLYJe3C3v+E/QcHj8p6Eh7xaPnK1AC3vKa1/fKS4KQ==
+"@navikt/ds-icons@^2.3.1", "@navikt/ds-icons@^2.5.1", "@navikt/ds-icons@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.8.2.tgz#12ac24deb7160040d2d167bebb3d27caff55a924"
+  integrity sha512-G02JrBlnj2NmFpeaTWBBVlOPfk7F3hhbm7xDQkCosMDkurATz4hsb5mCEaAcbj3TInJlY157ixgBTIQraK8/2g==
 
 "@navikt/ds-react@2.3.1":
   version "2.3.1"
@@ -1686,13 +1691,14 @@
     react-day-picker "8.3.4"
     react-modal "3.15.1"
 
-"@navikt/ds-react@^2.5.1":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-2.5.1.tgz#c5988109f825591a7a23be81f394549fb1db0525"
-  integrity sha512-VtXeZ+EEeJBcNQskoSxJI+pD8ua3GpB6JKNNPfzl9zGinHM0OMI61KjyeTeTjpX0xtKat/QROlM2L3ZwWeElww==
+"@navikt/ds-react@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-2.8.2.tgz#ab928088cb5787dc3ecf54b3530698c049328881"
+  integrity sha512-0AuR4Oji6EGKhstU7zFgUBeHD4HpGD033mcQaukTwbjAcqIjqgTf5JOi8f4DhcAbNaCE2ZcwQ17cgp9YDQWQvQ==
   dependencies:
     "@floating-ui/react" "0.17.0"
-    "@navikt/ds-icons" "^2.5.1"
+    "@navikt/aksel-icons" "^2.8.2"
+    "@navikt/ds-icons" "^2.8.2"
     "@radix-ui/react-tabs" "1.0.0"
     "@radix-ui/react-toggle-group" "1.0.0"
     clsx "^1.2.1"
