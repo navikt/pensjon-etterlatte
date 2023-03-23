@@ -7,21 +7,9 @@ env:
 
 on:
   workflow_dispatch: # Allow manually triggered workflow run
-    inputs:
-      deploy-prod:
-        description: "Deploy til produksjon"
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - true
-          - false
   push:
     branches:
       - main
-      - release/*
-      - feature/*
-      - fix/*
     paths:
       - apps/etterlatte-node-server/**
       - '!apps/etterlatte-node-server/src/mock/**'
