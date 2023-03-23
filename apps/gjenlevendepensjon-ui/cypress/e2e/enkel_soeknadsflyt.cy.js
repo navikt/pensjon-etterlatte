@@ -2,7 +2,7 @@ import mockSoeknad from "../../src/assets/dummy-soeknad.json";
 import { IValg } from "../../src/typer/Spoersmaal";
 import {a11yCheck, basePath, gaaTilNesteSide, getById, selectValue, selectValueForId} from "../util/cy-functions";
 
-describe("Skal gå igjennom hele søknaden uten feil", { testIsolation: false }, () => {
+describe("Skal gå igjennom hele søknaden uten feil", () => {
     it("Skal åpne startsiden og starte en søknad", () => {
         cy.intercept("GET", `${basePath}/api/person/innlogget`, { fixture: "testbruker" }).as("hentInnloggetPerson");
         cy.intercept("GET", `${basePath}/api/api/kladd`, {}).as("hentSoeknad"); // Ingen kladd eksisterer

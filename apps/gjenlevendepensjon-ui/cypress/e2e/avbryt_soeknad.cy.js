@@ -1,6 +1,6 @@
 import { basePath, getById } from "../util/cy-functions";
 
-describe("Skal avbryte en soeknad", { testIsolation: false },() => {
+describe("Skal avbryte en soeknad",() => {
     const startSoeknad = () => {
         // Gå til søknad med eksisterende kladd
         cy.intercept("GET", `${basePath}/api/person/innlogget`, {fixture: "testbruker"}).as("hentInnloggetPerson");
