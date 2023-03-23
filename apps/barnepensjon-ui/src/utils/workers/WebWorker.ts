@@ -71,4 +71,5 @@ class WebWorker {
     }
 }
 
-export default new WebWorker()
+const webWorker =  new WebWorker()
+export default webWorker
