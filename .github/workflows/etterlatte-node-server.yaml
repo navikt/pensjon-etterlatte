@@ -1,8 +1,9 @@
 name: etterlatte-node-server
 
 env:
-  IMAGE: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
   APP_NAME: ${{ github.workflow }}
+  IMAGE_TAG: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+  IMAGE_TAG_LATEST: ghcr.io/${{ github.repository }}/${{ github.workflow }}:latest
 
 on:
   workflow_dispatch: # Allow manually triggered workflow run
@@ -73,4 +74,6 @@ jobs:
         with:
           context: apps/${{ env.APP_NAME }}
           push: true
-          tags: ${{ env.IMAGE }}
+          tags: |
+            ${{ env.IMAGE_TAG }}
+            ${{ github.ref_name == 'main' && env.IMAGE_TAG_LATEST }}
