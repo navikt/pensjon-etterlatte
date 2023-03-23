@@ -19,11 +19,8 @@ Les mer her: https://doc.nais.io
 Installere prosjektet:\
 `yarn install`
 
-Kjøre prosjektet (med labs sitt mock-api):\
-`yarn start` eller `yarn start:labs`
-
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
-`yarn start:mock`
+`yarn start`
 
 Åpne [http://localhost:3000/barnepensjon/soknad](http://localhost:3000/barnepensjon/soknad) i nettleseren.
 
@@ -42,7 +39,7 @@ Kjøre cypress tester (krever at prosjektet kjører lokalt først):
 ### Koble til APIet lokalt
 
 Grunnet manglende støtte for Token/IDporten lokalt er det ikke mulig å kjøre mot APIet lokalt.
-Appen går derfor enten mot labs-gcp eller lokalt mock api (se [etterlatte-node-server](../etterlatte-node-server))
+Appen må gå mot lokalt mock api (se [etterlatte-node-server](../etterlatte-node-server))
 Dette er ikke en ideel løsning og burde på sikt forbedres.
 
 ## Testmiljøet

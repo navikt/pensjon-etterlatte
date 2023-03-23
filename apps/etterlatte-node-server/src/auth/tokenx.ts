@@ -12,11 +12,6 @@ class TokenXClient {
     private audience: any = null
 
     constructor() {
-        if (config.env.isLabsCluster) {
-            logger.info('Current cluster is labs-gcp. Stopping TokenX setup.')
-            return
-        }
-
         logger.info('Setter opp TokenX')
 
         this.init()
