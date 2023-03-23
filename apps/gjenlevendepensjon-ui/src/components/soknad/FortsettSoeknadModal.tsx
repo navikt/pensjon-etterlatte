@@ -1,7 +1,7 @@
 import { Button, Heading } from "@navikt/ds-react";
 import { SkjemaElement } from "../felles/SkjemaElement";
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes, ActionTypes as SoknadActionTypes } from "../../context/soknad/soknad";
 import { StegPath } from "../../typer/steg";
@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import {SpoersmaalModal} from "../felles/StyledComponents";
 
 export const FortsettSoeknadModal = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const { state, dispatch } = useSoknadContext();
     const { t } = useTranslation();
 
@@ -33,14 +33,14 @@ export const FortsettSoeknadModal = () => {
     const fortsettSoeknad = () => {
         const steg = nesteSteg();
         dispatch({ type: ActionTypes.VIS_FORTSETT_SOEKNAD_MODAL, payload: false });
-        history.push(`/skjema/steg/${steg.valueOf()}`);
+        navigate(`/skjema/steg/${steg.valueOf()}`);
     };
 
     const startPaaNytt = () => {
         slettSoeknad().then(() => {
             dispatch({ type: SoknadActionTypes.TILBAKESTILL });
             dispatch({ type: ActionTypes.VIS_FORTSETT_SOEKNAD_MODAL, payload: false });
-            history.push("/");
+            navigate("/");
         })
     }
 

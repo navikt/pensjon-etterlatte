@@ -1,4 +1,5 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { act } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react";
 import useEffectOnce from "./useEffectOnce";
 import { useError } from "./useError";
 

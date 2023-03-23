@@ -3,7 +3,7 @@
 exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <div
-    class="sc-guDLRT gSrTwn"
+    class="sc-gueYoa qDReO"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,10 +13,10 @@ exports[`Om den avdøde Snapshot 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-irLwvL jncFQD"
+        class="sc-irTswW kZhMQk"
       >
         <div
           class="kol"
@@ -44,7 +44,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <div
           class="navds-grid"
@@ -75,7 +75,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-1"
+                id="textField-error-r0"
               />
             </div>
           </div>
@@ -90,7 +90,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               >
                 <label
                   class="navds-form-field__label navds-label"
-                  for="textField-aksel-id-2"
+                  for="textField-r1"
                 >
                   omDenAvdoede.statsborgerskap
                 </label>
@@ -100,7 +100,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                   <select
                     aria-invalid="false"
                     class="navds-select__input navds-body-short navds-body--medium"
-                    id="textField-aksel-id-2"
+                    id="textField-r1"
                   >
                     <option
                       value=""
@@ -131,7 +131,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-aksel-id-2"
+                  id="textField-error-r1"
                 />
               </div>
             </div>
@@ -140,10 +140,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <fieldset
-        class="sc-beySbM kuevld"
+        class="sc-beqWaB kWPIyU"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -157,14 +157,14 @@ exports[`Om den avdøde Snapshot 1`] = `
         </p>
       </fieldset>
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <div
           id="boddEllerJobbetUtland.svar"
         >
           <fieldset
             aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
@@ -180,14 +180,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-3"
+                  id="radio-r5"
                   name="boddEllerJobbetUtland.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-3"
+                  for="radio-r5"
                 >
                   <span
                     class="navds-radio__content"
@@ -206,14 +206,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-4"
+                  id="radio-r6"
                   name="boddEllerJobbetUtland.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-4"
+                  for="radio-r6"
                 >
                   <span
                     class="navds-radio__content"
@@ -232,14 +232,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-5"
+                  id="radio-r7"
                   name="boddEllerJobbetUtland.svar"
                   type="radio"
                   value="radiobuttons.vetIkke"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-5"
+                  for="radio-r7"
                 >
                   <span
                     class="navds-radio__content"
@@ -257,17 +257,17 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-6"
+              id="fieldset-error-r4"
             />
           </fieldset>
         </div>
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <fieldset
-        class="sc-beySbM kuevld"
+        class="sc-beqWaB kWPIyU"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -281,14 +281,14 @@ exports[`Om den avdøde Snapshot 1`] = `
         </p>
       </fieldset>
       <div
-        class="sc-guDLRT gSrTwn"
+        class="sc-gueYoa qDReO"
       >
         <div
           id="selvstendigNaeringsdrivende.svar"
         >
           <fieldset
             aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
@@ -304,14 +304,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-8"
+                  id="radio-ra"
                   name="selvstendigNaeringsdrivende.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-8"
+                  for="radio-ra"
                 >
                   <span
                     class="navds-radio__content"
@@ -330,14 +330,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-9"
+                  id="radio-rb"
                   name="selvstendigNaeringsdrivende.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-9"
+                  for="radio-rb"
                 >
                   <span
                     class="navds-radio__content"
@@ -356,14 +356,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-10"
+                  id="radio-rc"
                   name="selvstendigNaeringsdrivende.svar"
                   type="radio"
                   value="radiobuttons.vetIkke"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-10"
+                  for="radio-rc"
                 >
                   <span
                     class="navds-radio__content"
@@ -381,17 +381,17 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-11"
+              id="fieldset-error-r9"
             />
           </fieldset>
         </div>
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <fieldset
-        class="sc-beySbM kuevld"
+        class="sc-beqWaB kWPIyU"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -400,14 +400,14 @@ exports[`Om den avdøde Snapshot 1`] = `
         </h1>
       </fieldset>
       <fieldset
-        class="sc-beySbM kuevld"
+        class="sc-beqWaB kWPIyU"
       >
         <div
           id="doedsfallAarsak"
         >
           <fieldset
             aria-invalid="false"
-            class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
@@ -416,12 +416,12 @@ exports[`Om den avdøde Snapshot 1`] = `
             </legend>
             <div
               class="navds-fieldset__description navds-body-long navds-body-long--small"
-              id="fieldset-description-aksel-id-16"
+              id="fieldset-description-re"
             >
               <div>
                 <button
                   aria-expanded="false"
-                  class="sc-jTQDnj llMVeD"
+                  class="sc-jTrPJq jajYxi"
                   data-testid="hvorforPanel_toggle"
                   type="button"
                 >
@@ -458,14 +458,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-13"
+                  id="radio-rg"
                   name="doedsfallAarsak"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-13"
+                  for="radio-rg"
                 >
                   <span
                     class="navds-radio__content"
@@ -484,14 +484,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-14"
+                  id="radio-rh"
                   name="doedsfallAarsak"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-14"
+                  for="radio-rh"
                 >
                   <span
                     class="navds-radio__content"
@@ -510,14 +510,14 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-15"
+                  id="radio-ri"
                   name="doedsfallAarsak"
                   type="radio"
                   value="radiobuttons.vetIkke"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-15"
+                  for="radio-ri"
                 >
                   <span
                     class="navds-radio__content"
@@ -535,7 +535,7 @@ exports[`Om den avdøde Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-16"
+              id="fieldset-error-re"
             />
           </fieldset>
         </div>
@@ -545,7 +545,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       >
         <fieldset
           aria-invalid="false"
-          class="sc-dmyDGi lnMqdf navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
             class="navds-fieldset__legend navds-label"
@@ -554,12 +554,12 @@ exports[`Om den avdøde Snapshot 1`] = `
           </legend>
           <div
             class="navds-fieldset__description navds-body-long navds-body-long--small"
-            id="fieldset-description-aksel-id-21"
+            id="fieldset-description-rk"
           >
             <div>
               <button
                 aria-expanded="false"
-                class="sc-jTQDnj llMVeD"
+                class="sc-jTrPJq jajYxi"
                 data-testid="hvorforPanel_toggle"
                 type="button"
               >
@@ -596,14 +596,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-18"
+                id="radio-rm"
                 name="harAvtjentMilitaerTjeneste.svar"
                 type="radio"
                 value="radiobuttons.ja"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-18"
+                for="radio-rm"
               >
                 <span
                   class="navds-radio__content"
@@ -622,14 +622,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-19"
+                id="radio-rn"
                 name="harAvtjentMilitaerTjeneste.svar"
                 type="radio"
                 value="radiobuttons.nei"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-19"
+                for="radio-rn"
               >
                 <span
                   class="navds-radio__content"
@@ -648,14 +648,14 @@ exports[`Om den avdøde Snapshot 1`] = `
               <input
                 aria-invalid="false"
                 class="navds-radio__input"
-                id="radio-aksel-id-20"
+                id="radio-ro"
                 name="harAvtjentMilitaerTjeneste.svar"
                 type="radio"
                 value="radiobuttons.vetIkke"
               />
               <label
                 class="navds-radio__label"
-                for="radio-aksel-id-20"
+                for="radio-ro"
               >
                 <span
                   class="navds-radio__content"
@@ -673,16 +673,16 @@ exports[`Om den avdøde Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-aksel-id-21"
+            id="fieldset-error-rk"
           />
         </fieldset>
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-gLLvby idHBWd undefined"
+        class="sc-gLDzan qIJYQ undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -709,7 +709,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gLLvby sc-iBdmCd idHBWd fZbhsy"
+      class="sc-gLDzan sc-iAEyYk qIJYQ fkXNWI"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

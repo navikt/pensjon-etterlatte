@@ -1,6 +1,7 @@
 import { createContext, FC, useContext, useReducer } from "react";
 import { ActionTypes, ISoeknad, ISoeknadAction, SoeknadProps, tomSoeknad } from "./soknad";
 import mockJson from "../../assets/dummy-soeknad.json";
+import { FCProps } from "../../typer/FCProps";
 
 const initialState: ISoeknad = tomSoeknad;
 
@@ -90,7 +91,7 @@ const SoknadContext = createContext<SoeknadProps>({
 
 const useSoknadContext = () => useContext(SoknadContext);
 
-const SoknadProvider: FC = ({ children }) => {
+const SoknadProvider: FC<FCProps> = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return <SoknadContext.Provider value={{ state, dispatch }}>{children}</SoknadContext.Provider>;

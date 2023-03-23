@@ -1,11 +1,13 @@
 import { basePath, getById } from "../util/cy-functions";
 
-describe("Skal avbryte en soeknad", () => {
+describe("Skal avbryte en soeknad",() => {
     const startSoeknad = () => {
         // Gå til søknad med eksisterende kladd
         cy.intercept("GET", `${basePath}/api/person/innlogget`, {fixture: "testbruker"}).as("hentInnloggetPerson");
         cy.intercept("GET", `${basePath}/api/api/kladd`, {fixture: "kladd"}).as("hentSoeknad");
-        cy.visit("localhost:3000", {
+        cy.intercept("GET", `${basePath}/session`, {fixture: "session"}).as("hentSession");
+
+        cy.visit("localhost:3000/gjenlevendepensjon/soknad", {
             onBeforeLoad: (obj) => {
                 Object.defineProperty(obj.navigator, "language", {value: "nb-NO"});
             },
@@ -20,6 +22,8 @@ describe("Skal avbryte en soeknad", () => {
 
     it("Fortsett søknad etter å ha trykket avbryt", () => {
         startSoeknad()
+        cy.wait(["@hentSession"]);
+
         getById("avbryt-btn").click();
 
         getById("avbryt-nei-btn").click();
