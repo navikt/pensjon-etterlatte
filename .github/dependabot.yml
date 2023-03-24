@@ -1,61 +1,109 @@
 version: 2
 updates:
+  # ==============
+  # KOTLIN BACKEND
+  # ==============
+
+  # Kjører sjekk hver måned for generelle oppdateringer
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "sunday"
+    open-pull-requests-limit: 10
+
+  # Daglig sjekk (limit=0) for å sikre sikkerhetsoppdateringer
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 0
+
+
+  # =====================
+  # FRONTEND BARNEPENSJON
+  # =====================
+
+  # Kjører sjekk hver måned for generelle oppdateringer
+  - package-ecosystem: "npm"
+    directory: "/apps/barnepensjon-ui"
+    schedule:
+      interval: "monthly"
+      day: "sunday"
+    open-pull-requests-limit: 10
+
+  # Daglig sjekk (limit=0) for å sikre sikkerhetsoppdateringer
   - package-ecosystem: "npm"
     directory: "/apps/barnepensjon-ui"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 10
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
+    open-pull-requests-limit: 0
+
+
+  # ===========================
+  # FRONTEND GJENLEVENDEPENSJON
+  # ===========================
+
+  # Kjører sjekk hver måned for generelle oppdateringer
   - package-ecosystem: "npm"
-    directory: "/apps/etterlatte-node-server"
+    directory: "/apps/gjenlevendepensjon-ui"
     schedule:
-      interval: "daily"
+      interval: "monthly"
+      day: "sunday"
     open-pull-requests-limit: 10
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
+
+  # Daglig sjekk (limit=0) for å sikre sikkerhetsoppdateringer
   - package-ecosystem: "npm"
     directory: "/apps/gjenlevendepensjon-ui"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 0
+
+
+  # ===========
+  # NODE SERVER
+  # ===========
+
+  # Kjører sjekk hver måned for generelle oppdateringer
+  - package-ecosystem: "npm"
+    directory: "/apps/etterlatte-node-server"
+    schedule:
+      interval: "monthly"
+      day: "sunday"
     open-pull-requests-limit: 10
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-  - package-ecosystem: "gradle"
-    directory: "/apps/innsendt-soeknad"
+
+  # Daglig sjekk (limit=0) for å sikre sikkerhetsoppdateringer
+  - package-ecosystem: "npm"
+    directory: "/apps/etterlatte-node-server"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 10
-  - package-ecosystem: "gradle"
-    directory: "/apps/journalfoer-soeknad"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
-  - package-ecosystem: "gradle"
-    directory: "/apps/selvbetjening-api"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
-  - package-ecosystem: "gradle"
-    directory: "/apps/sjekk-adressebeskyttelse"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 0
+
+
+  # ==============
+  # GITHUB ACTIONS
+  # ==============
+
+  # Kjører sjekk hver måned for generelle oppdateringer
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+      interval: "monthly"
+      day: "sunday"
+
+
+  # ===========
+  # DOCKERFILES
+  # ===========
+
   - package-ecosystem: "docker"
     directory: "/docker/backend.Dockerfile"
     schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+      interval: "monthly"
+      day: "sunday"
+
   - package-ecosystem: "docker"
     directory: "/docker/frontend.Dockerfile"
     schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+      interval: "monthly"
+      day: "sunday"
