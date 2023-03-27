@@ -20,6 +20,11 @@ on:
       - main
     paths:
       - apps/barnepensjon-ui/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - apps/barnepensjon-ui/**
 
 jobs:
   build:
@@ -35,6 +40,7 @@ jobs:
 
   deploy:
     needs: build
+    if: github.event_name != 'pull_request'
     uses: ./.github/workflows/.deploy.yaml
     with:
       image: ${{ needs.build.outputs.image }}

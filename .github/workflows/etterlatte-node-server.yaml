@@ -14,6 +14,13 @@ on:
       - apps/etterlatte-node-server/**
       - '!apps/etterlatte-node-server/src/mock/**'
       - '!apps/etterlatte-node-server/README.md'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - apps/etterlatte-node-server/**
+      - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
 
 jobs:
   build-and-publish:
