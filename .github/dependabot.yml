@@ -1,61 +1,76 @@
 version: 2
 updates:
+  # ==============
+  # KOTLIN BACKEND
+  # ==============
+
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "sunday"
+    open-pull-requests-limit: 10
+
+
+  # =====================
+  # FRONTEND BARNEPENSJON
+  # =====================
+
   - package-ecosystem: "npm"
     directory: "/apps/barnepensjon-ui"
     schedule:
-      interval: "daily"
+      interval: "monthly"
+      day: "sunday"
     open-pull-requests-limit: 10
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
-  - package-ecosystem: "npm"
-    directory: "/apps/etterlatte-node-server"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
+
+
+  # ===========================
+  # FRONTEND GJENLEVENDEPENSJON
+  # ===========================
+
   - package-ecosystem: "npm"
     directory: "/apps/gjenlevendepensjon-ui"
     schedule:
-      interval: "daily"
+      interval: "monthly"
+      day: "sunday"
     open-pull-requests-limit: 10
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
-  - package-ecosystem: "gradle"
-    directory: "/apps/innsendt-soeknad"
+
+
+  # ===========
+  # NODE SERVER
+  # ===========
+
+  - package-ecosystem: "npm"
+    directory: "/apps/etterlatte-node-server"
     schedule:
-      interval: "daily"
+      interval: "monthly"
+      day: "sunday"
     open-pull-requests-limit: 10
-  - package-ecosystem: "gradle"
-    directory: "/apps/journalfoer-soeknad"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
-  - package-ecosystem: "gradle"
-    directory: "/apps/selvbetjening-api"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
-  - package-ecosystem: "gradle"
-    directory: "/apps/sjekk-adressebeskyttelse"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+
+
+  # ==============
+  # GITHUB ACTIONS
+  # ==============
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+      interval: "monthly"
+      day: "sunday"
+
+
+  # ===========
+  # DOCKERFILES
+  # ===========
+
   - package-ecosystem: "docker"
     directory: "/docker/backend.Dockerfile"
     schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+      interval: "monthly"
+      day: "sunday"
+
   - package-ecosystem: "docker"
     directory: "/docker/frontend.Dockerfile"
     schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+      interval: "monthly"
+      day: "sunday"

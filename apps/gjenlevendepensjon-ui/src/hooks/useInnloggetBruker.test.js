@@ -1,10 +1,17 @@
-import { renderHook,act } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react";
 import useInnloggetBruker from "./useInnloggetBruker";
 import * as api from "../api/api";
 
 const mock = jest.fn(async () => {
     return "Ok"
 })
+
+const mockedUsedNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockedUsedNavigate,
+}));
+
 jest.mock("../api/api", () => {
     return {
         hentInnloggetPerson: async () => {

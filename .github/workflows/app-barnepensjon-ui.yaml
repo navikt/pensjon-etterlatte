@@ -18,13 +18,11 @@ on:
   push:
     branches:
       - main
-      - release/*
     paths:
       - apps/barnepensjon-ui/**
   pull_request:
     branches:
       - main
-      - release/*
     paths:
       - apps/barnepensjon-ui/**
 

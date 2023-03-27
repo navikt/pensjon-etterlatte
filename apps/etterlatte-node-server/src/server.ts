@@ -35,15 +35,11 @@ app.get(`${basePath}/metrics`, async (req: Request, res: Response) => {
     res.end(await prometheus.register.metrics())
 })
 
-if (config.env.isLabsCluster) {
-    mockApi(app)
-} else {
-    logger.info('Setting up session and proxy')
+logger.info('Setting up session and proxy')
 
-    app.get(`${basePath}/session`, session())
+app.get(`${basePath}/session`, session())
 
-    app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
-}
+app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))
 

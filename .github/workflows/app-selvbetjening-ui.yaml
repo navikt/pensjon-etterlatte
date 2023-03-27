@@ -14,13 +14,11 @@ on:
   push:
     branches:
       - main
-      - release/*
     paths:
       - apps/gjenlevendepensjon-ui/**
   pull_request:
     branches:
       - main
-      - release/*
     paths:
       - apps/gjenlevendepensjon-ui/**
 

@@ -10,7 +10,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         const utloepDato = new Date()
         utloepDato.setHours(utloepDato.getHours() + 1)
         cy.intercept("GET", `${basePath}/session`, { body: utloepDato.getTime() });
-        cy.visit("localhost:3000", {
+        cy.visit("localhost:3000/gjenlevendepensjon/soknad", {
             onBeforeLoad: (obj) => {
                 Object.defineProperty(obj.navigator, "language", { value: "nb-NO" });
             },

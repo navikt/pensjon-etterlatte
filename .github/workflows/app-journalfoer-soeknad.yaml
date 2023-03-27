@@ -14,13 +14,11 @@ on:
   push:
     branches:
       - main
-      - release/*
     paths:
       - apps/journalfoer-soeknad/**
   pull_request:
     branches:
       - main
-      - release/*
     paths:
       - apps/journalfoer-soeknad/**
 

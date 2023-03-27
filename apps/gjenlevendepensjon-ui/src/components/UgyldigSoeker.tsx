@@ -3,21 +3,21 @@ import { Veileder } from './felles/Veileder'
 import {SkjemaGruppe} from "./felles/SkjemaGruppe";
 import { ActionTypes } from "../context/bruker/bruker";
 import { erForUng } from "../utils/alder";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BodyLong, Button, Link } from "@navikt/ds-react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { NavigasjonsRadSection } from "./felles/StyledComponents";
 
 const UgyldigSoeker = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const { t } = useTranslation();
 
     const { state, dispatch } = useBrukerContext();
 
     useEffect(() => {
         if (state.kanSoeke) {
-            history.push("/");
+            navigate("/");
         }
     }, [state.kanSoeke])
 

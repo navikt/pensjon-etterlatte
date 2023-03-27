@@ -1,6 +1,5 @@
 const env = {
     isProdCluster: process.env.NAIS_CLUSTER_NAME === 'prod-gcp',
-    isLabsCluster: process.env.NAIS_CLUSTER_NAME === 'labs-gcp',
 }
 
 const app = {

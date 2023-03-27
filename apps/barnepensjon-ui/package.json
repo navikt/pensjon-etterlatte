@@ -4,10 +4,10 @@
   "private": true,
   "homepage": "/barnepensjon/soknad",
   "dependencies": {
-    "@navikt/ds-css": "^2.5.1",
+    "@navikt/ds-css": "^2.8.3",
     "@navikt/ds-datepicker": "4.1.2",
-    "@navikt/ds-icons": "^2.5.1",
-    "@navikt/ds-react": "^2.5.1",
+    "@navikt/ds-icons": "^2.8.3",
+    "@navikt/ds-react": "^2.8.3",
     "@navikt/fnrvalidator": "^1.3.0",
     "amplitude-js": "^8.21.5",
     "axios": "1.3.4",
@@ -37,7 +37,7 @@
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
     "@types/amplitude-js": "^8.16.2",
-    "@types/jest": "^29.4.0",
+    "@types/jest": "^29.5.0",
     "@types/lodash": "^4.14.181",
     "@types/node": "^18.14.1",
     "@types/react": "^18.0.28",
@@ -49,9 +49,7 @@
     "prettier": "^2.6.2"
   },
   "scripts": {
-    "start": "yarn start:labs",
-    "start:labs": "REACT_APP_MOCK_API=https://etterlatte.labs.nais.io react-scripts start",
-    "start:mock": "REACT_APP_MOCK_API=http://localhost:8080 react-scripts start",
+    "start": "REACT_APP_MOCK_API=http://localhost:8080 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "cy:test": "TZ=Europe/Oslo cypress run",

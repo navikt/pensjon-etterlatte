@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./app.css";
 import '@navikt/ds-css'
 import App from "./App";
@@ -16,7 +16,7 @@ const ScrollToTop = () => {
     return null;
 };
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Router basename={process.env.PUBLIC_URL}>
         <ScrollToTop />
 
@@ -25,6 +25,5 @@ ReactDOM.render(
                 <App />
             </ContextProviders>
         </div>
-    </Router>,
-    document.getElementById("root")
+    </Router>
 );

@@ -2,11 +2,11 @@ import { ActionTypes as SoknadActionTypes } from "../../context/soknad/soknad";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { useState } from "react";
 import { Alert, Button, Panel } from "@navikt/ds-react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { NavigasjonsRad } from "../felles/StyledComponents";
 
 const Admin = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const { dispatch } = useSoknadContext();
 
@@ -24,7 +24,7 @@ const Admin = () => {
         setState({...state, mocked: true});
 
         setTimeout(() => {
-            history.push("/skjema/steg/oppsummering")
+            navigate("/skjema/steg/oppsummering")
         }, 3500)
     }
 

@@ -1,25 +1,15 @@
 name: etterlatte-node-server
 
 env:
-  IMAGE: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
   APP_NAME: ${{ github.workflow }}
+  IMAGE_TAG: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+  IMAGE_TAG_LATEST: ghcr.io/${{ github.repository }}/${{ github.workflow }}:latest
 
 on:
   workflow_dispatch: # Allow manually triggered workflow run
-    inputs:
-      deploy-prod:
-        description: "Deploy til produksjon"
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - true
-          - false
   push:
     branches:
       - main
-      - release/*
-      - fix/*
     paths:
       - apps/etterlatte-node-server/**
       - '!apps/etterlatte-node-server/src/mock/**'
@@ -27,12 +17,11 @@ on:
   pull_request:
     branches:
       - main
-      - release/*
-      - fix/*
     paths:
       - apps/etterlatte-node-server/**
       - '!apps/etterlatte-node-server/src/mock/**'
       - '!apps/etterlatte-node-server/README.md'
+
 jobs:
   build-and-publish:
     name: Build, test and publish
@@ -80,4 +69,6 @@ jobs:
         with:
           context: apps/${{ env.APP_NAME }}
           push: true
-          tags: ${{ env.IMAGE }}
+          tags: |
+            ${{ env.IMAGE_TAG }}
+            ${{ github.ref_name == 'main' && env.IMAGE_TAG_LATEST }}

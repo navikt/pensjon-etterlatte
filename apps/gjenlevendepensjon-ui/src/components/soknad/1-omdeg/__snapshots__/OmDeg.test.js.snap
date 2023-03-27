@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot 1`] = `
 <div>
   <div
-    class="sc-hLQRIN eHkpLv"
+    class="sc-hLseeU jLGscI"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,10 +13,10 @@ exports[`Om deg og avdød Snapshot 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <fieldset
-        class="sc-beySbM kuevld"
+        class="sc-beqWaB kWPIyU"
       >
         <div>
           <div
@@ -40,13 +40,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-1"
+              id="textField-error-r0"
             />
           </div>
         </div>
       </fieldset>
       <fieldset
-        class="sc-beySbM kuevld"
+        class="sc-beqWaB kWPIyU"
       >
         <div
           class="navds-grid"
@@ -76,7 +76,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-aksel-id-2"
+                id="textField-error-r1"
               />
             </div>
           </div>
@@ -84,17 +84,17 @@ exports[`Om deg og avdød Snapshot 1`] = `
       </fieldset>
     </fieldset>
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-hLQRIN eHkpLv"
+        class="sc-hLseeU jLGscI"
       >
         <div
           id="oppholderSegINorge"
         >
           <fieldset
             aria-invalid="false"
-            class="sc-eDLJxc gflUiN navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="sc-eDDNvR etxXkD navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
@@ -103,12 +103,12 @@ exports[`Om deg og avdød Snapshot 1`] = `
             </legend>
             <div
               class="navds-fieldset__description navds-body-long navds-body-long--small"
-              id="fieldset-description-aksel-id-5"
+              id="fieldset-description-r3"
             >
               <div>
                 <button
                   aria-expanded="false"
-                  class="sc-hABAzo cktcyT"
+                  class="sc-hAtEyd gExcfY"
                   data-testid="hvorforPanel_toggle"
                   type="button"
                 >
@@ -145,14 +145,14 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-3"
+                  id="radio-r5"
                   name="oppholderSegINorge"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-3"
+                  for="radio-r5"
                 >
                   <span
                     class="navds-radio__content"
@@ -171,14 +171,14 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-4"
+                  id="radio-r6"
                   name="oppholderSegINorge"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-4"
+                  for="radio-r6"
                 >
                   <span
                     class="navds-radio__content"
@@ -196,13 +196,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-5"
+              id="fieldset-error-r3"
             />
           </fieldset>
         </div>
       </div>
       <fieldset
-        class="sc-beySbM kuevld"
+        class="sc-beqWaB kWPIyU"
       >
         <div
           id="oppholdsland"
@@ -212,7 +212,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
           >
             <label
               class="navds-form-field__label navds-label"
-              for="textField-aksel-id-7"
+              for="textField-r7"
             >
               omDeg.oppholdsland
             </label>
@@ -222,7 +222,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               <select
                 aria-invalid="false"
                 class="navds-select__input navds-body-short navds-body--medium"
-                id="textField-aksel-id-7"
+                id="textField-r7"
               >
                 <option
                   value=""
@@ -253,20 +253,20 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-7"
+              id="textField-error-r7"
             />
           </div>
         </div>
       </fieldset>
       <div
-        class="sc-hLQRIN eHkpLv"
+        class="sc-hLseeU jLGscI"
       >
         <div
           id="utbetalingsInformasjon.bankkontoType"
         >
           <fieldset
             aria-invalid="false"
-            class="sc-eDLJxc gflUiN navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            class="sc-eDDNvR etxXkD navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
@@ -282,14 +282,14 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-8"
+                  id="radio-rb"
                   name="utbetalingsInformasjon.bankkontoType"
                   type="radio"
                   value="bankkontoType.norsk"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-8"
+                  for="radio-rb"
                 >
                   <span
                     class="navds-radio__content"
@@ -308,14 +308,14 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 <input
                   aria-invalid="false"
                   class="navds-radio__input"
-                  id="radio-aksel-id-9"
+                  id="radio-rc"
                   name="utbetalingsInformasjon.bankkontoType"
                   type="radio"
                   value="bankkontoType.utenlandsk"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-aksel-id-9"
+                  for="radio-rc"
                 >
                   <span
                     class="navds-radio__content"
@@ -333,13 +333,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-aksel-id-10"
+              id="fieldset-error-ra"
             />
           </fieldset>
         </div>
       </div>
       <div
-        class="sc-hLQRIN eHkpLv"
+        class="sc-hLseeU jLGscI"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -348,7 +348,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-hLQRIN eHkpLv"
+        class="sc-hLseeU jLGscI"
       >
         <div>
           <div
@@ -372,13 +372,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-12"
+              id="textField-error-rd"
             />
           </div>
         </div>
       </div>
       <div
-        class="sc-hLQRIN eHkpLv"
+        class="sc-hLseeU jLGscI"
       >
         <div>
           <div
@@ -402,13 +402,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-aksel-id-13"
+              id="textField-error-re"
             />
           </div>
         </div>
       </div>
       <div
-        class="sc-hLQRIN eHkpLv"
+        class="sc-hLseeU jLGscI"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -418,7 +418,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.iban"
           >
             <div
-              class="sc-ktwOSD hFtvtE"
+              class="sc-ktEKTO DTLKX"
             >
               omDeg.utbetalingsInformasjon.iban
                
@@ -431,7 +431,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-aksel-icon-3"
+                    aria-labelledby="title-rg"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -442,7 +442,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-aksel-icon-3"
+                      id="title-rg"
                     >
                       hjelp
                     </title>
@@ -454,7 +454,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-aksel-icon-4"
+                    aria-labelledby="title-rh"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -465,7 +465,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-aksel-icon-4"
+                      id="title-rh"
                     >
                       hjelp
                     </title>
@@ -510,12 +510,12 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-aksel-id-14"
+            id="textField-error-rf"
           />
         </div>
       </div>
       <div
-        class="sc-hLQRIN eHkpLv"
+        class="sc-hLseeU jLGscI"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -525,7 +525,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.swift"
           >
             <div
-              class="sc-ktwOSD hFtvtE"
+              class="sc-ktEKTO DTLKX"
             >
               omDeg.utbetalingsInformasjon.swift
                
@@ -538,7 +538,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-aksel-icon-5"
+                    aria-labelledby="title-rj"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -549,7 +549,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-aksel-icon-5"
+                      id="title-rj"
                     >
                       hjelp
                     </title>
@@ -561,7 +561,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-aksel-icon-6"
+                    aria-labelledby="title-rk"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -572,7 +572,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-aksel-icon-6"
+                      id="title-rk"
                     >
                       hjelp
                     </title>
@@ -617,17 +617,17 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-aksel-id-15"
+            id="textField-error-ri"
           />
         </div>
       </div>
     </fieldset>
     <br />
     <fieldset
-      class="sc-beySbM kuevld"
+      class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-jTQDnj emAaXc undefined"
+        class="sc-jTrPJq jHZtnl undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -643,7 +643,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-jTQDnj sc-gLLvby emAaXc iAsqPR"
+      class="sc-jTrPJq sc-gLDzan jHZtnl kSyGVc"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

@@ -3,7 +3,7 @@
 ## Kom i gang
 
 For å kjøre prosjektet må du installere Node/NPM. Dette kan forenkles ved å [installere nvm](https://github.com/nvm-sh/nvm) (Node Version Manager).\
-*Må bruke en stabil versjon av node (f.eks 14 eller 16).*
+_Må bruke en stabil versjon av node (f.eks 14 eller 16)._
 
 Dersom du ikke har installert Yarn kan du kjøre:\
 `npm install --global yarn`
@@ -19,14 +19,10 @@ Les mer her: https://doc.nais.io
 Installere prosjektet:\
 `yarn install`
 
-Kjøre prosjektet (med labs sitt mock-api):\
-`yarn start` eller `yarn start:labs` 
-
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
-`yarn start:mock`
+`yarn start` 
 
 Åpne [http://localhost:3000/gjenlevendepensjon/soknad](http://localhost:3000/gjenlevendepensjon/soknad) i nettleseren.
-
 
 ### Testing
 
@@ -35,14 +31,14 @@ Teste prosjektet:\
 
 Kjøre cypress tester (krever at prosjektet kjører lokalt først):
 
-- `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
+-   `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
 
-- `yarn cy:test` Kjører testene headless fra CLI.
+-   `yarn cy:test` Kjører testene headless fra CLI.
 
 ### Koble til APIet lokalt
 
 Grunnet manglende støtte for Token/IDporten lokalt er det ikke mulig å kjøre mot APIet lokalt. 
-Appen går derfor enten mot labs-gcp eller lokalt mock api (se [etterlatte-node-server](../etterlatte-node-server))
+Appen må gå mot lokalt mock api (se [etterlatte-node-server](../etterlatte-node-server))
 Dette er ikke en ideel løsning og burde på sikt forbedres.
 
 ## Testmiljøet
@@ -52,7 +48,7 @@ Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:
 
 Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via Citrix/Utviklerimage.
 
-Innloggingsdetaljer kan oppdrives av noen i teamet. 
+Innloggingsdetaljer kan oppdrives av noen i teamet.
 
 # NAV Avhengigheter
 
@@ -69,5 +65,3 @@ Les mer her: [https://aksel.nav.no/komponenter](https://aksel.nav.no/komponenter
 # Annet
 
 Bruker `react-scripts`: https://www.npmjs.com/package/react-scripts med `CSS`.
-
-Prosjektet kjører `pretty-quick` on-`git commit` for automatisk kjøring av prettier, samt linting av js/ts og less on-`git push`.

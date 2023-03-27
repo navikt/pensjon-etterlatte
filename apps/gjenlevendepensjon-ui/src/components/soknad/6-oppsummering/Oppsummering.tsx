@@ -3,7 +3,7 @@ import { isEmpty } from "lodash";
 import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import React, { memo, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { sendSoeknad } from "../../../api/api";
 import { SoeknadRequest, SoeknadType } from "../../../api/dto/InnsendtSoeknad";
 import { mapTilBarnepensjonSoeknadListe, mapTilGjenlevendepensjonSoeknad } from "../../../api/mapper/soeknadMapper";
@@ -19,7 +19,7 @@ import {NavigasjonsRad, SpoersmaalModal} from "../../felles/StyledComponents";
 import { SkjemaElement } from "../../felles/SkjemaElement";
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [soeknadOppsummering, setOppsummering] = useState<any>([]);
     const { t } = useTranslation();
 
@@ -64,7 +64,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 });
 
                 dispatch({ type: ActionTypes.TILBAKESTILL });
-                history.push(`/skjema/sendt`);
+                navigate(`/skjema/sendt`);
             })
             .catch((error) => {
                 setIsOpen(false)

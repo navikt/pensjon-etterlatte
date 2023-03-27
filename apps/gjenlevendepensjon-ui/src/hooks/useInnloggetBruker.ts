@@ -4,10 +4,10 @@ import { ActionTypes as BrukerActionTypes, IBruker } from "../context/bruker/bru
 import { hentAlder } from "../utils/dato";
 import { gyldigAlder } from "../utils/alder";
 import { useBrukerContext } from "../context/bruker/BrukerContext";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const useInnloggetBruker = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const { dispatch } = useBrukerContext();
     const [loading, setLoading] = useState(false);
@@ -26,12 +26,12 @@ const useInnloggetBruker = () => {
                 });
 
                 if (!kanSoeke) {
-                    history.push("/ugyldig-alder");
+                    navigate("/ugyldig-alder");
                 }
             })
             .catch(() => {
                 setLoading(false);
-                history.push("/system-utilgjengelig")
+                navigate("/system-utilgjengelig")
             })
             .finally(() => setLoading(false));
     }, []);

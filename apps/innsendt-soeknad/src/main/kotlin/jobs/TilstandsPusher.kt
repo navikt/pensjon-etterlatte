@@ -24,6 +24,12 @@ class TilstandsPusher(private val db: SoeknadRepository, private val publiserSoe
                     }.forEach {
                         publiserSoeknad.publiser(it)
                     }
+                    db.arkiverteUtenBehandlingIDoffen().also {
+                        logger.info("Publiserer melding om søknader ${it.map(LagretSoeknad::id)} som mangler " +
+                                "behandling ut på Kafka")
+                    }.forEach {
+                        publiserSoeknad.publiserBehandlingsbehov(it)
+                    }
                 } catch (e: Exception) {
                     logger.error("Feil under kjøring av jobb: ", e)
                 }
