@@ -43,7 +43,7 @@
     "@types/react-router-dom": "5.3.3",
     "@types/styled-components": "^5.1.26",
     "@types/uuid": "9.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.55.0",
     "axe-core": "^4.6.3",
     "cypress": "^12.8.0",
