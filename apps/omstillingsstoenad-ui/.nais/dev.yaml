@@ -13,15 +13,15 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - https://etterlatte.intern.dev.nav.no/omstillingsstoenad/soknad
+    - https://etterlatte.intern.dev.nav.no/omstillingsstonad/soknad
   liveness:
-    path: /omstillingsstoenad/soknad/isAlive
+    path: /omstillingsstonad/soknad/isAlive
     initialDelay: 10
     timeout: 5
     periodSeconds: 5
     failureThreshold: 30
   readiness:
-    path: /omstillingsstoenad/soknad/isReady
+    path: /omstillingsstonad/soknad/isReady
     initialDelay: 30
     periodSeconds: 5
     timeout: 5
@@ -34,15 +34,15 @@ spec:
       memory: 256Mi
   prometheus:
     enabled: true
-    path: /omstillingsstoenad/soknad/metrics
+    path: /omstillingsstonad/soknad/metrics
   tokenx:
     enabled: true
   idporten:
     enabled: true
     clientUri: https://www.dev.nav.no
-    frontchannelLogoutPath: /omstillingsstoenad/soknad/logout
+    frontchannelLogoutPath: /omstillingsstonad/soknad/logout
     postLogoutRedirectURIs:
-      - https://etterlatte.intern.dev.nav.no/omstillingsstoenad/soknad/logout/callback
+      - https://etterlatte.intern.dev.nav.no/omstillingsstonad/soknad/logout/callback
     accessTokenLifetime: 3600
     sessionLifetime: 3600
     sidecar:
@@ -53,7 +53,7 @@ spec:
       errorPath: ""
   env:
     - name: BASE_PATH
-      value: /omstillingsstoenad/soknad
+      value: /omstillingsstonad/soknad
     - name: API_URL
       value: http://selvbetjening-api
     - name: AUDIENCE

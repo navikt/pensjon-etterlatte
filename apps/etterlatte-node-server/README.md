@@ -40,7 +40,8 @@ Kjøre prosjektet (BASE_PATH=/gjenlevendepensjon/soknad):\
 Kjøre prosjektet (BASE_PATH=/barnepensjon/soknad):\
 `yarn start:barnepensjon`
 
-Kjøre prosjektet (BASE_PATH=/omstillingsstoenad/soknad)
+Kjøre prosjektet (BASE_PATH=/omstillingsstonad/soknad):\
+`yarn start:omstillingsstonad`
 
 ### OBS!
 

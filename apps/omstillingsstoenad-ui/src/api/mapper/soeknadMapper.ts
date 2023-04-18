@@ -13,7 +13,7 @@ import {
 import { mapGjenlevende, mapStoenader } from './gjenlevendeMapper'
 import { mapAvdoed } from './avdoedMapper'
 
-export const mapTilGjenlevendepensjonSoeknad = (
+export const mapTilOmstillingsstoenadSoeknad = (
     t: TFunction,
     soeknad: ISoeknad,
     bruker: IBruker

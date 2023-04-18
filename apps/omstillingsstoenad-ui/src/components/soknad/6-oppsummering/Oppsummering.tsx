@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { sendSoeknad } from '../../../api/api'
 import { SoeknadRequest, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
-import { mapTilBarnepensjonSoeknadListe, mapTilGjenlevendepensjonSoeknad } from '../../../api/mapper/soeknadMapper'
+import { mapTilBarnepensjonSoeknadListe, mapTilOmstillingsstoenadSoeknad } from '../../../api/mapper/soeknadMapper'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import SoknadSteg from '../../../typer/SoknadSteg'
@@ -48,11 +48,11 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         setSenderSoeknad(true)
         setError(false)
 
-        const gjenlevendepensjon = mapTilGjenlevendepensjonSoeknad(t, soeknad, bruker)
+        const omstillingsstoenad = mapTilOmstillingsstoenadSoeknad(t, soeknad, bruker)
         const barnepensjonSoeknader = mapTilBarnepensjonSoeknadListe(t, soeknad, bruker)
 
         const soeknadBody: SoeknadRequest = {
-            soeknader: [gjenlevendepensjon, ...barnepensjonSoeknader],
+            soeknader: [omstillingsstoenad, ...barnepensjonSoeknader],
         }
 
         sendSoeknad(soeknadBody)
