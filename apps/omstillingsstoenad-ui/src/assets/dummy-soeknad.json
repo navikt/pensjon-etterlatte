@@ -1,0 +1,140 @@
+{
+  "harSamtykket": true,
+  "spraak": "nb",
+  "sistLagretDato": "2021-08-10T08:55:28.330Z",
+  "klarForLagring": true,
+  "omDeg": {
+    "kontaktinfo": {
+      "telefonnummer": "999 88 777"
+    },
+    "oppholderSegINorge": "radiobuttons.ja",
+    "alternativAdresse": "Testveien 123, 0594 Oslo",
+    "utbetalingsInformasjon": {
+      "kontonummer": "1351.35.13513"
+    }
+  },
+  "omDegOgAvdoed": {
+    "avdoed": {
+      "fornavn": "Død",
+      "etternavn": "Testperson",
+      "datoForDoedsfallet": "2021-07-26"
+    },
+    "forholdTilAvdoede": {
+      "relasjon": "avdoede.relasjon.separert",
+      "datoForInngaattPartnerskap": "2001-07-26"
+    },
+    "nySivilstatus": {
+      "sivilstatus": "nySivilstatus.enslig"
+    }
+  },
+  "omDenAvdoede": {
+    "foedselsnummer": "24014021406",
+    "statsborgerskap": "Norge",
+    "boddEllerJobbetUtland": {
+      "svar": "radiobuttons.ja",
+      "oppholdUtland": [
+        {
+          "land": "Irak",
+          "beskrivelse": [
+            "oppholdUtlandType.bodd",
+            "oppholdUtlandType.arbeidet"
+          ],
+          "fraDato": "2002-08-10",
+          "tilDato": "2003-08-10",
+          "medlemFolketrygd": "radiobuttons.ja",
+          "mottokPensjon": {
+            "beskrivelse": "150.000"
+          }
+        }
+      ]
+    },
+    "selvstendigNaeringsdrivende": {
+      "svar": "radiobuttons.ja",
+      "beskrivelse": "150 000"
+    },
+    "haddePensjonsgivendeInntekt": {
+      "svar": "radiobuttons.nei"
+    },
+    "doedsfallAarsak": "radiobuttons.ja",
+    "harAvtjentMilitaerTjeneste": {
+      "svar": "radiobuttons.ja",
+      "beskrivelse": "1984"
+    }
+  },
+  "dinSituasjon": {
+    "jobbStatus": [
+      "jobbStatus.arbeidstaker"
+    ],
+    "utdanning": {
+      "hoyesteFullfoerteUtdanning": "utdanning.mastergrad"
+    },
+    "andreYtelser": {
+      "kravOmAnnenStonad": {
+        "svar": "radiobuttons.ja",
+        "ytelser": "ytelser.dagpenger"
+      },
+      "annenPensjon": {
+        "svar": "radiobuttons.ja",
+        "beskrivelse": "Skandia"
+      },
+      "mottarPensjonUtland": {
+        "svar": "radiobuttons.ja",
+        "hvaSlagsPensjon": "Polsk Uførepensjon",
+        "fraHvilketLand": "Polen",
+        "bruttobeloepPrAar": "4000 PLN"
+      }
+    },
+    "arbeidsforhold": [
+      {
+        "arbeidsgiver": "Potetskreller AS",
+        "ansettelsesforhold": "stillingType.midlertidig",
+        "stillingsprosent": "100%",
+        "forventerEndretInntekt": {
+          "svar": "radiobuttons.ja",
+          "beskrivelse": "dinSituasjon.forventerEndretInntektType.oektStillingsprosent"
+        }
+      }
+    ]
+  },
+  "opplysningerOmBarn": {
+    "gravidEllerNyligFoedt": "radiobuttons.ja",
+    "barn": [
+      {
+        "fornavn": "Treg",
+        "etternavn": "Snøfreser",
+        "foedselsnummer": "24014021406",
+        "statsborgerskap": "Norge",
+        "bosattUtland": {
+          "svar": "radiobuttons.nei"
+        },
+        "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
+        "harBarnetVerge": {
+          "svar": "radiobuttons.nei"
+        }
+      },
+      {
+        "fornavn": "Lunken",
+        "etternavn": "Floskel",
+        "foedselsnummer": "07010776133",
+        "statsborgerskap": "Norge",
+        "bosattUtland": {
+          "svar": "radiobuttons.nei"
+        },
+        "relasjon": "barnRelasjon.fellesbarnMedAvdoede",
+        "harBarnetVerge": {
+          "svar": "radiobuttons.nei"
+        },
+        "barnepensjon": {
+          "soeker": true,
+          "kontonummer": {
+            "svar": "radiobuttons.ja"
+          },
+          "forskuddstrekk": {
+            "svar": "radiobuttons.ja",
+            "trekkprosent": "21%"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        app: [barnepensjon-ui, gjenlevendepensjon-ui]
+        app: [barnepensjon-ui, gjenlevendepensjon-ui, omstillingsstoenad-ui]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
