@@ -1,0 +1,43 @@
+name: omstillingsstoenad-ui
+
+on:
+  workflow_dispatch: # Allow manually triggered workflow run
+    inputs:
+      deploy-prod:
+        description: "Deploy til produksjon"
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - true
+          - false
+  push:
+    branches:
+      - main
+    paths:
+      - apps/omstillingsstoenad-ui/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - apps/omstillingsstoenad-ui/**
+
+jobs:
+  build:
+    uses: ./.github/workflows/.build-frontend.yaml
+    secrets: inherit
+
+  test:
+    needs: build
+    uses: ./.github/workflows/.test-frontend.yaml
+    with:
+      yarn-lock-hash: ${{ needs.build.outputs.yarn-lock-hash }}
+    secrets: inherit
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    uses: ./.github/workflows/.deploy.yaml
+    with:
+      image: ${{ needs.build.outputs.image }}
+    secrets: inherit
