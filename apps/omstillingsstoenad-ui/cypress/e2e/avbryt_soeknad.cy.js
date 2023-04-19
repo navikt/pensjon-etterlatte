@@ -7,7 +7,7 @@ describe("Skal avbryte en soeknad",() => {
         cy.intercept("GET", `${basePath}/api/api/kladd`, {fixture: "kladd"}).as("hentSoeknad");
         cy.intercept("GET", `${basePath}/session`, {fixture: "session"}).as("hentSession");
 
-        cy.visit("localhost:3000/omstillingsstoenad/soknad", {
+        cy.visit("localhost:3000/omstillingsstonad/soknad", {
             onBeforeLoad: (obj) => {
                 Object.defineProperty(obj.navigator, "language", {value: "nb-NO"});
             },
