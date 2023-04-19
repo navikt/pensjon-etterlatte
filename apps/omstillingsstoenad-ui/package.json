@@ -2,7 +2,7 @@
   "name": "cra",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/omstillingsstoenad/soknad",
+  "homepage": "/omstillingsstonad/soknad",
   "dependencies": {
     "@navikt/ds-css": "^2.8.3",
     "@navikt/ds-datepicker": "^4.1.2",
