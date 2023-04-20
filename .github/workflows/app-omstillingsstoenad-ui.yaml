@@ -34,6 +34,7 @@ jobs:
       yarn-lock-hash: ${{ needs.build.outputs.yarn-lock-hash }}
     secrets: inherit
 
+  # Må byttes tilbake til å bruke deploy.yaml når vi går i prod
   deploy-to-dev-gcp:
     name: dev-gcp
     needs: build
