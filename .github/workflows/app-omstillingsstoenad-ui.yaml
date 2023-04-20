@@ -38,6 +38,7 @@ jobs:
   deploy-to-dev-gcp:
     name: dev-gcp
     needs: build
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
