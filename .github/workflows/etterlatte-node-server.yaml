@@ -73,4 +73,4 @@ jobs:
           push: true
           tags: |
             ${{ env.IMAGE_TAG }}
-            ${{ github.ref_name == 'main' && env.IMAGE_TAG_LATEST }}
+            ${{ github.ref_name == 'main' && env.IMAGE_TAG_LATEST || ''}}
