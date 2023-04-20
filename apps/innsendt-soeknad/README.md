@@ -56,7 +56,7 @@ En søknad regnes som kladd når den har status `LAGRETKLADD`.
 POST /api/kladd
 ```
 
-Uthenting av kladd krever `body` og query param `kilde` (`gjenlevendepensjon-ui` eller `barnepensjon-ui`). \
+Uthenting av kladd krever `body` og query param `kilde` (`gjenlevendepensjon-ui`, `barnepensjon-ui` eller `omstillingsstoenad-ui`). \
 Kreves kun at body er i form av JSON.
 
 #### Hent kladd
@@ -65,7 +65,7 @@ Kreves kun at body er i form av JSON.
 GET /api/kladd
 ```
 
-Uthenting av kladd krever query param `kilde` (`gjenlevendepensjon-ui` eller `barnepensjon-ui`).
+Uthenting av kladd krever query param `kilde` (`gjenlevendepensjon-ui`, `barnepensjon-ui` eller `omstillingsstoenad-ui`).
 Sjekker om det finnes søknad lagret på innlogget fnr og kilde. Returnerer kladd hvis funnet,
 og 404 hvis ikke.
 
@@ -75,7 +75,7 @@ og 404 hvis ikke.
 DELETE /api/kladd
 ```
 
-Sletting av kladd krever query param `kilde` (`gjenlevendepensjon-ui` eller `barnepensjon-ui`).
+Sletting av kladd krever query param `kilde` (`gjenlevendepensjon-ui`, `barnepensjon-ui` eller `omstillingsstoenad-ui`).
 Søknaden blir så slettet (hvis den finnes) basert på innlogget fnr og kilde.
 
 ## Databasetilgang

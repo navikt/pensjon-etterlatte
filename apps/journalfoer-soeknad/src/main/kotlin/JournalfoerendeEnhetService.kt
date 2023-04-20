@@ -4,6 +4,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Avdoed
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
+import no.nav.etterlatte.libs.common.innsendtsoeknad.omstillingsstoenad.Omstillingsstoenad
 import no.nav.etterlatte.libs.common.pdl.Gradering
 
 fun finnJournalfoerendeEnhet(soeknad: InnsendtSoeknad, gradering: Gradering, forsoekFerdigstill: Boolean = false): String? =
@@ -17,6 +18,7 @@ fun finnJournalfoerendeEnhet(soeknad: InnsendtSoeknad, gradering: Gradering, for
 private fun finnEnhet(soeknad: InnsendtSoeknad): String? {
     val avdoede: List<Avdoed> = when (soeknad) {
         is Gjenlevendepensjon -> listOf(soeknad.avdoed)
+        is Omstillingsstoenad -> listOf(soeknad.avdoed)
         is Barnepensjon -> soeknad.foreldre.filterIsInstance<Avdoed>()
         else -> throw Exception("Ukjent søknadstype")
     }

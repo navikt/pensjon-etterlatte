@@ -22,6 +22,9 @@ Database app for håndtering av søknader (lagring, uthenting, sending, m.m.).
 [journalfoer-soeknad](apps/journalfoer-soeknad) \
 Sikrer korrekt Journalføring av innsendt søknad.
 
+[omstillingsstoenad-ui](apps/omstillingsstoenad-ui) \
+Brukergrensesnittet for "Søknad om omstillingsstønad".
+
 [selvbetjening-api](apps/selvbetjening-api) \
 API som tilgjengeliggjør data for frontend å kommunisere med diverse apper. 
 

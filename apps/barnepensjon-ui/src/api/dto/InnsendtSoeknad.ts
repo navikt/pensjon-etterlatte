@@ -4,7 +4,7 @@ import { Language } from '../../context/language/language'
 
 export enum SoeknadType {
     GJENLEVENDEPENSJON = 'GJENLEVENDEPENSJON',
-    BARNEPENSJON = 'BARNEPENSJON',
+    BARNEPENSJON = 'BARNEPENSJON'
 }
 
 export interface SoeknadRequest {

@@ -64,3 +64,4 @@ spec:
       rules:
         - application: gjenlevendepensjon-ui
         - application: barnepensjon-ui
+        - application: omstillingsstoenad-ui

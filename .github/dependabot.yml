@@ -35,6 +35,16 @@ updates:
       day: "sunday"
     open-pull-requests-limit: 10
 
+  # ===========================
+  # FRONTEND OMSTILLINGSSTØNAD
+  # ===========================
+
+  - package-ecosystem: "npm"
+    directory: "/apps/omstillingsstoenad-ui"
+    schedule:
+      interval: "monthly"
+      day: "sunday"
+    open-pull-requests-limit: 10
 
   # ===========
   # NODE SERVER
