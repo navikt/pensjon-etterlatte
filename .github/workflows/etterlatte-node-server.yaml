@@ -71,6 +71,7 @@ jobs:
         with:
           context: apps/${{ env.APP_NAME }}
           push: true
+          # Hvis main, markeres docker image med latest.
           tags: |
-            ${{ env.IMAGE_TAG }}
+            ${{ env.IMAGE_TAG }} 
             ${{ github.ref_name == 'main' && env.IMAGE_TAG_LATEST || ''}}
