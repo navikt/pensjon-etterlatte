@@ -47,4 +47,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: apps/${{ github.workflow }}/.nais/dev.yaml
-          VAR: image=${{ inputs.image }}
+          VAR: image=${{ needs.build.outputs.image }}
