@@ -92,9 +92,6 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById("selvstendigNaeringsdrivende.beskrivelse").type(omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse);
         selectValueForId("haddePensjonsgivendeInntekt.svar", omDenAvdoede.haddePensjonsgivendeInntekt.svar);
         selectValueForId("doedsfallAarsak", omDenAvdoede.doedsfallAarsak);
-        selectValueForId("harAvtjentMilitaerTjeneste.svar", omDenAvdoede.harAvtjentMilitaerTjeneste.svar);
-        getById("harAvtjentMilitaerTjeneste.beskrivelse").type(omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse);
-
         a11yCheck();
 
         gaaTilNesteSide();

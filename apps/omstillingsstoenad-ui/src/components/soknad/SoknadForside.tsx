@@ -64,12 +64,6 @@ const SoknadForside = () => {
                         {t('forside.omYtelsene.lenkeGjenlevende.tekst')}
                     </Link>
                 </BodyLong>
-
-                <BodyLong>
-                    <Link href={t('forside.omYtelsene.lenkeOvergangsstoenad.href')}>
-                        {t('forside.omYtelsene.lenkeOvergangsstoenad.tekst')}
-                    </Link>
-                </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -79,6 +73,11 @@ const SoknadForside = () => {
                 <BodyLong>
                     <Link href={t('forside.barnepensjon.href')}>{t('forside.barnepensjon.tekst')}</Link>
                 </BodyLong>
+            </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                <Heading size={'small'}>{t('forside.omSoeknaden.tittel')}</Heading>
+                <BodyLong spacing> {t('forside.omSoeknaden.innhold')}</BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -126,6 +125,23 @@ const SoknadForside = () => {
                     </Link>
                 </BodyLong>
             </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
+                <BodyLong spacing> {t('forside.personvern.innhold')}</BodyLong>
+                <BodyLong>
+                    <Link href={t('forside.personvern.href')}>{t('forside.personvern.tekst')}</Link>
+                </BodyLong>
+            </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                <Heading size={'small'}>{t('forside.behandlingsgrunnlag.tittel')}</Heading>
+                <BodyLong spacing> {t('forside.behandlingsgrunnlag.innhold')}</BodyLong>
+                <BodyLong>
+                    <Link href={t('forside.behandlingsgrunnlag.href')}>{t('forside.behandlingsgrunnlag.tekst')}</Link>
+                </BodyLong>
+            </SkjemaGruppe>
+
             <SkjemaGruppe>
                 <Heading size={'small'}>{t('forside.soeknad.tittel')}</Heading>
                 <BodyLong spacing>
@@ -141,7 +157,7 @@ const SoknadForside = () => {
                 <BodyLong>{t('forside.samtykke.innhold')}</BodyLong>
 
                 <ConfirmationPanel
-                    label={t('forside.samtykke.bekreftelse', { navn: innloggetBrukerNavn })}
+                    label={t('forside.samtykke.bekreftelse')}
                     checked={soknadState.harSamtykket}
                     onChange={(e) =>
                         soknadDispatch({

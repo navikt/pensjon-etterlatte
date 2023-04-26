@@ -37,13 +37,13 @@ export default {
     'forside.omYtelsene.lenkeGjenlevende.href':
         'https://www.nav.no/en/home/benefits-and-services/relatert-informasjon/benefits-for-surviving-spouse',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'Read more about survivor’s pension',
-    'forside.omYtelsene.lenkeOvergangsstoenad.href': 'https://www.nav.no/overgangsstonad-gjenlevende',
-    'forside.omYtelsene.lenkeOvergangsstoenad.tekst': 'Read more about transitional benefit',
     'forside.barnepensjon.tittel': 'You can also apply for a children’s pension',
     'forside.barnepensjon.innhold':
         'If you have a joint child under the age of 18 with the deceased, the child(ren) may be entitled to a children’s pension. You can apply for both survivor’s pension and children’s pension using this application.',
     'forside.barnepensjon.href': 'https://www.nav.no/barnepensjon',
     'forside.barnepensjon.tekst': 'Read more about children’s pension',
+    'forside.omSoeknaden.tittel': 'Om søknaden',
+    'forside.omSoeknaden.innhold': 'Vi vil informere deg underveis i søknaden om opplysninger vi innhenter og mottar om deg. Informasjonen vi innhenter kommer enten fra deg eller fra offentlige registre.',
     'forside.uthentingAvInfo.tittel': 'We gather the information we need',
     'forside.uthentingAvInfo.innhold':
         'To process your application we need information about you, the deceased, any children and (as applicable) your cohabiting partner. We gather:',
@@ -63,6 +63,14 @@ export default {
     'forside.uthentingAvInfo.lenke2.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3',
     'forside.uthentingAvInfo.lenke2.tekst': 'Read more about data protection and security on the nav.no website',
+    'forside.personvern.tittel': 'Mer om personvern - Nedtrekk',
+    'forside.personvern.innhold': 'Du har rett til innsyn i saken din. Vil du vite mer om hvordan NAV behandler personopplysninger?',
+    'forside.personvern.href': 'mangler link',
+    'forside.personvern.tekst': 'Om personvern og sikkerhet på nav.no',
+    'forside.behandlingsgrunnlag.tittel': 'Behandlingsgrunnlag - NEdtrekk',
+    'forside.behandlingsgrunnlag.innhold': 'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
+    'forside.behandlingsgrunnlag.href': 'mangler link',
+    'forside.behandlingsgrunnlag.tekst': 'Slik behandler vi personopplysningene dine',
     'forside.soeknad.tittel': 'Filling in the application',
     'forside.soeknad.innhold':
         'We will save your application for 72 hours so that you can take breaks. You can discard your application at any time.\n\nYou must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use',
@@ -249,11 +257,6 @@ export default {
         'Enter the deceased’s income from self-employment from the calendar year before their death (optional)',
     'omDenAvdoede.selvstendigNaeringsdrivende.placeholder': 'Total annual income before tax',
     'omDenAvdoede.annenOpptjening.tittel': 'Other',
-    'omDenAvdoede.harAvtjentMilitaerTjeneste.svar':
-        'Has the deceased carried out compulsory military or civil service for Norway that lasted at least 30 days?',
-    'omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst':
-        'This may result in earnings that are to be included in the calculation of your survivor’s pension',
-    'omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse': 'In which year(s)? (optional)',
     'omDenAvdoede.doedsfallAarsak': 'Was the death caused by an occupational injury or occupational illness?',
     'omDenAvdoede.doedsfallAarsakHvorfor':
         "A death caused by an occupational injury or illness approved by NAV may be decisive as to whether you are entitled to a survivor's pension and the size of the pension.",
@@ -530,9 +533,6 @@ export default {
     'feil.selvstendig.forventerEndretInntekt.svar.required': 'State whether you expect any changes in your income',
     'feil.selvstendig.forventerEndretInntekt.beskrivelse.required': 'Description is a required field',
     'feil.haddePensjonsgivendeInntekt.svar.required': 'State whether the deceased had self-employmed income',
-    'feil.harAvtjentMilitaerTjeneste.svar.required':
-        'State whether the deceased has carried out compulsory military service',
-    'feil.harAvtjentMilitaerTjeneste.beskrivelse.required': 'State relevant year(s)',
     'feil.kontaktinfo.telefonnummer.required': 'Telephone number is a required field',
     'feil.kontaktinfo.telefonnummer.pattern': 'Must be a valid phone number',
     'feil.kontaktinfo.telefonnummer.minLength': 'Must be a valid phone number',

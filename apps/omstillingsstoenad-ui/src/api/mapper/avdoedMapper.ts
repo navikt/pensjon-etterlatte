@@ -2,10 +2,8 @@ import { TFunction } from 'i18next'
 import { ISoeknad } from '../../context/soknad/soknad'
 import {
     EnumSvar,
-    FritekstSvar,
     Naeringsinntekt,
     OppholdUtlandType,
-    Opplysning,
     Utenlandsopphold,
 } from '../dto/FellesOpplysninger'
 import { Avdoed, PersonType } from '../dto/Person'
@@ -84,16 +82,6 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
         }
     }
 
-    let opplysningMilitaertjeneste: Opplysning<FritekstSvar> | undefined
-    if (soeknad.omDenAvdoede.harAvtjentMilitaerTjeneste?.svar === IValg.JA) {
-        opplysningMilitaertjeneste = {
-            spoersmaal: t('omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse'),
-            svar: {
-                innhold: soeknad.omDenAvdoede.harAvtjentMilitaerTjeneste!!.beskrivelse!! || '-',
-            },
-        }
-    }
-
     return {
         type: PersonType.AVDOED,
 
@@ -131,11 +119,6 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
             spoersmaal: t('omDenAvdoede.selvstendigNaeringsdrivende.svar'),
             svar: valgTilSvar(t, soeknad.omDenAvdoede.selvstendigNaeringsdrivende!!.svar!!), // TODO: Fikse type
             opplysning: opplysningNaeringsInntekt,
-        },
-        militaertjeneste: {
-            spoersmaal: t('omDenAvdoede.harAvtjentMilitaerTjeneste.svar'),
-            svar: valgTilSvar(t, soeknad.omDenAvdoede.harAvtjentMilitaerTjeneste!!.svar!!), // TODO: Fikse type
-            opplysning: opplysningMilitaertjeneste,
         },
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
             spoersmaal: t('omDenAvdoede.doedsfallAarsak'),

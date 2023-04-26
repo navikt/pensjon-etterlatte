@@ -1,5 +1,4 @@
 import {
-    AarstallForMilitaerTjeneste,
     AndreYtelser,
     AnnenUtdanning,
     ArbeidOgUtdanning,
@@ -121,7 +120,6 @@ export interface Avdoed extends Person {
     statsborgerskap: Opplysning<FritekstSvar>
     utenlandsopphold: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsopphold[] | undefined>
     naeringsInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt> // Ikke nødvendig nytt regelverk for barnep.
-    militaertjeneste: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<AarstallForMilitaerTjeneste>> // Ikke nødvendig nytt regelverk for barnep.
     doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 

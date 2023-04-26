@@ -55,11 +55,7 @@
     "haddePensjonsgivendeInntekt": {
       "svar": "radiobuttons.nei"
     },
-    "doedsfallAarsak": "radiobuttons.ja",
-    "harAvtjentMilitaerTjeneste": {
-      "svar": "radiobuttons.ja",
-      "beskrivelse": "1984"
-    }
+    "doedsfallAarsak": "radiobuttons.ja"
   },
   "dinSituasjon": {
     "jobbStatus": [
