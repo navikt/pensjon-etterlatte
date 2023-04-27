@@ -10,13 +10,6 @@ import { useLanguage } from '../../hooks/useLanguage'
 import { Spraakvalg } from '../felles/Spraakvalg'
 import { MuligeSteg } from '../../typer/steg'
 import { SkjemaGruppe } from '../felles/SkjemaGruppe'
-import styled from 'styled-components'
-
-const AccordionHeader = styled(Accordion.Header)`
-    > span {
-        font-size: 20px !important;
-    }
-`
 
 const SoknadForside = () => {
     const navigate = useNavigate()
@@ -85,12 +78,10 @@ const SoknadForside = () => {
             <SkjemaGruppe>
                 <Heading size={'small'}>{t('forside.omSoeknaden.tittel')}</Heading>
                 <BodyLong spacing> {t('forside.omSoeknaden.innhold')}</BodyLong>
-            </SkjemaGruppe>
 
-            <SkjemaGruppe>
                 <Accordion>
                     <Accordion.Item>
-                        <AccordionHeader>{t('forside.uthentingAvInfo.tittel')}</AccordionHeader>
+                        <Accordion.Header>{t('forside.uthentingAvInfo.tittel')}</Accordion.Header>
                         <Accordion.Content>
                             <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
@@ -157,7 +148,7 @@ const SoknadForside = () => {
                     </Accordion.Item>
 
                     <Accordion.Item>
-                        <AccordionHeader>{t('forside.personvern.tittel')}</AccordionHeader>
+                        <Accordion.Header>{t('forside.personvern.tittel')}</Accordion.Header>
                         <Accordion.Content>
                             <BodyLong spacing> {t('forside.personvern.innhold')}</BodyLong>
                             <BodyLong>
@@ -167,7 +158,7 @@ const SoknadForside = () => {
                     </Accordion.Item>
 
                     <Accordion.Item>
-                        <AccordionHeader>{t('forside.behandlingsgrunnlag.tittel')}</AccordionHeader>
+                        <Accordion.Header>{t('forside.behandlingsgrunnlag.tittel')}</Accordion.Header>
                         <Accordion.Content>
                             <BodyLong spacing> {t('forside.behandlingsgrunnlag.innhold')}</BodyLong>
                             <BodyLong>

@@ -49,7 +49,7 @@ export default {
     'forside.soeknad.innhold.lenke.tekst': 'denne søknaden.',
     'forside.soeknad.innhold.lenke.href':
         'mangler link',
-    'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger -  Nedtrekksmeny',
+    'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
         'For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell samboer.\nVi henter:',
     'forside.uthentingAvInfo.innholdListe.li1': '<strong>Personinformasjon</strong> fra Folkeregisteret',
@@ -65,11 +65,11 @@ export default {
     'forside.uthentingAvInfo.lenke2.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3',
     'forside.uthentingAvInfo.lenke2.tekst': 'Om personvern og sikkerhet på nav.no',
-    'forside.personvern.tittel': 'Mer om personvern - Nedtrekk',
+    'forside.personvern.tittel': 'Mer om personvern',
     'forside.personvern.innhold': 'Du har rett til innsyn i saken din. Vil du vite mer om hvordan NAV behandler personopplysninger?',
     'forside.personvern.href': 'mangler link',
     'forside.personvern.tekst': 'Om personvern og sikkerhet på nav.no',
-    'forside.behandlingsgrunnlag.tittel': 'Behandlingsgrunnlag - NEdtrekk',
+    'forside.behandlingsgrunnlag.tittel': 'Behandlingsgrunnlag',
     'forside.behandlingsgrunnlag.innhold': 'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
     'forside.behandlingsgrunnlag.href': 'mangler link',
     'forside.behandlingsgrunnlag.tekst': 'Slik behandler vi personopplysningene dine',
