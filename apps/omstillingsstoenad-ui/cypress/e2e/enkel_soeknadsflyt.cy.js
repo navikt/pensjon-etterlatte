@@ -26,7 +26,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         cy.checkA11y();
 
         // Start søknaden
-        cy.get('[type="button"]').click();
+        cy.get('.navds-button').click();
     });
 
     it('Skal fylle ut siden "Om Deg" og gå til neste', () => {
