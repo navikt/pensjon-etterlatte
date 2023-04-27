@@ -4,12 +4,19 @@ import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
 import { Veileder } from '../felles/Veileder'
-import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
+import { Accordion, Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
 import { LogEvents, useAmplitude } from '../../utils/amplitude'
 import { useLanguage } from '../../hooks/useLanguage'
 import { Spraakvalg } from '../felles/Spraakvalg'
 import { MuligeSteg } from '../../typer/steg'
 import { SkjemaGruppe } from '../felles/SkjemaGruppe'
+import styled from 'styled-components'
+
+const AccordionHeader = styled(Accordion.Header)`
+    > span {
+        font-size: 20px !important;
+    }
+`
 
 const SoknadForside = () => {
     const navigate = useNavigate()
@@ -81,65 +88,96 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
+                <Accordion>
+                    <Accordion.Item>
+                        <AccordionHeader>{t('forside.uthentingAvInfo.tittel')}</AccordionHeader>
+                        <Accordion.Content>
+                            <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
-                <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
+                            <ul>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li1'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li2'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li3'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li4'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li5'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                            </ul>
 
-                <ul>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li1') }} />
-                        </BodyLong>
-                    </li>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li2') }} />
-                        </BodyLong>
-                    </li>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li3') }} />
-                        </BodyLong>
-                    </li>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li4') }} />
-                        </BodyLong>
-                    </li>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li5') }} />
-                        </BodyLong>
-                    </li>
-                </ul>
+                            <BodyLong>
+                                <Link href={t('forside.uthentingAvInfo.lenke1.href')}>
+                                    {t('forside.uthentingAvInfo.lenke1.tekst')}
+                                </Link>
+                            </BodyLong>
 
-                <BodyLong>
-                    <Link href={t('forside.uthentingAvInfo.lenke1.href')}>
-                        {t('forside.uthentingAvInfo.lenke1.tekst')}
-                    </Link>
-                </BodyLong>
+                            <BodyLong>
+                                <Link href={t('forside.uthentingAvInfo.lenke2.href')}>
+                                    {t('forside.uthentingAvInfo.lenke2.tekst')}
+                                </Link>
+                            </BodyLong>
+                        </Accordion.Content>
+                    </Accordion.Item>
 
-                <BodyLong>
-                    <Link href={t('forside.uthentingAvInfo.lenke2.href')}>
-                        {t('forside.uthentingAvInfo.lenke2.tekst')}
-                    </Link>
-                </BodyLong>
-            </SkjemaGruppe>
+                    <Accordion.Item>
+                        <AccordionHeader>{t('forside.personvern.tittel')}</AccordionHeader>
+                        <Accordion.Content>
+                            <BodyLong spacing> {t('forside.personvern.innhold')}</BodyLong>
+                            <BodyLong>
+                                <Link href={t('forside.personvern.href')}>{t('forside.personvern.tekst')}</Link>
+                            </BodyLong>
+                        </Accordion.Content>
+                    </Accordion.Item>
 
-            <SkjemaGruppe>
-                <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
-                <BodyLong spacing> {t('forside.personvern.innhold')}</BodyLong>
-                <BodyLong>
-                    <Link href={t('forside.personvern.href')}>{t('forside.personvern.tekst')}</Link>
-                </BodyLong>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <Heading size={'small'}>{t('forside.behandlingsgrunnlag.tittel')}</Heading>
-                <BodyLong spacing> {t('forside.behandlingsgrunnlag.innhold')}</BodyLong>
-                <BodyLong>
-                    <Link href={t('forside.behandlingsgrunnlag.href')}>{t('forside.behandlingsgrunnlag.tekst')}</Link>
-                </BodyLong>
+                    <Accordion.Item>
+                        <AccordionHeader>{t('forside.behandlingsgrunnlag.tittel')}</AccordionHeader>
+                        <Accordion.Content>
+                            <BodyLong spacing> {t('forside.behandlingsgrunnlag.innhold')}</BodyLong>
+                            <BodyLong>
+                                <Link href={t('forside.behandlingsgrunnlag.href')}>
+                                    {t('forside.behandlingsgrunnlag.tekst')}
+                                </Link>
+                            </BodyLong>
+                        </Accordion.Content>
+                    </Accordion.Item>
+                </Accordion>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
