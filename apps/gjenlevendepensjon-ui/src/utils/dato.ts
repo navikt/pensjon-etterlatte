@@ -13,9 +13,14 @@ export const hentAlder = (foedselsdato: Date | string): number => {
 
 // Støtter også D-nummer.
 export const hentAlderFraFoedselsnummer = (foedselsnummer: string): number => {
-    const foedselsDato = navFaker.personIdentifikator.getFødselsdato(foedselsnummer)
+    try {
+        const foedselsDato = navFaker.personIdentifikator.getFødselsdato(foedselsnummer)
 
-    return hentAlder(foedselsDato)
+        return hentAlder(foedselsDato)
+    } catch (e) {
+        // navFaker støtter ikke syntetiske fnr og kaster en feil. Returnerer 0 får å omgå problemet...
+        return 0
+    }
 }
 
 export const antallAarMellom = (
