@@ -19,7 +19,7 @@ export const hentAlderFraFoedselsnummer = (foedselsnummer: string): number => {
         return hentAlder(foedselsDato)
     } catch (e) {
         // navFaker støtter ikke syntetiske fnr og kaster en feil. Returnerer 0 får å omgå problemet...
-        return 0
+        return -1
     }
 }
 

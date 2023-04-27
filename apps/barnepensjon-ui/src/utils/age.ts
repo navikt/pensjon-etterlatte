@@ -19,6 +19,6 @@ export const getAgeFromFoedselsnummer = (foedselsnummer: string): number => {
         return getAgeFromDate(birthDate)
     } catch (e) {
         // navFaker støtter ikke syntetiske fnr og kaster en feil. Returnerer 0 får å omgå problemet...
-        return 0
+        return -1
     }
 }
