@@ -69,6 +69,16 @@ internal class JournalfoerBarnepensjonSoeknadForPesys(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
-        return journalfoeringService.journalfoer(soeknadId, fnrSoeker, gradering, dokument, soeknad, "PEN", false, null)
+        return journalfoeringService.journalfoer(
+            soeknadId = soeknadId,
+            fnrSoeker = fnrSoeker,
+            gradering = gradering,
+            dokument = dokument,
+            soeknad = soeknad,
+            tema = "PEN",
+            behandlingstema = soeknad.type.behandlingstema,
+            forsoekFerdigstill = false,
+            sakId = null
+        )
     }
 }

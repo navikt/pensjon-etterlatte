@@ -25,6 +25,7 @@ class JournalfoeringService(private val klient: Dokarkiv) {
         dokument: JournalpostDokument,
         soeknad: InnsendtSoeknad,
         tema: String,
+        behandlingstema: String?,
         forsoekFerdigstill: Boolean,
         sakId: String?
     ): DokarkivResponse {
@@ -34,7 +35,7 @@ class JournalfoeringService(private val klient: Dokarkiv) {
             tittel = SOEKNAD_TITTEL,
             tema = tema,
             journalpostType = JournalPostType.INNGAAENDE,
-            behandlingstema = soeknad.type.behandlingstema,
+            behandlingstema = behandlingstema,
             journalfoerendeEnhet = finnJournalfoerendeEnhet(soeknad, gradering, forsoekFerdigstill),
             avsenderMottaker = AvsenderMottaker(id = fnrSoeker),
             bruker = Bruker(id = fnrSoeker),

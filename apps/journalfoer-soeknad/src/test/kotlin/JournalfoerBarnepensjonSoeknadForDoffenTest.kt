@@ -8,6 +8,7 @@ import no.nav.etterlatte.JournalfoerBarnepensjonSoeknadForDoffen
 import no.nav.etterlatte.JournalfoeringService
 import no.nav.etterlatte.dokarkiv.DokarkivDokument
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
+import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.*
@@ -32,7 +33,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffenTest{
         every { journalfoeringService.journalfoer(
             "13",
             "5555555555",
-            any(),any(),any(),any(),
+            any(),any(),any(),any(), any(),
             true,
             "8") } returns
                 DokarkivResponse(
@@ -48,6 +49,20 @@ internal class JournalfoerBarnepensjonSoeknadForDoffenTest{
         rapid.inspektør.message(0).also {
             assertTrue(it.has("@dokarkivRetur"))
             assertEquals("123", it["@dokarkivRetur"]["journalpostId"].textValue())
+        }
+
+        verify(exactly = 1) {
+            journalfoeringService.journalfoer(
+                "13",
+                "5555555555",
+                Gradering.UGRADERT,
+                any(),
+                any(),
+                "EYB",
+                null,
+                true,
+                any()
+            )
         }
     }
 

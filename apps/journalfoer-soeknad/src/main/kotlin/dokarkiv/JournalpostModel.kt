@@ -4,7 +4,7 @@ data class JournalpostRequest(
     val tittel: String,
     val tema: String,
     val journalpostType: JournalPostType,
-    val behandlingstema: String,
+    val behandlingstema: String?,
     val journalfoerendeEnhet: String?,
     val avsenderMottaker: AvsenderMottaker,
     val bruker: Bruker,

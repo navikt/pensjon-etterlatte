@@ -71,13 +71,15 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
         return journalfoeringService.journalfoer(
-            soeknadId,
-            fnrSoeker,
-            gradering,
-            dokument,
-            soeknad,
-            "EYB",
-            true,
-            packet["sakId"].asText())
+            soeknadId = soeknadId,
+            fnrSoeker = fnrSoeker,
+            gradering = gradering,
+            dokument = dokument,
+            soeknad = soeknad,
+            tema = "EYB",
+            behandlingstema = null,
+            forsoekFerdigstill = true,
+            sakId = packet["sakId"].asText()
+        )
     }
 }
