@@ -28,27 +28,27 @@ export default {
     'forside.hei': 'Hei, {{navn}}',
     'forside.startSoeknad': 'Start søknad',
     'forside.omYtelsene.innhold':
-        'Hvis ektefellen, partneren eller samboeren din er død, kan du ha rett til gjenlevendepensjon eller overgangsstønad til gjenlevende. Du kan også ha rett til støtte hvis du tidligere har vært gift, partner eller samboer med avdøde. Vi vil vurdere om du har rett på gjenlevendepensjon eller overgangsstønad basert på din situasjon. Inntekten din avgjør hvor mye penger du kan få.',
+        'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer med felles barn. I noen tilfeller kan du få støtte hvis dere tidligere har vært gift.\n\n Støtten skal sikre inntekt og gi hjelp til selvhjelp i en omstillingsperiode etter dødsfallet. Etter 6 måneder må du som hovedregel være i arbeid eller en annen aktivitet slik at du etter hvert kan forsørge deg selv. \n\n Inntekten din avgjør hvor mye penger du kan få.',
     'forside.omYtelsene.papirsoeknad.innhold':
         'Får du alderspensjon eller uføretrygd fra før? Da kan du søke om gjenlevendetillegg i uføretrygd eller gjenlevenderett i alderspensjon. Du må søke på',
     'forside.omYtelsene.papirsoeknad.href':
         'https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105',
     'forside.omYtelsene.papirsoeknad.tekst': 'papir.',
-    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/gjenlevendepensjon',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'Mer om gjenlevendepensjon',
-    'forside.omYtelsene.lenkeOvergangsstoenad.href': 'https://www.nav.no/overgangsstonad-gjenlevende',
-    'forside.omYtelsene.lenkeOvergangsstoenad.tekst': 'Mer om overgangsstønad',
+    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstønad',
+    'forside.omYtelsene.lenkeGjenlevende.tekst': 'Mer om omstillingsstønad',
     'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
     'forside.barnepensjon.innhold':
-        'Har du felles barn under 18 år med avdøde, kan barnet/barna ha rett til barnepensjon. Du kan både søke om gjenlevendepensjon og barnepensjon i denne søknaden.',
+        'Har du felles barn under 18 år med avdøde, kan barnet/barna ha rett til barnepensjon. Du kan både søke om omstillingsstønad og barnepensjon i denne søknaden.',
     'forside.barnepensjon.href': 'https://www.nav.no/barnepensjon',
     'forside.barnepensjon.tekst': 'Mer om barnepensjon',
+    'forside.omSoeknaden.tittel': 'Om søknaden',
+    'forside.omSoeknaden.innhold': 'Vi vil informere deg underveis i søknaden om opplysninger vi innhenter og mottar om deg. Informasjonen vi innhenter kommer enten fra deg eller fra offentlige registre.',
     'forside.soeknad.tittel': 'Utfylling av søknaden',
     'forside.soeknad.innhold':
-        'Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.\n\nDu må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis du ikke har det, må du bruke',
+        'Svarene lagres underveis, slik at du trygt kan gå tilbake og endre dem. Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.\n\nDu må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis du ikke har det, må du bruke',
     'forside.soeknad.innhold.lenke.tekst': 'denne søknaden.',
     'forside.soeknad.innhold.lenke.href':
-        'https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401',
+        'mangler link',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
         'For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell samboer.\nVi henter:',
@@ -65,17 +65,25 @@ export default {
     'forside.uthentingAvInfo.lenke2.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3',
     'forside.uthentingAvInfo.lenke2.tekst': 'Om personvern og sikkerhet på nav.no',
+    'forside.personvern.tittel': 'Mer om personvern',
+    'forside.personvern.innhold': 'Du har rett til innsyn i saken din. Vil du vite mer om hvordan NAV behandler personopplysninger?',
+    'forside.personvern.href': 'mangler link',
+    'forside.personvern.tekst': 'Om personvern og sikkerhet på nav.no',
+    'forside.behandlingsgrunnlag.tittel': 'Behandlingsgrunnlag',
+    'forside.behandlingsgrunnlag.innhold': 'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
+    'forside.behandlingsgrunnlag.href': 'mangler link',
+    'forside.behandlingsgrunnlag.tekst': 'Slik behandler vi personopplysningene dine',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold':
         'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n',
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'forside.samtykke.bekreftelse': 'Jeg, {{navn}}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
+    'forside.samtykke.bekreftelse': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'dinSituasjon.tittel': 'Situasjonen din',
     'dinSituasjon.undertittel': 'Arbeid og utdanning',
     'dinSituasjon.ingress':
-        'Hvor mye du kan få i gjenlevendepensjon avhenger av arbeidsinntekten din. Vi beregner forventet inntekt både på grunnlag av arbeidssituasjonen og inntekten din. Inntekt henter vi fra Skatteetaten.',
+        'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Vi beregner forventet inntekt både på grunnlag av arbeidssituasjonen og inntekten din. Inntekt henter vi fra Skatteetaten.',
     'dinSituasjon.jobbStatus': 'Hva er situasjonen din nå?',
     'dinSituasjon.ingenJobbTittel': 'Annet',
     'dinSituasjon.ingenJobbBeskrivelse': 'Velg det som beskriver situasjonen din fra nedtrekksmenyen.',
@@ -122,7 +130,7 @@ export default {
     'dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse': 'Hva er grunnen til endringene?',
     'dinSituasjon.andreYtelser.tittel': 'Ytelser',
     'dinSituasjon.andreYtelser.ingress':
-        'Noen ytelser fra NAV blir regnet som inntekt og har betydning for hvor mye gjenlevendepensjon du får. Uføretrygd, alderspensjon, avtalefestet pensjon (AFP) kan ikke kombineres med gjenlevendepensjon.',
+        'Noen ytelser fra NAV blir regnet som inntekt og har betydning for hvor mye omstillingsstønad du får. Uføretrygd, alderspensjon, avtalefestet pensjon (AFP) kan ikke kombineres med omstillingsstønad.',
     'dinSituasjon.andreYtelser.kravOmAnnenStonad.svar': 'Har du søkt om andre ytelser som du ikke har fått svar på?',
     'dinSituasjon.andreYtelser.kravOmAnnenStonad.ytelser': 'Hva har du søkt om?',
     'dinSituasjon.andreYtelser.annenPensjon.svar':
@@ -134,7 +142,7 @@ export default {
         'Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden',
     'dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon': 'Hva slags pensjon?',
     'dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder':
-        'Eks. alderspensjon, gjenlevendepensjon',
+        'Eks. alderspensjon, omstillingsstønad',
     'dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand': 'Fra hvilket land?',
     'dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar': 'Årlig beløp før skatt i landets valuta',
     'dinSituasjon.forventerEndretInntektType.oektStillingsprosent': 'Økt stillingsprosent',
@@ -154,11 +162,11 @@ export default {
     'omDeg.alternativAdresse': 'Oppgi nåværende bostedsadresse',
     'omDeg.oppholderSegINorge': 'Har du oppholdt deg i Norge de siste 12 månedene?',
     'omDeg.oppholdHvorfor':
-        'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
+        'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
     'omDeg.oppholdsland': 'Oppgi hvilket land du oppholdt deg i',
     'omDeg.flyktning': 'Har du status som flyktning?',
     'omDeg.flyktningHvorfor':
-        'Hvis du er registrert som flyktning hos UDI kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
+        'Hvis du er registrert som flyktning hos UDI kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
     'omDeg.kontaktinfo.telefonnummer': 'Telefonnummer (valgfri)',
     'omDeg.utbetalingsInformasjon.tittel': 'Oppgi bankopplysninger',
     'omDeg.utbetalingsInformasjon.bankkontoType': 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
@@ -192,7 +200,7 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag': 'Mottok du ektefellebidrag?',
     'omDegOgAvdoed.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
     'omDegOgAvdoed.nySivilstatus.beskrivelse':
-        'Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få gjenlevendepensjon og hvor mye du kan få.',
+        'Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få omstillingsstønad og hvor mye du kan få.',
     'omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
         'Har eller hadde dere barn sammen eller var dere tidligere gift?',
     'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel': 'Opplysninger om samboer',
@@ -211,7 +219,7 @@ export default {
     'omDenAvdoede.statsborgerskapPlaceholder': 'Eks. norsk',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphold utenfor Norge',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
-        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i gjenlevendepensjon og gi deg pensjonsrettigheter fra andre land.',
+        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i omstillingsstønad og gi deg pensjonsrettigheter fra andre land.',
     'omDenAvdoede.boddEllerJobbetUtland.svar':
         'Har han eller hun bodd og/eller arbeidet i et annet land enn Norge etter fylte 16 år?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land': 'Land',
@@ -221,31 +229,26 @@ export default {
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd':
         'Var han eller hun medlem av folketrygden under oppholdet?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst':
-        'Vi må vite om avdøde var medlem av folketrygden for å avgjøre om du har rett til gjenlevendepensjon.',
+        'Vi må vite om avdøde var medlem av folketrygden for å avgjøre om du har rett til omstillingsstønad.',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse':
         'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder': 'Per år i landets valuta',
     'omDenAvdoede.haddePensjonsgivendeInntekt.svar': 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
     'omDenAvdoede.selvstendigNaeringsdrivende.tittel': 'Næringsinntekt',
     'omDenAvdoede.selvstendigNaeringsdrivende.ingress':
-        'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i gjenlevendepensjon. Vi henter informasjon om andre inntekter.',
+        'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i omstillingsstønad. Vi henter informasjon om andre inntekter.',
     'omDenAvdoede.selvstendigNaeringsdrivende.svar': 'Var han eller hun selvstendig næringsdrivende?',
     'omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse':
         'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
     'omDenAvdoede.selvstendigNaeringsdrivende.placeholder': 'Samlet årsinntekt før skatt',
     'omDenAvdoede.annenOpptjening.tittel': 'Annet',
-    'omDenAvdoede.harAvtjentMilitaerTjeneste.svar':
-        'Har han eller hun gjennomført militær eller sivil førstegangstjeneste for Norge som varte minst 30 dager?',
-    'omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst':
-        'Dette kan gi opptjening som tas med i beregningen av gjenlevendepensjonen din',
-    'omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse': 'Hvilke(-t) år? (valgfri)',
     'omDenAvdoede.doedsfallAarsak': 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     'omDenAvdoede.doedsfallAarsakHvorfor':
-        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
+        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
     'omBarn.tittel': 'Om barn',
     'omBarn.tittelModal': 'Om barnet',
     'omBarn.informasjon':
-        'Dersom du har eller har hatt barn kan det påvirke retten din til gjenlevendepensjon. Derfor må du oppgi alle barn, uavhengig av hvor gamle de er. Dette gjelder barn du har felles med avdøde, avdødes egne barn, og dine egne barn. \n\nHvis du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke selv.',
+        'Dersom du har eller har hatt barn kan det påvirke retten din til omstillingsstønad. Derfor må du oppgi alle barn, uavhengig av hvor gamle de er. Dette gjelder barn du har felles med avdøde, avdødes egne barn, og dine egne barn. \n\nHvis du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke selv.',
     'omBarn.fornavn': 'Fornavn',
     'omBarn.etternavn': 'Etternavn',
     'omBarn.foedselsnummer': 'Barnets fødselsnummer / d-nummer',
@@ -286,7 +289,7 @@ export default {
     'omBarn.bosattUtland.svar': 'Bor barnet i et annet land enn Norge?',
     'omBarn.bosattUtland.land': 'Land',
     'omBarn.bosattUtland.adresse': 'Adresse i utlandet',
-    'omBarn.gravidEllerNyligFoedt': 'Venter du barn eller har du barn som enda ikke er registrert i folkeregisteret?',
+    'omBarn.gravidEllerNyligFoedt': 'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
     'omBarn.valgfritt': 'Dette er valgfritt',
     'omBarn.soeknadOmBarnetilsyn': 'Informasjon om stønad til barnetilsyn',
     'omBarn.soeknadOmBarnetilsyn.beskrivelse':
@@ -352,11 +355,11 @@ export default {
     'sideIkkeFunnet.alert': 'Siden du har etterspurt finnes ikke.',
     'ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon':
         'Hei, du kan ikke søke om gjenlevende- eller barnepensjon fordi du er under 18 år.',
-    'ugyldigSoeker.kanIkkeSoeke.gjenlevende': 'Hei, du kan ikke søke om gjenlevendepensjon.',
+    'ugyldigSoeker.kanIkkeSoeke.gjenlevende': 'Hei, du kan ikke søke om omstillingsstønad.',
     'ugyldigSoeker.info.gjenlevendeEllerBarnepensjon':
-        'For å søke om gjenlevendepensjon, eller søke barnepensjon på vegne av et barn, må du være over 18 år.',
+        'For å søke om omstillingsstønad, eller søke barnepensjon på vegne av et barn, må du være over 18 år.',
     'ugyldigSoeker.info.gjenlevende':
-        'For å få gjenlevendepensjon må du være mellom 18 og 67 år. Ønsker du å søke om gjenlevendetillegg i alderspensjon? Du kan lese mer om dette på sidene om alderspensjon.',
+        'For å få omstillingsstønad må du være mellom 18 og 67 år. Ønsker du å søke om gjenlevendetillegg i alderspensjon? Du kan lese mer om dette på sidene om alderspensjon.',
     'ugyldigSoeker.infolenker.barnepensjon.href': 'https://www.nav.no/barnepensjon',
     'ugyldigSoeker.infolenker.barnepensjon.tekst':
         'Her kan du lese mer om hvem som kan få barnepensjon og hvordan du søker.',
@@ -508,8 +511,6 @@ export default {
     'feil.selvstendig.forventerEndretInntekt.svar.required': 'Oppgi om du forventer endringer i inntekt',
     'feil.selvstendig.forventerEndretInntekt.beskrivelse.required': 'Beskrivelse må fylles ut',
     'feil.haddePensjonsgivendeInntekt.svar.required': 'Oppgi om avdøde hadde næringsinntekt inntekt',
-    'feil.harAvtjentMilitaerTjeneste.svar.required': 'Oppgi om avdøde har gjennomført verneplikt',
-    'feil.harAvtjentMilitaerTjeneste.beskrivelse.required': 'Oppgi gjeldende år',
     'feil.kontaktinfo.telefonnummer.required': 'Telefonnummer må fylles ut',
     'feil.kontaktinfo.telefonnummer.pattern': 'Må være et gyldig telefonnummer',
     'feil.kontaktinfo.telefonnummer.minLength': 'Må være et gyldig telefonnummer',

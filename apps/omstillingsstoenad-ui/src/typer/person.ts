@@ -92,10 +92,6 @@ export interface IAvdoed {
         svar?: IValg
         beskrivelse?: string
     }
-    harAvtjentMilitaerTjeneste?: {
-        svar?: IValg
-        beskrivelse?: string
-    }
     doedsfallAarsak?: IValg
     erValidert?: boolean
 }

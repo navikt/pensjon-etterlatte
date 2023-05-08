@@ -128,8 +128,6 @@ export interface Naeringsinntekt {
     naeringsinntektVedDoedsfall?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
-export type AarstallForMilitaerTjeneste = FritekstSvar
-
 export interface ArbeidOgUtdanning {
     dinSituasjon: Opplysning<EnumSvar<JobbStatusType>[]>
     arbeidsforhold?: Opplysning<Arbeidstaker[]>

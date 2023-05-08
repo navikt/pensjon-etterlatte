@@ -5,7 +5,7 @@ import { IAvdoed } from '../../../typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
 import { FormProvider, useForm } from 'react-hook-form'
-import { RHFFoedselsnummerInput, RHFInput, RHFValutaInput } from '../../felles/rhf/RHFInput'
+import { RHFFoedselsnummerInput, RHFValutaInput } from '../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
@@ -54,7 +54,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     const erValidert = state.omDenAvdoede.erValidert
     const selvstendigNaeringsdrivende = watch('selvstendigNaeringsdrivende.svar')
-    const harAvtjentMilitaerTjeneste = watch('harAvtjentMilitaerTjeneste.svar')
 
     return (
         <FormProvider {...methods}>
@@ -154,27 +153,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         />
                     </SkjemaGruppe>
 
-                    <RHFSpoersmaalRadio
-                        name={'harAvtjentMilitaerTjeneste.svar'}
-                        legend={t('omDenAvdoede.harAvtjentMilitaerTjeneste.svar')}
-                        description={
-                            <HvorforSpoerVi title="omDenAvdoede.harAvtjentMilitaerTjeneste.svar">
-                                {t('omDenAvdoede.harAvtjentMilitaerTjeneste.hjelpetekst')}
-                            </HvorforSpoerVi>
-                        }
-                        vetIkke
-                    />
-
-                    {harAvtjentMilitaerTjeneste === IValg.JA && (
-                        <SkjemaElement>
-                            <RHFInput
-                                name={'harAvtjentMilitaerTjeneste.beskrivelse'}
-                                htmlSize={Bredde.S}
-                                valgfri
-                                label={t('omDenAvdoede.harAvtjentMilitaerTjeneste.beskrivelse')}
-                            />
-                        </SkjemaElement>
-                    )}
                 </SkjemaGruppe>
 
                 <Feilmeldinger errors={errors} />

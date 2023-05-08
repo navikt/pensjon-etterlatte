@@ -4,7 +4,7 @@ import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
 import { Veileder } from '../felles/Veileder'
-import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
+import { Accordion, Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
 import { LogEvents, useAmplitude } from '../../utils/amplitude'
 import { useLanguage } from '../../hooks/useLanguage'
 import { Spraakvalg } from '../felles/Spraakvalg'
@@ -64,12 +64,6 @@ const SoknadForside = () => {
                         {t('forside.omYtelsene.lenkeGjenlevende.tekst')}
                     </Link>
                 </BodyLong>
-
-                <BodyLong>
-                    <Link href={t('forside.omYtelsene.lenkeOvergangsstoenad.href')}>
-                        {t('forside.omYtelsene.lenkeOvergangsstoenad.tekst')}
-                    </Link>
-                </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -82,50 +76,101 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
+                <Heading size={'small'}>{t('forside.omSoeknaden.tittel')}</Heading>
+                <BodyLong spacing> {t('forside.omSoeknaden.innhold')}</BodyLong>
 
-                <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
+                <Accordion>
+                    <Accordion.Item>
+                        <Accordion.Header>{t('forside.uthentingAvInfo.tittel')}</Accordion.Header>
+                        <Accordion.Content>
+                            <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
-                <ul>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li1') }} />
-                        </BodyLong>
-                    </li>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li2') }} />
-                        </BodyLong>
-                    </li>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li3') }} />
-                        </BodyLong>
-                    </li>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li4') }} />
-                        </BodyLong>
-                    </li>
-                    <li>
-                        <BodyLong>
-                            <span dangerouslySetInnerHTML={{ __html: t('forside.uthentingAvInfo.innholdListe.li5') }} />
-                        </BodyLong>
-                    </li>
-                </ul>
+                            <ul>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li1'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li2'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li3'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li4'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                                <li>
+                                    <BodyLong>
+                                        <span
+                                            dangerouslySetInnerHTML={{
+                                                __html: t('forside.uthentingAvInfo.innholdListe.li5'),
+                                            }}
+                                        />
+                                    </BodyLong>
+                                </li>
+                            </ul>
 
-                <BodyLong>
-                    <Link href={t('forside.uthentingAvInfo.lenke1.href')}>
-                        {t('forside.uthentingAvInfo.lenke1.tekst')}
-                    </Link>
-                </BodyLong>
+                            <BodyLong>
+                                <Link href={t('forside.uthentingAvInfo.lenke1.href')}>
+                                    {t('forside.uthentingAvInfo.lenke1.tekst')}
+                                </Link>
+                            </BodyLong>
 
-                <BodyLong>
-                    <Link href={t('forside.uthentingAvInfo.lenke2.href')}>
-                        {t('forside.uthentingAvInfo.lenke2.tekst')}
-                    </Link>
-                </BodyLong>
+                            <BodyLong>
+                                <Link href={t('forside.uthentingAvInfo.lenke2.href')}>
+                                    {t('forside.uthentingAvInfo.lenke2.tekst')}
+                                </Link>
+                            </BodyLong>
+                        </Accordion.Content>
+                    </Accordion.Item>
+
+                    <Accordion.Item>
+                        <Accordion.Header>{t('forside.personvern.tittel')}</Accordion.Header>
+                        <Accordion.Content>
+                            <BodyLong spacing> {t('forside.personvern.innhold')}</BodyLong>
+                            <BodyLong>
+                                <Link href={t('forside.personvern.href')}>{t('forside.personvern.tekst')}</Link>
+                            </BodyLong>
+                        </Accordion.Content>
+                    </Accordion.Item>
+
+                    <Accordion.Item>
+                        <Accordion.Header>{t('forside.behandlingsgrunnlag.tittel')}</Accordion.Header>
+                        <Accordion.Content>
+                            <BodyLong spacing> {t('forside.behandlingsgrunnlag.innhold')}</BodyLong>
+                            <BodyLong>
+                                <Link href={t('forside.behandlingsgrunnlag.href')}>
+                                    {t('forside.behandlingsgrunnlag.tekst')}
+                                </Link>
+                            </BodyLong>
+                        </Accordion.Content>
+                    </Accordion.Item>
+                </Accordion>
             </SkjemaGruppe>
+
             <SkjemaGruppe>
                 <Heading size={'small'}>{t('forside.soeknad.tittel')}</Heading>
                 <BodyLong spacing>
@@ -141,7 +186,7 @@ const SoknadForside = () => {
                 <BodyLong>{t('forside.samtykke.innhold')}</BodyLong>
 
                 <ConfirmationPanel
-                    label={t('forside.samtykke.bekreftelse', { navn: innloggetBrukerNavn })}
+                    label={t('forside.samtykke.bekreftelse')}
                     checked={soknadState.harSamtykket}
                     onChange={(e) =>
                         soknadDispatch({
