@@ -84,7 +84,7 @@ export default {
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse':
-        'I, {{navn}}, hereby confirm that the information I provide is correct and complete.',
+        'I confirm that the information I provide is correct and complete.',
     'dinSituasjon.tittel': 'Your situation',
     'dinSituasjon.undertittel': 'Work and education',
     'dinSituasjon.ingress':

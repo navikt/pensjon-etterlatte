@@ -28,17 +28,17 @@ export default {
     'forside.hei': 'Hei, {{navn}}',
     'forside.startSoeknad': 'Start søknad',
     'forside.omYtelsene.innhold':
-        'Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til attlevandepensjon eller overgangsstønad til atterlevande. Du kan også ha rett til støtte viss du tidlegare har vore gift, partnar eller sambuar med avdøde. Vi vil vurdere om du har rett på attlevandepensjon eller overgangsstønad basert på situasjonen din. Inntekta di avgjer kor mykje pengar du kan få.',
+        'Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til omstillingsstønad eller overgangsstønad til atterlevande. Du kan også ha rett til støtte viss du tidlegare har vore gift, partnar eller sambuar med avdøde. Vi vil vurdere om du har rett på omstillingsstønad eller overgangsstønad basert på situasjonen din. Inntekta di avgjer kor mykje pengar du kan få.',
     'forside.omYtelsene.papirsoeknad.innhold':
         'Får du alderspensjon eller uføretrygd fra før? Da kan du søke om attlevendetillegg i uføretrygd eller attlevenderett i alderspensjon. Du må søke på',
     'forside.omYtelsene.papirsoeknad.href':
         'https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105',
     'forside.omYtelsene.papirsoeknad.tekst': 'papir.',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/gjenlevendepensjon',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'Meir om attlevandepensjon',
+    'forside.omYtelsene.lenkeGjenlevende.tekst': 'Meir om omstillingsstønad',
     'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
     'forside.barnepensjon.innhold':
-        'Har du felles barn under 18 år med avdøde, kan barnet/barna ha rett til barnepensjon. Du kan både søke om attlevandepensjon og barnepensjon i denne søknaden.',
+        'Har du felles barn under 18 år med avdøde, kan barnet/barna ha rett til barnepensjon. Du kan både søke om omstillingsstønad og barnepensjon i denne søknaden.',
     'forside.barnepensjon.href': 'https://www.nav.no/barnepensjon',
     'forside.barnepensjon.tekst': 'Meir om barnepensjon',
     'forside.omSoeknaden.tittel': 'Om søknaden',
@@ -79,11 +79,11 @@ export default {
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'forside.samtykke.bekreftelse': 'Eg, {{navn}}, bekreftar at eg vil gi riktige og fullstendige opplysingar.',
+    'forside.samtykke.bekreftelse': 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
     'dinSituasjon.tittel': 'Situasjonen din',
     'dinSituasjon.undertittel': 'Arbeid og utdanning',
     'dinSituasjon.ingress':
-        'Kor mykje du kan få i attlevandepensjon er avhengig av arbeidsinntekta di. Vi bereknar ut forventa inntekt både på grunnlag av arbeidssituasjonen og inntekten din. Inntekt hentar vi frå Skatteetaten.',
+        'Kor mykje du kan få i omstillingsstønad er avhengig av arbeidsinntekta di. Vi bereknar ut forventa inntekt både på grunnlag av arbeidssituasjonen og inntekten din. Inntekt hentar vi frå Skatteetaten.',
     'dinSituasjon.jobbStatus': 'Kva er situasjonen din no?',
     'dinSituasjon.ingenJobbTittel': 'Anna',
     'dinSituasjon.ingenJobbBeskrivelse': 'Vel det som skildrar situasjonen din frå nedtrekksmenyen.',
@@ -130,7 +130,7 @@ export default {
     'dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse': 'Kva er årsaka til endringane?',
     'dinSituasjon.andreYtelser.tittel': 'Ytingar',
     'dinSituasjon.andreYtelser.ingress':
-        'Nokre ytingar frå NAV vert rekna som inntekt og har betydning for kor mykje attlevandepensjon du får. Uføretrygd, alderspensjon, avtalefesta pensjon (AFP) kan ikkje kombinerast med attlevandepensjon.',
+        'Nokre ytingar frå NAV vert rekna som inntekt og har betydning for kor mykje omstillingsstønad du får. Uføretrygd, alderspensjon, avtalefesta pensjon (AFP) kan ikkje kombinerast med omstillingsstønad.',
     'dinSituasjon.andreYtelser.kravOmAnnenStonad.svar': 'Har du søkt om andre ytingar som du ikkje har fått svar på?',
     'dinSituasjon.andreYtelser.kravOmAnnenStonad.ytelser': 'Kva har du søkt om?',
     'dinSituasjon.andreYtelser.annenPensjon.svar':
@@ -141,7 +141,7 @@ export default {
     'dinSituasjon.andreYtelser.mottarPensjonUtland.hvorfor':
         'Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden',
     'dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon': 'Kva slags pensjon?',
-    'dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder': 'Eks. alderspensjon, attlevandepensjon',
+    'dinSituasjon.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder': 'Eks. alderspensjon, omstillingsstønad',
     'dinSituasjon.andreYtelser.mottarPensjonUtland.fraHvilketLand': 'Frå kva for land?',
     'dinSituasjon.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar': 'Årleg beløp før skatt i landets valuta',
     'dinSituasjon.forventerEndretInntektType.oektStillingsprosent': 'Økt stillingsprosent',
@@ -161,11 +161,11 @@ export default {
     'omDeg.alternativAdresse': 'Oppgi noverande bustadsadresse',
     'omDeg.oppholderSegINorge': 'Har du oppheldt deg i Noreg dei siste 12 månadane?',
     'omDeg.oppholdHvorfor':
-        'Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får attlevandepensjon og kor mykje du kan få.',
+        'Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
     'omDeg.oppholdsland': 'Oppgi hvilket land du oppheldt deg i',
     'omDeg.flyktning': 'Har du status som flyktning?',
     'omDeg.flyktningHvorfor':
-        'Hvis du er registrert som flyktning hos UDI kan det avgjere om du får attlevandepensjon og kor mykje du kan få.',
+        'Hvis du er registrert som flyktning hos UDI kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
     'omDeg.kontaktinfo.telefonnummer': 'Telefonnummer (valfri)',
     'omDeg.utbetalingsInformasjon.tittel': 'Oppgi bankopplysingar',
     'omDeg.utbetalingsInformasjon.bankkontoType': 'Ønsker du å få utbetalinga på norsk eller utanlandsk bankkonto?',
@@ -198,7 +198,7 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag': 'Mottok du ektefellebidrag?',
     'omDegOgAvdoed.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
     'omDegOgAvdoed.nySivilstatus.beskrivelse':
-        'Viss du har gifta deg eller blitt sambuar på nytt kan det avgjere om du kan få attlevandepensjon og kor mykje du kan få.',
+        'Viss du har gifta deg eller blitt sambuar på nytt kan det avgjere om du kan få omstillingsstønad og kor mykje du kan få.',
     'omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
         'Har eller hadde de barn saman eller var de tidlegare gift?',
     'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel': 'Opplysingar om sambuar',
@@ -216,7 +216,7 @@ export default {
     'omDenAvdoede.statsborgerskapPlaceholder': 'Eks. norsk',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphald utanfor Noreg',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
-        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i attlevandepensjon og gi deg pensjonsrettar frå andre land.',
+        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i omstillingsstønad og gi deg pensjonsrettar frå andre land.',
     'omDenAvdoede.boddEllerJobbetUtland.svar':
         'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land': 'Land',
@@ -226,14 +226,14 @@ export default {
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd':
         'Var han eller ho medlem av folketrygda under opphaldet?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst':
-        'Vi må vite om avdøde var medlem av folketrygda for å avgjere om du har rett til attlevandepensjon.',
+        'Vi må vite om avdøde var medlem av folketrygda for å avgjere om du har rett til omstillingsstønad.',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse':
         'Oppgi eventuell pensjon han eller ho fekk frå dette landet (valfri)',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder': 'Per år i landets valuta',
     'omDenAvdoede.haddePensjonsgivendeInntekt.svar': 'Hadde han eller ho næringsinntekt då dødsfallet skjedde?',
     'omDenAvdoede.selvstendigNaeringsdrivende.tittel': 'Næringsinntekt',
     'omDenAvdoede.selvstendigNaeringsdrivende.ingress':
-        'Vi treng å vite om avdøde hadde inntekt som sjølvstendig næringsdrivande. Dette er viktig når vi skal rekne ut kor mykje du kan få i attlevandepensjon. Vi hentar informasjon om andre inntekter.',
+        'Vi treng å vite om avdøde hadde inntekt som sjølvstendig næringsdrivande. Dette er viktig når vi skal rekne ut kor mykje du kan få i omstillingsstønad. Vi hentar informasjon om andre inntekter.',
     'omDenAvdoede.selvstendigNaeringsdrivende.svar': 'Var han eller ho sjølvstendig næringsdrivande?',
     'omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse':
         'Oppgi næringsinntekt frå kalenderåret før dødsfallet (valfri)',
@@ -241,11 +241,11 @@ export default {
     'omDenAvdoede.annenOpptjening.tittel': 'Anna',
     'omDenAvdoede.doedsfallAarsak': 'Skuldast dødsfallet yrkesskade eller yrkessjukdom?',
     'omDenAvdoede.doedsfallAarsakHvorfor':
-        'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV kan det avgjere om du får attlevandepensjon og kor mykje du kan få.',
+        'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
     'omBarn.tittel': 'Om barn',
     'omBarn.tittelModal': 'Om barnet',
     'omBarn.informasjon':
-        'Dersom du har eller har hatt barn kan det påverke retten din til attlevandepensjon. Du må difor oppgi alle barn, uavhengig av kor gamle dei er. Dette gjeld barn du har felles med avdøde, avdøde sine eigne barn, og dine eigne barn. \n\nViss du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke sjøl.',
+        'Dersom du har eller har hatt barn kan det påverke retten din til omstillingsstønad. Du må difor oppgi alle barn, uavhengig av kor gamle dei er. Dette gjeld barn du har felles med avdøde, avdøde sine eigne barn, og dine eigne barn. \n\nViss du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke sjøl.',
     'omBarn.fornavn': 'Førenamn',
     'omBarn.etternavn': 'Etternamn',
     'omBarn.foedselsnummer': 'Barnet sitt fødselsnummer / d-nummer',
@@ -353,11 +353,11 @@ export default {
     'sideIkkeFunnet.alert': 'Siden du har etterspurt finnes ikke.',
     'ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon':
         'Hei, du kan ikkje søke om attlevande- eller barnepensjon fordi du er under 18 år.',
-    'ugyldigSoeker.kanIkkeSoeke.gjenlevende': 'Hei, du kan ikkje søke om attlevandepensjon.',
+    'ugyldigSoeker.kanIkkeSoeke.gjenlevende': 'Hei, du kan ikkje søke om omstillingsstønad.',
     'ugyldigSoeker.info.gjenlevendeEllerBarnepensjon':
-        'For å søke om attlevandepensjon, eller søke barnepensjon på vegne av eit barn, må du vere over 18 år.',
+        'For å søke om omstillingsstønad, eller søke barnepensjon på vegne av eit barn, må du vere over 18 år.',
     'ugyldigSoeker.info.gjenlevende':
-        'For å få attlevandepensjon må du være mellom 18 og 67 år. Ønsker du å søke om attlevandetillegg i alderspensjon? Du kan lese meir om dette på sidene om alderspensjon.',
+        'For å få omstillingsstønad må du være mellom 18 og 67 år. Ønsker du å søke om attlevandetillegg i alderspensjon? Du kan lese meir om dette på sidene om alderspensjon.',
     'ugyldigSoeker.infolenker.barnepensjon.href': 'https://www.nav.no/barnepensjon',
     'ugyldigSoeker.infolenker.barnepensjon.tekst':
         'Her kan du lese meir om kven som kan få barnepensjon og korleis du søker.',
