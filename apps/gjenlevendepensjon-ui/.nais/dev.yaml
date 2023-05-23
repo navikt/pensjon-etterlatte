@@ -61,7 +61,9 @@ spec:
   accessPolicy:
     outbound:
       external:
-        - host: dekoratoren.dev.nav.no
+        - host: dekoratoren.ekstern.dev.nav.no
         - host: tokendings.dev-gcp.nais.io
       rules:
         - application: selvbetjening-api
+        - application: nav-dekoratoren
+          namespace: personbruker

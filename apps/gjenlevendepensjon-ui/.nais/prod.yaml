@@ -62,7 +62,8 @@ spec:
     outbound:
       external:
         - host: www.nav.no
-        - host: dekoratoren.nav.no
         - host: tokendings.prod-gcp.nais.io
       rules:
         - application: selvbetjening-api
+        - application: nav-dekoratoren
+          namespace: personbruker

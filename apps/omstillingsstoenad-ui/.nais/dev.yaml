@@ -65,3 +65,5 @@ spec:
         - host: tokendings.dev-gcp.nais.io
       rules:
         - application: selvbetjening-api
+        - application: nav-dekoratoren
+          namespace: personbruker
