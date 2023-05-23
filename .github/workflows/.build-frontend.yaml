@@ -24,10 +24,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Setup Node 14
+      - name: Setup Node 18
         uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: '18.x'
 
       # Hash yarn.lock file to see if it has changed
       - name: Create hash from yarn.lock
