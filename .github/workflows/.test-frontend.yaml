@@ -42,9 +42,12 @@ jobs:
       - name: Run unit tests
         working-directory: apps/${{ github.workflow }}
         run: CI=true yarn test
-      - name: Start application
-        working-directory: apps/${{ github.workflow }}
-        run: yarn start & npx wait-on http://localhost:3000
+#      - name: Start application
+#        working-directory: apps/${{ github.workflow }}
+#        run: yarn start & npx wait-on http://localhost:3000
       - name: Run e2e tests (Cypress)
-        working-directory: apps/${{ github.workflow }}
-        run: yarn cy:test
+        uses: cypress-io/github-action@v5
+        with:
+          start: yarn start
+          wait-on: 'http://localhost:3000'
+          working-directory: apps/${{ github.workflow }}
