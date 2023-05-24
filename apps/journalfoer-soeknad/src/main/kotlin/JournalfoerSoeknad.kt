@@ -4,6 +4,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import io.ktor.client.plugins.ResponseException
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.etterlatte.pdf.PdfGeneratorException
@@ -69,6 +70,26 @@ internal class JournalfoerSoeknad(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
-        return journalfoeringService.journalfoer(soeknadId, fnrSoeker, gradering, dokument, soeknad, "PEN", false, null)
+        val (tema, behandlingstema) = hentTemakoder(soeknad.type)
+
+        return journalfoeringService.journalfoer(
+            soeknadId = soeknadId,
+            fnrSoeker = fnrSoeker,
+            gradering = gradering,
+            dokument = dokument,
+            soeknad = soeknad,
+            tema = tema,
+            behandlingstema = behandlingstema,
+            forsoekFerdigstill = false,
+            sakId = null
+        )
     }
+
+    private fun hentTemakoder(soeknadType: SoeknadType): Pair<String, String?> =
+        when (soeknadType) {
+            SoeknadType.OMSTILLINGSSTOENAD -> "EYO" to null
+            SoeknadType.GJENLEVENDEPENSJON -> "PEN" to soeknadType.behandlingstema
+            SoeknadType.BARNEPENSJON ->
+                throw IllegalArgumentException("Barnepensjon skal ikke journalføres av denne riveren!")
+        }
 }

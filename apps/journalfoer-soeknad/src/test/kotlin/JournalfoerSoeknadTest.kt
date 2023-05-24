@@ -35,7 +35,7 @@ internal class JournalfoerSoeknadTest {
 
     private val journalfoeringService = mockk<JournalfoeringService> {
         every {
-            journalfoer(any(), any(), any(), any(), any(), any(), any(), any())
+            journalfoer(any(), any(), any(), any(), any(), any(), any(), any(), any())
         } returns jacksonObjectMapper().readValue(getResource("/dokarkiv/journalfoerResponse.json"), jacksonTypeRef())
     }
 
@@ -58,7 +58,7 @@ internal class JournalfoerSoeknadTest {
         assertEquals("467010363", inspector.message(0).get("@dokarkivRetur").get("journalpostId").asText())
 
         verify(exactly = 1) { dokumentServiceMock.opprettJournalpostDokument("12", any(), "gjenlevendepensjon_v2") }
-        verify(exactly = 1) { journalfoeringService.journalfoer("12", "5555555555", Gradering.UGRADERT, any(), any(), any(), any(), any()) }
+        verify(exactly = 1) { journalfoeringService.journalfoer("12", "5555555555", Gradering.UGRADERT, any(), any(), any(), any(), any(), any()) }
     }
 
     @Test

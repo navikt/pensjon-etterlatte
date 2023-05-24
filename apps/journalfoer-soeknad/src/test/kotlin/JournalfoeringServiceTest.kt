@@ -12,6 +12,7 @@ import no.nav.etterlatte.JournalfoeringService
 import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.dokarkiv.DokarkivDokument
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
@@ -46,6 +47,7 @@ internal class JournalfoeringServiceTest {
             ),
             soeknad,
             "PEN",
+            SoeknadType.GJENLEVENDEPENSJON.behandlingstema,
             false,
             null
             )
