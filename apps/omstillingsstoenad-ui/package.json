@@ -16,7 +16,7 @@
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.7",
     "i18next": "22.4.15",
-    "ibantools": "^4.2.2",
+    "ibantools": "^4.3.3",
     "lodash": "4.17.21",
     "nav-faker": "^3.2.4",
     "react": "18.2.0",
