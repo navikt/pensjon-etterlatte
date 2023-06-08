@@ -35,10 +35,14 @@ import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import no.nav.security.token.support.v2.tokenValidationSupport
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
 import soeknad.PostgresSoeknadRepository
 import soeknad.soeknadApi
 import java.util.*
+
+val sikkerLogg: Logger = LoggerFactory.getLogger("sikkerLogg")
 
 fun main() {
     val datasourceBuilder = DataSourceBuilder(System.getenv())
