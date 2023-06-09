@@ -3,6 +3,7 @@ package no.nav.etterlatte.soeknad
 import com.fasterxml.jackson.databind.JsonNode
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.sikkerLogg
 import no.nav.etterlatte.toJson
 import org.slf4j.LoggerFactory
 import soeknad.LagretSoeknad
@@ -15,6 +16,7 @@ class SoeknadService(private val db: SoeknadRepository) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
     fun sendSoeknad(innloggetBrukerFnr: Foedselsnummer, request: SoeknadRequest, kilde: String): Boolean {
+        sikkerLogg.info("Mottok ${request.soeknader.size} søknad(er) fra bruker $innloggetBrukerFnr")
         logger.info("Forsøker lagring av mottatte søknader (antall=${request.soeknader.size})")
         // Verifisere at det er innlogget bruker som er registrert som innsender
         validerInnsender(innloggetBrukerFnr, request)
@@ -24,7 +26,7 @@ class SoeknadService(private val db: SoeknadRepository) {
         return if (ider.size == request.soeknader.size) {
             logger.info("Lagret alle (${ider.size}) innsendte søknader.")
 
-            val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer?.svar == innloggetBrukerFnr }
+            val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer.svar == innloggetBrukerFnr }
             if (innsenderSoekerIkke) {
                 db.slettOgKonverterKladd(innloggetBrukerFnr.value, kilde)
             }
@@ -32,6 +34,7 @@ class SoeknadService(private val db: SoeknadRepository) {
             true
         } else {
             logger.error("Kun ${ider.size} av ${request.soeknader.size} ble lagret.")
+            sikkerLogg.error("Feil ved lagring av søknad: \n${request.toJson()}")
             false
         }
     }
@@ -40,14 +43,21 @@ class SoeknadService(private val db: SoeknadRepository) {
         val innsenderErInnlogget = request.soeknader.all { innloggetBrukerFnr == it.innsender.foedselsnummer.svar }
 
         if (!innsenderErInnlogget) {
+            val innsenderListe = request.soeknader.map { it.innsender.foedselsnummer.svar.value }
+
             logger.error("Søknad innsender er ikke samme som innlogget bruker!")
+            sikkerLogg.error(
+                "Innsender er ikke samme som innlogget bruker ($innloggetBrukerFnr): \n" +
+                        "${request.soeknader.size} søknad(er) med innsendere: $innsenderListe \n" +
+                        request.toJson()
+            )
             throw RuntimeException("Ugyldig innsender")
         }
     }
 
     private fun validerOgFerdigstillSoeknader(request: SoeknadRequest, kilde: String): List<SoeknadID> {
         val soeknader = request.soeknader
-            .map { UlagretSoeknad(it.soeker.foedselsnummer!!.svar.value, it.toJson(), kilde, it.type) }
+            .map { UlagretSoeknad(it.soeker.foedselsnummer.svar.value, it.toJson(), kilde, it.type) }
 
         val finnesKonlflikter = soeknader
             .mapNotNull { db.finnKladd(it.fnr, it.kilde)?.status }
