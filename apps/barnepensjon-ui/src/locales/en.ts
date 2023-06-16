@@ -137,15 +137,15 @@ const selectScenario = {
     childApplicantInformationOver18:
         'If you have lost one or both of your parents you must use <a href="https://www.nav.no/fyllut/nav180405">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
-        'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401">this application</a>.',
+        'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
-        'You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401">this application</a>.',
+        'You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
-        'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">this application</a>.',
+        'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">this application</a>.',
     guardianApplicantInformationFatherNotConfirmed:
-        'If the child has lost his/her mother and paternity has not been determined, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180105">this application</a>.',
+        'If the child has lost his/her mother and paternity has not been determined, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">this application</a>.',
     aboutSurvivorsPensionDescription:
-        '<b>Have you lost your spouse, cohabiting partner or partner? </b> nYou may then apply for a survivor’s pension or transitional benefit. If you would like to apply for the children’s pension at the same time, you can use <a href="https://www.nav.no/soknader/en/person/pensjon/gjenlevende-ektefelle-partner-eller-samboer#NAV170105">this application.</a>',
+        '<b>Have you lost your spouse, cohabiting partner or partner? </b> nYou may then apply for a survivor’s pension or transitional benefit. If you would like to apply for the children’s pension at the same time, you can use <a href="https://www.nav.no/soknader#gjenlevendepensjon">this application.</a>',
     BOTH_PARENTS_DECEASED: 'Both parents',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'I have no parents',
     ONE_PARENT_DECEASED: 'One parent',
@@ -178,7 +178,7 @@ const aboutParents = {
     bothParentsRequired:
         'You will need to add information about both parents to continue with the application.  \n \n If the child has lost his/her mother and paternity has not been determined, you will need to use',
     missingOneParentLink:
-        '<a href="https://www.nav.no/soknader/nb/person/pensjon/barn-som-har-mistet-en-eller-flere-av-foreldrene/NAV%2018-01.05/dokumentinnsending"> this application</a>.',
+        '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> this application</a>.',
 }
 
 const livingParent = {
