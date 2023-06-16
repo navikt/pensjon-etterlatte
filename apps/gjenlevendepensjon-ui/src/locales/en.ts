@@ -29,11 +29,16 @@ export default {
     "forside.startSoeknad": "Start the application",
     "forside.omYtelsene.innhold":
         "If your spouse, partner or cohabitant has died, you may be entitled to a survivor’s pension or transitional benefit for survivors. You may also be entitled to support if you were previously married to, in a partnership with or cohabiting with the deceased. We will assess whether you are entitled to a survivor’s pension or transitional benefit, based on your situation. How much money you will receive depends on your current income.",
-    "forside.omYtelsene.papirsoeknad.innhold":
-        "Do you already receive an old-age pension or disability benefit? Then you can apply for a survivor’s supplement. To apply for a survivor’s supplement, you must use",
-    "forside.omYtelsene.papirsoeknad.href":
-        "https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105",
-    "forside.omYtelsene.papirsoeknad.tekst": "a printed form.",
+    "forside.omYtelsene.papirsoeknad.alderspensjon.innhold":
+            "Do you already receive an old-age pension? Read more about your",
+    "forside.omYtelsene.papirsoeknad.alderspensjon.href":
+            "https://www.nav.no/har-pensjon#gjenlevendefordel",
+    "forside.omYtelsene.papirsoeknad.alderspensjon.tekst": "rights as a survivor and if you have to apply.",
+    "forside.omYtelsene.papirsoeknad.ufoeretrygd.innhold":
+            "Do you already receive a disability benefit? Read more about your",
+    "forside.omYtelsene.papirsoeknad.ufoeretrygd.href":
+            "https://www.nav.no/uforetrygd#tillegg",
+    "forside.omYtelsene.papirsoeknad.ufoeretrygd.tekst": "rights as a survivor and find the application.",
     "forside.omYtelsene.lenkeGjenlevende.href":
         "https://www.nav.no/en/home/benefits-and-services/relatert-informasjon/benefits-for-surviving-spouse",
     "forside.omYtelsene.lenkeGjenlevende.tekst": "Read more about survivor’s pension",
@@ -65,9 +70,11 @@ export default {
     "forside.uthentingAvInfo.lenke2.tekst": "Read more about data protection and security on the nav.no website",
     "forside.soeknad.tittel": "Filling in the application",
     "forside.soeknad.innhold":
-        "We will save your application for 72 hours so that you can take breaks. You can discard your application at any time.\n\nYou must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use",
-    "forside.soeknad.innhold.lenke.tekst": "this application.",
-    "forside.soeknad.innhold.lenke.href": "https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401",
+        "We will save your application for 72 hours so that you can take breaks. You can discard your application at any time.",
+    "forside.soeknad.alert.innhold":
+            "You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use",
+    "forside.soeknad.alert.innhold.lenke.tekst": "this application.",
+    "forside.soeknad.alert.innhold.lenke.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer/NAV%2017-01.05/brev",
     "forside.samtykke.tittel": "We trust you",
     "forside.samtykke.innhold":
         "You must provide us with the correct information so that we can process your application. \nIf you receive money that you are not entitled to because you withheld information or provided incorrect information, you usually have to pay this money back.\n\n",
