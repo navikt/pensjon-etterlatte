@@ -135,17 +135,17 @@ const selectScenario = {
     childApplicantInformation2:
         '<b>If you have lost both of your parents or your paternity has not been determined</b> \nYou are entitled to receive the children’s pension until the age of 20 if you are studying or serving as an apprentice or trainee. You can receive the children’s pension until the age of 21 if the death was also due to occupational injury or occupational illness.',
     childApplicantInformationOver18:
-        'If you have lost one or both of your parents you must use <a href="https://www.nav.no/fyllut/nav180405">this application</a>.',
+        'If you have lost one or both of your parents you must use <a href="https://www.nav.no/soknader/en/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
-        'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">this application</a>.',
+        'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
-        'You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">this application</a>.',
+        'You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/en/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
-        'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">this application</a>.',
+        'You must provide the full Norwegian national identity number of the child/children and parents. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">this application</a>.',
     guardianApplicantInformationFatherNotConfirmed:
-        'If the child has lost his/her mother and paternity has not been determined, you will need to use <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">this application</a>.',
+        'If the child has lost his/her mother and paternity has not been determined, you will need to use <a href="https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">this application</a>.',
     aboutSurvivorsPensionDescription:
-        '<b>Have you lost your spouse, cohabiting partner or partner? </b> nYou may then apply for a survivor’s pension or transitional benefit. If you would like to apply for the children’s pension at the same time, you can use <a href="https://www.nav.no/soknader#gjenlevendepensjon">this application.</a>',
+        '<b>Have you lost your spouse, cohabiting partner or partner? </b> \nYou may then apply for a survivor’s pension or transitional benefit. If you would like to apply for the children’s pension at the same time, you can use <a href="https://www.nav.no/soknader/en/person/pensjon/gjenlevende-ektefelle-partner-eller-samboer">this application.</a>',
     BOTH_PARENTS_DECEASED: 'Both parents',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'I have no parents',
     ONE_PARENT_DECEASED: 'One parent',

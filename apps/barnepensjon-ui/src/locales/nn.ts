@@ -131,7 +131,7 @@ const selectScenario = {
     childApplicantInformation2:
         '<b>Viss du har mista begge foreldra dine eller farskapet ikkje er fastsatt må du bruke</b>\nDu kan få barnepensjon inntil du blir 20 år viss du er under utdanning, eller er lærling eller praktikant. Du kan få barnepensjon inntil du blir 21 år viss dødsfallet i tillegg skuldast ein yrkesskade eller yrkessjukdom.',
     childApplicantInformationOver18:
-        'Har du mista ein eller begge foreldra dine må du bruke <a href="https://www.nav.no/fyllut/nav180405">denne søknaden</a>.',
+        'Har du mista ein eller begge foreldra dine må du bruke <a href="https://www.nav.no/fyllut/nav180405?lang=nn-NO">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
         'Du må oppgi heile fødselsnummeret til barnet/barna og foreldra. Viss ikkje du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
