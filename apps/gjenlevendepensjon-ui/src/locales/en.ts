@@ -37,7 +37,7 @@ export default {
     "forside.omYtelsene.papirsoeknad.ufoeretrygd.innhold":
             "Do you already receive a disability benefit? Read more about your",
     "forside.omYtelsene.papirsoeknad.ufoeretrygd.href":
-            "https://www.nav.no/uforetrygd#tillegg",
+            "https://www.nav.no/uforetrygd/en#relevant-supplements-and-schemes-when-you-receive-disability-benefit",
     "forside.omYtelsene.papirsoeknad.ufoeretrygd.tekst": "rights as a survivor and find the application.",
     "forside.omYtelsene.lenkeGjenlevende.href":
         "https://www.nav.no/en/home/benefits-and-services/relatert-informasjon/benefits-for-surviving-spouse",
@@ -74,7 +74,7 @@ export default {
     "forside.soeknad.alert.innhold":
             "You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use",
     "forside.soeknad.alert.innhold.lenke.tekst": "this application.",
-    "forside.soeknad.alert.innhold.lenke.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer/NAV%2017-01.05/brev",
+    "forside.soeknad.alert.innhold.lenke.href": "https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer",
     "forside.samtykke.tittel": "We trust you",
     "forside.samtykke.innhold":
         "You must provide us with the correct information so that we can process your application. \nIf you receive money that you are not entitled to because you withheld information or provided incorrect information, you usually have to pay this money back.\n\n",
