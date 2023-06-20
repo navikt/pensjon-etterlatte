@@ -29,11 +29,16 @@ export default {
     "forside.startSoeknad": "Start søknad",
     "forside.omYtelsene.innhold":
         "Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til attlevandepensjon eller overgangsstønad til atterlevande. Du kan også ha rett til støtte viss du tidlegare har vore gift, partnar eller sambuar med avdøde. Vi vil vurdere om du har rett på attlevandepensjon eller overgangsstønad basert på situasjonen din. Inntekta di avgjer kor mykje pengar du kan få.",
-    "forside.omYtelsene.papirsoeknad.innhold":
-        "Får du alderspensjon eller uføretrygd fra før? Da kan du søke om attlevendetillegg i uføretrygd eller attlevenderett i alderspensjon. Du må søke på",
-    "forside.omYtelsene.papirsoeknad.href":
-        "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105",
-    "forside.omYtelsene.papirsoeknad.tekst": "papir.",
+    "forside.omYtelsene.papirsoeknad.alderspensjon.innhold":
+            "Får du alderspensjon frå før? Her kan du lese meir om",
+    "forside.omYtelsene.papirsoeknad.alderspensjon.href":
+            "https://www.nav.no/har-pensjon#gjenlevendefordel",
+    "forside.omYtelsene.papirsoeknad.alderspensjon.tekst": " rettar som gjenlevande og om du må søke.",
+    "forside.omYtelsene.papirsoeknad.ufoeretrygd.innhold":
+            "Får du uføretrygd frå før? Her kan du lese meir om",
+    "forside.omYtelsene.papirsoeknad.ufoeretrygd.href":
+            "https://www.nav.no/uforetrygd#tillegg",
+    "forside.omYtelsene.papirsoeknad.ufoeretrygd.tekst": "rettar som gjenlevande og finne søknadsskjema.",
     "forside.omYtelsene.lenkeGjenlevende.href": "https://www.nav.no/gjenlevendepensjon",
     "forside.omYtelsene.lenkeGjenlevende.tekst": "Meir om attlevandepensjon",
     "forside.omYtelsene.lenkeOvergangsstoenad.href": "https://www.nav.no/overgangsstonad-gjenlevende",
@@ -61,9 +66,11 @@ export default {
     "forside.uthentingAvInfo.lenke2.tekst": "Om personvern og sikkerheit på nav.no",
     "forside.soeknad.tittel": "Utfylling av søknaden",
     "forside.soeknad.innhold":
-        "Vi lagrar søknaden i 72 timar så du kan ta pauser undervegs. Du kan når som helst avbryte søknaden.\n\nDu må oppgi heile fødselsnummeret til barnet/barna og avdøde. Viss du ikkje har det, må du bruke",
-    "forside.soeknad.innhold.lenke.tekst": "denne søknaden.",
-    "forside.soeknad.innhold.lenke.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401",
+        "Vi lagrar søknaden i 72 timar så du kan ta pauser undervegs. Du kan når som helst avbryte søknaden.",
+    "forside.soeknad.alert.innhold":
+            "Du må oppgi heile fødselsnummeret til barnet/barna og avdøde. Viss du ikkje har det, må du bruke",
+    "forside.soeknad.alert.innhold.lenke.tekst": "denne søknaden.",
+    "forside.soeknad.alert.innhold.lenke.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer/NAV%2017-01.05/brev ",
     "forside.samtykke.tittel": "Vi stoler på deg",
     "forside.samtykke.innhold":
         "Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din. \nViss du får pengar du ikkje har rett til fordi du har gitt feil opplysingar, må du vanlegvis betale tilbake.\n\n",

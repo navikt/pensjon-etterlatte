@@ -29,11 +29,16 @@ export default {
     "forside.startSoeknad": "Start søknad",
     "forside.omYtelsene.innhold":
         "Hvis ektefellen, partneren eller samboeren din er død, kan du ha rett til gjenlevendepensjon eller overgangsstønad til gjenlevende. Du kan også ha rett til støtte hvis du tidligere har vært gift, partner eller samboer med avdøde. Vi vil vurdere om du har rett på gjenlevendepensjon eller overgangsstønad basert på din situasjon. Inntekten din avgjør hvor mye penger du kan få.",
-    "forside.omYtelsene.papirsoeknad.innhold":
-        "Får du alderspensjon eller uføretrygd fra før? Da kan du søke om gjenlevendetillegg i uføretrygd eller gjenlevenderett i alderspensjon. Du må søke på",
-    "forside.omYtelsene.papirsoeknad.href":
-        "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105",
-    "forside.omYtelsene.papirsoeknad.tekst": "papir.",
+    "forside.omYtelsene.papirsoeknad.alderspensjon.innhold":
+        "Får du alderspensjon fra før? Her kan du lese mer om",
+    "forside.omYtelsene.papirsoeknad.alderspensjon.href":
+        "https://www.nav.no/har-pensjon#gjenlevendefordel",
+    "forside.omYtelsene.papirsoeknad.alderspensjon.tekst": " rettigheter som gjenlevende og om du må søke.",
+    "forside.omYtelsene.papirsoeknad.ufoeretrygd.innhold":
+            "Får du uføretrygd fra før? Her kan du lese mer om",
+    "forside.omYtelsene.papirsoeknad.ufoeretrygd.href":
+            "https://www.nav.no/uforetrygd#tillegg",
+    "forside.omYtelsene.papirsoeknad.ufoeretrygd.tekst": "rettigheter som gjenlevende og finne søknadsskjema.",
     "forside.omYtelsene.lenkeGjenlevende.href": "https://www.nav.no/gjenlevendepensjon",
     "forside.omYtelsene.lenkeGjenlevende.tekst": "Mer om gjenlevendepensjon",
     "forside.omYtelsene.lenkeOvergangsstoenad.href": "https://www.nav.no/overgangsstonad-gjenlevende",
@@ -44,10 +49,10 @@ export default {
     "forside.barnepensjon.href": "https://www.nav.no/barnepensjon",
     "forside.barnepensjon.tekst": "Mer om barnepensjon",
     "forside.soeknad.tittel": "Utfylling av søknaden",
-    "forside.soeknad.innhold":
-        "Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.\n\nDu må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis du ikke har det, må du bruke",
-    "forside.soeknad.innhold.lenke.tekst": "denne søknaden.",
-    "forside.soeknad.innhold.lenke.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401",
+    "forside.soeknad.innhold": "Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.",
+    "forside.soeknad.alert.innhold": "Du må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis du ikke har det, må du bruke",
+    "forside.soeknad.alert.innhold.lenke.tekst": "denne søknaden.",
+    "forside.soeknad.alert.innhold.lenke.href": "https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer/NAV%2017-01.05/brev",
     "forside.uthentingAvInfo.tittel": "Vi henter informasjonen vi trenger",
     "forside.uthentingAvInfo.innhold":
         "For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell samboer.\nVi henter:",

@@ -4,7 +4,7 @@ import { useBrukerContext } from "../../context/bruker/BrukerContext";
 import { useSoknadContext } from "../../context/soknad/SoknadContext";
 import { ActionTypes } from "../../context/soknad/soknad";
 import { Veileder } from '../felles/Veileder'
-import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from "@navikt/ds-react";
+import { Alert, BodyLong, Button, ConfirmationPanel, Heading, Link } from '@navikt/ds-react'
 import { LogEvents, useAmplitude } from "../../utils/amplitude";
 import { useLanguage } from "../../hooks/useLanguage";
 import { Spraakvalg } from "../felles/Spraakvalg";
@@ -44,11 +44,17 @@ const SoknadForside = () => {
             <Spraakvalg />
 
             <SkjemaGruppe>
-                <Alert inline={true} variant={"warning"}>
+                <Alert variant={"info"}>
                     <b>
-                        {t("forside.omYtelsene.papirsoeknad.innhold")}&nbsp;
-                        <Link href={t("forside.omYtelsene.papirsoeknad.href")}>
-                            {t("forside.omYtelsene.papirsoeknad.tekst")}
+                        {t("forside.omYtelsene.papirsoeknad.alderspensjon.innhold")}&nbsp;
+                        <Link href={t("forside.omYtelsene.papirsoeknad.alderspensjon.href")}>
+                            {t("forside.omYtelsene.papirsoeknad.alderspensjon.tekst")}
+                        </Link>
+                    <br/>
+                    <br/>
+                        {t("forside.omYtelsene.papirsoeknad.ufoeretrygd.innhold")}&nbsp;
+                        <Link href={t("forside.omYtelsene.papirsoeknad.ufoeretrygd.href")}>
+                            {t("forside.omYtelsene.papirsoeknad.ufoeretrygd.tekst")}
                         </Link>
                     </b>
                 </Alert>
@@ -132,10 +138,13 @@ const SoknadForside = () => {
                 <Heading size={"small"}>{t("forside.soeknad.tittel")}</Heading>
                 <BodyLong spacing>
                     {t("forside.soeknad.innhold")}&nbsp;
-                    <Link href={t("forside.soeknad.innhold.lenke.href")}>
-                        {t("forside.soeknad.innhold.lenke.tekst")}
-                    </Link>
                 </BodyLong>
+                <Alert variant={'info'}>
+                    {t("forside.soeknad.alert.innhold")}&nbsp;
+                    <Link href={t("forside.soeknad.alert.innhold.lenke.href")}>
+                        {t("forside.soeknad.alert.innhold.lenke.tekst")}
+                    </Link>
+                </Alert>
             </SkjemaGruppe>
             <SkjemaGruppe>
                 <Heading size={"small"}>{t("forside.samtykke.tittel")}</Heading>
