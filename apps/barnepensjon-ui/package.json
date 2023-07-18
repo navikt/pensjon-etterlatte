@@ -15,7 +15,7 @@
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.9",
-    "i18next": "^22.4.10",
+    "i18next": "^23.2.11",
     "ibantools": "^4.2.2",
     "lodash": "^4.17.21",
     "nav-faker": "^3.2.4",
