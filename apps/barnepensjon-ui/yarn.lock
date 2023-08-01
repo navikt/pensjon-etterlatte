@@ -3134,10 +3134,10 @@ axe-core@^4.6.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.6.3.tgz#fc0db6fdb65cc7a80ccf85286d91d64ababa3ece"
   integrity sha512-/BQzOX780JhsxDnPpH4ZiyrJAzcd8AfzFPkv+89veFSr1rcMjuq2JDCwypKaPeB6ljHp9KjXhPpjgCvQlWYuqg==
 
-axios-retry@^3.2.4:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/axios-retry/-/axios-retry-3.4.0.tgz#f464dbe9408e5aa78fa319afd38bb69b533d8854"
-  integrity sha512-VdgaP+gHH4iQYCCNUWF2pcqeciVOdGrBBAYUfTY+wPcO5Ltvp/37MLFNCmJKo7Gj3SHvCSdL8ouI1qLYJN3liA==
+axios-retry@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/axios-retry/-/axios-retry-3.6.0.tgz#3bf6edbce42e526a3f7ac70b1891b645adb4c301"
+  integrity sha512-jtH4qWTKZ2a17dH6tjq52Y1ssNV0lKge6/Z9Lw67s9Wt01nGTg4hg7/LJBGYfDci44NTANJQlCPHPOT/TSFm9w==
   dependencies:
     "@babel/runtime" "^7.15.4"
     is-retry-allowed "^2.2.0"
