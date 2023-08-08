@@ -32,12 +32,14 @@ updates:
           - "eslint"
           - "eslint-plugin*"
           - "prettier"
-      reactrouter:
+      react:
         patterns:
-          - "react-router*"
-      reacttypes:
-        patterns:
+          - "react*"
           - "@types/react*"
+      lodash:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
       axios:
         patterns:
           - "axios"
@@ -79,12 +81,14 @@ updates:
           - "eslint"
           - "eslint-plugin*"
           - "prettier"
-      reactrouter:
+      react:
         patterns:
-          - "react-router*"
-      reacttypes:
-        patterns:
+          - "react*"
           - "@types/react*"
+      lodash:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
       axios:
         patterns:
           - "axios"
@@ -125,12 +129,14 @@ updates:
           - "eslint"
           - "eslint-plugin*"
           - "prettier"
-      reactrouter:
+      react:
         patterns:
-          - "react-router*"
-      reacttypes:
-        patterns:
+          - "react*"
           - "@types/react*"
+      lodash:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
       axios:
         patterns:
           - "axios"
