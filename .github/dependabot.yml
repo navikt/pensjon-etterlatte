@@ -26,6 +26,39 @@ updates:
       ds:
         patterns:
           - "@navikt/ds-*"
+      eslint:
+        patterns:
+          - "@typescript-eslint/*"
+          - "eslint"
+          - "eslint-plugin*"
+          - "prettier"
+      react:
+        patterns:
+          - "react*"
+          - "@types/react*"
+      lodash:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
+      axios:
+        patterns:
+          - "axios"
+          - "axios-retry"
+      test:
+        patterns:
+          - "axe-core"
+          - "cypress"
+          - "cypress-axe"
+          - "@testing-library/*"
+          - "@types/jest"
+      uuid:
+        patterns:
+          - "uuid"
+          - "@types/uuid"
+      styledcomponents:
+        patterns:
+          - "styled-components"
+          - "@types/styled-components"
 
 
   # ===========================
@@ -45,12 +78,36 @@ updates:
       eslint:
         patterns:
           - "@typescript-eslint/*"
-      reactrouter:
+          - "eslint"
+          - "eslint-plugin*"
+          - "prettier"
+      react:
         patterns:
-          - "react-router*"
-      reacttypes:
-        patterns:
+          - "react*"
           - "@types/react*"
+      lodash:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
+      axios:
+        patterns:
+          - "axios"
+          - "axios-retry"
+      test:
+        patterns:
+          - "axe-core"
+          - "cypress"
+          - "cypress-axe"
+          - "@testing-library/*"
+          - "@types/jest"
+      uuid:
+        patterns:
+          - "uuid"
+          - "@types/uuid"
+      styledcomponents:
+        patterns:
+          - "styled-components"
+          - "@types/styled-components"
 
   # ===========================
   # FRONTEND OMSTILLINGSSTØNAD
@@ -69,12 +126,36 @@ updates:
       eslint:
         patterns:
           - "@typescript-eslint/*"
-      reactrouter:
+          - "eslint"
+          - "eslint-plugin*"
+          - "prettier"
+      react:
         patterns:
-          - "react-router*"
-      reacttypes:
-        patterns:
+          - "react*"
           - "@types/react*"
+      lodash:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
+      axios:
+        patterns:
+          - "axios"
+          - "axios-retry"
+      test:
+        patterns:
+          - "axe-core"
+          - "cypress"
+          - "cypress-axe"
+          - "@testing-library/*"
+          - "@types/jest"
+      uuid:
+        patterns:
+          - "uuid"
+          - "@types/uuid"
+      styledcomponents:
+        patterns:
+          - "styled-components"
+          - "@types/styled-components"
 
   # ===========
   # NODE SERVER
