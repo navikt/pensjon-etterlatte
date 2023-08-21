@@ -47,7 +47,7 @@ spec:
     sessionLifetime: 3600
     sidecar:
       enabled: true
-      level: Level4
+      level: idporten-loa-high
       locale: nb
       autoLogin: true
       errorPath: ""
