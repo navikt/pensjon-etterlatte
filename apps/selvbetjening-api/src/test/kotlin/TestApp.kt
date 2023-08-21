@@ -17,7 +17,7 @@ fun mockOautServer() {
     val token: SignedJWT = server.issueToken(
         "lokalissuer", "thisapp", DefaultOAuth2TokenCallback(
             claims = mapOf(
-                "acr" to "Level4",
+                "acr" to "idporten-loa-high",
                 "pid" to "12321",
                 "aud" to "thisapp"
             )
