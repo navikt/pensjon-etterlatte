@@ -36,6 +36,7 @@ class AppBuilder(private val props: Map<String, String>) {
     }
 
     private fun pdfhttpclient() = HttpClient(OkHttp) {
+        expectSuccess = true
         install(ContentNegotiation) { jackson() }
 
     }.also {
