@@ -106,7 +106,7 @@ fun Application.apiModule(routes: Route.() -> Unit) {
     install(CallLogging) {
         level = Level.INFO
         disableDefaultColors()
-        filter { call -> !call.request.path().matches(Regex(".*/isready|.*/isalive")) }
+        filter { call -> !call.request.path().matches(Regex(".*/isready|.*/isalive|.*/metrics")) }
         mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
     }
 
