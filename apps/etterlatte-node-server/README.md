@@ -28,6 +28,11 @@ Frontend appen sin NAIS config må også inneholde følgende verdier under `env`
 
 ## Kjøre lokalt 
 
+Vi bruker personal access token til autentisering for å hente intern pakker til prosjektet.
+Du må derfor sette `export NPM_TOKEN='DITT_TOKEN'` som miljøvariabel.
+Dette tokenet må autoriseres mot navikt.
+
+
 Installere prosjektet:\
 `yarn install`
 
