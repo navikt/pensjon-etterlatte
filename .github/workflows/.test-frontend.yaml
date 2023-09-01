@@ -46,7 +46,7 @@ jobs:
 #        working-directory: apps/${{ github.workflow }}
 #        run: yarn start & npx wait-on http://localhost:3000
       - name: Run e2e tests (Cypress)
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           start: yarn start
           wait-on: 'http://localhost:3000'
