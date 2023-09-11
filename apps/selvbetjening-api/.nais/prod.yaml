@@ -52,8 +52,6 @@ spec:
       value: "api://prod-gcp.team-rocket.digdir-krr-proxy/.default"
     - name: KRR_AUDIENCE
       value: "prod-gcp:team-rocket:digdir-krr-proxy"
-  ingresses:
-    - "https://etterlatte-selvbetjening-api.prod-gcp.nais.io"
   accessPolicy:
     outbound:
       rules:
