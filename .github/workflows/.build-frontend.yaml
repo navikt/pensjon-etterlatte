@@ -15,7 +15,8 @@ jobs:
     name: Build & publish
     runs-on: ubuntu-latest
     permissions:
-      packages: write
+      contents: 'read'
+      id-token: 'write'
     env:
       image: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
     outputs:
