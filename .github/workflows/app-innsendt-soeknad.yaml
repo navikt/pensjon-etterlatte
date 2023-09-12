@@ -27,6 +27,7 @@ jobs:
     uses: ./.github/workflows/.build-backend.yaml
     secrets: inherit
     permissions:
+      contents: read
       packages: write
 
   deploy:
