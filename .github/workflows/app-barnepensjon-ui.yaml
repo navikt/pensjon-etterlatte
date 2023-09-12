@@ -31,8 +31,8 @@ jobs:
     uses: ./.github/workflows/.build-frontend.yaml
     secrets: inherit
     permissions:
-      contents: 'read'
-      id-token: 'write'
+      contents: read
+      packages: write
 
   test:
     needs: build
