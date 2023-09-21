@@ -29,7 +29,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
               omDeg.alternativAdresse
             </label>
             <input
-              aria-invalid="false"
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="alternativAdresse"
               required=""
@@ -64,7 +63,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 omDeg.kontaktinfo.telefonnummer
               </label>
               <input
-                aria-invalid="false"
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="kontaktinfo.telefonnummer"
                 required=""
@@ -96,7 +94,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
             class="sc-hLseeU jLGscI"
           >
             <fieldset
-              aria-invalid="false"
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
@@ -105,7 +102,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 omDeg.oppholderSegINorge
               </legend>
               <div
-                class="navds-fieldset__description navds-body-long navds-body-long--small"
+                class="navds-fieldset__description navds-body-short navds-body-short--medium"
                 id="fieldset-description-r3"
               >
                 <div>
@@ -146,7 +143,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-invalid="false"
                     class="navds-radio__input"
                     id="radio-r5"
                     name="oppholderSegINorge"
@@ -161,7 +157,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                       class="navds-radio__content"
                     >
                       <span
-                        class="navds-body-short"
+                        class="navds-body-short navds-body-short--medium"
                       >
                         radiobuttons.ja
                       </span>
@@ -172,7 +168,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-invalid="false"
                     class="navds-radio__input"
                     id="radio-r6"
                     name="oppholderSegINorge"
@@ -187,7 +182,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                       class="navds-radio__content"
                     >
                       <span
-                        class="navds-body-short"
+                        class="navds-body-short navds-body-short--medium"
                       >
                         radiobuttons.nei
                       </span>
@@ -216,7 +211,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
           >
             <label
               class="navds-form-field__label navds-label"
-              for="textField-r7"
+              for="select-ra"
             >
               omDeg.oppholdsland
             </label>
@@ -224,9 +219,8 @@ exports[`Om deg og avdød Snapshot 1`] = `
               class="navds-select__container"
             >
               <select
-                aria-invalid="false"
                 class="navds-select__input navds-body-short navds-body--medium"
-                id="textField-r7"
+                id="select-ra"
               >
                 <option
                   value=""
@@ -247,7 +241,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               >
                 <path
                   clip-rule="evenodd"
-                  d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                  d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
                   fill="currentColor"
                   fill-rule="evenodd"
                 />
@@ -257,7 +251,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-r7"
+              id="select-error-ra"
             />
           </div>
         </div>
@@ -272,7 +266,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
             class="sc-hLseeU jLGscI"
           >
             <fieldset
-              aria-invalid="false"
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
@@ -287,22 +280,21 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-rb"
+                    id="radio-re"
                     name="utbetalingsInformasjon.bankkontoType"
                     type="radio"
                     value="bankkontoType.norsk"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rb"
+                    for="radio-re"
                   >
                     <span
                       class="navds-radio__content"
                     >
                       <span
-                        class="navds-body-short"
+                        class="navds-body-short navds-body-short--medium"
                       >
                         bankkontoType.norsk
                       </span>
@@ -313,22 +305,21 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-invalid="false"
                     class="navds-radio__input"
-                    id="radio-rc"
+                    id="radio-rf"
                     name="utbetalingsInformasjon.bankkontoType"
                     type="radio"
                     value="bankkontoType.utenlandsk"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rc"
+                    for="radio-rf"
                   >
                     <span
                       class="navds-radio__content"
                     >
                       <span
-                        class="navds-body-short"
+                        class="navds-body-short navds-body-short--medium"
                       >
                         bankkontoType.utenlandsk
                       </span>
@@ -340,7 +331,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-ra"
+                id="fieldset-error-rd"
               />
             </fieldset>
           </div>
@@ -369,7 +360,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
               omDeg.utbetalingsInformasjon.utenlandskBankNavn
             </label>
             <input
-              aria-invalid="false"
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="utbetalingsInformasjon.utenlandskBankNavn"
               required=""
@@ -380,7 +370,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-rd"
+              id="textField-error-rg"
             />
           </div>
         </div>
@@ -399,7 +389,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
               omDeg.utbetalingsInformasjon.utenlandskBankAdresse
             </label>
             <input
-              aria-invalid="false"
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="utbetalingsInformasjon.utenlandskBankAdresse"
               required=""
@@ -410,7 +399,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-re"
+              id="textField-error-rh"
             />
           </div>
         </div>
@@ -439,7 +428,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-rg"
+                    aria-labelledby="title-rj"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -450,19 +439,27 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-rg"
+                      id="title-rj"
                     >
                       hjelp
                     </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="transparent"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
                     <path
                       clip-rule="evenodd"
-                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
                       fill="currentColor"
                       fill-rule="evenodd"
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-rh"
+                    aria-labelledby="title-rk"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -473,14 +470,22 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-rh"
+                      id="title-rk"
                     >
                       hjelp
                     </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="currentColor"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
                     <path
                       clip-rule="evenodd"
-                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 16a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
-                      fill="currentColor"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="var(--a-surface-default)"
                       fill-rule="evenodd"
                     />
                   </svg>
@@ -506,7 +511,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
             </div>
           </label>
           <input
-            aria-invalid="false"
             class="navds-text-field__input navds-body-short navds-body-medium"
             id="utbetalingsInformasjon.iban"
             required=""
@@ -518,7 +522,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-rf"
+            id="textField-error-ri"
           />
         </div>
       </div>
@@ -546,7 +550,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-rj"
+                    aria-labelledby="title-rn"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -557,19 +561,27 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-rj"
+                      id="title-rn"
                     >
                       hjelp
                     </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="transparent"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
                     <path
                       clip-rule="evenodd"
-                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
                       fill="currentColor"
                       fill-rule="evenodd"
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-rk"
+                    aria-labelledby="title-ro"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -580,14 +592,22 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-rk"
+                      id="title-ro"
                     >
                       hjelp
                     </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="currentColor"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
                     <path
                       clip-rule="evenodd"
-                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 16a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
-                      fill="currentColor"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="var(--a-surface-default)"
                       fill-rule="evenodd"
                     />
                   </svg>
@@ -613,7 +633,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
             </div>
           </label>
           <input
-            aria-invalid="false"
             class="navds-text-field__input navds-body-short navds-body-medium"
             id="utbetalingsInformasjon.swift"
             required=""
@@ -625,7 +644,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-ri"
+            id="textField-error-rm"
           />
         </div>
       </div>
@@ -642,7 +661,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
           type="button"
         >
           <span
-            aria-live="polite"
             class="navds-label"
           >
             knapp.neste
@@ -659,13 +677,111 @@ exports[`Om deg og avdød Snapshot 1`] = `
         type="button"
       >
         <span
-          aria-live="polite"
           class="navds-label"
         >
           knapp.avbryt
         </span>
       </button>
     </div>
+    <dialog
+      class="navds-modal navds-modal--polyfilled navds-modal--autowidth"
+      role="dialog"
+    >
+      <div
+        class="navds-modal__header"
+      >
+        <button
+          class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+          type="button"
+        >
+          <span
+            class="navds-button__icon"
+          >
+            <svg
+              aria-labelledby="title-r9"
+              fill="none"
+              focusable="false"
+              height="1em"
+              role="img"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title
+                id="title-r9"
+              >
+                Lukk modalvindu
+              </title>
+              <path
+                clip-rule="evenodd"
+                d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </button>
+        <h1
+          class="navds-heading navds-heading--medium"
+        >
+          avbrytModal.spoersmaal
+        </h1>
+      </div>
+      <div
+        class="navds-modal__body"
+      >
+        <p
+          class="mute avbryt-text navds-body-short navds-body-short--medium"
+        >
+          avbrytModal.informasjon
+        </p>
+      </div>
+      <div
+        class="navds-modal__footer"
+      >
+        <div
+          class="sc-csCMJt irVfVm"
+        >
+          <button
+            class="navds-button navds-button--secondary navds-button--medium"
+            id="avbryt-nei-btn"
+            style="margin: 10px;"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarNei
+            </span>
+          </button>
+          <button
+            class="navds-button navds-button--primary navds-button--medium"
+            id="avbryt-ja-btn"
+            style="margin: 10px;"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarJa
+            </span>
+          </button>
+        </div>
+        <div
+          class="sc-csCMJt irVfVm"
+        >
+          <button
+            class="navds-button navds-button--tertiary navds-button--medium"
+            id="slett-soeknad"
+            style="color: rgb(198, 93, 78);"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarSlett
+            </span>
+          </button>
+        </div>
+      </div>
+    </dialog>
   </form>
 </div>
 `;

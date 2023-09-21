@@ -52,13 +52,13 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
         </title>
         <path
           clip-rule="evenodd"
-          d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0ZM9 19v-2h2v-5H9v-2h4v7h2v2H9Zm3-14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"
+          d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75V4ZM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75Z"
           fill="currentColor"
           fill-rule="evenodd"
         />
       </svg>
       <div
-        class="navds-alert__wrapper navds-body-long"
+        class="navds-alert__wrapper navds-body-long navds-body-long--medium"
       >
         soeknadKvittering.kontakt
       </div>
@@ -73,40 +73,40 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       soeknadKvittering.endring.tittel
     </h1>
     <p
-      class="navds-body-long"
+      class="navds-body-long navds-body-long--medium"
     >
       soeknadKvittering.endring.informasjon
     </p>
     <ul>
       <li>
         <p
-          class="navds-body-short"
+          class="navds-body-short navds-body-short--medium"
         >
           soeknadKvittering.endring.endringsListe.sivilstatus
         </p>
       </li>
       <li>
         <p
-          class="navds-body-short"
+          class="navds-body-short navds-body-short--medium"
         >
           soeknadKvittering.endring.endringsListe.inntekt
         </p>
       </li>
       <li>
         <p
-          class="navds-body-short"
+          class="navds-body-short navds-body-short--medium"
         >
           soeknadKvittering.endring.endringsListe.bosted
         </p>
       </li>
     </ul>
     <p
-      class="navds-body-long"
+      class="navds-body-long navds-body-long--medium"
     >
       soeknadKvittering.endring.rettigheter.informasjon
        
       <a
-        class="navds-link"
+        class="navds-link navds-link--action"
         href="soeknadKvittering.endring.rettigheter.lenke.href"
       >
         soeknadKvittering.endring.rettigheter.lenke.tekst
@@ -122,12 +122,12 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       soeknadKvittering.seSaken.tittel
     </h1>
     <p
-      class="navds-body-long"
+      class="navds-body-long navds-body-long--medium"
     >
       soeknadKvittering.seSaken.informasjon.innhold1
        
       <a
-        class="navds-link"
+        class="navds-link navds-link--action"
         href="soeknadKvittering.seSaken.informasjon.lenkeDittNAV.href"
       >
         soeknadKvittering.seSaken.informasjon.lenkeDittNAV.tekst
@@ -136,7 +136,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       soeknadKvittering.seSaken.informasjon.innhold2
        
       <a
-        class="navds-link"
+        class="navds-link navds-link--action"
         href="soeknadKvittering.seSaken.informasjon.lenkeDineSaker.href"
       >
         soeknadKvittering.seSaken.informasjon.lenkeDineSaker.tekst
@@ -147,10 +147,10 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     </p>
     <br />
     <p
-      class="navds-body-long"
+      class="navds-body-long navds-body-long--medium"
     >
       <a
-        class="navds-link"
+        class="navds-link navds-link--action"
         href="soeknadKvittering.seSaken.behandlingstidInfo.lenke.href"
       >
         soeknadKvittering.seSaken.behandlingstidInfo.lenke.tekst
@@ -166,17 +166,17 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       soeknadKvittering.andreStoenader.tittel
     </h1>
     <p
-      class="navds-body-long"
+      class="navds-body-long navds-body-long--medium"
     >
       soeknadKvittering.andreStoenader.informasjon
     </p>
     <ul>
       <li>
         <p
-          class="navds-body-short"
+          class="navds-body-short navds-body-short--medium"
         >
           <a
-            class="navds-link"
+            class="navds-link navds-link--action"
             href="soeknadKvittering.andreStoenader.stoenadListe.skolepenger.href"
           >
             soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst
@@ -185,10 +185,10 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       </li>
       <li>
         <p
-          class="navds-body-short"
+          class="navds-body-short navds-body-short--medium"
         >
           <a
-            class="navds-link"
+            class="navds-link navds-link--action"
             href="soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.href"
           >
             soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst
@@ -197,10 +197,10 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       </li>
       <li>
         <p
-          class="navds-body-short"
+          class="navds-body-short navds-body-short--medium"
         >
           <a
-            class="navds-link"
+            class="navds-link navds-link--action"
             href="soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.href"
           >
             soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst
@@ -210,15 +210,15 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     </ul>
     <br />
     <p
-      class="navds-body-long navds-typo--spacing"
+      class="navds-body-long navds-body-long--medium navds-typo--spacing"
     >
       soeknadKvittering.andreStoenader.andreInformasjon
     </p>
     <p
-      class="navds-body-short"
+      class="navds-body-short navds-body-short--medium"
     >
       <a
-        class="navds-link"
+        class="navds-link navds-link--action"
         href="soeknadKvittering.andreStoenader.stoenadListe.tillegg.href"
       >
         soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst
@@ -237,7 +237,6 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
         type="button"
       >
         <span
-          aria-live="polite"
           class="navds-label"
         >
           soeknadKvittering.spoersmaal.knapp

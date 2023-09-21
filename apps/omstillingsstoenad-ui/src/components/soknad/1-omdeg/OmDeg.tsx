@@ -12,7 +12,7 @@ import { RHFSpoersmaalRadio, RHFRadio } from '../../felles/rhf/RHFRadio'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import Navigasjon from '../../felles/Navigasjon'
-import { Cell, Grid, Heading, RadioProps } from '@navikt/ds-react'
+import { Heading, RadioProps } from '@navikt/ds-react'
 import { BankkontoType } from '../../../typer/utbetaling'
 import UtenlandskBankInfo from './utenlandskBankInfo/UtenlandskBankInfo'
 import HvorforSpoerVi from '../../felles/HvorforSpoerVi'
@@ -70,16 +70,12 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
                         {!brukerState.telefonnummer && (
                             <SkjemaGruppe>
-                                <Grid>
-                                    <Cell xs={12} md={6} className={'kol'}>
-                                        <RHFTelefonInput
-                                            htmlSize={Bredde.S}
-                                            name={'kontaktinfo.telefonnummer'}
-                                            label={t('omDeg.kontaktinfo.telefonnummer')}
-                                            valgfri={true}
-                                        />
-                                    </Cell>
-                                </Grid>
+                                <RHFTelefonInput
+                                    htmlSize={Bredde.S}
+                                    name={'kontaktinfo.telefonnummer'}
+                                    label={t('omDeg.kontaktinfo.telefonnummer')}
+                                    valgfri={true}
+                                />
                             </SkjemaGruppe>
                         )}
                     </SkjemaGruppe>

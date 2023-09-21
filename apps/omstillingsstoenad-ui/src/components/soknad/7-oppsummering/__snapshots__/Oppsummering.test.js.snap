@@ -15,7 +15,7 @@ exports[`Oppsummering Snapshot 1`] = `
     class="sc-irTswW hafqVO"
   >
     <p
-      class="navds-body-long"
+      class="navds-body-long navds-body-long--medium"
     >
       oppsummering.beskrivelse
     </p>
@@ -32,7 +32,6 @@ exports[`Oppsummering Snapshot 1`] = `
         type="button"
       >
         <span
-          aria-live="polite"
           class="navds-label"
         >
           knapp.tilbake
@@ -43,7 +42,6 @@ exports[`Oppsummering Snapshot 1`] = `
         type="button"
       >
         <span
-          aria-live="polite"
           class="navds-label"
         >
           knapp.sendSoeknad
@@ -61,12 +59,162 @@ exports[`Oppsummering Snapshot 1`] = `
       type="button"
     >
       <span
-        aria-live="polite"
         class="navds-label"
       >
         knapp.avbryt
       </span>
     </button>
   </div>
+  <dialog
+    class="navds-modal navds-modal--polyfilled navds-modal--autowidth"
+    role="dialog"
+  >
+    <div
+      class="navds-modal__header"
+    >
+      <button
+        class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+        type="button"
+      >
+        <span
+          class="navds-button__icon"
+        >
+          <svg
+            aria-labelledby="title-r2"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title
+              id="title-r2"
+            >
+              Lukk modalvindu
+            </title>
+            <path
+              clip-rule="evenodd"
+              d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+      </button>
+      <h1
+        class="navds-heading navds-heading--medium"
+      >
+        avbrytModal.spoersmaal
+      </h1>
+    </div>
+    <div
+      class="navds-modal__body"
+    >
+      <p
+        class="mute avbryt-text navds-body-short navds-body-short--medium"
+      >
+        avbrytModal.informasjon
+      </p>
+    </div>
+    <div
+      class="navds-modal__footer"
+    >
+      <div
+        class="sc-jsMahE hektoO"
+      >
+        <button
+          class="navds-button navds-button--secondary navds-button--medium"
+          id="avbryt-nei-btn"
+          style="margin: 10px;"
+        >
+          <span
+            class="navds-label"
+          >
+            avbrytModal.svarNei
+          </span>
+        </button>
+        <button
+          class="navds-button navds-button--primary navds-button--medium"
+          id="avbryt-ja-btn"
+          style="margin: 10px;"
+        >
+          <span
+            class="navds-label"
+          >
+            avbrytModal.svarJa
+          </span>
+        </button>
+      </div>
+      <div
+        class="sc-jsMahE hektoO"
+      >
+        <button
+          class="navds-button navds-button--tertiary navds-button--medium"
+          id="slett-soeknad"
+          style="color: rgb(198, 93, 78);"
+        >
+          <span
+            class="navds-label"
+          >
+            avbrytModal.svarSlett
+          </span>
+        </button>
+      </div>
+    </div>
+  </dialog>
+  <dialog
+    class="navds-modal navds-modal--polyfilled navds-modal--autowidth"
+    data-testid="spoersmaal-modal"
+    role="dialog"
+  >
+    <div
+      class="sc-irTswW hafqVO"
+    >
+      <h1
+        class="navds-heading navds-heading--medium"
+      >
+        oppsummering.sendSoeknad.tittel
+      </h1>
+    </div>
+    <div
+      class="sc-irTswW hafqVO"
+    >
+      <p
+        class="navds-body-long navds-body-long--small"
+      >
+        oppsummering.sendSoeknad.innhold
+      </p>
+    </div>
+    <div
+      class="sc-gueYoa FJQFS"
+    >
+      <button
+        class="navds-button navds-button--secondary navds-button--medium"
+        id="avbryt-ja-btn"
+        style="margin: 10px;"
+        type="button"
+      >
+        <span
+          class="navds-label"
+        >
+          knapp.nei
+        </span>
+      </button>
+      <button
+        class="navds-button navds-button--primary navds-button--medium"
+        id="avbryt-nei-btn"
+        style="margin: 10px;"
+        type="button"
+      >
+        <span
+          class="navds-label"
+        >
+          knapp.ja
+        </span>
+      </button>
+    </div>
+  </dialog>
 </div>
 `;
