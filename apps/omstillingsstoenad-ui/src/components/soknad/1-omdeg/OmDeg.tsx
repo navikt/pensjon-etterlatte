@@ -8,7 +8,7 @@ import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import { ISoeker } from '../../../typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from '../../felles/rhf/RHFInput'
-import { RHFInlineRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
+import { RHFSpoersmaalRadio, RHFRadio } from '../../felles/rhf/RHFRadio'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import Navigasjon from '../../felles/Navigasjon'
@@ -123,14 +123,14 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                     </SkjemaGruppe>
 
                                     <SkjemaElement>
-                                        <RHFInlineRadio
+                                        <RHFRadio
                                             name={'utbetalingsInformasjon.bankkontoType'}
                                             legend={t('omDeg.utbetalingsInformasjon.bankkontoType')}
                                         >
                                             {Object.values(BankkontoType).map((value) => {
                                                 return { children: t(value), value } as RadioProps
                                             })}
-                                        </RHFInlineRadio>
+                                        </RHFRadio>
                                     </SkjemaElement>
 
                                     {bankkontoType === BankkontoType.norsk && (

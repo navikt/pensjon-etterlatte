@@ -66,6 +66,12 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 klarForLagring: true,
                 dinSituasjon: action.payload,
             }
+        case ActionTypes.OPPDATER_INNTEKTEN_DIN:
+            return {
+                ...state,
+                klarForLagring: true,
+                dinInntekt: action.payload,
+            }
         case ActionTypes.OPPDATER_OM_BARN: {
             return {
                 ...state,
