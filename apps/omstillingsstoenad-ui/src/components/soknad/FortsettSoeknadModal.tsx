@@ -1,5 +1,4 @@
-import { Button, Heading } from '@navikt/ds-react'
-import { SkjemaElement } from '../felles/SkjemaElement'
+import { Button, Heading, Modal } from '@navikt/ds-react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
@@ -7,7 +6,7 @@ import { ActionTypes, ActionTypes as SoknadActionTypes } from '../../context/sok
 import { StegPath } from '../../typer/steg'
 import { slettSoeknad } from '../../api/api'
 import { useTranslation } from 'react-i18next'
-import { SpoersmaalModal } from '../felles/StyledComponents'
+import { FlexCenter } from '../felles/StyledComponents'
 
 export const FortsettSoeknadModal = () => {
     const navigate = useNavigate()
@@ -45,22 +44,21 @@ export const FortsettSoeknadModal = () => {
     }
 
     return (
-        <SpoersmaalModal open={state.visFortsettSoeknadModal} onClose={() => {}} shouldCloseOnOverlayClick={false}>
-            <SkjemaElement>
+        <Modal open={state.visFortsettSoeknadModal} onClose={() => {}}>
+            <Modal.Header closeButton={false}>
                 <Heading size={'medium'}>{t('fortsettSoeknad.beskrivelse')}</Heading>
-            </SkjemaElement>
+            </Modal.Header>
 
-            <SkjemaElement>
-                <Button variant={'primary'} type={'button'} onClick={fortsettSoeknad} id={'fortsett_soeknad'}>
-                    {t('fortsettSoeknad.fortsettSoeknad')}
-                </Button>
-            </SkjemaElement>
-
-            <SkjemaElement>
-                <Button variant={'primary'} type={'button'} onClick={startPaaNytt} id={'start_paa_nytt'}>
-                    {t('fortsettSoeknad.startPaaNytt')}
-                </Button>
-            </SkjemaElement>
-        </SpoersmaalModal>
+            <Modal.Footer>
+                <FlexCenter>
+                    <Button variant={'secondary'} type={'button'} onClick={startPaaNytt} id={'start_paa_nytt'}>
+                        {t('fortsettSoeknad.startPaaNytt')}
+                    </Button>
+                    <Button variant={'primary'} type={'button'} onClick={fortsettSoeknad} id={'fortsett_soeknad'}>
+                        {t('fortsettSoeknad.fortsettSoeknad')}
+                    </Button>
+                </FlexCenter>
+            </Modal.Footer>
+        </Modal>
     )
 }

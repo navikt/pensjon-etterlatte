@@ -101,3 +101,9 @@ export const SpoersmaalModal = styled(Modal)`
         visibility: hidden;
     }
 `
+
+export const FlexCenter = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+`

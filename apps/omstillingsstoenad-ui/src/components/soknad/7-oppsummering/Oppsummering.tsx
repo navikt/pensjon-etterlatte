@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading, Link, Loader } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import React, { memo, useEffect, useState } from 'react'
@@ -109,12 +109,11 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 disabled={senderSoeknad}
             />
 
-            <SpoersmaalModal
+            <Modal
                 open={isOpen}
                 onClose={() => {
                     if (!senderSoeknad) setIsOpen(false)
                 }}
-                shouldCloseOnOverlayClick={false}
                 data-testid={'spoersmaal-modal'}
             >
                 <SkjemaElement>
@@ -152,7 +151,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                         </Button>
                     </NavigasjonsRad>
                 )}
-            </SpoersmaalModal>
+            </Modal>
         </>
     )
 })

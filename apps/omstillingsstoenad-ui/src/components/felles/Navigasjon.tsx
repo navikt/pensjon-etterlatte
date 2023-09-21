@@ -10,7 +10,7 @@ import { BodyShort, Button, Heading, Loader, Modal } from '@navikt/ds-react'
 import { LogEvents, useAmplitude } from '../../utils/amplitude'
 import { slettSoeknad } from '../../api/api'
 import styled from 'styled-components'
-import { NavigasjonsRad, NavigasjonsRadSkjemaGruppe } from './StyledComponents'
+import { FlexCenter, NavigasjonsRad, NavigasjonsRadSkjemaGruppe } from './StyledComponents'
 
 const NavigasjonWrapper = styled(SkjemaGruppe)`
     @media screen and (max-width: 650px) {
@@ -21,31 +21,6 @@ const NavigasjonWrapper = styled(SkjemaGruppe)`
         }
     }
 `
-
-const NavigasjonModal = styled(Modal)`
-    text-align: center;
-    padding: 3rem;
-
-    @media screen and (max-width: 650px) {
-        .knapp {
-            font-size: 0.8em;
-            padding: 0 1em;
-        }
-    }
-
-    .navds-modal__button {
-        visibility: hidden;
-    }
-
-    max-width: 650px;
-    width: 100%;
-    position: fixed !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-`
-
-if (process.env.NODE_ENV !== 'test') Modal.setAppElement!!('#root')
 
 interface KnappProps {
     label?: string
@@ -138,39 +113,47 @@ const Navigasjon = ({
                 </Button>
             </NavigasjonsRadSkjemaGruppe>
 
-            <NavigasjonModal open={isOpen} onClose={() => setIsOpen(false)}>
-                <SkjemaGruppe>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+                <Modal.Header>
                     <Heading size={'medium'}>{t('avbrytModal.spoersmaal')}</Heading>
-                </SkjemaGruppe>
+                </Modal.Header>
 
-                <BodyShort className="mute avbryt-text">{t('avbrytModal.informasjon')}</BodyShort>
+                <Modal.Body>
+                    <BodyShort className="mute avbryt-text">{t('avbrytModal.informasjon')}</BodyShort>
+                </Modal.Body>
 
-                <Button
-                    id={'avbryt-nei-btn'}
-                    variant={'primary'}
-                    type={'button'}
-                    onClick={fortsettSoknad}
-                    style={{ margin: '10px' }}
-                >
-                    {t('avbrytModal.svarNei')}
-                </Button>
+                <Modal.Footer>
+                    <FlexCenter>
+                        <Button
+                            id={'avbryt-nei-btn'}
+                            variant={'secondary'}
+                            onClick={fortsettSoknad}
+                            style={{ margin: '10px' }}
+                        >
+                            {t('avbrytModal.svarNei')}
+                        </Button>
 
-                <Button
-                    id={'avbryt-ja-btn'}
-                    variant={'secondary'}
-                    type={'button'}
-                    onClick={avbrytSoeknad}
-                    style={{ margin: '10px' }}
-                >
-                    {t('avbrytModal.svarJa')}
-                </Button>
-
-                <SkjemaGruppe>
-                    <a href="#" id={'slett-soeknad'} style={{ color: '#C65D4E' }} onClick={avbrytOgslettSoeknad}>
-                        {t('avbrytModal.svarSlett')}
-                    </a>
-                </SkjemaGruppe>
-            </NavigasjonModal>
+                        <Button
+                            id={'avbryt-ja-btn'}
+                            variant={'primary'}
+                            onClick={avbrytSoeknad}
+                            style={{ margin: '10px' }}
+                        >
+                            {t('avbrytModal.svarJa')}
+                        </Button>
+                    </FlexCenter>
+                    <FlexCenter>
+                        <Button
+                            id={'slett-soeknad'}
+                            variant={'tertiary'}
+                            style={{ color: '#C65D4E' }}
+                            onClick={avbrytOgslettSoeknad}
+                        >
+                            {t('avbrytModal.svarSlett')}
+                        </Button>
+                    </FlexCenter>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }

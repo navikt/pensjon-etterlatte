@@ -10,7 +10,7 @@ import LeggTilBarnSkjema from './LeggTilBarnSkjema'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { v4 as uuid } from 'uuid'
 import Navigasjon from '../../felles/Navigasjon'
-import { Alert, BodyShort, Button, Modal, Panel, Heading } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, Panel, Heading } from '@navikt/ds-react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import { deepCopy } from '../../../utils/deepCopy'
@@ -18,8 +18,6 @@ import AndreStoenader from './AndreStoenader'
 import styled from 'styled-components'
 import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
-
-if (process.env.NODE_ENV !== 'test') Modal.setAppElement!!('#root') //Denne er også definert i Navigasjon. Trenger vi den?
 
 const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
