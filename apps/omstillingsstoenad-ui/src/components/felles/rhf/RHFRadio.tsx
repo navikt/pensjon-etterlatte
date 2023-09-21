@@ -5,8 +5,6 @@ import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
 import { get } from 'lodash'
 import { useTranslation } from 'react-i18next'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
-import { getTransKey } from '../../../utils/translation'
-import styled from 'styled-components'
 import { Radio, RadioGroup, RadioGroupProps, RadioProps } from '@navikt/ds-react'
 import { SkjemaElement } from '../SkjemaElement'
 
