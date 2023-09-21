@@ -94,7 +94,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         omDegOgAvdoed.avdoed.datoForDoedsfallet
       </label>
       <section
-        class="sc-hLseeU kvvimm"
+        class="sc-dmqHEX dVGTkB"
       >
         <label
           class="navds-label"
@@ -584,78 +584,82 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           <div
             id="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
           >
-            <fieldset
-              aria-invalid="false"
-              class="sc-dmqHEX hKqYBB navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            <div
+              class="sc-gueYoa qDReO"
             >
-              <legend
-                class="navds-fieldset__legend navds-label"
+              <fieldset
+                aria-invalid="false"
+                class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
               >
-                omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift
-              </legend>
-              <div
-                class="navds-radio-buttons"
-              >
-                <div
-                  class="radioBorder navds-radio navds-radio--medium"
+                <legend
+                  class="navds-fieldset__legend navds-label"
                 >
-                  <input
-                    aria-invalid="false"
-                    class="navds-radio__input"
-                    id="radio-r13"
-                    name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
-                    type="radio"
-                    value="radiobuttons.ja"
-                  />
-                  <label
-                    class="navds-radio__label"
-                    for="radio-r13"
+                  omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift
+                </legend>
+                <div
+                  class="navds-radio-buttons"
+                >
+                  <div
+                    class="radioBorder navds-radio navds-radio--medium"
                   >
-                    <span
-                      class="navds-radio__content"
+                    <input
+                      aria-invalid="false"
+                      class="navds-radio__input"
+                      id="radio-r13"
+                      name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+                      type="radio"
+                      value="radiobuttons.ja"
+                    />
+                    <label
+                      class="navds-radio__label"
+                      for="radio-r13"
                     >
                       <span
-                        class="navds-body-short"
+                        class="navds-radio__content"
                       >
-                        radiobuttons.ja
+                        <span
+                          class="navds-body-short"
+                        >
+                          radiobuttons.ja
+                        </span>
                       </span>
-                    </span>
-                  </label>
-                </div>
-                <div
-                  class="radioBorder navds-radio navds-radio--medium"
-                >
-                  <input
-                    aria-invalid="false"
-                    class="navds-radio__input"
-                    id="radio-r14"
-                    name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
-                    type="radio"
-                    value="radiobuttons.nei"
-                  />
-                  <label
-                    class="navds-radio__label"
-                    for="radio-r14"
+                    </label>
+                  </div>
+                  <div
+                    class="radioBorder navds-radio navds-radio--medium"
                   >
-                    <span
-                      class="navds-radio__content"
+                    <input
+                      aria-invalid="false"
+                      class="navds-radio__input"
+                      id="radio-r14"
+                      name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+                      type="radio"
+                      value="radiobuttons.nei"
+                    />
+                    <label
+                      class="navds-radio__label"
+                      for="radio-r14"
                     >
                       <span
-                        class="navds-body-short"
+                        class="navds-radio__content"
                       >
-                        radiobuttons.nei
+                        <span
+                          class="navds-body-short"
+                        >
+                          radiobuttons.nei
+                        </span>
                       </span>
-                    </span>
-                  </label>
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-fieldset__error"
-                id="fieldset-error-r12"
-              />
-            </fieldset>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-fieldset__error"
+                  id="fieldset-error-r12"
+                />
+              </fieldset>
+            </div>
           </div>
         </div>
       </div>
@@ -664,7 +668,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-eDDNvR kRBBlR undefined"
+        class="sc-hLseeU hbWKgI undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -691,7 +695,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-eDDNvR sc-jTrPJq kRBBlR konaIR"
+      class="sc-hLseeU sc-eDDNvR hbWKgI lgspGR"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -804,7 +808,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         omDegOgAvdoed.avdoed.datoForDoedsfallet
       </label>
       <section
-        class="sc-hLseeU kvvimm"
+        class="sc-dmqHEX dVGTkB"
       >
         <label
           class="navds-label"
@@ -1179,7 +1183,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-eDDNvR kRBBlR undefined"
+        class="sc-hLseeU hbWKgI undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -1206,7 +1210,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-eDDNvR sc-jTrPJq kRBBlR konaIR"
+      class="sc-hLseeU sc-eDDNvR hbWKgI lgspGR"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

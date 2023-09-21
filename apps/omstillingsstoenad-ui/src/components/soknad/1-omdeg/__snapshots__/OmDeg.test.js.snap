@@ -92,113 +92,117 @@ exports[`Om deg og avdød Snapshot 1`] = `
         <div
           id="oppholderSegINorge"
         >
-          <fieldset
-            aria-invalid="false"
-            class="sc-eDDNvR etxXkD navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <div
+            class="sc-hLseeU jLGscI"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
+            <fieldset
+              aria-invalid="false"
+              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
-              omDeg.oppholderSegINorge
-            </legend>
-            <div
-              class="navds-fieldset__description navds-body-long navds-body-long--small"
-              id="fieldset-description-r3"
-            >
-              <div>
-                <button
-                  aria-expanded="false"
-                  class="sc-hAtEyd gExcfY"
-                  data-testid="hvorforPanel_toggle"
-                  type="button"
-                >
-                  <span>
-                    hvorforSpoerVi
-                  </span>
-                  <span>
-                    <svg
-                      fill="none"
-                      focusable="false"
-                      height="1em"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div
-              class="navds-radio-buttons"
-            >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <legend
+                class="navds-fieldset__legend navds-label"
               >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-r5"
-                  name="oppholderSegINorge"
-                  type="radio"
-                  value="radiobuttons.ja"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r5"
-                >
-                  <span
-                    class="navds-radio__content"
+                omDeg.oppholderSegINorge
+              </legend>
+              <div
+                class="navds-fieldset__description navds-body-long navds-body-long--small"
+                id="fieldset-description-r3"
+              >
+                <div>
+                  <button
+                    aria-expanded="false"
+                    class="sc-ktEKTO bWGkrL"
+                    data-testid="hvorforPanel_toggle"
+                    type="button"
                   >
-                    <span
-                      class="navds-body-short"
-                    >
-                      radiobuttons.ja
+                    <span>
+                      hvorforSpoerVi
                     </span>
-                  </span>
-                </label>
+                    <span>
+                      <svg
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
               <div
-                class="radioBorder navds-radio navds-radio--medium"
+                class="navds-radio-buttons"
               >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-r6"
-                  name="oppholderSegINorge"
-                  type="radio"
-                  value="radiobuttons.nei"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r6"
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-r5"
+                    name="oppholderSegINorge"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-r5"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      radiobuttons.nei
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.ja
+                      </span>
                     </span>
-                  </span>
-                </label>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-r6"
+                    name="oppholderSegINorge"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-r6"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short"
+                      >
+                        radiobuttons.nei
+                      </span>
+                    </span>
+                  </label>
+                </div>
               </div>
-            </div>
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-r3"
-            />
-          </fieldset>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-r3"
+              />
+            </fieldset>
+          </div>
         </div>
       </div>
       <fieldset
@@ -264,78 +268,82 @@ exports[`Om deg og avdød Snapshot 1`] = `
         <div
           id="utbetalingsInformasjon.bankkontoType"
         >
-          <fieldset
-            aria-invalid="false"
-            class="sc-eDDNvR etxXkD navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <div
+            class="sc-hLseeU jLGscI"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
+            <fieldset
+              aria-invalid="false"
+              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
-              omDeg.utbetalingsInformasjon.bankkontoType
-            </legend>
-            <div
-              class="navds-radio-buttons"
-            >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <legend
+                class="navds-fieldset__legend navds-label"
               >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-rb"
-                  name="utbetalingsInformasjon.bankkontoType"
-                  type="radio"
-                  value="bankkontoType.norsk"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-rb"
+                omDeg.utbetalingsInformasjon.bankkontoType
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-rb"
+                    name="utbetalingsInformasjon.bankkontoType"
+                    type="radio"
+                    value="bankkontoType.norsk"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-rb"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      bankkontoType.norsk
+                      <span
+                        class="navds-body-short"
+                      >
+                        bankkontoType.norsk
+                      </span>
                     </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-invalid="false"
-                  class="navds-radio__input"
-                  id="radio-rc"
-                  name="utbetalingsInformasjon.bankkontoType"
-                  type="radio"
-                  value="bankkontoType.utenlandsk"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-rc"
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <span
-                    class="navds-radio__content"
+                  <input
+                    aria-invalid="false"
+                    class="navds-radio__input"
+                    id="radio-rc"
+                    name="utbetalingsInformasjon.bankkontoType"
+                    type="radio"
+                    value="bankkontoType.utenlandsk"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-rc"
                   >
                     <span
-                      class="navds-body-short"
+                      class="navds-radio__content"
                     >
-                      bankkontoType.utenlandsk
+                      <span
+                        class="navds-body-short"
+                      >
+                        bankkontoType.utenlandsk
+                      </span>
                     </span>
-                  </span>
-                </label>
+                  </label>
+                </div>
               </div>
-            </div>
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-ra"
-            />
-          </fieldset>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-ra"
+              />
+            </fieldset>
+          </div>
         </div>
       </div>
       <div
@@ -418,7 +426,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.iban"
           >
             <div
-              class="sc-ktEKTO DTLKX"
+              class="sc-brKeYL bnQvUO"
             >
               omDeg.utbetalingsInformasjon.iban
                
@@ -525,7 +533,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.swift"
           >
             <div
-              class="sc-ktEKTO DTLKX"
+              class="sc-brKeYL bnQvUO"
             >
               omDeg.utbetalingsInformasjon.swift
                
@@ -627,7 +635,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       class="sc-beqWaB kWPIyU"
     >
       <div
-        class="sc-jTrPJq ehyRRZ undefined"
+        class="sc-eDDNvR kRBBlR undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -643,7 +651,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-jTrPJq sc-gLDzan ehyRRZ crYdgM"
+      class="sc-eDDNvR sc-jTrPJq kRBBlR konaIR"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
