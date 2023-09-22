@@ -6,6 +6,7 @@ import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed, Sivilstatus
 import { ISituasjon } from '../typer/situasjon'
 import { StegPath } from '../typer/steg'
 import ObjectTreeReader, { Element, Gruppe } from './ObjectTreeReader'
+import { IInntekt } from '../typer/inntekt'
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader
@@ -22,6 +23,7 @@ export default class SoeknadMapper {
             this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
             this.mapOmDenAvdoede(soeknad.omDenAvdoede),
             this.mapDinSituasjon(soeknad.dinSituasjon),
+            this.mapInntektenDin(soeknad.inntektenDin),
             this.mapOpplysningerOmBarn(soeknad.opplysningerOmBarn),
         ]
     }
@@ -173,6 +175,14 @@ export default class SoeknadMapper {
                 ...arbeidsforhold,
                 ...selvstendigNaeringsdrivende,
             ],
+        }
+    }
+
+    private mapInntektenDin(inntektenDin: IInntekt): Gruppe {
+        return {
+            tittel: this.t('inntektenDin.tittel'),
+            path: StegPath.InntektenDin,
+            elementer: [],
         }
     }
 

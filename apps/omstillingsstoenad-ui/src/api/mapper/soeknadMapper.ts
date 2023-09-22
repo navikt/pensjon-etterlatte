@@ -1,5 +1,5 @@
 import { ISoeknad } from '../../context/soknad/soknad'
-import { Barnepensjon, Gjenlevendepensjon, SoeknadType } from '../dto/InnsendtSoeknad'
+import { Barnepensjon, Omstillingsstoenad, SoeknadType } from '../dto/InnsendtSoeknad'
 import { Barn, Innsender, PersonType } from '../dto/Person'
 import { TFunction } from 'i18next'
 import { IBruker } from '../../context/bruker/bruker'
@@ -17,7 +17,7 @@ export const mapTilOmstillingsstoenadSoeknad = (
     t: TFunction,
     soeknad: ISoeknad,
     bruker: IBruker
-): Gjenlevendepensjon => {
+): Omstillingsstoenad => {
     const barn: Barn[] = soeknad.opplysningerOmBarn.barn?.map((barn) => mapBarn(t, barn, soeknad, bruker)) || []
 
     const innsenderNavn = `${bruker.fornavn} ${bruker.etternavn}`

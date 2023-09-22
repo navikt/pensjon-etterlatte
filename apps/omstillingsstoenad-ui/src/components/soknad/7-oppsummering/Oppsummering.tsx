@@ -15,7 +15,6 @@ import SoeknadMapper from '../../../utils/SoeknadMapper'
 import Navigasjon from '../../felles/Navigasjon'
 import OppsummeringInnhold from './OppsummeringInnhold'
 import { ActionTypes } from '../../../context/soknad/soknad'
-import { NavigasjonsRad } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
@@ -116,30 +115,21 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 }}
                 data-testid={'spoersmaal-modal'}
             >
-                <SkjemaElement>
+                <Modal.Header>
                     <Heading size={'medium'}>
                         {t(senderSoeknad ? 'oppsummering.senderSoeknad.tittel' : 'oppsummering.sendSoeknad.tittel')}
                     </Heading>
-                </SkjemaElement>
+                </Modal.Header>
 
-                <SkjemaElement>
+                <Modal.Body>
                     {senderSoeknad ? (
                         <Loader size={'xlarge'} />
                     ) : (
                         <BodyLong size={'small'}>{t('oppsummering.sendSoeknad.innhold')}</BodyLong>
                     )}
-                </SkjemaElement>
+                </Modal.Body>
                 {!senderSoeknad && (
-                    <NavigasjonsRad>
-                        <Button
-                            id={'avbryt-ja-btn'}
-                            variant={'secondary'}
-                            type={'button'}
-                            onClick={() => setIsOpen(false)}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('knapp.nei')}
-                        </Button>
+                    <Modal.Footer>
                         <Button
                             id={'avbryt-nei-btn'}
                             variant={'primary'}
@@ -149,7 +139,16 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                         >
                             {t('knapp.ja')}
                         </Button>
-                    </NavigasjonsRad>
+                        <Button
+                            id={'avbryt-ja-btn'}
+                            variant={'secondary'}
+                            type={'button'}
+                            onClick={() => setIsOpen(false)}
+                            style={{ margin: '10px' }}
+                        >
+                            {t('knapp.nei')}
+                        </Button>
+                    </Modal.Footer>
                 )}
             </Modal>
         </>
