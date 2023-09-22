@@ -1,31 +1,22 @@
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
-import { ISituasjon, JobbStatus } from '../../../typer/situasjon'
-import { IngenJobb } from '../../../typer/arbeidsforhold'
 import { FormProvider, useForm } from 'react-hook-form'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import NavaerendeArbeidsforhold from './fragmenter/NavaerendeArbeidsforhold'
 import Feilmeldinger from '../../felles/Feilmeldinger'
-import AndreYtelser from './fragmenter/AndreYtelser'
-import HoeyesteUtdanning from './fragmenter/HoeyesteUtdanning'
 import Navigasjon from '../../felles/Navigasjon'
 import { useTranslation } from 'react-i18next'
-import UnderUtdanning from './fragmenter/UnderUtdanning'
-import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { BodyLong, Heading } from '@navikt/ds-react'
-import { RHFCheckboksGruppe } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { deepCopy } from '../../../utils/deepCopy'
-import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { SkjemaElement } from '../../felles/SkjemaElement'
+import { IInntekt } from '../../../typer/inntekt'
 
 const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
 
     const { state, dispatch } = useSoknadContext()
-    const brukerState = useBrukerContext().state
 
-    const methods = useForm<ISituasjon>({
+    const methods = useForm<IInntekt>({
         defaultValues: state.dinSituasjon || {},
         shouldUnregister: true,
     })
@@ -36,12 +27,12 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
         getValues,
     } = methods
 
-    const lagreNeste = (data: ISituasjon) => {
+    const lagreNeste = (data: IInntekt) => {
         dispatch({ type: ActionTypes.OPPDATER_INNTEKTEN_DIN, payload: { ...deepCopy(data), erValidert: true } })
         neste!!()
     }
 
-    const lagreTilbake = (data: ISituasjon) => {
+    const lagreTilbake = (data: IInntekt) => {
         dispatch({ type: ActionTypes.OPPDATER_INNTEKTEN_DIN, payload: { ...deepCopy(data), erValidert: true } })
         forrige!!()
     }

@@ -1708,10 +1708,10 @@
     focus-trap-react "10.1.1"
     prop-types "15.8.1"
 
-"@navikt/ds-icons@2.8.13":
-  version "2.8.13"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.8.13.tgz#0dfb411f1a74d4fa178adfd6a3cb9b090a46d14e"
-  integrity sha512-c5Rx7ztVITcMIA9e2yKb2PEQsSlJTZIBapXWnuEZKN5T1rxwJBpGFrs2LQCnyfidUf0KCPb3G3IygHCaFlnpeA==
+"@navikt/ds-icons@3.4.3":
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-3.4.3.tgz#eaa8fc38f6d184806d3405a5efbc9d137c2b8d27"
+  integrity sha512-Ys25tnDUzS+AtagMMW4/154OCZy+pTxCv9uiV4YcZUeXMfjnMiRWx1dueyCODb7FF7Jd6TwELd3G6ieQt/rf+w==
 
 "@navikt/ds-react@3":
   version "3.4.2"

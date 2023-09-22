@@ -15,7 +15,7 @@ import SoeknadMapper from '../../../utils/SoeknadMapper'
 import Navigasjon from '../../felles/Navigasjon'
 import OppsummeringInnhold from './OppsummeringInnhold'
 import { ActionTypes } from '../../../context/soknad/soknad'
-import { NavigasjonsRad, SpoersmaalModal } from '../../felles/StyledComponents'
+import { NavigasjonsRad } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
