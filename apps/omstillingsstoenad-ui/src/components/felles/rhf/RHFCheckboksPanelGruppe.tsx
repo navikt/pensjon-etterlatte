@@ -86,7 +86,6 @@ export const RHFCheckboksGruppe = ({
                             <Checkbox
                                 key={checkbox.value as string}
                                 value={checkbox.value || ''}
-                                required={checkbox.required}
                                 onChange={(e) =>
                                     onChange(handleSelect(value, (e.target as HTMLInputElement).value as any))
                                 }
