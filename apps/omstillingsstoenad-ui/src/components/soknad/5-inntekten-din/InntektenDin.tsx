@@ -6,7 +6,7 @@ import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { useTranslation } from 'react-i18next'
-import { BodyLong, Heading } from '@navikt/ds-react'
+import { GuidePanel, Heading } from '@navikt/ds-react'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { IInntekt } from '../../../typer/inntekt'
@@ -55,10 +55,11 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaElement>
 
                 <SkjemaGruppe>
-                    <Heading size={'small'}>{t('dinSituasjon.undertittel')}</Heading>
-                    <BodyLong>{t('dinSituasjon.ingress')}</BodyLong>
+                    <GuidePanel>
+                        <Heading size={'small'}>{t('dinSituasjon.undertittel')}</Heading>
+                        {t('dinSituasjon.ingress')}
+                    </GuidePanel>
                 </SkjemaGruppe>
-
 
                 <Feilmeldinger errors={errors} />
 

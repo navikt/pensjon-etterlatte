@@ -53,7 +53,7 @@ exports[`HvorforSpoerVi skal rendre hvorfor spør vi som lukket boks 1`] = `
   <div>
     <button
       aria-expanded="false"
-      class="sc-beqWaB cpZOTn"
+      class="sc-beyTiQ felSoy"
       data-testid="hvorforPanel_toggle"
       type="button"
     >
