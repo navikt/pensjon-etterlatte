@@ -48,7 +48,6 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               checked=""
               class="navds-checkbox__input"
               id="checkbox-r19"
-              required=""
               type="checkbox"
               value="jobbStatus.arbeidstaker"
             />
@@ -93,7 +92,6 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               checked=""
               class="navds-checkbox__input"
               id="checkbox-r1a"
-              required=""
               type="checkbox"
               value="jobbStatus.selvstendig"
             />
@@ -137,7 +135,6 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             <input
               class="navds-checkbox__input"
               id="checkbox-r1b"
-              required=""
               type="checkbox"
               value="jobbStatus.underUtdanning"
             />
@@ -181,7 +178,6 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             <input
               class="navds-checkbox__input"
               id="checkbox-r1c"
-              required=""
               type="checkbox"
               value="jobbStatus.arbeidssoker"
             />
@@ -225,7 +221,6 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             <input
               class="navds-checkbox__input"
               id="checkbox-r1d"
-              required=""
               type="checkbox"
               value="jobbStatus.ingen"
             />
@@ -1435,7 +1430,6 @@ exports[`Situasjonen din Snapshot 1`] = `
               checked=""
               class="navds-checkbox__input"
               id="checkbox-r1"
-              required=""
               type="checkbox"
               value="jobbStatus.arbeidstaker"
             />
@@ -1479,7 +1473,6 @@ exports[`Situasjonen din Snapshot 1`] = `
             <input
               class="navds-checkbox__input"
               id="checkbox-r2"
-              required=""
               type="checkbox"
               value="jobbStatus.selvstendig"
             />
@@ -1523,7 +1516,6 @@ exports[`Situasjonen din Snapshot 1`] = `
             <input
               class="navds-checkbox__input"
               id="checkbox-r3"
-              required=""
               type="checkbox"
               value="jobbStatus.underUtdanning"
             />
@@ -1567,7 +1559,6 @@ exports[`Situasjonen din Snapshot 1`] = `
             <input
               class="navds-checkbox__input"
               id="checkbox-r4"
-              required=""
               type="checkbox"
               value="jobbStatus.arbeidssoker"
             />
@@ -1611,7 +1602,6 @@ exports[`Situasjonen din Snapshot 1`] = `
             <input
               class="navds-checkbox__input"
               id="checkbox-r5"
-              required=""
               type="checkbox"
               value="jobbStatus.ingen"
             />
