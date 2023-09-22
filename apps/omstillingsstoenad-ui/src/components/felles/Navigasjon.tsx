@@ -107,7 +107,7 @@ const Navigasjon = ({
                 )}
             </NavigasjonWrapper>
 
-            <NavigasjonsRadSkjemaGruppe disabled={disabled}>
+            <NavigasjonsRadSkjemaGruppe $disabled={disabled}>
                 <Button id={'avbryt-btn'} variant={'secondary'} type={'button'} onClick={() => setIsOpen(true)}>
                     {t('knapp.avbryt')}
                 </Button>

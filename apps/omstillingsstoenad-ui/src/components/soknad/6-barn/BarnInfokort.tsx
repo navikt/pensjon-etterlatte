@@ -82,7 +82,7 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                 <BodyLong>
                     <InfokortFooterItem
                         href={'#'}
-                        onClick={(e: Event) => {
+                        onClick={(e: React.MouseEvent) => {
                             e.preventDefault()
                             setAktivBarnIndex()
                         }}

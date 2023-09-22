@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot 1`] = `
 <div>
   <div
-    class="sc-hLseeU jLGscI"
+    class="sc-hLQTFJ bDXSAm"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,10 +13,10 @@ exports[`Om deg og avdød Snapshot 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-beqWaB kWPIyU"
+      class="sc-beyTiQ jltUnl"
     >
       <fieldset
-        class="sc-beqWaB kWPIyU"
+        class="sc-beyTiQ jltUnl"
       >
         <div>
           <div
@@ -44,7 +44,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </fieldset>
       <fieldset
-        class="sc-beqWaB kWPIyU"
+        class="sc-beyTiQ jltUnl"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -72,16 +72,16 @@ exports[`Om deg og avdød Snapshot 1`] = `
       </fieldset>
     </fieldset>
     <fieldset
-      class="sc-beqWaB kWPIyU"
+      class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-hLseeU jLGscI"
+        class="sc-hLQTFJ bDXSAm"
       >
         <div
           id="oppholderSegINorge"
         >
           <div
-            class="sc-hLseeU jLGscI"
+            class="sc-hLQTFJ bDXSAm"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -98,7 +98,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 <div>
                   <button
                     aria-expanded="false"
-                    class="sc-ktEKTO bWGkrL"
+                    class="sc-ktwNLz ivbIwA"
                     data-testid="hvorforPanel_toggle"
                     type="button"
                   >
@@ -191,7 +191,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <fieldset
-        class="sc-beqWaB kWPIyU"
+        class="sc-beyTiQ jltUnl"
       >
         <div
           id="oppholdsland"
@@ -247,13 +247,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </fieldset>
       <div
-        class="sc-hLseeU jLGscI"
+        class="sc-hLQTFJ bDXSAm"
       >
         <div
           id="utbetalingsInformasjon.bankkontoType"
         >
           <div
-            class="sc-hLseeU jLGscI"
+            class="sc-hLQTFJ bDXSAm"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -328,7 +328,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hLseeU jLGscI"
+        class="sc-hLQTFJ bDXSAm"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -337,7 +337,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-hLseeU jLGscI"
+        class="sc-hLQTFJ bDXSAm"
       >
         <div>
           <div
@@ -365,7 +365,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hLseeU jLGscI"
+        class="sc-hLQTFJ bDXSAm"
       >
         <div>
           <div
@@ -393,7 +393,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hLseeU jLGscI"
+        class="sc-hLQTFJ bDXSAm"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -403,7 +403,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.iban"
           >
             <div
-              class="sc-brKeYL bnQvUO"
+              class="sc-brSaGm gnAnWs"
             >
               omDeg.utbetalingsInformasjon.iban
                
@@ -514,7 +514,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hLseeU jLGscI"
+        class="sc-hLQTFJ bDXSAm"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -524,7 +524,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.swift"
           >
             <div
-              class="sc-brKeYL bnQvUO"
+              class="sc-brSaGm gnAnWs"
             >
               omDeg.utbetalingsInformasjon.swift
                
@@ -637,10 +637,10 @@ exports[`Om deg og avdød Snapshot 1`] = `
     </fieldset>
     <br />
     <fieldset
-      class="sc-beqWaB kWPIyU"
+      class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-eDDNvR kRBBlR undefined"
+        class="sc-eDLKEg LfRHk undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -655,7 +655,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-eDDNvR sc-jTrPJq kRBBlR konaIR"
+      class="sc-eDLKEg sc-jTQDJr LfRHk gSyqWK"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -726,7 +726,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-csCMJt irVfVm"
+          class="sc-csKJRI cXtbbV"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -754,7 +754,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-csCMJt irVfVm"
+          class="sc-csKJRI cXtbbV"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

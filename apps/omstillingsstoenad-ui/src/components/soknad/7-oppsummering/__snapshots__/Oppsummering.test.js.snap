@@ -3,7 +3,7 @@
 exports[`Oppsummering Snapshot 1`] = `
 <div>
   <div
-    class="sc-irTswW hafqVO"
+    class="sc-irLvoH eNFBNd"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -12,7 +12,7 @@ exports[`Oppsummering Snapshot 1`] = `
     </h1>
   </div>
   <div
-    class="sc-irTswW hafqVO"
+    class="sc-irLvoH eNFBNd"
   >
     <p
       class="navds-body-long navds-body-long--medium"
@@ -22,10 +22,10 @@ exports[`Oppsummering Snapshot 1`] = `
   </div>
   <br />
   <fieldset
-    class="sc-beqWaB kWPIyU"
+    class="sc-beyTiQ jltUnl"
   >
     <div
-      class="sc-gueYoa FJQFS false"
+      class="sc-guDMob czmIqC false"
     >
       <button
         class="navds-button navds-button--primary navds-button--medium"
@@ -51,7 +51,7 @@ exports[`Oppsummering Snapshot 1`] = `
     </div>
   </fieldset>
   <div
-    class="sc-gueYoa sc-dmqHEX FJQFS fYyOWz"
+    class="sc-guDMob sc-dmyDmy czmIqC kgmmuh"
   >
     <button
       class="navds-button navds-button--secondary navds-button--medium"
@@ -122,7 +122,7 @@ exports[`Oppsummering Snapshot 1`] = `
       class="navds-modal__footer"
     >
       <div
-        class="sc-jsMahE hektoO"
+        class="sc-jsEeA-d gHwiqO"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -150,7 +150,7 @@ exports[`Oppsummering Snapshot 1`] = `
         </button>
       </div>
       <div
-        class="sc-jsMahE hektoO"
+        class="sc-jsEeA-d gHwiqO"
       >
         <button
           class="navds-button navds-button--tertiary navds-button--medium"
@@ -173,7 +173,7 @@ exports[`Oppsummering Snapshot 1`] = `
     role="dialog"
   >
     <div
-      class="sc-irTswW hafqVO"
+      class="sc-irLvoH eNFBNd"
     >
       <h1
         class="navds-heading navds-heading--medium"
@@ -182,7 +182,7 @@ exports[`Oppsummering Snapshot 1`] = `
       </h1>
     </div>
     <div
-      class="sc-irTswW hafqVO"
+      class="sc-irLvoH eNFBNd"
     >
       <p
         class="navds-body-long navds-body-long--small"
@@ -191,7 +191,7 @@ exports[`Oppsummering Snapshot 1`] = `
       </p>
     </div>
     <div
-      class="sc-gueYoa FJQFS"
+      class="sc-guDMob czmIqC"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"

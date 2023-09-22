@@ -127,7 +127,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                                 ))}
 
                                 <Infokort>
-                                    <InfokortHeader gjennomsiktig>
+                                    <InfokortHeader $gjennomsiktig>
                                         <img alt="barn" src={ikon} />
                                     </InfokortHeader>
                                     <InfokortInformasjonsboks>
