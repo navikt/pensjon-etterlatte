@@ -31,7 +31,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
             <input
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="alternativAdresse"
-              required=""
               type="text"
               value=""
             />
@@ -48,36 +47,27 @@ exports[`Om deg og avdød Snapshot 1`] = `
         class="sc-beqWaB kWPIyU"
       >
         <div
-          class="navds-grid"
+          class="navds-form-field navds-form-field--medium"
         >
-          <div
-            class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
+          <label
+            class="navds-form-field__label navds-label"
+            for="kontaktinfo.telefonnummer"
           >
-            <div
-              class="navds-form-field navds-form-field--medium"
-            >
-              <label
-                class="navds-form-field__label navds-label"
-                for="kontaktinfo.telefonnummer"
-              >
-                omDeg.kontaktinfo.telefonnummer
-              </label>
-              <input
-                class="navds-text-field__input navds-body-short navds-body-medium"
-                id="kontaktinfo.telefonnummer"
-                required=""
-                size="25"
-                type="text"
-                value=""
-              />
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="textField-error-r1"
-              />
-            </div>
-          </div>
+            omDeg.kontaktinfo.telefonnummer
+          </label>
+          <input
+            class="navds-text-field__input navds-body-short navds-body-medium"
+            id="kontaktinfo.telefonnummer"
+            size="25"
+            type="text"
+            value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-r1"
+          />
         </div>
       </fieldset>
     </fieldset>
@@ -362,7 +352,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
             <input
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="utbetalingsInformasjon.utenlandskBankNavn"
-              required=""
               type="text"
               value=""
             />
@@ -391,7 +380,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
             <input
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="utbetalingsInformasjon.utenlandskBankAdresse"
-              required=""
               type="text"
               value=""
             />
@@ -513,7 +501,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
           <input
             class="navds-text-field__input navds-body-short navds-body-medium"
             id="utbetalingsInformasjon.iban"
-            required=""
             size="40"
             type="text"
             value=""
@@ -635,7 +622,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
           <input
             class="navds-text-field__input navds-body-short navds-body-medium"
             id="utbetalingsInformasjon.swift"
-            required=""
             size="25"
             type="text"
             value=""
@@ -746,6 +732,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             class="navds-button navds-button--secondary navds-button--medium"
             id="avbryt-nei-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -757,6 +744,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             class="navds-button navds-button--primary navds-button--medium"
             id="avbryt-ja-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -772,6 +760,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             class="navds-button navds-button--tertiary navds-button--medium"
             id="slett-soeknad"
             style="color: rgb(198, 93, 78);"
+            type="button"
           >
             <span
               class="navds-label"

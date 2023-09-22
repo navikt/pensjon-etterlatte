@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Om den avdøde Skal rendre selvstendig 1`] = `
+exports[`Situasjonen din Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
@@ -305,7 +305,6 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="arbeidsforhold[0].arbeidsgiver"
-                required=""
                 type="text"
                 value="Potetskreller AS"
               />
@@ -404,7 +403,6 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="arbeidsforhold[0].stillingsprosent"
                 placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
-                required=""
                 type="text"
                 value="100%"
               />
@@ -566,7 +564,6 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             <input
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="selvstendig[0].beskrivelse"
-              required=""
               type="text"
               value=""
             />
@@ -594,7 +591,6 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="selvstendig[0].orgnr"
               placeholder="dinSituasjon.selvstendig.orgnrplaceholder"
-              required=""
               size="25"
               type="text"
               value=""
@@ -1348,6 +1344,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             class="navds-button navds-button--secondary navds-button--medium"
             id="avbryt-nei-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -1359,6 +1356,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             class="navds-button navds-button--primary navds-button--medium"
             id="avbryt-ja-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -1374,6 +1372,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
             class="navds-button navds-button--tertiary navds-button--medium"
             id="slett-soeknad"
             style="color: rgb(198, 93, 78);"
+            type="button"
           >
             <span
               class="navds-label"
@@ -1388,7 +1387,7 @@ exports[`Om den avdøde Skal rendre selvstendig 1`] = `
 </div>
 `;
 
-exports[`Om den avdøde Snapshot 1`] = `
+exports[`Situasjonen din Snapshot 1`] = `
 <div>
   <form>
     <div
@@ -1692,7 +1691,6 @@ exports[`Om den avdøde Snapshot 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="arbeidsforhold[0].arbeidsgiver"
-                required=""
                 type="text"
                 value="Potetskreller AS"
               />
@@ -1791,7 +1789,6 @@ exports[`Om den avdøde Snapshot 1`] = `
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="arbeidsforhold[0].stillingsprosent"
                 placeholder="dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder"
-                required=""
                 type="text"
                 value="100%"
               />
@@ -2545,6 +2542,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-button navds-button--secondary navds-button--medium"
             id="avbryt-nei-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -2556,6 +2554,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-button navds-button--primary navds-button--medium"
             id="avbryt-ja-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -2571,6 +2570,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-button navds-button--tertiary navds-button--medium"
             id="slett-soeknad"
             style="color: rgb(198, 93, 78);"
+            type="button"
           >
             <span
               class="navds-label"

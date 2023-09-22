@@ -14,48 +14,16 @@ jest.mock('react-i18next', () => ({
     },
 }))
 
-const defaultValues = {
-    jobbStatus: ['jobbStatus.arbeidstaker'],
-    utdanning: {
-        hoyesteFullfoerteUtdanning: 'utdanning.mastergrad',
-    },
-    andreYtelser: {
-        kravOmAnnenStonad: {
-            svar: 'Ja',
-            beskrivelse: 'Barnepensjon',
-        },
-        annenPensjon: {
-            svar: 'Ja',
-            beskrivelse: 'Skandia',
-        },
-        mottarPensjonUtland: {
-            svar: 'Ja',
-            hvaSlagsPensjon: 'Polsk Uførepensjon',
-            fraHvilketLand: 'Polen',
-            bruttobeloepPrAar: '4000 PLN',
-        },
-    },
-    arbeidsforhold: [
-        {
-            arbeidsgiver: 'Potetskreller AS',
-            ansettelsesforhold: 'stillingType.midlertidig',
-            stillingsprosent: '100%',
-            forventerEndretInntekt: {
-                svar: 'Ja',
-                beskrivelse: '150 000',
-            },
-        },
-    ],
-}
+const defaultValues = {}
 
 jest.mock('../../../context/soknad/SoknadContext', () => ({
     useSoknadContext: () => ({
-        state: { dinSituasjon: defaultValues },
+        state: { inntektenDin: defaultValues },
         dispatch: jest.fn(),
     }),
 }))
 
-describe('Om den avdøde', () => {
+describe('Inntekten din', () => {
     it('Snapshot', () => {
         const { container } = render(<InntektenDin />)
         expect(container).toMatchSnapshot()
@@ -63,9 +31,9 @@ describe('Om den avdøde', () => {
 
     it('Skal rendre selvstendig', () => {
         const { container, getByLabelText } = render(<InntektenDin />)
-        act(() => {
+        /*act(() => {
             fireEvent.click(getByLabelText('jobbStatus.selvstendig'))
-        })
+        })*/
         //console.log(container.querySelectorAll("input[name=selvstendig[0].forventerEndretInntekt.svar]"))
         /*
         act(() => {

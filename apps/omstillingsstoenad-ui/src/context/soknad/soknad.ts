@@ -1,6 +1,7 @@
 import { IAvdoed, IOmBarn, ISoeker, ISoekerOgAvdoed } from '../../typer/person'
 import { ISituasjon } from '../../typer/situasjon'
 import { Language } from '../../i18n'
+import { IInntekt } from '../../typer/inntekt'
 
 export const tomSoeknad: ISoeknad = {
     harSamtykket: false,
@@ -28,7 +29,7 @@ export interface ISoeknad {
     omDegOgAvdoed: ISoekerOgAvdoed
     omDenAvdoede: IAvdoed
     dinSituasjon: ISituasjon
-    inntektenDin: unknown
+    inntektenDin: IInntekt
     opplysningerOmBarn: IOmBarn
 }
 

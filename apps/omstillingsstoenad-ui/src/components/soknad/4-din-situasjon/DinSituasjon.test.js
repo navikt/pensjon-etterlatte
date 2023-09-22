@@ -55,7 +55,7 @@ jest.mock('../../../context/soknad/SoknadContext', () => ({
     }),
 }))
 
-describe('Om den avdøde', () => {
+describe('Situasjonen din', () => {
     it('Snapshot', () => {
         const { container } = render(<DinSituasjon />)
         expect(container).toMatchSnapshot()

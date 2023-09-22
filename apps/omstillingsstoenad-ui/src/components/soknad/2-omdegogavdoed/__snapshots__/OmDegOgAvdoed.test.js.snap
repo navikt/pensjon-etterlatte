@@ -39,7 +39,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="avdoed.fornavn"
-                required=""
                 type="text"
                 value=""
               />
@@ -68,7 +67,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="avdoed.etternavn"
-                required=""
                 type="text"
                 value=""
               />
@@ -487,7 +485,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   <input
                     class="navds-text-field__input navds-body-short navds-body-medium"
                     id="nySivilstatus.samboerskap.samboer.fornavn"
-                    required=""
                     type="text"
                     value=""
                   />
@@ -518,7 +515,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   <input
                     class="navds-text-field__input navds-body-short navds-body-medium"
                     id="nySivilstatus.samboerskap.samboer.etternavn"
-                    required=""
                     type="text"
                     value=""
                   />
@@ -549,7 +545,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="nySivilstatus.samboerskap.samboer.foedselsnummer"
               placeholder="felles.fnrPlaceholder"
-              required=""
               size="25"
               type="tel"
               value=""
@@ -751,6 +746,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             class="navds-button navds-button--secondary navds-button--medium"
             id="avbryt-nei-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -762,6 +758,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             class="navds-button navds-button--primary navds-button--medium"
             id="avbryt-ja-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -777,6 +774,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             class="navds-button navds-button--tertiary navds-button--medium"
             id="slett-soeknad"
             style="color: rgb(198, 93, 78);"
+            type="button"
           >
             <span
               class="navds-label"
@@ -830,7 +828,6 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="avdoed.fornavn"
-                required=""
                 type="text"
                 value=""
               />
@@ -859,7 +856,6 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="avdoed.etternavn"
-                required=""
                 type="text"
                 value=""
               />
@@ -1349,6 +1345,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             class="navds-button navds-button--secondary navds-button--medium"
             id="avbryt-nei-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -1360,6 +1357,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             class="navds-button navds-button--primary navds-button--medium"
             id="avbryt-ja-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -1375,6 +1373,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             class="navds-button navds-button--tertiary navds-button--medium"
             id="slett-soeknad"
             style="color: rgb(198, 93, 78);"
+            type="button"
           >
             <span
               class="navds-label"

@@ -14,7 +14,7 @@ jest.mock('react-i18next', () => ({
     },
 }))
 
-describe('Om den avdøde', () => {
+describe('Opplysninger om barn', () => {
     it('Snapshot', () => {
         const { container } = render(<OpplysningerOmBarn />)
         expect(container).toMatchSnapshot()

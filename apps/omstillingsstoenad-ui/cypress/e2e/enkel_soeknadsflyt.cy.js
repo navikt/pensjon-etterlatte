@@ -26,7 +26,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         cy.checkA11y();
 
         // Start søknaden
-        cy.get('.navds-button').click();
+        getById('start-soeknad').click();
     });
 
     it('Skal fylle ut siden "Om Deg" og gå til neste', () => {
@@ -97,8 +97,8 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         gaaTilNesteSide();
     });
 
-    it('Skal fylle ut siden "Din situasjon" og gå til neste', () => {
-        cy.url().should("include", "steg/din-situasjon");
+    it('Skal fylle ut siden "Situasjonen din" og gå til neste', () => {
+        cy.url().should("include", "steg/situasjonen-din");
         cy.intercept("GET", `${basePath}/api/kodeverk/alleland`, { fixture: "land.json" }).as("alleland");
 
         // Verifiser felter og fyll ut skjema.
@@ -136,6 +136,15 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             .find("select")
             .select(mottarPensjonUtland.fraHvilketLand);
         getById("andreYtelser.mottarPensjonUtland.bruttobeloepPrAar").type(mottarPensjonUtland.bruttobeloepPrAar);
+
+        a11yCheck();
+
+        gaaTilNesteSide();
+    });
+
+    it('Skal fylle ut siden "Inntekten din" og gå til neste', () => {
+        cy.url().should("include", "steg/inntekten-din");
+        cy.intercept("GET", `${basePath}/api/kodeverk/alleland`, { fixture: "land.json" }).as("alleland");
 
         a11yCheck();
 

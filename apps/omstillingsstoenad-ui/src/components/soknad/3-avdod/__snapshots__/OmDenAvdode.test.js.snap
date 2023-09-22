@@ -66,7 +66,6 @@ exports[`Om den avdøde Snapshot 1`] = `
                 class="navds-text-field__input navds-body-short navds-body-medium"
                 id="foedselsnummer"
                 placeholder="felles.fnrPlaceholder"
-                required=""
                 type="tel"
                 value=""
               />
@@ -645,6 +644,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-button navds-button--secondary navds-button--medium"
             id="avbryt-nei-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -656,6 +656,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-button navds-button--primary navds-button--medium"
             id="avbryt-ja-btn"
             style="margin: 10px;"
+            type="button"
           >
             <span
               class="navds-label"
@@ -671,6 +672,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-button navds-button--tertiary navds-button--medium"
             id="slett-soeknad"
             style="color: rgb(198, 93, 78);"
+            type="button"
           >
             <span
               class="navds-label"

@@ -6,11 +6,11 @@ import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { ActionTypes as BrukerAction } from '../../context/bruker/bruker'
 import { ActionTypes as SoknadAction } from '../../context/soknad/soknad'
 import { erDato } from '../../utils/dato'
-import { BodyShort, Button, Heading, Loader, Modal } from '@navikt/ds-react'
 import { LogEvents, useAmplitude } from '../../utils/amplitude'
 import { slettSoeknad } from '../../api/api'
 import styled from 'styled-components'
 import { FlexCenter, NavigasjonsRad, NavigasjonsRadSkjemaGruppe } from './StyledComponents'
+import { BodyShort, Button, Heading, Loader, Modal } from '@navikt/ds-react'
 
 const NavigasjonWrapper = styled(SkjemaGruppe)`
     @media screen and (max-width: 650px) {
@@ -128,6 +128,7 @@ const Navigasjon = ({
                             id={'avbryt-nei-btn'}
                             variant={'secondary'}
                             onClick={fortsettSoknad}
+                            type={'button'}
                             style={{ margin: '10px' }}
                         >
                             {t('avbrytModal.svarNei')}
@@ -137,6 +138,7 @@ const Navigasjon = ({
                             id={'avbryt-ja-btn'}
                             variant={'primary'}
                             onClick={avbrytSoeknad}
+                            type={'button'}
                             style={{ margin: '10px' }}
                         >
                             {t('avbrytModal.svarJa')}
@@ -147,6 +149,7 @@ const Navigasjon = ({
                             id={'slett-soeknad'}
                             variant={'tertiary'}
                             style={{ color: '#C65D4E' }}
+                            type={'button'}
                             onClick={avbrytOgslettSoeknad}
                         >
                             {t('avbrytModal.svarSlett')}
