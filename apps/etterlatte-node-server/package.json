@@ -15,7 +15,7 @@
     "node-jose": "2.2.0",
     "openid-client": "5.4.3",
     "prom-client": "^14.0.1",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "react": "^18.2.0",
     "uuid": "^9.0.0",
     "winston": "3.10.0",
