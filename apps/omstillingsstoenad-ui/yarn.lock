@@ -3028,10 +3028,10 @@ ajv@^8.0.0, ajv@^8.6.0, ajv@^8.9.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-amplitude-js@^8.21.6:
-  version "8.21.8"
-  resolved "https://registry.yarnpkg.com/amplitude-js/-/amplitude-js-8.21.8.tgz#eb7dd29c0fcea0263f638c9b841a1c092ee9775e"
-  integrity sha512-fiURS2KONUk8vzDiUiz8QGQhvTelgghSmLGMNSsWtU28+DB0YeornwkK5h8aiN9t7o9IdTn2UrurQIyOSk2nGA==
+amplitude-js@^8.21.9:
+  version "8.21.9"
+  resolved "https://registry.yarnpkg.com/amplitude-js/-/amplitude-js-8.21.9.tgz#6b108d9e42a3a8a3233006dab0690972a3c36ea7"
+  integrity sha512-d0jJH00wbXu7sxKtVwkdSXtVffjqdUrxuACKlnzP7jU5qt9wriXXMgHifdH5Oq+buKmyF8wKL9S02gAykysURA==
   dependencies:
     "@amplitude/analytics-connector" "^1.4.6"
     "@amplitude/ua-parser-js" "0.7.33"
