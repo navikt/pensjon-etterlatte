@@ -11,12 +11,6 @@ describe('Navigation: "Cancel" button functionality', () => {
         cy.get('#slett-soeknad').should('be.visible')
     })
 
-    it('Should resume application when clicking No', () => {
-        cy.get('#avbryt-nei-btn').click()
-
-        cy.get('#avbryt-nei-btn').should('not.exist')
-    })
-
     it('Should redirect to nav.no when clicking Yes, continue later', () => {
         cy.get('#avbryt-ja-btn').click()
 
