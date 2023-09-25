@@ -1722,37 +1722,48 @@
   resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-2.8.3.tgz#ed18b605a91f0162757bad1fbcc028bb2db7a975"
   integrity sha512-s0MCa2k4g/3DbsN90QY4YpKEyt+lQFCVPDcNsLBEnnEWHYHByeNbXaRHU6N963TuYNkvEfpKYzSGr0JlYOV8Pg==
 
-"@navikt/ds-css@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.3.1.tgz#32b98dda7ee929efae13ff5f3f1c77f9716e4bb1"
-  integrity sha512-YFfgVi+zvPqd51ZNJgKWXMoYt7rhElPwkhgRPCuY44wFk9bwq8GczeENcp+KEDiJ2EqpxwuqVmzaV4C3PYcv9Q==
+"@navikt/aksel-icons@^2.9.8":
+  version "2.9.8"
+  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-2.9.8.tgz#04e4868d2f8f1022b52e9de54668127f6d0f5052"
+  integrity sha512-HANk2yejzzQxj4UefLg5Q8YXqkwh98SN98fNJUIlfonnh1bla1XB2h690QZJiY5SghHDnb2RGo/aojc8BwI8kQ==
+
+"@navikt/ds-css@2.x":
+  version "2.9.8"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.9.8.tgz#f620f8fc013050d272d89485bb46042819363cc2"
+  integrity sha512-6MnIJpH/pX9VYXGcO2hUn9WWqUTk1WdIiPVQQbj3jTZhUKNwnT2bofcB+OrIfCST9o0qDyYeGVfVsuAyQpZxRA==
 
 "@navikt/ds-css@^2.8.3":
   version "2.8.3"
   resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-2.8.3.tgz#0059eafb004b35e79d84107e24d0c3239e370c3c"
   integrity sha512-B8xGzajBHH6MDp9x4To97ec8OKt7Mmx9O7jyoTIL0PJOZppa2rv3S8rtDQOqwrFMdXzb6VHzDimpY1TBZ68yAw==
 
-"@navikt/ds-datepicker@^4.1.2":
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-datepicker/-/ds-datepicker-4.1.2.tgz#a03079dfe482ffd281e7073f7471d1da88d23243"
-  integrity sha512-inpK8HxUzVwmfT088N6ZzVtInYIWTSm2JWI1MWAStZ7ti/+mfi1U6akzg7g1VW23anmPXb5wL2GncBX417oLcA==
+"@navikt/ds-datepicker@4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-datepicker/-/ds-datepicker-4.0.1.tgz#3a94b6601431e9fe4e61b82a50e14753e42170a6"
+  integrity sha512-45uPgfqJeKXN7H75Q5rYLLkLfph8ubdEhoLkpB+4V2r/CHQxUV9seMsTZ0jYPSvzXrmjAtGFMeF0yGCo06AUWQ==
   dependencies:
-    "@navikt/ds-css" "2.3.1"
-    "@navikt/ds-react" "2.3.1"
-    focus-trap-react "^10.1.0"
+    "@navikt/ds-css" "2.x"
+    "@navikt/ds-react" "2.x"
+    focus-trap-react "^10.0.2"
 
-"@navikt/ds-icons@2.8.3", "@navikt/ds-icons@^2.3.1", "@navikt/ds-icons@^2.8.3":
+"@navikt/ds-icons@2.8.3", "@navikt/ds-icons@^2.8.3":
   version "2.8.3"
   resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.8.3.tgz#7666b1478afd0699221d78c252074d459f1a2388"
   integrity sha512-/ps/U8EkNNDSxbsOYCPM0WqD24sjME035qd9vCR8DN3lZ3PCCtdeIA7Mfl5PLBMBy6kVdPOXeU8YFJSa/IYFJg==
 
-"@navikt/ds-react@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-2.3.1.tgz#ab5b38385b0b225940efce89f0d2bb9107ea617c"
-  integrity sha512-gslV96WLw49EV48layWj079ZhcAODjBSZPpwSR5us1oG5icXeZjaodEHd6nCo6JVepaLel2/hRmi7vYRb60Glg==
+"@navikt/ds-icons@^2.9.8":
+  version "2.9.8"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-2.9.8.tgz#b6f22493a3b836e00762dcc0a4397c64beb634e0"
+  integrity sha512-5IdVN4rmpXnznQMUz5YPxDoY17nykV3Oy/YCpq6gF69JRbhjwgQ+4LI/eV1tFFLaM/EW73qFCaEzhP0DY3prEw==
+
+"@navikt/ds-react@2.x":
+  version "2.9.8"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-2.9.8.tgz#73242362d3e36916cac4ab99b14994a89c4e7737"
+  integrity sha512-xwiXR0K1imgCXZjfExDqUlPaq6IdJqrFqxeZBITnN6sIQheEee83RpOxxOLCoBCW9fkl4ZZSofCRYLh+i3Lo2w==
   dependencies:
     "@floating-ui/react" "0.17.0"
-    "@navikt/ds-icons" "^2.3.1"
+    "@navikt/aksel-icons" "^2.9.8"
+    "@navikt/ds-icons" "^2.9.8"
     "@radix-ui/react-tabs" "1.0.0"
     "@radix-ui/react-toggle-group" "1.0.0"
     clsx "^1.2.1"
@@ -5620,20 +5631,20 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
-focus-trap-react@^10.1.0:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-10.1.1.tgz#c14e150076827905b7b32b9d02d6d97534dfaa99"
-  integrity sha512-OtLeSIQPKFzMzbLHkGtfZYwGLMhTRHd3CDhfyd0DDx8tvXzlgpseClDiuiKoiIHZtdjsbXTfTmUuuLKaxrwSyQ==
+focus-trap-react@^10.0.2:
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-10.2.1.tgz#3f72c9c018885e089806346966c59303eb6e32ef"
+  integrity sha512-UrAKOn52lvfHF6lkUMfFhlQxFgahyNW5i6FpHWkDxAeD4FSk3iwx9n4UEA4Sims0G5WiGIi0fAyoq3/UVeNCYA==
   dependencies:
-    focus-trap "^7.4.0"
-    tabbable "^6.1.1"
+    focus-trap "^7.5.2"
+    tabbable "^6.2.0"
 
-focus-trap@^7.4.0:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-7.4.0.tgz#20f760a497f593b01d2e446168009c1f12ab0385"
-  integrity sha512-yI7FwUqU4TVb+7t6PaQ3spT/42r/KLEi8mtdGoQo2li/kFzmu9URmalTvw7xCCJtSOyhBxscvEAmvjeN9iHARg==
+focus-trap@^7.5.2:
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-7.5.2.tgz#e5ee678d10a18651f2591ffb66c949fb098d57cf"
+  integrity sha512-p6vGNNWLDGwJCiEjkSK6oERj/hEyI9ITsSwIUICBoKLlWiTWXJRfQibCwcoi50rTZdbi87qDtUlMCmQwsGSgPw==
   dependencies:
-    tabbable "^6.1.1"
+    tabbable "^6.2.0"
 
 follow-redirects@^1.0.0, follow-redirects@^1.15.0:
   version "1.15.2"
@@ -10064,10 +10075,15 @@ symbol-tree@^3.2.4:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
-tabbable@^6.0.1, tabbable@^6.1.1:
+tabbable@^6.0.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-6.1.1.tgz#40cfead5ed11be49043f04436ef924c8890186a0"
   integrity sha512-4kl5w+nCB44EVRdO0g/UGoOp3vlwgycUVtkk/7DPyeLZUCuNFFKCFG6/t/DgHLrUPHjrZg6s5tNm+56Q2B0xyg==
+
+tabbable@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-6.2.0.tgz#732fb62bc0175cfcec257330be187dcfba1f3b97"
+  integrity sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==
 
 tailwindcss@^3.0.2:
   version "3.2.6"
