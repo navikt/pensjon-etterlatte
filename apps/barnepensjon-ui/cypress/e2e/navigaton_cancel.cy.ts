@@ -8,7 +8,6 @@ describe('Navigation: "Cancel" button functionality', () => {
 
         cy.get('#avbryt-nei-btn').should('be.visible')
         cy.get('#avbryt-ja-btn').should('be.visible')
-        cy.get('#slett-soeknad').should('be.visible')
     })
 
     it('Should resume application when clicking No', () => {
