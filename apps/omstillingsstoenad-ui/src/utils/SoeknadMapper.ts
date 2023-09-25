@@ -179,6 +179,7 @@ export default class SoeknadMapper {
     }
 
     private mapInntektenDin(inntektenDin: IInntekt): Gruppe {
+        console.log(inntektenDin)
         return {
             tittel: this.t('inntektenDin.tittel'),
             path: StegPath.InntektenDin,
