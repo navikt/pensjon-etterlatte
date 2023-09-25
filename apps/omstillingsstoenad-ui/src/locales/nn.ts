@@ -2,7 +2,7 @@ export default {
     'steg.OmDeg': 'Om deg',
     'steg.OmDegOgAvdoed': 'Om deg og avdøde',
     'steg.OmAvdoed': 'Opplysingar om den avdøde',
-    'steg.DinSituasjon': 'Din situasjon',
+    'steg.DinSituasjon': 'Situasjonen din',
     'steg.InntektenDin': 'Inntekten din',
     'steg.OmBarn': 'Opplysingar om barn',
     'steg.Oppsummering': 'Oppsummering',
