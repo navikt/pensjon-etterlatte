@@ -24,6 +24,6 @@ axiosInstance.interceptors.response.use(
                 window.location.reload()
             }
 
-            return error.response
+            return Promise.reject(error)
         }
 );
