@@ -11,35 +11,39 @@ const isOK = (status: any) => [200, 404, 409].includes(status)
 
 const prepareSecuredRequest = async (req: Request) => {
     const { authorization } = req.headers
-    const token = authorization!!.split(' ')[1]
+    const token = authorization?.split(' ')[1]
 
-    const accessToken = await exchangeToken(token).then((accessToken) => accessToken)
+    if (token) {
+        const accessToken = await exchangeToken(token).then((accessToken) => accessToken)
 
-    const headers: any = {
-        ...req.headers,
-        authorization: `Bearer ${accessToken}`,
-        x_correlation_id: logger.defaultMeta.x_correlation_id,
-    }
+        const headers: any = {
+            ...req.headers,
+            authorization: `Bearer ${accessToken}`,
+            x_correlation_id: logger.defaultMeta.x_correlation_id,
+        }
 
-    let body = undefined
-    if (!isEmpty(req.body) && req.method === 'POST') {
-        const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*:(.*)/, '$1')
-        if (req.path === '/api/soeknad') {
-            const soeknader: any[] = req.body.soeknader.map((soeknad: any) => ({
-                ...soeknad,
-                imageTag,
-            }))
-            body = JSON.stringify({ soeknader })
-        } else {
-            body = JSON.stringify(req.body)
+        let body = undefined
+        if (!isEmpty(req.body) && req.method === 'POST') {
+            const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*:(.*)/, '$1')
+            if (req.path === '/api/soeknad') {
+                const soeknader: any[] = req.body.soeknader.map((soeknad: any) => ({
+                    ...soeknad,
+                    imageTag,
+                }))
+                body = JSON.stringify({ soeknader })
+            } else {
+                body = JSON.stringify(req.body)
+            }
+        }
+
+        return {
+            method: req.method,
+            body,
+            headers,
         }
     }
 
-    return {
-        method: req.method,
-        body,
-        headers,
-    }
+    throw new Error("Token mangler")
 }
 
 export default function proxy(host: string): RequestHandler {
@@ -56,6 +60,8 @@ export default function proxy(host: string): RequestHandler {
 
             return res.status(response.status).send(await response.text())
         } catch (error) {
+            if (error instanceof Error && error?.message === "Token mangler") res.sendStatus(401)
+
             logger.error(`Feilet kall (${req.method} - ${req.path}): `, error)
 
             return res.status(500).send('Error')
