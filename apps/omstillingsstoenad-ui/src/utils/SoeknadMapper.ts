@@ -23,7 +23,7 @@ export default class SoeknadMapper {
             this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
             this.mapOmDenAvdoede(soeknad.omDenAvdoede),
             this.mapDinSituasjon(soeknad.dinSituasjon),
-            this.mapInntektenDin(soeknad.inntektenDin),
+            this.mapInntektenDin(),
             this.mapOpplysningerOmBarn(soeknad.opplysningerOmBarn),
         ]
     }
@@ -178,8 +178,7 @@ export default class SoeknadMapper {
         }
     }
 
-    private mapInntektenDin(inntektenDin: IInntekt): Gruppe {
-        console.log(inntektenDin)
+    private mapInntektenDin(): Gruppe {
         return {
             tittel: this.t('inntektenDin.tittel'),
             path: StegPath.InntektenDin,
