@@ -6,7 +6,6 @@ import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed, Sivilstatus
 import { ISituasjon } from '../typer/situasjon'
 import { StegPath } from '../typer/steg'
 import ObjectTreeReader, { Element, Gruppe } from './ObjectTreeReader'
-import { IInntekt } from '../typer/inntekt'
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader
