@@ -27,7 +27,7 @@ interface InnsendtSoeknad {
     utbetalingsInformasjon?: BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon>
 }
 
-export interface Gjenlevendepensjon extends InnsendtSoeknad {
+export interface Omstillingsstoenad extends InnsendtSoeknad {
     soeker: Gjenlevende
     avdoed: Avdoed
     barn: Barn[]

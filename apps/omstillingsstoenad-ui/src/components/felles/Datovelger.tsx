@@ -12,13 +12,13 @@ import { Label } from '@navikt/ds-react'
 import styled from 'styled-components'
 
 interface StyledProps {
-    kol: boolean
+    $kol: boolean
 }
 
 const DatovelgerSection = styled.section<StyledProps>`
     margin-bottom: 0 !important;
 
-    ${(props) => (props.kol ? 'flex-grow: 1; flex-basis: auto;' : '')}
+    ${(props) => (props.$kol ? 'flex-grow: 1; flex-basis: auto;' : '')}
 `
 
 interface DatovelgerProps {
@@ -63,7 +63,7 @@ const Datovelger = ({
     const feilmelding = t(getTransKey(error))
 
     return (
-        <DatovelgerSection kol={kol}>
+        <DatovelgerSection $kol={kol}>
             <Label htmlFor={name}>{`${label} ${t('felles.datoformat')}`}</Label>
 
             {description && <div className={'skjemaelement__description'}>{description}</div>}

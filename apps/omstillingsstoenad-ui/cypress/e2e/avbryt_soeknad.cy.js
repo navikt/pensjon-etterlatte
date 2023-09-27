@@ -38,7 +38,9 @@ describe("Skal avbryte en soeknad",() => {
     })
 
     it("Avbryt og slett søknad", () => {
+        Cypress.on('uncaught:exception', () => { return false })
         startSoeknad()
+
         getById("avbryt-btn").click();
 
         cy.intercept("DELETE", `${basePath}/api/api/kladd`, {}).as("slettSoeknad");

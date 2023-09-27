@@ -1,0 +1,331 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Opplysninger om barn Snapshot 1`] = `
+<div>
+  <form>
+    <div
+      class="sc-kFCrIq gJUaML"
+    >
+      <h1
+        class="center navds-heading navds-heading--medium"
+      >
+        omBarn.tittel
+      </h1>
+    </div>
+    <div
+      class="sc-kFCrIq gJUaML"
+    >
+      <div
+        class="navds-panel navds-panel--border"
+      >
+        <div
+          class="navds-alert--inline navds-alert navds-alert--info navds-alert--medium"
+        >
+          <svg
+            aria-labelledby="title-r0"
+            class="navds-alert__icon"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title
+              id="title-r0"
+            >
+              Informasjon
+            </title>
+            <path
+              clip-rule="evenodd"
+              d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75V4ZM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <div
+            class="navds-alert__wrapper navds-body-long navds-body-long--medium"
+          >
+            <p
+              class="navds-body-short navds-body-short--small"
+            >
+              omBarn.informasjon
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <fieldset
+      class="sc-beyTiQ jltUnl"
+    >
+      <div
+        class="sc-dJGLgI ifsgJF"
+      >
+        <div
+          class="sc-gLLuHO hTnHRK"
+        >
+          <div
+            class="sc-eDLKEg iymHac"
+          >
+            <img
+              alt="barn"
+              src="barn1.svg"
+            />
+          </div>
+          <div
+            class="sc-jTQDJr eeynFj"
+          >
+            <div
+              class="sc-hIPCWT lYZiS"
+            >
+              <button
+                class="navds-button navds-button--primary navds-button--medium"
+                data-testid="legg-til-barn-knapp"
+                type="button"
+              >
+                <span
+                  class="navds-label"
+                >
+                  knapp.leggTilBarn
+                </span>
+              </button>
+            </div>
+            <p
+              class="center mute navds-body-short navds-body-short--small"
+            >
+              omBarn.valgfritt
+            </p>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div
+      class="sc-kFCrIq gJUaML"
+    >
+      <div
+        id="gravidEllerNyligFoedt"
+      >
+        <div
+          class="sc-kFCrIq gJUaML"
+        >
+          <fieldset
+            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          >
+            <legend
+              class="navds-fieldset__legend navds-label"
+            >
+              omBarn.gravidEllerNyligFoedt
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  class="navds-radio__input"
+                  id="radio-r3"
+                  name="gravidEllerNyligFoedt"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-r3"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      radiobuttons.ja
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  class="navds-radio__input"
+                  id="radio-r4"
+                  name="gravidEllerNyligFoedt"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-r4"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      radiobuttons.nei
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-r2"
+            />
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <fieldset
+      class="sc-beyTiQ jltUnl"
+    >
+      <div
+        class="sc-guDMob czmIqC undefined"
+      >
+        <button
+          class="navds-button navds-button--primary navds-button--medium"
+          type="button"
+        >
+          <span
+            class="navds-label"
+          >
+            knapp.tilbake
+          </span>
+        </button>
+        <button
+          class="navds-button navds-button--primary navds-button--medium"
+          type="button"
+        >
+          <span
+            class="navds-label"
+          >
+            knapp.neste
+          </span>
+        </button>
+      </div>
+    </fieldset>
+    <div
+      class="sc-guDMob sc-dmyDmy czmIqC kgmmuh"
+    >
+      <button
+        class="navds-button navds-button--secondary navds-button--medium"
+        id="avbryt-btn"
+        type="button"
+      >
+        <span
+          class="navds-label"
+        >
+          knapp.avbryt
+        </span>
+      </button>
+    </div>
+    <dialog
+      class="navds-modal navds-modal--polyfilled navds-modal--autowidth"
+      role="dialog"
+    >
+      <div
+        class="navds-modal__header"
+      >
+        <button
+          class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+          type="button"
+        >
+          <span
+            class="navds-button__icon"
+          >
+            <svg
+              aria-labelledby="title-r7"
+              fill="none"
+              focusable="false"
+              height="1em"
+              role="img"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title
+                id="title-r7"
+              >
+                Lukk modalvindu
+              </title>
+              <path
+                clip-rule="evenodd"
+                d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </button>
+        <h1
+          class="navds-heading navds-heading--medium"
+        >
+          avbrytModal.spoersmaal
+        </h1>
+      </div>
+      <div
+        class="navds-modal__body"
+      >
+        <p
+          class="mute avbryt-text navds-body-short navds-body-short--medium"
+        >
+          avbrytModal.informasjon
+        </p>
+      </div>
+      <div
+        class="navds-modal__footer"
+      >
+        <div
+          class="sc-jsEeA-d gHwiqO"
+        >
+          <button
+            class="navds-button navds-button--secondary navds-button--medium"
+            id="avbryt-nei-btn"
+            style="margin: 10px;"
+            type="button"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarNei
+            </span>
+          </button>
+          <button
+            class="navds-button navds-button--primary navds-button--medium"
+            id="avbryt-ja-btn"
+            style="margin: 10px;"
+            type="button"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarJa
+            </span>
+          </button>
+        </div>
+        <div
+          class="sc-jsEeA-d gHwiqO"
+        >
+          <button
+            class="navds-button navds-button--tertiary navds-button--medium"
+            id="slett-soeknad"
+            style="color: rgb(198, 93, 78);"
+            type="button"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarSlett
+            </span>
+          </button>
+        </div>
+      </div>
+    </dialog>
+  </form>
+</div>
+`;

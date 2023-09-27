@@ -42,7 +42,6 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
                     <TextField
                         id={name}
                         value={value || ''}
-                        required={!valgfri}
                         onChange={onChange}
                         error={feilmelding}
                         {...rest}
@@ -94,7 +93,6 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
                 <TextField
                     id={name}
                     value={value || ''}
-                    required
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialKontonrMatcher, '.'))}
                     error={feilmelding}
                     {...rest}
@@ -123,7 +121,6 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
                 <TextField
                     id={name}
                     value={value || ''}
-                    required={!valgfri}
                     onChange={onChange}
                     error={feilmelding}
                     {...rest}
@@ -159,7 +156,6 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}
-                    required
                     value={value || ''}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         if (isValid(e)) onChange(e)
@@ -193,7 +189,7 @@ export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => 
                 ...rules,
             }}
             render={({ field: { value, onChange } }) => (
-                <TextField id={name} required value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
+                <TextField id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
             )}
         />
     )
@@ -228,7 +224,6 @@ export const RHFFoedselsnummerInput = ({ name, rules, valgfri, ...rest }: RHFPro
                 <TextField
                     id={name}
                     type="tel"
-                    required
                     value={value || ''}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         if (isValid(e)) onChange(e)
@@ -259,7 +254,6 @@ export const RHFIbanInput = ({ name, ...rest }: RHFProps) => {
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}
-                    required
                     value={value || ''}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value.toUpperCase())}
                     error={feilmelding}
@@ -288,7 +282,6 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}
-                    required
                     value={value || ''}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value.toUpperCase())}
                     error={feilmelding}
@@ -322,7 +315,6 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}
-                    required
                     value={value || ''}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         if (isValid(e)) onChange(e)

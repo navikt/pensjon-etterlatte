@@ -18,15 +18,15 @@ export const NavigasjonsRad = styled.div`
     ${navigasjonsRad}
 `
 
-export const NavigasjonsRadSkjemaGruppe = styled(NavigasjonsRad)<{ disabled?: boolean }>`
-    ${(props) => (props.disabled ? 'opacity: 0.6; pointer-events: none;' : '')}
+export const NavigasjonsRadSkjemaGruppe = styled(NavigasjonsRad)<{ $disabled?: boolean }>`
+    ${(props) => (props.$disabled ? 'opacity: 0.6; pointer-events: none;' : '')}
 `
 
 export const NavigasjonsRadSection = styled.section`
     ${navigasjonsRad}
 `
 
-export const InfokortHeader = styled.div<{ gjennomsiktig?: boolean }>`
+export const InfokortHeader = styled.div<{ $gjennomsiktig?: boolean }>`
     box-sizing: border-box;
     height: 128px;
     background-color: #4d3e55;
@@ -35,7 +35,7 @@ export const InfokortHeader = styled.div<{ gjennomsiktig?: boolean }>`
     border-bottom: 4px solid #826ba1;
     display: flex;
     align-items: flex-end;
-    opacity: ${(props) => (props.gjennomsiktig ? 0.4 : 1)};
+    opacity: ${(props) => (props.$gjennomsiktig ? 0.4 : 1)};
     img {
         margin: 0 auto;
     }
@@ -100,4 +100,10 @@ export const SpoersmaalModal = styled(Modal)`
     .navds-modal__button {
         visibility: hidden;
     }
+`
+
+export const FlexCenter = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
 `

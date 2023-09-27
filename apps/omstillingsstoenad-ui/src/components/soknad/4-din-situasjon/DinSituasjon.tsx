@@ -13,7 +13,7 @@ import Navigasjon from '../../felles/Navigasjon'
 import { useTranslation } from 'react-i18next'
 import UnderUtdanning from './fragmenter/UnderUtdanning'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
-import { BodyLong, Heading } from '@navikt/ds-react'
+import { GuidePanel, Heading } from '@navikt/ds-react'
 import { RHFCheckboksGruppe } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { deepCopy } from '../../../utils/deepCopy'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
@@ -70,8 +70,10 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaElement>
 
                 <SkjemaGruppe>
-                    <Heading size={'small'}>{t('dinSituasjon.undertittel')}</Heading>
-                    <BodyLong>{t('dinSituasjon.ingress')}</BodyLong>
+                    <GuidePanel>
+                        <Heading size={'small'}>{t('dinSituasjon.undertittel')}</Heading>
+                        {t('dinSituasjon.ingress')}
+                    </GuidePanel>
                 </SkjemaGruppe>
 
                 {!brukerState.adressebeskyttelse && (

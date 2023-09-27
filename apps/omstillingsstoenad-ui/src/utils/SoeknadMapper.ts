@@ -22,6 +22,7 @@ export default class SoeknadMapper {
             this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
             this.mapOmDenAvdoede(soeknad.omDenAvdoede),
             this.mapDinSituasjon(soeknad.dinSituasjon),
+            this.mapInntektenDin(),
             this.mapOpplysningerOmBarn(soeknad.opplysningerOmBarn),
         ]
     }
@@ -173,6 +174,14 @@ export default class SoeknadMapper {
                 ...arbeidsforhold,
                 ...selvstendigNaeringsdrivende,
             ],
+        }
+    }
+
+    private mapInntektenDin(): Gruppe {
+        return {
+            tittel: this.t('inntektenDin.tittel'),
+            path: StegPath.InntektenDin,
+            elementer: [],
         }
     }
 
