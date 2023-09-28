@@ -4,7 +4,7 @@ import { IStegElement, MuligeSteg, StegPath } from '../../typer/steg'
 import OmDeg from './1-omdeg/OmDeg'
 import OmDegOgAvdoed from './2-omdegogavdoed/OmDegOgAvdoed'
 import OmDenAvdode from './3-avdod/OmDenAvdode'
-import DinSituasjon from './4-din-situasjon/DinSituasjon'
+import SituasjonenDin from './4-situasjonen-din/SituasjonenDin'
 import InntektenDin from './5-inntekten-din/InntektenDin'
 import OpplysningerOmBarn from './6-barn/OpplysningerOmBarn'
 import Oppsummering from './7-oppsummering/Oppsummering'
@@ -58,7 +58,7 @@ const SoknadDialog = () => {
                     element={<OmDegOgAvdoed neste={neste} forrige={forrige} />}
                 />
                 <Route path={`/${StegPath.OmAvdoed}`} element={<OmDenAvdode neste={neste} forrige={forrige} />} />
-                <Route path={`/${StegPath.DinSituasjon}`} element={<DinSituasjon neste={neste} forrige={forrige} />} />
+                <Route path={`/${StegPath.DinSituasjon}`} element={<SituasjonenDin neste={neste} forrige={forrige} />} />
                 <Route path={`/${StegPath.InntektenDin}`} element={<InntektenDin neste={neste} forrige={forrige} />} />
                 <Route path={`/${StegPath.OmBarn}`} element={<OpplysningerOmBarn neste={neste} forrige={forrige} />} />
                 <Route path={`/${StegPath.Oppsummering}`} element={<Oppsummering forrige={forrige} />} />

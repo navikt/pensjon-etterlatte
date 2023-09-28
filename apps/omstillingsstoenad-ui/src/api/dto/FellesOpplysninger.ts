@@ -1,3 +1,5 @@
+import { Studieform } from '../../typer/utdanning'
+
 export interface Opplysning<T> {
     spoersmaal: String
     svar: T
@@ -77,9 +79,12 @@ export enum OppholdUtlandType {
 
 export enum JobbStatusType {
     ARBEIDSTAKER = 'ARBEIDSTAKER',
-    SELVSTENDIG = 'SELVSTENDIG',
-    UNDER_UTDANNING = 'UNDER_UTDANNING',
+    SELVSTENDIG_ENK = 'SELVSTENDIG_ENK',
+    SELVSTENDIG_AS = 'SELVSTENDIG_AS',
+    ETABLERER = 'ETABLERER',
+    TILBUD = 'TILBUD',
     ARBEIDSSOEKER = 'ARBEIDSSOEKER',
+    UNDER_UTDANNING = 'UNDER_UTDANNING',
     INGEN = 'INGEN',
 }
 
@@ -133,7 +138,7 @@ export interface ArbeidOgUtdanning {
     arbeidsforhold?: Opplysning<Arbeidstaker[]>
     selvstendig?: Opplysning<SelvstendigNaeringsdrivende[]>
     utdanning?: Opplysning<Utdanning>
-    annet?: Opplysning<FritekstSvar>
+    annenSituasjon?: Opplysning<AnnenSituasjon>
 }
 
 export interface InntektOgPensjon {
@@ -162,9 +167,13 @@ export interface EndringAvInntekt {
 // TODO: naavaerende utdanning + tidligere
 
 export interface Utdanning {
-    navn: Opplysning<FritekstSvar>
+    studiested: Opplysning<FritekstSvar>
+    studie: Opplysning<FritekstSvar>
+    studieform: Opplysning<Studieform>
+    studieprosent?: Opplysning<FritekstSvar>
     startDato: Opplysning<DatoSvar>
     sluttDato: Opplysning<DatoSvar>
+    godkjentUtdanning: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
 export type AnnenUtdanning = FritekstSvar
@@ -192,6 +201,11 @@ export interface Arbeidstaker {
     ansettelsesforhold: Opplysning<EnumSvar<StillingType>>
     stillingsprosent: Opplysning<FritekstSvar>
     endretInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>
+}
+
+export interface AnnenSituasjon {
+    beskrivelse: Opplysning<EnumSvar<IngenJobbType>>
+    annet?: Opplysning<FritekstSvar>
 }
 
 export enum Ytelser {
@@ -238,7 +252,6 @@ export enum IngenJobbType {
     OMSORG_BARN = 'OMSORG_BARN',
     OMSORG_NAERSTAAENDE = 'OMSORG_NAERSTAAENDE',
     FRIVILLIG_ARBEID = 'FRIVILLIG_ARBEID',
-    ETABLERER_BEDRIFT = 'ETABLERER_BEDRIFT',
     SYK = 'SYK',
     ANNET = 'ANNET',
 }

@@ -1,25 +1,27 @@
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { ISituasjon, JobbStatus } from '../../../typer/situasjon'
-import { IngenJobb } from '../../../typer/arbeidsforhold'
 import { FormProvider, useForm } from 'react-hook-form'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import NavaerendeArbeidsforhold from './fragmenter/NavaerendeArbeidsforhold'
 import Feilmeldinger from '../../felles/Feilmeldinger'
-import AndreYtelser from './fragmenter/AndreYtelser'
 import HoeyesteUtdanning from './fragmenter/HoeyesteUtdanning'
 import Navigasjon from '../../felles/Navigasjon'
 import { useTranslation } from 'react-i18next'
 import UnderUtdanning from './fragmenter/UnderUtdanning'
-import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { GuidePanel, Heading } from '@navikt/ds-react'
 import { RHFCheckboksGruppe } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { deepCopy } from '../../../utils/deepCopy'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { SkjemaElement } from '../../felles/SkjemaElement'
+import HvorforSpoerVi from '../../felles/HvorforSpoerVi'
+import EtablererVirksomhet from './fragmenter/EtablererVirksomhet'
+import TilbudOmJobb from './fragmenter/TilbudOmJobb'
+import Arbeidssoeker from './fragmenter/Arbeidssoeker'
+import AnnenSituasjon from './fragmenter/AnnenSituasjon'
 
-const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
+const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
 
     const { state, dispatch } = useSoknadContext()
@@ -56,9 +58,12 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     const erValidert = state.dinSituasjon.erValidert
     const jobbStatus = watch('jobbStatus')
 
-    const ingenJobbAlternativer = Object.values(IngenJobb).map((value) => {
-        return { label: t(value), value: value }
-    })
+
+
+    const selvstendigEllerArbeidstaker =
+        jobbStatus?.includes(JobbStatus.selvstendigAS) ||
+        jobbStatus?.includes(JobbStatus.arbeidstaker) ||
+        jobbStatus?.includes(JobbStatus.selvstendigENK)
 
     return (
         <FormProvider {...methods}>
@@ -78,6 +83,9 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
 
                 {!brukerState.adressebeskyttelse && (
                     <>
+                        <Heading size={'small'} spacing>
+                            {t('dinSituasjon.jobbStatus.tittel')}
+                        </Heading>
                         <RHFCheckboksGruppe
                             name={'jobbStatus'}
                             legend={t('dinSituasjon.jobbStatus')}
@@ -85,35 +93,25 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
                                 return { children: t(value), value, required: true }
                             })}
                         />
+                        <HvorforSpoerVi title="dinSituasjon.jobbStatus">
+                            {t('dinSituasjon.jobbStatus.hvorfor')}
+                        </HvorforSpoerVi>
 
-                        {(jobbStatus?.includes(JobbStatus.selvstendig) ||
-                            jobbStatus?.includes(JobbStatus.arbeidstaker)) && <NavaerendeArbeidsforhold />}
+                        {selvstendigEllerArbeidstaker && <NavaerendeArbeidsforhold />}
+
+                        {jobbStatus?.includes(JobbStatus.etablerer) && <EtablererVirksomhet />}
+
+                        {jobbStatus?.includes(JobbStatus.tilbud) && <TilbudOmJobb />}
+
+                        {jobbStatus?.includes(JobbStatus.arbeidssoeker) && <Arbeidssoeker />}
 
                         {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
 
-                        {jobbStatus?.includes(JobbStatus.ingen) && (
-                            <SkjemaGruppe>
-                                <SkjemaElement>
-                                    <Heading size={'small'}>{t('dinSituasjon.ingenJobbTittel')}</Heading>
-                                </SkjemaElement>
-                                <RHFSelect
-                                    name={'ingenJobbBeskrivelse'}
-                                    label={t('dinSituasjon.ingenJobbBeskrivelse')}
-                                    selectOptions={[
-                                        {
-                                            label: t('felles.velg'),
-                                            value: '',
-                                        },
-                                    ].concat(ingenJobbAlternativer)}
-                                />
-                            </SkjemaGruppe>
-                        )}
+                        {jobbStatus?.includes(JobbStatus.ingen) && <AnnenSituasjon />}
 
                         <HoeyesteUtdanning />
                     </>
                 )}
-
-                <AndreYtelser />
 
                 <Feilmeldinger errors={errors} />
 
@@ -126,4 +124,4 @@ const DinSituasjon: SoknadSteg = ({ neste, forrige }) => {
     )
 }
 
-export default DinSituasjon
+export default SituasjonenDin

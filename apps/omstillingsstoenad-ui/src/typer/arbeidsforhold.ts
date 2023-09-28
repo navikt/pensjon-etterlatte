@@ -26,12 +26,45 @@ export interface ISelvstendigNaeringsdrivende {
     }
 }
 
+export interface IEtablererVirksomhet {
+    hvaHeterVirksomheten?: string
+    orgnr?: string
+    forretningsplan?: {
+        svar?: IValg
+        samarbeidMedNAV?: {
+            svar?: IValg
+        }
+    }
+}
+
+export interface ITilbudOmJobb {
+    arbeidssted?: string
+    ansettelsesforhold?: StillingType
+    midlertidig?: {
+        svar?: IValg
+        sluttdatoVelger?: Date
+    }
+}
+
+export interface IArbeidssoeker {
+    svar?: IValg
+    aktivitetsplan: {
+        svar?: IValg
+    }
+}
+
+export interface IAnnenSituasjon {
+    beskrivelse?: IngenJobb
+    annet?: {
+        beskrivelse?: string
+    }
+}
+
 export enum IngenJobb {
     hjemmearbeidende = 'dinSituasjon.ingenJobb.hjemmearbeidende',
     omsorgBarn = 'dinSituasjon.ingenJobb.omsorgBarn',
     omsorgNaerstaaende = 'dinSituasjon.ingenJobb.omsorgNaerstaaende',
     frivilligArbeid = 'dinSituasjon.ingenJobb.frivilligArbeid',
-    etablererBedrift = 'dinSituasjon.ingenJobb.etablererBedrift',
     syk = 'dinSituasjon.ingenJobb.syk',
     annet = 'dinSituasjon.ingenJobb.annet',
 }
@@ -45,4 +78,15 @@ export enum ForventerEndretInntektType {
     sesongarbeid = 'dinSituasjon.forventerEndretInntektType.sesongarbeid',
     bytteAvJobb = 'dinSituasjon.forventerEndretInntektType.bytteAvJobb',
     annet = 'dinSituasjon.forventerEndretInntektType.annet',
+}
+
+export enum Arbeidsmengde {
+    prosent = 'arbeidsmengde.prosent',
+    timer = 'arbeidsmengde.timer',
+}
+
+export enum SagtOppEllerRedusert {
+    oppsagt = 'sagtOppEllerRedusert.oppsagt',
+    redusert = 'sagtOppEllerRedusert.redusert',
+    nei = 'radiobuttons.nei',
 }

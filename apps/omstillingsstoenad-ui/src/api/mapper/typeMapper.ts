@@ -88,12 +88,18 @@ export const konverterJobbStatus = (type: JobbStatus): JobbStatusType => {
     switch (type) {
         case JobbStatus.arbeidstaker:
             return JobbStatusType.ARBEIDSTAKER
-        case JobbStatus.selvstendig:
-            return JobbStatusType.SELVSTENDIG
-        case JobbStatus.underUtdanning:
-            return JobbStatusType.UNDER_UTDANNING
+        case JobbStatus.selvstendigENK:
+            return JobbStatusType.SELVSTENDIG_ENK
+        case JobbStatus.selvstendigAS:
+            return JobbStatusType.SELVSTENDIG_AS
+        case JobbStatus.etablerer:
+            return JobbStatusType.ETABLERER
+        case JobbStatus.tilbud:
+            return JobbStatusType.TILBUD
         case JobbStatus.arbeidssoeker:
             return JobbStatusType.ARBEIDSSOEKER
+        case JobbStatus.underUtdanning:
+            return JobbStatusType.UNDER_UTDANNING
         case JobbStatus.ingen:
             return JobbStatusType.INGEN
         default:
@@ -162,8 +168,6 @@ export const konverterIngenJobb = (type: IngenJobb): IngenJobbType => {
     switch (type) {
         case IngenJobb.omsorgNaerstaaende:
             return IngenJobbType.OMSORG_NAERSTAAENDE
-        case IngenJobb.etablererBedrift:
-            return IngenJobbType.ETABLERER_BEDRIFT
         case IngenJobb.omsorgBarn:
             return IngenJobbType.OMSORG_BARN
         case IngenJobb.syk:

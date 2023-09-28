@@ -1,5 +1,5 @@
 import { act, render, fireEvent } from '@testing-library/react'
-import DinSituasjon from './DinSituasjon'
+import SituasjonenDin from './SituasjonenDin'
 
 jest.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
@@ -57,12 +57,12 @@ jest.mock('../../../context/soknad/SoknadContext', () => ({
 
 describe('Situasjonen din', () => {
     it('Snapshot', () => {
-        const { container } = render(<DinSituasjon />)
+        const { container } = render(<SituasjonenDin />)
         expect(container).toMatchSnapshot()
     })
 
     it('Skal rendre selvstendig', () => {
-        const { container, getByLabelText } = render(<DinSituasjon />)
+        const { container, getByLabelText } = render(<SituasjonenDin />)
         act(() => {
             fireEvent.click(getByLabelText('jobbStatus.selvstendig'))
         })

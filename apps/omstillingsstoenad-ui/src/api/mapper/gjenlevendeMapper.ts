@@ -4,6 +4,7 @@ import { IBruker } from '../../context/bruker/bruker'
 import {
     AndreYtelser,
     AnnenUtdanning,
+    AnnenSituasjon,
     ArbeidOgUtdanning,
     Arbeidstaker,
     BetingetOpplysning,
@@ -13,7 +14,6 @@ import {
     ForholdTilAvdoede,
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
-    IngenJobbType,
     InntektOgPensjon,
     InntektType,
     JaNeiVetIkke,
@@ -48,6 +48,7 @@ import {
 } from './typeMapper'
 import { fullAdresse } from '../../utils/adresse'
 import { EndringAvInntektGrunn, IInntekt } from '../../typer/inntekt'
+import { IngenJobb } from '../../typer/arbeidsforhold'
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
     const kontaktinfo: Kontaktinfo = {
@@ -137,8 +138,8 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         nySivilstatus: hentSivilstatus(t, soeknad.omDegOgAvdoed.nySivilstatus!!),
         arbeidOgUtdanning: !bruker.adressebeskyttelse ? hentArbeidOgUtdanning(t, soeknad.dinSituasjon) : undefined,
         fullfoertUtdanning,
-        andreYtelser: hentAndreYtelser(t, soeknad.dinSituasjon),
         inntektOgPensjon: hentInntektOgPensjon(t, soeknad.inntektenDin),
+        // andreYtelser: hentAndreYtelser(t, soeknad.dinSituasjon),
         uregistrertEllerVenterBarn: {
             spoersmaal: t('omBarn.gravidEllerNyligFoedt'),
             svar: valgTilSvar(t, soeknad.opplysningerOmBarn.gravidEllerNyligFoedt!!),
@@ -338,19 +339,33 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
         }
     }
 
-    let annet: Opplysning<EnumSvar<IngenJobbType>> | undefined
+    let annenSituasjon: Opplysning<AnnenSituasjon> | undefined
     if (dinSituasjon.jobbStatus?.includes(JobbStatus.ingen)) {
-        annet = {
-            spoersmaal: t('dinSituasjon.ingenJobbBeskrivelse'),
+        annenSituasjon = {
+            spoersmaal: t('dinSituasjon.annenSituasjon.tittel'),
             svar: {
-                innhold: t(dinSituasjon.ingenJobbBeskrivelse!!),
-                verdi: konverterIngenJobb(dinSituasjon.ingenJobbBeskrivelse!!),
+                beskrivelse: {
+                    spoersmaal: t('dinSituasjon.annenSituasjon.beskrivelse'),
+                    svar: {
+                        innhold: t(dinSituasjon.annenSituasjon!!.beskrivelse!!),
+                        verdi: konverterIngenJobb(dinSituasjon.annenSituasjon!!.beskrivelse!!),
+                    },
+                },
+                annet:
+                    dinSituasjon.annenSituasjon!!.beskrivelse === IngenJobb.annet
+                        ? {
+                              spoersmaal: t('dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse'),
+                              svar: {
+                                  innhold: `${dinSituasjon.annenSituasjon!!.annet!!.beskrivelse}`,
+                              },
+                          }
+                        : undefined,
             },
         }
     }
 
     let selvstendig: Opplysning<SelvstendigNaeringsdrivende[]> | undefined
-    if (dinSituasjon.jobbStatus?.includes(JobbStatus.selvstendig)) {
+    if (dinSituasjon.jobbStatus?.includes(JobbStatus.selvstendigAS)) {
         const naeringListe: SelvstendigNaeringsdrivende[] =
             dinSituasjon.selvstendig?.map((naering) => {
                 return {
@@ -391,12 +406,28 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
     let utdanning: Opplysning<Utdanning> | undefined
     if (dinSituasjon.jobbStatus?.includes(JobbStatus.underUtdanning)) {
         utdanning = {
-            spoersmaal: t('dinSituasjon.utdanning.naavaerendeUtdanning.tittel'),
+            spoersmaal: t('dinSituasjon.utdanning.tittel'),
             svar: {
-                navn: {
-                    spoersmaal: t('dinSituasjon.utdanning.naavaerendeUtdanning.navn'),
+                studiested: {
+                    spoersmaal: t('dinSituasjon.utdanning.naavaerendeUtdanning.studiested'),
                     svar: {
-                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.navn!!,
+                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studiested!!,
+                    },
+                },
+                studie: {
+                    spoersmaal: t('dinSituasjon.utdanning.naavaerendeUtdanning.studie'),
+                    svar: {
+                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studie!!,
+                    },
+                },
+                studieform: {
+                    spoersmaal: t('dinSituasjon.utdanning.naavaerendeUtdanning.studieform'),
+                    svar: t(dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieform!!),
+                },
+                studieprosent: {
+                    spoersmaal: t('dinSituasjon.utdanning.naavaerendeUtdanning.studieprosent'),
+                    svar: {
+                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieprosent!!,
                     },
                 },
                 startDato: {
@@ -410,6 +441,10 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                     svar: {
                         innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.sluttDato!!,
                     },
+                },
+                godkjentUtdanning: {
+                    spoersmaal: t('dinSituasjon.utdanning.naavaerendeUtdanning.godkjentUtdanning'),
+                    svar: valgTilSvar(t,dinSituasjon.utdanning!!.naavaerendeUtdanning!!.godkjentUtdanning!!),
                 },
             },
         }
@@ -427,7 +462,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
         arbeidsforhold,
         selvstendig,
         utdanning,
-        annet,
+        annenSituasjon,
     }
 }
 

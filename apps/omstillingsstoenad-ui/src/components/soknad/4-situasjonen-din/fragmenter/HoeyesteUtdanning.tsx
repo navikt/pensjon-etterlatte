@@ -7,6 +7,7 @@ import { useFormContext } from 'react-hook-form'
 import { Heading, RadioProps } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
+import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 
 const HoeyesteUtdanning = () => {
     const { t } = useTranslation()
@@ -36,6 +37,9 @@ const HoeyesteUtdanning = () => {
                     placeholder={t('dinSituasjon.utdanning.annenUtdanningPlaceholder')}
                 />
             )}
+            <HvorforSpoerVi title="dinSituasjon.utdanning.tittelFullfoert">
+                {t('dinSituasjon.utdanning.hvorfor')}
+            </HvorforSpoerVi>
         </SkjemaGruppe>
     )
 }
