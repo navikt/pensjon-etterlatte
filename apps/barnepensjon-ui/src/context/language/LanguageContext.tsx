@@ -7,7 +7,7 @@ import en from '../../locales/en'
 import { FCProps } from '../../types/FCProps'
 
 const initialLanguage = (localStorage.getItem('language') as Language) || Language.BOKMAAL
-const initialTranslations = (nb as Record<Namespace, Record<TKey, any>>) || {}
+const initialTranslations = (nb as Record<Namespace, Record<TKey, any>>)
 
 document.documentElement.lang = initialLanguage
 

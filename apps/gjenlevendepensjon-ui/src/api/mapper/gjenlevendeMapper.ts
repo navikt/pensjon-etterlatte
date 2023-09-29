@@ -524,5 +524,5 @@ const mapForholdTilAvdoede = (t: TFunction, forholdTilAvdoede: IForholdAvdoede):
         tidligereGift,
         omsorgForBarn,
         mottokBidrag
-    }
+    };
 };
