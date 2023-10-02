@@ -15,13 +15,13 @@ import org.slf4j.LoggerFactory
 import java.time.Clock
 import java.time.OffsetDateTime
 
-internal class JournalfoerBarnepensjonSoeknadForDoffen(
+internal class JournalfoerIkkeFerdigstillGjenny(
     rapidsConnection: RapidsConnection,
     private val dokumentService: DokumentService,
     private val journalfoeringService: JournalfoeringService,
     private val klokke: Clock = Clock.systemUTC()
 ) : River.PacketListener {
-    private val logger = LoggerFactory.getLogger(JournalfoerBarnepensjonSoeknadForDoffen::class.java)
+    private val logger = LoggerFactory.getLogger(JournalfoerBarnepensjonSoeknadForPesys::class.java)
 
     init {
         River(rapidsConnection).apply {
@@ -33,8 +33,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("@hendelse_gyldig_til") }
             validate { it.requireValue("soeknadFordelt", true) }
-            validate { it.requireKey("sakId") }
-            validate { it.rejectValue("trengerManuellJournalfoering", true) }
+            validate { it.requireValue("trengerManuellJournalfoering", true) }
             validate { it.rejectKey("@dokarkivRetur") }
         }.register(this)
     }
@@ -71,16 +70,6 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
-        return journalfoeringService.journalfoer(
-            soeknadId = soeknadId,
-            fnrSoeker = fnrSoeker,
-            gradering = gradering,
-            dokument = dokument,
-            soeknad = soeknad,
-            tema = "EYB",
-            behandlingstema = null,
-            forsoekFerdigstill = true,
-            sakId = packet["sakId"].asText()
-        )
+        return journalfoeringService.journalfoer(soeknadId, fnrSoeker, gradering, dokument, soeknad, "EYB", false, null)
     }
 }
