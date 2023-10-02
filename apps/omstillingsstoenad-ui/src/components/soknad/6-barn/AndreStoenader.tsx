@@ -14,11 +14,12 @@ const AndreStoenader = ({ soeknad, barn }: { soeknad: ISoeknad; barn?: IBarn[] }
 
     const erArbeidstaker = situasjon.arbeidsforhold || situasjon.selvstendig
     const erArbeidssoeker = situasjon.jobbStatus?.includes(JobbStatus.arbeidssoeker)
+    const etablererBedrift = situasjon.jobbStatus?.includes(JobbStatus.etablerer)
     const erSyk = situasjon.annenSituasjon?.beskrivelse === IngenJobb.syk
     const underUtdanning = situasjon.utdanning?.naavaerendeUtdanning
     const harBarn = (barn && barn.length > 0) || false
 
-    const rettTilBarnetilsyn = harBarn && (erArbeidstaker || erSyk)
+    const rettTilBarnetilsyn = harBarn && (erArbeidstaker || etablererBedrift || erSyk)
     const rettTilBarnStoenad = harBarn && (underUtdanning || erArbeidssoeker)
 
     return (

@@ -37,7 +37,6 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             if (isEmpty(soeknad) || isEmpty(bruker)) {
                 setOppsummering([])
             } else {
-                console.log(soeknad)
                 const soeknadOppsummering = mapper.lagOppsummering(soeknad, bruker)
                 setOppsummering(soeknadOppsummering)
             }
@@ -49,9 +48,8 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
         setError(false)
 
         const omstillingsstoenad = mapTilOmstillingsstoenadSoeknad(t, soeknad, bruker)
-        console.log(omstillingsstoenad)
-        // const barnepensjonSoeknader = mapTilBarnepensjonSoeknadListe(t, soeknad, bruker)
-/*
+        const barnepensjonSoeknader = mapTilBarnepensjonSoeknadListe(t, soeknad, bruker)
+
         const soeknadBody: SoeknadRequest = {
             soeknader: [omstillingsstoenad, ...barnepensjonSoeknader],
         }
@@ -72,7 +70,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 console.log(error)
                 setSenderSoeknad(false)
                 setError(true)
-            })*/
+            })
     }
 
     return (
