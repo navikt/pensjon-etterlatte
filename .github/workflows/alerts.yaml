@@ -18,7 +18,7 @@ jobs:
         app: [barnepensjon-ui, gjenlevendepensjon-ui, omstillingsstoenad-ui]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Deploy to dev-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
@@ -49,7 +49,7 @@ jobs:
         app: [selvbetjening-api, innsendt-soeknad, sjekk-adressebeskyttelse, journalfoer-soeknad]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Deploy to dev-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
