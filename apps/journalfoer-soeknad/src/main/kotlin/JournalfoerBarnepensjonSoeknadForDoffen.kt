@@ -34,8 +34,8 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
             validate { it.requireKey("@hendelse_gyldig_til") }
             validate { it.requireValue("soeknadFordelt", true) }
             validate { it.requireKey("sakId") }
-            validate { it.rejectValue("trengerManuellJournalfoering", true) }
             validate { it.rejectKey("@dokarkivRetur") }
+            validate { it.interestedIn("trengerManuellJournalfoering") }
         }.register(this)
     }
 
@@ -71,6 +71,9 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
+        val trengerManuellJournalfoering = packet["trengerManuellJournalfoering"].booleanValue()
+        val sakId = if (trengerManuellJournalfoering) null else packet["sakId"].asText()
+
         return journalfoeringService.journalfoer(
             soeknadId = soeknadId,
             fnrSoeker = fnrSoeker,
@@ -79,7 +82,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
             soeknad = soeknad,
             tema = "EYB",
             behandlingstema = null,
-            forsoekFerdigstill = true,
+            forsoekFerdigstill = !trengerManuellJournalfoering,
             sakId = packet["sakId"].asText()
         )
     }
