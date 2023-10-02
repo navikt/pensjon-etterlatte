@@ -12,9 +12,9 @@ const NavaerendeArbeidsforhold = () => {
         <>
             {jobbStatus?.includes(JobbStatus.arbeidstaker) && <Arbeidstaker />}
 
-            {jobbStatus?.includes(JobbStatus.selvstendigENK) && <Selvstendig />}
+            {jobbStatus?.includes(JobbStatus.selvstendigENK) && <Selvstendig type={'enk'} />}
 
-            {jobbStatus?.includes(JobbStatus.selvstendigAS) && <Selvstendig />}
+            {jobbStatus?.includes(JobbStatus.selvstendigAS) && <Selvstendig type={'as'} />}
         </>
     )
 }

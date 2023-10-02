@@ -15,28 +15,30 @@ interface Props {
     lengde: number
     index: number
     fjern: (index: number) => void
+    type: 'enk' | 'as'
 }
 
-const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
+const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext()
-    const arbeidsmengde = watch(`selvstendig[${index}].arbeidsmengde.fyllUt`)
-    const endretArbeidssituasjon = watch(`selvstendig[${index}].forventerEndretArbeidssituasjon.svar`)
+    const selvstendigName = `selvstendig.${type}[${index}]`
 
+    const arbeidsmengde = watch(`${selvstendigName}.typeArbeidsmengde`)
+    const endretArbeidssituasjon = watch(`${selvstendigName}.forventerEndretArbeidssituasjon.svar`)
 
     return (
         <>
             <RHFInput
                 className={'kol-75'}
-                name={`selvstendig[${index}].beskrivelse` as const}
+                name={`${selvstendigName}.beskrivelse` as const}
                 label={t('dinSituasjon.selvstendig.hvaHeterNaeringen')}
                 description={t('dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse')}
             />
 
             <SkjemaElement>
                 <RHFNumberInput
-                    name={`selvstendig[${index}].orgnr` as const}
+                    name={`${selvstendigName}.orgnr` as const}
                     placeholder={t('dinSituasjon.selvstendig.orgnrplaceholder')}
                     label={t('dinSituasjon.selvstendig.orgnr')}
                     maxLength={9}
@@ -46,11 +48,11 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
             </SkjemaElement>
 
             <SkjemaElement>
-                <Label>{t('dinSituasjon.arbeidsforhold.arbeidsmengde')}</Label>
-                <Detail textColor="subtle">{t('dinSituasjon.arbeidsforhold.stillingsprosent.description')}</Detail>
+                <Label>{t('dinSituasjon.selvstendig.arbeidsmengde')}</Label>
+                <Detail textColor="subtle">{t('dinSituasjon.selvstendig.stillingsprosent.description')}</Detail>
                 <RHFRadio
-                    name={`selvstendig[${index}].arbeidsmengde.fyllUt` as const}
-                    legend={t('dinSituasjon.arbeidsforhold.arbeidsmengde.fyllUt')}
+                    name={`${selvstendigName}.typeArbeidsmengde` as const}
+                    legend={t('dinSituasjon.selvstendig.typeArbeidsmengde')}
                 >
                     {Object.values(Arbeidsmengde).map((value) => {
                         return { children: t(value), value } as RadioProps
@@ -58,31 +60,31 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                 </RHFRadio>
                 {arbeidsmengde === Arbeidsmengde.prosent && (
                     <RHFProsentInput
-                        name={`selvstendig[${index}].stillingsprosent` as const}
-                        label={t('dinSituasjon.arbeidsforhold.stillingsprosent')}
+                        name={`${selvstendigName}.arbeidsmengde.prosent` as const}
+                        label={t('dinSituasjon.selvstendig.arbeidsmengde.prosent')}
                     />
                 )}
 
                 {arbeidsmengde === Arbeidsmengde.timer && (
                     <RHFNumberInput
-                        name={`selvstendig[${index}].arbeidsmengde.timer` as const}
-                        label={t('dinSituasjon.arbeidsforhold.arbeidsmengde.timer')}
+                        name={`${selvstendigName}.arbeidsmengde.timer` as const}
+                        label={t('dinSituasjon.selvstendig.arbeidsmengde.timer')}
                     />
                 )}
             </SkjemaElement>
 
             <SkjemaElement>
                 <RHFSpoersmaalRadio
-                    name={`selvstendig[${index}].forventerEndretArbeidssituasjon.svar` as const}
-                    legend={t('dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar')}
+                    name={`${selvstendigName}.forventerEndretArbeidssituasjon.svar` as const}
+                    legend={t('dinSituasjon.selvstendig.forventerEndretInntekt.svar')}
                 />
             </SkjemaElement>
 
             {endretArbeidssituasjon === IValg.JA && (
                 <SkjemaElement>
                     <RHFInput
-                        name={`selvstendig[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
-                        label={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
+                        name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
+                        label={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
                     />
                 </SkjemaElement>
             )}

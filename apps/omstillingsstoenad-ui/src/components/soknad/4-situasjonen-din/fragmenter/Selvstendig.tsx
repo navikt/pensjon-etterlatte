@@ -6,13 +6,17 @@ import SelvstendigInfokort from './SelvstendigInfokort'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
-const Selvstendig = () => {
+interface Props {
+    type: 'enk' | 'as'
+}
+
+const Selvstendig = ({ type }: Props) => {
     const { t } = useTranslation()
     const { control } = useFormContext()
 
     const { fields, append, remove } = useFieldArray<any>({
         control,
-        name: 'selvstendig',
+        name: `selvstendig.${type}`,
         shouldUnregister: true,
     })
 
@@ -29,7 +33,7 @@ const Selvstendig = () => {
             </SkjemaElement>
 
             {fields.map((field: FieldArrayWithId, index: number) => (
-                <SelvstendigInfokort key={field.id} lengde={fields.length} index={index} fjern={remove} />
+                <SelvstendigInfokort key={field.id} lengde={fields.length} index={index} fjern={remove} type={type} />
             ))}
 
             <Button variant={'secondary'} type={'button'} onClick={() => append({}, { shouldFocus: true })}>

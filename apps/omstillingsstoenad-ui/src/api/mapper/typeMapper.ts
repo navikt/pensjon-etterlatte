@@ -1,17 +1,23 @@
 import { JobbStatus, Utdanning as GammelUtdanning } from '../../typer/situasjon'
-import { IngenJobb, StillingType as GammelStillingType } from '../../typer/arbeidsforhold'
 import {
-    EndringAvInntektGrunnType,
+    Arbeidsmengde,
+    IngenJobb,
+    SagtOppEllerRedusert,
+    StillingType as GammelStillingType,
+} from '../../typer/arbeidsforhold'
+import {
+    ArbeidsmengdeType,
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
     IngenJobbType,
     InntektType,
     JobbStatusType,
-    OppholdUtlandType,
+    OppholdUtlandType, SagtOppEllerRedusertType,
     SivilstatusType,
     SoekbareYtelserAndreType, SoekbareYtelserNAVType,
-    StillingType,
+    StillingType, StudieformType,
     Ytelser,
+    EndringAvInntektGrunnType
 } from '../dto/FellesOpplysninger'
 import {
     ForholdTilAvdoede as RelasjonAvdoed,
@@ -21,6 +27,7 @@ import {
 } from '../../typer/person'
 import { Ytelser as GamleYtelser } from '../../typer/ytelser'
 import { EndringAvInntektGrunn, SoekbareYtelserAndre, SoekbareYtelserNAV } from '../../typer/inntekt'
+import { Studieform } from '../../typer/utdanning'
 
 export const konverterStillingType = (type: GammelStillingType): StillingType => {
     switch (type) {
@@ -247,3 +254,33 @@ export const konverterSoekteYtelserNAV = (type: SoekbareYtelserNAV): SoekbareYte
             return SoekbareYtelserNAVType.ALDERSPENSJON
     }
 }
+export const konverterArbeidsmengde = (type: Arbeidsmengde): ArbeidsmengdeType => {
+    switch (type) {
+        case Arbeidsmengde.prosent:
+            return ArbeidsmengdeType.PROSENT
+        case Arbeidsmengde.timer:
+            return ArbeidsmengdeType.TIMER
+    }
+}
+
+export const konverterSagtOppEllerRedusert = (type: SagtOppEllerRedusert): SagtOppEllerRedusertType => {
+    switch (type) {
+        case SagtOppEllerRedusert.oppsagt:
+            return SagtOppEllerRedusertType.OPPSAGT
+        case SagtOppEllerRedusert.redusert:
+            return SagtOppEllerRedusertType.REDUSERT
+        case SagtOppEllerRedusert.nei:
+            return SagtOppEllerRedusertType.NEI
+    }
+}
+
+export const konverterStudieform = (type: Studieform): StudieformType => {
+    switch (type) {
+        case Studieform.heltid:
+            return StudieformType.HELTID
+        case Studieform.deltid:
+            return StudieformType.DELTID
+    }
+}
+
+

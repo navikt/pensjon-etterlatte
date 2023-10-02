@@ -8,19 +8,40 @@ export enum StillingType {
 
 export interface IArbeidsforhold {
     arbeidsgiver?: string
+    typeArbeidsmengde?: Arbeidsmengde
+    arbeidsmengde?: {
+        timer?: string
+        prosent?: string
+    }
     stilling?: string // Bort?
-    ansettelsesforhold?: StillingType // låse valg til type?
-    stillingsprosent?: number
-    forventerEndretInntekt?: {
+    ansettelsesforhold?: StillingType
+    midlertidig?: {
+        svar?: IValg
+        sluttdatoVelger?: Date
+    }
+    forventerEndretArbeidssituasjon?: {
         svar?: IValg
         beskrivelse?: string
     }
+    sagtOppEllerRedusert: {
+        svar?: SagtOppEllerRedusert
+    }
+}
+
+export interface ISelvstendig {
+    as?: ISelvstendigNaeringsdrivende[]
+    enk?: ISelvstendigNaeringsdrivende[]
 }
 
 export interface ISelvstendigNaeringsdrivende {
     beskrivelse?: string
     orgnr?: string
-    forventerEndretInntekt?: {
+    typeArbeidsmengde?: Arbeidsmengde
+    arbeidsmengde?: {
+        timer?: string
+        prosent?: string
+    }
+    forventerEndretArbeidssituasjon?: {
         svar?: IValg
         beskrivelse?: string
     }

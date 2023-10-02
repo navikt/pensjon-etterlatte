@@ -8,6 +8,7 @@ import { Heading } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import Bredde from '../../../../typer/bredde'
+import { IValg } from '../../../../typer/Spoersmaal'
 
 const EtablererVirksomhet = () => {
     const { t } = useTranslation()
@@ -30,7 +31,7 @@ const EtablererVirksomhet = () => {
             <SkjemaElement>
                 <RHFNumberInput
                     name={`etablererVirksomhet.orgnr` as const}
-                    label={t('dinSituasjon.selvstendig.orgnr')}
+                    label={t('dinSituasjon.etablererVirksomhet.orgnr')}
                     maxLength={9}
                     minLength={9}
                     htmlSize={Bredde.S}
@@ -44,7 +45,7 @@ const EtablererVirksomhet = () => {
                 />
             </SkjemaElement>
 
-            {harForretningsplan && (
+            {harForretningsplan === IValg.JA && (
                 <SkjemaElement>
                     <RHFSpoersmaalRadio
                         name={`etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar` as const}

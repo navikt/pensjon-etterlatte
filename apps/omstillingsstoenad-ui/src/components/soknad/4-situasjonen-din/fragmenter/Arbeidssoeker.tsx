@@ -6,7 +6,6 @@ import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { IValg } from '../../../../typer/Spoersmaal'
-import { RHFInput } from '../../../felles/rhf/RHFInput'
 
 const Arbeidssoeker = () => {
     const { t } = useTranslation()
@@ -23,9 +22,9 @@ const Arbeidssoeker = () => {
                     legend={t('dinSituasjon.arbeidssoeker.svar')}
                 />
                 {registrertArbeidssoeker === IValg.JA && (
-                    <RHFInput
-                        name={'utdanning.naavaerendeUtdanning.studiested'}
-                        label={t('dinSituasjon.utdanning.naavaerendeUtdanning.studiested')}
+                    <RHFSpoersmaalRadio
+                        name={`arbeidssoeker.aktivitetsplan.svar` as const}
+                        legend={t('dinSituasjon.arbeidssoeker.aktivitetsplan.svar')}
                     />
                 )}
             </SkjemaElement>

@@ -1,9 +1,8 @@
 import {
     IArbeidsforhold,
-    ISelvstendigNaeringsdrivende,
     IEtablererVirksomhet,
     ITilbudOmJobb,
-    IArbeidssoeker, IAnnenSituasjon,
+    IArbeidssoeker, IAnnenSituasjon, ISelvstendig,
 } from './arbeidsforhold'
 import { IAndreYtelser } from './ytelser'
 import { IValg } from './Spoersmaal'
@@ -46,11 +45,13 @@ export enum JobbStatus {
     ingen = 'jobbStatus.ingen',
 }
 
+
+
 export interface ISituasjon {
     jobbStatus?: JobbStatus[]
     annenSituasjon?: IAnnenSituasjon
     utdanning?: IUtdanning
-    selvstendig?: ISelvstendigNaeringsdrivende[]
+    selvstendig?: ISelvstendig
     arbeidsforhold?: IArbeidsforhold[]
     etablererVirksomhet?: IEtablererVirksomhet
     tilbudOmJobb?: ITilbudOmJobb

@@ -22,10 +22,10 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext()
-    const arbeidsmengde = watch(`arbeidsforhold[${index}].arbeidsmengde.fyllUt`)
+    const arbeidsmengde = watch(`arbeidsforhold[${index}].typeArbeidsmengde`)
     const ansettelsesforhold = watch(`arbeidsforhold[${index}].ansettelsesforhold`)
     const endretArbeidssituasjon = watch(`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar`)
-    const sluttdato = watch(`arbeidsforhold[${index}].midlertidig.sluttdato.svar`)
+    const sluttdato = watch(`arbeidsforhold[${index}].midlertidig.svar`)
 
     return (
         <>
@@ -42,8 +42,8 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 <Label>{t('dinSituasjon.arbeidsforhold.arbeidsmengde')}</Label>
                 <Detail textColor="subtle">{t('dinSituasjon.arbeidsforhold.stillingsprosent.description')}</Detail>
                 <RHFRadio
-                    name={`arbeidsforhold[${index}].arbeidsmengde.fyllUt` as const}
-                    legend={t('dinSituasjon.arbeidsforhold.arbeidsmengde.fyllUt')}
+                    name={`arbeidsforhold[${index}].typeArbeidsmengde` as const}
+                    legend={t('dinSituasjon.arbeidsforhold.typeArbeidsmengde')}
                 >
                     {Object.values(Arbeidsmengde).map((value) => {
                         return { children: t(value), value } as RadioProps
@@ -51,8 +51,8 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 </RHFRadio>
                 {arbeidsmengde === Arbeidsmengde.prosent && (
                     <RHFProsentInput
-                        name={`arbeidsforhold[${index}].stillingsprosent` as const}
-                        label={t('dinSituasjon.arbeidsforhold.stillingsprosent')}
+                        name={`arbeidsforhold[${index}].arbeidsmengde.prosent` as const}
+                        label={t('dinSituasjon.arbeidsforhold.arbeidsmengde.prosent')}
                     />
                 )}
 
@@ -89,8 +89,8 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             {ansettelsesforhold === StillingType.midlertidig && (
                 <SkjemaElement>
                     <RHFSpoersmaalRadio
-                        name={`arbeidsforhold[${index}].midlertidig.sluttdato.svar` as const}
-                        legend={t('dinSituasjon.arbeidsforhold.midlertidig.sluttdato.svar')}
+                        name={`arbeidsforhold[${index}].midlertidig.svar` as const}
+                        legend={t('dinSituasjon.arbeidsforhold.midlertidig.svar')}
                     />
                     {sluttdato === IValg.JA && (
                         <Datovelger
@@ -105,7 +105,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
-                    legend={t('dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar')}
+                    legend={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
                 />
             </SkjemaElement>
 
@@ -120,7 +120,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
 
             <SkjemaElement>
                 <RHFRadio
-                    name={`arbeidsforhold[${index}].arbeidsmengde.sagtOppEllerRedusert.svar` as const}
+                    name={`arbeidsforhold[${index}].sagtOppEllerRedusert.svar` as const}
                     legend={t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar')}
                     description={t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.beskrivelse')}
                 >
