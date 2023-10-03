@@ -1,42 +1,29 @@
-import { RHFRadio } from '../../../felles/rhf/RHFRadio'
 import { useTranslation } from 'react-i18next'
 import React from 'react'
-import { ISituasjon, Utdanning } from '../../../../typer/situasjon'
-import { RHFInput } from '../../../felles/rhf/RHFInput'
-import { useFormContext } from 'react-hook-form'
-import { Heading, RadioProps } from '@navikt/ds-react'
+import { Utdanning } from '../../../../typer/situasjon'
+import { Heading } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
+import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 
 const HoeyesteUtdanning = () => {
     const { t } = useTranslation()
-
-    const { watch } = useFormContext<ISituasjon>()
-
-    const hoyesteFullfoerteUtdanning = watch('utdanning.hoyesteFullfoerteUtdanning')
 
     return (
         <SkjemaGruppe>
             <SkjemaElement>
                 <Heading size={'small'}>{t('dinSituasjon.utdanning.tittelFullfoert')}</Heading>
             </SkjemaElement>
-            <RHFRadio
-                name={'utdanning.hoyesteFullfoerteUtdanning'}
-                legend={t('dinSituasjon.utdanning.hoyesteFullfoerteUtdanning')}
-            >
-                {Object.values(Utdanning).map((value) => {
-                    return { children: t(value), value, required: true } as RadioProps
-                })}
-            </RHFRadio>
 
-            {hoyesteFullfoerteUtdanning === Utdanning.annen && (
-                <RHFInput
-                    name={'utdanning.annenUtdanning'}
-                    label={t('dinSituasjon.utdanning.annenUtdanning')}
-                    placeholder={t('dinSituasjon.utdanning.annenUtdanningPlaceholder')}
-                />
-            )}
+            <RHFCheckboksGruppe
+                    name={'utdanning.hoyesteFullfoerteUtdanning'}
+                    legend={t('dinSituasjon.utdanning.hoyesteFullfoerteUtdanning')}
+                    checkboxes={Object.values(Utdanning).map((value) => {
+                        return { children: t(value), value, required: true }
+                    })}
+            />
+
             <HvorforSpoerVi title="dinSituasjon.utdanning.tittelFullfoert">
                 {t('dinSituasjon.utdanning.hvorfor')}
             </HvorforSpoerVi>

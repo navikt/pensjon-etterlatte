@@ -7,6 +7,7 @@ import {
 import { IAndreYtelser } from './ytelser'
 import { IValg } from './Spoersmaal'
 import { Studieform } from './utdanning'
+import { HoeyesteUtdanning } from '../api/dto/FellesOpplysninger'
 
 export interface IUtdanning {
     naavaerendeUtdanning?: {
@@ -20,8 +21,7 @@ export interface IUtdanning {
     }
     soeknadOmSkolepenger?: IValg.JA | undefined
     soeknadOmTilleggsstoenadUtdanning?: IValg.JA | undefined
-    hoyesteFullfoerteUtdanning?: string
-    annenUtdanning?: string
+    hoyesteFullfoerteUtdanning?: HoeyesteUtdanning[]
 }
 
 export enum Utdanning {

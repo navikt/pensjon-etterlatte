@@ -62,7 +62,9 @@
       "jobbStatus.arbeidstaker"
     ],
     "utdanning": {
-      "hoyesteFullfoerteUtdanning": "utdanning.mastergrad"
+      "hoyesteFullfoerteUtdanning": [
+        "utdanning.mastergrad"
+      ]
     },
     "andreYtelser": {
       "kravOmAnnenStonad": {

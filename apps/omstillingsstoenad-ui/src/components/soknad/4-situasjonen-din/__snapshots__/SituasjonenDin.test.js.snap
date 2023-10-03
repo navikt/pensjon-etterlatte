@@ -113,7 +113,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       dinSituasjon.jobbStatus.tittel
     </h1>
     <div
-      class="sc-brSaGm duorJf"
+      class="sc-eDLKEg sqQlH"
       id="jobbStatus"
     >
       <fieldset
@@ -133,13 +133,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             <input
               checked=""
               class="navds-checkbox__input"
-              id="checkbox-r1g"
+              id="checkbox-r1f"
               type="checkbox"
               value="jobbStatus.arbeidstaker"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1g"
+              for="checkbox-r1f"
             >
               <span
                 class="navds-checkbox__icon"
@@ -177,13 +177,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             <input
               checked=""
               class="navds-checkbox__input"
-              id="checkbox-r1h"
+              id="checkbox-r1g"
               type="checkbox"
               value="jobbStatus.selvstendig.enk"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1h"
+              for="checkbox-r1g"
             >
               <span
                 class="navds-checkbox__icon"
@@ -220,13 +220,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1i"
+              id="checkbox-r1h"
               type="checkbox"
               value="jobbStatus.selvstendig.as"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1i"
+              for="checkbox-r1h"
             >
               <span
                 class="navds-checkbox__icon"
@@ -263,13 +263,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1j"
+              id="checkbox-r1i"
               type="checkbox"
               value="jobbStatus.etablerer"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1j"
+              for="checkbox-r1i"
             >
               <span
                 class="navds-checkbox__icon"
@@ -306,13 +306,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1k"
+              id="checkbox-r1j"
               type="checkbox"
               value="jobbStatus.tilbud"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1k"
+              for="checkbox-r1j"
             >
               <span
                 class="navds-checkbox__icon"
@@ -349,13 +349,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1l"
+              id="checkbox-r1k"
               type="checkbox"
               value="jobbStatus.arbeidssoker"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1l"
+              for="checkbox-r1k"
             >
               <span
                 class="navds-checkbox__icon"
@@ -392,13 +392,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1m"
+              id="checkbox-r1l"
               type="checkbox"
               value="jobbStatus.underUtdanning"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1m"
+              for="checkbox-r1l"
             >
               <span
                 class="navds-checkbox__icon"
@@ -435,13 +435,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1n"
+              id="checkbox-r1m"
               type="checkbox"
               value="jobbStatus.ingen"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1n"
+              for="checkbox-r1m"
             >
               <span
                 class="navds-checkbox__icon"
@@ -478,7 +478,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           aria-live="polite"
           aria-relevant="additions removals"
           class="navds-fieldset__error"
-          id="fieldset-error-r1f"
+          id="fieldset-error-r1e"
         />
       </fieldset>
     </div>
@@ -549,7 +549,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-r1p"
+              id="textField-error-r1o"
             />
           </div>
         </div>
@@ -589,14 +589,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r1s"
+                    id="radio-r1r"
                     name="arbeidsforhold[0].typeArbeidsmengde"
                     type="radio"
                     value="arbeidsmengde.prosent"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r1s"
+                    for="radio-r1r"
                   >
                     <span
                       class="navds-radio__content"
@@ -615,14 +615,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                   <input
                     checked=""
                     class="navds-radio__input"
-                    id="radio-r1t"
+                    id="radio-r1s"
                     name="arbeidsforhold[0].typeArbeidsmengde"
                     type="radio"
                     value="arbeidsmengde.timer"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r1t"
+                    for="radio-r1s"
                   >
                     <span
                       class="navds-radio__content"
@@ -640,7 +640,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r1r"
+                id="fieldset-error-r1q"
               />
             </fieldset>
           </div>
@@ -664,7 +664,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-r1u"
+            id="textField-error-r1t"
           />
         </div>
       </div>
@@ -679,7 +679,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <label
               class="navds-form-field__label navds-label"
-              for="select-r1v"
+              for="select-r1u"
             >
               dinSituasjon.arbeidsforhold.ansettelsesforhold
             </label>
@@ -688,7 +688,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <select
                 class="navds-select__input navds-body-short navds-body--medium"
-                id="select-r1v"
+                id="select-r1u"
               >
                 <option
                   value=""
@@ -734,7 +734,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="select-error-r1v"
+              id="select-error-r1u"
             />
           </div>
         </div>
@@ -764,14 +764,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r23"
+                    id="radio-r22"
                     name="arbeidsforhold[0].midlertidig.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r23"
+                    for="radio-r22"
                   >
                     <span
                       class="navds-radio__content"
@@ -789,14 +789,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r24"
+                    id="radio-r23"
                     name="arbeidsforhold[0].midlertidig.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r24"
+                    for="radio-r23"
                   >
                     <span
                       class="navds-radio__content"
@@ -814,7 +814,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r22"
+                id="fieldset-error-r21"
               />
             </fieldset>
           </div>
@@ -845,14 +845,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r27"
+                    id="radio-r26"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r27"
+                    for="radio-r26"
                   >
                     <span
                       class="navds-radio__content"
@@ -870,14 +870,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r28"
+                    id="radio-r27"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r28"
+                    for="radio-r27"
                   >
                     <span
                       class="navds-radio__content"
@@ -895,7 +895,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r26"
+                id="fieldset-error-r25"
               />
             </fieldset>
           </div>
@@ -911,7 +911,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             class="sc-guDMob jqJKDR"
           >
             <fieldset
-              aria-describedby="fieldset-description-r2a"
+              aria-describedby="fieldset-description-r29"
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
@@ -921,7 +921,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               </legend>
               <div
                 class="navds-fieldset__description navds-body-short navds-body-short--medium"
-                id="fieldset-description-r2a"
+                id="fieldset-description-r29"
               >
                 dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.beskrivelse
               </div>
@@ -933,14 +933,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r2b"
+                    id="radio-r2a"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="sagtOppEllerRedusert.oppsagt"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r2b"
+                    for="radio-r2a"
                   >
                     <span
                       class="navds-radio__content"
@@ -958,14 +958,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r2c"
+                    id="radio-r2b"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="sagtOppEllerRedusert.redusert"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r2c"
+                    for="radio-r2b"
                   >
                     <span
                       class="navds-radio__content"
@@ -983,14 +983,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r2d"
+                    id="radio-r2c"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r2d"
+                    for="radio-r2c"
                   >
                     <span
                       class="navds-radio__content"
@@ -1008,7 +1008,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r2a"
+                id="fieldset-error-r29"
               />
             </fieldset>
           </div>
@@ -1082,12 +1082,12 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           </label>
           <div
             class="navds-form-field__description navds-body-short navds-body-short--medium"
-            id="textField-description-r2s"
+            id="textField-description-r2q"
           >
             dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse
           </div>
           <input
-            aria-describedby="textField-description-r2s"
+            aria-describedby="textField-description-r2q"
             class="navds-text-field__input navds-body-short navds-body-medium"
             id="selvstendig.enk[0].beskrivelse"
             type="text"
@@ -1097,7 +1097,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-r2s"
+            id="textField-error-r2q"
           />
         </div>
       </div>
@@ -1125,7 +1125,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-r2t"
+            id="textField-error-r2r"
           />
         </div>
       </div>
@@ -1164,14 +1164,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r30"
+                    id="radio-r2u"
                     name="selvstendig.enk[0].typeArbeidsmengde"
                     type="radio"
                     value="arbeidsmengde.prosent"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r30"
+                    for="radio-r2u"
                   >
                     <span
                       class="navds-radio__content"
@@ -1189,14 +1189,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r31"
+                    id="radio-r2v"
                     name="selvstendig.enk[0].typeArbeidsmengde"
                     type="radio"
                     value="arbeidsmengde.timer"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r31"
+                    for="radio-r2v"
                   >
                     <span
                       class="navds-radio__content"
@@ -1214,7 +1214,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r2v"
+                id="fieldset-error-r2t"
               />
             </fieldset>
           </div>
@@ -1245,14 +1245,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r34"
+                    id="radio-r32"
                     name="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r34"
+                    for="radio-r32"
                   >
                     <span
                       class="navds-radio__content"
@@ -1270,14 +1270,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r35"
+                    id="radio-r33"
                     name="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r35"
+                    for="radio-r33"
                   >
                     <span
                       class="navds-radio__content"
@@ -1295,7 +1295,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r33"
+                id="fieldset-error-r31"
               />
             </fieldset>
           </div>
@@ -1360,207 +1360,330 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
+        class="sc-eDLKEg sqQlH"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
-        <div
-          class="sc-guDMob jqJKDR"
+        <fieldset
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          <fieldset
-            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
-            >
-              dinSituasjon.utdanning.hoyesteFullfoerteUtdanning
-            </legend>
+            dinSituasjon.utdanning.hoyesteFullfoerteUtdanning
+          </legend>
+          <div
+            class="navds-checkboxes"
+          >
             <div
-              class="navds-radio-buttons"
+              class="navds-checkbox navds-checkbox--medium"
             >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r2f"
+                type="checkbox"
+                value="utdanning.grunnskole"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r2f"
               >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r2h"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.grunnskole"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r2h"
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
                 >
                   <span
-                    class="navds-radio__content"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
                   >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.grunnskole
-                    </span>
+                    utdanning.grunnskole
                   </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r2i"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.videregående"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r2i"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.videregående
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r2j"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.fagbrev"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r2j"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.fagbrev
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r2k"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.bachelorgrad"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r2k"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.bachelorgrad
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  checked=""
-                  class="navds-radio__input"
-                  id="radio-r2l"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.mastergrad"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r2l"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.mastergrad
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r2m"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.ingen"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r2m"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.ingen
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r2n"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.annen"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r2n"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.annen
-                    </span>
-                  </span>
-                </label>
-              </div>
+                </span>
+              </label>
             </div>
             <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-r2g"
-            />
-          </fieldset>
-        </div>
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r2g"
+                type="checkbox"
+                value="utdanning.videregående"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r2g"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.videregående
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r2h"
+                type="checkbox"
+                value="utdanning.fagbrev"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r2h"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.fagbrev
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r2i"
+                type="checkbox"
+                value="utdanning.bachelorgrad"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r2i"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.bachelorgrad
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-r2j"
+                type="checkbox"
+                value="utdanning.mastergrad"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r2j"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.mastergrad
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r2k"
+                type="checkbox"
+                value="utdanning.ingen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r2k"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.ingen
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r2l"
+                type="checkbox"
+                value="utdanning.annen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r2l"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.annen
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-r2e"
+          />
+        </fieldset>
       </div>
       <div>
         <button
@@ -1597,7 +1720,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-eDLKEg LfRHk undefined"
+        class="sc-jTQDJr dujvAb undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -1622,7 +1745,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-eDLKEg sc-jTQDJr LfRHk gSyqWK"
+      class="sc-jTQDJr sc-gLLuHO dujvAb OALLo"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -1651,7 +1774,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r2r"
+              aria-labelledby="title-r2p"
               fill="none"
               focusable="false"
               height="1em"
@@ -1661,7 +1784,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r2r"
+                id="title-r2p"
               >
                 Lukk modalvindu
               </title>
@@ -1693,7 +1816,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-csKJRI cXtbbV"
+          class="sc-eTNxZ kBuSvG"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1721,7 +1844,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           </button>
         </div>
         <div
-          class="sc-csKJRI cXtbbV"
+          class="sc-eTNxZ kBuSvG"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -1855,7 +1978,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       dinSituasjon.jobbStatus.tittel
     </h1>
     <div
-      class="sc-brSaGm duorJf"
+      class="sc-eDLKEg sqQlH"
       id="jobbStatus"
     >
       <fieldset
@@ -2810,207 +2933,330 @@ exports[`Situasjonen din Snapshot 1`] = `
         </h1>
       </div>
       <div
+        class="sc-eDLKEg sqQlH"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
-        <div
-          class="sc-guDMob jqJKDR"
+        <fieldset
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          <fieldset
-            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
-            >
-              dinSituasjon.utdanning.hoyesteFullfoerteUtdanning
-            </legend>
+            dinSituasjon.utdanning.hoyesteFullfoerteUtdanning
+          </legend>
+          <div
+            class="navds-checkboxes"
+          >
             <div
-              class="navds-radio-buttons"
+              class="navds-checkbox navds-checkbox--medium"
             >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r12"
+                type="checkbox"
+                value="utdanning.grunnskole"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r12"
               >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r13"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.grunnskole"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r13"
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
                 >
                   <span
-                    class="navds-radio__content"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
                   >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.grunnskole
-                    </span>
+                    utdanning.grunnskole
                   </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r14"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.videregående"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r14"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.videregående
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r15"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.fagbrev"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r15"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.fagbrev
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r16"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.bachelorgrad"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r16"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.bachelorgrad
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  checked=""
-                  class="navds-radio__input"
-                  id="radio-r17"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.mastergrad"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r17"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.mastergrad
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r18"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.ingen"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r18"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.ingen
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r19"
-                  name="utdanning.hoyesteFullfoerteUtdanning"
-                  type="radio"
-                  value="utdanning.annen"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r19"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      utdanning.annen
-                    </span>
-                  </span>
-                </label>
-              </div>
+                </span>
+              </label>
             </div>
             <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-r12"
-            />
-          </fieldset>
-        </div>
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r13"
+                type="checkbox"
+                value="utdanning.videregående"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r13"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.videregående
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r14"
+                type="checkbox"
+                value="utdanning.fagbrev"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r14"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.fagbrev
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r15"
+                type="checkbox"
+                value="utdanning.bachelorgrad"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r15"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.bachelorgrad
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-r16"
+                type="checkbox"
+                value="utdanning.mastergrad"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r16"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.mastergrad
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r17"
+                type="checkbox"
+                value="utdanning.ingen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r17"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.ingen
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r18"
+                type="checkbox"
+                value="utdanning.annen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r18"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    utdanning.annen
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-r11"
+          />
+        </fieldset>
       </div>
       <div>
         <button
@@ -3047,7 +3293,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-eDLKEg LfRHk undefined"
+        class="sc-jTQDJr dujvAb undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -3072,7 +3318,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-eDLKEg sc-jTQDJr LfRHk gSyqWK"
+      class="sc-jTQDJr sc-gLLuHO dujvAb OALLo"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -3101,7 +3347,7 @@ exports[`Situasjonen din Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r1d"
+              aria-labelledby="title-r1c"
               fill="none"
               focusable="false"
               height="1em"
@@ -3111,7 +3357,7 @@ exports[`Situasjonen din Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r1d"
+                id="title-r1c"
               >
                 Lukk modalvindu
               </title>
@@ -3143,7 +3389,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-csKJRI cXtbbV"
+          class="sc-eTNxZ kBuSvG"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -3171,7 +3417,7 @@ exports[`Situasjonen din Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-csKJRI cXtbbV"
+          class="sc-eTNxZ kBuSvG"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
