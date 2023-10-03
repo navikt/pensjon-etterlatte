@@ -40,10 +40,12 @@ import {
     konverterArbeidsmengde,
     konverterIngenJobb,
     konverterJobbStatus,
-    konverterRelasjonAvdoed, konverterSagtOppEllerRedusert,
+    konverterRelasjonAvdoed,
+    konverterSagtOppEllerRedusert,
     konverterSamboerInntekt,
     konverterSivilstatus,
-    konverterSoekteYtelserAndre, konverterSoekteYtelserNAV,
+    konverterSoekteYtelserAndre,
+    konverterSoekteYtelserNAV,
     konverterStillingType,
     konverterStudieform,
     konverterTilHoyesteUtdanning,
@@ -316,17 +318,17 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                         arbeidsmengde:
                             arbeid.typeArbeidsmengde!! === Arbeidsmengde.timer
                                 ? {
-                                    spoersmaal: t('dinSituasjon.selvstendig.arbeidsmengde.timer'),
-                                    svar: {
-                                        innhold: arbeid!!.arbeidsmengde!!.timer!!,
-                                    },
-                                }
+                                      spoersmaal: t('dinSituasjon.selvstendig.arbeidsmengde.timer'),
+                                      svar: {
+                                          innhold: arbeid!!.arbeidsmengde!!.timer!!,
+                                      },
+                                  }
                                 : {
-                                    spoersmaal: t('dinSituasjon.selvstendig.arbeidsmengde.prosent'),
-                                    svar: {
-                                        innhold: arbeid!!.arbeidsmengde!!.prosent!!,
-                                    },
-                                },
+                                      spoersmaal: t('dinSituasjon.selvstendig.arbeidsmengde.prosent'),
+                                      svar: {
+                                          innhold: arbeid!!.arbeidsmengde!!.prosent!!,
+                                      },
+                                  },
                         ansettelsesforhold: {
                             spoersmaal: t('dinSituasjon.arbeidsforhold.ansettelsesforhold'),
                             svar: {
@@ -337,18 +339,18 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                         harSluttdato:
                             arbeid?.ansettelsesforhold === StillingType.midlertidig
                                 ? {
-                                    spoersmaal: t('dinSituasjon.arbeidsforhold.midlertidig.svar'),
-                                    svar: valgTilSvar(t, arbeid!!.midlertidig!!.svar!!),
-                                }
+                                      spoersmaal: t('dinSituasjon.arbeidsforhold.midlertidig.svar'),
+                                      svar: valgTilSvar(t, arbeid!!.midlertidig!!.svar!!),
+                                  }
                                 : undefined,
                         sluttdato:
                             arbeid?.midlertidig?.svar === IValg.JA
                                 ? {
-                                    spoersmaal: t('dinSituasjon.arbeidsforhold.midlertidig.sluttdatoVelger'),
-                                    svar: {
-                                        innhold: arbeid!!.midlertidig!!.sluttdatoVelger!!,
-                                    },
-                                }
+                                      spoersmaal: t('dinSituasjon.arbeidsforhold.midlertidig.sluttdatoVelger'),
+                                      svar: {
+                                          innhold: arbeid!!.midlertidig!!.sluttdatoVelger!!,
+                                      },
+                                  }
                                 : undefined,
                         endretArbeidssituasjon: {
                             spoersmaal: t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar'),
@@ -371,7 +373,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                                 verdi: konverterSagtOppEllerRedusert(arbeid.sagtOppEllerRedusert!!.svar!!),
                                 innhold: t(arbeid.sagtOppEllerRedusert!!.svar!!),
                             },
-                        }
+                        },
                     }
 
                     return arbeidstaker
@@ -519,7 +521,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                     spoersmaal: t('dinSituasjon.utdanning.naavaerendeUtdanning.studieform'),
                     svar: {
                         innhold: t(dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieform!!),
-                        verdi: konverterStudieform(dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieform!!)
+                        verdi: konverterStudieform(dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieform!!),
                     },
                 },
                 studieprosent: {

@@ -12,10 +12,13 @@ import {
     IngenJobbType,
     InntektType,
     JobbStatusType,
-    OppholdUtlandType, SagtOppEllerRedusertType,
+    OppholdUtlandType,
+    SagtOppEllerRedusertType,
     SivilstatusType,
-    SoekbareYtelserAndreType, SoekbareYtelserNAVType,
-    StillingType, StudieformType,
+    SoekbareYtelserAndreType,
+    SoekbareYtelserNAVType,
+    StillingType,
+    StudieformType,
     Ytelser,
     EndringAvInntektGrunnType
 } from '../dto/FellesOpplysninger'
