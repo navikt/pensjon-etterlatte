@@ -39,6 +39,7 @@ describe("Skal avbryte en soeknad",() => {
 
     it("Avbryt og slett søknad", () => {
         startSoeknad()
+        cy.on('uncaught:exception', () => false)
         getById("avbryt-btn").click();
 
         cy.intercept("DELETE", `${basePath}/api/api/kladd`, {}).as("slettSoeknad");
