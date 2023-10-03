@@ -9,11 +9,7 @@ const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
 
 const isOK = (status: any) => [200, 404, 409].includes(status)
 
-const prepareSecuredRequest = async (req: Request) => {
-    const { authorization } = req.headers
-    const token = authorization?.split(' ')[1]
-
-    if (token) {
+const prepareSecuredRequest = async (req: Request, token: any) => {
         const accessToken = await exchangeToken(token).then((accessToken) => accessToken)
 
         const headers: any = {
@@ -41,15 +37,17 @@ const prepareSecuredRequest = async (req: Request) => {
             body,
             headers,
         }
-    }
 
-    throw new Error("Token mangler")
 }
 
 export default function proxy(host: string): RequestHandler {
     return async (req: Request, res: Response) => {
         try {
-            const request = await prepareSecuredRequest(req)
+            const token = getHeaderTokenReq(req)
+            if (!token) {
+                return res.sendStatus(401)
+            }
+            const request = await prepareSecuredRequest(req, token)
             const response = await fetch(`${host}${req.path}?kilde=${process.env.NAIS_APP_NAME}`, request)
 
             if (isOK(response.status)) {
@@ -60,11 +58,14 @@ export default function proxy(host: string): RequestHandler {
 
             return res.status(response.status).send(await response.text())
         } catch (error) {
-            if (error instanceof Error && error?.message === "Token mangler") res.sendStatus(401)
-
             logger.error(`Feilet kall (${req.method} - ${req.path}): `, error)
 
             return res.status(500).send('Error')
         }
     }
+}
+
+export const getHeaderTokenReq = (req: Request) => {
+    const { authorization } = req.headers
+    return authorization?.split(' ')[1]
 }
