@@ -135,7 +135,6 @@ export default {
     'dinSituasjon.selvstendig.arbeidsmengde': 'Hvor mye jobber du?',
     'dinSituasjon.selvstendig.arbeidsmengde.timer': 'Arbeidstimer',
     'dinSituasjon.selvstendig.arbeidsmengde.prosent': 'Arbeidsprosent',
-    'dinSituasjon.selvstendig.stillingsprosent.description': 'Hvis det varierer fra måned til måned, anslår du omtrent hvor mye du regner med å jobbe fremover.',
     'dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.svar':
         'Forventer du endringer i arbeidssituasjonen din fremover i tid?',
     'dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.beskrivelse': 'Beskrivelse',
@@ -152,18 +151,11 @@ export default {
     'dinSituasjon.arbeidsforhold.typeArbeidsmengde': 'Fyll ut arbeidsmengden din',
     'dinSituasjon.arbeidsforhold.arbeidsmengde.timer': 'Arbeidstimer',
     'dinSituasjon.arbeidsforhold.arbeidsmengde.prosent': 'Arbeidsprosent',
-    'dinSituasjon.arbeidsforhold.stillingsprosent.description': 'Hvis det varierer fra måned til måned, anslår du omtrent hvor mye du regner med å jobbe fremover.',
-    'dinSituasjon.arbeidsforhold.stillingsprosentPlaceholder': 'Eks. 80%',
-    'dinSituasjon.arbeidsforhold.midlertidig.svar':
-        'Har du en sluttdato?',
-    'dinSituasjon.arbeidsforhold.midlertidig.sluttdatoVelger':
-        'Sluttdato',
+    'dinSituasjon.arbeidsforhold.midlertidig.svar': 'Har du en sluttdato?',
+    'dinSituasjon.arbeidsforhold.midlertidig.sluttdatoVelger': 'Sluttdato',
     'dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar':
         'Forventer du endringer i arbeidssituasjonen din fremover i tid?',
     'dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse': 'Beskrivelse',
-    'dinSituasjon.arbeidsforhold.forventerEndretInntekt.svar':
-        'Regner du med at inntekten din endrer seg de neste 12 månedene?',
-    'dinSituasjon.arbeidsforhold.forventerEndretInntekt.beskrivelse': 'Hva er grunnen til endringene?',
     'dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar': 'Har du sagt opp jobben eller redusert arbeidstiden de siste 6 månedene?',
     'dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.beskrivelse': 'Fra søknadstidspunkt',
     'dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.hvorfor': '<TRENGER TEKST>',

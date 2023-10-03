@@ -19,31 +19,17 @@ const defaultValues = {
     utdanning: {
         hoyesteFullfoerteUtdanning: 'utdanning.mastergrad',
     },
-    andreYtelser: {
-        kravOmAnnenStonad: {
-            svar: 'Ja',
-            beskrivelse: 'Barnepensjon',
-        },
-        annenPensjon: {
-            svar: 'Ja',
-            beskrivelse: 'Skandia',
-        },
-        mottarPensjonUtland: {
-            svar: 'Ja',
-            hvaSlagsPensjon: 'Polsk Uførepensjon',
-            fraHvilketLand: 'Polen',
-            bruttobeloepPrAar: '4000 PLN',
-        },
-    },
     arbeidsforhold: [
         {
             arbeidsgiver: 'Potetskreller AS',
+            typeArbeidsmengde: 'arbeidsmengde.timer',
+            arbeidsmengde: '12',
             ansettelsesforhold: 'stillingType.midlertidig',
-            stillingsprosent: '100%',
-            forventerEndretInntekt: {
+            endretArbeidssituasjon: {
                 svar: 'Ja',
-                beskrivelse: '150 000',
+                opplysning: 'Mister kanskje jobben',
             },
+            sagtOppEllerRedusert: 'Reduserer pga vond rygg'
         },
     ],
 }
@@ -64,15 +50,9 @@ describe('Situasjonen din', () => {
     it('Skal rendre selvstendig', () => {
         const { container, getByLabelText } = render(<SituasjonenDin />)
         act(() => {
-            fireEvent.click(getByLabelText('jobbStatus.selvstendig'))
+            fireEvent.click(getByLabelText('jobbStatus.selvstendig.enk'))
         })
-        //console.log(container.querySelectorAll("input[name=selvstendig[0].forventerEndretInntekt.svar]"))
-        /*
-        act(() => {
-           fireEvent.change(getByText("dinSituasjon.selvstendig.forventerEndretInntekt.svar"), { target: { value: "Ja" } });
-        });
-        */
-        //expect(getByLabelText("dinSituasjon.selvstendig.forventerEndretInntekt.beskrivelse")).toBeDefined();
+
         expect(container).toMatchSnapshot()
     })
 })
