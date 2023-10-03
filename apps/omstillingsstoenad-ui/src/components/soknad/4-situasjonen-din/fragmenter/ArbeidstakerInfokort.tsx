@@ -40,7 +40,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
 
             <SkjemaElement>
                 <Label>{t('dinSituasjon.arbeidsforhold.arbeidsmengde')}</Label>
-                <Detail textColor="subtle">{t('dinSituasjon.arbeidsforhold.stillingsprosent.description')}</Detail>
+                <Detail textColor="subtle">{t('dinSituasjon.arbeidsforhold.arbeidsmengde.beskrivelse')}</Detail>
                 <RHFRadio
                     name={`arbeidsforhold[${index}].typeArbeidsmengde` as const}
                     legend={t('dinSituasjon.arbeidsforhold.typeArbeidsmengde')}

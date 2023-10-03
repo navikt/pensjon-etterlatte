@@ -133,6 +133,7 @@ export default {
     'dinSituasjon.selvstendig.arbeidsmengde.fyllUt': 'Fyll ut arbeidsmengden din',
     'dinSituasjon.selvstendig.typeArbeidsmengde': 'Fyll ut arbeidsmengden din',
     'dinSituasjon.selvstendig.arbeidsmengde': 'Hvor mye jobber du?',
+    'dinSituasjon.selvstendig.arbeidsmengde.beskrivelse': 'Hvis det varierer fra måned til måned, anslår du omtrent hvor mye du regner med å jobbe fremover.',
     'dinSituasjon.selvstendig.arbeidsmengde.timer': 'Arbeidstimer',
     'dinSituasjon.selvstendig.arbeidsmengde.prosent': 'Arbeidsprosent',
     'dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.svar':
@@ -148,6 +149,7 @@ export default {
     'dinSituasjon.arbeidsforhold.arbeidsgiver': 'Navn på arbeidssted',
     'dinSituasjon.arbeidsforhold.ansettelsesforhold': 'Type ansettelse',
     'dinSituasjon.arbeidsforhold.arbeidsmengde': 'Hvor mye jobber du?',
+    'dinSituasjon.arbeidsforhold.arbeidsmengde.beskrivelse': 'Hvis det varierer fra måned til måned, anslår du omtrent hvor mye du regner med å jobbe fremover.',
     'dinSituasjon.arbeidsforhold.typeArbeidsmengde': 'Fyll ut arbeidsmengden din',
     'dinSituasjon.arbeidsforhold.arbeidsmengde.timer': 'Arbeidstimer',
     'dinSituasjon.arbeidsforhold.arbeidsmengde.prosent': 'Arbeidsprosent',

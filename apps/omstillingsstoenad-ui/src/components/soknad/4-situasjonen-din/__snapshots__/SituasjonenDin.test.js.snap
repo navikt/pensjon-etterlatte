@@ -565,7 +565,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         <p
           class="navds-detail navds-typo--color-subtle"
         >
-          dinSituasjon.arbeidsforhold.stillingsprosent.description
+          dinSituasjon.arbeidsforhold.arbeidsmengde.beskrivelse
         </p>
         <div
           id="arbeidsforhold[0].typeArbeidsmengde"
@@ -1140,7 +1140,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         <p
           class="navds-detail navds-typo--color-subtle"
         >
-          dinSituasjon.selvstendig.stillingsprosent.description
+          dinSituasjon.selvstendig.arbeidsmengde.beskrivelse
         </p>
         <div
           id="selvstendig.enk[0].typeArbeidsmengde"
@@ -2306,7 +2306,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         <p
           class="navds-detail navds-typo--color-subtle"
         >
-          dinSituasjon.arbeidsforhold.stillingsprosent.description
+          dinSituasjon.arbeidsforhold.arbeidsmengde.beskrivelse
         </p>
         <div
           id="arbeidsforhold[0].typeArbeidsmengde"

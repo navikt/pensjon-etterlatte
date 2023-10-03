@@ -49,7 +49,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
 
             <SkjemaElement>
                 <Label>{t('dinSituasjon.selvstendig.arbeidsmengde')}</Label>
-                <Detail textColor="subtle">{t('dinSituasjon.selvstendig.stillingsprosent.description')}</Detail>
+                <Detail textColor="subtle">{t('dinSituasjon.selvstendig.arbeidsmengde.beskrivelse')}</Detail>
                 <RHFRadio
                     name={`${selvstendigName}.typeArbeidsmengde` as const}
                     legend={t('dinSituasjon.selvstendig.typeArbeidsmengde')}
