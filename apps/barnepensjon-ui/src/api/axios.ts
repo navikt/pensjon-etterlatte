@@ -16,3 +16,14 @@ axiosRetry(axiosInstance, {
     // Må ta stilling til om vi kan få problemer med idempotens/timeout.
     retryCondition: (error) => error.response?.status !== 404 && error.response?.status !== 409,
 })
+
+axiosInstance.interceptors.response.use(
+        response => response,
+        error => {
+            if (error.response.status === 401){
+                window.location.reload()
+            }
+
+            return Promise.reject(error)
+        }
+);

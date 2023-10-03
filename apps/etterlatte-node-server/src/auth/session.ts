@@ -1,10 +1,10 @@
 import { Request, RequestHandler, Response } from "express";
 import jwt from "jsonwebtoken";
+import { getHeaderTokenReq } from '../proxy'
 
 export default function session(): RequestHandler {
     return async (req: Request, res: Response) => {
-        const { authorization } = req.headers
-        const token = authorization!!.split(' ')[1]
+        const token = getHeaderTokenReq(req)
 
         if (token) {
             const decoded = jwt.decode(token)
