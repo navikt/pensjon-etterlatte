@@ -10,34 +10,33 @@ const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
 const isOK = (status: any) => [200, 404, 409].includes(status)
 
 const prepareSecuredRequest = async (req: Request, token: any) => {
-        const accessToken = await exchangeToken(token).then((accessToken) => accessToken)
+    const accessToken = await exchangeToken(token).then((accessToken) => accessToken)
 
-        const headers: any = {
-            ...req.headers,
-            authorization: `Bearer ${accessToken}`,
-            x_correlation_id: logger.defaultMeta.x_correlation_id,
+    const headers: any = {
+        ...req.headers,
+        authorization: `Bearer ${accessToken}`,
+        x_correlation_id: logger.defaultMeta.x_correlation_id,
+    }
+
+    let body = undefined
+    if (!isEmpty(req.body) && req.method === 'POST') {
+        const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*:(.*)/, '$1')
+        if (req.path === '/api/soeknad') {
+            const soeknader: any[] = req.body.soeknader.map((soeknad: any) => ({
+                ...soeknad,
+                imageTag,
+            }))
+            body = JSON.stringify({ soeknader })
+        } else {
+            body = JSON.stringify(req.body)
         }
+    }
 
-        let body = undefined
-        if (!isEmpty(req.body) && req.method === 'POST') {
-            const imageTag = process.env.NAIS_APP_IMAGE?.replace(/^.*:(.*)/, '$1')
-            if (req.path === '/api/soeknad') {
-                const soeknader: any[] = req.body.soeknader.map((soeknad: any) => ({
-                    ...soeknad,
-                    imageTag,
-                }))
-                body = JSON.stringify({ soeknader })
-            } else {
-                body = JSON.stringify(req.body)
-            }
-        }
-
-        return {
-            method: req.method,
-            body,
-            headers,
-        }
-
+    return {
+        method: req.method,
+        body,
+        headers,
+    }
 }
 
 export default function proxy(host: string): RequestHandler {
