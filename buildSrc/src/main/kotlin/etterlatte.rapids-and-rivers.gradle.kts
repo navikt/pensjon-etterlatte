@@ -7,5 +7,5 @@ repositories {
 }
 
 dependencies {
-    implementation(NavFelles.RapidAndRivers)
+    implementation(navfelles.rapids.and.rivers)
 }

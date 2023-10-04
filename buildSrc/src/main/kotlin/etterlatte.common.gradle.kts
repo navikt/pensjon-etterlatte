@@ -20,14 +20,14 @@ dependencies {
     implementation(kotlin("stdlib"))
 
     // Logging
-    implementation(Logging.Slf4jApi)
-    implementation(Logging.LogbackClassic)
-    implementation(Logging.LogstashLogbackEncoder)
+    implementation(logging.slf4j.api)
+    implementation(logging.logback.classic)
+    implementation(logging.logstash.logback.encoder)
 
     // JUnit Testing
-    testImplementation(Jupiter.Api)
-    testImplementation(Jupiter.Params)
-    testRuntimeOnly(Jupiter.Engine)
+    testImplementation(jupiter.api)
+    testImplementation(jupiter.params)
+    testRuntimeOnly(jupiter.engine)
 }
 
 tasks {
