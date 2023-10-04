@@ -26,7 +26,7 @@
     "react-i18next": "13.2.2",
     "react-router": "6.16.0",
     "react-router-dom": "6.16.0",
-    "styled-components": "^5.3.9",
+    "styled-components": "^6.0.8",
     "typescript": "5.2.2",
     "uuid": "9.0.1",
     "worker-loader": "^3.0.8"
@@ -41,7 +41,7 @@
     "@types/react": "18.2.24",
     "@types/react-dom": "18.2.9",
     "@types/react-router-dom": "5.3.3",
-    "@types/styled-components": "^5.1.26",
+    "@types/styled-components": "^5.1.28",
     "@types/uuid": "9.0.4",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
