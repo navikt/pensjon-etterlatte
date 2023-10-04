@@ -1,4 +1,5 @@
 [plugins]
+cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.1" }
 
 [versions]
 token-version = "2.1.2"
@@ -8,16 +9,16 @@ jupiter-version = "5.9.1"
 testcontainers-version = "1.17.3"
 
 [libraries]
-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2022061809451655538329.d6deccc62862"}
-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version"}
-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version"}
-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "0.3.1"}
+navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2022061809451655538329.d6deccc62862"}
+navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version"}
+navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version"}
+navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "0.3.1"}
 
-common = { module = "no.nav.etterlatte:common", version = "2023.03.28-16.21.c37f68b0da69"}
-common-test = { module = "no.nav.etterlatte:common-test", version = "2023.03.28-13.28.4f49c60d85e4"}
-ktor-client-auth = { module = "no.nav.etterlatte:ktor-client-auth", version = "2022.09.28-10.09.cce630926582"}
+etterlatte-common = { module = "no.nav.etterlatte:common", version = "2023.03.28-16.21.c37f68b0da69"}
+etterlatte-common-test = { module = "no.nav.etterlatte:common-test", version = "2023.03.28-13.28.4f49c60d85e4"}
+etterlatte-ktor-client-auth = { module = "no.nav.etterlatte:ktor-client-auth", version = "2022.09.28-10.09.cce630926582"}
 
-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.6.4"}
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.6.4"}
 
 ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor-version"}
 ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktor-version"}
@@ -36,12 +37,12 @@ ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negoti
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version"}
 ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version"}
 
-hikari-cp = { module = "com.zaxxer:HikariCP", version = "6.5.0"}
-flyway-core = { module = "org.flywaydb:flyway-core", version = "6.5.0"}
-postgresql = { module = "org.postgresql:postgresql", version = "42.2.5"}
+database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "6.5.0"}
+database-flyway-core = { module = "org.flywaydb:flyway-core", version = "6.5.0"}
+database-postgresql = { module = "org.postgresql:postgresql", version = "42.2.5"}
 
-jackson-datatype-310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version"}
-jackson-datatype-jdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson-version"}
+jackson-datatypejsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version"}
+jackson-datatypejdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson-version"}
 jackson-module-kotlin = { module = "com.fasterxml.jackson.datatype:jackson-module-kotlin", version.ref = "jackson-version"}
 
 jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jupiter-version"}
