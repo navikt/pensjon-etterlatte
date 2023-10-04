@@ -13,11 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
-    env:
-      image: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
+      id-token: write
     outputs:
-      image: ${{ env.image }}
+      image: ${{ steps.docker-build-push.outputs.image }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,14 +25,22 @@ jobs:
           distribution: temurin
           java-version: 17.x
           cache: gradle
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
       - name: Gradle test and build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew :apps:${{ github.workflow }}:test :apps:${{ github.workflow }}:build
+        run: ./gradlew :apps:${{ github.workflow }}:build
       - name: Build and publish docker image
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          docker login ghcr.io -u ${{ github.repository }} -p ${GITHUB_TOKEN}
-          docker build --tag ${{ env.image }} -f docker/backend.Dockerfile apps/${{ github.workflow }}
-          docker push ${{ env.image }}
+        uses: nais/docker-build-push@v0
+        id: docker-build-push
+        with:
+          team: etterlatte
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+          dockerfile: docker/backend.Dockerfile
+          docker_context: apps/${{ github.workflow }}/
+          image_suffix: ${{ github.workflow }}
+          tag: ${{ env.GITHUB_REF_SLUG }}
+      - name: Print docker tag
+        run: echo 'Docker-tag er ${{ steps.docker-build-push.outputs.image }} ' >> $GITHUB_STEP_SUMMARY
