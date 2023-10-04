@@ -16,11 +16,13 @@ on:
       - main
     paths:
       - apps/sjekk-adressebeskyttelse/**
+      - gradle/libs.versions.toml
   pull_request:
     branches:
       - main
     paths:
       - apps/sjekk-adressebeskyttelse/**
+      - gradle/libs.versions.toml
 
 jobs:
   build:
