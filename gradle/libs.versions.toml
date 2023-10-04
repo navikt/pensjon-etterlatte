@@ -1,0 +1,45 @@
+[plugins]
+
+[versions]
+token-version = "2.1.2"
+ktor-version = "2.1.1"
+jackson-version = "2.13.4"
+jupiter-version = "5.9.1"
+
+[libraries]
+rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2022061809451655538329.d6deccc62862"}
+token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version"}
+token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version"}
+mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "0.3.1"}
+
+common = { module = "no.nav.etterlatte:common", version = "2023.03.28-16.21.c37f68b0da69"}
+common-test = { module = "no.nav.etterlatte:common-test", version = "2023.03.28-13.28.4f49c60d85e4"}
+ktor-client-auth = { module = "no.nav.etterlatte:ktor-client-auth", version = "2022.09.28-10.09.cce630926582"}
+
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.6.4"}
+
+ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor-version"}
+ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktor-version"}
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-version"}
+ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor-version"}
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version"}
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor-version"}
+ktor-client-cio-jvm = { module = "io.ktor:ktor-client-cio-jvm", version.ref = "ktor-version"}
+ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "ktor-version"}
+ktor-server-metrics-micrometer = { module = "io.ktor:ktor-server-metrics-micrometer", version.ref = "ktor-version"}
+ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-version"}
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor-version"}
+ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor-version"}
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor-version"}
+
+ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version"}
+ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version"}
+
+hikari-cp = { module = "com.zaxxer:HikariCP", version = "6.5.0"}
+flyway-core = { module = "org.flywaydb:flyway-core", version = "6.5.0"}
+postgresql = { module = "org.postgresql:postgresql", version = "42.2.5"}
+
+jackson-datatype-310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version"}
+jackson-datatype-jdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson-version"}
+jackson-module-kotlin = { module = "com.fasterxml.jackson.datatype:jackson-module-kotlin", version.ref = "jackson-version"}
+
