@@ -17,6 +17,7 @@ import {
     Utenlandsopphold,
     FritekstSvar,
     DatoSvar,
+    InntektOgPensjon,
 } from './FellesOpplysninger'
 
 type Foedselsnummer = String
@@ -91,6 +92,7 @@ export interface Gjenlevende extends Person {
     arbeidOgUtdanning?: ArbeidOgUtdanning
     fullfoertUtdanning?: BetingetOpplysning<EnumSvar<HoeyesteUtdanning>, Opplysning<AnnenUtdanning>>
     andreYtelser: AndreYtelser
+    inntektOgPensjon: InntektOgPensjon
     uregistrertEllerVenterBarn: Opplysning<EnumSvar<JaNeiVetIkke>>
     forholdTilAvdoede: ForholdTilAvdoede
 }

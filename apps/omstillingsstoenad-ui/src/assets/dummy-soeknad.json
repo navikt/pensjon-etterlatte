@@ -92,6 +92,31 @@
       }
     ]
   },
+  "inntektenDin": {
+    "inntektstyper": [
+      "inntekt.loenn"
+    ],
+    "ytelserNAV": {
+      "svar": "radiobuttons.ja",
+      "soekteYtelser": [
+        "soekbarYtelse.dagspenger",
+        "soekbarYtelse.ufoerepensjon"
+      ]
+    },
+    "ytelserAndre": {
+      "svar": "radiobuttons.ja",
+      "soekteYtelser": [
+        "soekbarYtelse.ufoerepensjon",
+        "soekbarYtelse.saeralderpensjon"
+      ],
+      "pensjonsordning": "tester"
+    },
+    "forventerEndringAvInntekt": {
+      "svar": "radiobuttons.ja",
+      "grunn": "endringAvInntekt.annenGrunn",
+      "annenGrunn": "Arver masse penger og jobb"
+    }
+  },
   "opplysningerOmBarn": {
     "gravidEllerNyligFoedt": "radiobuttons.ja",
     "barn": [

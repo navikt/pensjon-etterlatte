@@ -8,11 +8,13 @@ import {
     Arbeidstaker,
     BetingetOpplysning,
     DatoSvar,
+    EndringAvInntekt,
     EnumSvar,
     ForholdTilAvdoede,
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
     IngenJobbType,
+    InntektOgPensjon,
     InntektType,
     JaNeiVetIkke,
     Kontaktinfo,
@@ -24,6 +26,8 @@ import {
     Stoenader,
     Utdanning,
     Ytelser,
+    YtelserAndre,
+    YtelserNav,
 } from '../dto/FellesOpplysninger'
 import { Gjenlevende, PersonType, Samboer } from '../dto/Person'
 import { valgTilSvar } from './fellesMapper'
@@ -31,16 +35,19 @@ import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from '../../typ
 import { IValg } from '../../typer/Spoersmaal'
 import { ISituasjon, JobbStatus } from '../../typer/situasjon'
 import {
+    konverterEndringAvInntektGrunn,
     konverterIngenJobb,
     konverterJobbStatus,
     konverterRelasjonAvdoed,
     konverterSamboerInntekt,
     konverterSivilstatus,
+    konverterSoekteYtelserAndre, konverterSoekteYtelserNAV,
     konverterStillingType,
     konverterTilHoyesteUtdanning,
     konverterYtelser,
 } from './typeMapper'
 import { fullAdresse } from '../../utils/adresse'
+import { EndringAvInntektGrunn, IInntekt } from '../../typer/inntekt'
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
     const kontaktinfo: Kontaktinfo = {
@@ -131,6 +138,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         arbeidOgUtdanning: !bruker.adressebeskyttelse ? hentArbeidOgUtdanning(t, soeknad.dinSituasjon) : undefined,
         fullfoertUtdanning,
         andreYtelser: hentAndreYtelser(t, soeknad.dinSituasjon),
+        inntektOgPensjon: hentInntektOgPensjon(t, soeknad.inntektenDin),
         uregistrertEllerVenterBarn: {
             spoersmaal: t('omBarn.gravidEllerNyligFoedt'),
             svar: valgTilSvar(t, soeknad.opplysningerOmBarn.gravidEllerNyligFoedt!!),
@@ -420,6 +428,83 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
         selvstendig,
         utdanning,
         annet,
+    }
+}
+
+const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPensjon => {
+    const ytelserNAV: YtelserNav = {
+        soektOmYtelse: {
+            spoersmaal: t('inntektenDin.ytelserNAV.svar'),
+            svar: valgTilSvar(t, inntektenDin!!.ytelserNAV!!.svar!!),
+        },
+        soektYtelse:
+                inntektenDin!!.ytelserNAV!!.svar!! === IValg.JA
+                        ? {
+                            spoersmaal: t('inntektenDin.ytelserAndre.soekteYtelser'),
+                            svar: inntektenDin!!.ytelserNAV!!.soekteYtelser!!.map((ytelse) => ({
+                                verdi: konverterSoekteYtelserNAV(ytelse),
+                                innhold: t(ytelse),
+                            })),
+                        }
+                        : undefined,
+    }
+
+    const ytelserAndre: YtelserAndre = {
+        soektOmYtelse: {
+            spoersmaal: t('inntektenDin.ytelserAndre.svar'),
+            svar: valgTilSvar(t, inntektenDin!!.ytelserAndre!!.svar!!),
+        },
+        soektYtelse:
+            inntektenDin!!.ytelserAndre!!.svar!! === IValg.JA
+                ? {
+                      spoersmaal: t('inntektenDin.ytelserAndre.soekteYtelser'),
+                      svar: inntektenDin!!.ytelserAndre!!.soekteYtelser!!.map((ytelse) => ({
+                          verdi: konverterSoekteYtelserAndre(ytelse),
+                          innhold: t(ytelse),
+                      })),
+                  }
+                : undefined,
+        pensjonsordning:
+            inntektenDin!!.ytelserAndre!!.svar!! === IValg.JA
+                ? {
+                      spoersmaal: t('inntektenDin.ytelserAndre.pensjonsordning'),
+                      svar: {
+                          innhold: inntektenDin.ytelserAndre!!.pensjonsordning!!,
+                      },
+                  }
+                : undefined,
+    }
+
+    const endringAvInntekt: EndringAvInntekt = {
+        fremtidigEndringAvInntekt: {
+            spoersmaal: t('inntektenDin.forventerEndringAvInntekt.svar'),
+            svar: valgTilSvar(t, inntektenDin!!.forventerEndringAvInntekt!!.svar!!),
+        },
+        grunn:
+            inntektenDin!!.forventerEndringAvInntekt!!.svar!! === IValg.JA
+                ? {
+                      spoersmaal: t('inntektenDin.forventerEndringAvInntekt.svar'),
+                      svar: {
+                          verdi: konverterEndringAvInntektGrunn(inntektenDin!!.forventerEndringAvInntekt!!.grunn!!),
+                          innhold: t(inntektenDin!!.forventerEndringAvInntekt!!.grunn!!),
+                      },
+                  }
+                : undefined,
+        annenGrunn:
+            inntektenDin!!.forventerEndringAvInntekt!!.grunn === EndringAvInntektGrunn.annenGrunn
+                ? {
+                      spoersmaal: t('inntektenDin.forventerEndringAvInntekt.svar'),
+                      svar: {
+                          innhold: inntektenDin.forventerEndringAvInntekt!!.annenGrunn!!,
+                      },
+                  }
+                : undefined,
+    }
+
+    return {
+        ytelserNAV,
+        ytelserAndre,
+        endringAvInntekt,
     }
 }
 
