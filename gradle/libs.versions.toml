@@ -5,6 +5,7 @@ token-version = "2.1.2"
 ktor-version = "2.1.1"
 jackson-version = "2.13.4"
 jupiter-version = "5.9.1"
+testcontainers-version = "1.17.3"
 
 [libraries]
 rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2022061809451655538329.d6deccc62862"}
@@ -43,3 +44,19 @@ jackson-datatype-310 = { module = "com.fasterxml.jackson.datatype:jackson-dataty
 jackson-datatype-jdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson-version"}
 jackson-module-kotlin = { module = "com.fasterxml.jackson.datatype:jackson-module-kotlin", version.ref = "jackson-version"}
 
+jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jupiter-version"}
+jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter-version"}
+jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jupiter-version"}
+
+slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.2"}
+logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.4.1"}
+logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "7.2"}
+
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.9.4"}
+
+mockk = { module = "io.mockk:mockk", version = "1.13.1"}
+
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.4.2"}
+
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version"}
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version"}
