@@ -6,7 +6,6 @@ import config from './config'
 import prometheus from './monitoring/prometheus'
 import logger from './monitoring/logger'
 import parser from 'body-parser'
-import { mockApi } from './mock/mock-api'
 import session from './auth/session'
 import rTracer from 'cls-rtracer'
 

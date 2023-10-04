@@ -1,5 +1,4 @@
 import { render, fireEvent } from "@testing-library/react";
-import * as uuid from "uuid";
 import OmDeg from "./OmDeg";
 
 jest.mock("react-i18next", () => ({

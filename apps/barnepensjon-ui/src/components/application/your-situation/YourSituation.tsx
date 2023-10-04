@@ -23,7 +23,7 @@ export default function YourSituation({ next, prev }: StepProps) {
     }
 
     const methods = useForm<ISituationChild>({
-        defaultValues: { ...state.yourSituation } || {},
+        defaultValues: { ...state.yourSituation },
         shouldUnregister: true,
     })
 

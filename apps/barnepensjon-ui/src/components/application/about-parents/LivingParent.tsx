@@ -25,7 +25,7 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
     }
 
     const methods = useForm<any>({
-        defaultValues: { ...state.firstParent } || {},
+        defaultValues: { ...state.firstParent },
         shouldUnregister: true,
     })
 

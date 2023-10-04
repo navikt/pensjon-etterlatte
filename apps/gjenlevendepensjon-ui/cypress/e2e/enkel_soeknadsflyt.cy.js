@@ -19,7 +19,6 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         cy.wait(["@hentInnloggetPerson"]);
         cy.wait(["@hentSoeknad"]);
 
-        cy.set;
         // Bekreft riktige opplysninger
         cy.get('[type="checkbox"]').check({ force: true });
 

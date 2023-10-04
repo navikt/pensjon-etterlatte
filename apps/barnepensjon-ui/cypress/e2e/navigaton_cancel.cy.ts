@@ -1,4 +1,4 @@
-import { basePath, Button } from '../util/constants'
+import { Button } from '../util/constants'
 
 describe('Navigation: "Cancel" button functionality', () => {
     beforeEach(() => {
