@@ -37,13 +37,13 @@ ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negoti
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version"}
 ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version"}
 
-database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "6.5.0"}
+database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "3.4.5"}
 database-flyway-core = { module = "org.flywaydb:flyway-core", version = "6.5.0"}
 database-postgresql = { module = "org.postgresql:postgresql", version = "42.2.5"}
 
 jackson-datatypejsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version"}
 jackson-datatypejdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson-version"}
-jackson-module-kotlin = { module = "com.fasterxml.jackson.datatype:jackson-module-kotlin", version.ref = "jackson-version"}
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson-version"}
 
 jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jupiter-version"}
 jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter-version"}

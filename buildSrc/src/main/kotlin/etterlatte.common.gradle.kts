@@ -1,4 +1,7 @@
+import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+
+val libs = the<LibrariesForLibs>()
 
 plugins {
     kotlin("jvm")
@@ -20,14 +23,14 @@ dependencies {
     implementation(kotlin("stdlib"))
 
     // Logging
-    implementation(logging.slf4j.api)
-    implementation(logging.logback.classic)
-    implementation(logging.logstash.logback.encoder)
+    implementation(libs.logging.slf4j.api)
+    implementation(libs.logging.logback.classic)
+    implementation(libs.logging.logstash.logback.encoder)
 
     // JUnit Testing
-    testImplementation(jupiter.api)
-    testImplementation(jupiter.params)
-    testRuntimeOnly(jupiter.engine)
+    testImplementation(libs.jupiter.api)
+    testImplementation(libs.jupiter.params)
+    testRuntimeOnly(libs.jupiter.engine)
 }
 
 tasks {
