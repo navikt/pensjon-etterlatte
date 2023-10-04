@@ -3,16 +3,16 @@ plugins {
 }
 
 dependencies {
-    implementation(Ktor.OkHttp)
-    implementation(Ktor.ClientCore)
-    implementation(Ktor.ClientAuth)
-    implementation(Ktor.ClientContentNegotiation)
-    implementation(Ktor.Jackson)
+    implementation(ktor.okhttp)
+    implementation(ktor.client.core)
+    implementation(ktor.client.auth)
+    implementation(ktor.client.content.negotiation)
+    implementation(ktor.serialization.jackson)
 
-    implementation(Etterlatte.Common)
-    implementation(Etterlatte.KtorClientAuth)
+    implementation(etterlatte.common)
+    implementation(etterlatte.ktor.client.auth)
 
-    testImplementation(MockK.MockK)
-    testImplementation(Ktor.ClientMock)
-    testImplementation(Kotlinx.CoroutinesCore)
+    testImplementation(mockk)
+    testImplementation(ktor.client.mock)
+    testImplementation(kotlinx.coroutines.core)
 }
