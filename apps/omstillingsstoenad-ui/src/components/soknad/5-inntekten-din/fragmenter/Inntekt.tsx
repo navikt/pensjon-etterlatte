@@ -6,6 +6,7 @@ import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, InntektsTyper } from '../../../../typer/inntekt'
+import Loennsinntekt from './Loennsinntekt'
 
 const Inntekt = () => {
     const { t } = useTranslation()
@@ -17,7 +18,7 @@ const Inntekt = () => {
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <Heading size={'small'}>{t('inntektenDin.undertittel')}</Heading>
+                <Heading size={'medium'}>{t('inntektenDin.undertittel')}</Heading>
             </SkjemaElement>
             <RHFCheckboksGruppe
                 name={'inntektstyper'}
@@ -27,7 +28,7 @@ const Inntekt = () => {
                 })}
             />
 
-            {inntektstype?.includes(InntektsTyper.loenn) && <p>LØNN KOMMER HER</p>}
+            {inntektstype?.includes(InntektsTyper.loenn) && <Loennsinntekt />}
             {inntektstype?.includes(InntektsTyper.naering) && <p>NÆRING KOMMER HER</p>}
             {inntektstype?.includes(InntektsTyper.pensjonEllerUfoere) && <p>PENSJON KOMMER HER</p>}
             {inntektstype?.includes(InntektsTyper.annen) && <p>ANNEN KOMMER HER</p>}

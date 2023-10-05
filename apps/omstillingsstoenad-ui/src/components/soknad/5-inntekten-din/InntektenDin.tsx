@@ -59,9 +59,7 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaElement>
 
                 <SkjemaGruppe>
-                    <GuidePanel>
-                        {t('inntektenDin.ingress')}
-                    </GuidePanel>
+                    <GuidePanel>{t('inntektenDin.ingress')}</GuidePanel>
                 </SkjemaGruppe>
 
                 <Inntekt />

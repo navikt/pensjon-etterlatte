@@ -2,6 +2,7 @@ import { IValg } from './Spoersmaal'
 
 export interface IInntekt {
     inntektstyper?: InntektsTyper[]
+    loennsinntekt?: ILoennsinntekt
     ytelserNAV?: IYtelserNAV
     ytelserAndre?: IYtelserAndre
     forventerEndringAvInntekt?: IForventerEndringAvInntekt
@@ -25,14 +26,20 @@ interface IForventerEndringAvInntekt {
     annenGrunn?: string
 }
 
+export interface ILoennsinntekt {
+    arbeidsinntektAaretFoer?: string
+    arbeidsinntektIAar?: {
+        tilDoedsfall?: string
+        etterDoedsfall?: string
+    }
+}
+
 export enum InntektsTyper {
     loenn = "inntekt.loenn",
     naering = "inntekt.naering",
     pensjonEllerUfoere = "inntekt.pensjonEllerUfoere",
     annen = "inntekt.annen"
 }
-
-
 
 export enum SoekbareYtelserNAV {
     dagspenger = 'soekbarYtelse.dagspenger',

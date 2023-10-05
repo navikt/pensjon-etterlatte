@@ -139,6 +139,13 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         const inntektenDin = mockSoeknad.inntektenDin;
         selectValue(inntektenDin.inntektstyper)
 
+        getById('loennsinntekt.arbeidsinntektAaretFoer')
+                .type(inntektenDin.loennsinntekt.arbeidsinntektAaretFoer)
+        getById('loennsinntekt.arbeidsinntektIAar.tilDoedsfall')
+                .type(inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall)
+        getById('loennsinntekt.arbeidsinntektIAar.etterDoedsfall')
+                .type(inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall)
+
         selectValue(inntektenDin.ytelserNAV.svar)
 
         inntektenDin.ytelserNAV.soekteYtelser.map((ytelse) => selectValue(ytelse))

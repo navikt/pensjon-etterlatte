@@ -155,9 +155,18 @@ export interface ArbeidOgUtdanning {
 }
 
 export interface InntektOgPensjon {
+    loennsinntekt?: Opplysning<Loennsinntekt>
     ytelserNAV: YtelserNav
     ytelserAndre: YtelserAndre
     endringAvInntekt: EndringAvInntekt
+}
+
+export interface Loennsinntekt {
+    arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
+    arbeidsinntektIAar: {
+        tilDoedsfall: Opplysning<FritekstSvar>
+        etterDoedsfall: Opplysning<FritekstSvar>
+    }
 }
 
 export interface YtelserNav {
