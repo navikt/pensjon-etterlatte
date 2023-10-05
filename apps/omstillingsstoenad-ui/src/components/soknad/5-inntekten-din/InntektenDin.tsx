@@ -10,6 +10,10 @@ import { GuidePanel, Heading } from '@navikt/ds-react'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { IInntekt } from '../../../typer/inntekt'
+import Inntekt from './fragmenter/Inntekt'
+import YtelserNAV from './fragmenter/YtelserNAV'
+import YtelserAndre from './fragmenter/YtelserAndre'
+import EndringInntekt from './fragmenter/EndringInntekt'
 
 const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -17,7 +21,7 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
     const { state, dispatch } = useSoknadContext()
 
     const methods = useForm<IInntekt>({
-        defaultValues: state.dinSituasjon || {},
+        defaultValues: state.inntektenDin || {},
         shouldUnregister: true,
     })
 
@@ -56,10 +60,17 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
 
                 <SkjemaGruppe>
                     <GuidePanel>
-                        <Heading size={'small'}>{t('dinSituasjon.undertittel')}</Heading>
-                        {t('dinSituasjon.ingress')}
+                        {t('inntektenDin.ingress')}
                     </GuidePanel>
                 </SkjemaGruppe>
+
+                <Inntekt />
+
+                <YtelserNAV />
+
+                <YtelserAndre />
+
+                <EndringInntekt />
 
                 <Feilmeldinger errors={errors} />
 

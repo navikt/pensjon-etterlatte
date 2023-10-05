@@ -70,7 +70,7 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
             return {
                 ...state,
                 klarForLagring: true,
-                dinInntekt: action.payload,
+                inntektenDin: action.payload,
             }
         case ActionTypes.OPPDATER_OM_BARN: {
             return {

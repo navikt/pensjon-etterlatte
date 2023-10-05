@@ -145,6 +145,25 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         cy.url().should("include", "steg/inntekten-din");
         cy.intercept("GET", `${basePath}/api/kodeverk/alleland`, { fixture: "land.json" }).as("alleland");
 
+        // Verifiser felter og fyll ut skjema.
+        const inntektenDin = mockSoeknad.inntektenDin;
+        selectValue(inntektenDin.inntektstyper)
+
+        selectValue(inntektenDin.ytelserNAV.svar)
+
+        inntektenDin.ytelserNAV.soekteYtelser.map((ytelse) => selectValue(ytelse))
+
+        inntektenDin.ytelserAndre.soekteYtelser.map((ytelse) => selectValue(ytelse))
+
+        getById("ytelserAndre.pensjonsordning").type('Statens pensjonskasse')
+
+        getById("forventerEndringAvInntekt.grunn")
+                .find("select")
+                .select(inntektenDin.forventerEndringAvInntekt.grunn);
+
+        getById("forventerEndringAvInntekt.annenGrunn").type('Annen grunn til økning')
+
+
         a11yCheck();
 
         gaaTilNesteSide();

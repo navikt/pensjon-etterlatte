@@ -1,6 +1,7 @@
 import { JobbStatus, Utdanning as GammelUtdanning } from '../../typer/situasjon'
 import { IngenJobb, StillingType as GammelStillingType } from '../../typer/arbeidsforhold'
 import {
+    EndringAvInntektGrunnType,
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
     IngenJobbType,
@@ -8,6 +9,7 @@ import {
     JobbStatusType,
     OppholdUtlandType,
     SivilstatusType,
+    SoekbareYtelserAndreType, SoekbareYtelserNAVType,
     StillingType,
     Ytelser,
 } from '../dto/FellesOpplysninger'
@@ -18,6 +20,7 @@ import {
     Sivilstatus,
 } from '../../typer/person'
 import { Ytelser as GamleYtelser } from '../../typer/ytelser'
+import { EndringAvInntektGrunn, SoekbareYtelserAndre, SoekbareYtelserNAV } from '../../typer/inntekt'
 
 export const konverterStillingType = (type: GammelStillingType): StillingType => {
     switch (type) {
@@ -171,5 +174,72 @@ export const konverterIngenJobb = (type: IngenJobb): IngenJobbType => {
             return IngenJobbType.FRIVILLIG_ARBEID
         case IngenJobb.hjemmearbeidende:
             return IngenJobbType.HJEMMEARBEIDEND
+    }
+}
+
+export const konverterEndringAvInntektGrunn = (type: EndringAvInntektGrunn): EndringAvInntektGrunnType => {
+    switch (type) {
+        case EndringAvInntektGrunn.oektStillingsprosent:
+            return EndringAvInntektGrunnType.OEKT_STILLINGSPROSENT
+        case EndringAvInntektGrunn.redusertStillingsprosent:
+            return EndringAvInntektGrunnType.REDUSERT_STILLINGSPROSENT
+        case EndringAvInntektGrunn.permisjonUtenLoenn:
+            return EndringAvInntektGrunnType.PERMISJON_UTEN_LOENN
+        case EndringAvInntektGrunn.loennsoekning:
+            return EndringAvInntektGrunnType.LOENNSOEKNING
+        case EndringAvInntektGrunn.arbeidsledig:
+            return EndringAvInntektGrunnType.ARBEIDSLEDIG
+        case EndringAvInntektGrunn.sesongarbeid:
+            return EndringAvInntektGrunnType.SESONGARBEID
+        case EndringAvInntektGrunn.bytteAvJobb:
+            return EndringAvInntektGrunnType.BYTTE_AV_JOBB
+        case EndringAvInntektGrunn.annenGrunn:
+            return EndringAvInntektGrunnType.ANNEN_GRUNN
+    }
+}
+
+export const konverterSoekteYtelserAndre = (type: SoekbareYtelserAndre): SoekbareYtelserAndreType => {
+    switch (type) {
+        case SoekbareYtelserAndre.avtalefestetPensjonOffentlig:
+            return SoekbareYtelserAndreType.AVTALEFESTET_PENSJON_OFFENTLIG
+        case SoekbareYtelserAndre.avtalefestetPensjonPrivat:
+            return SoekbareYtelserAndreType.AVTALEFESTET_PENSJON_PRIVAT
+        case SoekbareYtelserAndre.saeralderpensjon:
+            return SoekbareYtelserAndreType.SAERALDERSPENSJON
+        case SoekbareYtelserAndre.ufoerepensjon:
+            return SoekbareYtelserAndreType.UFOEREPENSJON
+        case SoekbareYtelserAndre.alderspensjon:
+            return SoekbareYtelserAndreType.ALDERSPENSJON
+    }
+}
+
+export const konverterSoekteYtelserNAV = (type: SoekbareYtelserNAV): SoekbareYtelserNAVType => {
+    switch (type) {
+        case SoekbareYtelserNAV.dagspenger:
+            return SoekbareYtelserNAVType.DAGSPENGER
+        case SoekbareYtelserNAV.sykepenger:
+            return SoekbareYtelserNAVType.SYKEPENGER
+        case SoekbareYtelserNAV.pleiepenger:
+            return SoekbareYtelserNAVType.PLEIEPENGER
+        case SoekbareYtelserNAV.svangerskapspenger:
+            return SoekbareYtelserNAVType.SVANGERSKAPSPENGER
+        case SoekbareYtelserNAV.foreldrepenger:
+            return SoekbareYtelserNAVType.FORELDREPENGER
+        case SoekbareYtelserNAV.arbeidsavklaringspenger:
+            return SoekbareYtelserNAVType.ARBEIDSAVKLARINGSPENGER
+        case SoekbareYtelserNAV.kvalifiseringsstoenad:
+            return SoekbareYtelserNAVType.KVALIFISERINGSSTOENAD
+        case SoekbareYtelserNAV.kommunalOmsorgsstoenad:
+            return SoekbareYtelserNAVType.KOMMUNAL_OMSORGSSTOENAD
+        case SoekbareYtelserNAV.fosterhjemsgodtgjoering:
+            return SoekbareYtelserNAVType.FOSTERHJEMSGODTGJOERING
+        case SoekbareYtelserNAV.omsorgspenger:
+            return SoekbareYtelserNAVType.OMSORGSPENGER
+        case SoekbareYtelserNAV.opplaeringspenger:
+            return SoekbareYtelserNAVType.OPPLAERINGSPENGER
+        case SoekbareYtelserNAV.ufoerepensjon:
+            return SoekbareYtelserNAVType.UFOEREPENSJON
+        case SoekbareYtelserNAV.alderspensjon:
+            return SoekbareYtelserNAVType.ALDERSPENSJON
     }
 }

@@ -136,6 +136,29 @@ export interface ArbeidOgUtdanning {
     annet?: Opplysning<FritekstSvar>
 }
 
+export interface InntektOgPensjon {
+    ytelserNAV: YtelserNav
+    ytelserAndre: YtelserAndre
+    endringAvInntekt: EndringAvInntekt
+}
+
+export interface YtelserNav {
+    soektOmYtelse: Opplysning<EnumSvar<JaNeiVetIkke>>
+    soektYtelse?: Opplysning<EnumSvar<SoekbareYtelserNAVType>[]>
+}
+
+export interface YtelserAndre {
+    soektOmYtelse: Opplysning<EnumSvar<JaNeiVetIkke>>
+    soektYtelse?: Opplysning<EnumSvar<SoekbareYtelserAndreType>[]>
+    pensjonsordning?: Opplysning<FritekstSvar>
+}
+
+export interface EndringAvInntekt {
+    fremtidigEndringAvInntekt: Opplysning<EnumSvar<JaNeiVetIkke>>
+    grunn?: Opplysning<EnumSvar<EndringAvInntektGrunnType>>
+    annenGrunn?: Opplysning<FritekstSvar>
+}
+
 // TODO: naavaerende utdanning + tidligere
 
 export interface Utdanning {
@@ -218,4 +241,39 @@ export enum IngenJobbType {
     ETABLERER_BEDRIFT = 'ETABLERER_BEDRIFT',
     SYK = 'SYK',
     ANNET = 'ANNET',
+}
+
+export enum EndringAvInntektGrunnType {
+    OEKT_STILLINGSPROSENT = 'OEKT_STILLINGSPROSENT',
+    REDUSERT_STILLINGSPROSENT = 'REDUSERT_STILLINGSPROSENT',
+    PERMISJON_UTEN_LOENN = 'PERMISJON_UTEN_LOENN',
+    LOENNSOEKNING = 'LOENNSOEKNING',
+    ARBEIDSLEDIG = 'ARBEIDSLEDIG',
+    SESONGARBEID = 'SESONGARBEID',
+    BYTTE_AV_JOBB = 'BYTTE_AV_JOBB',
+    ANNEN_GRUNN = 'ANNEN_GRUNN',
+}
+
+export enum SoekbareYtelserAndreType {
+    AVTALEFESTET_PENSJON_OFFENTLIG = 'AVTALEFESTET_PENSJON_OFFENTLIG',
+    AVTALEFESTET_PENSJON_PRIVAT = 'AVTALEFESTET_PENSJON_PRIVAT',
+    SAERALDERSPENSJON = 'SAERALDERSPENSJON',
+    UFOEREPENSJON = 'UFOEREPENSJON',
+    ALDERSPENSJON = 'ALDERSPENSJON',
+}
+
+export enum SoekbareYtelserNAVType {
+    DAGSPENGER = 'DAGSPENGER',
+    SYKEPENGER = 'SYKEPENGER',
+    PLEIEPENGER = 'PLEIEPENGER',
+    SVANGERSKAPSPENGER = 'SVANGERSKAPSPENGER',
+    FORELDREPENGER = 'FORELDREPENGER',
+    ARBEIDSAVKLARINGSPENGER = 'ARBEIDSAVKLARINGSPENGER',
+    KVALIFISERINGSSTOENAD = 'KVALIFISERINGSSTOENAD',
+    KOMMUNAL_OMSORGSSTOENAD = 'KOMMUNAL_OMSORGSSTOENAD',
+    FOSTERHJEMSGODTGJOERING = 'FOSTERHJEMSGODTGJOERING',
+    OMSORGSPENGER = 'OMSORGSPENGER',
+    OPPLAERINGSPENGER = 'OPPLAERINGSPENGER',
+    UFOEREPENSJON = 'UFOEREPENSJON',
+    ALDERSPENSJON = 'ALDERSPENSJON',
 }
