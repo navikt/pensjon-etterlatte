@@ -74,7 +74,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffenTest{
         every { journalfoeringService.journalfoer(
             "13",
             "5555555555",
-            any(),any(),any(),any(),
+            any(),any(),any(),any(),any(),
             false,
             null) } returns
                 DokarkivResponse(
