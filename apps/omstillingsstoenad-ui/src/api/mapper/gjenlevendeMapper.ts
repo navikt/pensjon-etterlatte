@@ -435,13 +435,13 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
     const ytelserNAV: YtelserNav = {
         soektOmYtelse: {
             spoersmaal: t('inntektenDin.ytelserNAV.svar'),
-            svar: valgTilSvar(t, inntektenDin!!.ytelserNAV!!.svar!!),
+            svar: valgTilSvar(t, inntektenDin.ytelserNAV!!.svar!!),
         },
         soektYtelse:
-                inntektenDin!!.ytelserNAV!!.svar!! === IValg.JA
+                inntektenDin.ytelserNAV!!.svar!! === IValg.JA
                         ? {
                             spoersmaal: t('inntektenDin.ytelserAndre.soekteYtelser'),
-                            svar: inntektenDin!!.ytelserNAV!!.soekteYtelser!!.map((ytelse) => ({
+                            svar: inntektenDin.ytelserNAV!!.soekteYtelser!!.map((ytelse) => ({
                                 verdi: konverterSoekteYtelserNAV(ytelse),
                                 innhold: t(ytelse),
                             })),
@@ -452,20 +452,20 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
     const ytelserAndre: YtelserAndre = {
         soektOmYtelse: {
             spoersmaal: t('inntektenDin.ytelserAndre.svar'),
-            svar: valgTilSvar(t, inntektenDin!!.ytelserAndre!!.svar!!),
+            svar: valgTilSvar(t, inntektenDin.ytelserAndre!!.svar!!),
         },
         soektYtelse:
-            inntektenDin!!.ytelserAndre!!.svar!! === IValg.JA
+            inntektenDin.ytelserAndre!!.svar!! === IValg.JA
                 ? {
                       spoersmaal: t('inntektenDin.ytelserAndre.soekteYtelser'),
-                      svar: inntektenDin!!.ytelserAndre!!.soekteYtelser!!.map((ytelse) => ({
+                      svar: inntektenDin.ytelserAndre!!.soekteYtelser!!.map((ytelse) => ({
                           verdi: konverterSoekteYtelserAndre(ytelse),
                           innhold: t(ytelse),
                       })),
                   }
                 : undefined,
         pensjonsordning:
-            inntektenDin!!.ytelserAndre!!.svar!! === IValg.JA
+            inntektenDin.ytelserAndre!!.svar!! === IValg.JA
                 ? {
                       spoersmaal: t('inntektenDin.ytelserAndre.pensjonsordning'),
                       svar: {
@@ -478,20 +478,20 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
     const endringAvInntekt: EndringAvInntekt = {
         fremtidigEndringAvInntekt: {
             spoersmaal: t('inntektenDin.forventerEndringAvInntekt.svar'),
-            svar: valgTilSvar(t, inntektenDin!!.forventerEndringAvInntekt!!.svar!!),
+            svar: valgTilSvar(t, inntektenDin.forventerEndringAvInntekt!!.svar!!),
         },
         grunn:
-            inntektenDin!!.forventerEndringAvInntekt!!.svar!! === IValg.JA
+            inntektenDin.forventerEndringAvInntekt!!.svar!! === IValg.JA
                 ? {
                       spoersmaal: t('inntektenDin.forventerEndringAvInntekt.svar'),
                       svar: {
-                          verdi: konverterEndringAvInntektGrunn(inntektenDin!!.forventerEndringAvInntekt!!.grunn!!),
-                          innhold: t(inntektenDin!!.forventerEndringAvInntekt!!.grunn!!),
+                          verdi: konverterEndringAvInntektGrunn(inntektenDin.forventerEndringAvInntekt!!.grunn!!),
+                          innhold: t(inntektenDin.forventerEndringAvInntekt!!.grunn!!),
                       },
                   }
                 : undefined,
         annenGrunn:
-            inntektenDin!!.forventerEndringAvInntekt!!.grunn === EndringAvInntektGrunn.annenGrunn
+            inntektenDin.forventerEndringAvInntekt!!.grunn === EndringAvInntektGrunn.annenGrunn
                 ? {
                       spoersmaal: t('inntektenDin.forventerEndringAvInntekt.svar'),
                       svar: {
