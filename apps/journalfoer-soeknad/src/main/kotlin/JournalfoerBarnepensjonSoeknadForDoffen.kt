@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.node.BooleanNode
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.ktor.client.plugins.ResponseException
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
@@ -71,8 +72,11 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
-        val trengerManuellJournalfoering = packet["trengerManuellJournalfoering"].booleanValue()
-        val sakId = if (trengerManuellJournalfoering) null else packet["sakId"].asText()
+        val trengerManuellJournalfoering = when (val it = packet["trengerManuellJournalfoering"]) {
+            is BooleanNode -> it.booleanValue()
+            else -> false
+        }
+        val forsoekFerdigstill = !trengerManuellJournalfoering
 
         return journalfoeringService.journalfoer(
             soeknadId = soeknadId,
@@ -82,7 +86,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
             soeknad = soeknad,
             tema = "EYB",
             behandlingstema = null,
-            forsoekFerdigstill = !trengerManuellJournalfoering,
+            forsoekFerdigstill = forsoekFerdigstill,
             sakId = packet["sakId"].asText()
         )
     }
