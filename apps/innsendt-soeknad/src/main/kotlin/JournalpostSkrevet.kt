@@ -3,7 +3,6 @@ package no.nav.etterlatte
 import com.fasterxml.jackson.databind.node.BooleanNode
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
-import no.nav.helse.rapids_rivers.MessageProblems
 import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.helse.rapids_rivers.River
 import no.nav.helse.rapids_rivers.isMissingOrNull
@@ -20,10 +19,11 @@ internal class JournalpostSkrevet(
 
     init {
         River(rapidsConnection).apply {
-            validate { it.rejectValue("@event_name", TRENGER_BEHANDLING_EVENT)}
+            validate { it.rejectValue("@event_name", TRENGER_BEHANDLING_EVENT) }
             validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.interestedIn("@hendelse_gyldig_til") }
+            validate { it.interestedIn("trengerManuellJournalfoering") }
             validate { it.interestedIn("soeknadFordelt") }
         }.register(this)
     }
@@ -43,8 +43,13 @@ internal class JournalpostSkrevet(
             else -> false
         }
 
+        val trengerManuellJournalfoering = when (val trenger = packet["trengerManuellJournalfoering"]) {
+            is BooleanNode -> trenger.booleanValue()
+            else -> false
+        }
+
         if (dokumentInfoId != 0L) {
-            if (soeknadSkalTilDoffen) {
+            if (soeknadSkalTilDoffen && !trengerManuellJournalfoering) {
                 soeknader.soeknadTilDoffenArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
                 packet["@event_name"] = TRENGER_BEHANDLING_EVENT
                 context.publish(packet.toJson())
@@ -62,7 +67,9 @@ internal class JournalpostSkrevet(
         if (!packet["@hendelse_gyldig_til"].isMissingOrNull()) {
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
                 if (it.isBefore(OffsetDateTime.now())) {
-                    logger.info("${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadId.asLong()} er arkivert, men hendelsen gikk ut på dato $it")
+                    logger.info(
+                        "${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadId.asLong()} er arkivert, men hendelsen gikk ut på dato $it"
+                    )
                 }
             }
         }
