@@ -426,7 +426,7 @@ export default {
     'inntekt.annen' : 'Annen inntekt eller utbetalinger',
     'soekbarYtelse.dagspenger': 'Dagspenger',
     'soekbarYtelse.sykepenger': 'Sykepenger',
-    'soekbarYtelse.pleieepenger': 'Pleieepenger',
+    'soekbarYtelse.pleiepenger': 'Pleiepenger',
     'soekbarYtelse.svangerskapspenger': 'Svangerskapspenger',
     'soekbarYtelse.foreldrepenger': 'Foreldrepenger',
     'soekbarYtelse.arbeidsavklaringspenger': 'Arbeidsavklaringspenger',

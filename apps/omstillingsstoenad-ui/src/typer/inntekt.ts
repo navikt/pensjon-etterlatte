@@ -37,7 +37,7 @@ export enum InntektsTyper {
 export enum SoekbareYtelserNAV {
     dagspenger = 'soekbarYtelse.dagspenger',
     sykepenger = 'soekbarYtelse.sykepenger',
-    pleieepenger = 'soekbarYtelse.pleieepenger',
+    pleiepenger = 'soekbarYtelse.pleiepenger',
     svangerskapspenger = 'soekbarYtelse.svangerskapspenger',
     foreldrepenger = 'soekbarYtelse.foreldrepenger',
     arbeidsavklaringspenger = 'soekbarYtelse.arbeidsavklaringspenger',

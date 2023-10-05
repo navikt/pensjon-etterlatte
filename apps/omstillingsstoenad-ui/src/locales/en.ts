@@ -445,7 +445,7 @@ export default {
     'inntekt.annen' : '<MANGLER TEKST>',
     'soekbarYtelse.dagspenger': '<MANGLER TEKST>',
     'soekbarYtelse.sykepenger': '<MANGLER TEKST>',
-    'soekbarYtelse.pleieepenger': '<MANGLER TEKST>',
+    'soekbarYtelse.pleiepenger': '<MANGLER TEKST>',
     'soekbarYtelse.svangerskapspenger': '<MANGLER TEKST>',
     'soekbarYtelse.foreldrepenger': '<MANGLER TEKST>',
     'soekbarYtelse.arbeidsavklaringspenger': '<MANGLER TEKST>',

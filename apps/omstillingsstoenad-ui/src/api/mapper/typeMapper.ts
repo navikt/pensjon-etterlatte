@@ -219,8 +219,8 @@ export const konverterSoekteYtelserNAV = (type: SoekbareYtelserNAV): SoekbareYte
             return SoekbareYtelserNAVType.DAGSPENGER
         case SoekbareYtelserNAV.sykepenger:
             return SoekbareYtelserNAVType.SYKEPENGER
-        case SoekbareYtelserNAV.pleieepenger:
-            return SoekbareYtelserNAVType.PLEIEEPENGER
+        case SoekbareYtelserNAV.pleiepenger:
+            return SoekbareYtelserNAVType.PLEIEPENGER
         case SoekbareYtelserNAV.svangerskapspenger:
             return SoekbareYtelserNAVType.SVANGERSKAPSPENGER
         case SoekbareYtelserNAV.foreldrepenger:
