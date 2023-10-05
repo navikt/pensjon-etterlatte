@@ -76,7 +76,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffenTest{
             "5555555555",
             any(),any(),any(),any(),any(),
             false,
-            null) } returns
+            any()) } returns
                 DokarkivResponse(
                     journalpostId = "543",
                     journalpostferdigstilt = false,
