@@ -33,10 +33,7 @@ internal class JournalpostSkrevet(
         val dokumentInfoId = dokarkivRetur.path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
 
         val soeknadId = packet["@lagret_soeknad_id"]
-        if (soeknadId.toString().startsWith("TEST-") || soeknadId.asLong() == 0L) {
-            logger.info("Verifiseringssøknad med id $soeknadId lest med dokumentInfoId $dokumentInfoId")
-            return
-        }
+        val harTestSoeknad = soeknadId.toString().startsWith("TEST-") || soeknadId.asLong() == 0L
 
         val soeknadSkalTilDoffen = when (val fordelt = packet["soeknadFordelt"]) {
             is BooleanNode -> fordelt.booleanValue()
@@ -50,18 +47,29 @@ internal class JournalpostSkrevet(
 
         if (dokumentInfoId != 0L) {
             if (soeknadSkalTilDoffen && !trengerManuellJournalfoering) {
-                soeknader.soeknadTilDoffenArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
+                if (!harTestSoeknad) {
+                    soeknader.soeknadTilDoffenArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
+                } else {
+                    logger.info("Verifiseringssøknad med id $soeknadId lest med dokumentInfoId $dokumentInfoId")
+                }
                 packet["@event_name"] = TRENGER_BEHANDLING_EVENT
                 context.publish(packet.toJson())
             } else {
-                soeknader.soeknadArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
+                if (!harTestSoeknad) {
+                    soeknader.soeknadArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
+                } else {
+                    logger.info("Verifiseringssøknad med id $soeknadId lest med dokumentInfoId $dokumentInfoId")
+                }
             }
         } else {
             logger.error("Arkivering feilet: {}", packet.toJson())
-            soeknader.soeknadFeiletArkivering(
-                soeknadId.asLong(),
-                packet["@dokarkivRetur"].toJson()
-            )
+
+            if (!harTestSoeknad) {
+                soeknader.soeknadFeiletArkivering(
+                    soeknadId.asLong(),
+                    packet["@dokarkivRetur"].toJson()
+                )
+            }
         }
 
         if (!packet["@hendelse_gyldig_til"].isMissingOrNull()) {
