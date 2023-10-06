@@ -98,7 +98,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                 <div>
                   <button
                     aria-expanded="false"
-                    class="sc-ktwNLz ivbIwA"
+                    class="sc-hABBGs fczSdJ"
                     data-testid="hvorforPanel_toggle"
                     type="button"
                   >
@@ -403,7 +403,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.iban"
           >
             <div
-              class="sc-brSaGm gnAnWs"
+              class="sc-ktwNLz kVVYFo"
             >
               omDeg.utbetalingsInformasjon.iban
                
@@ -524,7 +524,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.swift"
           >
             <div
-              class="sc-brSaGm gnAnWs"
+              class="sc-ktwNLz kVVYFo"
             >
               omDeg.utbetalingsInformasjon.swift
                

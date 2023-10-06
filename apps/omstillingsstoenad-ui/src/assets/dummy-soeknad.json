@@ -108,6 +108,13 @@
     "inntektstyper": [
       "inntekt.loenn"
     ],
+    "loennsinntekt": {
+      "arbeidsinntektAaretFoer": "10000",
+      "arbeidsinntektIAar": {
+        "tilDoedsfall": "20000",
+        "etterDoedsfall": "30000"
+      }
+    },
     "ytelserNAV": {
       "svar": "radiobuttons.ja",
       "soekteYtelser": [
