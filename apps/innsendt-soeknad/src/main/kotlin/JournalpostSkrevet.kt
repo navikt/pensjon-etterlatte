@@ -50,7 +50,7 @@ internal class JournalpostSkrevet(
                 if (!harTestSoeknad) {
                     soeknader.soeknadTilDoffenArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
                 } else {
-                    logger.info("Verifiseringssøknad med id $soeknadId lest med dokumentInfoId $dokumentInfoId")
+                    logger.info("Verifiseringssøknad til Gjenny med id $soeknadId lest med dokumentInfoId $dokumentInfoId")
                 }
                 packet["@event_name"] = TRENGER_BEHANDLING_EVENT
                 context.publish(packet.toJson())
@@ -58,7 +58,7 @@ internal class JournalpostSkrevet(
                 if (!harTestSoeknad) {
                     soeknader.soeknadArkivert(soeknadId.asLong(), dokarkivRetur.toJson())
                 } else {
-                    logger.info("Verifiseringssøknad med id $soeknadId lest med dokumentInfoId $dokumentInfoId")
+                    logger.info("Verifiseringssøknad til Pesys med id $soeknadId lest med dokumentInfoId $dokumentInfoId")
                 }
             }
         } else {
