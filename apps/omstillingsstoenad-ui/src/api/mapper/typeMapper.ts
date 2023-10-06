@@ -1,17 +1,26 @@
 import { JobbStatus, Utdanning as GammelUtdanning } from '../../typer/situasjon'
-import { IngenJobb, StillingType as GammelStillingType } from '../../typer/arbeidsforhold'
 import {
-    EndringAvInntektGrunnType,
+    Arbeidsmengde,
+    IngenJobb,
+    SagtOppEllerRedusert,
+    StillingType as GammelStillingType,
+} from '../../typer/arbeidsforhold'
+import {
+    ArbeidsmengdeType,
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
     IngenJobbType,
     InntektType,
     JobbStatusType,
     OppholdUtlandType,
+    SagtOppEllerRedusertType,
     SivilstatusType,
-    SoekbareYtelserAndreType, SoekbareYtelserNAVType,
+    SoekbareYtelserAndreType,
+    SoekbareYtelserNAVType,
     StillingType,
+    StudieformType,
     Ytelser,
+    EndringAvInntektGrunnType
 } from '../dto/FellesOpplysninger'
 import {
     ForholdTilAvdoede as RelasjonAvdoed,
@@ -21,6 +30,7 @@ import {
 } from '../../typer/person'
 import { Ytelser as GamleYtelser } from '../../typer/ytelser'
 import { EndringAvInntektGrunn, SoekbareYtelserAndre, SoekbareYtelserNAV } from '../../typer/inntekt'
+import { Studieform } from '../../typer/utdanning'
 
 export const konverterStillingType = (type: GammelStillingType): StillingType => {
     switch (type) {
@@ -88,12 +98,18 @@ export const konverterJobbStatus = (type: JobbStatus): JobbStatusType => {
     switch (type) {
         case JobbStatus.arbeidstaker:
             return JobbStatusType.ARBEIDSTAKER
-        case JobbStatus.selvstendig:
-            return JobbStatusType.SELVSTENDIG
-        case JobbStatus.underUtdanning:
-            return JobbStatusType.UNDER_UTDANNING
+        case JobbStatus.selvstendigENK:
+            return JobbStatusType.SELVSTENDIG_ENK
+        case JobbStatus.selvstendigAS:
+            return JobbStatusType.SELVSTENDIG_AS
+        case JobbStatus.etablerer:
+            return JobbStatusType.ETABLERER
+        case JobbStatus.tilbud:
+            return JobbStatusType.TILBUD
         case JobbStatus.arbeidssoeker:
             return JobbStatusType.ARBEIDSSOEKER
+        case JobbStatus.underUtdanning:
+            return JobbStatusType.UNDER_UTDANNING
         case JobbStatus.ingen:
             return JobbStatusType.INGEN
         default:
@@ -162,8 +178,6 @@ export const konverterIngenJobb = (type: IngenJobb): IngenJobbType => {
     switch (type) {
         case IngenJobb.omsorgNaerstaaende:
             return IngenJobbType.OMSORG_NAERSTAAENDE
-        case IngenJobb.etablererBedrift:
-            return IngenJobbType.ETABLERER_BEDRIFT
         case IngenJobb.omsorgBarn:
             return IngenJobbType.OMSORG_BARN
         case IngenJobb.syk:
@@ -243,3 +257,33 @@ export const konverterSoekteYtelserNAV = (type: SoekbareYtelserNAV): SoekbareYte
             return SoekbareYtelserNAVType.ALDERSPENSJON
     }
 }
+export const konverterArbeidsmengde = (type: Arbeidsmengde): ArbeidsmengdeType => {
+    switch (type) {
+        case Arbeidsmengde.prosent:
+            return ArbeidsmengdeType.PROSENT
+        case Arbeidsmengde.timer:
+            return ArbeidsmengdeType.TIMER
+    }
+}
+
+export const konverterSagtOppEllerRedusert = (type: SagtOppEllerRedusert): SagtOppEllerRedusertType => {
+    switch (type) {
+        case SagtOppEllerRedusert.oppsagt:
+            return SagtOppEllerRedusertType.OPPSAGT
+        case SagtOppEllerRedusert.redusert:
+            return SagtOppEllerRedusertType.REDUSERT
+        case SagtOppEllerRedusert.nei:
+            return SagtOppEllerRedusertType.NEI
+    }
+}
+
+export const konverterStudieform = (type: Studieform): StudieformType => {
+    switch (type) {
+        case Studieform.heltid:
+            return StudieformType.HELTID
+        case Studieform.deltid:
+            return StudieformType.DELTID
+    }
+}
+
+

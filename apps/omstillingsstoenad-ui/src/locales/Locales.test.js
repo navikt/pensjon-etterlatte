@@ -15,6 +15,10 @@ describe('Validering av språkfiler', () => {
         expect(inneholderSammeNoekler(nbLocale, enLocale)).toStrictEqual([])
     })
 
+    it('Bokmål har alle de samme tekstnøklene som engelsk', () => {
+        expect(inneholderSammeNoekler(enLocale, nbLocale)).toStrictEqual([])
+    })
+
     it('Bokmål har ingen tomme verdier', () => {
         expect(finnesTommeVerdier(nbLocale)).toBeFalsy()
     })

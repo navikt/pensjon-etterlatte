@@ -1,17 +1,27 @@
-import { IArbeidsforhold, IngenJobb, ISelvstendigNaeringsdrivende } from './arbeidsforhold'
+import {
+    IArbeidsforhold,
+    IEtablererVirksomhet,
+    ITilbudOmJobb,
+    IArbeidssoeker, IAnnenSituasjon, ISelvstendig,
+} from './arbeidsforhold'
 import { IAndreYtelser } from './ytelser'
 import { IValg } from './Spoersmaal'
+import { Studieform } from './utdanning'
+import { HoeyesteUtdanning } from '../api/dto/FellesOpplysninger'
 
 export interface IUtdanning {
     naavaerendeUtdanning?: {
-        navn?: string
+        studiested?: string
+        studie?: string
+        studieform?: Studieform
+        studieprosent?: string
         startDato?: Date
         sluttDato?: Date
+        godkjentUtdanning?: IValg
     }
     soeknadOmSkolepenger?: IValg.JA | undefined
     soeknadOmTilleggsstoenadUtdanning?: IValg.JA | undefined
-    hoyesteFullfoerteUtdanning?: string
-    annenUtdanning?: string
+    hoyesteFullfoerteUtdanning?: HoeyesteUtdanning[]
 }
 
 export enum Utdanning {
@@ -26,18 +36,26 @@ export enum Utdanning {
 
 export enum JobbStatus {
     arbeidstaker = 'jobbStatus.arbeidstaker',
-    selvstendig = 'jobbStatus.selvstendig',
-    underUtdanning = 'jobbStatus.underUtdanning',
+    selvstendigENK = 'jobbStatus.selvstendig.enk',
+    selvstendigAS = 'jobbStatus.selvstendig.as',
+    etablerer = 'jobbStatus.etablerer',
+    tilbud = 'jobbStatus.tilbud',
     arbeidssoeker = 'jobbStatus.arbeidssoker',
+    underUtdanning = 'jobbStatus.underUtdanning',
     ingen = 'jobbStatus.ingen',
 }
 
+
+
 export interface ISituasjon {
     jobbStatus?: JobbStatus[]
-    ingenJobbBeskrivelse?: IngenJobb
+    annenSituasjon?: IAnnenSituasjon
     utdanning?: IUtdanning
-    selvstendig?: ISelvstendigNaeringsdrivende[]
+    selvstendig?: ISelvstendig
     arbeidsforhold?: IArbeidsforhold[]
+    etablererVirksomhet?: IEtablererVirksomhet
+    tilbudOmJobb?: ITilbudOmJobb
+    arbeidssoeker?: IArbeidssoeker
     andreYtelser?: IAndreYtelser
     erValidert?: boolean
 }

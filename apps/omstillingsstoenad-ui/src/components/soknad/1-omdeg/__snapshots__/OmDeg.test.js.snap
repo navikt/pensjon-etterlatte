@@ -103,9 +103,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
                     type="button"
                   >
                     <span>
-                      hvorforSpoerVi
-                    </span>
-                    <span>
                       <svg
                         fill="none"
                         focusable="false"
@@ -122,6 +119,9 @@ exports[`Om deg og avdød Snapshot 1`] = `
                           fill-rule="evenodd"
                         />
                       </svg>
+                    </span>
+                    <span>
+                      hvorforSpoerVi
                     </span>
                   </button>
                 </div>

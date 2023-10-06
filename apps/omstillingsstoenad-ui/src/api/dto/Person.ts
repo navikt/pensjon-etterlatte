@@ -1,6 +1,4 @@
 import {
-    AndreYtelser,
-    AnnenUtdanning,
     ArbeidOgUtdanning,
     BetingetOpplysning,
     ForholdTilAvdoede,
@@ -90,9 +88,8 @@ export interface Gjenlevende extends Person {
     oppholdUtland?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland>
     nySivilstatus?: BetingetOpplysning<EnumSvar<SivilstatusType>, Samboer>
     arbeidOgUtdanning?: ArbeidOgUtdanning
-    fullfoertUtdanning?: BetingetOpplysning<EnumSvar<HoeyesteUtdanning>, Opplysning<AnnenUtdanning>>
-    andreYtelser: AndreYtelser
     inntektOgPensjon: InntektOgPensjon
+    fullfoertUtdanning?: Opplysning<EnumSvar<HoeyesteUtdanning>[]>
     uregistrertEllerVenterBarn: Opplysning<EnumSvar<JaNeiVetIkke>>
     forholdTilAvdoede: ForholdTilAvdoede
 }

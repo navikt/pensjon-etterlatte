@@ -77,9 +77,12 @@ export enum OppholdUtlandType {
 
 export enum JobbStatusType {
     ARBEIDSTAKER = 'ARBEIDSTAKER',
-    SELVSTENDIG = 'SELVSTENDIG',
-    UNDER_UTDANNING = 'UNDER_UTDANNING',
+    SELVSTENDIG_ENK = 'SELVSTENDIG_ENK',
+    SELVSTENDIG_AS = 'SELVSTENDIG_AS',
+    ETABLERER = 'ETABLERER',
+    TILBUD = 'TILBUD',
     ARBEIDSSOEKER = 'ARBEIDSSOEKER',
+    UNDER_UTDANNING = 'UNDER_UTDANNING',
     INGEN = 'INGEN',
 }
 
@@ -93,6 +96,17 @@ export enum SivilstatusType {
     ENSLIG = 'ENSLIG',
     EKTESKAP = 'EKTESKAP',
     SAMBOERSKAP = 'SAMBOERSKAP',
+}
+
+export enum SagtOppEllerRedusertType {
+    OPPSAGT = "OPPSAGT",
+    REDUSERT = "REDUSERT",
+    NEI = "NEI"
+}
+
+export enum StudieformType {
+    HELTID =  "HELTID",
+    DELTID = "DELTID"
 }
 
 export interface SamboerInntekt {
@@ -131,9 +145,13 @@ export interface Naeringsinntekt {
 export interface ArbeidOgUtdanning {
     dinSituasjon: Opplysning<EnumSvar<JobbStatusType>[]>
     arbeidsforhold?: Opplysning<Arbeidstaker[]>
-    selvstendig?: Opplysning<SelvstendigNaeringsdrivende[]>
+    selvstendigENK?: Opplysning<SelvstendigNaeringsdrivende[]>
+    selvstendigAS?: Opplysning<SelvstendigNaeringsdrivende[]>
+    etablererVirksomhet?: Opplysning<EtablererVirksomhet>
+    tilbud?: Opplysning<TilbudOmJobb>
+    arbeidssoeker?: Opplysning<Arbeidssoeker>
     utdanning?: Opplysning<Utdanning>
-    annet?: Opplysning<FritekstSvar>
+    annenSituasjon?: Opplysning<AnnenSituasjon>
 }
 
 export interface InntektOgPensjon {
@@ -159,12 +177,35 @@ export interface EndringAvInntekt {
     annenGrunn?: Opplysning<FritekstSvar>
 }
 
+export interface EtablererVirksomhet {
+    virksomheten: Opplysning<FritekstSvar>
+    orgnr: Opplysning<FritekstSvar>
+    forretningsplan: Opplysning<EnumSvar<JaNeiVetIkke>>
+    samarbeidMedNav?: Opplysning<EnumSvar<JaNeiVetIkke>>
+}
+
+export interface TilbudOmJobb {
+    nyttArbeidssted: Opplysning<FritekstSvar>
+    ansettelsesforhold: Opplysning<EnumSvar<StillingType>>
+    harSluttdato?: Opplysning<EnumSvar<JaNeiVetIkke>>
+    sluttdato?: Opplysning<DatoSvar>
+}
+
+export interface Arbeidssoeker {
+    registrertArbeidssoeker: Opplysning<EnumSvar<JaNeiVetIkke>>
+    aktivitetsplan?: Opplysning<EnumSvar<JaNeiVetIkke>>
+}
+
 // TODO: naavaerende utdanning + tidligere
 
 export interface Utdanning {
-    navn: Opplysning<FritekstSvar>
+    studiested: Opplysning<FritekstSvar>
+    studie: Opplysning<FritekstSvar>
+    studieform: Opplysning<EnumSvar<StudieformType>>
+    studieprosent?: Opplysning<FritekstSvar>
     startDato: Opplysning<DatoSvar>
     sluttDato: Opplysning<DatoSvar>
+    godkjentUtdanning: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
 export type AnnenUtdanning = FritekstSvar
@@ -184,14 +225,25 @@ export type EndretInntektBegrunnelse = FritekstSvar
 export interface SelvstendigNaeringsdrivende {
     firmanavn: Opplysning<FritekstSvar>
     orgnr: Opplysning<FritekstSvar>
-    endretInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>
+    typeArbeidsmengde: Opplysning<EnumSvar<ArbeidsmengdeType>>
+    arbeidsmengde: Opplysning<FritekstSvar>
+    endretArbeidssituasjon: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>
 }
 
 export interface Arbeidstaker {
     arbeidsgiver: Opplysning<FritekstSvar>
+    typeArbeidsmengde: Opplysning<EnumSvar<ArbeidsmengdeType>>
+    arbeidsmengde: Opplysning<FritekstSvar>
     ansettelsesforhold: Opplysning<EnumSvar<StillingType>>
-    stillingsprosent: Opplysning<FritekstSvar>
-    endretInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>
+    harSluttdato?: Opplysning<EnumSvar<JaNeiVetIkke>>
+    sluttdato?: Opplysning<DatoSvar>
+    endretArbeidssituasjon: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>
+    sagtOppEllerRedusert: Opplysning<EnumSvar<SagtOppEllerRedusertType>>
+}
+
+export interface AnnenSituasjon {
+    beskrivelse: Opplysning<EnumSvar<IngenJobbType>>
+    annet?: Opplysning<FritekstSvar>
 }
 
 export enum Ytelser {
@@ -238,7 +290,6 @@ export enum IngenJobbType {
     OMSORG_BARN = 'OMSORG_BARN',
     OMSORG_NAERSTAAENDE = 'OMSORG_NAERSTAAENDE',
     FRIVILLIG_ARBEID = 'FRIVILLIG_ARBEID',
-    ETABLERER_BEDRIFT = 'ETABLERER_BEDRIFT',
     SYK = 'SYK',
     ANNET = 'ANNET',
 }
@@ -276,4 +327,9 @@ export enum SoekbareYtelserNAVType {
     OPPLAERINGSPENGER = 'OPPLAERINGSPENGER',
     UFOEREPENSJON = 'UFOEREPENSJON',
     ALDERSPENSJON = 'ALDERSPENSJON',
+}
+
+export enum ArbeidsmengdeType {
+    PROSENT = 'PROSENT',
+    TIMER = 'TIMER',
 }

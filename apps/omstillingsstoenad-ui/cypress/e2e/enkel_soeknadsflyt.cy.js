@@ -108,33 +108,23 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
             const baseId = `arbeidsforhold\[${idx}\].`;
 
             getById(baseId + "arbeidsgiver").type(arbeid.arbeidsgiver);
+            selectValueForId(baseId + "typeArbeidsmengde", arbeid.typeArbeidsmengde.svar);
+            getById(baseId + "arbeidsmengde.prosent").type(arbeid.arbeidsmengde);
+
             getById(baseId + "ansettelsesforhold")
                 .find("select")
                 .select(arbeid.ansettelsesforhold);
-            getById(baseId + "stillingsprosent").type(arbeid.stillingsprosent);
-            selectValueForId(baseId + "forventerEndretInntekt.svar", arbeid.forventerEndretInntekt.svar);
-            getById(baseId + "forventerEndretInntekt.beskrivelse")
-                    .find("select")
-                    .select(arbeid.forventerEndretInntekt.beskrivelse);
+            selectValueForId(baseId + "midlertidig.svar", arbeid.midlertidig.svar);
+            getById(baseId + "midlertidig.sluttdatoVelger").type(arbeid.midlertidig.sluttdatoVelger);
+
+            selectValueForId(baseId + "forventerEndretArbeidssituasjon.svar", arbeid.forventerEndretArbeidssituasjon.svar);
+            getById(baseId + "forventerEndretArbeidssituasjon.beskrivelse")
+                    .type(arbeid.forventerEndretArbeidssituasjon.beskrivelse);
+
+            selectValueForId(baseId + "sagtOppEllerRedusert.svar", arbeid.sagtOppEllerRedusert.svar);
         });
 
         selectValue(dinSituasjon.utdanning.hoyesteFullfoerteUtdanning);
-
-        const kravOmAnnenStonad = dinSituasjon.andreYtelser.kravOmAnnenStonad;
-        selectValueForId("andreYtelser.kravOmAnnenStonad.svar", kravOmAnnenStonad.svar);
-        getById("andreYtelser.kravOmAnnenStonad.ytelser").find("select").select(kravOmAnnenStonad.ytelser);
-
-        const annenPensjon = dinSituasjon.andreYtelser.annenPensjon;
-        selectValueForId("andreYtelser.annenPensjon.svar", annenPensjon.svar);
-        getById("andreYtelser.annenPensjon.beskrivelse").type(annenPensjon.beskrivelse);
-
-        const mottarPensjonUtland = dinSituasjon.andreYtelser.mottarPensjonUtland;
-        selectValueForId("andreYtelser.mottarPensjonUtland.svar", mottarPensjonUtland.svar);
-        getById("andreYtelser.mottarPensjonUtland.hvaSlagsPensjon").type(mottarPensjonUtland.hvaSlagsPensjon);
-        getById("andreYtelser.mottarPensjonUtland.fraHvilketLand")
-            .find("select")
-            .select(mottarPensjonUtland.fraHvilketLand);
-        getById("andreYtelser.mottarPensjonUtland.bruttobeloepPrAar").type(mottarPensjonUtland.bruttobeloepPrAar);
 
         a11yCheck();
 

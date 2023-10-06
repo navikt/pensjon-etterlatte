@@ -62,7 +62,9 @@
       "jobbStatus.arbeidstaker"
     ],
     "utdanning": {
-      "hoyesteFullfoerteUtdanning": "utdanning.mastergrad"
+      "hoyesteFullfoerteUtdanning": [
+        "utdanning.mastergrad"
+      ]
     },
     "andreYtelser": {
       "kravOmAnnenStonad": {
@@ -83,11 +85,21 @@
     "arbeidsforhold": [
       {
         "arbeidsgiver": "Potetskreller AS",
+        "typeArbeidsmengde": {
+          "svar": "arbeidsmengde.prosent"
+        },
+        "arbeidsmengde" : "50%",
         "ansettelsesforhold": "stillingType.midlertidig",
-        "stillingsprosent": "100%",
-        "forventerEndretInntekt": {
+        "midlertidig": {
           "svar": "radiobuttons.ja",
-          "beskrivelse": "dinSituasjon.forventerEndretInntektType.oektStillingsprosent"
+          "sluttdatoVelger": "2099-01-01"
+        },
+        "forventerEndretArbeidssituasjon": {
+          "svar": "radiobuttons.ja",
+          "beskrivelse": "Øker mye i lønn"
+        },
+        "sagtOppEllerRedusert": {
+          "svar": "sagtOppEllerRedusert.oppsagt"
         }
       }
     ]
