@@ -137,14 +137,23 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
 
         // Verifiser felter og fyll ut skjema.
         const inntektenDin = mockSoeknad.inntektenDin;
-        selectValue(inntektenDin.inntektstyper)
+        inntektenDin.inntektstyper.map((inntektsType) => selectValue(inntektsType))
 
+        // Lønnsinntekt
         getById('loennsinntekt.arbeidsinntektAaretFoer')
                 .type(inntektenDin.loennsinntekt.arbeidsinntektAaretFoer)
         getById('loennsinntekt.arbeidsinntektIAar.tilDoedsfall')
                 .type(inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall)
         getById('loennsinntekt.arbeidsinntektIAar.etterDoedsfall')
                 .type(inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall)
+
+        // Næringsinntekt
+        getById('naeringsinntekt.arbeidsinntektAaretFoer')
+                .type(inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer)
+        getById('naeringsinntekt.arbeidsinntektIAar.tilDoedsfall')
+                .type(inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall)
+        getById('naeringsinntekt.arbeidsinntektIAar.etterDoedsfall')
+                .type(inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall)
 
         selectValue(inntektenDin.ytelserNAV.svar)
 

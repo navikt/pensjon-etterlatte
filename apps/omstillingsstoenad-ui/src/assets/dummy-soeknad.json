@@ -106,9 +106,17 @@
   },
   "inntektenDin": {
     "inntektstyper": [
-      "inntekt.loenn"
+      "inntekt.loenn",
+      "inntekt.naering"
     ],
     "loennsinntekt": {
+      "arbeidsinntektAaretFoer": "10000",
+      "arbeidsinntektIAar": {
+        "tilDoedsfall": "20000",
+        "etterDoedsfall": "30000"
+      }
+    },
+    "naeringsinntekt": {
       "arbeidsinntektAaretFoer": "10000",
       "arbeidsinntektIAar": {
         "tilDoedsfall": "20000",
