@@ -34,7 +34,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("@hendelse_gyldig_til") }
             validate { it.requireValue("soeknadFordelt", true) }
-            validate { it.requireKey("sakId") }
+            validate { it.interestedIn("sakId") }
             validate { it.rejectKey("@dokarkivRetur") }
             validate { it.interestedIn("trengerManuellJournalfoering") }
         }.register(this)
