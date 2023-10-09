@@ -3,6 +3,7 @@ import { IValg } from './Spoersmaal'
 export interface IInntekt {
     inntektstyper?: InntektsTyper[]
     loennsinntekt?: ILoennsinntekt
+    naeringsinntekt?: INaeringsinntekt
     ytelserNAV?: IYtelserNAV
     ytelserAndre?: IYtelserAndre
     forventerEndringAvInntekt?: IForventerEndringAvInntekt
@@ -27,6 +28,14 @@ interface IForventerEndringAvInntekt {
 }
 
 export interface ILoennsinntekt {
+    arbeidsinntektAaretFoer?: string
+    arbeidsinntektIAar?: {
+        tilDoedsfall?: string
+        etterDoedsfall?: string
+    }
+}
+
+export interface INaeringsinntekt {
     arbeidsinntektAaretFoer?: string
     arbeidsinntektIAar?: {
         tilDoedsfall?: string

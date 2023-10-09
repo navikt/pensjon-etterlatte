@@ -6,7 +6,7 @@ import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed, Sivilstatus
 import { ISituasjon } from '../typer/situasjon'
 import { StegPath } from '../typer/steg'
 import ObjectTreeReader, { Element, Gruppe } from './ObjectTreeReader'
-import { IInntekt, ILoennsinntekt } from '../typer/inntekt'
+import { IInntekt, ILoennsinntekt, INaeringsinntekt } from '../typer/inntekt'
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader
@@ -209,6 +209,19 @@ export default class SoeknadMapper {
             inntekter.push(loennsinntekt)
         }
 
+        if (!!inntektenDin.naeringsinntekt){
+            const naeringsinntekt: Element =  {
+                tittel: this.t('inntektenDin.naeringsinntekt.tittel'),
+                innhold: this.otr.traverse<INaeringsinntekt>(
+                        {
+                            ...inntektenDin.naeringsinntekt,
+                        },
+                        'inntektenDin.naeringsinntekt'
+                ),
+            }
+            inntekter.push(naeringsinntekt)
+        }
+
         return {
             tittel: this.t('inntektenDin.tittel'),
             path: StegPath.InntektenDin,
@@ -220,6 +233,7 @@ export default class SoeknadMapper {
                                 ...inntektenDin,
                                 inntektstyper: undefined,
                                 loennsinntekt: undefined,
+                                naeringsinntekt: undefined,
                                 erValidert: undefined
                             },
                             'inntektenDin'

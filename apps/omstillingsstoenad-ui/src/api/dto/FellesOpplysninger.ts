@@ -137,7 +137,7 @@ export interface Utenlandsopphold {
     pensjonsutbetaling?: Opplysning<FritekstSvar>
 }
 
-export interface Naeringsinntekt {
+export interface NaeringsinntektAvdoed {
     naeringsinntektPrAarFoerDoedsfall?: Opplysning<FritekstSvar>
     naeringsinntektVedDoedsfall?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
@@ -156,12 +156,21 @@ export interface ArbeidOgUtdanning {
 
 export interface InntektOgPensjon {
     loennsinntekt?: Opplysning<Loennsinntekt>
+    naeringsinntekt?: Opplysning<NaeringsinntektGjenlevende>
     ytelserNAV: YtelserNav
     ytelserAndre: YtelserAndre
     endringAvInntekt: EndringAvInntekt
 }
 
 export interface Loennsinntekt {
+    arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
+    arbeidsinntektIAar: {
+        tilDoedsfall: Opplysning<FritekstSvar>
+        etterDoedsfall: Opplysning<FritekstSvar>
+    }
+}
+
+export interface NaeringsinntektGjenlevende {
     arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
     arbeidsinntektIAar: {
         tilDoedsfall: Opplysning<FritekstSvar>
@@ -216,8 +225,6 @@ export interface Utdanning {
     sluttDato: Opplysning<DatoSvar>
     godkjentUtdanning: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
-
-export type AnnenUtdanning = FritekstSvar
 
 export enum HoeyesteUtdanning {
     GRUNNSKOLE = 'GRUNNSKOLE',

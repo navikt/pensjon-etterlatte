@@ -2,7 +2,7 @@ import { TFunction } from 'i18next'
 import { ISoeknad } from '../../context/soknad/soknad'
 import {
     EnumSvar,
-    Naeringsinntekt,
+    NaeringsinntektAvdoed,
     OppholdUtlandType,
     Utenlandsopphold,
 } from '../dto/FellesOpplysninger'
@@ -66,7 +66,7 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
             }) || []
     }
 
-    let opplysningNaeringsInntekt: Naeringsinntekt | undefined
+    let opplysningNaeringsInntekt: NaeringsinntektAvdoed | undefined
     if (soeknad.omDenAvdoede.selvstendigNaeringsdrivende?.svar === IValg.JA) {
         opplysningNaeringsInntekt = {
             naeringsinntektPrAarFoerDoedsfall: {

@@ -19,6 +19,7 @@ import {
     JaNeiVetIkke,
     Kontaktinfo,
     Loennsinntekt,
+    NaeringsinntektGjenlevende,
     OppholdUtland,
     Opplysning,
     SamboerInntekt,
@@ -72,16 +73,16 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         : undefined
 
     // TODO: Slå sammen med ArbeidOgUtdanning ... ?
-    const fullfoertUtdanning: Opplysning<EnumSvar<HoeyesteUtdanning>[]> | undefined =
-        !bruker.adressebeskyttelse
-            ? {
-                  spoersmaal: t('dinSituasjon.utdanning.hoyesteFullfoerteUtdanning'),
-                  svar: soeknad.dinSituasjon.utdanning!!.hoyesteFullfoerteUtdanning!!.map((type) => ({
+    const fullfoertUtdanning: Opplysning<EnumSvar<HoeyesteUtdanning>[]> | undefined = !bruker.adressebeskyttelse
+        ? {
+              spoersmaal: t('dinSituasjon.utdanning.hoyesteFullfoerteUtdanning'),
+              svar:
+                  soeknad.dinSituasjon.utdanning!!.hoyesteFullfoerteUtdanning!!.map((type) => ({
                       verdi: konverterTilHoyesteUtdanning(type),
                       innhold: t(type),
-                  })) || []
-                }
-            : undefined
+                  })) || [],
+          }
+        : undefined
 
     return {
         type: PersonType.GJENLEVENDE,
@@ -611,6 +612,35 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
         }
     }
 
+    let naeringsinntekt: Opplysning<NaeringsinntektGjenlevende> | undefined
+    if (inntektenDin.inntektstyper?.includes(InntektsTyper.naering)) {
+        naeringsinntekt = {
+            spoersmaal: t('inntektenDin.naeringsinntekt.tittel'),
+            svar: {
+                arbeidsinntektAaretFoer: {
+                    spoersmaal: t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer'),
+                    svar: {
+                        innhold: inntektenDin.naeringsinntekt!!.arbeidsinntektAaretFoer!!,
+                    },
+                },
+                arbeidsinntektIAar: {
+                    tilDoedsfall: {
+                        spoersmaal: t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall'),
+                        svar: {
+                            innhold: inntektenDin.naeringsinntekt!!.arbeidsinntektIAar!!.tilDoedsfall!!,
+                        },
+                    },
+                    etterDoedsfall: {
+                        spoersmaal: t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall'),
+                        svar: {
+                            innhold: inntektenDin.naeringsinntekt!!.arbeidsinntektIAar!!.etterDoedsfall!!,
+                        },
+                    },
+                },
+            },
+        }
+    }
+
     const ytelserNAV: YtelserNav = {
         soektOmYtelse: {
             spoersmaal: t('inntektenDin.ytelserNAV.svar'),
@@ -682,6 +712,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
 
     return {
         loennsinntekt,
+        naeringsinntekt,
         ytelserNAV,
         ytelserAndre,
         endringAvInntekt,
