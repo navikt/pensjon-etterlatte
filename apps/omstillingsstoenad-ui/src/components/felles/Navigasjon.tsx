@@ -82,7 +82,7 @@ const Navigasjon = ({
             <NavigasjonWrapper>
                 <NavigasjonsRad className={`${disabled && 'disabled'}`}>
                     {!!forrige && (
-                        <Button variant={'primary'} type={'button'} onClick={forrige.onClick}>
+                        <Button variant={'secondary'} type={'button'} onClick={forrige.onClick}>
                             {forrige.label || t('knapp.tilbake')}
                         </Button>
                     )}
@@ -108,7 +108,7 @@ const Navigasjon = ({
             </NavigasjonWrapper>
 
             <NavigasjonsRadSkjemaGruppe $disabled={disabled}>
-                <Button id={'avbryt-btn'} variant={'secondary'} type={'button'} onClick={() => setIsOpen(true)}>
+                <Button id={'avbryt-btn'} variant={'tertiary'} type={'button'} onClick={() => setIsOpen(true)}>
                     {t('knapp.avbryt')}
                 </Button>
             </NavigasjonsRadSkjemaGruppe>
