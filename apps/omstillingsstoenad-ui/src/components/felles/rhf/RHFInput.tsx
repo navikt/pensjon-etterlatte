@@ -122,7 +122,7 @@ export const RHFValutaInput = ({ name, minLength, maxLength, ...rest }: RHFProps
             <Controller
                     name={name}
                     control={control}
-                    rules={{ required: true, minLength, maxLength }}
+                    rules={{ required: true, pattern: re, minLength, maxLength }}
                     render={({ field: { value, onChange } }) => (
                             <TextField
                                     id={name}
