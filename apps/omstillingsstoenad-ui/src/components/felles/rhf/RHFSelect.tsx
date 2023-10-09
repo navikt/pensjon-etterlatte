@@ -7,6 +7,11 @@ import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { useTranslation } from 'react-i18next'
 import { v4 as uuid } from 'uuid'
 import { getTransKey } from '../../../utils/translation'
+import styled from 'styled-components'
+
+const SelectSize = styled.div`
+  max-width: 22rem;
+`
 
 interface SelectOption {
     value?: string
@@ -31,7 +36,7 @@ export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: RHFPro
     const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
     return (
-        <div id={name}>
+        <SelectSize id={name}>
             <Controller
                 name={name}
                 control={control}
@@ -53,6 +58,6 @@ export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: RHFPro
                     </Select>
                 )}
             />
-        </div>
+        </SelectSize>
     )
 }

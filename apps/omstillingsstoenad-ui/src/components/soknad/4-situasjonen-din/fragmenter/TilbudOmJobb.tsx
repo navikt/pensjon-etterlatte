@@ -11,6 +11,7 @@ import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { StillingType } from '../../../../typer/arbeidsforhold'
 import { IValg } from '../../../../typer/Spoersmaal'
 import Datovelger from '../../../felles/Datovelger'
+import Bredde from '../../../../typer/bredde'
 
 const TilbudOmJobb = () => {
     const { t } = useTranslation()
@@ -29,6 +30,7 @@ const TilbudOmJobb = () => {
             <RHFInput
                 name={'tilbudOmJobb.arbeidssted'}
                 label={t('dinSituasjon.tilbudOmJobb.arbeidssted')}
+                htmlSize={Bredde.M}
             />
 
             <SkjemaElement>

@@ -13,6 +13,7 @@ import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { Studieform } from '../../../../typer/utdanning'
 import { useFormContext } from 'react-hook-form'
 import { ISituasjon } from '../../../../typer/situasjon'
+import Bredde from '../../../../typer/bredde'
 
 const UnderUtdanning = () => {
     const { t } = useTranslation()
@@ -31,12 +32,14 @@ const UnderUtdanning = () => {
                 <RHFInput
                     name={'utdanning.naavaerendeUtdanning.studiested'}
                     label={t('dinSituasjon.utdanning.naavaerendeUtdanning.studiested')}
+                    htmlSize={Bredde.M}
                 />
             </SkjemaElement>
             <SkjemaElement>
                 <RHFInput
                     name={'utdanning.naavaerendeUtdanning.studie'}
                     label={t('dinSituasjon.utdanning.naavaerendeUtdanning.studie')}
+                    htmlSize={Bredde.M}
                 />
             </SkjemaElement>
 
@@ -54,6 +57,7 @@ const UnderUtdanning = () => {
                         name={'utdanning.naavaerendeUtdanning.studieprosent'}
                         label={t('dinSituasjon.utdanning.naavaerendeUtdanning.studieprosent')}
                         description={t('dinSituasjon.utdanning.naavaerendeUtdanning.studieprosent.beskrivelse')}
+                        htmlSize={Bredde.S}
                     />
                 </SkjemaElement>
             )}
