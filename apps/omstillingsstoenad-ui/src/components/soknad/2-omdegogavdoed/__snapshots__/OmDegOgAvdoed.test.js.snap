@@ -647,7 +647,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         class="sc-hLQTFJ bTxQll undefined"
       >
         <button
-          class="navds-button navds-button--primary navds-button--medium"
+          class="navds-button navds-button--secondary navds-button--medium"
           type="button"
         >
           <span
@@ -672,7 +672,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       class="sc-hLQTFJ sc-eDLKEg bTxQll iuSOsl"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--medium"
+        class="navds-button navds-button--tertiary navds-button--medium"
         id="avbryt-btn"
         type="button"
       >
@@ -1246,7 +1246,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         class="sc-hLQTFJ bTxQll undefined"
       >
         <button
-          class="navds-button navds-button--primary navds-button--medium"
+          class="navds-button navds-button--secondary navds-button--medium"
           type="button"
         >
           <span
@@ -1271,7 +1271,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       class="sc-hLQTFJ sc-eDLKEg bTxQll iuSOsl"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--medium"
+        class="navds-button navds-button--tertiary navds-button--medium"
         id="avbryt-btn"
         type="button"
       >

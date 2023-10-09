@@ -4,7 +4,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
-      class="sc-guDMob jqJKDR"
+      class="sc-dmyDmy jQrunv"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -113,7 +113,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       dinSituasjon.jobbStatus.tittel
     </h1>
     <div
-      class="sc-eDLKEg sqQlH"
+      class="sc-jTQDJr lnVqIc"
       id="jobbStatus"
     >
       <fieldset
@@ -485,7 +485,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
     <div>
       <button
         aria-expanded="false"
-        class="sc-hLQTFJ jBLJZd"
+        class="sc-eDLKEg cPRtfY"
         data-testid="hvorforPanel_toggle"
         type="button"
       >
@@ -516,7 +516,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -525,7 +525,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           class="kol-50"
@@ -542,6 +542,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             <input
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="arbeidsforhold[0].arbeidsgiver"
+              size="40"
               type="text"
               value="Potetskreller AS"
             />
@@ -555,7 +556,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <label
           class="navds-label"
@@ -571,7 +572,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           id="arbeidsforhold[0].typeArbeidsmengde"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -657,6 +658,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           <input
             class="navds-text-field__input navds-body-short navds-body-medium"
             id="arbeidsforhold[0].arbeidsmengde.timer"
+            size="25"
             type="text"
             value=""
           />
@@ -669,9 +671,10 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
+          class="sc-guDMob dyBlAC"
           id="arbeidsforhold[0].ansettelsesforhold"
         >
           <div
@@ -740,13 +743,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           id="arbeidsforhold[0].midlertidig.svar"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -821,13 +824,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -902,13 +905,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           id="arbeidsforhold[0].sagtOppEllerRedusert.svar"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               aria-describedby="fieldset-description-r29"
@@ -1016,7 +1019,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         <div>
           <button
             aria-expanded="false"
-            class="sc-hLQTFJ jBLJZd"
+            class="sc-eDLKEg cPRtfY"
             data-testid="hvorforPanel_toggle"
             type="button"
           >
@@ -1060,7 +1063,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1090,6 +1093,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             aria-describedby="textField-description-r2q"
             class="navds-text-field__input navds-body-short navds-body-medium"
             id="selvstendig.enk[0].beskrivelse"
+            size="40"
             type="text"
             value=""
           />
@@ -1102,7 +1106,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -1130,7 +1134,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <label
           class="navds-label"
@@ -1146,7 +1150,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           id="selvstendig.enk[0].typeArbeidsmengde"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -1221,13 +1225,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           id="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -1302,12 +1306,12 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div>
           <button
             aria-expanded="false"
-            class="sc-hLQTFJ jBLJZd"
+            class="sc-eDLKEg cPRtfY"
             data-testid="hvorforPanel_toggle"
             type="button"
           >
@@ -1351,7 +1355,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1360,7 +1364,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-eDLKEg sqQlH"
+        class="sc-jTQDJr lnVqIc"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -1688,7 +1692,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       <div>
         <button
           aria-expanded="false"
-          class="sc-hLQTFJ jBLJZd"
+          class="sc-eDLKEg cPRtfY"
           data-testid="hvorforPanel_toggle"
           type="button"
         >
@@ -1720,10 +1724,10 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-jTQDJr dujvAb undefined"
+        class="sc-gLLuHO eEyzZZ undefined"
       >
         <button
-          class="navds-button navds-button--primary navds-button--medium"
+          class="navds-button navds-button--secondary navds-button--medium"
           type="button"
         >
           <span
@@ -1745,10 +1749,10 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-jTQDJr sc-gLLuHO dujvAb OALLo"
+      class="sc-gLLuHO sc-iBdoyZ eEyzZZ hxiCrG"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--medium"
+        class="navds-button navds-button--tertiary navds-button--medium"
         id="avbryt-btn"
         type="button"
       >
@@ -1816,7 +1820,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-eTNxZ kBuSvG"
+          class="sc-brSaGm dbtAfn"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1844,7 +1848,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           </button>
         </div>
         <div
-          class="sc-eTNxZ kBuSvG"
+          class="sc-brSaGm dbtAfn"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -1869,7 +1873,7 @@ exports[`Situasjonen din Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-guDMob jqJKDR"
+      class="sc-dmyDmy jQrunv"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -1978,7 +1982,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       dinSituasjon.jobbStatus.tittel
     </h1>
     <div
-      class="sc-eDLKEg sqQlH"
+      class="sc-jTQDJr lnVqIc"
       id="jobbStatus"
     >
       <fieldset
@@ -2349,7 +2353,7 @@ exports[`Situasjonen din Snapshot 1`] = `
     <div>
       <button
         aria-expanded="false"
-        class="sc-hLQTFJ jBLJZd"
+        class="sc-eDLKEg cPRtfY"
         data-testid="hvorforPanel_toggle"
         type="button"
       >
@@ -2380,7 +2384,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -2389,7 +2393,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           class="kol-50"
@@ -2406,6 +2410,7 @@ exports[`Situasjonen din Snapshot 1`] = `
             <input
               class="navds-text-field__input navds-body-short navds-body-medium"
               id="arbeidsforhold[0].arbeidsgiver"
+              size="40"
               type="text"
               value="Potetskreller AS"
             />
@@ -2419,7 +2424,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <label
           class="navds-label"
@@ -2435,7 +2440,7 @@ exports[`Situasjonen din Snapshot 1`] = `
           id="arbeidsforhold[0].typeArbeidsmengde"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -2521,6 +2526,7 @@ exports[`Situasjonen din Snapshot 1`] = `
           <input
             class="navds-text-field__input navds-body-short navds-body-medium"
             id="arbeidsforhold[0].arbeidsmengde.timer"
+            size="25"
             type="text"
             value=""
           />
@@ -2533,9 +2539,10 @@ exports[`Situasjonen din Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
+          class="sc-guDMob dyBlAC"
           id="arbeidsforhold[0].ansettelsesforhold"
         >
           <div
@@ -2604,13 +2611,13 @@ exports[`Situasjonen din Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           id="arbeidsforhold[0].midlertidig.svar"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -2685,13 +2692,13 @@ exports[`Situasjonen din Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -2766,13 +2773,13 @@ exports[`Situasjonen din Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <div
           id="arbeidsforhold[0].sagtOppEllerRedusert.svar"
         >
           <div
-            class="sc-guDMob jqJKDR"
+            class="sc-dmyDmy jQrunv"
           >
             <fieldset
               aria-describedby="fieldset-description-rs"
@@ -2880,7 +2887,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         <div>
           <button
             aria-expanded="false"
-            class="sc-hLQTFJ jBLJZd"
+            class="sc-eDLKEg cPRtfY"
             data-testid="hvorforPanel_toggle"
             type="button"
           >
@@ -2924,7 +2931,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-guDMob jqJKDR"
+        class="sc-dmyDmy jQrunv"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -2933,7 +2940,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-eDLKEg sqQlH"
+        class="sc-jTQDJr lnVqIc"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -3261,7 +3268,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       <div>
         <button
           aria-expanded="false"
-          class="sc-hLQTFJ jBLJZd"
+          class="sc-eDLKEg cPRtfY"
           data-testid="hvorforPanel_toggle"
           type="button"
         >
@@ -3293,10 +3300,10 @@ exports[`Situasjonen din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-jTQDJr dujvAb undefined"
+        class="sc-gLLuHO eEyzZZ undefined"
       >
         <button
-          class="navds-button navds-button--primary navds-button--medium"
+          class="navds-button navds-button--secondary navds-button--medium"
           type="button"
         >
           <span
@@ -3318,10 +3325,10 @@ exports[`Situasjonen din Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-jTQDJr sc-gLLuHO dujvAb OALLo"
+      class="sc-gLLuHO sc-iBdoyZ eEyzZZ hxiCrG"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--medium"
+        class="navds-button navds-button--tertiary navds-button--medium"
         id="avbryt-btn"
         type="button"
       >
@@ -3389,7 +3396,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-eTNxZ kBuSvG"
+          class="sc-brSaGm dbtAfn"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -3417,7 +3424,7 @@ exports[`Situasjonen din Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-eTNxZ kBuSvG"
+          class="sc-brSaGm dbtAfn"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

@@ -628,7 +628,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
         class="sc-guDMob czmIqC undefined"
       >
         <button
-          class="navds-button navds-button--primary navds-button--medium"
+          class="navds-button navds-button--secondary navds-button--medium"
           type="button"
         >
           <span
@@ -653,7 +653,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
       class="sc-guDMob sc-dmyDmy czmIqC kgmmuh"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--medium"
+        class="navds-button navds-button--tertiary navds-button--medium"
         id="avbryt-btn"
         type="button"
       >
@@ -1398,7 +1398,7 @@ exports[`Inntekten din Snapshot 1`] = `
         class="sc-guDMob czmIqC undefined"
       >
         <button
-          class="navds-button navds-button--primary navds-button--medium"
+          class="navds-button navds-button--secondary navds-button--medium"
           type="button"
         >
           <span
@@ -1423,7 +1423,7 @@ exports[`Inntekten din Snapshot 1`] = `
       class="sc-guDMob sc-dmyDmy czmIqC kgmmuh"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--medium"
+        class="navds-button navds-button--tertiary navds-button--medium"
         id="avbryt-btn"
         type="button"
       >

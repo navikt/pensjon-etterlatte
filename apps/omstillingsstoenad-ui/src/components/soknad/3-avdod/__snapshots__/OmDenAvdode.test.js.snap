@@ -16,7 +16,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-kFCrIq jsFtUt"
+        class="sc-irLvoH eBwnND"
       >
         <div
           class="kol"
@@ -81,6 +81,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
           >
             <div
+              class="sc-jTQDJr cRAOeb"
               id="statsborgerskap"
             >
               <div
@@ -542,10 +543,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-jTQDJr dujvAb undefined"
+        class="sc-gLLuHO eEyzZZ undefined"
       >
         <button
-          class="navds-button navds-button--primary navds-button--medium"
+          class="navds-button navds-button--secondary navds-button--medium"
           type="button"
         >
           <span
@@ -567,10 +568,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-jTQDJr sc-gLLuHO dujvAb OALLo"
+      class="sc-gLLuHO sc-iBdoyZ eEyzZZ hxiCrG"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--medium"
+        class="navds-button navds-button--tertiary navds-button--medium"
         id="avbryt-btn"
         type="button"
       >
@@ -638,7 +639,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-eTNxZ kBuSvG"
+          class="sc-brSaGm dbtAfn"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -666,7 +667,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-eTNxZ kBuSvG"
+          class="sc-brSaGm dbtAfn"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

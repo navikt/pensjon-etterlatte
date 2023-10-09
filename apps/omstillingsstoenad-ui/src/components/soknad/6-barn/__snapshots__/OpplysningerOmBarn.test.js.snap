@@ -60,7 +60,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-hIPCWT fNeyYz"
+        class="sc-dmXVtG kthlue"
       >
         <div
           class="sc-gLLuHO hTnHRK"
@@ -77,7 +77,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
             class="sc-jTQDJr eeynFj"
           >
             <div
-              class="sc-dmXVtG hjUJkH"
+              class="sc-khjLgN mLWpv"
             >
               <button
                 class="navds-button navds-button--primary navds-button--medium"
@@ -188,7 +188,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
         class="sc-guDMob czmIqC undefined"
       >
         <button
-          class="navds-button navds-button--primary navds-button--medium"
+          class="navds-button navds-button--secondary navds-button--medium"
           type="button"
         >
           <span
@@ -213,7 +213,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
       class="sc-guDMob sc-dmyDmy czmIqC kgmmuh"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--medium"
+        class="navds-button navds-button--tertiary navds-button--medium"
         id="avbryt-btn"
         type="button"
       >
