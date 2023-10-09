@@ -216,7 +216,7 @@ export default {
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall': 'Oppgi brutto arbeidsinntekt din etter dødsfallet',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse': 'Skriv hva du forventer å ha i arbeidsinntekt fra samme måned som dødsfallet til desember',
     'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
-    'inntektenDin.naeringsinntekt.ingress': 'All næringsinntekt fra inn- og utland, skal med i næringsinntekten du oppgir.  Næringsinntekter oppgir du i norske kroner.',
+    'inntektenDin.naeringsinntekt.ingress': 'All næringsinntekt fra inn- og utland, skal med i næringsinntekten du oppgir. Næringsinntekter oppgir du i norske kroner.',
     'inntektenDin.naeringsinntekt.info': 'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.tittel': 'Næringsinntekten din året før dødsfallet',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer': 'Anslå brutto næringsinntekt i året før dødsfallet',
