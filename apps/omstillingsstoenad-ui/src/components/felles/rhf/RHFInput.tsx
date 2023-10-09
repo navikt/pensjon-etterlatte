@@ -39,13 +39,7 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
             rules={{ required: !valgfri, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <div className={className}>
-                    <TextField
-                        id={name}
-                        value={value || ''}
-                        onChange={onChange}
-                        error={feilmelding}
-                        {...rest}
-                    />
+                    <TextField id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
                 </div>
             )}
         />
@@ -119,22 +113,22 @@ export const RHFValutaInput = ({ name, minLength, maxLength, ...rest }: RHFProps
     const re = /^[0-9\s]+$/
 
     return (
-            <Controller
-                    name={name}
-                    control={control}
-                    rules={{ required: true, pattern: re, minLength, maxLength }}
-                    render={({ field: { value, onChange } }) => (
-                            <TextField
-                                    id={name}
-                                    value={value || ''}
-                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                                        if (isValid(e, re, maxLength)) onChange(e)
-                                    }}
-                                    error={feilmelding}
-                                    {...rest}
-                            />
-                    )}
-            />
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: true, pattern: re, minLength, maxLength }}
+            render={({ field: { value, onChange } }) => (
+                <TextField
+                    id={name}
+                    value={value || ''}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        if (isValid(e, re, maxLength)) onChange(e)
+                    }}
+                    error={feilmelding}
+                    {...rest}
+                />
+            )}
+        />
     )
 }
 
