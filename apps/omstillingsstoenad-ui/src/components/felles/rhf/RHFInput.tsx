@@ -100,7 +100,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
     )
 }
 
-export const RHFValutaInput = ({ name, minLength, maxLength, ...rest }: RHFProps) => {
+export const RHFValutaInput = ({ name, ...rest }: RHFProps) => {
     const { t } = useTranslation()
     const {
         control,
@@ -116,13 +116,13 @@ export const RHFValutaInput = ({ name, minLength, maxLength, ...rest }: RHFProps
         <Controller
             name={name}
             control={control}
-            rules={{ required: true, pattern: re, minLength, maxLength }}
+            rules={{ required: true, pattern: re }}
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}
                     value={value || ''}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                        if (isValid(e, re, maxLength)) onChange(e)
+                        if (isValid(e, re)) onChange(e)
                     }}
                     error={feilmelding}
                     {...rest}
