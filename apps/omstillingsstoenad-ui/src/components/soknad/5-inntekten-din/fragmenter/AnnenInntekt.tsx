@@ -4,10 +4,11 @@ import { Heading } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { IInntekt, InntektEllerUtbetaling } from '../../../../typer/inntekt'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { RHFInput } from '../../../felles/rhf/RHFInput'
+import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import EndringInntekt from './EndringInntekt'
+import Bredde from '../../../../typer/bredde'
 
 const AnnenInntekt = () => {
     const { t } = useTranslation()
@@ -15,7 +16,6 @@ const AnnenInntekt = () => {
     const { watch } = useFormContext<IInntekt>()
 
     const inntektEllerUtbetaling = watch('annenInntekt.inntektEllerUtbetaling')
-
 
     return (
         <>
@@ -35,11 +35,15 @@ const AnnenInntekt = () => {
                 </SkjemaElement>
                 {inntektEllerUtbetaling?.includes(InntektEllerUtbetaling.annen) && (
                     <SkjemaElement>
-                        <RHFInput name={'annenInntekt.beloep'} label={t('inntektenDin.annenInntekt.beloep')} />
+                        <RHFValutaInput
+                            name={'annenInntekt.beloep'}
+                            label={t('inntektenDin.annenInntekt.beloep')}
+                            htmlSize={Bredde.S}
+                        />
                     </SkjemaElement>
                 )}
             </SkjemaGruppe>
-            <EndringInntekt type={'annenInntekt'}/>
+            <EndringInntekt type={'annenInntekt'} />
         </>
     )
 }
