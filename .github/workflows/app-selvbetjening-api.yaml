@@ -16,11 +16,13 @@ on:
       - main
     paths:
       - apps/selvbetjening-api/**
+      - gradle/libs.versions.toml
   pull_request:
     branches:
       - main
     paths:
       - apps/selvbetjening-api/**
+      - gradle/libs.versions.toml
 
 jobs:
   build:

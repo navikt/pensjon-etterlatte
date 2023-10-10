@@ -1,0 +1,63 @@
+[plugins]
+cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.1" }
+
+[versions]
+token-version = "2.1.2"
+ktor-version = "2.1.1"
+jackson-version = "2.13.4"
+jupiter-version = "5.9.1"
+testcontainers-version = "1.17.3"
+
+[libraries]
+navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2022061809451655538329.d6deccc62862"}
+navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version"}
+navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version"}
+navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "0.3.1"}
+
+etterlatte-common = { module = "no.nav.etterlatte:common", version = "2023.03.28-16.21.c37f68b0da69"}
+etterlatte-common-test = { module = "no.nav.etterlatte:common-test", version = "2023.03.28-13.28.4f49c60d85e4"}
+etterlatte-ktor-client-auth = { module = "no.nav.etterlatte:ktor-client-auth", version = "2022.09.28-10.09.cce630926582"}
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.6.4"}
+
+ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor-version"}
+ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktor-version"}
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-version"}
+ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor-version"}
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version"}
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor-version"}
+ktor-client-cio-jvm = { module = "io.ktor:ktor-client-cio-jvm", version.ref = "ktor-version"}
+ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "ktor-version"}
+ktor-server-metrics-micrometer = { module = "io.ktor:ktor-server-metrics-micrometer", version.ref = "ktor-version"}
+ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-version"}
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor-version"}
+ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor-version"}
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor-version"}
+
+ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version"}
+ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version"}
+
+database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "3.4.5"}
+database-flyway-core = { module = "org.flywaydb:flyway-core", version = "6.5.0"}
+database-postgresql = { module = "org.postgresql:postgresql", version = "42.2.5"}
+
+jackson-datatypejsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version"}
+jackson-datatypejdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson-version"}
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson-version"}
+
+jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jupiter-version"}
+jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter-version"}
+jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jupiter-version"}
+
+logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.2"}
+logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.4.1"}
+logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "7.2"}
+
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.9.4"}
+
+mockk = { module = "io.mockk:mockk", version = "1.13.1"}
+
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.4.2"}
+
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version"}
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version"}

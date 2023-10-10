@@ -3,26 +3,26 @@ plugins {
 }
 
 dependencies {
-    implementation(Etterlatte.Common)
+    implementation(libs.etterlatte.common)
 
-    implementation(Database.HikariCp)
-    implementation(Database.FlywayCore)
-    implementation(Database.Postgresql)
-    implementation(NavFelles.TokenValidationKtor)
+    implementation(libs.database.hikari.cp)
+    implementation(libs.database.flyway.core)
+    implementation(libs.database.postgresql)
+    implementation(libs.navfelles.token.validation.ktor)
 
-    implementation(Ktor.ServerAuth)
-    implementation(Ktor.ServerContentNegotiation)
-    implementation(Ktor.Jackson)
-    implementation(Ktor.ClientCore)
-    implementation(Ktor.CallLogging)
-    implementation(Ktor.ClientContentNegotiation)
-    implementation(Ktor.ClientCioJvm)
+    implementation(libs.ktor.server.auth)
+    implementation(libs.ktor.server.content.negotiation)
+    implementation(libs.ktor.serialization.jackson)
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.server.call.logging)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.client.cio.jvm)
 
-    testImplementation(Etterlatte.CommonTest)
-    testImplementation(TestContainers.JunitJupiter)
-    testImplementation(TestContainers.Postgresql)
+    testImplementation(libs.etterlatte.common.test)
+    testImplementation(libs.testcontainers.junit.jupiter)
+    testImplementation(libs.testcontainers.postgresql)
 
-    testImplementation(Ktor.ServerTests)
-    testImplementation(Kotest.AssertionsCore)
-    testImplementation(MockK.MockK)
+    testImplementation(libs.ktor.server.tests)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.mockk)
 }
