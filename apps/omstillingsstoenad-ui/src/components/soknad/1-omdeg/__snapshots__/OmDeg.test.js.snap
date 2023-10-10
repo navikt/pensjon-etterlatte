@@ -194,6 +194,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         class="sc-beyTiQ jltUnl"
       >
         <div
+          class="sc-fmKFmJ jZuqMl"
           id="oppholdsland"
         >
           <div
@@ -658,7 +659,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       class="sc-eDLKEg sc-jTQDJr LfRHk gSyqWK"
     >
       <button
-        class="navds-button navds-button--secondary navds-button--medium"
+        class="navds-button navds-button--tertiary navds-button--medium"
         id="avbryt-btn"
         type="button"
       >

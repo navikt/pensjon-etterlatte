@@ -8,6 +8,7 @@ import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInput } from '../../../felles/rhf/RHFInput'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
+import Bredde from '../../../../typer/bredde'
 
 const EndringInntekt = () => {
     const { t } = useTranslation()
@@ -45,6 +46,7 @@ const EndringInntekt = () => {
                     <RHFInput
                         name={'forventerEndringAvInntekt.annenGrunn'}
                         label={t('inntektenDin.forventerEndringAvInntekt.annenGrunn')}
+                        htmlSize={Bredde.M}
                     />
                 </SkjemaElement>
             )}

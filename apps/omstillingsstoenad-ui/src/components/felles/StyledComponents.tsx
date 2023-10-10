@@ -117,7 +117,11 @@ export const InputWithCurrency = styled.div<{ $hasError?: boolean }>`
         display: flex;
         align-items: center;
         position: absolute;
-        left: 15rem;
+        left: 10rem;
         bottom: ${(props) => (props.$hasError ? '2rem' : 0)};
+    }
+    
+    input {
+        max-width: 9rem;
     }
 `

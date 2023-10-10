@@ -11,6 +11,7 @@ import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import Datovelger from '../../../felles/Datovelger'
 import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
+import Bredde from '../../../../typer/bredde'
 
 interface Props {
     lengde: number
@@ -35,6 +36,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     className={'kol-50'}
                     name={`arbeidsforhold[${index}].arbeidsgiver` as const}
                     label={t('dinSituasjon.arbeidsforhold.arbeidsgiver')}
+                    htmlSize={Bredde.M}
                 />
             </SkjemaElement>
 
@@ -53,6 +55,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     <RHFProsentInput
                         name={`arbeidsforhold[${index}].arbeidsmengde.prosent` as const}
                         label={t('dinSituasjon.arbeidsforhold.arbeidsmengde.prosent')}
+                        htmlSize={Bredde.S}
                     />
                 )}
 
@@ -60,6 +63,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     <RHFNumberInput
                         name={`arbeidsforhold[${index}].arbeidsmengde.timer` as const}
                         label={t('dinSituasjon.arbeidsforhold.arbeidsmengde.timer')}
+                        htmlSize={Bredde.S}
                     />
                 )}
             </SkjemaElement>
@@ -114,6 +118,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     <RHFInput
                         name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
                         label={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
+                        htmlSize={Bredde.M}
                     />
                 </SkjemaElement>
             )}

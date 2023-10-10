@@ -8,6 +8,7 @@ import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { Heading } from '@navikt/ds-react'
 import { IngenJobb } from '../../../../typer/arbeidsforhold'
 import { RHFInput } from '../../../felles/rhf/RHFInput'
+import Bredde from '../../../../typer/bredde'
 
 const AnnenSituasjon = () => {
     const { t } = useTranslation()
@@ -42,6 +43,7 @@ const AnnenSituasjon = () => {
                     <RHFInput
                         name={'annenSituasjon.annet.beskrivelse'}
                         label={t('dinSituasjon.annenSituasjon.annet.beskrivelse')}
+                        htmlSize={Bredde.M}
                     />
                 </SkjemaElement>
             )}

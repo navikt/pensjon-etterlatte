@@ -3,7 +3,7 @@ import React from 'react'
 import { Alert, BodyShort, Heading } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { RHFNumberInput } from '../../../felles/rhf/RHFInput'
+import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
 import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 import Bredde from '../../../../typer/bredde'
 import { InputWithCurrency } from '../../../felles/StyledComponents'
@@ -29,7 +29,7 @@ const Naeringsinntekt = () => {
             </SkjemaElement>
             <SkjemaElement>
                 <InputWithCurrency $hasError={!!errors.naeringsinntekt?.arbeidsinntektAaretFoer}>
-                    <RHFNumberInput
+                    <RHFValutaInput
                         name={'naeringsinntekt.arbeidsinntektAaretFoer'}
                         label={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer')}
                         description={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse')}
@@ -47,7 +47,7 @@ const Naeringsinntekt = () => {
             </SkjemaElement>
             <SkjemaElement>
                 <InputWithCurrency $hasError={!!errors.naeringsinntekt?.arbeidsinntektIAar?.tilDoedsfall}>
-                    <RHFNumberInput
+                    <RHFValutaInput
                         name={'naeringsinntekt.arbeidsinntektIAar.tilDoedsfall'}
                         label={t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall')}
                         description={t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse')}
@@ -58,7 +58,7 @@ const Naeringsinntekt = () => {
             </SkjemaElement>
             <SkjemaElement>
                 <InputWithCurrency $hasError={!!errors.naeringsinntekt?.arbeidsinntektIAar?.etterDoedsfall}>
-                    <RHFNumberInput
+                    <RHFValutaInput
                         name={'naeringsinntekt.arbeidsinntektIAar.etterDoedsfall'}
                         label={t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall')}
                         description={t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse')}

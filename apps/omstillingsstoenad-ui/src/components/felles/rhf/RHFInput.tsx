@@ -39,13 +39,7 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
             rules={{ required: !valgfri, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <div className={className}>
-                    <TextField
-                        id={name}
-                        value={value || ''}
-                        onChange={onChange}
-                        error={feilmelding}
-                        {...rest}
-                    />
+                    <TextField id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
                 </div>
             )}
         />
@@ -72,6 +66,10 @@ const format = (e: ChangeEvent<HTMLInputElement>, matcher: RegExp, separator = '
     const result = match(value, matcher, separator)
 
     return result || value.substring(0, value.length - 1)
+}
+
+const isValid = (e: ChangeEvent<HTMLInputElement>, re: RegExp, maxLength?: number): boolean => {
+    return e.target.value === '' || (re.test(e.target.value) && (!maxLength || e.target.value.length <= maxLength))
 }
 
 export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
@@ -102,7 +100,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
     )
 }
 
-export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
+export const RHFValutaInput = ({ name, ...rest }: RHFProps) => {
     const { t } = useTranslation()
     const {
         control,
@@ -112,16 +110,20 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
     const error: FieldError = get(errors, name) as FieldError
     const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
+    const re = /^[0-9\s]+$/
+
     return (
         <Controller
             name={name}
             control={control}
-            rules={{ required: !valgfri, pattern: /^\d[0-9\s]*$/ }}
+            rules={{ required: true, pattern: re }}
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}
                     value={value || ''}
-                    onChange={onChange}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        if (isValid(e, re)) onChange(e)
+                    }}
                     error={feilmelding}
                     {...rest}
                 />
@@ -303,9 +305,6 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
     const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
     const re = /^[0-9\b]+$/
-    const isValid = (e: ChangeEvent<HTMLInputElement>): boolean => {
-        return e.target.value === '' || (re.test(e.target.value) && (!maxLength || e.target.value.length <= maxLength))
-    }
 
     return (
         <Controller
@@ -317,7 +316,7 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
                     id={name}
                     value={value || ''}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                        if (isValid(e)) onChange(e)
+                        if (isValid(e, re, maxLength)) onChange(e)
                     }}
                     error={feilmelding}
                     {...rest}

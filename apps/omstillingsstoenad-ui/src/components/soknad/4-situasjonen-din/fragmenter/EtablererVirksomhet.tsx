@@ -26,6 +26,7 @@ const EtablererVirksomhet = () => {
             <RHFInput
                 name={'etablererVirksomhet.hvaHeterVirksomheten'}
                 label={t('dinSituasjon.etablererVirksomhet.hvaHeterVirksomheten')}
+                htmlSize={Bredde.M}
             />
 
             <SkjemaElement>

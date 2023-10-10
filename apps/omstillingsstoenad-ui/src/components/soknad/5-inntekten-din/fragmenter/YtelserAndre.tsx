@@ -9,6 +9,7 @@ import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInput } from '../../../felles/rhf/RHFInput'
 import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
+import Bredde from '../../../../typer/bredde'
 
 const YtelserAndre = () => {
     const { t } = useTranslation()
@@ -40,6 +41,7 @@ const YtelserAndre = () => {
                         name={'ytelserAndre.pensjonsordning'}
                         label={t('inntektenDin.ytelserAndre.pensjonsordning')}
                         description={t('inntektenDin.ytelserAndre.pensjonsordning.beskrivelse')}
+                        htmlSize={Bredde.M}
                     />
                 </SkjemaElement>
             )}

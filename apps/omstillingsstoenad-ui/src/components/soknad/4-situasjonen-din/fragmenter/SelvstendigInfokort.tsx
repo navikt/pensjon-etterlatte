@@ -34,6 +34,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                 name={`${selvstendigName}.beskrivelse` as const}
                 label={t('dinSituasjon.selvstendig.hvaHeterNaeringen')}
                 description={t('dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse')}
+                htmlSize={Bredde.M}
             />
 
             <SkjemaElement>
@@ -62,6 +63,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                     <RHFProsentInput
                         name={`${selvstendigName}.arbeidsmengde.prosent` as const}
                         label={t('dinSituasjon.selvstendig.arbeidsmengde.prosent')}
+                        htmlSize={Bredde.S}
                     />
                 )}
 
@@ -69,6 +71,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                     <RHFNumberInput
                         name={`${selvstendigName}.arbeidsmengde.timer` as const}
                         label={t('dinSituasjon.selvstendig.arbeidsmengde.timer')}
+                        htmlSize={Bredde.S}
                     />
                 )}
             </SkjemaElement>
@@ -85,6 +88,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                     <RHFInput
                         name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
                         label={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
+                        htmlSize={Bredde.M}
                     />
                 </SkjemaElement>
             )}
