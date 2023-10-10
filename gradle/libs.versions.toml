@@ -55,7 +55,7 @@ logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-log
 
 micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.9.4"}
 
-mockk = { module = "io.mockk:mockk", version = "1.13.1"}
+mockk = { module = "io.mockk:mockk", version = "1.13.8"}
 
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.7.2"}
 
