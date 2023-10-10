@@ -5,7 +5,7 @@ cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.1" }
 token-version = "2.1.2"
 ktor-version = "2.1.1"
 jackson-version = "2.13.4"
-jupiter-version = "5.9.1"
+jupiter-version = "5.10.0"
 testcontainers-version = "1.17.3"
 
 [libraries]
