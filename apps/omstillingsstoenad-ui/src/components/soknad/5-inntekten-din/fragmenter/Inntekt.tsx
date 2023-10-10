@@ -8,6 +8,7 @@ import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, InntektsTyper } from '../../../../typer/inntekt'
 import Loennsinntekt from './Loennsinntekt'
 import Naeringsinntekt from './Naeringsinntekt'
+import PensjonEllerUfoere from './PensjonEllerUfoere'
 
 const Inntekt = () => {
     const { t } = useTranslation()
@@ -31,7 +32,7 @@ const Inntekt = () => {
 
             {inntektstype?.includes(InntektsTyper.loenn) && <Loennsinntekt />}
             {inntektstype?.includes(InntektsTyper.naering) && <Naeringsinntekt />}
-            {inntektstype?.includes(InntektsTyper.pensjonEllerUfoere) && <p>PENSJON KOMMER HER</p>}
+            {inntektstype?.includes(InntektsTyper.pensjonEllerUfoere) && <PensjonEllerUfoere />}
             {inntektstype?.includes(InntektsTyper.annen) && <p>ANNEN KOMMER HER</p>}
         </SkjemaGruppe>
     )

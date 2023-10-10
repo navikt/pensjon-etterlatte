@@ -20,7 +20,7 @@ import {
     StillingType,
     StudieformType,
     Ytelser,
-    EndringAvInntektGrunnType
+    EndringAvInntektGrunnType, PensjonsYtelseType,
 } from '../dto/FellesOpplysninger'
 import {
     ForholdTilAvdoede as RelasjonAvdoed,
@@ -29,7 +29,7 @@ import {
     Sivilstatus,
 } from '../../typer/person'
 import { Ytelser as GamleYtelser } from '../../typer/ytelser'
-import { EndringAvInntektGrunn, SoekbareYtelserAndre, SoekbareYtelserNAV } from '../../typer/inntekt'
+import { EndringAvInntektGrunn, PensjonsYtelse, SoekbareYtelserAndre, SoekbareYtelserNAV } from '../../typer/inntekt'
 import { Studieform } from '../../typer/utdanning'
 
 export const konverterStillingType = (type: GammelStillingType): StillingType => {
@@ -209,6 +209,21 @@ export const konverterEndringAvInntektGrunn = (type: EndringAvInntektGrunn): End
             return EndringAvInntektGrunnType.BYTTE_AV_JOBB
         case EndringAvInntektGrunn.annenGrunn:
             return EndringAvInntektGrunnType.ANNEN_GRUNN
+    }
+}
+
+export const konverterPensjonsYtelse = (type: PensjonsYtelse): PensjonsYtelseType => {
+    switch (type) {
+        case PensjonsYtelse.avtalefestetPensjonOffentlig:
+            return PensjonsYtelseType.AVTALEFESTET_PENSJON_OFFENTLIG
+        case PensjonsYtelse.avtalefestetPensjonPrivat:
+            return PensjonsYtelseType.AVTALEFESTET_PENSJON_PRIVAT
+        case PensjonsYtelse.tjenestepensjonsordning:
+            return PensjonsYtelseType.TJENESTEPENSJONSORDNING
+        case PensjonsYtelse.ufoerepensjon:
+            return PensjonsYtelseType.UFOEREPENSJON
+        case PensjonsYtelse.alderspensjon:
+            return PensjonsYtelseType.ALDERSPENSJON
     }
 }
 

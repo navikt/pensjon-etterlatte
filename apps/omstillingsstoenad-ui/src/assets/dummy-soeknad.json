@@ -107,7 +107,8 @@
   "inntektenDin": {
     "inntektstyper": [
       "inntekt.loenn",
-      "inntekt.naering"
+      "inntekt.naering",
+      "inntekt.pensjonEllerUfoere"
     ],
     "loennsinntekt": {
       "arbeidsinntektAaretFoer": "10000",
@@ -121,6 +122,19 @@
       "arbeidsinntektIAar": {
         "tilDoedsfall": "20000",
         "etterDoedsfall": "30000"
+      }
+    },
+    "pensjonEllerUfoere": {
+      "pensjonstype": [
+        "soekbarYtelse.tjenestepensjonsordning"
+      ],
+      "pensjonsUtbetaler": "Staten",
+      "utland": {
+        "svar": "radiobuttons.ja",
+        "type": "Alderspensjon",
+        "land": "Finland",
+        "beloep": "30 000",
+        "valuta": "Euro"
       }
     },
     "ytelserNAV": {

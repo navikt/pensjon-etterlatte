@@ -22,6 +22,7 @@ import {
     NaeringsinntektGjenlevende,
     OppholdUtland,
     Opplysning,
+    PensjonEllerUfoere,
     SamboerInntekt,
     SelvstendigNaeringsdrivende,
     SivilstatusType,
@@ -37,10 +38,11 @@ import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from '../../typ
 import { IValg } from '../../typer/Spoersmaal'
 import { ISituasjon, JobbStatus } from '../../typer/situasjon'
 import {
-    konverterEndringAvInntektGrunn,
     konverterArbeidsmengde,
+    konverterEndringAvInntektGrunn,
     konverterIngenJobb,
     konverterJobbStatus,
+    konverterPensjonsYtelse,
     konverterRelasjonAvdoed,
     konverterSagtOppEllerRedusert,
     konverterSamboerInntekt,
@@ -53,7 +55,7 @@ import {
 } from './typeMapper'
 import { fullAdresse } from '../../utils/adresse'
 import { Arbeidsmengde, IngenJobb, ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
-import { EndringAvInntektGrunn, IInntekt, InntektsTyper } from '../../typer/inntekt'
+import { EndringAvInntektGrunn, IInntekt, InntektsTyper, PensjonsYtelse } from '../../typer/inntekt'
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
     const kontaktinfo: Kontaktinfo = {
@@ -641,6 +643,62 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
         }
     }
 
+    let pensjonEllerUfoere: PensjonEllerUfoere | undefined
+    if (inntektenDin.inntektstyper?.includes(InntektsTyper.pensjonEllerUfoere)) {
+        const pensjonFraUtland = inntektenDin.pensjonEllerUfoere!!.utland!!.svar === IValg.JA
+
+        pensjonEllerUfoere = {
+            pensjonstype: {
+                spoersmaal: t('inntektenDin.pensjonEllerUfoere.pensjonstype'),
+                svar: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.map((ytelse) => ({
+                    verdi: konverterPensjonsYtelse(ytelse),
+                    innhold: t(ytelse),
+                })),
+            },
+            pensjonsUtbetaler: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.includes(
+                PensjonsYtelse.tjenestepensjonsordning
+            )
+                ? {
+                      spoersmaal: t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler'),
+                      svar: {
+                          innhold: inntektenDin.pensjonEllerUfoere!!.pensjonsUtbetaler!!,
+                      },
+                  }
+                : undefined,
+            utland: {
+                svar: {
+                    spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.svar'),
+                    svar: valgTilSvar(t, inntektenDin.pensjonEllerUfoere!!.utland!!.svar),
+                },
+                type: pensjonFraUtland
+                    ? {
+                          spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.type'),
+                          svar: {
+                              innhold: inntektenDin.pensjonEllerUfoere!!.utland!!.type!!,
+                          },
+                      }
+                    : undefined,
+                land: pensjonFraUtland
+                    ? {
+                          spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.land'),
+                          svar: {
+                              innhold: inntektenDin.pensjonEllerUfoere!!.utland!!.land!!,
+                          },
+                      }
+                    : undefined,
+                beloepMedValuta: pensjonFraUtland
+                    ? {
+                          spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.beloep'),
+                          svar: {
+                              innhold: `${inntektenDin.pensjonEllerUfoere!!.utland!!
+                                  .beloep!!} ${inntektenDin.pensjonEllerUfoere!!.utland!!.valuta!!}`,
+                          },
+                      }
+                    : undefined,
+            },
+        }
+    }
+
     const ytelserNAV: YtelserNav = {
         soektOmYtelse: {
             spoersmaal: t('inntektenDin.ytelserNAV.svar'),
@@ -713,6 +771,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
     return {
         loennsinntekt,
         naeringsinntekt,
+        pensjonEllerUfoere,
         ytelserNAV,
         ytelserAndre,
         endringAvInntekt,
