@@ -6,7 +6,7 @@ token-version = "2.1.2"
 ktor-version = "2.1.1"
 jackson-version = "2.13.4"
 jupiter-version = "5.9.1"
-testcontainers-version = "1.17.3"
+testcontainers-version = "1.19.1"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2022061809451655538329.d6deccc62862"}
