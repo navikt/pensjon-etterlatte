@@ -5,9 +5,9 @@ export interface IInntekt {
     loennsinntekt?: ILoennsinntekt
     naeringsinntekt?: INaeringsinntekt
     pensjonEllerUfoere?: IPensjonEllerUfoere
+    annenInntekt?: IAnnenInntekt
     ytelserNAV?: IYtelserNAV
     ytelserAndre?: IYtelserAndre
-    forventerEndringAvInntekt?: IForventerEndringAvInntekt
     erValidert?: boolean
 }
 
@@ -22,7 +22,7 @@ interface IYtelserAndre {
     pensjonsordning?: string
 }
 
-interface IForventerEndringAvInntekt {
+export interface IForventerEndringAvInntekt {
     svar?: IValg
     grunn?: EndringAvInntektGrunn
     annenGrunn?: string
@@ -56,11 +56,33 @@ export interface IPensjonEllerUfoere {
     }
 }
 
+export interface IAnnenInntekt {
+    inntektEllerUtbetaling: InntektEllerUtbetaling[]
+    beloep?: string
+    forventerEndringAvInntekt: IForventerEndringAvInntekt
+}
+
 export enum InntektsTyper {
     loenn = "inntekt.loenn",
     naering = "inntekt.naering",
     pensjonEllerUfoere = "inntekt.pensjonEllerUfoere",
     annen = "inntekt.annen"
+}
+
+export enum InntektEllerUtbetaling {
+    dagspenger = 'soekbarYtelse.dagspenger',
+    sykepenger = 'soekbarYtelse.sykepenger',
+    pleiepenger = 'soekbarYtelse.pleiepenger',
+    svangerskapspenger = 'soekbarYtelse.svangerskapspenger',
+    foreldrepenger = 'soekbarYtelse.foreldrepenger',
+    arbeidsavklaringspenger = 'soekbarYtelse.arbeidsavklaringspenger',
+    kvalifiseringsstoenad = 'soekbarYtelse.kvalifiseringsstoenad',
+    kommunalOmsorgsstoenad = 'soekbarYtelse.kommunalOmsorgsstoenad',
+    fosterhjemsgodtgjoering = 'soekbarYtelse.fosterhjemsgodtgjoering',
+    omsorgspenger = 'soekbarYtelse.omsorgspenger',
+    opplaeringspenger = 'soekbarYtelse.opplaeringspenger',
+    alderspensjon = 'soekbarYtelse.alderspensjon',
+    annen = 'soekbarYtelse.annen'
 }
 
 export enum SoekbareYtelserNAV {

@@ -171,6 +171,21 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById('pensjonEllerUfoere.utland.valuta').type(inntektenDin.pensjonEllerUfoere.utland.valuta)
 
 
+        // Annen inntekt
+        selectValue(inntektenDin.annenInntekt.inntektEllerUtbetaling)
+
+        getById('annenInntekt.beloep')
+                .type(inntektenDin.annenInntekt.beloep)
+
+        selectValue(inntektenDin.annenInntekt.forventerEndringAvInntekt.svar)
+
+        getById("annenInntekt.forventerEndringAvInntekt.grunn")
+            .find("select")
+            .select(inntektenDin.annenInntekt.forventerEndringAvInntekt.grunn);
+
+        getById("annenInntekt.forventerEndringAvInntekt.annenGrunn").type('Annen grunn til økning')
+
+        // Andre ytelser
         selectValue(inntektenDin.ytelserNAV.svar)
 
         inntektenDin.ytelserNAV.soekteYtelser.map((ytelse) => selectValue(ytelse))
@@ -178,13 +193,6 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         inntektenDin.ytelserAndre.soekteYtelser.map((ytelse) => selectValue(ytelse))
 
         getById("ytelserAndre.pensjonsordning").type('Statens pensjonskasse')
-
-        getById("forventerEndringAvInntekt.grunn")
-                .find("select")
-                .select(inntektenDin.forventerEndringAvInntekt.grunn);
-
-        getById("forventerEndringAvInntekt.annenGrunn").type('Annen grunn til økning')
-
 
         a11yCheck();
 

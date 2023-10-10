@@ -108,7 +108,8 @@
     "inntektstyper": [
       "inntekt.loenn",
       "inntekt.naering",
-      "inntekt.pensjonEllerUfoere"
+      "inntekt.pensjonEllerUfoere",
+      "inntekt.annen"
     ],
     "loennsinntekt": {
       "arbeidsinntektAaretFoer": "10000",
@@ -137,6 +138,17 @@
         "valuta": "Euro"
       }
     },
+    "annenInntekt": {
+      "inntektEllerUtbetaling": [
+        "soekbarYtelse.annen"
+      ],
+      "beloep": "320 000",
+      "forventerEndringAvInntekt": {
+        "svar": "radiobuttons.ja",
+        "grunn": "endringAvInntekt.annenGrunn",
+        "annenGrunn": "Arver masse penger og jobb"
+      }
+    },
     "ytelserNAV": {
       "svar": "radiobuttons.ja",
       "soekteYtelser": [
@@ -151,11 +163,6 @@
         "soekbarYtelse.saeralderpensjon"
       ],
       "pensjonsordning": "tester"
-    },
-    "forventerEndringAvInntekt": {
-      "svar": "radiobuttons.ja",
-      "grunn": "endringAvInntekt.annenGrunn",
-      "annenGrunn": "Arver masse penger og jobb"
     }
   },
   "opplysningerOmBarn": {

@@ -6,7 +6,7 @@ import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed, Sivilstatus
 import { ISituasjon } from '../typer/situasjon'
 import { StegPath } from '../typer/steg'
 import ObjectTreeReader, { Element, Gruppe } from './ObjectTreeReader'
-import { IInntekt, ILoennsinntekt, INaeringsinntekt, IPensjonEllerUfoere } from '../typer/inntekt'
+import { IAnnenInntekt, IInntekt, ILoennsinntekt, INaeringsinntekt, IPensjonEllerUfoere } from '../typer/inntekt'
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader
@@ -222,8 +222,8 @@ export default class SoeknadMapper {
             inntekter.push(naeringsinntekt)
         }
 
-        if (!!inntektenDin.pensjonEllerUfoere){
-            const pensjonEllerUfoere: Element =  {
+        if (!!inntektenDin.pensjonEllerUfoere) {
+            const pensjonEllerUfoere: Element = {
                 tittel: this.t('inntektenDin.pensjonEllerUfoere.tittel'),
                 innhold: this.otr.traverse<IPensjonEllerUfoere>(
                     {
@@ -233,6 +233,19 @@ export default class SoeknadMapper {
                 ),
             }
             inntekter.push(pensjonEllerUfoere)
+        }
+
+        if (!!inntektenDin.annenInntekt){
+            const annenInntekt: Element =  {
+                tittel: this.t('inntektenDin.annenInntekt.tittel'),
+                innhold: this.otr.traverse<IAnnenInntekt>(
+                    {
+                        ...inntektenDin.annenInntekt,
+                    },
+                    'inntektenDin.annenInntekt'
+                ),
+            }
+            inntekter.push(annenInntekt)
         }
 
         return {
@@ -248,6 +261,7 @@ export default class SoeknadMapper {
                                 loennsinntekt: undefined,
                                 naeringsinntekt: undefined,
                                 pensjonEllerUfoere: undefined,
+                                annenInntekt: undefined,
                                 erValidert: undefined
                             },
                             'inntektenDin'

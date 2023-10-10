@@ -158,9 +158,9 @@ export interface InntektOgPensjon {
     loennsinntekt?: Opplysning<Loennsinntekt>
     naeringsinntekt?: Opplysning<NaeringsinntektGjenlevende>
     pensjonEllerUfoere?: PensjonEllerUfoere
+    annenInntekt?: AnnenInntekt
     ytelserNAV: YtelserNav
     ytelserAndre: YtelserAndre
-    endringAvInntekt: EndringAvInntekt
 }
 
 export interface Loennsinntekt {
@@ -188,6 +188,12 @@ export interface PensjonEllerUfoere {
         land?: Opplysning<FritekstSvar>
         beloepMedValuta?: Opplysning<FritekstSvar>
     }
+}
+
+export interface AnnenInntekt {
+    annenInntektEllerUtbetaling: Opplysning<any>
+    beloep?: Opplysning<FritekstSvar>
+    endringAvInntekt: EndringAvInntekt
 }
 
 export interface YtelserNav {
@@ -339,6 +345,22 @@ export enum PensjonsYtelseType {
     TJENESTEPENSJONSORDNING = 'TJENESTEPENSJONSORDNING',
     UFOEREPENSJON = 'UFOEREPENSJON',
     ALDERSPENSJON = 'ALDERSPENSJON',
+}
+
+export enum InntektEllerUtbetalingType {
+    DAGSPENGER = 'DAGSPENGER',
+    SYKEPENGER = 'SYKEPENGER',
+    PLEIEPENGER = 'PLEIEPENGER',
+    SVANGERSKAPSPENGER = 'SVANGERSKAPSPENGER',
+    FORELDREPENGER = 'FORELDREPENGER',
+    ARBEIDSAVKLARINGSPENGER = 'ARBEIDSAVKLARINGSPENGER',
+    KVALIFISERINGSSTOENAD = 'KVALIFISERINGSSTOENAD',
+    KOMMUNAL_OMSORGSSTOENAD = 'KOMMUNAL_OMSORGSSTOENAD',
+    FOSTERHJEMSGODTGJOERING = 'FOSTERHJEMSGODTGJOERING',
+    OMSORGSPENGER = 'OMSORGSPENGER',
+    OPPLAERINGSPENGER = 'OPPLAERINGSPENGER',
+    ALDERSPENSJON = 'ALDERSPENSJON',
+    ANNEN = 'ANNEN'
 }
 
 export enum SoekbareYtelserAndreType {
