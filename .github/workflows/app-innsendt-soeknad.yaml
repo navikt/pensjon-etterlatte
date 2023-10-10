@@ -25,7 +25,13 @@ on:
       - gradle/libs.versions.toml
 
 jobs:
+  test:
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/.test-backend.yaml
+    secrets: inherit
+
   build:
+    if: github.event_name != 'pull_request'
     uses: ./.github/workflows/.build-backend.yaml
     secrets: inherit
     permissions:
