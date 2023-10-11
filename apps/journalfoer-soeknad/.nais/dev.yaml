@@ -36,7 +36,7 @@ spec:
     - name: DOKARKIV_URL
       value: "https://dokarkiv-q2.dev-fss-pub.nais.io/rest/journalpostapi/v1/journalpost"
     - name: AZURE_DOKARKIV_SCOPE
-      value: "api://dev-fss.teamdokumenthandtering.dokarkiv-q2/.default"
+      value: "api://dev-fss.teamdokumenthandtering.dokarkiv/.default"
   accessPolicy:
     outbound:
       rules:
