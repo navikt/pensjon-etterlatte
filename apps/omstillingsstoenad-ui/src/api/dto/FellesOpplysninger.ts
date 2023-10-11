@@ -157,6 +157,7 @@ export interface ArbeidOgUtdanning {
 export interface InntektOgPensjon {
     loennsinntekt?: Opplysning<Loennsinntekt>
     naeringsinntekt?: Opplysning<NaeringsinntektGjenlevende>
+    pensjonEllerUfoere?: PensjonEllerUfoere
     ytelserNAV: YtelserNav
     ytelserAndre: YtelserAndre
     endringAvInntekt: EndringAvInntekt
@@ -175,6 +176,17 @@ export interface NaeringsinntektGjenlevende {
     arbeidsinntektIAar: {
         tilDoedsfall: Opplysning<FritekstSvar>
         etterDoedsfall: Opplysning<FritekstSvar>
+    }
+}
+
+export interface PensjonEllerUfoere {
+    pensjonstype: Opplysning<EnumSvar<PensjonsYtelseType>[]>
+    pensjonsUtbetaler?: Opplysning<FritekstSvar>
+    utland: {
+        svar: Opplysning<EnumSvar<JaNeiVetIkke>>
+        type?: Opplysning<FritekstSvar>
+        land?: Opplysning<FritekstSvar>
+        beloepMedValuta?: Opplysning<FritekstSvar>
     }
 }
 
@@ -319,6 +331,14 @@ export enum EndringAvInntektGrunnType {
     SESONGARBEID = 'SESONGARBEID',
     BYTTE_AV_JOBB = 'BYTTE_AV_JOBB',
     ANNEN_GRUNN = 'ANNEN_GRUNN',
+}
+
+export enum PensjonsYtelseType {
+    AVTALEFESTET_PENSJON_OFFENTLIG = 'AVTALEFESTET_PENSJON_OFFENTLIG',
+    AVTALEFESTET_PENSJON_PRIVAT = 'AVTALEFESTET_PENSJON_PRIVAT',
+    TJENESTEPENSJONSORDNING = 'TJENESTEPENSJONSORDNING',
+    UFOEREPENSJON = 'UFOEREPENSJON',
+    ALDERSPENSJON = 'ALDERSPENSJON',
 }
 
 export enum SoekbareYtelserAndreType {

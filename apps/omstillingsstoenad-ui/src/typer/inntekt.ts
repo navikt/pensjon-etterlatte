@@ -4,6 +4,7 @@ export interface IInntekt {
     inntektstyper?: InntektsTyper[]
     loennsinntekt?: ILoennsinntekt
     naeringsinntekt?: INaeringsinntekt
+    pensjonEllerUfoere?: IPensjonEllerUfoere
     ytelserNAV?: IYtelserNAV
     ytelserAndre?: IYtelserAndre
     forventerEndringAvInntekt?: IForventerEndringAvInntekt
@@ -43,6 +44,18 @@ export interface INaeringsinntekt {
     }
 }
 
+export interface IPensjonEllerUfoere {
+    pensjonstype: PensjonsYtelse[]
+    pensjonsUtbetaler?: string
+    utland: {
+        svar: IValg
+        type?: string
+        land?: string
+        beloep?: string
+        valuta?: string
+    }
+}
+
 export enum InntektsTyper {
     loenn = "inntekt.loenn",
     naering = "inntekt.naering",
@@ -72,6 +85,14 @@ export enum SoekbareYtelserAndre {
     saeralderpensjon = 'soekbarYtelse.saeralderpensjon',
     ufoerepensjon = 'soekbarYtelse.ufoerepensjon',
     alderspensjon = 'soekbarYtelse.alderspensjon',
+}
+
+export enum PensjonsYtelse {
+    avtalefestetPensjonOffentlig = 'soekbarYtelse.avtalefestetPensjonOffentlig',
+    avtalefestetPensjonPrivat = 'soekbarYtelse.avtalefestetPensjonPrivat',
+    ufoerepensjon = 'soekbarYtelse.ufoerepensjon',
+    alderspensjon = 'soekbarYtelse.alderspensjon',
+    tjenestepensjonsordning = 'soekbarYtelse.tjenestepensjonsordning',
 }
 
 export enum EndringAvInntektGrunn {

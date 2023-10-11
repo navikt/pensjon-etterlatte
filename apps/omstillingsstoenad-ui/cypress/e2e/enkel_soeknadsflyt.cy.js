@@ -155,6 +155,22 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById('naeringsinntekt.arbeidsinntektIAar.etterDoedsfall')
                 .type(inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall)
 
+        // Pensjon eller uføre
+        selectValue(inntektenDin.pensjonEllerUfoere.pensjonstype)
+
+        getById('pensjonEllerUfoere.pensjonsUtbetaler').type(inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler)
+
+        selectValueForId("pensjonEllerUfoere.utland.svar", inntektenDin.pensjonEllerUfoere.utland.svar);
+
+        getById("pensjonEllerUfoere.utland.land")
+                .find("select")
+                .select(inntektenDin.pensjonEllerUfoere.utland.land)
+
+        getById('pensjonEllerUfoere.utland.type').type(inntektenDin.pensjonEllerUfoere.utland.type)
+        getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
+        getById('pensjonEllerUfoere.utland.valuta').type(inntektenDin.pensjonEllerUfoere.utland.valuta)
+
+
         selectValue(inntektenDin.ytelserNAV.svar)
 
         inntektenDin.ytelserNAV.soekteYtelser.map((ytelse) => selectValue(ytelse))
