@@ -9,15 +9,11 @@ import InntektenDin from './5-inntekten-din/InntektenDin'
 import OpplysningerOmBarn from './6-barn/OpplysningerOmBarn'
 import Oppsummering from './7-oppsummering/Oppsummering'
 import { useLanguage } from '../../hooks/useLanguage'
-import { Stepper } from '@navikt/ds-react'
-import { useTranslation } from 'react-i18next'
-import { v4 as uuid } from 'uuid'
 import { useState } from 'react'
-import { isDev } from '../../api/axios'
+import Stegviser from '../felles/Stegviser'
 
 const SoknadDialog = () => {
     const navigate = useNavigate()
-    const { t } = useTranslation()
 
     const { pathname } = useLocation()
     useLanguage()
@@ -38,18 +34,12 @@ const SoknadDialog = () => {
 
     return (
         <>
-            <Stepper
-                activeStep={aktivtSteg + 1}
-                onStepChange={(step) => isDev && settSteg(step - 1)}
-                orientation={'horizontal'}
-                interactive={isDev}
-            >
-                {muligeSteg.map((steg) => (
-                    <Stepper.Step key={uuid()} interactive={besoekteSteg.includes(steg)}>
-                        {t(steg.label)}
-                    </Stepper.Step>
-                ))}
-            </Stepper>
+            <Stegviser
+                aktivtSteg={aktivtSteg}
+                besoekteSteg={besoekteSteg}
+                muligeSteg={muligeSteg}
+                settSteg={settSteg}
+            />
 
             <Routes>
                 <Route path={`/${StegPath.OmDeg}`} element={<OmDeg neste={neste} />} />
@@ -58,7 +48,10 @@ const SoknadDialog = () => {
                     element={<OmDegOgAvdoed neste={neste} forrige={forrige} />}
                 />
                 <Route path={`/${StegPath.OmAvdoed}`} element={<OmDenAvdode neste={neste} forrige={forrige} />} />
-                <Route path={`/${StegPath.DinSituasjon}`} element={<SituasjonenDin neste={neste} forrige={forrige} />} />
+                <Route
+                    path={`/${StegPath.DinSituasjon}`}
+                    element={<SituasjonenDin neste={neste} forrige={forrige} />}
+                />
                 <Route path={`/${StegPath.InntektenDin}`} element={<InntektenDin neste={neste} forrige={forrige} />} />
                 <Route path={`/${StegPath.OmBarn}`} element={<OpplysningerOmBarn neste={neste} forrige={forrige} />} />
                 <Route path={`/${StegPath.Oppsummering}`} element={<Oppsummering forrige={forrige} />} />
