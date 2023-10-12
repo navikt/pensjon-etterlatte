@@ -72,10 +72,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
-        val trengerManuellJournalfoering = when (val it = packet["trengerManuellJournalfoering"]) {
-            is BooleanNode -> it.booleanValue()
-            else -> false
-        }
+        val trengerManuellJournalfoering = packet["trengerManuellJournalfoering"].asBoolean()
         val forsoekFerdigstill = !trengerManuellJournalfoering
 
         return journalfoeringService.journalfoer(
