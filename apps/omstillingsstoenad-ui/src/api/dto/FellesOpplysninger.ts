@@ -89,7 +89,7 @@ export enum JobbStatusType {
 export enum StillingType {
     FAST = 'FAST',
     MIDLERTIDIG = 'MIDLERTIDIG',
-    SESONGARBEID = 'SESONGARBEID',
+    TILKALLINGSVIKAR = 'TILKALLINGSVIKAR',
 }
 
 export enum SivilstatusType {
@@ -222,7 +222,9 @@ export interface EtablererVirksomhet {
 
 export interface TilbudOmJobb {
     nyttArbeidssted: Opplysning<FritekstSvar>
+    ansettelsesdato: Opplysning<DatoSvar>
     ansettelsesforhold: Opplysning<EnumSvar<StillingType>>
+    arbeidsmengde: Opplysning<FritekstSvar>
     harSluttdato?: Opplysning<EnumSvar<JaNeiVetIkke>>
     sluttdato?: Opplysning<DatoSvar>
 }
@@ -266,7 +268,6 @@ export interface SelvstendigNaeringsdrivende {
 
 export interface Arbeidstaker {
     arbeidsgiver: Opplysning<FritekstSvar>
-    typeArbeidsmengde: Opplysning<EnumSvar<ArbeidsmengdeType>>
     arbeidsmengde: Opplysning<FritekstSvar>
     ansettelsesforhold: Opplysning<EnumSvar<StillingType>>
     harSluttdato?: Opplysning<EnumSvar<JaNeiVetIkke>>

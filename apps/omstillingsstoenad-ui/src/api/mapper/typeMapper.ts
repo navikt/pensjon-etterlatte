@@ -46,8 +46,8 @@ export const konverterStillingType = (type: GammelStillingType): StillingType =>
             return StillingType.FAST
         case GammelStillingType.midlertidig:
             return StillingType.MIDLERTIDIG
-        case GammelStillingType.sesongarbeid:
-            return StillingType.SESONGARBEID
+        case GammelStillingType.tilkallingsvikar:
+            return StillingType.TILKALLINGSVIKAR
         default:
             throw Error(`Ukjent type stilling: ${type}`)
     }

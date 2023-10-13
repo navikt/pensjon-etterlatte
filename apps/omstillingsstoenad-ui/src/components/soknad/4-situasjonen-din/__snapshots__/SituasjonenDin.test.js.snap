@@ -4,7 +4,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
-      class="sc-dmyDmy jQrunv"
+      class="sc-guDMob jqJKDR"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -98,11 +98,6 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         <div
           class="navds-guide-panel__content"
         >
-          <h1
-            class="navds-heading navds-heading--small"
-          >
-            dinSituasjon.undertittel
-          </h1>
           dinSituasjon.ingress
         </div>
       </div>
@@ -113,7 +108,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       dinSituasjon.jobbStatus.tittel
     </h1>
     <div
-      class="sc-jTQDJr lnVqIc"
+      class="sc-hABBGs kHrtjG"
       id="jobbStatus"
     >
       <fieldset
@@ -133,13 +128,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             <input
               checked=""
               class="navds-checkbox__input"
-              id="checkbox-r1f"
+              id="checkbox-r1g"
               type="checkbox"
               value="jobbStatus.arbeidstaker"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1f"
+              for="checkbox-r1g"
             >
               <span
                 class="navds-checkbox__icon"
@@ -177,13 +172,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             <input
               checked=""
               class="navds-checkbox__input"
-              id="checkbox-r1g"
+              id="checkbox-r1h"
               type="checkbox"
               value="jobbStatus.selvstendig.enk"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1g"
+              for="checkbox-r1h"
             >
               <span
                 class="navds-checkbox__icon"
@@ -220,13 +215,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1h"
+              id="checkbox-r1i"
               type="checkbox"
               value="jobbStatus.selvstendig.as"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1h"
+              for="checkbox-r1i"
             >
               <span
                 class="navds-checkbox__icon"
@@ -263,13 +258,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1i"
+              id="checkbox-r1j"
               type="checkbox"
               value="jobbStatus.etablerer"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1i"
+              for="checkbox-r1j"
             >
               <span
                 class="navds-checkbox__icon"
@@ -306,13 +301,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1j"
+              id="checkbox-r1k"
               type="checkbox"
               value="jobbStatus.tilbud"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1j"
+              for="checkbox-r1k"
             >
               <span
                 class="navds-checkbox__icon"
@@ -349,13 +344,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1k"
+              id="checkbox-r1l"
               type="checkbox"
               value="jobbStatus.arbeidssoker"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1k"
+              for="checkbox-r1l"
             >
               <span
                 class="navds-checkbox__icon"
@@ -392,13 +387,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1l"
+              id="checkbox-r1m"
               type="checkbox"
               value="jobbStatus.underUtdanning"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1l"
+              for="checkbox-r1m"
             >
               <span
                 class="navds-checkbox__icon"
@@ -435,13 +430,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           >
             <input
               class="navds-checkbox__input"
-              id="checkbox-r1m"
+              id="checkbox-r1n"
               type="checkbox"
               value="jobbStatus.ingen"
             />
             <label
               class="navds-checkbox__label"
-              for="checkbox-r1m"
+              for="checkbox-r1n"
             >
               <span
                 class="navds-checkbox__icon"
@@ -478,14 +473,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           aria-live="polite"
           aria-relevant="additions removals"
           class="navds-fieldset__error"
-          id="fieldset-error-r1e"
+          id="fieldset-error-r1f"
         />
       </fieldset>
     </div>
     <div>
       <button
         aria-expanded="false"
-        class="sc-eDLKEg cPRtfY"
+        class="sc-hLQTFJ jBLJZd"
         data-testid="hvorforPanel_toggle"
         type="button"
       >
@@ -516,7 +511,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -524,8 +519,8 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           dinSituasjon.arbeidsforhold.tittel
         </h1>
       </div>
-      <div
-        class="sc-dmyDmy jQrunv"
+      <fieldset
+        class="sc-beyTiQ jltUnl"
       >
         <div
           class="kol-50"
@@ -550,29 +545,19 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-r1o"
+              id="textField-error-r1p"
             />
           </div>
         </div>
-      </div>
+      </fieldset>
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
-        <label
-          class="navds-label"
-        >
-          dinSituasjon.arbeidsforhold.arbeidsmengde
-        </label>
-        <p
-          class="navds-detail navds-typo--color-subtle"
-        >
-          dinSituasjon.arbeidsforhold.arbeidsmengde.beskrivelse
-        </p>
         <div
-          id="arbeidsforhold[0].typeArbeidsmengde"
+          id="arbeidsforhold[0].ansettelsesforhold"
         >
           <div
-            class="sc-dmyDmy jQrunv"
+            class="sc-guDMob jqJKDR"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -580,7 +565,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.arbeidsforhold.typeArbeidsmengde
+                dinSituasjon.arbeidsforhold.ansettelsesforhold
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -590,36 +575,10 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r1r"
-                    name="arbeidsforhold[0].typeArbeidsmengde"
-                    type="radio"
-                    value="arbeidsmengde.prosent"
-                  />
-                  <label
-                    class="navds-radio__label"
-                    for="radio-r1r"
-                  >
-                    <span
-                      class="navds-radio__content"
-                    >
-                      <span
-                        class="navds-body-short navds-body-short--medium"
-                      >
-                        arbeidsmengde.prosent
-                      </span>
-                    </span>
-                  </label>
-                </div>
-                <div
-                  class="radioBorder navds-radio navds-radio--medium"
-                >
-                  <input
-                    checked=""
-                    class="navds-radio__input"
                     id="radio-r1s"
-                    name="arbeidsforhold[0].typeArbeidsmengde"
+                    name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
-                    value="arbeidsmengde.timer"
+                    value="stillingType.fast"
                   />
                   <label
                     class="navds-radio__label"
@@ -631,7 +590,58 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                       <span
                         class="navds-body-short navds-body-short--medium"
                       >
-                        arbeidsmengde.timer
+                        stillingType.fast
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    checked=""
+                    class="navds-radio__input"
+                    id="radio-r1t"
+                    name="arbeidsforhold[0].ansettelsesforhold"
+                    type="radio"
+                    value="stillingType.midlertidig"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-r1t"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        stillingType.midlertidig
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-r1u"
+                    name="arbeidsforhold[0].ansettelsesforhold"
+                    type="radio"
+                    value="stillingType.tilkallingsvikar"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-r1u"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        stillingType.tilkallingsvikar
                       </span>
                     </span>
                   </label>
@@ -641,196 +651,209 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r1q"
+                id="fieldset-error-r1r"
               />
             </fieldset>
           </div>
         </div>
-        <div
-          class="navds-form-field navds-form-field--medium"
-        >
-          <label
-            class="navds-form-field__label navds-label"
-            for="arbeidsforhold[0].arbeidsmengde.timer"
-          >
-            dinSituasjon.arbeidsforhold.arbeidsmengde.timer
-          </label>
-          <input
-            class="navds-text-field__input navds-body-short navds-body-medium"
-            id="arbeidsforhold[0].arbeidsmengde.timer"
-            size="25"
-            type="text"
-            value=""
-          />
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-form-field__error"
-            id="textField-error-r1t"
-          />
-        </div>
       </div>
-      <div
-        class="sc-dmyDmy jQrunv"
+      <fieldset
+        class="sc-beyTiQ jltUnl"
       >
         <div
-          class="sc-guDMob dyBlAC"
-          id="arbeidsforhold[0].ansettelsesforhold"
+          class="sc-guDMob jqJKDR"
         >
           <div
-            class="navds-form-field navds-form-field--medium"
+            class="sc-guDMob jqJKDR"
           >
-            <label
-              class="navds-form-field__label navds-label"
-              for="select-r1u"
+            <h1
+              class="navds-heading navds-heading--xsmall"
             >
-              dinSituasjon.arbeidsforhold.ansettelsesforhold
-            </label>
+              dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel
+            </h1>
+            <p
+              class="navds-detail"
+            >
+              dinSituasjon.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
+            </p>
+          </div>
+          <div
+            class="sc-ktwNLz gXLGps"
+          >
             <div
-              class="navds-select__container"
+              class="navds-form-field navds-form-field--medium"
             >
-              <select
-                class="navds-select__input navds-body-short navds-body--medium"
-                id="select-r1u"
+              <label
+                class="navds-form-field__label navds-label"
+                for="arbeidsforhold[0].arbeidsmengde.svar"
               >
-                <option
-                  value=""
-                >
-                  felles.velg
-                </option>
-                <option
-                  value="stillingType.fast"
-                >
-                  stillingType.fast
-                </option>
-                <option
-                  value="stillingType.midlertidig"
-                >
-                  stillingType.midlertidig
-                </option>
-                <option
-                  value="stillingType.sesongarbeid"
-                >
-                  stillingType.sesongarbeid
-                </option>
-              </select>
-              <svg
-                aria-hidden="true"
-                class="navds-select__chevron"
-                fill="none"
-                focusable="false"
-                height="1em"
-                role="img"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
+                dinSituasjon.arbeidsforhold.arbeidsmengde.svar
+              </label>
+              <input
+                class="navds-text-field__input navds-body-short navds-body-medium"
+                id="arbeidsforhold[0].arbeidsmengde.svar"
+                size="25"
+                type="text"
+                value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-r1v"
+              />
             </div>
             <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="select-error-r1u"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="sc-dmyDmy jQrunv"
-      >
-        <div
-          id="arbeidsforhold[0].midlertidig.svar"
-        >
-          <div
-            class="sc-dmyDmy jQrunv"
-          >
-            <fieldset
-              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              class="sc-eDLKEg XRZbt"
+              id="arbeidsforhold[0].arbeidsmengde.type"
             >
-              <legend
-                class="navds-fieldset__legend navds-label"
-              >
-                dinSituasjon.arbeidsforhold.midlertidig.svar
-              </legend>
               <div
-                class="navds-radio-buttons"
+                class="navds-form-field navds-form-field--medium"
               >
-                <div
-                  class="radioBorder navds-radio navds-radio--medium"
+                <label
+                  class="navds-form-field__label navds-label"
+                  for="select-r20"
                 >
-                  <input
-                    class="navds-radio__input"
-                    id="radio-r22"
-                    name="arbeidsforhold[0].midlertidig.svar"
-                    type="radio"
-                    value="radiobuttons.ja"
-                  />
-                  <label
-                    class="navds-radio__label"
-                    for="radio-r22"
+                  felles.velg.tittel
+                </label>
+                <div
+                  class="navds-select__container"
+                >
+                  <select
+                    class="navds-select__input navds-body-short navds-body--medium"
+                    id="select-r20"
                   >
-                    <span
-                      class="navds-radio__content"
+                    <option
+                      value=""
                     >
-                      <span
-                        class="navds-body-short navds-body-short--medium"
-                      >
-                        radiobuttons.ja
-                      </span>
-                    </span>
-                  </label>
+                      felles.velg
+                    </option>
+                    <option
+                      value="arbeidsmengde.prosent"
+                    >
+                      arbeidsmengde.prosent
+                    </option>
+                    <option
+                      value="arbeidsmengde.timer"
+                    >
+                      arbeidsmengde.timer
+                    </option>
+                  </select>
+                  <svg
+                    aria-hidden="true"
+                    class="navds-select__chevron"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
                 <div
-                  class="radioBorder navds-radio navds-radio--medium"
-                >
-                  <input
-                    class="navds-radio__input"
-                    id="radio-r23"
-                    name="arbeidsforhold[0].midlertidig.svar"
-                    type="radio"
-                    value="radiobuttons.nei"
-                  />
-                  <label
-                    class="navds-radio__label"
-                    for="radio-r23"
-                  >
-                    <span
-                      class="navds-radio__content"
-                    >
-                      <span
-                        class="navds-body-short navds-body-short--medium"
-                      >
-                        radiobuttons.nei
-                      </span>
-                    </span>
-                  </label>
-                </div>
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="select-error-r20"
+                />
               </div>
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-fieldset__error"
-                id="fieldset-error-r21"
-              />
-            </fieldset>
+            </div>
+          </div>
+          <div
+            id="arbeidsforhold[0].midlertidig.svar"
+          >
+            <div
+              class="sc-guDMob jqJKDR"
+            >
+              <fieldset
+                class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              >
+                <legend
+                  class="navds-fieldset__legend navds-label"
+                >
+                  dinSituasjon.arbeidsforhold.midlertidig.svar
+                </legend>
+                <div
+                  class="navds-radio-buttons"
+                >
+                  <div
+                    class="radioBorder navds-radio navds-radio--medium"
+                  >
+                    <input
+                      class="navds-radio__input"
+                      id="radio-r24"
+                      name="arbeidsforhold[0].midlertidig.svar"
+                      type="radio"
+                      value="radiobuttons.ja"
+                    />
+                    <label
+                      class="navds-radio__label"
+                      for="radio-r24"
+                    >
+                      <span
+                        class="navds-radio__content"
+                      >
+                        <span
+                          class="navds-body-short navds-body-short--medium"
+                        >
+                          radiobuttons.ja
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                  <div
+                    class="radioBorder navds-radio navds-radio--medium"
+                  >
+                    <input
+                      class="navds-radio__input"
+                      id="radio-r25"
+                      name="arbeidsforhold[0].midlertidig.svar"
+                      type="radio"
+                      value="radiobuttons.nei"
+                    />
+                    <label
+                      class="navds-radio__label"
+                      for="radio-r25"
+                    >
+                      <span
+                        class="navds-radio__content"
+                      >
+                        <span
+                          class="navds-body-short navds-body-short--medium"
+                        >
+                          radiobuttons.nei
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-fieldset__error"
+                  id="fieldset-error-r23"
+                />
+              </fieldset>
+            </div>
           </div>
         </div>
-      </div>
+      </fieldset>
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <div
           id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
         >
           <div
-            class="sc-dmyDmy jQrunv"
+            class="sc-guDMob jqJKDR"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -848,14 +871,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r26"
+                    id="radio-r28"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r26"
+                    for="radio-r28"
                   >
                     <span
                       class="navds-radio__content"
@@ -873,14 +896,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r27"
+                    id="radio-r29"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r27"
+                    for="radio-r29"
                   >
                     <span
                       class="navds-radio__content"
@@ -898,23 +921,22 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r25"
+                id="fieldset-error-r27"
               />
             </fieldset>
           </div>
         </div>
       </div>
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <div
           id="arbeidsforhold[0].sagtOppEllerRedusert.svar"
         >
           <div
-            class="sc-dmyDmy jQrunv"
+            class="sc-guDMob jqJKDR"
           >
             <fieldset
-              aria-describedby="fieldset-description-r29"
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
@@ -923,12 +945,6 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar
               </legend>
               <div
-                class="navds-fieldset__description navds-body-short navds-body-short--medium"
-                id="fieldset-description-r29"
-              >
-                dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.beskrivelse
-              </div>
-              <div
                 class="navds-radio-buttons"
               >
                 <div
@@ -936,14 +952,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r2a"
+                    id="radio-r2c"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="sagtOppEllerRedusert.oppsagt"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r2a"
+                    for="radio-r2c"
                   >
                     <span
                       class="navds-radio__content"
@@ -961,14 +977,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r2b"
+                    id="radio-r2d"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="sagtOppEllerRedusert.redusert"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r2b"
+                    for="radio-r2d"
                   >
                     <span
                       class="navds-radio__content"
@@ -986,14 +1002,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r2c"
+                    id="radio-r2e"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r2c"
+                    for="radio-r2e"
                   >
                     <span
                       class="navds-radio__content"
@@ -1011,7 +1027,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r29"
+                id="fieldset-error-r2b"
               />
             </fieldset>
           </div>
@@ -1019,7 +1035,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         <div>
           <button
             aria-expanded="false"
-            class="sc-eDLKEg cPRtfY"
+            class="sc-hLQTFJ jBLJZd"
             data-testid="hvorforPanel_toggle"
             type="button"
           >
@@ -1063,7 +1079,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1071,75 +1087,79 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           dinSituasjon.selvstendig.tittel
         </h1>
       </div>
-      <div
-        class="kol-75"
+      <fieldset
+        class="sc-beyTiQ jltUnl"
       >
         <div
-          class="navds-form-field navds-form-field--medium"
+          class="kol-75"
         >
-          <label
-            class="navds-form-field__label navds-label"
-            for="selvstendig.enk[0].beskrivelse"
-          >
-            dinSituasjon.selvstendig.hvaHeterNaeringen
-          </label>
           <div
-            class="navds-form-field__description navds-body-short navds-body-short--medium"
-            id="textField-description-r2q"
+            class="navds-form-field navds-form-field--medium"
           >
-            dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse
+            <label
+              class="navds-form-field__label navds-label"
+              for="selvstendig.enk[0].beskrivelse"
+            >
+              dinSituasjon.selvstendig.hvaHeterNaeringen
+            </label>
+            <div
+              class="navds-form-field__description navds-body-short navds-body-short--medium"
+              id="textField-description-r2s"
+            >
+              dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse
+            </div>
+            <input
+              aria-describedby="textField-description-r2s"
+              class="navds-text-field__input navds-body-short navds-body-medium"
+              id="selvstendig.enk[0].beskrivelse"
+              size="40"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-r2s"
+            />
           </div>
-          <input
-            aria-describedby="textField-description-r2q"
-            class="navds-text-field__input navds-body-short navds-body-medium"
-            id="selvstendig.enk[0].beskrivelse"
-            size="40"
-            type="text"
-            value=""
-          />
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-form-field__error"
-            id="textField-error-r2q"
-          />
         </div>
-      </div>
-      <div
-        class="sc-dmyDmy jQrunv"
-      >
         <div
-          class="navds-form-field navds-form-field--medium"
+          class="sc-guDMob jqJKDR"
         >
-          <label
-            class="navds-form-field__label navds-label"
-            for="selvstendig.enk[0].orgnr"
-          >
-            dinSituasjon.selvstendig.orgnr
-          </label>
-          <input
-            class="navds-text-field__input navds-body-short navds-body-medium"
-            id="selvstendig.enk[0].orgnr"
-            placeholder="dinSituasjon.selvstendig.orgnrplaceholder"
-            size="25"
-            type="text"
-            value=""
-          />
           <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-form-field__error"
-            id="textField-error-r2r"
-          />
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="selvstendig.enk[0].orgnr"
+            >
+              dinSituasjon.selvstendig.orgnr
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-medium"
+              id="selvstendig.enk[0].orgnr"
+              placeholder="dinSituasjon.selvstendig.orgnrplaceholder"
+              size="25"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-r2t"
+            />
+          </div>
         </div>
-      </div>
+      </fieldset>
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <label
           class="navds-label"
         >
-          dinSituasjon.selvstendig.arbeidsmengde
+          dinSituasjon.selvstendig.arbeidsmengde.enk
         </label>
         <p
           class="navds-detail navds-typo--color-subtle"
@@ -1147,91 +1167,108 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           dinSituasjon.selvstendig.arbeidsmengde.beskrivelse
         </p>
         <div
-          id="selvstendig.enk[0].typeArbeidsmengde"
+          class="sc-guDMob jqJKDR"
         >
           <div
-            class="sc-dmyDmy jQrunv"
+            class="sc-ktwNLz gXLGps"
           >
-            <fieldset
-              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            <div
+              class="navds-form-field navds-form-field--medium"
             >
-              <legend
-                class="navds-fieldset__legend navds-label"
+              <label
+                class="navds-form-field__label navds-label"
+                for="selvstendig.enk[0].arbeidsmengde.svar"
               >
-                dinSituasjon.selvstendig.typeArbeidsmengde
-              </legend>
-              <div
-                class="navds-radio-buttons"
-              >
-                <div
-                  class="radioBorder navds-radio navds-radio--medium"
-                >
-                  <input
-                    class="navds-radio__input"
-                    id="radio-r2u"
-                    name="selvstendig.enk[0].typeArbeidsmengde"
-                    type="radio"
-                    value="arbeidsmengde.prosent"
-                  />
-                  <label
-                    class="navds-radio__label"
-                    for="radio-r2u"
-                  >
-                    <span
-                      class="navds-radio__content"
-                    >
-                      <span
-                        class="navds-body-short navds-body-short--medium"
-                      >
-                        arbeidsmengde.prosent
-                      </span>
-                    </span>
-                  </label>
-                </div>
-                <div
-                  class="radioBorder navds-radio navds-radio--medium"
-                >
-                  <input
-                    class="navds-radio__input"
-                    id="radio-r2v"
-                    name="selvstendig.enk[0].typeArbeidsmengde"
-                    type="radio"
-                    value="arbeidsmengde.timer"
-                  />
-                  <label
-                    class="navds-radio__label"
-                    for="radio-r2v"
-                  >
-                    <span
-                      class="navds-radio__content"
-                    >
-                      <span
-                        class="navds-body-short navds-body-short--medium"
-                      >
-                        arbeidsmengde.timer
-                      </span>
-                    </span>
-                  </label>
-                </div>
-              </div>
+                dinSituasjon.selvstendig.arbeidsmengde.svar
+              </label>
+              <input
+                class="navds-text-field__input navds-body-short navds-body-medium"
+                id="selvstendig.enk[0].arbeidsmengde.svar"
+                size="25"
+                type="text"
+                value=""
+              />
               <div
                 aria-live="polite"
                 aria-relevant="additions removals"
-                class="navds-fieldset__error"
-                id="fieldset-error-r2t"
+                class="navds-form-field__error"
+                id="textField-error-r2u"
               />
-            </fieldset>
+            </div>
+            <div
+              class="sc-eDLKEg XRZbt"
+              id="selvstendig.enk[0].arbeidsmengde.type"
+            >
+              <div
+                class="navds-form-field navds-form-field--medium"
+              >
+                <label
+                  class="navds-form-field__label navds-label"
+                  for="select-r2v"
+                >
+                  felles.velg.tittel
+                </label>
+                <div
+                  class="navds-select__container"
+                >
+                  <select
+                    class="navds-select__input navds-body-short navds-body--medium"
+                    id="select-r2v"
+                  >
+                    <option
+                      value=""
+                    >
+                      felles.velg
+                    </option>
+                    <option
+                      value="arbeidsmengde.prosent"
+                    >
+                      arbeidsmengde.prosent
+                    </option>
+                    <option
+                      value="arbeidsmengde.timer"
+                    >
+                      arbeidsmengde.timer
+                    </option>
+                  </select>
+                  <svg
+                    aria-hidden="true"
+                    class="navds-select__chevron"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="select-error-r2v"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <div
           id="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
         >
           <div
-            class="sc-dmyDmy jQrunv"
+            class="sc-guDMob jqJKDR"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -1239,7 +1276,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.selvstendig.forventerEndretInntekt.svar
+                dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.svar
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -1249,14 +1286,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r32"
+                    id="radio-r33"
                     name="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r32"
+                    for="radio-r33"
                   >
                     <span
                       class="navds-radio__content"
@@ -1274,14 +1311,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r33"
+                    id="radio-r34"
                     name="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r33"
+                    for="radio-r34"
                   >
                     <span
                       class="navds-radio__content"
@@ -1299,19 +1336,19 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r31"
+                id="fieldset-error-r32"
               />
             </fieldset>
           </div>
         </div>
       </div>
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <div>
           <button
             aria-expanded="false"
-            class="sc-eDLKEg cPRtfY"
+            class="sc-hLQTFJ jBLJZd"
             data-testid="hvorforPanel_toggle"
             type="button"
           >
@@ -1355,7 +1392,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1364,7 +1401,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-jTQDJr lnVqIc"
+        class="sc-hABBGs kHrtjG"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -1383,13 +1420,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2f"
+                id="checkbox-r2h"
                 type="checkbox"
                 value="utdanning.grunnskole"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2f"
+                for="checkbox-r2h"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1426,13 +1463,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2g"
+                id="checkbox-r2i"
                 type="checkbox"
                 value="utdanning.videregående"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2g"
+                for="checkbox-r2i"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1469,13 +1506,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2h"
+                id="checkbox-r2j"
                 type="checkbox"
                 value="utdanning.fagbrev"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2h"
+                for="checkbox-r2j"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1512,13 +1549,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2i"
+                id="checkbox-r2k"
                 type="checkbox"
                 value="utdanning.bachelorgrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2i"
+                for="checkbox-r2k"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1556,13 +1593,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               <input
                 checked=""
                 class="navds-checkbox__input"
-                id="checkbox-r2j"
+                id="checkbox-r2l"
                 type="checkbox"
                 value="utdanning.mastergrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2j"
+                for="checkbox-r2l"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1599,13 +1636,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2k"
+                id="checkbox-r2m"
                 type="checkbox"
                 value="utdanning.ingen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2k"
+                for="checkbox-r2m"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1642,13 +1679,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2l"
+                id="checkbox-r2n"
                 type="checkbox"
                 value="utdanning.annen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2l"
+                for="checkbox-r2n"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1685,14 +1722,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r2e"
+            id="fieldset-error-r2g"
           />
         </fieldset>
       </div>
       <div>
         <button
           aria-expanded="false"
-          class="sc-eDLKEg cPRtfY"
+          class="sc-hLQTFJ jBLJZd"
           data-testid="hvorforPanel_toggle"
           type="button"
         >
@@ -1724,7 +1761,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-gLLuHO eEyzZZ undefined"
+        class="sc-jTQDJr dujvAb undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1749,7 +1786,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gLLuHO sc-iBdoyZ eEyzZZ hxiCrG"
+      class="sc-jTQDJr sc-gLLuHO dujvAb OALLo"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1778,7 +1815,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r2p"
+              aria-labelledby="title-r2r"
               fill="none"
               focusable="false"
               height="1em"
@@ -1788,7 +1825,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r2p"
+                id="title-r2r"
               >
                 Lukk modalvindu
               </title>
@@ -1820,7 +1857,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-brSaGm dbtAfn"
+          class="sc-eTNxZ kBuSvG"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1848,7 +1885,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           </button>
         </div>
         <div
-          class="sc-brSaGm dbtAfn"
+          class="sc-eTNxZ kBuSvG"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -1873,7 +1910,7 @@ exports[`Situasjonen din Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-dmyDmy jQrunv"
+      class="sc-guDMob jqJKDR"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -1967,11 +2004,6 @@ exports[`Situasjonen din Snapshot 1`] = `
         <div
           class="navds-guide-panel__content"
         >
-          <h1
-            class="navds-heading navds-heading--small"
-          >
-            dinSituasjon.undertittel
-          </h1>
           dinSituasjon.ingress
         </div>
       </div>
@@ -1982,7 +2014,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       dinSituasjon.jobbStatus.tittel
     </h1>
     <div
-      class="sc-jTQDJr lnVqIc"
+      class="sc-hABBGs kHrtjG"
       id="jobbStatus"
     >
       <fieldset
@@ -2353,7 +2385,7 @@ exports[`Situasjonen din Snapshot 1`] = `
     <div>
       <button
         aria-expanded="false"
-        class="sc-eDLKEg cPRtfY"
+        class="sc-hLQTFJ jBLJZd"
         data-testid="hvorforPanel_toggle"
         type="button"
       >
@@ -2384,7 +2416,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -2392,8 +2424,8 @@ exports[`Situasjonen din Snapshot 1`] = `
           dinSituasjon.arbeidsforhold.tittel
         </h1>
       </div>
-      <div
-        class="sc-dmyDmy jQrunv"
+      <fieldset
+        class="sc-beyTiQ jltUnl"
       >
         <div
           class="kol-50"
@@ -2422,25 +2454,15 @@ exports[`Situasjonen din Snapshot 1`] = `
             />
           </div>
         </div>
-      </div>
+      </fieldset>
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
-        <label
-          class="navds-label"
-        >
-          dinSituasjon.arbeidsforhold.arbeidsmengde
-        </label>
-        <p
-          class="navds-detail navds-typo--color-subtle"
-        >
-          dinSituasjon.arbeidsforhold.arbeidsmengde.beskrivelse
-        </p>
         <div
-          id="arbeidsforhold[0].typeArbeidsmengde"
+          id="arbeidsforhold[0].ansettelsesforhold"
         >
           <div
-            class="sc-dmyDmy jQrunv"
+            class="sc-guDMob jqJKDR"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -2448,7 +2470,7 @@ exports[`Situasjonen din Snapshot 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.arbeidsforhold.typeArbeidsmengde
+                dinSituasjon.arbeidsforhold.ansettelsesforhold
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -2459,9 +2481,9 @@ exports[`Situasjonen din Snapshot 1`] = `
                   <input
                     class="navds-radio__input"
                     id="radio-re"
-                    name="arbeidsforhold[0].typeArbeidsmengde"
+                    name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
-                    value="arbeidsmengde.prosent"
+                    value="stillingType.fast"
                   />
                   <label
                     class="navds-radio__label"
@@ -2473,7 +2495,7 @@ exports[`Situasjonen din Snapshot 1`] = `
                       <span
                         class="navds-body-short navds-body-short--medium"
                       >
-                        arbeidsmengde.prosent
+                        stillingType.fast
                       </span>
                     </span>
                   </label>
@@ -2485,9 +2507,9 @@ exports[`Situasjonen din Snapshot 1`] = `
                     checked=""
                     class="navds-radio__input"
                     id="radio-rf"
-                    name="arbeidsforhold[0].typeArbeidsmengde"
+                    name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
-                    value="arbeidsmengde.timer"
+                    value="stillingType.midlertidig"
                   />
                   <label
                     class="navds-radio__label"
@@ -2499,7 +2521,32 @@ exports[`Situasjonen din Snapshot 1`] = `
                       <span
                         class="navds-body-short navds-body-short--medium"
                       >
-                        arbeidsmengde.timer
+                        stillingType.midlertidig
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-rg"
+                    name="arbeidsforhold[0].ansettelsesforhold"
+                    type="radio"
+                    value="stillingType.tilkallingsvikar"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-rg"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        stillingType.tilkallingsvikar
                       </span>
                     </span>
                   </label>
@@ -2514,191 +2561,204 @@ exports[`Situasjonen din Snapshot 1`] = `
             </fieldset>
           </div>
         </div>
-        <div
-          class="navds-form-field navds-form-field--medium"
-        >
-          <label
-            class="navds-form-field__label navds-label"
-            for="arbeidsforhold[0].arbeidsmengde.timer"
-          >
-            dinSituasjon.arbeidsforhold.arbeidsmengde.timer
-          </label>
-          <input
-            class="navds-text-field__input navds-body-short navds-body-medium"
-            id="arbeidsforhold[0].arbeidsmengde.timer"
-            size="25"
-            type="text"
-            value=""
-          />
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-form-field__error"
-            id="textField-error-rg"
-          />
-        </div>
       </div>
-      <div
-        class="sc-dmyDmy jQrunv"
+      <fieldset
+        class="sc-beyTiQ jltUnl"
       >
         <div
-          class="sc-guDMob dyBlAC"
-          id="arbeidsforhold[0].ansettelsesforhold"
+          class="sc-guDMob jqJKDR"
         >
           <div
-            class="navds-form-field navds-form-field--medium"
+            class="sc-guDMob jqJKDR"
           >
-            <label
-              class="navds-form-field__label navds-label"
-              for="select-rh"
+            <h1
+              class="navds-heading navds-heading--xsmall"
             >
-              dinSituasjon.arbeidsforhold.ansettelsesforhold
-            </label>
-            <div
-              class="navds-select__container"
+              dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel
+            </h1>
+            <p
+              class="navds-detail"
             >
-              <select
-                class="navds-select__input navds-body-short navds-body--medium"
-                id="select-rh"
-              >
-                <option
-                  value=""
-                >
-                  felles.velg
-                </option>
-                <option
-                  value="stillingType.fast"
-                >
-                  stillingType.fast
-                </option>
-                <option
-                  value="stillingType.midlertidig"
-                >
-                  stillingType.midlertidig
-                </option>
-                <option
-                  value="stillingType.sesongarbeid"
-                >
-                  stillingType.sesongarbeid
-                </option>
-              </select>
-              <svg
-                aria-hidden="true"
-                class="navds-select__chevron"
-                fill="none"
-                focusable="false"
-                height="1em"
-                role="img"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="select-error-rh"
-            />
+              dinSituasjon.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
+            </p>
           </div>
-        </div>
-      </div>
-      <div
-        class="sc-dmyDmy jQrunv"
-      >
-        <div
-          id="arbeidsforhold[0].midlertidig.svar"
-        >
           <div
-            class="sc-dmyDmy jQrunv"
+            class="sc-ktwNLz gXLGps"
           >
-            <fieldset
-              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            <div
+              class="navds-form-field navds-form-field--medium"
             >
-              <legend
-                class="navds-fieldset__legend navds-label"
+              <label
+                class="navds-form-field__label navds-label"
+                for="arbeidsforhold[0].arbeidsmengde.svar"
               >
-                dinSituasjon.arbeidsforhold.midlertidig.svar
-              </legend>
-              <div
-                class="navds-radio-buttons"
-              >
-                <div
-                  class="radioBorder navds-radio navds-radio--medium"
-                >
-                  <input
-                    class="navds-radio__input"
-                    id="radio-rl"
-                    name="arbeidsforhold[0].midlertidig.svar"
-                    type="radio"
-                    value="radiobuttons.ja"
-                  />
-                  <label
-                    class="navds-radio__label"
-                    for="radio-rl"
-                  >
-                    <span
-                      class="navds-radio__content"
-                    >
-                      <span
-                        class="navds-body-short navds-body-short--medium"
-                      >
-                        radiobuttons.ja
-                      </span>
-                    </span>
-                  </label>
-                </div>
-                <div
-                  class="radioBorder navds-radio navds-radio--medium"
-                >
-                  <input
-                    class="navds-radio__input"
-                    id="radio-rm"
-                    name="arbeidsforhold[0].midlertidig.svar"
-                    type="radio"
-                    value="radiobuttons.nei"
-                  />
-                  <label
-                    class="navds-radio__label"
-                    for="radio-rm"
-                  >
-                    <span
-                      class="navds-radio__content"
-                    >
-                      <span
-                        class="navds-body-short navds-body-short--medium"
-                      >
-                        radiobuttons.nei
-                      </span>
-                    </span>
-                  </label>
-                </div>
-              </div>
+                dinSituasjon.arbeidsforhold.arbeidsmengde.svar
+              </label>
+              <input
+                class="navds-text-field__input navds-body-short navds-body-medium"
+                id="arbeidsforhold[0].arbeidsmengde.svar"
+                size="25"
+                type="text"
+                value=""
+              />
               <div
                 aria-live="polite"
                 aria-relevant="additions removals"
-                class="navds-fieldset__error"
-                id="fieldset-error-rk"
+                class="navds-form-field__error"
+                id="textField-error-rh"
               />
-            </fieldset>
+            </div>
+            <div
+              class="sc-eDLKEg XRZbt"
+              id="arbeidsforhold[0].arbeidsmengde.type"
+            >
+              <div
+                class="navds-form-field navds-form-field--medium"
+              >
+                <label
+                  class="navds-form-field__label navds-label"
+                  for="select-ri"
+                >
+                  felles.velg.tittel
+                </label>
+                <div
+                  class="navds-select__container"
+                >
+                  <select
+                    class="navds-select__input navds-body-short navds-body--medium"
+                    id="select-ri"
+                  >
+                    <option
+                      value=""
+                    >
+                      felles.velg
+                    </option>
+                    <option
+                      value="arbeidsmengde.prosent"
+                    >
+                      arbeidsmengde.prosent
+                    </option>
+                    <option
+                      value="arbeidsmengde.timer"
+                    >
+                      arbeidsmengde.timer
+                    </option>
+                  </select>
+                  <svg
+                    aria-hidden="true"
+                    class="navds-select__chevron"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="select-error-ri"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            id="arbeidsforhold[0].midlertidig.svar"
+          >
+            <div
+              class="sc-guDMob jqJKDR"
+            >
+              <fieldset
+                class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              >
+                <legend
+                  class="navds-fieldset__legend navds-label"
+                >
+                  dinSituasjon.arbeidsforhold.midlertidig.svar
+                </legend>
+                <div
+                  class="navds-radio-buttons"
+                >
+                  <div
+                    class="radioBorder navds-radio navds-radio--medium"
+                  >
+                    <input
+                      class="navds-radio__input"
+                      id="radio-rm"
+                      name="arbeidsforhold[0].midlertidig.svar"
+                      type="radio"
+                      value="radiobuttons.ja"
+                    />
+                    <label
+                      class="navds-radio__label"
+                      for="radio-rm"
+                    >
+                      <span
+                        class="navds-radio__content"
+                      >
+                        <span
+                          class="navds-body-short navds-body-short--medium"
+                        >
+                          radiobuttons.ja
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                  <div
+                    class="radioBorder navds-radio navds-radio--medium"
+                  >
+                    <input
+                      class="navds-radio__input"
+                      id="radio-rn"
+                      name="arbeidsforhold[0].midlertidig.svar"
+                      type="radio"
+                      value="radiobuttons.nei"
+                    />
+                    <label
+                      class="navds-radio__label"
+                      for="radio-rn"
+                    >
+                      <span
+                        class="navds-radio__content"
+                      >
+                        <span
+                          class="navds-body-short navds-body-short--medium"
+                        >
+                          radiobuttons.nei
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-fieldset__error"
+                  id="fieldset-error-rl"
+                />
+              </fieldset>
+            </div>
           </div>
         </div>
-      </div>
+      </fieldset>
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <div
           id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
         >
           <div
-            class="sc-dmyDmy jQrunv"
+            class="sc-guDMob jqJKDR"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -2716,14 +2776,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-rp"
+                    id="radio-rq"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rp"
+                    for="radio-rq"
                   >
                     <span
                       class="navds-radio__content"
@@ -2741,14 +2801,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-rq"
+                    id="radio-rr"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rq"
+                    for="radio-rr"
                   >
                     <span
                       class="navds-radio__content"
@@ -2766,23 +2826,22 @@ exports[`Situasjonen din Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-ro"
+                id="fieldset-error-rp"
               />
             </fieldset>
           </div>
         </div>
       </div>
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <div
           id="arbeidsforhold[0].sagtOppEllerRedusert.svar"
         >
           <div
-            class="sc-dmyDmy jQrunv"
+            class="sc-guDMob jqJKDR"
           >
             <fieldset
-              aria-describedby="fieldset-description-rs"
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
@@ -2791,12 +2850,6 @@ exports[`Situasjonen din Snapshot 1`] = `
                 dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar
               </legend>
               <div
-                class="navds-fieldset__description navds-body-short navds-body-short--medium"
-                id="fieldset-description-rs"
-              >
-                dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.beskrivelse
-              </div>
-              <div
                 class="navds-radio-buttons"
               >
                 <div
@@ -2804,14 +2857,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-rt"
+                    id="radio-ru"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="sagtOppEllerRedusert.oppsagt"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rt"
+                    for="radio-ru"
                   >
                     <span
                       class="navds-radio__content"
@@ -2829,14 +2882,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-ru"
+                    id="radio-rv"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="sagtOppEllerRedusert.redusert"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-ru"
+                    for="radio-rv"
                   >
                     <span
                       class="navds-radio__content"
@@ -2854,14 +2907,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-rv"
+                    id="radio-r10"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rv"
+                    for="radio-r10"
                   >
                     <span
                       class="navds-radio__content"
@@ -2879,7 +2932,7 @@ exports[`Situasjonen din Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-rs"
+                id="fieldset-error-rt"
               />
             </fieldset>
           </div>
@@ -2887,7 +2940,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         <div>
           <button
             aria-expanded="false"
-            class="sc-eDLKEg cPRtfY"
+            class="sc-hLQTFJ jBLJZd"
             data-testid="hvorforPanel_toggle"
             type="button"
           >
@@ -2931,7 +2984,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-dmyDmy jQrunv"
+        class="sc-guDMob jqJKDR"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -2940,7 +2993,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-jTQDJr lnVqIc"
+        class="sc-hABBGs kHrtjG"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -2959,13 +3012,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r12"
+                id="checkbox-r13"
                 type="checkbox"
                 value="utdanning.grunnskole"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r12"
+                for="checkbox-r13"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3002,13 +3055,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r13"
+                id="checkbox-r14"
                 type="checkbox"
                 value="utdanning.videregående"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r13"
+                for="checkbox-r14"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3045,13 +3098,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r14"
+                id="checkbox-r15"
                 type="checkbox"
                 value="utdanning.fagbrev"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r14"
+                for="checkbox-r15"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3088,13 +3141,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r15"
+                id="checkbox-r16"
                 type="checkbox"
                 value="utdanning.bachelorgrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r15"
+                for="checkbox-r16"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3132,13 +3185,13 @@ exports[`Situasjonen din Snapshot 1`] = `
               <input
                 checked=""
                 class="navds-checkbox__input"
-                id="checkbox-r16"
+                id="checkbox-r17"
                 type="checkbox"
                 value="utdanning.mastergrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r16"
+                for="checkbox-r17"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3175,13 +3228,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r17"
+                id="checkbox-r18"
                 type="checkbox"
                 value="utdanning.ingen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r17"
+                for="checkbox-r18"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3218,13 +3271,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r18"
+                id="checkbox-r19"
                 type="checkbox"
                 value="utdanning.annen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r18"
+                for="checkbox-r19"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3261,14 +3314,14 @@ exports[`Situasjonen din Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r11"
+            id="fieldset-error-r12"
           />
         </fieldset>
       </div>
       <div>
         <button
           aria-expanded="false"
-          class="sc-eDLKEg cPRtfY"
+          class="sc-hLQTFJ jBLJZd"
           data-testid="hvorforPanel_toggle"
           type="button"
         >
@@ -3300,7 +3353,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-gLLuHO eEyzZZ undefined"
+        class="sc-jTQDJr dujvAb undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -3325,7 +3378,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gLLuHO sc-iBdoyZ eEyzZZ hxiCrG"
+      class="sc-jTQDJr sc-gLLuHO dujvAb OALLo"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -3354,7 +3407,7 @@ exports[`Situasjonen din Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r1c"
+              aria-labelledby="title-r1d"
               fill="none"
               focusable="false"
               height="1em"
@@ -3364,7 +3417,7 @@ exports[`Situasjonen din Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r1c"
+                id="title-r1d"
               >
                 Lukk modalvindu
               </title>
@@ -3396,7 +3449,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-brSaGm dbtAfn"
+          class="sc-eTNxZ kBuSvG"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -3424,7 +3477,7 @@ exports[`Situasjonen din Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-brSaGm dbtAfn"
+          class="sc-eTNxZ kBuSvG"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

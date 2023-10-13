@@ -196,27 +196,27 @@ export default class SoeknadMapper {
     private mapInntektenDin(inntektenDin: IInntekt): Gruppe {
         const inntekter: Element[] = []
 
-        if (!!inntektenDin.loennsinntekt){
-            const loennsinntekt: Element =  {
+        if (!!inntektenDin.loennsinntekt) {
+            const loennsinntekt: Element = {
                 tittel: this.t('inntektenDin.loennsinntekt.tittel'),
                 innhold: this.otr.traverse<ILoennsinntekt>(
-                        {
-                            ...inntektenDin.loennsinntekt,
-                        },
-                        'inntektenDin.loennsinntekt'
+                    {
+                        ...inntektenDin.loennsinntekt,
+                    },
+                    'inntektenDin.loennsinntekt'
                 ),
             }
             inntekter.push(loennsinntekt)
         }
 
-        if (!!inntektenDin.naeringsinntekt){
-            const naeringsinntekt: Element =  {
+        if (!!inntektenDin.naeringsinntekt) {
+            const naeringsinntekt: Element = {
                 tittel: this.t('inntektenDin.naeringsinntekt.tittel'),
                 innhold: this.otr.traverse<INaeringsinntekt>(
-                        {
-                            ...inntektenDin.naeringsinntekt,
-                        },
-                        'inntektenDin.naeringsinntekt'
+                    {
+                        ...inntektenDin.naeringsinntekt,
+                    },
+                    'inntektenDin.naeringsinntekt'
                 ),
             }
             inntekter.push(naeringsinntekt)
@@ -235,8 +235,8 @@ export default class SoeknadMapper {
             inntekter.push(pensjonEllerUfoere)
         }
 
-        if (!!inntektenDin.annenInntekt){
-            const annenInntekt: Element =  {
+        if (!!inntektenDin.annenInntekt) {
+            const annenInntekt: Element = {
                 tittel: this.t('inntektenDin.annenInntekt.tittel'),
                 innhold: this.otr.traverse<IAnnenInntekt>(
                     {
@@ -255,16 +255,16 @@ export default class SoeknadMapper {
                 ...inntekter,
                 {
                     innhold: this.otr.traverse<IInntekt>(
-                            {
-                                ...inntektenDin,
-                                inntektstyper: undefined,
-                                loennsinntekt: undefined,
-                                naeringsinntekt: undefined,
-                                pensjonEllerUfoere: undefined,
-                                annenInntekt: undefined,
-                                erValidert: undefined
-                            },
-                            'inntektenDin'
+                        {
+                            ...inntektenDin,
+                            inntektstyper: undefined,
+                            loennsinntekt: undefined,
+                            naeringsinntekt: undefined,
+                            pensjonEllerUfoere: undefined,
+                            annenInntekt: undefined,
+                            erValidert: undefined,
+                        },
+                        'inntektenDin'
                     ),
                 },
             ],

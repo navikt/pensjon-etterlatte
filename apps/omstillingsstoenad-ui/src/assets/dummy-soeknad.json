@@ -85,11 +85,11 @@
     "arbeidsforhold": [
       {
         "arbeidsgiver": "Potetskreller AS",
-        "typeArbeidsmengde": {
-          "svar": "arbeidsmengde.prosent"
-        },
-        "arbeidsmengde" : "50%",
         "ansettelsesforhold": "stillingType.midlertidig",
+        "arbeidsmengde" : {
+          "svar": "50%",
+          "type": "arbeidsmengde.prosent"
+        },
         "midlertidig": {
           "svar": "radiobuttons.ja",
           "sluttdatoVelger": "2099-01-01"
