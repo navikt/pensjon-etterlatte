@@ -4,7 +4,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
-      class="sc-csKJRI xWivp"
+      class="sc-eTNxZ fflqfa"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -106,7 +106,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-csKJRI xWivp"
+        class="sc-eTNxZ fflqfa"
       >
         <h1
           class="navds-heading navds-heading--medium"
@@ -115,7 +115,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-eTNxZ jLvfra"
+        class="sc-brSaGm duorJf"
         id="inntektstyper"
       >
         <fieldset
@@ -315,13 +315,13 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-csKJRI xWivp"
+        class="sc-eTNxZ fflqfa"
       >
         <div
           id="ytelserNAV.svar"
         >
           <div
-            class="sc-csKJRI xWivp"
+            class="sc-eTNxZ fflqfa"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -400,13 +400,13 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-csKJRI xWivp"
+        class="sc-eTNxZ fflqfa"
       >
         <div
           id="ytelserAndre.svar"
         >
           <div
-            class="sc-csKJRI xWivp"
+            class="sc-eTNxZ fflqfa"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -483,7 +483,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
       <div>
         <button
           aria-expanded="false"
-          class="sc-brSaGm gPttXg"
+          class="sc-ktwNLz ivbIwA"
           data-testid="hvorforPanel_toggle"
           type="button"
         >
@@ -664,7 +664,7 @@ exports[`Inntekten din Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-csKJRI xWivp"
+      class="sc-eTNxZ fflqfa"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -766,7 +766,7 @@ exports[`Inntekten din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-csKJRI xWivp"
+        class="sc-eTNxZ fflqfa"
       >
         <h1
           class="navds-heading navds-heading--medium"
@@ -775,7 +775,7 @@ exports[`Inntekten din Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-eTNxZ jLvfra"
+        class="sc-brSaGm duorJf"
         id="inntektstyper"
       >
         <fieldset
@@ -975,13 +975,13 @@ exports[`Inntekten din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-csKJRI xWivp"
+        class="sc-eTNxZ fflqfa"
       >
         <div
           id="ytelserNAV.svar"
         >
           <div
-            class="sc-csKJRI xWivp"
+            class="sc-eTNxZ fflqfa"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -1060,13 +1060,13 @@ exports[`Inntekten din Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-csKJRI xWivp"
+        class="sc-eTNxZ fflqfa"
       >
         <div
           id="ytelserAndre.svar"
         >
           <div
-            class="sc-csKJRI xWivp"
+            class="sc-eTNxZ fflqfa"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -1143,7 +1143,7 @@ exports[`Inntekten din Snapshot 1`] = `
       <div>
         <button
           aria-expanded="false"
-          class="sc-brSaGm gPttXg"
+          class="sc-ktwNLz ivbIwA"
           data-testid="hvorforPanel_toggle"
           type="button"
         >

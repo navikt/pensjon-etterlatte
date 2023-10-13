@@ -56,7 +56,7 @@ import {
     konverterTilHoyesteUtdanning,
 } from './typeMapper'
 import { fullAdresse } from '../../utils/adresse'
-import { Arbeidsmengde, IngenJobb, ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
+import { IngenJobb, ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
 import {
     EndringAvInntektGrunn,
     IForventerEndringAvInntekt,
@@ -306,25 +306,20 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                                 innhold: arbeid.arbeidsgiver!!,
                             },
                         },
-                        typeArbeidsmengde: {
-                            spoersmaal: t('dinSituasjon.arbeidsforhold.typeArbeidsmengde'),
-                            svar: {
-                                verdi: konverterArbeidsmengde(arbeid.typeArbeidsmengde!!),
-                                innhold: t(arbeid.typeArbeidsmengde!!),
-                            },
-                        },
                         arbeidsmengde:
-                            arbeid.typeArbeidsmengde!! === Arbeidsmengde.timer
+                            arbeid.ansettelsesforhold === StillingType.fast
                                 ? {
-                                      spoersmaal: t('dinSituasjon.selvstendig.arbeidsmengde.timer'),
+                                      spoersmaal: t('dinSituasjon.arbeidsforhold.arbeidsmengde.svar.fast'),
                                       svar: {
-                                          innhold: arbeid!!.arbeidsmengde!!.timer!!,
+                                          innhold: `${arbeid.arbeidsmengde!!.svar!!} ${t('felles.prosent')}`,
                                       },
                                   }
                                 : {
-                                      spoersmaal: t('dinSituasjon.selvstendig.arbeidsmengde.prosent'),
+                                      spoersmaal: t('dinSituasjon.arbeidsforhold.arbeidsmengde.svar'),
                                       svar: {
-                                          innhold: arbeid!!.arbeidsmengde!!.prosent!!,
+                                          innhold: `${arbeid.arbeidsmengde!!.svar!!} ${t(
+                                              arbeid.arbeidsmengde!!.type!!
+                                          )}`,
                                       },
                                   },
                         ansettelsesforhold: {
@@ -335,7 +330,8 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                             },
                         },
                         harSluttdato:
-                            arbeid?.ansettelsesforhold === StillingType.midlertidig
+                            arbeid?.ansettelsesforhold === StillingType.midlertidig ||
+                            arbeid?.ansettelsesforhold === StillingType.tilkallingsvikar
                                 ? {
                                       spoersmaal: t('dinSituasjon.arbeidsforhold.midlertidig.svar'),
                                       svar: valgTilSvar(t, arbeid!!.midlertidig!!.svar!!),
@@ -442,6 +438,8 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
 
     let tilbud: Opplysning<TilbudOmJobb> | undefined
     if (dinSituasjon.jobbStatus?.includes(JobbStatus.tilbud)) {
+        const fastAnsettelse = dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.fast
+
         tilbud = {
             spoersmaal: t('dinSituasjon.tilbudOmJobb.tittel'),
             svar: {
@@ -451,6 +449,12 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                         innhold: dinSituasjon.tilbudOmJobb!!.arbeidssted!!,
                     },
                 },
+                ansettelsesdato: {
+                    spoersmaal: t('dinSituasjon.tilbudOmJobb.ansettelsesdato'),
+                    svar: {
+                        innhold: dinSituasjon!!.tilbudOmJobb!!.ansettelsesdato!!,
+                    },
+                },
                 ansettelsesforhold: {
                     spoersmaal: t('dinSituasjon.tilbudOmJobb.ansettelsesforhold'),
                     svar: {
@@ -458,6 +462,21 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                         innhold: t(dinSituasjon.tilbudOmJobb!!.ansettelsesforhold!!),
                     },
                 },
+                arbeidsmengde: fastAnsettelse
+                    ? {
+                          spoersmaal: t('dinSituasjon.tilbudOmJobb.arbeidsmengde.svar.fast'),
+                          svar: {
+                              innhold: `${dinSituasjon.tilbudOmJobb!!.arbeidsmengde!!.svar!!} ${t('felles.prosent')}`,
+                          },
+                      }
+                    : {
+                          spoersmaal: t('dinSituasjon.tilbudOmJobb.arbeidsmengde.svar'),
+                          svar: {
+                              innhold: `${dinSituasjon.tilbudOmJobb!!.arbeidsmengde!!.svar!!} ${t(
+                                  dinSituasjon.tilbudOmJobb!!.arbeidsmengde!!.type!!
+                              )}`,
+                          },
+                      },
                 harSluttdato:
                     dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.midlertidig
                         ? {
@@ -905,26 +924,18 @@ const mapSelvstendigNæringsdrivende = (
             },
         },
         typeArbeidsmengde: {
-            spoersmaal: t('dinSituasjon.selvstendig.arbeidsmengde.fyllUt'),
+            spoersmaal: t('dinSituasjon.arbeidsforhold.typeArbeidsmengde'),
             svar: {
-                verdi: konverterArbeidsmengde(selvstendig.typeArbeidsmengde!!),
-                innhold: t(selvstendig.typeArbeidsmengde!!),
+                verdi: konverterArbeidsmengde(selvstendig.arbeidsmengde!!.type!!),
+                innhold: t(selvstendig.arbeidsmengde!!.type!!),
             },
         },
-        arbeidsmengde:
-            selvstendig.typeArbeidsmengde!! === Arbeidsmengde.timer
-                ? {
-                      spoersmaal: t('dinSituasjon.selvstendig.arbeidsmengde.timer'),
-                      svar: {
-                          innhold: selvstendig!!.arbeidsmengde!!.timer!!,
-                      },
-                  }
-                : {
-                      spoersmaal: t('dinSituasjon.selvstendig.arbeidsmengde.prosent'),
-                      svar: {
-                          innhold: selvstendig!!.arbeidsmengde!!.prosent!!,
-                      },
-                  },
+        arbeidsmengde: {
+            spoersmaal: t('dinSituasjon.arbeidsforhold.arbeidsmengde.svar'),
+            svar: {
+                innhold: `${selvstendig!!.arbeidsmengde!!.svar!!} ${t(selvstendig!!.arbeidsmengde!!.type!!)}`,
+            },
+        },
         endretArbeidssituasjon: {
             spoersmaal: t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.svar'),
             svar: valgTilSvar(t, selvstendig.forventerEndretArbeidssituasjon!!.svar!!), // TODO: Fikse type

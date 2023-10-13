@@ -9,8 +9,8 @@ import { v4 as uuid } from 'uuid'
 import { getTransKey } from '../../../utils/translation'
 import styled from 'styled-components'
 
-const SelectSize = styled.div`
-  max-width: 22rem;
+const SelectSize = styled.div<{$size?: number}>`
+  max-width: ${props => props.$size ? `${props.$size}rem`  : '22rem'};
 `
 
 interface SelectOption {
@@ -22,9 +22,10 @@ interface RHFProps extends Omit<SelectProps, 'name' | 'children'> {
     name: FieldPath<FieldValues>
     selectOptions: SelectOption[]
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
+    bredde?: number
 }
 
-export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: RHFProps) => {
+export const RHFSelect = ({ name, label, selectOptions, rules, bredde, ...rest }: RHFProps) => {
     const { t } = useTranslation()
 
     const {
@@ -36,7 +37,7 @@ export const RHFSelect = ({ name, label, selectOptions, rules, ...rest }: RHFPro
     const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
     return (
-        <SelectSize id={name}>
+        <SelectSize $size={bredde} id={name}>
             <Controller
                 name={name}
                 control={control}

@@ -3,16 +3,12 @@ import { IValg } from './Spoersmaal'
 export enum StillingType {
     fast = 'stillingType.fast',
     midlertidig = 'stillingType.midlertidig',
-    sesongarbeid = 'stillingType.sesongarbeid',
+    tilkallingsvikar = 'stillingType.tilkallingsvikar',
 }
 
 export interface IArbeidsforhold {
     arbeidsgiver?: string
-    typeArbeidsmengde?: Arbeidsmengde
-    arbeidsmengde?: {
-        timer?: string
-        prosent?: string
-    }
+    arbeidsmengde?: IArbeidsmengde
     stilling?: string // Bort?
     ansettelsesforhold?: StillingType
     midlertidig?: {
@@ -28,6 +24,11 @@ export interface IArbeidsforhold {
     }
 }
 
+interface IArbeidsmengde {
+    svar: string
+    type?: Arbeidsmengde
+}
+
 export interface ISelvstendig {
     as?: ISelvstendigNaeringsdrivende[]
     enk?: ISelvstendigNaeringsdrivende[]
@@ -36,11 +37,7 @@ export interface ISelvstendig {
 export interface ISelvstendigNaeringsdrivende {
     beskrivelse?: string
     orgnr?: string
-    typeArbeidsmengde?: Arbeidsmengde
-    arbeidsmengde?: {
-        timer?: string
-        prosent?: string
-    }
+    arbeidsmengde?: IArbeidsmengde
     forventerEndretArbeidssituasjon?: {
         svar?: IValg
         beskrivelse?: string
@@ -60,7 +57,9 @@ export interface IEtablererVirksomhet {
 
 export interface ITilbudOmJobb {
     arbeidssted?: string
+    ansettelsesdato?: Date
     ansettelsesforhold?: StillingType
+    arbeidsmengde?: IArbeidsmengde
     midlertidig?: {
         svar?: IValg
         sluttdatoVelger?: Date

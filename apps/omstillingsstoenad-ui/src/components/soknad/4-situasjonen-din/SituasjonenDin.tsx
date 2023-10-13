@@ -76,7 +76,6 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
                 <SkjemaGruppe>
                     <GuidePanel>
-                        <Heading size={'small'}>{t('dinSituasjon.undertittel')}</Heading>
                         {t('dinSituasjon.ingress')}
                     </GuidePanel>
                 </SkjemaGruppe>

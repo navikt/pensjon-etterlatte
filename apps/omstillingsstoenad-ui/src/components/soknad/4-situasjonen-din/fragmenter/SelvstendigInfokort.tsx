@@ -1,8 +1,8 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Detail, Label, RadioProps } from '@navikt/ds-react'
-import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
-import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { Button, Detail, Label } from '@navikt/ds-react'
+import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { DeleteFilled } from '@navikt/ds-icons'
 import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
@@ -10,6 +10,9 @@ import Bredde from '../../../../typer/bredde'
 import { Arbeidsmengde } from '../../../../typer/arbeidsforhold'
 import { IValg } from '../../../../typer/Spoersmaal'
 import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
+import { RHFSelect } from '../../../felles/rhf/RHFSelect'
+import { NumberSelectRad } from '../../../felles/StyledComponents'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 interface Props {
     lengde: number
@@ -24,62 +27,68 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
     const { watch } = useFormContext()
     const selvstendigName = `selvstendig.${type}[${index}]`
 
-    const arbeidsmengde = watch(`${selvstendigName}.typeArbeidsmengde`)
     const endretArbeidssituasjon = watch(`${selvstendigName}.forventerEndretArbeidssituasjon.svar`)
+
+    const arbeidsmengdeValg = Object.values(Arbeidsmengde).map((value) => {
+        return { label: t(value), value }
+    })
 
     return (
         <>
-            <RHFInput
-                className={'kol-75'}
-                name={`${selvstendigName}.beskrivelse` as const}
-                label={t('dinSituasjon.selvstendig.hvaHeterNaeringen')}
-                description={t('dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse')}
-                htmlSize={Bredde.M}
-            />
-
-            <SkjemaElement>
-                <RHFNumberInput
-                    name={`${selvstendigName}.orgnr` as const}
-                    placeholder={t('dinSituasjon.selvstendig.orgnrplaceholder')}
-                    label={t('dinSituasjon.selvstendig.orgnr')}
-                    maxLength={9}
-                    minLength={9}
-                    htmlSize={Bredde.S}
+            <SkjemaGruppe>
+                <RHFInput
+                    className={'kol-75'}
+                    name={`${selvstendigName}.beskrivelse` as const}
+                    label={t('dinSituasjon.selvstendig.hvaHeterNaeringen')}
+                    description={t('dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse')}
+                    htmlSize={Bredde.M}
                 />
-            </SkjemaElement>
+
+                <SkjemaElement>
+                    <RHFNumberInput
+                        name={`${selvstendigName}.orgnr` as const}
+                        placeholder={t('dinSituasjon.selvstendig.orgnrplaceholder')}
+                        label={t('dinSituasjon.selvstendig.orgnr')}
+                        maxLength={9}
+                        minLength={9}
+                        htmlSize={Bredde.S}
+                    />
+                </SkjemaElement>
+            </SkjemaGruppe>
 
             <SkjemaElement>
-                <Label>{t('dinSituasjon.selvstendig.arbeidsmengde')}</Label>
+                <Label>
+                    {type === 'enk'
+                        ? t('dinSituasjon.selvstendig.arbeidsmengde.enk')
+                        : t('dinSituasjon.selvstendig.arbeidsmengde')}
+                </Label>
                 <Detail textColor="subtle">{t('dinSituasjon.selvstendig.arbeidsmengde.beskrivelse')}</Detail>
-                <RHFRadio
-                    name={`${selvstendigName}.typeArbeidsmengde` as const}
-                    legend={t('dinSituasjon.selvstendig.typeArbeidsmengde')}
-                >
-                    {Object.values(Arbeidsmengde).map((value) => {
-                        return { children: t(value), value } as RadioProps
-                    })}
-                </RHFRadio>
-                {arbeidsmengde === Arbeidsmengde.prosent && (
-                    <RHFProsentInput
-                        name={`${selvstendigName}.arbeidsmengde.prosent` as const}
-                        label={t('dinSituasjon.selvstendig.arbeidsmengde.prosent')}
-                        htmlSize={Bredde.S}
-                    />
-                )}
-
-                {arbeidsmengde === Arbeidsmengde.timer && (
-                    <RHFNumberInput
-                        name={`${selvstendigName}.arbeidsmengde.timer` as const}
-                        label={t('dinSituasjon.selvstendig.arbeidsmengde.timer')}
-                        htmlSize={Bredde.S}
-                    />
-                )}
+                <SkjemaElement>
+                    <NumberSelectRad>
+                        <RHFNumberInput
+                            name={`${selvstendigName}.arbeidsmengde.svar` as const}
+                            label={t('dinSituasjon.selvstendig.arbeidsmengde.svar')}
+                            htmlSize={Bredde.S}
+                            maxLength={3}
+                        />
+                        <RHFSelect
+                            name={`${selvstendigName}.arbeidsmengde.type` as const}
+                            selectOptions={[
+                                {
+                                    label: t('felles.velg'),
+                                    value: '',
+                                },
+                            ].concat(arbeidsmengdeValg)}
+                            label={t('felles.velg.tittel')}
+                        />
+                    </NumberSelectRad>
+                </SkjemaElement>
             </SkjemaElement>
 
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={`${selvstendigName}.forventerEndretArbeidssituasjon.svar` as const}
-                    legend={t('dinSituasjon.selvstendig.forventerEndretInntekt.svar')}
+                    legend={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.svar')}
                 />
             </SkjemaElement>
 
