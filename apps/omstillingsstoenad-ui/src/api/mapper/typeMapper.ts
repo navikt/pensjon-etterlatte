@@ -20,7 +20,9 @@ import {
     StillingType,
     StudieformType,
     Ytelser,
-    EndringAvInntektGrunnType, PensjonsYtelseType,
+    EndringAvInntektGrunnType,
+    PensjonsYtelseType,
+    InntektEllerUtbetalingType
 } from '../dto/FellesOpplysninger'
 import {
     ForholdTilAvdoede as RelasjonAvdoed,
@@ -29,7 +31,13 @@ import {
     Sivilstatus,
 } from '../../typer/person'
 import { Ytelser as GamleYtelser } from '../../typer/ytelser'
-import { EndringAvInntektGrunn, PensjonsYtelse, SoekbareYtelserAndre, SoekbareYtelserNAV } from '../../typer/inntekt'
+import {
+    EndringAvInntektGrunn,
+    InntektEllerUtbetaling,
+    PensjonsYtelse,
+    SoekbareYtelserAndre,
+    SoekbareYtelserNAV,
+} from '../../typer/inntekt'
 import { Studieform } from '../../typer/utdanning'
 
 export const konverterStillingType = (type: GammelStillingType): StillingType => {
@@ -227,6 +235,37 @@ export const konverterPensjonsYtelse = (type: PensjonsYtelse): PensjonsYtelseTyp
     }
 }
 
+export const konverterInntektEllerUtbetaling = (type: InntektEllerUtbetaling): InntektEllerUtbetalingType => {
+    switch (type) {
+        case InntektEllerUtbetaling.dagspenger:
+            return InntektEllerUtbetalingType.DAGSPENGER
+        case InntektEllerUtbetaling.sykepenger:
+            return InntektEllerUtbetalingType.SYKEPENGER
+        case InntektEllerUtbetaling.pleiepenger:
+            return InntektEllerUtbetalingType.PLEIEPENGER
+        case InntektEllerUtbetaling.svangerskapspenger:
+            return InntektEllerUtbetalingType.SVANGERSKAPSPENGER
+        case InntektEllerUtbetaling.foreldrepenger:
+            return InntektEllerUtbetalingType.FORELDREPENGER
+        case InntektEllerUtbetaling.arbeidsavklaringspenger:
+            return InntektEllerUtbetalingType.ARBEIDSAVKLARINGSPENGER
+        case InntektEllerUtbetaling.kvalifiseringsstoenad:
+            return InntektEllerUtbetalingType.KVALIFISERINGSSTOENAD
+        case InntektEllerUtbetaling.kommunalOmsorgsstoenad:
+            return InntektEllerUtbetalingType.KOMMUNAL_OMSORGSSTOENAD
+        case InntektEllerUtbetaling.fosterhjemsgodtgjoering:
+            return InntektEllerUtbetalingType.FOSTERHJEMSGODTGJOERING
+        case InntektEllerUtbetaling.omsorgspenger:
+            return InntektEllerUtbetalingType.OMSORGSPENGER
+        case InntektEllerUtbetaling.opplaeringspenger:
+            return InntektEllerUtbetalingType.OPPLAERINGSPENGER
+        case InntektEllerUtbetaling.alderspensjon:
+            return InntektEllerUtbetalingType.ALDERSPENSJON
+        case InntektEllerUtbetaling.annen:
+            return InntektEllerUtbetalingType.ANNEN
+    }
+}
+
 export const konverterSoekteYtelserAndre = (type: SoekbareYtelserAndre): SoekbareYtelserAndreType => {
     switch (type) {
         case SoekbareYtelserAndre.avtalefestetPensjonOffentlig:
@@ -300,5 +339,3 @@ export const konverterStudieform = (type: Studieform): StudieformType => {
             return StudieformType.DELTID
     }
 }
-
-

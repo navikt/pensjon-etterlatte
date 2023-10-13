@@ -9,6 +9,7 @@ import { IInntekt, InntektsTyper } from '../../../../typer/inntekt'
 import Loennsinntekt from './Loennsinntekt'
 import Naeringsinntekt from './Naeringsinntekt'
 import PensjonEllerUfoere from './PensjonEllerUfoere'
+import AnnenInntekt from './AnnenInntekt'
 
 const Inntekt = () => {
     const { t } = useTranslation()
@@ -33,7 +34,7 @@ const Inntekt = () => {
             {inntektstype?.includes(InntektsTyper.loenn) && <Loennsinntekt />}
             {inntektstype?.includes(InntektsTyper.naering) && <Naeringsinntekt />}
             {inntektstype?.includes(InntektsTyper.pensjonEllerUfoere) && <PensjonEllerUfoere />}
-            {inntektstype?.includes(InntektsTyper.annen) && <p>ANNEN KOMMER HER</p>}
+            {inntektstype?.includes(InntektsTyper.annen) && <AnnenInntekt />}
         </SkjemaGruppe>
     )
 }

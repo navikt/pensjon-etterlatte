@@ -13,7 +13,6 @@ import { IInntekt } from '../../../typer/inntekt'
 import Inntekt from './fragmenter/Inntekt'
 import YtelserNAV from './fragmenter/YtelserNAV'
 import YtelserAndre from './fragmenter/YtelserAndre'
-import EndringInntekt from './fragmenter/EndringInntekt'
 
 const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -67,8 +66,6 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
                 <YtelserNAV />
 
                 <YtelserAndre />
-
-                <EndringInntekt />
 
                 <Feilmeldinger errors={errors} />
 
