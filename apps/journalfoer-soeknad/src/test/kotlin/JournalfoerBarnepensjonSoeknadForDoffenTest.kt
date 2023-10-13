@@ -25,6 +25,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffenTest{
             .toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
     private val journalfoeringService = mockk<JournalfoeringService>()
     private val dokumentservice = mockk<DokumentService>()
+
     @Test
     fun `Skal lese søknader som er fordelt til Doffen`(){
 
@@ -63,6 +64,32 @@ internal class JournalfoerBarnepensjonSoeknadForDoffenTest{
                 true,
                 any()
             )
+        }
+    }
+
+    @Test
+    fun `Skal journalføre uten ferdigstilling hvis søknad er fordelt til Doffen med trengerManuellJournalfoering`() {
+        every { dokumentservice.opprettJournalpostDokument("13", any(), any()) } returns
+                JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
+        every { journalfoeringService.journalfoer(
+            "13",
+            "5555555555",
+            any(),any(),any(),any(),any(),
+            false,
+            any()) } returns
+                DokarkivResponse(
+                    journalpostId = "543",
+                    journalpostferdigstilt = false,
+                    dokumenter = listOf(DokarkivDokument("123"))
+                )
+
+        val rapid = TestRapid()
+        JournalfoerBarnepensjonSoeknadForDoffen(rapid, dokumentservice, journalfoeringService, clock)
+        rapid.sendTestMessage(getResource("barnepensjonTilDoffenManuellJournalfoering.json"))
+        assertEquals(1, rapid.inspektør.size)
+        rapid.inspektør.message(0).also {
+            assertTrue(it.has("@dokarkivRetur"))
+            assertEquals("543", it["@dokarkivRetur"]["journalpostId"].textValue())
         }
     }
 

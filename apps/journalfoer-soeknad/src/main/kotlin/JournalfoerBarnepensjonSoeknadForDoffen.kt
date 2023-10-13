@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.node.BooleanNode
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.ktor.client.plugins.ResponseException
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
@@ -33,8 +34,9 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("@hendelse_gyldig_til") }
             validate { it.requireValue("soeknadFordelt", true) }
-            validate { it.requireKey("sakId") }
+            validate { it.interestedIn("sakId") }
             validate { it.rejectKey("@dokarkivRetur") }
+            validate { it.interestedIn("trengerManuellJournalfoering") }
         }.register(this)
     }
 
@@ -70,6 +72,9 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
+        val trengerManuellJournalfoering = packet["trengerManuellJournalfoering"].asBoolean()
+        val forsoekFerdigstill = !trengerManuellJournalfoering
+
         return journalfoeringService.journalfoer(
             soeknadId = soeknadId,
             fnrSoeker = fnrSoeker,
@@ -78,7 +83,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
             soeknad = soeknad,
             tema = "EYB",
             behandlingstema = null,
-            forsoekFerdigstill = true,
+            forsoekFerdigstill = forsoekFerdigstill,
             sakId = packet["sakId"].asText()
         )
     }
