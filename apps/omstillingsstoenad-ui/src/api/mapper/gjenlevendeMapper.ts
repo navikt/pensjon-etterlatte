@@ -43,6 +43,7 @@ import {
     konverterIngenJobb,
     konverterInntektEllerUtbetaling,
     konverterJobbStatus,
+    konverterPensjonEllerTrygd,
     konverterPensjonsYtelse,
     konverterRelasjonAvdoed,
     konverterSagtOppEllerRedusert,
@@ -62,7 +63,7 @@ import {
     IInntekt,
     InntektEllerUtbetaling,
     InntektsTyper,
-    PensjonsYtelse,
+    PensjonEllerTrygd,
 } from '../../typer/inntekt'
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
@@ -681,17 +682,28 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
             pensjonstype: {
                 spoersmaal: t('inntektenDin.pensjonEllerUfoere.pensjonstype'),
                 svar: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.map((ytelse) => ({
-                    verdi: konverterPensjonsYtelse(ytelse),
+                    verdi: konverterPensjonEllerTrygd(ytelse),
                     innhold: t(ytelse),
                 })),
             },
-            pensjonsUtbetaler: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.includes(
-                PensjonsYtelse.tjenestepensjonsordning
+            tjenestepensjonsordning: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.includes(
+                PensjonEllerTrygd.tjenestepensjonsordning
             )
                 ? {
-                      spoersmaal: t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler'),
-                      svar: {
-                          innhold: inntektenDin.pensjonEllerUfoere!!.pensjonsUtbetaler!!,
+                      type: {
+                          spoersmaal: t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type'),
+                          svar: {
+                              verdi: konverterPensjonsYtelse(
+                                  inntektenDin.pensjonEllerUfoere!!.tjenestepensjonsordning!!.type
+                              ),
+                              innhold: t(inntektenDin.pensjonEllerUfoere!!.tjenestepensjonsordning!!.type),
+                          },
+                      },
+                      utbetaler: {
+                          spoersmaal: t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler'),
+                          svar: {
+                              innhold: inntektenDin.pensjonEllerUfoere!!.tjenestepensjonsordning!!.utbetaler,
+                          },
                       },
                   }
                 : undefined,

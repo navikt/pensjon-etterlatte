@@ -4,7 +4,7 @@ import { Heading } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { IInntekt, PensjonsYtelse } from '../../../../typer/inntekt'
+import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/inntekt'
 import { useFormContext } from 'react-hook-form'
 import { RHFInput, RHFValutaInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
@@ -25,6 +25,10 @@ const PensjonEllerUfoere = () => {
     const pensjonstype = watch('pensjonEllerUfoere.pensjonstype')
     const utland = watch('pensjonEllerUfoere.utland.svar')
 
+    const pensjonsytelseValg = Object.values(PensjonsYtelse).map((value) => {
+        return { label: t(value), value }
+    })
+
     return (
         <SkjemaGruppe>
             <SkjemaElement>
@@ -36,19 +40,33 @@ const PensjonEllerUfoere = () => {
                     <RHFCheckboksGruppe
                         name={'pensjonEllerUfoere.pensjonstype'}
                         legend={t('inntektenDin.pensjonEllerUfoere.pensjonstype')}
-                        checkboxes={Object.values(PensjonsYtelse).map((value) => {
+                        checkboxes={Object.values(PensjonEllerTrygd).map((value) => {
                             return { children: t(value), value, required: true }
                         })}
                     />
                 </SkjemaElement>
 
-                {pensjonstype?.includes(PensjonsYtelse.tjenestepensjonsordning) && (
+                {pensjonstype?.includes(PensjonEllerTrygd.tjenestepensjonsordning) && (
                     <>
                         <SkjemaElement>
+                            <RHFSelect
+                                name={'pensjonEllerUfoere.tjenestepensjonsordning.type'}
+                                label={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type')}
+                                selectOptions={[
+                                    {
+                                        label: t('felles.velg'),
+                                        value: '',
+                                    },
+                                ].concat(pensjonsytelseValg)}
+                            />
+                        </SkjemaElement>
+                        <SkjemaElement>
                             <RHFInput
-                                name={'pensjonEllerUfoere.pensjonsUtbetaler'}
-                                label={t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler')}
-                                description={t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler.beskrivelse')}
+                                name={'pensjonEllerUfoere.tjenestepensjonsordning.utbetaler'}
+                                label={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler')}
+                                description={t(
+                                    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.beskrivelse'
+                                )}
                                 htmlSize={Bredde.M}
                             />
                         </SkjemaElement>

@@ -135,7 +135,10 @@
       "pensjonstype": [
         "soekbarYtelse.tjenestepensjonsordning"
       ],
-      "pensjonsUtbetaler": "Staten",
+      "tjenestepensjonsordning": {
+        "type": "soekbarYtelse.alderspensjon",
+        "utbetaler": "Staten"
+      },
       "utland": {
         "svar": "radiobuttons.ja",
         "type": "Alderspensjon",

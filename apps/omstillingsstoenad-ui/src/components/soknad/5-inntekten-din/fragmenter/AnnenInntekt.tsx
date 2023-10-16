@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import React from 'react'
-import { Heading } from '@navikt/ds-react'
+import { BodyShort, Heading } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { IInntekt, InntektEllerUtbetaling } from '../../../../typer/inntekt'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
@@ -9,11 +9,12 @@ import { useFormContext } from 'react-hook-form'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import EndringInntekt from './EndringInntekt'
 import Bredde from '../../../../typer/bredde'
+import { InputWithCurrency } from '../../../felles/StyledComponents'
 
 const AnnenInntekt = () => {
     const { t } = useTranslation()
 
-    const { watch } = useFormContext<IInntekt>()
+    const { watch, formState: { errors} } = useFormContext<IInntekt>()
 
     const inntektEllerUtbetaling = watch('annenInntekt.inntektEllerUtbetaling')
 
@@ -34,13 +35,14 @@ const AnnenInntekt = () => {
                     />
                 </SkjemaElement>
                 {inntektEllerUtbetaling?.includes(InntektEllerUtbetaling.annen) && (
-                    <SkjemaElement>
+                    <InputWithCurrency $hasError={!!errors.annenInntekt?.beloep}>
                         <RHFValutaInput
                             name={'annenInntekt.beloep'}
                             label={t('inntektenDin.annenInntekt.beloep')}
                             htmlSize={Bredde.S}
                         />
-                    </SkjemaElement>
+                        <BodyShort className="currency">{t('felles.kroner')}</BodyShort>
+                    </InputWithCurrency>
                 )}
             </SkjemaGruppe>
             <EndringInntekt type={'annenInntekt'} />

@@ -47,8 +47,11 @@ export interface INaeringsinntekt {
 }
 
 export interface IPensjonEllerUfoere {
-    pensjonstype: PensjonsYtelse[]
-    pensjonsUtbetaler?: string
+    pensjonstype: PensjonEllerTrygd[]
+    tjenestepensjonsordning?: {
+        type: PensjonsYtelse
+        utbetaler: string
+    }
     utland: {
         svar: IValg
         type?: string
@@ -116,6 +119,12 @@ export enum PensjonsYtelse {
     avtalefestetPensjonPrivat = 'soekbarYtelse.avtalefestetPensjonPrivat',
     ufoerepensjon = 'soekbarYtelse.ufoerepensjon',
     alderspensjon = 'soekbarYtelse.alderspensjon',
+    saeralderpensjon = 'soekbarYtelse.saeralderpensjon',
+}
+
+export enum PensjonEllerTrygd {
+    ufoeretrygdFraNAV = 'soekbarYtelse.ufoeretrygdFraNAV',
+    alderspensjonFraNAV = 'soekbarYtelse.alderspensjonFraNAV',
     tjenestepensjonsordning = 'soekbarYtelse.tjenestepensjonsordning',
 }
 

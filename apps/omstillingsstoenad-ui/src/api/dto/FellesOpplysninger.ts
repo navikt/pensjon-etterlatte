@@ -182,8 +182,11 @@ export interface NaeringsinntektGjenlevende {
 }
 
 export interface PensjonEllerUfoere {
-    pensjonstype: Opplysning<EnumSvar<PensjonsYtelseType>[]>
-    pensjonsUtbetaler?: Opplysning<FritekstSvar>
+    pensjonstype: Opplysning<EnumSvar<PensjonEllerTrygdType>[]>
+    tjenestepensjonsordning?: {
+        type: Opplysning<EnumSvar<PensjonsYtelseType>>
+        utbetaler: Opplysning<FritekstSvar>
+    }
     utland: {
         svar: Opplysning<EnumSvar<JaNeiVetIkke>>
         type?: Opplysning<FritekstSvar>
@@ -344,9 +347,15 @@ export enum EndringAvInntektGrunnType {
 export enum PensjonsYtelseType {
     AVTALEFESTET_PENSJON_OFFENTLIG = 'AVTALEFESTET_PENSJON_OFFENTLIG',
     AVTALEFESTET_PENSJON_PRIVAT = 'AVTALEFESTET_PENSJON_PRIVAT',
-    TJENESTEPENSJONSORDNING = 'TJENESTEPENSJONSORDNING',
+    SAERALDERSPENSJON = 'SAERALDERSPENSJON',
     UFOEREPENSJON = 'UFOEREPENSJON',
     ALDERSPENSJON = 'ALDERSPENSJON',
+}
+
+export enum PensjonEllerTrygdType {
+    TJENESTEPENSJONSORDNING = 'TJENESTEPENSJONSORDNING',
+    UFOEREPENSJON_FRA_NAV = 'UFOEREPENSJON_FRA_NAV',
+    ALDERSPENSJON_FRA_NAV = 'ALDERSPENSJON_FRA_NAV',
 }
 
 export enum InntektEllerUtbetalingType {
