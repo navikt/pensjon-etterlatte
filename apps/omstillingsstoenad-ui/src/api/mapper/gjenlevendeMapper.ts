@@ -39,7 +39,6 @@ import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from '../../typ
 import { IValg } from '../../typer/Spoersmaal'
 import { ISituasjon, JobbStatus } from '../../typer/situasjon'
 import {
-    konverterArbeidsmengde,
     konverterEndringAvInntektGrunn,
     konverterIngenJobb,
     konverterInntektEllerUtbetaling,
@@ -923,13 +922,6 @@ const mapSelvstendigNæringsdrivende = (
             spoersmaal: t('dinSituasjon.selvstendig.orgnr'),
             svar: {
                 innhold: selvstendig.orgnr!!,
-            },
-        },
-        typeArbeidsmengde: {
-            spoersmaal: t('dinSituasjon.arbeidsforhold.typeArbeidsmengde'),
-            svar: {
-                verdi: konverterArbeidsmengde(selvstendig.arbeidsmengde!!.type!!),
-                innhold: t(selvstendig.arbeidsmengde!!.type!!),
             },
         },
         arbeidsmengde: {

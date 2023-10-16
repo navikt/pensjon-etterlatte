@@ -263,7 +263,6 @@ export type EndretInntektBegrunnelse = FritekstSvar
 export interface SelvstendigNaeringsdrivende {
     firmanavn: Opplysning<FritekstSvar>
     orgnr: Opplysning<FritekstSvar>
-    typeArbeidsmengde: Opplysning<EnumSvar<ArbeidsmengdeType>>
     arbeidsmengde: Opplysning<FritekstSvar>
     endretArbeidssituasjon: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>
 }
