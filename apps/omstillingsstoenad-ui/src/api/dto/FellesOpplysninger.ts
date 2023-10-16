@@ -169,6 +169,7 @@ export interface Loennsinntekt {
         tilDoedsfall: Opplysning<FritekstSvar>
         etterDoedsfall: Opplysning<FritekstSvar>
     }
+    endringAvInntekt: EndringAvInntekt
 }
 
 export interface NaeringsinntektGjenlevende {
@@ -177,6 +178,7 @@ export interface NaeringsinntektGjenlevende {
         tilDoedsfall: Opplysning<FritekstSvar>
         etterDoedsfall: Opplysning<FritekstSvar>
     }
+    endringAvInntekt: EndringAvInntekt
 }
 
 export interface PensjonEllerUfoere {

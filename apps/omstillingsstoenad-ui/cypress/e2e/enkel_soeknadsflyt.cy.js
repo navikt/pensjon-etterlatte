@@ -149,6 +149,9 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById('loennsinntekt.arbeidsinntektIAar.etterDoedsfall')
                 .type(inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall)
 
+        selectValueForId("loennsinntekt.forventerEndringAvInntekt.svar", inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar);
+
+
         // Næringsinntekt
         getById('naeringsinntekt.arbeidsinntektAaretFoer')
                 .type(inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer)
@@ -156,6 +159,8 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
                 .type(inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall)
         getById('naeringsinntekt.arbeidsinntektIAar.etterDoedsfall')
                 .type(inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall)
+
+        selectValueForId("naeringsinntekt.forventerEndringAvInntekt.svar", inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar);
 
         // Pensjon eller uføre
         selectValue(inntektenDin.pensjonEllerUfoere.pensjonstype)
@@ -179,7 +184,7 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById('annenInntekt.beloep')
                 .type(inntektenDin.annenInntekt.beloep)
 
-        selectValue(inntektenDin.annenInntekt.forventerEndringAvInntekt.svar)
+        selectValueForId("annenInntekt.forventerEndringAvInntekt.svar", inntektenDin.annenInntekt.forventerEndringAvInntekt.svar)
 
         getById("annenInntekt.forventerEndringAvInntekt.grunn")
             .find("select")
@@ -188,11 +193,11 @@ describe("Skal gå igjennom hele søknaden uten feil", () => {
         getById("annenInntekt.forventerEndringAvInntekt.annenGrunn").type('Annen grunn til økning')
 
         // Andre ytelser
-        selectValue(inntektenDin.ytelserNAV.svar)
+        selectValueForId("ytelserNAV.svar", inntektenDin.ytelserNAV.svar)
+        inntektenDin.ytelserNAV.soekteYtelser.map((ytelse) => selectValueForId("ytelserNAV.soekteYtelser", ytelse))
 
-        inntektenDin.ytelserNAV.soekteYtelser.map((ytelse) => selectValue(ytelse))
-
-        inntektenDin.ytelserAndre.soekteYtelser.map((ytelse) => selectValue(ytelse))
+        selectValueForId("ytelserAndre.svar", inntektenDin.ytelserAndre.svar)
+        inntektenDin.ytelserAndre.soekteYtelser.map((ytelse) => selectValueForId("ytelserAndre.soekteYtelser", ytelse))
 
         getById("ytelserAndre.pensjonsordning").type('Statens pensjonskasse')
 

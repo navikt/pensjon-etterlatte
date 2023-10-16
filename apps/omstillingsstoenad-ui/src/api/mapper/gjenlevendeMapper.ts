@@ -638,6 +638,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
                         },
                     },
                 },
+                endringAvInntekt: mapEndringAvInntekt(t, inntektenDin.loennsinntekt!!.forventerEndringAvInntekt),
             },
         }
     }
@@ -667,6 +668,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
                         },
                     },
                 },
+                endringAvInntekt: mapEndringAvInntekt(t, inntektenDin.naeringsinntekt!!.forventerEndringAvInntekt),
             },
         }
     }

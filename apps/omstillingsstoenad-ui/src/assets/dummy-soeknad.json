@@ -116,6 +116,9 @@
       "arbeidsinntektIAar": {
         "tilDoedsfall": "20000",
         "etterDoedsfall": "30000"
+      },
+      "forventerEndringAvInntekt": {
+        "svar": "radiobuttons.nei"
       }
     },
     "naeringsinntekt": {
@@ -123,6 +126,9 @@
       "arbeidsinntektIAar": {
         "tilDoedsfall": "20000",
         "etterDoedsfall": "30000"
+      },
+      "forventerEndringAvInntekt": {
+        "svar": "radiobuttons.nei"
       }
     },
     "pensjonEllerUfoere": {

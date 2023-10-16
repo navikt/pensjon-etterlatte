@@ -34,6 +34,7 @@ export interface ILoennsinntekt {
         tilDoedsfall?: string
         etterDoedsfall?: string
     }
+    forventerEndringAvInntekt: IForventerEndringAvInntekt
 }
 
 export interface INaeringsinntekt {
@@ -42,6 +43,7 @@ export interface INaeringsinntekt {
         tilDoedsfall?: string
         etterDoedsfall?: string
     }
+    forventerEndringAvInntekt: IForventerEndringAvInntekt
 }
 
 export interface IPensjonEllerUfoere {

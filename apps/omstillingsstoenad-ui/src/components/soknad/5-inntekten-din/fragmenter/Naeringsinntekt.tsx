@@ -9,6 +9,7 @@ import Bredde from '../../../../typer/bredde'
 import { InputWithCurrency } from '../../../felles/StyledComponents'
 import { useFormContext } from 'react-hook-form'
 import { IInntekt } from '../../../../typer/inntekt'
+import EndringInntekt from './EndringInntekt'
 
 const Naeringsinntekt = () => {
     const { t } = useTranslation()
@@ -67,6 +68,7 @@ const Naeringsinntekt = () => {
                     <BodyShort className="currency">{t('felles.kroner')}</BodyShort>
                 </InputWithCurrency>
             </SkjemaElement>
+            <EndringInntekt type={'naeringsinntekt'} />
 
             <Alert variant={'info'}>{t('inntektenDin.naeringsinntekt.info')}</Alert>
         </SkjemaGruppe>
