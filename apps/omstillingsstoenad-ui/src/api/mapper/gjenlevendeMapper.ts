@@ -477,7 +477,8 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                           },
                       },
                 harSluttdato:
-                    dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.midlertidig
+                    dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.midlertidig ||
+                    dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.tilkallingsvikar
                         ? {
                               spoersmaal: t('dinSituasjon.tilbudOmJobb.midlertidig.svar'),
                               svar: valgTilSvar(t, dinSituasjon.tilbudOmJobb!!.midlertidig!!.svar!!),
