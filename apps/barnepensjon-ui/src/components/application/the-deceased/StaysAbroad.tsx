@@ -58,8 +58,9 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                     <RHFCheckboksGruppe
                                         name={`staysAbroad.abroadStays[${index}].type`}
                                         legend={t('livedOrWorkedAbroad')}
+                                        required={true}
                                         checkboxes={Object.values(OppholdUtlandType).map((value) => {
-                                            return { children: t(value), value, required: true }
+                                            return { children: t(value), value }
                                         })}
                                     />
                                 </StaysAbroadCheckboxDiv>

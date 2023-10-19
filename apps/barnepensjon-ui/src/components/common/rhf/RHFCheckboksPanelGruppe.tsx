@@ -40,9 +40,10 @@ export function RHFConfirmationPanel({ name, valgfri, ...rest }: RHFConfirmation
 interface RHFCheckboksGruppeProps extends Omit<CheckboxGroupProps, 'onChange' | 'children'> {
     name: FieldPath<FieldValues>
     checkboxes: CheckboxProps[]
+    required: boolean
 }
 
-export function RHFCheckboksGruppe({ name, checkboxes, ...rest }: RHFCheckboksGruppeProps) {
+export function RHFCheckboksGruppe({ name, checkboxes, required, ...rest }: RHFCheckboksGruppeProps) {
     const { t } = useTranslation('error')
 
     const {
@@ -58,14 +59,13 @@ export function RHFCheckboksGruppe({ name, checkboxes, ...rest }: RHFCheckboksGr
             <Controller
                 name={name}
                 control={control}
-                rules={{ required: true }}
+                rules={{ required }}
                 render={({ field: { value, onChange } }) => (
                     <CheckboxGroup {...rest} error={feilmelding}>
                         {checkboxes.map((checkbox: CheckboxProps) => (
                             <Checkbox
                                 key={checkbox.value as string}
                                 value={checkbox.value || ''}
-                                required={checkbox.required}
                                 onChange={(e) =>
                                     onChange(handleSelect(value, (e.target as HTMLInputElement).value as any))
                                 }

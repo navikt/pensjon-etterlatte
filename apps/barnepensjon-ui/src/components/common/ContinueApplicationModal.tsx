@@ -1,11 +1,9 @@
-import { Button, Heading } from '@navikt/ds-react'
+import { Button, Heading, Modal } from '@navikt/ds-react'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
 import useTranslation from '../../hooks/useTranslation'
-import EyModal from './EyModal'
 import { deleteDraft } from '../../api/api'
 import { ActionTypes } from '../../context/application/application'
 import { useLocation, useNavigate } from 'react-router-dom'
-import FormElement from './FormElement'
 
 export const ContinueApplicationModal = () => {
     const { state, dispatch } = useApplicationContext()
@@ -29,20 +27,20 @@ export const ContinueApplicationModal = () => {
     }
 
     return (
-        <EyModal open={shouldAsk} onClose={() => {}}>
-            <Heading size={'medium'}>{t('doYouWantToContinueWithTheApplication')}</Heading>
+        <Modal open={shouldAsk} onClose={() => {}}>
+            <Modal.Header>
+                <Heading size={'medium'}>{t('doYouWantToContinueWithTheApplication')}</Heading>
+            </Modal.Header>
 
-            <FormElement>
+            <Modal.Footer>
                 <Button variant={'primary'} type={'button'} onClick={continueApplication}>
                     {t('yesContinueWithApplication')}
                 </Button>
-            </FormElement>
 
-            <FormElement>
-                <Button variant={'primary'} type={'button'} onClick={newApplication}>
+                <Button variant={'secondary'} type={'button'} onClick={newApplication}>
                     {t('noRestartApplication')}
                 </Button>
-            </FormElement>
-        </EyModal>
+            </Modal.Footer>
+        </Modal>
     )
 }
