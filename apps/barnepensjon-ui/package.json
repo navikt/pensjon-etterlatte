@@ -51,7 +51,7 @@
   "scripts": {
     "start": "REACT_APP_MOCK_API=http://localhost:8080 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "cy:test": "TZ=Europe/Oslo cypress run",
     "cy:open": "TZ=Europe/Oslo cypress open",
     "eject": "react-scripts eject"

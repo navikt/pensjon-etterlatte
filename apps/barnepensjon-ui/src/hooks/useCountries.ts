@@ -22,14 +22,16 @@ interface Country {
     }
 }
 
-const moveMostUsedCountriesToBeginning = (allCountries: Country[]) => {
-    const landTest = ['NORGE', 'DANMARK', 'SVERIGE']
-    const countries = allCountries.filter((land: Country) => landTest.includes(land.beskrivelser.nb.tekst))
+export const moveMostUsedCountriesToBeginning = (allCountries: Country[]) => {
+    const countryStrings = ['NORGE', 'DANMARK', 'SVERIGE'].reverse()
 
-    countries.forEach((country) => {
-        const countryIndex = allCountries.findIndex((allCountry) => allCountry === country)
-        allCountries.splice(countryIndex, 1)
-        allCountries.splice(0, 0, country)
+    countryStrings.forEach((countryString) => {
+        const country = allCountries.find(country => country.beskrivelser.nb.tekst === countryString)
+        if (country) {
+            const countryIndex = allCountries.findIndex((allCountry) => allCountry === country)
+            allCountries.splice(countryIndex, 1)
+            allCountries.unshift(country)
+        }
     })
 
     return allCountries
@@ -48,6 +50,8 @@ export default function useCountries(): UseCountries {
                 allCountries.sort((a: Country, b: Country) =>
                     a.beskrivelser.nb.tekst > b.beskrivelser.nb.tekst ? 1 : -1
                 )
+
+                console.log(allCountries)
 
                 setAllCountries(moveMostUsedCountriesToBeginning(allCountries))
 
