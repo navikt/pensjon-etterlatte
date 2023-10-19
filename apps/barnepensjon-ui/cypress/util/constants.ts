@@ -10,6 +10,7 @@ export enum Button {
     Cancel = 'Avbryt',
     Send = 'Send søknad',
     Exit = 'Avslutt',
-    Yes = 'Ja',
-    No = 'Nei',
+    Yes = 'Ja, send søknad',
+    No = 'Nei, gå tilbake',
+    TryAgain = 'Prøv igjen',
 }
