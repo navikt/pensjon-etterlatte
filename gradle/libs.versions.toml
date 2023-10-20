@@ -2,7 +2,7 @@
 cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.1" }
 
 [versions]
-token-version = "2.1.2"
+token-version = "3.1.7"
 ktor-version = "2.1.1"
 jackson-version = "2.15.2"
 jupiter-version = "5.10.0"
