@@ -39,7 +39,7 @@ ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-
 
 database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "5.0.1"}
 database-flyway-core = { module = "org.flywaydb:flyway-core", version = "9.22.3"}
-database-postgresql = { module = "org.postgresql:postgresql", version = "42.2.5"}
+database-postgresql = { module = "org.postgresql:postgresql", version = "42.6.0"}
 
 jackson-datatypejsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version"}
 jackson-datatypejdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson-version"}
