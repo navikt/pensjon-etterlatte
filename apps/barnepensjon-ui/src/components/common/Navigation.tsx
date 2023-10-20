@@ -3,10 +3,9 @@ import { useState } from 'react'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
 import { ActionTypes as ApplicationActionTypes } from '../../context/application/application'
 import { ActionTypes as UserActionTypes } from '../../context/user/user'
-import { Button, ButtonProps, Heading, Loader } from '@navikt/ds-react'
+import { Button, ButtonProps, Heading, Loader, Modal } from '@navikt/ds-react'
 import FormGroup from './FormGroup'
 import styled, { css } from 'styled-components'
-import EyModal from './EyModal'
 import { deleteDraft } from '../../api/api'
 import { BodyShortMuted } from './StyledTypography'
 import useTranslation from '../../hooks/useTranslation'
@@ -22,12 +21,12 @@ export const NavRow = styled.div<{ disabled?: boolean }>`
     .knapp {
         margin-bottom: 0;
     }
-  
+
     ${(props) => {
         if (props.disabled) {
             return css`
-              opacity: 0.6;
-              pointer-events: none;
+                opacity: 0.6;
+                pointer-events: none;
             `
         }
     }}
@@ -41,6 +40,12 @@ const NavFooter = styled(FormGroup)`
             width: 50%;
         }
     }
+`
+
+const FlexCenter = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
 `
 
 const FlatDangerButton = styled(Button)`
@@ -98,7 +103,7 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                     {!!left && (
                         <Button
                             type={'button'}
-                            variant={left?.variant || 'primary'}
+                            variant={left?.variant || 'secondary'}
                             onClick={left?.onClick}
                             disabled={left?.disabled}
                         >
@@ -113,62 +118,66 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                             onClick={right?.onClick}
                             disabled={right?.disabled}
                         >
-                            {right?.label || t('nextButton', { ns: 'btn' })} {loading && <Loader/>}
+                            {right?.label || t('nextButton', { ns: 'btn' })} {loading && <Loader />}
                         </Button>
                     )}
                 </NavRow>
 
                 {!hideCancel && (
                     <NavRow>
-                        <Button id={'avbryt-btn'} variant={'secondary'} type={'button'} onClick={() => setIsOpen(true)}>
+                        <Button id={'avbryt-btn'} variant={'tertiary'} type={'button'} onClick={() => setIsOpen(true)}>
                             {t('cancelButton', { ns: 'btn' })}
                         </Button>
                     </NavRow>
                 )}
             </NavFooter>
 
-            <EyModal open={isOpen} onClose={() => setIsOpen(false)}>
-                <FormGroup>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+                <Modal.Header>
                     <Heading size={'medium'}>{t('cancelApplicationTitle')}</Heading>
-                </FormGroup>
+                </Modal.Header>
 
-                <FormGroup>
-                    <BodyShortMuted size={'small'}>{t('cancelApplicationBody')}</BodyShortMuted>
-                </FormGroup>
+                <Modal.Body>
+                    <BodyShortMuted style={{ textAlign: 'center' }} size={'small'}>
+                        {t('cancelApplicationBody')}
+                    </BodyShortMuted>
+                </Modal.Body>
 
-                <NavRow>
-                    <Button
-                        id={'avbryt-nei-btn'}
-                        variant={'primary'}
-                        type={'button'}
-                        onClick={continueApplication}
-                        style={{ margin: '10px' }}
-                    >
-                        {t('continueApplicationButton')}
-                    </Button>
+                <Modal.Footer>
+                    <FlexCenter>
+                        <Button
+                            id={'avbryt-nei-btn'}
+                            variant={'secondary'}
+                            type={'button'}
+                            onClick={continueApplication}
+                            style={{ margin: '10px' }}
+                        >
+                            {t('continueApplicationButton')}
+                        </Button>
 
-                    <Button
-                        id={'avbryt-ja-btn'}
-                        variant={'secondary'}
-                        type={'button'}
-                        onClick={cancelApplication}
-                        style={{ margin: '10px' }}
-                    >
-                        {t('cancelApplicationButton')}
-                    </Button>
-                </NavRow>
+                        <Button
+                            id={'avbryt-ja-btn'}
+                            variant={'primary'}
+                            type={'button'}
+                            onClick={cancelApplication}
+                            style={{ margin: '10px' }}
+                        >
+                            {t('cancelApplicationButton')}
+                        </Button>
+                    </FlexCenter>
 
-                <FormGroup>
-                    <FlatDangerButton
-                        id={'slett-soeknad'}
-                        type={'button'}
-                        variant={'tertiary'}
-                        onClick={deleteApplication}
-                    >
-                        {t('deleteApplicationButton')}
-                    </FlatDangerButton>
-                </FormGroup>
-            </EyModal>
+                    <FlexCenter>
+                        <FlatDangerButton
+                            id={'slett-soeknad'}
+                            type={'button'}
+                            variant={'tertiary'}
+                            onClick={deleteApplication}
+                        >
+                            {t('deleteApplicationButton')}
+                        </FlatDangerButton>
+                    </FlexCenter>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }

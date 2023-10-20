@@ -1,4 +1,4 @@
-import { basePath } from '../util/constants'
+import { basePath, Button } from '../util/constants'
 
 describe('System Unavailable', { testIsolation: false }, () => {
     before(() => {
@@ -23,7 +23,7 @@ describe('System Unavailable', { testIsolation: false }, () => {
         cy.intercept('GET', `${basePath}/api/api/kladd`, '10000000').as('getApplication')
         cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')
 
-        cy.get('.navds-button').should('be.enabled').should('have.text', 'Prøv igjen').click()
+        cy.clickBtn(Button.TryAgain)
         cy.on('uncaught:exception', () => false)
 
         cy.wait(['@loggedInUser', '@getApplication', '@getExpirationTimeForLoggedInUser'])

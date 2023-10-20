@@ -1,4 +1,4 @@
-import { ContentContainer, Modal } from '@navikt/ds-react'
+import { ContentContainer } from '@navikt/ds-react'
 import React from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
@@ -19,8 +19,6 @@ import useScrollToTop from './hooks/useScrollToTop'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 import useTranslation from './hooks/useTranslation'
 import { InvalidApplicant } from './components/error/InvalidApplicant'
-
-Modal.setAppElement!!('#root')
 
 const SoeknadWrapper = styled(ContentContainer)`
     div,

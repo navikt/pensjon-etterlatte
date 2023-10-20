@@ -13,7 +13,7 @@ describe('Navigation: "Cancel" button functionality', () => {
     it('Should resume application when clicking No', () => {
         cy.get('#avbryt-nei-btn').click()
 
-        cy.get('#avbryt-nei-btn').should('not.exist')
+        cy.get('#avbryt-nei-btn').should('not.be.visible')
     })
 
     it('Should redirect to nav.no when clicking Yes, continue later', () => {

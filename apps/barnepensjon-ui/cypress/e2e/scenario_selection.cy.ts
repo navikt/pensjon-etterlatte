@@ -37,7 +37,7 @@ describe('Scenario Selection', () => {
 
     it('should route correctly when selecting the child over 18 role', function () {
         cy.useScenario('CHILD', null, false)
-        cy.get('.navds-button').should('not.exist')
+        cy.get('.navds-button').should('not.be.visible')
         cy.get(':nth-child(1) > span > b').should('have.text', 'Hvis du har mistet en forelder')
     })
 })
