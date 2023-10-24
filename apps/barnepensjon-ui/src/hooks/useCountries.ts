@@ -23,7 +23,7 @@ interface Country {
 }
 
 export const moveMostUsedCountriesToBeginning = (allCountries: Country[]) => {
-    const countryStrings = ['NORGE', 'DANMARK', 'SVERIGE'].reverse()
+    const countryStrings = ['NORGE', 'DANMARK', 'SVERIGE', 'POLEN'].reverse()
 
     countryStrings.forEach((countryString) => {
         const country = allCountries.find(country => country.beskrivelser.nb.tekst === countryString)
@@ -50,8 +50,6 @@ export default function useCountries(): UseCountries {
                 allCountries.sort((a: Country, b: Country) =>
                     a.beskrivelser.nb.tekst > b.beskrivelser.nb.tekst ? 1 : -1
                 )
-
-                console.log(allCountries)
 
                 setAllCountries(moveMostUsedCountriesToBeginning(allCountries))
 
