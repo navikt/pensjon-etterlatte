@@ -44,6 +44,7 @@ const mapTilBarnepensjonSoeknadOver18 = (t: TFunction, application: IApplication
     const harSamtykket: Opplysning<boolean> = mapSamtykke(t, application, user)
 
     const foreldre: Person[] = mapForeldreMedUtvidetInfo(t, application, user)
+    const soeker: Barn = mapBarnOver18(t, application, user)
 
     return {
         type: SoeknadType.BARNEPENSJON,
@@ -54,8 +55,9 @@ const mapTilBarnepensjonSoeknadOver18 = (t: TFunction, application: IApplication
 
         utbetalingsInformasjon: mapUtbetalingsinfoOver18(t, application.aboutYou),
 
-        soeker: mapBarnOver18(t, application, user),
+        soeker,
         foreldre,
+        soesken: [soeker],
     }
 }
 
@@ -281,18 +283,17 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
 }
 
 const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Barn => {
-
     const staysAbroad = application.aboutYou.residesInNorway
 
     const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> | undefined = staysAbroad
-            ? {
-                spoersmaal: t('doesTheChildLiveAbroad', { ns: 'aboutChildren' }),
-                svar: {
-                    innhold: t(staysAbroad, { ns: 'radiobuttons' }),
-                    verdi: staysAbroad,
-                },
-            }
-            : undefined
+        ? {
+              spoersmaal: t('doesTheChildLiveAbroad', { ns: 'aboutChildren' }),
+              svar: {
+                  innhold: t(staysAbroad, { ns: 'radiobuttons' }),
+                  verdi: staysAbroad,
+              },
+          }
+        : undefined
 
     if (staysAbroad === JaNeiVetIkke.NEI && !!utenlandsAdresse) {
         utenlandsAdresse.opplysning = {
@@ -301,7 +302,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
                 svar: {
                     innhold: application.aboutYou!!.countryOfResidence!!,
                 },
-            }
+            },
         }
     }
 

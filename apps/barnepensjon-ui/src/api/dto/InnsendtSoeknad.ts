@@ -22,5 +22,5 @@ interface InnsendtSoeknad {
 export interface Barnepensjon extends InnsendtSoeknad {
     soeker: Barn
     foreldre: Person[] | undefined
-    soesken?: Barn[]
+    soesken: Barn[]
 }
