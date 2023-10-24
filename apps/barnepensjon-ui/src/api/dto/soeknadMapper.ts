@@ -294,7 +294,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
             }
             : undefined
 
-    if (staysAbroad === JaNeiVetIkke.JA && !!utenlandsAdresse) {
+    if (staysAbroad === JaNeiVetIkke.NEI && !!utenlandsAdresse) {
         utenlandsAdresse.opplysning = {
             land: {
                 spoersmaal: t('stayAbroadCountry', { ns: 'aboutChildren' }),
