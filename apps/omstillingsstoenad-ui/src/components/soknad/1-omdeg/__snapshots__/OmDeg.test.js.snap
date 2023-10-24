@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot 1`] = `
 <div>
   <div
-    class="sc-hLQTFJ bDXSAm"
+    class="sc-brSaGm cUqUsj"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -75,13 +75,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-hLQTFJ bDXSAm"
+        class="sc-brSaGm cUqUsj"
       >
         <div
           id="oppholderSegINorge"
         >
           <div
-            class="sc-hLQTFJ bDXSAm"
+            class="sc-brSaGm cUqUsj"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -248,13 +248,13 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </fieldset>
       <div
-        class="sc-hLQTFJ bDXSAm"
+        class="sc-brSaGm cUqUsj"
       >
         <div
           id="utbetalingsInformasjon.bankkontoType"
         >
           <div
-            class="sc-hLQTFJ bDXSAm"
+            class="sc-brSaGm cUqUsj"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -329,7 +329,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hLQTFJ bDXSAm"
+        class="sc-brSaGm cUqUsj"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -338,7 +338,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-hLQTFJ bDXSAm"
+        class="sc-brSaGm cUqUsj"
       >
         <div>
           <div
@@ -366,7 +366,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hLQTFJ bDXSAm"
+        class="sc-brSaGm cUqUsj"
       >
         <div>
           <div
@@ -394,7 +394,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hLQTFJ bDXSAm"
+        class="sc-brSaGm cUqUsj"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -515,7 +515,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hLQTFJ bDXSAm"
+        class="sc-brSaGm cUqUsj"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -641,7 +641,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       class="sc-beyTiQ jltUnl"
     >
       <div
-        class="sc-eDLKEg LfRHk undefined"
+        class="sc-hLQTFJ bTxQll undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -656,7 +656,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-eDLKEg sc-jTQDJr LfRHk gSyqWK"
+      class="sc-hLQTFJ sc-eDLKEg bTxQll iuSOsl"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -727,7 +727,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-csKJRI cXtbbV"
+          class="sc-irLvoH gVAhOV"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -755,7 +755,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-csKJRI cXtbbV"
+          class="sc-irLvoH gVAhOV"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

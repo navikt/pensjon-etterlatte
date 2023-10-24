@@ -116,6 +116,9 @@
       "arbeidsinntektIAar": {
         "tilDoedsfall": "20000",
         "etterDoedsfall": "30000"
+      },
+      "forventerEndringAvInntekt": {
+        "svar": "radiobuttons.nei"
       }
     },
     "naeringsinntekt": {
@@ -123,13 +126,19 @@
       "arbeidsinntektIAar": {
         "tilDoedsfall": "20000",
         "etterDoedsfall": "30000"
+      },
+      "forventerEndringAvInntekt": {
+        "svar": "radiobuttons.nei"
       }
     },
     "pensjonEllerUfoere": {
       "pensjonstype": [
         "soekbarYtelse.tjenestepensjonsordning"
       ],
-      "pensjonsUtbetaler": "Staten",
+      "tjenestepensjonsordning": {
+        "type": "soekbarYtelse.alderspensjon",
+        "utbetaler": "Staten"
+      },
       "utland": {
         "svar": "radiobuttons.ja",
         "type": "Alderspensjon",

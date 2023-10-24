@@ -34,13 +34,11 @@ const AnnenInntekt = () => {
                     />
                 </SkjemaElement>
                 {inntektEllerUtbetaling?.includes(InntektEllerUtbetaling.annen) && (
-                    <SkjemaElement>
-                        <RHFValutaInput
-                            name={'annenInntekt.beloep'}
-                            label={t('inntektenDin.annenInntekt.beloep')}
-                            htmlSize={Bredde.S}
-                        />
-                    </SkjemaElement>
+                    <RHFValutaInput
+                        name={'annenInntekt.beloep'}
+                        label={t('inntektenDin.annenInntekt.beloep')}
+                        htmlSize={Bredde.S}
+                    />
                 )}
             </SkjemaGruppe>
             <EndringInntekt type={'annenInntekt'} />

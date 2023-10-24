@@ -39,11 +39,11 @@ import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from '../../typ
 import { IValg } from '../../typer/Spoersmaal'
 import { ISituasjon, JobbStatus } from '../../typer/situasjon'
 import {
-    konverterArbeidsmengde,
     konverterEndringAvInntektGrunn,
     konverterIngenJobb,
     konverterInntektEllerUtbetaling,
     konverterJobbStatus,
+    konverterPensjonEllerTrygd,
     konverterPensjonsYtelse,
     konverterRelasjonAvdoed,
     konverterSagtOppEllerRedusert,
@@ -63,7 +63,7 @@ import {
     IInntekt,
     InntektEllerUtbetaling,
     InntektsTyper,
-    PensjonsYtelse,
+    PensjonEllerTrygd,
 } from '../../typer/inntekt'
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
@@ -478,7 +478,8 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: ISituasjon): ArbeidOg
                           },
                       },
                 harSluttdato:
-                    dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.midlertidig
+                    dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.midlertidig ||
+                    dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.tilkallingsvikar
                         ? {
                               spoersmaal: t('dinSituasjon.tilbudOmJobb.midlertidig.svar'),
                               svar: valgTilSvar(t, dinSituasjon.tilbudOmJobb!!.midlertidig!!.svar!!),
@@ -638,6 +639,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
                         },
                     },
                 },
+                endringAvInntekt: mapEndringAvInntekt(t, inntektenDin.loennsinntekt!!.forventerEndringAvInntekt),
             },
         }
     }
@@ -667,6 +669,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
                         },
                     },
                 },
+                endringAvInntekt: mapEndringAvInntekt(t, inntektenDin.naeringsinntekt!!.forventerEndringAvInntekt),
             },
         }
     }
@@ -679,17 +682,28 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
             pensjonstype: {
                 spoersmaal: t('inntektenDin.pensjonEllerUfoere.pensjonstype'),
                 svar: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.map((ytelse) => ({
-                    verdi: konverterPensjonsYtelse(ytelse),
+                    verdi: konverterPensjonEllerTrygd(ytelse),
                     innhold: t(ytelse),
                 })),
             },
-            pensjonsUtbetaler: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.includes(
-                PensjonsYtelse.tjenestepensjonsordning
+            tjenestepensjonsordning: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.includes(
+                PensjonEllerTrygd.tjenestepensjonsordning
             )
                 ? {
-                      spoersmaal: t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler'),
-                      svar: {
-                          innhold: inntektenDin.pensjonEllerUfoere!!.pensjonsUtbetaler!!,
+                      type: {
+                          spoersmaal: t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type'),
+                          svar: {
+                              verdi: konverterPensjonsYtelse(
+                                  inntektenDin.pensjonEllerUfoere!!.tjenestepensjonsordning!!.type
+                              ),
+                              innhold: t(inntektenDin.pensjonEllerUfoere!!.tjenestepensjonsordning!!.type),
+                          },
+                      },
+                      utbetaler: {
+                          spoersmaal: t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler'),
+                          svar: {
+                              innhold: inntektenDin.pensjonEllerUfoere!!.tjenestepensjonsordning!!.utbetaler,
+                          },
                       },
                   }
                 : undefined,
@@ -921,13 +935,6 @@ const mapSelvstendigNæringsdrivende = (
             spoersmaal: t('dinSituasjon.selvstendig.orgnr'),
             svar: {
                 innhold: selvstendig.orgnr!!,
-            },
-        },
-        typeArbeidsmengde: {
-            spoersmaal: t('dinSituasjon.arbeidsforhold.typeArbeidsmengde'),
-            svar: {
-                verdi: konverterArbeidsmengde(selvstendig.arbeidsmengde!!.type!!),
-                innhold: t(selvstendig.arbeidsmengde!!.type!!),
             },
         },
         arbeidsmengde: {

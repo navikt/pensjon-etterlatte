@@ -7,6 +7,7 @@ import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, SoekbareYtelserNAV } from '../../../../typer/inntekt'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
+import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 
 const YtelserNAV = () => {
     const { t } = useTranslation()
@@ -31,6 +32,9 @@ const YtelserNAV = () => {
                     />
                 </SkjemaElement>
             )}
+            <HvorforSpoerVi title="inntektenDin.ytelserNAV.svar">
+                {t('inntektenDin.ytelserNAV.hvorfor')}
+            </HvorforSpoerVi>
         </SkjemaGruppe>
     )
 }

@@ -22,7 +22,7 @@ import {
     Ytelser,
     EndringAvInntektGrunnType,
     PensjonsYtelseType,
-    InntektEllerUtbetalingType
+    InntektEllerUtbetalingType, PensjonEllerTrygdType,
 } from '../dto/FellesOpplysninger'
 import {
     ForholdTilAvdoede as RelasjonAvdoed,
@@ -33,7 +33,7 @@ import {
 import { Ytelser as GamleYtelser } from '../../typer/ytelser'
 import {
     EndringAvInntektGrunn,
-    InntektEllerUtbetaling,
+    InntektEllerUtbetaling, PensjonEllerTrygd,
     PensjonsYtelse,
     SoekbareYtelserAndre,
     SoekbareYtelserNAV,
@@ -226,12 +226,23 @@ export const konverterPensjonsYtelse = (type: PensjonsYtelse): PensjonsYtelseTyp
             return PensjonsYtelseType.AVTALEFESTET_PENSJON_OFFENTLIG
         case PensjonsYtelse.avtalefestetPensjonPrivat:
             return PensjonsYtelseType.AVTALEFESTET_PENSJON_PRIVAT
-        case PensjonsYtelse.tjenestepensjonsordning:
-            return PensjonsYtelseType.TJENESTEPENSJONSORDNING
+        case PensjonsYtelse.saeralderpensjon:
+            return PensjonsYtelseType.SAERALDERSPENSJON
         case PensjonsYtelse.ufoerepensjon:
             return PensjonsYtelseType.UFOEREPENSJON
         case PensjonsYtelse.alderspensjon:
             return PensjonsYtelseType.ALDERSPENSJON
+    }
+}
+
+export const konverterPensjonEllerTrygd = (type: PensjonEllerTrygd): PensjonEllerTrygdType => {
+    switch (type) {
+        case PensjonEllerTrygd.tjenestepensjonsordning:
+            return PensjonEllerTrygdType.TJENESTEPENSJONSORDNING
+        case PensjonEllerTrygd.ufoeretrygdFraNAV:
+            return PensjonEllerTrygdType.UFOEREPENSJON_FRA_NAV
+        case PensjonEllerTrygd.alderspensjonFraNAV:
+            return PensjonEllerTrygdType.ALDERSPENSJON_FRA_NAV
     }
 }
 
