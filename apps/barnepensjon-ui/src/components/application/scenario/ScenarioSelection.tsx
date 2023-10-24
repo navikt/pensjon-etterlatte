@@ -146,26 +146,26 @@ export default function ScenarioSelection() {
             )}
 
             {ApplicantRole.CHILD === selectedRole && isDev && (
-                    <>
-                        <FormGroup>
-                            <RHFRadio
-                                    legend={t('additionalSituationDetailsOver18')}
-                                    name={'applicantSituation'}
-                                    children={[
-                                        {
-                                            children: t(ApplicantSituation.ONE_PARENT_DECEASED),
-                                            value: ApplicantSituation.ONE_PARENT_DECEASED,
-                                            required: true,
-                                        },
-                                        {
-                                            children: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
-                                            value: ApplicantSituation.BOTH_PARENTS_DECEASED,
-                                            required: true,
-                                        },
-                                    ]}
-                            />
-                        </FormGroup>
-                    </>
+                <>
+                    <FormGroup>
+                        <RHFRadio
+                            legend={t('additionalSituationDetailsOver18')}
+                            name={'applicantSituation'}
+                            children={[
+                                {
+                                    children: t(ApplicantSituation.ONE_PARENT_DECEASED),
+                                    value: ApplicantSituation.ONE_PARENT_DECEASED,
+                                    required: true,
+                                },
+                                {
+                                    children: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
+                                    value: ApplicantSituation.BOTH_PARENTS_DECEASED,
+                                    required: true,
+                                },
+                            ]}
+                        />
+                    </FormGroup>
+                </>
             )}
 
             <ErrorSummaryWrapper errors={errors} />
