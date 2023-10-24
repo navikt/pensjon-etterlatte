@@ -3,7 +3,6 @@ import AboutChildren from '../components/application/about-children/AboutChildre
 import Summary from '../components/application/summary/Summary'
 import AboutParents from '../components/application/about-parents/AboutParents'
 import AboutTheDeceasedParentStep from '../components/application/the-deceased/AboutTheDeceasedParentStep'
-import YourSituation from '../components/application/your-situation/YourSituation'
 
 export enum StepLabelKey {
     AboutYou = 'AboutYou',
