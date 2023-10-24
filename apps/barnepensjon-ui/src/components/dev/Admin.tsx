@@ -39,9 +39,14 @@ const Admin = () => {
     }
 
     const applicantRoles = [
-        { role: 'forelder', type: ActionTypes.MOCK_PARENT_APPLICATION },
-        { role: 'verge', type: ActionTypes.MOCK_GUARDIAN_APPLICATION },
-        { role: 'barn', type: ActionTypes.MOCK_CHILD_APPLICATION, disable: true },
+        { title: 'Forelder', role: 'forelder', type: ActionTypes.MOCK_PARENT_APPLICATION },
+        { title: 'Verge', role: 'verge', type: ActionTypes.MOCK_GUARDIAN_APPLICATION },
+        { title: 'Barn - En forelder død', role: 'barn', type: ActionTypes.MOCK_CHILD_SINGLE_DEAD_APPLICATION },
+        {
+            title: 'Barn - Begge foreldre død',
+            role: 'barn',
+            type: ActionTypes.MOCK_CHILD_BOTH_DEAD_APPLICATION,
+        },
     ]
 
     return (
@@ -50,14 +55,10 @@ const Admin = () => {
                 <FormGroup key={index}>
                     <Grid>
                         <Cell xs={12} md={4}>
-                            <Heading size="medium">{application.role.toLocaleUpperCase()}</Heading>
+                            <Heading size="medium">{application.title.toLocaleUpperCase()}</Heading>
                         </Cell>
                         <Cell xs={12} md={4}>
-                            <Button
-                                variant={'primary'}
-                                onClick={() => mockApplication(application)}
-                                disabled={application.disable}
-                            >
+                            <Button variant={'primary'} onClick={() => mockApplication(application)}>
                                 Mock Søknad
                             </Button>
                         </Cell>
