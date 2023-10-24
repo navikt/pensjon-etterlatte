@@ -6,7 +6,7 @@ import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/inntekt'
 import { useFormContext } from 'react-hook-form'
-import { RHFInput, RHFValutaInput } from '../../../felles/rhf/RHFInput'
+import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
@@ -103,10 +103,10 @@ const PensjonEllerUfoere = () => {
 
                     <SkjemaGruppeRad>
                         <SkjemaElement>
-                            <RHFValutaInput
+                            <RHFNumberInput
                                 name={'pensjonEllerUfoere.utland.beloep'}
                                 label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
-                                htmlSize={Bredde.M}
+                                htmlSize={Bredde.S}
                             />
                         </SkjemaElement>
 

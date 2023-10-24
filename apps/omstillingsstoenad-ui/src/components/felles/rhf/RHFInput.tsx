@@ -1,7 +1,7 @@
-import { ChangeEvent } from 'react'
+import React, { ChangeEvent } from 'react'
 import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
-import { TextField, TextFieldProps } from '@navikt/ds-react'
+import { BodyShort, TextField, TextFieldProps } from '@navikt/ds-react'
 import { get } from 'lodash'
 import { useTranslation } from 'react-i18next'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
@@ -15,6 +15,7 @@ import {
     telefonnrMatcher,
 } from '../../../utils/matchers'
 import { isValidBIC, isValidIBAN } from 'ibantools'
+import { InputWithCurrency } from '../StyledComponents'
 
 interface RHFProps extends Omit<TextFieldProps, 'name'> {
     name: FieldPath<FieldValues>
@@ -113,22 +114,25 @@ export const RHFValutaInput = ({ name, ...rest }: RHFProps) => {
     const re = /^[0-9\s]+$/
 
     return (
-        <Controller
-            name={name}
-            control={control}
-            rules={{ required: true, pattern: re }}
-            render={({ field: { value, onChange } }) => (
-                <TextField
-                    id={name}
-                    value={value || ''}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                        if (isValid(e, re)) onChange(e)
-                    }}
-                    error={feilmelding}
-                    {...rest}
-                />
-            )}
-        />
+        <InputWithCurrency $hasError={!!error}>
+            <Controller
+                name={name}
+                control={control}
+                rules={{ required: true, pattern: re }}
+                render={({ field: { value, onChange } }) => (
+                    <TextField
+                        id={name}
+                        value={value || ''}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                            if (isValid(e, re)) onChange(e)
+                        }}
+                        error={feilmelding}
+                        {...rest}
+                    />
+                )}
+            />
+            <BodyShort className="currency">{t('felles.kroner')}</BodyShort>
+        </InputWithCurrency>
     )
 }
 

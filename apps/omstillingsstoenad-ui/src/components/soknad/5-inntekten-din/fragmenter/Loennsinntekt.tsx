@@ -5,17 +5,10 @@ import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
 import Bredde from '../../../../typer/bredde'
-import { InputWithCurrency } from '../../../felles/StyledComponents'
-import { useFormContext } from 'react-hook-form'
-import { IInntekt } from '../../../../typer/inntekt'
 import EndringInntekt from './EndringInntekt'
 
 const Loennsinntekt = () => {
     const { t } = useTranslation()
-
-    const {
-        formState: { errors },
-    } = useFormContext<IInntekt>()
 
     return (
         <SkjemaGruppe>
@@ -28,15 +21,12 @@ const Loennsinntekt = () => {
                 <Heading size={'small'}>{t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel')}</Heading>
             </SkjemaElement>
             <SkjemaGruppe>
-                <InputWithCurrency $hasError={!!errors.loennsinntekt?.arbeidsinntektAaretFoer}>
-                    <RHFValutaInput
-                        name={'loennsinntekt.arbeidsinntektAaretFoer'}
-                        label={t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer')}
-                        description={t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse')}
-                        htmlSize={Bredde.S}
-                    />
-                    <BodyShort className="currency">{t('felles.kroner')}</BodyShort>
-                </InputWithCurrency>
+                <RHFValutaInput
+                    name={'loennsinntekt.arbeidsinntektAaretFoer'}
+                    label={t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer')}
+                    description={t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse')}
+                    htmlSize={Bredde.S}
+                />
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -44,26 +34,20 @@ const Loennsinntekt = () => {
                     <Heading size={'small'}>{t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tittel')}</Heading>
                 </SkjemaElement>
                 <SkjemaElement>
-                    <InputWithCurrency $hasError={!!errors.loennsinntekt?.arbeidsinntektIAar?.tilDoedsfall}>
-                        <RHFValutaInput
-                            name={'loennsinntekt.arbeidsinntektIAar.tilDoedsfall'}
-                            label={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall')}
-                            description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse')}
-                            htmlSize={Bredde.S}
-                        />
-                        <BodyShort className="currency">{t('felles.kroner')}</BodyShort>
-                    </InputWithCurrency>
+                    <RHFValutaInput
+                        name={'loennsinntekt.arbeidsinntektIAar.tilDoedsfall'}
+                        label={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall')}
+                        description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse')}
+                        htmlSize={Bredde.S}
+                    />
                 </SkjemaElement>
                 <SkjemaElement>
-                    <InputWithCurrency $hasError={!!errors.loennsinntekt?.arbeidsinntektIAar?.etterDoedsfall}>
-                        <RHFValutaInput
-                            name={'loennsinntekt.arbeidsinntektIAar.etterDoedsfall'}
-                            label={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall')}
-                            description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse')}
-                            htmlSize={Bredde.S}
-                        />
-                        <BodyShort className="currency">{t('felles.kroner')}</BodyShort>
-                    </InputWithCurrency>
+                    <RHFValutaInput
+                        name={'loennsinntekt.arbeidsinntektIAar.etterDoedsfall'}
+                        label={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall')}
+                        description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse')}
+                        htmlSize={Bredde.S}
+                    />
                 </SkjemaElement>
             </SkjemaGruppe>
             <EndringInntekt type={'loennsinntekt'} />
