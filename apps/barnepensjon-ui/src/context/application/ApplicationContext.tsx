@@ -102,7 +102,6 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
             }
         }
         case ActionTypes.UPDATE_LANGUAGE: {
-            console.log(action.payload)
             return {
                 ...state,
                 meta: {

@@ -1,9 +1,8 @@
-import { Barn, Person } from './Person'
+import { Barn, BarnOver18, Person } from './Person'
 import { BankkontoType, BetingetOpplysning, EnumSvar, Opplysning, UtbetalingsInformasjon } from './FellesOpplysninger'
 import { Language } from '../../context/language/language'
 
 export enum SoeknadType {
-    GJENLEVENDEPENSJON = 'GJENLEVENDEPENSJON',
     BARNEPENSJON = 'BARNEPENSJON'
 }
 
@@ -21,7 +20,7 @@ interface InnsendtSoeknad {
 }
 
 export interface Barnepensjon extends InnsendtSoeknad {
-    soeker: Barn
+    soeker: Barn | BarnOver18
     foreldre: Person[] | undefined
-    soesken: Barn[]
+    soesken?: Barn[]
 }

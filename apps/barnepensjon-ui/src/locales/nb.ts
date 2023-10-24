@@ -117,6 +117,7 @@ const frontPage = {
 const selectScenario = {
     whoIsApplying: 'Hvem søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet/barna har mistet',
+    additionalSituationDetailsOver18: 'Jeg har mistet',
     PARENT: 'Jeg søker for mitt/mine barn under 18 år',
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
     CHILD: 'Jeg har fylt 18 år og søker på vegne av meg selv',
@@ -153,7 +154,8 @@ const aboutYou = {
         'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
     addressOfResidenceConfirmed: 'Bor du på denne adressen?',
     alternativeAddress: 'Oppgi nåværende bostedsadresse',
-    residesInNorway: 'Oppholder du deg for tiden i Norge?',
+    residesInNorway: 'Har du oppholdt deg i Norge de siste 12 månedene?',
+    residesInNorwayDescription: 'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
     'subtitle.personalia': 'Personalia',
@@ -174,6 +176,7 @@ const aboutParents = {
         'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
+    childAndOneParentDeceased: 'Du trenger ikke fylle ut informasjon om gjenlevende forelder'
 }
 
 const livingParent = {
@@ -190,6 +193,8 @@ const aboutTheDeceased = {
     abroadStaysTitle: 'Opphold utenfor Norge',
     workOrLivingAbroadCanAffectPension:
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi barnet/barna pensjonsrettigheter fra andre land.',
+    workOrLivingAbroadCanAffectPensionOver18:
+            'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi deg pensjonsrettigheter fra andre land.',
     didTheDeceasedLiveAbroad: 'Har han eller hun bodd og/eller arbeidet i et annet land enn Norge etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Bodd og/eller arbeidet?',

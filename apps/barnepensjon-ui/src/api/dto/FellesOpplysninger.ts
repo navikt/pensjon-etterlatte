@@ -34,7 +34,7 @@ export enum JaNeiVetIkke {
 
 export interface Utenlandsadresse {
     land: Opplysning<FritekstSvar>
-    adresse: Opplysning<FritekstSvar>
+    adresse?: Opplysning<FritekstSvar>
 }
 
 export interface UtbetalingsInformasjon {

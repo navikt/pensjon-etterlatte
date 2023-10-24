@@ -18,13 +18,13 @@ interface Props {
 export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: Props) => {
     const { t } = useTranslation('aboutTheDeceased')
     if (!aboutTheParent || isEmpty(aboutTheParent)) return null
-    const isVerge = pathPrefix === 'verge'
+    const isVergeOrBarn = pathPrefix === 'verge' || pathPrefix === 'barn'
 
     return (
         <AccordionItem
             title={t('singleParentTitle')}
-            path={`/skjema/${pathPrefix}/${isVerge ? StepPath.AboutTheParents : StepPath.AboutTheDeceased}`}
-            pathText={t(isVerge ? StepLabelKey.AboutTheParents : StepLabelKey.AboutTheDeceased, {
+            path={`/skjema/${pathPrefix}/${isVergeOrBarn ? StepPath.AboutTheParents : StepPath.AboutTheDeceased}`}
+            pathText={t(isVergeOrBarn ? StepLabelKey.AboutTheParents : StepLabelKey.AboutTheDeceased, {
                 ns: 'summary',
             })}
         >

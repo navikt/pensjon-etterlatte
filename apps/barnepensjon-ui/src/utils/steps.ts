@@ -103,19 +103,9 @@ export const ChildApplicantSteps: StepType[] = [
         element: AboutYou,
     },
     {
-        label: StepLabelKey.YourSituation,
-        path: StepPath.YourSituation,
-        element: YourSituation,
-    },
-    {
         label: StepLabelKey.AboutTheParents,
         path: StepPath.AboutTheParents,
         element: AboutParents,
-    },
-    {
-        label: StepLabelKey.AboutChildren,
-        path: StepPath.AboutChildren,
-        element: AboutChildren,
     },
     {
         label: StepLabelKey.Summary,

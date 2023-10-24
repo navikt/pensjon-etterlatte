@@ -14,7 +14,7 @@ import WhyWeAsk from '../../common/WhyWeAsk'
 import SelfEmploymentDetails from './SelfEmploymentDetails'
 import StaysAbroad from './StaysAbroad'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
-import { ApplicantSituation } from '../scenario/ScenarioSelection'
+import { ApplicantRole, ApplicantSituation } from '../scenario/ScenarioSelection'
 
 interface Props {
     fnrRegisteredParent: string[]
@@ -27,6 +27,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
 
     const { watch } = useFormContext<IDeceasedParent>()
     const bothParentsDecesed = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
+    const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
 
     const completedMilitaryService = watch('militaryService.completed')
     const staysAbroad = watch('staysAbroad.hasStaysAbroad')
@@ -42,7 +43,9 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
 
             <FormGroup>
                 <Heading size="small">{t('abroadStaysTitle')}</Heading>
-                <BodyLong>{t('workOrLivingAbroadCanAffectPension')}</BodyLong>
+                <BodyLong>
+                    {isChild ? t('workOrLivingAbroadCanAffectPensionOver18') : t('workOrLivingAbroadCanAffectPension')}
+                </BodyLong>
                 <FormElement>
                     <RHFGeneralQuestionRadio
                         name={'staysAbroad.hasStaysAbroad'}
@@ -53,10 +56,10 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                 {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
             </FormGroup>
 
-            {bothParentsDecesed && <SelfEmploymentDetails />}
+            {bothParentsDecesed && !isChild && <SelfEmploymentDetails />}
 
             <FormGroup>
-                <Heading size="small">{t('otherTitle')}</Heading>
+                {!isChild && <Heading size="small">{t('otherTitle')}</Heading>}
 
                 <FormElement>
                     <RHFGeneralQuestionRadio
@@ -69,7 +72,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                     />
                 </FormElement>
 
-                {bothParentsDecesed && (
+                {bothParentsDecesed && !isChild && (
                     <>
                         <FormElement>
                             <RHFGeneralQuestionRadio

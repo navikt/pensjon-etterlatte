@@ -64,12 +64,12 @@ const mapTilForelder = (t: TFunction, parent: IParent): Forelder => ({
     },
 })
 
-export const mapForeldreMedUtvidetInfo = (
-    t: TFunction,
-    child: IChild,
-    application: IApplication,
-    user: User
-): Person[] => {
+export const mapForeldreMedUtvidetInfo = (t: TFunction, application: IApplication, user: User): Person[] => {
+    if (application.applicant?.applicantRole === ApplicantRole.CHILD) {
+        const avdoed: Avdoed = mapAvdoed(t, application.secondParent as IDeceasedParent)
+        return [avdoed]
+    }
+
     let forelder1
     if (!!(application.firstParent as IDeceasedParent)?.dateOfDeath) {
         forelder1 = mapAvdoed(t, application.firstParent as IDeceasedParent)

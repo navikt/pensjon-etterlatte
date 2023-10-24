@@ -36,6 +36,7 @@ const user: User = {
 }
 
 const t = (key: string, _: any) => key
+const isChild = false
 
 describe('Generelle tester', () => {
     it('Mapping av søknad uten barn kaster feil', () => {
@@ -44,7 +45,7 @@ describe('Generelle tester', () => {
         const application: IApplication = { aboutChildren: { children: [] }, aboutYou: {} }
 
         try {
-            mapTilBarnepensjonSoeknadListe(t, application, user)
+            mapTilBarnepensjonSoeknadListe(t, application, user, isChild)
         } catch (e: any) {
             expect(e.message).toEqual('Kan ikke sende inn søknad med tom liste over barn!')
         }
@@ -53,7 +54,7 @@ describe('Generelle tester', () => {
     it('Stopp mapping hvis bruker har ikke samtykket', () => {
         try {
             const application: IApplication = { aboutChildren: { children: [{}] }, aboutYou: {} }
-            mapTilBarnepensjonSoeknadListe(t, application, user)
+            mapTilBarnepensjonSoeknadListe(t, application, user, isChild)
         } catch (e: any) {
             expect(e.message).toEqual('Kan ikke sende inn søknad uten å ha samtykket!')
         }
@@ -87,7 +88,7 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
             },
         }
 
-        const soeknader = mapTilBarnepensjonSoeknadListe(t, application, user)
+        const soeknader = mapTilBarnepensjonSoeknadListe(t, application, user, isChild)
 
         expect(soeknader.length).toBe(1)
 

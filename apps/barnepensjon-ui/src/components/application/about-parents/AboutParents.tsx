@@ -10,7 +10,7 @@ import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import { ApplicantSituation } from '../scenario/ScenarioSelection'
+import { ApplicantRole, ApplicantSituation } from '../scenario/ScenarioSelection'
 import DeceasedParent from './DeceasedParent'
 import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
@@ -35,7 +35,14 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const bothParentsDeceased = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
 
-    const isValid = !isEmpty(state?.firstParent) && !isEmpty(state?.secondParent)
+    const childAndOneParentDeceased =
+        state.applicant?.applicantRole === ApplicantRole.CHILD &&
+        state.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
+
+    const isValid = () => {
+        if (childAndOneParentDeceased) return !isEmpty(state?.secondParent)
+        return !isEmpty(state?.firstParent) && !isEmpty(state?.secondParent)
+    }
 
     const fnrRegisteredParent = (): string[] => {
         let fnr = ''
@@ -60,14 +67,20 @@ export default function AboutParents({ next, prev }: StepProps) {
                                         <strong>{bothParentsDeceased ? t('firstParent') : t('survivingParent')}</strong>
                                     </InformationBox>
                                     <InformationBox>
-                                        <Button
-                                            title={bothParentsDeceased ? t('firstParent') : t('addSurvivingParentBtn')}
-                                            variant={'primary'}
-                                            type={'button'}
-                                            onClick={() => setEditing(EditParent.FIRST)}
-                                        >
-                                            {t('addParentBtn')}
-                                        </Button>
+                                        {childAndOneParentDeceased ? (
+                                            <BodyShort>{t('childAndOneParentDeceased')}</BodyShort>
+                                        ) : (
+                                            <Button
+                                                title={
+                                                    bothParentsDeceased ? t('firstParent') : t('addSurvivingParentBtn')
+                                                }
+                                                variant={'primary'}
+                                                type={'button'}
+                                                onClick={() => setEditing(EditParent.FIRST)}
+                                            >
+                                                {t('addParentBtn')}
+                                            </Button>
+                                        )}
                                     </InformationBox>
                                 </Infocard>
                             ) : (
@@ -107,7 +120,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                         </InfocardWrapper>
                     </FormGroup>
 
-                    {!isValid && (
+                    {!isValid() && (
                         <FormGroup>
                             <Alert variant={'info'}>
                                 <BodyShort size={'small'}>
@@ -119,7 +132,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                         </FormGroup>
                     )}
 
-                    <Navigation left={{ onClick: prev }} right={{ onClick: next, disabled: !isValid }} />
+                    <Navigation left={{ onClick: prev }} right={{ onClick: next, disabled: !isValid() }} />
                 </>
             )}
 

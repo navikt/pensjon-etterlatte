@@ -14,7 +14,11 @@ const HelpTextLabel = styled.div`
     display: flex;
 `
 
-export default function PaymentDetails() {
+interface Props {
+    withTaxes?: boolean
+}
+
+export default function PaymentDetails({ withTaxes = true }: Props) {
     const { t } = useTranslation('paymentDetails')
 
     const { watch } = useFormContext<IAboutYou | IAboutChildren>()
@@ -85,32 +89,36 @@ export default function PaymentDetails() {
                 </>
             )}
 
-            <FormElement>
-                <RHFGeneralQuestionRadio
-                    id={'taxWithholdAnswer'}
-                    name={'paymentDetails.taxWithhold.answer'}
-                    legend={t('doYouWantUsToWithholdTax')}
-                    description={<WhyWeAsk title={'tax'}>{t('childPensionIsTaxable')}</WhyWeAsk>}
-                />
-            </FormElement>
-
-            {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
+            {withTaxes && (
                 <>
                     <FormElement>
-                        <RHFProsentInput
-                            name={'paymentDetails.taxWithhold.taxPercentage'}
-                            label={t('desiredTaxPercentage')}
-                            placeholder={t('desiredTaxPercentagePlaceholder')}
-                            htmlSize={40}
+                        <RHFGeneralQuestionRadio
+                            id={'taxWithholdAnswer'}
+                            name={'paymentDetails.taxWithhold.answer'}
+                            legend={t('doYouWantUsToWithholdTax')}
+                            description={<WhyWeAsk title={'tax'}>{t('childPensionIsTaxable')}</WhyWeAsk>}
                         />
                     </FormElement>
-                    <FormElement>
-                        <Panel border>
-                            <Alert variant={'info'} inline>
-                                <BodyShort size={'small'}>{t('taxWithholdMustBeSentYearly')}</BodyShort>
-                            </Alert>
-                        </Panel>
-                    </FormElement>
+
+                    {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
+                        <>
+                            <FormElement>
+                                <RHFProsentInput
+                                    name={'paymentDetails.taxWithhold.taxPercentage'}
+                                    label={t('desiredTaxPercentage')}
+                                    placeholder={t('desiredTaxPercentagePlaceholder')}
+                                    htmlSize={40}
+                                />
+                            </FormElement>
+                            <FormElement>
+                                <Panel border>
+                                    <Alert variant={'info'} inline>
+                                        <BodyShort size={'small'}>{t('taxWithholdMustBeSentYearly')}</BodyShort>
+                                    </Alert>
+                                </Panel>
+                            </FormElement>
+                        </>
+                    )}
                 </>
             )}
         </FormGroup>

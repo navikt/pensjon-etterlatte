@@ -117,6 +117,7 @@ const frontPage = {
 const selectScenario = {
     whoIsApplying: 'Kven søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet/barna har mista',
+    additionalSituationDetailsOver18: '<Mangler tekst>',
     PARENT: 'Eg søker for mitt/mine barn under 18 år',
     GUARDIAN: 'Eg søker for eitt eller fleire barn eg er verje for',
     CHILD: 'Eg har fylt 18 år og søker på vegne av meg sjølv',
@@ -153,7 +154,8 @@ const aboutYou = {
         'Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får attlevandepensjon og kor mykje du kan få.',
     addressOfResidenceConfirmed: 'Bur du på denne adressa?',
     alternativeAddress: 'Oppgi noverande bustadsadresse',
-    residesInNorway: 'Oppheld du deg for tida i Noreg?',
+    residesInNorway: '<MANGLER TEKST>',
+    residesInNorwayDescription: '<MANGLER TEKST>',
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygda under opphald i eit anna land enn Noreg?',
     'subtitle.personalia': 'Personalia',
@@ -174,6 +176,7 @@ const aboutParents = {
         'Du må legge til opplysingar om begge foreldra for å halde fram med søknaden. \n\n Viss barnet har mista mora si og farskapet ikkje er fastsatt må du bruke',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
+    childAndOneParentDeceased: '<MANGLER TEKST>'
 }
 
 const livingParent = {
@@ -190,6 +193,7 @@ const aboutTheDeceased = {
     abroadStaysTitle: 'Opphald utanfor Norge',
     workOrLivingAbroadCanAffectPension:
         'Vi treng å vite om avdøde har budd eller arbeidd utanfor Norge. Dette kan påvirke berekninga av barnepensjon og i tillegg gi barnet/barna pensjonsrettar frå andre land.',
+    workOrLivingAbroadCanAffectPensionOver18: '<MANGLER TEKST>',
     didTheDeceasedLiveAbroad: 'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Budd og/eller arbeidd?',
