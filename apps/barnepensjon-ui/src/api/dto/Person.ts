@@ -79,18 +79,6 @@ export interface Barn extends Person {
     dagligOmsorg?: Opplysning<EnumSvar<OmsorgspersonType>>
 }
 
-export interface BarnOver18 extends Person {
-    type: PersonType.BARN
-
-    fornavn: Opplysning<string>
-    etternavn: Opplysning<string>
-    foedselsnummer: Opplysning<Foedselsnummer>
-
-    statsborgerskap: Opplysning<string>
-    utenlandsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse | undefined>
-    dagligOmsorg?: Opplysning<EnumSvar<OmsorgspersonType>>
-}
-
 export interface Avdoed extends Person {
     type: PersonType.AVDOED
 

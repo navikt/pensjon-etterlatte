@@ -1,7 +1,7 @@
 import { TFunction } from '../../hooks/useTranslation'
 import { Barnepensjon, SoeknadType } from './InnsendtSoeknad'
 import { IApplication } from '../../context/application/application'
-import { Barn, BarnOver18, Innsender, Person, PersonType } from './Person'
+import { Barn, Innsender, Person, PersonType } from './Person'
 import { User } from '../../context/user/user'
 import {
     BankkontoType,
@@ -15,7 +15,7 @@ import {
 } from './FellesOpplysninger'
 import { IAboutYou, IChild } from '../../types/person'
 import { Language } from '../../context/language/language'
-import { hentForeldre, mapForeldreMedUtvidetInfo } from './foreldreMapper'
+import { hentForeldre, hentForeldreOver18, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 import { mapVerge } from './mapVerge'
 
 export const mapTilBarnepensjonSoeknadListe = (
@@ -280,7 +280,7 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
     }
 }
 
-const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): BarnOver18 => {
+const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Barn => {
 
     const staysAbroad = application.aboutYou.residesInNorway
 
@@ -323,6 +323,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
             spoersmaal: t('citizenship', { ns: 'common' }),
             svar: user.statsborgerskap!!,
         },
+        foreldre: hentForeldreOver18(t, application),
         utenlandsAdresse,
     }
 }

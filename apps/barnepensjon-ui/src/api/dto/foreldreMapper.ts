@@ -21,7 +21,7 @@ import {
 } from '../../context/application/application'
 import { TFunction } from '../../hooks/useTranslation'
 import { IAboutYou, IChild, ParentRelationType } from '../../types/person'
-import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
+import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
 import { User } from '../../context/user/user'
 import { fullAdresse } from '../../utils/personalia'
 
@@ -45,6 +45,21 @@ export const hentForeldre = (t: TFunction, child: IChild, application: IApplicat
             return [forelder1, forelder2]
         default:
             throw Error(`Unexpected parent relation: ${child.parents}`)
+    }
+}
+
+export const hentForeldreOver18 = (t: TFunction, application: IApplication): Forelder[] => {
+    const oneParentDead = application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
+    const bothParentDead = application.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
+
+    if (oneParentDead) {
+        return [mapTilForelder(t, application.secondParent!!)]
+    } else if (bothParentDead) {
+        const firstParent = mapTilForelder(t, application.firstParent!!)
+        const secondParent = mapTilForelder(t, application.secondParent!!)
+        return [firstParent, secondParent]
+    } else {
+        throw Error(`Unexpected parent relation: ${application.secondParent}`)
     }
 }
 
