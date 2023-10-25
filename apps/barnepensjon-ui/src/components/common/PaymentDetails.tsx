@@ -6,7 +6,6 @@ import FormElement from './FormElement'
 import { RHFGeneralQuestionRadio, RHFInlineRadio } from './rhf/RHFRadio'
 import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from './rhf/RHFInput'
 import FormGroup from './FormGroup'
-import WhyWeAsk from './WhyWeAsk'
 import { useFormContext } from 'react-hook-form'
 import { IAboutChildren, IAboutYou } from '../../types/person'
 
