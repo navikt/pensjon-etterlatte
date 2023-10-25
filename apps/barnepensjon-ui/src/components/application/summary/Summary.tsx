@@ -47,7 +47,8 @@ export default function Summary({ prev }: StepProps) {
     const [isOpen, setIsOpen] = useState(false)
 
     const send = () => {
-        const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user)
+        const isChild = application.applicant?.applicantRole === ApplicantRole.CHILD
+        const soeknader: Barnepensjon[] = mapTilBarnepensjonSoeknadListe(t, application, user, isChild)
 
         setLoading(true)
 

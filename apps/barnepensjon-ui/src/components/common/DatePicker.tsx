@@ -78,7 +78,7 @@ const DatePicker = ({
                             inputProps={{
                                 placeholder: t('dateExample'),
                             }}
-                            label={t('dateSRLabel')}
+                            label={`${t('dateSRLabel')} ${valgfri ? `(${t('optional')})` : ''}`}
                             error={errorMessage}
                             limitations={{
                                 minDate: parseDate(minDate),

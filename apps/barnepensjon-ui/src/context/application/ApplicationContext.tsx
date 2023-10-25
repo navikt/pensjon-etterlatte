@@ -1,5 +1,6 @@
 import React, { createContext, FC, useContext, useReducer } from 'react'
 import mockChildJson from '../../assets/mocks/mock-child.json'
+import mockChildSingleDeadJson from '../../assets/mocks/mock-child-single-dead.json'
 import mockGuardianJson from '../../assets/mocks/mock-guardian.json'
 import mockParentJson from '../../assets/mocks/mock-parent.json'
 import { ActionTypes, ApplicationProps, emptyApplication, IApplication, IApplicationAction } from './application'
@@ -17,7 +18,11 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
             const json = JSON.stringify(mockGuardianJson)
             return JSON.parse(json) as IApplication
         }
-        case ActionTypes.MOCK_CHILD_APPLICATION: {
+        case ActionTypes.MOCK_CHILD_SINGLE_DEAD_APPLICATION: {
+            const json = JSON.stringify(mockChildSingleDeadJson)
+            return JSON.parse(json) as IApplication
+        }
+        case ActionTypes.MOCK_CHILD_BOTH_DEAD_APPLICATION: {
             const json = JSON.stringify(mockChildJson)
             return JSON.parse(json) as IApplication
         }
@@ -102,7 +107,6 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
             }
         }
         case ActionTypes.UPDATE_LANGUAGE: {
-            console.log(action.payload)
             return {
                 ...state,
                 meta: {

@@ -6,7 +6,6 @@ import FormElement from './FormElement'
 import { RHFGeneralQuestionRadio, RHFInlineRadio } from './rhf/RHFRadio'
 import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from './rhf/RHFInput'
 import FormGroup from './FormGroup'
-import WhyWeAsk from './WhyWeAsk'
 import { useFormContext } from 'react-hook-form'
 import { IAboutChildren, IAboutYou } from '../../types/person'
 
@@ -36,14 +35,45 @@ export default function PaymentDetails() {
             </FormElement>
 
             {accountType === BankkontoType.NORSK && (
-                <FormElement>
-                    <RHFKontonummerInput
-                        name={'paymentDetails.bankAccount'}
-                        label={t('bankAccount')}
-                        description={t('information')}
-                        htmlSize={15}
-                    />
-                </FormElement>
+                <>
+                    <FormGroup>
+                        <RHFKontonummerInput
+                            name={'paymentDetails.bankAccount'}
+                            label={t('bankAccount')}
+                            htmlSize={15}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <FormElement>
+                            <RHFGeneralQuestionRadio
+                                id={'taxWithholdAnswer'}
+                                name={'paymentDetails.taxWithhold.answer'}
+                                legend={t('doYouWantUsToWithholdTax')}
+                                description={t('childPensionIsTaxable')}
+                            />
+                        </FormElement>
+
+                        {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
+                            <>
+                                <FormElement>
+                                    <RHFProsentInput
+                                        name={'paymentDetails.taxWithhold.taxPercentage'}
+                                        label={t('desiredTaxPercentage')}
+                                        placeholder={t('desiredTaxPercentagePlaceholder')}
+                                        htmlSize={40}
+                                    />
+                                </FormElement>
+                                <FormElement>
+                                    <Panel border>
+                                        <Alert variant={'info'} inline>
+                                            <BodyShort size={'small'}>{t('taxWithholdMustBeSentYearly')}</BodyShort>
+                                        </Alert>
+                                    </Panel>
+                                </FormElement>
+                            </>
+                        )}
+                    </FormGroup>
+                </>
             )}
 
             {accountType === BankkontoType.UTENLANDSK && (
@@ -81,35 +111,6 @@ export default function PaymentDetails() {
                                 </HelpTextLabel>
                             }
                         />
-                    </FormElement>
-                </>
-            )}
-
-            <FormElement>
-                <RHFGeneralQuestionRadio
-                    id={'taxWithholdAnswer'}
-                    name={'paymentDetails.taxWithhold.answer'}
-                    legend={t('doYouWantUsToWithholdTax')}
-                    description={<WhyWeAsk title={'tax'}>{t('childPensionIsTaxable')}</WhyWeAsk>}
-                />
-            </FormElement>
-
-            {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
-                <>
-                    <FormElement>
-                        <RHFProsentInput
-                            name={'paymentDetails.taxWithhold.taxPercentage'}
-                            label={t('desiredTaxPercentage')}
-                            placeholder={t('desiredTaxPercentagePlaceholder')}
-                            htmlSize={40}
-                        />
-                    </FormElement>
-                    <FormElement>
-                        <Panel border>
-                            <Alert variant={'info'} inline>
-                                <BodyShort size={'small'}>{t('taxWithholdMustBeSentYearly')}</BodyShort>
-                            </Alert>
-                        </Panel>
                     </FormElement>
                 </>
             )}

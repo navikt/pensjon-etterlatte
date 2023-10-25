@@ -23,6 +23,7 @@ const common = {
     chooseCountry: 'Select country',
     chooseLanguage: 'Select language',
     norway: 'Norway',
+    optional: 'optional'
 }
 
 const navigation = {
@@ -121,6 +122,7 @@ const frontPage = {
 const selectScenario = {
     whoIsApplying: 'For whom are you submitting an application for the children’s pension?',
     additionalSituationDetails: 'The child/children has/have lost',
+    additionalSituationDetailsOver18: '<Mangler tekst>',
     PARENT: 'I am applying for my child/children under the age of 18',
     GUARDIAN: 'I am applying for one or more children who I am the guardian for',
     CHILD: 'I have reached the age of 18 and am applying on behalf of myself',
@@ -157,7 +159,8 @@ const aboutYou = {
         'If you spend a prolonged period in a country other than Norway, this may affect whether you are entitled to a survivor’s pension and the amount you may receive.',
     addressOfResidenceConfirmed: 'Do you live at this address?',
     alternativeAddress: 'Enter your current residential address',
-    residesInNorway: 'Are you currently in Norway?',
+    residesInNorway: '<MANGLER TEKST>',
+    residesInNorwayDescription: '<MANGLER TEKST>',
     countryOfResidence: 'State which country',
     memberFolketrygdenAbroad:
         'Are you a member of the Norwegian National Insurance Scheme during your period living in a country other than Norway?',
@@ -179,6 +182,8 @@ const aboutParents = {
         'You will need to add information about both parents to continue with the application.  \n \n If the child has lost his/her mother and paternity has not been determined, you will need to use',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> this application</a>.',
+    bothParentsRequiredOver18: '<MANGLER TEKST>',
+    childAndOneParentDeceased: '<MANGLER TEKST>'
 }
 
 const livingParent = {
@@ -195,11 +200,12 @@ const aboutTheDeceased = {
     abroadStaysTitle: 'Time spent outside Norway',
     workOrLivingAbroadCanAffectPension:
         'We need to know if the deceased lived or worked outside Norway. This can influence the calculation of the children’s pension and also entitle the child/children to pension rights from other countries.',
+    workOrLivingAbroadCanAffectPensionOver18: '<MANGLER TEKST>',
     didTheDeceasedLiveAbroad: 'Did he or she live and/or work in a country other than Norway after the age of 16?',
     abroadInWhichCountry: 'Country',
     livedOrWorkedAbroad: 'Lived and/or worked?',
-    stayedAbroadFromDate: 'From date (optional)',
-    stayedAbroadToDate: 'To date (optional)',
+    stayedAbroadFromDate: 'From date',
+    stayedAbroadToDate: 'To date',
     deceasedWasMemberOfFolketrygdenAbroad:
         'Was the deceased a member of the Norwegian National Insurance Scheme during this period?',
     whyWeAskAboutFolketrygden:
@@ -217,6 +223,7 @@ const aboutTheDeceased = {
     occupationalInjury: 'Was the death caused by an occupational injury or occupational illness?',
     whyWeAskAboutOccupationalInjury:
         'If the death was caused by an occupational injury or occupational illness approved by NAV, this may determine whether the child/children will receive the children’s pension and the amount the child/children is/are entitled to.',
+    whyWeAskAboutOccupationalInjuryOver18: '<MANGLER TEKST>',
     deceasedHasServedInTheMilitary:
         'Has he or she carried out compulsory military or civil service that had a minimum duration of 30 days?',
     whyWeAskAboutMilitaryService:

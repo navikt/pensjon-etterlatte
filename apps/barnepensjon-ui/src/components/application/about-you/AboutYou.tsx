@@ -8,7 +8,7 @@ import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
-import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
+import { RHFTelefonInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
@@ -17,11 +17,14 @@ import FormElement from '../../common/FormElement'
 import { IAboutYou } from '../../../types/person'
 import PaymentDetails from '../../common/PaymentDetails'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
+import { RHFSelect } from '../../common/rhf/RHFSelect'
+import useCountries from '../../../hooks/useCountries'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
     const { state, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
+    const { countries }: { countries: any } = useCountries()
 
     const save = (data: any) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
@@ -39,7 +42,7 @@ export default function AboutYou({ next }: StepProps) {
         formState: { errors },
     } = methods
 
-    const addressConfirmed = watch('addressOfResidenceConfirmed')
+    const residesInNorway = watch('residesInNorway')
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
     const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
 
@@ -55,13 +58,19 @@ export default function AboutYou({ next }: StepProps) {
                         {!user.adressebeskyttelse && isChild && (
                             <>
                                 <RHFGeneralQuestionRadio
-                                    name={'addressOfResidenceConfirmed'}
-                                    legend={t('addressOfResidenceConfirmed')}
+                                    name={'residesInNorway'}
+                                    legend={t('residesInNorway')}
+                                    description={t('residesInNorwayDescription')}
                                 />
 
-                                {addressConfirmed === JaNeiVetIkke.NEI && (
+                                {residesInNorway === JaNeiVetIkke.NEI && (
                                     <FormElement>
-                                        <RHFInput name={'alternativeAddress'} label={t('alternativeAddress')} />
+                                        <RHFSelect
+                                                id={'countryOfResidence'}
+                                                name={'countryOfResidence'}
+                                                label={t('countryOfResidence')}
+                                                children={countries}
+                                        />
                                     </FormElement>
                                 )}
                             </>
@@ -83,7 +92,6 @@ export default function AboutYou({ next }: StepProps) {
                         )}
                     </FormGroup>
 
-                    {/* TODO: Når vi støtter barn og dette blir tilgjengelig må vi justere mappingen av paymentDetails */}
                     {!user.adressebeskyttelse && isChild && <PaymentDetails />}
 
                     <ErrorSummaryWrapper errors={errors} />

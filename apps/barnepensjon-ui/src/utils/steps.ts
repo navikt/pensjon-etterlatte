@@ -3,7 +3,6 @@ import AboutChildren from '../components/application/about-children/AboutChildre
 import Summary from '../components/application/summary/Summary'
 import AboutParents from '../components/application/about-parents/AboutParents'
 import AboutTheDeceasedParentStep from '../components/application/the-deceased/AboutTheDeceasedParentStep'
-import YourSituation from '../components/application/your-situation/YourSituation'
 
 export enum StepLabelKey {
     AboutYou = 'AboutYou',
@@ -103,19 +102,9 @@ export const ChildApplicantSteps: StepType[] = [
         element: AboutYou,
     },
     {
-        label: StepLabelKey.YourSituation,
-        path: StepPath.YourSituation,
-        element: YourSituation,
-    },
-    {
         label: StepLabelKey.AboutTheParents,
         path: StepPath.AboutTheParents,
         element: AboutParents,
-    },
-    {
-        label: StepLabelKey.AboutChildren,
-        path: StepPath.AboutChildren,
-        element: AboutChildren,
     },
     {
         label: StepLabelKey.Summary,

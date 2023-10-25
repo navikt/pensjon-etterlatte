@@ -2,7 +2,7 @@
     "applicant": {
         "consent": true,
         "applicantRole": "CHILD",
-        "applicantSituation": "BOTH_PARENTS_DECEASED"
+        "applicantSituation": "ONE_PARENT_DECEASED"
     },
     "meta": {
         "savedTimestamp": "2022-03-02T11:23:29.077Z",
@@ -28,16 +28,5 @@
             "hasStaysAbroad": "VET_IKKE"
         },
         "occupationalInjury": "NEI"
-    },
-    "firstParent": {
-        "firstName": "Apple",
-        "lastName": "Bees",
-        "fnrDnr": "11078431921",
-        "citizenship": "Bonaire, sint eustatius og saba",
-        "dateOfDeath": "2022-01-12",
-        "staysAbroad": {
-            "hasStaysAbroad": "NEI"
-        },
-        "occupationalInjury": "JA"
     }
 }

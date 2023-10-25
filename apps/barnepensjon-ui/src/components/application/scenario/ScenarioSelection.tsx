@@ -10,6 +10,7 @@ import { RHFRadio } from '../../common/rhf/RHFRadio'
 import Trans from '../../common/Trans'
 import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
 import FormElement from '../../common/FormElement'
+import { isDev } from '../../../api/axios'
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -128,7 +129,7 @@ export default function ScenarioSelection() {
                 </>
             )}
 
-            {ApplicantRole.CHILD === selectedRole && (
+            {ApplicantRole.CHILD === selectedRole && !isDev && (
                 <>
                     <FormGroup>
                         <BodyLong spacing size={'small'}>
@@ -144,9 +145,32 @@ export default function ScenarioSelection() {
                 </>
             )}
 
+            {ApplicantRole.CHILD === selectedRole && isDev && (
+                <>
+                    <FormGroup>
+                        <RHFRadio
+                            legend={t('additionalSituationDetailsOver18')}
+                            name={'applicantSituation'}
+                            children={[
+                                {
+                                    children: t(ApplicantSituation.ONE_PARENT_DECEASED),
+                                    value: ApplicantSituation.ONE_PARENT_DECEASED,
+                                    required: true,
+                                },
+                                {
+                                    children: t(ApplicantSituation.BOTH_PARENTS_DECEASED),
+                                    value: ApplicantSituation.BOTH_PARENTS_DECEASED,
+                                    required: true,
+                                },
+                            ]}
+                        />
+                    </FormGroup>
+                </>
+            )}
+
             <ErrorSummaryWrapper errors={errors} />
 
-            {ApplicantRole.CHILD !== selectedRole && (
+            {(ApplicantRole.CHILD !== selectedRole || isDev) && (
                 <FormGroup>
                     <Button onClick={handleSubmit(next)}>{t('continueButton', { ns: 'btn' })}</Button>
                 </FormGroup>

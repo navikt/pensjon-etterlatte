@@ -44,6 +44,15 @@ export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
                 </Panel>
 
                 <Panel>
+                    {aboutYou.residesInNorway && (
+                        <TextGroupJaNeiVetIkke title={t('residesInNorway')} content={aboutYou.residesInNorway} />
+                    )}
+                    {aboutYou.residesInNorway === JaNeiVetIkke.NEI && (
+                        <TextGroup title={t('countryOfResidence')} content={aboutYou.countryOfResidence} />
+                    )}
+                </Panel>
+
+                <Panel>
                     {aboutYou.addressOfResidenceConfirmed && (
                         <TextGroupJaNeiVetIkke
                             title={t('addressOfResidenceConfirmed')}

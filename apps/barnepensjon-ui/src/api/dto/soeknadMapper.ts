@@ -13,12 +13,20 @@ import {
     UtbetalingsInformasjon,
     Utenlandsadresse,
 } from './FellesOpplysninger'
-import { IChild } from '../../types/person'
+import { IAboutYou, IChild } from '../../types/person'
 import { Language } from '../../context/language/language'
-import { hentForeldre, mapForeldreMedUtvidetInfo } from './foreldreMapper'
+import { hentForeldre, hentForeldreOver18, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 import { mapVerge } from './mapVerge'
 
-export const mapTilBarnepensjonSoeknadListe = (t: TFunction, application: IApplication, user: User): Barnepensjon[] => {
+export const mapTilBarnepensjonSoeknadListe = (
+    t: TFunction,
+    application: IApplication,
+    user: User,
+    isChild: boolean
+): Barnepensjon[] => {
+    if (isChild) {
+        return [mapTilBarnepensjonSoeknad(t, application, user)]
+    }
     const children: IChild[] = application.aboutChildren!!.children!!
 
     if (!children.length) {
@@ -27,22 +35,22 @@ export const mapTilBarnepensjonSoeknadListe = (t: TFunction, application: IAppli
 
     return children
         .filter((child) => !!child.appliesForChildrensPension)
-        .map((child) => mapTilBarnepensjonSoeknad(t, child, application, user))
+        .map((child) => mapTilBarnepensjonSoeknad(t, application, user, child))
 }
 
 const mapTilBarnepensjonSoeknad = (
     t: TFunction,
-    child: IChild,
     application: IApplication,
-    user: User
+    user: User,
+    child?: IChild
 ): Barnepensjon => {
     const innsender: Innsender = mapInnsender(t, user)
 
     const harSamtykket: Opplysning<boolean> = mapSamtykke(t, application, user)
 
-    const foreldre: Person[] = mapForeldreMedUtvidetInfo(t, child, application, user)
+    const foreldre: Person[] = mapForeldreMedUtvidetInfo(t, application, user)
 
-    const soesken: Barn[] = mapSoesken(t, child, application, user)
+    const soesken: Barn[] = child ? mapSoesken(t, child, application, user) : [mapBarnOver18(t, application, user)]
 
     return {
         type: SoeknadType.BARNEPENSJON,
@@ -51,12 +59,9 @@ const mapTilBarnepensjonSoeknad = (
         innsender,
         harSamtykket,
 
-        utbetalingsInformasjon: mapUtbetalingsinfo(t, child),
+        utbetalingsInformasjon: child ? mapUtbetalingsinfo(t, child) : mapUtbetalingsinfo(t, application.aboutYou),
 
-        // TODO: Legge til "Din situasjon" på barnet.
-        // situasjon: undefined,
-
-        soeker: mapBarn(t, child, application, user),
+        soeker: child ? mapBarn(t, child, application, user) : mapBarnOver18(t, application, user),
         foreldre,
         soesken,
     }
@@ -64,29 +69,9 @@ const mapTilBarnepensjonSoeknad = (
 
 const mapUtbetalingsinfo = (
     t: TFunction,
-    child: IChild
+    person: IChild | IAboutYou
 ): BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon> | undefined => {
-    let skattetrekk: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar> | undefined> | undefined
-    if (!!child.paymentDetails?.taxWithhold?.answer) {
-        skattetrekk = {
-            spoersmaal: t('doYouWantUsToWithholdTax', { ns: 'paymentDetails' }),
-            svar: {
-                verdi: child.paymentDetails.taxWithhold.answer,
-                innhold: t(child.paymentDetails.taxWithhold.answer, { ns: 'radiobuttons' }),
-            },
-            opplysning:
-                child.paymentDetails.taxWithhold.answer === JaNeiVetIkke.JA
-                    ? {
-                          spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
-                          svar: {
-                              innhold: child.paymentDetails.taxWithhold.taxPercentage || '-',
-                          },
-                      }
-                    : undefined,
-        }
-    }
-
-    if (child.paymentDetails?.accountType === BankkontoType.UTENLANDSK) {
+    if (person.paymentDetails?.accountType === BankkontoType.UTENLANDSK) {
         return {
             spoersmaal: t('accountType', { ns: 'paymentDetails' }),
             svar: {
@@ -97,31 +82,50 @@ const mapUtbetalingsinfo = (
                 utenlandskBankNavn: {
                     spoersmaal: t('foreignBankName', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: child.paymentDetails.foreignBankName!!,
+                        innhold: person.paymentDetails.foreignBankName!!,
                     },
                 },
                 utenlandskBankAdresse: {
                     spoersmaal: t('foreignBankAddress', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: child.paymentDetails.foreignBankAddress!!,
+                        innhold: person.paymentDetails.foreignBankAddress!!,
                     },
                 },
                 iban: {
                     spoersmaal: t('iban', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: child.paymentDetails.iban!!,
+                        innhold: person.paymentDetails.iban!!,
                     },
                 },
                 swift: {
                     spoersmaal: t('swift', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: child.paymentDetails.swift!!,
+                        innhold: person.paymentDetails.swift!!,
                     },
                 },
-                skattetrekk,
             },
         }
-    } else if (!!child.paymentDetails?.bankAccount) {
+    } else if (!!person.paymentDetails?.bankAccount) {
+        let skattetrekk: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar> | undefined> | undefined
+        if (!!person.paymentDetails?.taxWithhold?.answer) {
+            skattetrekk = {
+                spoersmaal: t('doYouWantUsToWithholdTax', { ns: 'paymentDetails' }),
+                svar: {
+                    verdi: person.paymentDetails.taxWithhold.answer,
+                    innhold: t(person.paymentDetails.taxWithhold.answer, { ns: 'radiobuttons' }),
+                },
+                opplysning:
+                    person.paymentDetails.taxWithhold.answer === JaNeiVetIkke.JA
+                        ? {
+                              spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
+                              svar: {
+                                  innhold: person.paymentDetails.taxWithhold.taxPercentage || '-',
+                              },
+                          }
+                        : undefined,
+            }
+        }
+
         return {
             spoersmaal: t('accountType', { ns: 'paymentDetails' }),
             svar: {
@@ -132,7 +136,7 @@ const mapUtbetalingsinfo = (
                 kontonummer: {
                     spoersmaal: t('bankAccount', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: child.paymentDetails?.bankAccount!!,
+                        innhold: person.paymentDetails?.bankAccount!!,
                     },
                 },
                 skattetrekk,
@@ -192,6 +196,53 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
         utenlandsAdresse,
         foreldre: hentForeldre(t, child, application, user),
         verge: mapVerge(t, child, user),
+    }
+}
+
+const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Barn => {
+    const staysAbroad = application.aboutYou.residesInNorway
+
+    const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> | undefined = staysAbroad
+        ? {
+              spoersmaal: t('residesInNorway', { ns: 'aboutYou' }),
+              svar: {
+                  innhold: t(staysAbroad, { ns: 'radiobuttons' }),
+                  verdi: staysAbroad,
+              },
+          }
+        : undefined
+
+    if (staysAbroad === JaNeiVetIkke.NEI && !!utenlandsAdresse) {
+        utenlandsAdresse.opplysning = {
+            land: {
+                spoersmaal: t('countryOfResidence', { ns: 'aboutYou' }),
+                svar: {
+                    innhold: application.aboutYou!!.countryOfResidence!!,
+                },
+            },
+        }
+    }
+
+    return {
+        type: PersonType.BARN,
+        fornavn: {
+            spoersmaal: t('firstName', { ns: 'common' }),
+            svar: user.fornavn!!,
+        },
+        etternavn: {
+            spoersmaal: t('lastName', { ns: 'common' }),
+            svar: user.etternavn!!,
+        },
+        foedselsnummer: {
+            spoersmaal: t('fnrDnr', { ns: 'common' }),
+            svar: user.foedselsnummer!!,
+        },
+        statsborgerskap: {
+            spoersmaal: t('citizenship', { ns: 'common' }),
+            svar: user.statsborgerskap!!,
+        },
+        foreldre: hentForeldreOver18(t, application),
+        utenlandsAdresse,
     }
 }
 

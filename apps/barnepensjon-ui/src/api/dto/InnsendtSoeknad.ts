@@ -3,7 +3,6 @@ import { BankkontoType, BetingetOpplysning, EnumSvar, Opplysning, UtbetalingsInf
 import { Language } from '../../context/language/language'
 
 export enum SoeknadType {
-    GJENLEVENDEPENSJON = 'GJENLEVENDEPENSJON',
     BARNEPENSJON = 'BARNEPENSJON'
 }
 
