@@ -49,6 +49,8 @@ self.onmessage = async (event: MessageEvent<{ msg: CountdownMessage; endTime: nu
 
     if (!data?.msg) return
 
+    console.log('Origin: ' + event.origin)
+
     switch (data.msg) {
         case CountdownMessage.REGISTER_COUNTDOWN_LISTENER:
             return registerCountdownListener(data.endTime)
