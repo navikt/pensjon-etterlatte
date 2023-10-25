@@ -221,6 +221,7 @@ const aboutTheDeceased = {
     occupationalInjury: 'Was the death caused by an occupational injury or occupational illness?',
     whyWeAskAboutOccupationalInjury:
         'If the death was caused by an occupational injury or occupational illness approved by NAV, this may determine whether the child/children will receive the children’s pension and the amount the child/children is/are entitled to.',
+    whyWeAskAboutOccupationalInjuryOver18: '<MANGLER TEKST>',
     deceasedHasServedInTheMilitary:
         'Has he or she carried out compulsory military or civil service that had a minimum duration of 30 days?',
     whyWeAskAboutMilitaryService:

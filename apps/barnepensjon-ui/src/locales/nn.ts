@@ -213,6 +213,7 @@ const aboutTheDeceased = {
     occupationalInjury: 'Skuldast dødsfallet yrkesskade eller yrkessjukdom?',
     whyWeAskAboutOccupationalInjury:
         'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV, kan det avgjere om barnet/barna får barnepensjon og kor mykje det/dei kan få.',
+    whyWeAskAboutOccupationalInjuryOver18: '<MANGLER TEKST>',
     deceasedHasServedInTheMilitary:
         'Har han eller ho gjennomført militær eller sivil førstegongsteneste for Noreg som varte minst 30 dager?',
     whyWeAskAboutMilitaryService: 'Dette kan gi opptening som vert tatt med i berekninga av barnepensjonen.',

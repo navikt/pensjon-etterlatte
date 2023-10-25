@@ -67,7 +67,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                         legend={t('occupationalInjury')}
                         vetIkke={true}
                         description={
-                            <WhyWeAsk title="occupationalInjury">{t('whyWeAskAboutOccupationalInjury')}</WhyWeAsk>
+                            isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')
                         }
                     />
                 </FormElement>

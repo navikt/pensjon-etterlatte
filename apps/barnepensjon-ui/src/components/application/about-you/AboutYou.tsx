@@ -92,7 +92,7 @@ export default function AboutYou({ next }: StepProps) {
                         )}
                     </FormGroup>
 
-                    {!user.adressebeskyttelse && isChild && <PaymentDetails withTaxes={false}/>}
+                    {!user.adressebeskyttelse && isChild && <PaymentDetails />}
 
                     <ErrorSummaryWrapper errors={errors} />
 
