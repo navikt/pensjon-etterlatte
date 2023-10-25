@@ -96,6 +96,8 @@ export const hentLand = async () => {
     }
 }
 
+export const loggFunc = (data: any) => api.post('/api/logg', data)
+
 const getErrorMessage = (error: unknown) => {
     if (error instanceof Error) return error.message
     else return String(error)

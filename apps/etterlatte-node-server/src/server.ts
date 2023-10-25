@@ -8,6 +8,7 @@ import logger from './monitoring/logger'
 import parser from 'body-parser'
 import session from './auth/session'
 import rTracer from 'cls-rtracer'
+import {loggerRouter} from "./logging/loggerRouter";
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
@@ -41,6 +42,8 @@ app.get(`${basePath}/session`, session())
 app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))
+
+app.use('/api/logg', loggerRouter)
 
 const port = config.app.port
 app.listen(port, () => {

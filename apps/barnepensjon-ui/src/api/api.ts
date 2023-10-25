@@ -39,3 +39,5 @@ export const sendApplication = async (application: SoeknadRequest) =>
         })
 
 export const deleteDraft = async () => api.delete('/api/api/kladd').then((res) => res.data)
+
+export const loggFunc = (data: any) => api.post('/api/logg', data)
