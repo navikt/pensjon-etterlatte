@@ -42,7 +42,6 @@ app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))
 
-
 const port = config.app.port
 app.listen(port, () => {
     logger.info(`App listening on port: ${port}`)
