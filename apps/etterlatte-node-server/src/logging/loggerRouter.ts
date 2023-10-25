@@ -1,5 +1,5 @@
 import express from 'express'
-import {logger} from "./logger";
+import logger from '../monitoring/logger'
 
 export const loggerRouter = express.Router()
 loggerRouter.post('/', express.json(), (req, res) => {
