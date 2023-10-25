@@ -176,6 +176,7 @@ const aboutParents = {
         'Du må legge til opplysingar om begge foreldra for å halde fram med søknaden. \n\n Viss barnet har mista mora si og farskapet ikkje er fastsatt må du bruke',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
+    bothParentsRequiredOver18: '<MANGLER TEKST>',
     childAndOneParentDeceased: '<MANGLER TEKST>'
 }
 

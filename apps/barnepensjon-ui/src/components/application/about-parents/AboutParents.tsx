@@ -120,17 +120,14 @@ export default function AboutParents({ next, prev }: StepProps) {
                         </InfocardWrapper>
                     </FormGroup>
 
-                    {!isValid() && (
-                        <FormGroup>
-                            <Alert variant={'info'}>
-                                <BodyShort size={'small'}>
-                                    {t('bothParentsRequired')}
-
-                                    <Trans value={t('missingOneParentLink')} />
-                                </BodyShort>
-                            </Alert>
-                        </FormGroup>
-                    )}
+                    <FormGroup>
+                        <Alert variant={'info'}>
+                            <BodyShort size={'small'}>
+                                {childAndOneParentDeceased ? t('bothParentsRequiredOver18') : t('bothParentsRequired')}
+                                {!childAndOneParentDeceased && <Trans value={t('missingOneParentLink')} />}
+                            </BodyShort>
+                        </Alert>
+                    </FormGroup>
 
                     <Navigation left={{ onClick: prev }} right={{ onClick: next, disabled: !isValid() }} />
                 </>

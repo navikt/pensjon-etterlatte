@@ -37,42 +37,43 @@ export default function PaymentDetails() {
 
             {accountType === BankkontoType.NORSK && (
                 <>
-                    <FormElement>
+                    <FormGroup>
                         <RHFKontonummerInput
                             name={'paymentDetails.bankAccount'}
                             label={t('bankAccount')}
-                            description={t('information')}
                             htmlSize={15}
                         />
-                    </FormElement>
-                    <FormElement>
-                        <RHFGeneralQuestionRadio
-                            id={'taxWithholdAnswer'}
-                            name={'paymentDetails.taxWithhold.answer'}
-                            legend={t('doYouWantUsToWithholdTax')}
-                            description={<WhyWeAsk title={'tax'}>{t('childPensionIsTaxable')}</WhyWeAsk>}
-                        />
-                    </FormElement>
+                    </FormGroup>
+                    <FormGroup>
+                        <FormElement>
+                            <RHFGeneralQuestionRadio
+                                id={'taxWithholdAnswer'}
+                                name={'paymentDetails.taxWithhold.answer'}
+                                legend={t('doYouWantUsToWithholdTax')}
+                                description={t('childPensionIsTaxable')}
+                            />
+                        </FormElement>
 
-                    {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
-                        <>
-                            <FormElement>
-                                <RHFProsentInput
-                                    name={'paymentDetails.taxWithhold.taxPercentage'}
-                                    label={t('desiredTaxPercentage')}
-                                    placeholder={t('desiredTaxPercentagePlaceholder')}
-                                    htmlSize={40}
-                                />
-                            </FormElement>
-                            <FormElement>
-                                <Panel border>
-                                    <Alert variant={'info'} inline>
-                                        <BodyShort size={'small'}>{t('taxWithholdMustBeSentYearly')}</BodyShort>
-                                    </Alert>
-                                </Panel>
-                            </FormElement>
-                        </>
-                    )}
+                        {withholdingTaxChildrensPension === JaNeiVetIkke.JA && (
+                            <>
+                                <FormElement>
+                                    <RHFProsentInput
+                                        name={'paymentDetails.taxWithhold.taxPercentage'}
+                                        label={t('desiredTaxPercentage')}
+                                        placeholder={t('desiredTaxPercentagePlaceholder')}
+                                        htmlSize={40}
+                                    />
+                                </FormElement>
+                                <FormElement>
+                                    <Panel border>
+                                        <Alert variant={'info'} inline>
+                                            <BodyShort size={'small'}>{t('taxWithholdMustBeSentYearly')}</BodyShort>
+                                        </Alert>
+                                    </Panel>
+                                </FormElement>
+                            </>
+                        )}
+                    </FormGroup>
                 </>
             )}
 
