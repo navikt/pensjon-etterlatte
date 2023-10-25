@@ -14,12 +14,3 @@ export const logger = winston.createLogger({
   defaultMeta: { service: 'etterlatte-soeknadsdialog' },
   transports: [consoleTransport],
 })
-
-export const frontendLogger = winston.createLogger({
-  level: 'info',
-  format: process.env.NAIS_CLUSTER_NAME ? production : dev,
-  defaultMeta: {
-    service: 'etterlatte-soeknadsdialog-client',
-  },
-  transports: [consoleTransport],
-})
