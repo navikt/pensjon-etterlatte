@@ -8,7 +8,6 @@ import logger from './monitoring/logger'
 import parser from 'body-parser'
 import session from './auth/session'
 import rTracer from 'cls-rtracer'
-import {loggerRouter} from "./logging/loggerRouter";
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
@@ -35,6 +34,20 @@ app.get(`${basePath}/metrics`, async (req: Request, res: Response) => {
     res.end(await prometheus.register.metrics())
 })
 
+app.post(`${basePath}/logg`, async (req: Request, res: Response) => {
+    const body = req.body
+    if (!process.env.NAIS_CLUSTER_NAME) {
+        logger.info(`Nais cluster unavailable: ${JSON.stringify(body)}`)
+    } else if (body.type && body.type === 'info') {
+        logger.info('Frontendlogging: ', JSON.stringify(body))
+    } else {
+        logger.error(
+            `General error from frontend: ${JSON.stringify(body.data)} \n details: ${JSON.stringify(body.jsonContent)}`
+        )
+        res.sendStatus(200)
+    }
+})
+
 logger.info('Setting up session and proxy')
 
 app.get(`${basePath}/session`, session())
@@ -43,7 +56,6 @@ app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))
 
-app.use(`${basePath}/logg`, loggerRouter)
 
 const port = config.app.port
 app.listen(port, () => {
