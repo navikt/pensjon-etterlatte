@@ -43,7 +43,7 @@ app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))
 
-app.use('/api/logg', loggerRouter)
+app.use(`${basePath}/logg`, loggerRouter)
 
 const port = config.app.port
 app.listen(port, () => {
