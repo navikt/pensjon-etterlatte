@@ -2,10 +2,9 @@ import {loggFunc} from "../api/api";
 
 export const logger = {
   info: (message: string) => {
-    const data = { type: 'info', stackInfo: message, jsonContent: { } }
-    loggFunc(data)
+    loggFunc(message)
       .catch((err) => {
-        console.error('Unable to log info message: ', data, ' err: ', err)
+        console.error('Unable to log info message, err: ', err)
       })
   },
 }

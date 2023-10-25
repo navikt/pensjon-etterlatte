@@ -96,11 +96,9 @@ export const hentLand = async () => {
     }
 };
 
-export const loggFunc = async (data: any) => {
-    const body = { ...data };
-
+export const loggFunc = async (message: string) => {
     try {
-        const response = await api.post("/logg", body);
+        const response = await api.post("/api/logg", {message: message});
         return response.status;
     } catch (e) {
         throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`);

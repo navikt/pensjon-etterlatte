@@ -34,11 +34,6 @@ app.get(`${basePath}/metrics`, async (req: Request, res: Response) => {
     res.end(await prometheus.register.metrics())
 })
 
-app.post(`${basePath}/logg`, async (req: Request, res: Response) => {
-    logger.info('Frontendlogging: ', JSON.stringify(req.body))
-    res.sendStatus(201)
-})
-
 logger.info('Setting up session and proxy')
 
 app.get(`${basePath}/session`, session())
