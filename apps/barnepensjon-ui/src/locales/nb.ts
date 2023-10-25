@@ -23,6 +23,7 @@ const common = {
     chooseCountry: 'Velg land',
     chooseLanguage: 'Velg språk',
     norway: 'Norge',
+    optional: 'valgfri'
 }
 
 const navigation = {
@@ -199,8 +200,8 @@ const aboutTheDeceased = {
     didTheDeceasedLiveAbroad: 'Har han eller hun bodd og/eller arbeidet i et annet land enn Norge etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Bodd og/eller arbeidet?',
-    stayedAbroadFromDate: 'Fra dato (valgfri)',
-    stayedAbroadToDate: 'Til dato (valgfri)',
+    stayedAbroadFromDate: 'Fra dato',
+    stayedAbroadToDate: 'Til dato',
     deceasedWasMemberOfFolketrygdenAbroad: 'Var han eller hun medlem av folketrygden under oppholdet?',
     whyWeAskAboutFolketrygden:
         'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',

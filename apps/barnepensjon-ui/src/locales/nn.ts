@@ -14,7 +14,7 @@ const common = {
     maritalStatus: 'Sivilstatus',
     citizenship: 'Statsborgarskap',
     phoneNumber: 'Telefonnummer',
-    phoneNumberOptional: 'Telefonnummer (valgfri)',
+    phoneNumberOptional: 'Telefonnummer (valfri)',
     phoneNumberHelpText: 'Telefonnummeret er henta frå Kontakt- og reservasjonsregisteret.',
     whyWeAsk: 'Kvifor spør vi om dette',
     dateFormat: '(dd.mm.yyyy)',
@@ -23,6 +23,7 @@ const common = {
     chooseCountry: 'Vel land',
     chooseLanguage: 'Vel språk',
     norway: 'Noreg',
+    optional: 'valfri'
 }
 
 const navigation = {
@@ -198,8 +199,8 @@ const aboutTheDeceased = {
     didTheDeceasedLiveAbroad: 'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Budd og/eller arbeidd?',
-    stayedAbroadFromDate: 'Frå dato (valfri)',
-    stayedAbroadToDate: 'Til dato (valfri)',
+    stayedAbroadFromDate: 'Frå dato',
+    stayedAbroadToDate: 'Til dato',
     deceasedWasMemberOfFolketrygdenAbroad: 'Var han eller ho medlem av folketrygda under opphaldet?',
     whyWeAskAboutFolketrygden: 'Vi må vite om avdøde var medlem av folketrygda for å avgjere retten til barnepensjon.',
     pensionReceivedFromAbroad: 'Oppgi eventuell pensjon han eller ho mottok frå dette landet (valfri)',

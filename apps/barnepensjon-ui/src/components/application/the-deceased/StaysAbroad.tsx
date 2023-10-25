@@ -9,7 +9,6 @@ import { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { OppholdUtlandType } from '../../../api/dto/FellesOpplysninger'
 import DatePicker from '../../common/DatePicker'
-import WhyWeAsk from '../../common/WhyWeAsk'
 import { DeleteFilled } from '@navikt/ds-icons'
 import FormElement from '../../common/FormElement'
 import styled from 'styled-components'
@@ -89,10 +88,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                 name={`staysAbroad.abroadStays[${index}].medlemFolketrygd`}
                                 legend={t('deceasedWasMemberOfFolketrygdenAbroad')}
                                 vetIkke={true}
-                                description={
-                                    // Usikker på om denne trengs for BP, eller kun for GP?
-                                    <WhyWeAsk title="medlemFolketrygd">{t('whyWeAskAboutFolketrygden')}</WhyWeAsk>
-                                }
+                                description={t('whyWeAskAboutFolketrygden')}
                             />
                         </FormElement>
                         <FormElement>
