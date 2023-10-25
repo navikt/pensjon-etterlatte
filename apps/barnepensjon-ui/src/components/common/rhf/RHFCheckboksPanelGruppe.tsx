@@ -61,7 +61,7 @@ export function RHFCheckboksGruppe({ name, checkboxes, required, ...rest }: RHFC
                 control={control}
                 rules={{ required }}
                 render={({ field: { value, onChange } }) => (
-                    <CheckboxGroup {...rest} error={feilmelding}>
+                    <CheckboxGroup {...rest} error={feilmelding} defaultValue={value}>
                         {checkboxes.map((checkbox: CheckboxProps) => (
                             <Checkbox
                                 key={checkbox.value as string}
