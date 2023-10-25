@@ -35,17 +35,8 @@ app.get(`${basePath}/metrics`, async (req: Request, res: Response) => {
 })
 
 app.post(`${basePath}/logg`, async (req: Request, res: Response) => {
-    const body = req.body
-    if (!process.env.NAIS_CLUSTER_NAME) {
-        logger.info(`Nais cluster unavailable: ${JSON.stringify(body)}`)
-    } else if (body.type && body.type === 'info') {
-        logger.info('Frontendlogging: ', JSON.stringify(body))
-    } else {
-        logger.error(
-            `General error from frontend: ${JSON.stringify(body.data)} \n details: ${JSON.stringify(body.jsonContent)}`
-        )
-        res.sendStatus(200)
-    }
+    logger.info('Frontendlogging: ', JSON.stringify(req.body))
+    res.sendStatus(201)
 })
 
 logger.info('Setting up session and proxy')
