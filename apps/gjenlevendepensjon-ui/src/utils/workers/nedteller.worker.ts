@@ -48,7 +48,7 @@ self.onmessage = async (event: MessageEvent<{ msg: NedtellingsMelding; sluttTid:
 
     if (!data?.msg) return;
 
-    logger.info(event.origin)
+    logger.info(`Origin: ${event.origin}`)
 
     switch (data.msg) {
         case NedtellingsMelding.REGISTRER_NEDTELLINGS_LYTTER:

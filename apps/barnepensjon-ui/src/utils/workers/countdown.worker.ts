@@ -50,9 +50,7 @@ self.onmessage = async (event: MessageEvent<{ msg: CountdownMessage; endTime: nu
 
     if (!data?.msg) return
 
-    if (event.origin) {
-        logger.info(event.origin)
-    }
+    logger.info(`Origin: ${event.origin}`)
 
     switch (data.msg) {
         case CountdownMessage.REGISTER_COUNTDOWN_LISTENER:
