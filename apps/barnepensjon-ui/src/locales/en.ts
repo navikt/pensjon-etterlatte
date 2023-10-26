@@ -23,7 +23,7 @@ const common = {
     chooseCountry: 'Select country',
     chooseLanguage: 'Select language',
     norway: 'Norway',
-    optional: 'optional'
+    optional: 'optional',
 }
 
 const navigation = {
@@ -45,6 +45,8 @@ const btn = {
     continueButton: 'Continue',
     yesButton: 'Yes, submit application',
     noButton: 'No, go back',
+    yesUnknownParent: '<MANGLER TEKST>',
+    noUnknownParent: '<MANGLER TEKST>',
 }
 
 const loggedInUserInfo = {
@@ -169,6 +171,7 @@ const aboutYou = {
 
 const aboutParents = {
     aboutParentsTitle: 'About the parents',
+    unknownParentTitle: '<MANGLER TEKST>',
     firstParent: 'Parent 1',
     secondParent: 'Parent 2',
     survivingParent: 'Surviving parent',
@@ -183,7 +186,9 @@ const aboutParents = {
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> this application</a>.',
     bothParentsRequiredOver18: '<MANGLER TEKST>',
-    childAndOneParentDeceased: '<MANGLER TEKST>'
+    childAndOneParentDeceased: '<MANGLER TEKST>',
+    unknownParent: '<MANGLER TEKST>',
+    unknownParentQuestion: '<MANGLER TEKST>',
 }
 
 const livingParent = {

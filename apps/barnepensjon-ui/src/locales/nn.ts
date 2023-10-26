@@ -23,7 +23,7 @@ const common = {
     chooseCountry: 'Vel land',
     chooseLanguage: 'Vel språk',
     norway: 'Noreg',
-    optional: 'valfri'
+    optional: 'valfri',
 }
 
 const navigation = {
@@ -45,6 +45,8 @@ const btn = {
     continueButton: 'Fortsett',
     yesButton: 'Ja, send søknad',
     noButton: 'Nei, gå tilbake',
+    yesUnknownParent: '<MANGLER TEKST>',
+    noUnknownParent: '<MANGLER TEKST>',
 }
 
 const loggedInUserInfo = {
@@ -164,6 +166,7 @@ const aboutYou = {
 
 const aboutParents = {
     aboutParentsTitle: 'Om foreldra',
+    unknownParentTitle: '<MANGLER TEKST>',
     firstParent: 'Forelder 1',
     secondParent: 'Forelder 2',
     survivingParent: 'Attlevende forelder',
@@ -178,7 +181,9 @@ const aboutParents = {
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
     bothParentsRequiredOver18: '<MANGLER TEKST>',
-    childAndOneParentDeceased: '<MANGLER TEKST>'
+    childAndOneParentDeceased: '<MANGLER TEKST>',
+    unknownParent: '<MANGLER TEKST>',
+    unknownParentQuestion: '<MANGLER TEKST>',
 }
 
 const livingParent = {

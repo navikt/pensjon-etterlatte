@@ -223,6 +223,13 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
         }
     }
 
+    const ukjentForelder: Opplysning<string> | undefined = !!application.unknownParent
+        ? {
+              spoersmaal: t('unknownParentQuestion', { ns: 'aboutParents' }),
+              svar: t('yesUnknownParent', { ns: 'btn' }),
+          }
+        : undefined
+
     return {
         type: PersonType.BARN,
         fornavn: {
@@ -242,6 +249,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
             svar: user.statsborgerskap!!,
         },
         foreldre: hentForeldreOver18(t, application),
+        ukjentForelder,
         utenlandsAdresse,
     }
 }

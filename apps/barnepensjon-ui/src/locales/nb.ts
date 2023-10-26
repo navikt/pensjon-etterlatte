@@ -23,7 +23,7 @@ const common = {
     chooseCountry: 'Velg land',
     chooseLanguage: 'Velg språk',
     norway: 'Norge',
-    optional: 'valgfri'
+    optional: 'valgfri',
 }
 
 const navigation = {
@@ -45,6 +45,8 @@ const btn = {
     yesButton: 'Ja, send søknad',
     noButton: 'Nei, gå tilbake',
     continueButton: 'Fortsett',
+    yesUnknownParent: 'Ja, min forelder er ukjent',
+    noUnknownParent: 'Nei, jeg kjenner til mine foreldre',
 }
 
 const loggedInUserInfo = {
@@ -156,7 +158,8 @@ const aboutYou = {
     addressOfResidenceConfirmed: 'Bor du på denne adressen?',
     alternativeAddress: 'Oppgi nåværende bostedsadresse',
     residesInNorway: 'Har du oppholdt deg i Norge de siste 12 månedene?',
-    residesInNorwayDescription: 'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
+    residesInNorwayDescription:
+        'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
     'subtitle.personalia': 'Personalia',
@@ -164,6 +167,7 @@ const aboutYou = {
 
 const aboutParents = {
     aboutParentsTitle: 'Om foreldrene',
+    unknownParentTitle: 'Ukjent forelder',
     firstParent: 'Forelder 1',
     secondParent: 'Forelder 2',
     survivingParent: 'Gjenlevende forelder',
@@ -177,8 +181,11 @@ const aboutParents = {
         'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
-    bothParentsRequiredOver18: 'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknaden på nytt. Velg at du har mistet begge foreldrene dine.',
-    childAndOneParentDeceased: 'Du trenger ikke fylle ut informasjon om gjenlevende forelder'
+    bothParentsRequiredOver18:
+        'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknaden på nytt. Velg at du har mistet begge foreldrene dine.',
+    childAndOneParentDeceased: 'Du trenger ikke fylle ut informasjon om gjenlevende forelder',
+    unknownParent: 'Ukjent forelder',
+    unknownParentQuestion: 'Er din ene forelder ukjent?',
 }
 
 const livingParent = {
@@ -196,7 +203,7 @@ const aboutTheDeceased = {
     workOrLivingAbroadCanAffectPension:
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi barnet/barna pensjonsrettigheter fra andre land.',
     workOrLivingAbroadCanAffectPensionOver18:
-            'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi deg pensjonsrettigheter fra andre land.',
+        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi deg pensjonsrettigheter fra andre land.',
     didTheDeceasedLiveAbroad: 'Har han eller hun bodd og/eller arbeidet i et annet land enn Norge etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Bodd og/eller arbeidet?',
@@ -218,7 +225,7 @@ const aboutTheDeceased = {
     whyWeAskAboutOccupationalInjury:
         'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om barnet/barna får barnepensjon og hvor mye det/de kan få.',
     whyWeAskAboutOccupationalInjuryOver18:
-            'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
+        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
     deceasedHasServedInTheMilitary:
         'Har han eller hun gjennomført militær eller sivil førstegangstjeneste for Norge som varte minst 30 dager?',
     whyWeAskAboutMilitaryService: 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',

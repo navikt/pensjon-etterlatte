@@ -51,9 +51,12 @@ export const hentForeldre = (t: TFunction, child: IChild, application: IApplicat
 export const hentForeldreOver18 = (t: TFunction, application: IApplication): Forelder[] => {
     const oneParentDead = application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
     const bothParentDead = application.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
+    const hasUnknownParent = !!application.unknownParent
 
     if (oneParentDead) {
         return [mapTilForelder(t, application.secondParent!!)]
+    } else if (hasUnknownParent) {
+        return [mapTilForelder(t, application.firstParent!!)]
     } else if (bothParentDead) {
         const firstParent = mapTilForelder(t, application.firstParent!!)
         const secondParent = mapTilForelder(t, application.secondParent!!)
@@ -81,7 +84,13 @@ const mapTilForelder = (t: TFunction, parent: IParent): Forelder => ({
 
 export const mapForeldreMedUtvidetInfo = (t: TFunction, application: IApplication, user: User): Person[] => {
     if (application.applicant?.applicantRole === ApplicantRole.CHILD) {
-        const avdoed: Avdoed = mapAvdoed(t, application.secondParent as IDeceasedParent)
+        let avdoed: Avdoed
+        if (application.unknownParent) {
+            avdoed = mapAvdoed(t, application.firstParent as IDeceasedParent)
+        } else {
+            avdoed = mapAvdoed(t, application.secondParent as IDeceasedParent)
+        }
+
         return [avdoed]
     }
 
