@@ -1,6 +1,6 @@
 import { Alert, BodyShort, Button, Checkbox, CheckboxGroup, Heading, Modal, Panel } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
 import { ActionTypes, IParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
