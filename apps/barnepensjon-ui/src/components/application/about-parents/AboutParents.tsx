@@ -53,7 +53,7 @@ export default function AboutParents({ next, prev }: StepProps) {
         next!!()
     }
 
-    const settUnknownParent = (value: boolean) => {
+    const setUnknownParent = (value: boolean) => {
         setValue('unknownParent', value)
         updateUnknownParent(value)
     }
@@ -76,8 +76,8 @@ export default function AboutParents({ next, prev }: StepProps) {
     }
 
     useEffect(() => {
-        if (unknownParent !== undefined) settUnknownParent(unknownParent)
-    }, [editing])
+        if (unknownParent !== undefined && unknownParent !== state.unknownParent) setUnknownParent(unknownParent)
+    }, [editing, unknownParent, setUnknownParent])
 
     return (
         <FormProvider {...methods}>
@@ -147,7 +147,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                                 value={true}
                                                 onClick={() => {
                                                     if (state.unknownParent) {
-                                                        settUnknownParent(false)
+                                                        setUnknownParent(false)
                                                     } else {
                                                         setIsOpen(true)
                                                     }
@@ -228,7 +228,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                         variant={'primary'}
                         type={'button'}
                         onClick={() => {
-                            settUnknownParent(true)
+                            setUnknownParent(true)
                             setIsOpen(false)
                         }}
                         style={{ margin: '10px' }}
@@ -240,7 +240,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                         variant={'secondary'}
                         type={'button'}
                         onClick={() => {
-                            settUnknownParent(false)
+                            setUnknownParent(false)
                             setIsOpen(false)
                         }}
                         style={{ margin: '10px' }}
