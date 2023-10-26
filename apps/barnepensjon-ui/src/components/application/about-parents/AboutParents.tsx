@@ -77,7 +77,7 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     useEffect(() => {
         if (unknownParent !== undefined && unknownParent !== state.unknownParent) setUnknownParent(unknownParent)
-    }, [editing, unknownParent, setUnknownParent])
+    }, [editing, unknownParent, setUnknownParent, state.unknownParent])
 
     return (
         <FormProvider {...methods}>
