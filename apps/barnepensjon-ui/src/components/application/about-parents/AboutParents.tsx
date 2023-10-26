@@ -80,6 +80,7 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     useEffect(() => {
         if (state.unknownParent !== undefined) setUnknownParent(state.unknownParent)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return (
