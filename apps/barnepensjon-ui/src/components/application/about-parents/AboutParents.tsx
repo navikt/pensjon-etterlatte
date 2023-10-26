@@ -53,12 +53,12 @@ export default function AboutParents({ next, prev }: StepProps) {
         next!!()
     }
 
-    const setUnknownParent = (value: boolean) => {
+    const settUnknownParent = (value: boolean) => {
         setValue('unknownParent', value)
         updateUnknownParent(value)
     }
 
-    const { watch, getValues, setValue, handleSubmit, formState } = methods
+    const { watch, getValues, setValue, handleSubmit } = methods
 
     const unknownParent = watch('unknownParent')
 
@@ -76,7 +76,7 @@ export default function AboutParents({ next, prev }: StepProps) {
     }
 
     useEffect(() => {
-        if (unknownParent !== undefined) setUnknownParent(unknownParent)
+        if (unknownParent !== undefined) settUnknownParent(unknownParent)
     }, [editing])
 
     return (
@@ -147,7 +147,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                                 value={true}
                                                 onClick={() => {
                                                     if (state.unknownParent) {
-                                                        setUnknownParent(false)
+                                                        settUnknownParent(false)
                                                     } else {
                                                         setIsOpen(true)
                                                     }
@@ -228,7 +228,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                         variant={'primary'}
                         type={'button'}
                         onClick={() => {
-                            setUnknownParent(true)
+                            settUnknownParent(true)
                             setIsOpen(false)
                         }}
                         style={{ margin: '10px' }}
@@ -240,7 +240,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                         variant={'secondary'}
                         type={'button'}
                         onClick={() => {
-                            setUnknownParent(false)
+                            settUnknownParent(false)
                             setIsOpen(false)
                         }}
                         style={{ margin: '10px' }}
