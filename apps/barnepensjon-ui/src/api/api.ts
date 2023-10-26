@@ -39,3 +39,12 @@ export const sendApplication = async (application: SoeknadRequest) =>
         })
 
 export const deleteDraft = async () => api.delete('/api/api/kladd').then((res) => res.data)
+
+export const loggFunc = async (message: string) => {
+    try {
+        const response = await api.post("/api/logg", {message: message});
+        return response.status;
+    } catch (e) {
+        throw new Error(`Det skjedde en feil: ${e}`);
+    }
+};

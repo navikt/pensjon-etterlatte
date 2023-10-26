@@ -79,6 +79,7 @@ class Server(applicationContext: ApplicationContext) {
                     personApi(personService)
                     soknadApi(soeknadService)
                     kodeverkApi(kodeverkService)
+                    loggApi()
                 }
             }
         }

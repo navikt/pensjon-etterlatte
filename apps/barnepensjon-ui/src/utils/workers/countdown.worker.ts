@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-globals */
 
 import { CountdownMessage } from '../../types/countdown'
+import {logger} from "../logger";
 
 let countdown: ReturnType<typeof setInterval>
 let counter = false
@@ -48,6 +49,8 @@ self.onmessage = async (event: MessageEvent<{ msg: CountdownMessage; endTime: nu
     const data = event?.data
 
     if (!data?.msg) return
+
+    logger.info(`Origin: ${event.origin}`)
 
     switch (data.msg) {
         case CountdownMessage.REGISTER_COUNTDOWN_LISTENER:

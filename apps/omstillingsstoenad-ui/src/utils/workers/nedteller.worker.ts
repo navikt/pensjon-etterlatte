@@ -1,4 +1,5 @@
 import { NedtellingsMelding } from '../../typer/nedteller'
+import {logger} from "../logger";
 
 let nedteller: ReturnType<typeof setInterval>
 let teller = false
@@ -46,6 +47,8 @@ self.onmessage = async (event: MessageEvent<{ msg: NedtellingsMelding; sluttTid:
     const data = event?.data
 
     if (!data?.msg) return
+
+    logger.info(`Origin: ${event.origin}`)
 
     switch (data.msg) {
         case NedtellingsMelding.REGISTRER_NEDTELLINGS_LYTTER:

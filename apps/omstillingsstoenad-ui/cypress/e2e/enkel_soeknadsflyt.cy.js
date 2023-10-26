@@ -280,34 +280,9 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         // Verifiser søknad mottatt
         // TODO: Vil ikke lenger fungere nå som sendt data er annerledes fra state
-        /*
-        cy.wait(["@postSoeknad"]).then((xhr) => {
-            // Verifiser at innholdet i requesten består av dataen vi har populert skjema med.
-            sammenlignRequestMedInputdata(xhr.request.body);
-        });
-*/
 
         // Verifiser kvitteringsside
         cy.url().should('include', '/skjema/sendt')
         cy.contains('Søknaden din er sendt til oss')
     })
 })
-
-// noinspection JSUnusedLocalSymbols
-const sammenlignRequestMedInputdata = (request) => {
-    ;[mockSoeknad, request].forEach((soeknad) => {
-        soeknad.sistLagretDato = undefined
-        soeknad.klarForLagring = undefined
-
-        // todo: Fjern datofelter fra sammenligning frem til en løsning for tidssoneproblematikk er klar...
-        soeknad.omDegOgAvdoed.avdoed.datoForDoedsfallet = undefined
-        soeknad.omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.forEach((oppholdUtland) => {
-            oppholdUtland.fraDato = undefined
-            oppholdUtland.tilDato = undefined
-        })
-        soeknad.dinSituasjon.arbeidsforhold.startDato = undefined
-        soeknad.omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap = undefined
-    })
-
-    expect(request).to.deep.equal(mockSoeknad)
-}
