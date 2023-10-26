@@ -2,7 +2,7 @@ import { Alert, BodyShort, Button, Checkbox, CheckboxGroup, Heading, Modal, Pane
 import { isEmpty } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
-import { ActionTypes, IParent, IUnknownParent } from '../../../context/application/application'
+import { ActionTypes, IParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
@@ -34,8 +34,7 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const updateFirstParent = (payload: IParent | {}) => dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload })
     const updateSecondParent = (payload: IParent | {}) => dispatch({ type: ActionTypes.UPDATE_SECOND_PARENT, payload })
-    const updateUnknownParent = (payload: IUnknownParent | {}) =>
-        dispatch({ type: ActionTypes.UPDATE_UNKNOWN_PARENT, payload })
+    const updateUnknownParent = (payload: boolean) => dispatch({ type: ActionTypes.UPDATE_UNKNOWN_PARENT, payload })
 
     const bothParentsDeceased = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
 
@@ -58,14 +57,13 @@ export default function AboutParents({ next, prev }: StepProps) {
         updateUnknownParent(value)
     }
 
-    const { watch, getValues, setValue, handleSubmit } = methods
+    const { watch, setValue, handleSubmit } = methods
 
     const unknownParent = watch('unknownParent')
 
     const isValid = () => {
-        const values = getValues()
         if (childAndOneParentDeceased) return !isEmpty(state?.secondParent)
-        return !isEmpty(state?.firstParent) && (!isEmpty(state?.secondParent) || !!values.unknownParent)
+        return !isEmpty(state?.firstParent) && (!isEmpty(state?.secondParent) || !!state.unknownParent)
     }
 
     const fnrRegisteredParent = (): string[] => {
@@ -75,9 +73,14 @@ export default function AboutParents({ next, prev }: StepProps) {
         return [fnr]
     }
 
+    const updateEditing = (value: EditParent) => {
+        setEditing(value)
+        if (unknownParent !== undefined) setUnknownParent(unknownParent)
+    }
+
     useEffect(() => {
-        if (unknownParent !== undefined && unknownParent !== state.unknownParent) setUnknownParent(unknownParent)
-    }, [editing, unknownParent, setUnknownParent, state.unknownParent])
+        if (state.unknownParent !== undefined) setUnknownParent(state.unknownParent)
+    },[])
 
     return (
         <FormProvider {...methods}>
@@ -104,7 +107,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                                 }
                                                 variant={'primary'}
                                                 type={'button'}
-                                                onClick={() => setEditing(EditParent.FIRST)}
+                                                onClick={() => updateEditing(EditParent.FIRST)}
                                             >
                                                 {t('addParentBtn')}
                                             </Button>
@@ -114,7 +117,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                             ) : (
                                 <ParentInfoCard
                                     parent={state.firstParent!!}
-                                    edit={() => setEditing(EditParent.FIRST)}
+                                    edit={() => updateEditing(EditParent.FIRST)}
                                     remove={() => updateFirstParent({})}
                                 />
                             )}
@@ -135,7 +138,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                                 }
                                                 variant={'primary'}
                                                 type={'button'}
-                                                onClick={() => setEditing(EditParent.SECOND)}
+                                                onClick={() => updateEditing(EditParent.SECOND)}
                                                 disabled={state.unknownParent}
                                             >
                                                 {t('addParentBtn')}
@@ -161,7 +164,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                             ) : (
                                 <ParentInfoCard
                                     parent={state.secondParent!!}
-                                    edit={() => setEditing(EditParent.SECOND)}
+                                    edit={() => updateEditing(EditParent.SECOND)}
                                     remove={() => updateSecondParent({})}
                                 />
                             )}
