@@ -75,6 +75,7 @@ export interface Barn extends Person {
     statsborgerskap: Opplysning<string>
     utenlandsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse | undefined>
     foreldre: Forelder[]
+    ukjentForelder?: Opplysning<string>
     verge?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge>
     dagligOmsorg?: Opplysning<EnumSvar<OmsorgspersonType>>
 }

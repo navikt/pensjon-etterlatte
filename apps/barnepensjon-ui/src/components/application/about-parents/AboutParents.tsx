@@ -1,8 +1,8 @@
-import { Alert, BodyShort, Button, Panel } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, Checkbox, CheckboxGroup, Heading, Modal, Panel } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
-import { ActionTypes, IParent } from '../../../context/application/application'
+import { ActionTypes, IParent, IUnknownParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
@@ -15,6 +15,7 @@ import DeceasedParent from './DeceasedParent'
 import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
 import Trans from '../../common/Trans'
+import { FormProvider, useForm } from 'react-hook-form'
 
 enum EditParent {
     NONE,
@@ -23,6 +24,7 @@ enum EditParent {
 }
 
 export default function AboutParents({ next, prev }: StepProps) {
+    const [isOpen, setIsOpen] = useState(false)
     const { t } = useTranslation('aboutParents')
     const { state, dispatch } = useApplicationContext()
 
@@ -32,6 +34,8 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const updateFirstParent = (payload: IParent | {}) => dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload })
     const updateSecondParent = (payload: IParent | {}) => dispatch({ type: ActionTypes.UPDATE_SECOND_PARENT, payload })
+    const updateUnknownParent = (payload: IUnknownParent | {}) =>
+        dispatch({ type: ActionTypes.UPDATE_UNKNOWN_PARENT, payload })
 
     const bothParentsDeceased = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
 
@@ -39,9 +43,29 @@ export default function AboutParents({ next, prev }: StepProps) {
         state.applicant?.applicantRole === ApplicantRole.CHILD &&
         state.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
 
+    const methods = useForm<any>({
+        defaultValues: { ...state },
+        shouldUnregister: true,
+    })
+
+    const save = (data: any) => {
+        updateUnknownParent(data.unknownParent)
+        next!!()
+    }
+
+    const setUnknownParent = (value: boolean) => {
+        setValue('unknownParent', value)
+        updateUnknownParent(value)
+    }
+
+    const { watch, getValues, setValue, handleSubmit, formState } = methods
+
+    const unknownParent = watch('unknownParent')
+
     const isValid = () => {
+        const values = getValues()
         if (childAndOneParentDeceased) return !isEmpty(state?.secondParent)
-        return !isEmpty(state?.firstParent) && !isEmpty(state?.secondParent)
+        return !isEmpty(state?.firstParent) && (!isEmpty(state?.secondParent) || !!values.unknownParent)
     }
 
     const fnrRegisteredParent = (): string[] => {
@@ -51,8 +75,12 @@ export default function AboutParents({ next, prev }: StepProps) {
         return [fnr]
     }
 
+    useEffect(() => {
+        if (unknownParent !== undefined) setUnknownParent(unknownParent)
+    }, [editing])
+
     return (
-        <>
+        <FormProvider {...methods}>
             {editing === EditParent.NONE && (
                 <>
                     <StepHeading>{t('aboutParentsTitle')}</StepHeading>
@@ -100,14 +128,34 @@ export default function AboutParents({ next, prev }: StepProps) {
                                         <strong>{bothParentsDeceased ? t('secondParent') : t('deceasedParent')}</strong>
                                     </InformationBox>
                                     <InformationBox>
-                                        <Button
-                                            title={bothParentsDeceased ? t('secondParent') : t('addDeceasedParentBtn')}
-                                            variant={'primary'}
-                                            type={'button'}
-                                            onClick={() => setEditing(EditParent.SECOND)}
-                                        >
-                                            {t('addParentBtn')}
-                                        </Button>
+                                        <div style={{ marginBottom: '1rem' }}>
+                                            <Button
+                                                title={
+                                                    bothParentsDeceased ? t('secondParent') : t('addDeceasedParentBtn')
+                                                }
+                                                variant={'primary'}
+                                                type={'button'}
+                                                onClick={() => setEditing(EditParent.SECOND)}
+                                                disabled={state.unknownParent}
+                                            >
+                                                {t('addParentBtn')}
+                                            </Button>
+                                        </div>
+
+                                        <CheckboxGroup legend={''} value={[state.unknownParent || false]}>
+                                            <Checkbox
+                                                value={true}
+                                                onClick={() => {
+                                                    if (state.unknownParent) {
+                                                        setUnknownParent(false)
+                                                    } else {
+                                                        setIsOpen(true)
+                                                    }
+                                                }}
+                                            >
+                                                {t('unknownParent')}
+                                            </Checkbox>
+                                        </CheckboxGroup>
                                     </InformationBox>
                                 </Infocard>
                             ) : (
@@ -129,7 +177,10 @@ export default function AboutParents({ next, prev }: StepProps) {
                         </Alert>
                     </FormGroup>
 
-                    <Navigation left={{ onClick: prev }} right={{ onClick: next, disabled: !isValid() }} />
+                    <Navigation
+                        left={{ onClick: prev }}
+                        right={{ onClick: handleSubmit(save), disabled: !isValid() }}
+                    />
                 </>
             )}
 
@@ -163,6 +214,41 @@ export default function AboutParents({ next, prev }: StepProps) {
                     />
                 </Panel>
             )}
-        </>
+
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+                <Modal.Header>
+                    <Heading size={'small'}>Er din forelder ukjent?</Heading>
+                </Modal.Header>
+                <Modal.Body>
+                    <BodyShort>Kan du bekrefte at du ikke kjenner til din forelder?</BodyShort>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        id={'avbryt-ja-btn'}
+                        variant={'primary'}
+                        type={'button'}
+                        onClick={() => {
+                            setUnknownParent(true)
+                            setIsOpen(false)
+                        }}
+                        style={{ margin: '10px' }}
+                    >
+                        {t('yesUnknownParent', { ns: 'btn' })}
+                    </Button>
+                    <Button
+                        id={'avbryt-nei-btn'}
+                        variant={'secondary'}
+                        type={'button'}
+                        onClick={() => {
+                            setUnknownParent(false)
+                            setIsOpen(false)
+                        }}
+                        style={{ margin: '10px' }}
+                    >
+                        {t('noUnknownParent', { ns: 'btn' })}
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </FormProvider>
     )
 }

@@ -86,6 +86,15 @@ const reducer = (state: IApplication, action: IApplicationAction) => {
                     readyForSaving: true,
                 },
             }
+        case ActionTypes.UPDATE_UNKNOWN_PARENT:
+            return {
+                ...state,
+                unknownParent: action.payload,
+                meta: {
+                    ...state.meta,
+                    readyForSaving: true,
+                },
+            }
         case ActionTypes.UPDATE_ABOUT_CHILDREN: {
             return {
                 ...state,
