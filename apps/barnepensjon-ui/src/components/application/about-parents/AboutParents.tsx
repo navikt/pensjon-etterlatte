@@ -56,12 +56,10 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const unknownParent = watch('unknownParent')
 
-    const setUnknownParent = useCallback((value: boolean | undefined) => {
-        if (value !== undefined && value !== unknownParent) {
-            setValue('unknownParent', value)
-            updateUnknownParent(value)
-        }
-    }, [updateUnknownParent])
+    const setUnknownParent = (value: boolean) => {
+        setValue('unknownParent', value)
+        updateUnknownParent(value)
+    }
 
     const isValid = () => {
         if (childAndOneParentDeceased) return !isEmpty(state?.secondParent)
@@ -77,12 +75,13 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const updateEditing = (value: EditParent) => {
         setEditing(value)
-        setUnknownParent(unknownParent)
+        if (unknownParent !== undefined) setUnknownParent(unknownParent)
     }
 
     useEffect(() => {
-        setUnknownParent(state.unknownParent)
-    }, [setUnknownParent])
+        if (state.unknownParent !== undefined) setUnknownParent(state.unknownParent)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <FormProvider {...methods}>
