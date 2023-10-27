@@ -36,11 +36,12 @@ export default function AboutParents({ next, prev }: StepProps) {
     const updateSecondParent = (payload: IParent | {}) => dispatch({ type: ActionTypes.UPDATE_SECOND_PARENT, payload })
     const updateUnknownParent = (payload: boolean) => dispatch({ type: ActionTypes.UPDATE_UNKNOWN_PARENT, payload })
 
+    const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
+
     const bothParentsDeceased = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
 
     const childAndOneParentDeceased =
-        state.applicant?.applicantRole === ApplicantRole.CHILD &&
-        state.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
+        isChild && state.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
 
     const methods = useForm<any>({
         defaultValues: { ...state },
@@ -146,20 +147,22 @@ export default function AboutParents({ next, prev }: StepProps) {
                                             </Button>
                                         </div>
 
-                                        <CheckboxGroup legend={''} value={[state.unknownParent || false]}>
-                                            <Checkbox
-                                                value={true}
-                                                onClick={() => {
-                                                    if (state.unknownParent) {
-                                                        setUnknownParent(false)
-                                                    } else {
-                                                        setIsOpen(true)
-                                                    }
-                                                }}
-                                            >
-                                                {t('unknownParent')}
-                                            </Checkbox>
-                                        </CheckboxGroup>
+                                        {isChild && bothParentsDeceased && (
+                                            <CheckboxGroup legend={''} value={[state.unknownParent || false]}>
+                                                <Checkbox
+                                                    value={true}
+                                                    onClick={() => {
+                                                        if (state.unknownParent) {
+                                                            setUnknownParent(false)
+                                                        } else {
+                                                            setIsOpen(true)
+                                                        }
+                                                    }}
+                                                >
+                                                    {t('unknownParent')}
+                                                </Checkbox>
+                                            </CheckboxGroup>
+                                        )}
                                     </InformationBox>
                                 </Infocard>
                             ) : (
