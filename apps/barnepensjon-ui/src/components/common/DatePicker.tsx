@@ -54,7 +54,7 @@ const DatePicker = ({
 
     return (
         <section className={`skjemaelement ${className}`}>
-            <Label className="label">{`${label} ${t('dateFormat')}`}</Label>
+            <Label className="label">{label}</Label>
 
             {description && <div className={'skjemaelement__description'}>{description}</div>}
 
@@ -75,10 +75,7 @@ const DatePicker = ({
                             value={value}
                             onChange={(date) => onChange(parseDate(date))}
                             inputName={name}
-                            inputProps={{
-                                placeholder: t('dateExample'),
-                            }}
-                            label={`${t('dateSRLabel')} ${valgfri ? `(${t('optional')})` : ''}`}
+                            label={`${t('dateSRLabel')} ${t('dateFormat')} ${valgfri ? `(${t('optional')})` : ''}`}
                             error={errorMessage}
                             limitations={{
                                 minDate: parseDate(minDate),
