@@ -121,15 +121,15 @@ const selectScenario = {
     whoIsApplying: 'Hvem søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet/barna har mistet',
     additionalSituationDetailsOver18: 'Jeg har mistet',
-    PARENT: 'Jeg søker for mitt/mine barn under 18 år',
+    PARENT: 'Jeg søker for mitt eller mine barn under 18 år',
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
     CHILD: 'Jeg har fylt 18 år og søker på vegne av meg selv',
     parentApplicantInformation:
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde. Søsken kan få betydning for beregningen av barnepensjon.',
     guardianApplicantInformation:
-        'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for beregningen av barnepensjon.',
+        'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 20 år. Søsken kan få betydning for beregningen av barnepensjon.',
     guardiansMustSendDocumentation:
-        'Hvis barna ikke er helsøsken, må man søke for hvert barnekull. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
+        'Du kan kun sende søknad for det/de barna du er verge for. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
     childApplicantInformation1:
         '<b>Hvis du har mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
@@ -204,7 +204,7 @@ const aboutTheDeceased = {
     phoneNumber: 'Telefonnummer (valgfri)',
     abroadStaysTitle: 'Opphold utenfor Norge',
     workOrLivingAbroadCanAffectPension:
-        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi barnet/barna pensjonsrettigheter fra andre land.',
+        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi barnet eller barna pensjonsrettigheter fra andre land.',
     workOrLivingAbroadCanAffectPensionOver18:
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi deg pensjonsrettigheter fra andre land.',
     didTheDeceasedLiveAbroad: 'Har han eller hun bodd og/eller arbeidet i et annet land enn Norge etter fylte 16 år?',
@@ -278,6 +278,7 @@ const aboutChildren = {
     thisIsOptional: 'Dette er valgfritt',
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldrene til barnet?',
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
+    needToSendInDocumentation: 'Du må sende inn dokumentasjon på at du er verge for barnet',
     onlyGuardiansCanApply:
         'Du kan kun søke om barnepensjon for barn du er verge for. \nAlle avdødes barn under 18 år kan legges til.',
 }

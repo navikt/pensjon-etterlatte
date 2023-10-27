@@ -278,6 +278,7 @@ const aboutChildren = {
     thisIsOptional: 'This is optional',
     youAndDeceasedAreTheParents: 'Are you and the deceased the parents of the child?',
     loggedInUserIsGuardian: 'Are you the guardian of this child?',
+    needToSendInDocumentation: '<MANGLER TEKST>',
     onlyGuardiansCanApply:
         'You can only apply for a children’s pension for children you are the guardian of.  nAll of the deceased’s children under the age of 18 can be added.',
 }

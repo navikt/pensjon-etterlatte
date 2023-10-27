@@ -271,6 +271,7 @@ const aboutChildren = {
     thisIsOptional: 'Dette er valfritt',
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldra til barnet?',
     loggedInUserIsGuardian: 'Er du verje for dette barnet?',
+    needToSendInDocumentation: '<MANGLER TEKST>',
     onlyGuardiansCanApply:
         'Du kan berre søke om barnepensjon for barn du er verje for. \nAlle avdøde sine barn under 18 år kan leggjast til.',
 }
