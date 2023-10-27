@@ -1,4 +1,4 @@
-import { axiosInstance as api } from "./axios";
+import {axiosInstance as api, isDev} from "./axios";
 import { ISoeknad } from "../context/soknad/soknad";
 import { SoeknadRequest } from "./dto/InnsendtSoeknad";
 
@@ -97,6 +97,11 @@ export const hentLand = async () => {
 };
 
 export const loggFunc = async (message: string) => {
+    if (isDev) {
+        console.log(`Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${message}`)
+        return
+    }
+
     try {
         const response = await api.post("/api/logg", {message: message});
         return response.status;
