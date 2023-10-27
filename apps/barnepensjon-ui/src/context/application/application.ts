@@ -64,6 +64,10 @@ export interface IParent {
     firstName: string
     lastName: string
     fnrDnr: string
+    missingFnr?: {
+        answer?: boolean[]
+        adress?: string
+    }
     citizenship: string
 }
 

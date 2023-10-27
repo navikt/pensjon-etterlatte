@@ -23,7 +23,8 @@ const common = {
     chooseCountry: 'Velg land',
     chooseLanguage: 'Velg språk',
     norway: 'Norge',
-    optional: 'valgfri'
+    optional: 'valgfri',
+    missingFNR: 'Jeg har ikke fødselsnummer eller d-nummer til personen'
 }
 
 const navigation = {

@@ -32,7 +32,10 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
     const {
         handleSubmit,
         formState: { errors },
+        getValues
     } = methods
+
+    console.log(getValues())
 
     return (
         <FormProvider {...methods}>

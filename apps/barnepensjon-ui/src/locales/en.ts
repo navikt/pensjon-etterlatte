@@ -23,7 +23,7 @@ const common = {
     chooseCountry: 'Select country',
     chooseLanguage: 'Select language',
     norway: 'Norway',
-    optional: 'optional'
+    optional: 'optional',
 }
 
 const navigation = {
