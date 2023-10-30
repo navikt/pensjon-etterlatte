@@ -4,7 +4,7 @@ import React from 'react'
 import { ISituasjon } from '../../../../typer/situasjon'
 import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
-import { Detail, Heading, Label, RadioProps } from '@navikt/ds-react'
+import { Detail, Heading, RadioProps } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
@@ -41,7 +41,6 @@ const TilbudOmJobb = () => {
             </SkjemaElement>
 
             <SkjemaGruppe>
-                <Label>{t('dinSituasjon.tilbudOmJobb.ansettelsesdato.tittel')}</Label>
                 <Datovelger
                     name={`tilbudOmJobb.ansettelsesdato`}
                     label={t('dinSituasjon.tilbudOmJobb.ansettelsesdato')}

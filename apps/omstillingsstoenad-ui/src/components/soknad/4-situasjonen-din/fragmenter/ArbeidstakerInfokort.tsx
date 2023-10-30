@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { Arbeidsmengde, SagtOppEllerRedusert, StillingType } from '../../../../typer/arbeidsforhold'
 import { useTranslation } from 'react-i18next'
 import { Button, Detail, Heading, RadioProps } from '@navikt/ds-react'
-import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
+import { RHFInput, RHFInputArea, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { DeleteFilled } from '@navikt/ds-icons'
@@ -118,22 +118,25 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 )}
             </SkjemaGruppe>
 
-            <SkjemaElement>
-                <RHFSpoersmaalRadio
-                    name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
-                    legend={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
-                />
-            </SkjemaElement>
-
-            {endretArbeidssituasjon === IValg.JA && (
+            <SkjemaGruppe>
                 <SkjemaElement>
-                    <RHFInput
-                        name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
-                        label={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
-                        htmlSize={Bredde.M}
+                    <RHFSpoersmaalRadio
+                        name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
+                        legend={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
                     />
                 </SkjemaElement>
-            )}
+
+                {endretArbeidssituasjon === IValg.JA && (
+                    <SkjemaElement>
+                        <RHFInputArea
+                            name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
+                            label={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
+                            maxLength={100}
+                            className={'width-50'}
+                        />
+                    </SkjemaElement>
+                )}
+            </SkjemaGruppe>
 
             <SkjemaElement>
                 <RHFRadio

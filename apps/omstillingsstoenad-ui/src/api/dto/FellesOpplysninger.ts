@@ -198,7 +198,6 @@ export interface PensjonEllerUfoere {
 export interface AnnenInntekt {
     annenInntektEllerUtbetaling: Opplysning<any>
     beloep?: Opplysning<FritekstSvar>
-    endringAvInntekt: EndringAvInntekt
 }
 
 export interface YtelserNav {

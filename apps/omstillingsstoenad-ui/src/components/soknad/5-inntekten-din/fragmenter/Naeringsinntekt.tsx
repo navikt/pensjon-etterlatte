@@ -51,9 +51,9 @@ const Naeringsinntekt = () => {
                     />
                 </SkjemaElement>
             </SkjemaGruppe>
-            <EndringInntekt type={'naeringsinntekt'} />
-
             <Alert variant={'info'}>{t('inntektenDin.naeringsinntekt.info')}</Alert>
+
+            <EndringInntekt type={'naeringsinntekt'} />
         </SkjemaGruppe>
     )
 }

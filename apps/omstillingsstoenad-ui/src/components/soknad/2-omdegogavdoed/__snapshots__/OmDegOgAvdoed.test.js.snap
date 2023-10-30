@@ -96,8 +96,13 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           class="navds-label"
           for="avdoed.datoForDoedsfallet"
         >
-          omDegOgAvdoed.avdoed.dato felles.datoformat
+          omDegOgAvdoed.avdoed.dato
         </label>
+        <div
+          class="skjemaelement__description"
+        >
+          felles.datoformat
+        </div>
         <div
           class="datepicker"
         >
@@ -123,7 +128,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                     inputmode="text"
                     maxlength="10"
                     name="avdoed.datoForDoedsfallet"
-                    placeholder="felles.datoEksempel"
                     type="text"
                     value=""
                   />
@@ -885,8 +889,13 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           class="navds-label"
           for="avdoed.datoForDoedsfallet"
         >
-          omDegOgAvdoed.avdoed.dato felles.datoformat
+          omDegOgAvdoed.avdoed.dato
         </label>
+        <div
+          class="skjemaelement__description"
+        >
+          felles.datoformat
+        </div>
         <div
           class="datepicker"
         >
@@ -912,7 +921,6 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                     inputmode="text"
                     maxlength="10"
                     name="avdoed.datoForDoedsfallet"
-                    placeholder="felles.datoEksempel"
                     type="text"
                     value=""
                   />

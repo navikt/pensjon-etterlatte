@@ -58,8 +58,6 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const erValidert = state.dinSituasjon.erValidert
     const jobbStatus = watch('jobbStatus')
 
-
-
     const selvstendigEllerArbeidstaker =
         jobbStatus?.includes(JobbStatus.selvstendigAS) ||
         jobbStatus?.includes(JobbStatus.arbeidstaker) ||
@@ -75,38 +73,38 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaElement>
 
                 <SkjemaGruppe>
-                    <GuidePanel>
-                        {t('dinSituasjon.ingress')}
-                    </GuidePanel>
+                    <GuidePanel>{t('dinSituasjon.ingress')}</GuidePanel>
                 </SkjemaGruppe>
 
                 {!brukerState.adressebeskyttelse && (
                     <>
-                        <Heading size={'small'} spacing>
-                            {t('dinSituasjon.jobbStatus.tittel')}
-                        </Heading>
-                        <RHFCheckboksGruppe
-                            name={'jobbStatus'}
-                            legend={t('dinSituasjon.jobbStatus')}
-                            checkboxes={Object.values(JobbStatus).map((value) => {
-                                return { children: t(value), value, required: true }
-                            })}
-                        />
-                        <HvorforSpoerVi title="dinSituasjon.jobbStatus">
-                            {t('dinSituasjon.jobbStatus.hvorfor')}
-                        </HvorforSpoerVi>
+                        <SkjemaGruppe>
+                            <Heading size={'small'} spacing>
+                                {t('dinSituasjon.jobbStatus.tittel')}
+                            </Heading>
+                            <RHFCheckboksGruppe
+                                name={'jobbStatus'}
+                                legend={t('dinSituasjon.jobbStatus')}
+                                checkboxes={Object.values(JobbStatus).map((value) => {
+                                    return { children: t(value), value, required: true }
+                                })}
+                            />
+                            <HvorforSpoerVi title="dinSituasjon.jobbStatus">
+                                {t('dinSituasjon.jobbStatus.hvorfor')}
+                            </HvorforSpoerVi>
 
-                        {selvstendigEllerArbeidstaker && <NavaerendeArbeidsforhold />}
+                            {selvstendigEllerArbeidstaker && <NavaerendeArbeidsforhold />}
 
-                        {jobbStatus?.includes(JobbStatus.etablerer) && <EtablererVirksomhet />}
+                            {jobbStatus?.includes(JobbStatus.etablerer) && <EtablererVirksomhet />}
 
-                        {jobbStatus?.includes(JobbStatus.tilbud) && <TilbudOmJobb />}
+                            {jobbStatus?.includes(JobbStatus.tilbud) && <TilbudOmJobb />}
 
-                        {jobbStatus?.includes(JobbStatus.arbeidssoeker) && <Arbeidssoeker />}
+                            {jobbStatus?.includes(JobbStatus.arbeidssoeker) && <Arbeidssoeker />}
 
-                        {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
+                            {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
 
-                        {jobbStatus?.includes(JobbStatus.ingen) && <AnnenSituasjon />}
+                            {jobbStatus?.includes(JobbStatus.ingen) && <AnnenSituasjon />}
+                        </SkjemaGruppe>
 
                         <HoeyesteUtdanning />
                     </>

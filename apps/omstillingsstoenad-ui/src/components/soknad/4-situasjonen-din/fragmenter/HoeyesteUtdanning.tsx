@@ -19,6 +19,7 @@ const HoeyesteUtdanning = () => {
             <RHFCheckboksGruppe
                     name={'utdanning.hoyesteFullfoerteUtdanning'}
                     legend={t('dinSituasjon.utdanning.hoyesteFullfoerteUtdanning')}
+                    description={t('dinSituasjon.utdanning.hoyesteFullfoerteUtdanning.beskrivelse')}
                     checkboxes={Object.values(Utdanning).map((value) => {
                         return { children: t(value), value, required: true }
                     })}

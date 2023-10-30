@@ -6,6 +6,7 @@ import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { IValg } from '../../../../typer/Spoersmaal'
+import { Heading } from '@navikt/ds-react'
 
 const Arbeidssoeker = () => {
     const { t } = useTranslation()
@@ -16,6 +17,10 @@ const Arbeidssoeker = () => {
 
     return (
         <SkjemaGruppe>
+            <SkjemaElement>
+                <Heading size={'small'}>{t('dinSituasjon.arbeidssoeker.tittel')}</Heading>
+            </SkjemaElement>
+
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={`arbeidssoeker.svar` as const}

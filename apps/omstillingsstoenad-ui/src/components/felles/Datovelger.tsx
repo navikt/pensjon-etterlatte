@@ -64,9 +64,13 @@ const Datovelger = ({
 
     return (
         <DatovelgerSection $kol={kol}>
-            <Label htmlFor={name}>{`${label} ${t('felles.datoformat')}`}</Label>
+            <Label htmlFor={name}>{label}</Label>
 
-            {description && <div className={'skjemaelement__description'}>{description}</div>}
+            {description ? (
+                <div className={'skjemaelement__description'}>{`${description} (${t('felles.datoformat')})`}</div>
+            ) : (
+                <div className={'skjemaelement__description'}>{t('felles.datoformat')}</div>
+            )}
 
             <div className="datepicker">
                 <Controller
@@ -85,9 +89,6 @@ const Datovelger = ({
                             value={value}
                             onChange={(date) => onChange(parseDate(date))}
                             inputName={name}
-                            inputProps={{
-                                placeholder: t('felles.datoEksempel'),
-                            }}
                             label={''}
                             error={feilmelding}
                             limitations={{

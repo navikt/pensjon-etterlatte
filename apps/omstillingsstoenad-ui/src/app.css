@@ -53,3 +53,9 @@
 .tekstgruppe {
     padding-bottom: 1rem;
 }
+
+.width-50 {
+    @media screen and (min-width: 650px) {
+        width: 50%;
+    }
+}

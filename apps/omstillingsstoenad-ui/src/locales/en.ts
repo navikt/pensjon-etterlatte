@@ -116,6 +116,7 @@ export default {
     'dinSituasjon.utdanning.naavaerendeUtdanning.godkjentUtdanning': '<MANGLER TEKST>',
     'dinSituasjon.utdanning.tittelFullfoert': 'Completed education',
     'dinSituasjon.utdanning.hoyesteFullfoerteUtdanning': 'What is your highest completed level of education?',
+    'dinSituasjon.utdanning.hoyesteFullfoerteUtdanning.beskrivelse': '<MANGLER TEKST>',
     'dinSituasjon.utdanning.annenUtdanning': 'Other education',
     'dinSituasjon.utdanning.annenUtdanningPlaceholder':
         'For example: courses, individual years at university or college',

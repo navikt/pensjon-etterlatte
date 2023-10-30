@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
-import { BodyShort, TextField, TextFieldProps } from '@navikt/ds-react'
+import { BodyShort, Textarea, TextField, TextFieldProps, TextareaProps } from '@navikt/ds-react'
 import { get } from 'lodash'
 import { useTranslation } from 'react-i18next'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
@@ -18,6 +18,12 @@ import { isValidBIC, isValidIBAN } from 'ibantools'
 import { InputWithCurrency } from '../StyledComponents'
 
 interface RHFProps extends Omit<TextFieldProps, 'name'> {
+    name: FieldPath<FieldValues>
+    rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
+    valgfri?: boolean
+}
+
+interface RHFInputAreaProps extends Omit<TextareaProps, 'name'> {
     name: FieldPath<FieldValues>
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
     valgfri?: boolean
@@ -44,6 +50,30 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
                 </div>
             )}
         />
+    )
+}
+
+export const RHFInputArea = ({ name, rules, className, valgfri, ...rest }: RHFInputAreaProps) => {
+    const { t } = useTranslation()
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext()
+
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined
+
+    return (
+            <Controller
+                    name={name}
+                    control={control}
+                    rules={{ required: !valgfri, ...rules }}
+                    render={({ field: { value, onChange } }) => (
+                            <div className={className}>
+                                <Textarea id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
+                            </div>
+                    )}
+            />
     )
 }
 

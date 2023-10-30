@@ -91,7 +91,7 @@ export default {
     'dinSituasjon.jobbStatus.tittel': 'Arbeid, utdanning og andre aktiviteter i Norge og i utlandet',
     'dinSituasjon.jobbStatus': 'Hva er situasjonen din nå?',
     'dinSituasjon.jobbStatus.hvorfor':
-        'Vi trenger å vite hva du gjør, slik at vi kan gi deg informasjon og oppfølging som passer din situasjon.',
+        'Vi trenger å vite hva du gjør, slik at vi kan gi deg informasjon og oppfølging som passer situasjonen din.',
     'dinSituasjon.annenSituasjon.tittel': 'Annet',
     'dinSituasjon.annenSituasjon.beskrivelse': 'Velg det som beskriver situasjonen din',
     'dinSituasjon.annenSituasjon.annet.beskrivelse': 'Beskriv situasjonen din',
@@ -102,24 +102,27 @@ export default {
     'dinSituasjon.ingenJobb.syk': 'Er syk',
     'dinSituasjon.ingenJobb.annet': 'Annet',
     'dinSituasjon.utdanning.tittel': 'Om utdanningen',
-    'dinSituasjon.utdanning.hvorfor': '<TRENGER TEKST>',
+    'dinSituasjon.utdanning.hvorfor':
+        'Vi trenger å vite hvilken utdanning du har, slik at vi kan gi deg informasjon og oppfølging som passer situasjonen din.',
     'dinSituasjon.utdanning.naavaerendeUtdanning.studiested': 'Navn på studiested',
     'dinSituasjon.utdanning.naavaerendeUtdanning.studie': 'Hva studerer du?',
     'dinSituasjon.utdanning.naavaerendeUtdanning.studieform': 'Studieform',
     'dinSituasjon.utdanning.naavaerendeUtdanning.studieprosent': 'Hva er studieprosenten din?',
     'dinSituasjon.utdanning.naavaerendeUtdanning.studieprosent.beskrivelse': 'for eksempel 50%',
     'dinSituasjon.utdanning.naavaerendeUtdanning.studietsLengde': 'Hvor lenge skal du studere?',
-    'dinSituasjon.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse': 'Oppgi varigheten av utdanningen',
+    'dinSituasjon.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse': 'Oppgi varigheten av utdanningen.',
     'dinSituasjon.utdanning.naavaerendeUtdanning.startDato': 'Fra dato',
     'dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato': 'Til dato',
     'dinSituasjon.utdanning.naavaerendeUtdanning.godkjentUtdanning': 'Er utdanningen godkjent av lånekassen?',
     'dinSituasjon.utdanning.tittelFullfoert': 'Utdanning',
     'dinSituasjon.utdanning.hoyesteFullfoerteUtdanning': 'Hva er din høyeste fullførte utdanning?',
+    'dinSituasjon.utdanning.hoyesteFullfoerteUtdanning.beskrivelse':
+        'Du kan velge å krysse av kun den høyeste fullførte eller å krysse av flere.',
     'dinSituasjon.utdanning.annenUtdanning': 'Annen utdanning',
     'dinSituasjon.utdanning.annenUtdanningPlaceholder': 'Eks. kurs, enkeltår på universitet eller høyskole',
     'dinSituasjon.utdanning.soeknadOmSkolepenger': 'Informasjon om stønad til skolepenger',
     'dinSituasjon.utdanning.soeknadOmSkolepenger.beskrivelse':
-        'Du kan få stønad til dekning av skolepenger som gjenlevende ektefelle hvis du gjennomfører utdanning som er godkjent av NAV. Utdanningen må være nødvendig og hensiktsmessig for å komme i eller beholde arbeid.\n\nStønad til skolepenger skal dekke de faktiske utgiftene du har til studieavgift, semesteravgift, eksamensgebyr og/eller skolepenger ved privat utdanningsinstitusjon. Stønaden dekker dokumenterte utgifter opp til en øvre grense.',
+        'Du kan få stønad til dekning av skolepenger hvis du gjennomfører utdanning som er godkjent av NAV. Utdanningen må være nødvendig og hensiktsmessig for å komme i eller beholde arbeid.\n\nStønad til skolepenger skal dekke de faktiske utgiftene du har til studieavgift, semesteravgift, eksamensgebyr og/eller skolepenger ved privat utdanningsinstitusjon. Stønaden dekker dokumenterte utgifter opp til en øvre grense.',
     'dinSituasjon.utdanning.soeknadOmSkolepenger.bekreftelse': 'Jeg har utgifter til skolepenger',
     'dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning': 'Informasjon om tilleggsstønad til skoleutgifter',
     'dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse':
@@ -154,7 +157,7 @@ export default {
     'dinSituasjon.arbeidsforhold.arbeidssted': 'Arbeidssted',
     'dinSituasjon.arbeidsforhold.tittel': 'Om arbeidsforholdet ditt',
     'dinSituasjon.arbeidsforhold.arbeidsgiver': 'Navn på arbeidssted',
-    'dinSituasjon.arbeidsforhold.ansettelsesforhold': 'Type ansettelse',
+    'dinSituasjon.arbeidsforhold.ansettelsesforhold': 'Hva slags type ansettelsesforhold har du?',
     'dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel': 'Hvor mye jobber du?',
     'dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.beskrivelse':
         'Oppgi stillingsprosenten du vanligvis har. Dette gjelder også hvis du er sykemeldt.',
@@ -167,7 +170,7 @@ export default {
     'dinSituasjon.arbeidsforhold.midlertidig.sluttdatoVelger': 'Sluttdato',
     'dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar':
         'Forventer du endringer i arbeidssituasjonen din fremover i tid?',
-    'dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse': 'Beskrivelse',
+    'dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse': 'Gi en kort beskrivelse på endringene',
     'dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar':
         'Har du sagt opp jobben eller redusert arbeidstiden de siste 6 månedene?',
     'dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.hvorfor':
@@ -193,7 +196,7 @@ export default {
     'dinSituasjon.tilbudOmJobb.arbeidsmengde.type': 'Type arbeidsmengde',
     'dinSituasjon.tilbudOmJobb.midlertidig.svar': 'Har du en sluttdato?',
     'dinSituasjon.tilbudOmJobb.midlertidig.sluttdatoVelger': 'Sluttdato',
-    'dinSituasjon.arbeidssoeker.tittel': 'Arbeidssøker',
+    'dinSituasjon.arbeidssoeker.tittel': 'Om arbeidssøkingen',
     'dinSituasjon.arbeidssoeker.svar': 'Er du registrert som arbeidssøker hos NAV?',
     'dinSituasjon.arbeidssoeker.aktivitetsplan.svar': 'Har du en aktivitetsplan?',
     'dinSituasjon.andreYtelser.tittel': 'Ytelser',
@@ -236,17 +239,18 @@ export default {
         'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, kan du oppgi totalinntekten som vises på lønnsslippen for desember.',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.tittel': 'Arbeidsinntekten din i år',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall': 'Oppgi brutto arbeidsinntekt frem til dødsfallet',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse': 'Fra januar til måneden før dødsfallet',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse': 'Fra januar til måneden før dødsfallet.',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall': 'Oppgi brutto arbeidsinntekt etter dødsfallet',
+
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
-        'Skriv hva du forventer å ha i arbeidsinntekt fra samme måned som dødsfallet til desember',
+        'Skriv hva du forventer å ha i arbeidsinntekt fra samme måned som dødsfallet til desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
-    'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': 'Beskriv grunn',
+    'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse på endringene',
     'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
     'inntektenDin.naeringsinntekt.ingress':
-        'All næringsinntekt fra inn- og utland, skal med i næringsinntekten du oppgir. Næringsinntekter oppgir du i norske kroner.',
+        'All næringsinntekt fra Norge og utlandet, skal med i næringsinntekten du oppgir. Næringsinntekter oppgir du i norske kroner.',
     'inntektenDin.naeringsinntekt.info':
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.tittel': 'Næringsinntekten din året før dødsfallet',
@@ -254,8 +258,7 @@ export default {
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'Dersom Skatteetaten ikke har fastsatt næringsinntekten for perioden januar til desember, må du anslå denne inntekten selv.',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tittel': 'Næringsinntekten din i år',
-    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall':
-        'Anslå brutto næringsinntekt frem til måneden før dødsfallet',
+    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall': 'Anslå brutto næringsinntekt frem til dødsfallet',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
         'Fra januar til måneden før dødsfallet.',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall': 'Anslå brutto næringsinntekt etter dødsfallet',
@@ -264,7 +267,7 @@ export default {
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
-    'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.annenGrunn': 'Beskriv grunn',
+    'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse på endringene',
     'inntektenDin.pensjonEllerUfoere.tittel': 'Pensjon eller uføretrygd',
     'inntektenDin.pensjonEllerUfoere.pensjonstype': 'Hvilken pensjon eller trygd har du?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type': 'Hva slags pensjon mottar du?',
@@ -281,15 +284,15 @@ export default {
     'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Årlig beløp i landets valuta',
     'inntektenDin.pensjonEllerUfoere.utland.valuta': 'Landets valuta',
     'inntektenDin.pensjonEllerUfoere.utland.hvorfor': 'Vi må vite dette for å vurdere ditt medlemskap i Folketrygden.',
-    'inntektenDin.annenInntekt.tittel': 'Annen inntekt eller utbetalinger',
+    'inntektenDin.annenInntekt.tittel': 'Annen inntekt eller utbetaling',
     'inntektenDin.annenInntekt.inntektEllerUtbetaling': 'Hvilke andre inntekter eller utbetalinger har du?',
     'inntektenDin.annenInntekt.beloep': 'Oppgi brutto inntekt eller ytelser',
     'inntektenDin.annenInntekt.forventerEndringAvInntekt.svar':
         'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.annenInntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
-    'inntektenDin.annenInntekt.forventerEndringAvInntekt.annenGrunn': 'Beskriv grunn',
+    'inntektenDin.annenInntekt.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse på endringene',
     'inntektenDin.ytelserNAV.svar': 'Har du søkt om ytelser fra NAV som du ikke har fått svar på?',
-    'inntektenDin.ytelserNAV.soekteYtelser': 'Marker ytelsene du har søkt på',
+    'inntektenDin.ytelserNAV.soekteYtelser': 'Hvike ytelser har du søkt om?',
     'inntektenDin.ytelserNAV.hvorfor': 'Vi trenger å vite dette fordi noen ytelser fra NAV regnes som inntekt.',
     'inntektenDin.ytelserAndre.svar': 'Har du søkt om ytelser fra andre enn NAV som du ikke har fått svar på?',
     'inntektenDin.ytelserAndre.soekteYtelser': 'Hva har du søkt om?',
@@ -300,7 +303,7 @@ export default {
         'Noen ytelser regnes som inntekt, mens andre ytelser ikke kan kombineres med omstillingsstønad.',
     'inntektenDin.forventerEndringAvInntekt.svar': 'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
-    'inntektenDin.forventerEndringAvInntekt.annenGrunn': 'Beskriv grunn',
+    'inntektenDin.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse på endringene',
     'omDeg.tittel': 'Om deg',
     'omDeg.undertittel.personalia': 'Personalia',
     'omDeg.undertittel.opplysningerOmSoeker': 'Opplysninger om søkeren',
@@ -565,7 +568,7 @@ export default {
     'inntekt.naering': 'Næringsinntekt',
     'inntekt.pensjonEllerUfoere': 'Pensjon eller uføretrygd',
     'inntekt.annen': 'Annen inntekt eller utbetalinger',
-    'soekbarYtelse.dagspenger': 'Dagspenger',
+    'soekbarYtelse.dagspenger': 'Dagpenger',
     'soekbarYtelse.sykepenger': 'Sykepenger',
     'soekbarYtelse.pleiepenger': 'Pleiepenger',
     'soekbarYtelse.svangerskapspenger': 'Svangerskapspenger',
@@ -630,7 +633,7 @@ export default {
     'felles.norge': 'Norge',
     'felles.ingenInfo': 'Ingen informasjon',
     'felles.ikkePaakrevd': '(ikke påkrevd)',
-    'felles.datoformat': '(dd.mm.åååå)',
+    'felles.datoformat': 'dd.mm.åååå',
     'felles.sistLagret': 'Sist lagret',
     'felles.spraakValg': 'Velg språk',
     'felles.velgLand': 'Velg land',

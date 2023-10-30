@@ -112,6 +112,7 @@ export default {
     'dinSituasjon.utdanning.naavaerendeUtdanning.godkjentUtdanning': '<MANGLER TEKST>',
     'dinSituasjon.utdanning.tittelFullfoert': 'Fullført utdanning',
     'dinSituasjon.utdanning.hoyesteFullfoerteUtdanning': 'Kva er di høgaste fullførte utdanning?',
+    'dinSituasjon.utdanning.hoyesteFullfoerteUtdanning.beskrivelse': '<MANGLER TEKST>',
     'dinSituasjon.utdanning.annenUtdanning': 'Anna utdanning',
     'dinSituasjon.utdanning.annenUtdanningPlaceholder': 'Eks. kurs, enkeltår på universitet eller høgskule',
     'dinSituasjon.utdanning.soeknadOmSkolepenger': 'Informasjon om stønad til skulepengar',
