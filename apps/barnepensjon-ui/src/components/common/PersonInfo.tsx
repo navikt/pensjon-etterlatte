@@ -61,7 +61,7 @@ export default function PersonInfo({ duplicateList }: Props) {
                     <div />
                 </HGrid>
             </FormElement>
-            {missingFNR.includes('true') && (
+            {missingFNR?.includes('true') && (
                 <FormElement>
                     <RHFInput
                         name={'missingFNR.address'}
