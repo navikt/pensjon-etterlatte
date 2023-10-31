@@ -34,6 +34,7 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                     lastName={aboutTheParent.lastName}
                     fnrDnr={aboutTheParent.fnrDnr}
                     citizenship={aboutTheParent.citizenship}
+                    missingFNR={aboutTheParent.missingFNR}
                 />
                 <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath} />
                 <TextGroupJaNeiVetIkke

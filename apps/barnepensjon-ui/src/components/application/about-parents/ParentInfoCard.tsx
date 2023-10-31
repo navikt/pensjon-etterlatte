@@ -45,7 +45,7 @@ const ParentInfoCard = memo(({ parent, edit, remove }: Props) => {
                     {/* TODO: Endre fnr / dnr tekst dynamisk ? */}
                     <BodyShort size={'small'}>{t('fnrDnr')}</BodyShort>
                     <BodyShort size={'small'} spacing>
-                        {foedselsnummer}
+                        {foedselsnummer ? foedselsnummer : 'Har ikke fødselsnummer'}
                     </BodyShort>
 
                     <BodyShort size={'small'}>{t('citizenship')}</BodyShort>

@@ -13,5 +13,5 @@ export const fullAdresse = (person: User): string => {
 }
 
 export const nameAndFnr = (parent: IParent) => {
-    return `${parent.firstName} ${parent.lastName} (f. ${parent.fnrDnr.substring(0, 6)})`
+    return `${parent.firstName} ${parent.lastName} (f. ${parent.fnrDnr?.substring(0, 6)})` // TODO: FIX THIS
 }

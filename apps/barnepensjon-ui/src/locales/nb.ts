@@ -20,11 +20,26 @@ const common = {
     dateFormat: '(dd.mm.yyyy)',
     dateExample: 'eks. 01.11.2020',
     dateSRLabel: 'Oppgi dato',
+    dateOfBirth: 'Fødselsdato',
     chooseCountry: 'Velg land',
     chooseLanguage: 'Velg språk',
     norway: 'Norge',
     optional: 'valgfri',
-    missingFNR: 'Jeg har ikke fødselsnummer eller d-nummer til personen'
+    missingFNR: 'Jeg har ikke fødselsnummer eller d-nummer til personen',
+    livesInNorway: 'Bor den gjenlevende i Norge?',
+    addressType: 'Er kontaktadressen en vegadresse eller postboksadresse?',
+    VEGADRESSE: 'Vegadresse',
+    POSTBOKSADRESSE: 'Postboksadresse',
+    roadAddress: 'Vegadresse',
+    postBox: 'Postboks',
+    addressAbroad: 'Vegnavn og husnummer, evt. postboks',
+    zipCode: 'Postnummer',
+    city: 'Poststed',
+    cityAbroad: 'By / stedsnavn',
+    building: 'Bygning',
+    region: 'Region',
+    fromDate: 'Fra hvilken dato skal denne adressen brukes?',
+    country: 'Land'
 }
 
 const navigation = {
@@ -157,7 +172,8 @@ const aboutYou = {
     addressOfResidenceConfirmed: 'Bor du på denne adressen?',
     alternativeAddress: 'Oppgi nåværende bostedsadresse',
     residesInNorway: 'Har du oppholdt deg i Norge de siste 12 månedene?',
-    residesInNorwayDescription: 'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
+    residesInNorwayDescription:
+        'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
     countryOfResidence: 'Oppgi land',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygden under opphold i et annet land enn Norge?',
     'subtitle.personalia': 'Personalia',
@@ -178,13 +194,14 @@ const aboutParents = {
         'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
-    bothParentsRequiredOver18: 'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknaden på nytt. Velg at du har mistet begge foreldrene dine.',
-    childAndOneParentDeceased: 'Du trenger ikke fylle ut informasjon om gjenlevende forelder'
+    bothParentsRequiredOver18:
+        'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknaden på nytt. Velg at du har mistet begge foreldrene dine.',
+    childAndOneParentDeceased: 'Du trenger ikke fylle ut informasjon om gjenlevende forelder',
 }
 
 const livingParent = {
     title: 'Om den gjenlevende',
-    address: 'Adresse (valgfri)',
+    address: 'Adresse',
 }
 
 const aboutTheDeceased = {
@@ -197,7 +214,7 @@ const aboutTheDeceased = {
     workOrLivingAbroadCanAffectPension:
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi barnet/barna pensjonsrettigheter fra andre land.',
     workOrLivingAbroadCanAffectPensionOver18:
-            'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi deg pensjonsrettigheter fra andre land.',
+        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan påvirke beregningen av barnepensjon og i tillegg gi deg pensjonsrettigheter fra andre land.',
     didTheDeceasedLiveAbroad: 'Har han eller hun bodd og/eller arbeidet i et annet land enn Norge etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Bodd og/eller arbeidet?',
@@ -219,7 +236,7 @@ const aboutTheDeceased = {
     whyWeAskAboutOccupationalInjury:
         'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om barnet/barna får barnepensjon og hvor mye det/de kan få.',
     whyWeAskAboutOccupationalInjuryOver18:
-            'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
+        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
     deceasedHasServedInTheMilitary:
         'Har han eller hun gjennomført militær eller sivil førstegangstjeneste for Norge som varte minst 30 dager?',
     whyWeAskAboutMilitaryService: 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',

@@ -3,6 +3,7 @@ import { ApplicantRole, ApplicantSituation } from '../../components/application/
 import { IAboutChildren, IAboutYou } from '../../types/person'
 import { ISituationChild } from '../../types/situation'
 import { Language } from '../language/language'
+import { AddressType } from '../../components/common/PersonInfo'
 
 export const emptyApplication: IApplication = {
     aboutYou: { paymentDetails: { accountType: BankkontoType.NORSK } },
@@ -63,12 +64,31 @@ export interface IApplicant {
 export interface IParent {
     firstName: string
     lastName: string
-    fnrDnr: string
-    missingFnr?: {
-        answer?: boolean[]
-        adress?: string
-    }
+    fnrDnr?: string
+    missingFNR?: IMissingFNR
     citizenship: string
+}
+
+export interface IMissingFNR {
+    answer?: boolean[]
+    dateOfBirth: Date
+    livesInNorway: JaNeiVetIkke
+    livingInNorway?: {
+        addressType: AddressType
+        CO?: string
+        address: string
+        zipCode: string
+        city: string
+    }
+    livingAbroad?: {
+        CO?: string
+        address: string
+        building?: string
+        zipCode?: string
+        city?: string
+        region?: string
+        country: string
+    }
 }
 
 export interface ILivingParent extends IParent {

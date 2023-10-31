@@ -38,7 +38,13 @@ export const RHFInput = ({ name, rules, valgfri, ...rest }: RHFProps) => {
             control={control}
             rules={{ required: !valgfri, ...rules }}
             render={({ field: { value, onChange } }) => (
-                <TextField id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
+                <TextField
+                    id={name}
+                    value={value || ''}
+                    onChange={onChange}
+                    error={feilmelding}
+                    label={`${rest.label} ${valgfri ? `(${t('optional', {ns: 'common'})})` : ''}`}
+                />
             )}
         />
     )
