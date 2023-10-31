@@ -65,11 +65,12 @@ describe('Test of moveMostUsedCountriesToBeginning', () => {
                 },
             },
         ]
-        const sortedContries = moveMostUsedCountriesToBeginning(countries)
+        const sortedCountries = moveMostUsedCountriesToBeginning(countries)
 
-        expect(sortedContries[0].beskrivelser.nb.tekst).toBe('NORGE')
-        expect(sortedContries[1].beskrivelser.nb.tekst).toBe('DANMARK')
-        expect(sortedContries[2].beskrivelser.nb.tekst).toBe('SVERIGE')
+        const norgeInSortedCountries = sortedCountries.filter(country => country.beskrivelser.nb.tekst === 'NORGE')
+
+        expect(sortedCountries[0].beskrivelser.nb.tekst).toBe('NORGE')
+        expect(norgeInSortedCountries.length).toBe(2)
     })
 
     it('Vil returnere listen vis landene ikke finnes', () => {

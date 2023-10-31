@@ -23,16 +23,11 @@ interface Country {
 }
 
 export const moveMostUsedCountriesToBeginning = (allCountries: Country[]) => {
-    const countryStrings = ['NORGE', 'DANMARK', 'SVERIGE', 'POLEN'].reverse()
+    const countryStrings = ['NORGE']
 
-    countryStrings.forEach((countryString) => {
-        const country = allCountries.find(country => country.beskrivelser.nb.tekst === countryString)
-        if (country) {
-            const countryIndex = allCountries.findIndex((allCountry) => allCountry === country)
-            allCountries.splice(countryIndex, 1)
-            allCountries.unshift(country)
-        }
-    })
+    const countries = allCountries.filter((country) => countryStrings.includes(country.beskrivelser.nb.tekst))
+
+    if (countries) countries.forEach((country) => allCountries.unshift(country))
 
     return allCountries
 }
