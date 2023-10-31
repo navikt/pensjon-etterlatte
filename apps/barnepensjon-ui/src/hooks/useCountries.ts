@@ -23,9 +23,9 @@ interface Country {
 }
 
 export const moveMostUsedCountriesToBeginning = (allCountries: Country[]) => {
-    const countryStrings = ['NORGE']
+    const frequentlyUsed = ['NORGE']
 
-    const countries = allCountries.filter((country) => countryStrings.includes(country.beskrivelser.nb.tekst))
+    const countries = allCountries.filter((country) => frequentlyUsed.includes(country.beskrivelser.nb.tekst))
 
     if (countries) countries.forEach((country) => allCountries.unshift(country))
 
