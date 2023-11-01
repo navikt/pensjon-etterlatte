@@ -91,10 +91,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/express-http-proxy@^1.6.4":
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/@types/express-http-proxy/-/express-http-proxy-1.6.4.tgz#42917facb194ab476c06f381838f211f4717a7dc"
-  integrity sha512-V0THpGPqxR85uHARStjYSKObI7ett4qA1JtiRqv/rv7pAt8IYFCtieLeq0GPnVYeR1BghgGQYlEZK7JPMUPrDQ==
+"@types/express-http-proxy@^1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@types/express-http-proxy/-/express-http-proxy-1.6.5.tgz#575d79257a5181d08baa03f49155a8b47cc593c8"
+  integrity sha512-M6p0bQjjTMxqeuMtdo4yjsJGqwwKrlVC9sMwmDaAUogeMTI42You/TD0ibX8L0isEYohUZHpnKDEhsE16kI72g==
   dependencies:
     "@types/express" "*"
 
