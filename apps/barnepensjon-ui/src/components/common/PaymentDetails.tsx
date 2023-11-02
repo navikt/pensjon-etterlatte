@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
 import useTranslation from '../../hooks/useTranslation'
 import FormElement from './FormElement'
-import { RHFGeneralQuestionRadio, RHFInlineRadio, RHFRadio } from './rhf/RHFRadio'
+import { RHFGeneralQuestionRadio, RHFRadio } from './rhf/RHFRadio'
 import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from './rhf/RHFInput'
 import FormGroup from './FormGroup'
 import { useFormContext } from 'react-hook-form'
 import { IAboutChildren, IAboutYou } from '../../types/person'
+import { Bredde } from '../../utils/bredde'
 
 const HelpTextLabel = styled.div`
     display: flex;
@@ -40,7 +41,7 @@ export default function PaymentDetails() {
                         <RHFKontonummerInput
                             name={'paymentDetails.bankAccount'}
                             label={t('bankAccount')}
-                            htmlSize={15}
+                            htmlSize={Bredde.XS}
                         />
                     </FormElement>
                     <FormGroup>
@@ -60,7 +61,7 @@ export default function PaymentDetails() {
                                         name={'paymentDetails.taxWithhold.taxPercentage'}
                                         label={t('desiredTaxPercentage')}
                                         description={t('desiredTaxPercentagePlaceholder')}
-                                        htmlSize={15}
+                                        htmlSize={Bredde.XS}
                                     />
                                 </FormElement>
                                 <FormElement>
@@ -98,8 +99,7 @@ export default function PaymentDetails() {
                                     <HelpText placement={'top'}>{t('ibanHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
-                            htmlSize={40}
-                            //TODO: Samme bredde overalt
+                            htmlSize={Bredde.M}
                         />
                     </FormElement>
                     <FormElement>
@@ -112,7 +112,7 @@ export default function PaymentDetails() {
                                     <HelpText placement={'top'}>{t('swiftHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
-                            htmlSize={20}
+                            htmlSize={Bredde.S}
                         />
                     </FormElement>
                 </>

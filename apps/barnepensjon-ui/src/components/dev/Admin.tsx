@@ -1,9 +1,10 @@
-import { Alert, Button, Cell, Grid, Heading, Panel } from '@navikt/ds-react'
+import { Alert, Button, Heading, HGrid, Panel } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes } from '../../context/application/application'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
 import FormGroup from '../common/FormGroup'
+import { GridColumns, GridGap } from '../../utils/grid'
 
 const Admin = () => {
     const navigate = useNavigate()
@@ -53,16 +54,12 @@ const Admin = () => {
         <Panel>
             {applicantRoles.map((application, index) => (
                 <FormGroup key={index}>
-                    <Grid>
-                        <Cell xs={12} md={4}>
-                            <Heading size="medium">{application.title.toLocaleUpperCase()}</Heading>
-                        </Cell>
-                        <Cell xs={12} md={4}>
-                            <Button variant={'primary'} onClick={() => mockApplication(application)}>
-                                Mock Søknad
-                            </Button>
-                        </Cell>
-                    </Grid>
+                    <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
+                        <Heading size="medium">{application.title.toLocaleUpperCase()}</Heading>
+                        <Button variant={'primary'} onClick={() => mockApplication(application)}>
+                            Mock Søknad
+                        </Button>
+                    </HGrid>
                 </FormGroup>
             ))}
             <Button variant={'danger'} onClick={resetApplication}>

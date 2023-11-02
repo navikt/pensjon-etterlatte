@@ -3,7 +3,7 @@ import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { IParent } from '../../../context/application/application'
-import { Button, Cell, Grid, Panel } from '@navikt/ds-react'
+import { Button, HGrid, Panel } from '@navikt/ds-react'
 import { RHFSelect } from '../../common/rhf/RHFSelect'
 import { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
@@ -12,6 +12,8 @@ import DatePicker from '../../common/DatePicker'
 import { DeleteFilled } from '@navikt/ds-icons'
 import FormElement from '../../common/FormElement'
 import styled from 'styled-components'
+import { GridColumns, GridGap } from '../../../utils/grid'
+import { BreddeSelect } from '../../../utils/bredde'
 
 const StaysAbroadCheckboxDiv = styled.div`
     .skjemagruppe {
@@ -49,7 +51,7 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                 name={`staysAbroad.abroadStays[${index}].country`}
                                 label={t('abroadInWhichCountry')}
                                 children={countries}
-                                style={{ width: '14rem' }}
+                                style={{ width: BreddeSelect }}
                             />
                         </FormElement>
                         <FormElement>
@@ -64,24 +66,20 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                 />
                             </StaysAbroadCheckboxDiv>
                         </FormElement>
-                        <Grid>
-                            <Cell xs={12} md={6}>
-                                <DatePicker
-                                    name={`staysAbroad.abroadStays[${index}].fromDate`}
-                                    label={t('stayedAbroadFromDate')}
-                                    valgfri={true}
-                                    maxDate={new Date()}
-                                />
-                            </Cell>
-                            <Cell xs={12} md={6}>
-                                <DatePicker
-                                    name={`staysAbroad.abroadStays[${index}].toDate`}
-                                    label={t('stayedAbroadToDate')}
-                                    valgfri={true}
-                                    maxDate={new Date()}
-                                />
-                            </Cell>
-                        </Grid>
+                        <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
+                            <DatePicker
+                                name={`staysAbroad.abroadStays[${index}].fromDate`}
+                                label={t('stayedAbroadFromDate')}
+                                valgfri={true}
+                                maxDate={new Date()}
+                            />
+                            <DatePicker
+                                name={`staysAbroad.abroadStays[${index}].toDate`}
+                                label={t('stayedAbroadToDate')}
+                                valgfri={true}
+                                maxDate={new Date()}
+                            />
+                        </HGrid>
                         <FormElement>
                             <RHFGeneralQuestionRadio
                                 name={`staysAbroad.abroadStays[${index}].medlemFolketrygd`}
