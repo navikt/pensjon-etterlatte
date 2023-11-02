@@ -54,7 +54,7 @@ export default function AboutYou({ next }: StepProps) {
 
             <FormProvider {...methods}>
                 <form>
-                    <FormGroup>
+                    <FormElement>
                         {!user.adressebeskyttelse && isChild && (
                             <>
                                 <RHFGeneralQuestionRadio
@@ -66,10 +66,12 @@ export default function AboutYou({ next }: StepProps) {
                                 {residesInNorway === JaNeiVetIkke.NEI && (
                                     <FormElement>
                                         <RHFSelect
-                                                id={'countryOfResidence'}
-                                                name={'countryOfResidence'}
-                                                label={t('countryOfResidence')}
-                                                children={countries}
+                                            id={'countryOfResidence'}
+                                            name={'countryOfResidence'}
+                                            label={t('countryOfResidence')}
+                                            children={countries}
+                                            // TODO: Fiks bredde
+                                            style={{ width: '14rem' }}
                                         />
                                     </FormElement>
                                 )}
@@ -90,7 +92,7 @@ export default function AboutYou({ next }: StepProps) {
                                 </Cell>
                             </Grid>
                         )}
-                    </FormGroup>
+                    </FormElement>
 
                     {!user.adressebeskyttelse && isChild && <PaymentDetails />}
 

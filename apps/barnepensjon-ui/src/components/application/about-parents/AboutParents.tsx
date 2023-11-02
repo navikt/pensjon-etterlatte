@@ -16,6 +16,7 @@ import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
 import Trans from '../../common/Trans'
 import { FormProvider, useForm } from 'react-hook-form'
+import FormElement from '../../common/FormElement'
 
 enum EditParent {
     NONE,
@@ -211,34 +212,38 @@ export default function AboutParents({ next, prev }: StepProps) {
             )}
 
             {editing === EditParent.FIRST && (
-                <Panel border={true}>
-                    {bothParentsDeceased ? (
-                        <DeceasedParent
-                            type={ActionTypes.UPDATE_FIRST_PARENT}
-                            prev={stopEditing}
-                            next={stopEditing}
-                            fnrRegisteredParent={fnrRegisteredParent()}
-                        />
-                    ) : (
-                        <LivingParent
-                            type={ActionTypes.UPDATE_FIRST_PARENT}
-                            prev={stopEditing}
-                            next={stopEditing}
-                            fnrRegisteredParent={fnrRegisteredParent()}
-                        />
-                    )}
-                </Panel>
+                <FormElement>
+                    <Panel border={true}>
+                        {bothParentsDeceased ? (
+                            <DeceasedParent
+                                type={ActionTypes.UPDATE_FIRST_PARENT}
+                                prev={stopEditing}
+                                next={stopEditing}
+                                fnrRegisteredParent={fnrRegisteredParent()}
+                            />
+                        ) : (
+                            <LivingParent
+                                type={ActionTypes.UPDATE_FIRST_PARENT}
+                                prev={stopEditing}
+                                next={stopEditing}
+                                fnrRegisteredParent={fnrRegisteredParent()}
+                            />
+                        )}
+                    </Panel>
+                </FormElement>
             )}
 
             {editing === EditParent.SECOND && (
-                <Panel border={true}>
-                    <DeceasedParent
-                        type={ActionTypes.UPDATE_SECOND_PARENT}
-                        prev={stopEditing}
-                        next={stopEditing}
-                        fnrRegisteredParent={fnrRegisteredParent()}
-                    />
-                </Panel>
+                <FormElement>
+                    <Panel border={true}>
+                        <DeceasedParent
+                            type={ActionTypes.UPDATE_SECOND_PARENT}
+                            prev={stopEditing}
+                            next={stopEditing}
+                            fnrRegisteredParent={fnrRegisteredParent()}
+                        />
+                    </Panel>
+                </FormElement>
             )}
 
             <Modal open={isOpen} onClose={() => setIsOpen(false)}>

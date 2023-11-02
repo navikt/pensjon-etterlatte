@@ -1,4 +1,4 @@
-import { Heading, Panel } from '@navikt/ds-react'
+import { Heading, Panel, Tag } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { memo } from 'react'
 import { v4 as uuid } from 'uuid'
@@ -42,7 +42,7 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                 />
                 {aboutTheParent.staysAbroad.abroadStays?.map((stay) => (
                     <Panel key={uuid()}>
-                        <Heading size={'small'}>{`Opphold i ${stay.country}`}</Heading>
+                        <Tag variant={'neutral-moderate'}>{`Opphold i ${stay.country}`}</Tag>
                         <TextGroup title={t('abroadInWhichCountry')} content={stay.country} />
                         <TextGroup title={t('livedOrWorkedAbroad')} content={stay.type?.map((item) => ` ${t(item)}`)} />
                         {stay.toDate && <TextGroup title={t('stayedAbroadToDate')} content={stay.toDate} />}

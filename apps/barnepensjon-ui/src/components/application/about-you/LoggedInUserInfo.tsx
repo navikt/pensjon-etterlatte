@@ -20,45 +20,47 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
     const { t } = useTranslation('common')
 
     return (
-        <FormGroup>
+        <>
             <FormElement>
                 <Alert variant={'warning'}>{t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })}</Alert>
             </FormElement>
-            <Grid>
-                <Cell xs={6}>
-                    <div>
-                        <Label>{t('name')}</Label>
-                        <BodyShort spacing>
-                            {user.fornavn} {user.etternavn}
-                        </BodyShort>
-                    </div>
-
-                    {user.adresse && !user.adressebeskyttelse && (
+            <FormGroup>
+                <Grid>
+                    <Cell xs={6}>
                         <div>
-                            <Label>{t('address')}</Label>
-                            <BodyShort spacing>{fullAdresse(user)}</BodyShort>
+                            <Label>{t('name')}</Label>
+                            <BodyShort spacing>
+                                {user.fornavn} {user.etternavn}
+                            </BodyShort>
                         </div>
-                    )}
-                </Cell>
 
-                <Cell xs={6}>
-                    <>
-                        <div>
-                            <Label>{t('fnrDnr')}</Label>
-                            <BodyShort spacing>{user.foedselsnummer}</BodyShort>
-                        </div>
-                        {user.telefonnummer && (
-                            <HelpTextLabel>
-                                <Label as={'span'}>
-                                    {t('phoneNumber')}&nbsp;
-                                    <HelpText placement={'top'}>{t('phoneNumberHelpText')}</HelpText>
-                                </Label>
-                                <BodyShort spacing>{user.telefonnummer}</BodyShort>
-                            </HelpTextLabel>
+                        {user.adresse && !user.adressebeskyttelse && (
+                            <div>
+                                <Label>{t('address')}</Label>
+                                <BodyShort spacing>{fullAdresse(user)}</BodyShort>
+                            </div>
                         )}
-                    </>
-                </Cell>
-            </Grid>
-        </FormGroup>
+                    </Cell>
+
+                    <Cell xs={6}>
+                        <>
+                            <div>
+                                <Label>{t('fnrDnr')}</Label>
+                                <BodyShort spacing>{user.foedselsnummer}</BodyShort>
+                            </div>
+                            {user.telefonnummer && (
+                                <HelpTextLabel>
+                                    <Label as={'span'}>
+                                        {t('phoneNumber')}&nbsp;
+                                        <HelpText placement={'top'}>{t('phoneNumberHelpText')}</HelpText>
+                                    </Label>
+                                    <BodyShort spacing>{user.telefonnummer}</BodyShort>
+                                </HelpTextLabel>
+                            )}
+                        </>
+                    </Cell>
+                </Grid>
+            </FormGroup>
+        </>
     )
 }
