@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Button, Checkbox, CheckboxGroup, Heading, Modal, Panel } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, Checkbox, CheckboxGroup, GuidePanel, Heading, Modal, Panel } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
@@ -42,6 +42,8 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const childAndOneParentDeceased =
         isChild && state.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
+
+    const childAndBothParentsDeceased = isChild && bothParentsDeceased
 
     const methods = useForm<any>({
         defaultValues: { ...state },
@@ -89,6 +91,21 @@ export default function AboutParents({ next, prev }: StepProps) {
             {editing === EditParent.NONE && (
                 <>
                     <StepHeading>{t('aboutParentsTitle')}</StepHeading>
+                    {childAndOneParentDeceased && (
+                        <FormGroup>
+                            <GuidePanel>
+                                <BodyShort>{t('childAndOneParentDeceasedGuidepanel')}</BodyShort>
+                            </GuidePanel>
+                        </FormGroup>
+                    )}
+
+                    {childAndBothParentsDeceased && (
+                        <FormGroup>
+                            <GuidePanel>
+                                <BodyShort>{t('childAndBothParentsDeceasedGuidepanel')}</BodyShort>
+                            </GuidePanel>
+                        </FormGroup>
+                    )}
                     <FormGroup>
                         <InfocardWrapper>
                             {isEmpty(state.firstParent) ? (
@@ -175,14 +192,16 @@ export default function AboutParents({ next, prev }: StepProps) {
                         </InfocardWrapper>
                     </FormGroup>
 
-                    <FormGroup>
-                        <Alert variant={'info'}>
-                            <BodyShort size={'small'}>
-                                {childAndOneParentDeceased ? t('bothParentsRequiredOver18') : t('bothParentsRequired')}
-                                {!childAndOneParentDeceased && <Trans value={t('missingOneParentLink')} />}
-                            </BodyShort>
-                        </Alert>
-                    </FormGroup>
+                    {!isChild && (
+                        <FormGroup>
+                            <Alert variant={'info'}>
+                                <BodyShort size={'small'}>
+                                    {t('bothParentsRequired')}
+                                    <Trans value={t('missingOneParentLink')} />
+                                </BodyShort>
+                            </Alert>
+                        </FormGroup>
+                    )}
 
                     <Navigation
                         left={{ onClick: prev }}

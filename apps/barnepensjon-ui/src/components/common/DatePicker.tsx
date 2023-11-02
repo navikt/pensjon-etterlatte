@@ -1,7 +1,6 @@
 import { Datepicker } from '@navikt/ds-datepicker'
 import '@navikt/ds-datepicker/lib/index.css'
 import { DatepickerLocales } from '@navikt/ds-datepicker/lib/types'
-import { Label } from '@navikt/ds-react'
 import { format, parseISO } from 'date-fns'
 import { get } from 'lodash'
 import { ReactNode } from 'react'
@@ -52,12 +51,11 @@ const DatePicker = ({
     const error: FieldError = get(errors, name) as FieldError
     const errorMessage = !!error ? t(getErrorKey(error), { ns: 'error' }) : undefined
 
+    const labelWithOptional = `${label} ${valgfri ? `(${t('optional')})` : ''}`
+    const descriptionWithFormat =  description ? `${description} ${t('dateFormat')}` : `${t('dateSRLabel')} ${t('dateFormat')}`
+
     return (
         <section className={`skjemaelement ${className}`}>
-            <Label className="label">{label}</Label>
-
-            {description && <div className={'skjemaelement__description'}>{description}</div>}
-
             <div className="datepicker">
                 <Controller
                     name={name}
@@ -75,7 +73,8 @@ const DatePicker = ({
                             value={value}
                             onChange={(date) => onChange(parseDate(date))}
                             inputName={name}
-                            label={`${t('dateSRLabel')} ${t('dateFormat')} ${valgfri ? `(${t('optional')})` : ''}`}
+                            label={labelWithOptional}
+                            description={descriptionWithFormat}
                             error={errorMessage}
                             limitations={{
                                 minDate: parseDate(minDate),
