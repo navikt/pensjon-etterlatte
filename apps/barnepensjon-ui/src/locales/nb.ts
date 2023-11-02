@@ -17,7 +17,7 @@ const common = {
     phoneNumberOptional: 'Telefonnummer (valgfri)',
     phoneNumberHelpText: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
     whyWeAsk: 'Hvorfor spør vi om dette',
-    dateFormat: '(dd.mm.yyyy)',
+    dateFormat: '(dd.mm.åååå)',
     dateExample: 'eks. 01.11.2020',
     dateSRLabel: 'Oppgi dato',
     chooseCountry: 'Velg land',
@@ -181,11 +181,14 @@ const aboutParents = {
         'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
-    bothParentsRequiredOver18:
-        'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknaden på nytt. Velg at du har mistet begge foreldrene dine.',
     childAndOneParentDeceased: 'Du trenger ikke fylle ut informasjon om gjenlevende forelder',
     unknownParent: 'Ukjent forelder',
     unknownParentQuestion: 'Er din ene forelder ukjent?',
+    childAndOneParentDeceasedGuidepanel:
+        'Du trenger ikke fylle ut informasjon om gjenlevende forelder. Vi innhenter denne informasjonen når vi behandler søknaden din. \n\n' +
+        'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknadsprosessen på nytt. Velg "Jeg har mistet begge foreldrene".',
+    childAndBothParentsDeceasedGuidepanel:
+        'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Hvis du ikke kjenner identiteten til forelderen din, velger du "Ukjent forelder."',
 }
 
 const livingParent = {

@@ -185,10 +185,11 @@ const aboutParents = {
         'You will need to add information about both parents to continue with the application.  \n \n If the child has lost his/her mother and paternity has not been determined, you will need to use',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> this application</a>.',
-    bothParentsRequiredOver18: '<MANGLER TEKST>',
     childAndOneParentDeceased: '<MANGLER TEKST>',
     unknownParent: '<MANGLER TEKST>',
     unknownParentQuestion: '<MANGLER TEKST>',
+    childAndOneParentDeceasedGuidepanel: '<MANGLER TEKST>',
+    childAndBothParentsDeceasedGuidepanel: '<MANGLER TEKST>',
 }
 
 const livingParent = {
