@@ -44,27 +44,26 @@ export default function StaysAbroad({ countries }: { countries: any }) {
             {fields.map((field: FieldArrayWithId, index: number) => (
                 <FormElement key={field.id}>
                     <Panel border>
-                        <Grid>
-                            <Cell xs={12} md={6}>
-                                <RHFSelect
-                                    name={`staysAbroad.abroadStays[${index}].country`}
-                                    label={t('abroadInWhichCountry')}
-                                    children={countries}
+                        <FormElement>
+                            <RHFSelect
+                                name={`staysAbroad.abroadStays[${index}].country`}
+                                label={t('abroadInWhichCountry')}
+                                children={countries}
+                                style={{ width: '14rem' }}
+                            />
+                        </FormElement>
+                        <FormElement>
+                            <StaysAbroadCheckboxDiv>
+                                <RHFCheckboksGruppe
+                                    name={`staysAbroad.abroadStays[${index}].type`}
+                                    legend={t('livedOrWorkedAbroad')}
+                                    required={true}
+                                    checkboxes={Object.values(OppholdUtlandType).map((value) => {
+                                        return { children: t(value), value }
+                                    })}
                                 />
-                            </Cell>
-                            <Cell xs={12} md={6}>
-                                <StaysAbroadCheckboxDiv>
-                                    <RHFCheckboksGruppe
-                                        name={`staysAbroad.abroadStays[${index}].type`}
-                                        legend={t('livedOrWorkedAbroad')}
-                                        required={true}
-                                        checkboxes={Object.values(OppholdUtlandType).map((value) => {
-                                            return { children: t(value), value }
-                                        })}
-                                    />
-                                </StaysAbroadCheckboxDiv>
-                            </Cell>
-                        </Grid>
+                            </StaysAbroadCheckboxDiv>
+                        </FormElement>
                         <Grid>
                             <Cell xs={12} md={6}>
                                 <DatePicker

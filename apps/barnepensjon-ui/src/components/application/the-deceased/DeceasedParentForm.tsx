@@ -34,11 +34,13 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
 
     return (
         <>
-            <FormGroup>
+            <FormElement>
                 <PersonInfo duplicateList={fnrRegisteredParent} />
-            </FormGroup>
+            </FormElement>
             <FormGroup>
-                <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
+                <FormElement>
+                    <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
+                </FormElement>
             </FormGroup>
 
             <FormGroup>
@@ -61,16 +63,14 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
             <FormGroup>
                 {!isChild && <Heading size="small">{t('otherTitle')}</Heading>}
 
-                <FormElement>
-                    <RHFGeneralQuestionRadio
-                        name={'occupationalInjury'}
-                        legend={t('occupationalInjury')}
-                        vetIkke={true}
-                        description={
-                            isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')
-                        }
-                    />
-                </FormElement>
+                <RHFGeneralQuestionRadio
+                    name={'occupationalInjury'}
+                    legend={t('occupationalInjury')}
+                    vetIkke={true}
+                    description={
+                        isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')
+                    }
+                />
 
                 {bothParentsDecesed && !isChild && (
                     <>

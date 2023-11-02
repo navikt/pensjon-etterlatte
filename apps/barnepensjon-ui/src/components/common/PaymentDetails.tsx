@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
 import useTranslation from '../../hooks/useTranslation'
 import FormElement from './FormElement'
-import { RHFGeneralQuestionRadio, RHFInlineRadio } from './rhf/RHFRadio'
+import { RHFGeneralQuestionRadio, RHFInlineRadio, RHFRadio } from './rhf/RHFRadio'
 import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from './rhf/RHFInput'
 import FormGroup from './FormGroup'
 import { useFormContext } from 'react-hook-form'
@@ -24,7 +24,7 @@ export default function PaymentDetails() {
     return (
         <FormGroup>
             <FormElement>
-                <RHFInlineRadio
+                <RHFRadio
                     id={'accountTypeSelection'}
                     name={'paymentDetails.accountType'}
                     legend={t('accountType')}
@@ -36,13 +36,13 @@ export default function PaymentDetails() {
 
             {accountType === BankkontoType.NORSK && (
                 <>
-                    <FormGroup>
+                    <FormElement>
                         <RHFKontonummerInput
                             name={'paymentDetails.bankAccount'}
                             label={t('bankAccount')}
                             htmlSize={15}
                         />
-                    </FormGroup>
+                    </FormElement>
                     <FormGroup>
                         <FormElement>
                             <RHFGeneralQuestionRadio
@@ -59,8 +59,8 @@ export default function PaymentDetails() {
                                     <RHFProsentInput
                                         name={'paymentDetails.taxWithhold.taxPercentage'}
                                         label={t('desiredTaxPercentage')}
-                                        placeholder={t('desiredTaxPercentagePlaceholder')}
-                                        htmlSize={40}
+                                        description={t('desiredTaxPercentagePlaceholder')}
+                                        htmlSize={15}
                                     />
                                 </FormElement>
                                 <FormElement>
@@ -98,6 +98,8 @@ export default function PaymentDetails() {
                                     <HelpText placement={'top'}>{t('ibanHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
+                            htmlSize={40}
+                            //TODO: Samme bredde overalt
                         />
                     </FormElement>
                     <FormElement>
@@ -110,6 +112,7 @@ export default function PaymentDetails() {
                                     <HelpText placement={'top'}>{t('swiftHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
+                            htmlSize={20}
                         />
                     </FormElement>
                 </>

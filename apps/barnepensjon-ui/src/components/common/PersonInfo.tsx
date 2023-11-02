@@ -16,7 +16,7 @@ export default function PersonInfo({ duplicateList }: Props) {
     const { countries }: { countries: any } = useCountries()
 
     return (
-        <FormGroup>
+        <>
             <FormElement>
                 <Grid>
                     <Cell xs={12} md={6}>
@@ -48,6 +48,6 @@ export default function PersonInfo({ duplicateList }: Props) {
                     </Cell>
                 </Grid>
             </FormElement>
-        </FormGroup>
+        </>
     )
 }

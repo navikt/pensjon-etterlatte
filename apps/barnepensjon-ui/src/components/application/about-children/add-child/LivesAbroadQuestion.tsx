@@ -32,6 +32,7 @@ export const LivesAbroadQuestion = ({ isChild, countries, livesAbroadAnswer }: P
                             name={'staysAbroad.country'}
                             label={t('stayAbroadCountry')}
                             children={countries}
+                            style={{width: '14rem'}}
                         />
                     </FormElement>
 

@@ -20,6 +20,7 @@ import PersonInfo from '../../../common/PersonInfo'
 import ParentQuestion from './ParentQuestion'
 import { IsGuardianQuestion } from './IsGuardianQuestion'
 import { useUserContext } from '../../../../context/user/UserContext'
+import FormElement from '../../../common/FormElement'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -143,7 +144,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                     </ChangeChildPanelHeader>
 
                     <ChangeChildPanelContent>
-                        <FormGroup>
+                        <>
                             <PersonInfo duplicateList={fnrRegisteredChild} />
                             {tooOldChild() && (
                                 <Panel border>
@@ -152,8 +153,10 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                     </Alert>
                                 </Panel>
                             )}
-                            <ParentQuestion parents={parents} />
-                        </FormGroup>
+                            <FormElement>
+                                <ParentQuestion parents={parents} />
+                            </FormElement>
+                        </>
 
                         {!tooOldChild() && parents === ParentRelationType.BOTH && (
                             <FormGroup>

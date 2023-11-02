@@ -27,7 +27,7 @@ export default function ParentQuestion({ parents }: Props) {
     const isParent = application.applicant?.applicantRole === ApplicantRole.PARENT
 
     return (
-        <FormGroup>
+        <FormElement>
             <FormElement>
                 <RHFRadio
                     legend={
@@ -89,6 +89,6 @@ export default function ParentQuestion({ parents }: Props) {
                     </Alert>
                 </Panel>
             )}
-        </FormGroup>
+        </FormElement>
     )
 }
