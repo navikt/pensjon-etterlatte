@@ -1,4 +1,3 @@
-import { Cell, Grid } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import { ActionTypes } from '../../../context/application/application'
@@ -6,7 +5,6 @@ import { useApplicationContext } from '../../../context/application/ApplicationC
 import { useUserContext } from '../../../context/user/UserContext'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
-import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import { RHFTelefonInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
@@ -19,6 +17,7 @@ import PaymentDetails from '../../common/PaymentDetails'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
 import { RHFSelect } from '../../common/rhf/RHFSelect'
 import useCountries from '../../../hooks/useCountries'
+import { Bredde, BreddeSelect } from '../../../utils/bredde'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
@@ -70,8 +69,7 @@ export default function AboutYou({ next }: StepProps) {
                                             name={'countryOfResidence'}
                                             label={t('countryOfResidence')}
                                             children={countries}
-                                            // TODO: Fiks bredde
-                                            style={{ width: '14rem' }}
+                                            style={{ width: BreddeSelect }}
                                         />
                                     </FormElement>
                                 )}
@@ -79,18 +77,14 @@ export default function AboutYou({ next }: StepProps) {
                         )}
 
                         {!!user.foedselsnummer && !user.telefonnummer && !isGuardian && (
-                            <Grid>
-                                <Cell xs={12} md={6}>
-                                    <FormElement>
-                                        <RHFTelefonInput
-                                            name={'phoneNumber'}
-                                            label={t('phoneNumberOptional', { ns: 'common' })}
-                                            valgfri={true}
-                                            htmlSize={20}
-                                        />
-                                    </FormElement>
-                                </Cell>
-                            </Grid>
+                            <FormElement>
+                                <RHFTelefonInput
+                                    name={'phoneNumber'}
+                                    label={t('phoneNumberOptional', { ns: 'common' })}
+                                    valgfri={true}
+                                    htmlSize={Bredde.S}
+                                />
+                            </FormElement>
                         )}
                     </FormElement>
 

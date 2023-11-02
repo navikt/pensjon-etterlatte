@@ -4,6 +4,7 @@ import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { RHFInput } from '../../../common/rhf/RHFInput'
 import useTranslation from '../../../../hooks/useTranslation'
 import { RHFSelect } from '../../../common/rhf/RHFSelect'
+import { BreddeSelect } from '../../../../utils/bredde'
 
 interface Props {
     isChild: boolean
@@ -32,7 +33,7 @@ export const LivesAbroadQuestion = ({ isChild, countries, livesAbroadAnswer }: P
                             name={'staysAbroad.country'}
                             label={t('stayAbroadCountry')}
                             children={countries}
-                            style={{width: '14rem'}}
+                            style={{ width: BreddeSelect }}
                         />
                     </FormElement>
 

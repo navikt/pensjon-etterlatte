@@ -1,4 +1,4 @@
-import { Heading, Panel, Tag } from '@navikt/ds-react'
+import { Panel, Tag } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { memo } from 'react'
 import { v4 as uuid } from 'uuid'
