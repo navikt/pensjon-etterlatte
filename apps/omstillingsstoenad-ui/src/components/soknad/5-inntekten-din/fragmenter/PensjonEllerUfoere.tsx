@@ -35,7 +35,7 @@ const PensjonEllerUfoere = () => {
                 <Heading size={'medium'}>{t('inntektenDin.pensjonEllerUfoere.tittel')}</Heading>
             </SkjemaElement>
 
-            <SkjemaGruppe>
+            <>
                 <SkjemaElement>
                     <RHFCheckboksGruppe
                         name={'pensjonEllerUfoere.pensjonstype'}
@@ -75,12 +75,13 @@ const PensjonEllerUfoere = () => {
                         </HvorforSpoerVi>
                     </>
                 )}
-            </SkjemaGruppe>
+            </>
 
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={'pensjonEllerUfoere.utland.svar'}
                     legend={t('inntektenDin.pensjonEllerUfoere.utland.svar')}
+                    description={t('inntektenDin.pensjonEllerUfoere.utland.hvorfor')}
                 />
             </SkjemaElement>
             {utland === IValg.JA && (
@@ -118,9 +119,6 @@ const PensjonEllerUfoere = () => {
                             />
                         </SkjemaElement>
                     </SkjemaGruppeRad>
-                    <HvorforSpoerVi title={'pensjonEllerUfoere.utland.svar'}>
-                        {t('inntektenDin.pensjonEllerUfoere.utland.hvorfor')}
-                    </HvorforSpoerVi>
                 </>
             )}
         </SkjemaGruppe>

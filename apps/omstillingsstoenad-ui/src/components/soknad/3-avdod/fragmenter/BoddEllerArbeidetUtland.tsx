@@ -8,11 +8,9 @@ import { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { useTranslation } from 'react-i18next'
 import { DeleteFilled } from '@navikt/ds-icons'
-import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 import { BodyLong, Button, Panel, Heading } from '@navikt/ds-react'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { useLand } from '../../../../hooks/useLand'
-import { SkjemaGruppeIngress } from '../../../felles/StyledComponents'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import Bredde from '../../../../typer/bredde'
@@ -52,10 +50,8 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaGruppeIngress>
-                <Heading size="small">{t('omDenAvdoede.boddEllerJobbetUtland.tittel')}</Heading>
-                <BodyLong>{t('omDenAvdoede.boddEllerJobbetUtland.ingress')}</BodyLong>
-            </SkjemaGruppeIngress>
+            <Heading size="small">{t('omDenAvdoede.boddEllerJobbetUtland.tittel')}</Heading>
+            <BodyLong>{t('omDenAvdoede.boddEllerJobbetUtland.ingress')}</BodyLong>
 
             <SkjemaElement>
                 <RHFSpoersmaalRadio
@@ -66,19 +62,20 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
             </SkjemaElement>
 
             {boddEllerArbeidetUtland === IValg.JA && (
-                <SkjemaGruppe>
+                <>
                     {fields.map((field: FieldArrayWithId, index: number) => (
                         <Panel border key={field.id} className={'luft-under'}>
-                            <Rad>
+                            <SkjemaElement>
                                 <RHFSelect
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].land` as const}
                                     label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
                                     selectOptions={alleLand}
                                 />
+                            </SkjemaElement>
+                            <SkjemaElement>
                                 <RHFCheckboksGruppe
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].beskrivelse` as const}
                                     legend={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse')}
-                                    inline={true}
                                     checkboxes={[
                                         {
                                             children: t(OppholdUtlandType.bodd.valueOf()),
@@ -92,7 +89,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                         },
                                     ]}
                                 />
-                            </Rad>
+                            </SkjemaElement>
 
                             <SkjemaElement>
                                 <Rad>
@@ -118,13 +115,9 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                             <RHFSpoersmaalRadio
                                 name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygd` as const}
                                 legend={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd')}
-                                description={
-                                    <HvorforSpoerVi title="omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd">
-                                        {t(
-                                            'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst'
-                                        )}
-                                    </HvorforSpoerVi>
-                                }
+                                description={t(
+                                    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst'
+                                )}
                                 vetIkke
                             />
 
@@ -138,7 +131,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     label={t(
                                         'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse'
                                     )}
-                                    placeholder={t(
+                                    description={t(
                                         'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder'
                                     )}
                                 />
@@ -157,7 +150,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     <Button variant={'secondary'} type={'button'} onClick={() => append({}, { shouldFocus: true })}>
                         + {t('knapp.leggTilLand')}
                     </Button>
-                </SkjemaGruppe>
+                </>
             )}
         </SkjemaGruppe>
     )

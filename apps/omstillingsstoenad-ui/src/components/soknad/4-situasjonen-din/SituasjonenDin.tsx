@@ -15,11 +15,15 @@ import { RHFCheckboksGruppe } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { deepCopy } from '../../../utils/deepCopy'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { SkjemaElement } from '../../felles/SkjemaElement'
-import HvorforSpoerVi from '../../felles/HvorforSpoerVi'
 import EtablererVirksomhet from './fragmenter/EtablererVirksomhet'
 import TilbudOmJobb from './fragmenter/TilbudOmJobb'
 import Arbeidssoeker from './fragmenter/Arbeidssoeker'
 import AnnenSituasjon from './fragmenter/AnnenSituasjon'
+import styled from 'styled-components'
+
+const DynamicSpacing = styled.div<{ $margin: boolean }>`
+    margin-bottom: ${(props) => (!props.$margin ? '3rem' : '')};
+`
 
 const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -78,20 +82,18 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
                 {!brukerState.adressebeskyttelse && (
                     <>
-                        <SkjemaGruppe>
+                        <DynamicSpacing $margin={!!jobbStatus?.length}>
                             <Heading size={'small'} spacing>
                                 {t('dinSituasjon.jobbStatus.tittel')}
                             </Heading>
                             <RHFCheckboksGruppe
                                 name={'jobbStatus'}
                                 legend={t('dinSituasjon.jobbStatus')}
+                                description={t('dinSituasjon.jobbStatus.hvorfor')}
                                 checkboxes={Object.values(JobbStatus).map((value) => {
                                     return { children: t(value), value, required: true }
                                 })}
                             />
-                            <HvorforSpoerVi title="dinSituasjon.jobbStatus">
-                                {t('dinSituasjon.jobbStatus.hvorfor')}
-                            </HvorforSpoerVi>
 
                             {selvstendigEllerArbeidstaker && <NavaerendeArbeidsforhold />}
 
@@ -104,7 +106,7 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                             {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
 
                             {jobbStatus?.includes(JobbStatus.ingen) && <AnnenSituasjon />}
-                        </SkjemaGruppe>
+                        </DynamicSpacing>
 
                         <HoeyesteUtdanning />
                     </>

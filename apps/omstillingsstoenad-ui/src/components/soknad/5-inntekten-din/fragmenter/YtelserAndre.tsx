@@ -8,7 +8,6 @@ import { IInntekt, SoekbareYtelserAndre } from '../../../../typer/inntekt'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInput } from '../../../felles/rhf/RHFInput'
-import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 import Bredde from '../../../../typer/bredde'
 
 const YtelserAndre = () => {
@@ -22,7 +21,11 @@ const YtelserAndre = () => {
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <RHFSpoersmaalRadio name={'ytelserAndre.svar'} legend={t('inntektenDin.ytelserAndre.svar')} />
+                <RHFSpoersmaalRadio
+                    name={'ytelserAndre.svar'}
+                    legend={t('inntektenDin.ytelserAndre.svar')}
+                    description={t('inntektenDin.ytelserAndre.hvorfor')}
+                />
             </SkjemaElement>
             {harSoektYtelse === IValg.JA && (
                 <SkjemaElement>
@@ -45,9 +48,6 @@ const YtelserAndre = () => {
                     />
                 </SkjemaElement>
             )}
-            <HvorforSpoerVi title="inntektenDin.ytelserAndre.svar">
-                {t('inntektenDin.ytelserAndre.hvorfor')}
-            </HvorforSpoerVi>
         </SkjemaGruppe>
     )
 }

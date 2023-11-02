@@ -85,26 +85,23 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                 </SkjemaElement>
             </SkjemaGruppe>
 
-            <SkjemaGruppe>
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={`${selvstendigName}.forventerEndretArbeidssituasjon.svar` as const}
+                    legend={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.svar')}
+                />
+            </SkjemaElement>
+
+            {endretArbeidssituasjon === IValg.JA && (
                 <SkjemaElement>
-                    <RHFSpoersmaalRadio
-                        name={`${selvstendigName}.forventerEndretArbeidssituasjon.svar` as const}
-                        legend={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.svar')}
+                    <RHFInputArea
+                        name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
+                        label={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
+                        maxLength={100}
+                        className={'width-50'}
                     />
                 </SkjemaElement>
-
-                {endretArbeidssituasjon === IValg.JA && (
-                    <SkjemaElement>
-                        <RHFInputArea
-                            name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
-                            label={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
-                            maxLength={100}
-                            className={'width-50'}
-                        />
-                    </SkjemaElement>
-                )}
-            </SkjemaGruppe>
-
+            )}
             <SkjemaElement>
                 <HvorforSpoerVi title="dinSituasjon.selvstendig.grunnTilSpoersmål">
                     {t('dinSituasjon.selvstendig.grunnTilSpoersmål.hvorfor')}

@@ -9,7 +9,6 @@ import { DeleteFilled } from '@navikt/ds-icons'
 import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import Datovelger from '../../../felles/Datovelger'
-import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 import Bredde from '../../../../typer/bredde'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
@@ -38,14 +37,14 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             {lengde > 1 && (
                 <Heading size={'small'}>{`${t('dinSituasjon.arbeidsforhold.arbeidssted')} ${index + 1}`}</Heading>
             )}
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <RHFInput
                     className={'kol-50'}
                     name={`arbeidsforhold[${index}].arbeidsgiver` as const}
                     label={t('dinSituasjon.arbeidsforhold.arbeidsgiver')}
                     htmlSize={Bredde.M}
                 />
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             <SkjemaElement>
                 <RHFRadio
@@ -103,10 +102,12 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 label={t('felles.velg.tittel')}
                             />
                         </NumberSelectRad>
-                        <RHFSpoersmaalRadio
-                            name={`arbeidsforhold[${index}].midlertidig.svar` as const}
-                            legend={t('dinSituasjon.arbeidsforhold.midlertidig.svar')}
-                        />
+                        <SkjemaElement>
+                            <RHFSpoersmaalRadio
+                                name={`arbeidsforhold[${index}].midlertidig.svar` as const}
+                                legend={t('dinSituasjon.arbeidsforhold.midlertidig.svar')}
+                            />
+                        </SkjemaElement>
                         {sluttdato === IValg.JA && (
                             <Datovelger
                                 name={`arbeidsforhold[${index}].midlertidig.sluttdatoVelger`}
@@ -119,13 +120,10 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <SkjemaElement>
-                    <RHFSpoersmaalRadio
-                        name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
-                        legend={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
-                    />
-                </SkjemaElement>
-
+                <RHFSpoersmaalRadio
+                    name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
+                    legend={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
+                />
                 {endretArbeidssituasjon === IValg.JA && (
                     <SkjemaElement>
                         <RHFInputArea
@@ -142,14 +140,12 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 <RHFRadio
                     name={`arbeidsforhold[${index}].sagtOppEllerRedusert.svar` as const}
                     legend={t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar')}
+                    description={t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
                 >
                     {Object.values(SagtOppEllerRedusert).map((value) => {
                         return { children: t(value), value } as RadioProps
                     })}
                 </RHFRadio>
-                <HvorforSpoerVi title="dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar">
-                    {t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
-                </HvorforSpoerVi>
             </SkjemaElement>
 
             {lengde > 1 && (

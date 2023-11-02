@@ -6,7 +6,6 @@ import { get } from 'lodash'
 import { useTranslation } from 'react-i18next'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { Radio, RadioGroup, RadioGroupProps, RadioProps } from '@navikt/ds-react'
-import { SkjemaElement } from '../SkjemaElement'
 import { getTransKey } from '../../../utils/translation'
 
 export const RHFSpoersmaalRadio = ({
@@ -54,30 +53,28 @@ export const RHFRadio = ({ name, legend, description, children, rules, ...rest }
 
     return (
         <div id={name}>
-            <SkjemaElement>
-                <Controller
-                    name={name}
-                    control={control}
-                    rules={{ required: true, ...rules }}
-                    render={({ field: { value, onChange, name } }) => (
-                        <RadioGroup
-                            {...rest}
-                            name={name}
-                            error={feilmelding}
-                            description={description}
-                            legend={legend}
-                            value={value ?? ''}
-                            onChange={(val) => onChange(val as IValg)}
-                        >
-                            {children.map((child, index) => (
-                                <Radio key={index} value={child.value} className={'radioBorder'}>
-                                    {child.children}
-                                </Radio>
-                            ))}
-                        </RadioGroup>
-                    )}
-                />
-            </SkjemaElement>
+            <Controller
+                name={name}
+                control={control}
+                rules={{ required: true, ...rules }}
+                render={({ field: { value, onChange, name } }) => (
+                    <RadioGroup
+                        {...rest}
+                        name={name}
+                        error={feilmelding}
+                        description={description}
+                        legend={legend}
+                        value={value ?? ''}
+                        onChange={(val) => onChange(val as IValg)}
+                    >
+                        {children.map((child, index) => (
+                            <Radio key={index} value={child.value} className={'radioBorder'}>
+                                {child.children}
+                            </Radio>
+                        ))}
+                    </RadioGroup>
+                )}
+            />
         </div>
     )
 }

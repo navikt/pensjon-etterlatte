@@ -9,7 +9,7 @@ import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import ForholdTilAvdoedeSkjema from './forholdTilAvdoede/ForholdTilAvdoedeSkjema'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Datovelger from '../../felles/Datovelger'
-import { Cell, Grid, Label, Heading } from '@navikt/ds-react'
+import { Label, Heading, HGrid } from '@navikt/ds-react'
 import NySivilstatus from './nySivilstatus/NySivilstatus'
 import Navigasjon from '../../felles/Navigasjon'
 import { deepCopy } from '../../../utils/deepCopy'
@@ -61,23 +61,17 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                     <SkjemaGruppe>
                         <Label>{t('omDegOgAvdoed.avdoed.hvem')}</Label>
 
-                        <Grid>
-                            <Cell xs={12} md={6}>
-                                <RHFInput name={'avdoed.fornavn'} label={t('omDegOgAvdoed.avdoed.fornavn')} />
-                            </Cell>
+                        <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                            <RHFInput name={'avdoed.fornavn'} label={t('omDegOgAvdoed.avdoed.fornavn')} />
 
-                            <Cell xs={12} md={6}>
-                                <RHFInput name={'avdoed.etternavn'} label={t('omDegOgAvdoed.avdoed.etternavn')} />
-                            </Cell>
-                        </Grid>
+                            <RHFInput name={'avdoed.etternavn'} label={t('omDegOgAvdoed.avdoed.etternavn')} />
+                        </HGrid>
                     </SkjemaGruppe>
 
                     <SkjemaGruppe>
-                        <Label>{t('omDegOgAvdoed.avdoed.datoForDoedsfallet')}</Label>
-
                         <Datovelger
                             name={'avdoed.datoForDoedsfallet'}
-                            label={t('omDegOgAvdoed.avdoed.dato')}
+                            label={t('omDegOgAvdoed.avdoed.datoForDoedsfallet')}
                             maxDate={new Date()}
                         />
                     </SkjemaGruppe>

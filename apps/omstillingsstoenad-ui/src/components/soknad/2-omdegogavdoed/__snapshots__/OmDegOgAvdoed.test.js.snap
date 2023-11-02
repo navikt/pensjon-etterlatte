@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 <div>
   <div
-    class="sc-crzpnZ bA-DzB"
+    class="sc-dItHI fGZLUG"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -21,62 +21,55 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         omDegOgAvdoed.avdoed.hvem
       </label>
       <div
-        class="navds-grid"
+        class="navds-hgrid"
+        style="--__ac-hgrid-align: start; --__ac-hgrid-gap-xs: var(--a-spacing-4); --__ac-hgrid-columns-xs: repeat(1, minmax(0, 1fr)); --__ac-hgrid-columns-sm: repeat(2, minmax(0, 1fr));"
       >
-        <div
-          class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
-        >
-          <div>
-            <div
-              class="navds-form-field navds-form-field--medium"
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="avdoed.fornavn"
             >
-              <label
-                class="navds-form-field__label navds-label"
-                for="avdoed.fornavn"
-              >
-                omDegOgAvdoed.avdoed.fornavn
-              </label>
-              <input
-                class="navds-text-field__input navds-body-short navds-body-short--medium"
-                id="avdoed.fornavn"
-                type="text"
-                value=""
-              />
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="textField-error-ri"
-              />
-            </div>
+              omDegOgAvdoed.avdoed.fornavn
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="avdoed.fornavn"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-ri"
+            />
           </div>
         </div>
-        <div
-          class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
-        >
-          <div>
-            <div
-              class="navds-form-field navds-form-field--medium"
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="avdoed.etternavn"
             >
-              <label
-                class="navds-form-field__label navds-label"
-                for="avdoed.etternavn"
-              >
-                omDegOgAvdoed.avdoed.etternavn
-              </label>
-              <input
-                class="navds-text-field__input navds-body-short navds-body-short--medium"
-                id="avdoed.etternavn"
-                type="text"
-                value=""
-              />
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="textField-error-rj"
-              />
-            </div>
+              omDegOgAvdoed.avdoed.etternavn
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="avdoed.etternavn"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-rj"
+            />
           </div>
         </div>
       </div>
@@ -84,25 +77,9 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
-      <label
-        class="navds-label"
-      >
-        omDegOgAvdoed.avdoed.datoForDoedsfallet
-      </label>
       <section
-        class="sc-dItHI frcqzy"
+        class="sc-crzpnZ gBHkfx"
       >
-        <label
-          class="navds-label"
-          for="avdoed.datoForDoedsfallet"
-        >
-          omDegOgAvdoed.avdoed.dato
-        </label>
-        <div
-          class="skjemaelement__description"
-        >
-          felles.datoformat
-        </div>
         <div
           class="datepicker"
         >
@@ -116,11 +93,20 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 <label
                   class="navds-form-field__label navds-label"
                   for="avdoed.datoForDoedsfallet"
-                />
+                >
+                  omDegOgAvdoed.avdoed.datoForDoedsfallet
+                </label>
+                <div
+                  class="navds-form-field__description navds-body-short navds-body-short--small"
+                  id="textField-description-rk"
+                >
+                  felles.oppgiDato felles.datoformat
+                </div>
                 <div
                   style="position: relative;"
                 >
                   <input
+                    aria-describedby="textField-description-rk"
                     autocomplete="off"
                     autocorrect="off"
                     class="navds-text-field__input navds-body-short navds-body-medium"
@@ -187,160 +173,156 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
     <div
       id="forholdTilAvdoede.relasjon"
     >
-      <div
-        class="sc-crzpnZ bA-DzB"
+      <fieldset
+        class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
       >
-        <fieldset
-          class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        <legend
+          class="navds-fieldset__legend navds-label"
         >
-          <legend
-            class="navds-fieldset__legend navds-label"
-          >
-            omDegOgAvdoed.forholdTilAvdoede.relasjon
-          </legend>
+          omDegOgAvdoed.forholdTilAvdoede.relasjon
+        </legend>
+        <div
+          class="navds-radio-buttons"
+        >
           <div
-            class="navds-radio-buttons"
+            class="radioBorder navds-radio navds-radio--medium"
           >
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
+            <input
+              class="navds-radio__input"
+              id="radio-rn"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.gift"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-rn"
             >
-              <input
-                class="navds-radio__input"
-                id="radio-rn"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.gift"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-rn"
+              <span
+                class="navds-radio__content"
               >
                 <span
-                  class="navds-radio__content"
+                  class="navds-body-short navds-body-short--medium"
                 >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.gift
-                  </span>
+                  avdoede.relasjon.gift
                 </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-ro"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.separert"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-ro"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.separert
-                  </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-rp"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.samboer"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-rp"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.samboer
-                  </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-rq"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.skilt"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-rq"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.skilt
-                  </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-rr"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.tidligereSamboer"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-rr"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.tidligereSamboer
-                  </span>
-                </span>
-              </label>
-            </div>
+              </span>
+            </label>
           </div>
           <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-fieldset__error"
-            id="fieldset-error-rm"
-          />
-        </fieldset>
-      </div>
+            class="radioBorder navds-radio navds-radio--medium"
+          >
+            <input
+              class="navds-radio__input"
+              id="radio-ro"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.separert"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-ro"
+            >
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  avdoede.relasjon.separert
+                </span>
+              </span>
+            </label>
+          </div>
+          <div
+            class="radioBorder navds-radio navds-radio--medium"
+          >
+            <input
+              class="navds-radio__input"
+              id="radio-rp"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.samboer"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-rp"
+            >
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  avdoede.relasjon.samboer
+                </span>
+              </span>
+            </label>
+          </div>
+          <div
+            class="radioBorder navds-radio navds-radio--medium"
+          >
+            <input
+              class="navds-radio__input"
+              id="radio-rq"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.skilt"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-rq"
+            >
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  avdoede.relasjon.skilt
+                </span>
+              </span>
+            </label>
+          </div>
+          <div
+            class="radioBorder navds-radio navds-radio--medium"
+          >
+            <input
+              class="navds-radio__input"
+              id="radio-rr"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.tidligereSamboer"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-rr"
+            >
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  avdoede.relasjon.tidligereSamboer
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          aria-live="polite"
+          aria-relevant="additions removals"
+          class="navds-fieldset__error"
+          id="fieldset-error-rm"
+        />
+      </fieldset>
     </div>
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
       <div
-        class="sc-crzpnZ bA-DzB"
+        class="sc-dItHI fGZLUG"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -356,108 +338,104 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       <div
         id="nySivilstatus.sivilstatus"
       >
-        <div
-          class="sc-crzpnZ bA-DzB"
+        <fieldset
+          class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
-          <fieldset
-            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
+          />
+          <div
+            class="navds-radio-buttons"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
-            />
             <div
-              class="navds-radio-buttons"
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <input
+                class="navds-radio__input"
+                id="radio-ru"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.enslig"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-ru"
               >
-                <input
-                  class="navds-radio__input"
-                  id="radio-ru"
-                  name="nySivilstatus.sivilstatus"
-                  type="radio"
-                  value="nySivilstatus.enslig"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-ru"
+                <span
+                  class="navds-radio__content"
                 >
                   <span
-                    class="navds-radio__content"
+                    class="navds-body-short navds-body-short--medium"
                   >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      nySivilstatus.enslig
-                    </span>
+                    nySivilstatus.enslig
                   </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-rv"
-                  name="nySivilstatus.sivilstatus"
-                  type="radio"
-                  value="nySivilstatus.ekteskap"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-rv"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      nySivilstatus.ekteskap
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r10"
-                  name="nySivilstatus.sivilstatus"
-                  type="radio"
-                  value="nySivilstatus.samboerskap"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r10"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      nySivilstatus.samboerskap
-                    </span>
-                  </span>
-                </label>
-              </div>
+                </span>
+              </label>
             </div>
             <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-rt"
-            />
-          </fieldset>
-        </div>
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                class="navds-radio__input"
+                id="radio-rv"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.ekteskap"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-rv"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    nySivilstatus.ekteskap
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                class="navds-radio__input"
+                id="radio-r10"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.samboerskap"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-r10"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    nySivilstatus.samboerskap
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-rt"
+          />
+        </fieldset>
       </div>
       <div
         class="navds-panel navds-panel--border"
       >
         <div
-          class="sc-crzpnZ bA-DzB"
+          class="sc-dItHI fGZLUG"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -466,7 +444,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </h1>
         </div>
         <div
-          class="sc-crzpnZ bA-DzB"
+          class="sc-dItHI fGZLUG"
         >
           <div
             class="navds-grid"
@@ -534,7 +512,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </div>
         </div>
         <div
-          class="sc-crzpnZ bA-DzB"
+          class="sc-dItHI fGZLUG"
         >
           <div
             class="navds-form-field navds-form-field--medium"
@@ -562,84 +540,80 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </div>
         </div>
         <div
-          class="sc-crzpnZ bA-DzB"
+          class="sc-dItHI fGZLUG"
         >
           <div
             id="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
           >
-            <div
-              class="sc-crzpnZ bA-DzB"
+            <fieldset
+              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
-              <fieldset
-                class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              <legend
+                class="navds-fieldset__legend navds-label"
               >
-                <legend
-                  class="navds-fieldset__legend navds-label"
-                >
-                  omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift
-                </legend>
+                omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
                 <div
-                  class="navds-radio-buttons"
+                  class="radioBorder navds-radio navds-radio--medium"
                 >
-                  <div
-                    class="radioBorder navds-radio navds-radio--medium"
+                  <input
+                    class="navds-radio__input"
+                    id="radio-r19"
+                    name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-r19"
                   >
-                    <input
-                      class="navds-radio__input"
-                      id="radio-r19"
-                      name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
-                      type="radio"
-                      value="radiobuttons.ja"
-                    />
-                    <label
-                      class="navds-radio__label"
-                      for="radio-r19"
+                    <span
+                      class="navds-radio__content"
                     >
                       <span
-                        class="navds-radio__content"
+                        class="navds-body-short navds-body-short--medium"
                       >
-                        <span
-                          class="navds-body-short navds-body-short--medium"
-                        >
-                          radiobuttons.ja
-                        </span>
+                        radiobuttons.ja
                       </span>
-                    </label>
-                  </div>
-                  <div
-                    class="radioBorder navds-radio navds-radio--medium"
-                  >
-                    <input
-                      class="navds-radio__input"
-                      id="radio-r1a"
-                      name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
-                      type="radio"
-                      value="radiobuttons.nei"
-                    />
-                    <label
-                      class="navds-radio__label"
-                      for="radio-r1a"
-                    >
-                      <span
-                        class="navds-radio__content"
-                      >
-                        <span
-                          class="navds-body-short navds-body-short--medium"
-                        >
-                          radiobuttons.nei
-                        </span>
-                      </span>
-                    </label>
-                  </div>
+                    </span>
+                  </label>
                 </div>
                 <div
-                  aria-live="polite"
-                  aria-relevant="additions removals"
-                  class="navds-fieldset__error"
-                  id="fieldset-error-r18"
-                />
-              </fieldset>
-            </div>
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-r1a"
+                    name="nySivilstatus.samboerskap.hattBarnEllerVaertGift"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-r1a"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.nei
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-r18"
+              />
+            </fieldset>
           </div>
         </div>
       </div>
@@ -796,7 +770,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
 <div>
   <div
-    class="sc-crzpnZ bA-DzB"
+    class="sc-dItHI fGZLUG"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -814,62 +788,55 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         omDegOgAvdoed.avdoed.hvem
       </label>
       <div
-        class="navds-grid"
+        class="navds-hgrid"
+        style="--__ac-hgrid-align: start; --__ac-hgrid-gap-xs: var(--a-spacing-4); --__ac-hgrid-columns-xs: repeat(1, minmax(0, 1fr)); --__ac-hgrid-columns-sm: repeat(2, minmax(0, 1fr));"
       >
-        <div
-          class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
-        >
-          <div>
-            <div
-              class="navds-form-field navds-form-field--medium"
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="avdoed.fornavn"
             >
-              <label
-                class="navds-form-field__label navds-label"
-                for="avdoed.fornavn"
-              >
-                omDegOgAvdoed.avdoed.fornavn
-              </label>
-              <input
-                class="navds-text-field__input navds-body-short navds-body-short--medium"
-                id="avdoed.fornavn"
-                type="text"
-                value=""
-              />
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="textField-error-r0"
-              />
-            </div>
+              omDegOgAvdoed.avdoed.fornavn
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="avdoed.fornavn"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-r0"
+            />
           </div>
         </div>
-        <div
-          class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6"
-        >
-          <div>
-            <div
-              class="navds-form-field navds-form-field--medium"
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="avdoed.etternavn"
             >
-              <label
-                class="navds-form-field__label navds-label"
-                for="avdoed.etternavn"
-              >
-                omDegOgAvdoed.avdoed.etternavn
-              </label>
-              <input
-                class="navds-text-field__input navds-body-short navds-body-short--medium"
-                id="avdoed.etternavn"
-                type="text"
-                value=""
-              />
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="textField-error-r1"
-              />
-            </div>
+              omDegOgAvdoed.avdoed.etternavn
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="avdoed.etternavn"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-r1"
+            />
           </div>
         </div>
       </div>
@@ -877,25 +844,9 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
-      <label
-        class="navds-label"
-      >
-        omDegOgAvdoed.avdoed.datoForDoedsfallet
-      </label>
       <section
-        class="sc-dItHI frcqzy"
+        class="sc-crzpnZ gBHkfx"
       >
-        <label
-          class="navds-label"
-          for="avdoed.datoForDoedsfallet"
-        >
-          omDegOgAvdoed.avdoed.dato
-        </label>
-        <div
-          class="skjemaelement__description"
-        >
-          felles.datoformat
-        </div>
         <div
           class="datepicker"
         >
@@ -909,11 +860,20 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 <label
                   class="navds-form-field__label navds-label"
                   for="avdoed.datoForDoedsfallet"
-                />
+                >
+                  omDegOgAvdoed.avdoed.datoForDoedsfallet
+                </label>
+                <div
+                  class="navds-form-field__description navds-body-short navds-body-short--small"
+                  id="textField-description-r2"
+                >
+                  felles.oppgiDato felles.datoformat
+                </div>
                 <div
                   style="position: relative;"
                 >
                   <input
+                    aria-describedby="textField-description-r2"
                     autocomplete="off"
                     autocorrect="off"
                     class="navds-text-field__input navds-body-short navds-body-medium"
@@ -980,160 +940,156 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
     <div
       id="forholdTilAvdoede.relasjon"
     >
-      <div
-        class="sc-crzpnZ bA-DzB"
+      <fieldset
+        class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
       >
-        <fieldset
-          class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+        <legend
+          class="navds-fieldset__legend navds-label"
         >
-          <legend
-            class="navds-fieldset__legend navds-label"
-          >
-            omDegOgAvdoed.forholdTilAvdoede.relasjon
-          </legend>
+          omDegOgAvdoed.forholdTilAvdoede.relasjon
+        </legend>
+        <div
+          class="navds-radio-buttons"
+        >
           <div
-            class="navds-radio-buttons"
+            class="radioBorder navds-radio navds-radio--medium"
           >
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
+            <input
+              class="navds-radio__input"
+              id="radio-r5"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.gift"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-r5"
             >
-              <input
-                class="navds-radio__input"
-                id="radio-r5"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.gift"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-r5"
+              <span
+                class="navds-radio__content"
               >
                 <span
-                  class="navds-radio__content"
+                  class="navds-body-short navds-body-short--medium"
                 >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.gift
-                  </span>
+                  avdoede.relasjon.gift
                 </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-r6"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.separert"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-r6"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.separert
-                  </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-r7"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.samboer"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-r7"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.samboer
-                  </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-r8"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.skilt"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-r8"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.skilt
-                  </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-r9"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.tidligereSamboer"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-r9"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.tidligereSamboer
-                  </span>
-                </span>
-              </label>
-            </div>
+              </span>
+            </label>
           </div>
           <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-fieldset__error"
-            id="fieldset-error-r4"
-          />
-        </fieldset>
-      </div>
+            class="radioBorder navds-radio navds-radio--medium"
+          >
+            <input
+              class="navds-radio__input"
+              id="radio-r6"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.separert"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-r6"
+            >
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  avdoede.relasjon.separert
+                </span>
+              </span>
+            </label>
+          </div>
+          <div
+            class="radioBorder navds-radio navds-radio--medium"
+          >
+            <input
+              class="navds-radio__input"
+              id="radio-r7"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.samboer"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-r7"
+            >
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  avdoede.relasjon.samboer
+                </span>
+              </span>
+            </label>
+          </div>
+          <div
+            class="radioBorder navds-radio navds-radio--medium"
+          >
+            <input
+              class="navds-radio__input"
+              id="radio-r8"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.skilt"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-r8"
+            >
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  avdoede.relasjon.skilt
+                </span>
+              </span>
+            </label>
+          </div>
+          <div
+            class="radioBorder navds-radio navds-radio--medium"
+          >
+            <input
+              class="navds-radio__input"
+              id="radio-r9"
+              name="forholdTilAvdoede.relasjon"
+              type="radio"
+              value="avdoede.relasjon.tidligereSamboer"
+            />
+            <label
+              class="navds-radio__label"
+              for="radio-r9"
+            >
+              <span
+                class="navds-radio__content"
+              >
+                <span
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  avdoede.relasjon.tidligereSamboer
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          aria-live="polite"
+          aria-relevant="additions removals"
+          class="navds-fieldset__error"
+          id="fieldset-error-r4"
+        />
+      </fieldset>
     </div>
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
       <div
-        class="sc-crzpnZ bA-DzB"
+        class="sc-dItHI fGZLUG"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1149,102 +1105,98 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       <div
         id="nySivilstatus.sivilstatus"
       >
-        <div
-          class="sc-crzpnZ bA-DzB"
+        <fieldset
+          class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
-          <fieldset
-            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
+          />
+          <div
+            class="navds-radio-buttons"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
-            />
             <div
-              class="navds-radio-buttons"
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <input
+                class="navds-radio__input"
+                id="radio-rc"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.enslig"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-rc"
               >
-                <input
-                  class="navds-radio__input"
-                  id="radio-rc"
-                  name="nySivilstatus.sivilstatus"
-                  type="radio"
-                  value="nySivilstatus.enslig"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-rc"
+                <span
+                  class="navds-radio__content"
                 >
                   <span
-                    class="navds-radio__content"
+                    class="navds-body-short navds-body-short--medium"
                   >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      nySivilstatus.enslig
-                    </span>
+                    nySivilstatus.enslig
                   </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-rd"
-                  name="nySivilstatus.sivilstatus"
-                  type="radio"
-                  value="nySivilstatus.ekteskap"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-rd"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      nySivilstatus.ekteskap
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-re"
-                  name="nySivilstatus.sivilstatus"
-                  type="radio"
-                  value="nySivilstatus.samboerskap"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-re"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      nySivilstatus.samboerskap
-                    </span>
-                  </span>
-                </label>
-              </div>
+                </span>
+              </label>
             </div>
             <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-rb"
-            />
-          </fieldset>
-        </div>
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                class="navds-radio__input"
+                id="radio-rd"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.ekteskap"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-rd"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    nySivilstatus.ekteskap
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                class="navds-radio__input"
+                id="radio-re"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.samboerskap"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-re"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    nySivilstatus.samboerskap
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-rb"
+          />
+        </fieldset>
       </div>
     </fieldset>
     <fieldset

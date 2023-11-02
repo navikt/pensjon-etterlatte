@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { EndringAvInntektGrunn } from '../../../../typer/inntekt'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
@@ -28,7 +27,7 @@ const EndringInntekt = ({ type }: Props) => {
     })
 
     return (
-        <SkjemaGruppe>
+        <>
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={`${baseUrl}.svar`}
@@ -60,7 +59,7 @@ const EndringInntekt = ({ type }: Props) => {
                     />
                 </SkjemaElement>
             )}
-        </SkjemaGruppe>
+        </>
     )
 }
 

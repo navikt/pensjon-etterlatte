@@ -80,27 +80,31 @@ const TilbudOmJobb = () => {
                         <Heading size={'xsmall'}>{t('dinSituasjon.tilbudOmJobb.ansettelsesforhold.tittel')}</Heading>
                         <Detail>{t('dinSituasjon.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig')}</Detail>
                     </SkjemaElement>
-                    <NumberSelectRad>
-                        <RHFNumberInput
-                            name={`tilbudOmJobb.arbeidsmengde.svar` as const}
-                            label={t('dinSituasjon.tilbudOmJobb.arbeidsmengde.svar')}
-                            htmlSize={Bredde.S}
+                    <SkjemaElement>
+                        <NumberSelectRad>
+                            <RHFNumberInput
+                                name={`tilbudOmJobb.arbeidsmengde.svar` as const}
+                                label={t('dinSituasjon.tilbudOmJobb.arbeidsmengde.svar')}
+                                htmlSize={Bredde.S}
+                            />
+                            <RHFSelect
+                                name={`tilbudOmJobb.arbeidsmengde.type` as const}
+                                selectOptions={[
+                                    {
+                                        label: t('felles.velg'),
+                                        value: '',
+                                    },
+                                ].concat(arbeidsmengdeValg)}
+                                label={t('felles.velg.tittel')}
+                            />
+                        </NumberSelectRad>
+                    </SkjemaElement>
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio
+                            name={`tilbudOmJobb.midlertidig.svar` as const}
+                            legend={t('dinSituasjon.tilbudOmJobb.midlertidig.svar')}
                         />
-                        <RHFSelect
-                            name={`tilbudOmJobb.arbeidsmengde.type` as const}
-                            selectOptions={[
-                                {
-                                    label: t('felles.velg'),
-                                    value: '',
-                                },
-                            ].concat(arbeidsmengdeValg)}
-                            label={t('felles.velg.tittel')}
-                        />
-                    </NumberSelectRad>
-                    <RHFSpoersmaalRadio
-                        name={`tilbudOmJobb.midlertidig.svar` as const}
-                        legend={t('dinSituasjon.tilbudOmJobb.midlertidig.svar')}
-                    />
+                    </SkjemaElement>
                     {sluttdato === IValg.JA && (
                         <Datovelger
                             name={`tilbudOmJobb.midlertidig.sluttdatoVelger`}
