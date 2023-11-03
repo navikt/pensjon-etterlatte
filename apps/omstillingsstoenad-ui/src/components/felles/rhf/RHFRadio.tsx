@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { Radio, RadioGroup, RadioGroupProps, RadioProps } from '@navikt/ds-react'
 import { SkjemaElement } from '../SkjemaElement'
+import { getTransKey } from '../../../utils/translation'
 
 export const RHFSpoersmaalRadio = ({
     name,
@@ -49,6 +50,7 @@ export const RHFRadio = ({ name, legend, description, children, rules, ...rest }
     } = useFormContext()
 
     const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
     return (
         <div id={name}>
@@ -61,7 +63,7 @@ export const RHFRadio = ({ name, legend, description, children, rules, ...rest }
                         <RadioGroup
                             {...rest}
                             name={name}
-                            error={error && t(`feil.${error.ref?.name}.${error.type}`)}
+                            error={feilmelding}
                             description={description}
                             legend={legend}
                             value={value ?? ''}
