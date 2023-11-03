@@ -824,6 +824,35 @@ export default {
     'feil.utbetalingsInformasjon.iban.validate': 'Ugyldig IBAN-nummer',
     'feil.utbetalingsInformasjon.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fylles ut',
     'feil.utbetalingsInformasjon.swift.validate': 'Ugyldig SWIFT/BIC kode',
+    'feil.inntektstyper.required': 'Oppgi hvilken inntektstype du har',
+    'feil.loennsinntekt.arbeidsinntektAaretFoer.required':
+        'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.required':
+        'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.required':
+        'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
+    'feil.naeringsinntekt.arbeidsinntektAaretFoer.required':
+        'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.required':
+        'Oppgi brutto næringsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.required':
+        'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
+    'feil.pensjonEllerUfoere.pensjonstype.required': 'Oppgi hvilken pensjon eller trygd du har',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Velg hvilken pensjon du mottar',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
+        'Oppgi hvilken tjenestepensjonsordning som utbetaler pensjonen din',
+    'feil.pensjonEllerUfoere.utland.svar.required': 'Oppgi om du mottar eller ikke mottar pensjon fra utlandet',
+    'feil.pensjonEllerUfoere.utland.type.required': 'Oppgi hva slags pensjon du mottar fra utlandet',
+    'feil.pensjonEllerUfoere.utland.land.required': 'Velg hvilket land du mottar fra',
+    'feil.pensjonEllerUfoere.utland.beloep.required': 'Oppgi årlig beløp',
+    'feil.pensjonEllerUfoere.utland.valuta.required': 'Oppgi landets valuta',
+    'feil.annenInntekt.inntektEllerUtbetaling.required': 'Kryss av på hvilke andre inntekter og utbetalinger du har',
+    'feil.annenInntekt.beloep.required': 'Oppgi brutto inntekt eller ytelser',
+    'feil.annenInntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
+    'feil.ytelserNAV.svar.required': 'Oppgi om du har søkt på andre ytelser fra NAV',
+    'feil.ytelserAndre.svar.required': 'Oppgi om du har søkt på andre ytelser',
     'feil.barnepensjon.required': 'Må besvares',
     'feil.barnepensjon.kontonummer.svar.required':
         'Oppgi om du ønsker et annet kontonummer for utbetaling av barnepensjon',
