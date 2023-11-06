@@ -63,7 +63,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 omDenAvdoede.foedselsnummer
               </label>
               <input
-                class="navds-text-field__input navds-body-short navds-body-medium"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="foedselsnummer"
                 placeholder="felles.fnrPlaceholder"
                 type="tel"
@@ -97,7 +97,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                   class="navds-select__container"
                 >
                   <select
-                    class="navds-select__input navds-body-short navds-body--medium"
+                    class="navds-select__input navds-body-short navds-body-short--medium"
                     id="select-r1"
                   >
                     <option

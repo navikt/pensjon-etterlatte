@@ -535,7 +535,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               dinSituasjon.arbeidsforhold.arbeidsgiver
             </label>
             <input
-              class="navds-text-field__input navds-body-short navds-body-medium"
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="arbeidsforhold[0].arbeidsgiver"
               size="40"
               type="text"
@@ -690,7 +690,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 dinSituasjon.arbeidsforhold.arbeidsmengde.svar
               </label>
               <input
-                class="navds-text-field__input navds-body-short navds-body-medium"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="arbeidsforhold[0].arbeidsmengde.svar"
                 size="25"
                 type="text"
@@ -720,7 +720,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                   class="navds-select__container"
                 >
                   <select
-                    class="navds-select__input navds-body-short navds-body--medium"
+                    class="navds-select__input navds-body-short navds-body-short--medium"
                     id="select-r20"
                   >
                     <option
@@ -1110,7 +1110,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             </div>
             <input
               aria-describedby="textField-description-r2s"
-              class="navds-text-field__input navds-body-short navds-body-medium"
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="selvstendig.enk[0].beskrivelse"
               size="40"
               type="text"
@@ -1137,7 +1137,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               dinSituasjon.selvstendig.orgnr
             </label>
             <input
-              class="navds-text-field__input navds-body-short navds-body-medium"
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="selvstendig.enk[0].orgnr"
               placeholder="dinSituasjon.selvstendig.orgnrplaceholder"
               size="25"
@@ -1182,7 +1182,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 dinSituasjon.selvstendig.arbeidsmengde.svar
               </label>
               <input
-                class="navds-text-field__input navds-body-short navds-body-medium"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="selvstendig.enk[0].arbeidsmengde.svar"
                 size="25"
                 type="text"
@@ -1212,7 +1212,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                   class="navds-select__container"
                 >
                   <select
-                    class="navds-select__input navds-body-short navds-body--medium"
+                    class="navds-select__input navds-body-short navds-body-short--medium"
                     id="select-r2v"
                   >
                     <option
@@ -2440,7 +2440,7 @@ exports[`Situasjonen din Snapshot 1`] = `
               dinSituasjon.arbeidsforhold.arbeidsgiver
             </label>
             <input
-              class="navds-text-field__input navds-body-short navds-body-medium"
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="arbeidsforhold[0].arbeidsgiver"
               size="40"
               type="text"
@@ -2595,7 +2595,7 @@ exports[`Situasjonen din Snapshot 1`] = `
                 dinSituasjon.arbeidsforhold.arbeidsmengde.svar
               </label>
               <input
-                class="navds-text-field__input navds-body-short navds-body-medium"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="arbeidsforhold[0].arbeidsmengde.svar"
                 size="25"
                 type="text"
@@ -2625,7 +2625,7 @@ exports[`Situasjonen din Snapshot 1`] = `
                   class="navds-select__container"
                 >
                   <select
-                    class="navds-select__input navds-body-short navds-body--medium"
+                    class="navds-select__input navds-body-short navds-body-short--medium"
                     id="select-ri"
                   >
                     <option
