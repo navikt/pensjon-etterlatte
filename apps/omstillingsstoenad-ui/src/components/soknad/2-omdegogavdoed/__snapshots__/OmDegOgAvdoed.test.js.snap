@@ -37,7 +37,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 omDegOgAvdoed.avdoed.fornavn
               </label>
               <input
-                class="navds-text-field__input navds-body-short navds-body-medium"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="avdoed.fornavn"
                 type="text"
                 value=""
@@ -65,7 +65,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 omDegOgAvdoed.avdoed.etternavn
               </label>
               <input
-                class="navds-text-field__input navds-body-short navds-body-medium"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="avdoed.etternavn"
                 type="text"
                 value=""
@@ -483,7 +483,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                     omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn
                   </label>
                   <input
-                    class="navds-text-field__input navds-body-short navds-body-medium"
+                    class="navds-text-field__input navds-body-short navds-body-short--medium"
                     id="nySivilstatus.samboerskap.samboer.fornavn"
                     type="text"
                     value=""
@@ -513,7 +513,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                     omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn
                   </label>
                   <input
-                    class="navds-text-field__input navds-body-short navds-body-medium"
+                    class="navds-text-field__input navds-body-short navds-body-short--medium"
                     id="nySivilstatus.samboerskap.samboer.etternavn"
                     type="text"
                     value=""
@@ -542,7 +542,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               felles.fnr
             </label>
             <input
-              class="navds-text-field__input navds-body-short navds-body-medium"
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="nySivilstatus.samboerskap.samboer.foedselsnummer"
               placeholder="felles.fnrPlaceholder"
               size="25"
@@ -826,7 +826,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 omDegOgAvdoed.avdoed.fornavn
               </label>
               <input
-                class="navds-text-field__input navds-body-short navds-body-medium"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="avdoed.fornavn"
                 type="text"
                 value=""
@@ -854,7 +854,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 omDegOgAvdoed.avdoed.etternavn
               </label>
               <input
-                class="navds-text-field__input navds-body-short navds-body-medium"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="avdoed.etternavn"
                 type="text"
                 value=""

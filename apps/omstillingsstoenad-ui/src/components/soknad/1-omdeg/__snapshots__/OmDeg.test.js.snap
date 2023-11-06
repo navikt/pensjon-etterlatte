@@ -29,7 +29,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               omDeg.alternativAdresse
             </label>
             <input
-              class="navds-text-field__input navds-body-short navds-body-medium"
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="alternativAdresse"
               type="text"
               value=""
@@ -56,7 +56,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             omDeg.kontaktinfo.telefonnummer
           </label>
           <input
-            class="navds-text-field__input navds-body-short navds-body-medium"
+            class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="kontaktinfo.telefonnummer"
             size="25"
             type="text"
@@ -210,7 +210,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               class="navds-select__container"
             >
               <select
-                class="navds-select__input navds-body-short navds-body--medium"
+                class="navds-select__input navds-body-short navds-body-short--medium"
                 id="select-ra"
               >
                 <option
@@ -351,7 +351,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               omDeg.utbetalingsInformasjon.utenlandskBankNavn
             </label>
             <input
-              class="navds-text-field__input navds-body-short navds-body-medium"
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="utbetalingsInformasjon.utenlandskBankNavn"
               type="text"
               value=""
@@ -379,7 +379,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
               omDeg.utbetalingsInformasjon.utenlandskBankAdresse
             </label>
             <input
-              class="navds-text-field__input navds-body-short navds-body-medium"
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="utbetalingsInformasjon.utenlandskBankAdresse"
               type="text"
               value=""
@@ -438,7 +438,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                       fill="transparent"
                       r="11"
                       stroke="currentColor"
-                      stroke-width="2"
+                      stroke-width="1.5"
                     />
                     <path
                       clip-rule="evenodd"
@@ -469,7 +469,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                       fill="currentColor"
                       r="11"
                       stroke="currentColor"
-                      stroke-width="2"
+                      stroke-width="1.5"
                     />
                     <path
                       clip-rule="evenodd"
@@ -484,7 +484,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   class="navds-popover navds-help-text__popover navds-popover--hidden"
                   data-placement="top"
                   style="position: absolute; top: 0px; left: 0px;"
-                  tabindex="-1"
                 >
                   <div
                     class="navds-popover__content navds-body-short"
@@ -500,7 +499,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             </div>
           </label>
           <input
-            class="navds-text-field__input navds-body-short navds-body-medium"
+            class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="utbetalingsInformasjon.iban"
             size="40"
             type="text"
@@ -559,7 +558,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                       fill="transparent"
                       r="11"
                       stroke="currentColor"
-                      stroke-width="2"
+                      stroke-width="1.5"
                     />
                     <path
                       clip-rule="evenodd"
@@ -590,7 +589,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
                       fill="currentColor"
                       r="11"
                       stroke="currentColor"
-                      stroke-width="2"
+                      stroke-width="1.5"
                     />
                     <path
                       clip-rule="evenodd"
@@ -605,7 +604,6 @@ exports[`Om deg og avdød Snapshot 1`] = `
                   class="navds-popover navds-help-text__popover navds-popover--hidden"
                   data-placement="top"
                   style="position: absolute; top: 0px; left: 0px;"
-                  tabindex="-1"
                 >
                   <div
                     class="navds-popover__content navds-body-short"
@@ -621,7 +619,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             </div>
           </label>
           <input
-            class="navds-text-field__input navds-body-short navds-body-medium"
+            class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="utbetalingsInformasjon.swift"
             size="25"
             type="text"
