@@ -832,6 +832,8 @@ export default {
     'feil.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
+    'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
+    'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
     'feil.naeringsinntekt.arbeidsinntektAaretFoer.required':
         'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.required':
@@ -839,6 +841,8 @@ export default {
     'feil.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
+    'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
+    'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'Oppgi hvilken pensjon eller trygd du har',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Velg hvilken pensjon du mottar',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
@@ -851,8 +855,13 @@ export default {
     'feil.annenInntekt.inntektEllerUtbetaling.required': 'Kryss av på hvilke andre inntekter og utbetalinger du har',
     'feil.annenInntekt.beloep.required': 'Oppgi brutto inntekt eller ytelser',
     'feil.annenInntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
+    'feil.annenInntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
+    'feil.annenInntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
     'feil.ytelserNAV.svar.required': 'Oppgi om du har søkt på andre ytelser fra NAV',
+    'feil.ytelserNAV.soekteYtelser.required': 'Kryss av på hvilke andre ytelser fra NAV du har søkt om',
     'feil.ytelserAndre.svar.required': 'Oppgi om du har søkt på andre ytelser',
+    'feil.ytelserAndre.soekteYtelser.required': 'Kryss av på hvilke andre ytelser du har søkt om',
+    'feil.ytelserAndre.pensjonsordning.required': 'Oppgi hvilken pensjonsordning',
     'feil.barnepensjon.required': 'Må besvares',
     'feil.barnepensjon.kontonummer.svar.required':
         'Oppgi om du ønsker et annet kontonummer for utbetaling av barnepensjon',
