@@ -26,35 +26,33 @@ updates:
       ds:
         patterns:
           - "@navikt/ds-*"
-      eslint:
+      eslint-og-test:
         patterns:
           - "@typescript-eslint/*"
           - "eslint"
           - "eslint-plugin*"
           - "prettier"
-      react:
-        patterns:
-          - "react*"
-          - "@types/react*"
-      lodash:
-        patterns:
-          - "lodash"
-          - "@types/lodash"
-      axios:
-        patterns:
-          - "axios"
-          - "axios-retry"
-      test:
-        patterns:
           - "axe-core"
           - "cypress"
           - "cypress-axe"
           - "@testing-library/*"
           - "@types/jest"
-      uuid:
+      react:
         patterns:
+          - "react*"
+          - "@types/react*"
+      prod:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
+          - "axios"
+          - "axios-retry"
           - "uuid"
           - "@types/uuid"
+          - "@types/node"
+          - "typescript"
+          - "i18next"
+          - "ibantools"
       styledcomponents:
         patterns:
           - "styled-components"
@@ -75,35 +73,33 @@ updates:
       ds:
         patterns:
           - "@navikt/ds-*"
-      eslint:
+      eslint-og-test:
         patterns:
           - "@typescript-eslint/*"
           - "eslint"
           - "eslint-plugin*"
           - "prettier"
-      react:
-        patterns:
-          - "react*"
-          - "@types/react*"
-      lodash:
-        patterns:
-          - "lodash"
-          - "@types/lodash"
-      axios:
-        patterns:
-          - "axios"
-          - "axios-retry"
-      test:
-        patterns:
           - "axe-core"
           - "cypress"
           - "cypress-axe"
           - "@testing-library/*"
           - "@types/jest"
-      uuid:
+      react:
         patterns:
+          - "react*"
+          - "@types/react*"
+      prod:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
+          - "axios"
+          - "axios-retry"
           - "uuid"
           - "@types/uuid"
+          - "typescript"
+          - "ibantools"
+          - "web-vitals"
+          - "i18next"
       styledcomponents:
         patterns:
           - "styled-components"
@@ -123,35 +119,32 @@ updates:
       ds:
         patterns:
           - "@navikt/ds-*"
-      eslint:
+      eslint-og-test:
         patterns:
           - "@typescript-eslint/*"
           - "eslint"
           - "eslint-plugin*"
           - "prettier"
-      react:
-        patterns:
-          - "react*"
-          - "@types/react*"
-      lodash:
-        patterns:
-          - "lodash"
-          - "@types/lodash"
-      axios:
-        patterns:
-          - "axios"
-          - "axios-retry"
-      test:
-        patterns:
           - "axe-core"
           - "cypress"
           - "cypress-axe"
           - "@testing-library/*"
           - "@types/jest"
-      uuid:
+      react:
         patterns:
+          - "react*"
+          - "@types/react*"
+      prod:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
+          - "axios"
+          - "axios-retry"
           - "uuid"
           - "@types/uuid"
+          - "typescript"
+          - "i18next"
+          - "ibantools"
       styledcomponents:
         patterns:
           - "styled-components"
@@ -167,6 +160,10 @@ updates:
       interval: "monthly"
       day: "sunday"
     open-pull-requests-limit: 10
+    groups:
+      prod:
+        patterns:
+          - "*"
 
 
   # ==============
