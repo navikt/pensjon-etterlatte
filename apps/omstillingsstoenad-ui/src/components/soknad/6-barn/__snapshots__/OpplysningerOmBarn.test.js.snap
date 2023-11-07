@@ -4,7 +4,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-csKJRI xWivp"
+      class="sc-crzpnZ bA-DzB"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
       </h1>
     </div>
     <div
-      class="sc-csKJRI xWivp"
+      class="sc-crzpnZ bA-DzB"
     >
       <div
         class="navds-panel navds-panel--border"
@@ -57,16 +57,16 @@ exports[`Opplysninger om barn Snapshot 1`] = `
       </div>
     </div>
     <fieldset
-      class="sc-beyTiQ jltUnl"
+      class="sc-bdnyFh dkDmBp"
     >
       <div
-        class="sc-khjLgN ezpXVG"
+        class="sc-kfYpNk kZPHnK"
       >
         <div
-          class="sc-gLLuHO hTnHRK"
+          class="sc-gKAaef ihgDFN"
         >
           <div
-            class="sc-eDLKEg iymHac"
+            class="sc-eCAqax hkKRSW"
           >
             <img
               alt="barn"
@@ -74,10 +74,10 @@ exports[`Opplysninger om barn Snapshot 1`] = `
             />
           </div>
           <div
-            class="sc-jTQDJr eeynFj"
+            class="sc-jSFipO hpIQHI"
           >
             <div
-              class="sc-fLsdDA copWFP"
+              class="sc-fKgKDd iyCjoD"
             >
               <button
                 class="navds-button navds-button--primary navds-button--medium"
@@ -101,13 +101,13 @@ exports[`Opplysninger om barn Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-csKJRI xWivp"
+      class="sc-crzpnZ bA-DzB"
     >
       <div
         id="gravidEllerNyligFoedt"
       >
         <div
-          class="sc-csKJRI xWivp"
+          class="sc-crzpnZ bA-DzB"
         >
           <fieldset
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -182,10 +182,10 @@ exports[`Opplysninger om barn Snapshot 1`] = `
       </div>
     </div>
     <fieldset
-      class="sc-beyTiQ jltUnl"
+      class="sc-bdnyFh dkDmBp"
     >
       <div
-        class="sc-guDMob czmIqC undefined"
+        class="sc-gtsqUy fppBuE undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -210,7 +210,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-guDMob sc-dmyDmy czmIqC kgmmuh"
+      class="sc-gtsqUy sc-dlniIP fppBuE iyxXTu"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -281,7 +281,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jsEeA-d gHwiqO"
+          class="sc-jrsKJM dwwRPt"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -309,7 +309,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-jsEeA-d gHwiqO"
+          class="sc-jrsKJM dwwRPt"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

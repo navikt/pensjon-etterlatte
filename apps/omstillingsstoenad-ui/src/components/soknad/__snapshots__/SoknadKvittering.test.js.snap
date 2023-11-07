@@ -3,24 +3,24 @@
 exports[`SoknadKvittering skal matche snapshot 1`] = `
 <div>
   <fieldset
-    class="sc-jTQDJr dLYvQw"
+    class="sc-jSFipO iIqKn"
   >
     <div
-      class="sc-beyTiQ iSLrDT"
+      class="sc-bdnyFh bycJmf"
     >
       <div
-        class="sc-guDMob eSWso"
+        class="sc-gtsqUy eWAyhO"
       >
         <img
           alt="veileder"
-          class="sc-dmyDmy ZMLSn"
+          class="sc-dlniIP cZfptg"
           src="veileder.svg"
         />
       </div>
     </div>
   </fieldset>
   <fieldset
-    class="sc-jTQDJr dLYvQw"
+    class="sc-jSFipO iIqKn"
   >
     <h1
       class="center navds-heading navds-heading--medium navds-typo--spacing"
@@ -29,7 +29,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     </h1>
   </fieldset>
   <fieldset
-    class="sc-jTQDJr dLYvQw"
+    class="sc-jSFipO iIqKn"
   >
     <div
       class="navds-alert navds-alert--info navds-alert--medium"
@@ -65,7 +65,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     </div>
   </fieldset>
   <fieldset
-    class="sc-jTQDJr dLYvQw"
+    class="sc-jSFipO iIqKn"
   >
     <h1
       class="navds-heading navds-heading--medium"
@@ -114,7 +114,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     </p>
   </fieldset>
   <fieldset
-    class="sc-jTQDJr dLYvQw"
+    class="sc-jSFipO iIqKn"
   >
     <h1
       class="navds-heading navds-heading--medium"
@@ -158,7 +158,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     </p>
   </fieldset>
   <fieldset
-    class="sc-jTQDJr dLYvQw"
+    class="sc-jSFipO iIqKn"
   >
     <h1
       class="navds-heading navds-heading--medium"
@@ -227,10 +227,10 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     <br />
   </fieldset>
   <fieldset
-    class="sc-jTQDJr dLYvQw"
+    class="sc-jSFipO iIqKn"
   >
     <section
-      class="sc-fsYfxw cjCBjR"
+      class="sc-fujznN fIpVLS"
     >
       <button
         class="navds-button navds-button--primary navds-button--medium"

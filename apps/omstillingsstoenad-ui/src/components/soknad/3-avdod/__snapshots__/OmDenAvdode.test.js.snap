@@ -3,7 +3,7 @@
 exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <div
-    class="sc-csKJRI xWivp"
+    class="sc-crzpnZ bA-DzB"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,10 +13,10 @@ exports[`Om den avdøde Snapshot 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-beyTiQ jltUnl"
+      class="sc-bdnyFh dkDmBp"
     >
       <div
-        class="sc-iBdoyZ kUQHDO"
+        class="sc-iCoHzw cxzRGg"
       >
         <div
           class="kol"
@@ -44,7 +44,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-csKJRI xWivp"
+        class="sc-crzpnZ bA-DzB"
       >
         <div
           class="navds-grid"
@@ -81,7 +81,7 @@ exports[`Om den avdøde Snapshot 1`] = `
             class="navds-grid__cell navds-grid__cell--xs-12 navds-grid__cell--md-6 kol"
           >
             <div
-              class="sc-hABBGs iyTyMw"
+              class="sc-hBMVwJ kTjVTc"
               id="statsborgerskap"
             >
               <div
@@ -138,10 +138,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beyTiQ jltUnl"
+      class="sc-bdnyFh dkDmBp"
     >
       <fieldset
-        class="sc-beyTiQ jltUnl"
+        class="sc-bdnyFh dkDmBp"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -155,13 +155,13 @@ exports[`Om den avdøde Snapshot 1`] = `
         </p>
       </fieldset>
       <div
-        class="sc-csKJRI xWivp"
+        class="sc-crzpnZ bA-DzB"
       >
         <div
           id="boddEllerJobbetUtland.svar"
         >
           <div
-            class="sc-csKJRI xWivp"
+            class="sc-crzpnZ bA-DzB"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -262,10 +262,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beyTiQ jltUnl"
+      class="sc-bdnyFh dkDmBp"
     >
       <fieldset
-        class="sc-beyTiQ jltUnl"
+        class="sc-bdnyFh dkDmBp"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -279,13 +279,13 @@ exports[`Om den avdøde Snapshot 1`] = `
         </p>
       </fieldset>
       <div
-        class="sc-csKJRI xWivp"
+        class="sc-crzpnZ bA-DzB"
       >
         <div
           id="selvstendigNaeringsdrivende.svar"
         >
           <div
-            class="sc-csKJRI xWivp"
+            class="sc-crzpnZ bA-DzB"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -386,10 +386,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beyTiQ jltUnl"
+      class="sc-bdnyFh dkDmBp"
     >
       <fieldset
-        class="sc-beyTiQ jltUnl"
+        class="sc-bdnyFh dkDmBp"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -398,13 +398,13 @@ exports[`Om den avdøde Snapshot 1`] = `
         </h1>
       </fieldset>
       <fieldset
-        class="sc-beyTiQ jltUnl"
+        class="sc-bdnyFh dkDmBp"
       >
         <div
           id="doedsfallAarsak"
         >
           <div
-            class="sc-csKJRI xWivp"
+            class="sc-crzpnZ bA-DzB"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -421,7 +421,7 @@ exports[`Om den avdøde Snapshot 1`] = `
                 <div>
                   <button
                     aria-expanded="false"
-                    class="sc-ktwNLz ivbIwA"
+                    class="sc-ksltVi jGiyja"
                     data-testid="hvorforPanel_toggle"
                     type="button"
                   >
@@ -540,10 +540,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </fieldset>
     </fieldset>
     <fieldset
-      class="sc-beyTiQ jltUnl"
+      class="sc-bdnyFh dkDmBp"
     >
       <div
-        class="sc-guDMob czmIqC undefined"
+        class="sc-gtsqUy fppBuE undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -568,7 +568,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-guDMob sc-dmyDmy czmIqC kgmmuh"
+      class="sc-gtsqUy sc-dlniIP fppBuE iyxXTu"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -639,7 +639,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jsEeA-d gHwiqO"
+          class="sc-jrsKJM dwwRPt"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -667,7 +667,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-jsEeA-d gHwiqO"
+          class="sc-jrsKJM dwwRPt"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
