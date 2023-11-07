@@ -57,6 +57,8 @@ updates:
           - "typescript"
           - "i18next"
           - "ibantools"
+          - "@types/amplitude"
+          - "amplitude-js"
       styledcomponents:
         patterns:
           - "styled-components"
@@ -104,6 +106,8 @@ updates:
           - "ibantools"
           - "web-vitals"
           - "i18next"
+          - "@types/amplitude"
+          - "amplitude-js"
       styledcomponents:
         patterns:
           - "styled-components"
@@ -149,6 +153,8 @@ updates:
           - "typescript"
           - "i18next"
           - "ibantools"
+          - "@types/amplitude"
+          - "amplitude-js"
       styledcomponents:
         patterns:
           - "styled-components"
