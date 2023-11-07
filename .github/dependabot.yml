@@ -11,12 +11,15 @@ updates:
       day: "sunday"
     open-pull-requests-limit: 10
     groups:
-      jvm:
-        patterns:
-          - "jvm"
       backend:
         patterns:
-          - "*"
+          - "ca*"
+          - "ch*"
+          - "com*"
+          - "io*"
+          - "net*"
+          - "no*"
+          - "org*"
 
 
   # =====================
