@@ -19,7 +19,11 @@ updates:
           - "io*"
           - "net*"
           - "no*"
-          - "org*"
+          - "org.jetbrains*"
+          - "org.junit*"
+          - "org.postgres*"
+          - "org.slf4j*"
+          - "org.testcontainers*"
 
 
   # =====================
