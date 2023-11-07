@@ -3,9 +3,9 @@ cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.1" }
 
 [versions]
 token-version = "3.1.7"
-ktor-version = "2.3.5"
-jackson-version = "2.15.2"
-jupiter-version = "5.10.0"
+ktor-version = "2.3.6"
+jackson-version = "2.15.3"
+jupiter-version = "5.10.1"
 testcontainers-version = "1.19.1"
 
 [libraries]
@@ -37,8 +37,8 @@ ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negoti
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version"}
 ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version"}
 
-database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "5.0.1"}
-database-flyway-core = { module = "org.flywaydb:flyway-core", version = "9.22.3"}
+database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "5.1.0"}
+database-flyway-core = { module = "org.flywaydb:flyway-core", version = "10.0.0"}
 database-postgresql = { module = "org.postgresql:postgresql", version = "42.6.0"}
 
 jackson-datatypejsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version"}
@@ -57,7 +57,7 @@ micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus
 
 mockk = { module = "io.mockk:mockk", version = "1.13.8"}
 
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.7.2"}
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.8.0"}
 
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version"}
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version"}
