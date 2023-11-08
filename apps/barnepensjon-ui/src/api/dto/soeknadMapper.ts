@@ -50,7 +50,7 @@ const mapTilBarnepensjonSoeknad = (
 
     const foreldre: Person[] = mapForeldreMedUtvidetInfo(t, application, user)
 
-    const soesken: Barn[] = child ? mapSoesken(t, child, application, user) : [mapBarnOver18(t, application, user)]
+    const soesken: Barn[] = child ? mapSoesken(t, child, application, user) : []
 
     return {
         type: SoeknadType.BARNEPENSJON,
