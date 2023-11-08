@@ -183,7 +183,7 @@ const aboutParents = {
         '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
     childAndOneParentDeceased: 'Du trenger ikke fylle ut informasjon om gjenlevende forelder',
     unknownParent: 'Ukjent forelder',
-    unknownParentQuestion: 'Er din ene forelder ukjent?',
+    unknownParentQuestion: 'Kan du bekrefte at du ikke kjenner identiteten til din forelder?',
     childAndOneParentDeceasedGuidepanel:
         'Du trenger ikke fylle ut informasjon om gjenlevende forelder. Vi innhenter denne informasjonen når vi behandler søknaden din. \n\n' +
         'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknadsprosessen på nytt. Velg "Jeg har mistet begge foreldrene".',
