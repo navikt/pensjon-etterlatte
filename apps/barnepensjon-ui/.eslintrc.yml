@@ -4,7 +4,7 @@ env:
 extends:
   # Kan også bruke DISABLE_ESLINT_PLUGIN=true 
   #- 'eslint:recommended'
-  - 'plugin:react/recommended'
+#  - 'plugin:react/recommended'
   - 'plugin:@typescript-eslint/recommended'
   #- 'plugin:jsx-a11y/recommended'
   #- 'plugin:jest/recommended'
