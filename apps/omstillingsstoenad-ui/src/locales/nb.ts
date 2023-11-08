@@ -427,7 +427,7 @@ export default {
     'omBarn.barnepensjon.kontonummer.placeholder': '11 siffer',
     'omBarn.barnepensjon.forskuddstrekk.svar': 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst':
-        'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
+        'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om størrelsen på skattetrekket må du ta kontakt med Skatteetaten.',
     'omBarn.barnepensjon.forskuddstrekk.trekkprosent': 'Oppgi ønsket skattetrekk',
     'omBarn.barnepensjon.forskuddstrekk.placeholder': 'i prosent, eks. 20%',
     'omBarn.barnepensjon.forskuddstrekk.info':
