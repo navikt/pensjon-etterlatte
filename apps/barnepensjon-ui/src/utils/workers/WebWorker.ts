@@ -6,7 +6,7 @@ class WebWorker {
     private worker!: Worker
     private endTime?: number
     private callbackFn?: (remainingTime: number) => void
-    private countdown?: NodeJS.Timer
+    private countdown?: number
 
     constructor() {
         if (!window.Worker) {
@@ -37,7 +37,7 @@ class WebWorker {
         } catch (e) {
             console.log(e)
             console.log('Unable to register listener, starting default interval.')
-            this.countdown = setInterval(() => {
+            this.countdown = window.setInterval(() => {
                 this.sendCountdownBackup(new Date().valueOf())
             }, 1000)
         }
