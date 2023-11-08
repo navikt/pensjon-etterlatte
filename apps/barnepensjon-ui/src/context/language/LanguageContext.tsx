@@ -14,7 +14,7 @@ document.documentElement.lang = initialLanguage
 const LanguageContext = createContext({
     language: initialLanguage,
     translations: initialTranslations,
-    updateLanguage: (_: Language) => {},
+    updateLanguage: (_: Language) => {}, // eslint-disable-line  @typescript-eslint/no-unused-vars
 })
 
 const useLanguageContext = () => useContext(LanguageContext)
