@@ -188,7 +188,7 @@ const aboutParents = {
         'Du trenger ikke fylle ut informasjon om gjenlevende forelder. Vi innhenter denne informasjonen når vi behandler søknaden din. \n\n' +
         'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknadsprosessen på nytt. Velg "Jeg har mistet begge foreldrene".',
     childAndBothParentsDeceasedGuidepanel:
-        'Du må legge til opplysninger om begge foreldre for å fortsette søknaden. \n\n Hvis du ikke kjenner identiteten til forelderen din, velger du "Ukjent forelder."',
+        'Du må legge til opplysninger om begge foreldrene dine for å fortsette søknaden. \n\n Hvis du ikke kjenner identiteten til forelderen din, velger du "Ukjent forelder."',
 }
 
 const livingParent = {
