@@ -248,10 +248,10 @@ export default function AboutParents({ next, prev }: StepProps) {
 
             <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                 <Modal.Header>
-                    <Heading size={'small'}>Er din forelder ukjent?</Heading>
+                    <Heading size={'small'}>{t('unknownParent')}</Heading>
                 </Modal.Header>
                 <Modal.Body>
-                    <BodyShort>Kan du bekrefte at du ikke kjenner til din forelder?</BodyShort>
+                    <BodyShort>{t('unknownParentQuestion')}</BodyShort>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button
