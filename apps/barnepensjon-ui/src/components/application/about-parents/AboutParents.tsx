@@ -1,6 +1,6 @@
 import { Alert, BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
 import { ActionTypes, IParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
@@ -47,18 +47,19 @@ export default function AboutParents({ next, prev }: StepProps) {
     const childAndBothParentsDeceased = isChild && bothParentsDeceased
 
     const methods = useForm<any>({
-        defaultValues: { ...state },
+        defaultValues: { unknownParent: !!state.unknownParent },
         shouldUnregister: true,
     })
 
-    const save = (data: any) => {
-        updateUnknownParent(data.unknownParent)
-        next!!()
-    }
-
-    const { watch, setValue, handleSubmit } = methods
+    const { watch, setValue, handleSubmit, getValues } = methods
 
     const unknownParent = watch('unknownParent')
+
+    const save = () => {
+        const values = getValues()
+        updateUnknownParent(values.unknownParent)
+        next!!()
+    }
 
     const setUnknownParent = (value: boolean) => {
         setValue('unknownParent', value)
@@ -81,11 +82,6 @@ export default function AboutParents({ next, prev }: StepProps) {
         setEditing(value)
         if (unknownParent !== undefined) setUnknownParent(unknownParent)
     }
-
-    useEffect(() => {
-        if (state.unknownParent !== undefined) setUnknownParent(state.unknownParent)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
 
     return (
         <FormProvider {...methods}>
