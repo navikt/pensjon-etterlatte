@@ -6,7 +6,6 @@ import Dialogue from './components/application/Dialogue'
 import ReceiptPage from './components/application/ReceiptPage'
 import ScenarioSelection from './components/application/scenario/ScenarioSelection'
 import Banner from './components/common/Banner'
-import ExpiredSession from './components/common/ExpiredSession'
 import SpinnerOverlay from './components/common/SpinnerOverlay'
 import Admin from './components/dev/Admin'
 import PageNotFound from './components/error/PageNotFound'
@@ -94,7 +93,6 @@ export default function App() {
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </SoeknadWrapper>
-            <ExpiredSession />
         </>
     )
 }

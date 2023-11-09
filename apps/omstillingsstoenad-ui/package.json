@@ -28,8 +28,7 @@
     "react-router-dom": "6.18.0",
     "styled-components": "^6.1.0",
     "typescript": "5.2.2",
-    "uuid": "9.0.1",
-    "worker-loader": "^3.0.8"
+    "uuid": "9.0.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",

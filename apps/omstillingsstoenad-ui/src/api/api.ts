@@ -14,15 +14,6 @@ export const hentInnloggetPerson = async () => {
     }
 }
 
-export const hentUtloepstidForInnlogging = async () => {
-    try {
-        const response = await api.get('/session')
-        return response.data
-    } catch (e) {
-        throw new Error('Det skjedde en feil')
-    }
-}
-
 /**
  * Henter søknad fra APIet basert på innlogget bruker sitt fnr.
  */

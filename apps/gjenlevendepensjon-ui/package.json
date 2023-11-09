@@ -28,8 +28,7 @@
     "react-router-dom": "6.16.0",
     "styled-components": "^5.3.9",
     "typescript": "5.2.2",
-    "uuid": "9.0.1",
-    "worker-loader": "^3.0.8"
+    "uuid": "9.0.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "6.1.4",
