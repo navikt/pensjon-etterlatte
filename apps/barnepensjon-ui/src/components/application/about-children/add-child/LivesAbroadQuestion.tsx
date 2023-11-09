@@ -3,8 +3,7 @@ import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { RHFInput } from '../../../common/rhf/RHFInput'
 import useTranslation from '../../../../hooks/useTranslation'
-import { RHFSelect } from '../../../common/rhf/RHFSelect'
-import { BreddeSelect } from '../../../../utils/bredde'
+import { StandardBreddeRHFSelect } from '../../../common/rhf/RHFSelect'
 
 interface Props {
     isChild: boolean
@@ -28,12 +27,11 @@ export const LivesAbroadQuestion = ({ isChild, countries, livesAbroadAnswer }: P
             {livesAbroadAnswer === JaNeiVetIkke.JA && (
                 <>
                     <FormElement>
-                        <RHFSelect
+                        <StandardBreddeRHFSelect
                             id={'staysAbroadCountry'}
                             name={'staysAbroad.country'}
                             label={t('stayAbroadCountry')}
                             children={countries}
-                            style={{ width: BreddeSelect }}
                         />
                     </FormElement>
 

@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Button, Checkbox, CheckboxGroup, GuidePanel, Heading, Modal, Panel } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
@@ -166,20 +166,19 @@ export default function AboutParents({ next, prev }: StepProps) {
                                         </div>
 
                                         {isChild && bothParentsDeceased && (
-                                            <CheckboxGroup legend={''} value={[state.unknownParent || false]}>
-                                                <Checkbox
-                                                    value={true}
-                                                    onClick={() => {
-                                                        if (state.unknownParent) {
-                                                            setUnknownParent(false)
-                                                        } else {
-                                                            setIsOpen(true)
-                                                        }
-                                                    }}
-                                                >
-                                                    {t('unknownParent')}
-                                                </Checkbox>
-                                            </CheckboxGroup>
+                                            <Checkbox
+                                                value={true}
+                                                onClick={() => {
+                                                    if (state.unknownParent) {
+                                                        setUnknownParent(false)
+                                                    } else {
+                                                        setIsOpen(true)
+                                                    }
+                                                }}
+                                                checked={!!state.unknownParent}
+                                            >
+                                                {t('unknownParent')}
+                                            </Checkbox>
                                         )}
                                     </InformationBox>
                                 </Infocard>

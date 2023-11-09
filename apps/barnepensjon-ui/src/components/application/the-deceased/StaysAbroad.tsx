@@ -4,7 +4,7 @@ import { RHFInput } from '../../common/rhf/RHFInput'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { IParent } from '../../../context/application/application'
 import { Button, HGrid, Panel } from '@navikt/ds-react'
-import { RHFSelect } from '../../common/rhf/RHFSelect'
+import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { OppholdUtlandType } from '../../../api/dto/FellesOpplysninger'
@@ -13,7 +13,6 @@ import { DeleteFilled } from '@navikt/ds-icons'
 import FormElement from '../../common/FormElement'
 import styled from 'styled-components'
 import { GridColumns, GridGap } from '../../../utils/grid'
-import { BreddeSelect } from '../../../utils/bredde'
 
 const StaysAbroadCheckboxDiv = styled.div`
     .skjemagruppe {
@@ -47,11 +46,10 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                 <FormElement key={field.id}>
                     <Panel border>
                         <FormElement>
-                            <RHFSelect
+                            <StandardBreddeRHFSelect
                                 name={`staysAbroad.abroadStays[${index}].country`}
                                 label={t('abroadInWhichCountry')}
                                 children={countries}
-                                style={{ width: BreddeSelect }}
                             />
                         </FormElement>
                         <FormElement>

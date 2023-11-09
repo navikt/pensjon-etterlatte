@@ -3,5 +3,3 @@ export enum Bredde {
     S = 20,
     M = 40,
 }
-
-export const BreddeSelect  = '14rem'

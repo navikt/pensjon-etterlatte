@@ -15,9 +15,9 @@ import FormElement from '../../common/FormElement'
 import { IAboutYou } from '../../../types/person'
 import PaymentDetails from '../../common/PaymentDetails'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
-import { RHFSelect } from '../../common/rhf/RHFSelect'
+import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import useCountries from '../../../hooks/useCountries'
-import { Bredde, BreddeSelect } from '../../../utils/bredde'
+import { Bredde } from '../../../utils/bredde'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
@@ -64,12 +64,11 @@ export default function AboutYou({ next }: StepProps) {
 
                                 {residesInNorway === JaNeiVetIkke.NEI && (
                                     <FormElement>
-                                        <RHFSelect
+                                        <StandardBreddeRHFSelect
                                             id={'countryOfResidence'}
                                             name={'countryOfResidence'}
                                             label={t('countryOfResidence')}
                                             children={countries}
-                                            style={{ width: BreddeSelect }}
                                         />
                                     </FormElement>
                                 )}

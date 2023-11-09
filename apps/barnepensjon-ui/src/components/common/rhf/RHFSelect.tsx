@@ -7,6 +7,7 @@ import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { v4 as uuid } from 'uuid'
 import useTranslation from '../../../hooks/useTranslation'
 import { getErrorKey } from '../../../utils/errors'
+import styled from 'styled-components'
 
 interface SelectOption {
     value?: string
@@ -56,3 +57,7 @@ export const RHFSelect = ({ name, label, children, rules, ...rest }: RHFProps) =
         </div>
     )
 }
+
+export const StandardBreddeRHFSelect = styled(RHFSelect)`
+    width: 14rem;
+`
