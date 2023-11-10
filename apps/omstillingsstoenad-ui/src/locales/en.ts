@@ -229,7 +229,6 @@ export default {
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.tittel': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar': '<MANGLER TEKST>',
