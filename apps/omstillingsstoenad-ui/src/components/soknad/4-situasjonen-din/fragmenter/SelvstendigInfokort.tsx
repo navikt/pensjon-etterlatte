@@ -97,7 +97,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                     <RHFInputArea
                         name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
                         label={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
-                        maxLength={100}
+                        maxLength={200}
                         className={'width-50'}
                     />
                 </SkjemaElement>

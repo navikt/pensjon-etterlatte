@@ -17,9 +17,6 @@ const Loennsinntekt = () => {
                 <BodyShort>{t('inntektenDin.loennsinntekt.ingress')}</BodyShort>
             </SkjemaElement>
 
-            <SkjemaElement>
-                <Heading size={'small'}>{t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel')}</Heading>
-            </SkjemaElement>
             <SkjemaGruppe>
                 <RHFValutaInput
                     name={'loennsinntekt.arbeidsinntektAaretFoer'}
@@ -31,13 +28,10 @@ const Loennsinntekt = () => {
 
             <SkjemaGruppe>
                 <SkjemaElement>
-                    <Heading size={'small'}>{t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tittel')}</Heading>
-                </SkjemaElement>
-                <SkjemaElement>
                     <RHFValutaInput
                         name={'loennsinntekt.arbeidsinntektIAar.tilDoedsfall'}
-                        label={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall')}
-                        description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse')}
+                        label={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tittel')}
+                        description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall')}
                         htmlSize={Bredde.S}
                     />
                 </SkjemaElement>

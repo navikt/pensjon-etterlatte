@@ -19,9 +19,6 @@ const Naeringsinntekt = () => {
 
             <SkjemaGruppe>
                 <SkjemaElement>
-                    <Heading size={'small'}>{t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.tittel')}</Heading>
-                </SkjemaElement>
-                <SkjemaElement>
                     <RHFValutaInput
                         name={'naeringsinntekt.arbeidsinntektAaretFoer'}
                         label={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer')}
@@ -31,9 +28,6 @@ const Naeringsinntekt = () => {
                 </SkjemaElement>
             </SkjemaGruppe>
             <SkjemaGruppe>
-                <SkjemaElement>
-                    <Heading size={'small'}>{t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.tittel')}</Heading>
-                </SkjemaElement>
                 <SkjemaElement>
                     <RHFValutaInput
                         name={'naeringsinntekt.arbeidsinntektIAar.tilDoedsfall'}

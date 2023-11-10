@@ -13,6 +13,7 @@ import Bredde from '../../../../typer/bredde'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { NumberSelectRad } from '../../../felles/StyledComponents'
+import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 
 interface Props {
     lengde: number
@@ -129,18 +130,20 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         <RHFInputArea
                             name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
                             label={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
-                            maxLength={100}
+                            maxLength={200}
                             className={'width-50'}
                         />
                     </SkjemaElement>
                 )}
+                <HvorforSpoerVi title={'dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar'} >
+                    {t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
+                </HvorforSpoerVi>
             </SkjemaGruppe>
 
             <SkjemaElement>
                 <RHFRadio
                     name={`arbeidsforhold[${index}].sagtOppEllerRedusert.svar` as const}
                     legend={t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar')}
-                    description={t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
                 >
                     {Object.values(SagtOppEllerRedusert).map((value) => {
                         return { children: t(value), value } as RadioProps

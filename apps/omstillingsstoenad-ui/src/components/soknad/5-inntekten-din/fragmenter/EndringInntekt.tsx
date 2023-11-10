@@ -54,7 +54,7 @@ const EndringInntekt = ({ type }: Props) => {
                     <RHFInputArea
                         name={`${baseUrl}.annenGrunn`}
                         label={t('inntektenDin.forventerEndringAvInntekt.annenGrunn')}
-                        maxLength={100}
+                        maxLength={200}
                         className={'width-50'}
                     />
                 </SkjemaElement>
