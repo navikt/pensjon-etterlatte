@@ -39,7 +39,7 @@ export default function useCountries(): UseCountries {
     const [allCountries, setAllCountries] = useState<Country[]>([])
 
     useEffect(() => {
-        ;(async () => {
+        (async () => {
             try {
                 const allCountries = await getAllCountries()
                 allCountries.sort((a: Country, b: Country) =>
