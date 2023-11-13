@@ -289,11 +289,11 @@ export const hentForeldre = (t: TFunction, barn: IBarn, soeknad: ISoeknad, bruke
         type: PersonType.FORELDER,
         fornavn: {
             spoersmaal: t('felles.fornavn'),
-            svar: soeknad.omDegOgAvdoed.avdoed!!.fornavn!!,
+            svar: soeknad.omDenAvdoede.fornavn!!,
         },
         etternavn: {
             spoersmaal: t('felles.etternavn'),
-            svar: soeknad.omDegOgAvdoed.avdoed!!.etternavn!!,
+            svar: soeknad.omDenAvdoede.etternavn!!,
         },
         foedselsnummer: {
             spoersmaal: t('felles.foedselsnummer'),

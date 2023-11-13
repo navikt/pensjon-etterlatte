@@ -87,11 +87,11 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
 
         fornavn: {
             spoersmaal: t('omDenAvdoede.fornavn'),
-            svar: soeknad.omDegOgAvdoed.avdoed!!.fornavn!!,
+            svar: soeknad.omDenAvdoede.fornavn!!,
         },
         etternavn: {
             spoersmaal: t('omDenAvdoede.etternavn'),
-            svar: soeknad.omDegOgAvdoed.avdoed!!.etternavn!!,
+            svar: soeknad.omDenAvdoede.etternavn!!,
         },
         foedselsnummer: {
             spoersmaal: t('omDenAvdoede.foedselsnummer'),
@@ -99,9 +99,9 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
         },
 
         datoForDoedsfallet: {
-            spoersmaal: t('omDegOgAvdoed.avdoed.datoForDoedsfallet'),
+            spoersmaal: t('omDenAvdoede.datoForDoedsfallet'),
             svar: {
-                innhold: soeknad.omDegOgAvdoed.avdoed!!.datoForDoedsfallet!!,
+                innhold: soeknad.omDenAvdoede.datoForDoedsfallet!!,
             },
         },
         statsborgerskap: {

@@ -45,30 +45,15 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         gaaTilNesteSide()
     })
 
-    it('Skal fylle ut siden "Om Deg og avdøde" og gå til neste', () => {
-        cy.url().should('include', 'steg/om-deg-og-avdoed')
-
-        // Verifiser felter og fyll ut skjema.
-        const omDegOgAvdoed = mockSoeknad.omDegOgAvdoed
-        getById('avdoed.fornavn').type(omDegOgAvdoed.avdoed.fornavn)
-        getById('avdoed.etternavn').type(omDegOgAvdoed.avdoed.etternavn)
-        getById('avdoed.datoForDoedsfallet').type(omDegOgAvdoed.avdoed.datoForDoedsfallet)
-        selectValue(omDegOgAvdoed.forholdTilAvdoede.relasjon)
-        getById('forholdTilAvdoede.datoForInngaattPartnerskap').type(
-            omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
-        )
-
-        a11yCheck()
-
-        gaaTilNesteSide()
-    })
-
     it('Skal fylle ut siden "Om den avdøde" og gå til neste', () => {
         cy.url().should('include', 'steg/om-den-avdoede')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')
 
         // Verifiser felter og fyll ut skjema.
         const omDenAvdoede = mockSoeknad.omDenAvdoede
+        getById('fornavn').type(omDenAvdoede.fornavn)
+        getById('etternavn').type(omDenAvdoede.etternavn)
+        getById('datoForDoedsfallet').type(omDenAvdoede.datoForDoedsfallet)
         getById('foedselsnummer').type(omDenAvdoede.foedselsnummer)
         getById('statsborgerskap').find('select').select(omDenAvdoede.statsborgerskap)
         selectValueForId('boddEllerJobbetUtland.svar', omDenAvdoede.boddEllerJobbetUtland.svar)
@@ -91,6 +76,21 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('selvstendigNaeringsdrivende.beskrivelse').type(omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse)
         selectValueForId('haddePensjonsgivendeInntekt.svar', omDenAvdoede.haddePensjonsgivendeInntekt.svar)
         selectValueForId('doedsfallAarsak', omDenAvdoede.doedsfallAarsak)
+        a11yCheck()
+
+        gaaTilNesteSide()
+    })
+
+    it('Skal fylle ut siden "Om Deg og avdøde" og gå til neste', () => {
+        cy.url().should('include', 'steg/om-deg-og-avdoed')
+
+        // Verifiser felter og fyll ut skjema.
+        const omDegOgAvdoed = mockSoeknad.omDegOgAvdoed
+                selectValue(omDegOgAvdoed.forholdTilAvdoede.relasjon)
+        getById('forholdTilAvdoede.datoForInngaattPartnerskap').type(
+            omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
+        )
+
         a11yCheck()
 
         gaaTilNesteSide()

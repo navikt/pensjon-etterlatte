@@ -299,9 +299,6 @@ export default {
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kallast også SWIFT, og er påkrevd ved betaling til ei rekke land.',
     'omDegOgAvdoed.tittel': 'Om deg og avdøde',
     'omDegOgAvdoed.avdoed.hvem': 'Kven er det som er død?',
-    'omDegOgAvdoed.avdoed.fornavn': 'Førenamn',
-    'omDegOgAvdoed.avdoed.etternavn': 'Etternamn',
-    'omDegOgAvdoed.avdoed.datoForDoedsfallet': 'Når skjedde dødsfallet?',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Relasjonen din til avdøde då dødsfallet skjedde',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap': 'Vi gifta oss',
     'omDegOgAvdoed.forholdTilAvdoede.fellesBarn': 'Har eller hadde de felles barn?',
@@ -331,6 +328,7 @@ export default {
     'omDenAvdoede.foedselsnummer': 'Fødselsnummer / d-nummer',
     'omDenAvdoede.statsborgerskap': 'Statsborgarskap',
     'omDenAvdoede.statsborgerskapPlaceholder': 'Eks. norsk',
+    'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphald utanfor Noreg',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
         'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i omstillingsstønad og gi deg pensjonsrettar frå andre land.',

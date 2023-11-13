@@ -97,7 +97,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                         <Datovelger
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
                                             label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
-                                            maxDate={datoForDoedsfallet}
+                                            maxDate={datoForDoedsfallet || new Date()}
                                             valgfri
                                         />
                                     </div>
@@ -105,7 +105,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                         <Datovelger
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].tilDato` as const}
                                             label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
-                                            maxDate={datoForDoedsfallet}
+                                            maxDate={datoForDoedsfallet || new Date()}
                                             valgfri
                                         />
                                     </div>

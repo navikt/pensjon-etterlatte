@@ -78,8 +78,11 @@ export interface IOppholdUtland {
 }
 
 export interface IAvdoed {
+    fornavn?: string
+    etternavn?: string
     foedselsnummer?: string
     statsborgerskap?: string
+    datoForDoedsfallet?: Date
     boddEllerJobbetUtland?: {
         svar?: IValg
         oppholdUtland?: IOppholdUtland[]
@@ -145,11 +148,6 @@ export interface ISoeker {
 }
 
 export interface ISoekerOgAvdoed {
-    avdoed?: {
-        fornavn?: string
-        etternavn?: string
-        datoForDoedsfallet?: Date
-    }
     forholdTilAvdoede?: IForholdAvdoede
     erValidert?: boolean
 }

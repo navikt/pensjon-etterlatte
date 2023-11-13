@@ -8,17 +8,19 @@ import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
+import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 
 const SamboerMedAvdoede = () => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext<ISoekerOgAvdoed>()
     const { state } = useBrukerContext()
+    const { state: soknadState } = useSoknadContext()
 
     const datoInngaattPartnerskap = watch('forholdTilAvdoede.datoForInngaattPartnerskap')
     const ingenFellesBarn = watch('forholdTilAvdoede.fellesBarn') === IValg.NEI
     const tidligereGift = watch('forholdTilAvdoede.tidligereGift')
-    const datoforDoedsfallet = watch('avdoed.datoForDoedsfallet')
+    const datoforDoedsfallet = soknadState.omDenAvdoede.datoForDoedsfallet
 
     const partnerskapMindreEnnFemAar = !!datoInngaattPartnerskap ? hentAlder(datoInngaattPartnerskap) < 5 : false
 
