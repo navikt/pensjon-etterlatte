@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-webpack-loader-syntax
 import Worker from 'worker-loader!./countdown.worker'
 import { CountdownMessage } from '../../types/countdown'
 
