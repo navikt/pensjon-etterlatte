@@ -8,9 +8,7 @@ import DatePicker from '../../common/DatePicker'
 import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
 import PersonInfo from '../../common/PersonInfo'
-import { RHFInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import WhyWeAsk from '../../common/WhyWeAsk'
 import SelfEmploymentDetails from './SelfEmploymentDetails'
 import StaysAbroad from './StaysAbroad'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
@@ -29,7 +27,6 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     const bothParentsDecesed = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
 
-    const completedMilitaryService = watch('militaryService.completed')
     const staysAbroad = watch('staysAbroad.hasStaysAbroad')
 
     return (
@@ -40,6 +37,19 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
             <FormGroup>
                 <FormElement>
                     <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
+                </FormElement>
+            </FormGroup>
+
+            <FormGroup>
+                <FormElement>
+                    <RHFGeneralQuestionRadio
+                        name={'occupationalInjury'}
+                        legend={t('occupationalInjury')}
+                        vetIkke={true}
+                        description={
+                            isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')
+                        }
+                    />
                 </FormElement>
             </FormGroup>
 
@@ -59,44 +69,6 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
             </FormGroup>
 
             {bothParentsDecesed && !isChild && <SelfEmploymentDetails />}
-
-            <FormGroup>
-                {!isChild && <Heading size="small">{t('otherTitle')}</Heading>}
-
-                <RHFGeneralQuestionRadio
-                    name={'occupationalInjury'}
-                    legend={t('occupationalInjury')}
-                    vetIkke={true}
-                    description={
-                        isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')
-                    }
-                />
-
-                {bothParentsDecesed && !isChild && (
-                    <>
-                        <FormElement>
-                            <RHFGeneralQuestionRadio
-                                name={'militaryService.completed'}
-                                legend={t('deceasedHasServedInTheMilitary')}
-                                vetIkke={true}
-                                description={
-                                    <WhyWeAsk title="militaryService">{t('whyWeAskAboutMilitaryService')}</WhyWeAsk>
-                                }
-                            />
-                        </FormElement>
-
-                        {completedMilitaryService === JaNeiVetIkke.JA && (
-                            <FormElement>
-                                <RHFInput
-                                    name={'militaryService.period'}
-                                    label={t('militaryServiceYears')}
-                                    valgfri={true}
-                                />
-                            </FormElement>
-                        )}
-                    </>
-                )}
-            </FormGroup>
         </>
     )
 }

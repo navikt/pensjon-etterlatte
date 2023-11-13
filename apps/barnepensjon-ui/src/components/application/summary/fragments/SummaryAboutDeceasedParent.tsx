@@ -36,6 +36,7 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                     citizenship={aboutTheParent.citizenship}
                 />
                 <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath} />
+                <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
                 <TextGroupJaNeiVetIkke
                     title={t('didTheDeceasedLiveAbroad')}
                     content={aboutTheParent.staysAbroad.hasStaysAbroad}
@@ -74,16 +75,6 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                         title={t('hadIncomeFromSelfEmployment')}
                         content={aboutTheParent.selfEmplyment.selfEmplymentDetails.incomeAtDeath}
                     />
-                )}
-                <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
-                {aboutTheParent.militaryService?.completed && (
-                    <TextGroupJaNeiVetIkke
-                        title={t('deceasedHasServedInTheMilitary')}
-                        content={aboutTheParent.militaryService?.completed}
-                    />
-                )}
-                {aboutTheParent.militaryService?.period && (
-                    <TextGroup title={t('militaryServiceYears')} content={aboutTheParent.militaryService?.period} />
                 )}
             </FormElement>
         </AccordionItem>

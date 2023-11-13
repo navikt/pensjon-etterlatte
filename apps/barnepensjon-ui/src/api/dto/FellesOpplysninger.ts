@@ -80,8 +80,6 @@ export interface Naeringsinntekt {
     naeringsinntektVedDoedsfall?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
-export type AarstallForMilitaerTjeneste = FritekstSvar
-
 export type EndretInntektBegrunnelse = FritekstSvar
 
 export interface Arbeidstaker {

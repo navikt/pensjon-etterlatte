@@ -70,7 +70,6 @@ Cypress.Commands.add('useAdvancedDeceased', (gotoNext: boolean = true) => {
     cy.get(`[value="NEI"]`).first().check({ force: true })
     cy.get('div[id="selfEmplyment.wasSelfEmployed"]').find('[value="NEI"]').check({ force: true })
     cy.get('#occupationalInjury').find('[value="JA"]').check({ force: true })
-    cy.get(`div[id="militaryService.completed"]`).find('[value="NEI"]').check({ force: true })
 
     if (gotoNext) cy.clickBtn(Button.Next)
 })

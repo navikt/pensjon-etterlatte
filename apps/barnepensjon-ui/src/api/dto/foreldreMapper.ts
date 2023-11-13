@@ -1,11 +1,9 @@
 import {
     BetingetOpplysning,
     EnumSvar,
-    FritekstSvar,
     JaNeiVetIkke,
     Naeringsinntekt,
     OppholdUtlandType,
-    Opplysning,
     Utenlandsopphold,
 } from './FellesOpplysninger'
 import { Avdoed, Forelder, GjenlevendeForelder, Person, PersonType } from './Person'
@@ -14,7 +12,6 @@ import {
     IApplication,
     IDeceasedParent,
     ILivingParent,
-    IMilitaryService,
     IParent,
     ISelfEmployment,
     IStaysAbroad,
@@ -188,7 +185,6 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
         },
         utenlandsopphold: mapUtenlandsopphold(t, parent.staysAbroad),
         naeringsInntekt: mapNaeringsinntekt(t, parent.selfEmplyment),
-        militaertjeneste: mapMilitaertjeneste(t, parent.militaryService),
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
             spoersmaal: t('occupationalInjury', { ns: 'aboutTheDeceased' }),
             svar: {
@@ -196,29 +192,6 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
                 verdi: parent.occupationalInjury!!,
             },
         },
-    }
-}
-
-const mapMilitaertjeneste = (t: TFunction, militaryService?: IMilitaryService) => {
-    if (!militaryService) return undefined
-
-    let opplysningMilitaertjeneste: Opplysning<FritekstSvar> | undefined
-    if (militaryService.completed === JaNeiVetIkke.JA) {
-        opplysningMilitaertjeneste = {
-            spoersmaal: t('militaryServiceYears', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: militaryService.period || '-',
-            },
-        }
-    }
-
-    return {
-        spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
-        svar: {
-            innhold: t(militaryService!!.completed!!, { ns: 'radiobuttons' }),
-            verdi: militaryService!!.completed!!,
-        },
-        opplysning: opplysningMilitaertjeneste,
     }
 }
 
@@ -342,7 +315,6 @@ export const _test = {
     mapForelderFraInnloggetBruker,
     mapGjenlevendeForelder,
     mapAvdoed,
-    mapMilitaertjeneste,
     mapUtenlandsopphold,
     mapNaeringsinntekt,
 }

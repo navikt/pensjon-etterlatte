@@ -225,16 +225,10 @@ const aboutTheDeceased = {
         'Enter the deceased’s income from self-employment from the calendar year before their death (optional)',
     incomeFromSelfEmploymentBeforeTaxes: 'Total annual income before tax',
     hadIncomeFromSelfEmployment: 'Did the deceased have any income from self-employment at the time of his/her death?',
-    otherTitle: 'Other',
     occupationalInjury: 'Was the death caused by an occupational injury or occupational illness?',
     whyWeAskAboutOccupationalInjury:
         'If the death was caused by an occupational injury or occupational illness approved by NAV, this may determine whether the child/children will receive the children’s pension and the amount the child/children is/are entitled to.',
     whyWeAskAboutOccupationalInjuryOver18: '<MANGLER TEKST>',
-    deceasedHasServedInTheMilitary:
-        'Has he or she carried out compulsory military or civil service that had a minimum duration of 30 days?',
-    whyWeAskAboutMilitaryService:
-        'This may result in earnings that are to be included in the calculation of the children’s pension.',
-    militaryServiceYears: 'In which year(s)? (optional)',
     BODD: 'Lived',
     ARBEIDET: 'Worked',
     addCountryButton: '+ Add more countries',
@@ -334,7 +328,6 @@ const error = {
     'children.validate': 'You must apply for the children’s pension for at least one child.',
     'memberFolketrygdenAbroad.required':
         'State whether you are a member of the Norwegian National Insurance Scheme during your stay in a country other than Norway',
-    'militaryService.completed.required': 'State whether the deceased has carried out compulsory military service',
     'occupationalInjury.required': 'State whether the death was due to an occupational injury or occupational illness',
     'paymentDetails.taxWithhold.answer.required': 'State whether you wish to add tax deductions ',
     'paymentDetails.taxWithhold.taxPercentage.required': 'Enter the desired tax deduction',

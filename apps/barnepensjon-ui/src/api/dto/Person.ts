@@ -1,5 +1,4 @@
 import {
-    AarstallForMilitaerTjeneste,
     BetingetOpplysning,
     DatoSvar,
     EnumSvar,
@@ -91,7 +90,6 @@ export interface Avdoed extends Person {
     statsborgerskap: Opplysning<FritekstSvar>
     utenlandsopphold: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsopphold[] | undefined>
     naeringsInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt> | undefined
-    militaertjeneste: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<AarstallForMilitaerTjeneste>> | undefined
     doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
