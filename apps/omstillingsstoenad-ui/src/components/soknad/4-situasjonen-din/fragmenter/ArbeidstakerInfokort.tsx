@@ -2,18 +2,18 @@ import { memo } from 'react'
 import { Arbeidsmengde, SagtOppEllerRedusert, StillingType } from '../../../../typer/arbeidsforhold'
 import { useTranslation } from 'react-i18next'
 import { Button, Detail, Heading, RadioProps } from '@navikt/ds-react'
-import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
+import { RHFInput, RHFInputArea, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { DeleteFilled } from '@navikt/ds-icons'
 import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import Datovelger from '../../../felles/Datovelger'
-import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 import Bredde from '../../../../typer/bredde'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { NumberSelectRad } from '../../../felles/StyledComponents'
+import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 
 interface Props {
     lengde: number
@@ -38,14 +38,14 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             {lengde > 1 && (
                 <Heading size={'small'}>{`${t('dinSituasjon.arbeidsforhold.arbeidssted')} ${index + 1}`}</Heading>
             )}
-            <SkjemaGruppe>
+            <SkjemaElement>
                 <RHFInput
                     className={'kol-50'}
                     name={`arbeidsforhold[${index}].arbeidsgiver` as const}
                     label={t('dinSituasjon.arbeidsforhold.arbeidsgiver')}
                     htmlSize={Bredde.M}
                 />
-            </SkjemaGruppe>
+            </SkjemaElement>
 
             <SkjemaElement>
                 <RHFRadio
@@ -103,10 +103,12 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 label={t('felles.velg.tittel')}
                             />
                         </NumberSelectRad>
-                        <RHFSpoersmaalRadio
-                            name={`arbeidsforhold[${index}].midlertidig.svar` as const}
-                            legend={t('dinSituasjon.arbeidsforhold.midlertidig.svar')}
-                        />
+                        <SkjemaElement>
+                            <RHFSpoersmaalRadio
+                                name={`arbeidsforhold[${index}].midlertidig.svar` as const}
+                                legend={t('dinSituasjon.arbeidsforhold.midlertidig.svar')}
+                            />
+                        </SkjemaElement>
                         {sluttdato === IValg.JA && (
                             <Datovelger
                                 name={`arbeidsforhold[${index}].midlertidig.sluttdatoVelger`}
@@ -118,22 +120,25 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 )}
             </SkjemaGruppe>
 
-            <SkjemaElement>
+            <SkjemaGruppe>
                 <RHFSpoersmaalRadio
                     name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
                     legend={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
                 />
-            </SkjemaElement>
-
-            {endretArbeidssituasjon === IValg.JA && (
-                <SkjemaElement>
-                    <RHFInput
-                        name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
-                        label={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
-                        htmlSize={Bredde.M}
-                    />
-                </SkjemaElement>
-            )}
+                {endretArbeidssituasjon === IValg.JA && (
+                    <SkjemaElement>
+                        <RHFInputArea
+                            name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
+                            label={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
+                            maxLength={200}
+                            className={'width-50'}
+                        />
+                    </SkjemaElement>
+                )}
+                <HvorforSpoerVi title={'dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar'} >
+                    {t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
+                </HvorforSpoerVi>
+            </SkjemaGruppe>
 
             <SkjemaElement>
                 <RHFRadio
@@ -144,9 +149,6 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         return { children: t(value), value } as RadioProps
                     })}
                 </RHFRadio>
-                <HvorforSpoerVi title="dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar">
-                    {t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
-                </HvorforSpoerVi>
             </SkjemaElement>
 
             {lengde > 1 && (

@@ -2,16 +2,14 @@ import { useTranslation } from 'react-i18next'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { EndringAvInntektGrunn } from '../../../../typer/inntekt'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
-import { RHFInput } from '../../../felles/rhf/RHFInput'
+import { RHFInputArea } from '../../../felles/rhf/RHFInput'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import Bredde from '../../../../typer/bredde'
 
 interface Props {
-    type: 'annenInntekt' | 'loennsinntekt' | 'naeringsinntekt'
+    type: 'loennsinntekt' | 'naeringsinntekt'
 }
 
 const EndringInntekt = ({ type }: Props) => {
@@ -29,9 +27,13 @@ const EndringInntekt = ({ type }: Props) => {
     })
 
     return (
-        <SkjemaGruppe>
+        <>
             <SkjemaElement>
-                <RHFSpoersmaalRadio name={`${baseUrl}.svar`} legend={t('inntektenDin.forventerEndringAvInntekt.svar')} vetIkke />
+                <RHFSpoersmaalRadio
+                    name={`${baseUrl}.svar`}
+                    legend={t('inntektenDin.forventerEndringAvInntekt.svar')}
+                    vetIkke
+                />
             </SkjemaElement>
             {endrerInntekt === IValg.JA && (
                 <SkjemaElement>
@@ -49,14 +51,15 @@ const EndringInntekt = ({ type }: Props) => {
             )}
             {endringAvInntektGrunn === EndringAvInntektGrunn.annenGrunn && (
                 <SkjemaElement>
-                    <RHFInput
+                    <RHFInputArea
                         name={`${baseUrl}.annenGrunn`}
                         label={t('inntektenDin.forventerEndringAvInntekt.annenGrunn')}
-                        htmlSize={Bredde.M}
+                        maxLength={200}
+                        className={'width-50'}
                     />
                 </SkjemaElement>
             )}
-        </SkjemaGruppe>
+        </>
     )
 }
 

@@ -87,11 +87,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                 <RHFSpoersmaalRadio
                                     name={'oppholderSegINorge'}
                                     legend={t('omDeg.oppholderSegINorge')}
-                                    description={
-                                        <HvorforSpoerVi title="omDeg.oppholderSegINorge">
-                                            {t('omDeg.oppholdHvorfor')}
-                                        </HvorforSpoerVi>
-                                    }
+                                    description={t('omDeg.oppholdHvorfor')}
                                 />
                             </SkjemaElement>
 

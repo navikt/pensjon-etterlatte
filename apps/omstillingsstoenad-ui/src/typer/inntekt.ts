@@ -64,7 +64,6 @@ export interface IPensjonEllerUfoere {
 export interface IAnnenInntekt {
     inntektEllerUtbetaling: InntektEllerUtbetaling[]
     beloep?: string
-    forventerEndringAvInntekt: IForventerEndringAvInntekt
 }
 
 export enum InntektsTyper {
@@ -115,8 +114,8 @@ export enum SoekbareYtelserAndre {
 }
 
 export enum PensjonsYtelse {
-    avtalefestetPensjonOffentlig = 'soekbarYtelse.avtalefestetPensjonOffentlig',
     avtalefestetPensjonPrivat = 'soekbarYtelse.avtalefestetPensjonPrivat',
+    avtalefestetPensjonOffentlig = 'soekbarYtelse.avtalefestetPensjonOffentlig',
     ufoerepensjon = 'soekbarYtelse.ufoerepensjon',
     alderspensjon = 'soekbarYtelse.alderspensjon',
     saeralderpensjon = 'soekbarYtelse.saeralderpensjon',

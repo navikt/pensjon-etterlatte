@@ -3,7 +3,6 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { Heading } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, InntektsTyper } from '../../../../typer/inntekt'
 import Loennsinntekt from './Loennsinntekt'
@@ -19,7 +18,7 @@ const Inntekt = () => {
     const inntektstype = watch('inntektstyper')
 
     return (
-        <SkjemaGruppe>
+        <>
             <SkjemaElement>
                 <Heading size={'medium'}>{t('inntektenDin.undertittel')}</Heading>
             </SkjemaElement>
@@ -35,7 +34,7 @@ const Inntekt = () => {
             {inntektstype?.includes(InntektsTyper.naering) && <Naeringsinntekt />}
             {inntektstype?.includes(InntektsTyper.pensjonEllerUfoere) && <PensjonEllerUfoere />}
             {inntektstype?.includes(InntektsTyper.annen) && <AnnenInntekt />}
-        </SkjemaGruppe>
+        </>
     )
 }
 

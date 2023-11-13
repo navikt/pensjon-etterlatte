@@ -15,11 +15,15 @@ import { RHFCheckboksGruppe } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { deepCopy } from '../../../utils/deepCopy'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { SkjemaElement } from '../../felles/SkjemaElement'
-import HvorforSpoerVi from '../../felles/HvorforSpoerVi'
 import EtablererVirksomhet from './fragmenter/EtablererVirksomhet'
 import TilbudOmJobb from './fragmenter/TilbudOmJobb'
 import Arbeidssoeker from './fragmenter/Arbeidssoeker'
 import AnnenSituasjon from './fragmenter/AnnenSituasjon'
+import styled from 'styled-components'
+
+const DynamicSpacing = styled.div<{ $margin: boolean }>`
+    margin-bottom: ${(props) => (!props.$margin ? '3rem' : '')};
+`
 
 const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -58,8 +62,6 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const erValidert = state.dinSituasjon.erValidert
     const jobbStatus = watch('jobbStatus')
 
-
-
     const selvstendigEllerArbeidstaker =
         jobbStatus?.includes(JobbStatus.selvstendigAS) ||
         jobbStatus?.includes(JobbStatus.arbeidstaker) ||
@@ -75,38 +77,36 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaElement>
 
                 <SkjemaGruppe>
-                    <GuidePanel>
-                        {t('dinSituasjon.ingress')}
-                    </GuidePanel>
+                    <GuidePanel>{t('dinSituasjon.ingress')}</GuidePanel>
                 </SkjemaGruppe>
 
                 {!brukerState.adressebeskyttelse && (
                     <>
-                        <Heading size={'small'} spacing>
-                            {t('dinSituasjon.jobbStatus.tittel')}
-                        </Heading>
-                        <RHFCheckboksGruppe
-                            name={'jobbStatus'}
-                            legend={t('dinSituasjon.jobbStatus')}
-                            checkboxes={Object.values(JobbStatus).map((value) => {
-                                return { children: t(value), value, required: true }
-                            })}
-                        />
-                        <HvorforSpoerVi title="dinSituasjon.jobbStatus">
-                            {t('dinSituasjon.jobbStatus.hvorfor')}
-                        </HvorforSpoerVi>
+                        <DynamicSpacing $margin={!!jobbStatus?.length}>
+                            <Heading size={'small'} spacing>
+                                {t('dinSituasjon.jobbStatus.tittel')}
+                            </Heading>
+                            <RHFCheckboksGruppe
+                                name={'jobbStatus'}
+                                legend={t('dinSituasjon.jobbStatus')}
+                                description={t('dinSituasjon.jobbStatus.hvorfor')}
+                                checkboxes={Object.values(JobbStatus).map((value) => {
+                                    return { children: t(value), value, required: true }
+                                })}
+                            />
 
-                        {selvstendigEllerArbeidstaker && <NavaerendeArbeidsforhold />}
+                            {selvstendigEllerArbeidstaker && <NavaerendeArbeidsforhold />}
 
-                        {jobbStatus?.includes(JobbStatus.etablerer) && <EtablererVirksomhet />}
+                            {jobbStatus?.includes(JobbStatus.etablerer) && <EtablererVirksomhet />}
 
-                        {jobbStatus?.includes(JobbStatus.tilbud) && <TilbudOmJobb />}
+                            {jobbStatus?.includes(JobbStatus.tilbud) && <TilbudOmJobb />}
 
-                        {jobbStatus?.includes(JobbStatus.arbeidssoeker) && <Arbeidssoeker />}
+                            {jobbStatus?.includes(JobbStatus.arbeidssoeker) && <Arbeidssoeker />}
 
-                        {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
+                            {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
 
-                        {jobbStatus?.includes(JobbStatus.ingen) && <AnnenSituasjon />}
+                            {jobbStatus?.includes(JobbStatus.ingen) && <AnnenSituasjon />}
+                        </DynamicSpacing>
 
                         <HoeyesteUtdanning />
                     </>

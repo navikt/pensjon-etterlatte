@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Detail, Label } from '@navikt/ds-react'
-import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
+import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { DeleteFilled } from '@navikt/ds-icons'
 import { useFormContext } from 'react-hook-form'
@@ -47,7 +47,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                 <SkjemaElement>
                     <RHFNumberInput
                         name={`${selvstendigName}.orgnr` as const}
-                        placeholder={t('dinSituasjon.selvstendig.orgnrplaceholder')}
+                        description={t('dinSituasjon.selvstendig.orgnrplaceholder')}
                         label={t('dinSituasjon.selvstendig.orgnr')}
                         maxLength={9}
                         minLength={9}
@@ -56,7 +56,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                 </SkjemaElement>
             </SkjemaGruppe>
 
-            <SkjemaElement>
+            <SkjemaGruppe>
                 <Label>
                     {type === 'enk'
                         ? t('dinSituasjon.selvstendig.arbeidsmengde.enk')
@@ -83,7 +83,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                         />
                     </NumberSelectRad>
                 </SkjemaElement>
-            </SkjemaElement>
+            </SkjemaGruppe>
 
             <SkjemaElement>
                 <RHFSpoersmaalRadio
@@ -94,14 +94,14 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
 
             {endretArbeidssituasjon === IValg.JA && (
                 <SkjemaElement>
-                    <RHFInput
+                    <RHFInputArea
                         name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
                         label={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
-                        htmlSize={Bredde.M}
+                        maxLength={200}
+                        className={'width-50'}
                     />
                 </SkjemaElement>
             )}
-
             <SkjemaElement>
                 <HvorforSpoerVi title="dinSituasjon.selvstendig.grunnTilSpoersmål">
                     {t('dinSituasjon.selvstendig.grunnTilSpoersmål.hvorfor')}

@@ -1,7 +1,6 @@
 import { Alert, BodyShort, Cell, Grid, Label, HelpText } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { isEmpty } from 'lodash'
 import React, { memo } from 'react'
 import { fullAdresse } from '../../../utils/adresse'
@@ -27,7 +26,7 @@ const InnloggetBruker = memo(() => {
     if (isEmpty(state)) return null
 
     return (
-        <SkjemaGruppe>
+        <>
             <Grid>
                 <Cell xs={6}>
                     <div>
@@ -80,7 +79,7 @@ const InnloggetBruker = memo(() => {
                     </a>
                 </InnloggetBrukerAlert>
             )}
-        </SkjemaGruppe>
+        </>
     )
 })
 

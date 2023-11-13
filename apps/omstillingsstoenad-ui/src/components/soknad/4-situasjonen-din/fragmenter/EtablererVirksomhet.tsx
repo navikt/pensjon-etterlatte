@@ -33,6 +33,7 @@ const EtablererVirksomhet = () => {
                 <RHFNumberInput
                     name={`etablererVirksomhet.orgnr` as const}
                     label={t('dinSituasjon.etablererVirksomhet.orgnr')}
+                    description={t('dinSituasjon.selvstendig.orgnrplaceholder')}
                     maxLength={9}
                     minLength={9}
                     htmlSize={Bredde.S}

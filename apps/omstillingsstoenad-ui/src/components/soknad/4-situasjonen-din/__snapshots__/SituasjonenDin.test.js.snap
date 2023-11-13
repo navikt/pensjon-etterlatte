@@ -102,462 +102,439 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         </div>
       </div>
     </fieldset>
-    <h1
-      class="navds-heading navds-heading--small navds-typo--spacing"
-    >
-      dinSituasjon.jobbStatus.tittel
-    </h1>
     <div
-      class="sc-hBMVwJ eslJMu"
-      id="jobbStatus"
+      class="sc-fFSPgy fUXmrk"
     >
-      <fieldset
-        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+      <h1
+        class="navds-heading navds-heading--small navds-typo--spacing"
       >
-        <legend
-          class="navds-fieldset__legend navds-label"
-        >
-          dinSituasjon.jobbStatus
-        </legend>
-        <div
-          class="navds-checkboxes"
-        >
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              checked=""
-              class="navds-checkbox__input"
-              id="checkbox-r1g"
-              type="checkbox"
-              value="jobbStatus.arbeidstaker"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r1g"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.arbeidstaker
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              checked=""
-              class="navds-checkbox__input"
-              id="checkbox-r1h"
-              type="checkbox"
-              value="jobbStatus.selvstendig.enk"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r1h"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.selvstendig.enk
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r1i"
-              type="checkbox"
-              value="jobbStatus.selvstendig.as"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r1i"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.selvstendig.as
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r1j"
-              type="checkbox"
-              value="jobbStatus.etablerer"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r1j"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.etablerer
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r1k"
-              type="checkbox"
-              value="jobbStatus.tilbud"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r1k"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.tilbud
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r1l"
-              type="checkbox"
-              value="jobbStatus.arbeidssoker"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r1l"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.arbeidssoker
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r1m"
-              type="checkbox"
-              value="jobbStatus.underUtdanning"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r1m"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.underUtdanning
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r1n"
-              type="checkbox"
-              value="jobbStatus.ingen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r1n"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.ingen
-                </span>
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-fieldset__error"
-          id="fieldset-error-r1f"
-        />
-      </fieldset>
-    </div>
-    <div>
-      <button
-        aria-expanded="false"
-        class="sc-bqGGcD ifltaV"
-        data-testid="hvorforPanel_toggle"
-        type="button"
-      >
-        <span>
-          <svg
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="img"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span>
-          hvorforSpoerVi
-        </span>
-      </button>
-    </div>
-    <fieldset
-      class="sc-bdnyFh dkDmBp"
-    >
+        dinSituasjon.jobbStatus.tittel
+      </h1>
       <div
-        class="sc-crzpnZ bA-DzB"
+        class="sc-hBMVwJ eslJMu"
+        id="jobbStatus"
       >
-        <h1
-          class="navds-heading navds-heading--small"
+        <fieldset
+          aria-describedby="fieldset-description-r1e"
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          dinSituasjon.arbeidsforhold.tittel
-        </h1>
+          <legend
+            class="navds-fieldset__legend navds-label"
+          >
+            dinSituasjon.jobbStatus
+          </legend>
+          <div
+            class="navds-fieldset__description navds-body-short navds-body-short--medium"
+            id="fieldset-description-r1e"
+          >
+            dinSituasjon.jobbStatus.hvorfor
+          </div>
+          <div
+            class="navds-checkboxes"
+          >
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-r1f"
+                type="checkbox"
+                value="jobbStatus.arbeidstaker"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r1f"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.arbeidstaker
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-r1g"
+                type="checkbox"
+                value="jobbStatus.selvstendig.enk"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r1g"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.selvstendig.enk
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r1h"
+                type="checkbox"
+                value="jobbStatus.selvstendig.as"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r1h"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.selvstendig.as
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r1i"
+                type="checkbox"
+                value="jobbStatus.etablerer"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r1i"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.etablerer
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r1j"
+                type="checkbox"
+                value="jobbStatus.tilbud"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r1j"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.tilbud
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r1k"
+                type="checkbox"
+                value="jobbStatus.arbeidssoker"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r1k"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.arbeidssoker
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r1l"
+                type="checkbox"
+                value="jobbStatus.underUtdanning"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r1l"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.underUtdanning
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r1m"
+                type="checkbox"
+                value="jobbStatus.ingen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r1m"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.ingen
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-r1e"
+          />
+        </fieldset>
       </div>
       <fieldset
         class="sc-bdnyFh dkDmBp"
       >
         <div
-          class="kol-50"
+          class="sc-crzpnZ bA-DzB"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            dinSituasjon.arbeidsforhold.tittel
+          </h1>
+        </div>
+        <div
+          class="sc-crzpnZ bA-DzB"
         >
           <div
-            class="navds-form-field navds-form-field--medium"
+            class="kol-50"
           >
-            <label
-              class="navds-form-field__label navds-label"
-              for="arbeidsforhold[0].arbeidsgiver"
-            >
-              dinSituasjon.arbeidsforhold.arbeidsgiver
-            </label>
-            <input
-              class="navds-text-field__input navds-body-short navds-body-short--medium"
-              id="arbeidsforhold[0].arbeidsgiver"
-              size="40"
-              type="text"
-              value="Potetskreller AS"
-            />
             <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="textField-error-r1p"
-            />
+              class="navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-label"
+                for="arbeidsforhold[0].arbeidsgiver"
+              >
+                dinSituasjon.arbeidsforhold.arbeidsgiver
+              </label>
+              <input
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
+                id="arbeidsforhold[0].arbeidsgiver"
+                size="40"
+                type="text"
+                value="Potetskreller AS"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-r1n"
+              />
+            </div>
           </div>
         </div>
-      </fieldset>
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
         <div
-          id="arbeidsforhold[0].ansettelsesforhold"
+          class="sc-crzpnZ bA-DzB"
         >
           <div
-            class="sc-crzpnZ bA-DzB"
+            id="arbeidsforhold[0].ansettelsesforhold"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -575,14 +552,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r1s"
+                    id="radio-r1q"
                     name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
                     value="stillingType.fast"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r1s"
+                    for="radio-r1q"
                   >
                     <span
                       class="navds-radio__content"
@@ -601,14 +578,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                   <input
                     checked=""
                     class="navds-radio__input"
-                    id="radio-r1t"
+                    id="radio-r1r"
                     name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
                     value="stillingType.midlertidig"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r1t"
+                    for="radio-r1r"
                   >
                     <span
                       class="navds-radio__content"
@@ -626,14 +603,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r1u"
+                    id="radio-r1s"
                     name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
                     value="stillingType.tilkallingsvikar"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r1u"
+                    for="radio-r1s"
                   >
                     <span
                       class="navds-radio__content"
@@ -651,209 +628,205 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r1r"
+                id="fieldset-error-r1p"
               />
             </fieldset>
           </div>
         </div>
-      </div>
-      <fieldset
-        class="sc-bdnyFh dkDmBp"
-      >
-        <div
-          class="sc-crzpnZ bA-DzB"
+        <fieldset
+          class="sc-bdnyFh dkDmBp"
         >
           <div
             class="sc-crzpnZ bA-DzB"
           >
-            <h1
-              class="navds-heading navds-heading--xsmall"
-            >
-              dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel
-            </h1>
-            <p
-              class="navds-detail"
-            >
-              dinSituasjon.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
-            </p>
-          </div>
-          <div
-            class="sc-iqAbyq hPuvjq"
-          >
             <div
-              class="navds-form-field navds-form-field--medium"
+              class="sc-crzpnZ bA-DzB"
             >
-              <label
-                class="navds-form-field__label navds-label"
-                for="arbeidsforhold[0].arbeidsmengde.svar"
+              <h1
+                class="navds-heading navds-heading--xsmall"
               >
-                dinSituasjon.arbeidsforhold.arbeidsmengde.svar
-              </label>
-              <input
-                class="navds-text-field__input navds-body-short navds-body-short--medium"
-                id="arbeidsforhold[0].arbeidsmengde.svar"
-                size="25"
-                type="text"
-                value=""
-              />
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="textField-error-r1v"
-              />
+                dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel
+              </h1>
+              <p
+                class="navds-detail"
+              >
+                dinSituasjon.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
+              </p>
             </div>
             <div
-              class="sc-ksltVi eazJKf"
-              id="arbeidsforhold[0].arbeidsmengde.type"
+              class="sc-iqAbyq hPuvjq"
             >
               <div
                 class="navds-form-field navds-form-field--medium"
               >
                 <label
                   class="navds-form-field__label navds-label"
-                  for="select-r20"
+                  for="arbeidsforhold[0].arbeidsmengde.svar"
                 >
-                  felles.velg.tittel
+                  dinSituasjon.arbeidsforhold.arbeidsmengde.svar
                 </label>
-                <div
-                  class="navds-select__container"
-                >
-                  <select
-                    class="navds-select__input navds-body-short navds-body-short--medium"
-                    id="select-r20"
-                  >
-                    <option
-                      value=""
-                    >
-                      felles.velg
-                    </option>
-                    <option
-                      value="arbeidsmengde.prosent"
-                    >
-                      arbeidsmengde.prosent
-                    </option>
-                    <option
-                      value="arbeidsmengde.timer"
-                    >
-                      arbeidsmengde.timer
-                    </option>
-                  </select>
-                  <svg
-                    aria-hidden="true"
-                    class="navds-select__chevron"
-                    fill="none"
-                    focusable="false"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </div>
+                <input
+                  class="navds-text-field__input navds-body-short navds-body-short--medium"
+                  id="arbeidsforhold[0].arbeidsmengde.svar"
+                  size="25"
+                  type="text"
+                  value=""
+                />
                 <div
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="select-error-r20"
+                  id="textField-error-r1t"
                 />
               </div>
+              <div
+                class="sc-bqGGcD dwsJhs"
+                id="arbeidsforhold[0].arbeidsmengde.type"
+              >
+                <div
+                  class="navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-form-field__label navds-label"
+                    for="select-r1u"
+                  >
+                    felles.velg.tittel
+                  </label>
+                  <div
+                    class="navds-select__container"
+                  >
+                    <select
+                      class="navds-select__input navds-body-short navds-body-short--medium"
+                      id="select-r1u"
+                    >
+                      <option
+                        value=""
+                      >
+                        felles.velg
+                      </option>
+                      <option
+                        value="arbeidsmengde.prosent"
+                      >
+                        arbeidsmengde.prosent
+                      </option>
+                      <option
+                        value="arbeidsmengde.timer"
+                      >
+                        arbeidsmengde.timer
+                      </option>
+                    </select>
+                    <svg
+                      aria-hidden="true"
+                      class="navds-select__chevron"
+                      fill="none"
+                      focusable="false"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-form-field__error"
+                    id="select-error-r1u"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-          <div
-            id="arbeidsforhold[0].midlertidig.svar"
-          >
             <div
               class="sc-crzpnZ bA-DzB"
             >
-              <fieldset
-                class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              <div
+                id="arbeidsforhold[0].midlertidig.svar"
               >
-                <legend
-                  class="navds-fieldset__legend navds-label"
+                <fieldset
+                  class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
                 >
-                  dinSituasjon.arbeidsforhold.midlertidig.svar
-                </legend>
-                <div
-                  class="navds-radio-buttons"
-                >
-                  <div
-                    class="radioBorder navds-radio navds-radio--medium"
+                  <legend
+                    class="navds-fieldset__legend navds-label"
                   >
-                    <input
-                      class="navds-radio__input"
-                      id="radio-r24"
-                      name="arbeidsforhold[0].midlertidig.svar"
-                      type="radio"
-                      value="radiobuttons.ja"
-                    />
-                    <label
-                      class="navds-radio__label"
-                      for="radio-r24"
+                    dinSituasjon.arbeidsforhold.midlertidig.svar
+                  </legend>
+                  <div
+                    class="navds-radio-buttons"
+                  >
+                    <div
+                      class="radioBorder navds-radio navds-radio--medium"
                     >
-                      <span
-                        class="navds-radio__content"
+                      <input
+                        class="navds-radio__input"
+                        id="radio-r22"
+                        name="arbeidsforhold[0].midlertidig.svar"
+                        type="radio"
+                        value="radiobuttons.ja"
+                      />
+                      <label
+                        class="navds-radio__label"
+                        for="radio-r22"
                       >
                         <span
-                          class="navds-body-short navds-body-short--medium"
+                          class="navds-radio__content"
                         >
-                          radiobuttons.ja
+                          <span
+                            class="navds-body-short navds-body-short--medium"
+                          >
+                            radiobuttons.ja
+                          </span>
                         </span>
-                      </span>
-                    </label>
-                  </div>
-                  <div
-                    class="radioBorder navds-radio navds-radio--medium"
-                  >
-                    <input
-                      class="navds-radio__input"
-                      id="radio-r25"
-                      name="arbeidsforhold[0].midlertidig.svar"
-                      type="radio"
-                      value="radiobuttons.nei"
-                    />
-                    <label
-                      class="navds-radio__label"
-                      for="radio-r25"
+                      </label>
+                    </div>
+                    <div
+                      class="radioBorder navds-radio navds-radio--medium"
                     >
-                      <span
-                        class="navds-radio__content"
+                      <input
+                        class="navds-radio__input"
+                        id="radio-r23"
+                        name="arbeidsforhold[0].midlertidig.svar"
+                        type="radio"
+                        value="radiobuttons.nei"
+                      />
+                      <label
+                        class="navds-radio__label"
+                        for="radio-r23"
                       >
                         <span
-                          class="navds-body-short navds-body-short--medium"
+                          class="navds-radio__content"
                         >
-                          radiobuttons.nei
+                          <span
+                            class="navds-body-short navds-body-short--medium"
+                          >
+                            radiobuttons.nei
+                          </span>
                         </span>
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </div>
-                </div>
-                <div
-                  aria-live="polite"
-                  aria-relevant="additions removals"
-                  class="navds-fieldset__error"
-                  id="fieldset-error-r23"
-                />
-              </fieldset>
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-fieldset__error"
+                    id="fieldset-error-r21"
+                  />
+                </fieldset>
+              </div>
             </div>
           </div>
-        </div>
-      </fieldset>
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
-        <div
-          id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
+        </fieldset>
+        <fieldset
+          class="sc-bdnyFh dkDmBp"
         >
           <div
-            class="sc-crzpnZ bA-DzB"
+            id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -871,14 +844,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r28"
+                    id="radio-r26"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r28"
+                    for="radio-r26"
                   >
                     <span
                       class="navds-radio__content"
@@ -896,14 +869,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r29"
+                    id="radio-r27"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r29"
+                    for="radio-r27"
                   >
                     <span
                       class="navds-radio__content"
@@ -921,20 +894,46 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r27"
+                id="fieldset-error-r25"
               />
             </fieldset>
           </div>
-        </div>
-      </div>
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
+          <div>
+            <button
+              aria-expanded="false"
+              class="sc-ksltVi jGiyja"
+              data-testid="hvorforPanel_toggle"
+              type="button"
+            >
+              <span>
+                <svg
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+              <span>
+                hvorforSpoerVi
+              </span>
+            </button>
+          </div>
+        </fieldset>
         <div
-          id="arbeidsforhold[0].sagtOppEllerRedusert.svar"
+          class="sc-crzpnZ bA-DzB"
         >
           <div
-            class="sc-crzpnZ bA-DzB"
+            id="arbeidsforhold[0].sagtOppEllerRedusert.svar"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -952,14 +951,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r2c"
+                    id="radio-r2b"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="sagtOppEllerRedusert.oppsagt"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r2c"
+                    for="radio-r2b"
                   >
                     <span
                       class="navds-radio__content"
@@ -977,14 +976,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r2d"
+                    id="radio-r2c"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="sagtOppEllerRedusert.redusert"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r2d"
+                    for="radio-r2c"
                   >
                     <span
                       class="navds-radio__content"
@@ -1002,14 +1001,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r2e"
+                    id="radio-r2d"
                     name="arbeidsforhold[0].sagtOppEllerRedusert.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r2e"
+                    for="radio-r2d"
                   >
                     <span
                       class="navds-radio__content"
@@ -1027,163 +1026,94 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r2b"
+                id="fieldset-error-r2a"
               />
             </fieldset>
           </div>
         </div>
-        <div>
-          <button
-            aria-expanded="false"
-            class="sc-bqGGcD ifltaV"
-            data-testid="hvorforPanel_toggle"
-            type="button"
+        <button
+          class="navds-button navds-button--secondary navds-button--medium"
+          type="button"
+        >
+          <span
+            class="navds-label"
           >
-            <span>
-              <svg
-                fill="none"
-                focusable="false"
-                height="1em"
-                role="img"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </span>
-            <span>
-              hvorforSpoerVi
-            </span>
-          </button>
-        </div>
-      </div>
-      <button
-        class="navds-button navds-button--secondary navds-button--medium"
-        type="button"
-      >
-        <span
-          class="navds-label"
-        >
-          + 
-          knapp.leggTilArbeidsforhold
-        </span>
-      </button>
-    </fieldset>
-    <fieldset
-      class="sc-bdnyFh dkDmBp"
-    >
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
-        <h1
-          class="navds-heading navds-heading--small"
-        >
-          dinSituasjon.selvstendig.tittel
-        </h1>
-      </div>
+            + 
+            knapp.leggTilArbeidsforhold
+          </span>
+        </button>
+      </fieldset>
       <fieldset
         class="sc-bdnyFh dkDmBp"
       >
         <div
-          class="kol-75"
-        >
-          <div
-            class="navds-form-field navds-form-field--medium"
-          >
-            <label
-              class="navds-form-field__label navds-label"
-              for="selvstendig.enk[0].beskrivelse"
-            >
-              dinSituasjon.selvstendig.hvaHeterNaeringen
-            </label>
-            <div
-              class="navds-form-field__description navds-body-short navds-body-short--medium"
-              id="textField-description-r2s"
-            >
-              dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse
-            </div>
-            <input
-              aria-describedby="textField-description-r2s"
-              class="navds-text-field__input navds-body-short navds-body-short--medium"
-              id="selvstendig.enk[0].beskrivelse"
-              size="40"
-              type="text"
-              value=""
-            />
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="textField-error-r2s"
-            />
-          </div>
-        </div>
-        <div
           class="sc-crzpnZ bA-DzB"
         >
-          <div
-            class="navds-form-field navds-form-field--medium"
+          <h1
+            class="navds-heading navds-heading--small"
           >
-            <label
-              class="navds-form-field__label navds-label"
-              for="selvstendig.enk[0].orgnr"
-            >
-              dinSituasjon.selvstendig.orgnr
-            </label>
-            <input
-              class="navds-text-field__input navds-body-short navds-body-short--medium"
-              id="selvstendig.enk[0].orgnr"
-              placeholder="dinSituasjon.selvstendig.orgnrplaceholder"
-              size="25"
-              type="text"
-              value=""
-            />
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="textField-error-r2t"
-            />
-          </div>
+            dinSituasjon.selvstendig.tittel
+          </h1>
         </div>
-      </fieldset>
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
-        <label
-          class="navds-label"
-        >
-          dinSituasjon.selvstendig.arbeidsmengde.enk
-        </label>
-        <p
-          class="navds-detail navds-typo--color-subtle"
-        >
-          dinSituasjon.selvstendig.arbeidsmengde.beskrivelse
-        </p>
-        <div
-          class="sc-crzpnZ bA-DzB"
+        <fieldset
+          class="sc-bdnyFh dkDmBp"
         >
           <div
-            class="sc-iqAbyq hPuvjq"
+            class="kol-75"
           >
             <div
               class="navds-form-field navds-form-field--medium"
             >
               <label
                 class="navds-form-field__label navds-label"
-                for="selvstendig.enk[0].arbeidsmengde.svar"
+                for="selvstendig.enk[0].beskrivelse"
               >
-                dinSituasjon.selvstendig.arbeidsmengde.svar
+                dinSituasjon.selvstendig.hvaHeterNaeringen
               </label>
+              <div
+                class="navds-form-field__description navds-body-short navds-body-short--medium"
+                id="textField-description-r2q"
+              >
+                dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse
+              </div>
               <input
+                aria-describedby="textField-description-r2q"
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
-                id="selvstendig.enk[0].arbeidsmengde.svar"
+                id="selvstendig.enk[0].beskrivelse"
+                size="40"
+                type="text"
+                value=""
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-r2q"
+              />
+            </div>
+          </div>
+          <div
+            class="sc-crzpnZ bA-DzB"
+          >
+            <div
+              class="navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-label"
+                for="selvstendig.enk[0].orgnr"
+              >
+                dinSituasjon.selvstendig.orgnr
+              </label>
+              <div
+                class="navds-form-field__description navds-body-short navds-body-short--medium"
+                id="textField-description-r2r"
+              >
+                dinSituasjon.selvstendig.orgnrplaceholder
+              </div>
+              <input
+                aria-describedby="textField-description-r2r"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
+                id="selvstendig.enk[0].orgnr"
                 size="25"
                 type="text"
                 value=""
@@ -1192,83 +1122,124 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-r2u"
+                id="textField-error-r2r"
               />
             </div>
+          </div>
+        </fieldset>
+        <fieldset
+          class="sc-bdnyFh dkDmBp"
+        >
+          <label
+            class="navds-label"
+          >
+            dinSituasjon.selvstendig.arbeidsmengde.enk
+          </label>
+          <p
+            class="navds-detail navds-typo--color-subtle"
+          >
+            dinSituasjon.selvstendig.arbeidsmengde.beskrivelse
+          </p>
+          <div
+            class="sc-crzpnZ bA-DzB"
+          >
             <div
-              class="sc-ksltVi eazJKf"
-              id="selvstendig.enk[0].arbeidsmengde.type"
+              class="sc-iqAbyq hPuvjq"
             >
               <div
                 class="navds-form-field navds-form-field--medium"
               >
                 <label
                   class="navds-form-field__label navds-label"
-                  for="select-r2v"
+                  for="selvstendig.enk[0].arbeidsmengde.svar"
                 >
-                  felles.velg.tittel
+                  dinSituasjon.selvstendig.arbeidsmengde.svar
                 </label>
-                <div
-                  class="navds-select__container"
-                >
-                  <select
-                    class="navds-select__input navds-body-short navds-body-short--medium"
-                    id="select-r2v"
-                  >
-                    <option
-                      value=""
-                    >
-                      felles.velg
-                    </option>
-                    <option
-                      value="arbeidsmengde.prosent"
-                    >
-                      arbeidsmengde.prosent
-                    </option>
-                    <option
-                      value="arbeidsmengde.timer"
-                    >
-                      arbeidsmengde.timer
-                    </option>
-                  </select>
-                  <svg
-                    aria-hidden="true"
-                    class="navds-select__chevron"
-                    fill="none"
-                    focusable="false"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </div>
+                <input
+                  class="navds-text-field__input navds-body-short navds-body-short--medium"
+                  id="selvstendig.enk[0].arbeidsmengde.svar"
+                  size="25"
+                  type="text"
+                  value=""
+                />
                 <div
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="select-error-r2v"
+                  id="textField-error-r2s"
                 />
+              </div>
+              <div
+                class="sc-bqGGcD dwsJhs"
+                id="selvstendig.enk[0].arbeidsmengde.type"
+              >
+                <div
+                  class="navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-form-field__label navds-label"
+                    for="select-r2t"
+                  >
+                    felles.velg.tittel
+                  </label>
+                  <div
+                    class="navds-select__container"
+                  >
+                    <select
+                      class="navds-select__input navds-body-short navds-body-short--medium"
+                      id="select-r2t"
+                    >
+                      <option
+                        value=""
+                      >
+                        felles.velg
+                      </option>
+                      <option
+                        value="arbeidsmengde.prosent"
+                      >
+                        arbeidsmengde.prosent
+                      </option>
+                      <option
+                        value="arbeidsmengde.timer"
+                      >
+                        arbeidsmengde.timer
+                      </option>
+                    </select>
+                    <svg
+                      aria-hidden="true"
+                      class="navds-select__chevron"
+                      fill="none"
+                      focusable="false"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-form-field__error"
+                    id="select-error-r2t"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
+        </fieldset>
         <div
-          id="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
+          class="sc-crzpnZ bA-DzB"
         >
           <div
-            class="sc-crzpnZ bA-DzB"
+            id="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -1286,14 +1257,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r33"
+                    id="radio-r31"
                     name="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r33"
+                    for="radio-r31"
                   >
                     <span
                       class="navds-radio__content"
@@ -1311,14 +1282,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-r34"
+                    id="radio-r32"
                     name="selvstendig.enk[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r34"
+                    for="radio-r32"
                   >
                     <span
                       class="navds-radio__content"
@@ -1336,58 +1307,58 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r32"
+                id="fieldset-error-r30"
               />
             </fieldset>
           </div>
         </div>
-      </div>
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
-        <div>
-          <button
-            aria-expanded="false"
-            class="sc-bqGGcD ifltaV"
-            data-testid="hvorforPanel_toggle"
-            type="button"
-          >
-            <span>
-              <svg
-                fill="none"
-                focusable="false"
-                height="1em"
-                role="img"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </span>
-            <span>
-              hvorforSpoerVi
-            </span>
-          </button>
-        </div>
-      </div>
-      <button
-        class="navds-button navds-button--secondary navds-button--medium"
-        type="button"
-      >
-        <span
-          class="navds-label"
+        <div
+          class="sc-crzpnZ bA-DzB"
         >
-          + 
-          knapp.leggTilNaeringer
-        </span>
-      </button>
-    </fieldset>
+          <div>
+            <button
+              aria-expanded="false"
+              class="sc-ksltVi jGiyja"
+              data-testid="hvorforPanel_toggle"
+              type="button"
+            >
+              <span>
+                <svg
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+              <span>
+                hvorforSpoerVi
+              </span>
+            </button>
+          </div>
+        </div>
+        <button
+          class="navds-button navds-button--secondary navds-button--medium"
+          type="button"
+        >
+          <span
+            class="navds-label"
+          >
+            + 
+            knapp.leggTilNaeringer
+          </span>
+        </button>
+      </fieldset>
+    </div>
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
@@ -1405,6 +1376,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
+          aria-describedby="fieldset-description-r2e"
           class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
@@ -1413,6 +1385,12 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             dinSituasjon.utdanning.hoyesteFullfoerteUtdanning
           </legend>
           <div
+            class="navds-fieldset__description navds-body-short navds-body-short--medium"
+            id="fieldset-description-r2e"
+          >
+            dinSituasjon.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
+          </div>
+          <div
             class="navds-checkboxes"
           >
             <div
@@ -1420,13 +1398,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2h"
+                id="checkbox-r2f"
                 type="checkbox"
                 value="utdanning.grunnskole"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2h"
+                for="checkbox-r2f"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1463,13 +1441,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2i"
+                id="checkbox-r2g"
                 type="checkbox"
                 value="utdanning.videregående"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2i"
+                for="checkbox-r2g"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1506,13 +1484,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2j"
+                id="checkbox-r2h"
                 type="checkbox"
                 value="utdanning.fagbrev"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2j"
+                for="checkbox-r2h"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1549,13 +1527,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2k"
+                id="checkbox-r2i"
                 type="checkbox"
                 value="utdanning.bachelorgrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2k"
+                for="checkbox-r2i"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1593,13 +1571,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               <input
                 checked=""
                 class="navds-checkbox__input"
-                id="checkbox-r2l"
+                id="checkbox-r2j"
                 type="checkbox"
                 value="utdanning.mastergrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2l"
+                for="checkbox-r2j"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1636,13 +1614,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2m"
+                id="checkbox-r2k"
                 type="checkbox"
                 value="utdanning.ingen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2m"
+                for="checkbox-r2k"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1679,13 +1657,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r2n"
+                id="checkbox-r2l"
                 type="checkbox"
                 value="utdanning.annen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2n"
+                for="checkbox-r2l"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1722,14 +1700,14 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r2g"
+            id="fieldset-error-r2e"
           />
         </fieldset>
       </div>
       <div>
         <button
           aria-expanded="false"
-          class="sc-bqGGcD ifltaV"
+          class="sc-ksltVi jGiyja"
           data-testid="hvorforPanel_toggle"
           type="button"
         >
@@ -1815,7 +1793,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r2r"
+              aria-labelledby="title-r2p"
               fill="none"
               focusable="false"
               height="1em"
@@ -1825,7 +1803,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r2r"
+                id="title-r2p"
               >
                 Lukk modalvindu
               </title>
@@ -2008,461 +1986,438 @@ exports[`Situasjonen din Snapshot 1`] = `
         </div>
       </div>
     </fieldset>
-    <h1
-      class="navds-heading navds-heading--small navds-typo--spacing"
-    >
-      dinSituasjon.jobbStatus.tittel
-    </h1>
     <div
-      class="sc-hBMVwJ eslJMu"
-      id="jobbStatus"
+      class="sc-fFSPgy fUXmrk"
     >
-      <fieldset
-        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+      <h1
+        class="navds-heading navds-heading--small navds-typo--spacing"
       >
-        <legend
-          class="navds-fieldset__legend navds-label"
-        >
-          dinSituasjon.jobbStatus
-        </legend>
-        <div
-          class="navds-checkboxes"
-        >
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              checked=""
-              class="navds-checkbox__input"
-              id="checkbox-r2"
-              type="checkbox"
-              value="jobbStatus.arbeidstaker"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r2"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.arbeidstaker
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r3"
-              type="checkbox"
-              value="jobbStatus.selvstendig.enk"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r3"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.selvstendig.enk
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r4"
-              type="checkbox"
-              value="jobbStatus.selvstendig.as"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r4"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.selvstendig.as
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r5"
-              type="checkbox"
-              value="jobbStatus.etablerer"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r5"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.etablerer
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r6"
-              type="checkbox"
-              value="jobbStatus.tilbud"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r6"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.tilbud
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r7"
-              type="checkbox"
-              value="jobbStatus.arbeidssoker"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r7"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.arbeidssoker
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r8"
-              type="checkbox"
-              value="jobbStatus.underUtdanning"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r8"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.underUtdanning
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r9"
-              type="checkbox"
-              value="jobbStatus.ingen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r9"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                >
-                  jobbStatus.ingen
-                </span>
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-fieldset__error"
-          id="fieldset-error-r1"
-        />
-      </fieldset>
-    </div>
-    <div>
-      <button
-        aria-expanded="false"
-        class="sc-bqGGcD ifltaV"
-        data-testid="hvorforPanel_toggle"
-        type="button"
-      >
-        <span>
-          <svg
-            fill="none"
-            focusable="false"
-            height="1em"
-            role="img"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span>
-          hvorforSpoerVi
-        </span>
-      </button>
-    </div>
-    <fieldset
-      class="sc-bdnyFh dkDmBp"
-    >
+        dinSituasjon.jobbStatus.tittel
+      </h1>
       <div
-        class="sc-crzpnZ bA-DzB"
+        class="sc-hBMVwJ eslJMu"
+        id="jobbStatus"
       >
-        <h1
-          class="navds-heading navds-heading--small"
+        <fieldset
+          aria-describedby="fieldset-description-r1"
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          dinSituasjon.arbeidsforhold.tittel
-        </h1>
+          <legend
+            class="navds-fieldset__legend navds-label"
+          >
+            dinSituasjon.jobbStatus
+          </legend>
+          <div
+            class="navds-fieldset__description navds-body-short navds-body-short--medium"
+            id="fieldset-description-r1"
+          >
+            dinSituasjon.jobbStatus.hvorfor
+          </div>
+          <div
+            class="navds-checkboxes"
+          >
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-r2"
+                type="checkbox"
+                value="jobbStatus.arbeidstaker"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r2"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.arbeidstaker
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r3"
+                type="checkbox"
+                value="jobbStatus.selvstendig.enk"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r3"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.selvstendig.enk
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r4"
+                type="checkbox"
+                value="jobbStatus.selvstendig.as"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r4"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.selvstendig.as
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r5"
+                type="checkbox"
+                value="jobbStatus.etablerer"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r5"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.etablerer
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r6"
+                type="checkbox"
+                value="jobbStatus.tilbud"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r6"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.tilbud
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r7"
+                type="checkbox"
+                value="jobbStatus.arbeidssoker"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r7"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.arbeidssoker
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r8"
+                type="checkbox"
+                value="jobbStatus.underUtdanning"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r8"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.underUtdanning
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r9"
+                type="checkbox"
+                value="jobbStatus.ingen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r9"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    jobbStatus.ingen
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-r1"
+          />
+        </fieldset>
       </div>
       <fieldset
         class="sc-bdnyFh dkDmBp"
       >
         <div
-          class="kol-50"
+          class="sc-crzpnZ bA-DzB"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            dinSituasjon.arbeidsforhold.tittel
+          </h1>
+        </div>
+        <div
+          class="sc-crzpnZ bA-DzB"
         >
           <div
-            class="navds-form-field navds-form-field--medium"
+            class="kol-50"
           >
-            <label
-              class="navds-form-field__label navds-label"
-              for="arbeidsforhold[0].arbeidsgiver"
-            >
-              dinSituasjon.arbeidsforhold.arbeidsgiver
-            </label>
-            <input
-              class="navds-text-field__input navds-body-short navds-body-short--medium"
-              id="arbeidsforhold[0].arbeidsgiver"
-              size="40"
-              type="text"
-              value="Potetskreller AS"
-            />
             <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="textField-error-rb"
-            />
+              class="navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-label"
+                for="arbeidsforhold[0].arbeidsgiver"
+              >
+                dinSituasjon.arbeidsforhold.arbeidsgiver
+              </label>
+              <input
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
+                id="arbeidsforhold[0].arbeidsgiver"
+                size="40"
+                type="text"
+                value="Potetskreller AS"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-ra"
+              />
+            </div>
           </div>
         </div>
-      </fieldset>
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
         <div
-          id="arbeidsforhold[0].ansettelsesforhold"
+          class="sc-crzpnZ bA-DzB"
         >
           <div
-            class="sc-crzpnZ bA-DzB"
+            id="arbeidsforhold[0].ansettelsesforhold"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -2480,14 +2435,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-re"
+                    id="radio-rd"
                     name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
                     value="stillingType.fast"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-re"
+                    for="radio-rd"
                   >
                     <span
                       class="navds-radio__content"
@@ -2506,14 +2461,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                   <input
                     checked=""
                     class="navds-radio__input"
-                    id="radio-rf"
+                    id="radio-re"
                     name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
                     value="stillingType.midlertidig"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rf"
+                    for="radio-re"
                   >
                     <span
                       class="navds-radio__content"
@@ -2531,14 +2486,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-rg"
+                    id="radio-rf"
                     name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
                     value="stillingType.tilkallingsvikar"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rg"
+                    for="radio-rf"
                   >
                     <span
                       class="navds-radio__content"
@@ -2556,209 +2511,205 @@ exports[`Situasjonen din Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-rd"
+                id="fieldset-error-rc"
               />
             </fieldset>
           </div>
         </div>
-      </div>
-      <fieldset
-        class="sc-bdnyFh dkDmBp"
-      >
-        <div
-          class="sc-crzpnZ bA-DzB"
+        <fieldset
+          class="sc-bdnyFh dkDmBp"
         >
           <div
             class="sc-crzpnZ bA-DzB"
           >
-            <h1
-              class="navds-heading navds-heading--xsmall"
-            >
-              dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel
-            </h1>
-            <p
-              class="navds-detail"
-            >
-              dinSituasjon.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
-            </p>
-          </div>
-          <div
-            class="sc-iqAbyq hPuvjq"
-          >
             <div
-              class="navds-form-field navds-form-field--medium"
+              class="sc-crzpnZ bA-DzB"
             >
-              <label
-                class="navds-form-field__label navds-label"
-                for="arbeidsforhold[0].arbeidsmengde.svar"
+              <h1
+                class="navds-heading navds-heading--xsmall"
               >
-                dinSituasjon.arbeidsforhold.arbeidsmengde.svar
-              </label>
-              <input
-                class="navds-text-field__input navds-body-short navds-body-short--medium"
-                id="arbeidsforhold[0].arbeidsmengde.svar"
-                size="25"
-                type="text"
-                value=""
-              />
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="textField-error-rh"
-              />
+                dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel
+              </h1>
+              <p
+                class="navds-detail"
+              >
+                dinSituasjon.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
+              </p>
             </div>
             <div
-              class="sc-ksltVi eazJKf"
-              id="arbeidsforhold[0].arbeidsmengde.type"
+              class="sc-iqAbyq hPuvjq"
             >
               <div
                 class="navds-form-field navds-form-field--medium"
               >
                 <label
                   class="navds-form-field__label navds-label"
-                  for="select-ri"
+                  for="arbeidsforhold[0].arbeidsmengde.svar"
                 >
-                  felles.velg.tittel
+                  dinSituasjon.arbeidsforhold.arbeidsmengde.svar
                 </label>
-                <div
-                  class="navds-select__container"
-                >
-                  <select
-                    class="navds-select__input navds-body-short navds-body-short--medium"
-                    id="select-ri"
-                  >
-                    <option
-                      value=""
-                    >
-                      felles.velg
-                    </option>
-                    <option
-                      value="arbeidsmengde.prosent"
-                    >
-                      arbeidsmengde.prosent
-                    </option>
-                    <option
-                      value="arbeidsmengde.timer"
-                    >
-                      arbeidsmengde.timer
-                    </option>
-                  </select>
-                  <svg
-                    aria-hidden="true"
-                    class="navds-select__chevron"
-                    fill="none"
-                    focusable="false"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </div>
+                <input
+                  class="navds-text-field__input navds-body-short navds-body-short--medium"
+                  id="arbeidsforhold[0].arbeidsmengde.svar"
+                  size="25"
+                  type="text"
+                  value=""
+                />
                 <div
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="select-error-ri"
+                  id="textField-error-rg"
                 />
               </div>
+              <div
+                class="sc-bqGGcD dwsJhs"
+                id="arbeidsforhold[0].arbeidsmengde.type"
+              >
+                <div
+                  class="navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-form-field__label navds-label"
+                    for="select-rh"
+                  >
+                    felles.velg.tittel
+                  </label>
+                  <div
+                    class="navds-select__container"
+                  >
+                    <select
+                      class="navds-select__input navds-body-short navds-body-short--medium"
+                      id="select-rh"
+                    >
+                      <option
+                        value=""
+                      >
+                        felles.velg
+                      </option>
+                      <option
+                        value="arbeidsmengde.prosent"
+                      >
+                        arbeidsmengde.prosent
+                      </option>
+                      <option
+                        value="arbeidsmengde.timer"
+                      >
+                        arbeidsmengde.timer
+                      </option>
+                    </select>
+                    <svg
+                      aria-hidden="true"
+                      class="navds-select__chevron"
+                      fill="none"
+                      focusable="false"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-form-field__error"
+                    id="select-error-rh"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-          <div
-            id="arbeidsforhold[0].midlertidig.svar"
-          >
             <div
               class="sc-crzpnZ bA-DzB"
             >
-              <fieldset
-                class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+              <div
+                id="arbeidsforhold[0].midlertidig.svar"
               >
-                <legend
-                  class="navds-fieldset__legend navds-label"
+                <fieldset
+                  class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
                 >
-                  dinSituasjon.arbeidsforhold.midlertidig.svar
-                </legend>
-                <div
-                  class="navds-radio-buttons"
-                >
-                  <div
-                    class="radioBorder navds-radio navds-radio--medium"
+                  <legend
+                    class="navds-fieldset__legend navds-label"
                   >
-                    <input
-                      class="navds-radio__input"
-                      id="radio-rm"
-                      name="arbeidsforhold[0].midlertidig.svar"
-                      type="radio"
-                      value="radiobuttons.ja"
-                    />
-                    <label
-                      class="navds-radio__label"
-                      for="radio-rm"
+                    dinSituasjon.arbeidsforhold.midlertidig.svar
+                  </legend>
+                  <div
+                    class="navds-radio-buttons"
+                  >
+                    <div
+                      class="radioBorder navds-radio navds-radio--medium"
                     >
-                      <span
-                        class="navds-radio__content"
+                      <input
+                        class="navds-radio__input"
+                        id="radio-rl"
+                        name="arbeidsforhold[0].midlertidig.svar"
+                        type="radio"
+                        value="radiobuttons.ja"
+                      />
+                      <label
+                        class="navds-radio__label"
+                        for="radio-rl"
                       >
                         <span
-                          class="navds-body-short navds-body-short--medium"
+                          class="navds-radio__content"
                         >
-                          radiobuttons.ja
+                          <span
+                            class="navds-body-short navds-body-short--medium"
+                          >
+                            radiobuttons.ja
+                          </span>
                         </span>
-                      </span>
-                    </label>
-                  </div>
-                  <div
-                    class="radioBorder navds-radio navds-radio--medium"
-                  >
-                    <input
-                      class="navds-radio__input"
-                      id="radio-rn"
-                      name="arbeidsforhold[0].midlertidig.svar"
-                      type="radio"
-                      value="radiobuttons.nei"
-                    />
-                    <label
-                      class="navds-radio__label"
-                      for="radio-rn"
+                      </label>
+                    </div>
+                    <div
+                      class="radioBorder navds-radio navds-radio--medium"
                     >
-                      <span
-                        class="navds-radio__content"
+                      <input
+                        class="navds-radio__input"
+                        id="radio-rm"
+                        name="arbeidsforhold[0].midlertidig.svar"
+                        type="radio"
+                        value="radiobuttons.nei"
+                      />
+                      <label
+                        class="navds-radio__label"
+                        for="radio-rm"
                       >
                         <span
-                          class="navds-body-short navds-body-short--medium"
+                          class="navds-radio__content"
                         >
-                          radiobuttons.nei
+                          <span
+                            class="navds-body-short navds-body-short--medium"
+                          >
+                            radiobuttons.nei
+                          </span>
                         </span>
-                      </span>
-                    </label>
+                      </label>
+                    </div>
                   </div>
-                </div>
-                <div
-                  aria-live="polite"
-                  aria-relevant="additions removals"
-                  class="navds-fieldset__error"
-                  id="fieldset-error-rl"
-                />
-              </fieldset>
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-fieldset__error"
+                    id="fieldset-error-rk"
+                  />
+                </fieldset>
+              </div>
             </div>
           </div>
-        </div>
-      </fieldset>
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
-        <div
-          id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
+        </fieldset>
+        <fieldset
+          class="sc-bdnyFh dkDmBp"
         >
           <div
-            class="sc-crzpnZ bA-DzB"
+            id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -2776,14 +2727,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-rq"
+                    id="radio-rp"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rq"
+                    for="radio-rp"
                   >
                     <span
                       class="navds-radio__content"
@@ -2801,14 +2752,14 @@ exports[`Situasjonen din Snapshot 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-rr"
+                    id="radio-rq"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-rr"
+                    for="radio-rq"
                   >
                     <span
                       class="navds-radio__content"
@@ -2826,20 +2777,46 @@ exports[`Situasjonen din Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-rp"
+                id="fieldset-error-ro"
               />
             </fieldset>
           </div>
-        </div>
-      </div>
-      <div
-        class="sc-crzpnZ bA-DzB"
-      >
+          <div>
+            <button
+              aria-expanded="false"
+              class="sc-ksltVi jGiyja"
+              data-testid="hvorforPanel_toggle"
+              type="button"
+            >
+              <span>
+                <svg
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+              <span>
+                hvorforSpoerVi
+              </span>
+            </button>
+          </div>
+        </fieldset>
         <div
-          id="arbeidsforhold[0].sagtOppEllerRedusert.svar"
+          class="sc-crzpnZ bA-DzB"
         >
           <div
-            class="sc-crzpnZ bA-DzB"
+            id="arbeidsforhold[0].sagtOppEllerRedusert.svar"
           >
             <fieldset
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
@@ -2937,49 +2914,19 @@ exports[`Situasjonen din Snapshot 1`] = `
             </fieldset>
           </div>
         </div>
-        <div>
-          <button
-            aria-expanded="false"
-            class="sc-bqGGcD ifltaV"
-            data-testid="hvorforPanel_toggle"
-            type="button"
-          >
-            <span>
-              <svg
-                fill="none"
-                focusable="false"
-                height="1em"
-                role="img"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </span>
-            <span>
-              hvorforSpoerVi
-            </span>
-          </button>
-        </div>
-      </div>
-      <button
-        class="navds-button navds-button--secondary navds-button--medium"
-        type="button"
-      >
-        <span
-          class="navds-label"
+        <button
+          class="navds-button navds-button--secondary navds-button--medium"
+          type="button"
         >
-          + 
-          knapp.leggTilArbeidsforhold
-        </span>
-      </button>
-    </fieldset>
+          <span
+            class="navds-label"
+          >
+            + 
+            knapp.leggTilArbeidsforhold
+          </span>
+        </button>
+      </fieldset>
+    </div>
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
@@ -2997,6 +2944,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
+          aria-describedby="fieldset-description-r11"
           class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
@@ -3005,6 +2953,12 @@ exports[`Situasjonen din Snapshot 1`] = `
             dinSituasjon.utdanning.hoyesteFullfoerteUtdanning
           </legend>
           <div
+            class="navds-fieldset__description navds-body-short navds-body-short--medium"
+            id="fieldset-description-r11"
+          >
+            dinSituasjon.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
+          </div>
+          <div
             class="navds-checkboxes"
           >
             <div
@@ -3012,13 +2966,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r13"
+                id="checkbox-r12"
                 type="checkbox"
                 value="utdanning.grunnskole"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r13"
+                for="checkbox-r12"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3055,13 +3009,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r14"
+                id="checkbox-r13"
                 type="checkbox"
                 value="utdanning.videregående"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r14"
+                for="checkbox-r13"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3098,13 +3052,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r15"
+                id="checkbox-r14"
                 type="checkbox"
                 value="utdanning.fagbrev"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r15"
+                for="checkbox-r14"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3141,13 +3095,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r16"
+                id="checkbox-r15"
                 type="checkbox"
                 value="utdanning.bachelorgrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r16"
+                for="checkbox-r15"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3185,13 +3139,13 @@ exports[`Situasjonen din Snapshot 1`] = `
               <input
                 checked=""
                 class="navds-checkbox__input"
-                id="checkbox-r17"
+                id="checkbox-r16"
                 type="checkbox"
                 value="utdanning.mastergrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r17"
+                for="checkbox-r16"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3228,13 +3182,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r18"
+                id="checkbox-r17"
                 type="checkbox"
                 value="utdanning.ingen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r18"
+                for="checkbox-r17"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3271,13 +3225,13 @@ exports[`Situasjonen din Snapshot 1`] = `
             >
               <input
                 class="navds-checkbox__input"
-                id="checkbox-r19"
+                id="checkbox-r18"
                 type="checkbox"
                 value="utdanning.annen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r19"
+                for="checkbox-r18"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3314,14 +3268,14 @@ exports[`Situasjonen din Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r12"
+            id="fieldset-error-r11"
           />
         </fieldset>
       </div>
       <div>
         <button
           aria-expanded="false"
-          class="sc-bqGGcD ifltaV"
+          class="sc-ksltVi jGiyja"
           data-testid="hvorforPanel_toggle"
           type="button"
         >
@@ -3407,7 +3361,7 @@ exports[`Situasjonen din Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r1d"
+              aria-labelledby="title-r1c"
               fill="none"
               focusable="false"
               height="1em"
@@ -3417,7 +3371,7 @@ exports[`Situasjonen din Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r1d"
+                id="title-r1c"
               >
                 Lukk modalvindu
               </title>

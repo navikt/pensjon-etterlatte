@@ -196,17 +196,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         getById('annenInntekt.beloep').type(inntektenDin.annenInntekt.beloep)
 
-        selectValueForId(
-            'annenInntekt.forventerEndringAvInntekt.svar',
-            inntektenDin.annenInntekt.forventerEndringAvInntekt.svar
-        )
-
-        getById('annenInntekt.forventerEndringAvInntekt.grunn')
-            .find('select')
-            .select(inntektenDin.annenInntekt.forventerEndringAvInntekt.grunn)
-
-        getById('annenInntekt.forventerEndringAvInntekt.annenGrunn').type('Annen grunn til økning')
-
         // Andre ytelser
         selectValueForId('ytelserNAV.svar', inntektenDin.ytelserNAV.svar)
         inntektenDin.ytelserNAV.soekteYtelser.map((ytelse) => selectValueForId('ytelserNAV.soekteYtelser', ytelse))

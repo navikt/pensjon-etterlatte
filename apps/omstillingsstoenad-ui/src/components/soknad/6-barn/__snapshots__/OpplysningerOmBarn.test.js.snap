@@ -106,79 +106,75 @@ exports[`Opplysninger om barn Snapshot 1`] = `
       <div
         id="gravidEllerNyligFoedt"
       >
-        <div
-          class="sc-crzpnZ bA-DzB"
+        <fieldset
+          class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
-          <fieldset
-            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <legend
-              class="navds-fieldset__legend navds-label"
-            >
-              omBarn.gravidEllerNyligFoedt
-            </legend>
+            omBarn.gravidEllerNyligFoedt
+          </legend>
+          <div
+            class="navds-radio-buttons"
+          >
             <div
-              class="navds-radio-buttons"
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
+              <input
+                class="navds-radio__input"
+                id="radio-r3"
+                name="gravidEllerNyligFoedt"
+                type="radio"
+                value="radiobuttons.ja"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-r3"
               >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r3"
-                  name="gravidEllerNyligFoedt"
-                  type="radio"
-                  value="radiobuttons.ja"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r3"
+                <span
+                  class="navds-radio__content"
                 >
                   <span
-                    class="navds-radio__content"
+                    class="navds-body-short navds-body-short--medium"
                   >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      radiobuttons.ja
-                    </span>
+                    radiobuttons.ja
                   </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  class="navds-radio__input"
-                  id="radio-r4"
-                  name="gravidEllerNyligFoedt"
-                  type="radio"
-                  value="radiobuttons.nei"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r4"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      class="navds-body-short navds-body-short--medium"
-                    >
-                      radiobuttons.nei
-                    </span>
-                  </span>
-                </label>
-              </div>
+                </span>
+              </label>
             </div>
             <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-r2"
-            />
-          </fieldset>
-        </div>
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                class="navds-radio__input"
+                id="radio-r4"
+                name="gravidEllerNyligFoedt"
+                type="radio"
+                value="radiobuttons.nei"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-r4"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    radiobuttons.nei
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-r2"
+          />
+        </fieldset>
       </div>
     </div>
     <fieldset

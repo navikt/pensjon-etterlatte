@@ -759,7 +759,6 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
                       },
                   }
                 : undefined,
-            endringAvInntekt: mapEndringAvInntekt(t, inntektenDin.annenInntekt!!.forventerEndringAvInntekt),
         }
     }
 

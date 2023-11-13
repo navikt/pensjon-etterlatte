@@ -6,6 +6,7 @@ import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { IValg } from '../../../../typer/Spoersmaal'
+import { Heading } from '@navikt/ds-react'
 
 const Arbeidssoeker = () => {
     const { t } = useTranslation()
@@ -17,17 +18,18 @@ const Arbeidssoeker = () => {
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <RHFSpoersmaalRadio
-                    name={`arbeidssoeker.svar` as const}
-                    legend={t('dinSituasjon.arbeidssoeker.svar')}
-                />
-                {registrertArbeidssoeker === IValg.JA && (
+                <Heading size={'small'}>{t('dinSituasjon.arbeidssoeker.tittel')}</Heading>
+            </SkjemaElement>
+
+            <RHFSpoersmaalRadio name={`arbeidssoeker.svar` as const} legend={t('dinSituasjon.arbeidssoeker.svar')} />
+            {registrertArbeidssoeker === IValg.JA && (
+                <SkjemaElement>
                     <RHFSpoersmaalRadio
                         name={`arbeidssoeker.aktivitetsplan.svar` as const}
                         legend={t('dinSituasjon.arbeidssoeker.aktivitetsplan.svar')}
                     />
-                )}
-            </SkjemaElement>
+                </SkjemaElement>
+            )}
         </SkjemaGruppe>
     )
 }

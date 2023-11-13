@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next'
 import { parseISO, format, addYears } from 'date-fns'
 import { get } from 'lodash'
 import { getTransKey } from '../../utils/translation'
-import { Label } from '@navikt/ds-react'
 import styled from 'styled-components'
 
 interface StyledProps {
@@ -62,12 +61,12 @@ const Datovelger = ({
     const error: FieldError = get(errors, name) as FieldError
     const feilmelding = t(getTransKey(error))
 
+    const descriptionMedOppgiDato = description
+        ? `${description} ${t('felles.datoformat')}`
+        : `${t('felles.oppgiDato')} ${t('felles.datoformat')}`
+
     return (
         <DatovelgerSection $kol={kol}>
-            <Label htmlFor={name}>{`${label} ${t('felles.datoformat')}`}</Label>
-
-            {description && <div className={'skjemaelement__description'}>{description}</div>}
-
             <div className="datepicker">
                 <Controller
                     name={name}
@@ -85,10 +84,8 @@ const Datovelger = ({
                             value={value}
                             onChange={(date) => onChange(parseDate(date))}
                             inputName={name}
-                            inputProps={{
-                                placeholder: t('felles.datoEksempel'),
-                            }}
-                            label={''}
+                            label={label}
+                            description={descriptionMedOppgiDato}
                             error={feilmelding}
                             limitations={{
                                 minDate: parseDate(minDate),

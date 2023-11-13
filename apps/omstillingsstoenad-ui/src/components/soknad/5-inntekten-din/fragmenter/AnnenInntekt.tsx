@@ -7,7 +7,6 @@ import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import EndringInntekt from './EndringInntekt'
 import Bredde from '../../../../typer/bredde'
 
 const AnnenInntekt = () => {
@@ -41,7 +40,6 @@ const AnnenInntekt = () => {
                     />
                 )}
             </SkjemaGruppe>
-            <EndringInntekt type={'annenInntekt'} />
         </>
     )
 }

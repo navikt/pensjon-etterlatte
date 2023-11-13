@@ -25,7 +25,7 @@ describe('Forhold til avdoede', () => {
             </FormProvider>
         )
         expect(
-            getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap felles.datoformat')
+            getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')
         ).toBeDefined()
     })
 
@@ -39,7 +39,7 @@ describe('Forhold til avdoede', () => {
             </FormProvider>
         )
         expect(
-            getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap felles.datoformat')
+            getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')
         ).toBeDefined()
     })
 
@@ -81,9 +81,9 @@ describe('Forhold til avdoede', () => {
             </FormProvider>
         )
         expect(
-            getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap felles.datoformat')
+            getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')
         ).toBeDefined()
-        expect(getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse felles.datoformat')).toBeDefined()
+        expect(getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse')).toBeDefined()
         expect(getByText('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')).toBeDefined()
         expect(getByText('omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn')).toBeDefined()
     })
@@ -106,7 +106,7 @@ describe('Forhold til avdoede', () => {
         )
 
         expect(getByText('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')).toBeDefined()
-        expect(getByText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap felles.datoformat')).toBeDefined()
-        expect(getByText('omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd felles.datoformat')).toBeDefined()
+        expect(getByText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap')).toBeDefined()
+        expect(getByText('omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd')).toBeDefined()
     })
 })

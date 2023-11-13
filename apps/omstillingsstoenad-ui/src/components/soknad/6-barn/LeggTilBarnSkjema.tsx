@@ -9,7 +9,7 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import { hentAlderFraFoedselsnummer } from '../../../utils/dato'
 import { erMyndig } from '../../../utils/alder'
 import { fnr } from '@navikt/fnrvalidator'
-import { Alert, BodyShort, Button, Cell, Grid, Heading, HelpText, Label, Panel, RadioProps } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, Heading, HelpText, HGrid, Label, Panel, RadioProps } from '@navikt/ds-react'
 import { RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
@@ -17,9 +17,10 @@ import ikon from '../../../assets/ikoner/barn1.svg'
 import { useEffect } from 'react'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import styled from 'styled-components'
-import { NavigasjonsRad, SkjemaGruppeRad } from '../../felles/StyledComponents'
+import { NavigasjonsRad } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
+import bredde from '../../../typer/bredde'
 
 const HelpTextLabel = styled.div`
     display: flex;
@@ -160,56 +161,51 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                     <EndreBarnKortInnhold>
                         <SkjemaGruppe>
                             <SkjemaElement>
-                                <SkjemaGruppeRad>
-                                    <div className={'kol-50'}>
-                                        <RHFInput
-                                            name={'fornavn'}
-                                            label={t('omBarn.fornavn')}
-                                            rules={{ pattern: /^\D+$/ }}
-                                        />
-                                    </div>
+                                <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                    <RHFInput
+                                        name={'fornavn'}
+                                        label={t('omBarn.fornavn')}
+                                        rules={{ pattern: /^\D+$/ }}
+                                    />
 
-                                    <div className={'kol-50'}>
-                                        <RHFInput
-                                            name={'etternavn'}
-                                            label={t('omBarn.etternavn')}
-                                            rules={{ pattern: /^\D+$/ }}
-                                        />
-                                    </div>
-                                </SkjemaGruppeRad>
+                                    <RHFInput
+                                        name={'etternavn'}
+                                        label={t('omBarn.etternavn')}
+                                        rules={{ pattern: /^\D+$/ }}
+                                    />
+                                </HGrid>
                             </SkjemaElement>
                             <SkjemaElement>
-                                <RHFFoedselsnummerInput
-                                    name={'foedselsnummer'}
-                                    htmlSize={Bredde.S}
-                                    label={t('omBarn.foedselsnummer')}
-                                    placeholder={t('felles.fnrPlaceholder')}
-                                    rules={{
-                                        validate: {
-                                            validate: (value) => {
-                                                return fnr(value).status === 'valid'
+                                <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                    <RHFFoedselsnummerInput
+                                        name={'foedselsnummer'}
+                                        label={t('omBarn.foedselsnummer')}
+                                        placeholder={t('felles.fnrPlaceholder')}
+                                        rules={{
+                                            validate: {
+                                                validate: (value) => {
+                                                    return fnr(value).status === 'valid'
+                                                },
+                                                duplicate: (value) => {
+                                                    return !fnrRegistrerteBarn.includes(value)
+                                                },
                                             },
-                                            duplicate: (value) => {
-                                                return !fnrRegistrerteBarn.includes(value)
-                                            },
-                                        },
-                                    }}
-                                />
+                                        }}
+                                    />
+                                    <RHFSelect
+                                        name={`statsborgerskap`}
+                                        label={t('omBarn.statsborgerskap')}
+                                        value={'Norge'}
+                                        selectOptions={land}
+                                    />
+                                </HGrid>
                             </SkjemaElement>
 
                             {visDuplikatFeilmelding() && (
-                                <SkjemaGruppe>
+                                <SkjemaElement>
                                     <TypoFeilmelding>{t('feil.foedselsnummer.duplicate')}</TypoFeilmelding>
-                                </SkjemaGruppe>
+                                </SkjemaElement>
                             )}
-
-                            <RHFSelect
-                                className="kol-50"
-                                name={`statsborgerskap`}
-                                label={t('omBarn.statsborgerskap')}
-                                value={'Norge'}
-                                selectOptions={land}
-                            />
                         </SkjemaGruppe>
 
                         <SkjemaGruppe>
@@ -223,6 +219,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                             label={t('omBarn.bosattUtland.land')}
                                             value={'Norge'}
                                             selectOptions={land}
+                                            bredde={bredde.S}
                                         />
                                     </SkjemaElement>
                                     <RHFInput name={'bosattUtland.adresse'} label={t('omBarn.bosattUtland.adresse')} />
@@ -259,32 +256,29 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                         <>
                                             <Label>{t('omBarn.harBarnetVerge.navn')}</Label>
                                             <SkjemaElement>
-                                                <Grid>
-                                                    <Cell xs={12} md={6}>
-                                                        <RHFInput
-                                                            name={'harBarnetVerge.fornavn'}
-                                                            label={t('omBarn.harBarnetVerge.fornavn')}
-                                                            rules={{ pattern: /^\D+$/ }}
-                                                            valgfri={true}
-                                                        />
-                                                    </Cell>
-                                                    <Cell xs={12} md={6}>
-                                                        <RHFInput
-                                                            name={'harBarnetVerge.etternavn'}
-                                                            label={t('omBarn.harBarnetVerge.etternavn')}
-                                                            rules={{ pattern: /^\D+$/ }}
-                                                            valgfri={true}
-                                                        />
-                                                    </Cell>
-                                                </Grid>
+                                                <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                                    <RHFInput
+                                                        name={'harBarnetVerge.fornavn'}
+                                                        label={t('omBarn.harBarnetVerge.fornavn')}
+                                                        rules={{ pattern: /^\D+$/ }}
+                                                        valgfri={true}
+                                                    />
+                                                    <RHFInput
+                                                        name={'harBarnetVerge.etternavn'}
+                                                        label={t('omBarn.harBarnetVerge.etternavn')}
+                                                        rules={{ pattern: /^\D+$/ }}
+                                                        valgfri={true}
+                                                    />
+                                                    <RHFFoedselsnummerInput
+                                                        name={'harBarnetVerge.foedselsnummer'}
+                                                        label={t('omBarn.harBarnetVerge.foedselsnummer')}
+                                                        placeholder={t(
+                                                            'omBarn.harBarnetVerge.foedselsnummerPlaceholder'
+                                                        )}
+                                                        valgfri={true}
+                                                    />
+                                                </HGrid>
                                             </SkjemaElement>
-                                            <RHFFoedselsnummerInput
-                                                name={'harBarnetVerge.foedselsnummer'}
-                                                htmlSize={Bredde.S}
-                                                label={t('omBarn.harBarnetVerge.foedselsnummer')}
-                                                placeholder={t('omBarn.harBarnetVerge.foedselsnummerPlaceholder')}
-                                                valgfri={true}
-                                            />
                                         </>
                                     )}
                                 </SkjemaGruppe>
@@ -348,7 +342,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                             htmlSize={Bredde.S}
                                                             name={'barnepensjon.forskuddstrekk.trekkprosent'}
                                                             label={t('omBarn.barnepensjon.forskuddstrekk.trekkprosent')}
-                                                            placeholder={t(
+                                                            description={t(
                                                                 'omBarn.barnepensjon.forskuddstrekk.placeholder'
                                                             )}
                                                         />
