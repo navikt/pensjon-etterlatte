@@ -307,6 +307,16 @@ export default {
     'omDeg.utbetalingsInformasjon.swift': 'The bank’s SWIFT code or BIC',
     'omDeg.utbetalingsInformasjon.swiftHjelpetekst':
         'BIC stands for Bank Identifier Code, and is a unique code that identifies the bank. The BIC, which in some countries is called the SWIFT code, is required when making payments to a number of countries.',
+    'omDeg.nySivilstatus.sivilstatus': 'Your marital status today',
+    'omDeg.nySivilstatus.beskrivelse':
+        'If you have remarried or moved in with a new partner, this may affect whether you can receive survivor’s pension and the size of the pension.',
+    'omDeg.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
+        'Do you have or have you had children together or were you previously married?',
+    'omDeg.nySivilstatus.samboerskap.samboer.tittel': 'Information about your cohabiting partner',
+    'omDeg.nySivilstatus.samboerskap.samboer.fornavn': 'First name(s)',
+    'omDeg.nySivilstatus.samboerskap.samboer.etternavn': 'Family name',
+    'omDeg.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Norwegian national identity number',
+    'omDeg.nySivilstatus.samboerskap.samboer.harInntekt.svar': 'Does your cohabiting partner have any income?',
     'omDegOgAvdoed.tittel': 'About you and the deceased',
     'omDegOgAvdoed.avdoed.hvem': 'The deceased’s personal details',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Your relationship with the deceased at the time of their death',
@@ -323,19 +333,6 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag':
         'Were you being supported by the deceased at the time of their death?',
     'omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag': 'Were you receiving alimony?',
-    'omDegOgAvdoed.nySivilstatus.sivilstatus': 'Your marital status today',
-    'omDegOgAvdoed.nySivilstatus.beskrivelse':
-        'If you have remarried or moved in with a new partner, this may affect whether you can receive survivor’s pension and the size of the pension.',
-    'omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
-        'Do you have or have you had children together or were you previously married?',
-    'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel': 'Information about your cohabiting partner',
-    'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn': 'First name(s)',
-    'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn': 'Family name',
-    'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Norwegian national identity number',
-    'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar': 'Does your cohabiting partner have any income?',
-    'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar':
-        'Total annual income before tax',
-    'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.inntektstype': 'Type of income',
     'omDenAvdoede.tittel': 'About the deceased',
     'omDenAvdoede.fornavn': 'First name(s)',
     'omDenAvdoede.etternavn': 'Family name',
@@ -656,8 +653,8 @@ export default {
     'feil.doedsfallAarsak.required': 'State whether the death was due to an occupational injury or illness',
     'feil.avdoed.fornavn.required': 'Enter the deceased’s first name(s)',
     'feil.avdoed.etternavn.required': 'Enter the deceased’s family name',
-    'feil.avdoed.datoForDoedsfallet.required': 'State when the death occurred',
-    'feil.avdoed.datoForDoedsfallet.validate': 'Invalid date format',
+    'feil.datoForDoedsfallet.required': 'State when the death occurred',
+    'feil.datoForDoedsfallet.validate': 'Invalid date format',
     'feil.forholdTilAvdoede.relasjon.required': 'State your relationship to the deceased',
     'feil.forholdTilAvdoede.datoForInngaattPartnerskap.required': 'Enter date',
     'feil.forholdTilAvdoede.datoForInngaattPartnerskap.validate': 'Invalid date format',
@@ -751,9 +748,6 @@ export default {
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.required':
         'Enter your cohabiting partner’s Norwegian national identity number',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.validate': 'Invalid national identity number',
-    'feil.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar.required':
-        'Enter combined gross income',
-    'feil.nySivilstatus.samboerskap.samboer.harInntekt.inntektstype.required': 'Specify type of income',
     'feil.nySivilstatus.samboerskap.samboer.harInntekt.svar.required':
         'State whether your cohabiting partner has any income',
     'feil.bosattUtland.svar.required': 'State whether the person is a resident in a country other than Norway',

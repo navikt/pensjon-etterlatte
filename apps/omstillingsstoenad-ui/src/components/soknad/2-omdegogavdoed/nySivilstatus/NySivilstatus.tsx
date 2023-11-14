@@ -15,9 +15,9 @@ const NySivilstatus = () => {
     return (
         <SkjemaGruppe>
             <>
-                <Heading size={'small'}>{t('omDegOgAvdoed.nySivilstatus.sivilstatus')}</Heading>
+                <Heading size={'small'}>{t('omDeg.nySivilstatus.sivilstatus')}</Heading>
 
-                <BodyLong>{t('omDegOgAvdoed.nySivilstatus.beskrivelse')}</BodyLong>
+                <BodyLong>{t('omDeg.nySivilstatus.beskrivelse')}</BodyLong>
             </>
 
             <RHFRadio legend={''} name={'nySivilstatus.sivilstatus'}>
