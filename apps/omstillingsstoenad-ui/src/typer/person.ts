@@ -116,16 +116,7 @@ export interface ISamboer {
     foedselsnummer?: string
     harInntekt?: {
         svar?: IValg
-        inntektstype?: SamboerInntekt[]
-        samletBruttoinntektPrAar?: string
     }
-}
-
-export enum SamboerInntekt {
-    arbeidsinntekt = 'samboerInntekt.arbeidsinntekt',
-    pensjon = 'samboerInntekt.pensjon',
-    kapitalinntekt = 'samboerInntekt.kapitalinntekt',
-    andreYtelser = 'samboerInntekt.andreYtelser',
 }
 
 export interface IForholdAvdoede {
@@ -161,5 +152,4 @@ export interface ISoekerOgAvdoed {
     }
     forholdTilAvdoede?: IForholdAvdoede
     erValidert?: boolean
-    nySivilstatus?: INySivilstatus
 }

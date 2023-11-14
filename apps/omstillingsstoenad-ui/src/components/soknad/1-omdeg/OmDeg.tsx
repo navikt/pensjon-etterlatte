@@ -21,6 +21,7 @@ import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
+import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation()
@@ -97,7 +98,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                         htmlSize={Bredde.S}
                                         name={'utbetalingsInformasjon.kontonummer'}
                                         label={t('omDeg.utbetalingsInformasjon.kontonummer')}
-                                        placeholder={t('felles.elleveSiffer')}
                                         description={t('omDeg.utbetalingsInformasjon.informasjon')}
                                     />
                                 </SkjemaGruppe>
@@ -130,7 +130,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                                             htmlSize={Bredde.S}
                                             name={'utbetalingsInformasjon.kontonummer'}
                                             label={t('omDeg.utbetalingsInformasjon.kontonummer')}
-                                            placeholder={t('felles.elleveSiffer')}
                                         />
                                     )}
 
@@ -153,6 +152,8 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                             />
                         </SkjemaGruppe>
                     )}
+
+                    <NySivilstatus />
 
                     <br />
 

@@ -7,6 +7,7 @@ import SkiltFraAvdoede from './SkiltFraAvdoede'
 import TidligereSamboerMedAvdoede from './TidligereSamboerMedAvdoede'
 import { RadioProps } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const ForholdTilAvdoedeSkjema = () => {
     const { t } = useTranslation()
@@ -16,7 +17,7 @@ const ForholdTilAvdoedeSkjema = () => {
     const forholdTilAvdoede = watch('forholdTilAvdoede.relasjon')
 
     return (
-        <>
+        <SkjemaGruppe>
             <RHFRadio name={'forholdTilAvdoede.relasjon'} legend={t('omDegOgAvdoed.forholdTilAvdoede.relasjon')}>
                 {Object.values(ForholdTilAvdoede).map((value) => {
                     return { children: t(value), value, required: true } as RadioProps
@@ -32,7 +33,7 @@ const ForholdTilAvdoedeSkjema = () => {
             {forholdTilAvdoede === ForholdTilAvdoede.samboer && <SamboerMedAvdoede />}
 
             {forholdTilAvdoede === ForholdTilAvdoede.tidligereSamboer && <TidligereSamboerMedAvdoede />}
-        </>
+        </SkjemaGruppe>
     )
 }
 

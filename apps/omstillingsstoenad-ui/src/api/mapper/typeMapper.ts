@@ -10,7 +10,6 @@ import {
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
     IngenJobbType,
-    InntektType,
     JobbStatusType,
     OppholdUtlandType,
     SagtOppEllerRedusertType,
@@ -27,7 +26,6 @@ import {
 import {
     ForholdTilAvdoede as RelasjonAvdoed,
     OppholdUtlandType as GammelOppholdUtlandType,
-    SamboerInntekt as GammelSamboerInntekt,
     Sivilstatus,
 } from '../../typer/person'
 import { Ytelser as GamleYtelser } from '../../typer/ytelser'
@@ -71,21 +69,6 @@ export const konverterTilHoyesteUtdanning = (type: String | GammelUtdanning): Ho
             return HoeyesteUtdanning.ANNEN
         default:
             throw Error(`Ukjent type utdanning: ${type}`)
-    }
-}
-
-export const konverterSamboerInntekt = (type: GammelSamboerInntekt): InntektType => {
-    switch (type) {
-        case GammelSamboerInntekt.pensjon:
-            return InntektType.PENSJON
-        case GammelSamboerInntekt.kapitalinntekt:
-            return InntektType.KAPITALINNTEKT
-        case GammelSamboerInntekt.arbeidsinntekt:
-            return InntektType.ARBEIDSINNTEKT
-        case GammelSamboerInntekt.andreYtelser:
-            return InntektType.ANDRE_YTELSER
-        default:
-            throw Error(`Ukjent type inntekt: ${type}`)
     }
 }
 

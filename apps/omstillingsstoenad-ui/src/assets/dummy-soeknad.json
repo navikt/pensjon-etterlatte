@@ -11,6 +11,9 @@
     "alternativAdresse": "Testveien 123, 0594 Oslo",
     "utbetalingsInformasjon": {
       "kontonummer": "1351.35.13513"
+    },
+    "nySivilstatus": {
+      "sivilstatus": "nySivilstatus.enslig"
     }
   },
   "omDegOgAvdoed": {
@@ -22,9 +25,6 @@
     "forholdTilAvdoede": {
       "relasjon": "avdoede.relasjon.separert",
       "datoForInngaattPartnerskap": "2001-07-26"
-    },
-    "nySivilstatus": {
-      "sivilstatus": "nySivilstatus.enslig"
     }
   },
   "omDenAvdoede": {

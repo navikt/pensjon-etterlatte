@@ -16,7 +16,6 @@ import {
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
     InntektOgPensjon,
-    InntektType,
     JaNeiVetIkke,
     Kontaktinfo,
     Loennsinntekt,
@@ -24,7 +23,6 @@ import {
     OppholdUtland,
     Opplysning,
     PensjonEllerUfoere,
-    SamboerInntekt,
     SelvstendigNaeringsdrivende,
     SivilstatusType,
     Stoenader,
@@ -47,7 +45,6 @@ import {
     konverterPensjonsYtelse,
     konverterRelasjonAvdoed,
     konverterSagtOppEllerRedusert,
-    konverterSamboerInntekt,
     konverterSivilstatus,
     konverterSoekteYtelserAndre,
     konverterSoekteYtelserNAV,
@@ -138,7 +135,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         kontaktinfo,
         flyktning,
         oppholdUtland: !bruker.adressebeskyttelse ? hentOppholdUtland(t, soeknad.omDeg) : undefined,
-        nySivilstatus: hentSivilstatus(t, soeknad.omDegOgAvdoed.nySivilstatus!!),
+        nySivilstatus: hentSivilstatus(t, soeknad.omDeg.nySivilstatus!!),
         arbeidOgUtdanning: !bruker.adressebeskyttelse ? hentArbeidOgUtdanning(t, soeknad.dinSituasjon) : undefined,
         fullfoertUtdanning,
         inntektOgPensjon: hentInntektOgPensjon(t, soeknad.inntektenDin),
@@ -225,39 +222,7 @@ const hentSivilstatus = (
 
     if (nySivilstatus?.sivilstatus == Sivilstatus.samboerskap) {
         const samboer = nySivilstatus.samboerskap!!.samboer!!
-        let inntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, SamboerInntekt> | undefined
 
-        if (samboer.harInntekt?.svar === IValg.JA) {
-            const inntektTypeSvar: EnumSvar<InntektType>[] =
-                samboer.harInntekt?.inntektstype?.map((type) => ({
-                    verdi: konverterSamboerInntekt(type),
-                    innhold: t(type),
-                })) || []
-
-            inntekt = {
-                spoersmaal: t('omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar'),
-                svar: valgTilSvar(t, samboer.harInntekt.svar), // TODO: Fikse type,
-                opplysning: {
-                    inntektstype: {
-                        spoersmaal: t('omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.inntektstype'),
-                        svar: inntektTypeSvar,
-                    },
-                    samletBruttoinntektPrAar: {
-                        spoersmaal: t(
-                            'omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.samletBruttoinntektPrAar'
-                        ),
-                        svar: {
-                            innhold: samboer.harInntekt!!.samletBruttoinntektPrAar!!,
-                        },
-                    },
-                },
-            }
-        } else if (samboer.harInntekt?.svar === IValg.NEI) {
-            inntekt = {
-                spoersmaal: t('omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar'),
-                svar: valgTilSvar(t, samboer.harInntekt!!.svar!!), // TODO: Fikse type,
-            }
-        }
 
         opplysning = {
             type: PersonType.SAMBOER,
@@ -277,7 +242,10 @@ const hentSivilstatus = (
                 spoersmaal: t('omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift'),
                 svar: valgTilSvar(t, nySivilstatus.samboerskap!!.hattBarnEllerVaertGift!!), // TODO: Korrigere type
             },
-            inntekt,
+            inntekt: {
+                spoersmaal: t('omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar'),
+                svar: valgTilSvar(t, samboer.harInntekt!!.svar!!),
+            }
         }
     }
 

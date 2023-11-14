@@ -38,6 +38,8 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         selectValueForId('oppholderSegINorge', omDeg.oppholderSegINorge)
         getById('utbetalingsInformasjon.kontonummer').type(omDeg.utbetalingsInformasjon.kontonummer)
 
+        selectValue(omDeg.nySivilstatus.sivilstatus)
+
         a11yCheck()
 
         gaaTilNesteSide()
@@ -55,8 +57,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('forholdTilAvdoede.datoForInngaattPartnerskap').type(
             omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
         )
-
-        selectValue(omDegOgAvdoed.nySivilstatus.sivilstatus)
 
         a11yCheck()
 

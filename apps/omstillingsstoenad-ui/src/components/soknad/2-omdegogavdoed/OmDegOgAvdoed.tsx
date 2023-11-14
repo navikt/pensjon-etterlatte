@@ -10,7 +10,6 @@ import ForholdTilAvdoedeSkjema from './forholdTilAvdoede/ForholdTilAvdoedeSkjema
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Datovelger from '../../felles/Datovelger'
 import { Label, Heading, HGrid } from '@navikt/ds-react'
-import NySivilstatus from './nySivilstatus/NySivilstatus'
 import Navigasjon from '../../felles/Navigasjon'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
@@ -77,8 +76,6 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaGruppe>
 
                     <ForholdTilAvdoedeSkjema />
-
-                    <NySivilstatus />
 
                     <Feilmeldinger errors={errors} />
 

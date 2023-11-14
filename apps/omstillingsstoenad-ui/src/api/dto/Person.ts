@@ -7,7 +7,6 @@ import {
     NaeringsinntektAvdoed,
     OppholdUtland,
     Opplysning,
-    SamboerInntekt,
     SivilstatusType,
     EnumSvar,
     JaNeiVetIkke,
@@ -138,5 +137,5 @@ export interface Samboer extends Person {
     foedselsnummer: Opplysning<Foedselsnummer>
 
     fellesBarnEllertidligereGift: Opplysning<EnumSvar<JaNeiVetIkke>>
-    inntekt?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, SamboerInntekt | undefined>
+    inntekt?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }

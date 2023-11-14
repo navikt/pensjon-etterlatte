@@ -55,13 +55,6 @@ export enum BankkontoType {
     UTENLANDSK = 'UTENLANDSK',
 }
 
-export enum InntektType {
-    ARBEIDSINNTEKT = 'ARBEIDSINNTEKT',
-    PENSJON = 'PENSJON',
-    KAPITALINNTEKT = 'KAPITALINNTEKT',
-    ANDRE_YTELSER = 'ANDRE_YTELSER',
-}
-
 export enum ForholdTilAvdoedeType {
     GIFT = 'GIFT',
     SEPARERT = 'SEPARERT',
@@ -107,11 +100,6 @@ export enum SagtOppEllerRedusertType {
 export enum StudieformType {
     HELTID =  "HELTID",
     DELTID = "DELTID"
-}
-
-export interface SamboerInntekt {
-    inntektstype: Opplysning<EnumSvar<InntektType>[]>
-    samletBruttoinntektPrAar: Opplysning<FritekstSvar>
 }
 
 export interface ForholdTilAvdoede {

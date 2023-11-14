@@ -26,9 +26,9 @@ describe('Om deg og avdød', () => {
         const { container, getByText, getByLabelText } = render(<OmDegOgAvdoed />)
 
         act(() => {
-            fireEvent.click(getByLabelText('nySivilstatus.samboerskap'))
+            fireEvent.click(getByLabelText('avdoede.relasjon.samboer'))
         })
-        expect(getByText('omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift')).toBeDefined()
+        expect(getByText('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')).toBeDefined()
         expect(container).toMatchSnapshot()
     })
 })
