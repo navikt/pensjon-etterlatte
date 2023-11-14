@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 <div>
   <div
-    class="sc-dlniIP cYqUKw"
+    class="sc-gtsqUy dorhUL"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-gtsqUy ehwOdn"
+      class="sc-dlniIP iCssVw"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -164,7 +164,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         </fieldset>
       </div>
       <div
-        class="sc-dlniIP cYqUKw"
+        class="sc-gtsqUy dorhUL"
       >
         <div
           id="forholdTilAvdoede.fellesBarn"
@@ -242,7 +242,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-gtsqUy ehwOdn"
+      class="sc-dlniIP iCssVw"
     >
       <div
         class="sc-hKFymg jaunqL undefined"
@@ -393,7 +393,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
 <div>
   <div
-    class="sc-dlniIP cYqUKw"
+    class="sc-gtsqUy dorhUL"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -403,7 +403,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-gtsqUy ehwOdn"
+      class="sc-dlniIP iCssVw"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -555,7 +555,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-gtsqUy ehwOdn"
+      class="sc-dlniIP iCssVw"
     >
       <div
         class="sc-hKFymg jaunqL undefined"

@@ -6,10 +6,10 @@ import Datovelger from '../../../felles/Datovelger'
 import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from '../../../../utils/dato'
 import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
-import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
+import { HGrid } from '@navikt/ds-react'
 
 const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation()
@@ -38,25 +38,21 @@ const TidligereSamboerMedAvdoede = () => {
                 <>
                     {/* TODO: Burde være eget felt for inngått samboerskap? */}
                     <SkjemaElement>
-                        <SkjemaGruppeRad>
-                            <div className={'kol'}>
-                                <Datovelger
-                                    name={'forholdTilAvdoede.datoForInngaattSamboerskap'}
-                                    label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap')}
-                                    minDate={state.foedselsdato}
-                                    maxDate={datoForDoedsfallet || new Date()}
-                                />
-                            </div>
+                        <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                            <Datovelger
+                                name={'forholdTilAvdoede.datoForInngaattSamboerskap'}
+                                label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap')}
+                                minDate={state.foedselsdato}
+                                maxDate={datoForDoedsfallet || new Date()}
+                            />
 
-                            <div className={'kol'}>
-                                <Datovelger
-                                    name={'forholdTilAvdoede.datoForSamlivsbrudd'}
-                                    label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd')}
-                                    minDate={datoForInngaattSamboerskap}
-                                    maxDate={datoForDoedsfallet || new Date()}
-                                />
-                            </div>
-                        </SkjemaGruppeRad>
+                            <Datovelger
+                                name={'forholdTilAvdoede.datoForSamlivsbrudd'}
+                                label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd')}
+                                minDate={datoForInngaattSamboerskap}
+                                maxDate={datoForDoedsfallet || new Date()}
+                            />
+                        </HGrid>
                     </SkjemaElement>
 
                     {bidragMaaUtfylles && (

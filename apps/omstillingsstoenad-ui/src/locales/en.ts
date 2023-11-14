@@ -330,7 +330,10 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd': 'We moved apart',
     'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag':
         'Were you being supported by the deceased at the time of their death?',
-    'omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag': 'Were you receiving alimony?',
+    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar': '<MANGLER TEKST>',
+    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse': '<MANGLER TEKST>',
+    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum': '<MANGLER TEKST>',
+    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse': '<MANGLER TEKST>',
     'omDenAvdoede.tittel': 'About the deceased',
     'omDenAvdoede.fornavn': 'First name(s)',
     'omDenAvdoede.etternavn': 'Family name',
@@ -670,7 +673,8 @@ export default {
     'feil.forholdTilAvdoede.datoForSamlivsbrudd.validate': 'Invalid date format',
     'feil.forholdTilAvdoede.mottokBidrag.required':
         'State whether you were being supported by the deceased at the time of their death',
-    'feil.forholdTilAvdoede.mottokEktefelleBidrag.required': 'State whether you were receiving alimony',
+    'feil.forholdTilAvdoede.mottokBidrag.svar.required': '<MANGLER TEKST>',
+    'feil.forholdTilAvdoede.mottokBidrag.sum.required': '<MANGLER TEKST>',
     'feil.selvstendigNaeringsdrivende.svar.required': 'State whether the deceased was self-employed',
     'feil.selvstendigNaeringsdrivende.beskrivelse.pattern': 'Enter valid income from self-employment (digits only)',
     'feil.selvstendigNaeringsdrivende.beskrivelse.required': 'Enter income from self-employment',

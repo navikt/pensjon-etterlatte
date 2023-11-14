@@ -14,6 +14,7 @@ import {
     EtablererVirksomhet,
     ForholdTilAvdoede,
     ForholdTilAvdoedeType,
+    FritekstSvar,
     HoeyesteUtdanning,
     InntektOgPensjon,
     JaNeiVetIkke,
@@ -223,7 +224,6 @@ const hentSivilstatus = (
     if (nySivilstatus?.sivilstatus == Sivilstatus.samboerskap) {
         const samboer = nySivilstatus.samboerskap!!.samboer!!
 
-
         opplysning = {
             type: PersonType.SAMBOER,
             fornavn: {
@@ -241,7 +241,7 @@ const hentSivilstatus = (
             fellesBarnEllertidligereGift: {
                 spoersmaal: t('omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift'),
                 svar: valgTilSvar(t, nySivilstatus.samboerskap!!.hattBarnEllerVaertGift!!), // TODO: Korrigere type
-            }
+            },
         }
     }
 
@@ -814,14 +814,6 @@ const mapForholdTilAvdoede = (t: TFunction, forholdTilAvdoede: IForholdAvdoede):
               }
             : undefined
 
-    const mottokEktefelleBidrag: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined =
-        !!forholdTilAvdoede.mottokEktefelleBidrag
-            ? {
-                  spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag'),
-                  svar: valgTilSvar(t, forholdTilAvdoede.mottokEktefelleBidrag),
-              }
-            : undefined
-
     const datoForInngaattSamboerskap: Opplysning<DatoSvar> | undefined = !!forholdTilAvdoede.datoForInngaattSamboerskap
         ? {
               spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap'),
@@ -861,19 +853,28 @@ const mapForholdTilAvdoede = (t: TFunction, forholdTilAvdoede: IForholdAvdoede):
           }
         : undefined
 
-    const mottokBidrag: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!forholdTilAvdoede.mottokBidrag
-        ? {
-              spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag'),
-              svar: valgTilSvar(t, forholdTilAvdoede.mottokBidrag),
-          }
-        : undefined
+    const mottokBidrag: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar> | undefined> | undefined =
+        !!forholdTilAvdoede.mottokBidrag
+            ? {
+                  spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag'),
+                  svar: valgTilSvar(t, forholdTilAvdoede.mottokBidrag.svar),
+                  opplysning:
+                      forholdTilAvdoede.mottokBidrag?.svar === IValg.JA
+                          ? {
+                                spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum'),
+                                svar: {
+                                    innhold: `${forholdTilAvdoede.mottokBidrag?.sum}`,
+                                },
+                            }
+                          : undefined,
+              }
+            : undefined
 
     return {
         relasjon,
         datoForInngaattSamboerskap,
         datoForInngaattPartnerskap,
         datoForSkilsmisse,
-        mottokEktefelleBidrag,
         datoForSamlivsbrudd,
         fellesBarn,
         samboereMedFellesBarnFoerGiftemaal,

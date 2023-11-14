@@ -19,7 +19,8 @@
   "omDegOgAvdoed": {
     "forholdTilAvdoede": {
       "relasjon": "avdoede.relasjon.separert",
-      "datoForInngaattPartnerskap": "2001-07-26"
+      "datoForInngaattPartnerskap": "2001-07-26",
+      "fellesBarn": "radiobuttons.ja"
     }
   },
   "omDenAvdoede": {

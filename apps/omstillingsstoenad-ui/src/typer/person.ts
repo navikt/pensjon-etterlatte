@@ -129,8 +129,10 @@ export interface IForholdAvdoede {
     samboereMedFellesBarn?: IValg
     omsorgForBarn?: IValg
     tidligereGift?: IValg
-    mottokBidrag?: IValg
-    mottokEktefelleBidrag?: IValg
+    mottokBidrag?: {
+        svar: IValg
+        sum?: string
+    }
 }
 
 export interface ISoeker {
