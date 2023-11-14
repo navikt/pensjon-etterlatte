@@ -604,12 +604,12 @@ exports[`Om deg og avdød Snapshot 1`] = `
       <h1
         class="navds-heading navds-heading--small"
       >
-        omDegOgAvdoed.nySivilstatus.sivilstatus
+        omDeg.nySivilstatus.sivilstatus
       </h1>
       <p
         class="navds-body-long navds-body-long--medium"
       >
-        omDegOgAvdoed.nySivilstatus.beskrivelse
+        omDeg.nySivilstatus.beskrivelse
       </p>
       <div
         id="nySivilstatus.sivilstatus"

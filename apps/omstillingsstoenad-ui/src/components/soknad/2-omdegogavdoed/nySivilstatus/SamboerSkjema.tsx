@@ -20,18 +20,18 @@ const SamboerSkjema = () => {
         <SkjemaElement>
             <Panel border>
                 <SkjemaElement>
-                    <Heading size={'small'}>{t('omDegOgAvdoed.nySivilstatus.samboerskap.samboer.tittel')}</Heading>
+                    <Heading size={'small'}>{t('omDeg.nySivilstatus.samboerskap.samboer.tittel')}</Heading>
                 </SkjemaElement>
 
                 <SkjemaElement>
                     <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                         <RHFInput
                             name={'nySivilstatus.samboerskap.samboer.fornavn'}
-                            label={t('omDegOgAvdoed.nySivilstatus.samboerskap.samboer.fornavn')}
+                            label={t('omDeg.nySivilstatus.samboerskap.samboer.fornavn')}
                         />
                         <RHFInput
                             name={'nySivilstatus.samboerskap.samboer.etternavn'}
-                            label={t('omDegOgAvdoed.nySivilstatus.samboerskap.samboer.etternavn')}
+                            label={t('omDeg.nySivilstatus.samboerskap.samboer.etternavn')}
                         />
                     </HGrid>
                 </SkjemaElement>
@@ -49,7 +49,7 @@ const SamboerSkjema = () => {
                 <SkjemaElement>
                     <RHFSpoersmaalRadio
                         name={'nySivilstatus.samboerskap.hattBarnEllerVaertGift'}
-                        legend={t('omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift')}
+                        legend={t('omDeg.nySivilstatus.samboerskap.hattBarnEllerVaertGift')}
                     />
                 </SkjemaElement>
 
@@ -57,7 +57,7 @@ const SamboerSkjema = () => {
                     <SkjemaElement>
                         <RHFSpoersmaalRadio
                             name={'nySivilstatus.samboerskap.samboer.harInntekt.svar'}
-                            legend={t('omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar')}
+                            legend={t('omDeg.nySivilstatus.samboerskap.samboer.harInntekt.svar')}
                         />
                     </SkjemaElement>
                 )}
