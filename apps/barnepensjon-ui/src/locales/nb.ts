@@ -223,16 +223,11 @@ const aboutTheDeceased = {
     incomeFromSelfEmployymentYearBeforeDeath: 'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
     incomeFromSelfEmploymentBeforeTaxes: 'Samlet årsinntekt før skatt',
     hadIncomeFromSelfEmployment: 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
-    otherTitle: 'Annet',
     occupationalInjury: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     whyWeAskAboutOccupationalInjury:
         'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om barnet/barna får barnepensjon og hvor mye det/de kan få.',
     whyWeAskAboutOccupationalInjuryOver18:
         'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
-    deceasedHasServedInTheMilitary:
-        'Har han eller hun gjennomført militær eller sivil førstegangstjeneste for Norge som varte minst 30 dager?',
-    whyWeAskAboutMilitaryService: 'Dette kan gi opptjening som tas med i beregningen av barnepensjonen.',
-    militaryServiceYears: 'Hvilke(-t) år? (valgfri)',
     BODD: 'Bodd',
     ARBEIDET: 'Arbeidet',
     addCountryButton: '+ Legg til flere land',
@@ -338,7 +333,6 @@ const error = {
     'children.required': 'Du må søke om barnepensjon for minst ett barn.',
     'children.validate': 'Du må søke om barnepensjon for minst ett barn.',
     'memberFolketrygdenAbroad.required': 'Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge',
-    'militaryService.completed.required': 'Oppgi om avdøde har gjennomført verneplikt',
     'occupationalInjury.required': 'Oppgi om dødsfallet skyldes yrkesskade eller yrkessykdom',
     'paymentDetails.taxWithhold.answer.required': 'Oppgi om det ønskes å legge til skattetrekk ',
     'paymentDetails.taxWithhold.taxPercentage.required': 'Oppgi ønsket skattetrekk',

@@ -8,7 +8,6 @@ import {
     IApplication,
     IDeceasedParent,
     ILivingParent,
-    IMilitaryService,
     IParent,
     ISelfEmployment,
     IStaysAbroad,
@@ -78,10 +77,6 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
                     selfEmplymentDetails: {},
                 },
                 occupationalInjury: JaNeiVetIkke.VET_IKKE,
-                militaryService: {
-                    completed: JaNeiVetIkke.JA,
-                    period: '1984',
-                },
             },
             aboutChildren: {
                 children: [createChild('Blåøyd', 'Saks', '05111850870')],
@@ -112,7 +107,6 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
         expect(avdoed.foedselsnummer.svar).toEqual(secondParent.fnrDnr)
         expect(avdoed.statsborgerskap.svar.innhold).toEqual(secondParent.citizenship)
         expect(avdoed.datoForDoedsfallet.svar.innhold).toEqual(secondParent.dateOfDeath)
-        expect(avdoed.militaertjeneste!!.svar.verdi).toBe(secondParent.militaryService!!.completed)
     })
 })
 
@@ -229,37 +223,6 @@ describe('Test mapping foreldre', () => {
         expect(gjenlevende.statsborgerskap.svar).toEqual(livingParent.citizenship)
         expect(gjenlevende.kontaktinfo.telefonnummer.svar.innhold).toEqual(livingParent.phoneNumber)
         expect(gjenlevende.adresse!!.svar).toEqual(livingParent.address)
-    })
-})
-
-describe('Militærtjeneste mappes korrekt', () => {
-    it('Militærtjeneste mangler', () => {
-        const result = _test.mapMilitaertjeneste(t, undefined)
-        expect(result).toBeUndefined()
-    })
-
-    it('Militærtjeneste - JA - uspesifisert årstall', () => {
-        const result = _test.mapMilitaertjeneste(t, { completed: JaNeiVetIkke.JA })
-        expect(result!!.svar.verdi).toEqual(JaNeiVetIkke.JA)
-        expect(result!!.opplysning!!.svar.innhold).toEqual(EMPTY_VALUE)
-    })
-
-    it('Militærtjeneste - JA - med årstall', () => {
-        const expected: IMilitaryService = { completed: JaNeiVetIkke.JA, period: '1984' }
-
-        const result = _test.mapMilitaertjeneste(t, expected)
-        expect(result!!.svar.verdi).toEqual(JaNeiVetIkke.JA)
-        expect(result!!.opplysning!!.svar.innhold).toEqual(expected.period)
-    })
-
-    it('Militærtjeneste - NEI', () => {
-        const result = _test.mapMilitaertjeneste(t, { completed: JaNeiVetIkke.NEI })
-        expect(result!!.svar.verdi).toEqual(JaNeiVetIkke.NEI)
-    })
-
-    it('Militærtjeneste - VET_IKKE', () => {
-        const result = _test.mapMilitaertjeneste(t, { completed: JaNeiVetIkke.VET_IKKE })
-        expect(result!!.svar.verdi).toEqual(JaNeiVetIkke.VET_IKKE)
     })
 })
 
@@ -396,9 +359,6 @@ describe('Avdød mappes korrekt', () => {
                 wasSelfEmployed: JaNeiVetIkke.VET_IKKE,
                 selfEmplymentDetails: {},
             },
-            militaryService: {
-                completed: JaNeiVetIkke.VET_IKKE,
-            },
             occupationalInjury: JaNeiVetIkke.VET_IKKE,
         }
 
@@ -411,10 +371,9 @@ describe('Avdød mappes korrekt', () => {
         expect(result.statsborgerskap.svar.innhold).toBe(parent.citizenship)
         expect(result.datoForDoedsfallet.svar.innhold).toBe(parent.dateOfDeath)
 
-        // Separate tester for grundig sjekk av mapping på utenlandsopphold, næringsinntekt, og militærtjeneste
+        // Separate tester for grundig sjekk av mapping på utenlandsopphold og næringsinntekt
         expect(result.utenlandsopphold.svar.verdi).toBe(parent.staysAbroad.hasStaysAbroad)
         expect(result.naeringsInntekt!!.svar.verdi).toBe(parent.selfEmplyment.wasSelfEmployed)
-        expect(result.militaertjeneste!!.svar.verdi).toBe(parent.militaryService!!.completed)
         expect(result.doedsaarsakSkyldesYrkesskadeEllerYrkessykdom.svar.verdi).toBe(parent.occupationalInjury)
     })
 })

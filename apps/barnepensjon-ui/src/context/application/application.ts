@@ -79,12 +79,6 @@ export interface IDeceasedParent extends IParent {
     staysAbroad: IStaysAbroad
     selfEmplyment: ISelfEmployment
     occupationalInjury?: JaNeiVetIkke
-    militaryService?: IMilitaryService
-}
-
-export interface IMilitaryService {
-    completed: JaNeiVetIkke
-    period?: string
 }
 
 export interface IStaysAbroad {
