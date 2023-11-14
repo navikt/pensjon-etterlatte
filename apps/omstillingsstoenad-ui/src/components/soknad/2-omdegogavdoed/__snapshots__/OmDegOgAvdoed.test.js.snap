@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 <div>
   <div
-    class="sc-dItHI fGZLUG"
+    class="sc-dlniIP cYqUKw"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,165 +13,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
-    >
-      <label
-        class="navds-label"
-      >
-        omDegOgAvdoed.avdoed.hvem
-      </label>
-      <div
-        class="navds-hgrid"
-        style="--__ac-hgrid-align: start; --__ac-hgrid-gap-xs: var(--a-spacing-4); --__ac-hgrid-columns-xs: repeat(1, minmax(0, 1fr)); --__ac-hgrid-columns-sm: repeat(2, minmax(0, 1fr));"
-      >
-        <div>
-          <div
-            class="navds-form-field navds-form-field--medium"
-          >
-            <label
-              class="navds-form-field__label navds-label"
-              for="avdoed.fornavn"
-            >
-              omDegOgAvdoed.avdoed.fornavn
-            </label>
-            <input
-              class="navds-text-field__input navds-body-short navds-body-short--medium"
-              id="avdoed.fornavn"
-              type="text"
-              value=""
-            />
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="textField-error-rd"
-            />
-          </div>
-        </div>
-        <div>
-          <div
-            class="navds-form-field navds-form-field--medium"
-          >
-            <label
-              class="navds-form-field__label navds-label"
-              for="avdoed.etternavn"
-            >
-              omDegOgAvdoed.avdoed.etternavn
-            </label>
-            <input
-              class="navds-text-field__input navds-body-short navds-body-short--medium"
-              id="avdoed.etternavn"
-              type="text"
-              value=""
-            />
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="textField-error-re"
-            />
-          </div>
-        </div>
-      </div>
-    </fieldset>
-    <fieldset
-      class="sc-bdnyFh dkDmBp"
-    >
-      <section
-        class="sc-crzpnZ gBHkfx"
-      >
-        <div
-          class="datepicker"
-        >
-          <div>
-            <div
-              class="ds-datepicker"
-            >
-              <div
-                class="navds-form-field navds-form-field--medium"
-              >
-                <label
-                  class="navds-form-field__label navds-label"
-                  for="avdoed.datoForDoedsfallet"
-                >
-                  omDegOgAvdoed.avdoed.datoForDoedsfallet
-                </label>
-                <div
-                  class="navds-form-field__description navds-body-short navds-body-short--small"
-                  id="textField-description-rf"
-                >
-                  felles.oppgiDato felles.datoformat
-                </div>
-                <div
-                  style="position: relative;"
-                >
-                  <input
-                    aria-describedby="textField-description-rf"
-                    autocomplete="off"
-                    autocorrect="off"
-                    class="navds-text-field__input navds-body-short navds-body-medium"
-                    id="avdoed.datoForDoedsfallet"
-                    inputmode="text"
-                    maxlength="10"
-                    name="avdoed.datoForDoedsfallet"
-                    type="text"
-                    value=""
-                  />
-                  <button
-                    aria-expanded="false"
-                    class="ds-datepicker__calendarButton ds-datepicker__calendarButton--medium"
-                    type="button"
-                  >
-                    <span
-                      class="sr-only"
-                    >
-                      Kalender
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      class="ds-datepicker__calendarButton__icon"
-                    >
-                      <svg
-                        focusable="false"
-                        height="16"
-                        role="presentation"
-                        style="pointer-events: none;"
-                        viewBox="0 0 18 18"
-                        width="16"
-                      >
-                        <title>
-                          Kalenderikon
-                        </title>
-                        <g
-                          fill="none"
-                          fill-rule="evenodd"
-                          stroke="#0067C5"
-                        >
-                          <path
-                            d="M4 2.667H1.333v14h15.334v-14H14"
-                          />
-                          <path
-                            d="M4 1.333h2V4H4zm8 0h2V4h-2zM6 2h6M1.333 6h15.334"
-                          />
-                        </g>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-                <div
-                  aria-live="polite"
-                  aria-relevant="additions removals"
-                  class="navds-form-field__error"
-                  id="textField-error-rf"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </fieldset>
-    <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-gtsqUy ehwOdn"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -192,14 +34,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-ri"
+                id="radio-rc"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.gift"
               />
               <label
                 class="navds-radio__label"
-                for="radio-ri"
+                for="radio-rc"
               >
                 <span
                   class="navds-radio__content"
@@ -217,14 +59,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-rj"
+                id="radio-rd"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.separert"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rj"
+                for="radio-rd"
               >
                 <span
                   class="navds-radio__content"
@@ -242,14 +84,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-rk"
+                id="radio-re"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.samboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rk"
+                for="radio-re"
               >
                 <span
                   class="navds-radio__content"
@@ -267,14 +109,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-rl"
+                id="radio-rf"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.skilt"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rl"
+                for="radio-rf"
               >
                 <span
                   class="navds-radio__content"
@@ -292,14 +134,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-rm"
+                id="radio-rg"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.tidligereSamboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rm"
+                for="radio-rg"
               >
                 <span
                   class="navds-radio__content"
@@ -317,12 +159,12 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-rh"
+            id="fieldset-error-rb"
           />
         </fieldset>
       </div>
       <div
-        class="sc-dItHI fGZLUG"
+        class="sc-dlniIP cYqUKw"
       >
         <div
           id="forholdTilAvdoede.fellesBarn"
@@ -343,14 +185,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-rs"
+                  id="radio-rm"
                   name="forholdTilAvdoede.fellesBarn"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-rs"
+                  for="radio-rm"
                 >
                   <span
                     class="navds-radio__content"
@@ -368,14 +210,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-rt"
+                  id="radio-rn"
                   name="forholdTilAvdoede.fellesBarn"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-rt"
+                  for="radio-rn"
                 >
                   <span
                     class="navds-radio__content"
@@ -393,17 +235,17 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-rr"
+              id="fieldset-error-rl"
             />
           </fieldset>
         </div>
       </div>
     </fieldset>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-gtsqUy ehwOdn"
     >
       <div
-        class="sc-gtsqUy fppBuE undefined"
+        class="sc-hKFymg jaunqL undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -428,7 +270,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gtsqUy sc-dlniIP fppBuE iyxXTu"
+      class="sc-hKFymg sc-eCAqax jaunqL TXzQz"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -457,7 +299,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-rp"
+              aria-labelledby="title-rj"
               fill="none"
               focusable="false"
               height="1em"
@@ -467,7 +309,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-rp"
+                id="title-rj"
               >
                 Lukk modalvindu
               </title>
@@ -499,7 +341,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jrsKJM dwwRPt"
+          class="sc-iqAbyq lngAXV"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -527,7 +369,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </button>
         </div>
         <div
-          class="sc-jrsKJM dwwRPt"
+          class="sc-iqAbyq lngAXV"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -551,7 +393,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
 <div>
   <div
-    class="sc-dItHI fGZLUG"
+    class="sc-dlniIP cYqUKw"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -561,165 +403,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
-    >
-      <label
-        class="navds-label"
-      >
-        omDegOgAvdoed.avdoed.hvem
-      </label>
-      <div
-        class="navds-hgrid"
-        style="--__ac-hgrid-align: start; --__ac-hgrid-gap-xs: var(--a-spacing-4); --__ac-hgrid-columns-xs: repeat(1, minmax(0, 1fr)); --__ac-hgrid-columns-sm: repeat(2, minmax(0, 1fr));"
-      >
-        <div>
-          <div
-            class="navds-form-field navds-form-field--medium"
-          >
-            <label
-              class="navds-form-field__label navds-label"
-              for="avdoed.fornavn"
-            >
-              omDegOgAvdoed.avdoed.fornavn
-            </label>
-            <input
-              class="navds-text-field__input navds-body-short navds-body-short--medium"
-              id="avdoed.fornavn"
-              type="text"
-              value=""
-            />
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="textField-error-r0"
-            />
-          </div>
-        </div>
-        <div>
-          <div
-            class="navds-form-field navds-form-field--medium"
-          >
-            <label
-              class="navds-form-field__label navds-label"
-              for="avdoed.etternavn"
-            >
-              omDegOgAvdoed.avdoed.etternavn
-            </label>
-            <input
-              class="navds-text-field__input navds-body-short navds-body-short--medium"
-              id="avdoed.etternavn"
-              type="text"
-              value=""
-            />
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="textField-error-r1"
-            />
-          </div>
-        </div>
-      </div>
-    </fieldset>
-    <fieldset
-      class="sc-bdnyFh dkDmBp"
-    >
-      <section
-        class="sc-crzpnZ gBHkfx"
-      >
-        <div
-          class="datepicker"
-        >
-          <div>
-            <div
-              class="ds-datepicker"
-            >
-              <div
-                class="navds-form-field navds-form-field--medium"
-              >
-                <label
-                  class="navds-form-field__label navds-label"
-                  for="avdoed.datoForDoedsfallet"
-                >
-                  omDegOgAvdoed.avdoed.datoForDoedsfallet
-                </label>
-                <div
-                  class="navds-form-field__description navds-body-short navds-body-short--small"
-                  id="textField-description-r2"
-                >
-                  felles.oppgiDato felles.datoformat
-                </div>
-                <div
-                  style="position: relative;"
-                >
-                  <input
-                    aria-describedby="textField-description-r2"
-                    autocomplete="off"
-                    autocorrect="off"
-                    class="navds-text-field__input navds-body-short navds-body-medium"
-                    id="avdoed.datoForDoedsfallet"
-                    inputmode="text"
-                    maxlength="10"
-                    name="avdoed.datoForDoedsfallet"
-                    type="text"
-                    value=""
-                  />
-                  <button
-                    aria-expanded="false"
-                    class="ds-datepicker__calendarButton ds-datepicker__calendarButton--medium"
-                    type="button"
-                  >
-                    <span
-                      class="sr-only"
-                    >
-                      Kalender
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      class="ds-datepicker__calendarButton__icon"
-                    >
-                      <svg
-                        focusable="false"
-                        height="16"
-                        role="presentation"
-                        style="pointer-events: none;"
-                        viewBox="0 0 18 18"
-                        width="16"
-                      >
-                        <title>
-                          Kalenderikon
-                        </title>
-                        <g
-                          fill="none"
-                          fill-rule="evenodd"
-                          stroke="#0067C5"
-                        >
-                          <path
-                            d="M4 2.667H1.333v14h15.334v-14H14"
-                          />
-                          <path
-                            d="M4 1.333h2V4H4zm8 0h2V4h-2zM6 2h6M1.333 6h15.334"
-                          />
-                        </g>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-                <div
-                  aria-live="polite"
-                  aria-relevant="additions removals"
-                  class="navds-form-field__error"
-                  id="textField-error-r2"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </fieldset>
-    <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-gtsqUy ehwOdn"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -740,14 +424,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-r5"
+                id="radio-r2"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.gift"
               />
               <label
                 class="navds-radio__label"
-                for="radio-r5"
+                for="radio-r2"
               >
                 <span
                   class="navds-radio__content"
@@ -765,14 +449,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-r6"
+                id="radio-r3"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.separert"
               />
               <label
                 class="navds-radio__label"
-                for="radio-r6"
+                for="radio-r3"
               >
                 <span
                   class="navds-radio__content"
@@ -790,14 +474,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-r7"
+                id="radio-r4"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.samboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-r7"
+                for="radio-r4"
               >
                 <span
                   class="navds-radio__content"
@@ -815,14 +499,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-r8"
+                id="radio-r5"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.skilt"
               />
               <label
                 class="navds-radio__label"
-                for="radio-r8"
+                for="radio-r5"
               >
                 <span
                   class="navds-radio__content"
@@ -840,14 +524,14 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-r9"
+                id="radio-r6"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.tidligereSamboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-r9"
+                for="radio-r6"
               >
                 <span
                   class="navds-radio__content"
@@ -865,16 +549,16 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r4"
+            id="fieldset-error-r1"
           />
         </fieldset>
       </div>
     </fieldset>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-gtsqUy ehwOdn"
     >
       <div
-        class="sc-gtsqUy fppBuE undefined"
+        class="sc-hKFymg jaunqL undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -899,7 +583,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gtsqUy sc-dlniIP fppBuE iyxXTu"
+      class="sc-hKFymg sc-eCAqax jaunqL TXzQz"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -928,7 +612,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-rc"
+              aria-labelledby="title-r9"
               fill="none"
               focusable="false"
               height="1em"
@@ -938,7 +622,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-rc"
+                id="title-r9"
               >
                 Lukk modalvindu
               </title>
@@ -970,7 +654,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jrsKJM dwwRPt"
+          class="sc-iqAbyq lngAXV"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -998,7 +682,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           </button>
         </div>
         <div
-          class="sc-jrsKJM dwwRPt"
+          class="sc-iqAbyq lngAXV"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

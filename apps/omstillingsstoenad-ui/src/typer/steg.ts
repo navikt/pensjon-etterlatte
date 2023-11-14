@@ -24,12 +24,12 @@ export const MuligeSteg: IStegElement[] = [
         label: StegLabelKey.OmDeg,
     },
     {
-        path: StegPath.OmDegOgAvdoed,
-        label: StegLabelKey.OmDegOgAvdoed,
-    },
-    {
         path: StegPath.OmAvdoed,
         label: StegLabelKey.OmAvdoed,
+    },
+    {
+        path: StegPath.OmDegOgAvdoed,
+        label: StegLabelKey.OmDegOgAvdoed,
     },
     {
         path: StegPath.DinSituasjon,

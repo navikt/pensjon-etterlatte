@@ -9,6 +9,7 @@ import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
 import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
+import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 
 const giftMerEnn25aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0
@@ -25,29 +26,20 @@ const giftMindreEnn15aar = (datoForInngaattPartnerskap: string, datoForSkilsmiss
     return IValg.NEI
 }
 
-const mindreEnnFemaarMellomSkillsmisseOgDodsfall = (datoForSkilsmisse: string, datoForDoedsfallet: string) => {
-    const antallAarMellomSkillsmisseDodsfall = antallAarMellom(datoForSkilsmisse, datoForDoedsfallet) || 0
-    if (antallAarMellomSkillsmisseDodsfall < 5) {
-        return IValg.JA
-    }
-    return IValg.NEI
-}
-
 const SkiltFraAvdoede = () => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext<ISoekerOgAvdoed>()
-    const { state } = useBrukerContext()
+    const { state: brukerState } = useBrukerContext()
+    const { state: soknadState } = useSoknadContext()
 
     const datoForInngaattPartnerskap: any = watch('forholdTilAvdoede.datoForInngaattPartnerskap')
     const datoForSkilsmisse: any = watch('forholdTilAvdoede.datoForSkilsmisse')
-    const datoForDoedsfallet: any = watch('avdoed.datoForDoedsfallet')
 
     const fellesBarn = watch('forholdTilAvdoede.fellesBarn')
 
     const mindreEnn15aar = giftMindreEnn15aar(datoForInngaattPartnerskap, datoForSkilsmisse)
     const merEnn25aar = giftMerEnn25aar(datoForInngaattPartnerskap, datoForSkilsmisse)
-    const mindreEnnFemAar = mindreEnnFemaarMellomSkillsmisseOgDodsfall(datoForSkilsmisse, datoForDoedsfallet)
 
     return (
         <SkjemaGruppe>
@@ -57,8 +49,8 @@ const SkiltFraAvdoede = () => {
                         kol={true}
                         name={'forholdTilAvdoede.datoForInngaattPartnerskap'}
                         label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')}
-                        minDate={state.foedselsdato}
-                        maxDate={datoForDoedsfallet || new Date()}
+                        minDate={brukerState.foedselsdato}
+                        maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
                     />
 
                     <Datovelger
@@ -66,7 +58,7 @@ const SkiltFraAvdoede = () => {
                         name={'forholdTilAvdoede.datoForSkilsmisse'}
                         label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse')}
                         minDate={datoForInngaattPartnerskap}
-                        maxDate={datoForDoedsfallet || new Date()}
+                        maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
                     />
                 </SkjemaGruppeRad>
             </SkjemaElement>
@@ -85,8 +77,8 @@ const SkiltFraAvdoede = () => {
                 </SkjemaElement>
             )}
 
-            {(mindreEnnFemAar === IValg.NEI && merEnn25aar === IValg.JA) ||
-            (fellesBarn === IValg.JA && mindreEnn15aar === IValg.NEI && mindreEnnFemAar === IValg.NEI) ? (
+            {(merEnn25aar === IValg.JA) ||
+            (fellesBarn === IValg.JA && mindreEnn15aar === IValg.NEI) ? (
                 <SkjemaElement>
                     <RHFSpoersmaalRadio
                         name={'forholdTilAvdoede.mottokEktefelleBidrag'}

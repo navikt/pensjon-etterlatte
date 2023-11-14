@@ -20,8 +20,8 @@ export default class SoeknadMapper {
     lagOppsummering(soeknad: ISoeknad, bruker: IBruker): Gruppe[] {
         return [
             this.mapOmDeg(soeknad.omDeg, bruker),
-            this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
             this.mapOmDenAvdoede(soeknad.omDenAvdoede),
+            this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
             this.mapDinSituasjon(soeknad.dinSituasjon),
             this.mapInntektenDin(soeknad.inntektenDin),
             this.mapOpplysningerOmBarn(soeknad.opplysningerOmBarn),

@@ -9,16 +9,18 @@ import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
 import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
+import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 
 const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext<ISoekerOgAvdoed>()
     const { state } = useBrukerContext()
+    const { state: soknadState } = useSoknadContext()
 
     const datoForInngaattSamboerskap: any = watch('forholdTilAvdoede.datoForInngaattSamboerskap')
     const datoForSamlivsbrudd: any = watch('forholdTilAvdoede.datoForSamlivsbrudd')
-    const datoForDoedsfallet: any = watch('avdoed.datoForDoedsfallet')
+    const datoForDoedsfallet: Date = soknadState.omDenAvdoede.datoForDoedsfallet!!
     const fellesBarn = watch('forholdTilAvdoede.fellesBarn')
 
     const bidragMaaUtfylles = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet)

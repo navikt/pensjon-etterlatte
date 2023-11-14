@@ -5,18 +5,19 @@ import { IAvdoed } from '../../../typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
 import { FormProvider, useForm } from 'react-hook-form'
-import { RHFFoedselsnummerInput, RHFValutaInput } from '../../felles/rhf/RHFInput'
+import { RHFFoedselsnummerInput, RHFInput, RHFValutaInput } from '../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
 import Navigasjon from '../../felles/Navigasjon'
-import { BodyLong, Label, Heading, HGrid } from '@navikt/ds-react'
+import { BodyLong, Heading, HGrid } from '@navikt/ds-react'
 import { deepCopy } from '../../../utils/deepCopy'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
+import Datovelger from '../../felles/Datovelger'
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -52,6 +53,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     const erValidert = state.omDenAvdoede.erValidert
     const selvstendigNaeringsdrivende = watch('selvstendigNaeringsdrivende.svar')
+    const datoForDoedsfallet = watch('datoForDoedsfallet')
 
     return (
         <FormProvider {...methods}>
@@ -63,35 +65,41 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
             <form>
                 <SkjemaGruppe>
-                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }}>
-                        <div>
-                            <Label>{t('omDenAvdoede.fornavn')}</Label>
-                            <BodyLong>{state.omDegOgAvdoed.avdoed?.fornavn || ''}</BodyLong>
-                        </div>
-                        <div>
-                            <Label>{t('omDenAvdoede.etternavn')}</Label>
-                            <BodyLong>{state.omDegOgAvdoed.avdoed?.etternavn || ''}</BodyLong>
-                        </div>
+                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                        <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} />
+                        <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} />
+
+                        <RHFFoedselsnummerInput
+                            name={'foedselsnummer'}
+                            label={t('omDenAvdoede.foedselsnummer')}
+                            description={t('felles.fnrPlaceholder')}
+                        />
+                        <RHFSelect
+                            name={`statsborgerskap`}
+                            label={t('omDenAvdoede.statsborgerskap')}
+                            selectOptions={land}
+                        />
                     </HGrid>
 
                     <SkjemaElement>
-                        <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                            <RHFFoedselsnummerInput
-                                name={'foedselsnummer'}
-                                label={t('omDenAvdoede.foedselsnummer')}
-                                placeholder={t('felles.fnrPlaceholder')}
-                            />
+                        <Datovelger
+                            name={'datoForDoedsfallet'}
+                            label={t('omDenAvdoede.datoForDoedsfallet')}
+                            maxDate={new Date()}
+                        />
+                    </SkjemaElement>
 
-                            <RHFSelect
-                                name={`statsborgerskap`}
-                                label={t('omDenAvdoede.statsborgerskap')}
-                                selectOptions={land}
-                            />
-                        </HGrid>
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio
+                            name={'doedsfallAarsak'}
+                            legend={t('omDenAvdoede.doedsfallAarsak')}
+                            description={t('omDenAvdoede.doedsfallAarsakHvorfor')}
+                            vetIkke
+                        />
                     </SkjemaElement>
                 </SkjemaGruppe>
 
-                <BoddEllerArbeidetUtland datoForDoedsfallet={state.omDegOgAvdoed.avdoed?.datoForDoedsfallet} />
+                <BoddEllerArbeidetUtland datoForDoedsfallet={datoForDoedsfallet} />
 
                 <SkjemaGruppe>
                     <Heading size="small">{t('omDenAvdoede.selvstendigNaeringsdrivende.tittel')}</Heading>
@@ -125,19 +133,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             />
                         </>
                     )}
-                </SkjemaGruppe>
-
-                <SkjemaGruppe>
-                    <Heading size="small">{t('omDenAvdoede.annenOpptjening.tittel')}</Heading>
-
-                    <SkjemaGruppe>
-                        <RHFSpoersmaalRadio
-                            name={'doedsfallAarsak'}
-                            legend={t('omDenAvdoede.doedsfallAarsak')}
-                            description={t('omDenAvdoede.doedsfallAarsakHvorfor')}
-                            vetIkke
-                        />
-                    </SkjemaGruppe>
                 </SkjemaGruppe>
 
                 <Feilmeldinger errors={errors} />

@@ -43,11 +43,11 @@ const SoknadDialog = () => {
 
             <Routes>
                 <Route path={`/${StegPath.OmDeg}`} element={<OmDeg neste={neste} />} />
+                <Route path={`/${StegPath.OmAvdoed}`} element={<OmDenAvdode neste={neste} forrige={forrige} />} />
                 <Route
                     path={`/${StegPath.OmDegOgAvdoed}`}
                     element={<OmDegOgAvdoed neste={neste} forrige={forrige} />}
                 />
-                <Route path={`/${StegPath.OmAvdoed}`} element={<OmDenAvdode neste={neste} forrige={forrige} />} />
                 <Route
                     path={`/${StegPath.DinSituasjon}`}
                     element={<SituasjonenDin neste={neste} forrige={forrige} />}

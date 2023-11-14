@@ -17,17 +17,15 @@
     }
   },
   "omDegOgAvdoed": {
-    "avdoed": {
-      "fornavn": "Død",
-      "etternavn": "Testperson",
-      "datoForDoedsfallet": "2021-07-26"
-    },
     "forholdTilAvdoede": {
       "relasjon": "avdoede.relasjon.separert",
       "datoForInngaattPartnerskap": "2001-07-26"
     }
   },
   "omDenAvdoede": {
+    "fornavn": "Død",
+    "etternavn": "Testperson",
+    "datoForDoedsfallet": "2021-07-26",
     "foedselsnummer": "24014021406",
     "statsborgerskap": "Norge",
     "boddEllerJobbetUtland": {

@@ -4,12 +4,9 @@ import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import { ISoekerOgAvdoed } from '../../../typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { FormProvider, useForm } from 'react-hook-form'
-import { RHFInput } from '../../felles/rhf/RHFInput'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import ForholdTilAvdoedeSkjema from './forholdTilAvdoede/ForholdTilAvdoedeSkjema'
 import Feilmeldinger from '../../felles/Feilmeldinger'
-import Datovelger from '../../felles/Datovelger'
-import { Label, Heading, HGrid } from '@navikt/ds-react'
+import { Heading } from '@navikt/ds-react'
 import Navigasjon from '../../felles/Navigasjon'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
@@ -57,24 +54,6 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
             <FormProvider {...methods}>
                 <form>
-                    <SkjemaGruppe>
-                        <Label>{t('omDegOgAvdoed.avdoed.hvem')}</Label>
-
-                        <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                            <RHFInput name={'avdoed.fornavn'} label={t('omDegOgAvdoed.avdoed.fornavn')} />
-
-                            <RHFInput name={'avdoed.etternavn'} label={t('omDegOgAvdoed.avdoed.etternavn')} />
-                        </HGrid>
-                    </SkjemaGruppe>
-
-                    <SkjemaGruppe>
-                        <Datovelger
-                            name={'avdoed.datoForDoedsfallet'}
-                            label={t('omDegOgAvdoed.avdoed.datoForDoedsfallet')}
-                            maxDate={new Date()}
-                        />
-                    </SkjemaGruppe>
-
                     <ForholdTilAvdoedeSkjema />
 
                     <Feilmeldinger errors={errors} />
