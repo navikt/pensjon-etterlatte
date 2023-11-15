@@ -310,6 +310,7 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Relasjonen din til avdøde då dødsfallet skjedde',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap': 'Vi gifta oss',
     'omDegOgAvdoed.forholdTilAvdoede.fellesBarn': 'Har eller hadde de felles barn?',
+    'omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse': '<MANGLER TEKST>',
     'omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn': 'Var de sambuarar og hadde felles barn før de gifta dykk?',
     'omDegOgAvdoed.forholdTilAvdoede.tidligereGift': 'Var du tidlegare gift med avdøde?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap': 'Vi vart sambuarar',

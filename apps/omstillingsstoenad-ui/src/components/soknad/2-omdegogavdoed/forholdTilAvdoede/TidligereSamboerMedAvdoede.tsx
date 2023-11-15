@@ -3,13 +3,13 @@ import { useFormContext } from 'react-hook-form'
 import { ISoekerOgAvdoed } from '../../../../typer/person'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import Datovelger from '../../../felles/Datovelger'
-import { ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from '../../../../utils/dato'
 import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 import { HGrid } from '@navikt/ds-react'
+import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
 
 const TidligereSamboerMedAvdoede = () => {
     const { t } = useTranslation()
@@ -19,11 +19,9 @@ const TidligereSamboerMedAvdoede = () => {
     const { state: soknadState } = useSoknadContext()
 
     const datoForInngaattSamboerskap: any = watch('forholdTilAvdoede.datoForInngaattSamboerskap')
-    const datoForSamlivsbrudd: any = watch('forholdTilAvdoede.datoForSamlivsbrudd')
+    const mottokBidrag = watch('forholdTilAvdoede.mottokBidrag.svar')
     const datoForDoedsfallet: Date = soknadState.omDenAvdoede.datoForDoedsfallet!!
     const fellesBarn = watch('forholdTilAvdoede.fellesBarn')
-
-    const bidragMaaUtfylles = ugyldigPeriodeFraSamlivsbruddTilDoedsfall(datoForSamlivsbrudd, datoForDoedsfallet)
 
     return (
         <SkjemaGruppe>
@@ -31,6 +29,7 @@ const TidligereSamboerMedAvdoede = () => {
                 <RHFSpoersmaalRadio
                     name={'forholdTilAvdoede.fellesBarn'}
                     legend={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
+                    description={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse')}
                 />
             </SkjemaElement>
 
@@ -54,14 +53,25 @@ const TidligereSamboerMedAvdoede = () => {
                             />
                         </HGrid>
                     </SkjemaElement>
-
-                    {bidragMaaUtfylles && (
-                        <RHFSpoersmaalRadio
-                            name={'forholdTilAvdoede.mottokBidrag'}
-                            legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag')}
-                        />
-                    )}
                 </>
+            )}
+
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={'forholdTilAvdoede.mottokBidrag.svar'}
+                    legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar')}
+                    description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse')}
+                />
+            </SkjemaElement>
+
+            {mottokBidrag === IValg.JA && (
+                <SkjemaElement>
+                    <RHFValutaInput
+                        name={'forholdTilAvdoede.mottokBidrag.sum'}
+                        label={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum')}
+                        description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse')}
+                    />
+                </SkjemaElement>
             )}
         </SkjemaGruppe>
     )

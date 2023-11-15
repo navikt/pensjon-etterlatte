@@ -320,6 +320,7 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Your relationship with the deceased at the time of their death',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap': 'We got married',
     'omDegOgAvdoed.forholdTilAvdoede.fellesBarn': 'Do you have or have you had children together?',
+    'omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse': '<MANGLER TEKST>',
     'omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn':
         'Were you cohabiting partners and had children together before you married?',
     'omDegOgAvdoed.forholdTilAvdoede.tidligereGift': 'Were you previously married to the deceased?',

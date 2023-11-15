@@ -10,7 +10,7 @@ import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 import { HGrid } from '@navikt/ds-react'
-import { RHFInput } from '../../../felles/rhf/RHFInput'
+import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
 
 const giftMerEnn25aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0
@@ -63,27 +63,10 @@ const SkiltFraAvdoede = () => {
                 </HGrid>
             </SkjemaElement>
 
-            <SkjemaElement>
-                <RHFSpoersmaalRadio
-                    name={'forholdTilAvdoede.mottokBidrag.svar'}
-                    legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar')}
-                    description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse')}
-                />
-            </SkjemaElement>
-
-            {mottokBidrag === IValg.JA && (
-                <SkjemaElement>
-                    <RHFInput
-                        name={'forholdTilAvdoede.mottokBidrag.sum'}
-                        label={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum')}
-                        description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse')}
-                    />
-                </SkjemaElement>
-            )}
-
             <RHFSpoersmaalRadio
                 name={'forholdTilAvdoede.fellesBarn'}
                 legend={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
+                description={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse')}
             />
 
             {fellesBarn === IValg.JA && mindreEnn15aar === IValg.JA && (
@@ -103,6 +86,24 @@ const SkiltFraAvdoede = () => {
                     />
                 </SkjemaElement>
             ) : null}
+
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={'forholdTilAvdoede.mottokBidrag.svar'}
+                    legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar')}
+                    description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse')}
+                />
+            </SkjemaElement>
+
+            {mottokBidrag === IValg.JA && (
+                <SkjemaElement>
+                    <RHFValutaInput
+                        name={'forholdTilAvdoede.mottokBidrag.sum'}
+                        label={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum')}
+                        description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse')}
+                    />
+                </SkjemaElement>
+            )}
         </SkjemaGruppe>
     )
 }

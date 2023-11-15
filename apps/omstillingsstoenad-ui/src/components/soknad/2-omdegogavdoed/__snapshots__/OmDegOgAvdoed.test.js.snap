@@ -166,10 +166,107 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       <div
         class="sc-gtsqUy dorhUL"
       >
+        <section
+          class="sc-bdnyFh imqsGR"
+        >
+          <div
+            class="datepicker"
+          >
+            <div>
+              <div
+                class="ds-datepicker"
+              >
+                <div
+                  class="navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-form-field__label navds-label"
+                    for="forholdTilAvdoede.datoForInngaattPartnerskap"
+                  >
+                    omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap
+                  </label>
+                  <div
+                    class="navds-form-field__description navds-body-short navds-body-short--small"
+                    id="textField-description-rk"
+                  >
+                    felles.oppgiDato felles.datoformat
+                  </div>
+                  <div
+                    style="position: relative;"
+                  >
+                    <input
+                      aria-describedby="textField-description-rk"
+                      autocomplete="off"
+                      autocorrect="off"
+                      class="navds-text-field__input navds-body-short navds-body-medium"
+                      id="forholdTilAvdoede.datoForInngaattPartnerskap"
+                      inputmode="text"
+                      maxlength="10"
+                      name="forholdTilAvdoede.datoForInngaattPartnerskap"
+                      type="text"
+                      value=""
+                    />
+                    <button
+                      aria-expanded="false"
+                      class="ds-datepicker__calendarButton ds-datepicker__calendarButton--medium"
+                      type="button"
+                    >
+                      <span
+                        class="sr-only"
+                      >
+                        Kalender
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        class="ds-datepicker__calendarButton__icon"
+                      >
+                        <svg
+                          focusable="false"
+                          height="16"
+                          role="presentation"
+                          style="pointer-events: none;"
+                          viewBox="0 0 18 18"
+                          width="16"
+                        >
+                          <title>
+                            Kalenderikon
+                          </title>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            stroke="#0067C5"
+                          >
+                            <path
+                              d="M4 2.667H1.333v14h15.334v-14H14"
+                            />
+                            <path
+                              d="M4 1.333h2V4H4zm8 0h2V4h-2zM6 2h6M1.333 6h15.334"
+                            />
+                          </g>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-form-field__error"
+                    id="textField-error-rk"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        class="sc-gtsqUy dorhUL"
+      >
         <div
           id="forholdTilAvdoede.fellesBarn"
         >
           <fieldset
+            aria-describedby="fieldset-description-rm"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
@@ -178,6 +275,12 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               omDegOgAvdoed.forholdTilAvdoede.fellesBarn
             </legend>
             <div
+              class="navds-fieldset__description navds-body-short navds-body-short--medium"
+              id="fieldset-description-rm"
+            >
+              omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse
+            </div>
+            <div
               class="navds-radio-buttons"
             >
               <div
@@ -185,14 +288,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-rm"
+                  id="radio-rn"
                   name="forholdTilAvdoede.fellesBarn"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-rm"
+                  for="radio-rn"
                 >
                   <span
                     class="navds-radio__content"
@@ -210,14 +313,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-rn"
+                  id="radio-ro"
                   name="forholdTilAvdoede.fellesBarn"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-rn"
+                  for="radio-ro"
                 >
                   <span
                     class="navds-radio__content"
@@ -235,7 +338,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-rl"
+              id="fieldset-error-rm"
             />
           </fieldset>
         </div>

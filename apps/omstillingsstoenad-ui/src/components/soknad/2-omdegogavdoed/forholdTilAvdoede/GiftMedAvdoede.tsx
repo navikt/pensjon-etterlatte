@@ -32,6 +32,7 @@ const GiftMedAvdoede = () => {
                 <RHFSpoersmaalRadio
                     name={'forholdTilAvdoede.fellesBarn'}
                     legend={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
+                    description={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse')}
                 />
             </SkjemaElement>
 

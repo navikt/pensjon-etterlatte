@@ -345,10 +345,11 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Relasjonen din til avdøde da dødsfallet skjedde',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap': 'Vi giftet oss',
     'omDegOgAvdoed.forholdTilAvdoede.fellesBarn': 'Har eller har dere hatt felles barn?',
+    'omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse': 'Dette gjelder også hvis barnet er over 18 år',
     'omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn':
         'Var dere samboere og hadde dere felles barn før dere giftet dere?',
     'omDegOgAvdoed.forholdTilAvdoede.tidligereGift': 'Har du tidligere vært gift med avdøde?',
-    'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap': 'Vi ble samboere',
+    'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap': 'Når ble dere samboere?',
     'omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn': 'Hadde du omsorg for avdødes barn på dødstidspunktet?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse': 'Vi skilte oss (ikke separasjon)',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd': 'Vi flyttet fra hverandre',
