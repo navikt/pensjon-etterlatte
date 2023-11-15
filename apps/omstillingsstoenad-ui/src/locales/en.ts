@@ -281,9 +281,8 @@ export default {
     'omDeg.tittel': 'About you',
     'omDeg.undertittel.personalia': 'Personalia',
     'omDeg.undertittel.opplysningerOmSoeker': 'Information about the applicant',
-    'omDeg.advarsel':
-        'If the address is wrong you will have to change it at the National Population Registry before you continue the application (opens in a new tab)',
-    'omDeg.advarsel.href': 'https://www.skatteetaten.no/person/folkeregister/flytte/i-norge/',
+    'omDeg.advarsel': '<MANGLER TEKST>',
+    'omDeg.advarsel.href': 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
     'omDeg.advarsel.href.tekst': '<MANGLER TEKST>',
     'omDeg.alternativAdresse': 'Enter your current residential address',
     'omDeg.oppholderSegINorge': 'Have you been staying in Norway the last 12 months?',
@@ -316,7 +315,6 @@ export default {
     'omDeg.nySivilstatus.samboerskap.samboer.fornavn': 'First name(s)',
     'omDeg.nySivilstatus.samboerskap.samboer.etternavn': 'Family name',
     'omDeg.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Norwegian national identity number',
-    'omDeg.nySivilstatus.samboerskap.samboer.harInntekt.svar': 'Does your cohabiting partner have any income?',
     'omDegOgAvdoed.tittel': 'About you and the deceased',
     'omDegOgAvdoed.avdoed.hvem': 'The deceased’s personal details',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Your relationship with the deceased at the time of their death',
@@ -748,8 +746,6 @@ export default {
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.required':
         'Enter your cohabiting partner’s Norwegian national identity number',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.validate': 'Invalid national identity number',
-    'feil.nySivilstatus.samboerskap.samboer.harInntekt.svar.required':
-        'State whether your cohabiting partner has any income',
     'feil.bosattUtland.svar.required': 'State whether the person is a resident in a country other than Norway',
     'feil.bosattUtland.land.required': 'State which country',
     'feil.bosattUtland.adresse.required': 'Enter address',

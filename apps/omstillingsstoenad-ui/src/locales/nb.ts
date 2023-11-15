@@ -306,9 +306,9 @@ export default {
     'omDeg.undertittel.personalia': 'Personalia',
     'omDeg.undertittel.opplysningerOmSoeker': 'Opplysninger om søkeren',
     'omDeg.advarsel':
-        'Ved feil adresse må du endre denne hos Folkeregisteret før du går videre med søknaden (åpnes i ny fane)',
-    'omDeg.advarsel.href.tekst': 'Endre adresse',
-    'omDeg.advarsel.href': 'https://www.skatteetaten.no/person/folkeregister/flytte/i-norge/',
+        'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
+    'omDeg.advarsel.href.tekst': 'Endre opplysningene dine',
+    'omDeg.advarsel.href': 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
     'omDeg.alternativAdresse': 'Oppgi nåværende bostedsadresse',
     'omDeg.oppholderSegINorge': 'Har du oppholdt deg i Norge de siste 12 månedene?',
     'omDeg.oppholdHvorfor':
@@ -339,7 +339,6 @@ export default {
     'omDeg.nySivilstatus.samboerskap.samboer.fornavn': 'Fornavn',
     'omDeg.nySivilstatus.samboerskap.samboer.etternavn': 'Etternavn',
     'omDeg.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
-    'omDeg.nySivilstatus.samboerskap.samboer.harInntekt.svar': 'Har samboer inntekt?',
     'omDegOgAvdoed.tittel': 'Om deg og avdøde',
     'omDegOgAvdoed.avdoed.hvem': 'Hvem er det som er død?',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Relasjonen din til avdøde da dødsfallet skjedde',
@@ -757,7 +756,6 @@ export default {
     'feil.nySivilstatus.samboerskap.samboer.etternavn.required': 'Oppgi samboers etternavn',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.required': 'Oppgi samboers fødselsnummer',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.validate': 'Ugyldig fødselsnummer',
-    'feil.nySivilstatus.samboerskap.samboer.harInntekt.svar.required': 'Oppgi om samboer har inntekt',
     'feil.bosattUtland.svar.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
     'feil.bosattUtland.land.required': 'Oppgi land',
     'feil.bosattUtland.adresse.required': 'Oppgi adresse',

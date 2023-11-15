@@ -137,5 +137,4 @@ export interface Samboer extends Person {
     foedselsnummer: Opplysning<Foedselsnummer>
 
     fellesBarnEllertidligereGift: Opplysning<EnumSvar<JaNeiVetIkke>>
-    inntekt?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
