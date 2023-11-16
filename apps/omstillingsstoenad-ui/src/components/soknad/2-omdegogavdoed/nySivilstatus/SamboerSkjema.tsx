@@ -1,9 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { ISoeker } from '../../../../typer/person'
-import { useFormContext } from 'react-hook-form'
 import { RHFFoedselsnummerInput, RHFInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { IValg } from '../../../../typer/Spoersmaal'
 import { fnr } from '@navikt/fnrvalidator'
 import { Panel, Heading, HGrid } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
@@ -11,10 +8,6 @@ import Bredde from '../../../../typer/bredde'
 
 const SamboerSkjema = () => {
     const { t } = useTranslation()
-
-    const { watch } = useFormContext<ISoeker>()
-
-    const harVaertGift = watch('nySivilstatus.samboerskap.hattBarnEllerVaertGift')
 
     return (
         <SkjemaElement>
@@ -52,15 +45,6 @@ const SamboerSkjema = () => {
                         legend={t('omDeg.nySivilstatus.samboerskap.hattBarnEllerVaertGift')}
                     />
                 </SkjemaElement>
-
-                {harVaertGift === IValg.NEI && (
-                    <SkjemaElement>
-                        <RHFSpoersmaalRadio
-                            name={'nySivilstatus.samboerskap.samboer.harInntekt.svar'}
-                            legend={t('omDeg.nySivilstatus.samboerskap.samboer.harInntekt.svar')}
-                        />
-                    </SkjemaElement>
-                )}
             </Panel>
         </SkjemaElement>
     )

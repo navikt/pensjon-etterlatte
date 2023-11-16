@@ -234,11 +234,13 @@ export default {
     'inntektenDin.loennsinntekt.info':
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': 'Arbeidsinntekten din året før dødsfallet',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer': 'Oppgi brutto arbeidsinntekt fra januar til desember året før dødsfallet',
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer':
+        'Oppgi brutto arbeidsinntekt fra januar til desember året før dødsfallet',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, kan du oppgi totalinntekten som vises på lønnsslippen for desember.',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.tittel': 'Arbeidsinntekten din i år',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall': 'Oppgi brutto arbeidsinntekt frem til dødsfallet. Fra januar til måneden før dødsfallet.',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall':
+        'Oppgi brutto arbeidsinntekt frem til dødsfallet. Fra januar til måneden før dødsfallet.',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall': 'Oppgi brutto arbeidsinntekt etter dødsfallet',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'Skriv hva du forventer å ha i arbeidsinntekt fra samme måned som dødsfallet til desember.',
@@ -305,10 +307,9 @@ export default {
     'omDeg.tittel': 'Om deg',
     'omDeg.undertittel.personalia': 'Personalia',
     'omDeg.undertittel.opplysningerOmSoeker': 'Opplysninger om søkeren',
-    'omDeg.advarsel':
-        'Ved feil adresse må du endre denne hos Folkeregisteret før du går videre med søknaden (åpnes i ny fane)',
-    'omDeg.advarsel.href.tekst': 'Endre adresse',
-    'omDeg.advarsel.href': 'https://www.skatteetaten.no/person/folkeregister/flytte/i-norge/',
+    'omDeg.advarsel': 'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
+    'omDeg.advarsel.href.tekst': 'Endre opplysningene dine',
+    'omDeg.advarsel.href': 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
     'omDeg.alternativAdresse': 'Oppgi nåværende bostedsadresse',
     'omDeg.oppholderSegINorge': 'Har du oppholdt deg i Norge de siste 12 månedene?',
     'omDeg.oppholdHvorfor':
@@ -334,12 +335,11 @@ export default {
     'omDeg.nySivilstatus.beskrivelse':
         'Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få omstillingsstønad og hvor mye du kan få.',
     'omDeg.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
-        'Har eller hadde dere barn sammen eller var dere tidligere gift?',
+        'Har eller har dere hatt felles barn, eller har dere tidligere vært gift?',
     'omDeg.nySivilstatus.samboerskap.samboer.tittel': 'Opplysninger om samboer',
     'omDeg.nySivilstatus.samboerskap.samboer.fornavn': 'Fornavn',
     'omDeg.nySivilstatus.samboerskap.samboer.etternavn': 'Etternavn',
     'omDeg.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
-    'omDeg.nySivilstatus.samboerskap.samboer.harInntekt.svar': 'Har samboer inntekt?',
     'omDegOgAvdoed.tittel': 'Om deg og avdøde',
     'omDegOgAvdoed.avdoed.hvem': 'Hvem er det som er død?',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Relasjonen din til avdøde da dødsfallet skjedde',
@@ -757,7 +757,6 @@ export default {
     'feil.nySivilstatus.samboerskap.samboer.etternavn.required': 'Oppgi samboers etternavn',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.required': 'Oppgi samboers fødselsnummer',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.validate': 'Ugyldig fødselsnummer',
-    'feil.nySivilstatus.samboerskap.samboer.harInntekt.svar.required': 'Oppgi om samboer har inntekt',
     'feil.bosattUtland.svar.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
     'feil.bosattUtland.land.required': 'Oppgi land',
     'feil.bosattUtland.adresse.required': 'Oppgi adresse',

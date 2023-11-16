@@ -117,9 +117,6 @@ export interface ISamboer {
     fornavn?: string
     etternavn?: string
     foedselsnummer?: string
-    harInntekt?: {
-        svar?: IValg
-    }
 }
 
 export interface IForholdAvdoede {

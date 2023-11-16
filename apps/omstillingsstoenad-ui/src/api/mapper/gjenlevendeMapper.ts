@@ -241,10 +241,6 @@ const hentSivilstatus = (
             fellesBarnEllertidligereGift: {
                 spoersmaal: t('omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift'),
                 svar: valgTilSvar(t, nySivilstatus.samboerskap!!.hattBarnEllerVaertGift!!), // TODO: Korrigere type
-            },
-            inntekt: {
-                spoersmaal: t('omDegOgAvdoed.nySivilstatus.samboerskap.samboer.harInntekt.svar'),
-                svar: valgTilSvar(t, samboer.harInntekt!!.svar!!),
             }
         }
     }
