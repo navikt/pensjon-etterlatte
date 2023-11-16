@@ -313,7 +313,6 @@ export const hentForeldre = (t: TFunction, barn: IBarn, soeknad: ISoeknad, bruke
 }
 
 export const hentForeldreMedUtvidetInfo = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Person[] => {
-    console.log(bruker)
     const gjenlevende: Gjenlevende = mapGjenlevende(t, soeknad, bruker)
 
     const gjenlevendeForelder: GjenlevendeForelder = {
