@@ -61,7 +61,7 @@ const paymentDetails = {
     NORSK: 'Norsk',
     UTENLANDSK: 'Utenlandsk',
     bankAccount: 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
-    bankAccountDescription: 'Du kan legge til et eget kontonummer for barnet',
+    bankAccountDescription: 'Du kan legge til et eget kontonummer for barnet.',
     information: 'Du kan legge til et eget kontonummer for barnet.',
     accountType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
     foreignBankName: 'Bankens navn',
