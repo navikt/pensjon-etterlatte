@@ -28,9 +28,9 @@ const ForholdTilAvdoedeSkjema = () => {
 
             {forholdTilAvdoede === ForholdTilAvdoede.separert && <GiftMedAvdoede />}
 
-            {forholdTilAvdoede === ForholdTilAvdoede.skilt && <SkiltFraAvdoede />}
-
             {forholdTilAvdoede === ForholdTilAvdoede.samboer && <SamboerMedAvdoede />}
+
+            {forholdTilAvdoede === ForholdTilAvdoede.skilt && <SkiltFraAvdoede />}
 
             {forholdTilAvdoede === ForholdTilAvdoede.tidligereSamboer && <TidligereSamboerMedAvdoede />}
         </SkjemaGruppe>

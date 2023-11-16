@@ -86,10 +86,11 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         // Verifiser felter og fyll ut skjema.
         const omDegOgAvdoed = mockSoeknad.omDegOgAvdoed
-                selectValue(omDegOgAvdoed.forholdTilAvdoede.relasjon)
+        selectValue(omDegOgAvdoed.forholdTilAvdoede.relasjon)
         getById('forholdTilAvdoede.datoForInngaattPartnerskap').type(
             omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
         )
+        selectValueForId('forholdTilAvdoede.fellesBarn', omDegOgAvdoed.forholdTilAvdoede.fellesBarn)
 
         a11yCheck()
 

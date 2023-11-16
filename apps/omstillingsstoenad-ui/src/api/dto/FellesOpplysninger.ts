@@ -111,9 +111,7 @@ export interface ForholdTilAvdoede {
     fellesBarn?: Opplysning<EnumSvar<JaNeiVetIkke>>
     samboereMedFellesBarnFoerGiftemaal?: Opplysning<EnumSvar<JaNeiVetIkke>>
     tidligereGift?: Opplysning<EnumSvar<JaNeiVetIkke>>
-    omsorgForBarn?: Opplysning<EnumSvar<JaNeiVetIkke>> // Finner ikke igjen i søknadsdialogen. Flyttet til barn
-    mottokBidrag?: Opplysning<EnumSvar<JaNeiVetIkke>> // Finner ikke igjen
-    mottokEktefelleBidrag?: Opplysning<EnumSvar<JaNeiVetIkke>> // Finner ikke igjen?
+    mottokBidrag?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar> | undefined>
 }
 
 export interface Utenlandsopphold {

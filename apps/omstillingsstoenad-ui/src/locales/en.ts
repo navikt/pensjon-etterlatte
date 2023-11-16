@@ -320,17 +320,19 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Your relationship with the deceased at the time of their death',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap': 'We got married',
     'omDegOgAvdoed.forholdTilAvdoede.fellesBarn': 'Do you have or have you had children together?',
+    'omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse': '<MANGLER TEKST>',
     'omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn':
         'Were you cohabiting partners and had children together before you married?',
     'omDegOgAvdoed.forholdTilAvdoede.tidligereGift': 'Were you previously married to the deceased?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap': 'We lived together as cohabiting partners',
-    'omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn':
-        'Were you caring for the deceased’s children at the time of their death?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse': 'We were divorced (not separation)',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd': 'We moved apart',
     'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag':
         'Were you being supported by the deceased at the time of their death?',
-    'omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag': 'Were you receiving alimony?',
+    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar': '<MANGLER TEKST>',
+    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse': '<MANGLER TEKST>',
+    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum': '<MANGLER TEKST>',
+    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse': '<MANGLER TEKST>',
     'omDenAvdoede.tittel': 'About the deceased',
     'omDenAvdoede.fornavn': 'First name(s)',
     'omDenAvdoede.etternavn': 'Family name',
@@ -659,8 +661,6 @@ export default {
     'feil.forholdTilAvdoede.datoForSkilsmisse.required': 'Enter date of divorce (not separation)',
     'feil.forholdTilAvdoede.datoForSkilsmisse.validate': 'Invalid date format',
     'feil.forholdTilAvdoede.fellesBarn.required': 'State whether you have (or had) joint children',
-    'feil.forholdTilAvdoede.omsorgForBarn.required':
-        'State whether you were caring for the deceased’s children at the time of his/her death',
     'feil.forholdTilAvdoede.tidligereGift.required': 'State whether you were previously married to the deceased',
     'feil.forholdTilAvdoede.samboereMedFellesBarn.required':
         'State whether you were cohabiting partners and had joint children together before you married',
@@ -670,7 +670,8 @@ export default {
     'feil.forholdTilAvdoede.datoForSamlivsbrudd.validate': 'Invalid date format',
     'feil.forholdTilAvdoede.mottokBidrag.required':
         'State whether you were being supported by the deceased at the time of their death',
-    'feil.forholdTilAvdoede.mottokEktefelleBidrag.required': 'State whether you were receiving alimony',
+    'feil.forholdTilAvdoede.mottokBidrag.svar.required': '<MANGLER TEKST>',
+    'feil.forholdTilAvdoede.mottokBidrag.sum.required': '<MANGLER TEKST>',
     'feil.selvstendigNaeringsdrivende.svar.required': 'State whether the deceased was self-employed',
     'feil.selvstendigNaeringsdrivende.beskrivelse.pattern': 'Enter valid income from self-employment (digits only)',
     'feil.selvstendigNaeringsdrivende.beskrivelse.required': 'Enter income from self-employment',
