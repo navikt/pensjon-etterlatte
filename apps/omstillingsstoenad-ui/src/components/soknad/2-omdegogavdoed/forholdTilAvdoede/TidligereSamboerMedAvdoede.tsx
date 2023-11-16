@@ -26,6 +26,23 @@ const TidligereSamboerMedAvdoede = () => {
     return (
         <SkjemaGruppe>
             <SkjemaElement>
+                <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                    <Datovelger
+                        name={'forholdTilAvdoede.datoForInngaattSamboerskap'}
+                        label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap')}
+                        minDate={state.foedselsdato}
+                        maxDate={datoForDoedsfallet || new Date()}
+                    />
+
+                    <Datovelger
+                        name={'forholdTilAvdoede.datoForSamlivsbrudd'}
+                        label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd')}
+                        minDate={datoForInngaattSamboerskap}
+                        maxDate={datoForDoedsfallet || new Date()}
+                    />
+                </HGrid>
+            </SkjemaElement>
+            <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={'forholdTilAvdoede.fellesBarn'}
                     legend={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
@@ -35,43 +52,24 @@ const TidligereSamboerMedAvdoede = () => {
 
             {fellesBarn === IValg.JA && (
                 <>
-                    {/* TODO: Burde være eget felt for inngått samboerskap? */}
                     <SkjemaElement>
-                        <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                            <Datovelger
-                                name={'forholdTilAvdoede.datoForInngaattSamboerskap'}
-                                label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap')}
-                                minDate={state.foedselsdato}
-                                maxDate={datoForDoedsfallet || new Date()}
-                            />
-
-                            <Datovelger
-                                name={'forholdTilAvdoede.datoForSamlivsbrudd'}
-                                label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd')}
-                                minDate={datoForInngaattSamboerskap}
-                                maxDate={datoForDoedsfallet || new Date()}
-                            />
-                        </HGrid>
+                        <RHFSpoersmaalRadio
+                            name={'forholdTilAvdoede.mottokBidrag.svar'}
+                            legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar')}
+                            description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse')}
+                        />
                     </SkjemaElement>
+
+                    {mottokBidrag === IValg.JA && (
+                        <SkjemaElement>
+                            <RHFValutaInput
+                                name={'forholdTilAvdoede.mottokBidrag.sum'}
+                                label={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum')}
+                                description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse')}
+                            />
+                        </SkjemaElement>
+                    )}
                 </>
-            )}
-
-            <SkjemaElement>
-                <RHFSpoersmaalRadio
-                    name={'forholdTilAvdoede.mottokBidrag.svar'}
-                    legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar')}
-                    description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse')}
-                />
-            </SkjemaElement>
-
-            {mottokBidrag === IValg.JA && (
-                <SkjemaElement>
-                    <RHFValutaInput
-                        name={'forholdTilAvdoede.mottokBidrag.sum'}
-                        label={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum')}
-                        description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse')}
-                    />
-                </SkjemaElement>
             )}
         </SkjemaGruppe>
     )
