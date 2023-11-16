@@ -17,6 +17,7 @@ import { IAboutYou, IChild } from '../../types/person'
 import { Language } from '../../context/language/language'
 import { hentForeldre, hentForeldreOver18, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 import { mapVerge } from './mapVerge'
+import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
 
 export const mapTilBarnepensjonSoeknadListe = (
     t: TFunction,
@@ -201,6 +202,7 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
 
 const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Barn => {
     const staysAbroad = application.aboutYou.residesInNorway
+    const isChild = application.applicant?.applicantRole === ApplicantRole.CHILD
 
     const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> | undefined = staysAbroad
         ? {
@@ -225,8 +227,10 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
 
     const ukjentForelder: Opplysning<string> | undefined = !!application.unknownParent
         ? {
-              spoersmaal: t('unknownParentQuestion', { ns: 'aboutParents' }),
-              svar: t('yesUnknownParent', { ns: 'btn' }),
+              spoersmaal: t(isChild ? 'unknownParentQuestion' : 'unknownParentQuestionGuardian', {
+                  ns: 'aboutParents',
+              }),
+              svar: t(isChild ? 'yesUnknownParent' : 'yesUnknownParentGuardian', { ns: 'btn' }),
           }
         : undefined
 

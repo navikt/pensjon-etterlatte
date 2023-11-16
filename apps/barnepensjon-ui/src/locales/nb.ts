@@ -46,12 +46,14 @@ const btn = {
     noButton: 'Nei, gå tilbake',
     continueButton: 'Fortsett',
     yesUnknownParent: 'Ja, min forelder er ukjent',
+    yesUnknownParentGuardian: 'Ja, forelderen er ukjent',
     noUnknownParent: 'Nei, jeg kjenner til mine foreldre',
+    noUnknownParentGuardian: 'Nei, jeg kjenner til begge foreldrene',
 }
 
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
-        'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
+        'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.\n <a href="https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/">Endre opplysningene dine</a>',
 }
 
 const paymentDetails = {
@@ -59,6 +61,7 @@ const paymentDetails = {
     NORSK: 'Norsk',
     UTENLANDSK: 'Utenlandsk',
     bankAccount: 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
+    bankAccountDescription: 'Du kan legge til et eget kontonummer for barnet',
     information: 'Du kan legge til et eget kontonummer for barnet.',
     accountType: 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
     foreignBankName: 'Bankens navn',
@@ -125,9 +128,8 @@ const selectScenario = {
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
     CHILD: 'Jeg har fylt 18 år og søker på vegne av meg selv',
     parentApplicantInformation:
-        'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde. Søsken kan få betydning for beregningen av barnepensjon.',
-    guardianApplicantInformation:
-        'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 20 år. Søsken kan få betydning for beregningen av barnepensjon.',
+        'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde.',
+    guardianApplicantInformation: 'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 20 år.',
     guardiansMustSendDocumentation:
         'Du kan kun sende søknad for det/de barna du er verge for. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
     childApplicantInformation1:
@@ -144,8 +146,10 @@ const selectScenario = {
         'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
     guardianApplicantInformationFatherNotConfirmed:
         'Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
+    guardianApplicantInformationSingleParent:
+        'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
     aboutSurvivorsPensionDescription:
-        '<b>Har du mistet ektefellen, samboeren eller partneren din?</b>\nDa kan du søke om gjenlevendepensjon eller overgangsstønad. Hvis du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/start/soknad-overgangsstonad-gjenlevendepensjon">denne søknaden.</a>',
+        '<b>Har du mistet ektefellen, samboeren eller partneren din?</b>\nDa kan du søke om omstillingsstønad. Hvis du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/start/soknad-overgangsstonad-gjenlevendepensjon">denne søknaden.</a>',
     BOTH_PARENTS_DECEASED: 'Begge foreldrene',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Jeg er foreldreløs',
     ONE_PARENT_DECEASED: 'En forelder',
@@ -178,12 +182,13 @@ const aboutParents = {
     addFirstParentBtn: 'Legg til forelder 1',
     addSecondParentBtn: 'Legg til forelder 2',
     bothParentsRequired:
-        'Du må legge til opplysninger om begge foreldrene dine for å fortsette søknaden. \n\n Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke',
-    missingOneParentLink:
-        '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
+        'Du må legge til opplysninger om begge foreldrene dine for å fortsette søknaden. \n\n Hvis barnet har mistet én forelder og du ikke vet identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Velg alternativet "Begge foreldrene".',
+    chooseUnknowParent:
+        'Du må legge til opplysninger om begge foreldrene dine for å fortsette søknaden. \n\n Hvis du ikke kjenner identiteten til den ene forelderen, velger du "Ukjent forelder".',
     childAndOneParentDeceased: 'Du trenger ikke fylle ut informasjon om gjenlevende forelder',
     unknownParent: 'Ukjent forelder',
     unknownParentQuestion: 'Kan du bekrefte at du ikke kjenner identiteten til din forelder?',
+    unknownParentQuestionGuardian: 'Kan du bekrefte at du ikke kjenner til identiteten til den avdøde forelderen?',
     childAndOneParentDeceasedGuidepanel:
         'Du trenger ikke fylle ut informasjon om gjenlevende forelder. Vi innhenter denne informasjonen når vi behandler søknaden din. \n\n' +
         'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknadsprosessen på nytt. Velg "Jeg har mistet begge foreldrene".',
@@ -234,14 +239,14 @@ const aboutTheDeceased = {
 }
 
 const aboutChildren = {
-    childAppliedForPension: 'Søkt om barnepensjon',
+    childAppliedForPension: 'Søker om barnepensjon',
     applyForThisChild: 'Søk om barnepensjon',
     userAppliesForChildrensPension: 'Ja, jeg søker om barnepensjon for barnet',
     onlyChildrenOfDeceasedHaveRights: 'Det er kun avdødes barn og adoptivbarn som kan ha rett til barnepensjon.',
     onlyParentOrGuardianCanApply:
         'Har barnet mistet en forelder så må forelder eller oppnevnt verge sende egen søknad.',
     onlyParentOrGuardianCanApplyOnLivingParent:
-        'Det er kun barnets foreldre eller oppnevnt verge som kan søke om barnepensjon for dette barnet. Det må søkes om barnepensjon i egen søknad.',
+        'Det er kun barnets forelder eller oppnevnt verge som kan søke om barnepensjon for dette barnet. Det må søkes om barnepensjon i egen søknad.',
     onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år.',
     livesIn: 'Bor i',
     doesTheChildLiveAbroad: 'Bor barnet i et annet land enn Norge?',
@@ -278,7 +283,8 @@ const aboutChildren = {
     thisIsOptional: 'Dette er valgfritt',
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldrene til barnet?',
     loggedInUserIsGuardian: 'Er du verge for dette barnet?',
-    needToSendInDocumentation: 'Du må sende inn dokumentasjon på at du er verge for barnet',
+    needToSendInDocumentation:
+        'Du må sende inn dokumentasjon på at du er verge for barnet når du har sendt inn søknaden.',
     onlyGuardiansCanApply:
         'Du kan kun søke om barnepensjon for barn du er verge for. \nAlle avdødes barn under 18 år kan legges til.',
 }

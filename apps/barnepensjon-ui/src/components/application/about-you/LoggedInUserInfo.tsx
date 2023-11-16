@@ -6,6 +6,7 @@ import FormGroup from '../../common/FormGroup'
 import FormElement from '../../common/FormElement'
 import { fullAdresse } from '../../../utils/personalia'
 import { GridColumns, GridGap } from '../../../utils/grid'
+import Trans from '../../common/Trans'
 
 interface LoggedInUserInfoProps {
     user: User
@@ -23,7 +24,9 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
     return (
         <>
             <FormElement>
-                <Alert variant={'warning'}>{t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })}</Alert>
+                <Alert variant={'info'}>
+                    <Trans value={t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })} />
+                </Alert>
             </FormElement>
             <FormGroup>
                 <HGrid gap={GridGap} columns={GridColumns} align={'start'}>

@@ -112,20 +112,29 @@ export default function ScenarioSelection() {
                     </FormGroup>
 
                     {ApplicantSituation.ONE_PARENT_DECEASED === applicantSituation && (
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationOneParentDeceased')} />
-                        </BodyLong>
+                        <>
+                            <BodyLong spacing size={'small'}>
+                                <Trans value={t('youNeedFnrForEveryoneInThisApplicationOneParentDeceased')} />
+                            </BodyLong>
+                            <FormGroup>
+                                <Alert variant={'info'}>
+                                    <Trans value={t('guardianApplicantInformationSingleParent')} />
+                                </Alert>
+                            </FormGroup>
+                        </>
                     )}
                     {ApplicantSituation.BOTH_PARENTS_DECEASED === applicantSituation && (
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationBothParentsDeceased')} />
-                        </BodyLong>
+                        <>
+                            <BodyLong spacing size={'small'}>
+                                <Trans value={t('youNeedFnrForEveryoneInThisApplicationBothParentsDeceased')} />
+                            </BodyLong>
+                            <FormGroup>
+                                <Alert variant={'info'}>
+                                    <Trans value={t('guardianApplicantInformationFatherNotConfirmed')} />
+                                </Alert>
+                            </FormGroup>
+                        </>
                     )}
-                    <FormGroup>
-                        <Alert variant={'info'}>
-                            <Trans value={t('guardianApplicantInformationFatherNotConfirmed')} />
-                        </Alert>
-                    </FormGroup>
                 </>
             )}
 

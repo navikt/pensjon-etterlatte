@@ -129,9 +129,9 @@ const selectScenario = {
     GUARDIAN: 'I am applying for one or more children who I am the guardian for',
     CHILD: 'I have reached the age of 18 and am applying on behalf of myself',
     parentApplicantInformation:
-        'In the application, you must list all children and/or adoptive children under the age of 18 who you had together with the deceased. Siblings may be of importance when calculating the children’s pension.',
+        'In the application, you must list all children and/or adoptive children under the age of 18 who you had together with the deceased.',
     guardianApplicantInformation:
-        'In the application, you must list all of the deceased’s children and/or adoptive children who are under the age of 18. Siblings may be of importance when calculating the children’s pension.',
+        'In the application, you must list all of the deceased’s children and/or adoptive children who are under the age of 18.',
     guardiansMustSendDocumentation:
         'If the children are not full siblings, an application must be submitted for each family of children.  \n \nIn order for us to process the application for the children’s pension, you must submit documentation that you are the guardian of the child/children.',
     childApplicantInformation1:
@@ -235,14 +235,14 @@ const aboutTheDeceased = {
 }
 
 const aboutChildren = {
-    childAppliedForPension: 'Applied for children’s pension',
+    childAppliedForPension: 'Applies for children’s pension',
     applyForThisChild: 'Apply for children’s pension',
     userAppliesForChildrensPension: 'Yes, I am applying for a children’s pension for the child',
     onlyChildrenOfDeceasedHaveRights:
         'Only the children and adopted children of the deceased may be entitled to the children’s pension.',
     onlyParentOrGuardianCanApply:
         'If the child has lost a parent, the parent or appointed guardian must submit a separate application.',
-    onlyParentOrGuardianCanApplyOnLivingParent: `Only the child's parents or appointed guardian can apply for a children’s pension for this child. The children’s pension must be applied for separately.`,
+    onlyParentOrGuardianCanApplyOnLivingParent: `Only the child's parent or appointed guardian can apply for a children’s pension for this child. The children’s pension must be applied for separately.`,
     onlyChildrenUnder18Necessary: 'You must only list children under the age of 18.',
     livesIn: 'Lives in',
     doesTheChildLiveAbroad: 'Does the child live in a country other than Norway?',
