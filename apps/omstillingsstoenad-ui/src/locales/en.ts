@@ -14,6 +14,7 @@ export default {
     'knapp.neste': 'Next',
     'knapp.avbryt': 'Cancel',
     'knapp.sendSoeknad': 'Submit application',
+    'knapp.leggTil': '<MANGLER TEKST>',
     'knapp.leggTilLand': 'Add more countries',
     'knapp.leggTilArbeidsforhold': 'Add more employment relationships',
     'knapp.leggTilNaeringer': 'Add more businesses',
@@ -372,6 +373,7 @@ export default {
         "A death caused by an occupational injury or illness approved by NAV may be decisive as to whether you are entitled to a survivor's pension and the size of the pension.",
     'omBarn.tittel': 'About children',
     'omBarn.tittelModal': 'About the child',
+    'omBarn.informasjon.tittel': '<MANGLER TEKST>',
     'omBarn.informasjon':
         'If you have or have had children, this may affect your right to a survivor’s pension. You therefore need to enter all your children, regardless of how old they are. This applies to children you share with the deceased (“joint children”), the deceased’s children from another relationship, and your children from another relationship. \n\nIf you have a joint child who is under the age of 18 with the deceased, you can also apply for a children’s pension here. Children over the age of 18 must apply for the pension themselves.',
     'omBarn.fornavn': 'First name(s)',
@@ -401,6 +403,7 @@ export default {
     'omBarn.barnepensjon.kontonummer.informasjon': 'You can add a separate bank account number for the child.',
     'omBarn.barnepensjon.kontonummer.kontonummer':
         'Enter the Norwegian bank account number for payment of children’s pension',
+    'omBarn.barnepensjon.kontonummer.svar.beskrivelse': '<MANGLER TEKST>',
     'omBarn.barnepensjon.kontonummer.placeholder': '11 digits',
     'omBarn.barnepensjon.forskuddstrekk.svar': 'Do you want us to deduct tax from the children’s pension?',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst':

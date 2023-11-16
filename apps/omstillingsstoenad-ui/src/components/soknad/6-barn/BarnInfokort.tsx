@@ -54,11 +54,6 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                         {foedselsnummer}
                     </BodyShort>
 
-                    <BodyShort size={'small'}>{t('omBarn.infokort.foreldre')}</BodyShort>
-                    <BodyShort size={'small'} spacing>
-                        {t(`${barn.relasjon}`)}
-                    </BodyShort>
-
                     <BodyShort size={'small'}>{t('omBarn.infokort.statsborgerskap')}</BodyShort>
                     <BodyShort size={'small'} spacing>
                         {barn.statsborgerskap}

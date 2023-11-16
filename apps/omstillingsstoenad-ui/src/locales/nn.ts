@@ -14,6 +14,7 @@ export default {
     'knapp.neste': 'Neste',
     'knapp.avbryt': 'Avbryt',
     'knapp.sendSoeknad': 'Send søknad',
+    'knapp.leggTil': '<MANGLER TEKST>',
     'knapp.leggTilLand': 'Legg til fleire land',
     'knapp.leggTilArbeidsforhold': 'Legg til fleire arbeidsforhold',
     'knapp.leggTilNaeringer': 'Legg til fleire næringar',
@@ -358,6 +359,7 @@ export default {
         'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
     'omBarn.tittel': 'Om barn',
     'omBarn.tittelModal': 'Om barnet',
+    'omBarn.informasjon.tittel': '<MANGLER TEKST>',
     'omBarn.informasjon':
         'Dersom du har eller har hatt barn kan det påverke retten din til omstillingsstønad. Du må difor oppgi alle barn, uavhengig av kor gamle dei er. Dette gjeld barn du har felles med avdøde, avdøde sine eigne barn, og dine eigne barn. \n\nViss du har felles barn under 18 år med avdøde kan du også søke om barnepensjon her. Barn over 18 år må søke sjøl.',
     'omBarn.fornavn': 'Førenamn',
@@ -383,6 +385,7 @@ export default {
     'omBarn.barnepensjon.soekerCheckboks': 'Ja, eg søker om barnepensjon for barnet',
     'omBarn.barnepensjon.kontonummer.svar':
         'Skal barnepensjonen utbetalast til same kontonummer som oppgitt tidlegare?',
+    'omBarn.barnepensjon.kontonummer.svar.beskrivelse': '<MANGLER TEKST>',
     'omBarn.barnepensjon.kontonummer.informasjon': 'Du kan legge til eige kontonummer for barnet',
     'omBarn.barnepensjon.kontonummer.kontonummer': 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
     'omBarn.barnepensjon.kontonummer.placeholder': '11 siffer',

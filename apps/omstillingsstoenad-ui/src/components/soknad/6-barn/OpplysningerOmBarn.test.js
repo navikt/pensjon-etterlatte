@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import OpplysningerOmBarn from './OpplysningerOmBarn'
+import OpplysningerOmBarnepensjon from './OpplysningerOmBarnepensjon'
 
 jest.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
@@ -16,7 +16,7 @@ jest.mock('react-i18next', () => ({
 
 describe('Opplysninger om barn', () => {
     it('Snapshot', () => {
-        const { container } = render(<OpplysningerOmBarn />)
+        const { container } = render(<OpplysningerOmBarnepensjon />)
         expect(container).toMatchSnapshot()
     })
 })

@@ -312,7 +312,8 @@ export const hentForeldre = (t: TFunction, barn: IBarn, soeknad: ISoeknad, bruke
     }
 }
 
-export const hentForeldreMedUtvidetInfo = (t: TFunction, barn: IBarn, soeknad: ISoeknad, bruker: IBruker): Person[] => {
+export const hentForeldreMedUtvidetInfo = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Person[] => {
+    console.log(bruker)
     const gjenlevende: Gjenlevende = mapGjenlevende(t, soeknad, bruker)
 
     const gjenlevendeForelder: GjenlevendeForelder = {
@@ -326,13 +327,5 @@ export const hentForeldreMedUtvidetInfo = (t: TFunction, barn: IBarn, soeknad: I
     }
     const avdoed: Avdoed = mapAvdoed(t, soeknad)
 
-    if (barn.relasjon === BarnRelasjon.fellesbarnMedAvdoede) {
-        return [gjenlevendeForelder, avdoed]
-    } else if (barn.relasjon === BarnRelasjon.avdoedesSaerkullsbarn) {
-        return [avdoed]
-    } else if (barn.relasjon === BarnRelasjon.egneSaerkullsbarn) {
-        return [gjenlevendeForelder]
-    } else {
-        return []
-    }
+    return [gjenlevendeForelder, avdoed]
 }

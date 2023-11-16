@@ -224,15 +224,16 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             getById('foedselsnummer').type(barn.foedselsnummer)
             getById('statsborgerskap').find('select').select(barn.statsborgerskap)
             selectValueForId('bosattUtland.svar', barn.bosattUtland.svar)
-            selectValue('barnRelasjon.fellesbarnMedAvdoede')
             if (barn.foedselsnummer === '07010776133') {
                 // under 18 år
                 selectValueForId('harBarnetVerge.svar', barn.harBarnetVerge.svar)
+                selectValueForId('barnepensjon.kontonummer.svar', barn.barnepensjon.kontonummer.svar)
+                selectValueForId('barnepensjon.forskuddstrekk.svar', barn.barnepensjon.forskuddstrekk.svar)
             }
             getById('leggTilBarn').click()
         })
 
-        selectValue(IValg.JA)
+        selectValueForId('gravidEllerNyligFoedt', mockSoeknad.opplysningerOmBarn.gravidEllerNyligFoedt)
 
         a11yCheck()
 
