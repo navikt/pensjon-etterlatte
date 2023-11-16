@@ -314,7 +314,6 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn': 'Var de sambuarar og hadde felles barn før de gifta dykk?',
     'omDegOgAvdoed.forholdTilAvdoede.tidligereGift': 'Var du tidlegare gift med avdøde?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap': 'Vi vart sambuarar',
-    'omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn': 'Hadde du omsorg for avdødes barn på dødstidspunktet?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse': 'Vi skilte oss (ikkje separasjon)',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd': 'Vi flytta frå kvarandre',
     'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag': 'Vart du forsørga av avdøde på dødstidstidspunktet?',
@@ -644,7 +643,6 @@ export default {
     'feil.forholdTilAvdoede.datoForSkilsmisse.required': 'Oppgi dato for skilsmisse (ikkje separasjon)',
     'feil.forholdTilAvdoede.datoForSkilsmisse.validate': 'Dato må vere i eit gyldig format',
     'feil.forholdTilAvdoede.fellesBarn.required': 'Oppgi om de har eller hadde, felles barn',
-    'feil.forholdTilAvdoede.omsorgForBarn.required': 'Oppgi om du hadde omsorg for avdødes barn på dødstidspunktet',
     'feil.forholdTilAvdoede.tidligereGift.required': 'Oppgi om du var tidlegare gift med avdøde',
     'feil.forholdTilAvdoede.samboereMedFellesBarn.required':
         'Oppgi om de var sambuarar og hadde felles barn før de gifta dykk',

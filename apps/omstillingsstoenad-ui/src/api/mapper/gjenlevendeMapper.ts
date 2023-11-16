@@ -846,13 +846,6 @@ const mapForholdTilAvdoede = (t: TFunction, forholdTilAvdoede: IForholdAvdoede):
           }
         : undefined
 
-    const omsorgForBarn: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!forholdTilAvdoede.omsorgForBarn
-        ? {
-              spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn'),
-              svar: valgTilSvar(t, forholdTilAvdoede.omsorgForBarn),
-          }
-        : undefined
-
     const mottokBidrag: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar> | undefined> | undefined =
         !!forholdTilAvdoede.mottokBidrag
             ? {
@@ -879,7 +872,6 @@ const mapForholdTilAvdoede = (t: TFunction, forholdTilAvdoede: IForholdAvdoede):
         fellesBarn,
         samboereMedFellesBarnFoerGiftemaal,
         tidligereGift,
-        omsorgForBarn,
         mottokBidrag,
     }
 }

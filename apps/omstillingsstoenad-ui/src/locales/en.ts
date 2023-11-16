@@ -325,8 +325,6 @@ export default {
         'Were you cohabiting partners and had children together before you married?',
     'omDegOgAvdoed.forholdTilAvdoede.tidligereGift': 'Were you previously married to the deceased?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap': 'We lived together as cohabiting partners',
-    'omDegOgAvdoed.forholdTilAvdoede.omsorgForBarn':
-        'Were you caring for the deceased’s children at the time of their death?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse': 'We were divorced (not separation)',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd': 'We moved apart',
     'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag':
@@ -663,8 +661,6 @@ export default {
     'feil.forholdTilAvdoede.datoForSkilsmisse.required': 'Enter date of divorce (not separation)',
     'feil.forholdTilAvdoede.datoForSkilsmisse.validate': 'Invalid date format',
     'feil.forholdTilAvdoede.fellesBarn.required': 'State whether you have (or had) joint children',
-    'feil.forholdTilAvdoede.omsorgForBarn.required':
-        'State whether you were caring for the deceased’s children at the time of his/her death',
     'feil.forholdTilAvdoede.tidligereGift.required': 'State whether you were previously married to the deceased',
     'feil.forholdTilAvdoede.samboereMedFellesBarn.required':
         'State whether you were cohabiting partners and had joint children together before you married',
