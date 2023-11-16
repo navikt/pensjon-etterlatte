@@ -4,6 +4,7 @@ export default {
     'steg.OmAvdoed': 'Opplysninger om den avdøde',
     'steg.DinSituasjon': 'Situasjonen din',
     'steg.InntektenDin': 'Inntekten din',
+    'steg.OmsorgForBarn': 'Omsorg for barn under 18 år',
     'steg.OmBarn': 'Opplysninger om barn',
     'steg.Oppsummering': 'Oppsummering',
     'banner.tittel': 'Søknad om omstillingsstønad',
@@ -395,6 +396,10 @@ export default {
     'omDenAvdoede.doedsfallAarsak': 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     'omDenAvdoede.doedsfallAarsakHvorfor':
         'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
+    'omsorgForBarn.tittel': 'Omsorg for barn under 18 år',
+    'omsorgForBarn.ingress':
+        'Retten din til omstillingsstønad kan påvirkes av om du\n - har eller har hatt barn med avdøde\n - har minst 50 prosent omsorg for barn\n \n Legg til alle barn og/eller adoptivbarn du har felles med avdøde. Dette gjelder også barn over 18 år.\n I tillegg må du legge til barn under 18 år som du har omsorgen for. Dette gjelder avdødes barn, dine egne barn eller fosterbarn.',
+    'omsorgForBarn.omsorgMinstFemti': 'Har du minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet?',
     'omBarn.tittel': 'Barnepensjon',
     'omBarn.tittelModal': 'Om barnet',
     'omBarn.informasjon.tittel': 'Søknad om barnepensjon',
@@ -653,6 +658,7 @@ export default {
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',
     'endreSvarOppsummering.situasjonen-din': 'Endre svar om situasjonen din',
     'endreSvarOppsummering.inntekten-din': 'Endre svar om inntekten din',
+    'endreSvarOppsummering.omsorg-for-barn': 'Endre svar om omsorg for barn under 18 år',
     'endreSvarOppsummering.om-barn': 'Endre svar om barn',
     'fortsettSoeknad.beskrivelse': 'Ønsker du å fortsette utfyllingen av påbegynt søknad?',
     'fortsettSoeknad.fortsettSoeknad': 'Ja, jeg vil fortsette der jeg slapp',

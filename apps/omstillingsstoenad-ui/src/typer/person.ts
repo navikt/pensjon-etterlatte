@@ -26,6 +26,11 @@ export enum OppholdUtlandType {
     arbeidet = 'oppholdUtlandType.arbeidet',
 }
 
+export interface IOmsorgForBarn {
+    omsorgMinstFemti?: IValg
+    erValidert?: boolean
+}
+
 export interface IOmBarn {
     barn?: IBarn[]
     gravidEllerNyligFoedt?: IValg

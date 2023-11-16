@@ -4,6 +4,7 @@ export enum StegPath {
     OmAvdoed = 'om-den-avdoede',
     DinSituasjon = 'situasjonen-din',
     InntektenDin = 'inntekten-din',
+    OmsorgForBarn = 'omsorg-for-barn',
     OmBarn = 'om-barn',
     Oppsummering = 'oppsummering',
 }
@@ -14,6 +15,7 @@ export enum StegLabelKey {
     OmAvdoed = 'steg.OmAvdoed',
     DinSituasjon = 'steg.DinSituasjon',
     InntektenDin = 'steg.InntektenDin',
+    OmsorgForBarn = 'steg.OmsorgForBarn',
     OmBarn = 'steg.OmBarn',
     Oppsummering = 'steg.Oppsummering',
 }
@@ -38,6 +40,10 @@ export const MuligeSteg: IStegElement[] = [
     {
         path: StegPath.InntektenDin,
         label: StegLabelKey.InntektenDin,
+    },
+    {
+        path: StegPath.OmsorgForBarn,
+        label: StegLabelKey.OmsorgForBarn,
     },
     {
         path: StegPath.OmBarn,

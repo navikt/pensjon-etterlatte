@@ -211,6 +211,19 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         gaaTilNesteSide()
     })
 
+    it('Skal fylle ut siden "Omsorg for barn under 18 år" og gå til neste', () => {
+        cy.url().should('include', 'steg/omsorg-for-barn')
+
+        // Verifiser felter og fyll ut skjema.
+        const omsorgForBarn = mockSoeknad.omsorgForBarn
+
+        selectValueForId('omsorgMinstFemti', omsorgForBarn.omsorgMinstFemti)
+
+        a11yCheck()
+
+        gaaTilNesteSide()
+    })
+
     it('Skal fylle ut siden "Om barn" og gå til neste', () => {
         cy.url().should('include', 'steg/om-barn')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')

@@ -1,4 +1,4 @@
-import { IAvdoed, IOmBarn, ISoeker, ISoekerOgAvdoed } from '../../typer/person'
+import { IAvdoed, IOmBarn, IOmsorgForBarn, ISoeker, ISoekerOgAvdoed } from '../../typer/person'
 import { ISituasjon } from '../../typer/situasjon'
 import { Language } from '../../i18n'
 import { IInntekt } from '../../typer/inntekt'
@@ -15,6 +15,7 @@ export const tomSoeknad: ISoeknad = {
     omDenAvdoede: {},
     dinSituasjon: {},
     inntektenDin: {},
+    omsorgForBarn: {},
     opplysningerOmBarn: {},
 }
 
@@ -30,6 +31,7 @@ export interface ISoeknad {
     omDenAvdoede: IAvdoed
     dinSituasjon: ISituasjon
     inntektenDin: IInntekt
+    omsorgForBarn: IOmsorgForBarn
     opplysningerOmBarn: IOmBarn
 }
 
@@ -46,6 +48,7 @@ export enum ActionTypes {
     OPPDATER_AVDOED = 'OPPDATER_AVDOED',
     OPPDATER_DIN_SITUASJON = 'OPPDATER_DIN_SITUASJON',
     OPPDATER_INNTEKTEN_DIN = 'OPPDATER_INNTEKTEN_DIN',
+    OPPDATER_OMSORG_FOR_BARN = 'OPPDATER_OMSORG_FOR_BARN',
     OPPDATER_OM_BARN = 'OPPDATER_OM_BARN',
     SET_ERROR = 'SET_ERROR',
 }

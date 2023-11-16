@@ -2,7 +2,15 @@ import { TFunction } from 'i18next'
 import { IBruker } from '../context/bruker/bruker'
 import { ISoeknad } from '../context/soknad/soknad'
 import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from '../typer/arbeidsforhold'
-import { IAvdoed, IOmBarn, IOppholdUtland, ISoeker, ISoekerOgAvdoed, Sivilstatus } from '../typer/person'
+import {
+    IAvdoed,
+    IOmBarn,
+    IOmsorgForBarn,
+    IOppholdUtland,
+    ISoeker,
+    ISoekerOgAvdoed,
+    Sivilstatus,
+} from '../typer/person'
 import { ISituasjon } from '../typer/situasjon'
 import { StegPath } from '../typer/steg'
 import ObjectTreeReader, { Element, Gruppe } from './ObjectTreeReader'
@@ -24,6 +32,7 @@ export default class SoeknadMapper {
             this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
             this.mapDinSituasjon(soeknad.dinSituasjon),
             this.mapInntektenDin(soeknad.inntektenDin),
+            this.mapOmsorgForBarn(soeknad.omsorgForBarn),
             this.mapOpplysningerOmBarn(soeknad.opplysningerOmBarn),
         ]
     }
@@ -265,6 +274,24 @@ export default class SoeknadMapper {
                             erValidert: undefined,
                         },
                         'inntektenDin'
+                    ),
+                },
+            ],
+        }
+    }
+
+    private mapOmsorgForBarn(omsorgForBarn: IOmsorgForBarn): Gruppe {
+        return {
+            tittel: this.t('omsorgForBarn.tittel'),
+            path: StegPath.OmsorgForBarn,
+            elementer: [
+                {
+                    innhold: this.otr.traverse<IOmsorgForBarn>(
+                        {
+                            ...omsorgForBarn,
+                            erValidert: undefined,
+                        },
+                        'omsorgForBarn'
                     ),
                 },
             ],
