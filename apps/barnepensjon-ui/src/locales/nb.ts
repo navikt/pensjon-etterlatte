@@ -184,9 +184,9 @@ const aboutParents = {
     addFirstParentBtn: 'Legg til forelder 1',
     addSecondParentBtn: 'Legg til forelder 2',
     bothParentsRequired:
-        'Du må legge til opplysninger om begge foreldrene dine for å fortsette søknaden. \n\n Hvis barnet har mistet én forelder og du ikke vet identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Velg alternativet "Begge foreldrene".',
+        'Du må legge til opplysninger om begge foreldrene for å fortsette søknaden. \n\n Hvis barnet har mistet én forelder og du ikke vet identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Velg alternativet "Begge foreldrene".',
     chooseUnknowParent:
-        'Du må legge til opplysninger om begge foreldrene dine for å fortsette søknaden. \n\n Hvis du ikke kjenner identiteten til den ene forelderen, velger du "Ukjent forelder".',
+        'Du må legge til opplysninger om begge foreldrene for å fortsette søknaden. \n\n Hvis du ikke kjenner identiteten til den ene forelderen, velger du "Ukjent forelder".',
     childAndOneParentDeceased: 'Du trenger ikke fylle ut informasjon om gjenlevende forelder',
     unknownParent: 'Ukjent forelder',
     unknownParentQuestion: 'Kan du bekrefte at du ikke kjenner identiteten til din forelder?',
