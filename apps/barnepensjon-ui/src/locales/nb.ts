@@ -53,7 +53,9 @@ const btn = {
 
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
-        'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.\n <a href="https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/">Endre opplysningene dine</a>',
+        'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret. \n',
+    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
+    incorrectInfoMustBeCorrectedHrefText: 'Endre opplysningene dine',
 }
 
 const paymentDetails = {
