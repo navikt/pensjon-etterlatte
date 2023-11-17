@@ -414,6 +414,7 @@ export default {
         'Please be aware that voluntary tax deductions must be renewed annually.',
     'omBarn.infokort.foedselsnummer': 'NORWEGIAN NATIONAL IDENTITY NUMBER',
     'omBarn.infokort.foreldre': 'THE CHILD’S PARENTS',
+    'omBarn.infokort.foreldre.jegOgAvdoed': '<MANGLER TEKST>',
     'omBarn.infokort.bosted': 'PLACE OF RESIDENCE',
     'omBarn.infokort.statsborgerskap': 'NATIONALITY',
     'omBarn.bosattUtland.svar': 'Does the child live in a country other than Norway?',

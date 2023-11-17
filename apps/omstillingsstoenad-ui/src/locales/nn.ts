@@ -398,6 +398,7 @@ export default {
         'Ver merksam på at frivillig skattetrekk må sendast inn på nytt kvart kalenderår.',
     'omBarn.infokort.foedselsnummer': 'FØDSELSNUMMER',
     'omBarn.infokort.foreldre': 'FORELDRE TIL BARNET',
+    'omBarn.infokort.foreldre.jegOgAvdoed': '<MANGLER TEKST>',
     'omBarn.infokort.bosted': 'BUSTAD',
     'omBarn.infokort.statsborgerskap': 'STATSBORGARSKAP',
     'omBarn.bosattUtland.svar': 'Bur barnet i eit anna land enn Noreg?',

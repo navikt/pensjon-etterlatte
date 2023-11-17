@@ -436,6 +436,7 @@ export default {
         'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
     'omBarn.infokort.foedselsnummer': 'FØDSELSNUMMER',
     'omBarn.infokort.foreldre': 'FORELDRE TIL BARNET',
+    'omBarn.infokort.foreldre.jegOgAvdoed': 'Jeg og avdøde',
     'omBarn.infokort.bosted': 'BOSTED',
     'omBarn.infokort.statsborgerskap': 'STATSBORGERSKAP',
     'omBarn.bosattUtland.svar': 'Bor barnet i et annet land enn Norge?',
