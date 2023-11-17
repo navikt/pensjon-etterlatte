@@ -399,7 +399,7 @@ export default {
     'omBarn.tittelModal': 'Om barnet',
     'omBarn.informasjon.tittel': 'Søknad om barnepensjon',
     'omBarn.informasjon':
-        'Hvis du har felles barn under 18 år med avdøde kan du også søke om barnepensjon ved å krysse av for dette når du registrerer felles barn her.\n \n Barn over 18 år må søke selv.\n',
+        'Du kan søke om barnepensjon for barn under 18 år som du har felles med avdøde i denne søknaden.\n \n Barn over 18 år må søke selv.',
     'omBarn.fornavn': 'Fornavn',
     'omBarn.etternavn': 'Etternavn',
     'omBarn.foedselsnummer': 'Barnets fødselsnummer / d-nummer',
