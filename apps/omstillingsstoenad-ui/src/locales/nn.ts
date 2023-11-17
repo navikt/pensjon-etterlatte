@@ -89,6 +89,25 @@ export default {
     'situasjonenDin.tittel': '<MANGLER TEKST>',
     'situasjonenDin.ingress': '<MANGLER TEKST>',
     'situasjonenDin.omsorgMinstFemti': '<MANGLER TEKST>',
+    'situasjonenDin.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
+    'situasjonenDin.nySivilstatus.beskrivelse':
+        'Viss du har gifta deg eller blitt sambuar på nytt kan det avgjere om du kan få omstillingsstønad og kor mykje du kan få.',
+    'situasjonenDin.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
+        'Har eller hadde de barn saman eller var de tidlegare gift?',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.tittel': 'Opplysingar om sambuar',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.fornavn': 'Førenamn',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.etternavn': 'Etternamn',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
+    'situasjonenDin.oppholderSegINorge.svar': 'Har du oppheldt deg i Noreg dei siste 12 månadane?',
+    'situasjonenDin.oppholderSegINorge.oppholdFra': 'Fra dato',
+    'situasjonenDin.oppholderSegINorge.oppholdTil': 'Til dato',
+    'situasjonenDin.oppholdHvorfor':
+        'Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
+    'situasjonenDin.oppholderSegINorge.oppholdsland': 'Oppgi hvilket land du oppheldt deg i',
+    'situasjonenDin.gravidEllerNyligFoedt':
+        'Ventar du barn eller har du barn som framleis ikkje er registrert i folkeregisteret?',
+    'situasjonenDin.bosattINorge': '<MANGLER TEKST>',
+    'situasjonenDin.bosattLand': '<MANGLER TEKST>',
     'merOmSituasjonenDin.tittel': 'Situasjonen din',
     'merOmSituasjonenDin.ingress': '<MANGLER TEKST>',
     'merOmSituasjonenDin.jobbStatus.tittel': '<MANGLER TEKST>',
@@ -281,10 +300,6 @@ export default {
     'omDeg.advarsel.href': 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
     'omDeg.advarsel.href.tekst': '<MANGLER TEKST>',
     'omDeg.alternativAdresse': 'Oppgi noverande bustadsadresse',
-    'omDeg.oppholderSegINorge': 'Har du oppheldt deg i Noreg dei siste 12 månadane?',
-    'omDeg.oppholdHvorfor':
-        'Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
-    'omDeg.oppholdsland': 'Oppgi hvilket land du oppheldt deg i',
     'omDeg.flyktning': 'Har du status som flyktning?',
     'omDeg.flyktningHvorfor':
         'Hvis du er registrert som flyktning hos UDI kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
@@ -301,15 +316,6 @@ export default {
     'omDeg.utbetalingsInformasjon.swift': 'Bankens S.W.I.F.T (BIC) adresse',
     'omDeg.utbetalingsInformasjon.swiftHjelpetekst':
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kallast også SWIFT, og er påkrevd ved betaling til ei rekke land.',
-    'omDeg.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
-    'omDeg.nySivilstatus.beskrivelse':
-        'Viss du har gifta deg eller blitt sambuar på nytt kan det avgjere om du kan få omstillingsstønad og kor mykje du kan få.',
-    'omDeg.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
-        'Har eller hadde de barn saman eller var de tidlegare gift?',
-    'omDeg.nySivilstatus.samboerskap.samboer.tittel': 'Opplysingar om sambuar',
-    'omDeg.nySivilstatus.samboerskap.samboer.fornavn': 'Førenamn',
-    'omDeg.nySivilstatus.samboerskap.samboer.etternavn': 'Etternamn',
-    'omDeg.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
     'omDegOgAvdoed.tittel': 'Om deg og avdøde',
     'omDegOgAvdoed.avdoed.hvem': 'Kven er det som er død?',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Relasjonen din til avdøde då dødsfallet skjedde',
@@ -408,8 +414,6 @@ export default {
     'omBarn.bosattUtland.svar': 'Bur barnet i eit anna land enn Noreg?',
     'omBarn.bosattUtland.land': 'Land',
     'omBarn.bosattUtland.adresse': 'Adresse i utlandet',
-    'omBarn.gravidEllerNyligFoedt':
-        'Ventar du barn eller har du barn som framleis ikkje er registrert i folkeregisteret?',
     'omBarn.valgfritt': 'Dette er valfritt',
     'omBarn.soeknadOmBarnetilsyn': 'Informasjon om stønad til barnetilsyn',
     'omBarn.soeknadOmBarnetilsyn.beskrivelse':
@@ -564,6 +568,7 @@ export default {
     'endringAvInntekt.annenGrunn': '<MANGLER TEKST>',
     'arbeidsmengde.prosent': '<MANGLER TEKST>',
     'arbeidsmengde.timer': '<MANGLER TEKST>',
+    'nySivilstatus.enke': '<MANGLER TEKST>',
     'nySivilstatus.ekteskap': 'Gift',
     'nySivilstatus.samboerskap': 'Sambuar',
     'nySivilstatus.enslig': 'Einsleg',
@@ -618,8 +623,8 @@ export default {
     'endreSvarOppsummering.om-deg-og-avdoed': 'Endre svar om deg og avdøde',
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',
     'endreSvarOppsummering.situasjonen-din': 'Endre svar om situasjonen din',
+    'endreSvarOppsummering.mer-om-situasjonen-din': 'Endre svar om mer om situasjonen din',
     'endreSvarOppsummering.inntekten-din': 'Endre svar om inntekten din',
-    'endreSvarOppsummering.omsorg-for-barn': '<MANGLER TEKST>',
     'endreSvarOppsummering.om-barn': 'Endre svar om barn',
     'fortsettSoeknad.beskrivelse': 'Ønsker du å halde fram med utfyllinga av påbegynt søknad?',
     'fortsettSoeknad.fortsettSoeknad': 'Ja, eg vil halde fram der eg slapp',

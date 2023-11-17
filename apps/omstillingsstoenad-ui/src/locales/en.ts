@@ -93,6 +93,25 @@ export default {
     'situasjonenDin.tittel': '<MANGLER TEKST>',
     'situasjonenDin.ingress': '<MANGLER TEKST>',
     'situasjonenDin.omsorgMinstFemti': '<MANGLER TEKST>',
+    'situasjonenDin.nySivilstatus.sivilstatus': 'Your marital status today',
+    'situasjonenDin.nySivilstatus.beskrivelse':
+        'If you have remarried or moved in with a new partner, this may affect whether you can receive survivor’s pension and the size of the pension.',
+    'situasjonenDin.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
+        'Do you have or have you had children together or were you previously married?',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.tittel': 'Information about your cohabiting partner',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.fornavn': 'First name(s)',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.etternavn': 'Family name',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Norwegian national identity number',
+    'situasjonenDin.gravidEllerNyligFoedt':
+        'Are you expecting a child or do you have children who have not yet been registered in the Norwegian National Registry?',
+    'situasjonenDin.oppholderSegINorge.svar': 'Have you been staying in Norway the last 12 months?',
+    'situasjonenDin.oppholderSegINorge.oppholdFra': 'Fra dato',
+    'situasjonenDin.oppholderSegINorge.oppholdTil': 'Til dato',
+    'situasjonenDin.oppholdHvorfor':
+        'If you spend a prolonged period in a country other than Norway, this may affect whether you get a survivor’s pension and how much money you get.',
+    'situasjonenDin.oppholderSegINorge.oppholdsland': 'State which country',
+    'situasjonenDin.bosattINorge': '<MANGLER TEKST>',
+    'situasjonenDin.bosattLand': '<MANGLER TEKST>',
     'merOmSituasjonenDin.tittel': 'Your situation',
     'merOmSituasjonenDin.ingress': '<MANGLER TEKST>',
     'merOmSituasjonenDin.jobbStatus.tittel': '<MANGLER TEKST>',
@@ -290,10 +309,6 @@ export default {
     'omDeg.advarsel.href': 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
     'omDeg.advarsel.href.tekst': '<MANGLER TEKST>',
     'omDeg.alternativAdresse': 'Enter your current residential address',
-    'omDeg.oppholderSegINorge': 'Have you been staying in Norway the last 12 months?',
-    'omDeg.oppholdHvorfor':
-        'If you spend a prolonged period in a country other than Norway, this may affect whether you get a survivor’s pension and how much money you get.',
-    'omDeg.oppholdsland': 'State which country',
     'omDeg.flyktning': 'Do you have refugee status?',
     'omDeg.flyktningHvorfor':
         'If you are registered as a refugee with the Norwegian Directorate of Immigration (UDI), this may affect whether you get a survivor’s pension and how much money you get.',
@@ -311,15 +326,6 @@ export default {
     'omDeg.utbetalingsInformasjon.swift': 'The bank’s SWIFT code or BIC',
     'omDeg.utbetalingsInformasjon.swiftHjelpetekst':
         'BIC stands for Bank Identifier Code, and is a unique code that identifies the bank. The BIC, which in some countries is called the SWIFT code, is required when making payments to a number of countries.',
-    'omDeg.nySivilstatus.sivilstatus': 'Your marital status today',
-    'omDeg.nySivilstatus.beskrivelse':
-        'If you have remarried or moved in with a new partner, this may affect whether you can receive survivor’s pension and the size of the pension.',
-    'omDeg.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
-        'Do you have or have you had children together or were you previously married?',
-    'omDeg.nySivilstatus.samboerskap.samboer.tittel': 'Information about your cohabiting partner',
-    'omDeg.nySivilstatus.samboerskap.samboer.fornavn': 'First name(s)',
-    'omDeg.nySivilstatus.samboerskap.samboer.etternavn': 'Family name',
-    'omDeg.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Norwegian national identity number',
     'omDegOgAvdoed.tittel': 'About you and the deceased',
     'omDegOgAvdoed.avdoed.hvem': 'The deceased’s personal details',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Your relationship with the deceased at the time of their death',
@@ -424,8 +430,6 @@ export default {
     'omBarn.bosattUtland.svar': 'Does the child live in a country other than Norway?',
     'omBarn.bosattUtland.land': 'Country',
     'omBarn.bosattUtland.adresse': 'Address outside Norway',
-    'omBarn.gravidEllerNyligFoedt':
-        'Are you expecting a child or do you have children who have not yet been registered in the Norwegian National Registry?',
     'omBarn.valgfritt': 'This is optional',
     'omBarn.soeknadOmBarnetilsyn': 'Information about benefits for child care',
     'omBarn.soeknadOmBarnetilsyn.beskrivelse':
@@ -581,6 +585,7 @@ export default {
     'endringAvInntekt.annenGrunn': '<MANGLER TEKST>',
     'arbeidsmengde.prosent': '<MANGLER TEKST>',
     'arbeidsmengde.timer': '<MANGLER TEKST>',
+    'nySivilstatus.enke': '<MANGLER TEKST>',
     'nySivilstatus.ekteskap': 'Married',
     'nySivilstatus.samboerskap': 'Cohabiting partner',
     'nySivilstatus.enslig': 'Single',
@@ -635,8 +640,8 @@ export default {
     'endreSvarOppsummering.om-deg-og-avdoed': 'Change answers about you and the deceased',
     'endreSvarOppsummering.om-den-avdoede': 'Change answers about the deceased',
     'endreSvarOppsummering.situasjonen-din': 'Change answers about your situation',
+    'endreSvarOppsummering.mer-om-situasjonen-din': 'Change answers about your situation',
     'endreSvarOppsummering.inntekten-din': 'Change answers about your income',
-    'endreSvarOppsummering.omsorg-for-barn': '<MANGLER TEKST>',
     'endreSvarOppsummering.om-barn': 'Change answers about children',
     'fortsettSoeknad.beskrivelse': 'Do you want to continue filling in the application you started earlier?',
     'fortsettSoeknad.fortsettSoeknad': 'Yes, I want to carry on from where I left off',

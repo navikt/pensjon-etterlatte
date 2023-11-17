@@ -34,7 +34,7 @@ import {
 } from '../dto/FellesOpplysninger'
 import { Gjenlevende, PersonType, Samboer } from '../dto/Person'
 import { valgTilSvar } from './fellesMapper'
-import { IForholdAvdoede, INySivilstatus, ISoeker, Sivilstatus } from '../../typer/person'
+import { IForholdAvdoede, INySivilstatus, ISituasjonenDin, Sivilstatus } from '../../typer/person'
 import { IValg } from '../../typer/Spoersmaal'
 import { IMerOmSituasjonenDin, JobbStatus } from '../../typer/situasjon'
 import {
@@ -86,7 +86,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         ? {
               spoersmaal: t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning'),
               svar:
-                  soeknad.dinSituasjon.utdanning!!.hoyesteFullfoerteUtdanning!!.map((type) => ({
+                  soeknad.merOmSituasjonenDin.utdanning!!.hoyesteFullfoerteUtdanning!!.map((type) => ({
                       verdi: konverterTilHoyesteUtdanning(type),
                       innhold: t(type),
                   })) || [],
@@ -136,13 +136,15 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         kontaktinfo,
         flyktning,
         oppholdUtland: !bruker.adressebeskyttelse ? hentOppholdUtland(t, soeknad.omDeg) : undefined,
-        nySivilstatus: hentSivilstatus(t, soeknad.omDeg.nySivilstatus!!),
-        arbeidOgUtdanning: !bruker.adressebeskyttelse ? hentArbeidOgUtdanning(t, soeknad.dinSituasjon) : undefined,
+        nySivilstatus: hentSivilstatus(t, soeknad.situasjonenDin.nySivilstatus!!),
+        arbeidOgUtdanning: !bruker.adressebeskyttelse
+            ? hentArbeidOgUtdanning(t, soeknad.merOmSituasjonenDin)
+            : undefined,
         fullfoertUtdanning,
         inntektOgPensjon: hentInntektOgPensjon(t, soeknad.inntektenDin),
         uregistrertEllerVenterBarn: {
-            spoersmaal: t('omBarn.gravidEllerNyligFoedt'),
-            svar: valgTilSvar(t, soeknad.opplysningerOmBarn.gravidEllerNyligFoedt!!),
+            spoersmaal: t('situasjonenDin.gravidEllerNyligFoedt'),
+            svar: valgTilSvar(t, soeknad.situasjonenDin.gravidEllerNyligFoedt!!),
         },
         forholdTilAvdoede: mapForholdTilAvdoede(t, soeknad.omDegOgAvdoed.forholdTilAvdoede!!),
     }
@@ -151,7 +153,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
 export const mapStoenader = (t: TFunction, soeknad: ISoeknad): Opplysning<EnumSvar<Stoenader>>[] => {
     const stoenader: Opplysning<EnumSvar<Stoenader>>[] = []
 
-    if (soeknad.dinSituasjon.utdanning?.soeknadOmSkolepenger) {
+    if (soeknad.merOmSituasjonenDin.utdanning?.soeknadOmSkolepenger) {
         stoenader.push({
             spoersmaal: t('merOmSituasjonenDin.utdanning.soeknadOmSkolepenger'),
             svar: {
@@ -161,7 +163,7 @@ export const mapStoenader = (t: TFunction, soeknad: ISoeknad): Opplysning<EnumSv
         })
     }
 
-    if (soeknad.dinSituasjon.utdanning?.soeknadOmTilleggsstoenadUtdanning) {
+    if (soeknad.merOmSituasjonenDin.utdanning?.soeknadOmTilleggsstoenadUtdanning) {
         stoenader.push({
             spoersmaal: t('merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning'),
             svar: {
@@ -194,23 +196,27 @@ export const mapStoenader = (t: TFunction, soeknad: ISoeknad): Opplysning<EnumSv
     return stoenader
 }
 
-const hentOppholdUtland = (t: TFunction, omDeg: ISoeker): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland> => {
+const hentOppholdUtland = (
+    t: TFunction,
+    situasjonenDin: ISituasjonenDin
+): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland> => {
     let opplysning: OppholdUtland | undefined
-
-    if (omDeg.oppholderSegINorge === IValg.NEI) {
+    //TODO: MAP DENNE RIKTIG!!
+    console.log('Map denne riktig')
+    if (situasjonenDin.oppholderSegINorge?.svar === IValg.NEI) {
         opplysning = {
             land: {
-                spoersmaal: t('omDeg.oppholdsland'),
+                spoersmaal: t('situasjonenDin.oppholdsland'),
                 svar: {
-                    innhold: omDeg.oppholdsland!!,
+                    innhold: IValg.JA,
                 },
             },
         }
     }
 
     return {
-        spoersmaal: t('omDeg.oppholderSegINorge'),
-        svar: valgTilSvar(t, omDeg.oppholderSegINorge!!),
+        spoersmaal: t('situasjonenDin.oppholderSegINorge'),
+        svar: valgTilSvar(t, IValg.JA),
         opplysning,
     }
 }
@@ -389,7 +395,9 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                 samarbeidMedNav:
                     dinSituasjon.etablererVirksomhet?.forretningsplan?.svar === IValg.JA
                         ? {
-                              spoersmaal: t('merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar'),
+                              spoersmaal: t(
+                                  'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar'
+                              ),
                               svar: valgTilSvar(
                                   t,
                                   dinSituasjon!!.etablererVirksomhet!!.forretningsplan!!.samarbeidMedNAV!!.svar!!

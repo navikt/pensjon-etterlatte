@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Situasjonen din Skal rendre selvstendig 1`] = `
+exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
@@ -1884,7 +1884,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
 </div>
 `;
 
-exports[`Situasjonen din Snapshot 1`] = `
+exports[`Mer om situasjonen din Snapshot 1`] = `
 <div>
   <form>
     <div

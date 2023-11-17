@@ -30,9 +30,9 @@ export default class SoeknadMapper {
             this.mapOmDeg(soeknad.omDeg, bruker),
             this.mapOmDenAvdoede(soeknad.omDenAvdoede),
             this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
-            this.mapDinSituasjon(soeknad.dinSituasjon),
+            this.mapSituasjonenDin(soeknad.situasjonenDin),
+            this.mapMerOmSituasjonenDin(soeknad.merOmSituasjonenDin),
             this.mapInntektenDin(soeknad.inntektenDin),
-            this.mapOmsorgForBarn(soeknad.omsorgForBarn),
             this.mapOpplysningerOmBarn(soeknad.opplysningerOmBarn),
         ]
     }
@@ -63,10 +63,6 @@ export default class SoeknadMapper {
                     innhold: this.otr.traverse<ISoeker>(
                         {
                             ...omDeg,
-                            nySivilstatus: {
-                                ...omDeg.nySivilstatus,
-                                sivilstatus: this.t(omDeg.nySivilstatus?.sivilstatus || '') as Sivilstatus,
-                            },
                             erValidert: undefined,
                         },
                         'omDeg'
@@ -137,7 +133,29 @@ export default class SoeknadMapper {
         }
     }
 
-    private mapDinSituasjon(dinSituasjon: IMerOmSituasjonenDin): Gruppe {
+    private mapSituasjonenDin(situasjonenDin: ISituasjonenDin): Gruppe {
+        return {
+            tittel: this.t('situasjonenDin.tittel'),
+            path: StegPath.SituasjonenDin,
+            elementer: [
+                {
+                    innhold: this.otr.traverse<ISituasjonenDin>(
+                        {
+                            ...situasjonenDin,
+                            nySivilstatus: {
+                                ...situasjonenDin.nySivilstatus,
+                                sivilstatus: this.t(situasjonenDin.nySivilstatus?.sivilstatus || '') as Sivilstatus,
+                            },
+                            erValidert: undefined,
+                        },
+                        'situasjonenDin'
+                    ),
+                },
+            ],
+        }
+    }
+
+    private mapMerOmSituasjonenDin(dinSituasjon: IMerOmSituasjonenDin): Gruppe {
         const arbeidsforhold: Element[] =
             dinSituasjon.arbeidsforhold?.map((arbeid) => {
                 return {
@@ -274,24 +292,6 @@ export default class SoeknadMapper {
                             erValidert: undefined,
                         },
                         'inntektenDin'
-                    ),
-                },
-            ],
-        }
-    }
-
-    private mapOmsorgForBarn(omsorgForBarn: ISituasjonenDin): Gruppe {
-        return {
-            tittel: this.t('omsorgForBarn.tittel'),
-            path: StegPath.SituasjonenDin,
-            elementer: [
-                {
-                    innhold: this.otr.traverse<ISituasjonenDin>(
-                        {
-                            ...omsorgForBarn,
-                            erValidert: undefined,
-                        },
-                        'omsorgForBarn'
                     ),
                 },
             ],

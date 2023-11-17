@@ -86,6 +86,7 @@ export enum StillingType {
 }
 
 export enum SivilstatusType {
+    ENKE = 'ENKE',
     ENSLIG = 'ENSLIG',
     EKTESKAP = 'EKTESKAP',
     SAMBOERSKAP = 'SAMBOERSKAP',

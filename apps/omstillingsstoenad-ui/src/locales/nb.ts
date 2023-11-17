@@ -1,5 +1,5 @@
 export default {
-    'steg.OmDeg': 'Om deg',
+    'steg.OmDeg': 'Personopplysninger',
     'steg.OmDegOgAvdoed': 'Om deg og avdøde',
     'steg.OmAvdoed': 'Opplysninger om den avdøde',
     'steg.SituasjonenDin': 'Situasjonen din',
@@ -85,11 +85,30 @@ export default {
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
-    'situasjonenDin.tittel': 'Omsorg for barn under 18 år',
+    'situasjonenDin.tittel': 'Situasjonen din',
     'situasjonenDin.ingress':
         'Retten din til omstillingsstønad kan påvirkes av om du\n - har eller har hatt barn med avdøde\n - har minst 50 prosent omsorg for barn\n \n Legg til alle barn og/eller adoptivbarn du har felles med avdøde. Dette gjelder også barn over 18 år.\n I tillegg må du legge til barn under 18 år som du har omsorgen for. Dette gjelder avdødes barn, dine egne barn eller fosterbarn.',
+    'situasjonenDin.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
+    'situasjonenDin.nySivilstatus.beskrivelse':
+        'Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få omstillingsstønad og hvor mye du kan få.',
+    'situasjonenDin.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
+        'Har eller har dere hatt felles barn, eller har dere tidligere vært gift?',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.tittel': 'Opplysninger om samboer',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.fornavn': 'Fornavn',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.etternavn': 'Etternavn',
+    'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
     'situasjonenDin.omsorgMinstFemti': 'Har du minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet?',
-    'merOmSituasjonenDin.tittel': 'Situasjonen din',
+    'situasjonenDin.gravidEllerNyligFoedt':
+        'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
+    'situasjonenDin.oppholderSegINorge.svar': 'Har du bodd eller oppholdt deg i utlandet de siste 12 månedene?',
+    'situasjonenDin.oppholdHvorfor':
+        'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
+    'situasjonenDin.oppholderSegINorge.oppholdsland': 'Oppgi hvilket land du oppholdt deg i',
+    'situasjonenDin.oppholderSegINorge.oppholdFra': 'Fra dato',
+    'situasjonenDin.oppholderSegINorge.oppholdTil': 'Til dato',
+    'situasjonenDin.bosattINorge': 'Er du bosatt i Norge?',
+    'situasjonenDin.bosattLand': 'Oppgi hvilket land du er bosatt i',
+    'merOmSituasjonenDin.tittel': 'Mer om situasjonen din',
     'merOmSituasjonenDin.ingress':
         'Din rett til omstillingsstønad avhenger av din aktivitet for å opprettholde eller øke din arbeidstilknytning.\n\n' +
         'I en omstillingsperiode på seks måneder etter dødsfallet er det ikke krav til at du er i arbeid eller annen aktivitet.\n\n' +
@@ -130,7 +149,8 @@ export default {
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.beskrivelse':
         'Du kan få stønad til dekning av skolepenger hvis du gjennomfører utdanning som er godkjent av NAV. Utdanningen må være nødvendig og hensiktsmessig for å komme i eller beholde arbeid.\n\nStønad til skolepenger skal dekke de faktiske utgiftene du har til studieavgift, semesteravgift, eksamensgebyr og/eller skolepenger ved privat utdanningsinstitusjon. Stønaden dekker dokumenterte utgifter opp til en øvre grense.',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.bekreftelse': 'Jeg har utgifter til skolepenger',
-    'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning': 'Informasjon om tilleggsstønad til skoleutgifter',
+    'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning':
+        'Informasjon om tilleggsstønad til skoleutgifter',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse':
         'Du kan også søke om tilleggsstønad hvis du gjennomfører utdanning som er godkjent av NAV. Du kan få støtte til dekning av nødvendige utgifter som du har under utdanningen, for eksempel utgifter til læremidler, reiser, flytting og ekstra boutgifter.',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse': 'Jeg har utgifter til utdanning',
@@ -154,7 +174,8 @@ export default {
     'merOmSituasjonenDin.selvstendig.arbeidsmengde.prosent': 'Arbeidsprosent',
     'merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar':
         'Forventer du endringer i arbeidssituasjonen din fremover i tid?',
-    'merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse': 'Gi en kort beskrivelse av endringene',
+    'merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse':
+        'Gi en kort beskrivelse av endringene',
     'merOmSituasjonenDin.selvstendig.forventerEndretInntekt.svar':
         'Regner du med at inntekten din endrer seg de neste 12 månedene?',
     'merOmSituasjonenDin.selvstendig.forventerEndretInntekt.beskrivelse': 'Hva er grunnen til endringene?',
@@ -176,7 +197,8 @@ export default {
     'merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger': 'Sluttdato',
     'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar':
         'Forventer du endringer i arbeidssituasjonen din fremover i tid?',
-    'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse': 'Gi en kort beskrivelse av endringene',
+    'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse':
+        'Gi en kort beskrivelse av endringene',
     'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar':
         'Har du sagt opp jobben eller redusert arbeidstiden de siste 6 månedene?',
     'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor':
@@ -208,7 +230,8 @@ export default {
     'merOmSituasjonenDin.andreYtelser.tittel': 'Ytelser',
     'merOmSituasjonenDin.andreYtelser.ingress':
         'Noen ytelser fra NAV blir regnet som inntekt og har betydning for hvor mye omstillingsstønad du får. Uføretrygd, alderspensjon, avtalefestet pensjon (AFP) kan ikke kombineres med omstillingsstønad.',
-    'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.svar': 'Har du søkt om andre ytelser som du ikke har fått svar på?',
+    'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.svar':
+        'Har du søkt om andre ytelser som du ikke har fått svar på?',
     'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.ytelser': 'Hva har du søkt om?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.svar':
         'Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?',
@@ -218,7 +241,8 @@ export default {
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvorfor':
         'Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon': 'Hva slags pensjon?',
-    'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder': 'Eks. alderspensjon, omstillingsstønad',
+    'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder':
+        'Eks. alderspensjon, omstillingsstønad',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.fraHvilketLand': 'Fra hvilket land?',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar': 'Årlig beløp før skatt i landets valuta',
     'merOmSituasjonenDin.forventerEndretInntektType.oektStillingsprosent': 'Økt stillingsprosent',
@@ -310,17 +334,13 @@ export default {
     'inntektenDin.forventerEndringAvInntekt.svar': 'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
     'inntektenDin.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse av endringene',
-    'omDeg.tittel': 'Om deg',
+    'omDeg.tittel': 'Personopplysninger',
     'omDeg.undertittel.personalia': 'Personalia',
     'omDeg.undertittel.opplysningerOmSoeker': 'Opplysninger om søkeren',
     'omDeg.advarsel': 'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret.',
     'omDeg.advarsel.href.tekst': 'Endre opplysningene dine',
     'omDeg.advarsel.href': 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
     'omDeg.alternativAdresse': 'Oppgi nåværende bostedsadresse',
-    'omDeg.oppholderSegINorge': 'Har du oppholdt deg i Norge de siste 12 månedene?',
-    'omDeg.oppholdHvorfor':
-        'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
-    'omDeg.oppholdsland': 'Oppgi hvilket land du oppholdt deg i',
     'omDeg.flyktning': 'Har du status som flyktning?',
     'omDeg.flyktningHvorfor':
         'Hvis du er registrert som flyktning hos UDI kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
@@ -337,15 +357,6 @@ export default {
     'omDeg.utbetalingsInformasjon.swift': 'Bankens S.W.I.F.T (BIC) adresse',
     'omDeg.utbetalingsInformasjon.swiftHjelpetekst':
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
-    'omDeg.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
-    'omDeg.nySivilstatus.beskrivelse':
-        'Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få omstillingsstønad og hvor mye du kan få.',
-    'omDeg.nySivilstatus.samboerskap.hattBarnEllerVaertGift':
-        'Har eller har dere hatt felles barn, eller har dere tidligere vært gift?',
-    'omDeg.nySivilstatus.samboerskap.samboer.tittel': 'Opplysninger om samboer',
-    'omDeg.nySivilstatus.samboerskap.samboer.fornavn': 'Fornavn',
-    'omDeg.nySivilstatus.samboerskap.samboer.etternavn': 'Etternavn',
-    'omDeg.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
     'omDegOgAvdoed.tittel': 'Om deg og avdøde',
     'omDegOgAvdoed.avdoed.hvem': 'Hvem er det som er død?',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Relasjonen din til avdøde da dødsfallet skjedde',
@@ -391,7 +402,7 @@ export default {
     'omDenAvdoede.haddePensjonsgivendeInntekt.svar': 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
     'omDenAvdoede.selvstendigNaeringsdrivende.tittel': 'Næringsinntekt',
     'omDenAvdoede.selvstendigNaeringsdrivende.ingress':
-        'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette er viktig når vi skal beregne hvor mye du kan få i omstillingsstønad. Vi henter informasjon om andre inntekter.',
+        'Vi henter inn nødvendige opplysninger om avdødes inntekt i Skatteetatens register. Vi har ikke tilgang til opplysninger om næringsinntekt samme år og året før dødsfallet.',
     'omDenAvdoede.selvstendigNaeringsdrivende.svar': 'Var han eller hun selvstendig næringsdrivende?',
     'omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse':
         'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
@@ -447,7 +458,6 @@ export default {
     'omBarn.bosattUtland.svar': 'Bor barnet i et annet land enn Norge?',
     'omBarn.bosattUtland.land': 'Land',
     'omBarn.bosattUtland.adresse': 'Adresse i utlandet',
-    'omBarn.gravidEllerNyligFoedt': 'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
     'omBarn.valgfritt': 'Dette er valgfritt',
     'omBarn.soeknadOmBarnetilsyn': 'Informasjon om stønad til barnetilsyn',
     'omBarn.soeknadOmBarnetilsyn.beskrivelse':
@@ -603,7 +613,8 @@ export default {
     'endringAvInntekt.sesongarbeid': 'Sesongarbeid',
     'endringAvInntekt.bytteAvJobb': 'Bytte av jobb',
     'endringAvInntekt.annenGrunn': 'Annen grunn',
-    'nySivilstatus.ekteskap': 'Gift',
+    'nySivilstatus.enke': 'Enke / enkemann',
+    'nySivilstatus.ekteskap': 'Gift / partner',
     'nySivilstatus.samboerskap': 'Samboer',
     'nySivilstatus.enslig': 'Enslig',
     'pdl.sivilstatus.UOPPGITT': 'Ikke oppgitt',
@@ -657,8 +668,8 @@ export default {
     'endreSvarOppsummering.om-deg-og-avdoed': 'Endre svar om deg og avdøde',
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',
     'endreSvarOppsummering.situasjonen-din': 'Endre svar om situasjonen din',
+    'endreSvarOppsummering.mer-om-situasjonen-din': 'Endre svar om mer om situasjonen din',
     'endreSvarOppsummering.inntekten-din': 'Endre svar om inntekten din',
-    'endreSvarOppsummering.omsorg-for-barn': 'Endre svar om omsorg for barn under 18 år',
     'endreSvarOppsummering.om-barn': 'Endre svar om barn',
     'fortsettSoeknad.beskrivelse': 'Ønsker du å fortsette utfyllingen av påbegynt søknad?',
     'fortsettSoeknad.fortsettSoeknad': 'Ja, jeg vil fortsette der jeg slapp',

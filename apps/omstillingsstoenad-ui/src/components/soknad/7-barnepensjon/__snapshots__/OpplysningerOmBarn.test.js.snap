@@ -155,83 +155,6 @@ exports[`Opplysninger om barn Snapshot 1`] = `
         </div>
       </div>
     </fieldset>
-    <div
-      class="sc-crzpnZ bA-DzB"
-    >
-      <div
-        id="gravidEllerNyligFoedt"
-      >
-        <fieldset
-          class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
-        >
-          <legend
-            class="navds-fieldset__legend navds-label"
-          >
-            omBarn.gravidEllerNyligFoedt
-          </legend>
-          <div
-            class="navds-radio-buttons"
-          >
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-r3"
-                name="gravidEllerNyligFoedt"
-                type="radio"
-                value="radiobuttons.ja"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-r3"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    radiobuttons.ja
-                  </span>
-                </span>
-              </label>
-            </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-r4"
-                name="gravidEllerNyligFoedt"
-                type="radio"
-                value="radiobuttons.nei"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-r4"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    radiobuttons.nei
-                  </span>
-                </span>
-              </label>
-            </div>
-          </div>
-          <div
-            aria-live="polite"
-            aria-relevant="additions removals"
-            class="navds-fieldset__error"
-            id="fieldset-error-r2"
-          />
-        </fieldset>
-      </div>
-    </div>
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
@@ -290,7 +213,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r7"
+              aria-labelledby="title-r3"
               fill="none"
               focusable="false"
               height="1em"
@@ -300,7 +223,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r7"
+                id="title-r3"
               >
                 Lukk modalvindu
               </title>

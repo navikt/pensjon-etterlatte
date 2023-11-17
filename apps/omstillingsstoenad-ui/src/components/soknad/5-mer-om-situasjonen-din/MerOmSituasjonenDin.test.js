@@ -36,12 +36,12 @@ const defaultValues = {
 
 jest.mock('../../../context/soknad/SoknadContext', () => ({
     useSoknadContext: () => ({
-        state: { dinSituasjon: defaultValues },
+        state: { merOmSituasjonenDin: defaultValues },
         dispatch: jest.fn(),
     }),
 }))
 
-describe('Situasjonen din', () => {
+describe('Mer om situasjonen din', () => {
     it('Snapshot', () => {
         const { container } = render(<MerOmSituasjonenDin />)
         expect(container).toMatchSnapshot()

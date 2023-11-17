@@ -10,7 +10,7 @@ import { IngenJobb } from '../../../typer/arbeidsforhold'
 
 const AndreStoenader = ({ soeknad, barn }: { soeknad: ISoeknad; barn?: IBarn[] }) => {
     const { t } = useTranslation()
-    const situasjon = soeknad.dinSituasjon
+    const situasjon = soeknad.merOmSituasjonenDin
 
     const erArbeidstaker = situasjon.arbeidsforhold || situasjon.selvstendig
     const erArbeidssoeker = situasjon.jobbStatus?.includes(JobbStatus.arbeidssoeker)

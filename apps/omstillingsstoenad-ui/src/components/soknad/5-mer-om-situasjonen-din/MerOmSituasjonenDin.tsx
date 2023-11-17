@@ -32,7 +32,7 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const brukerState = useBrukerContext().state
 
     const methods = useForm<IMerOmSituasjonenDin>({
-        defaultValues: state.dinSituasjon || {},
+        defaultValues: state.merOmSituasjonenDin || {},
         shouldUnregister: true,
     })
 
@@ -44,22 +44,31 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     } = methods
 
     const lagreNeste = (data: IMerOmSituasjonenDin) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(data), erValidert: true } })
+        dispatch({
+            type: ActionTypes.OPPDATER_MER_OM_SITUASJONEN_DIN,
+            payload: { ...deepCopy(data), erValidert: true },
+        })
         neste!!()
     }
 
     const lagreTilbake = (data: IMerOmSituasjonenDin) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(data), erValidert: true } })
+        dispatch({
+            type: ActionTypes.OPPDATER_MER_OM_SITUASJONEN_DIN,
+            payload: { ...deepCopy(data), erValidert: true },
+        })
         forrige!!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(verdier), erValidert: false } })
+        dispatch({
+            type: ActionTypes.OPPDATER_MER_OM_SITUASJONEN_DIN,
+            payload: { ...deepCopy(verdier), erValidert: false },
+        })
         forrige!!()
     }
 
-    const erValidert = state.dinSituasjon.erValidert
+    const erValidert = state.merOmSituasjonenDin.erValidert
     const jobbStatus = watch('jobbStatus')
 
     const selvstendigEllerArbeidstaker =

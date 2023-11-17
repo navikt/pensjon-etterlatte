@@ -2,8 +2,9 @@ import { IValg } from './Spoersmaal'
 import { IUtbetalingsInformasjon } from './utbetaling'
 
 export enum Sivilstatus {
-    enslig = 'nySivilstatus.enslig',
+    enke = 'nySivilstatus.enke',
     ekteskap = 'nySivilstatus.ekteskap',
+    enslig = 'nySivilstatus.enslig',
     samboerskap = 'nySivilstatus.samboerskap',
 }
 
@@ -27,13 +28,22 @@ export enum OppholdUtlandType {
 }
 
 export interface ISituasjonenDin {
+    nySivilstatus?: INySivilstatus
     omsorgMinstFemti?: IValg
+    gravidEllerNyligFoedt?: IValg
+    bosattINorge?: IValg
+    bosattLand?: string
+    oppholderSegINorge?: {
+        svar?: IValg
+        oppholdsland?: string
+        oppholdFra?: Date
+        oppholdTil?: Date
+    }
     erValidert?: boolean
 }
 
 export interface IOmBarn {
     barn?: IBarn[]
-    gravidEllerNyligFoedt?: IValg
     soeknadOmBarnetilsyn?: IValg.JA | undefined
     soeknadOmTilleggsstoenadBarnepass?: IValg.JA | undefined
     erValidert?: boolean
@@ -144,9 +154,6 @@ export interface ISoeker {
     kontaktinfo?: IKontaktinfo
     utbetalingsInformasjon?: IUtbetalingsInformasjon
     flyktning?: IValg
-    oppholderSegINorge?: IValg
-    oppholdsland?: string
-    nySivilstatus?: INySivilstatus
     erValidert?: boolean
 }
 
