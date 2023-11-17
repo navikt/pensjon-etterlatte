@@ -29,7 +29,7 @@ const Selvstendig = ({ type }: Props) => {
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <Heading size={'small'}>{t('dinSituasjon.selvstendig.tittel')}</Heading>
+                <Heading size={'small'}>{t('merOmSituasjonenDin.selvstendig.tittel')}</Heading>
             </SkjemaElement>
 
             {fields.map((field: FieldArrayWithId, index: number) => (

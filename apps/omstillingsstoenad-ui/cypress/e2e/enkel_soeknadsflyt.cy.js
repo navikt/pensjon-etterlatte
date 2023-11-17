@@ -99,6 +99,19 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
     it('Skal fylle ut siden "Situasjonen din" og gå til neste', () => {
         cy.url().should('include', 'steg/situasjonen-din')
+
+        // Verifiser felter og fyll ut skjema.
+        const omsorgForBarn = mockSoeknad.omsorgForBarn
+
+        selectValueForId('omsorgMinstFemti', omsorgForBarn.omsorgMinstFemti)
+
+        a11yCheck()
+
+        gaaTilNesteSide()
+    })
+
+    it('Skal fylle ut siden "Mer om situasjonen din" og gå til neste', () => {
+        cy.url().should('include', 'steg/mer-om-situasjonen-din')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')
 
         // Verifiser felter og fyll ut skjema.
@@ -205,19 +218,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         inntektenDin.ytelserAndre.soekteYtelser.map((ytelse) => selectValueForId('ytelserAndre.soekteYtelser', ytelse))
 
         getById('ytelserAndre.pensjonsordning').type('Statens pensjonskasse')
-
-        a11yCheck()
-
-        gaaTilNesteSide()
-    })
-
-    it('Skal fylle ut siden "Omsorg for barn under 18 år" og gå til neste', () => {
-        cy.url().should('include', 'steg/omsorg-for-barn')
-
-        // Verifiser felter og fyll ut skjema.
-        const omsorgForBarn = mockSoeknad.omsorgForBarn
-
-        selectValueForId('omsorgMinstFemti', omsorgForBarn.omsorgMinstFemti)
 
         a11yCheck()
 

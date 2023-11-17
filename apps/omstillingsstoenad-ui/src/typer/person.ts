@@ -26,7 +26,7 @@ export enum OppholdUtlandType {
     arbeidet = 'oppholdUtlandType.arbeidet',
 }
 
-export interface IOmsorgForBarn {
+export interface ISituasjonenDin {
     omsorgMinstFemti?: IValg
     erValidert?: boolean
 }

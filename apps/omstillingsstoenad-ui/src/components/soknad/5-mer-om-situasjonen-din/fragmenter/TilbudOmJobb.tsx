@@ -1,7 +1,7 @@
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { useTranslation } from 'react-i18next'
 import React from 'react'
-import { ISituasjon } from '../../../../typer/situasjon'
+import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
 import { Detail, Heading, RadioProps } from '@navikt/ds-react'
@@ -17,7 +17,7 @@ import { NumberSelectRad } from '../../../felles/StyledComponents'
 const TilbudOmJobb = () => {
     const { t } = useTranslation()
 
-    const { watch } = useFormContext<ISituasjon>()
+    const { watch } = useFormContext<IMerOmSituasjonenDin>()
 
     const ansettelsesforhold = watch('tilbudOmJobb.ansettelsesforhold')
     const sluttdato = watch('tilbudOmJobb.midlertidig.svar')
@@ -29,13 +29,13 @@ const TilbudOmJobb = () => {
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <Heading size={'small'}>{t('dinSituasjon.tilbudOmJobb.tittel')}</Heading>
+                <Heading size={'small'}>{t('merOmSituasjonenDin.tilbudOmJobb.tittel')}</Heading>
             </SkjemaElement>
 
             <SkjemaElement>
                 <RHFInput
                     name={'tilbudOmJobb.arbeidssted'}
-                    label={t('dinSituasjon.tilbudOmJobb.arbeidssted')}
+                    label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidssted')}
                     htmlSize={Bredde.M}
                 />
             </SkjemaElement>
@@ -43,7 +43,7 @@ const TilbudOmJobb = () => {
             <SkjemaGruppe>
                 <Datovelger
                     name={`tilbudOmJobb.ansettelsesdato`}
-                    label={t('dinSituasjon.tilbudOmJobb.ansettelsesdato')}
+                    label={t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesdato')}
                     minDate={new Date()}
                 />
             </SkjemaGruppe>
@@ -51,7 +51,7 @@ const TilbudOmJobb = () => {
             <SkjemaElement>
                 <RHFRadio
                     name={`tilbudOmJobb.ansettelsesforhold` as const}
-                    legend={t('dinSituasjon.tilbudOmJobb.ansettelsesforhold')}
+                    legend={t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold')}
                 >
                     {Object.values(StillingType).map((value) => {
                         return { children: t(value), value } as RadioProps
@@ -62,12 +62,12 @@ const TilbudOmJobb = () => {
             {ansettelsesforhold === StillingType.fast && (
                 <SkjemaElement>
                     <SkjemaElement>
-                        <Heading size={'xsmall'}>{t('dinSituasjon.tilbudOmJobb.ansettelsesforhold.tittel')}</Heading>
-                        <Detail>{t('dinSituasjon.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast')}</Detail>
+                        <Heading size={'xsmall'}>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}</Heading>
+                        <Detail>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast')}</Detail>
                     </SkjemaElement>
                     <RHFProsentInput
                         name={`tilbudOmJobb.arbeidsmengde.svar` as const}
-                        label={t('dinSituasjon.tilbudOmJobb.arbeidsmengde.svar.fast')}
+                        label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar.fast')}
                         htmlSize={Bredde.XS}
                     />
                 </SkjemaElement>
@@ -77,14 +77,14 @@ const TilbudOmJobb = () => {
                 ansettelsesforhold === StillingType.tilkallingsvikar) && (
                 <SkjemaElement>
                     <SkjemaElement>
-                        <Heading size={'xsmall'}>{t('dinSituasjon.tilbudOmJobb.ansettelsesforhold.tittel')}</Heading>
-                        <Detail>{t('dinSituasjon.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig')}</Detail>
+                        <Heading size={'xsmall'}>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}</Heading>
+                        <Detail>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig')}</Detail>
                     </SkjemaElement>
                     <SkjemaElement>
                         <NumberSelectRad>
                             <RHFNumberInput
                                 name={`tilbudOmJobb.arbeidsmengde.svar` as const}
-                                label={t('dinSituasjon.tilbudOmJobb.arbeidsmengde.svar')}
+                                label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar')}
                                 htmlSize={Bredde.S}
                             />
                             <RHFSelect
@@ -102,13 +102,13 @@ const TilbudOmJobb = () => {
                     <SkjemaElement>
                         <RHFSpoersmaalRadio
                             name={`tilbudOmJobb.midlertidig.svar` as const}
-                            legend={t('dinSituasjon.tilbudOmJobb.midlertidig.svar')}
+                            legend={t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar')}
                         />
                     </SkjemaElement>
                     {sluttdato === IValg.JA && (
                         <Datovelger
                             name={`tilbudOmJobb.midlertidig.sluttdatoVelger`}
-                            label={t('dinSituasjon.tilbudOmJobb.midlertidig.sluttdatoVelger')}
+                            label={t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.sluttdatoVelger')}
                             minDate={new Date()}
                         />
                     )}

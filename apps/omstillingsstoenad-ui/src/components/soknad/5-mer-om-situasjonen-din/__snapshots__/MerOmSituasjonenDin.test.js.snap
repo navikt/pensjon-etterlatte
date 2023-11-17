@@ -9,7 +9,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       <h1
         class="center navds-heading navds-heading--medium"
       >
-        dinSituasjon.tittel
+        merOmSituasjonenDin.tittel
       </h1>
     </div>
     <fieldset
@@ -98,7 +98,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         <div
           class="navds-guide-panel__content"
         >
-          dinSituasjon.ingress
+          merOmSituasjonenDin.ingress
         </div>
       </div>
     </fieldset>
@@ -108,7 +108,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
       <h1
         class="navds-heading navds-heading--small navds-typo--spacing"
       >
-        dinSituasjon.jobbStatus.tittel
+        merOmSituasjonenDin.jobbStatus.tittel
       </h1>
       <div
         class="sc-hBMVwJ eslJMu"
@@ -121,13 +121,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           <legend
             class="navds-fieldset__legend navds-label"
           >
-            dinSituasjon.jobbStatus
+            merOmSituasjonenDin.jobbStatus
           </legend>
           <div
             class="navds-fieldset__description navds-body-short navds-body-short--medium"
             id="fieldset-description-r1e"
           >
-            dinSituasjon.jobbStatus.hvorfor
+            merOmSituasjonenDin.jobbStatus.hvorfor
           </div>
           <div
             class="navds-checkboxes"
@@ -496,7 +496,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           <h1
             class="navds-heading navds-heading--small"
           >
-            dinSituasjon.arbeidsforhold.tittel
+            merOmSituasjonenDin.arbeidsforhold.tittel
           </h1>
         </div>
         <div
@@ -512,7 +512,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 class="navds-form-field__label navds-label"
                 for="arbeidsforhold[0].arbeidsgiver"
               >
-                dinSituasjon.arbeidsforhold.arbeidsgiver
+                merOmSituasjonenDin.arbeidsforhold.arbeidsgiver
               </label>
               <input
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
@@ -542,7 +542,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.arbeidsforhold.ansettelsesforhold
+                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -645,12 +645,12 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               <h1
                 class="navds-heading navds-heading--xsmall"
               >
-                dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel
+                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
               </h1>
               <p
                 class="navds-detail"
               >
-                dinSituasjon.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
+                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
               </p>
             </div>
             <div
@@ -663,7 +663,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                   class="navds-form-field__label navds-label"
                   for="arbeidsforhold[0].arbeidsmengde.svar"
                 >
-                  dinSituasjon.arbeidsforhold.arbeidsmengde.svar
+                  merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar
                 </label>
                 <input
                   class="navds-text-field__input navds-body-short navds-body-short--medium"
@@ -755,7 +755,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                   <legend
                     class="navds-fieldset__legend navds-label"
                   >
-                    dinSituasjon.arbeidsforhold.midlertidig.svar
+                    merOmSituasjonenDin.arbeidsforhold.midlertidig.svar
                   </legend>
                   <div
                     class="navds-radio-buttons"
@@ -834,7 +834,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar
+                merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -941,7 +941,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar
+                merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -1052,7 +1052,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           <h1
             class="navds-heading navds-heading--small"
           >
-            dinSituasjon.selvstendig.tittel
+            merOmSituasjonenDin.selvstendig.tittel
           </h1>
         </div>
         <fieldset
@@ -1068,13 +1068,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 class="navds-form-field__label navds-label"
                 for="selvstendig.enk[0].beskrivelse"
               >
-                dinSituasjon.selvstendig.hvaHeterNaeringen
+                merOmSituasjonenDin.selvstendig.hvaHeterNaeringen
               </label>
               <div
                 class="navds-form-field__description navds-body-short navds-body-short--medium"
                 id="textField-description-r2q"
               >
-                dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse
+                merOmSituasjonenDin.selvstendig.hvaHeterNaeringen.beskrivelse
               </div>
               <input
                 aria-describedby="textField-description-r2q"
@@ -1102,13 +1102,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                 class="navds-form-field__label navds-label"
                 for="selvstendig.enk[0].orgnr"
               >
-                dinSituasjon.selvstendig.orgnr
+                merOmSituasjonenDin.selvstendig.orgnr
               </label>
               <div
                 class="navds-form-field__description navds-body-short navds-body-short--medium"
                 id="textField-description-r2r"
               >
-                dinSituasjon.selvstendig.orgnrplaceholder
+                merOmSituasjonenDin.selvstendig.orgnrplaceholder
               </div>
               <input
                 aria-describedby="textField-description-r2r"
@@ -1133,12 +1133,12 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           <label
             class="navds-label"
           >
-            dinSituasjon.selvstendig.arbeidsmengde.enk
+            merOmSituasjonenDin.selvstendig.arbeidsmengde.enk
           </label>
           <p
             class="navds-detail navds-typo--color-subtle"
           >
-            dinSituasjon.selvstendig.arbeidsmengde.beskrivelse
+            merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse
           </p>
           <div
             class="sc-crzpnZ bA-DzB"
@@ -1153,7 +1153,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
                   class="navds-form-field__label navds-label"
                   for="selvstendig.enk[0].arbeidsmengde.svar"
                 >
-                  dinSituasjon.selvstendig.arbeidsmengde.svar
+                  merOmSituasjonenDin.selvstendig.arbeidsmengde.svar
                 </label>
                 <input
                   class="navds-text-field__input navds-body-short navds-body-short--medium"
@@ -1247,7 +1247,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.svar
+                merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -1368,7 +1368,7 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
         <h1
           class="navds-heading navds-heading--small"
         >
-          dinSituasjon.utdanning.tittelFullfoert
+          merOmSituasjonenDin.utdanning.tittelFullfoert
         </h1>
       </div>
       <div
@@ -1382,13 +1382,13 @@ exports[`Situasjonen din Skal rendre selvstendig 1`] = `
           <legend
             class="navds-fieldset__legend navds-label"
           >
-            dinSituasjon.utdanning.hoyesteFullfoerteUtdanning
+            merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning
           </legend>
           <div
             class="navds-fieldset__description navds-body-short navds-body-short--medium"
             id="fieldset-description-r2e"
           >
-            dinSituasjon.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
+            merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
           </div>
           <div
             class="navds-checkboxes"
@@ -1893,7 +1893,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       <h1
         class="center navds-heading navds-heading--medium"
       >
-        dinSituasjon.tittel
+        merOmSituasjonenDin.tittel
       </h1>
     </div>
     <fieldset
@@ -1982,7 +1982,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         <div
           class="navds-guide-panel__content"
         >
-          dinSituasjon.ingress
+          merOmSituasjonenDin.ingress
         </div>
       </div>
     </fieldset>
@@ -1992,7 +1992,7 @@ exports[`Situasjonen din Snapshot 1`] = `
       <h1
         class="navds-heading navds-heading--small navds-typo--spacing"
       >
-        dinSituasjon.jobbStatus.tittel
+        merOmSituasjonenDin.jobbStatus.tittel
       </h1>
       <div
         class="sc-hBMVwJ eslJMu"
@@ -2005,13 +2005,13 @@ exports[`Situasjonen din Snapshot 1`] = `
           <legend
             class="navds-fieldset__legend navds-label"
           >
-            dinSituasjon.jobbStatus
+            merOmSituasjonenDin.jobbStatus
           </legend>
           <div
             class="navds-fieldset__description navds-body-short navds-body-short--medium"
             id="fieldset-description-r1"
           >
-            dinSituasjon.jobbStatus.hvorfor
+            merOmSituasjonenDin.jobbStatus.hvorfor
           </div>
           <div
             class="navds-checkboxes"
@@ -2379,7 +2379,7 @@ exports[`Situasjonen din Snapshot 1`] = `
           <h1
             class="navds-heading navds-heading--small"
           >
-            dinSituasjon.arbeidsforhold.tittel
+            merOmSituasjonenDin.arbeidsforhold.tittel
           </h1>
         </div>
         <div
@@ -2395,7 +2395,7 @@ exports[`Situasjonen din Snapshot 1`] = `
                 class="navds-form-field__label navds-label"
                 for="arbeidsforhold[0].arbeidsgiver"
               >
-                dinSituasjon.arbeidsforhold.arbeidsgiver
+                merOmSituasjonenDin.arbeidsforhold.arbeidsgiver
               </label>
               <input
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
@@ -2425,7 +2425,7 @@ exports[`Situasjonen din Snapshot 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.arbeidsforhold.ansettelsesforhold
+                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -2528,12 +2528,12 @@ exports[`Situasjonen din Snapshot 1`] = `
               <h1
                 class="navds-heading navds-heading--xsmall"
               >
-                dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel
+                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
               </h1>
               <p
                 class="navds-detail"
               >
-                dinSituasjon.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
+                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
               </p>
             </div>
             <div
@@ -2546,7 +2546,7 @@ exports[`Situasjonen din Snapshot 1`] = `
                   class="navds-form-field__label navds-label"
                   for="arbeidsforhold[0].arbeidsmengde.svar"
                 >
-                  dinSituasjon.arbeidsforhold.arbeidsmengde.svar
+                  merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar
                 </label>
                 <input
                   class="navds-text-field__input navds-body-short navds-body-short--medium"
@@ -2638,7 +2638,7 @@ exports[`Situasjonen din Snapshot 1`] = `
                   <legend
                     class="navds-fieldset__legend navds-label"
                   >
-                    dinSituasjon.arbeidsforhold.midlertidig.svar
+                    merOmSituasjonenDin.arbeidsforhold.midlertidig.svar
                   </legend>
                   <div
                     class="navds-radio-buttons"
@@ -2717,7 +2717,7 @@ exports[`Situasjonen din Snapshot 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar
+                merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -2824,7 +2824,7 @@ exports[`Situasjonen din Snapshot 1`] = `
               <legend
                 class="navds-fieldset__legend navds-label"
               >
-                dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar
+                merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar
               </legend>
               <div
                 class="navds-radio-buttons"
@@ -2936,7 +2936,7 @@ exports[`Situasjonen din Snapshot 1`] = `
         <h1
           class="navds-heading navds-heading--small"
         >
-          dinSituasjon.utdanning.tittelFullfoert
+          merOmSituasjonenDin.utdanning.tittelFullfoert
         </h1>
       </div>
       <div
@@ -2950,13 +2950,13 @@ exports[`Situasjonen din Snapshot 1`] = `
           <legend
             class="navds-fieldset__legend navds-label"
           >
-            dinSituasjon.utdanning.hoyesteFullfoerteUtdanning
+            merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning
           </legend>
           <div
             class="navds-fieldset__description navds-body-short navds-body-short--medium"
             id="fieldset-description-r11"
           >
-            dinSituasjon.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
+            merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
           </div>
           <div
             class="navds-checkboxes"

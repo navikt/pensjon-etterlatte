@@ -19,7 +19,7 @@ export const FortsettSoeknadModal = () => {
         } else if (state.dinSituasjon.erValidert === true) {
             return StegPath.OmBarn
         } else if (state.omDenAvdoede.erValidert === true) {
-            return StegPath.DinSituasjon
+            return StegPath.MerOmSituasjonenDin
         } else if (state.omDegOgAvdoed.erValidert === true) {
             return StegPath.OmAvdoed
         } else if (state.omDeg.erValidert === true) {

@@ -1,11 +1,11 @@
 import { useFormContext } from 'react-hook-form'
-import { ISituasjon, JobbStatus } from '../../../../typer/situasjon'
+import { IMerOmSituasjonenDin, JobbStatus } from '../../../../typer/situasjon'
 import React from 'react'
 import Arbeidstaker from './Arbeidstaker'
 import Selvstendig from './Selvstendig'
 
 const NavaerendeArbeidsforhold = () => {
-    const { watch } = useFormContext<ISituasjon>()
+    const { watch } = useFormContext<IMerOmSituasjonenDin>()
     const jobbStatus = watch('jobbStatus')
 
     return (

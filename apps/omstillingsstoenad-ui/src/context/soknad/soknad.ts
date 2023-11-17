@@ -1,5 +1,5 @@
-import { IAvdoed, IOmBarn, IOmsorgForBarn, ISoeker, ISoekerOgAvdoed } from '../../typer/person'
-import { ISituasjon } from '../../typer/situasjon'
+import { IAvdoed, IOmBarn, ISituasjonenDin, ISoeker, ISoekerOgAvdoed } from '../../typer/person'
+import { IMerOmSituasjonenDin } from '../../typer/situasjon'
 import { Language } from '../../i18n'
 import { IInntekt } from '../../typer/inntekt'
 
@@ -29,9 +29,9 @@ export interface ISoeknad {
     omDeg: ISoeker
     omDegOgAvdoed: ISoekerOgAvdoed
     omDenAvdoede: IAvdoed
-    dinSituasjon: ISituasjon
+    dinSituasjon: IMerOmSituasjonenDin
     inntektenDin: IInntekt
-    omsorgForBarn: IOmsorgForBarn
+    omsorgForBarn: ISituasjonenDin
     opplysningerOmBarn: IOmBarn
 }
 

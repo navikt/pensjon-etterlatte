@@ -56,7 +56,7 @@ const SelectYtelser = () => {
     return (
         <RHFSelect
             name={'andreYtelser.kravOmAnnenStonad.ytelser'}
-            label={t('dinSituasjon.andreYtelser.kravOmAnnenStonad.ytelser')}
+            label={t('merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.ytelser')}
             selectOptions={liste}
         />
     )

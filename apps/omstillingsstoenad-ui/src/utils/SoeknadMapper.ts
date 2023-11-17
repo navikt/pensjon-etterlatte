@@ -5,13 +5,13 @@ import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from '../typer/arbeidsf
 import {
     IAvdoed,
     IOmBarn,
-    IOmsorgForBarn,
+    ISituasjonenDin,
     IOppholdUtland,
     ISoeker,
     ISoekerOgAvdoed,
     Sivilstatus,
 } from '../typer/person'
-import { ISituasjon } from '../typer/situasjon'
+import { IMerOmSituasjonenDin } from '../typer/situasjon'
 import { StegPath } from '../typer/steg'
 import ObjectTreeReader, { Element, Gruppe } from './ObjectTreeReader'
 import { IAnnenInntekt, IInntekt, ILoennsinntekt, INaeringsinntekt, IPensjonEllerUfoere } from '../typer/inntekt'
@@ -137,7 +137,7 @@ export default class SoeknadMapper {
         }
     }
 
-    private mapDinSituasjon(dinSituasjon: ISituasjon): Gruppe {
+    private mapDinSituasjon(dinSituasjon: IMerOmSituasjonenDin): Gruppe {
         const arbeidsforhold: Element[] =
             dinSituasjon.arbeidsforhold?.map((arbeid) => {
                 return {
@@ -147,7 +147,7 @@ export default class SoeknadMapper {
                             ...arbeid,
                             arbeidsgiver: undefined,
                         },
-                        'dinSituasjon.arbeidsforhold'
+                        'merOmSituasjonenDin.arbeidsforhold'
                     ),
                 } as Element
             }) || []
@@ -161,7 +161,7 @@ export default class SoeknadMapper {
                             ...arbeid,
                             beskrivelse: undefined,
                         },
-                        'dinSituasjon.selvstendig'
+                        'merOmSituasjonenDin.selvstendig'
                     ),
                 } as Element
             }) || []
@@ -175,24 +175,24 @@ export default class SoeknadMapper {
                             ...arbeid,
                             beskrivelse: undefined,
                         },
-                        'dinSituasjon.selvstendig'
+                        'merOmSituasjonenDin.selvstendig'
                     ),
                 } as Element
             }) || []
 
         return {
-            tittel: this.t('dinSituasjon.tittel'),
-            path: StegPath.DinSituasjon,
+            tittel: this.t('merOmSituasjonenDin.tittel'),
+            path: StegPath.MerOmSituasjonenDin,
             elementer: [
                 {
-                    innhold: this.otr.traverse<ISituasjon>(
+                    innhold: this.otr.traverse<IMerOmSituasjonenDin>(
                         {
                             ...dinSituasjon,
                             arbeidsforhold: undefined,
                             selvstendig: undefined,
                             erValidert: undefined,
                         },
-                        'dinSituasjon'
+                        'merOmSituasjonenDin'
                     ),
                 },
                 ...arbeidsforhold,
@@ -280,13 +280,13 @@ export default class SoeknadMapper {
         }
     }
 
-    private mapOmsorgForBarn(omsorgForBarn: IOmsorgForBarn): Gruppe {
+    private mapOmsorgForBarn(omsorgForBarn: ISituasjonenDin): Gruppe {
         return {
             tittel: this.t('omsorgForBarn.tittel'),
-            path: StegPath.OmsorgForBarn,
+            path: StegPath.SituasjonenDin,
             elementer: [
                 {
-                    innhold: this.otr.traverse<IOmsorgForBarn>(
+                    innhold: this.otr.traverse<ISituasjonenDin>(
                         {
                             ...omsorgForBarn,
                             erValidert: undefined,
