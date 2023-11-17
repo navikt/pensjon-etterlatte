@@ -93,7 +93,7 @@ const mapTilBarnepensjonSoeknad = (t: TFunction, soeker: IBarn, soeknad: ISoekna
         utbetalingsInformasjon: hentUtbetalingsInformasjonBarn(t, soeker, soeknad),
 
         soeker: mapBarn(t, soeker, soeknad, bruker),
-        foreldre: hentForeldreMedUtvidetInfo(t, soeker, soeknad, bruker),
+        foreldre: hentForeldreMedUtvidetInfo(t, soeknad, bruker),
         soesken,
     }
 }

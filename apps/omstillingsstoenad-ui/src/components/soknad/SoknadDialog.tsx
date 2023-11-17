@@ -6,7 +6,7 @@ import OmDegOgAvdoed from './2-omdegogavdoed/OmDegOgAvdoed'
 import OmDenAvdode from './3-avdod/OmDenAvdode'
 import SituasjonenDin from './4-situasjonen-din/SituasjonenDin'
 import InntektenDin from './5-inntekten-din/InntektenDin'
-import OpplysningerOmBarn from './6-barn/OpplysningerOmBarn'
+import OpplysningerOmBarnepensjon from './6-barn/OpplysningerOmBarnepensjon'
 import Oppsummering from './7-oppsummering/Oppsummering'
 import { useLanguage } from '../../hooks/useLanguage'
 import { useState } from 'react'
@@ -53,7 +53,7 @@ const SoknadDialog = () => {
                     element={<SituasjonenDin neste={neste} forrige={forrige} />}
                 />
                 <Route path={`/${StegPath.InntektenDin}`} element={<InntektenDin neste={neste} forrige={forrige} />} />
-                <Route path={`/${StegPath.OmBarn}`} element={<OpplysningerOmBarn neste={neste} forrige={forrige} />} />
+                <Route path={`/${StegPath.OmBarn}`} element={<OpplysningerOmBarnepensjon neste={neste} forrige={forrige} />} />
                 <Route path={`/${StegPath.Oppsummering}`} element={<Oppsummering forrige={forrige} />} />
             </Routes>
         </>

@@ -2,29 +2,25 @@ import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { BarnRelasjon, IBarn } from '../../../typer/person'
-import { RHFRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
+import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from '../../felles/rhf/RHFInput'
 import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import { hentAlderFraFoedselsnummer } from '../../../utils/dato'
 import { erMyndig } from '../../../utils/alder'
 import { fnr } from '@navikt/fnrvalidator'
-import { Alert, BodyShort, Button, Heading, HelpText, HGrid, Label, Panel, RadioProps } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label, Panel } from '@navikt/ds-react'
 import { RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
 import ikon from '../../../assets/ikoner/barn1.svg'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import styled from 'styled-components'
 import { NavigasjonsRad } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 import bredde from '../../../typer/bredde'
-
-const HelpTextLabel = styled.div`
-    display: flex;
-`
 
 const EndreBarnKort = styled(Panel)`
     padding: 0;
@@ -123,7 +119,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     const harBarnetVerge = watch('harBarnetVerge.svar')
     const relasjon = watch('relasjon')
     const foedselsnummer: any = watch('foedselsnummer')
-    const soekerBarnepensjon = watch('barnepensjon.soeker')
     const annetKontonummerBarnepensjon = watch('barnepensjon.kontonummer.svar')
     const forskuddstrekkBarnepensjon = watch('barnepensjon.forskuddstrekk.svar')
 
@@ -147,160 +142,144 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     }, [])
 
     return (
-        <FormProvider {...methods}>
-            <form>
-                <EndreBarnKort border>
-                    <EndreBarnKortHeader>
-                        <img alt="barn" src={ikon} />
-                        <Heading size={'small'} className={'overskrift'}>
-                            {t('omBarn.tittelModal')}
-                        </Heading>
-                    </EndreBarnKortHeader>
-                    <br />
+        <>
+            <SkjemaElement>
+                <GuidePanel>
+                    <Heading size={'xsmall'}>{t('omBarn.informasjon.tittel')}</Heading>
+                    <BodyShort size={'small'}>{t('omBarn.informasjon')}</BodyShort>
+                </GuidePanel>
+            </SkjemaElement>
+            <FormProvider {...methods}>
+                <form>
+                    <EndreBarnKort border>
+                        <EndreBarnKortHeader>
+                            <img alt="barn" src={ikon} />
+                            <Heading size={'small'} className={'overskrift'}>
+                                {t('omBarn.tittelModal')}
+                            </Heading>
+                        </EndreBarnKortHeader>
+                        <br />
 
-                    <EndreBarnKortInnhold>
-                        <SkjemaGruppe>
-                            <SkjemaElement>
-                                <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                                    <RHFInput
-                                        name={'fornavn'}
-                                        label={t('omBarn.fornavn')}
-                                        rules={{ pattern: /^\D+$/ }}
-                                    />
-
-                                    <RHFInput
-                                        name={'etternavn'}
-                                        label={t('omBarn.etternavn')}
-                                        rules={{ pattern: /^\D+$/ }}
-                                    />
-                                </HGrid>
-                            </SkjemaElement>
-                            <SkjemaElement>
-                                <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                                    <RHFFoedselsnummerInput
-                                        name={'foedselsnummer'}
-                                        label={t('omBarn.foedselsnummer')}
-                                        placeholder={t('felles.fnrPlaceholder')}
-                                        rules={{
-                                            validate: {
-                                                validate: (value) => {
-                                                    return fnr(value).status === 'valid'
-                                                },
-                                                duplicate: (value) => {
-                                                    return !fnrRegistrerteBarn.includes(value)
-                                                },
-                                            },
-                                        }}
-                                    />
-                                    <RHFSelect
-                                        name={`statsborgerskap`}
-                                        label={t('omBarn.statsborgerskap')}
-                                        value={'Norge'}
-                                        selectOptions={land}
-                                    />
-                                </HGrid>
-                            </SkjemaElement>
-
-                            {visDuplikatFeilmelding() && (
+                        <EndreBarnKortInnhold>
+                            <SkjemaGruppe>
                                 <SkjemaElement>
-                                    <TypoFeilmelding>{t('feil.foedselsnummer.duplicate')}</TypoFeilmelding>
+                                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                        <RHFInput
+                                            name={'fornavn'}
+                                            label={t('omBarn.fornavn')}
+                                            rules={{ pattern: /^\D+$/ }}
+                                        />
+
+                                        <RHFInput
+                                            name={'etternavn'}
+                                            label={t('omBarn.etternavn')}
+                                            rules={{ pattern: /^\D+$/ }}
+                                        />
+                                    </HGrid>
                                 </SkjemaElement>
-                            )}
-                        </SkjemaGruppe>
-
-                        <SkjemaGruppe>
-                            <RHFSpoersmaalRadio name={'bosattUtland.svar'} legend={t('omBarn.bosattUtland.svar')} />
-
-                            {bosattUtlandSvar === IValg.JA && (
-                                <>
-                                    <SkjemaElement>
+                                <SkjemaElement>
+                                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                        <RHFFoedselsnummerInput
+                                            name={'foedselsnummer'}
+                                            label={t('omBarn.foedselsnummer')}
+                                            description={t('felles.fnrPlaceholder')}
+                                            rules={{
+                                                validate: {
+                                                    validate: (value) => {
+                                                        return fnr(value).status === 'valid'
+                                                    },
+                                                    duplicate: (value) => {
+                                                        return !fnrRegistrerteBarn.includes(value)
+                                                    },
+                                                },
+                                            }}
+                                        />
                                         <RHFSelect
-                                            name={'bosattUtland.land'}
-                                            label={t('omBarn.bosattUtland.land')}
+                                            name={`statsborgerskap`}
+                                            label={t('omBarn.statsborgerskap')}
                                             value={'Norge'}
                                             selectOptions={land}
-                                            bredde={bredde.S}
                                         />
-                                    </SkjemaElement>
-                                    <RHFInput name={'bosattUtland.adresse'} label={t('omBarn.bosattUtland.adresse')} />
-                                </>
-                            )}
-                        </SkjemaGruppe>
+                                    </HGrid>
+                                </SkjemaElement>
 
-                        <SkjemaGruppe>
-                            <RHFRadio
-                                name={'relasjon'}
-                                legend={
-                                    <HelpTextLabel>
-                                        {t('omBarn.relasjon')}&nbsp;
-                                        <HelpText>{t('omBarn.relasjonHjelpetekst')} </HelpText>
-                                    </HelpTextLabel>
-                                }
-                            >
-                                {Object.values(BarnRelasjon).map((value) => {
-                                    return { children: t(value), value, required: true } as RadioProps
-                                })}
-                            </RHFRadio>
-                        </SkjemaGruppe>
-                        {relasjon === BarnRelasjon.fellesbarnMedAvdoede && kanSoekeOmBarnepensjon() && (
-                            <>
-                                <SkjemaGruppe>
+                                {visDuplikatFeilmelding() && (
                                     <SkjemaElement>
-                                        <RHFSpoersmaalRadio
-                                            name={'harBarnetVerge.svar'}
-                                            legend={t('omBarn.harBarnetVerge.svar')}
-                                        />
+                                        <TypoFeilmelding>{t('feil.foedselsnummer.duplicate')}</TypoFeilmelding>
                                     </SkjemaElement>
+                                )}
+                            </SkjemaGruppe>
 
-                                    {harBarnetVerge === IValg.JA && (
-                                        <>
-                                            <Label>{t('omBarn.harBarnetVerge.navn')}</Label>
-                                            <SkjemaElement>
-                                                <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                                                    <RHFInput
-                                                        name={'harBarnetVerge.fornavn'}
-                                                        label={t('omBarn.harBarnetVerge.fornavn')}
-                                                        rules={{ pattern: /^\D+$/ }}
-                                                        valgfri={true}
-                                                    />
-                                                    <RHFInput
-                                                        name={'harBarnetVerge.etternavn'}
-                                                        label={t('omBarn.harBarnetVerge.etternavn')}
-                                                        rules={{ pattern: /^\D+$/ }}
-                                                        valgfri={true}
-                                                    />
-                                                    <RHFFoedselsnummerInput
-                                                        name={'harBarnetVerge.foedselsnummer'}
-                                                        label={t('omBarn.harBarnetVerge.foedselsnummer')}
-                                                        placeholder={t(
-                                                            'omBarn.harBarnetVerge.foedselsnummerPlaceholder'
-                                                        )}
-                                                        valgfri={true}
-                                                    />
-                                                </HGrid>
-                                            </SkjemaElement>
-                                        </>
-                                    )}
-                                </SkjemaGruppe>
+                            <SkjemaGruppe>
+                                <RHFSpoersmaalRadio name={'bosattUtland.svar'} legend={t('omBarn.bosattUtland.svar')} />
 
-                                <SkjemaGruppe>
-                                    <SkjemaElement>
-                                        <Label>{t('omBarn.barnepensjon.soekerInfo')}</Label>
-                                        <RHFConfirmationPanel
-                                            name={'barnepensjon.soeker'}
-                                            label={t('omBarn.barnepensjon.soeker')}
-                                            valgfri={true}
-                                            size={'medium'}
+                                {bosattUtlandSvar === IValg.JA && (
+                                    <>
+                                        <SkjemaElement>
+                                            <RHFSelect
+                                                name={'bosattUtland.land'}
+                                                label={t('omBarn.bosattUtland.land')}
+                                                value={'Norge'}
+                                                selectOptions={land}
+                                                bredde={bredde.S}
+                                            />
+                                        </SkjemaElement>
+                                        <RHFInput
+                                            name={'bosattUtland.adresse'}
+                                            label={t('omBarn.bosattUtland.adresse')}
                                         />
-                                    </SkjemaElement>
+                                    </>
+                                )}
+                            </SkjemaGruppe>
 
-                                    {!bruker.adressebeskyttelse && soekerBarnepensjon && (
+                            {kanSoekeOmBarnepensjon() && (
+                                <>
+                                    <SkjemaGruppe>
+                                        <SkjemaElement>
+                                            <RHFSpoersmaalRadio
+                                                name={'harBarnetVerge.svar'}
+                                                legend={t('omBarn.harBarnetVerge.svar')}
+                                            />
+                                        </SkjemaElement>
+
+                                        {harBarnetVerge === IValg.JA && (
+                                            <>
+                                                <Label>{t('omBarn.harBarnetVerge.navn')}</Label>
+                                                <SkjemaElement>
+                                                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                                        <RHFInput
+                                                            name={'harBarnetVerge.fornavn'}
+                                                            label={t('omBarn.harBarnetVerge.fornavn')}
+                                                            rules={{ pattern: /^\D+$/ }}
+                                                            valgfri={true}
+                                                        />
+                                                        <RHFInput
+                                                            name={'harBarnetVerge.etternavn'}
+                                                            label={t('omBarn.harBarnetVerge.etternavn')}
+                                                            rules={{ pattern: /^\D+$/ }}
+                                                            valgfri={true}
+                                                        />
+                                                        <RHFFoedselsnummerInput
+                                                            name={'harBarnetVerge.foedselsnummer'}
+                                                            label={t('omBarn.harBarnetVerge.foedselsnummer')}
+                                                            description={t(
+                                                                'omBarn.harBarnetVerge.foedselsnummerPlaceholder'
+                                                            )}
+                                                            valgfri={true}
+                                                        />
+                                                    </HGrid>
+                                                </SkjemaElement>
+                                            </>
+                                        )}
+                                    </SkjemaGruppe>
+                                    {!bruker.adressebeskyttelse && (
                                         <>
                                             <SkjemaGruppe>
                                                 <SkjemaElement>
                                                     <RHFSpoersmaalRadio
                                                         name={'barnepensjon.kontonummer.svar'}
                                                         legend={t('omBarn.barnepensjon.kontonummer.svar')}
+                                                        description={t('omBarn.barnepensjon.kontonummer.informasjon')}
                                                     />
                                                 </SkjemaElement>
 
@@ -310,92 +289,96 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                             name={'barnepensjon.kontonummer.kontonummer'}
                                                             htmlSize={Bredde.S}
                                                             label={t('omBarn.barnepensjon.kontonummer.kontonummer')}
-                                                            placeholder={t(
-                                                                'omBarn.barnepensjon.kontonummer.placeholder'
-                                                            )}
                                                             description={t(
-                                                                'omBarn.barnepensjon.kontonummer.informasjon'
+                                                                'omBarn.barnepensjon.kontonummer.placeholder'
                                                             )}
                                                         />
                                                     </SkjemaElement>
                                                 )}
                                             </SkjemaGruppe>
 
-                                            {annetKontonummerBarnepensjon !== IValg.VET_IKKE && (
+                                            <SkjemaGruppe>
                                                 <RHFSpoersmaalRadio
                                                     name={'barnepensjon.forskuddstrekk.svar'}
-                                                    legend={
-                                                        <HelpTextLabel>
-                                                            {t('omBarn.barnepensjon.forskuddstrekk.svar')}&nbsp;
-                                                            <HelpText>
-                                                                {t('omBarn.barnepensjon.forskuddstrekk.hjelpetekst')}
-                                                            </HelpText>
-                                                        </HelpTextLabel>
-                                                    }
+                                                    legend={t('omBarn.barnepensjon.forskuddstrekk.svar')}
+                                                    description={t('omBarn.barnepensjon.forskuddstrekk.hjelpetekst')}
                                                 />
-                                            )}
 
-                                            {forskuddstrekkBarnepensjon === IValg.JA && (
-                                                <SkjemaGruppe>
-                                                    <SkjemaElement>
-                                                        <RHFProsentInput
-                                                            htmlSize={Bredde.S}
-                                                            name={'barnepensjon.forskuddstrekk.trekkprosent'}
-                                                            label={t('omBarn.barnepensjon.forskuddstrekk.trekkprosent')}
-                                                            description={t(
-                                                                'omBarn.barnepensjon.forskuddstrekk.placeholder'
-                                                            )}
-                                                        />
-                                                    </SkjemaElement>
-                                                    <Panel border>
-                                                        <Alert variant={'info'} className={'navds-alert--inline'}>
-                                                            <BodyShort size={'small'}>
-                                                                {t('omBarn.barnepensjon.forskuddstrekk.info')}
-                                                            </BodyShort>
-                                                        </Alert>
-                                                    </Panel>
-                                                </SkjemaGruppe>
-                                            )}
+                                                {forskuddstrekkBarnepensjon === IValg.JA && (
+                                                    <>
+                                                        <SkjemaElement>
+                                                            <RHFProsentInput
+                                                                htmlSize={Bredde.S}
+                                                                name={'barnepensjon.forskuddstrekk.trekkprosent'}
+                                                                label={t(
+                                                                    'omBarn.barnepensjon.forskuddstrekk.trekkprosent'
+                                                                )}
+                                                                description={t(
+                                                                    'omBarn.barnepensjon.forskuddstrekk.placeholder'
+                                                                )}
+                                                            />
+                                                        </SkjemaElement>
+                                                        <Panel border>
+                                                            <Alert variant={'info'} className={'navds-alert--inline'}>
+                                                                <BodyShort size={'small'}>
+                                                                    {t('omBarn.barnepensjon.forskuddstrekk.info')}
+                                                                </BodyShort>
+                                                            </Alert>
+                                                        </Panel>
+                                                    </>
+                                                )}
+                                            </SkjemaGruppe>
                                         </>
                                     )}
+
+                                    <SkjemaGruppe>
+                                        <SkjemaElement>
+                                            <RHFConfirmationPanel
+                                                name={'barnepensjon.soeker'}
+                                                label={t('omBarn.barnepensjon.soeker')}
+                                                valgfri={true}
+                                                size={'medium'}
+                                            />
+                                        </SkjemaElement>
+                                    </SkjemaGruppe>
+                                </>
+                            )}
+
+                            {(relasjon === BarnRelasjon.egneSaerkullsbarn ||
+                                relasjon == BarnRelasjon.avdoedesSaerkullsbarn) && (
+                                <SkjemaGruppe>
+                                    <RHFSpoersmaalRadio name={'dagligOmsorg'} legend={t('omBarn.dagligOmsorg')} />
                                 </SkjemaGruppe>
-                            </>
-                        )}
+                            )}
 
-                        {(relasjon === BarnRelasjon.egneSaerkullsbarn ||
-                            relasjon == BarnRelasjon.avdoedesSaerkullsbarn) && (
-                            <SkjemaGruppe>
-                                <RHFSpoersmaalRadio name={'dagligOmsorg'} legend={t('omBarn.dagligOmsorg')} />
-                            </SkjemaGruppe>
-                        )}
+                            <Feilmeldinger errors={errors} />
 
-                        <Feilmeldinger errors={errors} />
+                            <NavigasjonsRad className={'bottom-spacing-none'}>
+                                <Button
+                                    id={'avbrytLeggTilBarn'}
+                                    variant={'secondary'}
+                                    type={'button'}
+                                    onClick={avbrytOgLukk}
+                                    style={{ minWidth: '80px' }}
+                                >
+                                    {t('knapp.avbryt')}
+                                </Button>
 
-                        <NavigasjonsRad className={'bottom-spacing-none'}>
-                            <Button
-                                id={'avbrytLeggTilBarn'}
-                                variant={'secondary'}
-                                type={'button'}
-                                onClick={avbrytOgLukk}
-                                style={{ minWidth: '80px' }}
-                            >
-                                {t('knapp.avbryt')}
-                            </Button>
-
-                            <Button
-                                id={'leggTilBarn'}
-                                variant={'primary'}
-                                type={'button'}
-                                onClick={handleSubmit(leggTilOgLukk)}
-                                style={{ minWidth: '80px' }}
-                            >
-                                {t('knapp.lagre')}
-                            </Button>
-                        </NavigasjonsRad>
-                    </EndreBarnKortInnhold>
-                </EndreBarnKort>
-            </form>
-        </FormProvider>
+                                <Button
+                                    id={'leggTilBarn'}
+                                    variant={'primary'}
+                                    type={'button'}
+                                    onClick={handleSubmit(leggTilOgLukk)}
+                                    style={{ minWidth: '80px' }}
+                                >
+                                    {t('knapp.leggTil')}
+                                </Button>
+                            </NavigasjonsRad>
+                        </EndreBarnKortInnhold>
+                    </EndreBarnKort>
+                </form>
+            </FormProvider>
+        </>
     )
 }
 

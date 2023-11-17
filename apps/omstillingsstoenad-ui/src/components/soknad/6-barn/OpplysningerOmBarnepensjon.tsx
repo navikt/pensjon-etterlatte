@@ -10,16 +10,15 @@ import LeggTilBarnSkjema from './LeggTilBarnSkjema'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { v4 as uuid } from 'uuid'
 import Navigasjon from '../../felles/Navigasjon'
-import { Alert, BodyShort, Button, Panel, Heading } from '@navikt/ds-react'
+import { BodyShort, Button, Heading, GuidePanel } from '@navikt/ds-react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import { deepCopy } from '../../../utils/deepCopy'
-import AndreStoenader from './AndreStoenader'
 import styled from 'styled-components'
 import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 
-const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
+const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
 
@@ -107,11 +106,10 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <Panel border>
-                                <Alert variant={'info'} className={'navds-alert--inline'}>
-                                    <BodyShort size={'small'}>{t('omBarn.informasjon')}</BodyShort>
-                                </Alert>
-                            </Panel>
+                            <GuidePanel>
+                                <Heading size={'xsmall'}>{t('omBarn.informasjon.tittel')}</Heading>
+                                <BodyShort size={'small'}>{t('omBarn.informasjon')}</BodyShort>
+                            </GuidePanel>
                         </SkjemaElement>
 
                         <SkjemaGruppe>
@@ -156,8 +154,6 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
                             />
                         </SkjemaElement>
 
-                        <AndreStoenader soeknad={state} barn={registrerteBarn} />
-
                         <Navigasjon
                             forrige={{
                                 onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering,
@@ -181,7 +177,7 @@ const OpplysningerOmBarn: SoknadSteg = ({ neste, forrige }) => {
     )
 }
 
-export default OpplysningerOmBarn
+export default OpplysningerOmBarnepensjon
 
 const InfokortWrapper = styled.div`
     display: flex;
