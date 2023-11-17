@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Label, HelpText, HGrid } from '@navikt/ds-react'
+import { Alert, BodyShort, HelpText, HGrid, Label, Link } from '@navikt/ds-react'
 import styled from 'styled-components'
 import { User } from '../../../context/user/user'
 import useTranslation from '../../../hooks/useTranslation'
@@ -6,6 +6,8 @@ import FormGroup from '../../common/FormGroup'
 import FormElement from '../../common/FormElement'
 import { fullAdresse } from '../../../utils/personalia'
 import { GridColumns, GridGap } from '../../../utils/grid'
+import Trans from '../../common/Trans'
+import { ExternalLink } from '@navikt/ds-icons'
 
 interface LoggedInUserInfoProps {
     user: User
@@ -23,7 +25,12 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
     return (
         <>
             <FormElement>
-                <Alert variant={'warning'}>{t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })}</Alert>
+                <Alert variant={'info'}>
+                    <Trans value={t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })} />
+                    <Link href={t('incorrectInfoMustBeCorrectedHref', { ns: 'loggedInUserInfo' })} target={'_blank'}>
+                        {t('incorrectInfoMustBeCorrectedHrefText', { ns: 'loggedInUserInfo' })} <ExternalLink />
+                    </Link>
+                </Alert>
             </FormElement>
             <FormGroup>
                 <HGrid gap={GridGap} columns={GridColumns} align={'start'}>

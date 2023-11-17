@@ -9,6 +9,8 @@ import FormGroup from './FormGroup'
 import { useFormContext } from 'react-hook-form'
 import { IAboutChildren, IAboutYou } from '../../types/person'
 import { Bredde } from '../../utils/bredde'
+import { useApplicationContext } from '../../context/application/ApplicationContext'
+import { ApplicantRole } from '../application/scenario/ScenarioSelection'
 
 const HelpTextLabel = styled.div`
     display: flex;
@@ -16,11 +18,13 @@ const HelpTextLabel = styled.div`
 
 export default function PaymentDetails() {
     const { t } = useTranslation('paymentDetails')
-
+    const { state } = useApplicationContext()
     const { watch } = useFormContext<IAboutYou | IAboutChildren>()
 
     const accountType = watch('paymentDetails.accountType')
     const withholdingTaxChildrensPension = watch('paymentDetails.taxWithhold.answer')
+
+    const isParent = state.applicant?.applicantRole === ApplicantRole.PARENT
 
     return (
         <FormGroup>
@@ -41,6 +45,7 @@ export default function PaymentDetails() {
                         <RHFKontonummerInput
                             name={'paymentDetails.bankAccount'}
                             label={t('bankAccount')}
+                            description={isParent && t('bankAccountDescription')}
                             htmlSize={Bredde.XS}
                         />
                     </FormElement>

@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from '@navikt/ds-react'
+import { BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import React, { useState } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
@@ -14,7 +14,6 @@ import { ApplicantRole, ApplicantSituation } from '../scenario/ScenarioSelection
 import DeceasedParent from './DeceasedParent'
 import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
-import Trans from '../../common/Trans'
 import { FormProvider, useForm } from 'react-hook-form'
 import FormElement from '../../common/FormElement'
 
@@ -103,6 +102,17 @@ export default function AboutParents({ next, prev }: StepProps) {
                             </GuidePanel>
                         </FormGroup>
                     )}
+
+                    {!isChild && (
+                        <FormGroup>
+                            <GuidePanel>
+                                <BodyShort size={'small'}>
+                                    {bothParentsDeceased ? t('chooseUnknowParent') : t('bothParentsRequired')}
+                                </BodyShort>
+                            </GuidePanel>
+                        </FormGroup>
+                    )}
+
                     <FormGroup>
                         <InfocardWrapper>
                             {isEmpty(state.firstParent) ? (
@@ -161,7 +171,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                             </Button>
                                         </div>
 
-                                        {isChild && bothParentsDeceased && (
+                                        {bothParentsDeceased && (
                                             <Checkbox
                                                 value={true}
                                                 onClick={() => {
@@ -187,17 +197,6 @@ export default function AboutParents({ next, prev }: StepProps) {
                             )}
                         </InfocardWrapper>
                     </FormGroup>
-
-                    {!isChild && (
-                        <FormGroup>
-                            <Alert variant={'info'}>
-                                <BodyShort size={'small'}>
-                                    {t('bothParentsRequired')}
-                                    <Trans value={t('missingOneParentLink')} />
-                                </BodyShort>
-                            </Alert>
-                        </FormGroup>
-                    )}
 
                     <Navigation
                         left={{ onClick: prev }}
@@ -246,7 +245,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                     <Heading size={'small'}>{t('unknownParent')}</Heading>
                 </Modal.Header>
                 <Modal.Body>
-                    <BodyShort>{t('unknownParentQuestion')}</BodyShort>
+                    <BodyShort>{isChild ? t('unknownParentQuestion') : t('unknownParentQuestionGuardian')}</BodyShort>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button
@@ -259,7 +258,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                         }}
                         style={{ margin: '10px' }}
                     >
-                        {t('yesUnknownParent', { ns: 'btn' })}
+                        {isChild ? t('yesUnknownParent', { ns: 'btn' }) : t('yesUnknownParentGuardian', { ns: 'btn' })}
                     </Button>
                     <Button
                         id={'avbryt-nei-btn'}
@@ -271,7 +270,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                         }}
                         style={{ margin: '10px' }}
                     >
-                        {t('noUnknownParent', { ns: 'btn' })}
+                        {isChild ? t('noUnknownParent', { ns: 'btn' }) : t('noUnknownParentGuardian', { ns: 'btn' })}
                     </Button>
                 </Modal.Footer>
             </Modal>

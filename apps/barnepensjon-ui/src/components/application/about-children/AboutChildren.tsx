@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Button, Panel } from '@navikt/ds-react'
+import { BodyShort, Button, GuidePanel } from '@navikt/ds-react'
 import { useEffect, useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
@@ -104,13 +104,11 @@ export default function AboutChildren({ next, prev }: StepProps) {
                         <StepHeading>{!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}</StepHeading>
 
                         <FormGroup>
-                            <Panel border>
-                                <Alert variant={'info'} inline>
-                                    <BodyShort size={'small'}>
-                                        {!isChild ? t('information') : t('infoRegardingSiblings')}
-                                    </BodyShort>
-                                </Alert>
-                            </Panel>
+                            <GuidePanel>
+                                <BodyShort size={'small'}>
+                                    {!isChild ? t('information') : t('infoRegardingSiblings')}
+                                </BodyShort>
+                            </GuidePanel>
                         </FormGroup>
 
                         <FormGroup>

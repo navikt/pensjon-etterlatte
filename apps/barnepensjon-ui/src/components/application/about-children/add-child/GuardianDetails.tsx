@@ -48,7 +48,7 @@ export const GuardianDetails = ({ isGuardian, childHasGuardianship }: Props) => 
                                 <RHFFoedselsnummerInput
                                     name={'childHasGuardianship.fnr'}
                                     label={t('guardianFnr')}
-                                    placeholder={t('guardianFnrPlaceholder')}
+                                    description={t('guardianFnrPlaceholder')}
                                     valgfri={true}
                                 />
                             </FormElement>

@@ -125,9 +125,9 @@ const selectScenario = {
     GUARDIAN: 'Eg søker for eitt eller fleire barn eg er verje for',
     CHILD: 'Eg har fylt 18 år og søker på vegne av meg sjølv',
     parentApplicantInformation:
-        'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde. Søsken kan få betydning for berekninga av barnepensjon.',
+        'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde.',
     guardianApplicantInformation:
-        'I søknaden må du oppgi alle avdøde sine barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for berekninga av barnepensjon.',
+        'I søknaden må du oppgi alle avdøde sine barn og/eller adoptivbarn som er under 18 år.',
     guardiansMustSendDocumentation:
         'Viss barna ikkje er heilsøsken, må ein søke for kvart barnekull. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verje for barnet/barna.',
     childApplicantInformation1:
@@ -227,14 +227,14 @@ const aboutTheDeceased = {
 }
 
 const aboutChildren = {
-    childAppliedForPension: 'Søkt om barnepensjon',
+    childAppliedForPension: 'Søker om barnepensjon',
     applyForThisChild: 'Søk om barnepensjon',
     userAppliesForChildrensPension: 'Ja, eg søker om barnepensjon for barnet',
     onlyChildrenOfDeceasedHaveRights: 'Det er berre avdødes barn og adoptivbarn som kan ha rett til barnepensjon.',
     onlyParentOrGuardianCanApply:
         'Har barnet mista ein forelder så må forelder eller oppnemnt verje sende eigen søknad.',
     onlyParentOrGuardianCanApplyOnLivingParent:
-        'Det er berre barnets foreldre eller oppnemnt verje som kan søke om barnepensjon for dette barnet. Det må søkast om barnepensjon i eigen søknad.',
+        'Det er berre barnets forelder eller oppnemnt verje som kan søke om barnepensjon for dette barnet. Det må søkast om barnepensjon i eigen søknad.',
     onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år.',
     livesIn: 'Bur i',
     doesTheChildLiveAbroad: 'Bur barnet i eit anna land enn Norge?',
@@ -271,6 +271,7 @@ const aboutChildren = {
     thisIsOptional: 'Dette er valfritt',
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldra til barnet?',
     loggedInUserIsGuardian: 'Er du verje for dette barnet?',
+    needToSendInDocumentation: '<MANGLER TEKST>',
     onlyGuardiansCanApply:
         'Du kan berre søke om barnepensjon for barn du er verje for. \nAlle avdøde sine barn under 18 år kan leggjast til.',
 }

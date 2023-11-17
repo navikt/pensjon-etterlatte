@@ -144,7 +144,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                     </ChangeChildPanelHeader>
 
                     <ChangeChildPanelContent>
-                        <>
+                        <FormGroup>
                             <PersonInfo duplicateList={fnrRegisteredChild} />
                             {tooOldChild() && (
                                 <Panel border>
@@ -153,10 +153,11 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                     </Alert>
                                 </Panel>
                             )}
-                            <FormElement>
-                                <ParentQuestion parents={parents} />
-                            </FormElement>
-                        </>
+                        </FormGroup>
+
+                        <FormElement>
+                            <ParentQuestion parents={parents} />
+                        </FormElement>
 
                         {!tooOldChild() && parents === ParentRelationType.BOTH && (
                             <FormGroup>
