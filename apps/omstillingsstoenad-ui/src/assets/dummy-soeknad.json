@@ -60,7 +60,7 @@
     "nySivilstatus": {
       "sivilstatus": "nySivilstatus.enslig"
     },
-    "oppholderSegINorge": {
+    "oppholderSegIUtlandet": {
       "svar": "radiobuttons.nei"
     },
     "gravidEllerNyligFoedt": "radiobuttons.ja"

@@ -107,7 +107,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         selectValueForId('gravidEllerNyligFoedt', situasjonenDin.gravidEllerNyligFoedt)
 
         selectValueForId('bosattINorge', situasjonenDin.bosattINorge)
-        selectValueForId('oppholderSegINorge.svar', situasjonenDin.oppholderSegINorge.svar)
+        selectValueForId('oppholderSegIUtlandet.svar', situasjonenDin.oppholderSegIUtlandet.svar)
 
         a11yCheck()
 

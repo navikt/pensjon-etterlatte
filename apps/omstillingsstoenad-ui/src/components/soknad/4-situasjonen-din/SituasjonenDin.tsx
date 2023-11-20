@@ -48,8 +48,8 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
     const harOmsorg = watch('omsorgMinstFemti')
     const bosattINorge = watch('bosattINorge')
-    const oppholderSegINorge = watch('oppholderSegINorge.svar')
-    const oppholdFra = watch('oppholderSegINorge.oppholdFra')
+    const oppholderSegIUtlandet = watch('oppholderSegIUtlandet.svar')
+    const oppholdFra = watch('oppholderSegIUtlandet.oppholdFra')
 
     return (
         <FormProvider {...methods}>
@@ -103,33 +103,33 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                         <SkjemaGruppe>
                             <SkjemaElement>
                                 <RHFSpoersmaalRadio
-                                    name={'oppholderSegINorge.svar'}
-                                    legend={t('situasjonenDin.oppholderSegINorge.svar')}
+                                    name={'oppholderSegIUtlandet.svar'}
+                                    legend={t('situasjonenDin.oppholderSegIUtlandet.svar')}
                                     description={t('situasjonenDin.oppholdHvorfor')}
                                 />
                             </SkjemaElement>
-                            {oppholderSegINorge === IValg.JA && (
+                            {oppholderSegIUtlandet === IValg.JA && (
                                 <>
                                     <SkjemaGruppe>
                                         <RHFSelect
                                             className="kol-50"
-                                            name={`oppholderSegINorge.oppholdsland`}
-                                            label={t('situasjonenDin.oppholderSegINorge.oppholdsland')}
+                                            name={`oppholderSegIUtlandet.oppholdsland`}
+                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdsland')}
                                             selectOptions={land}
                                         />
                                     </SkjemaGruppe>
 
                                     <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                                         <Datovelger
-                                            name={'oppholderSegINorge.oppholdFra'}
-                                            label={t('situasjonenDin.oppholderSegINorge.oppholdFra')}
+                                            name={'oppholderSegIUtlandet.oppholdFra'}
+                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdFra')}
                                             valgfri={true}
                                             maxDate={new Date()}
                                         />
 
                                         <Datovelger
-                                            name={'oppholderSegINorge.oppholdTil'}
-                                            label={t('situasjonenDin.oppholderSegINorge.oppholdTil')}
+                                            name={'oppholderSegIUtlandet.oppholdTil'}
+                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdTil')}
                                             valgfri={true}
                                             minDate={oppholdFra}
                                             maxDate={new Date()}

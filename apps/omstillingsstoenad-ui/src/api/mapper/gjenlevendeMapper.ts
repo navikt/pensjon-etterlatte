@@ -135,7 +135,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
                 : undefined,
         kontaktinfo,
         flyktning,
-        oppholdUtland: !bruker.adressebeskyttelse ? hentOppholdUtland(t, soeknad.omDeg) : undefined,
+        oppholdUtland: !bruker.adressebeskyttelse ? hentOppholdUtland(t, soeknad.situasjonenDin) : undefined,
         nySivilstatus: hentSivilstatus(t, soeknad.situasjonenDin.nySivilstatus!!),
         arbeidOgUtdanning: !bruker.adressebeskyttelse
             ? hentArbeidOgUtdanning(t, soeknad.merOmSituasjonenDin)
@@ -201,22 +201,52 @@ const hentOppholdUtland = (
     situasjonenDin: ISituasjonenDin
 ): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland> => {
     let opplysning: OppholdUtland | undefined
-    //TODO: MAP DENNE RIKTIG!!
-    console.log('Map denne riktig')
-    if (situasjonenDin.oppholderSegINorge?.svar === IValg.NEI) {
+
+    if (situasjonenDin.bosattINorge === IValg.JA) {
         opplysning = {
-            land: {
-                spoersmaal: t('situasjonenDin.oppholdsland'),
+            oppholderSegIUtlandet: {
+                spoersmaal: t('situasjonenDin.oppholderSegIUtlandet'),
+                svar: valgTilSvar(t, situasjonenDin.oppholderSegIUtlandet!!.svar!!),
+            },
+            oppholdsland: situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.NEI ? {
+                spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdsland'),
                 svar: {
-                    innhold: IValg.JA,
+                    innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdsland!!,
+                },
+            } : undefined,
+            oppholdFra: situasjonenDin.oppholderSegIUtlandet!!.oppholdFra
+                ? {
+                      spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdFra'),
+                      svar: {
+                          innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdFra!!,
+                      },
+                  }
+                : undefined,
+            oppholdTil: situasjonenDin.oppholderSegIUtlandet!!.oppholdTil
+                ? {
+                      spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdTil'),
+                      svar: {
+                          innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdTil!!,
+                      },
+                  }
+                : undefined,
+        }
+    }
+
+    if (situasjonenDin.bosattINorge === IValg.NEI) {
+        opplysning = {
+            bosattLand: {
+                spoersmaal: t('situasjonenDin.bosattLand'),
+                svar: {
+                    innhold: situasjonenDin.bosattLand!!,
                 },
             },
         }
     }
 
     return {
-        spoersmaal: t('situasjonenDin.oppholderSegINorge'),
-        svar: valgTilSvar(t, IValg.JA),
+        spoersmaal: t('situasjonenDin.bosattINorge'),
+        svar: valgTilSvar(t, situasjonenDin.bosattINorge!!),
         opplysning,
     }
 }

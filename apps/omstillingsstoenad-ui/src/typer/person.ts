@@ -33,7 +33,7 @@ export interface ISituasjonenDin {
     gravidEllerNyligFoedt?: IValg
     bosattINorge?: IValg
     bosattLand?: string
-    oppholderSegINorge?: {
+    oppholderSegIUtlandet?: {
         svar?: IValg
         oppholdsland?: string
         oppholdFra?: Date

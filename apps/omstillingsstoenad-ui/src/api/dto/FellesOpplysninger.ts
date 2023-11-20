@@ -300,7 +300,11 @@ export interface PensjonUtland {
 }
 
 export interface OppholdUtland {
-    land: Opplysning<FritekstSvar>
+    bosattLand?: Opplysning<FritekstSvar>
+    oppholderSegIUtlandet?: Opplysning<EnumSvar<JaNeiVetIkke>>
+    oppholdsland?: Opplysning<FritekstSvar>
+    oppholdFra?: Opplysning<DatoSvar>
+    oppholdTil?: Opplysning<DatoSvar>
 }
 
 export enum Stoenader {
