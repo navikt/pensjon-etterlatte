@@ -97,9 +97,12 @@ export default {
     'situasjonenDin.nySivilstatus.samboerskap.samboer.fornavn': 'Fornavn',
     'situasjonenDin.nySivilstatus.samboerskap.samboer.etternavn': 'Etternavn',
     'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
+    'situasjonenDin.omsorgForBarn.tittel': 'Omsorg for barn',
     'situasjonenDin.omsorgMinstFemti': 'Har du minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet?',
+    'situasjonenDin.omsorgMinstFemti.dokumentasjon': 'Du må dokumentere omsorgsforholdet. Hvis du har eller hatt felles barn med, eller vært gift i minst fem år med avdøde, trenger du ikke dokumentere omsorgen.',
     'situasjonenDin.gravidEllerNyligFoedt':
         'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
+    'situasjonenDin.oppholdUtenforNorge.tittel' : 'Opphold utenfor Norge',
     'situasjonenDin.oppholderSegINorge.svar': 'Har du bodd eller oppholdt deg i utlandet de siste 12 månedene?',
     'situasjonenDin.oppholdHvorfor':
         'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
@@ -119,7 +122,7 @@ export default {
         'Vi trenger å vite hva du gjør, slik at vi kan gi deg informasjon og oppfølging som passer situasjonen din.',
     'merOmSituasjonenDin.annenSituasjon.tittel': 'Annet',
     'merOmSituasjonenDin.annenSituasjon.beskrivelse': 'Velg det som beskriver situasjonen din',
-    'merOmSituasjonenDin.annenSituasjon.annet.beskrivelse': 'Beskriv situasjonen din',
+    'merOmSituasjonenDin.annenSituasjon.annet.beskrivelse': 'Gi en kort beskrivelse av endringene',
     'merOmSituasjonenDin.ingenJobb.hjemmearbeidende': 'Hjemmearbeidende',
     'merOmSituasjonenDin.ingenJobb.omsorgBarn': 'Omsorg for egne barn',
     'merOmSituasjonenDin.ingenJobb.omsorgNaerstaaende': 'Omsorg for nærstående',
@@ -256,7 +259,7 @@ export default {
     'inntektenDin.tittel': 'Inntekten din',
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
     'inntektenDin.ingress':
-        'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Likestilt med arbeidsinntekt regnes også noen ytelser fra NAV. \n\n Det er viktig at du opplyser oss om brutto inntekt. Brutto arbeidsinntekt betyr inntekten din før skattetrekk.',
+        'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Likestilt med arbeidsinntekt regnes også noen ytelser fra NAV. \n\n Det er viktig at du opplyser oss om brutto inntekt. Brutto arbeidsinntekt betyr inntekten din før skattetrekk. Du finner opplysningene om brutto arbeidsinntekt på lønnslippen din.',
     'inntektenDin.inntektstyper': 'Hvilken type inntekt har du?',
     'inntektenDin.loennsinntekt.tittel': 'Lønnsinntekt',
     'inntektenDin.loennsinntekt.ingress':
@@ -321,9 +324,11 @@ export default {
         'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.annenInntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
     'inntektenDin.annenInntekt.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse av endringene',
+    'inntektenDin.ytelserNAV.tittel': 'Ytelser fra NAV',
     'inntektenDin.ytelserNAV.svar': 'Har du søkt om ytelser fra NAV som du ikke har fått svar på?',
     'inntektenDin.ytelserNAV.soekteYtelser': 'Hvilke ytelser har du søkt om?',
     'inntektenDin.ytelserNAV.hvorfor': 'Vi trenger å vite dette fordi noen ytelser fra NAV regnes som inntekt.',
+    'inntektenDin.ytelserAndre.tittel': 'Ytelser fra andre',
     'inntektenDin.ytelserAndre.svar': 'Har du søkt om ytelser fra andre enn NAV som du ikke har fått svar på?',
     'inntektenDin.ytelserAndre.soekteYtelser': 'Hva har du søkt om?',
     'inntektenDin.ytelserAndre.pensjonsordning': 'Oppgi hvilken pensjonsordning',

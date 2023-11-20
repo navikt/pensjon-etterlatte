@@ -76,14 +76,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           >
             omDenAvdoede.foedselsnummer
           </label>
-          <div
-            class="navds-form-field__description navds-body-short navds-body-short--medium"
-            id="textField-description-r2"
-          >
-            felles.fnrPlaceholder
-          </div>
           <input
-            aria-describedby="textField-description-r2"
             class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="foedselsnummer"
             type="tel"

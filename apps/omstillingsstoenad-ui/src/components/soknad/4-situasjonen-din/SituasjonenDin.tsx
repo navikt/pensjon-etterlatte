@@ -68,80 +68,89 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
                 <NySivilstatus />
 
-                <SkjemaElement>
-                    <RHFSpoersmaalRadio name={'omsorgMinstFemti'} legend={t('situasjonenDin.omsorgMinstFemti')} />
-                </SkjemaElement>
-
-                {harOmsorg === IValg.JA && (
-                    <>
-                        <SkjemaGruppe>
-                            <BodyShort>Her kommer det noe mer info hvis man har omsorg</BodyShort>
-                        </SkjemaGruppe>
-                    </>
-                )}
-
                 <SkjemaGruppe>
-                    <RHFSpoersmaalRadio
-                        name={'gravidEllerNyligFoedt'}
-                        legend={t('situasjonenDin.gravidEllerNyligFoedt')}
-                    />
+                    <SkjemaElement>
+                        <Heading size={'xsmall'}>{t('situasjonenDin.omsorgForBarn.tittel')}</Heading>
+                    </SkjemaElement>
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio name={'omsorgMinstFemti'} legend={t('situasjonenDin.omsorgMinstFemti')} />
+                    </SkjemaElement>
+                    {harOmsorg === IValg.JA && (
+                        <SkjemaElement>
+                            <BodyShort>{t('situasjonenDin.omsorgMinstFemti.dokumentasjon')}</BodyShort>
+                        </SkjemaElement>
+                    )}
+
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio
+                            name={'gravidEllerNyligFoedt'}
+                            legend={t('situasjonenDin.gravidEllerNyligFoedt')}
+                        />
+                    </SkjemaElement>
                 </SkjemaGruppe>
 
-                <SkjemaElement>
-                    <RHFSpoersmaalRadio name={'bosattINorge'} legend={t('situasjonenDin.bosattINorge')} />
-                </SkjemaElement>
+                <SkjemaGruppe>
+                    <SkjemaElement>
+                        <Heading size={'xsmall'} >
+                            {t('situasjonenDin.oppholdUtenforNorge.tittel')}
+                        </Heading>
+                    </SkjemaElement>
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio name={'bosattINorge'} legend={t('situasjonenDin.bosattINorge')} />
+                    </SkjemaElement>
 
-                {bosattINorge === IValg.JA && (
-                    <SkjemaGruppe>
-                        <SkjemaElement>
-                            <RHFSpoersmaalRadio
-                                name={'oppholderSegINorge.svar'}
-                                legend={t('situasjonenDin.oppholderSegINorge.svar')}
-                                description={t('situasjonenDin.oppholdHvorfor')}
+                    {bosattINorge === IValg.JA && (
+                        <SkjemaGruppe>
+                            <SkjemaElement>
+                                <RHFSpoersmaalRadio
+                                    name={'oppholderSegINorge.svar'}
+                                    legend={t('situasjonenDin.oppholderSegINorge.svar')}
+                                    description={t('situasjonenDin.oppholdHvorfor')}
+                                />
+                            </SkjemaElement>
+                            {oppholderSegINorge === IValg.JA && (
+                                <>
+                                    <SkjemaGruppe>
+                                        <RHFSelect
+                                            className="kol-50"
+                                            name={`oppholderSegINorge.oppholdsland`}
+                                            label={t('situasjonenDin.oppholderSegINorge.oppholdsland')}
+                                            selectOptions={land}
+                                        />
+                                    </SkjemaGruppe>
+
+                                    <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                        <Datovelger
+                                            name={'oppholderSegINorge.oppholdFra'}
+                                            label={t('situasjonenDin.oppholderSegINorge.oppholdFra')}
+                                            valgfri={true}
+                                            maxDate={new Date()}
+                                        />
+
+                                        <Datovelger
+                                            name={'oppholderSegINorge.oppholdTil'}
+                                            label={t('situasjonenDin.oppholderSegINorge.oppholdTil')}
+                                            valgfri={true}
+                                            minDate={oppholdFra}
+                                            maxDate={new Date()}
+                                        />
+                                    </HGrid>
+                                </>
+                            )}
+                        </SkjemaGruppe>
+                    )}
+
+                    {bosattINorge === IValg.NEI && (
+                        <SkjemaGruppe>
+                            <RHFSelect
+                                className="kol-50"
+                                name={`bosattLand`}
+                                label={t('situasjonenDin.bosattLand')}
+                                selectOptions={land}
                             />
-                        </SkjemaElement>
-                        {oppholderSegINorge === IValg.JA && (
-                            <>
-                                <SkjemaGruppe>
-                                    <RHFSelect
-                                        className="kol-50"
-                                        name={`oppholderSegINorge.oppholdsland`}
-                                        label={t('situasjonenDin.oppholderSegINorge.oppholdsland')}
-                                        selectOptions={land}
-                                    />
-                                </SkjemaGruppe>
-
-                                <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                                    <Datovelger
-                                        name={'oppholderSegINorge.oppholdFra'}
-                                        label={t('situasjonenDin.oppholderSegINorge.oppholdFra')}
-                                        valgfri={true}
-                                        maxDate={new Date()}
-                                    />
-
-                                    <Datovelger
-                                        name={'oppholderSegINorge.oppholdTil'}
-                                        label={t('situasjonenDin.oppholderSegINorge.oppholdTil')}
-                                        valgfri={true}
-                                        minDate={oppholdFra}
-                                        maxDate={new Date()}
-                                    />
-                                </HGrid>
-                            </>
-                        )}
-                    </SkjemaGruppe>
-                )}
-
-                {bosattINorge === IValg.NEI && (
-                    <SkjemaGruppe>
-                        <RHFSelect
-                            className="kol-50"
-                            name={`bosattLand`}
-                            label={t('situasjonenDin.bosattLand')}
-                            selectOptions={land}
-                        />
-                    </SkjemaGruppe>
-                )}
+                        </SkjemaGruppe>
+                    )}
+                </SkjemaGruppe>
 
                 <Navigasjon
                     forrige={{

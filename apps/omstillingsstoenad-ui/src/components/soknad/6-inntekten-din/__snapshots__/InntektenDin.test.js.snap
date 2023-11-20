@@ -310,6 +310,11 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
+      <h1
+        class="navds-heading navds-heading--xsmall"
+      >
+        inntektenDin.ytelserNAV.tittel
+      </h1>
       <div
         class="sc-dItHI fGZLUG"
       >
@@ -398,6 +403,11 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
+      <h1
+        class="navds-heading navds-heading--xsmall"
+      >
+        inntektenDin.ytelserAndre.tittel
+      </h1>
       <div
         class="sc-dItHI fGZLUG"
       >
@@ -942,6 +952,11 @@ exports[`Inntekten din Snapshot 1`] = `
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
+      <h1
+        class="navds-heading navds-heading--xsmall"
+      >
+        inntektenDin.ytelserNAV.tittel
+      </h1>
       <div
         class="sc-dItHI fGZLUG"
       >
@@ -1030,6 +1045,11 @@ exports[`Inntekten din Snapshot 1`] = `
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
+      <h1
+        class="navds-heading navds-heading--xsmall"
+      >
+        inntektenDin.ytelserAndre.tittel
+      </h1>
       <div
         class="sc-dItHI fGZLUG"
       >

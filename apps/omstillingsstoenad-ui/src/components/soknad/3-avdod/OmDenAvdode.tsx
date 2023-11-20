@@ -72,7 +72,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <RHFFoedselsnummerInput
                             name={'foedselsnummer'}
                             label={t('omDenAvdoede.foedselsnummer')}
-                            description={t('felles.fnrPlaceholder')}
                         />
                         <RHFSelect
                             name={`statsborgerskap`}
