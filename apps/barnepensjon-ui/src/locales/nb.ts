@@ -186,6 +186,8 @@ const aboutParents = {
     addDeceasedParentBtn: 'Legg til avdød forelder',
     addFirstParentBtn: 'Legg til forelder 1',
     addSecondParentBtn: 'Legg til forelder 2',
+    guardianAndOneParentDeceased:
+        'Du trenger ikke fylle ut informasjon om gjenlevende forelder. Vi innhenter denne informasjonen når vi behandler søknaden. \n\n Hvis barnet har mistet én forelder og du ikke vet identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Velg alternativet "Begge foreldrene".',
     bothParentsRequired:
         'Du må legge til opplysninger om begge foreldrene for å fortsette søknaden. \n\n Hvis barnet har mistet én forelder og du ikke vet identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Velg alternativet "Begge foreldrene".',
     chooseUnknowParent:
@@ -277,8 +279,10 @@ const aboutChildren = {
     whoAreTheParentsHelpText:
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
     bothOfTheAbove: '{person1} og {person2}',
+    remainingParent: 'Gjenlevende forelder',
     remainingParentsChild: 'Jeg',
     jointChild: 'Jeg og {person1}',
+    guardianChild: 'Gjenlevende forelder og {person1}',
     relationHelpText:
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
     aboutChildrenTitle: 'Om barn',

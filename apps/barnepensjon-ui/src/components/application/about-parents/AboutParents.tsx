@@ -37,11 +37,13 @@ export default function AboutParents({ next, prev }: StepProps) {
     const updateUnknownParent = (payload: boolean) => dispatch({ type: ActionTypes.UPDATE_UNKNOWN_PARENT, payload })
 
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
+    const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
 
     const bothParentsDeceased = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
 
-    const childAndOneParentDeceased =
-        isChild && state.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
+    const childAndOneParentDeceased = isChild && !bothParentsDeceased
+
+    const guardianAndOneParentDeceased = isGuardian && !bothParentsDeceased
 
     const childAndBothParentsDeceased = isChild && bothParentsDeceased
 
@@ -66,7 +68,7 @@ export default function AboutParents({ next, prev }: StepProps) {
     }
 
     const isValid = () => {
-        if (childAndOneParentDeceased) return !isEmpty(state?.secondParent)
+        if (childAndOneParentDeceased || guardianAndOneParentDeceased) return !isEmpty(state?.secondParent)
         return !isEmpty(state?.firstParent) && (!isEmpty(state?.secondParent) || !!state.unknownParent)
     }
 
@@ -82,36 +84,24 @@ export default function AboutParents({ next, prev }: StepProps) {
         if (unknownParent !== undefined) setUnknownParent(unknownParent)
     }
 
+    const guidePanelText = () => {
+        if (childAndOneParentDeceased) return t('childAndOneParentDeceasedGuidepanel')
+        if (childAndBothParentsDeceased) return t('childAndBothParentsDeceasedGuidepanel')
+        if (guardianAndOneParentDeceased) return t('guardianAndOneParentDeceased')
+        if (bothParentsDeceased) return t('chooseUnknowParent')
+        else return t('bothParentsRequired')
+    }
+
     return (
         <FormProvider {...methods}>
             {editing === EditParent.NONE && (
                 <>
                     <StepHeading>{t('aboutParentsTitle')}</StepHeading>
-                    {childAndOneParentDeceased && (
-                        <FormGroup>
-                            <GuidePanel>
-                                <BodyShort>{t('childAndOneParentDeceasedGuidepanel')}</BodyShort>
-                            </GuidePanel>
-                        </FormGroup>
-                    )}
-
-                    {childAndBothParentsDeceased && (
-                        <FormGroup>
-                            <GuidePanel>
-                                <BodyShort>{t('childAndBothParentsDeceasedGuidepanel')}</BodyShort>
-                            </GuidePanel>
-                        </FormGroup>
-                    )}
-
-                    {!isChild && (
-                        <FormGroup>
-                            <GuidePanel>
-                                <BodyShort size={'small'}>
-                                    {bothParentsDeceased ? t('chooseUnknowParent') : t('bothParentsRequired')}
-                                </BodyShort>
-                            </GuidePanel>
-                        </FormGroup>
-                    )}
+                    <FormGroup>
+                        <GuidePanel>
+                            <BodyShort>{guidePanelText()}</BodyShort>
+                        </GuidePanel>
+                    </FormGroup>
 
                     <FormGroup>
                         <InfocardWrapper>
@@ -124,7 +114,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                         <strong>{bothParentsDeceased ? t('firstParent') : t('survivingParent')}</strong>
                                     </InformationBox>
                                     <InformationBox>
-                                        {childAndOneParentDeceased ? (
+                                        {childAndOneParentDeceased || guardianAndOneParentDeceased ? (
                                             <BodyShort>{t('childAndOneParentDeceased')}</BodyShort>
                                         ) : (
                                             <Button

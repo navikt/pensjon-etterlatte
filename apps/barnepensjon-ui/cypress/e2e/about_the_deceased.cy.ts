@@ -28,16 +28,6 @@ describe('About The Deceased - GUARDIAN - ONE PARENT', { testIsolation: false },
         cy.url().should('include', 'skjema/verge/steg/om-foreldrene')
     })
 
-    it('Should request information about the living parent', function () {
-        cy.clickBtn('Legg til')
-        cy.useSimpleLiving(false)
-
-        cy.get(`button:contains(${Button.Back})`).should('exist')
-        cy.clickBtn(Button.Save)
-
-        cy.url().should('include', 'skjema/verge/steg/om-foreldrene')
-    })
-
     it('Should request information about the deceased parent', function () {
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'alleland' }).as('getCountries')
 
