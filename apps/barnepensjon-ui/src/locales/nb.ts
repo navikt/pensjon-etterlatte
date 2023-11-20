@@ -48,7 +48,7 @@ const btn = {
     yesUnknownParent: 'Ja, min forelder er ukjent',
     yesUnknownParentGuardian: 'Ja, forelderen er ukjent',
     noUnknownParent: 'Nei, jeg kjenner til mine foreldre',
-    noUnknownParentGuardian: 'Nei, jeg kjenner til begge foreldrene',
+    noUnknownParentGuardian: 'Nei, jeg kjenner identiteten til begge foreldrene',
 }
 
 const loggedInUserInfo = {
@@ -147,7 +147,7 @@ const selectScenario = {
     youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
         'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
     guardianApplicantInformationFatherNotConfirmed:
-        'Hvis barnet har mistet moren sin og farskapet ikke er fastsatt må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
+        'Hvis et barn har mistet én forelder og identiteten til den andre forelderen er ukjent, kan du benytte denne søknaden. <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
     guardianApplicantInformationSingleParent:
         'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
     aboutSurvivorsPensionDescription:
@@ -225,7 +225,7 @@ const aboutTheDeceased = {
     pensionReceivedFromAbroad: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
     selfEmploymentTitle: 'Næringsinntekt',
     weNeedToKnowIfDeceasedWasSelfEmployed:
-        'Vi trenger å vite om avdøde hadde inntekt som selvstendig næringsdrivende. Dette kan påvirke beregningen av barnepensjon. Vi henter informasjon om andre inntekter.',
+        'Vi henter inn nødvendige opplysninger om avdødes inntekt i Skatteetatens register. Vi har ikke tilgang til opplysninger om næringsinntekt samme år og året før dødsfall.',
     wasTheDeceasedSelfEmployed: 'Var han eller hun selvstendig næringsdrivende?',
     incomeFromSelfEmployymentYearBeforeDeath: 'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
     incomeFromSelfEmploymentBeforeTaxes: 'Samlet årsinntekt før skatt',

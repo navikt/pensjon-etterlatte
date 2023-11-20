@@ -12,7 +12,7 @@ import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import SelfEmploymentDetails from './SelfEmploymentDetails'
 import StaysAbroad from './StaysAbroad'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
-import { ApplicantRole, ApplicantSituation } from '../scenario/ScenarioSelection'
+import { ApplicantRole } from '../scenario/ScenarioSelection'
 
 interface Props {
     fnrRegisteredParent: string[]
@@ -24,7 +24,6 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     const { state } = useApplicationContext()
 
     const { watch } = useFormContext<IDeceasedParent>()
-    const bothParentsDecesed = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
 
     const staysAbroad = watch('staysAbroad.hasStaysAbroad')
@@ -68,7 +67,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                 {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
             </FormGroup>
 
-            {bothParentsDecesed && !isChild && <SelfEmploymentDetails />}
+            <SelfEmploymentDetails />
         </>
     )
 }
