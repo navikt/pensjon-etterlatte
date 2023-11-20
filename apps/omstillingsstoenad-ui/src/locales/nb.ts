@@ -199,7 +199,7 @@ export default {
     'merOmSituasjonenDin.arbeidsforhold.midlertidig.svar': 'Har du en sluttdato?',
     'merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger': 'Sluttdato',
     'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar':
-        'Forventer du endringer i arbeidssituasjonen din fremover i tid?',
+        'Forventer du endringer i arbeidsforholdet din fremover i tid?',
     'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse':
         'Gi en kort beskrivelse av endringene',
     'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar':
@@ -208,7 +208,7 @@ export default {
         'Vi trenger å få vite hva du planlegger å gjøre fremover. Dette hjelper oss med å gi deg relevant informasjon og oppfølging som passer for deg.',
     'merOmSituasjonenDin.etablererVirksomhet.tittel': 'Om virksomheten',
     'merOmSituasjonenDin.etablererVirksomhet.orgnr': 'Organisasjonsnummer',
-    'merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten': 'Hva heter virksomheten?',
+    'merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten': 'Hva heter den nye virksomheten?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar': 'Har du en forretningsplan?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar':
         'Er dette i samarbeid med NAV for at du skal bli selvforsørget?',
