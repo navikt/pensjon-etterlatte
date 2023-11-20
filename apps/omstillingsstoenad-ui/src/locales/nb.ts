@@ -208,6 +208,7 @@ export default {
         'Vi trenger å få vite hva du planlegger å gjøre fremover. Dette hjelper oss med å gi deg relevant informasjon og oppfølging som passer for deg.',
     'merOmSituasjonenDin.etablererVirksomhet.tittel': 'Om virksomheten',
     'merOmSituasjonenDin.etablererVirksomhet.orgnr': 'Organisasjonsnummer',
+    'merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr': 'Jeg har ikke organisasjonsnummer',
     'merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten': 'Hva heter den nye virksomheten?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar': 'Har du en forretningsplan?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar':

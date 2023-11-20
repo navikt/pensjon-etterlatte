@@ -47,6 +47,7 @@ export interface ISelvstendigNaeringsdrivende {
 export interface IEtablererVirksomhet {
     hvaHeterVirksomheten?: string
     orgnr?: string
+    manglerOrgnr?: string[]
     forretningsplan?: {
         svar?: IValg
         samarbeidMedNAV?: {

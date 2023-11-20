@@ -197,6 +197,7 @@ export default {
     'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor': '<TRENGER TEKST>',
     'merOmSituasjonenDin.etablererVirksomhet.tittel': '<TRENGER TEKST>',
     'merOmSituasjonenDin.etablererVirksomhet.orgnr': '<TRENGER TEKST>',
+    'merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr': '<TRENGER TEKST>',
     'merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten': '<TRENGER TEKST>',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar': '<TRENGER TEKST>',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar': '<TRENGER TEKST>',

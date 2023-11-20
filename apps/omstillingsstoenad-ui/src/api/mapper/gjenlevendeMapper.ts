@@ -385,7 +385,9 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                 orgnr: {
                     spoersmaal: t('merOmSituasjonenDin.etablererVirksomhet.orgnr'),
                     svar: {
-                        innhold: dinSituasjon.etablererVirksomhet!!.orgnr!!,
+                        innhold: dinSituasjon.etablererVirksomhet?.manglerOrgnr?.length
+                            ? dinSituasjon.etablererVirksomhet.manglerOrgnr[0]
+                            : dinSituasjon.etablererVirksomhet!!.orgnr!!,
                     },
                 },
                 forretningsplan: {

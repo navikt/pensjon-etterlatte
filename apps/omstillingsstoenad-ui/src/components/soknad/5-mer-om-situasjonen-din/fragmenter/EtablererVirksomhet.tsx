@@ -9,6 +9,7 @@ import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import Bredde from '../../../../typer/bredde'
 import { IValg } from '../../../../typer/Spoersmaal'
+import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 
 const EtablererVirksomhet = () => {
     const { t } = useTranslation()
@@ -16,6 +17,7 @@ const EtablererVirksomhet = () => {
     const { watch } = useFormContext<IMerOmSituasjonenDin>()
 
     const harForretningsplan = watch('etablererVirksomhet.forretningsplan.svar')
+    const manglerOrgnr = watch('etablererVirksomhet.manglerOrgnr')
 
     return (
         <SkjemaGruppe>
@@ -37,6 +39,16 @@ const EtablererVirksomhet = () => {
                     maxLength={9}
                     minLength={9}
                     htmlSize={Bredde.S}
+                    valgfri={!!!manglerOrgnr?.length}
+                />
+            </SkjemaElement>
+
+            <SkjemaElement>
+                <RHFCheckboksGruppe
+                    name={'etablererVirksomhet.manglerOrgnr'}
+                    checkboxes={[{ children: t('merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr'), value: t('merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr') }]}
+                    legend={''}
+                    required={false}
                 />
             </SkjemaElement>
 
