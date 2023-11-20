@@ -147,6 +147,10 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
             svar: valgTilSvar(t, soeknad.situasjonenDin.gravidEllerNyligFoedt!!),
         },
         forholdTilAvdoede: mapForholdTilAvdoede(t, soeknad.omDegOgAvdoed.forholdTilAvdoede!!),
+        omsorgForBarn: {
+            spoersmaal: t('situasjonenDin.omsorgMinstFemti'),
+            svar: valgTilSvar(t, soeknad.situasjonenDin.omsorgMinstFemti!!)
+        }
     }
 }
 
