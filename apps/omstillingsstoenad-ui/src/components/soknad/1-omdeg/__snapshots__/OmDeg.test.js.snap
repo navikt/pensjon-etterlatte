@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot 1`] = `
 <div>
   <div
-    class="sc-dItHI fGZLUG"
+    class="sc-dQpIV kAJjwJ"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,10 +13,10 @@ exports[`Om deg og avdød Snapshot 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-bdfCDU iGBHmN"
     >
       <fieldset
-        class="sc-bdnyFh dkDmBp"
+        class="sc-bdfCDU iGBHmN"
       >
         <div>
           <div
@@ -44,7 +44,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </fieldset>
       <fieldset
-        class="sc-bdnyFh dkDmBp"
+        class="sc-bdfCDU iGBHmN"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -72,10 +72,10 @@ exports[`Om deg og avdød Snapshot 1`] = `
       </fieldset>
     </fieldset>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-bdfCDU iGBHmN"
     >
       <div
-        class="sc-dItHI fGZLUG"
+        class="sc-dQpIV kAJjwJ"
       >
         <div
           id="utbetalingsInformasjon.bankkontoType"
@@ -152,7 +152,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-dItHI fGZLUG"
+        class="sc-dQpIV kAJjwJ"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -161,7 +161,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-dItHI fGZLUG"
+        class="sc-dQpIV kAJjwJ"
       >
         <div>
           <div
@@ -189,7 +189,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-dItHI fGZLUG"
+        class="sc-dQpIV kAJjwJ"
       >
         <div>
           <div
@@ -217,7 +217,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-dItHI fGZLUG"
+        class="sc-dQpIV kAJjwJ"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -227,7 +227,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.iban"
           >
             <div
-              class="sc-bqGGcD hvyhDJ"
+              class="sc-bqyKbq Frowy"
             >
               omDeg.utbetalingsInformasjon.iban
                
@@ -337,7 +337,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-dItHI fGZLUG"
+        class="sc-dQpIV kAJjwJ"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -347,7 +347,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.swift"
           >
             <div
-              class="sc-bqGGcD hvyhDJ"
+              class="sc-bqyKbq Frowy"
             >
               omDeg.utbetalingsInformasjon.swift
                
@@ -459,10 +459,10 @@ exports[`Om deg og avdød Snapshot 1`] = `
     </fieldset>
     <br />
     <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-bdfCDU iGBHmN"
     >
       <div
-        class="sc-gtsqUy fppBuE undefined"
+        class="sc-gsTDqH dOgelJ undefined"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"
@@ -477,7 +477,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gtsqUy sc-dlniIP fppBuE iyxXTu"
+      class="sc-gsTDqH sc-dlfmHC dOgelJ kRPkmN"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -548,7 +548,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jrsKJM dwwRPt"
+          class="sc-jrAGKZ kZaWxs"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -576,7 +576,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-jrsKJM dwwRPt"
+          class="sc-jrAGKZ kZaWxs"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

@@ -3,7 +3,7 @@
 exports[`Oppsummering Snapshot 1`] = `
 <div>
   <div
-    class="sc-dItHI fGZLUG"
+    class="sc-dQpIV kAJjwJ"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -12,7 +12,7 @@ exports[`Oppsummering Snapshot 1`] = `
     </h1>
   </div>
   <div
-    class="sc-dItHI fGZLUG"
+    class="sc-dQpIV kAJjwJ"
   >
     <p
       class="navds-body-long navds-body-long--medium"
@@ -22,10 +22,10 @@ exports[`Oppsummering Snapshot 1`] = `
   </div>
   <br />
   <fieldset
-    class="sc-bdnyFh dkDmBp"
+    class="sc-bdfCDU iGBHmN"
   >
     <div
-      class="sc-gtsqUy fppBuE false"
+      class="sc-gsTDqH dOgelJ false"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
@@ -51,7 +51,7 @@ exports[`Oppsummering Snapshot 1`] = `
     </div>
   </fieldset>
   <div
-    class="sc-gtsqUy sc-dlniIP fppBuE iyxXTu"
+    class="sc-gsTDqH sc-dlfmHC dOgelJ kRPkmN"
   >
     <button
       class="navds-button navds-button--tertiary navds-button--medium"
@@ -122,7 +122,7 @@ exports[`Oppsummering Snapshot 1`] = `
       class="navds-modal__footer"
     >
       <div
-        class="sc-jrsKJM dwwRPt"
+        class="sc-jrAGKZ kZaWxs"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -150,7 +150,7 @@ exports[`Oppsummering Snapshot 1`] = `
         </button>
       </div>
       <div
-        class="sc-jrsKJM dwwRPt"
+        class="sc-jrAGKZ kZaWxs"
       >
         <button
           class="navds-button navds-button--tertiary navds-button--medium"
