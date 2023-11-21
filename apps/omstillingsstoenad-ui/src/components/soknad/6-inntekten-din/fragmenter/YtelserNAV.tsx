@@ -7,6 +7,7 @@ import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, SoekbareYtelserNAV } from '../../../../typer/inntekt'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
+import { Heading } from '@navikt/ds-react'
 
 const YtelserNAV = () => {
     const { t } = useTranslation()
@@ -17,6 +18,7 @@ const YtelserNAV = () => {
 
     return (
         <SkjemaGruppe>
+            <Heading size={'xsmall'}>{t('inntektenDin.ytelserNAV.tittel')}</Heading>
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={'ytelserNAV.svar'}

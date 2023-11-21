@@ -91,6 +91,7 @@ export interface Gjenlevende extends Person {
     fullfoertUtdanning?: Opplysning<EnumSvar<HoeyesteUtdanning>[]>
     uregistrertEllerVenterBarn: Opplysning<EnumSvar<JaNeiVetIkke>>
     forholdTilAvdoede: ForholdTilAvdoede
+    omsorgForBarn: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
 export interface Barn extends Person {

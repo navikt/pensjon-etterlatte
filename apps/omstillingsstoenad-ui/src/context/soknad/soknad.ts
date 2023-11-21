@@ -1,5 +1,5 @@
-import { IAvdoed, IOmBarn, ISoeker, ISoekerOgAvdoed } from '../../typer/person'
-import { ISituasjon } from '../../typer/situasjon'
+import { IAvdoed, IOmBarn, ISituasjonenDin, ISoeker, ISoekerOgAvdoed } from '../../typer/person'
+import { IMerOmSituasjonenDin } from '../../typer/situasjon'
 import { Language } from '../../i18n'
 import { IInntekt } from '../../typer/inntekt'
 
@@ -13,8 +13,9 @@ export const tomSoeknad: ISoeknad = {
     omDeg: {},
     omDegOgAvdoed: {},
     omDenAvdoede: {},
-    dinSituasjon: {},
+    merOmSituasjonenDin: {},
     inntektenDin: {},
+    situasjonenDin: {},
     opplysningerOmBarn: {},
 }
 
@@ -28,7 +29,8 @@ export interface ISoeknad {
     omDeg: ISoeker
     omDegOgAvdoed: ISoekerOgAvdoed
     omDenAvdoede: IAvdoed
-    dinSituasjon: ISituasjon
+    situasjonenDin: ISituasjonenDin
+    merOmSituasjonenDin: IMerOmSituasjonenDin
     inntektenDin: IInntekt
     opplysningerOmBarn: IOmBarn
 }
@@ -44,7 +46,8 @@ export enum ActionTypes {
     OPPDATER_OM_DEG = 'OPPDATER_OM_DEG',
     OPPDATER_OM_DEG_OG_AVDOED = 'OPPDATER_OM_DEG_OG_AVDOED',
     OPPDATER_AVDOED = 'OPPDATER_AVDOED',
-    OPPDATER_DIN_SITUASJON = 'OPPDATER_DIN_SITUASJON',
+    OPPDATER_SITUASJONEN_DIN = 'OPPDATER_SITUASJONEN_DIN',
+    OPPDATER_MER_OM_SITUASJONEN_DIN = 'OPPDATER_MER_OM_SITUASJONEN_DIN',
     OPPDATER_INNTEKTEN_DIN = 'OPPDATER_INNTEKTEN_DIN',
     OPPDATER_OM_BARN = 'OPPDATER_OM_BARN',
     SET_ERROR = 'SET_ERROR',

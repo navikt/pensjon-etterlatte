@@ -12,40 +12,40 @@ import { addYears } from 'date-fns'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { Studieform } from '../../../../typer/utdanning'
 import { useFormContext } from 'react-hook-form'
-import { ISituasjon } from '../../../../typer/situasjon'
+import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import Bredde from '../../../../typer/bredde'
 
 const UnderUtdanning = () => {
     const { t } = useTranslation()
     const { state } = useBrukerContext()
-    const { watch } = useFormContext<ISituasjon>()
+    const { watch } = useFormContext<IMerOmSituasjonenDin>()
 
     const studieform = watch('utdanning.naavaerendeUtdanning.studieform')
 
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <Heading size={'small'}>{t('dinSituasjon.utdanning.tittel')}</Heading>
+                <Heading size={'small'}>{t('merOmSituasjonenDin.utdanning.tittel')}</Heading>
             </SkjemaElement>
 
             <SkjemaElement>
                 <RHFInput
                     name={'utdanning.naavaerendeUtdanning.studiested'}
-                    label={t('dinSituasjon.utdanning.naavaerendeUtdanning.studiested')}
+                    label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studiested')}
                     htmlSize={Bredde.M}
                 />
             </SkjemaElement>
             <SkjemaElement>
                 <RHFInput
                     name={'utdanning.naavaerendeUtdanning.studie'}
-                    label={t('dinSituasjon.utdanning.naavaerendeUtdanning.studie')}
+                    label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studie')}
                     htmlSize={Bredde.M}
                 />
             </SkjemaElement>
 
             <RHFRadio
                 name={`utdanning.naavaerendeUtdanning.studieform` as const}
-                legend={t('dinSituasjon.utdanning.naavaerendeUtdanning.studieform')}
+                legend={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieform')}
             >
                 {Object.values(Studieform).map((value) => {
                     return { children: t(value), value } as RadioProps
@@ -55,30 +55,30 @@ const UnderUtdanning = () => {
                 <SkjemaElement>
                     <RHFProsentInput
                         name={'utdanning.naavaerendeUtdanning.studieprosent'}
-                        label={t('dinSituasjon.utdanning.naavaerendeUtdanning.studieprosent')}
-                        description={t('dinSituasjon.utdanning.naavaerendeUtdanning.studieprosent.beskrivelse')}
+                        label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent')}
+                        description={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent.beskrivelse')}
                         htmlSize={Bredde.S}
                     />
                 </SkjemaElement>
             )}
             <SkjemaElement>
                 <SkjemaElement>
-                    <Heading size={'small'}>{t('dinSituasjon.utdanning.naavaerendeUtdanning.studietsLengde')}</Heading>
+                    <Heading size={'small'}>{t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde')}</Heading>
                     <Detail textColor={'subtle'}>
-                        {t('dinSituasjon.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse')}
+                        {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse')}
                     </Detail>
                 </SkjemaElement>
                 <SkjemaGruppeRad>
                     <Datovelger
                         name={'utdanning.naavaerendeUtdanning.startDato'}
-                        label={t('dinSituasjon.utdanning.naavaerendeUtdanning.startDato')}
+                        label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato')}
                         minDate={state.foedselsdato}
                         maxDate={new Date()}
                     />
 
                     <Datovelger
                         name={'utdanning.naavaerendeUtdanning.sluttDato'}
-                        label={t('dinSituasjon.utdanning.naavaerendeUtdanning.sluttDato')}
+                        label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.sluttDato')}
                         minDate={new Date()}
                         maxDate={addYears(new Date(), 10)}
                     />
@@ -87,7 +87,7 @@ const UnderUtdanning = () => {
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={`utdanning.naavaerendeUtdanning.godkjentUtdanning` as const}
-                    legend={t('dinSituasjon.utdanning.naavaerendeUtdanning.godkjentUtdanning')}
+                    legend={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.godkjentUtdanning')}
                     vetIkke
                 />
 
@@ -96,12 +96,12 @@ const UnderUtdanning = () => {
                 <br />
                 <RHFCheckboksGruppe
                     name={'utdanning.soeknadOmSkolepenger'}
-                    legend={t('dinSituasjon.utdanning.soeknadOmSkolepenger')}
-                    description={t('dinSituasjon.utdanning.soeknadOmSkolepenger.beskrivelse')}
+                    legend={t('merOmSituasjonenDin.utdanning.soeknadOmSkolepenger')}
+                    description={t('merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.beskrivelse')}
                     required={false}
                     checkboxes={[
                         {
-                            children: t('dinSituasjon.utdanning.soeknadOmSkolepenger.bekreftelse'),
+                            children: t('merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.bekreftelse'),
                             value: IValg.JA,
                         },
                     ]}
@@ -111,12 +111,12 @@ const UnderUtdanning = () => {
             <SkjemaElement>
                 <RHFCheckboksGruppe
                     name={'utdanning.soeknadOmTilleggsstoenadUtdanning'}
-                    legend={t('dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning')}
-                    description={t('dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse')}
+                    legend={t('merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning')}
+                    description={t('merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse')}
                     required={false}
                     checkboxes={[
                         {
-                            children: t('dinSituasjon.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse'),
+                            children: t('merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse'),
                             value: IValg.JA,
                         },
                     ]}

@@ -4,13 +4,14 @@ import { IStegElement, MuligeSteg, StegPath } from '../../typer/steg'
 import OmDeg from './1-omdeg/OmDeg'
 import OmDegOgAvdoed from './2-omdegogavdoed/OmDegOgAvdoed'
 import OmDenAvdode from './3-avdod/OmDenAvdode'
-import SituasjonenDin from './4-situasjonen-din/SituasjonenDin'
-import InntektenDin from './5-inntekten-din/InntektenDin'
-import OpplysningerOmBarnepensjon from './6-barn/OpplysningerOmBarnepensjon'
-import Oppsummering from './7-oppsummering/Oppsummering'
+import MerOmSituasjonenDin from './5-mer-om-situasjonen-din/MerOmSituasjonenDin'
+import InntektenDin from './6-inntekten-din/InntektenDin'
+import OpplysningerOmBarnepensjon from './7-barnepensjon/OpplysningerOmBarnepensjon'
+import Oppsummering from './8-oppsummering/Oppsummering'
 import { useLanguage } from '../../hooks/useLanguage'
 import { useState } from 'react'
 import Stegviser from '../felles/Stegviser'
+import SituasjonenDin from './4-situasjonen-din/SituasjonenDin'
 
 const SoknadDialog = () => {
     const navigate = useNavigate()
@@ -48,9 +49,10 @@ const SoknadDialog = () => {
                     path={`/${StegPath.OmDegOgAvdoed}`}
                     element={<OmDegOgAvdoed neste={neste} forrige={forrige} />}
                 />
+                <Route path={`/${StegPath.SituasjonenDin}`} element={<SituasjonenDin neste={neste} forrige={forrige} />} />
                 <Route
-                    path={`/${StegPath.DinSituasjon}`}
-                    element={<SituasjonenDin neste={neste} forrige={forrige} />}
+                    path={`/${StegPath.MerOmSituasjonenDin}`}
+                    element={<MerOmSituasjonenDin neste={neste} forrige={forrige} />}
                 />
                 <Route path={`/${StegPath.InntektenDin}`} element={<InntektenDin neste={neste} forrige={forrige} />} />
                 <Route path={`/${StegPath.OmBarn}`} element={<OpplysningerOmBarnepensjon neste={neste} forrige={forrige} />} />

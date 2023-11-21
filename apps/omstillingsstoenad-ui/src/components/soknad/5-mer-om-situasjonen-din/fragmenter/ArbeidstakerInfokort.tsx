@@ -36,13 +36,13 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     return (
         <>
             {lengde > 1 && (
-                <Heading size={'small'}>{`${t('dinSituasjon.arbeidsforhold.arbeidssted')} ${index + 1}`}</Heading>
+                <Heading size={'small'}>{`${t('merOmSituasjonenDin.arbeidsforhold.arbeidssted')} ${index + 1}`}</Heading>
             )}
             <SkjemaElement>
                 <RHFInput
                     className={'kol-50'}
                     name={`arbeidsforhold[${index}].arbeidsgiver` as const}
-                    label={t('dinSituasjon.arbeidsforhold.arbeidsgiver')}
+                    label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsgiver')}
                     htmlSize={Bredde.M}
                 />
             </SkjemaElement>
@@ -50,7 +50,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             <SkjemaElement>
                 <RHFRadio
                     name={`arbeidsforhold[${index}].ansettelsesforhold` as const}
-                    legend={t('dinSituasjon.arbeidsforhold.ansettelsesforhold')}
+                    legend={t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold')}
                 >
                     {Object.values(StillingType).map((value) => {
                         return { children: t(value), value } as RadioProps
@@ -63,13 +63,13 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     <SkjemaElement>
                         <SkjemaElement>
                             <Heading size={'xsmall'}>
-                                {t('dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel')}
+                                {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel')}
                             </Heading>
-                            <Detail>{t('dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.beskrivelse')}</Detail>
+                            <Detail>{t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.beskrivelse')}</Detail>
                         </SkjemaElement>
                         <RHFProsentInput
                             name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
-                            label={t('dinSituasjon.arbeidsforhold.arbeidsmengde.svar.fast')}
+                            label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast')}
                             htmlSize={Bredde.XS}
                         />
                     </SkjemaElement>
@@ -80,16 +80,16 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     <SkjemaElement>
                         <SkjemaElement>
                             <Heading size={'xsmall'}>
-                                {t('dinSituasjon.arbeidsforhold.ansettelsesforhold.fast.tittel')}
+                                {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel')}
                             </Heading>
                             <Detail>
-                                {t('dinSituasjon.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse')}
+                                {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse')}
                             </Detail>
                         </SkjemaElement>
                         <NumberSelectRad>
                             <RHFNumberInput
                                 name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
-                                label={t('dinSituasjon.arbeidsforhold.arbeidsmengde.svar')}
+                                label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
                                 htmlSize={Bredde.S}
                             />
                             <RHFSelect
@@ -106,13 +106,13 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         <SkjemaElement>
                             <RHFSpoersmaalRadio
                                 name={`arbeidsforhold[${index}].midlertidig.svar` as const}
-                                legend={t('dinSituasjon.arbeidsforhold.midlertidig.svar')}
+                                legend={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar')}
                             />
                         </SkjemaElement>
                         {sluttdato === IValg.JA && (
                             <Datovelger
                                 name={`arbeidsforhold[${index}].midlertidig.sluttdatoVelger`}
-                                label={t('dinSituasjon.arbeidsforhold.midlertidig.sluttdatoVelger')}
+                                label={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger')}
                                 minDate={new Date()}
                             />
                         )}
@@ -123,27 +123,27 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             <SkjemaGruppe>
                 <RHFSpoersmaalRadio
                     name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
-                    legend={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
+                    legend={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
                 />
                 {endretArbeidssituasjon === IValg.JA && (
                     <SkjemaElement>
                         <RHFInputArea
                             name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
-                            label={t('dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
+                            label={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
                             maxLength={200}
                             className={'width-50'}
                         />
                     </SkjemaElement>
                 )}
-                <HvorforSpoerVi title={'dinSituasjon.arbeidsforhold.forventerEndretArbeidssituasjon.svar'} >
-                    {t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
+                <HvorforSpoerVi title={'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar'} >
+                    {t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
                 </HvorforSpoerVi>
             </SkjemaGruppe>
 
             <SkjemaElement>
                 <RHFRadio
                     name={`arbeidsforhold[${index}].sagtOppEllerRedusert.svar` as const}
-                    legend={t('dinSituasjon.arbeidsforhold.sagtOppEllerRedusert.svar')}
+                    legend={t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar')}
                 >
                     {Object.values(SagtOppEllerRedusert).map((value) => {
                         return { children: t(value), value } as RadioProps

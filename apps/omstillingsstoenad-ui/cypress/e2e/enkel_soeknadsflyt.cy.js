@@ -1,5 +1,4 @@
 import mockSoeknad from '../../src/assets/dummy-soeknad.json'
-import { IValg } from '../../src/typer/Spoersmaal'
 import { a11yCheck, basePath, gaaTilNesteSide, getById, selectValue, selectValueForId } from '../util/cy-functions'
 
 describe('Skal gå igjennom hele søknaden uten feil', () => {
@@ -35,10 +34,8 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         const omDeg = mockSoeknad.omDeg
         cy.get('#alternativAdresse').should('not.exist')
         getById('kontaktinfo.telefonnummer').type(omDeg.kontaktinfo.telefonnummer)
-        selectValueForId('oppholderSegINorge', omDeg.oppholderSegINorge)
+        selectValue(omDeg.utbetalingsInformasjon.bankkontoType)
         getById('utbetalingsInformasjon.kontonummer').type(omDeg.utbetalingsInformasjon.kontonummer)
-
-        selectValue(omDeg.nySivilstatus.sivilstatus)
 
         a11yCheck()
 
@@ -99,13 +96,33 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
     it('Skal fylle ut siden "Situasjonen din" og gå til neste', () => {
         cy.url().should('include', 'steg/situasjonen-din')
+
+        // Verifiser felter og fyll ut skjema.
+        const situasjonenDin = mockSoeknad.situasjonenDin
+
+        selectValue(situasjonenDin.nySivilstatus.sivilstatus)
+
+        selectValueForId('omsorgMinstFemti', situasjonenDin.omsorgMinstFemti)
+
+        selectValueForId('gravidEllerNyligFoedt', situasjonenDin.gravidEllerNyligFoedt)
+
+        selectValueForId('bosattINorge', situasjonenDin.bosattINorge)
+        selectValueForId('oppholderSegIUtlandet.svar', situasjonenDin.oppholderSegIUtlandet.svar)
+
+        a11yCheck()
+
+        gaaTilNesteSide()
+    })
+
+    it('Skal fylle ut siden "Mer om situasjonen din" og gå til neste', () => {
+        cy.url().should('include', 'steg/mer-om-situasjonen-din')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')
 
         // Verifiser felter og fyll ut skjema.
-        const dinSituasjon = mockSoeknad.dinSituasjon
-        selectValue(dinSituasjon.jobbStatus)
+        const merOmSituasjonenDin = mockSoeknad.merOmSituasjonenDin
+        selectValue(merOmSituasjonenDin.jobbStatus)
 
-        dinSituasjon.arbeidsforhold.map((arbeid, idx) => {
+        merOmSituasjonenDin.arbeidsforhold.map((arbeid, idx) => {
             const baseId = `arbeidsforhold\[${idx}\].`
 
             getById(baseId + 'arbeidsgiver').type(arbeid.arbeidsgiver)
@@ -131,7 +148,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             selectValueForId(baseId + 'sagtOppEllerRedusert.svar', arbeid.sagtOppEllerRedusert.svar)
         })
 
-        selectValue(dinSituasjon.utdanning.hoyesteFullfoerteUtdanning)
+        selectValue(merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning)
 
         a11yCheck()
 
@@ -232,8 +249,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             }
             getById('leggTilBarn').click()
         })
-
-        selectValueForId('gravidEllerNyligFoedt', mockSoeknad.opplysningerOmBarn.gravidEllerNyligFoedt)
 
         a11yCheck()
 

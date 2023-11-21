@@ -74,6 +74,8 @@ export const konverterTilHoyesteUtdanning = (type: String | GammelUtdanning): Ho
 
 export const konverterSivilstatus = (type: Sivilstatus): SivilstatusType => {
     switch (type) {
+        case Sivilstatus.enke:
+            return SivilstatusType.ENKE
         case Sivilstatus.enslig:
             return SivilstatusType.ENSLIG
         case Sivilstatus.ekteskap:

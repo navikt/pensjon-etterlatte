@@ -47,7 +47,7 @@ export enum JobbStatus {
 
 
 
-export interface ISituasjon {
+export interface IMerOmSituasjonenDin {
     jobbStatus?: JobbStatus[]
     annenSituasjon?: IAnnenSituasjon
     utdanning?: IUtdanning

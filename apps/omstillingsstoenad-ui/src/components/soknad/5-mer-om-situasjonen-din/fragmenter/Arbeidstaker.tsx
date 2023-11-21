@@ -32,7 +32,7 @@ const Arbeidstaker = () => {
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <Heading size={'small'}>{t('dinSituasjon.arbeidsforhold.tittel')}</Heading>
+                <Heading size={'small'}>{t('merOmSituasjonenDin.arbeidsforhold.tittel')}</Heading>
             </SkjemaElement>
 
             {fields.map((field: FieldArrayWithId, index: number) => (

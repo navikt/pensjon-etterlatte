@@ -9,6 +9,11 @@ import Loennsinntekt from './Loennsinntekt'
 import Naeringsinntekt from './Naeringsinntekt'
 import PensjonEllerUfoere from './PensjonEllerUfoere'
 import AnnenInntekt from './AnnenInntekt'
+import styled from 'styled-components'
+
+const MarginBottom = styled.div<{ $margin: boolean }>`
+    margin-bottom: ${(props) => (!props.$margin ? '3rem' : '')};
+`
 
 const Inntekt = () => {
     const { t } = useTranslation()
@@ -18,7 +23,7 @@ const Inntekt = () => {
     const inntektstype = watch('inntektstyper')
 
     return (
-        <>
+        <MarginBottom $margin={!!inntektstype?.length}>
             <SkjemaElement>
                 <Heading size={'medium'}>{t('inntektenDin.undertittel')}</Heading>
             </SkjemaElement>
@@ -34,7 +39,7 @@ const Inntekt = () => {
             {inntektstype?.includes(InntektsTyper.naering) && <Naeringsinntekt />}
             {inntektstype?.includes(InntektsTyper.pensjonEllerUfoere) && <PensjonEllerUfoere />}
             {inntektstype?.includes(InntektsTyper.annen) && <AnnenInntekt />}
-        </>
+        </MarginBottom>
     )
 }
 

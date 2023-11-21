@@ -103,213 +103,222 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-dItHI fGZLUG"
+      class="sc-fnVZQs hFZEJq"
     >
-      <h1
-        class="navds-heading navds-heading--medium"
+      <div
+        class="sc-dItHI fGZLUG"
       >
-        inntektenDin.undertittel
-      </h1>
-    </div>
-    <div
-      class="sc-bqGGcD hwCzHa"
-      id="inntektstyper"
-    >
-      <fieldset
-        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+        <h1
+          class="navds-heading navds-heading--medium"
+        >
+          inntektenDin.undertittel
+        </h1>
+      </div>
+      <div
+        class="sc-bqGGcD hwCzHa"
+        id="inntektstyper"
       >
-        <legend
-          class="navds-fieldset__legend navds-label"
+        <fieldset
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          inntektenDin.inntektstyper
-        </legend>
-        <div
-          class="navds-checkboxes"
-        >
-          <div
-            class="navds-checkbox navds-checkbox--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-rj"
-              type="checkbox"
-              value="inntekt.loenn"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-rj"
+            inntektenDin.inntektstyper
+          </legend>
+          <div
+            class="navds-checkboxes"
+          >
+            <div
+              class="navds-checkbox navds-checkbox--medium"
             >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-rj"
+                type="checkbox"
+                value="inntekt.loenn"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-rj"
               >
                 <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  class="navds-checkbox__icon"
                 >
-                  inntekt.loenn
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-rk"
-              type="checkbox"
-              value="inntekt.naering"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-rk"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="navds-checkbox__content"
                 >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    inntekt.loenn
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-rk"
+                type="checkbox"
+                value="inntekt.naering"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-rk"
               >
                 <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  class="navds-checkbox__icon"
                 >
-                  inntekt.naering
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-rl"
-              type="checkbox"
-              value="inntekt.pensjonEllerUfoere"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-rl"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="navds-checkbox__content"
                 >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    inntekt.naering
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-rl"
+                type="checkbox"
+                value="inntekt.pensjonEllerUfoere"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-rl"
               >
                 <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  class="navds-checkbox__icon"
                 >
-                  inntekt.pensjonEllerUfoere
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-rm"
-              type="checkbox"
-              value="inntekt.annen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-rm"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="navds-checkbox__content"
                 >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    inntekt.pensjonEllerUfoere
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-rm"
+                type="checkbox"
+                value="inntekt.annen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-rm"
               >
                 <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  class="navds-checkbox__icon"
                 >
-                  inntekt.annen
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    inntekt.annen
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
-        </div>
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-fieldset__error"
-          id="fieldset-error-ri"
-        />
-      </fieldset>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-ri"
+          />
+        </fieldset>
+      </div>
     </div>
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
+      <h1
+        class="navds-heading navds-heading--xsmall"
+      >
+        inntektenDin.ytelserNAV.tittel
+      </h1>
       <div
         class="sc-dItHI fGZLUG"
       >
@@ -398,6 +407,11 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
+      <h1
+        class="navds-heading navds-heading--xsmall"
+      >
+        inntektenDin.ytelserAndre.tittel
+      </h1>
       <div
         class="sc-dItHI fGZLUG"
       >
@@ -735,213 +749,222 @@ exports[`Inntekten din Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-dItHI fGZLUG"
+      class="sc-fnVZQs hFZEJq"
     >
-      <h1
-        class="navds-heading navds-heading--medium"
+      <div
+        class="sc-dItHI fGZLUG"
       >
-        inntektenDin.undertittel
-      </h1>
-    </div>
-    <div
-      class="sc-bqGGcD hwCzHa"
-      id="inntektstyper"
-    >
-      <fieldset
-        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+        <h1
+          class="navds-heading navds-heading--medium"
+        >
+          inntektenDin.undertittel
+        </h1>
+      </div>
+      <div
+        class="sc-bqGGcD hwCzHa"
+        id="inntektstyper"
       >
-        <legend
-          class="navds-fieldset__legend navds-label"
+        <fieldset
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          inntektenDin.inntektstyper
-        </legend>
-        <div
-          class="navds-checkboxes"
-        >
-          <div
-            class="navds-checkbox navds-checkbox--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r2"
-              type="checkbox"
-              value="inntekt.loenn"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r2"
+            inntektenDin.inntektstyper
+          </legend>
+          <div
+            class="navds-checkboxes"
+          >
+            <div
+              class="navds-checkbox navds-checkbox--medium"
             >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r2"
+                type="checkbox"
+                value="inntekt.loenn"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r2"
               >
                 <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  class="navds-checkbox__icon"
                 >
-                  inntekt.loenn
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r3"
-              type="checkbox"
-              value="inntekt.naering"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r3"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="navds-checkbox__content"
                 >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    inntekt.loenn
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r3"
+                type="checkbox"
+                value="inntekt.naering"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r3"
               >
                 <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  class="navds-checkbox__icon"
                 >
-                  inntekt.naering
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r4"
-              type="checkbox"
-              value="inntekt.pensjonEllerUfoere"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r4"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="navds-checkbox__content"
                 >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    inntekt.naering
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r4"
+                type="checkbox"
+                value="inntekt.pensjonEllerUfoere"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r4"
               >
                 <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  class="navds-checkbox__icon"
                 >
-                  inntekt.pensjonEllerUfoere
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              class="navds-checkbox__input"
-              id="checkbox-r5"
-              type="checkbox"
-              value="inntekt.annen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-r5"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="10"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="13"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="navds-checkbox__content"
                 >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__content"
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    inntekt.pensjonEllerUfoere
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                class="navds-checkbox__input"
+                id="checkbox-r5"
+                type="checkbox"
+                value="inntekt.annen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-r5"
               >
                 <span
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  class="navds-checkbox__icon"
                 >
-                  inntekt.annen
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="10"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                  >
+                    inntekt.annen
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
-        </div>
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-fieldset__error"
-          id="fieldset-error-r1"
-        />
-      </fieldset>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-r1"
+          />
+        </fieldset>
+      </div>
     </div>
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
+      <h1
+        class="navds-heading navds-heading--xsmall"
+      >
+        inntektenDin.ytelserNAV.tittel
+      </h1>
       <div
         class="sc-dItHI fGZLUG"
       >
@@ -1030,6 +1053,11 @@ exports[`Inntekten din Snapshot 1`] = `
     <fieldset
       class="sc-bdnyFh dkDmBp"
     >
+      <h1
+        class="navds-heading navds-heading--xsmall"
+      >
+        inntektenDin.ytelserAndre.tittel
+      </h1>
       <div
         class="sc-dItHI fGZLUG"
       >

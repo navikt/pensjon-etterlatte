@@ -12,7 +12,6 @@ import { v4 as uuid } from 'uuid'
 import Navigasjon from '../../felles/Navigasjon'
 import { BodyShort, Button, Heading, GuidePanel } from '@navikt/ds-react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
-import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import { deepCopy } from '../../../utils/deepCopy'
 import styled from 'styled-components'
 import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
@@ -147,12 +146,6 @@ const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
                                 </Infokort>
                             </InfokortWrapper>
                         </SkjemaGruppe>
-                        <SkjemaElement>
-                            <RHFSpoersmaalRadio
-                                name={'gravidEllerNyligFoedt'}
-                                legend={t('omBarn.gravidEllerNyligFoedt')}
-                            />
-                        </SkjemaElement>
 
                         <Navigasjon
                             forrige={{

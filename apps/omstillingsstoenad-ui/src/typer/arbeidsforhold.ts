@@ -47,6 +47,7 @@ export interface ISelvstendigNaeringsdrivende {
 export interface IEtablererVirksomhet {
     hvaHeterVirksomheten?: string
     orgnr?: string
+    manglerOrgnr?: string[]
     forretningsplan?: {
         svar?: IValg
         samarbeidMedNAV?: {
@@ -81,23 +82,23 @@ export interface IAnnenSituasjon {
 }
 
 export enum IngenJobb {
-    hjemmearbeidende = 'dinSituasjon.ingenJobb.hjemmearbeidende',
-    omsorgBarn = 'dinSituasjon.ingenJobb.omsorgBarn',
-    omsorgNaerstaaende = 'dinSituasjon.ingenJobb.omsorgNaerstaaende',
-    frivilligArbeid = 'dinSituasjon.ingenJobb.frivilligArbeid',
-    syk = 'dinSituasjon.ingenJobb.syk',
-    annet = 'dinSituasjon.ingenJobb.annet',
+    hjemmearbeidende = 'merOmSituasjonenDin.ingenJobb.hjemmearbeidende',
+    omsorgBarn = 'merOmSituasjonenDin.ingenJobb.omsorgBarn',
+    omsorgNaerstaaende = 'merOmSituasjonenDin.ingenJobb.omsorgNaerstaaende',
+    frivilligArbeid = 'merOmSituasjonenDin.ingenJobb.frivilligArbeid',
+    syk = 'merOmSituasjonenDin.ingenJobb.syk',
+    annet = 'merOmSituasjonenDin.ingenJobb.annet',
 }
 
 export enum ForventerEndretInntektType {
-    oektStillingsprosent = 'dinSituasjon.forventerEndretInntektType.oektStillingsprosent',
-    redusertStillingsprosent = 'dinSituasjon.forventerEndretInntektType.redusertStillingsprosent',
-    permisjonUtenLoenn = 'dinSituasjon.forventerEndretInntektType.permisjonUtenLoenn',
-    loennsOekning = 'dinSituasjon.forventerEndretInntektType.loennsOekning',
-    arbeidsledig = 'dinSituasjon.forventerEndretInntektType.arbeidsledig',
-    sesongarbeid = 'dinSituasjon.forventerEndretInntektType.sesongarbeid',
-    bytteAvJobb = 'dinSituasjon.forventerEndretInntektType.bytteAvJobb',
-    annet = 'dinSituasjon.forventerEndretInntektType.annet',
+    oektStillingsprosent = 'merOmSituasjonenDin.forventerEndretInntektType.oektStillingsprosent',
+    redusertStillingsprosent = 'merOmSituasjonenDin.forventerEndretInntektType.redusertStillingsprosent',
+    permisjonUtenLoenn = 'merOmSituasjonenDin.forventerEndretInntektType.permisjonUtenLoenn',
+    loennsOekning = 'merOmSituasjonenDin.forventerEndretInntektType.loennsOekning',
+    arbeidsledig = 'merOmSituasjonenDin.forventerEndretInntektType.arbeidsledig',
+    sesongarbeid = 'merOmSituasjonenDin.forventerEndretInntektType.sesongarbeid',
+    bytteAvJobb = 'merOmSituasjonenDin.forventerEndretInntektType.bytteAvJobb',
+    annet = 'merOmSituasjonenDin.forventerEndretInntektType.annet',
 }
 
 export enum Arbeidsmengde {

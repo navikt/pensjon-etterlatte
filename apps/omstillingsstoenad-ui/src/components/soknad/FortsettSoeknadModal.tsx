@@ -16,10 +16,12 @@ export const FortsettSoeknadModal = () => {
     const nesteSteg = () => {
         if (state.opplysningerOmBarn.erValidert === true) {
             return StegPath.Oppsummering
-        } else if (state.dinSituasjon.erValidert === true) {
+        } else if (state.merOmSituasjonenDin.erValidert === true) {
             return StegPath.OmBarn
+        } else if (state.situasjonenDin.erValidert === true) {
+            return StegPath.MerOmSituasjonenDin
         } else if (state.omDenAvdoede.erValidert === true) {
-            return StegPath.DinSituasjon
+            return StegPath.SituasjonenDin
         } else if (state.omDegOgAvdoed.erValidert === true) {
             return StegPath.OmAvdoed
         } else if (state.omDeg.erValidert === true) {

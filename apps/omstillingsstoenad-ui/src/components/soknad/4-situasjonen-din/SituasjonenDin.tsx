@@ -1,121 +1,161 @@
+import React from 'react'
 import SoknadSteg from '../../../typer/SoknadSteg'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
-import { ISituasjon, JobbStatus } from '../../../typer/situasjon'
-import { FormProvider, useForm } from 'react-hook-form'
-import { ActionTypes } from '../../../context/soknad/soknad'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import NavaerendeArbeidsforhold from './fragmenter/NavaerendeArbeidsforhold'
-import Feilmeldinger from '../../felles/Feilmeldinger'
-import HoeyesteUtdanning from './fragmenter/HoeyesteUtdanning'
-import Navigasjon from '../../felles/Navigasjon'
+import { ISituasjonenDin } from '../../../typer/person'
+import { ActionTypes } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
-import UnderUtdanning from './fragmenter/UnderUtdanning'
-import { GuidePanel, Heading } from '@navikt/ds-react'
-import { RHFCheckboksGruppe } from '../../felles/rhf/RHFCheckboksPanelGruppe'
+import Navigasjon from '../../felles/Navigasjon'
+import { BodyShort, GuidePanel, Heading, HGrid } from '@navikt/ds-react'
+import { FormProvider, useForm } from 'react-hook-form'
 import { deepCopy } from '../../../utils/deepCopy'
-import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { SkjemaElement } from '../../felles/SkjemaElement'
-import EtablererVirksomhet from './fragmenter/EtablererVirksomhet'
-import TilbudOmJobb from './fragmenter/TilbudOmJobb'
-import Arbeidssoeker from './fragmenter/Arbeidssoeker'
-import AnnenSituasjon from './fragmenter/AnnenSituasjon'
-import styled from 'styled-components'
-
-const DynamicSpacing = styled.div<{ $margin: boolean }>`
-    margin-bottom: ${(props) => (!props.$margin ? '3rem' : '')};
-`
+import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
+import { IValg } from '../../../typer/Spoersmaal'
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
+import { RHFSelect } from '../../felles/rhf/RHFSelect'
+import { useLand } from '../../../hooks/useLand'
+import Datovelger from '../../felles/Datovelger'
 
 const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
-
     const { state, dispatch } = useSoknadContext()
-    const brukerState = useBrukerContext().state
+    const { land }: { land: any } = useLand()
 
-    const methods = useForm<ISituasjon>({
-        defaultValues: state.dinSituasjon || {},
-        shouldUnregister: true,
+    const methods = useForm<ISituasjonenDin>({
+        defaultValues: state.situasjonenDin || {},
     })
 
-    const {
-        handleSubmit,
-        formState: { errors },
-        getValues,
-        watch,
-    } = methods
+    const { getValues, handleSubmit, watch } = methods
 
-    const lagreNeste = (data: ISituasjon) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(data), erValidert: true } })
+    const erValidert = state.situasjonenDin.erValidert
+
+    const lagreNeste = (data: ISituasjonenDin) => {
+        dispatch({ type: ActionTypes.OPPDATER_SITUASJONEN_DIN, payload: { ...deepCopy(data), erValidert: true } })
         neste!!()
     }
 
-    const lagreTilbake = (data: ISituasjon) => {
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(data), erValidert: true } })
+    const lagreTilbake = (data: ISituasjonenDin) => {
+        dispatch({ type: ActionTypes.OPPDATER_SITUASJONEN_DIN, payload: { ...deepCopy(data), erValidert: true } })
         forrige!!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
-        dispatch({ type: ActionTypes.OPPDATER_DIN_SITUASJON, payload: { ...deepCopy(verdier), erValidert: false } })
+        dispatch({ type: ActionTypes.OPPDATER_SITUASJONEN_DIN, payload: { ...deepCopy(verdier), erValidert: false } })
         forrige!!()
     }
 
-    const erValidert = state.dinSituasjon.erValidert
-    const jobbStatus = watch('jobbStatus')
-
-    const selvstendigEllerArbeidstaker =
-        jobbStatus?.includes(JobbStatus.selvstendigAS) ||
-        jobbStatus?.includes(JobbStatus.arbeidstaker) ||
-        jobbStatus?.includes(JobbStatus.selvstendigENK)
+    const harOmsorg = watch('omsorgMinstFemti')
+    const bosattINorge = watch('bosattINorge')
+    const oppholderSegIUtlandet = watch('oppholderSegIUtlandet.svar')
+    const oppholdFra = watch('oppholderSegIUtlandet.oppholdFra')
 
     return (
         <FormProvider {...methods}>
             <form>
                 <SkjemaElement>
                     <Heading size={'medium'} className={'center'}>
-                        {t('dinSituasjon.tittel')}
+                        {t('situasjonenDin.tittel')}
                     </Heading>
                 </SkjemaElement>
 
                 <SkjemaGruppe>
-                    <GuidePanel>{t('dinSituasjon.ingress')}</GuidePanel>
+                    <GuidePanel>
+                        <BodyShort>{t('situasjonenDin.ingress')}</BodyShort>
+                    </GuidePanel>
                 </SkjemaGruppe>
 
-                {!brukerState.adressebeskyttelse && (
-                    <>
-                        <DynamicSpacing $margin={!!jobbStatus?.length}>
-                            <Heading size={'small'} spacing>
-                                {t('dinSituasjon.jobbStatus.tittel')}
-                            </Heading>
-                            <RHFCheckboksGruppe
-                                name={'jobbStatus'}
-                                legend={t('dinSituasjon.jobbStatus')}
-                                description={t('dinSituasjon.jobbStatus.hvorfor')}
-                                checkboxes={Object.values(JobbStatus).map((value) => {
-                                    return { children: t(value), value, required: true }
-                                })}
+                <NySivilstatus />
+
+                <SkjemaGruppe>
+                    <SkjemaElement>
+                        <Heading size={'xsmall'}>{t('situasjonenDin.omsorgForBarn.tittel')}</Heading>
+                    </SkjemaElement>
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio name={'omsorgMinstFemti'} legend={t('situasjonenDin.omsorgMinstFemti')} />
+                    </SkjemaElement>
+                    {harOmsorg === IValg.JA && (
+                        <SkjemaElement>
+                            <BodyShort>{t('situasjonenDin.omsorgMinstFemti.dokumentasjon')}</BodyShort>
+                        </SkjemaElement>
+                    )}
+
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio
+                            name={'gravidEllerNyligFoedt'}
+                            legend={t('situasjonenDin.gravidEllerNyligFoedt')}
+                        />
+                    </SkjemaElement>
+                </SkjemaGruppe>
+
+                <SkjemaGruppe>
+                    <SkjemaElement>
+                        <Heading size={'xsmall'} >
+                            {t('situasjonenDin.oppholdUtenforNorge.tittel')}
+                        </Heading>
+                    </SkjemaElement>
+                    <SkjemaElement>
+                        <RHFSpoersmaalRadio name={'bosattINorge'} legend={t('situasjonenDin.bosattINorge')} />
+                    </SkjemaElement>
+
+                    {bosattINorge === IValg.JA && (
+                        <SkjemaGruppe>
+                            <SkjemaElement>
+                                <RHFSpoersmaalRadio
+                                    name={'oppholderSegIUtlandet.svar'}
+                                    legend={t('situasjonenDin.oppholderSegIUtlandet.svar')}
+                                    description={t('situasjonenDin.oppholdHvorfor')}
+                                />
+                            </SkjemaElement>
+                            {oppholderSegIUtlandet === IValg.JA && (
+                                <>
+                                    <SkjemaGruppe>
+                                        <RHFSelect
+                                            className="kol-50"
+                                            name={`oppholderSegIUtlandet.oppholdsland`}
+                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdsland')}
+                                            selectOptions={land}
+                                        />
+                                    </SkjemaGruppe>
+
+                                    <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                        <Datovelger
+                                            name={'oppholderSegIUtlandet.oppholdFra'}
+                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdFra')}
+                                            valgfri={true}
+                                            maxDate={new Date()}
+                                        />
+
+                                        <Datovelger
+                                            name={'oppholderSegIUtlandet.oppholdTil'}
+                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdTil')}
+                                            valgfri={true}
+                                            minDate={oppholdFra}
+                                            maxDate={new Date()}
+                                        />
+                                    </HGrid>
+                                </>
+                            )}
+                        </SkjemaGruppe>
+                    )}
+
+                    {bosattINorge === IValg.NEI && (
+                        <SkjemaGruppe>
+                            <RHFSelect
+                                className="kol-50"
+                                name={`bosattLand`}
+                                label={t('situasjonenDin.bosattLand')}
+                                selectOptions={land}
                             />
-
-                            {selvstendigEllerArbeidstaker && <NavaerendeArbeidsforhold />}
-
-                            {jobbStatus?.includes(JobbStatus.etablerer) && <EtablererVirksomhet />}
-
-                            {jobbStatus?.includes(JobbStatus.tilbud) && <TilbudOmJobb />}
-
-                            {jobbStatus?.includes(JobbStatus.arbeidssoeker) && <Arbeidssoeker />}
-
-                            {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
-
-                            {jobbStatus?.includes(JobbStatus.ingen) && <AnnenSituasjon />}
-                        </DynamicSpacing>
-
-                        <HoeyesteUtdanning />
-                    </>
-                )}
-
-                <Feilmeldinger errors={errors} />
+                        </SkjemaGruppe>
+                    )}
+                </SkjemaGruppe>
 
                 <Navigasjon
-                    forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
+                    forrige={{
+                        onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering,
+                    }}
                     neste={{ onClick: handleSubmit(lagreNeste) }}
                 />
             </form>

@@ -1,4 +1,4 @@
-import { act, render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import SituasjonenDin from './SituasjonenDin'
 
 jest.mock('react-i18next', () => ({
@@ -14,45 +14,9 @@ jest.mock('react-i18next', () => ({
     },
 }))
 
-const defaultValues = {
-    jobbStatus: ['jobbStatus.arbeidstaker'],
-    utdanning: {
-        hoyesteFullfoerteUtdanning: 'utdanning.mastergrad',
-    },
-    arbeidsforhold: [
-        {
-            arbeidsgiver: 'Potetskreller AS',
-            typeArbeidsmengde: 'arbeidsmengde.timer',
-            arbeidsmengde: '12',
-            ansettelsesforhold: 'stillingType.midlertidig',
-            endretArbeidssituasjon: {
-                svar: 'Ja',
-                opplysning: 'Mister kanskje jobben',
-            },
-            sagtOppEllerRedusert: 'Reduserer pga vond rygg'
-        },
-    ],
-}
-
-jest.mock('../../../context/soknad/SoknadContext', () => ({
-    useSoknadContext: () => ({
-        state: { dinSituasjon: defaultValues },
-        dispatch: jest.fn(),
-    }),
-}))
-
-describe('Situasjonen din', () => {
+describe('Omsorg for barn', () => {
     it('Snapshot', () => {
         const { container } = render(<SituasjonenDin />)
-        expect(container).toMatchSnapshot()
-    })
-
-    it('Skal rendre selvstendig', () => {
-        const { container, getByLabelText } = render(<SituasjonenDin />)
-        act(() => {
-            fireEvent.click(getByLabelText('jobbStatus.selvstendig.enk'))
-        })
-
         expect(container).toMatchSnapshot()
     })
 })

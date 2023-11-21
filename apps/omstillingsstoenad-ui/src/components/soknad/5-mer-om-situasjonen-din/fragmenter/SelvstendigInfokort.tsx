@@ -39,16 +39,16 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                 <RHFInput
                     className={'kol-75'}
                     name={`${selvstendigName}.beskrivelse` as const}
-                    label={t('dinSituasjon.selvstendig.hvaHeterNaeringen')}
-                    description={t('dinSituasjon.selvstendig.hvaHeterNaeringen.beskrivelse')}
+                    label={t('merOmSituasjonenDin.selvstendig.hvaHeterNaeringen')}
+                    description={t('merOmSituasjonenDin.selvstendig.hvaHeterNaeringen.beskrivelse')}
                     htmlSize={Bredde.M}
                 />
 
                 <SkjemaElement>
                     <RHFNumberInput
                         name={`${selvstendigName}.orgnr` as const}
-                        description={t('dinSituasjon.selvstendig.orgnrplaceholder')}
-                        label={t('dinSituasjon.selvstendig.orgnr')}
+                        description={t('merOmSituasjonenDin.selvstendig.orgnrplaceholder')}
+                        label={t('merOmSituasjonenDin.selvstendig.orgnr')}
                         maxLength={9}
                         minLength={9}
                         htmlSize={Bredde.S}
@@ -59,15 +59,15 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
             <SkjemaGruppe>
                 <Label>
                     {type === 'enk'
-                        ? t('dinSituasjon.selvstendig.arbeidsmengde.enk')
-                        : t('dinSituasjon.selvstendig.arbeidsmengde')}
+                        ? t('merOmSituasjonenDin.selvstendig.arbeidsmengde.enk')
+                        : t('merOmSituasjonenDin.selvstendig.arbeidsmengde')}
                 </Label>
-                <Detail textColor="subtle">{t('dinSituasjon.selvstendig.arbeidsmengde.beskrivelse')}</Detail>
+                <Detail textColor="subtle">{t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}</Detail>
                 <SkjemaElement>
                     <NumberSelectRad>
                         <RHFNumberInput
                             name={`${selvstendigName}.arbeidsmengde.svar` as const}
-                            label={t('dinSituasjon.selvstendig.arbeidsmengde.svar')}
+                            label={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.svar')}
                             htmlSize={Bredde.S}
                             maxLength={3}
                         />
@@ -88,7 +88,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={`${selvstendigName}.forventerEndretArbeidssituasjon.svar` as const}
-                    legend={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.svar')}
+                    legend={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar')}
                 />
             </SkjemaElement>
 
@@ -96,7 +96,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
                 <SkjemaElement>
                     <RHFInputArea
                         name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
-                        label={t('dinSituasjon.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
+                        label={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
                         maxLength={200}
                         className={'width-50'}
                     />
@@ -104,7 +104,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
             )}
             <SkjemaElement>
                 <HvorforSpoerVi title="dinSituasjon.selvstendig.grunnTilSpoersmål">
-                    {t('dinSituasjon.selvstendig.grunnTilSpoersmål.hvorfor')}
+                    {t('merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor')}
                 </HvorforSpoerVi>
             </SkjemaElement>
 

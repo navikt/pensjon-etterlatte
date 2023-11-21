@@ -22,8 +22,6 @@ describe("Om deg og avdød", () => {
     it("Snapshot", () => {
         const { container, getByText } = render(<OmDeg />);
         
-        const oppholderSegINorge = container.querySelectorAll("[name='oppholderSegINorge'][value='radiobuttons.nei']")[0];
-        fireEvent.click(oppholderSegINorge);
         const bankkontoTypeUtenlandsk = container.querySelectorAll("[value='bankkontoType.utenlandsk']")[0];
         fireEvent.click(bankkontoTypeUtenlandsk);
 

@@ -182,7 +182,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                         <RHFFoedselsnummerInput
                                             name={'foedselsnummer'}
                                             label={t('omBarn.foedselsnummer')}
-                                            description={t('felles.fnrPlaceholder')}
                                             rules={{
                                                 validate: {
                                                     validate: (value) => {

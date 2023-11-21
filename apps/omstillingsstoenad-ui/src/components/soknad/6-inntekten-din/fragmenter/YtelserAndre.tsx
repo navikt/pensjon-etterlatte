@@ -9,6 +9,7 @@ import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInput } from '../../../felles/rhf/RHFInput'
 import Bredde from '../../../../typer/bredde'
+import { Heading } from '@navikt/ds-react'
 
 const YtelserAndre = () => {
     const { t } = useTranslation()
@@ -20,6 +21,7 @@ const YtelserAndre = () => {
 
     return (
         <SkjemaGruppe>
+            <Heading size={'xsmall'}>{t('inntektenDin.ytelserAndre.tittel')}</Heading>
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={'ytelserAndre.svar'}

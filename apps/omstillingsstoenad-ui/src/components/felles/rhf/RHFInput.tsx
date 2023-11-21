@@ -328,7 +328,7 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
     )
 }
 
-export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps) => {
+export const RHFNumberInput = ({ name, minLength, maxLength, valgfri = false, ...rest }: RHFProps) => {
     const { t } = useTranslation()
     const {
         control,
@@ -344,7 +344,7 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
         <Controller
             name={name}
             control={control}
-            rules={{ required: true, minLength, maxLength }}
+            rules={{ required: valgfri, minLength, maxLength }}
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}

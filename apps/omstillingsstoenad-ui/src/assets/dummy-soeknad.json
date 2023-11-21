@@ -10,10 +10,8 @@
     "oppholderSegINorge": "radiobuttons.ja",
     "alternativAdresse": "Testveien 123, 0594 Oslo",
     "utbetalingsInformasjon": {
+      "bankkontoType": "bankkontoType.norsk",
       "kontonummer": "1351.35.13513"
-    },
-    "nySivilstatus": {
-      "sivilstatus": "nySivilstatus.enslig"
     }
   },
   "omDegOgAvdoed": {
@@ -56,7 +54,18 @@
     },
     "doedsfallAarsak": "radiobuttons.ja"
   },
-  "dinSituasjon": {
+  "situasjonenDin": {
+    "omsorgMinstFemti": "radiobuttons.ja",
+    "bosattINorge": "radiobuttons.ja",
+    "nySivilstatus": {
+      "sivilstatus": "nySivilstatus.enslig"
+    },
+    "oppholderSegIUtlandet": {
+      "svar": "radiobuttons.nei"
+    },
+    "gravidEllerNyligFoedt": "radiobuttons.ja"
+  },
+  "merOmSituasjonenDin": {
     "jobbStatus": [
       "jobbStatus.arbeidstaker"
     ],
@@ -174,7 +183,6 @@
     }
   },
   "opplysningerOmBarn": {
-    "gravidEllerNyligFoedt": "radiobuttons.ja",
     "barn": [
       {
         "fornavn": "Treg",

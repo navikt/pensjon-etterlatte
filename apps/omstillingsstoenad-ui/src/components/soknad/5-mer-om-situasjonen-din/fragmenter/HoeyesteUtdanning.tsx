@@ -13,20 +13,20 @@ const HoeyesteUtdanning = () => {
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <Heading size={'small'}>{t('dinSituasjon.utdanning.tittelFullfoert')}</Heading>
+                <Heading size={'small'}>{t('merOmSituasjonenDin.utdanning.tittelFullfoert')}</Heading>
             </SkjemaElement>
 
             <RHFCheckboksGruppe
                     name={'utdanning.hoyesteFullfoerteUtdanning'}
-                    legend={t('dinSituasjon.utdanning.hoyesteFullfoerteUtdanning')}
-                    description={t('dinSituasjon.utdanning.hoyesteFullfoerteUtdanning.beskrivelse')}
+                    legend={t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning')}
+                    description={t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse')}
                     checkboxes={Object.values(Utdanning).map((value) => {
                         return { children: t(value), value, required: true }
                     })}
             />
 
             <HvorforSpoerVi title="dinSituasjon.utdanning.tittelFullfoert">
-                {t('dinSituasjon.utdanning.hvorfor')}
+                {t('merOmSituasjonenDin.utdanning.hvorfor')}
             </HvorforSpoerVi>
         </SkjemaGruppe>
     )
