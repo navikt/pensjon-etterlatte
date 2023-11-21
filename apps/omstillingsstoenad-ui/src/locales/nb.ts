@@ -122,7 +122,7 @@ export default {
         'Vi trenger å vite hva du gjør, slik at vi kan gi deg informasjon og oppfølging som passer situasjonen din.',
     'merOmSituasjonenDin.annenSituasjon.tittel': 'Annet',
     'merOmSituasjonenDin.annenSituasjon.beskrivelse': 'Velg det som beskriver situasjonen din',
-    'merOmSituasjonenDin.annenSituasjon.annet.beskrivelse': 'Gi en kort beskrivelse av endringene',
+    'merOmSituasjonenDin.annenSituasjon.annet.beskrivelse': 'Gi en kort beskrivelse av situasjonen din',
     'merOmSituasjonenDin.ingenJobb.hjemmearbeidende': 'Hjemmearbeidende',
     'merOmSituasjonenDin.ingenJobb.omsorgBarn': 'Omsorg for egne barn',
     'merOmSituasjonenDin.ingenJobb.omsorgNaerstaaende': 'Omsorg for nærstående',
@@ -199,7 +199,7 @@ export default {
     'merOmSituasjonenDin.arbeidsforhold.midlertidig.svar': 'Har du en sluttdato?',
     'merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger': 'Sluttdato',
     'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar':
-        'Forventer du endringer i arbeidsforholdet din fremover i tid?',
+        'Forventer du endringer i arbeidsforholdet ditt fremover i tid?',
     'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse':
         'Gi en kort beskrivelse av endringene',
     'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar':
