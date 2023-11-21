@@ -227,8 +227,6 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
         }
     }
 
-    console.log(residesInNorway)
-
     const bosattNorge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland> | undefined =
         residesInNorway === JaNeiVetIkke.JA
             ? {
