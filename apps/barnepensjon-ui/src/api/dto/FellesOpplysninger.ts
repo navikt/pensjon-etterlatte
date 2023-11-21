@@ -38,9 +38,6 @@ export interface Utenlandsadresse {
 }
 
 export interface OppholdUtland {
-    bosattLand?: Opplysning<FritekstSvar>
-    adresse?: Opplysning<FritekstSvar>
-    oppholdUtland?: Opplysning<EnumSvar<JaNeiVetIkke>>
     oppholdLand?: Opplysning<FritekstSvar>
     oppholdFra?: Opplysning<DatoSvar>
     oppholdTil?: Opplysning<DatoSvar>

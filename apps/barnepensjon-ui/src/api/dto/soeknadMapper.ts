@@ -202,23 +202,23 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
 }
 
 const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Barn => {
-    const staysAbroad = application.aboutYou.residesInNorway
+    const residesInNorway = application.aboutYou.residesInNorway
     const isChild = application.applicant?.applicantRole === ApplicantRole.CHILD
     const aboutYou = application.aboutYou
 
-    const bosattNorge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland> | undefined = staysAbroad
+    const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> | undefined = residesInNorway
         ? {
               spoersmaal: t('residesInNorway', { ns: 'aboutYou' }),
               svar: {
-                  innhold: t(staysAbroad, { ns: 'radiobuttons' }),
-                  verdi: staysAbroad,
+                  innhold: t(residesInNorway, { ns: 'radiobuttons' }),
+                  verdi: residesInNorway,
               },
           }
         : undefined
 
-    if (staysAbroad === JaNeiVetIkke.NEI && !!bosattNorge) {
-        bosattNorge.opplysning = {
-            bosattLand: {
+    if (residesInNorway === JaNeiVetIkke.NEI && !!utenlandsAdresse) {
+        utenlandsAdresse.opplysning = {
+            land: {
                 spoersmaal: t('countryOfResidence', { ns: 'aboutYou' }),
                 svar: {
                     innhold: aboutYou!!.countryOfResidence!!,
@@ -227,15 +227,21 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
         }
     }
 
-    if (staysAbroad === JaNeiVetIkke.JA && !!bosattNorge) {
+    console.log(residesInNorway)
+
+    const bosattNorge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland> | undefined =
+        residesInNorway === JaNeiVetIkke.JA
+            ? {
+                  spoersmaal: t('stayedAbroad', { ns: 'aboutYou' }),
+                  svar: {
+                      innhold: t(aboutYou.stayedAbroad!!, { ns: 'radiobuttons' }),
+                      verdi: aboutYou.stayedAbroad!!,
+                  },
+              }
+            : undefined
+
+    if (residesInNorway === JaNeiVetIkke.JA && !!bosattNorge) {
         bosattNorge.opplysning = {
-            oppholdUtland: {
-                spoersmaal: t('stayedAbroad', { ns: 'aboutYou' }),
-                svar: {
-                    innhold: t(aboutYou.stayedAbroad!!, { ns: 'radiobuttons' }),
-                    verdi: aboutYou.stayedAbroad!!,
-                },
-            },
             oppholdLand:
                 aboutYou.stayedAbroad!! === JaNeiVetIkke.JA
                     ? {
@@ -293,6 +299,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
         },
         foreldre: hentForeldreOver18(t, application),
         ukjentForelder,
+        utenlandsAdresse,
         bosattNorge,
     }
 }
