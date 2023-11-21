@@ -37,6 +37,15 @@ export interface Utenlandsadresse {
     adresse?: Opplysning<FritekstSvar>
 }
 
+export interface OppholdUtland {
+    bosattLand?: Opplysning<FritekstSvar>
+    adresse?: Opplysning<FritekstSvar>
+    oppholdUtland?: Opplysning<EnumSvar<JaNeiVetIkke>>
+    oppholdLand?: Opplysning<FritekstSvar>
+    oppholdFra?: Opplysning<DatoSvar>
+    oppholdTil?: Opplysning<DatoSvar>
+}
+
 export interface UtbetalingsInformasjon {
     kontonummer?: Opplysning<FritekstSvar>
     utenlandskBankNavn?: Opplysning<FritekstSvar>

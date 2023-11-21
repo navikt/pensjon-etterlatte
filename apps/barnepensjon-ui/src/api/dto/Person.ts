@@ -6,6 +6,7 @@ import {
     JaNeiVetIkke,
     Kontaktinfo,
     Naeringsinntekt,
+    OppholdUtland,
     Opplysning,
     Utenlandsadresse,
     Utenlandsopphold,
@@ -73,6 +74,7 @@ export interface Barn extends Person {
 
     statsborgerskap: Opplysning<string>
     utenlandsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse | undefined>
+    bosattNorge?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland | undefined>
     foreldre: Forelder[]
     ukjentForelder?: Opplysning<string>
     verge?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge>

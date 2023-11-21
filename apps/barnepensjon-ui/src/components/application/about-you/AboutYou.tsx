@@ -18,6 +18,10 @@ import { ApplicantRole } from '../scenario/ScenarioSelection'
 import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import useCountries from '../../../hooks/useCountries'
 import { Bredde } from '../../../utils/bredde'
+import DatePicker from '../../common/DatePicker'
+import { HGrid } from '@navikt/ds-react'
+import { GridColumns, GridGap } from '../../../utils/grid'
+import FormGroup from '../../common/FormGroup'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
@@ -42,6 +46,7 @@ export default function AboutYou({ next }: StepProps) {
     } = methods
 
     const residesInNorway = watch('residesInNorway')
+    const stayedAbroad = watch('stayedAbroad')
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
     const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
 
@@ -55,12 +60,41 @@ export default function AboutYou({ next }: StepProps) {
                 <form>
                     <FormElement>
                         {!user.adressebeskyttelse && isChild && (
-                            <>
-                                <RHFGeneralQuestionRadio
-                                    name={'residesInNorway'}
-                                    legend={t('residesInNorway')}
-                                    description={t('residesInNorwayDescription')}
-                                />
+                            <FormGroup>
+                                <RHFGeneralQuestionRadio name={'residesInNorway'} legend={t('residesInNorway')} />
+
+                                {residesInNorway === JaNeiVetIkke.JA && (
+                                    <FormElement>
+                                        <RHFGeneralQuestionRadio name={'stayedAbroad'} legend={t('stayedAbroad')} />
+                                    </FormElement>
+                                )}
+
+                                {stayedAbroad === JaNeiVetIkke.JA && (
+                                    <>
+                                        <FormElement>
+                                            <StandardBreddeRHFSelect
+                                                id={'stayedAbroadCountry'}
+                                                name={'stayedAbroadCountry'}
+                                                label={t('stayedAbroadCountry')}
+                                                children={countries}
+                                            />
+                                        </FormElement>
+                                        <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
+                                            <DatePicker
+                                                name={'stayedAbroadFromDate'}
+                                                label={t('stayedAbroadFromDate')}
+                                                maxDate={new Date()}
+                                                valgfri={true}
+                                            />
+                                            <DatePicker
+                                                name={'stayedAbroadToDate'}
+                                                label={t('stayedAbroadToDate')}
+                                                maxDate={new Date()}
+                                                valgfri={true}
+                                            />
+                                        </HGrid>
+                                    </>
+                                )}
 
                                 {residesInNorway === JaNeiVetIkke.NEI && (
                                     <FormElement>
@@ -72,7 +106,7 @@ export default function AboutYou({ next }: StepProps) {
                                         />
                                     </FormElement>
                                 )}
-                            </>
+                            </FormGroup>
                         )}
 
                         {!!user.foedselsnummer && !user.telefonnummer && !isGuardian && (

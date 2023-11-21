@@ -162,8 +162,11 @@ const aboutYou = {
     addressOfResidenceConfirmed: 'Do you live at this address?',
     alternativeAddress: 'Enter your current residential address',
     residesInNorway: '<MANGLER TEKST>',
-    residesInNorwayDescription: '<MANGLER TEKST>',
     countryOfResidence: 'State which country',
+    stayedAbroad: '<MANGLER TEKST>',
+    stayedAbroadCountry: '<MANGLER TEKST>',
+    stayedAbroadFromDate: 'From date',
+    stayedAbroadToDate: 'To date',
     memberFolketrygdenAbroad:
         'Are you a member of the Norwegian National Insurance Scheme during your period living in a country other than Norway?',
     'subtitle.personalia': 'Personal data',

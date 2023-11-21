@@ -7,6 +7,10 @@ export interface IAboutYou {
     paymentDetails?: IPaymentDetails
     residesInNorway?: JaNeiVetIkke
     countryOfResidence?: string
+    stayedAbroad?: JaNeiVetIkke
+    stayedAbroadCountry?: string
+    stayedAbroadFromDate?: Date
+    stayedAbroadToDate?: Date
     memberFolketrygdenAbroad?: JaNeiVetIkke
 }
 
