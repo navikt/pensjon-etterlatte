@@ -157,6 +157,7 @@ const aboutYou = {
         'Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får attlevandepensjon og kor mykje du kan få.',
     addressOfResidenceConfirmed: 'Bur du på denne adressa?',
     alternativeAddress: 'Oppgi noverande bustadsadresse',
+    staysAbroadTitle: '<MANGLER TEKST>',
     residesInNorway: '<MANGLER TEKST>',
     stayedAbroad: '<MANGLER TEKST>',
     stayedAbroadCountry: '<MANGLER TEKST>',

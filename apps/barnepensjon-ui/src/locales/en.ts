@@ -161,6 +161,7 @@ const aboutYou = {
         'If you spend a prolonged period in a country other than Norway, this may affect whether you are entitled to a survivor’s pension and the amount you may receive.',
     addressOfResidenceConfirmed: 'Do you live at this address?',
     alternativeAddress: 'Enter your current residential address',
+    staysAbroadTitle: '<MANGLER TEKST>',
     residesInNorway: '<MANGLER TEKST>',
     countryOfResidence: 'State which country',
     stayedAbroad: '<MANGLER TEKST>',

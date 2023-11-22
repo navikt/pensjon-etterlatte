@@ -163,6 +163,7 @@ const aboutYou = {
         'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
     addressOfResidenceConfirmed: 'Bor du på denne adressen?',
     alternativeAddress: 'Oppgi nåværende bostedsadresse',
+    staysAbroadTitle: 'Opphold utenfor Norge',
     residesInNorway: 'Er du bosatt i Norge?',
     countryOfResidence: 'Oppgi hvilket land du er bosatt i',
     stayedAbroad: 'Har du bodd eller oppholdt deg i utlandet de siste 12 månedene?',

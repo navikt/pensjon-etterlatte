@@ -19,7 +19,7 @@ import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import useCountries from '../../../hooks/useCountries'
 import { Bredde } from '../../../utils/bredde'
 import DatePicker from '../../common/DatePicker'
-import { HGrid } from '@navikt/ds-react'
+import { Heading, HGrid } from '@navikt/ds-react'
 import { GridColumns, GridGap } from '../../../utils/grid'
 import FormGroup from '../../common/FormGroup'
 
@@ -61,6 +61,10 @@ export default function AboutYou({ next }: StepProps) {
                     <FormElement>
                         {!user.adressebeskyttelse && isChild && (
                             <FormGroup>
+                                <FormElement>
+                                    <Heading size={'small'}>{t('staysAbroadTitle')}</Heading>
+                                </FormElement>
+
                                 <RHFGeneralQuestionRadio name={'residesInNorway'} legend={t('residesInNorway')} />
 
                                 {residesInNorway === JaNeiVetIkke.JA && (
