@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Opplysninger om barn Snapshot 1`] = `
+exports[`Omsorg for barn Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-crrtmM eLHIsE"
+      class="sc-dQpIV kAJjwJ"
     >
       <h1
         class="center navds-heading navds-heading--medium"
       >
-        omBarn.tittel
+        situasjonenDin.tittel
       </h1>
     </div>
-    <div
-      class="sc-crrtmM eLHIsE"
+    <fieldset
+      class="sc-bdfCDU iGBHmN"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -98,60 +98,402 @@ exports[`Opplysninger om barn Snapshot 1`] = `
         <div
           class="navds-guide-panel__content"
         >
-          <h1
-            class="navds-heading navds-heading--xsmall"
-          >
-            omBarn.informasjon.tittel
-          </h1>
           <p
-            class="navds-body-short navds-body-short--small"
+            class="navds-body-short navds-body-short--medium"
           >
-            omBarn.informasjon
+            situasjonenDin.ingress
           </p>
         </div>
       </div>
-    </div>
+    </fieldset>
     <fieldset
       class="sc-bdfCDU iGBHmN"
     >
       <div
-        class="sc-dmlpXa crxQsm"
+        id="nySivilstatus.sivilstatus"
       >
-        <div
-          class="sc-gKsecS kkYBKN"
+        <fieldset
+          aria-describedby="fieldset-description-r2"
+          class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
-          <div
-            class="sc-eCstZk eUPcLQ"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <img
-              alt="barn"
-              src="barn1.svg"
-            />
+            situasjonenDin.nySivilstatus.sivilstatus
+          </legend>
+          <div
+            class="navds-fieldset__description navds-body-short navds-body-short--medium"
+            id="fieldset-description-r2"
+          >
+            situasjonenDin.nySivilstatus.beskrivelse
           </div>
           <div
-            class="sc-jSguLX hfEVDT"
+            class="navds-radio-buttons"
           >
             <div
-              class="sc-kfzCjt jqnLNZ"
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              <button
-                class="navds-button navds-button--primary navds-button--medium"
-                data-testid="legg-til-barn-knapp"
-                type="button"
+              <input
+                class="navds-radio__input"
+                id="radio-r3"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.enke"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-r3"
               >
                 <span
-                  class="navds-label"
+                  class="navds-radio__content"
                 >
-                  knapp.leggTilBarn
+                  <span
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    nySivilstatus.enke
+                  </span>
                 </span>
-              </button>
+              </label>
             </div>
-            <p
-              class="center mute navds-body-short navds-body-short--small"
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
             >
-              omBarn.valgfritt
-            </p>
+              <input
+                class="navds-radio__input"
+                id="radio-r4"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.ekteskap"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-r4"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    nySivilstatus.ekteskap
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                class="navds-radio__input"
+                id="radio-r5"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.enslig"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-r5"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    nySivilstatus.enslig
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="radioBorder navds-radio navds-radio--medium"
+            >
+              <input
+                class="navds-radio__input"
+                id="radio-r6"
+                name="nySivilstatus.sivilstatus"
+                type="radio"
+                value="nySivilstatus.samboerskap"
+              />
+              <label
+                class="navds-radio__label"
+                for="radio-r6"
+              >
+                <span
+                  class="navds-radio__content"
+                >
+                  <span
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    nySivilstatus.samboerskap
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-r2"
+          />
+        </fieldset>
+      </div>
+    </fieldset>
+    <fieldset
+      class="sc-bdfCDU iGBHmN"
+    >
+      <div
+        class="sc-dQpIV kAJjwJ"
+      >
+        <h1
+          class="navds-heading navds-heading--xsmall"
+        >
+          situasjonenDin.omsorgForBarn.tittel
+        </h1>
+      </div>
+      <div
+        class="sc-dQpIV kAJjwJ"
+      >
+        <div
+          id="omsorgMinstFemti"
+        >
+          <fieldset
+            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          >
+            <legend
+              class="navds-fieldset__legend navds-label"
+            >
+              situasjonenDin.omsorgMinstFemti
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  class="navds-radio__input"
+                  id="radio-r9"
+                  name="omsorgMinstFemti"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-r9"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      radiobuttons.ja
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  class="navds-radio__input"
+                  id="radio-ra"
+                  name="omsorgMinstFemti"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-ra"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      radiobuttons.nei
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-r8"
+            />
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="sc-dQpIV kAJjwJ"
+      >
+        <div
+          id="gravidEllerNyligFoedt"
+        >
+          <fieldset
+            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          >
+            <legend
+              class="navds-fieldset__legend navds-label"
+            >
+              situasjonenDin.gravidEllerNyligFoedt
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  class="navds-radio__input"
+                  id="radio-rd"
+                  name="gravidEllerNyligFoedt"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-rd"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      radiobuttons.ja
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  class="navds-radio__input"
+                  id="radio-re"
+                  name="gravidEllerNyligFoedt"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-re"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      radiobuttons.nei
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-rc"
+            />
+          </fieldset>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset
+      class="sc-bdfCDU iGBHmN"
+    >
+      <div
+        class="sc-dQpIV kAJjwJ"
+      >
+        <h1
+          class="navds-heading navds-heading--xsmall"
+        >
+          situasjonenDin.oppholdUtenforNorge.tittel
+        </h1>
+      </div>
+      <div
+        class="sc-dQpIV kAJjwJ"
+      >
+        <div
+          id="bosattINorge"
+        >
+          <fieldset
+            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          >
+            <legend
+              class="navds-fieldset__legend navds-label"
+            >
+              situasjonenDin.bosattINorge
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  class="navds-radio__input"
+                  id="radio-rh"
+                  name="bosattINorge"
+                  type="radio"
+                  value="radiobuttons.ja"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-rh"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      radiobuttons.ja
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  class="navds-radio__input"
+                  id="radio-ri"
+                  name="bosattINorge"
+                  type="radio"
+                  value="radiobuttons.nei"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-ri"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      radiobuttons.nei
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-rg"
+            />
+          </fieldset>
         </div>
       </div>
     </fieldset>
@@ -213,7 +555,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r3"
+              aria-labelledby="title-rl"
               fill="none"
               focusable="false"
               height="1em"
@@ -223,7 +565,7 @@ exports[`Opplysninger om barn Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r3"
+                id="title-rl"
               >
                 Lukk modalvindu
               </title>

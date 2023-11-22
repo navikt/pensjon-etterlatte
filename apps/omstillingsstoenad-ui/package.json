@@ -32,8 +32,8 @@
     "worker-loader": "^3.0.8"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "6.1.4",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@testing-library/jest-dom": "6.1.4",
     "@testing-library/react": "14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/amplitude-js": "^8.16.4",

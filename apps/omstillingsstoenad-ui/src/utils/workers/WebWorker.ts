@@ -5,7 +5,7 @@ class WebWorker {
     private worker!: Worker
     private sluttTid?: number
     private callbackFn?: (remainingTime: number) => void
-    private nedteller?: NodeJS.Timer
+    private nedteller?: number
 
     constructor() {
         if (!window.Worker) {
@@ -36,7 +36,7 @@ class WebWorker {
         } catch (e) {
             console.log(e)
             console.log('Unable to register listener, starting default interval.')
-            this.nedteller = setInterval(() => {
+            this.nedteller = window.setInterval(() => {
                 this.sendNedtellingBackup(new Date().valueOf())
             }, 1000)
         }

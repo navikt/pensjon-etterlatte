@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 <div>
   <div
-    class="sc-gtsqUy dorhUL"
+    class="sc-gsTDqH kXeStq"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-dlniIP iCssVw"
+      class="sc-dlfmHC UAsZH"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -164,10 +164,10 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         </fieldset>
       </div>
       <div
-        class="sc-gtsqUy dorhUL"
+        class="sc-gsTDqH kXeStq"
       >
         <section
-          class="sc-bdnyFh imqsGR"
+          class="sc-bdfCDU kPlLYV"
         >
           <div
             class="datepicker"
@@ -260,7 +260,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         </section>
       </div>
       <div
-        class="sc-gtsqUy dorhUL"
+        class="sc-gsTDqH kXeStq"
       >
         <div
           id="forholdTilAvdoede.fellesBarn"
@@ -345,10 +345,10 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-dlniIP iCssVw"
+      class="sc-dlfmHC UAsZH"
     >
       <div
-        class="sc-hKFymg jaunqL undefined"
+        class="sc-hKgKIp jZdyrG undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -373,7 +373,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hKFymg sc-eCAqax jaunqL TXzQz"
+      class="sc-hKgKIp sc-eCstZk jZdyrG dKRciV"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -444,7 +444,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-iqAbyq lngAXV"
+          class="sc-iqHXzD dUPgBl"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -472,7 +472,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </button>
         </div>
         <div
-          class="sc-iqAbyq lngAXV"
+          class="sc-iqHXzD dUPgBl"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -496,7 +496,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
 <div>
   <div
-    class="sc-gtsqUy dorhUL"
+    class="sc-gsTDqH kXeStq"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -506,7 +506,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-dlniIP iCssVw"
+      class="sc-dlfmHC UAsZH"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -658,10 +658,10 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-dlniIP iCssVw"
+      class="sc-dlfmHC UAsZH"
     >
       <div
-        class="sc-hKFymg jaunqL undefined"
+        class="sc-hKgKIp jZdyrG undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -686,7 +686,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hKFymg sc-eCAqax jaunqL TXzQz"
+      class="sc-hKgKIp sc-eCstZk jZdyrG dKRciV"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -757,7 +757,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-iqAbyq lngAXV"
+          class="sc-iqHXzD dUPgBl"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -785,7 +785,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           </button>
         </div>
         <div
-          class="sc-iqAbyq lngAXV"
+          class="sc-iqHXzD dUPgBl"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

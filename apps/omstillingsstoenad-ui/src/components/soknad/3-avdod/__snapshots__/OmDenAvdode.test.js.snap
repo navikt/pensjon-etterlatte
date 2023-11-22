@@ -3,7 +3,7 @@
 exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <div
-    class="sc-ksltVi hTPbfB"
+    class="sc-kstpWv hbIVEK"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Om den avdøde Snapshot 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-bdfCDU iGBHmN"
     >
       <div
         class="navds-hgrid"
@@ -90,7 +90,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           />
         </div>
         <div
-          class="sc-bqGGcD dwsJhs"
+          class="sc-bqyKbq cCanpn"
           id="statsborgerskap"
         >
           <div
@@ -144,10 +144,10 @@ exports[`Om den avdøde Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-ksltVi hTPbfB"
+        class="sc-kstpWv hbIVEK"
       >
         <section
-          class="sc-crzpnZ gBHkfx"
+          class="sc-crrtmM JZyDE"
         >
           <div
             class="datepicker"
@@ -240,7 +240,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         </section>
       </div>
       <div
-        class="sc-ksltVi hTPbfB"
+        class="sc-kstpWv hbIVEK"
       >
         <div
           id="doedsfallAarsak"
@@ -350,7 +350,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-bdfCDU iGBHmN"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -363,7 +363,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         omDenAvdoede.boddEllerJobbetUtland.ingress
       </p>
       <div
-        class="sc-ksltVi hTPbfB"
+        class="sc-kstpWv hbIVEK"
       >
         <div
           id="boddEllerJobbetUtland.svar"
@@ -466,7 +466,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-bdfCDU iGBHmN"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -479,7 +479,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         omDenAvdoede.selvstendigNaeringsdrivende.ingress
       </p>
       <div
-        class="sc-ksltVi hTPbfB"
+        class="sc-kstpWv hbIVEK"
       >
         <div
           id="selvstendigNaeringsdrivende.svar"
@@ -582,10 +582,10 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bdnyFh dkDmBp"
+      class="sc-bdfCDU iGBHmN"
     >
       <div
-        class="sc-gtsqUy fppBuE undefined"
+        class="sc-gsTDqH dOgelJ undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -610,7 +610,7 @@ exports[`Om den avdøde Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gtsqUy sc-dlniIP fppBuE iyxXTu"
+      class="sc-gsTDqH sc-dlfmHC dOgelJ kRPkmN"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -681,7 +681,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jrsKJM dwwRPt"
+          class="sc-jrAGKZ kZaWxs"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -709,7 +709,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-jrsKJM dwwRPt"
+          class="sc-jrAGKZ kZaWxs"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
