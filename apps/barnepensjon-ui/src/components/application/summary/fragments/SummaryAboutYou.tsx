@@ -47,6 +47,22 @@ export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
                     {aboutYou.residesInNorway && (
                         <TextGroupJaNeiVetIkke title={t('residesInNorway')} content={aboutYou.residesInNorway} />
                     )}
+                    {aboutYou.residesInNorway === JaNeiVetIkke.JA && (
+                        <TextGroupJaNeiVetIkke title={t('stayedAbroad')} content={aboutYou.stayedAbroad} />
+                    )}
+
+                    {aboutYou.stayedAbroad === JaNeiVetIkke.JA && (
+                        <>
+                            <TextGroup title={t('stayedAbroadCountry')} content={aboutYou.stayedAbroadCountry} />
+                            {aboutYou.stayedAbroadFromDate && (
+                                <TextGroup title={t('stayedAbroadFromDate')} content={aboutYou.stayedAbroadFromDate} />
+                            )}
+                            {aboutYou.stayedAbroadToDate && (
+                                <TextGroup title={t('stayedAbroadToDate')} content={aboutYou.stayedAbroadToDate} />
+                            )}
+                        </>
+                    )}
+
                     {aboutYou.residesInNorway === JaNeiVetIkke.NEI && (
                         <TextGroup title={t('countryOfResidence')} content={aboutYou.countryOfResidence} />
                     )}
