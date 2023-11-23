@@ -181,7 +181,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 >
                   <label
                     class="navds-form-field__label navds-label"
-                    for="forholdTilAvdoede.datoForInngaattPartnerskap"
+                    for="forholdTilAvdoede.datoForInngaattSamboerskap"
                   >
                     omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap
                   </label>
@@ -199,10 +199,10 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                       autocomplete="off"
                       autocorrect="off"
                       class="navds-text-field__input navds-body-short navds-body-medium"
-                      id="forholdTilAvdoede.datoForInngaattPartnerskap"
+                      id="forholdTilAvdoede.datoForInngaattSamboerskap"
                       inputmode="text"
                       maxlength="10"
-                      name="forholdTilAvdoede.datoForInngaattPartnerskap"
+                      name="forholdTilAvdoede.datoForInngaattSamboerskap"
                       type="text"
                       value=""
                     />
