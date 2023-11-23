@@ -189,6 +189,7 @@ const aboutParents = {
     unknownParentQuestion: '<MANGLER TEKST>',
     childAndOneParentDeceasedGuidepanel: '<MANGLER TEKST>',
     childAndBothParentsDeceasedGuidepanel: '<MANGLER TEKST>',
+    guardianAndOneParentDeceased: '<MANGLER TEKST>',
 }
 
 const livingParent = {

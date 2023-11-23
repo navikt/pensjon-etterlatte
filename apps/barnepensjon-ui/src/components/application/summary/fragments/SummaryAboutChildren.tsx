@@ -47,12 +47,12 @@ export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicati
     const childOrGuardianAnswerText = (child: IChild): string => {
         switch (child.parents) {
             case ParentRelationType.FIRST_PARENT:
-                return nameAndFnr(parents.firstParent)
+                return t('remainingParent')
             case ParentRelationType.SECOND_PARENT:
                 return nameAndFnr(parents.secondParent)
             case ParentRelationType.BOTH:
                 return t('bothOfTheAbove', {
-                    person1: nameAndFnr(parents.firstParent),
+                    person1: t('remainingParent'),
                     person2: nameAndFnr(parents.secondParent),
                 })
             default:
