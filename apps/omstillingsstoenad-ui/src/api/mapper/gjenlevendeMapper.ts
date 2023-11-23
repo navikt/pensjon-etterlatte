@@ -209,10 +209,10 @@ const hentOppholdUtland = (
     if (situasjonenDin.bosattINorge === IValg.JA) {
         opplysning = {
             oppholderSegIUtlandet: {
-                spoersmaal: t('situasjonenDin.oppholderSegIUtlandet'),
+                spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.svar'),
                 svar: valgTilSvar(t, situasjonenDin.oppholderSegIUtlandet!!.svar!!),
             },
-            oppholdsland: situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.NEI ? {
+            oppholdsland: situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.JA ? {
                 spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdsland'),
                 svar: {
                     innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdsland!!,
