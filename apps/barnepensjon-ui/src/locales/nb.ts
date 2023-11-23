@@ -230,7 +230,7 @@ const aboutTheDeceased = {
     pensionReceivedFromAbroad: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
     selfEmploymentTitle: 'Næringsinntekt',
     weNeedToKnowIfDeceasedWasSelfEmployed:
-        'Vi henter inn nødvendige opplysninger om avdødes inntekt i Skatteetatens register. Vi har ikke tilgang til opplysninger om næringsinntekt samme år og året før dødsfall.',
+        'Vi henter inn nødvendige opplysninger om avdødes inntekt i Skatteetatens register. Vi har ikke tilgang til opplysninger om næringsinntekt samme år og året før dødsfallet.',
     wasTheDeceasedSelfEmployed: 'Var han eller hun selvstendig næringsdrivende?',
     incomeFromSelfEmployymentYearBeforeDeath: 'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
     incomeFromSelfEmploymentBeforeTaxes: 'Samlet årsinntekt før skatt',
@@ -267,7 +267,8 @@ const aboutChildren = {
     guardianFnr: 'Fødselsnummer til verge (valgfri)',
     guardianFnrPlaceholder: '11 siffer',
     information:
-        'Oppgi avdødes biologiske barn og/eller adoptivbarn under 18 år. \n\nDersom barna ikke er helsøsken, må forelder eller oppnevnt verge sende inn egen søknad for disse barna.\n\nFosterbarn skal ikke føres opp, fordi de ikke har rett til barnepensjon etter fosterforeldrene.\n\nBarn over 18 år må søke selv om barnepensjon. ',
+        'Legg til alle barn under 18 år som du har felles med avdøde.\n\n Barn over 18 år må søke selv.',
+    informationGuardian: 'Legg til alle barn du er verge for.\n\n Barn over 18 år må søke selv.',
     infoRegardingSiblings: 'Her er info hvis det er søsken',
     infoCard_residence: 'BOSTED',
     infoCard_fnr: 'FØDSELSNUMMER',
@@ -327,7 +328,7 @@ const summary = {
 const error = {
     fixTheseErrorsToContinue: 'For å gå videre må du rette opp i dette:',
     'applicantRole.required': 'Oppgi hvem som søker om barnepensjon',
-    'applicantSituation.required': 'Oppgi hvem barnet/barna har mistet',
+    'applicantSituation.required': 'Du må velge en eller begge foreldrene',
     'abroadStays.hasStaysAbroad.required': 'Oppgi om den avdøde har bodd eller jobbet i et annet land enn Norge',
     'addressOfResidenceConfirmed.required': 'Bostedsadresse må bekreftes/avkreftes',
     'alternativeAddress.required': 'Du må oppgi nåværende bostedsadresse',
