@@ -625,6 +625,7 @@ export default {
     'felles.telefonnummerHjelpetekst': 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
     'felles.kroner': '<MANGLER TEKST>',
     'felles.prosent': '<MANGLER TEKST>',
+    'felles.valgfri': 'valfri',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Endre svar om deg og avdøde',
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',

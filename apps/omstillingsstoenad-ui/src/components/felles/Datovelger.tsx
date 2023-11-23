@@ -84,7 +84,7 @@ const Datovelger = ({
                             value={value}
                             onChange={(date) => onChange(parseDate(date))}
                             inputName={name}
-                            label={label}
+                            label={valgfri ? `${label} (${t('felles.valgfri')})` : label}
                             description={descriptionMedOppgiDato}
                             error={feilmelding}
                             limitations={{
