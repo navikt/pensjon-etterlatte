@@ -209,7 +209,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       class="sc-hKgKIp jZdyrG"
     >
       <button
-        class="navds-button navds-button--primary navds-button--medium"
+        class="navds-button navds-button--secondary navds-button--medium"
         type="button"
       >
         <span
