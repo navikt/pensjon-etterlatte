@@ -99,9 +99,9 @@ const SoknadKvittering = () => {
             <SkjemaGruppe>
                 <NavigasjonsRadSection>
                     <Button
-                        variant={'primary'}
+                        variant={'secondary'}
                         type={'button'}
-                        onClick={() => (window.location.href = 'https://www.nav.no')}
+                        onClick={() => (window.location.href = 'https://www.nav.no/omstillingsstonad')}
                     >
                         {t('soeknadKvittering.spoersmaal.knapp')}
                     </Button>

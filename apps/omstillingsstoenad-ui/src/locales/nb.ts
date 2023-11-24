@@ -519,7 +519,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
         'https://www.nav.no/gjenlevendepensjon#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon': 'Du finner mer informasjon om støtteordninger på ',
-    'soeknadKvittering.spoersmaal.knapp': 'Avslutt',
+    'soeknadKvittering.spoersmaal.knapp': 'Les mer om omstillingsstønad',
     'sideIkkeFunnet.tittel': 'Oi, her var det noe rusk',
     'sideIkkeFunnet.alert': 'Siden du har etterspurt finnes ikke.',
     'ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon':

@@ -473,7 +473,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/gjenlevendepensjon#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon':
         'Tek du utdanning eller søker jobb? Då kan du også ha rett til støtte til barnepass og utgifter du har i forbindelse med utdanning eller jobbsøking:',
-    'soeknadKvittering.spoersmaal.knapp': 'Avslutt',
+    'soeknadKvittering.spoersmaal.knapp': 'Les mer om omstillingsstønad',
     'sideIkkeFunnet.tittel': 'Oi, her var det noe rusk',
     'sideIkkeFunnet.alert': 'Siden du har etterspurt finnes ikke.',
     'ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon':

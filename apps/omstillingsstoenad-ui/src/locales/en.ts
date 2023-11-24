@@ -489,7 +489,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/gjenlevendepensjon#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon':
         'Are you taking education or looking for work? If so, you may also be entitled to support for child care and expenses you have in connection with your education or job seeking:',
-    'soeknadKvittering.spoersmaal.knapp': 'Exit',
+    'soeknadKvittering.spoersmaal.knapp': '<MANGLER TEKST>',
     'sideIkkeFunnet.tittel': 'Oops, something went wrong',
     'sideIkkeFunnet.alert': 'The page you have requested does not exist.',
     'ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon':
