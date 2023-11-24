@@ -29,7 +29,6 @@ const SoknadKvittering = () => {
             <SkjemaGruppe>
                 <Heading size={'small'}>{t('soeknadKvittering.seSaken.tittel')}</Heading>
 
-                {/* TODO: Sett inn riktig lenke for Dine saker */}
                 <BodyLong>
                     {t('soeknadKvittering.seSaken.informasjon.innhold1')}&nbsp;
                     <Link href={t('soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href')}>
