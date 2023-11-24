@@ -1,4 +1,3 @@
-import { Veileder } from '../felles/Veileder'
 import React, { useEffect } from 'react'
 import { SkjemaGruppe } from '../felles/SkjemaGruppe'
 import { Alert, BodyLong, BodyShort, Button, Link, Heading } from '@navikt/ds-react'
@@ -19,104 +18,76 @@ const SoknadKvittering = () => {
 
     return (
         <>
+            <Heading className={'center'} size={'medium'} spacing={true}>
+                {t('soeknadKvittering.tittel')}
+            </Heading>
+
             <SkjemaGruppe>
-                <Veileder></Veileder>
+                <Alert variant={'success'}>{t('soeknadKvittering.mottatt')}</Alert>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Heading className={'center'} size={'medium'} spacing={true}>
-                    {t('soeknadKvittering.tittel')}
-                </Heading>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <Alert variant={'info'}>{t('soeknadKvittering.kontakt')}</Alert>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <Heading size={'medium'}>{t('soeknadKvittering.endring.tittel')}</Heading>
-
-                <BodyLong>{t('soeknadKvittering.endring.informasjon')}</BodyLong>
-
-                <ul>
-                    <li>
-                        <BodyShort>{t('soeknadKvittering.endring.endringsListe.sivilstatus')}</BodyShort>
-                    </li>
-                    <li>
-                        <BodyShort>{t('soeknadKvittering.endring.endringsListe.inntekt')}</BodyShort>
-                    </li>
-                    <li>
-                        <BodyShort>{t('soeknadKvittering.endring.endringsListe.bosted')}</BodyShort>
-                    </li>
-                </ul>
-
-                <BodyLong>
-                    {t('soeknadKvittering.endring.rettigheter.informasjon')}&nbsp;
-                    <Link href={t('soeknadKvittering.endring.rettigheter.lenke.href')}>
-                        {t('soeknadKvittering.endring.rettigheter.lenke.tekst')}
-                    </Link>
-                </BodyLong>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <Heading size={'medium'}>{t('soeknadKvittering.seSaken.tittel')}</Heading>
+                <Heading size={'small'}>{t('soeknadKvittering.seSaken.tittel')}</Heading>
 
                 {/* TODO: Sett inn riktig lenke for Dine saker */}
                 <BodyLong>
                     {t('soeknadKvittering.seSaken.informasjon.innhold1')}&nbsp;
-                    <Link href={t('soeknadKvittering.seSaken.informasjon.lenkeDittNAV.href')}>
-                        {t('soeknadKvittering.seSaken.informasjon.lenkeDittNAV.tekst')}
+                    <Link href={t('soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href')}>
+                        {t('soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst')}
                     </Link>
                     &nbsp;
                     {t('soeknadKvittering.seSaken.informasjon.innhold2')}&nbsp;
-                    <Link href={t('soeknadKvittering.seSaken.informasjon.lenkeDineSaker.href')}>
-                        {t('soeknadKvittering.seSaken.informasjon.lenkeDineSaker.tekst')}
-                    </Link>
-                    &nbsp;
-                    {t('soeknadKvittering.seSaken.informasjon.innhold3')}&nbsp;
-                </BodyLong>
-                <br />
-                <BodyLong>
-                    <Link href={t('soeknadKvittering.seSaken.behandlingstidInfo.lenke.href')}>
-                        {t('soeknadKvittering.seSaken.behandlingstidInfo.lenke.tekst')}
+                    <Link href={t('soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href')}>
+                        {t('soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst')}
                     </Link>
                 </BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Heading size={'medium'}>{t('soeknadKvittering.andreStoenader.tittel')}</Heading>
+                <Alert variant={'info'}>
+                    <Heading size={'small'}>{t('soeknadKvittering.endring.tittel')}</Heading>
+
+                    <BodyLong>{t('soeknadKvittering.endring.informasjon')}</BodyLong>
+
+                    <ul>
+                        <li>
+                            <BodyShort>{t('soeknadKvittering.endring.endringsListe.sivilstatus')}</BodyShort>
+                        </li>
+                        <li>
+                            <BodyShort>{t('soeknadKvittering.endring.endringsListe.inntekt')}</BodyShort>
+                        </li>
+                        <li>
+                            <BodyShort>{t('soeknadKvittering.endring.endringsListe.bosted')}</BodyShort>
+                        </li>
+                    </ul>
+                    <BodyLong>
+                        {t('soeknadKvittering.endring.rettigheter.informasjon')}&nbsp;
+                        <Link href={t('soeknadKvittering.endring.rettigheter.lenke.href')}>
+                            {t('soeknadKvittering.endring.rettigheter.lenke.tekst')}
+                        </Link>
+                    </BodyLong>
+                </Alert>
+            </SkjemaGruppe>
+
+            <SkjemaGruppe>
+                <Heading size={'small'}>{t('soeknadKvittering.andreStoenader.tittel')}</Heading>
 
                 <BodyLong>{t('soeknadKvittering.andreStoenader.informasjon')}</BodyLong>
 
                 <ul>
                     <li>
-                        <BodyShort>
-                            <Link href={t('soeknadKvittering.andreStoenader.stoenadListe.skolepenger.href')}>
-                                {t('soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst')}
-                            </Link>
-                        </BodyShort>
+                        <BodyShort>{t('soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst')}</BodyShort>
                     </li>
                     <li>
-                        <BodyShort>
-                            <Link href={t('soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.href')}>
-                                {t('soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst')}
-                            </Link>
-                        </BodyShort>
+                        <BodyShort>{t('soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst')}</BodyShort>
                     </li>
                     <li>
-                        <BodyShort>
-                            <Link href={t('soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.href')}>
-                                {t('soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst')}
-                            </Link>
-                        </BodyShort>
+                        <BodyShort>{t('soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst')}</BodyShort>
                     </li>
                 </ul>
 
-                <br />
-
-                <BodyLong spacing={true}>{t('soeknadKvittering.andreStoenader.andreInformasjon')}</BodyLong>
-
-                <BodyShort>
+                <BodyShort spacing={true}>
+                    {t('soeknadKvittering.andreStoenader.andreInformasjon')}
                     <Link href={t('soeknadKvittering.andreStoenader.stoenadListe.tillegg.href')}>
                         {t('soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst')}
                     </Link>

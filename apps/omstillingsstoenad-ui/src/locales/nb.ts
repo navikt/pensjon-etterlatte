@@ -99,10 +99,11 @@ export default {
     'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
     'situasjonenDin.omsorgForBarn.tittel': 'Omsorg for barn',
     'situasjonenDin.omsorgMinstFemti': 'Har du minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet?',
-    'situasjonenDin.omsorgMinstFemti.dokumentasjon': 'Du må dokumentere omsorgsforholdet. Hvis du har eller hatt felles barn med, eller vært gift i minst fem år med avdøde, trenger du ikke dokumentere omsorgen.',
+    'situasjonenDin.omsorgMinstFemti.dokumentasjon':
+        'Du må dokumentere omsorgsforholdet. Hvis du har eller hatt felles barn med, eller vært gift i minst fem år med avdøde, trenger du ikke dokumentere omsorgen.',
     'situasjonenDin.gravidEllerNyligFoedt':
         'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
-    'situasjonenDin.oppholdUtenforNorge.tittel' : 'Opphold utenfor Norge',
+    'situasjonenDin.oppholdUtenforNorge.tittel': 'Opphold utenfor Norge',
     'situasjonenDin.oppholderSegIUtlandet.svar': 'Har du bodd eller oppholdt deg i utlandet de siste 12 månedene?',
     'situasjonenDin.oppholdHvorfor':
         'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
@@ -485,45 +486,39 @@ export default {
     'oppsummering.feilVedSending.tittel': 'her.',
     'oppsummering.feilVedSending.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     'soeknadKvittering.tittel': 'Søknaden din er sendt til oss',
-    'soeknadKvittering.kontakt': 'Hvis vi mangler informasjon for å behandle søknaden din, kontakter vi deg.',
+    'soeknadKvittering.mottatt':
+        'Vi har mottatt søknaden din om omstillingsstønad. Saken din er nå til behandling hos NAV.  Vi vil ta kontakt med deg hvis vi trenger mer informasjon eller dokumentasjon fra deg.',
     'soeknadKvittering.endring.tittel': 'Du må melde fra om endringer',
     'soeknadKvittering.endring.informasjon':
-        '\nDu må melde fra med en gang det skjer viktige endringer i livet ditt. Det kan for eksempel være hvis:',
-    'soeknadKvittering.endring.endringsListe.sivilstatus': 'du gifter deg, får samboer eller får barn med samboer',
-    'soeknadKvittering.endring.endringsListe.inntekt': 'inntekten din endrer seg',
+        'Du må melde fra med en gang det skjer viktige endringer i livet ditt. Det kan for eksempel være hvis:',
+    'soeknadKvittering.endring.endringsListe.sivilstatus': 'Du gifter deg, får samboer eller får barn med samboer',
+    'soeknadKvittering.endring.endringsListe.inntekt': 'Inntekten din endrer seg',
     'soeknadKvittering.endring.endringsListe.bosted':
-        'du skal flytte eller oppholde deg i et annet land over lengre tid',
-    'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese mer om dine rettigheter og plikter på',
+        'Du skal flytte eller oppholde deg i et annet land over lengre tid',
+    'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese mer om dine ',
     'soeknadKvittering.endring.rettigheter.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'nav.no/rettogplikt',
+    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'rettigheter og plikter.',
     'soeknadKvittering.seSaken.tittel': 'Sjekk status i saken din',
-    'soeknadKvittering.seSaken.informasjon.innhold1': '\nHvis du logger inn i',
-    'soeknadKvittering.seSaken.informasjon.lenkeDittNAV.href': 'https://www.nav.no/no/ditt-nav',
-    'soeknadKvittering.seSaken.informasjon.lenkeDittNAV.tekst': 'Ditt NAV',
-    'soeknadKvittering.seSaken.informasjon.innhold2':
-        'finner du en bekreftelse på at vi har fått søknaden din. Du kan alltid sjekke',
-    'soeknadKvittering.seSaken.informasjon.lenkeDineSaker.href': 'https://tjenester.nav.no/saksoversikt',
-    'soeknadKvittering.seSaken.informasjon.lenkeDineSaker.tekst': 'Dine saker',
-    'soeknadKvittering.seSaken.informasjon.innhold3': 'om søknaden din er behandlet.',
-    'soeknadKvittering.seSaken.behandlingstidInfo.lenke.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav',
-    'soeknadKvittering.seSaken.behandlingstidInfo.lenke.tekst': 'Her kan du sjekke forventet saksbehandlingstid.',
+    'soeknadKvittering.seSaken.informasjon.innhold1':
+        'Du får varsel på SMS eller e-post når saken er ferdig behandlet. I mellomtiden kan du se søknaden din på',
+    'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
+    'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'mitt NAV.',
+    'soeknadKvittering.seSaken.informasjon.innhold2': 'Lurer du på hvor lang tid behandlingen vil ta? Her kan du se',
+    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider',
+    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventet saksbehandlingstid.',
     'soeknadKvittering.andreStoenader.tittel': 'Du kan også ha rett til andre stønader',
     'soeknadKvittering.andreStoenader.informasjon':
-        '\nHar dere barn sammen? Da kan du også ha rett på andre støtteordninger:',
+        'Tar du utdanning, søker jobb eller har dere barn? Da kan du også ha rett til andre støtteordninger som barnepass, utgifter du har i forbindelse med utdanning eller jobbsøking',
     'soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst':
         'Stønad til skolepenger for gjenlevende ektefelle',
-    'soeknadKvittering.andreStoenader.stoenadListe.skolepenger.href': 'https://www.nav.no/skolepenger-gjenlevende',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst':
         'Stønad til barnetilsyn for gjenlevende ektefelle',
-    'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.href': 'https://www.nav.no/barnetilsyn-gjenlevende',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Utvidet barnetrygd',
-    'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.href': 'https://www.nav.no/utvidet-barnetrygd',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'Tilleggsstønader til gjenlevende ektefelle',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/tilleggsstonader-gjenlevende',
-    'soeknadKvittering.andreStoenader.andreInformasjon':
-        'Tar du utdanning eller søker jobb? Da kan du også ha rett til støtte til barnepass og utgifter du har i forbindelse med utdanning eller jobbsøking:',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for gjenlevende',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
+        'https://www.nav.no/gjenlevendepensjon#andre-stonader',
+    'soeknadKvittering.andreStoenader.andreInformasjon': 'Du finner mer informasjon om støtteordninger på ',
     'soeknadKvittering.spoersmaal.knapp': 'Avslutt',
     'sideIkkeFunnet.tittel': 'Oi, her var det noe rusk',
     'sideIkkeFunnet.alert': 'Siden du har etterspurt finnes ikke.',

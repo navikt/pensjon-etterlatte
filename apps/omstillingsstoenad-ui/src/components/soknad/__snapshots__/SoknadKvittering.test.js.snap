@@ -2,37 +2,16 @@
 
 exports[`SoknadKvittering skal matche snapshot 1`] = `
 <div>
+  <h1
+    class="center navds-heading navds-heading--medium navds-typo--spacing"
+  >
+    soeknadKvittering.tittel
+  </h1>
   <fieldset
-    class="sc-jSguLX dQQfdE"
+    class="sc-bdfCDU iGBHmN"
   >
     <div
-      class="sc-bdfCDU cdowFD"
-    >
-      <div
-        class="sc-gsTDqH hAIhuv"
-      >
-        <img
-          alt="veileder"
-          class="sc-dlfmHC kUEuov"
-          src="veileder.svg"
-        />
-      </div>
-    </div>
-  </fieldset>
-  <fieldset
-    class="sc-jSguLX dQQfdE"
-  >
-    <h1
-      class="center navds-heading navds-heading--medium navds-typo--spacing"
-    >
-      soeknadKvittering.tittel
-    </h1>
-  </fieldset>
-  <fieldset
-    class="sc-jSguLX dQQfdE"
-  >
-    <div
-      class="navds-alert navds-alert--info navds-alert--medium"
+      class="navds-alert navds-alert--success navds-alert--medium"
     >
       <svg
         aria-labelledby="title-r0"
@@ -48,6 +27,72 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
         <title
           id="title-r0"
         >
+          Suksess
+        </title>
+        <path
+          clip-rule="evenodd"
+          d="M12 21.75c5.385 0 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25 2.25 6.615 2.25 12s4.365 9.75 9.75 9.75Zm4.954-12.475a.813.813 0 0 0-1.24-1.05l-5.389 6.368L7.7 11.967a.812.812 0 0 0-1.15 1.15l3.25 3.25a.812.812 0 0 0 1.195-.05l5.959-7.042Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="navds-alert__wrapper navds-body-long navds-body-long--medium"
+      >
+        soeknadKvittering.mottatt
+      </div>
+    </div>
+  </fieldset>
+  <fieldset
+    class="sc-bdfCDU iGBHmN"
+  >
+    <h1
+      class="navds-heading navds-heading--small"
+    >
+      soeknadKvittering.seSaken.tittel
+    </h1>
+    <p
+      class="navds-body-long navds-body-long--medium"
+    >
+      soeknadKvittering.seSaken.informasjon.innhold1
+       
+      <a
+        class="navds-link navds-link--action"
+        href="soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href"
+      >
+        soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst
+      </a>
+       
+      soeknadKvittering.seSaken.informasjon.innhold2
+       
+      <a
+        class="navds-link navds-link--action"
+        href="soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href"
+      >
+        soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst
+      </a>
+    </p>
+  </fieldset>
+  <fieldset
+    class="sc-bdfCDU iGBHmN"
+  >
+    <div
+      class="navds-alert navds-alert--info navds-alert--medium"
+    >
+      <svg
+        aria-labelledby="title-r1"
+        class="navds-alert__icon"
+        fill="none"
+        focusable="false"
+        height="1em"
+        role="img"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title
+          id="title-r1"
+        >
           Informasjon
         </title>
         <path
@@ -60,108 +105,59 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
       <div
         class="navds-alert__wrapper navds-body-long navds-body-long--medium"
       >
-        soeknadKvittering.kontakt
+        <h1
+          class="navds-heading navds-heading--small"
+        >
+          soeknadKvittering.endring.tittel
+        </h1>
+        <p
+          class="navds-body-long navds-body-long--medium"
+        >
+          soeknadKvittering.endring.informasjon
+        </p>
+        <ul>
+          <li>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            >
+              soeknadKvittering.endring.endringsListe.sivilstatus
+            </p>
+          </li>
+          <li>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            >
+              soeknadKvittering.endring.endringsListe.inntekt
+            </p>
+          </li>
+          <li>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            >
+              soeknadKvittering.endring.endringsListe.bosted
+            </p>
+          </li>
+        </ul>
+        <p
+          class="navds-body-long navds-body-long--medium"
+        >
+          soeknadKvittering.endring.rettigheter.informasjon
+           
+          <a
+            class="navds-link navds-link--action"
+            href="soeknadKvittering.endring.rettigheter.lenke.href"
+          >
+            soeknadKvittering.endring.rettigheter.lenke.tekst
+          </a>
+        </p>
       </div>
     </div>
   </fieldset>
   <fieldset
-    class="sc-jSguLX dQQfdE"
+    class="sc-bdfCDU iGBHmN"
   >
     <h1
-      class="navds-heading navds-heading--medium"
-    >
-      soeknadKvittering.endring.tittel
-    </h1>
-    <p
-      class="navds-body-long navds-body-long--medium"
-    >
-      soeknadKvittering.endring.informasjon
-    </p>
-    <ul>
-      <li>
-        <p
-          class="navds-body-short navds-body-short--medium"
-        >
-          soeknadKvittering.endring.endringsListe.sivilstatus
-        </p>
-      </li>
-      <li>
-        <p
-          class="navds-body-short navds-body-short--medium"
-        >
-          soeknadKvittering.endring.endringsListe.inntekt
-        </p>
-      </li>
-      <li>
-        <p
-          class="navds-body-short navds-body-short--medium"
-        >
-          soeknadKvittering.endring.endringsListe.bosted
-        </p>
-      </li>
-    </ul>
-    <p
-      class="navds-body-long navds-body-long--medium"
-    >
-      soeknadKvittering.endring.rettigheter.informasjon
-       
-      <a
-        class="navds-link navds-link--action"
-        href="soeknadKvittering.endring.rettigheter.lenke.href"
-      >
-        soeknadKvittering.endring.rettigheter.lenke.tekst
-      </a>
-    </p>
-  </fieldset>
-  <fieldset
-    class="sc-jSguLX dQQfdE"
-  >
-    <h1
-      class="navds-heading navds-heading--medium"
-    >
-      soeknadKvittering.seSaken.tittel
-    </h1>
-    <p
-      class="navds-body-long navds-body-long--medium"
-    >
-      soeknadKvittering.seSaken.informasjon.innhold1
-       
-      <a
-        class="navds-link navds-link--action"
-        href="soeknadKvittering.seSaken.informasjon.lenkeDittNAV.href"
-      >
-        soeknadKvittering.seSaken.informasjon.lenkeDittNAV.tekst
-      </a>
-       
-      soeknadKvittering.seSaken.informasjon.innhold2
-       
-      <a
-        class="navds-link navds-link--action"
-        href="soeknadKvittering.seSaken.informasjon.lenkeDineSaker.href"
-      >
-        soeknadKvittering.seSaken.informasjon.lenkeDineSaker.tekst
-      </a>
-       
-      soeknadKvittering.seSaken.informasjon.innhold3
-       
-    </p>
-    <br />
-    <p
-      class="navds-body-long navds-body-long--medium"
-    >
-      <a
-        class="navds-link navds-link--action"
-        href="soeknadKvittering.seSaken.behandlingstidInfo.lenke.href"
-      >
-        soeknadKvittering.seSaken.behandlingstidInfo.lenke.tekst
-      </a>
-    </p>
-  </fieldset>
-  <fieldset
-    class="sc-jSguLX dQQfdE"
-  >
-    <h1
-      class="navds-heading navds-heading--medium"
+      class="navds-heading navds-heading--small"
     >
       soeknadKvittering.andreStoenader.tittel
     </h1>
@@ -175,48 +171,28 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
         <p
           class="navds-body-short navds-body-short--medium"
         >
-          <a
-            class="navds-link navds-link--action"
-            href="soeknadKvittering.andreStoenader.stoenadListe.skolepenger.href"
-          >
-            soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst
-          </a>
+          soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst
         </p>
       </li>
       <li>
         <p
           class="navds-body-short navds-body-short--medium"
         >
-          <a
-            class="navds-link navds-link--action"
-            href="soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.href"
-          >
-            soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst
-          </a>
+          soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst
         </p>
       </li>
       <li>
         <p
           class="navds-body-short navds-body-short--medium"
         >
-          <a
-            class="navds-link navds-link--action"
-            href="soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.href"
-          >
-            soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst
-          </a>
+          soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst
         </p>
       </li>
     </ul>
-    <br />
     <p
-      class="navds-body-long navds-body-long--medium navds-typo--spacing"
+      class="navds-body-short navds-body-short--medium navds-typo--spacing"
     >
       soeknadKvittering.andreStoenader.andreInformasjon
-    </p>
-    <p
-      class="navds-body-short navds-body-short--medium"
-    >
       <a
         class="navds-link navds-link--action"
         href="soeknadKvittering.andreStoenader.stoenadListe.tillegg.href"
@@ -227,10 +203,10 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     <br />
   </fieldset>
   <fieldset
-    class="sc-jSguLX dQQfdE"
+    class="sc-bdfCDU iGBHmN"
   >
     <section
-      class="sc-fubDmA hJileB"
+      class="sc-hKgKIp jZdyrG"
     >
       <button
         class="navds-button navds-button--primary navds-button--medium"
