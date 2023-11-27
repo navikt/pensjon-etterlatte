@@ -49,6 +49,8 @@ export default function FrontPage() {
 
                 <BodyLong>
                     <Trans value={t('childMayBeApplicableForPension')} />
+                </BodyLong>
+                <BodyLong as={'div'}>
                     <ul>
                         <li>
                             <Trans value={t('childMayBeApplicableForPension_li1')} />
@@ -60,6 +62,8 @@ export default function FrontPage() {
                             <Trans value={t('childMayBeApplicableForPension_li3')} />
                         </li>
                     </ul>
+                </BodyLong>
+                <BodyLong>
                     <Trans value={t('readMoreAboutChildrensPension')} />
                 </BodyLong>
             </FormGroup>
