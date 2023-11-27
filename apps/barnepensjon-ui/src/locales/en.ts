@@ -85,19 +85,18 @@ const radiobuttons = {
 
 const frontPage = {
     frontPageTitle: 'Apply for children’s pension',
-    helloUser: `Hi, {fornavn} {etternavn}`,
+    ingress: '<MANGLER TEKST>',
     startApplication: 'Start the application',
     childMayBeApplicableForPension:
-        'Children under the age of 18 who have lost one or both of their parents may receive financial support. It is the parent or guardian of the child who must apply for the children’s pension for the child if he/she is under the age of 18. \n Children who are studying or serving as an apprentice or trainee may be entitled to the children’s pension even if they are over the age of 18: \n',
+        '<MANGLER TEKST>',
     childMayBeApplicableForPension_li1:
-        'If the death was caused by occupational injury or occupational illness, the child may be entitled to the children’s pension until the age of 21.',
+        '<MANGLER TEKST>',
     childMayBeApplicableForPension_li2:
-        'If the child has lost both parents, the child may be entitled to the children’s pension until the age of 20.',
-    childOver18HasToApplyByThemself:
-        'Children over the age of 18 must apply for the children’s pension themselves.  \n \n<a href="https://www.nav.no/barnepensjon">More about the children’s pension</a>',
-    tax: 'Tax',
-    aboutChildrensPensionTax:
-        'The children’s pension is taxable, however advance tax is not deducted. If you have any questions about tax, you must contact the Norwegian Tax Administration (“Skatteetaten”).',
+        '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li3:
+        '<MANGLER TEKST>',
+    readMoreAboutChildrensPension:
+        '<MANGLER TEKST>',
     weWillRetrieveInfo: 'We collect the information we require',
     infoWeRetrieve:
         'In order to process your application we require information about the child/children, the parents of the children and any siblings.  \n \n We retrieve:',

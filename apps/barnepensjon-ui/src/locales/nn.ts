@@ -84,19 +84,18 @@ const radiobuttons = {
 
 const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
-    helloUser: `Hei, {fornavn} {etternavn}`,
+    ingress: '<MANGLER TEKST>',
     startApplication: 'Start søknad',
     childMayBeApplicableForPension:
-        'Barn under 18 år som har mista ein eller begge foreldra sine, kan få økonomisk støtte. Det er foreldra eller verjen til barnet som må søke om barnepensjon for barnet viss det er under 18 år. \n\nBarn som er under utdanning, eller er lærling eller praktikant, kan ha rett til barnepensjon sjølv om det er over 18 år:\n',
+        '<MANGLER TEKST>',
     childMayBeApplicableForPension_li1:
-        'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom, kan barnet ha rett til barnepensjon inntil fylte 21 år.',
+        '<MANGLER TEKST>',
     childMayBeApplicableForPension_li2:
-        'Viss barnet har mista begge foreldra sine, kan barnet ha rett til barnepensjon inntil fylte 20 år.',
-    childOver18HasToApplyByThemself:
-        'Barn over 18 år må søke sjølv.\n\n<a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>',
-    tax: 'Skatt',
-    aboutChildrensPensionTax:
-        'Barnepensjon er skattepliktig, men det vert ikkje trukke forskuddsskatt. Viss du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
+        '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li3:
+        '<MANGLER TEKST>',
+    readMoreAboutChildrensPension:
+        '<MANGLER TEKST>',
     weWillRetrieveInfo: 'Vi hentar informasjonen vi treng',
     infoWeRetrieve:
         'For å kunne behandle søknaden din treng vi informasjon om barnet/barna, foreldra til barna og eventuelle søsken.\n\nVi hentar:',
@@ -109,9 +108,6 @@ const frontPage = {
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten">Slik behandlar vi personopplysingane dine</a>',
     aboutPrivacy:
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Om personvern og sikkerheit på nav.no</a>',
-    aboutTheApplicationTitle: 'Utfylling av søknaden',
-    aboutTheApplicationDescription:
-        'Vi lagrar søknaden i 72 timer så du kan ta pauser undervegs. Du kan når som helst avbryte søknaden.',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Eg, {fornavn} {etternavn}, bekreftar at eg vil gi riktige og fullstendige opplysingar.',

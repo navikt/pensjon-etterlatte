@@ -144,7 +144,7 @@ const selectScenario = {
     youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
         'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
     guardianApplicantInformationFatherNotConfirmed:
-        'Hvis et barn har mistet én forelder og identiteten til den andre forelderen er ukjent, kan du benytte denne søknaden. <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
+        'Hvis et barn har mistet én forelder og identiteten til den andre forelderen er ukjent, kan du benytte <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
     guardianApplicantInformationSingleParent:
         'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
     aboutSurvivorsPensionDescription:
