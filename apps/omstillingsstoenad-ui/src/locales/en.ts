@@ -58,7 +58,7 @@ export default {
         'As applicable, information from <strong>foreign social security authorities</strong>',
     'forside.personvern.innhold':
         'Du har rett til innsyn i saken din. Vil du vite mer om hvordan NAV behandler personopplysninger?',
-    'forside.personvern.href': '<MANGLER LINK>',
+    'forside.personvern.href': 'https://www.nav.no/personvern-sikkerhet-navno',
     'forside.personvern.tekst': 'Om personvern og sikkerhet på nav.no',
     'forside.behandlingsgrunnlag.innhold':
         'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',

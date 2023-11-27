@@ -55,7 +55,7 @@ export default {
         'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
     'forside.personvern.innhold':
         'Du har rett til innsyn i saken din. Her kan du lese mer om hvordan NAV ivaretar ',
-    'forside.personvern.href': '<MANGLER LINK>',
+    'forside.personvern.href': 'https://www.nav.no/personvern-sikkerhet-navno',
     'forside.personvern.tekst': 'personvern og sikkerhet på nav.no',
     'forside.behandlingsgrunnlag.innhold':
         'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
