@@ -266,8 +266,7 @@ const aboutChildren = {
     childHasGuardian: 'Er det oppnevnt en verge for barnet?',
     guardianFnr: 'Fødselsnummer til verge (valgfri)',
     guardianFnrPlaceholder: '11 siffer',
-    information:
-        'Legg til alle barn under 18 år som du har felles med avdøde.\n\n Barn over 18 år må søke selv.',
+    information: 'Legg til alle barn under 18 år som du har felles med avdøde.\n\n Barn over 18 år må søke selv.',
     informationGuardian: 'Legg til alle barn du er verge for.\n\n Barn over 18 år må søke selv.',
     infoRegardingSiblings: 'Her er info hvis det er søsken',
     infoCard_residence: 'BOSTED',
@@ -424,40 +423,32 @@ const logOutUser = {
 }
 
 const receipt = {
-    thankYou: 'Takk for søknaden!',
     pageTitle: 'Søknaden er sendt til oss',
-    contact: 'Hvis vi mangler informasjon for å behandle søknaden, kontakter vi deg.',
+    contact:
+        'Vi har mottatt søknaden din om barnepensjon. Saken din er nå til behandling hos NAV. Vi vil ta kontakt med deg hvis vi trenger mer informasjon eller dokumentasjon fra deg.',
     youMustNotifyRegardingChanges: 'Du må melde fra om endringer',
     importantChangesCanAffectYourRights:
-        'Du må melde fra med en gang det skjer viktige endringer i livet til barnet eller barna. Det kan for eksempel være ved:',
-    changeInLivingSituation: 'endring i bo/familiesituasjon',
-    changeAddressOrMoveAbroad: 'flytting eller opphold i et annet land over tid',
-    childrenOver18MustNotify:
-        'Barn over 18 år som mottar barnepensjon må i tillegg gi beskjed om endring i utdanningssituasjon og/eller arbeidsinntekt.',
+        'Du må melde fra med en gang det skjer viktige endringer. Det kan for eksempel være hvis:',
+    changeInLivingSituation: 'Endring i bo/familiesituasjon',
+    changeAddressOrMoveAbroad: 'Flytting eller opphold i et annet land over tid',
     changeInEduation: 'utdanningssituasjon og/eller arbeidsinntekt',
-    moreAboutRightsAndDuties: 'Du kan lese mer om rettigheter og plikter på',
-    moreAboutRightsAndDutiesLinkHref: 'https://nav.no/rettogplikt',
-    moreAboutRightsAndDutiesLinkText: 'nav.no/rettogplikt',
-    benefitsChangingTitle: 'Regelendringer',
-    benefitsChangingDescription1: 'Barnepensjon skal styrkes. Les mer om endringene her: ',
-    benefitsChangingDescription1_link: 'www.nav.no/barnepensjon',
-    benefitsChangingDescription1_href: 'https://www.nav.no/barnepensjon#regel',
+    moreAboutChanges: 'Du kan lese mer om å ',
+    moreAboutChangesLinkHref: 'https://www.nav.no/endringer',
+    moreAboutChangesLinkText: 'melde fra om endringer.',
     submissionOfGuardianshipInfo: 'Verge',
     guardianshipMustBeConfirmed:
-        'Dersom du har sendt inn søknad som verge må du sende bekreftelse på oppnevnelse av verge fra tingretten eller Statsforvalteren på ',
-    guardianshipMustBeConfirmedLink: 'skjema NAV 00-03.00.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon',
-    viewCaseTitle: 'Sjekke status i saken?',
+        'Dersom du har sendt inn søknad som verge må du sende bekreftelse på oppnevnelse av verge fra tingretten eller Statsforvalteren.\n',
+    guardianshipMustBeConfirmedLink: 'Skjema for ettersendelse finner du her.',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende#barnepensjon',
+    viewCaseTitle: 'Sjekke status i saken',
     viewCaseInfoContentPart1:
-        'Forelder eller verge kan ikke følge saken til barnet digitalt. Hvis du har spørsmål om søknaden, må du kontakte oss på telefon 55 55 33 34.',
+        'Forelder eller verge kan ikke følge saken til barnet digitalt. Hvis du har spørsmål om søknaden, må du kontakte oss på telefon 55 55 33 34. Lurer du på hvor lang tid behandlingen vil ta? Her kan du se ',
     viewCaseInfoContent2: 'Barn over 18 år kan selv sjekke status i saken sin ved å logge inn i ',
-    viewCaseInfoLinkHref2: 'https://tjenester.nav.no/saksoversikt',
-    viewCaseInfoLinkText2: 'Ditt NAV',
-    processingTimeText_part1: 'Barnepensjon følger samme ',
-    processingTimeLink4: 'saksbehandlingstid',
-    processingTimeHref4: 'https://www.nav.no/saksbehandlingstider',
-    processingTimeText_part2: ' som søknad om gjenlevendepensjon.',
-    closeApplicationButton: 'Avslutt',
+    viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
+    viewCaseInfoLinkText2: 'mitt NAV',
+    processingTimeLink: 'forventet saksbehandlingstid.',
+    processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
+    closeApplicationButton: 'Les mer om barnepensjon',
 }
 
 const yourSituation = {

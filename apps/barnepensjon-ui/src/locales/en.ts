@@ -413,40 +413,31 @@ const logOutUser = {
 }
 
 const receipt = {
-    thankYou: 'Thank you for your application!',
     pageTitle: 'The application has been sent to us',
-    contact: 'If we need more information to be able to process the application, we will contact you.',
+    contact: '<MANGLER TEKST>',
     youMustNotifyRegardingChanges: 'You must notify us of any changes',
     importantChangesCanAffectYourRights:
         'You must immediately notify us of any important life changes for the child or children. Examples of this include:',
-    changeInLivingSituation: 'change in living/family situation',
-    changeAddressOrMoveAbroad: 'move to or stay in another country over an extended period of time',
-    childrenOver18MustNotify:
-        'Children over the age of 18 who receive a children’s pension must also give notice of changes to their educational situation and/or earned income.',
+    changeInLivingSituation: 'Change in living/family situation',
+    changeAddressOrMoveAbroad: 'Move to or stay in another country over an extended period of time',
     changeInEduation: 'educational situation and/or earned income',
-    moreAboutRightsAndDuties: 'You can read more about rights and obligations at',
-    moreAboutRightsAndDutiesLinkHref: 'https://nav.no/rettogplikt',
-    moreAboutRightsAndDutiesLinkText: 'nav.no/rettogplikt',
-    benefitsChangingTitle: 'Changes to the rules',
-    benefitsChangingDescription1: 'The children’s pension shall be strengthened. Read more about the changes here: ',
-    benefitsChangingDescription1_link: 'www.nav.no/barnepensjon',
-    benefitsChangingDescription1_href: 'https://www.nav.no/barnepensjon#regel',
+    moreAboutChanges: 'You can read more about ',
+    moreAboutChangesLinkHref: 'https://www.nav.no/endringer',
+    moreAboutChangesLinkText: '<MANGLER TEKST>',
     submissionOfGuardianshipInfo: 'Guardian',
     guardianshipMustBeConfirmed:
-        'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor using ',
-    guardianshipMustBeConfirmedLink: 'form NAV 00-03.00.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon',
-    viewCaseTitle: 'Do you want to check the status of the case?',
+        'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor, \n\n',
+    guardianshipMustBeConfirmedLink: '<MANGLER TEKST>',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende#barnepensjon',
+    viewCaseTitle: 'Do you want to check the status of the case',
     viewCaseInfoContentPart1:
-        'The parent or guardian cannot check the status of the child’s case digitally. If you have any questions regarding the application, please contact us at telephone number 55 55 33 34.',
+        '<MANGLER TEKST>',
     viewCaseInfoContent2: 'Children over the age of 18 can check the status of their case by logging on at ',
-    viewCaseInfoLinkHref2: 'https://tjenester.nav.no/saksoversikt',
-    viewCaseInfoLinkText2: 'Ditt NAV (Your NAV)',
-    processingTimeText_part1: 'The children’s pension is subject to the same ',
-    processingTimeLink4: 'processing time',
-    processingTimeHref4: 'https://www.nav.no/saksbehandlingstider',
-    processingTimeText_part2: ' as an application for a survivor’s pension.',
-    closeApplicationButton: 'End',
+    viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
+    viewCaseInfoLinkText2: 'mitt NAV (my NAV)',
+    processingTimeLink: 'processing time',
+    processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
+    closeApplicationButton: `Read more about children's pension`,
 }
 
 const yourSituation = {
