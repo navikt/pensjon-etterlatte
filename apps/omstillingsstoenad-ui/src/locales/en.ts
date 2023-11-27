@@ -28,26 +28,21 @@ export default {
     'knapp.ja': 'Yes, send application',
     'knapp.nei': 'No, go back',
     'forside.tittel': 'Apply for adjustment allowance',
-    'forside.hei': 'Hello {{navn}}!',
+    'forside.ingress': '<MANGLER TEKST>',
     'forside.startSoeknad': 'Start the application',
     'forside.omYtelsene.innhold':
-        'If your spouse, partner or cohabitant has died, you may be entitled to a survivor’s pension or transitional benefit for survivors. You may also be entitled to support if you were previously married to, in a partnership with or cohabiting with the deceased. We will assess whether you are entitled to a survivor’s pension or transitional benefit, based on your situation. How much money you will receive depends on your current income.',
-    'forside.omYtelsene.papirsoeknad.innhold':
-        'Do you already receive an old-age pension or disability benefit? Then you can apply for a survivor’s supplement. To apply for a survivor’s supplement, you must use',
-    'forside.omYtelsene.papirsoeknad.href':
-        'https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105',
-    'forside.omYtelsene.papirsoeknad.tekst': 'a printed form.',
+        'If your spouse, partner or cohabitant has died, you may be entitled to a survivor’s pension or transitional benefit for survivors.',
+    'forside.omYtelsene.innhold.li1' : 'You may also be entitled to support if you were previously married to, in a partnership with or cohabiting with the deceased.',
+    'forside.omYtelsene.innhold.li2' : 'We will assess whether you are entitled to a survivor’s pension or transitional benefit, based on your situation.',
+    'forside.omYtelsene.innhold.li3' : 'How much money you will receive depends on your current income.',
+    'forside.omYtelsene.innhold.merOmOmstillingsstoenad' : '<MANGLER TEKST>',
     'forside.omYtelsene.lenkeGjenlevende.href':
         'https://www.nav.no/en/home/benefits-and-services/relatert-informasjon/benefits-for-surviving-spouse',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'Read more about survivor’s pension',
     'forside.barnepensjon.tittel': 'You can also apply for a children’s pension',
     'forside.barnepensjon.innhold':
-        'If you have a joint child under the age of 18 with the deceased, the child(ren) may be entitled to a children’s pension. You can apply for both survivor’s pension and children’s pension using this application.',
-    'forside.barnepensjon.href': 'https://www.nav.no/barnepensjon',
-    'forside.barnepensjon.tekst': 'Read more about children’s pension',
-    'forside.omSoeknaden.tittel': 'Om søknaden',
-    'forside.omSoeknaden.innhold':
-        'Vi vil informere deg underveis i søknaden om opplysninger vi innhenter og mottar om deg. Informasjonen vi innhenter kommer enten fra deg eller fra offentlige registre.',
+        'If you have a joint child under the age of 18 with the deceased, the child(ren) may be entitled to a children’s pension.',
+    'forside.omSoeknaden.personvern': '<MANGLER TEKST>',
     'forside.uthentingAvInfo.tittel': 'We gather the information we need',
     'forside.uthentingAvInfo.innhold':
         'To process your application we need information about you, the deceased, any children and (as applicable) your cohabiting partner. We gather:',
@@ -61,31 +56,17 @@ export default {
         'Information about <strong>other support you are receiving from NAV</strong>',
     'forside.uthentingAvInfo.innholdListe.li5':
         'As applicable, information from <strong>foreign social security authorities</strong>',
-    'forside.uthentingAvInfo.lenke1.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
-    'forside.uthentingAvInfo.lenke1.tekst': 'Read more about how we process your personal data',
-    'forside.uthentingAvInfo.lenke2.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3',
-    'forside.uthentingAvInfo.lenke2.tekst': 'Read more about data protection and security on the nav.no website',
-    'forside.personvern.tittel': 'Mer om personvern - Nedtrekk',
     'forside.personvern.innhold':
         'Du har rett til innsyn i saken din. Vil du vite mer om hvordan NAV behandler personopplysninger?',
-    'forside.personvern.href': 'mangler link',
+    'forside.personvern.href': '<MANGLER LINK>',
     'forside.personvern.tekst': 'Om personvern og sikkerhet på nav.no',
-    'forside.behandlingsgrunnlag.tittel': 'Behandlingsgrunnlag - NEdtrekk',
     'forside.behandlingsgrunnlag.innhold':
         'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
-    'forside.behandlingsgrunnlag.href': 'mangler link',
+    'forside.behandlingsgrunnlag.href': '<MANGLER LINK>',
     'forside.behandlingsgrunnlag.tekst': 'Slik behandler vi personopplysningene dine',
-    'forside.soeknad.tittel': 'Filling in the application',
-    'forside.soeknad.innhold':
-        'We will save your application for 72 hours so that you can take breaks. You can discard your application at any time.\n\nYou must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use',
-    'forside.soeknad.innhold.lenke.tekst': 'this application.',
-    'forside.soeknad.innhold.lenke.href':
-        'https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene#NAV180401',
     'forside.samtykke.tittel': 'We trust you',
     'forside.samtykke.innhold':
-        'You must provide us with the correct information so that we can process your application. \nIf you receive money that you are not entitled to because you withheld information or provided incorrect information, you usually have to pay this money back.\n\n',
+        'You must provide us with the correct information so that we can process your application.',
     'forside.samtykke.lenke.tekst': 'my obligations on nav.no',
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
