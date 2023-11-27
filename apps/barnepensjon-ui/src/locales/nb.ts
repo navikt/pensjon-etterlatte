@@ -89,19 +89,19 @@ const radiobuttons = {
 
 const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
-    helloUser: `Hei, {fornavn} {etternavn}`,
+    ingress: 'Hei, jeg er her for å veilede deg gjennom søknaden. Svar så godt du kan ut fra hvordan situasjonen er nå og så kan du melde fra om eventuelle endringer senere.\n\n Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
     startApplication: 'Start søknad',
     childMayBeApplicableForPension:
-        'Barn under 18 år som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Det er forelderen eller vergen til barnet som må søke om barnepensjon for barnet hvis det er under 18 år. \n\nBarn som er under utdanning, eller er lærling eller praktikant, kan ha rett til barnepensjon selv om det er over 18 år:\n',
+        'Barn under 20 år som har mistet en eller begge foreldrene sine, kan få barnepensjon.',
     childMayBeApplicableForPension_li1:
-        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom, kan barnet ha rett til barnepensjon inntil fylte 21 år.',
+        'Det er forelderen eller vergen til barnet som må søke om barnepensjon for barnet hvis det er under 18 år.',
     childMayBeApplicableForPension_li2:
-        'Hvis barnet har mistet begge foreldrene sine, kan barnet ha rett til barnepensjon inntil fylte 20 år.',
-    childOver18HasToApplyByThemself:
-        'Barn over 18 år må søke selv.\n\n<a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>',
-    tax: 'Skatt',
-    aboutChildrensPensionTax:
-        'Barnepensjon er skattepliktig, men det blir ikke trukket forskuddsskatt. Hvis du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
+        'Som verge kan du kun sende søknad for det/de barna du er verge for. Du vil bli bedt om å dokumentere omsorgsforholdet etter søknaden er sendt inn.  Du kan også søke for de over 18 år.',
+    childMayBeApplicableForPension_li3:
+        'Barn over 18 år må søke selv.',
+    readMoreAboutChildrensPension:
+        'Lurer du på hvor mye man kan få, skatt eller annet om pensjonen kan du <a href="https://www.nav.no/barnepensjon">lese mer om barnepensjon</a>.',
+    weWillRetrieveInfoTitle: 'Personvern og sikkerhet',
     weWillRetrieveInfo: 'Vi henter informasjonen vi trenger',
     infoWeRetrieve:
         'For å kunne behandle søknaden din trenger vi informasjon om barnet/barna, foreldrene til barna og eventuelle søsken.\n\nVi henter:',
@@ -114,9 +114,6 @@ const frontPage = {
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten">Slik behandler vi personopplysningene dine</a>',
     aboutPrivacy:
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Om personvern og sikkerhet på nav.no</a>',
-    aboutTheApplicationTitle: 'Utfylling av søknaden',
-    aboutTheApplicationDescription:
-        'Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Jeg, {fornavn} {etternavn}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
