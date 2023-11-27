@@ -120,11 +120,13 @@ export default function FrontPage() {
                 />
             </FormGroup>
 
-            <FormGroup>
-                <Button size={'medium'} variant={'primary'} onClick={next} disabled={!consent}>
-                    {t('startApplication')}
-                </Button>
-            </FormGroup>
+            {consent && (
+                <FormGroup>
+                    <Button size={'medium'} variant={'primary'} onClick={next}>
+                        {t('startApplication')}
+                    </Button>
+                </FormGroup>
+            )}
         </>
     )
 }
