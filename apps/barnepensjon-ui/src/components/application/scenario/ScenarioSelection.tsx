@@ -10,7 +10,6 @@ import { RHFRadio } from '../../common/rhf/RHFRadio'
 import Trans from '../../common/Trans'
 import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
 import FormElement from '../../common/FormElement'
-import { isDev } from '../../../api/axios'
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -138,23 +137,7 @@ export default function ScenarioSelection() {
                 </>
             )}
 
-            {ApplicantRole.CHILD === selectedRole && !isDev && (
-                <>
-                    <FormGroup>
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('childApplicantInformation1')} />
-                        </BodyLong>
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('childApplicantInformation2')} />
-                        </BodyLong>
-                        <BodyLong size={'small'}>
-                            <Trans value={t('childApplicantInformationOver18')} />
-                        </BodyLong>
-                    </FormGroup>
-                </>
-            )}
-
-            {ApplicantRole.CHILD === selectedRole && isDev && (
+            {ApplicantRole.CHILD === selectedRole && (
                 <>
                     <FormGroup>
                         <RHFRadio
@@ -179,11 +162,9 @@ export default function ScenarioSelection() {
 
             <ErrorSummaryWrapper errors={errors} />
 
-            {(ApplicantRole.CHILD !== selectedRole || isDev) && (
-                <FormGroup>
-                    <Button onClick={handleSubmit(next)}>{t('continueButton', { ns: 'btn' })}</Button>
-                </FormGroup>
-            )}
+            <FormGroup>
+                <Button onClick={handleSubmit(next)}>{t('continueButton', { ns: 'btn' })}</Button>
+            </FormGroup>
         </FormProvider>
     )
 }
