@@ -670,6 +670,7 @@ export default {
     'felles.telefonnummerHjelpetekst': 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Prosent',
+    'felles.valgfri': 'valgfri',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Endre svar om deg og avdøde',
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',

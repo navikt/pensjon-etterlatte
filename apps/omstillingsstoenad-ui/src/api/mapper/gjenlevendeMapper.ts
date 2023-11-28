@@ -149,8 +149,8 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         forholdTilAvdoede: mapForholdTilAvdoede(t, soeknad.omDegOgAvdoed.forholdTilAvdoede!!),
         omsorgForBarn: {
             spoersmaal: t('situasjonenDin.omsorgMinstFemti'),
-            svar: valgTilSvar(t, soeknad.situasjonenDin.omsorgMinstFemti!!)
-        }
+            svar: valgTilSvar(t, soeknad.situasjonenDin.omsorgMinstFemti!!),
+        },
     }
 }
 
@@ -209,31 +209,38 @@ const hentOppholdUtland = (
     if (situasjonenDin.bosattINorge === IValg.JA) {
         opplysning = {
             oppholderSegIUtlandet: {
-                spoersmaal: t('situasjonenDin.oppholderSegIUtlandet'),
+                spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.svar'),
                 svar: valgTilSvar(t, situasjonenDin.oppholderSegIUtlandet!!.svar!!),
             },
-            oppholdsland: situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.NEI ? {
-                spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdsland'),
-                svar: {
-                    innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdsland!!,
-                },
-            } : undefined,
-            oppholdFra: situasjonenDin.oppholderSegIUtlandet!!.oppholdFra
-                ? {
-                      spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdFra'),
-                      svar: {
-                          innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdFra!!,
-                      },
-                  }
-                : undefined,
-            oppholdTil: situasjonenDin.oppholderSegIUtlandet!!.oppholdTil
-                ? {
-                      spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdTil'),
-                      svar: {
-                          innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdTil!!,
-                      },
-                  }
-                : undefined,
+            oppholdsland:
+                situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.JA
+                    ? {
+                          spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdsland'),
+                          svar: {
+                              innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdsland!!,
+                          },
+                      }
+                    : undefined,
+            oppholdFra:
+                situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.JA &&
+                situasjonenDin.oppholderSegIUtlandet!!.oppholdFra
+                    ? {
+                          spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdFra'),
+                          svar: {
+                              innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdFra!!,
+                          },
+                      }
+                    : undefined,
+            oppholdTil:
+                situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.JA &&
+                situasjonenDin.oppholderSegIUtlandet!!.oppholdTil
+                    ? {
+                          spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdTil'),
+                          svar: {
+                              innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdTil!!,
+                          },
+                      }
+                    : undefined,
         }
     }
 
@@ -279,14 +286,14 @@ const hentSivilstatus = (
                 svar: samboer.foedselsnummer!!,
             },
             fellesBarnEllertidligereGift: {
-                spoersmaal: t('omDegOgAvdoed.nySivilstatus.samboerskap.hattBarnEllerVaertGift'),
+                spoersmaal: t('situasjonenDin.nySivilstatus.samboerskap.hattBarnEllerVaertGift'),
                 svar: valgTilSvar(t, nySivilstatus.samboerskap!!.hattBarnEllerVaertGift!!), // TODO: Korrigere type
             },
         }
     }
 
     return {
-        spoersmaal: t('omDegOgAvdoed.nySivilstatus.sivilstatus'),
+        spoersmaal: t('situasjonenDin.nySivilstatus.sivilstatus'),
         svar: {
             verdi: konverterSivilstatus(nySivilstatus!!.sivilstatus!!),
             innhold: t(nySivilstatus!!.sivilstatus!!),

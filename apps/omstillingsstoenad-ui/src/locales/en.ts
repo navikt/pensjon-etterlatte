@@ -642,6 +642,7 @@ export default {
     'felles.telefonnummerHjelpetekst': 'The phone number is retrieved from the common Norwegian contact register (KRR)',
     'felles.kroner': '<MANGLER TEKST>',
     'felles.prosent': '<MANGLER TEKST>',
+    'felles.valgfri': 'optional',
     'endreSvarOppsummering.om-deg': 'Change answers about you',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Change answers about you and the deceased',
     'endreSvarOppsummering.om-den-avdoede': 'Change answers about the deceased',

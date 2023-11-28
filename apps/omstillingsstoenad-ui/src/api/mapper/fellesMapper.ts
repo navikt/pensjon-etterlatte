@@ -128,7 +128,7 @@ export const mapBarn = (t: TFunction, barn: IBarn, soeknad: ISoeknad, bruker: IB
             svar: barn.statsborgerskap!!,
         },
         utenlandsAdresse,
-        foreldre: hentForeldre(t, barn, soeknad, bruker),
+        foreldre: hentForeldre(t, soeknad, bruker),
         verge,
         dagligOmsorg: hentDagligOmsorg(t, barn),
     }
@@ -267,8 +267,7 @@ const hentSkattetrekk = (
     return undefined
 }
 
-export const hentForeldre = (t: TFunction, barn: IBarn, soeknad: ISoeknad, bruker: IBruker): Forelder[] => {
-    // TODO: Per dags dato er bruker alltid gjenlevende, men dette kan endre seg. Burde ryddes opp i.
+export const hentForeldre = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Forelder[] => {
     const gjenlevende: Forelder = {
         type: PersonType.FORELDER,
         fornavn: {
@@ -301,15 +300,7 @@ export const hentForeldre = (t: TFunction, barn: IBarn, soeknad: ISoeknad, bruke
         },
     }
 
-    if (barn.relasjon === BarnRelasjon.fellesbarnMedAvdoede) {
-        return [gjenlevende, avdoed]
-    } else if (barn.relasjon === BarnRelasjon.avdoedesSaerkullsbarn) {
-        return [avdoed]
-    } else if (barn.relasjon === BarnRelasjon.egneSaerkullsbarn) {
-        return [gjenlevende]
-    } else {
-        return []
-    }
+    return [gjenlevende, avdoed]
 }
 
 export const hentForeldreMedUtvidetInfo = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Person[] => {

@@ -22,7 +22,7 @@ const SamboerMedAvdoede = () => {
         <>
             <SkjemaElement>
                 <Datovelger
-                    name={'forholdTilAvdoede.datoForInngaattPartnerskap'}
+                    name={'forholdTilAvdoede.datoForInngaattSamboerskap'}
                     label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap')}
                     minDate={state.foedselsdato}
                     maxDate={datoforDoedsfallet || new Date()}
