@@ -100,7 +100,7 @@ const frontPage = {
     childMayBeApplicableForPension_li3:
         'Barn over 18 år må søke selv.',
     readMoreAboutChildrensPension:
-        'Lurer du på hvor mye man kan få, skatt eller annet om pensjonen kan du <a href="https://www.nav.no/barnepensjon">lese mer om barnepensjon</a>.',
+        'Lurer du på hvor mye man kan få, skatt eller annet om pensjonen, kan du <a href="https://www.nav.no/barnepensjon">lese mer om barnepensjon</a>.',
     weWillRetrieveInfoTitle: 'Personvern og sikkerhet',
     weWillRetrieveInfo: 'Vi henter informasjonen vi trenger',
     infoWeRetrieve:
@@ -121,34 +121,33 @@ const frontPage = {
 
 const selectScenario = {
     whoIsApplying: 'Hvem søker du barnepensjon for?',
-    additionalSituationDetails: 'Barnet/barna har mistet',
+    additionalSituationDetails: 'Barnet har mistet',
+    additionalSituationDetailsDescription: 'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
     additionalSituationDetailsOver18: 'Jeg har mistet',
+    additionalSituationDetailsOver18Description: 'Hvis en av foreldrene dine er ukjent, velger du begge foreldrene.',
     PARENT: 'Jeg søker for mitt eller mine barn under 18 år',
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
     CHILD: 'Jeg har fylt 18 år og søker på vegne av meg selv',
+    parentApplicantInformationLabel: 'Jeg søker for mitt eller mine barn under 18 år',
     parentApplicantInformation:
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde.',
-    guardianApplicantInformation: 'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn som er under 20 år.',
+    guardianApplicantInformationLabel: 'Jeg søker for ett eller flere barn jeg er verge for',
+    guardianApplicantInformation: 'I søknaden må du kunne oppgi alle avdødes barn og/eller adoptivbarn under 20 år. Du kan kun sende søknad for barn du er verge for.',
     guardiansMustSendDocumentation:
-        'Du kan kun sende søknad for det/de barna du er verge for. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verge for barnet/barna.',
+        'For at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på barn du er verge for.\n\n Du må oppgi fødselsnummer på alle i søknaden. Hvis du ikke har det, må du bruke en av våre <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">andre søknader om barnepensjon</a>.',
     childApplicantInformation1:
         '<b>Hvis du har mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
         '<b>Hvis du har mistet begge foreldrene dine eller farskapet ikke er fastsatt</b>\nDu kan få barnepensjon inntil du blir 20 år hvis du er under utdanning, eller er lærling eller praktikant. Du kan få barnepensjon inntil du blir 21 år hvis dødsfallet i tillegg skyldes en yrkesskade eller yrkessykdom.',
     childApplicantInformationOver18:
         'Har du mistet en eller begge foreldrene dine må du bruke <a href="https://www.nav.no/fyllut/nav180405">denne søknaden</a>.',
-    youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
-        'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
-        'Du må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">denne søknaden</a>.',
+        'Du må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis ikke du har det, må du bruke en av våre <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">andre søknader om barnepensjon</a>.',
     youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
         'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
-    guardianApplicantInformationFatherNotConfirmed:
-        'Hvis et barn har mistet én forelder og identiteten til den andre forelderen er ukjent, kan du benytte <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
-    guardianApplicantInformationSingleParent:
-        'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
+    aboutSurvivorsPensionTitle: 'Har du mistet ektefellen, samboeren eller partneren din?',
     aboutSurvivorsPensionDescription:
-        '<b>Har du mistet ektefellen, samboeren eller partneren din?</b>\nDa kan du søke om omstillingsstønad. Hvis du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/start/soknad-overgangsstonad-gjenlevendepensjon">denne søknaden.</a>',
+        'Da kan du søke om omstillingsstønad. Hvis du ønsker å søke om barnepensjon samtidig kan du gjøre begge deler i <a href="https://www.nav.no/omstillingsstnad/soknad/">søknad om omstillingsstønad.</a>',
     BOTH_PARENTS_DECEASED: 'Begge foreldrene',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Jeg er foreldreløs',
     ONE_PARENT_DECEASED: 'En forelder',
