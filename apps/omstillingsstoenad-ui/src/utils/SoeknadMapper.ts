@@ -14,7 +14,7 @@ import {
 import { IMerOmSituasjonenDin } from '../typer/situasjon'
 import { StegPath } from '../typer/steg'
 import ObjectTreeReader, { Element, Gruppe } from './ObjectTreeReader'
-import { IAnnenInntekt, IInntekt, ILoennsinntekt, INaeringsinntekt, IPensjonEllerUfoere } from '../typer/inntekt'
+import { IAnnenInntekt, IInntekt, ILoennsinntekt, IPensjonEllerUfoere } from '../typer/inntekt'
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader
@@ -239,7 +239,7 @@ export default class SoeknadMapper {
         if (!!inntektenDin.naeringsinntekt) {
             const naeringsinntekt: Element = {
                 tittel: this.t('inntektenDin.naeringsinntekt.tittel'),
-                innhold: this.otr.traverse<INaeringsinntekt>(
+                innhold: this.otr.traverse<ILoennsinntekt>(
                     {
                         ...inntektenDin.naeringsinntekt,
                     },

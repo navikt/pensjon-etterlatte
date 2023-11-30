@@ -92,14 +92,14 @@ export enum SivilstatusType {
 }
 
 export enum SagtOppEllerRedusertType {
-    OPPSAGT = "OPPSAGT",
-    REDUSERT = "REDUSERT",
-    NEI = "NEI"
+    OPPSAGT = 'OPPSAGT',
+    REDUSERT = 'REDUSERT',
+    NEI = 'NEI',
 }
 
 export enum StudieformType {
-    HELTID =  "HELTID",
-    DELTID = "DELTID"
+    HELTID = 'HELTID',
+    DELTID = 'DELTID',
 }
 
 export interface ForholdTilAvdoede {
@@ -150,21 +150,25 @@ export interface InntektOgPensjon {
 }
 
 export interface Loennsinntekt {
-    arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
-    arbeidsinntektIAar: {
-        tilDoedsfall: Opplysning<FritekstSvar>
-        etterDoedsfall: Opplysning<FritekstSvar>
-    }
+    norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>>
+    norge?: InntektsType
+    utland?: InntektsType
     endringAvInntekt: EndringAvInntekt
 }
 
 export interface NaeringsinntektGjenlevende {
+    norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>>
+    norge?: InntektsType
+    utland?: InntektsType
+    endringAvInntekt: EndringAvInntekt
+}
+
+interface InntektsType {
     arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
     arbeidsinntektIAar: {
         tilDoedsfall: Opplysning<FritekstSvar>
         etterDoedsfall: Opplysning<FritekstSvar>
     }
-    endringAvInntekt: EndringAvInntekt
 }
 
 export interface PensjonEllerUfoere {
@@ -360,7 +364,7 @@ export enum InntektEllerUtbetalingType {
     OMSORGSPENGER = 'OMSORGSPENGER',
     OPPLAERINGSPENGER = 'OPPLAERINGSPENGER',
     ALDERSPENSJON = 'ALDERSPENSJON',
-    ANNEN = 'ANNEN'
+    ANNEN = 'ANNEN',
 }
 
 export enum SoekbareYtelserAndreType {
@@ -390,4 +394,9 @@ export enum SoekbareYtelserNAVType {
 export enum ArbeidsmengdeType {
     PROSENT = 'PROSENT',
     TIMER = 'TIMER',
+}
+
+export enum NorgeEllerUtlandType {
+    NORGE = 'NORGE',
+    UTLAND = 'UTLAND',
 }

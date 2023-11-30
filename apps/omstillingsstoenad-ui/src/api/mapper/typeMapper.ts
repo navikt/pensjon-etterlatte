@@ -7,11 +7,16 @@ import {
 } from '../../typer/arbeidsforhold'
 import {
     ArbeidsmengdeType,
+    EndringAvInntektGrunnType,
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
     IngenJobbType,
+    InntektEllerUtbetalingType,
     JobbStatusType,
+    NorgeEllerUtlandType,
     OppholdUtlandType,
+    PensjonEllerTrygdType,
+    PensjonsYtelseType,
     SagtOppEllerRedusertType,
     SivilstatusType,
     SoekbareYtelserAndreType,
@@ -19,9 +24,6 @@ import {
     StillingType,
     StudieformType,
     Ytelser,
-    EndringAvInntektGrunnType,
-    PensjonsYtelseType,
-    InntektEllerUtbetalingType, PensjonEllerTrygdType,
 } from '../dto/FellesOpplysninger'
 import {
     ForholdTilAvdoede as RelasjonAvdoed,
@@ -31,7 +33,9 @@ import {
 import { Ytelser as GamleYtelser } from '../../typer/ytelser'
 import {
     EndringAvInntektGrunn,
-    InntektEllerUtbetaling, PensjonEllerTrygd,
+    InntektEllerUtbetaling,
+    NorgeOgUtland,
+    PensjonEllerTrygd,
     PensjonsYtelse,
     SoekbareYtelserAndre,
     SoekbareYtelserNAV,
@@ -331,5 +335,14 @@ export const konverterStudieform = (type: Studieform): StudieformType => {
             return StudieformType.HELTID
         case Studieform.deltid:
             return StudieformType.DELTID
+    }
+}
+
+export const konverterNorgeEllerUtland = (type: NorgeOgUtland): NorgeEllerUtlandType => {
+    switch (type) {
+        case NorgeOgUtland.norge:
+            return NorgeEllerUtlandType.NORGE
+        case NorgeOgUtland.utland:
+            return NorgeEllerUtlandType.UTLAND
     }
 }
