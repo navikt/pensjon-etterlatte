@@ -12,8 +12,7 @@ export enum ForholdTilAvdoede {
     gift = 'avdoede.relasjon.gift',
     separert = 'avdoede.relasjon.separert',
     samboer = 'avdoede.relasjon.samboer',
-    skilt = 'avdoede.relasjon.skilt',
-    tidligereSamboer = 'avdoede.relasjon.tidligereSamboer',
+    skilt = 'avdoede.relasjon.skilt'
 }
 
 export enum BarnRelasjon {

@@ -34,14 +34,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-rc"
+                id="radio-rb"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.gift"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rc"
+                for="radio-rb"
               >
                 <span
                   class="navds-radio__content"
@@ -59,14 +59,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-rd"
+                id="radio-rc"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.separert"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rd"
+                for="radio-rc"
               >
                 <span
                   class="navds-radio__content"
@@ -84,14 +84,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-re"
+                id="radio-rd"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.samboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-re"
+                for="radio-rd"
               >
                 <span
                   class="navds-radio__content"
@@ -109,14 +109,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-rf"
+                id="radio-re"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.skilt"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rf"
+                for="radio-re"
               >
                 <span
                   class="navds-radio__content"
@@ -129,37 +129,12 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 </span>
               </label>
             </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-rg"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.tidligereSamboer"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-rg"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.tidligereSamboer
-                  </span>
-                </span>
-              </label>
-            </div>
           </div>
           <div
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-rb"
+            id="fieldset-error-ra"
           />
         </fieldset>
       </div>
@@ -187,7 +162,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   </label>
                   <div
                     class="navds-form-field__description navds-body-short navds-body-short--small"
-                    id="textField-description-rk"
+                    id="textField-description-ri"
                   >
                     felles.oppgiDato felles.datoformat
                   </div>
@@ -195,7 +170,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                     style="position: relative;"
                   >
                     <input
-                      aria-describedby="textField-description-rk"
+                      aria-describedby="textField-description-ri"
                       autocomplete="off"
                       autocorrect="off"
                       class="navds-text-field__input navds-body-short navds-body-medium"
@@ -251,7 +226,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                     aria-live="polite"
                     aria-relevant="additions removals"
                     class="navds-form-field__error"
-                    id="textField-error-rk"
+                    id="textField-error-ri"
                   />
                 </div>
               </div>
@@ -266,7 +241,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           id="forholdTilAvdoede.fellesBarn"
         >
           <fieldset
-            aria-describedby="fieldset-description-rm"
+            aria-describedby="fieldset-description-rk"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
@@ -276,7 +251,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-rm"
+              id="fieldset-description-rk"
             >
               omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse
             </div>
@@ -288,14 +263,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-rn"
+                  id="radio-rl"
                   name="forholdTilAvdoede.fellesBarn"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-rn"
+                  for="radio-rl"
                 >
                   <span
                     class="navds-radio__content"
@@ -313,14 +288,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-ro"
+                  id="radio-rm"
                   name="forholdTilAvdoede.fellesBarn"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-ro"
+                  for="radio-rm"
                 >
                   <span
                     class="navds-radio__content"
@@ -338,7 +313,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-rm"
+              id="fieldset-error-rk"
             />
           </fieldset>
         </div>
@@ -402,7 +377,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-rj"
+              aria-labelledby="title-rh"
               fill="none"
               focusable="false"
               height="1em"
@@ -412,7 +387,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-rj"
+                id="title-rh"
               >
                 Lukk modalvindu
               </title>
@@ -622,31 +597,6 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                 </span>
               </label>
             </div>
-            <div
-              class="radioBorder navds-radio navds-radio--medium"
-            >
-              <input
-                class="navds-radio__input"
-                id="radio-r6"
-                name="forholdTilAvdoede.relasjon"
-                type="radio"
-                value="avdoede.relasjon.tidligereSamboer"
-              />
-              <label
-                class="navds-radio__label"
-                for="radio-r6"
-              >
-                <span
-                  class="navds-radio__content"
-                >
-                  <span
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    avdoede.relasjon.tidligereSamboer
-                  </span>
-                </span>
-              </label>
-            </div>
           </div>
           <div
             aria-live="polite"
@@ -715,7 +665,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r9"
+              aria-labelledby="title-r8"
               fill="none"
               focusable="false"
               height="1em"
@@ -725,7 +675,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r9"
+                id="title-r8"
               >
                 Lukk modalvindu
               </title>

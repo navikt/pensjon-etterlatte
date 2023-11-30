@@ -87,26 +87,4 @@ describe('Forhold til avdoede', () => {
         expect(getByText('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')).toBeDefined()
         expect(getByText('omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn')).toBeDefined()
     })
-
-    it('Tidligere samboere skal vise spørsmål om felles barn', () => {
-        const { result } = renderHook(() =>
-            useForm({
-                defaultValues: {
-                    forholdTilAvdoede: {
-                        relasjon: 'avdoede.relasjon.tidligereSamboer',
-                        fellesBarn: 'radiobuttons.ja',
-                    },
-                },
-            })
-        )
-        const { getByText } = render(
-            <FormProvider {...result.current}>
-                <ForholdTilAvdoedeSkjema />
-            </FormProvider>
-        )
-
-        expect(getByText('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')).toBeDefined()
-        expect(getByText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap')).toBeDefined()
-        expect(getByText('omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd')).toBeDefined()
-    })
 })

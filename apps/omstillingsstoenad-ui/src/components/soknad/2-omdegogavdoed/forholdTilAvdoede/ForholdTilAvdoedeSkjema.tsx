@@ -4,7 +4,6 @@ import { ForholdTilAvdoede, ISoekerOgAvdoed } from '../../../../typer/person'
 import GiftMedAvdoede from './GiftMedAvdoede'
 import SamboerMedAvdoede from './SamboerMedAvdoede'
 import SkiltFraAvdoede from './SkiltFraAvdoede'
-import TidligereSamboerMedAvdoede from './TidligereSamboerMedAvdoede'
 import { RadioProps } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
@@ -31,8 +30,6 @@ const ForholdTilAvdoedeSkjema = () => {
             {forholdTilAvdoede === ForholdTilAvdoede.samboer && <SamboerMedAvdoede />}
 
             {forholdTilAvdoede === ForholdTilAvdoede.skilt && <SkiltFraAvdoede />}
-
-            {forholdTilAvdoede === ForholdTilAvdoede.tidligereSamboer && <TidligereSamboerMedAvdoede />}
         </SkjemaGruppe>
     )
 }
