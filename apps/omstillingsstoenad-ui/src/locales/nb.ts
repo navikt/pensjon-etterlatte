@@ -843,21 +843,35 @@ export default {
     'feil.utbetalingsInformasjon.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fylles ut',
     'feil.utbetalingsInformasjon.swift.validate': 'Ugyldig SWIFT/BIC kode',
     'feil.inntektstyper.required': 'Oppgi hvilken inntektstype du har',
-    'feil.loennsinntekt.arbeidsinntektAaretFoer.required':
+    'feil.loennsinntekt.norgeEllerUtland.required': 'Du må krysse av hvor du får arbeidsinntekt fra',
+    'feil.loennsinntekt.norge.arbeidsinntektAaretFoer.required':
         'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.required':
+    'feil.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.required':
+    'feil.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
+      'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
+      'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
+      'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
-    'feil.naeringsinntekt.arbeidsinntektAaretFoer.required':
+    'feil.naeringsinntekt.norgeEllerUtland.required': 'Du må krysse av hvor du får næringsinntekt fra',
+    'feil.naeringsinntekt.norge.arbeidsinntektAaretFoer.required':
         'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.required':
+    'feil.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'Oppgi brutto næringsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.required':
+    'feil.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.naeringsinntekt.utland.arbeidsinntektAaretFoer.required':
+      'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
+      'Oppgi brutto næringsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
+      'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
