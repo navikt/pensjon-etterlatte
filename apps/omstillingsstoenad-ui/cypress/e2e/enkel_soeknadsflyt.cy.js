@@ -145,7 +145,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
                 arbeid.forventerEndretArbeidssituasjon.beskrivelse
             )
 
-            selectValueForId(baseId + 'sagtOppEllerRedusert.svar', arbeid.sagtOppEllerRedusert.svar)
+            // selectValueForId(baseId + 'sagtOppEllerRedusert.svar', arbeid.sagtOppEllerRedusert.svar)
         })
 
         selectValue(merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning)
