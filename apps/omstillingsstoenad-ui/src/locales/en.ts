@@ -496,7 +496,6 @@ export default {
     'avdoede.relasjon.separert': 'Separated',
     'avdoede.relasjon.samboer': 'Cohabiting partner',
     'avdoede.relasjon.skilt': 'Divorced',
-    'avdoede.relasjon.tidligereSamboer': 'Former cohabiting partner',
     'barnRelasjon.fellesbarnMedAvdoede': 'The deceased and myself',
     'barnRelasjon.avdoedesSaerkullsbarn': 'The deceased',
     'barnRelasjon.egneSaerkullsbarn': 'Me',

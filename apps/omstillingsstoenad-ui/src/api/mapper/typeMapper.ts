@@ -149,8 +149,6 @@ export const konverterRelasjonAvdoed = (type: RelasjonAvdoed | string): ForholdT
             return ForholdTilAvdoedeType.SAMBOER
         case RelasjonAvdoed.separert:
             return ForholdTilAvdoedeType.SEPARERT
-        case RelasjonAvdoed.tidligereSamboer:
-            return ForholdTilAvdoedeType.TIDLIGERE_SAMBOER
         default:
             throw Error(`Ukjent type relasjon til avdoed: ${type}`)
     }

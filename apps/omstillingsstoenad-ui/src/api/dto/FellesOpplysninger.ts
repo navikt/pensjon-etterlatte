@@ -60,7 +60,6 @@ export enum ForholdTilAvdoedeType {
     SEPARERT = 'SEPARERT',
     SAMBOER = 'SAMBOER',
     SKILT = 'SKILT',
-    TIDLIGERE_SAMBOER = 'TIDLIGERE_SAMBOER',
 }
 
 export enum OppholdUtlandType {
