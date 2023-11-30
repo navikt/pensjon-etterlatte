@@ -394,40 +394,31 @@ const logOutUser = {
 }
 
 const receipt = {
-    thankYou: 'Takk for søknaden!',
     pageTitle: 'Søknaden er sendt til oss',
-    contact: 'Viss vi manglar informasjon for å behandle søknaden, kontaktar vi deg.',
+    contact: '<MANGLER TEKST>',
     youMustNotifyRegardingChanges: 'Du må melde frå om endringar',
     importantChangesCanAffectYourRights:
         'Du må melde frå med ein gong det skjer viktige endringar i livet til barnet eller barna. Det kan til dømes vera ved:',
-    changeInLivingSituation: 'endring i bu/familiesituasjon',
-    changeAddressOrMoveAbroad: 'flytting eller opphald i eit anna land over tid',
-    childrenOver18MustNotify:
-        'Barn over 18 år som mottek barnepensjon må i tillegg gi beskjed om endring i utdanningssituasjon og/eller arbeidsinntekt.',
+    changeInLivingSituation: 'Endring i bu/familiesituasjon',
+    changeAddressOrMoveAbroad: 'Flytting eller opphald i eit anna land over tid',
     changeInEduation: 'utdanningssituasjon og/eller arbeidsinntekt',
-    moreAboutRightsAndDuties: 'Du kan lese meir om rettar og plikter på',
-    moreAboutRightsAndDutiesLinkHref: 'https://nav.no/rettogplikt',
-    moreAboutRightsAndDutiesLinkText: 'nav.no/rettogplikt',
-    benefitsChangingTitle: 'Regelendringar',
-    benefitsChangingDescription1: 'Barnepensjon skal styrkast. Les meir om endringane her: ',
-    benefitsChangingDescription1_link: 'www.nav.no/barnepensjon',
-    benefitsChangingDescription1_href: 'https://www.nav.no/barnepensjon#regel',
+    moreAboutChanges: 'Du kan lese meir om å ',
+    moreAboutChangesLinkHref: 'https://www.nav.no/endringer',
+    moreAboutChangesLinkText: '<MANGLER TEKST>',
     submissionOfGuardianshipInfo: 'Verje',
     guardianshipMustBeConfirmed:
-        'Dersom du har sendt inn søknad som verje må du sende bekreftelse på utnevning av verje frå tingretten eller Statsforvalteren på ',
-    guardianshipMustBeConfirmedLink: 'skjema NAV 00-03.00.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon',
-    viewCaseTitle: 'Sjekke status i saken?',
+        'Dersom du har sendt inn søknad som verje må du sende bekreftelse på utnevning av verje frå tingretten eller Statsforvalteren.',
+    guardianshipMustBeConfirmedLink: '<MANGLER TEKST>',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende#barnepensjon',
+    viewCaseTitle: 'Sjekke status i saken',
     viewCaseInfoContentPart1:
-        'Forelder eller verje kan ikkje følge saken til barnet digitalt. Viss du har spørsmål om søknaden, må du kontakte oss på telefon 55 55 33 34.',
+        '<MANGLER TEKST>',
     viewCaseInfoContent2: 'Barn over 18 år kan sjølv sjekke status i saka si ved å logge inn i ',
-    viewCaseInfoLinkHref2: 'https://tjenester.nav.no/saksoversikt',
-    viewCaseInfoLinkText2: 'Ditt NAV',
-    processingTimeText_part1: 'Barnepensjon følger same ',
-    processingTimeLink4: 'saksbehandlingstid',
-    processingTimeHref4: 'https://www.nav.no/saksbehandlingstider',
-    processingTimeText_part2: ' som søknad om attlevandepensjon.',
-    closeApplicationButton: 'Avslutt',
+    viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
+    viewCaseInfoLinkText2: 'mitt NAV',
+    processingTimeLink: 'saksbehandlingstid',
+    processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
+    closeApplicationButton: 'Les meir om barnepensjon',
 }
 
 const yourSituation = {
