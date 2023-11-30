@@ -73,7 +73,7 @@ export default {
     'forside.samtykke.bekreftelse': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'situasjonenDin.tittel': 'Situasjonen din',
     'situasjonenDin.ingress':
-        'Retten din til omstillingsstønad kan påvirkes av om du\n - har eller har hatt barn med avdøde\n - har minst 50 prosent omsorg for barn\n \n Legg til alle barn og/eller adoptivbarn du har felles med avdøde. Dette gjelder også barn over 18 år.\n I tillegg må du legge til barn under 18 år som du har omsorgen for. Dette gjelder avdødes barn, dine egne barn eller fosterbarn.',
+        'Retten din til omstillingsstønad kan påvirkes av\n - Sivilstanden din i dag\n - Omsorg for barn\n - Opphold utenfor Norge',
     'situasjonenDin.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
     'situasjonenDin.nySivilstatus.beskrivelse':
         'Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få omstillingsstønad og hvor mye du kan få.',
@@ -85,8 +85,7 @@ export default {
     'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
     'situasjonenDin.omsorgForBarn.tittel': 'Omsorg for barn',
     'situasjonenDin.omsorgMinstFemti': 'Har du minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet?',
-    'situasjonenDin.omsorgMinstFemti.dokumentasjon':
-        'Du må dokumentere omsorgsforholdet. Hvis du har eller hatt felles barn med, eller vært gift i minst fem år med avdøde, trenger du ikke dokumentere omsorgen.',
+    'situasjonenDin.omsorgMinstFemti.dokumentasjon': 'Du kan i noen tilfeller bli bedt om å dokumentere omsorgsforholdet.',
     'situasjonenDin.gravidEllerNyligFoedt':
         'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
     'situasjonenDin.oppholdUtenforNorge.tittel': 'Opphold utenfor Norge',
@@ -101,8 +100,8 @@ export default {
     'merOmSituasjonenDin.tittel': 'Mer om situasjonen din',
     'merOmSituasjonenDin.ingress':
         'Din rett til omstillingsstønad avhenger av din aktivitet for å opprettholde eller øke din arbeidstilknytning.\n\n' +
-        'I en omstillingsperiode på seks måneder etter dødsfallet er det ikke krav til at du er i arbeid eller annen aktivitet.\n\n' +
-        'Det er et krav at du er i minst femti prosent arbeid eller aktivitet etter seks måneder. Når det er gått ett år etter dødsfallet kan det stilles krav om at du er i arbeid eller arbeidsrettet aktivitet på full tid.\n',
+        'I en omstillingsperiode på 6 måneder etter dødsfallet er det ikke krav til at du er i arbeid eller annen aktivitet.\n\n' +
+        'Etter 6 måneder må du som hovedregel jobbe eller ha annen aktivitet slik at du etter hvert kan forsørge deg selv.',
     'merOmSituasjonenDin.jobbStatus.tittel': 'Arbeid, utdanning og andre aktiviteter i Norge og i utlandet',
     'merOmSituasjonenDin.jobbStatus': 'Hva er situasjonen din nå?',
     'merOmSituasjonenDin.jobbStatus.hvorfor':

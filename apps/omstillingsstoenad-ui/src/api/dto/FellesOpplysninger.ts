@@ -266,7 +266,7 @@ export interface Arbeidstaker {
     harSluttdato?: Opplysning<EnumSvar<JaNeiVetIkke>>
     sluttdato?: Opplysning<DatoSvar>
     endretArbeidssituasjon: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>
-    sagtOppEllerRedusert: Opplysning<EnumSvar<SagtOppEllerRedusertType>>
+    // sagtOppEllerRedusert: Opplysning<EnumSvar<SagtOppEllerRedusertType>>
 }
 
 export interface AnnenSituasjon {
