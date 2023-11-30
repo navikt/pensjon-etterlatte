@@ -87,11 +87,3 @@ describe('Samtykke', () => {
         expect(startKnapp).toBeVisible()
     })
 })
-
-describe('Velkomstmelding', () => {
-    it('Velkomstmelding med brukers navn vises', async () => {
-        const velkomstmelding = await screen.findByText('forside.hei')
-
-        expect(velkomstmelding).toBeVisible()
-    })
-})

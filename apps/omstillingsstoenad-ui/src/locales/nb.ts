@@ -27,31 +27,22 @@ export default {
     'knapp.endre': 'Endre',
     'knapp.ja': 'Ja, send søknad',
     'knapp.nei': 'Nei, gå tilbake',
-    'forside.tittel': 'Søk om omstillingsstønad',
-    'forside.hei': 'Hei, {{navn}}',
+    'forside.tittel': 'Søknad om omstillingsstønad',
+    'forside.ingress' : 'Hei, jeg er her for å veilede deg gjennom søknaden. Jeg forstår at du kan bli usikker på hva du skal svare på noen spørsmål som handler om tiden fremover. Da svarer du så godt du kan ut fra hva situasjonen er nå, og så kan du melde fra om eventuelle endringer senere.\n\n' +
+        'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
     'forside.startSoeknad': 'Start søknad',
     'forside.omYtelsene.innhold':
-        'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer med felles barn. I noen tilfeller kan du få støtte hvis dere tidligere har vært gift.\n\n Støtten skal sikre inntekt og gi hjelp til selvhjelp i en omstillingsperiode etter dødsfallet. Etter 6 måneder må du som hovedregel være i arbeid eller en annen aktivitet slik at du etter hvert kan forsørge deg selv. \n\n Inntekten din avgjør hvor mye penger du kan få.',
-    'forside.omYtelsene.papirsoeknad.innhold':
-        'Får du alderspensjon eller uføretrygd fra før? Da kan du søke om gjenlevendetillegg i uføretrygd eller gjenlevenderett i alderspensjon. Du må søke på',
-    'forside.omYtelsene.papirsoeknad.href':
-        'https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/gjenlevende-ektefelle-partner-eller-samboer#NAV170105',
-    'forside.omYtelsene.papirsoeknad.tekst': 'papir.',
-    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstønad',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'Mer om omstillingsstønad',
-    'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
+        'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer du har felles barn med. I noen tilfeller kan du få støtte hvis dere tidligere var gift.\n\n ',
+    'forside.omYtelsene.innhold.li1': 'Støtten skal sikre inntekt og gi hjelp til selvhjelp i en omstillingsperiode etter dødsfallet.',
+    'forside.omYtelsene.innhold.li2': 'Etter 6 måneder må du som hovedregel være i arbeid eller en annen aktivitet slik at du etter hvert kan forsørge deg selv.',
+    'forside.omYtelsene.innhold.li3': 'Inntekten din avgjør hvor mye penger du kan få.',
+    'forside.omYtelsene.innhold.merOmOmstillingsstoenad' : 'Lurer du på hvem som kan få, hvor mye eller annet om stønaden kan du ',
+    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
+    'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese mer om omstillingsstønad.',
+    'forside.barnepensjon.tittel': 'I denne søknaden kan du også søke om barnepensjon',
     'forside.barnepensjon.innhold':
-        'Har du felles barn under 18 år med avdøde, kan barnet/barna ha rett til barnepensjon. Du kan både søke om omstillingsstønad og barnepensjon i denne søknaden.',
-    'forside.barnepensjon.href': 'https://www.nav.no/barnepensjon',
-    'forside.barnepensjon.tekst': 'Mer om barnepensjon',
-    'forside.omSoeknaden.tittel': 'Om søknaden',
-    'forside.omSoeknaden.innhold':
-        'Vi vil informere deg underveis i søknaden om opplysninger vi innhenter og mottar om deg. Informasjonen vi innhenter kommer enten fra deg eller fra offentlige registre.',
-    'forside.soeknad.tittel': 'Utfylling av søknaden',
-    'forside.soeknad.innhold':
-        'Svarene lagres underveis, slik at du trygt kan gå tilbake og endre dem. Vi lagrer søknaden i 72 timer så du kan ta pauser underveis. Du kan når som helst avbryte søknaden.\n\nDu må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis du ikke har det, må du bruke',
-    'forside.soeknad.innhold.lenke.tekst': 'denne søknaden.',
-    'forside.soeknad.innhold.lenke.href': 'mangler link',
+        'Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',
+    'forside.omSoeknaden.personvern': 'Personvern og sikkerhet',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
         'For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell samboer.\nVi henter:',
@@ -62,25 +53,17 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li4': 'Opplysninger om <strong>annen støtte fra NAV</strong>',
     'forside.uthentingAvInfo.innholdListe.li5':
         'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
-    'forside.uthentingAvInfo.lenke1.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
-    'forside.uthentingAvInfo.lenke1.tekst': 'Slik behandler vi personopplysningene dine',
-    'forside.uthentingAvInfo.lenke2.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3',
-    'forside.uthentingAvInfo.lenke2.tekst': 'Om personvern og sikkerhet på nav.no',
-    'forside.personvern.tittel': 'Mer om personvern',
     'forside.personvern.innhold':
-        'Du har rett til innsyn i saken din. Vil du vite mer om hvordan NAV behandler personopplysninger?',
-    'forside.personvern.href': 'mangler link',
-    'forside.personvern.tekst': 'Om personvern og sikkerhet på nav.no',
-    'forside.behandlingsgrunnlag.tittel': 'Behandlingsgrunnlag',
+        'Du har rett til innsyn i saken din. Her kan du lese mer om hvordan NAV ivaretar ',
+    'forside.personvern.href': 'https://www.nav.no/personvern-sikkerhet-navno',
+    'forside.personvern.tekst': 'personvern og sikkerhet på nav.no',
     'forside.behandlingsgrunnlag.innhold':
         'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
-    'forside.behandlingsgrunnlag.href': 'mangler link',
+    'forside.behandlingsgrunnlag.href': 'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
     'forside.behandlingsgrunnlag.tekst': 'Slik behandler vi personopplysningene dine',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold':
-        'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din. \nHvis du får penger du ikke har rett til fordi du har latt være å informere eller gitt feil opplysninger, må du vanligvis betale tilbake.\n\n',
+        'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din.',
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
