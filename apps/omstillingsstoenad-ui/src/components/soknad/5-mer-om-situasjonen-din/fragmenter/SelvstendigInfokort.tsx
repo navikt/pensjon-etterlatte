@@ -18,14 +18,13 @@ interface Props {
     lengde: number
     index: number
     fjern: (index: number) => void
-    type: 'enk' | 'as'
 }
 
-const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
+const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext()
-    const selvstendigName = `selvstendig.${type}[${index}]`
+    const selvstendigName = `selvstendig.[${index}]`
 
     const endretArbeidssituasjon = watch(`${selvstendigName}.forventerEndretArbeidssituasjon.svar`)
 
@@ -57,11 +56,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern, type }: Props) => {
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                <Label>
-                    {type === 'enk'
-                        ? t('merOmSituasjonenDin.selvstendig.arbeidsmengde.enk')
-                        : t('merOmSituasjonenDin.selvstendig.arbeidsmengde')}
-                </Label>
+                <Label>{t('merOmSituasjonenDin.selvstendig.arbeidsmengde')}</Label>
                 <Detail textColor="subtle">{t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}</Detail>
                 <SkjemaElement>
                     <NumberSelectRad>

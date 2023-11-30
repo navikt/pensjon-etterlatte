@@ -386,29 +386,16 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
         }
     }
 
-    let selvstendigENK: Opplysning<SelvstendigNaeringsdrivende[]> | undefined
-    if (dinSituasjon.jobbStatus?.includes(JobbStatus.selvstendigENK)) {
-        const naeringListeENK: SelvstendigNaeringsdrivende[] =
-            dinSituasjon.selvstendig?.enk?.map((naering) => {
+    let selvstendig: Opplysning<SelvstendigNaeringsdrivende[]> | undefined
+    if (dinSituasjon.jobbStatus?.includes(JobbStatus.selvstendig)) {
+        const selvstendigListe: SelvstendigNaeringsdrivende[] =
+            dinSituasjon.selvstendig?.map((naering) => {
                 return mapSelvstendigNæringsdrivende(t, naering)
             }) || []
 
-        selvstendigENK = {
-            spoersmaal: t('merOmSituasjonenDin.selvstendig.enk.tittel'),
-            svar: naeringListeENK,
-        }
-    }
-
-    let selvstendigAS: Opplysning<SelvstendigNaeringsdrivende[]> | undefined
-    if (dinSituasjon.jobbStatus?.includes(JobbStatus.selvstendigAS)) {
-        const naeringListeAS: SelvstendigNaeringsdrivende[] =
-            dinSituasjon.selvstendig?.as?.map((naering) => {
-                return mapSelvstendigNæringsdrivende(t, naering)
-            }) || []
-
-        selvstendigAS = {
-            spoersmaal: t('merOmSituasjonenDin.selvstendig.as.tittel'),
-            svar: naeringListeAS,
+        selvstendig = {
+            spoersmaal: t('merOmSituasjonenDin.selvstendig.tittel'),
+            svar: selvstendigListe,
         }
     }
 
@@ -618,8 +605,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                 })) || [],
         },
         arbeidsforhold,
-        selvstendigENK,
-        selvstendigAS,
+        selvstendig,
         etablererVirksomhet,
         tilbud,
         arbeidssoeker,

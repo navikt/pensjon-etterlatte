@@ -170,22 +170,8 @@ export default class SoeknadMapper {
                 } as Element
             }) || []
 
-        const selvstendigNaeringsdrivendeENK: Element[] =
-            dinSituasjon.selvstendig?.enk?.map((arbeid) => {
-                return {
-                    tittel: `${arbeid.beskrivelse}`,
-                    innhold: this.otr.traverse<ISelvstendigNaeringsdrivende>(
-                        {
-                            ...arbeid,
-                            beskrivelse: undefined,
-                        },
-                        'merOmSituasjonenDin.selvstendig'
-                    ),
-                } as Element
-            }) || []
-
-        const selvstendigNaeringsdrivendeAS: Element[] =
-            dinSituasjon.selvstendig?.as?.map((arbeid) => {
+        const selvstendigNaeringsdrivende: Element[] =
+            dinSituasjon.selvstendig?.map((arbeid) => {
                 return {
                     tittel: `${arbeid.beskrivelse}`,
                     innhold: this.otr.traverse<ISelvstendigNaeringsdrivende>(
@@ -214,8 +200,7 @@ export default class SoeknadMapper {
                     ),
                 },
                 ...arbeidsforhold,
-                ...selvstendigNaeringsdrivendeENK,
-                ...selvstendigNaeringsdrivendeAS,
+                ...selvstendigNaeringsdrivende,
             ],
         }
     }

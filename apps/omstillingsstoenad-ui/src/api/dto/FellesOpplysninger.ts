@@ -69,8 +69,7 @@ export enum OppholdUtlandType {
 
 export enum JobbStatusType {
     ARBEIDSTAKER = 'ARBEIDSTAKER',
-    SELVSTENDIG_ENK = 'SELVSTENDIG_ENK',
-    SELVSTENDIG_AS = 'SELVSTENDIG_AS',
+    SELVSTENDIG = 'SELVSTENDIG',
     ETABLERER = 'ETABLERER',
     TILBUD = 'TILBUD',
     ARBEIDSSOEKER = 'ARBEIDSSOEKER',
@@ -131,8 +130,7 @@ export interface NaeringsinntektAvdoed {
 export interface ArbeidOgUtdanning {
     dinSituasjon: Opplysning<EnumSvar<JobbStatusType>[]>
     arbeidsforhold?: Opplysning<Arbeidstaker[]>
-    selvstendigENK?: Opplysning<SelvstendigNaeringsdrivende[]>
-    selvstendigAS?: Opplysning<SelvstendigNaeringsdrivende[]>
+    selvstendig?: Opplysning<SelvstendigNaeringsdrivende[]>
     etablererVirksomhet?: Opplysning<EtablererVirksomhet>
     tilbud?: Opplysning<TilbudOmJobb>
     arbeidssoeker?: Opplysning<Arbeidssoeker>

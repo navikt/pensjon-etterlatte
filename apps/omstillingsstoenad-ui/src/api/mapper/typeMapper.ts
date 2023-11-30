@@ -95,10 +95,8 @@ export const konverterJobbStatus = (type: JobbStatus): JobbStatusType => {
     switch (type) {
         case JobbStatus.arbeidstaker:
             return JobbStatusType.ARBEIDSTAKER
-        case JobbStatus.selvstendigENK:
-            return JobbStatusType.SELVSTENDIG_ENK
-        case JobbStatus.selvstendigAS:
-            return JobbStatusType.SELVSTENDIG_AS
+        case JobbStatus.selvstendig:
+            return JobbStatusType.SELVSTENDIG
         case JobbStatus.etablerer:
             return JobbStatusType.ETABLERER
         case JobbStatus.tilbud:
