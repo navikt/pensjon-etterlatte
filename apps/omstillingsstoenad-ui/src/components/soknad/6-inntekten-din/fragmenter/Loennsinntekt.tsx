@@ -88,8 +88,8 @@ const Loennsinntekt = () => {
                         <SkjemaElement>
                             <RHFValutaInput
                                 name={'loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall'}
-                                label={t('inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tittel')}
-                                description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall')}
+                                label={t('inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall')}
+                                description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse')}
                                 htmlSize={Bredde.S}
                             />
                         </SkjemaElement>
