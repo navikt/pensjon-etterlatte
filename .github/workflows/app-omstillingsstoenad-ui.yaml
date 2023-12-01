@@ -37,17 +37,10 @@ jobs:
       yarn-lock-hash: ${{ needs.build.outputs.yarn-lock-hash }}
     secrets: inherit
 
-  # Må byttes tilbake til å bruke deploy.yaml når vi går i prod
-  deploy-to-dev-gcp:
-    name: dev-gcp
+  deploy:
     needs: build
     if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-gcp
-          RESOURCE: apps/${{ github.workflow }}/.nais/dev.yaml
-          VAR: image=${{ needs.build.outputs.image }}
+    uses: ./.github/workflows/.deploy.yaml
+    with:
+      image: ${{ needs.build.outputs.image }}
+    secrets: inherit
