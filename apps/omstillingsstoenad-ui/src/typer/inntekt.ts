@@ -29,7 +29,7 @@ export interface IForventerEndringAvInntekt {
 }
 
 export interface ILoennsinntekt {
-    norgeEllerUtland: NorgeOgUtland
+    norgeEllerUtland: NorgeOgUtland[]
     norge?: IInntekter
     utland?: IInntekter
     forventerEndringAvInntekt: IForventerEndringAvInntekt
