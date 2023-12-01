@@ -94,7 +94,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         : undefined
 
     return {
-        type: PersonType.GJENLEVENDE,
+        type: PersonType.GJENLEVENDE_OMS,
 
         fornavn: {
             spoersmaal: t('felles.fornavn'),
