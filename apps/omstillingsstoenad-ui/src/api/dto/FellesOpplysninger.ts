@@ -148,7 +148,7 @@ export interface InntektOgPensjon {
 }
 
 export interface LoennsOgNaeringsinntekt {
-    norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>>
+    norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>[]>
     norge?: InntektsType
     utland?: InntektsType
     endringAvInntekt: EndringAvInntekt

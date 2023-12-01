@@ -622,10 +622,10 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
             svar: {
                 norgeEllerUtland: {
                     spoersmaal: t('inntektenDin.loennsinntekt.norgeEllerUtland'),
-                    svar: {
-                        verdi: konverterNorgeEllerUtland(inntektenDin.loennsinntekt!!.norgeEllerUtland),
-                        innhold: t(inntektenDin.loennsinntekt!!.norgeEllerUtland),
-                    },
+                    svar: inntektenDin.naeringsinntekt!!.norgeEllerUtland!!.map((norgeEllerUtland) => ({
+                        verdi: konverterNorgeEllerUtland(norgeEllerUtland),
+                        innhold: t(norgeEllerUtland),
+                    })),
                 },
                 norge: inntektenDin.loennsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.norge)
                     ? {
@@ -690,10 +690,10 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
             svar: {
                 norgeEllerUtland: {
                     spoersmaal: t('inntektenDin.naeringsinntekt.norgeEllerUtland'),
-                    svar: {
-                        verdi: konverterNorgeEllerUtland(inntektenDin.naeringsinntekt!!.norgeEllerUtland),
-                        innhold: t(inntektenDin.naeringsinntekt!!.norgeEllerUtland),
-                    },
+                    svar: inntektenDin.naeringsinntekt!!.norgeEllerUtland!!.map((norgeEllerUtland) => ({
+                        verdi: konverterNorgeEllerUtland(norgeEllerUtland),
+                        innhold: t(norgeEllerUtland),
+                    })),
                 },
                 norge: inntektenDin.naeringsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.norge)
                     ? {
