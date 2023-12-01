@@ -21,7 +21,7 @@ type Foedselsnummer = String
 
 export enum PersonType {
     INNSENDER = 'INNSENDER',
-    GJENLEVENDE = 'GJENLEVENDE',
+    GJENLEVENDE_OMS = 'GJENLEVENDE_OMS',
     AVDOED = 'AVDOED',
     SAMBOER = 'SAMBOER',
     VERGE = 'VERGE',
@@ -71,7 +71,7 @@ export interface GjenlevendeForelder extends Person {
 }
 
 export interface Gjenlevende extends Person {
-    type: PersonType.GJENLEVENDE
+    type: PersonType.GJENLEVENDE_OMS
 
     fornavn: Opplysning<String>
     etternavn: Opplysning<String>
