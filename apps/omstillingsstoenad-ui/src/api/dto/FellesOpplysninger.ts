@@ -141,22 +141,15 @@ export interface ArbeidOgUtdanning {
 }
 
 export interface InntektOgPensjon {
-    loennsinntekt?: Opplysning<Loennsinntekt>
-    naeringsinntekt?: Opplysning<NaeringsinntektGjenlevende>
+    loennsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
+    naeringsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
     pensjonEllerUfoere?: PensjonEllerUfoere
     annenInntekt?: AnnenInntekt
     ytelserNAV: YtelserNav
     ytelserAndre: YtelserAndre
 }
 
-export interface Loennsinntekt {
-    norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>>
-    norge?: InntektsType
-    utland?: InntektsType
-    endringAvInntekt: EndringAvInntekt
-}
-
-export interface NaeringsinntektGjenlevende {
+export interface LoennsOgNaeringsinntekt {
     norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>>
     norge?: InntektsType
     utland?: InntektsType

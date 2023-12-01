@@ -278,7 +278,7 @@ export default {
     'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
     'inntektenDin.naeringsinntekt.ingress':
         'All næringsinntekt fra Norge og utlandet, skal med i næringsinntekten du oppgir. Næringsinntekter oppgir du i norske kroner.',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Hvor har du arbeidsinntekt fra?',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Hvor har du næringsinntekt fra?',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Næringsinntekt i Norge',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Næringsinntekt i utlandet',
     'inntektenDin.naeringsinntekt.info':

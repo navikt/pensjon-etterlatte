@@ -19,8 +19,7 @@ import {
     InntektOgPensjon,
     JaNeiVetIkke,
     Kontaktinfo,
-    Loennsinntekt,
-    NaeringsinntektGjenlevende,
+    LoennsOgNaeringsinntekt,
     OppholdUtland,
     Opplysning,
     PensjonEllerUfoere,
@@ -630,7 +629,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
 }
 
 const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPensjon => {
-    let loennsinntekt: Opplysning<Loennsinntekt> | undefined
+    let loennsinntekt: Opplysning<LoennsOgNaeringsinntekt> | undefined
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.loenn)) {
         loennsinntekt = {
             spoersmaal: t('inntektenDin.loennsinntekt.tittel'),
@@ -698,7 +697,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
         }
     }
 
-    let naeringsinntekt: Opplysning<NaeringsinntektGjenlevende> | undefined
+    let naeringsinntekt: Opplysning<LoennsOgNaeringsinntekt> | undefined
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.naering)) {
         naeringsinntekt = {
             spoersmaal: t('inntektenDin.naeringsinntekt.tittel'),
