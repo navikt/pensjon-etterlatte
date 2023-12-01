@@ -92,14 +92,14 @@ export enum SivilstatusType {
 }
 
 export enum SagtOppEllerRedusertType {
-    OPPSAGT = "OPPSAGT",
-    REDUSERT = "REDUSERT",
-    NEI = "NEI"
+    OPPSAGT = 'OPPSAGT',
+    REDUSERT = 'REDUSERT',
+    NEI = 'NEI',
 }
 
 export enum StudieformType {
-    HELTID =  "HELTID",
-    DELTID = "DELTID"
+    HELTID = 'HELTID',
+    DELTID = 'DELTID',
 }
 
 export interface ForholdTilAvdoede {
@@ -141,30 +141,27 @@ export interface ArbeidOgUtdanning {
 }
 
 export interface InntektOgPensjon {
-    loennsinntekt?: Opplysning<Loennsinntekt>
-    naeringsinntekt?: Opplysning<NaeringsinntektGjenlevende>
+    loennsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
+    naeringsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
     pensjonEllerUfoere?: PensjonEllerUfoere
     annenInntekt?: AnnenInntekt
     ytelserNAV: YtelserNav
     ytelserAndre: YtelserAndre
 }
 
-export interface Loennsinntekt {
-    arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
-    arbeidsinntektIAar: {
-        tilDoedsfall: Opplysning<FritekstSvar>
-        etterDoedsfall: Opplysning<FritekstSvar>
-    }
+export interface LoennsOgNaeringsinntekt {
+    norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>>
+    norge?: InntektsType
+    utland?: InntektsType
     endringAvInntekt: EndringAvInntekt
 }
 
-export interface NaeringsinntektGjenlevende {
+interface InntektsType {
     arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
     arbeidsinntektIAar: {
         tilDoedsfall: Opplysning<FritekstSvar>
         etterDoedsfall: Opplysning<FritekstSvar>
     }
-    endringAvInntekt: EndringAvInntekt
 }
 
 export interface PensjonEllerUfoere {
@@ -262,7 +259,7 @@ export interface Arbeidstaker {
     harSluttdato?: Opplysning<EnumSvar<JaNeiVetIkke>>
     sluttdato?: Opplysning<DatoSvar>
     endretArbeidssituasjon: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>
-    sagtOppEllerRedusert: Opplysning<EnumSvar<SagtOppEllerRedusertType>>
+    // sagtOppEllerRedusert: Opplysning<EnumSvar<SagtOppEllerRedusertType>>
 }
 
 export interface AnnenSituasjon {
@@ -360,7 +357,7 @@ export enum InntektEllerUtbetalingType {
     OMSORGSPENGER = 'OMSORGSPENGER',
     OPPLAERINGSPENGER = 'OPPLAERINGSPENGER',
     ALDERSPENSJON = 'ALDERSPENSJON',
-    ANNEN = 'ANNEN'
+    ANNEN = 'ANNEN',
 }
 
 export enum SoekbareYtelserAndreType {
@@ -390,4 +387,9 @@ export enum SoekbareYtelserNAVType {
 export enum ArbeidsmengdeType {
     PROSENT = 'PROSENT',
     TIMER = 'TIMER',
+}
+
+export enum NorgeEllerUtlandType {
+    NORGE = 'NORGE',
+    UTLAND = 'UTLAND',
 }

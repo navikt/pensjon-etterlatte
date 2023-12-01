@@ -14,7 +14,7 @@ import {
 import { IMerOmSituasjonenDin } from '../typer/situasjon'
 import { StegPath } from '../typer/steg'
 import ObjectTreeReader, { Element, Gruppe } from './ObjectTreeReader'
-import { IAnnenInntekt, IInntekt, ILoennsinntekt, INaeringsinntekt, IPensjonEllerUfoere } from '../typer/inntekt'
+import { IAnnenInntekt, IInntekt, IInntekter, ILoennsinntekt, IPensjonEllerUfoere } from '../typer/inntekt'
 
 export default class SoeknadMapper {
     private otr: ObjectTreeReader
@@ -229,24 +229,79 @@ export default class SoeknadMapper {
                 innhold: this.otr.traverse<ILoennsinntekt>(
                     {
                         ...inntektenDin.loennsinntekt,
+                        norge: undefined,
+                        utland: undefined
                     },
                     'inntektenDin.loennsinntekt'
                 ),
             }
             inntekter.push(loennsinntekt)
+            if (!!inntektenDin.loennsinntekt.norge) {
+                const loennsinntektNorge: Element = {
+                    tittel: this.t('inntektenDin.loennsinntekt.norgeEllerUtland.norge'),
+                    innhold: this.otr.traverse<IInntekter>(
+                      {
+                          ...inntektenDin.loennsinntekt.norge,
+                      },
+                      'inntektenDin.loennsinntekt.norge'
+                    ),
+                }
+                inntekter.push(loennsinntektNorge)
+            }
+
+            if (!!inntektenDin.loennsinntekt.utland) {
+                const loennsinntektUtland: Element = {
+                    tittel: this.t('inntektenDin.loennsinntekt.norgeEllerUtland.utland'),
+                    innhold: this.otr.traverse<IInntekter>(
+                      {
+                          ...inntektenDin.loennsinntekt.utland,
+                      },
+                      'inntektenDin.loennsinntekt.utland'
+                    ),
+                }
+                inntekter.push(loennsinntektUtland)
+            }
         }
 
         if (!!inntektenDin.naeringsinntekt) {
             const naeringsinntekt: Element = {
                 tittel: this.t('inntektenDin.naeringsinntekt.tittel'),
-                innhold: this.otr.traverse<INaeringsinntekt>(
+                innhold: this.otr.traverse<ILoennsinntekt>(
                     {
                         ...inntektenDin.naeringsinntekt,
+                        norge: undefined,
+                        utland: undefined
                     },
                     'inntektenDin.naeringsinntekt'
                 ),
             }
             inntekter.push(naeringsinntekt)
+
+            if (!!inntektenDin.naeringsinntekt.norge) {
+                const naeringsinntektNorge: Element = {
+                    tittel: this.t('inntektenDin.naeringsinntekt.norgeEllerUtland.norge'),
+                    innhold: this.otr.traverse<IInntekter>(
+                      {
+                          ...inntektenDin.naeringsinntekt.norge,
+                      },
+                      'inntektenDin.naeringsinntekt.norge'
+                    ),
+                }
+                inntekter.push(naeringsinntektNorge)
+            }
+
+            if (!!inntektenDin.naeringsinntekt.utland) {
+                const naeringsinntektUtland: Element = {
+                    tittel: this.t('inntektenDin.naeringsinntekt.norgeEllerUtland.utland'),
+                    innhold: this.otr.traverse<IInntekter>(
+                      {
+                          ...inntektenDin.naeringsinntekt.utland,
+                      },
+                      'inntektenDin.naeringsinntekt.utland'
+                    ),
+                }
+                inntekter.push(naeringsinntektUtland)
+            }
         }
 
         if (!!inntektenDin.pensjonEllerUfoere) {

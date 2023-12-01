@@ -5,7 +5,7 @@ import { ISituasjonenDin } from '../../../typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
 import Navigasjon from '../../felles/Navigasjon'
-import { BodyShort, GuidePanel, Heading, HGrid } from '@navikt/ds-react'
+import { Alert, BodyShort, GuidePanel, Heading, HGrid } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
@@ -77,7 +77,9 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                     </SkjemaElement>
                     {harOmsorg === IValg.JA && (
                         <SkjemaElement>
-                            <BodyShort>{t('situasjonenDin.omsorgMinstFemti.dokumentasjon')}</BodyShort>
+                            <Alert variant={'info'}>
+                                <BodyShort>{t('situasjonenDin.omsorgMinstFemti.dokumentasjon')}</BodyShort>
+                            </Alert>
                         </SkjemaElement>
                     )}
 
@@ -91,9 +93,7 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
                 <SkjemaGruppe>
                     <SkjemaElement>
-                        <Heading size={'xsmall'} >
-                            {t('situasjonenDin.oppholdUtenforNorge.tittel')}
-                        </Heading>
+                        <Heading size={'xsmall'}>{t('situasjonenDin.oppholdUtenforNorge.tittel')}</Heading>
                     </SkjemaElement>
                     <SkjemaElement>
                         <RHFSpoersmaalRadio name={'bosattINorge'} legend={t('situasjonenDin.bosattINorge')} />

@@ -19,9 +19,9 @@ export interface IArbeidsforhold {
         svar?: IValg
         beskrivelse?: string
     }
-    sagtOppEllerRedusert: {
-        svar?: SagtOppEllerRedusert
-    }
+    //sagtOppEllerRedusert: {
+    //    svar?: SagtOppEllerRedusert
+    //}
 }
 
 interface IArbeidsmengde {

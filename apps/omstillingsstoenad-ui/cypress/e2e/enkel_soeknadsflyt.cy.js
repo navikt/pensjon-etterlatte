@@ -145,7 +145,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
                 arbeid.forventerEndretArbeidssituasjon.beskrivelse
             )
 
-            selectValueForId(baseId + 'sagtOppEllerRedusert.svar', arbeid.sagtOppEllerRedusert.svar)
+            // selectValueForId(baseId + 'sagtOppEllerRedusert.svar', arbeid.sagtOppEllerRedusert.svar)
         })
 
         selectValue(merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning)
@@ -164,11 +164,13 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         inntektenDin.inntektstyper.map((inntektsType) => selectValue(inntektsType))
 
         // Lønnsinntekt
-        getById('loennsinntekt.arbeidsinntektAaretFoer').type(inntektenDin.loennsinntekt.arbeidsinntektAaretFoer)
-        getById('loennsinntekt.arbeidsinntektIAar.tilDoedsfall').type(
+        selectValueForId('loennsinntekt.norgeEllerUtland', 'inntekt.norge')
+
+        getById('loennsinntekt.norge.arbeidsinntektAaretFoer').type(inntektenDin.loennsinntekt.arbeidsinntektAaretFoer)
+        getById('loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall').type(
             inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall
         )
-        getById('loennsinntekt.arbeidsinntektIAar.etterDoedsfall').type(
+        getById('loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
             inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall
         )
 
@@ -178,11 +180,13 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         )
 
         // Næringsinntekt
-        getById('naeringsinntekt.arbeidsinntektAaretFoer').type(inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer)
-        getById('naeringsinntekt.arbeidsinntektIAar.tilDoedsfall').type(
+        selectValueForId('naeringsinntekt.norgeEllerUtland', 'inntekt.norge')
+
+        getById('naeringsinntekt.norge.arbeidsinntektAaretFoer').type(inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer)
+        getById('naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall').type(
             inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall
         )
-        getById('naeringsinntekt.arbeidsinntektIAar.etterDoedsfall').type(
+        getById('naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
             inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall
         )
 

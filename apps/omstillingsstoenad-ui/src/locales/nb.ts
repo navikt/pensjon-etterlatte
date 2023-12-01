@@ -28,15 +28,19 @@ export default {
     'knapp.ja': 'Ja, send søknad',
     'knapp.nei': 'Nei, gå tilbake',
     'forside.tittel': 'Søknad om omstillingsstønad',
-    'forside.ingress' : 'Hei, jeg er her for å veilede deg gjennom søknaden. Jeg forstår at du kan bli usikker på hva du skal svare på noen spørsmål som handler om tiden fremover. Da svarer du så godt du kan ut fra hva situasjonen er nå, og så kan du melde fra om eventuelle endringer senere.\n\n' +
+    'forside.ingress':
+        'Hei, jeg er her for å veilede deg gjennom søknaden. Jeg forstår at du kan bli usikker på hva du skal svare på noen spørsmål som handler om tiden fremover. Da svarer du så godt du kan ut fra hva situasjonen er nå, og så kan du melde fra om eventuelle endringer senere.\n\n' +
         'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
     'forside.startSoeknad': 'Start søknad',
     'forside.omYtelsene.innhold':
         'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer du har felles barn med. I noen tilfeller kan du få støtte hvis dere tidligere var gift.\n\n ',
-    'forside.omYtelsene.innhold.li1': 'Støtten skal sikre inntekt og gi hjelp til selvhjelp i en omstillingsperiode etter dødsfallet.',
-    'forside.omYtelsene.innhold.li2': 'Etter 6 måneder må du som hovedregel være i arbeid eller en annen aktivitet slik at du etter hvert kan forsørge deg selv.',
+    'forside.omYtelsene.innhold.li1':
+        'Støtten skal sikre inntekt og gi hjelp til selvhjelp i en omstillingsperiode etter dødsfallet.',
+    'forside.omYtelsene.innhold.li2':
+        'Etter 6 måneder må du som hovedregel være i arbeid eller en annen aktivitet slik at du etter hvert kan forsørge deg selv.',
     'forside.omYtelsene.innhold.li3': 'Inntekten din avgjør hvor mye penger du kan få.',
-    'forside.omYtelsene.innhold.merOmOmstillingsstoenad' : 'Lurer du på hvem som kan få, hvor mye eller annet om stønaden kan du ',
+    'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
+        'Lurer du på hvem som kan få, hvor mye eller annet om stønaden kan du ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese mer om omstillingsstønad.',
     'forside.barnepensjon.tittel': 'I denne søknaden kan du også søke om barnepensjon',
@@ -53,24 +57,23 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li4': 'Opplysninger om <strong>annen støtte fra NAV</strong>',
     'forside.uthentingAvInfo.innholdListe.li5':
         'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
-    'forside.personvern.innhold':
-        'Du har rett til innsyn i saken din. Her kan du lese mer om hvordan NAV ivaretar ',
+    'forside.personvern.innhold': 'Du har rett til innsyn i saken din. Her kan du lese mer om hvordan NAV ivaretar ',
     'forside.personvern.href': 'https://www.nav.no/personvern-sikkerhet-navno',
     'forside.personvern.tekst': 'personvern og sikkerhet på nav.no',
     'forside.behandlingsgrunnlag.innhold':
         'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
-    'forside.behandlingsgrunnlag.href': 'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
+    'forside.behandlingsgrunnlag.href':
+        'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
     'forside.behandlingsgrunnlag.tekst': 'Slik behandler vi personopplysningene dine',
     'forside.samtykke.tittel': 'Vi stoler på deg',
-    'forside.samtykke.innhold':
-        'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din.',
+    'forside.samtykke.innhold': 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din.',
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'situasjonenDin.tittel': 'Situasjonen din',
     'situasjonenDin.ingress':
-        'Retten din til omstillingsstønad kan påvirkes av om du\n - har eller har hatt barn med avdøde\n - har minst 50 prosent omsorg for barn\n \n Legg til alle barn og/eller adoptivbarn du har felles med avdøde. Dette gjelder også barn over 18 år.\n I tillegg må du legge til barn under 18 år som du har omsorgen for. Dette gjelder avdødes barn, dine egne barn eller fosterbarn.',
+        'Retten din til omstillingsstønad kan påvirkes av\n - Sivilstanden din i dag\n - Omsorg for barn\n - Opphold utenfor Norge',
     'situasjonenDin.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
     'situasjonenDin.nySivilstatus.beskrivelse':
         'Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få omstillingsstønad og hvor mye du kan få.',
@@ -82,8 +85,7 @@ export default {
     'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
     'situasjonenDin.omsorgForBarn.tittel': 'Omsorg for barn',
     'situasjonenDin.omsorgMinstFemti': 'Har du minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet?',
-    'situasjonenDin.omsorgMinstFemti.dokumentasjon':
-        'Du må dokumentere omsorgsforholdet. Hvis du har eller hatt felles barn med, eller vært gift i minst fem år med avdøde, trenger du ikke dokumentere omsorgen.',
+    'situasjonenDin.omsorgMinstFemti.dokumentasjon': 'Du kan i noen tilfeller bli bedt om å dokumentere omsorgsforholdet.',
     'situasjonenDin.gravidEllerNyligFoedt':
         'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
     'situasjonenDin.oppholdUtenforNorge.tittel': 'Opphold utenfor Norge',
@@ -98,8 +100,8 @@ export default {
     'merOmSituasjonenDin.tittel': 'Mer om situasjonen din',
     'merOmSituasjonenDin.ingress':
         'Din rett til omstillingsstønad avhenger av din aktivitet for å opprettholde eller øke din arbeidstilknytning.\n\n' +
-        'I en omstillingsperiode på seks måneder etter dødsfallet er det ikke krav til at du er i arbeid eller annen aktivitet.\n\n' +
-        'Det er et krav at du er i minst femti prosent arbeid eller aktivitet etter seks måneder. Når det er gått ett år etter dødsfallet kan det stilles krav om at du er i arbeid eller arbeidsrettet aktivitet på full tid.\n',
+        'I en omstillingsperiode på 6 måneder etter dødsfallet er det ikke krav til at du er i arbeid eller annen aktivitet.\n\n' +
+        'Etter 6 måneder må du som hovedregel jobbe eller ha annen aktivitet slik at du etter hvert kan forsørge deg selv.',
     'merOmSituasjonenDin.jobbStatus.tittel': 'Arbeid, utdanning og andre aktiviteter i Norge og i utlandet',
     'merOmSituasjonenDin.jobbStatus': 'Hva er situasjonen din nå?',
     'merOmSituasjonenDin.jobbStatus.hvorfor':
@@ -246,20 +248,27 @@ export default {
     'inntektenDin.ingress':
         'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Likestilt med arbeidsinntekt regnes også noen ytelser fra NAV. \n\n Det er viktig at du opplyser oss om brutto inntekt. Brutto arbeidsinntekt betyr inntekten din før skattetrekk. Du finner opplysningene om brutto arbeidsinntekt på lønnslippen din.',
     'inntektenDin.inntektstyper': 'Hvilken type inntekt har du?',
-    'inntektenDin.loennsinntekt.tittel': 'Lønnsinntekt',
+    'inntektenDin.loennsinntekt.tittel': 'Arbeidsinntekt',
     'inntektenDin.loennsinntekt.ingress':
         'Har du flere arbeidsforhold eller inntekt fra utlandet, skal du ta med dette i arbeidsinntekten du oppgir. Arbeidsinntekten oppgir du i norske kroner.',
+    'inntektenDin.loennsinntekt.norgeEllerUtland': 'Hvor har du arbeidsinntekt fra?',
+    'inntektenDin.loennsinntekt.norgeEllerUtland.norge': 'Arbeidsinntekt i Norge',
+    'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Arbeidsinntekt i utlandet',
     'inntektenDin.loennsinntekt.info':
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': 'Arbeidsinntekten din året før dødsfallet',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer':
-        'Oppgi brutto arbeidsinntekt fra januar til desember året før dødsfallet',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, kan du oppgi totalinntekten som vises på lønnsslippen for desember.',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tittel': 'Arbeidsinntekten din i år',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall':
-        'Oppgi brutto arbeidsinntekt frem til dødsfallet. Fra januar til måneden før dødsfallet.',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall': 'Oppgi brutto arbeidsinntekt etter dødsfallet',
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
+        'Dersom du ikke kjenner inntekten dette året, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
+        'Oppgi inntekt fra januar til og med samme måned som dødsfallet. Hvis dødsfallsmåneden er desember, oppgir du hele årsinntekten.',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall': 'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall': 'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'Skriv hva du forventer å ha i arbeidsinntekt fra samme måned som dødsfallet til desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
@@ -269,17 +278,25 @@ export default {
     'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
     'inntektenDin.naeringsinntekt.ingress':
         'All næringsinntekt fra Norge og utlandet, skal med i næringsinntekten du oppgir. Næringsinntekter oppgir du i norske kroner.',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Hvor har du næringsinntekt fra?',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Næringsinntekt i Norge',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Næringsinntekt i utlandet',
     'inntektenDin.naeringsinntekt.info':
-        'Hvis næringsinntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
+        'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.tittel': 'Næringsinntekten din året før dødsfallet',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer': 'Næringsinntekten din året før dødsfallet',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
-        'Dersom Skatteetaten ikke har fastsatt næringsinntekten for perioden januar til desember, må du anslå denne inntekten selv.',
+        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, må du anslå næringsinntekten.',
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
+      'Dersom du ikke kjenner inntekten dette året, må du anslå næringsinntekten.',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tittel': 'Næringsinntekten din i år',
-    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall': 'Næringsinntekten din i år',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': 'Hva er brutto næringsinntekt i år?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': 'Hva er brutto næringsinntekt i år?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
         'Anslå brutto næringsinntekt fra januar til måneden før dødsfallet.',
-    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall': 'Anslå brutto næringsinntekt etter dødsfallet',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall': 'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall': 'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'Skriv hva du forventer å ha i næringsinntekt fra samme måned som dødsfallet til desember.',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
@@ -564,10 +581,12 @@ export default {
     'jobbStatus.ingen': 'Jeg er ikke i arbeid, utdanning eller arbeidssøker',
     'arbeidsmengde.prosent': 'Prosent',
     'arbeidsmengde.timer': 'Timer i uka',
-    'inntekt.loenn': 'Lønnsinntekt',
+    'inntekt.loenn': 'Arbeidsinntekt',
     'inntekt.naering': 'Næringsinntekt',
     'inntekt.pensjonEllerUfoere': 'Pensjon eller uføretrygd',
     'inntekt.annen': 'Annen inntekt eller utbetaling',
+    'inntekt.norge': 'Norge',
+    'inntekt.utland': 'Utland',
     'soekbarYtelse.dagspenger': 'Dagpenger',
     'soekbarYtelse.sykepenger': 'Sykepenger',
     'soekbarYtelse.pleiepenger': 'Pleiepenger',
@@ -829,21 +848,35 @@ export default {
     'feil.utbetalingsInformasjon.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fylles ut',
     'feil.utbetalingsInformasjon.swift.validate': 'Ugyldig SWIFT/BIC kode',
     'feil.inntektstyper.required': 'Oppgi hvilken inntektstype du har',
-    'feil.loennsinntekt.arbeidsinntektAaretFoer.required':
+    'feil.loennsinntekt.norgeEllerUtland.required': 'Du må krysse av hvor du får arbeidsinntekt fra',
+    'feil.loennsinntekt.norge.arbeidsinntektAaretFoer.required':
         'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.required':
+    'feil.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.required':
+    'feil.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
+      'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
+      'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
+      'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
-    'feil.naeringsinntekt.arbeidsinntektAaretFoer.required':
+    'feil.naeringsinntekt.norgeEllerUtland.required': 'Du må krysse av hvor du får næringsinntekt fra',
+    'feil.naeringsinntekt.norge.arbeidsinntektAaretFoer.required':
         'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.required':
+    'feil.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'Oppgi brutto næringsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.required':
+    'feil.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.naeringsinntekt.utland.arbeidsinntektAaretFoer.required':
+      'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
+      'Oppgi brutto næringsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
+      'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',

@@ -3,7 +3,7 @@ import { IValg } from './Spoersmaal'
 export interface IInntekt {
     inntektstyper?: InntektsTyper[]
     loennsinntekt?: ILoennsinntekt
-    naeringsinntekt?: INaeringsinntekt
+    naeringsinntekt?: ILoennsinntekt
     pensjonEllerUfoere?: IPensjonEllerUfoere
     annenInntekt?: IAnnenInntekt
     ytelserNAV?: IYtelserNAV
@@ -29,21 +29,18 @@ export interface IForventerEndringAvInntekt {
 }
 
 export interface ILoennsinntekt {
-    arbeidsinntektAaretFoer?: string
-    arbeidsinntektIAar?: {
-        tilDoedsfall?: string
-        etterDoedsfall?: string
-    }
+    norgeEllerUtland: NorgeOgUtland
+    norge?: IInntekter
+    utland?: IInntekter
     forventerEndringAvInntekt: IForventerEndringAvInntekt
 }
 
-export interface INaeringsinntekt {
+export interface IInntekter {
     arbeidsinntektAaretFoer?: string
     arbeidsinntektIAar?: {
         tilDoedsfall?: string
         etterDoedsfall?: string
     }
-    forventerEndringAvInntekt: IForventerEndringAvInntekt
 }
 
 export interface IPensjonEllerUfoere {
@@ -67,10 +64,15 @@ export interface IAnnenInntekt {
 }
 
 export enum InntektsTyper {
-    loenn = "inntekt.loenn",
-    naering = "inntekt.naering",
-    pensjonEllerUfoere = "inntekt.pensjonEllerUfoere",
-    annen = "inntekt.annen"
+    loenn = 'inntekt.loenn',
+    naering = 'inntekt.naering',
+    pensjonEllerUfoere = 'inntekt.pensjonEllerUfoere',
+    annen = 'inntekt.annen',
+}
+
+export enum NorgeOgUtland {
+    norge = 'inntekt.norge',
+    utland = 'inntekt.utland',
 }
 
 export enum InntektEllerUtbetaling {
@@ -86,7 +88,7 @@ export enum InntektEllerUtbetaling {
     omsorgspenger = 'soekbarYtelse.omsorgspenger',
     opplaeringspenger = 'soekbarYtelse.opplaeringspenger',
     alderspensjon = 'soekbarYtelse.alderspensjon',
-    annen = 'soekbarYtelse.annen'
+    annen = 'soekbarYtelse.annen',
 }
 
 export enum SoekbareYtelserNAV {
