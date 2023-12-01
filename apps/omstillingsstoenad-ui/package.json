@@ -42,7 +42,7 @@
     "@types/react": "18.2.36",
     "@types/react-dom": "18.2.14",
     "@types/react-router-dom": "5.3.3",
-    "@types/styled-components": "^5.1.29",
+    "@types/styled-components": "^5.1.32",
     "@types/uuid": "9.0.6",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
