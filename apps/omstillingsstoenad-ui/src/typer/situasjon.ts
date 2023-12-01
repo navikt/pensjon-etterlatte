@@ -2,7 +2,9 @@ import {
     IArbeidsforhold,
     IEtablererVirksomhet,
     ITilbudOmJobb,
-    IArbeidssoeker, IAnnenSituasjon, ISelvstendig,
+    IArbeidssoeker,
+    IAnnenSituasjon,
+    ISelvstendigNaeringsdrivende,
 } from './arbeidsforhold'
 import { IAndreYtelser } from './ytelser'
 import { IValg } from './Spoersmaal'
@@ -36,8 +38,7 @@ export enum Utdanning {
 
 export enum JobbStatus {
     arbeidstaker = 'jobbStatus.arbeidstaker',
-    selvstendigENK = 'jobbStatus.selvstendig.enk',
-    selvstendigAS = 'jobbStatus.selvstendig.as',
+    selvstendig = 'jobbStatus.selvstendig',
     etablerer = 'jobbStatus.etablerer',
     tilbud = 'jobbStatus.tilbud',
     arbeidssoeker = 'jobbStatus.arbeidssoker',
@@ -45,13 +46,11 @@ export enum JobbStatus {
     ingen = 'jobbStatus.ingen',
 }
 
-
-
 export interface IMerOmSituasjonenDin {
     jobbStatus?: JobbStatus[]
     annenSituasjon?: IAnnenSituasjon
     utdanning?: IUtdanning
-    selvstendig?: ISelvstendig
+    selvstendig?: ISelvstendigNaeringsdrivende[]
     arbeidsforhold?: IArbeidsforhold[]
     etablererVirksomhet?: IEtablererVirksomhet
     tilbudOmJobb?: ITilbudOmJobb

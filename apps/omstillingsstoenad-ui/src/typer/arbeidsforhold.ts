@@ -29,11 +29,6 @@ interface IArbeidsmengde {
     type?: Arbeidsmengde
 }
 
-export interface ISelvstendig {
-    as?: ISelvstendigNaeringsdrivende[]
-    enk?: ISelvstendigNaeringsdrivende[]
-}
-
 export interface ISelvstendigNaeringsdrivende {
     beskrivelse?: string
     orgnr?: string

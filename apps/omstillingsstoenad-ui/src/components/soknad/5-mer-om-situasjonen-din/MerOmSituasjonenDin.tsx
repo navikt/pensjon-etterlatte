@@ -72,9 +72,7 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const jobbStatus = watch('jobbStatus')
 
     const selvstendigEllerArbeidstaker =
-        jobbStatus?.includes(JobbStatus.selvstendigAS) ||
-        jobbStatus?.includes(JobbStatus.arbeidstaker) ||
-        jobbStatus?.includes(JobbStatus.selvstendigENK)
+        jobbStatus?.includes(JobbStatus.selvstendig) || jobbStatus?.includes(JobbStatus.arbeidstaker)
 
     return (
         <FormProvider {...methods}>

@@ -16,6 +16,7 @@ import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
 import Datovelger from '../../felles/Datovelger'
+import Feilmeldinger from '../../felles/Feilmeldinger'
 
 const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -26,7 +27,12 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
         defaultValues: state.situasjonenDin || {},
     })
 
-    const { getValues, handleSubmit, watch } = methods
+    const {
+        getValues,
+        formState: { errors },
+        handleSubmit,
+        watch,
+    } = methods
 
     const erValidert = state.situasjonenDin.erValidert
 
@@ -151,6 +157,8 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                         </SkjemaGruppe>
                     )}
                 </SkjemaGruppe>
+
+                <Feilmeldinger errors={errors} />
 
                 <Navigasjon
                     forrige={{

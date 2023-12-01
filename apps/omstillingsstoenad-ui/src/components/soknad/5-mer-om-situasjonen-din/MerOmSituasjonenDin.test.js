@@ -50,7 +50,7 @@ describe('Mer om situasjonen din', () => {
     it('Skal rendre selvstendig', () => {
         const { container, getByLabelText } = render(<MerOmSituasjonenDin />)
         act(() => {
-            fireEvent.click(getByLabelText('jobbStatus.selvstendig.enk'))
+            fireEvent.click(getByLabelText('jobbStatus.selvstendig'))
         })
 
         expect(container).toMatchSnapshot()
