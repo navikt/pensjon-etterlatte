@@ -622,7 +622,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt): InntektOgPe
             svar: {
                 norgeEllerUtland: {
                     spoersmaal: t('inntektenDin.loennsinntekt.norgeEllerUtland'),
-                    svar: inntektenDin.naeringsinntekt!!.norgeEllerUtland!!.map((norgeEllerUtland) => ({
+                    svar: inntektenDin.loennsinntekt!!.norgeEllerUtland!!.map((norgeEllerUtland) => ({
                         verdi: konverterNorgeEllerUtland(norgeEllerUtland),
                         innhold: t(norgeEllerUtland),
                     })),
