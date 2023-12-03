@@ -147,7 +147,7 @@ const selectScenario = {
         'Du må oppgi hele fødselsnummeret til barnet/barna og foreldrene. Hvis ikke du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
     aboutSurvivorsPensionTitle: 'Har du mistet ektefellen, samboeren eller partneren din?',
     aboutSurvivorsPensionDescription:
-        'Da kan du søke om omstillingsstønad. Hvis du ønsker å søke om barnepensjon samtidig kan du gjøre begge deler i <a href="https://www.nav.no/omstillingsstnad/soknad/">søknad om omstillingsstønad.</a>',
+        'Da kan du søke om omstillingsstønad. Hvis du ønsker å søke om barnepensjon samtidig kan du gjøre begge deler i <a href="https://www.nav.no/omstillingsstonad/soknad/">søknad om omstillingsstønad.</a>',
     BOTH_PARENTS_DECEASED: 'Begge foreldrene',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Jeg er foreldreløs',
     ONE_PARENT_DECEASED: 'En forelder',
