@@ -28,20 +28,23 @@ export default {
     'knapp.ja': 'Ja, send søknad',
     'knapp.nei': 'Nei, gå tilbake',
     'forside.tittel': 'Søk om omstillingsstønad',
-    'forside.ingress': '<MANGLER TEKST>',
+    'forside.ingress': 'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n' +
+    'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
     'forside.startSoeknad': 'Start søknad',
     'forside.omYtelsene.innhold':
         'Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til omstillingsstønad eller overgangsstønad til atterlevande.',
-    'forside.omYtelsene.innhold.li1': 'Du kan også ha rett til støtte viss du tidlegare har vore gift, partnar eller sambuar med avdøde.',
-    'forside.omYtelsene.innhold.li2': 'Vi vil vurdere om du har rett på omstillingsstønad eller overgangsstønad basert på situasjonen din.',
+    'forside.omYtelsene.innhold.li1':
+        'Du kan også ha rett til støtte viss du tidlegare har vore gift, partnar eller sambuar med avdøde.',
+    'forside.omYtelsene.innhold.li2':
+        'Vi vil vurdere om du har rett på omstillingsstønad eller overgangsstønad basert på situasjonen din.',
     'forside.omYtelsene.innhold.li3': 'Inntekta di avgjer kor mykje pengar du kan få.',
-    'forside.omYtelsene.innhold.merOmOmstillingsstoenad' :  '<MANGLER TEKST>',
-    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/gjenlevendepensjon',
+    'forside.omYtelsene.innhold.merOmOmstillingsstoenad': 'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du',
+    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad',
     'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
     'forside.barnepensjon.innhold':
         'Har du felles barn under 18 år med avdøde, kan barnet/barna ha rett til barnepensjon.',
-    'forside.omSoeknaden.personvern': '<MANGLER TEKST>',
+    'forside.omSoeknaden.personvern': 'Personvern og tryggleik',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
         'For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell sambuar.\nVi henter:',
@@ -63,17 +66,19 @@ export default {
     'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
     'forside.personvern.tekst': '<MANGLER TEKST>',
     'forside.samtykke.tittel': 'Vi stoler på deg',
-    'forside.samtykke.innhold':
-        'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',
+    'forside.samtykke.innhold': 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
     'situasjonenDin.tittel': '<MANGLER TEKST>',
-    'situasjonenDin.ingress': 'Retten din til omstillingsstønad avheng av aktiviteten din for å oppretthalde eller auke arbeidstilknytinga di.\\n\\n I ein omstillingsperiode på seks månader etter dødsfallet blir det ikkje stilt krav til at du er i arbeid eller annan aktivitet.\\n\\n Det er et krav at du er i minst femti prosent arbeid eller aktivitet etter seks månader. Når det har gått eitt år sidan dødsfallet, kan det bli stilt krav om at du må vere i arbeid eller arbeidsretta aktivitet på fulltid.',
+    'situasjonenDin.ingress':
+        'Retten din til omstillingsstønad avheng av aktiviteten din for å oppretthalde eller auke arbeidstilknytinga di.\\n\\n I ein omstillingsperiode på seks månader etter dødsfallet blir det ikkje stilt krav til at du er i arbeid eller annan aktivitet.\\n\\n Det er et krav at du er i minst femti prosent arbeid eller aktivitet etter seks månader. Når det har gått eitt år sidan dødsfallet, kan det bli stilt krav om at du må vere i arbeid eller arbeidsretta aktivitet på fulltid.',
     'situasjonenDin.omsorgForBarn.tittel': 'Omsorg for barn',
-    'situasjonenDin.omsorgMinstFemti': 'Hadde du minst 50 prosent omsorg for barn under 18 år på tidspunktet for dødsfallet?',
-    'situasjonenDin.omsorgMinstFemti.dokumentasjon': 'Du må dokumentere omsorgsforholdet. Dersom du har eller hatt felles barn med, eller vore gift i minst fem år med avdøde, treng du ikkje dokumentere omsorga.',
+    'situasjonenDin.omsorgMinstFemti':
+        'Hadde du minst 50 prosent omsorg for barn under 18 år på tidspunktet for dødsfallet?',
+    'situasjonenDin.omsorgMinstFemti.dokumentasjon':
+        'Du må dokumentere omsorgsforholdet. Dersom du har eller hatt felles barn med, eller vore gift i minst fem år med avdøde, treng du ikkje dokumentere omsorga.',
     'situasjonenDin.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
     'situasjonenDin.nySivilstatus.beskrivelse':
         'Viss du har gifta deg eller blitt sambuar på nytt kan det avgjere om du kan få omstillingsstønad og kor mykje du kan få.',
@@ -83,7 +88,7 @@ export default {
     'situasjonenDin.nySivilstatus.samboerskap.samboer.fornavn': 'Førenamn',
     'situasjonenDin.nySivilstatus.samboerskap.samboer.etternavn': 'Etternamn',
     'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
-    'situasjonenDin.oppholdUtenforNorge.tittel' : 'Opphald utanfor Noreg',
+    'situasjonenDin.oppholdUtenforNorge.tittel': 'Opphald utanfor Noreg',
     'situasjonenDin.oppholderSegIUtlandet.svar': 'Har du budd eller opphalde deg i utlandet dei siste 12 månadene?',
     'situasjonenDin.oppholderSegIUtlandet.oppholdFra': 'Fra dato',
     'situasjonenDin.oppholderSegIUtlandet.oppholdTil': 'Til dato',
@@ -98,7 +103,8 @@ export default {
     'merOmSituasjonenDin.ingress': '<MANGLER TEKST>',
     'merOmSituasjonenDin.jobbStatus.tittel': 'Arbeid, utdanning og andre aktivitetar i Noreg og i utlandet',
     'merOmSituasjonenDin.jobbStatus': 'Kva er situasjonen din no?',
-    'merOmSituasjonenDin.jobbStatus.hvorfor': 'Vi treng å vite kva du gjer, slik at vi kan gi deg rett informasjon og oppfølging ut frå situasjonen din.',
+    'merOmSituasjonenDin.jobbStatus.hvorfor':
+        'Vi treng å vite kva du gjer, slik at vi kan gi deg rett informasjon og oppfølging ut frå situasjonen din.',
     'merOmSituasjonenDin.annenSituasjon.tittel': 'Anna',
     'merOmSituasjonenDin.annenSituasjon.beskrivelse': 'Vel det som skildrar situasjonen din',
     'merOmSituasjonenDin.annenSituasjon.annet.beskrivelse': 'Skildra situasjonen din',
@@ -109,7 +115,8 @@ export default {
     'merOmSituasjonenDin.ingenJobb.syk': 'Er syk',
     'merOmSituasjonenDin.ingenJobb.annet': 'Anna',
     'merOmSituasjonenDin.utdanning.tittel': 'Om utdanninga',
-    'merOmSituasjonenDin.utdanning.hvorfor': 'Vi treng å vite kva utdanning du har, slik at vi kan gi deg rett informasjon og oppfølging ut frå situasjonen din.',
+    'merOmSituasjonenDin.utdanning.hvorfor':
+        'Vi treng å vite kva utdanning du har, slik at vi kan gi deg rett informasjon og oppfølging ut frå situasjonen din.',
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studiested': 'Namn på studiestad',
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studie': 'Namnet på utdanninga',
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieform': 'Studieform',
@@ -122,14 +129,16 @@ export default {
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.godkjentUtdanning': 'Er utdanninga godkjend av Lånekassen?',
     'merOmSituasjonenDin.utdanning.tittelFullfoert': 'Fullført utdanning',
     'merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning': 'Kva er di høgaste fullførte utdanning?',
-    'merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse': 'Du kan velje å krysse av for fleire eller berre høgaste fullførte',
+    'merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse':
+        'Du kan velje å krysse av for fleire eller berre høgaste fullførte',
     'merOmSituasjonenDin.utdanning.annenUtdanning': 'Anna utdanning',
     'merOmSituasjonenDin.utdanning.annenUtdanningPlaceholder': 'Eks. kurs, enkeltår på universitet eller høgskule',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger': 'Informasjon om stønad til skulepengar',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.beskrivelse':
         'Du kan få stønad til dekning av skulepengar som attlevande ektefelle dersom du gjennomfører utdanning som er godkjent av NAV. Utdanninga må vere nødvendig og hensiktsmessig for å kome i eller behalde arbeid.\n\nStønad til skulepengar skal dekke dei faktiske utgiftene du har til studieavgift, semesteravgift, eksamensgebyr og/eller skulepengar ved privat utdanningsinstitusjon. Stønaden dekker dokumenterte utgifter opp til ei øvre grense.',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.bekreftelse': 'Eg har utgifter til skulepengar',
-    'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning': 'Informasjon om tilleggsstønad til skuleutgifter',
+    'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning':
+        'Informasjon om tilleggsstønad til skuleutgifter',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse':
         'Som attlevande ektefelle kan du også søke om tilleggsstønad viss du gjennomfører utdanning som er godkjent av NAV. Du kan få støtte til dekning av nødvendige utgifter som du har under utdanninga, for eksempel utgifter til læremiddel, reiser, flytting og ekstra utgifter til bustad.',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse': 'Eg har utgifter til utdanning',
@@ -137,16 +146,19 @@ export default {
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen': 'Kva heiter firmaet?',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen.beskrivelse': 'Legg inn namnet på føretaket eller bedrifta.',
     'merOmSituasjonenDin.selvstendig.grunnTilSpoersmål': 'Grunnen til at vi spør om dette',
-    'merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor': 'Vi treng å vite kva du planlegg å gjere framover. Dette hjelper oss å gi deg relevant informasjon og oppfølging.',
+    'merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor':
+        'Vi treng å vite kva du planlegg å gjere framover. Dette hjelper oss å gi deg relevant informasjon og oppfølging.',
     'merOmSituasjonenDin.selvstendig.orgnr': 'Organisasjonsnummer',
     'merOmSituasjonenDin.selvstendig.orgnrplaceholder': '9 siffer',
     'merOmSituasjonenDin.selvstendig.arbeidsmengde': 'Kor mykje jobbar du?',
     'merOmSituasjonenDin.selvstendig.arbeidsmengde.svar': 'Fyll ut arbeidsmengda di',
     'merOmSituasjonenDin.selvstendig.arbeidsmengde.type': 'Type arbeidsmengde',
-    'merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse': 'Dersom det varierer frå månad til månad, anslår du kor mykje du reknar med å jobbe framover. Dette gjeld også dersom du er sjukmeld.',
+    'merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse':
+        'Dersom det varierer frå månad til månad, anslår du kor mykje du reknar med å jobbe framover. Dette gjeld også dersom du er sjukmeld.',
     'merOmSituasjonenDin.selvstendig.arbeidsmengde.timer': 'Arbeidstimar',
     'merOmSituasjonenDin.selvstendig.arbeidsmengde.prosent': 'Arbeidsprosent',
-    'merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar': 'Reknar du med at arbeidssituasjonen din vil endre seg fram i tid?',
+    'merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar':
+        'Reknar du med at arbeidssituasjonen din vil endre seg fram i tid?',
     'merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse': 'Beskriving',
     'merOmSituasjonenDin.selvstendig.forventerEndretInntekt.svar':
         'Reknar du med at inntekta di endrar seg dei neste 12 månadene?',
@@ -158,31 +170,39 @@ export default {
     'merOmSituasjonenDin.arbeidsforhold.arbeidsgiver': 'Kva heiter arbeidsgivar?',
     'merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold': 'Type tilsetting',
     'merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel': 'Kor mykje jobbar du?',
-    'merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.beskrivelse': 'Oppgi stillingsprosenten du vanlegvis har. Dette gjeld også dersom du er sjukmeld.',
-    'merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse': 'Oppgi arbeidsmengda du vanlegvis har. Dette gjeld også dersom du er sjukmeld.',
+    'merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.beskrivelse':
+        'Oppgi stillingsprosenten du vanlegvis har. Dette gjeld også dersom du er sjukmeld.',
+    'merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse':
+        'Oppgi arbeidsmengda du vanlegvis har. Dette gjeld også dersom du er sjukmeld.',
     'merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar': 'Fyll ut arbeidsmengda di',
     'merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast': 'Stillingsprosent',
     'merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.type': 'Type arbeidsmengde',
     'merOmSituasjonenDin.arbeidsforhold.midlertidig.svar': 'Har du ein sluttdato?',
     'merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger': 'Sluttdato',
-    'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar': 'Reknar du med at arbeidsforholdet ditt vil endre seg fram i tid?',
+    'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar':
+        'Reknar du med at arbeidsforholdet ditt vil endre seg fram i tid?',
     'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse': 'Beskriv kort endringane',
-    'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar': 'Har du sagt opp jobben eller redusert arbeidstida di dei siste 6 månadene?',
-    'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor': 'Vi treng å vite kva du planlegg å gjere framover. Dette hjelper oss å gi deg relevant informasjon og oppfølging.',
+    'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar':
+        'Har du sagt opp jobben eller redusert arbeidstida di dei siste 6 månadene?',
+    'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor':
+        'Vi treng å vite kva du planlegg å gjere framover. Dette hjelper oss å gi deg relevant informasjon og oppfølging.',
     'merOmSituasjonenDin.etablererVirksomhet.tittel': 'Om verksemda',
     'merOmSituasjonenDin.etablererVirksomhet.orgnr': 'Organisasjonsnummer',
     'merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr': 'Eg har ikkje organisasjonsnummer',
     'merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten': 'Kva heiter den nye verksemda?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar': 'Har du ein forretningsplan?',
-    'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar': 'Er dette i samarbeid med NAV for at du skal bli sjølvforsørgd?',
+    'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar':
+        'Er dette i samarbeid med NAV for at du skal bli sjølvforsørgd?',
     'merOmSituasjonenDin.tilbudOmJobb.tittel': 'Om arbeidsforholdet ditt',
     'merOmSituasjonenDin.tilbudOmJobb.arbeidssted': 'Namn på ny arbeidsstad',
     'merOmSituasjonenDin.tilbudOmJobb.ansettelsesdato': 'Når skal du byrje å jobbe?',
     'merOmSituasjonenDin.tilbudOmJobb.ansettelsesdato.beskrivelse': 'Tilsetjingsdato',
     'merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold': 'Kva type tilsetjingsforhold skal du ha?',
     'merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel': 'Kor mykje skal du jobbe?',
-    'merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast': 'Oppgi stillingsprosenten du har fått. Dette gjeld også dersom du er sjukmeld.',
-    'merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig': 'Oppgi kva som står i arbeidskontrakten. Du må oppgi dette også sjølv om du sjukmeld.',
+    'merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast':
+        'Oppgi stillingsprosenten du har fått. Dette gjeld også dersom du er sjukmeld.',
+    'merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig':
+        'Oppgi kva som står i arbeidskontrakten. Du må oppgi dette også sjølv om du sjukmeld.',
     'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar.fast': 'Stillingsprosent',
     'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar': 'Arbeidsmengde',
     'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.type': 'Type arbeidsmengde',
@@ -194,7 +214,8 @@ export default {
     'merOmSituasjonenDin.andreYtelser.tittel': 'Ytingar',
     'merOmSituasjonenDin.andreYtelser.ingress':
         'Nokre ytingar frå NAV vert rekna som inntekt og har betydning for kor mykje omstillingsstønad du får. Uføretrygd, alderspensjon, avtalefesta pensjon (AFP) kan ikkje kombinerast med omstillingsstønad.',
-    'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.svar': 'Har du søkt om andre ytingar som du ikkje har fått svar på?',
+    'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.svar':
+        'Har du søkt om andre ytingar som du ikkje har fått svar på?',
     'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.ytelser': 'Kva har du søkt om?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.svar':
         'Får du eller har du søkt om avtalefesta pensjon (AFP) eller annan pensjon frå andre enn NAV?',
@@ -204,7 +225,8 @@ export default {
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvorfor':
         'Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon': 'Kva slags pensjon?',
-    'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder': 'Eks. alderspensjon, omstillingsstønad',
+    'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder':
+        'Eks. alderspensjon, omstillingsstønad',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.fraHvilketLand': 'Frå kva for land?',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar': 'Årleg beløp før skatt i landets valuta',
     'merOmSituasjonenDin.forventerEndretInntektType.oektStillingsprosent': 'Økt stillingsprosent',
@@ -222,9 +244,9 @@ export default {
     'inntektenDin.inntektstyper': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.tittel': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.ingress': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norgeEllerUtland':'<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norgeEllerUtland.norge':'<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norgeEllerUtland.utland':'<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.norgeEllerUtland': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.norgeEllerUtland.norge': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.norgeEllerUtland.utland': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.info': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
@@ -242,9 +264,9 @@ export default {
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.tittel': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.ingress': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland':'<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland.norge':'<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland.utland':'<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland': '<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': '<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.info': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.tittel': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
@@ -293,7 +315,7 @@ export default {
     'inntektenDin.forventerEndringAvInntekt.svar': '<MANGLER TEKST>',
     'inntektenDin.forventerEndringAvInntekt.grunn': '<MANGLER TEKST>',
     'inntektenDin.forventerEndringAvInntekt.annenGrunn': '<MANGLER TEKST>',
-    'omDeg.tittel': 'Om deg',
+    'omDeg.tittel': 'Personopplysningar',
     'omDeg.undertittel.personalia': 'Personalia',
     'omDeg.undertittel.opplysningerOmSoeker': 'Opplysingar om søkaren',
     'omDeg.advarsel': 'Dersom opplysningane vi har om deg ikkje stemmer, må du endre dei hos Folkeregisteret.',
@@ -322,14 +344,16 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap': 'Vi gifta oss',
     'omDegOgAvdoed.forholdTilAvdoede.fellesBarn': 'Har de eller har de hatt felles barn?',
     'omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse': 'Dette gjeld også dersom barnet er over 18 år',
-    'omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn': 'Var de sambuarar og hadde de felles barn før de gifta dykk?',
+    'omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn':
+        'Var de sambuarar og hadde de felles barn før de gifta dykk?',
     'omDegOgAvdoed.forholdTilAvdoede.tidligereGift': 'Har du tidlegare vore gift med avdøde?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap': 'Når blei de sambuarar?',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse': 'Vi skilte oss (ikkje separasjon)',
     'omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd': 'Vi flytta frå kvarandre',
     'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag': 'Blei du forsørgd gjennom bidrag frå avdøde?',
     'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar': 'Blei du forsørgd gjennom bidrag frå avdøde?',
-    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse': 'Bidragsbeløpet må ha vore ein vesentleg del av inntekta di.',
+    'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse':
+        'Bidragsbeløpet må ha vore ein vesentleg del av inntekta di.',
     'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum': 'Oppgi bidragssummen du fekk siste månaden før dødsfallet.',
     'omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse': 'Ikkje ta med eit eventuelt barnebidrag.',
     'omDenAvdoede.tittel': 'Om avdøde',
@@ -435,7 +459,8 @@ export default {
     'oppsummering.feilVedSending.tittel': 'her.',
     'oppsummering.feilVedSending.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     'soeknadKvittering.tittel': 'Søknaden din er sendt til oss',
-    'soeknadKvittering.mottatt': '<MANGLER TEKST>',
+    'soeknadKvittering.mottatt':
+        'Vi har fått søknaden din om omstillingsstønad. Saka di er no til behandling hos NAV. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon frå deg.',
     'soeknadKvittering.endring.tittel': 'Du må melde frå om endringar',
     'soeknadKvittering.endring.informasjon':
         'Du må melde frå med ein gong det skjer viktige endringar i livet ditt. Det kan for eksempel vere viss:',
@@ -448,26 +473,26 @@ export default {
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'rettar og plikter på',
     'soeknadKvittering.seSaken.tittel': 'Sjekk status i saka di',
-    'soeknadKvittering.seSaken.informasjon.innhold1': '<MANGLER TEKST>',
+    'soeknadKvittering.seSaken.informasjon.innhold1':
+        'Du får varsel på SMS eller e-post når saka er ferdigbehandla. I mellomtida kan du sjå søknaden din på',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'mitt NAV.',
-    'soeknadKvittering.seSaken.informasjon.innhold2':
-        '<MANGLER TEKST>',
+    'soeknadKvittering.seSaken.informasjon.innhold2': 'Lurer du på kor lang tid behandlinga vil ta? Her kan du sjå',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventet saksbehandlingstid.',
     'soeknadKvittering.andreStoenader.tittel': 'Du kan også ha rett til andre stønader',
-    'soeknadKvittering.andreStoenader.informasjon':
-        '<MANGLER TEKST>',
+    'soeknadKvittering.andreStoenader.informasjon': 'Er du under utdanning, søkjer du jobb eller har de barn? Då kan du også ha rett på andre støtteordningar som til dømes barnepass eller dekking av utgifter du har i samband med utdanning eller jobbsøk',
     'soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst':
         'Stønad til skolepenger for attlevande ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst':
         'Stønad til barnetilsyn for attlevande ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Utvida barnetrygd',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for attlevande',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/gjenlevendepensjon#andre-stonader',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
+        'https://www.nav.no/gjenlevendepensjon#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon':
         'Tek du utdanning eller søker jobb? Då kan du også ha rett til støtte til barnepass og utgifter du har i forbindelse med utdanning eller jobbsøking:',
-    'soeknadKvittering.spoersmaal.knapp': 'Les mer om omstillingsstønad',
+    'soeknadKvittering.spoersmaal.knapp': 'Les meir om omstillingsstønad',
     'sideIkkeFunnet.tittel': 'Oi, her var det noe rusk',
     'sideIkkeFunnet.alert': 'Siden du har etterspurt finnes ikke.',
     'ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon':
