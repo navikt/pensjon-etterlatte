@@ -1,14 +1,17 @@
 package no.nav.etterlatte.jobs
 
 import io.prometheus.client.Gauge
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.shuttingDown
 import org.slf4j.LoggerFactory
 import soeknad.StatistikkRepository
+import java.time.Duration
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
+import java.util.*
+import kotlin.concurrent.fixedRateTimer
 
-class TilstandsProbe(private val db: StatistikkRepository) {
+class PubliserMetrikkerJobb(private val db: StatistikkRepository) {
     private val usendtAlder = Gauge.build("alder_eldste_usendte", "Alder på elste usendte søknad").register()
     private val ikkeJournalfoertAlder =
         Gauge.build("alder_eldste_uarkiverte", "Alder på eldste ikke-arkiverte søknad").register()
@@ -16,9 +19,29 @@ class TilstandsProbe(private val db: StatistikkRepository) {
         Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand", "kilde").register()
     private val soknadsKilder = Gauge.build("soknad_kilde", "Kilden søknadene er fra").labelNames("kilde").register()
 
-    private val logger = LoggerFactory.getLogger(TilstandsProbe::class.java)
+    private val logger = LoggerFactory.getLogger(PubliserMetrikkerJobb::class.java)
 
-    internal fun gatherMetrics() {
+    fun schedule(): Timer {
+        logger.info("Setter opp ${this.javaClass.simpleName}")
+
+        return fixedRateTimer(
+            name = this.javaClass.simpleName,
+            initialDelay = Duration.of(1, ChronoUnit.MINUTES).toMillis(),
+            period = Duration.of(15, ChronoUnit.MINUTES).toMillis(),
+        ) {
+            runBlocking {
+                if (LeaderElection.isLeader() && !shuttingDown.get()) {
+                    try {
+                        publiserMetrikker()
+                    } catch (e: Exception) {
+                        logger.error("Feil oppsto under oppretting av rapport/metrikker: ", e)
+                    }
+                }
+            }
+        }
+    }
+
+    internal fun publiserMetrikker() {
         db.eldsteUsendte()?.apply {
             usendtAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
         }
@@ -35,21 +58,5 @@ class TilstandsProbe(private val db: StatistikkRepository) {
             .forEach{(kilde, antall) -> soknadsKilder.labels(kilde).set(antall.toDouble())}
 
         logger.info("Ukategoriserte søknader: " + db.ukategorisert().toString())
-    }
-
-    suspend fun start(running: Job) {
-        var cycle = Cycle(6, 0)
-        while (!running.isCompleted) {
-            cycle = cycle.step()
-            if (cycle.currentStep == 0) {
-                try {
-                    gatherMetrics()
-                } catch (e: Exception) {
-                    logger.error("Feil oppsto under oppretting av rapport/metrikker: ", e)
-                }
-            } else {
-                delay(60_000)  // 1 min
-            }
-        }
     }
 }

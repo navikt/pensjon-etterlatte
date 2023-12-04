@@ -5,7 +5,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.prometheus.client.CollectorRegistry
-import no.nav.etterlatte.jobs.TilstandsProbe
+import no.nav.etterlatte.jobs.PubliserMetrikkerJobb
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -15,9 +15,9 @@ import soeknad.Status
 import java.time.LocalDateTime
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-internal class TilstandsProbeTest {
+internal class PubliserMetrikkerJobbTest {
     private val dbMock = mockk<PostgresSoeknadRepository>()
-    private val tilstandsProbe = TilstandsProbe(dbMock)
+    private val publiserMetrikkerJobb = PubliserMetrikkerJobb(dbMock)
     private val eldsteUsendt = LocalDateTime.now().minusHours(1)
     private val eldsteUarkivert = LocalDateTime.now().minusHours(2)
     private val kildeBP = "barnepensjon-ui"
@@ -34,7 +34,7 @@ internal class TilstandsProbeTest {
 
     @Test
     fun `Skal hente relevante metrics og logge til Prometheus`() {
-        tilstandsProbe.gatherMetrics()
+        publiserMetrikkerJobb.publiserMetrikker()
 
         verify(exactly = 1) { dbMock.eldsteUsendte() }
         CollectorRegistry.defaultRegistry.getSampleValue("alder_eldste_usendte") shouldBe 60.0
