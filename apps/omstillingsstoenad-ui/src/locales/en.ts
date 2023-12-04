@@ -56,14 +56,16 @@ export default {
         'Information about <strong>other support you are receiving from NAV</strong>',
     'forside.uthentingAvInfo.innholdListe.li5':
         'As applicable, information from <strong>foreign social security authorities</strong>',
-    'forside.personvern.innhold':
-        'Du har rett til innsyn i saken din. Vil du vite mer om hvordan NAV behandler personopplysninger?',
-    'forside.personvern.href': 'https://www.nav.no/personvern-sikkerhet-navno',
-    'forside.personvern.tekst': 'Om personvern og sikkerhet på nav.no',
-    'forside.behandlingsgrunnlag.innhold':
-        'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
-    'forside.behandlingsgrunnlag.href': '<MANGLER LINK>',
-    'forside.behandlingsgrunnlag.tekst': 'Slik behandler vi personopplysningene dine',
+    'forside.uthentingAvInfo.innholdListe.li6': '<MANGLER TEKST>',
+    'forside.personvern.aktivitetsplikt': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson.li1': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson.li2': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson.li3': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson.li4': '<MANGLER TEKST>',
+    'forside.personvern.innhold': '<MANGLER TEKST>',
+    'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
+    'forside.personvern.tekst': '<MANGLER TEKST>',
     'forside.samtykke.tittel': 'We trust you',
     'forside.samtykke.innhold':
         'You must provide us with the correct information so that we can process your application.',

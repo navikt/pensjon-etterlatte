@@ -52,14 +52,16 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li4': 'Opplysingar om <strong>anna støtte frå NAV</strong>',
     'forside.uthentingAvInfo.innholdListe.li5':
         'Eventuelt informasjon frå <strong>utanlandske trygdemyndigheiter</strong>',
-    'forside.personvern.innhold':
-        'Du har rett til innsyn i saken din. <MANGLER TEKST>',
-    'forside.personvern.href': 'https://www.nav.no/personvern-sikkerhet-navno',
-    'forside.personvern.tekst': 'Om personvern og sikkerhet på nav.no',
-    'forside.behandlingsgrunnlag.innhold':
-        'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
-    'forside.behandlingsgrunnlag.href': '<MANGLER LINK>',
-    'forside.behandlingsgrunnlag.tekst': 'Slik behandler vi personopplysningene dine',
+    'forside.uthentingAvInfo.innholdListe.li6': '<MANGLER TEKST>',
+    'forside.personvern.aktivitetsplikt': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson.li1': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson.li2': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson.li3': '<MANGLER TEKST>',
+    'forside.personvern.tredjeperson.li4': '<MANGLER TEKST>',
+    'forside.personvern.innhold': '<MANGLER TEKST>',
+    'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
+    'forside.personvern.tekst': '<MANGLER TEKST>',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold':
         'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',

@@ -11,6 +11,7 @@ import {
     GuidePanel,
     Heading,
     Link,
+    List,
 } from '@navikt/ds-react'
 import { LogEvents, useAmplitude } from '../../utils/amplitude'
 import { useLanguage } from '../../hooks/useLanguage'
@@ -18,6 +19,11 @@ import { Spraakvalg } from '../felles/Spraakvalg'
 import { MuligeSteg } from '../../typer/steg'
 import { SkjemaGruppe } from '../felles/SkjemaGruppe'
 import { SkjemaElement } from '../felles/SkjemaElement'
+import styled from 'styled-components'
+
+const ListItemWithIndent = styled(List.Item)`
+    margin-left: 1rem;
+`
 
 const SoknadForside = () => {
     const navigate = useNavigate()
@@ -47,13 +53,11 @@ const SoknadForside = () => {
 
                 <BodyLong>{t('forside.omYtelsene.innhold')}</BodyLong>
 
-                <BodyShort as={'div'}>
-                    <ul>
-                        <li>{t('forside.omYtelsene.innhold.li1')}</li>
-                        <li>{t('forside.omYtelsene.innhold.li2')}</li>
-                        <li>{t('forside.omYtelsene.innhold.li3')}</li>
-                    </ul>
-                </BodyShort>
+                <List size={'small'}>
+                    <ListItemWithIndent>{t('forside.omYtelsene.innhold.li1')}</ListItemWithIndent>
+                    <ListItemWithIndent>{t('forside.omYtelsene.innhold.li2')}</ListItemWithIndent>
+                    <ListItemWithIndent>{t('forside.omYtelsene.innhold.li3')}</ListItemWithIndent>
+                </List>
 
                 <BodyLong>
                     {t('forside.omYtelsene.innhold.merOmOmstillingsstoenad')}
@@ -76,53 +80,67 @@ const SoknadForside = () => {
                         <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
                         <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
-                        <ul>
-                            <li>
-                                <BodyLong>
-                                    <span
-                                        dangerouslySetInnerHTML={{
-                                            __html: t('forside.uthentingAvInfo.innholdListe.li1'),
-                                        }}
-                                    />
-                                </BodyLong>
-                            </li>
-                            <li>
-                                <BodyLong>
-                                    <span
-                                        dangerouslySetInnerHTML={{
-                                            __html: t('forside.uthentingAvInfo.innholdListe.li2'),
-                                        }}
-                                    />
-                                </BodyLong>
-                            </li>
-                            <li>
-                                <BodyLong>
-                                    <span
-                                        dangerouslySetInnerHTML={{
-                                            __html: t('forside.uthentingAvInfo.innholdListe.li3'),
-                                        }}
-                                    />
-                                </BodyLong>
-                            </li>
-                            <li>
-                                <BodyLong>
-                                    <span
-                                        dangerouslySetInnerHTML={{
-                                            __html: t('forside.uthentingAvInfo.innholdListe.li4'),
-                                        }}
-                                    />
-                                </BodyLong>
-                            </li>
-                            <li>
-                                <BodyLong>
-                                    <span
-                                        dangerouslySetInnerHTML={{
-                                            __html: t('forside.uthentingAvInfo.innholdListe.li5'),
-                                        }}
-                                    />
-                                </BodyLong>
-                            </li>
-                        </ul>
+                        <List as={'ul'} size={'small'}>
+                            <ListItemWithIndent>
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t('forside.uthentingAvInfo.innholdListe.li1'),
+                                    }}
+                                />
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t('forside.uthentingAvInfo.innholdListe.li2'),
+                                    }}
+                                />
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t('forside.uthentingAvInfo.innholdListe.li3'),
+                                    }}
+                                />
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t('forside.uthentingAvInfo.innholdListe.li4'),
+                                    }}
+                                />
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t('forside.uthentingAvInfo.innholdListe.li5'),
+                                    }}
+                                />
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li6')}</BodyLong>
+                            </ListItemWithIndent>
+                        </List>
+
+                        <SkjemaElement>
+                            <BodyLong>
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t('forside.personvern.aktivitetsplikt'),
+                                    }}
+                                />
+                            </BodyLong>
+                        </SkjemaElement>
+
+                        <SkjemaElement>
+                            <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
+
+                            <List as={'ul'} size={'small'}>
+                                <ListItemWithIndent>{t('forside.personvern.tredjeperson.li1')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('forside.personvern.tredjeperson.li2')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('forside.personvern.tredjeperson.li3')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('forside.personvern.tredjeperson.li4')}</ListItemWithIndent>
+                            </List>
+                        </SkjemaElement>
 
                         <SkjemaElement>
                             <BodyLong>
@@ -130,13 +148,6 @@ const SoknadForside = () => {
                                 <Link href={t('forside.personvern.href')}>{t('forside.personvern.tekst')}</Link>
                             </BodyLong>
                         </SkjemaElement>
-
-                        <BodyLong> {t('forside.behandlingsgrunnlag.innhold')}</BodyLong>
-                        <BodyLong>
-                            <Link href={t('forside.behandlingsgrunnlag.href')}>
-                                {t('forside.behandlingsgrunnlag.tekst')}
-                            </Link>
-                        </BodyLong>
                     </ExpansionCard.Content>
                 </ExpansionCard>
             </SkjemaGruppe>

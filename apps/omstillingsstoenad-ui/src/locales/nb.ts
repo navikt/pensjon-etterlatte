@@ -49,22 +49,25 @@ export default {
     'forside.omSoeknaden.personvern': 'Personvern og sikkerhet',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
-        'For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell samboer.\nVi henter:',
-    'forside.uthentingAvInfo.innholdListe.li1': '<strong>Personinformasjon</strong> fra Folkeregisteret',
-    'forside.uthentingAvInfo.innholdListe.li2': '<strong>Inntektsinformasjon</strong> fra Skatteetaten',
+        'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være barn du har omsorg for ny ektefelle eller samboer eller verge som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
+    'forside.uthentingAvInfo.innholdListe.li1': '<strong>Personinformasjon</strong> fra Folkeregisteret (Personnummer, adresse, statsborgerskap, sivilstand)',
+    'forside.uthentingAvInfo.innholdListe.li2': '<strong>Inntektsinformasjon</strong> fra Skatteetaten (Informasjon om skattebelagt inntekt inneværende år)',
     'forside.uthentingAvInfo.innholdListe.li3':
         'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
-    'forside.uthentingAvInfo.innholdListe.li4': 'Opplysninger om <strong>annen støtte fra NAV</strong>',
+    'forside.uthentingAvInfo.innholdListe.li4': 'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (For eksempel alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'Eventuelt informasjon fra <strong>utenlandske trygdemyndigheter</strong>',
-    'forside.personvern.innhold': 'Du har rett til innsyn i saken din. Her kan du lese mer om hvordan NAV ivaretar ',
-    'forside.personvern.href': 'https://www.nav.no/personvern-sikkerhet-navno',
-    'forside.personvern.tekst': 'personvern og sikkerhet på nav.no',
-    'forside.behandlingsgrunnlag.innhold':
-        'Behandlingsgrunnlaget for å behandle dine opplysninger er å utøve offentlig myndighet etter Folketrygdloven kapittel 17.',
-    'forside.behandlingsgrunnlag.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten',
-    'forside.behandlingsgrunnlag.tekst': 'Slik behandler vi personopplysningene dine',
+        'Informasjon fra <strong>utenlandske trygdemyndigheter</strong> (der dette er aktuelt)',
+    'forside.uthentingAvInfo.innholdListe.li6':
+      'Informasjon fra Lånekassen for å verifisere utdanning (der dette er aktuelt)',
+    'forside.personvern.aktivitetsplikt': 'Dersom det er relevant i forbindelse med aktivitetsplikten kan vi også samle inn opplysninger fra interne systemer som <strong>Arbeidssøkerregisteret</strong>.',
+    'forside.personvern.tredjeperson': 'Om tredjepersoner tilknyttet deg kan vi ha behov for å hente inn:',
+    'forside.personvern.tredjeperson.li1': 'Navn',
+    'forside.personvern.tredjeperson.li2': 'Fødselsnummer',
+    'forside.personvern.tredjeperson.li3': 'Hvorvidt man har hatt/har felles barn med søker',
+    'forside.personvern.tredjeperson.li4': 'Sivilstand',
+    'forside.personvern.innhold': 'Hvis du ønsker vite mer om personvern og sikkerhet kan du lese',
+    'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
+    'forside.personvern.tekst': 'hvordan NAV behandler personopplysningene dine.',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold': 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din.',
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
