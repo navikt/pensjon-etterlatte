@@ -60,7 +60,7 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li6':
       'Informasjon fra Lånekassen for å verifisere utdanning (der dette er aktuelt)',
     'forside.personvern.aktivitetsplikt': 'Dersom det er relevant i forbindelse med aktivitetsplikten kan vi også samle inn opplysninger fra interne systemer som <strong>Arbeidssøkerregisteret</strong>.',
-    'forside.personvern.tredjeperson': 'Om tredjepersoner tilknyttet søker kan vi ha behov for å hente inn:',
+    'forside.personvern.tredjeperson': 'Om tredjepersoner tilknyttet deg kan vi ha behov for å hente inn:',
     'forside.personvern.tredjeperson.li1': 'Navn',
     'forside.personvern.tredjeperson.li2': 'Fødselsnummer',
     'forside.personvern.tredjeperson.li3': 'Hvorvidt man har hatt/har felles barn med søker',
