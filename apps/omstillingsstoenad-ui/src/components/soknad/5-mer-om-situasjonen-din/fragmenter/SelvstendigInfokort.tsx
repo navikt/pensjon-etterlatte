@@ -36,7 +36,6 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
         <>
             <SkjemaGruppe>
                 <RHFInput
-                    className={'kol-75'}
                     name={`${selvstendigName}.beskrivelse` as const}
                     label={t('merOmSituasjonenDin.selvstendig.hvaHeterNaeringen')}
                     description={t('merOmSituasjonenDin.selvstendig.hvaHeterNaeringen.beskrivelse')}
