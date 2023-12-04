@@ -1,10 +1,10 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.node.BooleanNode
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.ktor.client.plugins.ResponseException
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.etterlatte.pdf.PdfGeneratorException
@@ -16,13 +16,16 @@ import org.slf4j.LoggerFactory
 import java.time.Clock
 import java.time.OffsetDateTime
 
-internal class JournalfoerBarnepensjonSoeknadForDoffen(
+/**
+ * TODO: Denne riveren kan skrotes så fort gjenlevendepensjon forsvinner
+ **/
+internal class JournalfoerGjenlevendepensjonSoeknad(
     rapidsConnection: RapidsConnection,
     private val dokumentService: DokumentService,
     private val journalfoeringService: JournalfoeringService,
     private val klokke: Clock = Clock.systemUTC()
 ) : River.PacketListener {
-    private val logger = LoggerFactory.getLogger(JournalfoerBarnepensjonSoeknadForDoffen::class.java)
+    private val logger = LoggerFactory.getLogger(JournalfoerGjenlevendepensjonSoeknad::class.java)
 
     init {
         River(rapidsConnection).apply {
@@ -33,10 +36,8 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
             validate { it.requireKey("@fnr_soeker") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("@hendelse_gyldig_til") }
-            validate { it.requireValue("soeknadFordelt", true) }
-            validate { it.interestedIn("sakId") }
+            validate { it.requireValue("@skjema_info.type", SoeknadType.GJENLEVENDEPENSJON.name) }
             validate { it.rejectKey("@dokarkivRetur") }
-            validate { it.interestedIn("trengerManuellJournalfoering") }
         }.register(this)
     }
 
@@ -72,8 +73,7 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
-        val trengerManuellJournalfoering = packet["trengerManuellJournalfoering"].asBoolean()
-        val forsoekFerdigstill = !trengerManuellJournalfoering
+        val (tema, behandlingstema) = hentTemakoder(soeknad.type)
 
         return journalfoeringService.journalfoer(
             soeknadId = soeknadId,
@@ -81,10 +81,18 @@ internal class JournalfoerBarnepensjonSoeknadForDoffen(
             gradering = gradering,
             dokument = dokument,
             soeknad = soeknad,
-            tema = "EYB",
-            behandlingstema = null,
-            forsoekFerdigstill = forsoekFerdigstill,
-            sakId = packet["sakId"].asText()
+            tema = tema,
+            behandlingstema = behandlingstema,
+            forsoekFerdigstill = false,
+            sakId = null
         )
     }
+
+    private fun hentTemakoder(soeknadType: SoeknadType): Pair<String, String?> =
+        when (soeknadType) {
+            SoeknadType.OMSTILLINGSSTOENAD -> "EYO" to null
+            SoeknadType.GJENLEVENDEPENSJON -> "PEN" to soeknadType.behandlingstema
+            SoeknadType.BARNEPENSJON ->
+                throw IllegalArgumentException("Barnepensjon skal ikke journalføres av denne riveren!")
+        }
 }

@@ -15,6 +15,9 @@ import org.slf4j.LoggerFactory
 import java.time.Clock
 import java.time.OffsetDateTime
 
+/**
+ * TODO: Denne riveren kan skrotes når fordeleren er ute av verden og vi ikke lenger skal sende bp til pesys
+ **/
 internal class JournalfoerBarnepensjonSoeknadForPesys(
     rapidsConnection: RapidsConnection,
     private val dokumentService: DokumentService,

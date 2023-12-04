@@ -10,8 +10,8 @@ fun main() {
             RapidApplication.create(env).apply {
                 val pdfService = appBuilder.pdfService()
                 val journalfoering = appBuilder.journalfoerDok()
-                JournalfoerSoeknad(this, pdfService, journalfoering)
-                JournalfoerBarnepensjonSoeknadForDoffen(this, pdfService, journalfoering)
+                JournalfoerGjenlevendepensjonSoeknad(this, pdfService, journalfoering)
+                JournalfoerSoeknadForDoffen(this, pdfService, journalfoering)
                 JournalfoerBarnepensjonSoeknadForPesys(this, pdfService, journalfoering)
             }.start()
         }

@@ -31,7 +31,7 @@ import java.time.Month
 import java.time.ZoneId
 import java.time.ZoneOffset
 
-internal class JournalfoerSoeknadTest {
+internal class JournalfoerGjenlevendepensjonSoeknadTest {
 
     private val journalfoeringService = mockk<JournalfoeringService> {
         every {
@@ -49,7 +49,7 @@ internal class JournalfoerSoeknadTest {
     fun `Gyldig melding på rapid trigger journalføring`() {
         val clock: Clock = Clock.fixed(LocalDateTime.of(2020, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
         val inspector = TestRapid()
-            .apply { JournalfoerSoeknad(this, dokumentServiceMock, journalfoeringService, clock) }
+            .apply { JournalfoerGjenlevendepensjonSoeknad(this, dokumentServiceMock, journalfoeringService, clock) }
             .apply { sendTestMessage(getResource("/fullMessage.json")) }
             .inspektør
 
@@ -65,7 +65,7 @@ internal class JournalfoerSoeknadTest {
     fun testAvbruttPgaTid() {
         val clock: Clock = Clock.fixed(LocalDateTime.of(2023, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
         val inspector = TestRapid()
-            .apply { JournalfoerSoeknad(this, dokumentServiceMock, journalfoeringService, clock) }
+            .apply { JournalfoerGjenlevendepensjonSoeknad(this, dokumentServiceMock, journalfoeringService, clock) }
             .apply { sendTestMessage(getResource("/fullMessage.json")) }
             .inspektør
 
