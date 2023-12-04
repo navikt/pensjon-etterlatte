@@ -358,8 +358,8 @@ export default {
         'Has he or she lived and/or worked in a country other than Norway after the age of 16?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land': 'Country',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse': 'Lived and/or worked?',
-    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato': 'From date (optional)',
-    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato': 'To date (optional)',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato': 'From date',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato': 'To date',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd':
         'Was the deceased a member of the Norwegian National Insurance Scheme during this period?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst':
