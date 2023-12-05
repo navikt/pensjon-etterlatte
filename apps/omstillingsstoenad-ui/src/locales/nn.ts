@@ -388,8 +388,8 @@ export default {
         'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land': 'Land',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse': 'Budd og/eller arbeidd?',
-    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato': 'Frå dato (valfri)',
-    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato': 'Til dato (valfri)',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato': 'Frå dato',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato': 'Til dato',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd':
         'Var han eller ho medlem av folketrygda under opphaldet?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst':

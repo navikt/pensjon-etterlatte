@@ -42,7 +42,6 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             )}
             <SkjemaElement>
                 <RHFInput
-                    className={'kol-50'}
                     name={`arbeidsforhold[${index}].arbeidsgiver` as const}
                     label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsgiver')}
                     htmlSize={Bredde.M}

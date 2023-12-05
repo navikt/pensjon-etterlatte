@@ -324,7 +324,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
           <input
             class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="utbetalingsInformasjon.iban"
-            size="40"
+            size="35"
             type="text"
             value=""
           />
