@@ -45,8 +45,10 @@ const btn = {
     continueButton: 'Fortsett',
     yesButton: 'Ja, send søknad',
     noButton: 'Nei, gå tilbake',
-    yesUnknownParent: '<MANGLER TEKST>',
-    noUnknownParent: '<MANGLER TEKST>',
+    yesUnknownParent: 'Ja, forelderen min er ukjend',
+    yesUnknownParentGuardian: 'Ja, forelderen er ukjend',
+    noUnknownParent: 'Nei, eg veit kven foreldra mine er',
+    noUnknownParentGuardian: '<MANGLER TEKST>',
 }
 
 const loggedInUserInfo = {
@@ -70,7 +72,7 @@ const paymentDetails = {
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kallast også SWIFT, og er påkrevd ved betaling til ei rekke land.',
     doYouWantUsToWithholdTax: 'Ønsker du at vi legg inn eit skattetrekk for barnepensjonen?',
     childPensionIsTaxable:
-        'Barnepensjon er skattepliktig, men vi trekk ikkje skatt av beløpet utan at vi får beskjed om det. Viss du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
+        'Barnepensjon er skattepliktig, men vi trekkjer ikkje skatt av beløpet utan at vi får beskjed om det. Dersom du har spørsmål om kor stort skattetrekket vil vere, må du kontakte Skatteetaten.',
     desiredTaxPercentage: 'Oppgi ønska skattetrekk',
     desiredTaxPercentagePlaceholder: 'i prosent, eks. 20%',
     taxWithholdMustBeSentYearly: 'Ver merksam på at frivillig skattetrekk må sendast inn på nytt kvart kalenderår.',
@@ -116,7 +118,7 @@ const frontPage = {
 const selectScenario = {
     whoIsApplying: 'Kven søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet har mista',
-    additionalSituationDetailsOver18: '<Mangler tekst>',
+    additionalSituationDetailsOver18: 'Eg har mista',
     PARENT: 'Eg søker for mitt/mine barn under 18 år',
     GUARDIAN: 'Eg søker for eitt eller fleire barn eg er verje for',
     CHILD: 'Eg har fylt 18 år og søker på vegne av meg sjølv',
@@ -146,10 +148,10 @@ const selectScenario = {
 const aboutYou = {
     title: 'Om deg',
     stayWhy:
-        'Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får attlevandepensjon og kor mykje du kan få.',
+        'Dersom du oppheld deg i eit anna land enn Noreg, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     addressOfResidenceConfirmed: 'Bur du på denne adressa?',
     alternativeAddress: 'Oppgi noverande bustadsadresse',
-    staysAbroadTitle: '<MANGLER TEKST>',
+    staysAbroadTitle:  'Har du opphalde deg i Noreg dei siste 12 månadene?',
     residesInNorway: '<MANGLER TEKST>',
     stayedAbroad: '<MANGLER TEKST>',
     stayedAbroadCountry: '<MANGLER TEKST>',
@@ -162,7 +164,7 @@ const aboutYou = {
 
 const aboutParents = {
     aboutParentsTitle: 'Om foreldra',
-    unknownParentTitle: '<MANGLER TEKST>',
+    unknownParentTitle: 'Ukjend forelder',
     firstParent: 'Forelder 1',
     secondParent: 'Forelder 2',
     survivingParent: 'Attlevende forelder',
@@ -173,14 +175,14 @@ const aboutParents = {
     addFirstParentBtn: 'Legg til forelder 1',
     addSecondParentBtn: 'Legg til forelder 2',
     bothParentsRequired:
-        'Du må legge til opplysingar om begge foreldra for å halde fram med søknaden. \n\n Viss barnet har mista mora si og farskapet ikkje er fastsatt må du bruke',
+        'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom barnet har mista mor si og farskapet ikkje er avklart, vel du alternativet «Eg har mista begge foreldre».',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
-    childAndOneParentDeceased: '<MANGLER TEKST>',
-    unknownParent: '<MANGLER TEKST>',
-    unknownParentQuestion: '<MANGLER TEKST>',
-    childAndOneParentDeceasedGuidepanel: '<MANGLER TEKST>',
-    childAndBothParentsDeceasedGuidepanel: '<MANGLER TEKST>',
+    childAndOneParentDeceased: 'Du treng ikkje fylle ut informasjon om attlevande forelder',
+    unknownParent: 'Ukjend forelder',
+    unknownParentQuestion: 'Kan du stadfeste at du ikkje kjenner identiteten til forelderen din?',
+    childAndOneParentDeceasedGuidepanel: 'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden din. \n\n Dersom du har mista éin forelder og den andre er ukjend, må du starte søknadsprosessen på nytt. "Eg har mista begge foreldre"',
+    childAndBothParentsDeceasedGuidepanel: 'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til forelderen din, vel du «Ukjend forelder».',
     guardianAndOneParentDeceased: '<MANGLER TEKST>',
 }
 
@@ -198,7 +200,7 @@ const aboutTheDeceased = {
     abroadStaysTitle: 'Opphald utanfor Norge',
     workOrLivingAbroadCanAffectPension:
         'Vi treng å vite om avdøde har budd eller arbeidd utanfor Norge. Dette kan påvirke berekninga av barnepensjon og i tillegg gi barnet/barna pensjonsrettar frå andre land.',
-    workOrLivingAbroadCanAffectPensionOver18: '<MANGLER TEKST>',
+    workOrLivingAbroadCanAffectPensionOver18: 'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan påverke utrekninga av barnepensjon og i tillegg gi deg pensjonsrettar frå andre land.',
     didTheDeceasedLiveAbroad: 'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Budd og/eller arbeidd?',
@@ -217,7 +219,7 @@ const aboutTheDeceased = {
     occupationalInjury: 'Skuldast dødsfallet yrkesskade eller yrkessjukdom?',
     whyWeAskAboutOccupationalInjury:
         'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV, kan det avgjere om barnet/barna får barnepensjon og kor mykje det/dei kan få.',
-    whyWeAskAboutOccupationalInjuryOver18: '<MANGLER TEKST>',
+    whyWeAskAboutOccupationalInjuryOver18: 'Dersom dødsfallet skuldast yrkesskade eller yrkessjukdom som NAV har godkjent, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     BODD: 'Budd',
     ARBEIDET: 'Arbeidd',
     addCountryButton: '+ Legg til fleire land',
