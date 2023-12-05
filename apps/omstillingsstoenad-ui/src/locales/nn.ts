@@ -40,7 +40,7 @@ export default {
         'Vi vil vurdere om du har rett på omstillingsstønad eller overgangsstønad basert på situasjonen din.',
     'forside.omYtelsene.innhold.li3': 'Inntekta di avgjer kor mykje pengar du kan få.',
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
-        'Curious about who is eligible, how much you can receive, or other questions about benefits, you can',
+        'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad',
     'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
@@ -49,7 +49,7 @@ export default {
     'forside.omSoeknaden.personvern': 'Personvern og tryggleik',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
-        "'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere barn du har omsorg for, ny ektefelle eller sambuar, eller ein verje som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande:\n",
+        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere barn du har omsorg for, ny ektefelle eller sambuar, eller ein verje som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande:\n',
     'forside.uthentingAvInfo.innholdListe.li1':
         '<strong>Personinformasjon</strong> frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
     'forside.uthentingAvInfo.innholdListe.li2':
@@ -70,9 +70,9 @@ export default {
     'forside.personvern.tredjeperson.li2': 'Fødselsnummer',
     'forside.personvern.tredjeperson.li3': 'Om vedkomande har hatt/har felles barn med søkjar',
     'forside.personvern.tredjeperson.li4': 'Sivilstand',
-    'forside.personvern.innhold': 'Du har rett til innsyn i saka di. Her kan du lese meir om korleis NAV varetek ',
+    'forside.personvern.innhold': 'Viss du vil vite meir om personvern og tryggleik, kan du lese om ',
     'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
-    'forside.personvern.tekst': 'personvern og tryggleik på nav.no',
+    'forside.personvern.tekst': 'korleis NAV behandlar personopplysningane dine.',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold': 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
@@ -292,7 +292,8 @@ export default {
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'Dersom Skatteetaten ikkje har slått fast inntekta enno, anslår du næringsinntekta sjølv.',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland': 'Dersom du ikkje kjenne inntekta dette året, anslår du næringsinntekta sjølv.',
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
+        'Dersom du ikkje kjenne inntekta dette året, anslår du næringsinntekta sjølv.',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': 'Kva er brutto næringsinntekt i år?',
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': 'Kva er brutto næringsinntekt i år?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
