@@ -17,7 +17,16 @@ describe('Test translation-utils', () => {
             },
         }
 
+        const error3 = {
+            type: 'pattern',
+            message: 'test',
+            ref: {
+                name: 'utdanning.[3].hoyesteFullfoerteUtdanning',
+            },
+        }
+
         expect(getTransKey(error)).toEqual('feil.utdanning.hoyesteFullfoerteUtdanning.required')
         expect(getTransKey(error2)).toEqual('feil.utdanning.hoyesteFullfoerteUtdanning.pattern')
+        expect(getTransKey(error3)).toEqual('feil.utdanning.hoyesteFullfoerteUtdanning.pattern')
     })
 })
