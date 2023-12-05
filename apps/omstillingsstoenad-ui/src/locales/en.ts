@@ -39,37 +39,43 @@ export default {
     'forside.omYtelsene.innhold.li2':
         'We will assess whether you are entitled to a survivor’s pension or transitional benefit, based on your situation.',
     'forside.omYtelsene.innhold.li3': 'How much money you will receive depends on your current income.',
-    'forside.omYtelsene.innhold.merOmOmstillingsstoenad': 'Curious about who is eligible, how much you can receive, or other questions about benefits, you can',
+    'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
+        'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
     'forside.omYtelsene.lenkeGjenlevende.href':
         'https://www.nav.no/en/home/benefits-and-services/relatert-informasjon/benefits-for-surviving-spouse',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'Read more about survivor’s pension',
+    'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about survivor’s pension',
     'forside.barnepensjon.tittel': 'You can also apply for a children’s pension',
     'forside.barnepensjon.innhold':
         'If you have a joint child under the age of 18 with the deceased, the child(ren) may be entitled to a children’s pension.',
     'forside.omSoeknaden.personvern': 'Personal data protection',
     'forside.uthentingAvInfo.tittel': 'We gather the information we need',
     'forside.uthentingAvInfo.innhold':
-        'To process your application we need information about you, the deceased, any children and (as applicable) your cohabiting partner. We gather:',
+        'In order to process your application, we need to gather information about you as the applicant and information about third others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with NAV. \n\n In addition to the information you provide during the application process, NAV is also authorised to collect:',
     'forside.uthentingAvInfo.innholdListe.li1':
-        '<strong>Personal information</strong> from the Norwegian National Registry (“Folkeregisteret”)',
+        '<strong>Personal information</strong> from the National Population Register (national identification number, address, nationality, citizenship, marital status)',
     'forside.uthentingAvInfo.innholdListe.li2':
-        '<strong>Information about your income</strong> from the Norwegian Tax Administration (“Skatteetaten”)',
+        '<strong>Income information</strong> from the Norwegian Tax Administration (taxable income for the current year)',
     'forside.uthentingAvInfo.innholdListe.li3':
-        'Information about your <strong>work situation</strong> from the NAV State Register of Employers and Employees (the Aa Register)',
+        'Information about <strong>employment</strong> from employers and the national register of employees',
     'forside.uthentingAvInfo.innholdListe.li4':
-        'Information about <strong>other support you are receiving from NAV</strong>',
+        'Information about <strong>other benefits you may be receiving from NAV</strong> (such as retirement pension or disability pension)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'As applicable, information from <strong>foreign social security authorities</strong>',
-    'forside.uthentingAvInfo.innholdListe.li6': '<MANGLER TEKST>',
-    'forside.personvern.aktivitetsplikt': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson.li1': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson.li2': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson.li3': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson.li4': '<MANGLER TEKST>',
-    'forside.personvern.innhold': '<MANGLER TEKST>',
+        'Information from <strong>foreign national insurance/social security authorities</strong> (if applicable)',
+    'forside.uthentingAvInfo.innholdListe.li6':
+        'Information from the Norwegian State Educational Loan Fund to verify education/training (if applicable)',
+    'forside.personvern.aktivitetsplikt':
+        "If relevant to assess your activity obligation, we may also collect information from internal systems like <strong>NAV's job seeker register</strong>",
+    'forside.personvern.tredjeperson':
+        'Information about and from other persons associated with the applicant that we may need:',
+    'forside.personvern.tredjeperson.li1': 'Name',
+    'forside.personvern.tredjeperson.li2': 'National identity number',
+    'forside.personvern.tredjeperson.li3':
+        'If, or the extent of, this person had/has common children with the applicant',
+    'forside.personvern.tredjeperson.li4': 'Marital status',
+    'forside.personvern.innhold':
+        "If you would like to learn more about how we process and safeguard personal data, please read NAV's ",
     'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
-    'forside.personvern.tekst': '<MANGLER TEKST>',
+    'forside.personvern.tekst': 'privacy policy online.',
     'forside.samtykke.tittel': 'We trust you',
     'forside.samtykke.innhold':
         'You must provide us with the correct information so that we can process your application.',
@@ -77,14 +83,14 @@ export default {
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'I confirm that the information I provide is correct and complete.',
-    'situasjonenDin.tittel': '<MANGLER TEKST>',
+    'situasjonenDin.tittel': 'Your situation',
     'situasjonenDin.ingress':
-        'Your right to transitional benefits depends on your activity to maintain or increase your employment situation.\n\n During a transitional period of six months after the death, there is no requirement that you have been working or in another activity.\n\n You are however required to have worked or have work-related activity of at least fifty percent after six months have passed. Once a year has passed since the death, you may be required to work or perform work-related activity full time.',
+        'Your right to transitional benefits may be influenced by\n - Your current marital status\n - Care that you provide to children or others\n - Stays outside Norway',
     'situasjonenDin.omsorgForBarn.tittel': 'Childcare',
     'situasjonenDin.omsorgMinstFemti':
         'Did you perform at least 50 percent of childcare for children younger than 18 at the time of death?',
     'situasjonenDin.omsorgMinstFemti.dokumentasjon':
-        'You must document the childcare situation. If you have, or have had, a common child/children with, or were married at least five years, with the deceased, you do not need to document the care situation.',
+        'In certain situations, we may ask you to document the caregiving obligations you provide to children or others.',
     'situasjonenDin.nySivilstatus.sivilstatus': 'Your marital status today',
     'situasjonenDin.nySivilstatus.beskrivelse':
         'If you have remarried or moved in with a new partner, this may affect whether you can receive survivor’s pension and the size of the pension.',
@@ -105,9 +111,9 @@ export default {
     'situasjonenDin.oppholderSegIUtlandet.oppholdsland': 'State which country',
     'situasjonenDin.bosattINorge': 'Are you residing in Norway?',
     'situasjonenDin.bosattLand': 'State which country you are residing in',
-    'merOmSituasjonenDin.tittel': 'Your situation',
+    'merOmSituasjonenDin.tittel': 'More about your situation',
     'merOmSituasjonenDin.ingress':
-        'Your right to transitional benefits depends on your activity to maintain or increase your employment situation.\n\n During a transitional period of six months after the death, there is no requirement that you have been working or in another activity.\n\n You are however required to have worked or have work-related activity of at least fifty percent after six months have passed. Once a year has passed since the death, you may be required to work or perform work-related activity full time.',
+        'Your right to transitional benefits depends on your activity to maintain or increase your employment situation.\n\n During a transitional period of 6 months after the death, you are not required to be working or in another activity.\n\n Once 6 months have passed, the main rule is that you have begun work or have another activity that will allow you to provide for yourself.',
     'merOmSituasjonenDin.jobbStatus.tittel': 'Work, education, training and other activities in Norway and abroad',
     'merOmSituasjonenDin.jobbStatus': 'What is your situation now?',
     'merOmSituasjonenDin.jobbStatus.hvorfor':
@@ -256,43 +262,58 @@ export default {
     'inntektenDin.ingress':
         'The size of your survivor’s pension depends on your earned income. We calculate your expected income on the basis of your current work situation and your income. Income is retrieved from the Norwegian Tax Administration (“Skatteetaten”).',
     'inntektenDin.inntektstyper': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.tittel': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.tittel': 'Income from work',
     'inntektenDin.loennsinntekt.ingress': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norgeEllerUtland': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norgeEllerUtland.norge': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norgeEllerUtland.utland': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.info': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.norgeEllerUtland': 'Where do you earn this income?',
+    'inntektenDin.loennsinntekt.norgeEllerUtland.norge': 'Income earned from working in Norway',
+    'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Income from work earned abroad',
+    'inntektenDin.loennsinntekt.info':
+        'If your income changes after you submit your application, you must notify NAV about these changes.',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer':
+        'What was your gross annual income in the year before the death?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer':
+        'What was your gross annual income in the year before the death?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
+        'If you do not know your income for this year, you can state the annual income shown on your pay slip for December.',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall':
+        'What was your gross income from work prior to the death?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall':
+        'What was your gross income from work prior to the death?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
+        'Please state your income for January and up to and including the month of the death. If the month of the death was December, please state your entire annual income',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
+        'What do you expect to earn in gross annual income for next year?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
+        'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.tittel': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.ingress': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.info': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.tittel': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse': '<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Where do you earn this income?',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Business income in Norway',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Business income abroad',
+    'inntektenDin.naeringsinntekt.info':
+        'If your income changes after you submit your application, you must notify NAV about these changes.',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer':
+        'What was your gross annual income in the year before the death?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer':
+        'What was your gross annual income in the year before the death?',
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
+        'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tittel': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': '<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall':
+        'What was your gross business income prior to the death?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall':
+        'What was your gross business income prior to the death?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall': '<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
+        'What do you expect to earn in gross annual income for next year?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
+        'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': '<MANGLER TEKST>',
@@ -482,7 +503,7 @@ export default {
     'oppsummering.feilVedSending.href': 'https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler',
     'soeknadKvittering.tittel': 'Your application has been submitted',
     'soeknadKvittering.mottatt':
-        'We have received your application for transitional benefits. NAV will now process and review your case. We will contact you if we need more information or documentation.',
+        'We have received your application for transitional benefits. NAV will now process and review your case. We will contact you if we need more information or documentation from you.',
     'soeknadKvittering.endring.tittel': 'You must notify us of any changes',
     'soeknadKvittering.endring.informasjon':
         'You must notify us promptly if any important changes occur in your life. Examples include:',
@@ -497,13 +518,13 @@ export default {
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'rights and obligations',
     'soeknadKvittering.seSaken.tittel': 'Check the satus of your application',
     'soeknadKvittering.seSaken.informasjon.innhold1':
-        'You will receive an SMS or e-mail once your case has been processed. In the meantime, you will find your application here',
+        'You will receive an SMS or e-mail once your case has been processed. In the meantime, you will find your application on ',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'your personal NAV page',
     'soeknadKvittering.seSaken.informasjon.innhold2':
-        'Curious about how long this will take? That information is available here',
+        'Curious about how long this will take? That information is available here: ',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider',
-    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'expected case processing time.',
+    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'Expected case processing time.',
     'soeknadKvittering.andreStoenader.tittel': 'You may also be entitled to other benefits',
     'soeknadKvittering.andreStoenader.informasjon':
         'Are you studying, looking for employment or have children? You may also have the right to other financial support such as childcare benefits, educational grants or job seeker benefits',
@@ -574,12 +595,12 @@ export default {
     'jobbStatus.underUtdanning': 'I am taking education',
     'jobbStatus.arbeidssoker': 'I am a job seeker',
     'jobbStatus.ingen': 'Other',
-    'inntekt.loenn': '<MANGLER TEKST>',
+    'inntekt.loenn': 'Income from work',
     'inntekt.naering': '<MANGLER TEKST>',
     'inntekt.pensjonEllerUfoere': '<MANGLER TEKST>',
     'inntekt.annen': '<MANGLER TEKST>',
-    'inntekt.norge': '<MANGLER TEKST>',
-    'inntekt.utland': '<MANGLER TEKST>',
+    'inntekt.norge': 'Norway',
+    'inntekt.utland': 'Abroad',
     'soekbarYtelse.dagspenger': '<MANGLER TEKST>',
     'soekbarYtelse.sykepenger': '<MANGLER TEKST>',
     'soekbarYtelse.pleiepenger': '<MANGLER TEKST>',
@@ -839,7 +860,7 @@ export default {
     'feil.utbetalingsInformasjon.swift.required': 'The bank’s SWIFT code or BIC is a required field',
     'feil.utbetalingsInformasjon.swift.validate': 'Invalid SWIFT code or BIC',
     'feil.inntektstyper.required': '<MANGLER TEKST>',
-    'feil.loennsinntekt.norgeEllerUtland.required': '<MANGLER TEKST>',
+    'feil.loennsinntekt.norgeEllerUtland.required': 'Tick the source of your income',
     'feil.loennsinntekt.norge.arbeidsinntektAaretFoer.required': '<MANGLER TEKST>',
     'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required': '<MANGLER TEKST>',
     'feil.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required': '<MANGLER TEKST>',
@@ -849,7 +870,7 @@ export default {
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': '<MANGLER TEKST>',
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': '<MANGLER TEKST>',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': '<MANGLER TEKST>',
-    'feil.naeringsinntekt.norgeEllerUtland.required': '<MANGLER TEKST>',
+    'feil.naeringsinntekt.norgeEllerUtland.required': 'Tick the source of your business income',
     'feil.naeringsinntekt.norge.arbeidsinntektAaretFoer.required': '<MANGLER TEKST>',
     'feil.naeringsinntekt.utland.arbeidsinntektAaretFoer.required': '<MANGLER TEKST>',
     'feil.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required': '<MANGLER TEKST>',

@@ -28,8 +28,9 @@ export default {
     'knapp.ja': 'Ja, send søknad',
     'knapp.nei': 'Nei, gå tilbake',
     'forside.tittel': 'Søk om omstillingsstønad',
-    'forside.ingress': 'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n' +
-    'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
+    'forside.ingress':
+        'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n' +
+        'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
     'forside.startSoeknad': 'Start søknad',
     'forside.omYtelsene.innhold':
         'Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til omstillingsstønad eller overgangsstønad til atterlevande.',
@@ -38,7 +39,8 @@ export default {
     'forside.omYtelsene.innhold.li2':
         'Vi vil vurdere om du har rett på omstillingsstønad eller overgangsstønad basert på situasjonen din.',
     'forside.omYtelsene.innhold.li3': 'Inntekta di avgjer kor mykje pengar du kan få.',
-    'forside.omYtelsene.innhold.merOmOmstillingsstoenad': 'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du',
+    'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
+        'Curious about who is eligible, how much you can receive, or other questions about benefits, you can',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad',
     'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
@@ -47,38 +49,44 @@ export default {
     'forside.omSoeknaden.personvern': 'Personvern og tryggleik',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
-        'For å kunne behandle søknaden din trenger vi informasjon om deg, avdøde, eventuelle barn og eventuell sambuar.\nVi henter:',
-    'forside.uthentingAvInfo.innholdListe.li1': '<strong>Personinformasjon</strong> frå Folkeregisteret',
-    'forside.uthentingAvInfo.innholdListe.li2': '<strong>Inntektsinformasjon</strong> frå Skatteetaten',
+        "'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere barn du har omsorg for, ny ektefelle eller sambuar, eller ein verje som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande:\n",
+    'forside.uthentingAvInfo.innholdListe.li1':
+        '<strong>Personinformasjon</strong> frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
+    'forside.uthentingAvInfo.innholdListe.li2':
+        '<strong>Inntektsinformasjon</strong> frå Skatteetaten (skattepliktig inntekt inneverande år)',
     'forside.uthentingAvInfo.innholdListe.li3':
-        'Opplysingar om <strong>arbeidsforhold</strong> frå Arbeidsgivar- og arbeidstakarregisteret',
-    'forside.uthentingAvInfo.innholdListe.li4': 'Opplysingar om <strong>anna støtte frå NAV</strong>',
+        'Opplysningar om <strong>arbeidsforholdet</strong> ditt frå Arbeidsgivar- og arbeidstakarregisteret',
+    'forside.uthentingAvInfo.innholdListe.li4':
+        'Opplysningar om <strong> anna fortløpande støtte frå NAV</strong>(t.d. alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'Eventuelt informasjon frå <strong>utanlandske trygdemyndigheiter</strong>',
-    'forside.uthentingAvInfo.innholdListe.li6': '<MANGLER TEKST>',
-    'forside.personvern.aktivitetsplikt': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson.li1': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson.li2': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson.li3': '<MANGLER TEKST>',
-    'forside.personvern.tredjeperson.li4': '<MANGLER TEKST>',
-    'forside.personvern.innhold': '<MANGLER TEKST>',
+        'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
+    'forside.uthentingAvInfo.innholdListe.li6':
+        'Informasjon frå Lånekassen for å verifisere utdanning (der dette er aktuelt)',
+    'forside.personvern.aktivitetsplikt':
+        'Dersom det er relevant i samband med aktivitetsplikta, kan vi også samle inn opplysningar frå interne system som m.a. <strong>Arbeidssøkjarregisteret</strong>',
+    'forside.personvern.tredjeperson':
+        'Det kan vere aktuelt for oss å hente inn følgjande opplysningar om tredjepersonar som er knytte til søkjar:',
+    'forside.personvern.tredjeperson.li1': 'Namn',
+    'forside.personvern.tredjeperson.li2': 'Fødselsnummer',
+    'forside.personvern.tredjeperson.li3': 'Om vedkomande har hatt/har felles barn med søkjar',
+    'forside.personvern.tredjeperson.li4': 'Sivilstand',
+    'forside.personvern.innhold': 'Du har rett til innsyn i saka di. Her kan du lese meir om korleis NAV varetek ',
     'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
-    'forside.personvern.tekst': '<MANGLER TEKST>',
+    'forside.personvern.tekst': 'personvern og tryggleik på nav.no',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold': 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
-    'situasjonenDin.tittel': '<MANGLER TEKST>',
+    'situasjonenDin.tittel': 'Situasjonen din',
     'situasjonenDin.ingress':
-        'Retten din til omstillingsstønad avheng av aktiviteten din for å oppretthalde eller auke arbeidstilknytinga di.\\n\\n I ein omstillingsperiode på seks månader etter dødsfallet blir det ikkje stilt krav til at du er i arbeid eller annan aktivitet.\\n\\n Det er et krav at du er i minst femti prosent arbeid eller aktivitet etter seks månader. Når det har gått eitt år sidan dødsfallet, kan det bli stilt krav om at du må vere i arbeid eller arbeidsretta aktivitet på fulltid.',
+        'Følgjande kan påverke retten din til omstillingsstønad:\n - sivilstanden din i dag\n - omsorg for barn\n - opphald utanfor Noreg',
     'situasjonenDin.omsorgForBarn.tittel': 'Omsorg for barn',
     'situasjonenDin.omsorgMinstFemti':
         'Hadde du minst 50 prosent omsorg for barn under 18 år på tidspunktet for dødsfallet?',
     'situasjonenDin.omsorgMinstFemti.dokumentasjon':
-        'Du må dokumentere omsorgsforholdet. Dersom du har eller hatt felles barn med, eller vore gift i minst fem år med avdøde, treng du ikkje dokumentere omsorga.',
+        'Du kan i visse tilfelle bli beden om å dokumentere omsorgsforholdet.',
     'situasjonenDin.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
     'situasjonenDin.nySivilstatus.beskrivelse':
         'Viss du har gifta deg eller blitt sambuar på nytt kan det avgjere om du kan få omstillingsstønad og kor mykje du kan få.',
@@ -99,8 +107,9 @@ export default {
         'Ventar du barn eller har du barn som framleis ikkje er registrert i folkeregisteret?',
     'situasjonenDin.bosattINorge': 'Er du busett i Noreg?',
     'situasjonenDin.bosattLand': 'Oppgi kva land du er busett i',
-    'merOmSituasjonenDin.tittel': 'Situasjonen din',
-    'merOmSituasjonenDin.ingress': '<MANGLER TEKST>',
+    'merOmSituasjonenDin.tittel': 'Meir om situasjonen din',
+    'merOmSituasjonenDin.ingress':
+        'Retten din til omstillingsstønad avheng av aktiviteten din for å oppretthalde eller auke arbeidstilknytinga di.\n\n I ein omstillingsperiode på 6 månader etter dødsfallet blir det ikkje stilt krav til at du er i arbeid eller annan aktivitet.\n\n Etter 6 månader, må du som hovudregel jobbe eller ha annan aktivitet, slik at du etter kvart kan forsørgje deg sjølv.',
     'merOmSituasjonenDin.jobbStatus.tittel': 'Arbeid, utdanning og andre aktivitetar i Noreg og i utlandet',
     'merOmSituasjonenDin.jobbStatus': 'Kva er situasjonen din no?',
     'merOmSituasjonenDin.jobbStatus.hvorfor':
@@ -242,43 +251,52 @@ export default {
     'inntektenDin.ingress':
         'Kor mykje du kan få i omstillingsstønad er avhengig av arbeidsinntekta di. Vi bereknar ut forventa inntekt både på grunnlag av arbeidssituasjonen og inntekten din. Inntekt hentar vi frå Skatteetaten.',
     'inntektenDin.inntektstyper': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.tittel': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.tittel': 'Arbeidsinntekt',
     'inntektenDin.loennsinntekt.ingress': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norgeEllerUtland': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norgeEllerUtland.norge': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norgeEllerUtland.utland': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.info': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.norgeEllerUtland': 'Kor får du arbeidsinntekt frå?',
+    'inntektenDin.loennsinntekt.norgeEllerUtland.norge': 'Arbeidsinntekt i Noreg',
+    'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Arbeidsinntekt i utlandet',
+    'inntektenDin.loennsinntekt.info':
+        'Dersom inntekta di endrar seg etter at du har sendt inn søknaden, må du melde frå til oss om endringa.',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall': '<MANGLER TEKST>',
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
+        'Dersom du ikkje veit inntekta for dette året, kan du oppgi årsinntekta som står på lønsslippen for desember.',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall':
+        'Kva var brutto arbeidsinntekt fram til dødsfallet?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall':
+        'Kva var brutto arbeidsinntekt fram til dødsfallet?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
+        'Oppgi inntekt frå januar til og med same månad som dødsfallet. Dersom dødsfallet skjedde i desember, oppgir du heile årsinntekta',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
+        'Kva reknar du med å ha i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
+        'Kva reknar du med å ha i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.tittel': '<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
     'inntektenDin.naeringsinntekt.ingress': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.info': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.tittel': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse': '<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Kor får du arbeidsinntekt frå?',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Næringsinntekt i Noreg',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Næringsinntekt i utlandet',
+    'inntektenDin.naeringsinntekt.info':
+        'Dersom inntekta di endrar seg etter at du har sendt inn søknaden, må du melde frå til oss om endringa.',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
+        'Dersom Skatteetaten ikkje har slått fast inntekta enno, anslår du næringsinntekta sjølv.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tittel': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': '<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': 'Kva er brutto næringsinntekt i år?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': 'Kva er brutto næringsinntekt i år?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall': '<MANGLER TEKST>',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall': '<MANGLER TEKST>',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
+        'Kva reknar du med å ha i brutto årsinntekt til neste år?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
+        'Kva reknar du med å ha i brutto årsinntekt til neste år?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar': '<MANGLER TEKST>',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': '<MANGLER TEKST>',
@@ -481,7 +499,8 @@ export default {
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventet saksbehandlingstid.',
     'soeknadKvittering.andreStoenader.tittel': 'Du kan også ha rett til andre stønader',
-    'soeknadKvittering.andreStoenader.informasjon': 'Er du under utdanning, søkjer du jobb eller har de barn? Då kan du også ha rett på andre støtteordningar som til dømes barnepass eller dekking av utgifter du har i samband med utdanning eller jobbsøk',
+    'soeknadKvittering.andreStoenader.informasjon':
+        'Er du under utdanning, søkjer du jobb eller har de barn? Då kan du også ha rett på andre støtteordningar som til dømes barnepass eller dekking av utgifter du har i samband med utdanning eller jobbsøk',
     'soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst':
         'Stønad til skolepenger for attlevande ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst':
@@ -550,12 +569,12 @@ export default {
     'jobbStatus.underUtdanning': 'Eg tek utdanning',
     'jobbStatus.arbeidssoker': 'Jeg er arbeidssøker',
     'jobbStatus.ingen': 'Anna',
-    'inntekt.loenn': '<MANGLER TEKST>',
-    'inntekt.naering': '<MANGLER TEKST>',
+    'inntekt.loenn': 'Arbeidsinntekt',
+    'inntekt.naering': 'Næringsinntekt',
     'inntekt.pensjonEllerUfoere': '<MANGLER TEKST>',
     'inntekt.annen': '<MANGLER TEKST>',
-    'inntekt.norge': '<MANGLER TEKST>',
-    'inntekt.utland': '<MANGLER TEKST>',
+    'inntekt.norge': 'Noreg',
+    'inntekt.utland': 'Utland',
     'soekbarYtelse.dagspenger': '<MANGLER TEKST>',
     'soekbarYtelse.sykepenger': '<MANGLER TEKST>',
     'soekbarYtelse.pleiepenger': '<MANGLER TEKST>',
@@ -806,7 +825,7 @@ export default {
     'feil.utbetalingsInformasjon.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fylles ut',
     'feil.utbetalingsInformasjon.swift.validate': 'Ugyldig SWIFT/BIC kode',
     'feil.inntektstyper.required': '<MANGLER TEKST>',
-    'feil.loennsinntekt.norgeEllerUtland.required': '<MANGLER TEKST>',
+    'feil.loennsinntekt.norgeEllerUtland.required': 'Du må krysse av for kor du får arbeidsinntekt frå',
     'feil.loennsinntekt.norge.arbeidsinntektAaretFoer.required': '<MANGLER TEKST>',
     'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required': '<MANGLER TEKST>',
     'feil.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required': '<MANGLER TEKST>',
@@ -816,7 +835,7 @@ export default {
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': '<MANGLER TEKST>',
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': '<MANGLER TEKST>',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': '<MANGLER TEKST>',
-    'feil.naeringsinntekt.norgeEllerUtland.required': '<MANGLER TEKST>',
+    'feil.naeringsinntekt.norgeEllerUtland.required': 'Du må krysse av for kor du får næringsinntekt frå',
     'feil.naeringsinntekt.norge.arbeidsinntektAaretFoer.required': '<MANGLER TEKST>',
     'feil.naeringsinntekt.utland.arbeidsinntektAaretFoer.required': '<MANGLER TEKST>',
     'feil.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required': '<MANGLER TEKST>',
