@@ -130,7 +130,7 @@ export default {
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studie': 'Namnet på utdanninga',
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieform': 'Studieform',
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent': 'Kva er studieprosenten din?',
-    'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent.beskrivelse': 'til dømes 50 %',
+    'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent.beskrivelse': 'Til dømes 50 %',
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde': 'Kor lenge skal du studere?',
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse': 'Oppgi lengde på utdanninga.',
     'merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato': 'Frå dato',
