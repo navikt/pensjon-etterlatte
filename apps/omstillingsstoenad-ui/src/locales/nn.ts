@@ -37,7 +37,7 @@ export default {
     'forside.omYtelsene.innhold.li1':
         'Du kan også ha rett til støtte viss du tidlegare har vore gift, partnar eller sambuar med avdøde.',
     'forside.omYtelsene.innhold.li2':
-        'Vi vil vurdere om du har rett på omstillingsstønad eller overgangsstønad basert på situasjonen din.',
+        'Etter 6 månader, må du som hovudregel jobbe eller ha annan aktivitet, slik at du etter kvart kan forsørgje deg sjølv.',
     'forside.omYtelsene.innhold.li3': 'Inntekta di avgjer kor mykje pengar du kan få.',
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
         'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du ',
@@ -57,7 +57,7 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li3':
         'Opplysningar om <strong>arbeidsforholdet</strong> ditt frå Arbeidsgivar- og arbeidstakarregisteret',
     'forside.uthentingAvInfo.innholdListe.li4':
-        'Opplysningar om <strong> anna fortløpande støtte frå NAV</strong>(t.d. alderspensjon eller uføretrygd)',
+        'Opplysningar om <strong> anna fortløpande støtte frå NAV</strong> (t.d. alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
         'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
     'forside.uthentingAvInfo.innholdListe.li6':
@@ -149,7 +149,7 @@ export default {
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning':
         'Informasjon om tilleggsstønad til skuleutgifter',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse':
-        'Som attlevande ektefelle kan du også søke om tilleggsstønad viss du gjennomfører utdanning som er godkjent av NAV. Du kan få støtte til dekning av nødvendige utgifter som du har under utdanninga, for eksempel utgifter til læremiddel, reiser, flytting og ekstra utgifter til bustad.',
+        'Som attlevande ektefelle kan du også søke om tilleggsstønad viss du gjennomfører utdanning som er godkjent av NAV. Du kan få støtte til dekning av nødvendige utgifter som du har under utdanninga, til dømes utgifter til læremiddel, reiser, flytting og ekstra utgifter til bustad.',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse': 'Eg har utgifter til utdanning',
     'merOmSituasjonenDin.selvstendig.tittel': 'Om næringa',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen': 'Kva heiter firmaet?',
@@ -283,7 +283,7 @@ export default {
     'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
     'inntektenDin.naeringsinntekt.ingress':
         'All næringsinntekt frå Noreg og utlandet skal takast med i næringsinntekta du oppgir. Oppgi næringsinntektene i norske kroner.',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Kor får du arbeidsinntekt frå?',
+    'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Kor får du næringsinntekt frå?',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Næringsinntekt i Noreg',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Næringsinntekt i utlandet',
     'inntektenDin.naeringsinntekt.info':
@@ -494,7 +494,7 @@ export default {
         'Vi har fått søknaden din om omstillingsstønad. Saka di er no til behandling hos NAV. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon frå deg.',
     'soeknadKvittering.endring.tittel': 'Du må melde frå om endringar',
     'soeknadKvittering.endring.informasjon':
-        'Du må melde frå med ein gong det skjer viktige endringar i livet ditt. Det kan for eksempel vere viss:',
+        'Du må melde frå med ein gong det skjer viktige endringar i livet ditt. Det kan til dømes vere viss:',
     'soeknadKvittering.endring.endringsListe.sivilstatus': 'Du gifter deg, får sambuar eller får barn med sambuar',
     'soeknadKvittering.endring.endringsListe.inntekt': 'Inntekta di endrar seg',
     'soeknadKvittering.endring.endringsListe.bosted':
@@ -502,7 +502,7 @@ export default {
     'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese meir om dine ',
     'soeknadKvittering.endring.rettigheter.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'rettar og plikter på',
+    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'rettar og plikter.',
     'soeknadKvittering.seSaken.tittel': 'Sjekk status i saka di',
     'soeknadKvittering.seSaken.informasjon.innhold1':
         'Du får varsel på SMS eller e-post når saka er ferdigbehandla. I mellomtida kan du sjå søknaden din på',
@@ -523,7 +523,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
         'https://www.nav.no/gjenlevendepensjon#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon':
-        'Tek du utdanning eller søker jobb? Då kan du også ha rett til støtte til barnepass og utgifter du har i forbindelse med utdanning eller jobbsøking:',
+        'Du finn meir informasjon om støtteordningar på ',
     'soeknadKvittering.spoersmaal.knapp': 'Les meir om omstillingsstønad',
     'sideIkkeFunnet.tittel': 'Oi, her var det noe rusk',
     'sideIkkeFunnet.alert': 'Siden du har etterspurt finnes ikke.',
