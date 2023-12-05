@@ -459,9 +459,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
         <div
           class="sc-crrtmM eLHIsE"
         >
-          <div
-            class="kol-50"
-          >
+          <div>
             <div
               class="navds-form-field navds-form-field--medium"
             >
@@ -474,7 +472,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="arbeidsforhold[0].arbeidsgiver"
-                size="40"
+                size="35"
                 type="text"
                 value="Potetskreller AS"
               />
@@ -913,9 +911,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
         <fieldset
           class="sc-bdfCDU iGBHmN"
         >
-          <div
-            class="kol-75"
-          >
+          <div>
             <div
               class="navds-form-field navds-form-field--medium"
             >
@@ -935,7 +931,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
                 aria-describedby="textField-description-r2e"
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="selvstendig.[0].beskrivelse"
-                size="40"
+                size="35"
                 type="text"
                 value=""
               />
@@ -2197,9 +2193,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
         <div
           class="sc-crrtmM eLHIsE"
         >
-          <div
-            class="kol-50"
-          >
+          <div>
             <div
               class="navds-form-field navds-form-field--medium"
             >
@@ -2212,7 +2206,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="arbeidsforhold[0].arbeidsgiver"
-                size="40"
+                size="35"
                 type="text"
                 value="Potetskreller AS"
               />
