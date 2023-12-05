@@ -287,7 +287,6 @@ export default {
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
         'What do you expect to earn in gross annual income for next year?',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': '<MANGLER TEKST>',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': '<MANGLER TEKST>',
