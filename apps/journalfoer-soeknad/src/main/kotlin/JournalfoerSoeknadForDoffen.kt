@@ -16,13 +16,13 @@ import org.slf4j.LoggerFactory
 import java.time.Clock
 import java.time.OffsetDateTime
 
-internal class JournalfoerSoeknad(
+internal class JournalfoerSoeknadForDoffen(
     rapidsConnection: RapidsConnection,
     private val dokumentService: DokumentService,
     private val journalfoeringService: JournalfoeringService,
     private val klokke: Clock = Clock.systemUTC()
 ) : River.PacketListener {
-    private val logger = LoggerFactory.getLogger(JournalfoerSoeknad::class.java)
+    private val logger = LoggerFactory.getLogger(JournalfoerSoeknadForDoffen::class.java)
 
     init {
         River(rapidsConnection).apply {
@@ -33,8 +33,10 @@ internal class JournalfoerSoeknad(
             validate { it.requireKey("@fnr_soeker") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("@hendelse_gyldig_til") }
-            validate { it.rejectValue("@skjema_info.type", "BARNEPENSJON") }
+            validate { it.requireValue("soeknadFordelt", true) }
+            validate { it.interestedIn("sakId") }
             validate { it.rejectKey("@dokarkivRetur") }
+            validate { it.interestedIn("trengerManuellJournalfoering") }
         }.register(this)
     }
 
@@ -70,7 +72,8 @@ internal class JournalfoerSoeknad(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
 
-        val (tema, behandlingstema) = hentTemakoder(soeknad.type)
+        val trengerManuellJournalfoering = packet["trengerManuellJournalfoering"].asBoolean()
+        val forsoekFerdigstill = !trengerManuellJournalfoering
 
         return journalfoeringService.journalfoer(
             soeknadId = soeknadId,
@@ -78,18 +81,18 @@ internal class JournalfoerSoeknad(
             gradering = gradering,
             dokument = dokument,
             soeknad = soeknad,
-            tema = tema,
-            behandlingstema = behandlingstema,
-            forsoekFerdigstill = false,
-            sakId = null
+            tema = hentTema(soeknad.type),
+            behandlingstema = null,
+            forsoekFerdigstill = forsoekFerdigstill,
+            sakId = packet["sakId"].asText()
         )
     }
 
-    private fun hentTemakoder(soeknadType: SoeknadType): Pair<String, String?> =
-        when (soeknadType) {
-            SoeknadType.OMSTILLINGSSTOENAD -> "EYO" to null
-            SoeknadType.GJENLEVENDEPENSJON -> "PEN" to soeknadType.behandlingstema
-            SoeknadType.BARNEPENSJON ->
-                throw IllegalArgumentException("Barnepensjon skal ikke journalføres av denne riveren!")
+    private fun hentTema(soeknadType: SoeknadType): String {
+        return when (soeknadType) {
+            SoeknadType.BARNEPENSJON -> "EYB"
+            SoeknadType.OMSTILLINGSSTOENAD -> "EYO"
+            else -> throw IllegalArgumentException("Kan ikke hente tema for soeknadType=$soeknadType")
         }
+    }
 }
