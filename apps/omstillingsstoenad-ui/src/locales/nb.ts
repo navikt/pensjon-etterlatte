@@ -50,16 +50,20 @@ export default {
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
         'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være barn du har omsorg for ny ektefelle eller samboer eller verge som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
-    'forside.uthentingAvInfo.innholdListe.li1': '<strong>Personinformasjon</strong> fra Folkeregisteret (Personnummer, adresse, statsborgerskap, sivilstand)',
-    'forside.uthentingAvInfo.innholdListe.li2': '<strong>Inntektsinformasjon</strong> fra Skatteetaten (Informasjon om skattebelagt inntekt inneværende år)',
+    'forside.uthentingAvInfo.innholdListe.li1':
+        '<strong>Personinformasjon</strong> fra Folkeregisteret (Personnummer, adresse, statsborgerskap, sivilstand)',
+    'forside.uthentingAvInfo.innholdListe.li2':
+        '<strong>Inntektsinformasjon</strong> fra Skatteetaten (Informasjon om skattebelagt inntekt inneværende år)',
     'forside.uthentingAvInfo.innholdListe.li3':
         'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
-    'forside.uthentingAvInfo.innholdListe.li4': 'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (For eksempel alderspensjon eller uføretrygd)',
+    'forside.uthentingAvInfo.innholdListe.li4':
+        'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (For eksempel alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
         'Informasjon fra <strong>utenlandske trygdemyndigheter</strong> (der dette er aktuelt)',
     'forside.uthentingAvInfo.innholdListe.li6':
-      'Informasjon fra Lånekassen for å verifisere utdanning (der dette er aktuelt)',
-    'forside.personvern.aktivitetsplikt': 'Dersom det er relevant i forbindelse med aktivitetsplikten kan vi også samle inn opplysninger fra interne systemer som <strong>Arbeidssøkerregisteret</strong>.',
+        'Informasjon fra Lånekassen for å verifisere utdanning (der dette er aktuelt)',
+    'forside.personvern.aktivitetsplikt':
+        'Dersom det er relevant i forbindelse med aktivitetsplikten kan vi også samle inn opplysninger fra interne systemer som <strong>Arbeidssøkerregisteret</strong>.',
     'forside.personvern.tredjeperson': 'Om tredjepersoner tilknyttet deg kan vi ha behov for å hente inn:',
     'forside.personvern.tredjeperson.li1': 'Navn',
     'forside.personvern.tredjeperson.li2': 'Fødselsnummer',
@@ -88,7 +92,8 @@ export default {
     'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
     'situasjonenDin.omsorgForBarn.tittel': 'Omsorg for barn',
     'situasjonenDin.omsorgMinstFemti': 'Har du minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet?',
-    'situasjonenDin.omsorgMinstFemti.dokumentasjon': 'Du kan i noen tilfeller bli bedt om å dokumentere omsorgsforholdet.',
+    'situasjonenDin.omsorgMinstFemti.dokumentasjon':
+        'Du kan i noen tilfeller bli bedt om å dokumentere omsorgsforholdet.',
     'situasjonenDin.gravidEllerNyligFoedt':
         'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
     'situasjonenDin.oppholdUtenforNorge.tittel': 'Opphold utenfor Norge',
@@ -263,12 +268,16 @@ export default {
         'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, kan du oppgi totalinntekten som vises på lønnsslippen for desember.',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
         'Dersom du ikke kjenner inntekten dette året, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall':
+        'Hva var brutto arbeidsinntekt frem til dødsfallet?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall':
+        'Hva var brutto arbeidsinntekt frem til dødsfallet?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
         'Oppgi inntekt fra januar til og med samme måned som dødsfallet. Hvis dødsfallsmåneden er desember, oppgir du hele årsinntekten.',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall': 'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall': 'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
+        'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
+        'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'Skriv hva du forventer å ha i arbeidsinntekt fra samme måned som dødsfallet til desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
@@ -283,20 +292,20 @@ export default {
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Næringsinntekt i utlandet',
     'inntektenDin.naeringsinntekt.info':
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.tittel': 'Næringsinntekten din året før dødsfallet',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, må du anslå næringsinntekten.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
-      'Dersom du ikke kjenner inntekten dette året, må du anslå næringsinntekten.',
-    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tittel': 'Næringsinntekten din i år',
+        'Dersom du ikke kjenner inntekten dette året, må du anslå næringsinntekten.',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': 'Hva er brutto næringsinntekt i år?',
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': 'Hva er brutto næringsinntekt i år?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
         'Anslå brutto næringsinntekt fra januar til måneden før dødsfallet.',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall': 'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall': 'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
+        'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
+        'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'Skriv hva du forventer å ha i næringsinntekt fra samme måned som dødsfallet til desember.',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
@@ -844,11 +853,11 @@ export default {
     'feil.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
-      'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
+        'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
-      'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
+        'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
-      'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+        'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
@@ -860,11 +869,11 @@ export default {
     'feil.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.utland.arbeidsinntektAaretFoer.required':
-      'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
+        'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
-      'Oppgi brutto næringsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
+        'Oppgi brutto næringsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
-      'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+        'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
