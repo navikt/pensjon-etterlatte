@@ -746,6 +746,7 @@ export default {
     'feil.kontaktinfo.telefonnummer.pattern': 'Må være et gyldig telefonnummer',
     'feil.kontaktinfo.telefonnummer.minLength': 'Må være et gyldig telefonnummer',
     'feil.oppholderSegIUtlandet.required': 'Opphold må besvares',
+    'feil.oppholderSegIUtlandet.svar.required': 'Opphold må besvares',
     'feil.jobbStatus.required': 'Oppgi situasjonen din',
     'feil.utdanning.hoyesteFullfoerteUtdanning.required': 'Oppgi høyeste fullførte utdanning',
     'feil.utdanning.annenUtdanning.required': 'Oppgi annen utdanning',

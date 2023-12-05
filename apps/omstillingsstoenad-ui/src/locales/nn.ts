@@ -744,6 +744,7 @@ export default {
     'feil.kontaktinfo.telefonnummer.pattern': 'Må vere eit gyldig telefonnummer',
     'feil.kontaktinfo.telefonnummer.minLength': 'Må vere eit gyldig telefonnummer',
     'feil.oppholderSegIUtlandet.required': 'Opphald i Noreg må svarast på',
+    'feil.oppholderSegIUtlandet.svar.required': 'Opphald i Noreg må svarast på',
     'feil.jobbStatus.required': 'Oppgi situasjonen din',
     'feil.utdanning.hoyesteFullfoerteUtdanning.required': 'Oppgi høgaste fullførte utdanning',
     'feil.utdanning.annenUtdanning.required': 'Oppgi anna utdanning',

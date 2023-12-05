@@ -42,7 +42,7 @@ export default {
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
         'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
     'forside.omYtelsene.lenkeGjenlevende.href':
-        'https://www.nav.no/en/home/benefits-and-services/relatert-informasjon/benefits-for-surviving-spouse',
+        'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about survivor’s pension',
     'forside.barnepensjon.tittel': 'You can also apply for a children’s pension',
     'forside.barnepensjon.innhold':
@@ -546,11 +546,11 @@ export default {
         'Allowance to cover tuition fees for a surviving spouse',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst': 'Child care benefit for a surviving spouse',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Extended child benefit',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'Supplemental benefits for a surviving spouse',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'other benefits for a surviving spouse.',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
         'https://www.nav.no/gjenlevendepensjon#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon':
-        'Are you taking education or looking for work? If so, you may also be entitled to support for child care and expenses you have in connection with your education or job seeking:',
+        'You will find more information about supplemental benefits on ',
     'soeknadKvittering.spoersmaal.knapp': 'Read more about transitional benefits here',
     'sideIkkeFunnet.tittel': 'Oops, something went wrong',
     'sideIkkeFunnet.alert': 'The page you have requested does not exist.',
@@ -610,7 +610,7 @@ export default {
     'jobbStatus.arbeidssoker': 'I am a job seeker',
     'jobbStatus.ingen': 'I am neither employed, studying or a job seeker',
     'inntekt.loenn': 'Income from work',
-    'inntekt.naering': '<MANGLER TEKST>',
+    'inntekt.naering': 'Business income',
     'inntekt.pensjonEllerUfoere': 'Pension or disability pension',
     'inntekt.annen': 'Other incomes or payments',
     'inntekt.norge': 'Norway',
@@ -772,6 +772,7 @@ export default {
     'feil.kontaktinfo.telefonnummer.pattern': 'Must be a valid phone number',
     'feil.kontaktinfo.telefonnummer.minLength': 'Must be a valid phone number',
     'feil.oppholderSegIUtlandet.required': 'You must answer this question about residence',
+    'feil.oppholderSegIUtlandet.svar.required': 'You must answer this question about residence',
     'feil.jobbStatus.required': 'State your situation',
     'feil.utdanning.hoyesteFullfoerteUtdanning.required': 'Enter your highest completed level of education',
     'feil.utdanning.annenUtdanning.required': 'Enter other education',
@@ -842,7 +843,7 @@ export default {
     'feil.arbeidsforhold.forventerEndretInntekt.svar.required': 'State whether you expect any changes in your income',
     'feil.arbeidsforhold.forventerEndretInntekt.beskrivelse.required': 'Select reason for change in income',
     'feil.arbeidsforhold.ansettelsesforhold.required': 'State conditions of employment',
-    'feil.arbeidsforhold.arbeidsmengde.svar.required': 'State work hours',
+    'feil.arbeidsforhold.arbeidsmengde.svar.required': 'State how much you have worked',
     'feil.arbeidsforhold.arbeidsmengde.type.required': 'Choose between percent or hours',
     'feil.arbeidsforhold.midlertidig.svar.required': 'Situation concerning end date must be answered',
     'feil.arbeidsforhold.midlertidig.sluttdatoVelger.required': 'State end date',
@@ -856,7 +857,7 @@ export default {
         'The organization number is incomplete. An organization number consists of 9 digits',
     'feil.etablererVirksomhet.forretningsplan.svar.required': 'State status of business plan',
     'feil.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar.required':
-        'State whether this is a cooperation withNAV',
+        'State whether this is a cooperation with NAV',
     'feil.tilbudOmJobb.arbeidssted.required': 'State name of workplace',
     'feil.tilbudOmJobb.ansettelsesdato.required': 'State start date',
     'feil.tilbudOmJobb.ansettelsesforhold.required': 'State conditions of employment',
