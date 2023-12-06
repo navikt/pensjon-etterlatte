@@ -41,8 +41,7 @@ export default {
     'forside.omYtelsene.innhold.li3': 'How much money you will receive depends on your current income.',
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
         'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
-    'forside.omYtelsene.lenkeGjenlevende.href':
-        'https://www.nav.no/omstillingsstonad',
+    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about survivor’s pension',
     'forside.barnepensjon.tittel': 'You can also apply for a children’s pension',
     'forside.barnepensjon.innhold':
@@ -310,9 +309,9 @@ export default {
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
         'If you do not know your income for that year, please estimate your business income.',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall':
-        'What was your gross business income prior to the death?',
+        'What was your gross business income this year?',
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall':
-        'What was your gross business income prior to the death?',
+        'What was your gross business income this year?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
         'From January to the month before the death',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
@@ -354,7 +353,8 @@ export default {
     'inntektenDin.ytelserNAV.soekteYtelser': 'Which benefits did you apply for?',
     'inntektenDin.ytelserNAV.hvorfor': 'We need this information because some benefits from NAV are considered income.',
     'inntektenDin.ytelserAndre.tittel': 'Benefits from others',
-    'inntektenDin.ytelserAndre.svar': 'Have you applied for benefits from NAV but not yet received a reply?',
+    'inntektenDin.ytelserAndre.svar':
+        'Have you applied for benefits from others than NAV but not yet received a reply?',
     'inntektenDin.ytelserAndre.soekteYtelser': 'What did you apply for?',
     'inntektenDin.ytelserAndre.pensjonsordning': 'State which pension scheme',
     'inntektenDin.ytelserAndre.pensjonsordning.beskrivelse':
@@ -773,6 +773,9 @@ export default {
     'feil.kontaktinfo.telefonnummer.minLength': 'Must be a valid phone number',
     'feil.oppholderSegIUtlandet.required': 'You must answer this question about residence',
     'feil.oppholderSegIUtlandet.svar.required': 'You must answer this question about residence',
+    'feil.oppholderSegIUtlandet.oppholdsland.required': 'State which country',
+    'feil.bosattINorge.required': 'State whether you are a resident in Norway',
+    'feil.bosattLand.required': 'State whether you are a resident in Norway',
     'feil.jobbStatus.required': 'State your situation',
     'feil.utdanning.hoyesteFullfoerteUtdanning.required': 'Enter your highest completed level of education',
     'feil.utdanning.annenUtdanning.required': 'Enter other education',
