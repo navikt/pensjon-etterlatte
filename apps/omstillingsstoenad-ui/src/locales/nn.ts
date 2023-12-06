@@ -83,8 +83,10 @@ export default {
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
     'situasjonenDin.tittel': 'Situasjonen din',
-    'situasjonenDin.ingress':
-        'Følgjande kan påverke retten din til omstillingsstønad:\n - sivilstanden din i dag\n - omsorg for barn\n - opphald utanfor Noreg',
+    'situasjonenDin.ingress': 'Følgjande kan påverke retten din til omstillingsstønad:',
+    'situasjonenDin.ingress.li1': 'Sivilstanden din i dag',
+    'situasjonenDin.ingress.li2': 'Omsorg for barn',
+    'situasjonenDin.ingress.li3': 'Opphald utanfor Noreg',
     'situasjonenDin.omsorgForBarn.tittel': 'Omsorg for barn',
     'situasjonenDin.omsorgMinstFemti':
         'Hadde du minst 50 prosent omsorg for barn under 18 år på tidspunktet for dødsfallet?',
@@ -673,8 +675,8 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Prosent',
     'felles.valgfri': 'valfri',
-    'counterLeft': 'teikn igjen',
-    'counterTooMuch': 'teikn for mykje',
+    counterLeft: 'teikn igjen',
+    counterTooMuch: 'teikn for mykje',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Endre svar om deg og avdøde',
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',

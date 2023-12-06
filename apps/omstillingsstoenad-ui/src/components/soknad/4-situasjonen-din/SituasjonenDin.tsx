@@ -5,7 +5,7 @@ import { ISituasjonenDin } from '../../../typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
 import Navigasjon from '../../felles/Navigasjon'
-import { Alert, BodyShort, GuidePanel, Heading, HGrid } from '@navikt/ds-react'
+import { Alert, BodyShort, GuidePanel, Heading, HGrid, List } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
@@ -69,6 +69,11 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <GuidePanel>
                         <BodyShort>{t('situasjonenDin.ingress')}</BodyShort>
+                        <List as={'ul'} size={'small'}>
+                            <List.Item>{t('situasjonenDin.ingress.li1')}</List.Item>
+                            <List.Item>{t('situasjonenDin.ingress.li2')}</List.Item>
+                            <List.Item>{t('situasjonenDin.ingress.li3')}</List.Item>
+                        </List>
                     </GuidePanel>
                 </SkjemaGruppe>
 

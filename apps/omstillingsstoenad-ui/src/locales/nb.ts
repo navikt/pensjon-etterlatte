@@ -82,8 +82,10 @@ export default {
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'situasjonenDin.tittel': 'Situasjonen din',
-    'situasjonenDin.ingress':
-        'Retten din til omstillingsstønad kan påvirkes av\n - Sivilstanden din i dag\n - Omsorg for barn\n - Opphold utenfor Norge',
+    'situasjonenDin.ingress': 'Retten din til omstillingsstønad kan påvirkes av:',
+    'situasjonenDin.ingress.li1': 'Sivilstanden din i dag',
+    'situasjonenDin.ingress.li2': 'Omsorg for barn',
+    'situasjonenDin.ingress.li3': 'Opphold utenfor Norge',
     'situasjonenDin.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
     'situasjonenDin.nySivilstatus.beskrivelse':
         'Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få omstillingsstønad og hvor mye du kan få.',
@@ -144,7 +146,8 @@ export default {
     'merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse':
         'Du kan velge den høyeste utdanningen du har eller flere utdanninger.',
     'merOmSituasjonenDin.utdanning.annenUtdanning': 'Annen utdanning',
-    'merOmSituasjonenDin.utdanning.annenUtdanningPlaceholder': 'For eksempel kurs, enkeltår på universitet eller høyskole',
+    'merOmSituasjonenDin.utdanning.annenUtdanningPlaceholder':
+        'For eksempel kurs, enkeltår på universitet eller høyskole',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger': 'Informasjon om stønad til skolepenger',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.beskrivelse':
         'Du kan få stønad til dekning av skolepenger hvis du gjennomfører utdanning som er godkjent av NAV. Utdanningen må være nødvendig og hensiktsmessig for å komme i eller beholde arbeid.\n\nStønad til skolepenger skal dekke de faktiske utgiftene du har til studieavgift, semesteravgift, eksamensgebyr og/eller skolepenger ved privat utdanningsinstitusjon. Stønaden dekker dokumenterte utgifter opp til en øvre grense.',
@@ -234,7 +237,8 @@ export default {
     'merOmSituasjonenDin.andreYtelser.annenPensjon.svar':
         'Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.beskrivelse': 'Hvilken pensjonsordning?',
-    'merOmSituasjonenDin.andreYtelser.annenPensjon.placeholder': 'For eksempel Skandia, KLP, SPK, Oslo pensjonsforsikring',
+    'merOmSituasjonenDin.andreYtelser.annenPensjon.placeholder':
+        'For eksempel Skandia, KLP, SPK, Oslo pensjonsforsikring',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.svar': 'Mottar du pensjon fra et annet land enn Norge?',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvorfor':
         'Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden',
@@ -676,8 +680,8 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Prosent',
     'felles.valgfri': 'valgfri',
-    'counterLeft': 'tegn igjen',
-    'counterTooMuch': 'tegn for mye',
+    counterLeft: 'tegn igjen',
+    counterTooMuch: 'tegn for mye',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Endre svar om deg og avdøde',
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',

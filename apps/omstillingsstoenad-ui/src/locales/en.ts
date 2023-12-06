@@ -86,8 +86,10 @@ export default {
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'I confirm that the information I provide is correct and complete.',
     'situasjonenDin.tittel': 'Your situation',
-    'situasjonenDin.ingress':
-        'Your right to transitional benefits may be influenced by\n - Your current marital status\n - Care that you provide to children or others\n - Stays outside Norway',
+    'situasjonenDin.ingress': 'Your right to transitional benefits may be influenced by:',
+    'situasjonenDin.ingress.li1': 'Your current marital status',
+    'situasjonenDin.ingress.li2': 'Care that you provide to children or others',
+    'situasjonenDin.ingress.li3': 'Stays outside Norway',
     'situasjonenDin.omsorgForBarn.tittel': 'Childcare',
     'situasjonenDin.omsorgMinstFemti':
         'Did you perform at least 50 percent of childcare for children younger than 18 at the time of death?',
@@ -700,8 +702,8 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Percent',
     'felles.valgfri': 'optional',
-    'counterLeft': 'characters remaining',
-    'counterTooMuch': 'characters to many',
+    counterLeft: 'characters remaining',
+    counterTooMuch: 'characters to many',
     'endreSvarOppsummering.om-deg': 'Change answers about you',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Change answers about you and the deceased',
     'endreSvarOppsummering.om-den-avdoede': 'Change answers about the deceased',
