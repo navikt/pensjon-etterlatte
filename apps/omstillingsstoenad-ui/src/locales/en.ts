@@ -36,10 +36,10 @@ export default {
     'forside.omYtelsene.innhold':
         'If your spouse, partner or cohabitant has died, you may be entitled to a survivor’s pension or transitional benefit for survivors.',
     'forside.omYtelsene.innhold.li1':
-        'You may also be entitled to support if you were previously married to, in a partnership with or cohabiting with the deceased.',
+        'The objective of this support scheme is to ensure income and assist you in being self-reliant during a transitional period after the death',
     'forside.omYtelsene.innhold.li2':
-        'We will assess whether you are entitled to a survivor’s pension or transitional benefit, based on your situation.',
-    'forside.omYtelsene.innhold.li3': 'How much money you will receive depends on your current income.',
+        'Once 6 months have passed, the main rule is that you have begun work or have another activity that will allow you to provide for yourself.',
+    'forside.omYtelsene.innhold.li3': 'Your income will determine how much money you are entitled to.',
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
         'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
@@ -90,7 +90,7 @@ export default {
     'situasjonenDin.omsorgMinstFemti':
         'Did you perform at least 50 percent of childcare for children younger than 18 at the time of death?',
     'situasjonenDin.omsorgMinstFemti.dokumentasjon':
-        'In certain situations, we may ask you to document the caregiving obligations you provide to children or others.',
+        'In certain situations, we may ask you to document the caregiving obligations you provide to children.',
     'situasjonenDin.nySivilstatus.sivilstatus': 'Your marital status today',
     'situasjonenDin.nySivilstatus.beskrivelse':
         'If you have remarried or moved in with a new partner, this may affect whether you can receive survivor’s pension and the size of the pension.',
@@ -118,9 +118,9 @@ export default {
     'merOmSituasjonenDin.jobbStatus': 'What is your situation now?',
     'merOmSituasjonenDin.jobbStatus.hvorfor':
         'We need to know what you are doing so we can provide you with information and follow-up that is suited to your situation.',
-    'merOmSituasjonenDin.annenSituasjon.tittel': '<MANGLER TEKST>',
-    'merOmSituasjonenDin.annenSituasjon.beskrivelse': '<MANGLER TEKST>',
-    'merOmSituasjonenDin.annenSituasjon.annet.beskrivelse': '<MANGLER TEKST>',
+    'merOmSituasjonenDin.annenSituasjon.tittel': 'Other',
+    'merOmSituasjonenDin.annenSituasjon.beskrivelse': "Choose what best describes your situation",
+    'merOmSituasjonenDin.annenSituasjon.annet.beskrivelse': 'Provide a short description of your situation',
     'merOmSituasjonenDin.ingenJobb.hjemmearbeidende': 'Homemaker',
     'merOmSituasjonenDin.ingenJobb.omsorgBarn': 'Care for own children',
     'merOmSituasjonenDin.ingenJobb.omsorgNaerstaaende': 'Care for relatives',
@@ -221,7 +221,7 @@ export default {
     'merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig':
         'State what is written in the employment contract. You must also state this if you are on sick leave.',
     'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar.fast': 'Position percentage',
-    'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar': 'Working hours',
+    'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar': 'Fill out your total working hours',
     'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.type': 'Type of working hours',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar': 'Do you have a termination date?',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.sluttdatoVelger': 'Termination date',
@@ -469,7 +469,7 @@ export default {
     'omBarn.statsborger': 'citizen',
     'omBarn.borI': 'Lives in',
     'omBarn.dagligOmsorg': 'Do you have the daily care for this child?',
-    'omBarn.barnepensjon.soekt': 'Application for children’s pension',
+    'omBarn.barnepensjon.soekt': 'Applying for children’s pension',
     'omBarn.barnepensjon.soeker': 'Apply for children’s pension for this the child',
     'omBarn.barnepensjon.soekerInfo':
         'You can apply for a children’s pension for children under the age of 18 you share with the deceased (“joint children”).',
@@ -772,10 +772,11 @@ export default {
     'feil.kontaktinfo.telefonnummer.required': 'Telephone number is a required field',
     'feil.kontaktinfo.telefonnummer.pattern': 'Must be a valid phone number',
     'feil.kontaktinfo.telefonnummer.minLength': 'Must be a valid phone number',
+    'feil.omsorgMinstFemti.required': 'State whether you were responsible for at least 50 percent of childcare for a child/children under the age of 18 at the time of death',
     'feil.oppholderSegIUtlandet.required': 'You must answer this question about residence',
     'feil.oppholderSegIUtlandet.svar.required': 'You must answer this question about residence',
     'feil.oppholderSegIUtlandet.oppholdsland.required': 'State which country',
-    'feil.bosattINorge.required': 'State whether you are a resident in Norway',
+    'feil.bosattINorge.required': 'Confirm that you are living in Norway',
     'feil.bosattLand.required': 'State whether you are a resident in Norway',
     'feil.jobbStatus.required': 'State your situation',
     'feil.utdanning.hoyesteFullfoerteUtdanning.required': 'Enter your highest completed level of education',
@@ -847,7 +848,7 @@ export default {
     'feil.arbeidsforhold.forventerEndretInntekt.svar.required': 'State whether you expect any changes in your income',
     'feil.arbeidsforhold.forventerEndretInntekt.beskrivelse.required': 'Select reason for change in income',
     'feil.arbeidsforhold.ansettelsesforhold.required': 'State conditions of employment',
-    'feil.arbeidsforhold.arbeidsmengde.svar.required': 'State how much you have worked',
+    'feil.arbeidsforhold.arbeidsmengde.svar.required': 'State how much you work',
     'feil.arbeidsforhold.arbeidsmengde.type.required': 'Choose between percent or hours',
     'feil.arbeidsforhold.midlertidig.svar.required': 'Situation concerning end date must be answered',
     'feil.arbeidsforhold.midlertidig.sluttdatoVelger.required': 'State end date',
@@ -865,7 +866,7 @@ export default {
     'feil.tilbudOmJobb.arbeidssted.required': 'State name of workplace',
     'feil.tilbudOmJobb.ansettelsesdato.required': 'State start date',
     'feil.tilbudOmJobb.ansettelsesforhold.required': 'State conditions of employment',
-    'feil.tilbudOmJobb.arbeidsmengde.svar.required': 'State work hours',
+    'feil.tilbudOmJobb.arbeidsmengde.svar.required': 'State how much you work',
     'feil.tilbudOmJobb.arbeidsmengde.type.required': 'Choose between percent or hours',
     'feil.tilbudOmJobb.midlertidig.svar.required': 'State whether you have an end date',
     'feil.tilbudOmJobb.midlertidig.sluttdatoVelger.required': 'State end date',

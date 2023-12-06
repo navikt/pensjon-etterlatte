@@ -744,6 +744,7 @@ export default {
     'feil.kontaktinfo.telefonnummer.required': 'Telefonnummer må fyllast ut',
     'feil.kontaktinfo.telefonnummer.pattern': 'Må vere eit gyldig telefonnummer',
     'feil.kontaktinfo.telefonnummer.minLength': 'Må vere eit gyldig telefonnummer',
+    'feil.omsorgMinstFemti.required': 'Oppgi om du har minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet',
     'feil.oppholderSegIUtlandet.required': 'Opphald i Noreg må svarast på',
     'feil.oppholderSegIUtlandet.svar.required': 'Opphald i Noreg må svarast på',
     'feil.oppholderSegIUtlandet.oppholdsland.required': 'Oppgi land',

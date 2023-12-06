@@ -786,6 +786,7 @@ export default {
     'feil.nySivilstatus.samboerskap.samboer.etternavn.required': 'Oppgi samboers etternavn',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.required': 'Oppgi samboers fødselsnummer',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.validate': 'Ugyldig fødselsnummer',
+    'feil.omsorgMinstFemti.required': 'Oppgi om du har minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet',
     'feil.bosattUtland.svar.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
     'feil.bosattUtland.land.required': 'Oppgi land',
     'feil.bosattUtland.adresse.required': 'Oppgi adresse',
