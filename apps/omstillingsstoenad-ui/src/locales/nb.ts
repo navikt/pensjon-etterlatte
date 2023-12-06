@@ -60,8 +60,10 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li4':
         'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (for eksempel alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'Informasjon fra <strong>utenlandske trygdemyndigheter</strong> (der dette er aktuelt)',
+        'Opplysninger om <strong>ytelser fra andre enn NAV</strong> (for eksempel tjenestepensjonsordninger)',
     'forside.uthentingAvInfo.innholdListe.li6':
+        'Informasjon fra <strong>utenlandske trygdemyndigheter</strong> (der dette er aktuelt)',
+    'forside.uthentingAvInfo.innholdListe.li7':
         'Informasjon fra Lånekassen for å verifisere utdanning (der dette er aktuelt)',
     'forside.personvern.aktivitetsplikt':
         'Dersom det er relevant i forbindelse med aktivitetsplikten kan vi også samle inn opplysninger fra interne systemer som <strong>Arbeidssøkerregisteret</strong>.',
@@ -786,7 +788,8 @@ export default {
     'feil.nySivilstatus.samboerskap.samboer.etternavn.required': 'Oppgi samboers etternavn',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.required': 'Oppgi samboers fødselsnummer',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.validate': 'Ugyldig fødselsnummer',
-    'feil.omsorgMinstFemti.required': 'Oppgi om du har minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet',
+    'feil.omsorgMinstFemti.required':
+        'Oppgi om du har minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet',
     'feil.bosattUtland.svar.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
     'feil.bosattUtland.land.required': 'Oppgi land',
     'feil.bosattUtland.adresse.required': 'Oppgi adresse',

@@ -60,8 +60,10 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li4':
         'Opplysningar om <strong> anna fortløpande støtte frå NAV</strong> (t.d. alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
+        'Opplysningar om <strong>ytingar frå andre enn NAV</strong> (t.d. tenestepensjonsordning)',
     'forside.uthentingAvInfo.innholdListe.li6':
+        'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
+    'forside.uthentingAvInfo.innholdListe.li7':
         'Informasjon frå Lånekassen for å verifisere utdanning (der dette er aktuelt)',
     'forside.personvern.aktivitetsplikt':
         'Dersom det er relevant i samband med aktivitetsplikta, kan vi også samle inn opplysningar frå interne system som m.a. <strong>Arbeidssøkjarregisteret</strong>',

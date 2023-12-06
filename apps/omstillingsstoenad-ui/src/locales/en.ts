@@ -60,8 +60,10 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li4':
         'Information about <strong>other benefits you may be receiving from NAV</strong> (such as retirement pension or disability pension)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'Information from <strong>foreign national insurance/social security authorities</strong> (if applicable)',
+        'Information about <strong>benefits from others than NAV</strong> (such as occupational pension scheme)',
     'forside.uthentingAvInfo.innholdListe.li6':
+        'Information from <strong>foreign national insurance/social security authorities</strong> (if applicable)',
+    'forside.uthentingAvInfo.innholdListe.li7':
         'Information from the Norwegian State Educational Loan Fund to verify education/training (if applicable)',
     'forside.personvern.aktivitetsplikt':
         "If relevant to assess your activity obligation, we may also collect information from internal systems like <strong>NAV's job seeker register</strong>",
@@ -119,7 +121,7 @@ export default {
     'merOmSituasjonenDin.jobbStatus.hvorfor':
         'We need to know what you are doing so we can provide you with information and follow-up that is suited to your situation.',
     'merOmSituasjonenDin.annenSituasjon.tittel': 'Other',
-    'merOmSituasjonenDin.annenSituasjon.beskrivelse': "Choose what best describes your situation",
+    'merOmSituasjonenDin.annenSituasjon.beskrivelse': 'Choose what best describes your situation',
     'merOmSituasjonenDin.annenSituasjon.annet.beskrivelse': 'Provide a short description of your situation',
     'merOmSituasjonenDin.ingenJobb.hjemmearbeidende': 'Homemaker',
     'merOmSituasjonenDin.ingenJobb.omsorgBarn': 'Care for own children',
@@ -772,7 +774,8 @@ export default {
     'feil.kontaktinfo.telefonnummer.required': 'Telephone number is a required field',
     'feil.kontaktinfo.telefonnummer.pattern': 'Must be a valid phone number',
     'feil.kontaktinfo.telefonnummer.minLength': 'Must be a valid phone number',
-    'feil.omsorgMinstFemti.required': 'State whether you were responsible for at least 50 percent of childcare for a child/children under the age of 18 at the time of death',
+    'feil.omsorgMinstFemti.required':
+        'State whether you were responsible for at least 50 percent of childcare for a child/children under the age of 18 at the time of death',
     'feil.oppholderSegIUtlandet.required': 'You must answer this question about residence',
     'feil.oppholderSegIUtlandet.svar.required': 'You must answer this question about residence',
     'feil.oppholderSegIUtlandet.oppholdsland.required': 'State which country',
