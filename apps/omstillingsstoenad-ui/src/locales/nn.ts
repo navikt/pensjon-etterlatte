@@ -36,9 +36,9 @@ export default {
     'forside.omYtelsene.innhold':
         'Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til omstillingsstønad eller overgangsstønad til atterlevande.',
     'forside.omYtelsene.innhold.li1':
-        'Du kan også ha rett til støtte viss du tidlegare har vore gift, partnar eller sambuar med avdøde.',
+        'Støtta skal sikre inntekt og gi hjelp til sjølvhjelp i ein omstillingsperiode etter dødsfallet.',
     'forside.omYtelsene.innhold.li2':
-        'Etter 6 månader, må du som hovudregel jobbe eller ha annan aktivitet, slik at du etter kvart kan forsørgje deg sjølv.',
+        'Etter 6 månader må du som hovudregel vere i arbeid eller annan aktivitet, slik at du etter kvart kan forsørgje deg sjølv.',
     'forside.omYtelsene.innhold.li3': 'Inntekta di avgjer kor mykje pengar du kan få.',
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
         'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du ',
@@ -523,8 +523,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for attlevande',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
         'https://www.nav.no/gjenlevendepensjon#andre-stonader',
-    'soeknadKvittering.andreStoenader.andreInformasjon':
-        'Du finn meir informasjon om støtteordningar på ',
+    'soeknadKvittering.andreStoenader.andreInformasjon': 'Du finn meir informasjon om støtteordningar på ',
     'soeknadKvittering.spoersmaal.knapp': 'Les meir om omstillingsstønad',
     'sideIkkeFunnet.tittel': 'Oi, her var det noe rusk',
     'sideIkkeFunnet.alert': 'Siden du har etterspurt finnes ikke.',
@@ -744,7 +743,8 @@ export default {
     'feil.kontaktinfo.telefonnummer.required': 'Telefonnummer må fyllast ut',
     'feil.kontaktinfo.telefonnummer.pattern': 'Må vere eit gyldig telefonnummer',
     'feil.kontaktinfo.telefonnummer.minLength': 'Må vere eit gyldig telefonnummer',
-    'feil.omsorgMinstFemti.required': 'Oppgi om du har minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet',
+    'feil.omsorgMinstFemti.required':
+        'Oppgi om du hadde minst 50 prosent omsorg for barn under 18 år på tidspunktet for dødsfallet',
     'feil.oppholderSegIUtlandet.required': 'Opphald i Noreg må svarast på',
     'feil.oppholderSegIUtlandet.svar.required': 'Opphald i Noreg må svarast på',
     'feil.oppholderSegIUtlandet.oppholdsland.required': 'Oppgi land',
