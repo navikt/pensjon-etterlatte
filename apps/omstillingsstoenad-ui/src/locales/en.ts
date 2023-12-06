@@ -700,6 +700,8 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Percent',
     'felles.valgfri': 'optional',
+    'counterLeft': 'characters remaining',
+    'counterTooMuch': 'characters to many',
     'endreSvarOppsummering.om-deg': 'Change answers about you',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Change answers about you and the deceased',
     'endreSvarOppsummering.om-den-avdoede': 'Change answers about the deceased',

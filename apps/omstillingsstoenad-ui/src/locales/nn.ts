@@ -673,6 +673,8 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Prosent',
     'felles.valgfri': 'valfri',
+    'counterLeft': 'teikn igjen',
+    'counterTooMuch': 'teikn for mykje',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Endre svar om deg og avdøde',
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',

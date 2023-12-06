@@ -50,7 +50,7 @@ export default {
     'forside.omSoeknaden.personvern': 'Personvern og sikkerhet',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
-        'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være barn du har omsorg for ny, ektefelle eller samboer eller verge som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
+        'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være barn du har omsorg for, ny ektefelle eller samboer eller verge som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
     'forside.uthentingAvInfo.innholdListe.li1':
         '<strong>Personinformasjon</strong> fra Folkeregisteret (personnummer, adresse, statsborgerskap, sivilstand)',
     'forside.uthentingAvInfo.innholdListe.li2':
@@ -676,6 +676,8 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Prosent',
     'felles.valgfri': 'valgfri',
+    'counterLeft': 'tegn igjen',
+    'counterTooMuch': 'tegn for mye',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Endre svar om deg og avdøde',
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',
