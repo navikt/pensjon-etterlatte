@@ -66,7 +66,7 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li7':
         'Informasjon frå Lånekassen for å verifisere utdanning (der dette er aktuelt)',
     'forside.personvern.aktivitetsplikt':
-        'Dersom det er relevant i samband med aktivitetsplikta, kan vi også samle inn opplysningar frå interne system som m.a. <strong>Arbeidssøkjarregisteret</strong>',
+        'Dersom det er relevant i samband med aktivitetsplikta, kan vi også samle inn opplysningar frå interne system som mellom anna <strong>Arbeidssøkjarregisteret</strong>',
     'forside.personvern.tredjeperson':
         'Det kan vere aktuelt for oss å hente inn følgjande opplysningar om tredjepersonar som er knytte til søkjar:',
     'forside.personvern.tredjeperson.li1': 'Namn',
