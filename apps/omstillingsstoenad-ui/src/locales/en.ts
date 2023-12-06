@@ -1,4 +1,5 @@
 export default {
+    steg: 'Step {{aktivSide}} of {{muligeSteg}}',
     'steg.OmDeg': 'Personal data',
     'steg.OmDegOgAvdoed': 'About you and the deceased',
     'steg.OmAvdoed': 'The deceased’s personal details',
@@ -418,7 +419,7 @@ export default {
     'omDenAvdoede.datoForDoedsfallet': 'State the date of their death',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Time spent outside Norway',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
-        'We need to know if the deceased has lived or worked outside Norway. This may both affectthe size of the survivor’s pension you receive and give you pension rights from other countries.',
+        'We need to know if the deceased has lived or worked outside Norway. This may both affect the size of the survivor’s pension you receive and give you pension rights from other countries.',
     'omDenAvdoede.boddEllerJobbetUtland.svar':
         'Has he or she lived and/or worked in a country other than Norway after the age of 16?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land': 'Country',

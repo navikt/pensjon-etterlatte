@@ -1,4 +1,5 @@
 export default {
+    steg: 'Steg {{aktivSide}} av {{muligeSteg}}',
     'steg.OmDeg': 'Personopplysninger',
     'steg.OmDegOgAvdoed': 'Om deg og avdøde',
     'steg.OmAvdoed': 'Opplysninger om den avdøde',
