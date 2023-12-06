@@ -58,9 +58,9 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li3':
         'Opplysningar om <strong>arbeidsforholdet</strong> ditt frå Arbeidsgivar- og arbeidstakarregisteret',
     'forside.uthentingAvInfo.innholdListe.li4':
-        'Opplysningar om <strong> anna fortløpande støtte frå NAV</strong> (t.d. alderspensjon eller uføretrygd)',
+        'Opplysningar om <strong> anna fortløpande støtte frå NAV</strong> (til dømes alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'Opplysningar om <strong>ytingar frå andre enn NAV</strong> (t.d. tenestepensjonsordning)',
+        'Opplysningar om <strong>ytingar frå andre enn NAV</strong> (til dømes tenestepensjonsordning)',
     'forside.uthentingAvInfo.innholdListe.li6':
         'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
     'forside.uthentingAvInfo.innholdListe.li7':
