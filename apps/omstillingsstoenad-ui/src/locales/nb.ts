@@ -748,6 +748,8 @@ export default {
     'feil.oppholderSegIUtlandet.required': 'Opphold må besvares',
     'feil.oppholderSegIUtlandet.svar.required': 'Opphold må besvares',
     'feil.oppholderSegIUtlandet.oppholdsland.required': 'Oppgi land',
+    'feil.bosattINorge.required': 'Oppgi om du er bosatt i Norge',
+    'feil.bosattLand.required': 'Oppgi hvilket land du er bosatt i',
     'feil.jobbStatus.required': 'Oppgi situasjonen din',
     'feil.utdanning.hoyesteFullfoerteUtdanning.required': 'Oppgi høyeste fullførte utdanning',
     'feil.utdanning.annenUtdanning.required': 'Oppgi annen utdanning',

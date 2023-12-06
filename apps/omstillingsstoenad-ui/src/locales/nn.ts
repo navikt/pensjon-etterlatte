@@ -746,6 +746,8 @@ export default {
     'feil.oppholderSegIUtlandet.required': 'Opphald i Noreg må svarast på',
     'feil.oppholderSegIUtlandet.svar.required': 'Opphald i Noreg må svarast på',
     'feil.oppholderSegIUtlandet.oppholdsland.required': 'Oppgi land',
+    'feil.bosattINorge.required': 'Oppgi om du er busett i Noreg',
+    'feil.bosattLand.required': 'Oppgi land',
     'feil.jobbStatus.required': 'Oppgi situasjonen din',
     'feil.utdanning.hoyesteFullfoerteUtdanning.required': 'Oppgi høgaste fullførte utdanning',
     'feil.utdanning.annenUtdanning.required': 'Oppgi anna utdanning',
