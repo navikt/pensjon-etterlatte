@@ -416,7 +416,7 @@ export default {
     'omDenAvdoede.foedselsnummer': 'Norwegian national identity number or D number',
     'omDenAvdoede.statsborgerskap': 'Nationality',
     'omDenAvdoede.statsborgerskapPlaceholder': 'For example: Norwegian',
-    'omDenAvdoede.datoForDoedsfallet': 'State the date of their death',
+    'omDenAvdoede.datoForDoedsfallet': 'When did the death occur?',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Time spent outside Norway',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
         'We need to know if the deceased has lived or worked outside Norway. This may both affect the size of the survivor’s pension you receive and give you pension rights from other countries.',
