@@ -487,7 +487,7 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst':
         "A children's pension is taxable, but we do not deduct tax from the amount unless we are notified. If you have questions about the amount of the tax deduction, you must contact the Norwegian Tax Administration.",
     'omBarn.barnepensjon.forskuddstrekk.trekkprosent': 'Enter the desired tax deduction',
-    'omBarn.barnepensjon.forskuddstrekk.placeholder': 'example given 20%',
+    'omBarn.barnepensjon.forskuddstrekk.placeholder': 'Example given 20%',
     'omBarn.barnepensjon.forskuddstrekk.info':
         'Please be aware that voluntary tax deductions must be renewed annually.',
     'omBarn.infokort.foedselsnummer': 'NORWEGIAN NATIONAL IDENTITY NUMBER',
@@ -692,7 +692,7 @@ export default {
     'felles.spraakValg': 'Select language',
     'felles.velgLand': 'Select country',
     'felles.elleveSiffer': '11 digits',
-    'felles.datoEksempel': 'example given 01.12.2020',
+    'felles.datoEksempel': 'Example given 01.12.2020',
     'felles.velg': 'Select ...',
     'felles.velg.tittel': 'Select',
     'felles.telefonnummer': 'Phone number',
