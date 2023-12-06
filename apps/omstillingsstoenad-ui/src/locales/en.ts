@@ -531,10 +531,10 @@ export default {
     'soeknadKvittering.endring.endringsListe.inntekt': 'If there is a change in your income',
     'soeknadKvittering.endring.endringsListe.bosted':
         'If you are going to move to or spend a prolonged period of time in another country',
-    'soeknadKvittering.endring.rettigheter.informasjon': 'You can read more about your ',
+    'soeknadKvittering.endring.rettigheter.informasjon': 'You can read more about ',
     'soeknadKvittering.endring.rettigheter.lenke.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'rights and obligations',
+        'https://www.nav.no/en/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
+    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'notifying us of any changes.',
     'soeknadKvittering.seSaken.tittel': 'Check the satus of your application',
     'soeknadKvittering.seSaken.informasjon.innhold1':
         'You will receive an SMS or e-mail once your case has been processed. In the meantime, you will find your application on ',

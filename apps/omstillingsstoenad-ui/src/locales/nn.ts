@@ -504,10 +504,10 @@ export default {
     'soeknadKvittering.endring.endringsListe.inntekt': 'Inntekta di endrar seg',
     'soeknadKvittering.endring.endringsListe.bosted':
         'Du skal flytte eller opphalde deg i eit anna land over lenger tid',
-    'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese meir om dine ',
+    'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese meir om å ',
     'soeknadKvittering.endring.rettigheter.lenke.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'rettar og plikter.',
+        'https://www.nav.no/nn/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
+    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'melde frå om endringar..',
     'soeknadKvittering.seSaken.tittel': 'Sjekk status i saka di',
     'soeknadKvittering.seSaken.informasjon.innhold1':
         'Du får varsel på SMS eller e-post når saka er ferdigbehandla. I mellomtida kan du sjå søknaden din på',
