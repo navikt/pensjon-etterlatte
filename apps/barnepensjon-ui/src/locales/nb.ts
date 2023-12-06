@@ -89,7 +89,8 @@ const radiobuttons = {
 
 const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
-    ingress: 'Hei, jeg er her for å veilede deg gjennom søknaden. Svar så godt du kan ut fra hvordan situasjonen er nå og så kan du melde fra om eventuelle endringer senere.\n\n Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
+    ingress:
+        'Hei, jeg er her for å veilede deg gjennom søknaden. Svar så godt du kan ut fra hvordan situasjonen er nå og så kan du melde fra om eventuelle endringer senere.\n\n Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
     startApplication: 'Start søknad',
     childMayBeApplicableForPension:
         'Barn under 20 år som har mistet en eller begge foreldrene sine, kan få barnepensjon.',
@@ -97,8 +98,7 @@ const frontPage = {
         'Det er forelderen eller vergen til barnet som må søke om barnepensjon for barnet hvis det er under 18 år.',
     childMayBeApplicableForPension_li2:
         'Som verge kan du kun sende søknad for det/de barna du er verge for. Du vil bli bedt om å dokumentere omsorgsforholdet etter søknaden er sendt inn.  Du kan også søke for de over 18 år.',
-    childMayBeApplicableForPension_li3:
-        'Barn over 18 år må søke selv.',
+    childMayBeApplicableForPension_li3: 'Barn over 18 år må søke selv.',
     readMoreAboutChildrensPension:
         'Lurer du på hvor mye man kan få, skatt eller annet om pensjonen, kan du <a href="https://www.nav.no/barnepensjon">lese mer om barnepensjon</a>.',
     weWillRetrieveInfoTitle: 'Personvern og sikkerhet',
@@ -122,7 +122,8 @@ const frontPage = {
 const selectScenario = {
     whoIsApplying: 'Hvem søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet har mistet',
-    additionalSituationDetailsDescription: 'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
+    additionalSituationDetailsDescription:
+        'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
     additionalSituationDetailsOver18: 'Jeg har mistet',
     additionalSituationDetailsOver18Description: 'Hvis en av foreldrene dine er ukjent, velger du begge foreldrene.',
     PARENT: 'Jeg søker for mitt eller mine barn under 18 år',
@@ -132,7 +133,8 @@ const selectScenario = {
     parentApplicantInformation:
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde.',
     guardianApplicantInformationLabel: 'Jeg søker for ett eller flere barn jeg er verge for',
-    guardianApplicantInformation: 'I søknaden må du kunne oppgi alle avdødes barn og/eller adoptivbarn under 20 år. Du kan kun sende søknad for barn du er verge for.',
+    guardianApplicantInformation:
+        'I søknaden må du kunne oppgi alle avdødes barn og/eller adoptivbarn under 20 år. Du kan kun sende søknad for barn du er verge for.',
     guardiansMustSendDocumentation:
         'For at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på barn du er verge for.\n\n Du må oppgi fødselsnummer på alle i søknaden. Hvis du ikke har det, må du bruke en av våre <a href="https://www.nav.no/start/soknad-barnepensjon">andre søknader om barnepensjon</a>.',
     childApplicantInformation1:

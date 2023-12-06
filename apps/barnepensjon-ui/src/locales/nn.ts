@@ -53,7 +53,9 @@ const btn = {
 
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
-        'Viss opplysingane vi har om deg ikkje stemmer, må du endre desse hos Folkeregisteret',
+        'Viss opplysingane vi har om deg ikkje stemmer, må du endre desse hos Folkeregisteret. \n',
+    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
+    incorrectInfoMustBeCorrectedHrefText: '<MANGLER TEKST>',
 }
 
 const paymentDetails = {
@@ -61,6 +63,7 @@ const paymentDetails = {
     NORSK: 'Norsk',
     UTENLANDSK: 'Utanlandsk',
     bankAccount: 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
+    bankAccountDescription: '<MANGLER TEKST>',
     information: 'Du kan legge til eit eige kontonummer for barnet.',
     accountType: 'Ønsker du å motta utbetalinga på norsk eller utanlandsk bankkonto?',
     foreignBankName: 'Bankens namn',
@@ -88,16 +91,12 @@ const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
     ingress: '<MANGLER TEKST>',
     startApplication: 'Start søknad',
-    childMayBeApplicableForPension:
-        '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li1:
-        '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li2:
-        '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li3:
-        '<MANGLER TEKST>',
-    readMoreAboutChildrensPension:
-        '<MANGLER TEKST>',
+    childMayBeApplicableForPension: '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li1: '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li2: '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li3: '<MANGLER TEKST>',
+    readMoreAboutChildrensPension: '<MANGLER TEKST>',
+    weWillRetrieveInfoTitle: 'Personvern og tryggleik',
     weWillRetrieveInfo: 'Vi hentar informasjonen vi treng',
     infoWeRetrieve:
         'For å kunne behandle søknaden din treng vi informasjon om barnet/barna, foreldra til barna og eventuelle søsken.\n\nVi hentar:',
@@ -118,12 +117,16 @@ const frontPage = {
 const selectScenario = {
     whoIsApplying: 'Kven søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet har mista',
+    additionalSituationDetailsDescription: '<MANGLER TEKST>',
     additionalSituationDetailsOver18: 'Eg har mista',
+    additionalSituationDetailsOver18Description: '<MANGLER TEKST>',
     PARENT: 'Eg søker for mitt/mine barn under 18 år',
     GUARDIAN: 'Eg søker for eitt eller fleire barn eg er verje for',
     CHILD: 'Eg har fylt 18 år og søker på vegne av meg sjølv',
+    parentApplicantInformationLabel: '<MANGLER TEKST>',
     parentApplicantInformation:
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde.',
+    guardianApplicantInformationLabel: '<MANGLER TEKST>',
     guardianApplicantInformation:
         'I søknaden må du oppgi alle avdøde sine barn og/eller adoptivbarn som er under 18 år.',
     guardiansMustSendDocumentation:
@@ -136,8 +139,8 @@ const selectScenario = {
         'Har du mista ein eller begge foreldra dine må du bruke <a href="https://www.nav.no/fyllut/nav180405?lang=nn-NO">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
         'Du må oppgi heile fødselsnummeret til barnet/barna og avdøde. Viss ikkje du har det, må du bruke <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">denne søknaden</a>.',
-    aboutSurvivorsPensionTitle:
-        'Har du mista ektefellen, sambuaren eller partnaren din?',
+    youNeedFnrForEveryoneInThisApplicationBothParentsDeceased: '<MANGLER TEKST>',
+    aboutSurvivorsPensionTitle: 'Har du mista ektefellen, sambuaren eller partnaren din?',
     aboutSurvivorsPensionDescription:
         'Då kan du søke om attlevandepensjon eller overgangsstønad. Viss du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/soknader#gjenlevendepensjon">denne søknaden.</a>',
     BOTH_PARENTS_DECEASED: 'Begge foreldra',
@@ -151,7 +154,7 @@ const aboutYou = {
         'Dersom du oppheld deg i eit anna land enn Noreg, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     addressOfResidenceConfirmed: 'Bur du på denne adressa?',
     alternativeAddress: 'Oppgi noverande bustadsadresse',
-    staysAbroadTitle:  'Har du opphalde deg i Noreg dei siste 12 månadene?',
+    staysAbroadTitle: 'Har du opphalde deg i Noreg dei siste 12 månadene?',
     residesInNorway: '<MANGLER TEKST>',
     stayedAbroad: '<MANGLER TEKST>',
     stayedAbroadCountry: '<MANGLER TEKST>',
@@ -176,13 +179,15 @@ const aboutParents = {
     addSecondParentBtn: 'Legg til forelder 2',
     bothParentsRequired:
         'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom barnet har mista mor si og farskapet ikkje er avklart, vel du alternativet «Eg har mista begge foreldre».',
-    missingOneParentLink:
-        '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
+    chooseUnknowParent: '<MANGLER TEKST>',
     childAndOneParentDeceased: 'Du treng ikkje fylle ut informasjon om attlevande forelder',
     unknownParent: 'Ukjend forelder',
     unknownParentQuestion: 'Kan du stadfeste at du ikkje kjenner identiteten til forelderen din?',
-    childAndOneParentDeceasedGuidepanel: 'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden din. \n\n Dersom du har mista éin forelder og den andre er ukjend, må du starte søknadsprosessen på nytt. "Eg har mista begge foreldre"',
-    childAndBothParentsDeceasedGuidepanel: 'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til forelderen din, vel du «Ukjend forelder».',
+    unknownParentQuestionGuardian: '<MANGLER TEKST>',
+    childAndOneParentDeceasedGuidepanel:
+        'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden din. \n\n Dersom du har mista éin forelder og den andre er ukjend, må du starte søknadsprosessen på nytt. "Eg har mista begge foreldre"',
+    childAndBothParentsDeceasedGuidepanel:
+        'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til forelderen din, vel du «Ukjend forelder».',
     guardianAndOneParentDeceased: '<MANGLER TEKST>',
 }
 
@@ -200,7 +205,8 @@ const aboutTheDeceased = {
     abroadStaysTitle: 'Opphald utanfor Norge',
     workOrLivingAbroadCanAffectPension:
         'Vi treng å vite om avdøde har budd eller arbeidd utanfor Norge. Dette kan påvirke berekninga av barnepensjon og i tillegg gi barnet/barna pensjonsrettar frå andre land.',
-    workOrLivingAbroadCanAffectPensionOver18: 'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan påverke utrekninga av barnepensjon og i tillegg gi deg pensjonsrettar frå andre land.',
+    workOrLivingAbroadCanAffectPensionOver18:
+        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan påverke utrekninga av barnepensjon og i tillegg gi deg pensjonsrettar frå andre land.',
     didTheDeceasedLiveAbroad: 'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Budd og/eller arbeidd?',
@@ -219,7 +225,8 @@ const aboutTheDeceased = {
     occupationalInjury: 'Skuldast dødsfallet yrkesskade eller yrkessjukdom?',
     whyWeAskAboutOccupationalInjury:
         'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV, kan det avgjere om barnet/barna får barnepensjon og kor mykje det/dei kan få.',
-    whyWeAskAboutOccupationalInjuryOver18: 'Dersom dødsfallet skuldast yrkesskade eller yrkessjukdom som NAV har godkjent, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
+    whyWeAskAboutOccupationalInjuryOver18:
+        'Dersom dødsfallet skuldast yrkesskade eller yrkessjukdom som NAV har godkjent, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     BODD: 'Budd',
     ARBEIDET: 'Arbeidd',
     addCountryButton: '+ Legg til fleire land',
@@ -259,8 +266,10 @@ const aboutChildren = {
     whoAreTheParentsHelpText:
         'Vi må vite om dette er eit barn du har felles med avdøde, avdøde sitt eige barn, eller ditt eiget barn.',
     bothOfTheAbove: '{person1} og {person2}',
+    remainingParent: 'Attlevande forelder',
     remainingParentsChild: 'Eg',
     jointChild: 'Eg og {person1}',
+    guardianChild: 'Attlevande forelder og {person1}',
     relationHelpText:
         'Vi må vite om dette er eit barn du har felles med avdøde, avdøde sitt eige barn, eller ditt eige barn.',
     aboutChildrenTitle: 'Om barn',
@@ -285,9 +294,9 @@ const summary = {
     AboutTheDeceased: 'Endre svar om den avdøde',
     AboutChildren: 'Endre svar om barn',
     YourSituation: 'Endre svar om din situasjon',
-    errorWhenSending: 'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil ',
-    errorWhenSendingLink: 'her.',
-    errorWhenSendingHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    errorFromConflict: '<MANGLER TEKST>',
+    errorWhenSending:
+        'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil <a href="https://www.nav.no/person/kontakt-oss/nn/tilbakemeldinger/feil-og-mangler">her.</a>',
     sendApplicationTitle: 'Ønsker du å sende inn søknaden no?',
     sendingApplicationTitle: 'Sender inn søknad',
     sendApplicationBody: 'Når du har sendt inn søknaden kan du ikkje endre på opplysingane som du har lagt inn.',
@@ -409,8 +418,7 @@ const receipt = {
     guardianshipMustBeConfirmedLink: '<MANGLER TEKST>',
     guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende#barnepensjon',
     viewCaseTitle: 'Sjekke status i saken',
-    viewCaseInfoContentPart1:
-        '<MANGLER TEKST>',
+    viewCaseInfoContentPart1: '<MANGLER TEKST>',
     viewCaseInfoContent2: 'Barn over 18 år kan sjølv sjekke status i saka si ved å logge inn i ',
     viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
     viewCaseInfoLinkText2: 'mitt NAV',

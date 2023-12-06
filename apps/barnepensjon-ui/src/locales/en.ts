@@ -53,7 +53,9 @@ const btn = {
 
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
-        'If the information we have about you is incorrect, you must change it in the National Registry.',
+        'If the information we have about you is incorrect, you must change it in the National Registry. \n',
+    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
+    incorrectInfoMustBeCorrectedHrefText: '<MANGLER TEKST>',
 }
 
 const paymentDetails = {
@@ -61,6 +63,7 @@ const paymentDetails = {
     NORSK: 'Norwegian',
     UTENLANDSK: 'Foreign',
     bankAccount: 'Enter the Norwegian bank account number for payment of the children’s pension',
+    bankAccountDescription: '<MANGLER TEKST>',
     information: 'You can add a separate bank account number for the child.',
     accountType: 'Do you want the pension to be paid into a Norwegian bank account or a foreign bank account?',
     foreignBankName: 'Name of bank',
@@ -73,7 +76,7 @@ const paymentDetails = {
         'BIC stands for Bank Identifier Code, and is a unique code that identifies the bank. The BIC, which in some countries is called the SWIFT code, is required when making payments to a number of countries.',
     doYouWantUsToWithholdTax: 'Do you want us to deduct tax for the children’s pension?',
     childPensionIsTaxable:
-        'A children\'s pension is taxable, but we do not deduct tax from the amount unless we are notified. If you have questions about the amount of the tax deduction, you must contact the Norwegian Tax Administration.',
+        "A children's pension is taxable, but we do not deduct tax from the amount unless we are notified. If you have questions about the amount of the tax deduction, you must contact the Norwegian Tax Administration.",
     desiredTaxPercentage: 'Enter the desired tax deduction',
     desiredTaxPercentagePlaceholder: 'as a percentage; for example, 20%',
     taxWithholdMustBeSentYearly: 'Please note that voluntary tax deductions must be resubmitted each calendar year.',
@@ -89,16 +92,12 @@ const frontPage = {
     frontPageTitle: 'Apply for children’s pension',
     ingress: '<MANGLER TEKST>',
     startApplication: 'Start the application',
-    childMayBeApplicableForPension:
-        '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li1:
-        '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li2:
-        '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li3:
-        '<MANGLER TEKST>',
-    readMoreAboutChildrensPension:
-        '<MANGLER TEKST>',
+    childMayBeApplicableForPension: '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li1: '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li2: '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li3: '<MANGLER TEKST>',
+    readMoreAboutChildrensPension: '<MANGLER TEKST>',
+    weWillRetrieveInfoTitle: 'Personal data protection',
     weWillRetrieveInfo: 'We collect the information we require',
     infoWeRetrieve:
         'In order to process your application we require information about the child/children, the parents of the children and any siblings.  \n \n We retrieve:',
@@ -114,9 +113,6 @@ const frontPage = {
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten">Read more about how we process your personal data</a>',
     aboutPrivacy:
         '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Read more about data protection and security on the nav.no website</a>',
-    aboutTheApplicationTitle: 'Filling out the application',
-    aboutTheApplicationDescription:
-        'We save the application for 72 hours so that you can take breaks along the way. You can quit the application at any time.',
     consentTitle: 'We trust you',
     consentDescription: 'You must provide us with the correct information so that we can process your application.\n\n',
     consentToNav: 'I, {fornavn} {etternavn}, hereby confirm that the information I provide is correct and complete.',
@@ -125,12 +121,16 @@ const frontPage = {
 const selectScenario = {
     whoIsApplying: 'For whom are you submitting an application for the children’s pension?',
     additionalSituationDetails: 'The child have lost',
+    additionalSituationDetailsDescription: '<MANGLER TEKST>',
     additionalSituationDetailsOver18: 'I have lost',
+    additionalSituationDetailsOver18Description: '<MANGLER TEKST>',
     PARENT: 'I am applying for my child/children under the age of 18',
     GUARDIAN: 'I am applying for one or more children who I am the guardian for',
     CHILD: 'I have reached the age of 18 and am applying on behalf of myself',
+    parentApplicantInformationLabel: '<MANGLER TEKST>',
     parentApplicantInformation:
         'In the application, you must list all children and/or adoptive children under the age of 18 who you had together with the deceased.',
+    guardianApplicantInformationLabel: '<MANGLER TEKST>',
     guardianApplicantInformation:
         'In the application, you must list all of the deceased’s children and/or adoptive children who are under the age of 18.',
     guardiansMustSendDocumentation:
@@ -143,8 +143,8 @@ const selectScenario = {
         'If you have lost one or both of your parents you must use <a href="https://www.nav.no/soknader/en/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
         'You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/en/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">this application</a>.',
-    aboutSurvivorsPensionTitle:
-        'Have you lost your spouse, cohabiting partner or partner?',
+    youNeedFnrForEveryoneInThisApplicationBothParentsDeceased: '<MANGLER TEKST>',
+    aboutSurvivorsPensionTitle: 'Have you lost your spouse, cohabiting partner or partner?',
     aboutSurvivorsPensionDescription:
         'You may then apply for a survivor’s pension or transitional benefit. If you would like to apply for the children’s pension at the same time, you can use <a href="https://www.nav.no/soknader/en/person/pensjon/gjenlevende-ektefelle-partner-eller-samboer">this application.</a>',
     BOTH_PARENTS_DECEASED: 'Both parents',
@@ -183,14 +183,16 @@ const aboutParents = {
     addFirstParentBtn: 'Add parent 1',
     addSecondParentBtn: 'Add parent 2',
     bothParentsRequired:
-        'You must enter information about both your parents to continue the application. If the child has lost his mother and paternity has not been determined, you must use \'I have lost both parents\'.',
-    missingOneParentLink:
-        '<a href="https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> this application</a>.',
+        "You must enter information about both your parents to continue the application. If the child has lost his mother and paternity has not been determined, you must use 'I have lost both parents'.",
+    chooseUnknowParent: '<MANGLER TEKST>',
     childAndOneParentDeceased: 'You do not need to fill in the surviving parent information',
     unknownParent: 'Unknown parent',
     unknownParentQuestion: 'Can you confirm that you do not know the identity of your parent?',
-    childAndOneParentDeceasedGuidepanel: 'You do not need to fill in the surviving parent information. We collect this information when we process your application. If you have lost one parent and the other is unknown, you will need to start the application process again. "I have lost both parents"',
-    childAndBothParentsDeceasedGuidepanel: 'You must enter information about both your parents to continue the application. If you do not know the identity of your parent, select "Unknown parent".',
+    unknownParentQuestionGuardian: '<MANGLER TEKST>',
+    childAndOneParentDeceasedGuidepanel:
+        'You do not need to fill in the surviving parent information. We collect this information when we process your application. If you have lost one parent and the other is unknown, you will need to start the application process again. "I have lost both parents"',
+    childAndBothParentsDeceasedGuidepanel:
+        'You must enter information about both your parents to continue the application. If you do not know the identity of your parent, select "Unknown parent".',
     guardianAndOneParentDeceased: '<MANGLER TEKST>',
 }
 
@@ -208,7 +210,8 @@ const aboutTheDeceased = {
     abroadStaysTitle: 'Time spent outside Norway',
     workOrLivingAbroadCanAffectPension:
         'We need to know if the deceased lived or worked outside Norway. This can influence the calculation of the children’s pension and also entitle the child/children to pension rights from other countries.',
-    workOrLivingAbroadCanAffectPensionOver18: 'We need to know whether the deceased has lived or worked outside of Norway. This can affect our calculation of the children’s pension, and you may also have pension rights from another country.',
+    workOrLivingAbroadCanAffectPensionOver18:
+        'We need to know whether the deceased has lived or worked outside of Norway. This can affect our calculation of the children’s pension, and you may also have pension rights from another country.',
     didTheDeceasedLiveAbroad: 'Did he or she live and/or work in a country other than Norway after the age of 16?',
     abroadInWhichCountry: 'Country',
     livedOrWorkedAbroad: 'Lived and/or worked?',
@@ -230,7 +233,8 @@ const aboutTheDeceased = {
     occupationalInjury: 'Was the death caused by an occupational injury or occupational illness?',
     whyWeAskAboutOccupationalInjury:
         'If the death was caused by an occupational injury or occupational illness approved by NAV, this may determine whether the child/children will receive the children’s pension and the amount the child/children is/are entitled to.',
-    whyWeAskAboutOccupationalInjuryOver18: 'If the death is due to an occupational injury or occupational illness approved by NAV, this can determine whether you are eligible for a children\'s pension and how much you can receive.',
+    whyWeAskAboutOccupationalInjuryOver18:
+        "If the death is due to an occupational injury or occupational illness approved by NAV, this can determine whether you are eligible for a children's pension and how much you can receive.",
     BODD: 'Lived',
     ARBEIDET: 'Worked',
     addCountryButton: '+ Add more countries',
@@ -270,8 +274,10 @@ const aboutChildren = {
     whoAreTheParentsHelpText:
         'We need to know if this is a child you share with the deceased (a “joint child”), the deceased’s child from another relationship, or your child from another relationship.',
     bothOfTheAbove: '{person1} and {person2}',
+    remainingParent: 'Surviving parent',
     remainingParentsChild: 'Myself',
     jointChild: 'Myself and {person1}',
+    guardianChild: 'Surviving parent and {person1}',
     relationHelpText:
         'We need to know if this is a child you share with the deceased (a “joint child”), the deceased’s child from another relationship, or your child from another relationship.',
     aboutChildrenTitle: 'About children',
@@ -296,10 +302,9 @@ const summary = {
     AboutTheDeceased: 'Change answers about the deceased',
     AboutChildren: 'Change answers about children',
     YourSituation: 'Change answers about your situation',
+    errorFromConflict: '<MANGLER TEKST>',
     errorWhenSending:
-        'An error occurred while submitting. Please wait a moment and try again. If the error persists, you can report it ',
-    errorWhenSendingLink: 'here.',
-    errorWhenSendingHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+        'An error occurred while submitting. Please wait a moment and try again. If the error persists, you can report it <a href="https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler">here.</a>',
     sendApplicationTitle: 'Do you wish to submit the application now?',
     sendingApplicationTitle: 'Submitting the application',
     sendApplicationBody: 'You will not be able to change your information after submitting the application.',
@@ -427,8 +432,7 @@ const receipt = {
     guardianshipMustBeConfirmedLink: '<MANGLER TEKST>',
     guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende#barnepensjon',
     viewCaseTitle: 'Do you want to check the status of the case',
-    viewCaseInfoContentPart1:
-        '<MANGLER TEKST>',
+    viewCaseInfoContentPart1: '<MANGLER TEKST>',
     viewCaseInfoContent2: 'Children over the age of 18 can check the status of their case by logging on at ',
     viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
     viewCaseInfoLinkText2: 'mitt NAV (my NAV)',
