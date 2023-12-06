@@ -206,7 +206,7 @@ export default {
     'merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor':
         'We need to know what you plan to do in the future. This will help us provide you with relevant information and follow-up suited to your situation.',
     'merOmSituasjonenDin.etablererVirksomhet.tittel': 'About your organization',
-    'merOmSituasjonenDin.etablererVirksomhet.orgnr': 'organization number',
+    'merOmSituasjonenDin.etablererVirksomhet.orgnr': 'Organization number',
     'merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr': 'I do not have an organization number',
     'merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten': 'What is the name of the organization?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar': 'Do you have a business plan?',
