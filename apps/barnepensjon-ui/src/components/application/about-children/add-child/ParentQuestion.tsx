@@ -22,7 +22,10 @@ export default function ParentQuestion({ parents }: Props) {
 
     const bothParents = () => {
         if (isParent) return t('jointChild', { person1: nameAndFnr(application.secondParent!) })
-        if (isGuardian) return t('guardianChild', { person1: nameAndFnr(application.firstParent!) })
+        if (isGuardian) {
+            if (application.unknownParent) return t('guardianChild', { person1: nameAndFnr(application.firstParent!) })
+            return t('guardianChild', { person1: nameAndFnr(application.firstParent!) })
+        }
         return t('bothOfTheAbove', {
             person1: nameAndFnr(application.firstParent!),
             person2: hasUnknownParent
