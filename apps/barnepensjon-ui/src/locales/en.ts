@@ -45,8 +45,10 @@ const btn = {
     continueButton: 'Continue',
     yesButton: 'Yes, submit application',
     noButton: 'No, go back',
-    yesUnknownParent: '<MANGLER TEKST>',
-    noUnknownParent: '<MANGLER TEKST>',
+    yesUnknownParent: 'Yes, my parent is unknown',
+    yesUnknownParentGuardian: 'Yes, the parent is unknown',
+    noUnknownParent: 'No, I know who my parents are',
+    noUnknownParentGuardian: '<MANGLER TEKST>',
 }
 
 const loggedInUserInfo = {
@@ -71,7 +73,7 @@ const paymentDetails = {
         'BIC stands for Bank Identifier Code, and is a unique code that identifies the bank. The BIC, which in some countries is called the SWIFT code, is required when making payments to a number of countries.',
     doYouWantUsToWithholdTax: 'Do you want us to deduct tax for the children’s pension?',
     childPensionIsTaxable:
-        'The children’s pension is taxable, however we do not deduct tax from the payment amount unless we are instructed to do so. If you have any questions about tax, you must contact the Norwegian Tax Administration (“Skatteetaten”).',
+        'A children\'s pension is taxable, but we do not deduct tax from the amount unless we are notified. If you have questions about the amount of the tax deduction, you must contact the Norwegian Tax Administration.',
     desiredTaxPercentage: 'Enter the desired tax deduction',
     desiredTaxPercentagePlaceholder: 'as a percentage; for example, 20%',
     taxWithholdMustBeSentYearly: 'Please note that voluntary tax deductions must be resubmitted each calendar year.',
@@ -123,7 +125,7 @@ const frontPage = {
 const selectScenario = {
     whoIsApplying: 'For whom are you submitting an application for the children’s pension?',
     additionalSituationDetails: 'The child have lost',
-    additionalSituationDetailsOver18: '<Mangler tekst>',
+    additionalSituationDetailsOver18: 'I have lost',
     PARENT: 'I am applying for my child/children under the age of 18',
     GUARDIAN: 'I am applying for one or more children who I am the guardian for',
     CHILD: 'I have reached the age of 18 and am applying on behalf of myself',
@@ -153,10 +155,10 @@ const selectScenario = {
 const aboutYou = {
     title: 'About you',
     stayWhy:
-        'If you spend a prolonged period in a country other than Norway, this may affect whether you are entitled to a survivor’s pension and the amount you may receive.',
+        'If you have been living in a country other than Norway, this may determine whether you are eligible for a children’s pension and how much you can receive.',
     addressOfResidenceConfirmed: 'Do you live at this address?',
     alternativeAddress: 'Enter your current residential address',
-    staysAbroadTitle: '<MANGLER TEKST>',
+    staysAbroadTitle: 'Have you been living in Norway the last 12 months?',
     residesInNorway: '<MANGLER TEKST>',
     countryOfResidence: 'State which country',
     stayedAbroad: '<MANGLER TEKST>',
@@ -170,7 +172,7 @@ const aboutYou = {
 
 const aboutParents = {
     aboutParentsTitle: 'About the parents',
-    unknownParentTitle: '<MANGLER TEKST>',
+    unknownParentTitle: 'Unknown parent',
     firstParent: 'Parent 1',
     secondParent: 'Parent 2',
     survivingParent: 'Surviving parent',
@@ -181,14 +183,14 @@ const aboutParents = {
     addFirstParentBtn: 'Add parent 1',
     addSecondParentBtn: 'Add parent 2',
     bothParentsRequired:
-        'You will need to add information about both parents to continue with the application.  \n \n If the child has lost his/her mother and paternity has not been determined, you will need to use',
+        'You must enter information about both your parents to continue the application. If the child has lost his mother and paternity has not been determined, you must use \'I have lost both parents\'.',
     missingOneParentLink:
         '<a href="https://www.nav.no/soknader/en/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> this application</a>.',
-    childAndOneParentDeceased: '<MANGLER TEKST>',
-    unknownParent: '<MANGLER TEKST>',
-    unknownParentQuestion: '<MANGLER TEKST>',
-    childAndOneParentDeceasedGuidepanel: '<MANGLER TEKST>',
-    childAndBothParentsDeceasedGuidepanel: '<MANGLER TEKST>',
+    childAndOneParentDeceased: 'You do not need to fill in the surviving parent information',
+    unknownParent: 'Unknown parent',
+    unknownParentQuestion: 'Can you confirm that you do not know the identity of your parent?',
+    childAndOneParentDeceasedGuidepanel: 'You do not need to fill in the surviving parent information. We collect this information when we process your application. If you have lost one parent and the other is unknown, you will need to start the application process again. "I have lost both parents"',
+    childAndBothParentsDeceasedGuidepanel: 'You must enter information about both your parents to continue the application. If you do not know the identity of your parent, select "Unknown parent".',
     guardianAndOneParentDeceased: '<MANGLER TEKST>',
 }
 
@@ -206,7 +208,7 @@ const aboutTheDeceased = {
     abroadStaysTitle: 'Time spent outside Norway',
     workOrLivingAbroadCanAffectPension:
         'We need to know if the deceased lived or worked outside Norway. This can influence the calculation of the children’s pension and also entitle the child/children to pension rights from other countries.',
-    workOrLivingAbroadCanAffectPensionOver18: '<MANGLER TEKST>',
+    workOrLivingAbroadCanAffectPensionOver18: 'We need to know whether the deceased has lived or worked outside of Norway. This can affect our calculation of the children’s pension, and you may also have pension rights from another country.',
     didTheDeceasedLiveAbroad: 'Did he or she live and/or work in a country other than Norway after the age of 16?',
     abroadInWhichCountry: 'Country',
     livedOrWorkedAbroad: 'Lived and/or worked?',
@@ -228,7 +230,7 @@ const aboutTheDeceased = {
     occupationalInjury: 'Was the death caused by an occupational injury or occupational illness?',
     whyWeAskAboutOccupationalInjury:
         'If the death was caused by an occupational injury or occupational illness approved by NAV, this may determine whether the child/children will receive the children’s pension and the amount the child/children is/are entitled to.',
-    whyWeAskAboutOccupationalInjuryOver18: '<MANGLER TEKST>',
+    whyWeAskAboutOccupationalInjuryOver18: 'If the death is due to an occupational injury or occupational illness approved by NAV, this can determine whether you are eligible for a children\'s pension and how much you can receive.',
     BODD: 'Lived',
     ARBEIDET: 'Worked',
     addCountryButton: '+ Add more countries',
