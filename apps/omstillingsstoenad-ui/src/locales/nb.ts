@@ -50,15 +50,15 @@ export default {
     'forside.omSoeknaden.personvern': 'Personvern og sikkerhet',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
-        'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være barn du har omsorg for ny ektefelle eller samboer eller verge som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
+        'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være barn du har omsorg for ny, ektefelle eller samboer eller verge som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
     'forside.uthentingAvInfo.innholdListe.li1':
-        '<strong>Personinformasjon</strong> fra Folkeregisteret (Personnummer, adresse, statsborgerskap, sivilstand)',
+        '<strong>Personinformasjon</strong> fra Folkeregisteret (personnummer, adresse, statsborgerskap, sivilstand)',
     'forside.uthentingAvInfo.innholdListe.li2':
-        '<strong>Inntektsinformasjon</strong> fra Skatteetaten (Informasjon om skattebelagt inntekt inneværende år)',
+        '<strong>Inntektsinformasjon</strong> fra Skatteetaten (informasjon om skattebelagt inntekt inneværende år)',
     'forside.uthentingAvInfo.innholdListe.li3':
         'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
     'forside.uthentingAvInfo.innholdListe.li4':
-        'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (For eksempel alderspensjon eller uføretrygd)',
+        'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (for eksempel alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
         'Informasjon fra <strong>utenlandske trygdemyndigheter</strong> (der dette er aktuelt)',
     'forside.uthentingAvInfo.innholdListe.li6':
@@ -70,7 +70,7 @@ export default {
     'forside.personvern.tredjeperson.li2': 'Fødselsnummer',
     'forside.personvern.tredjeperson.li3': 'Hvorvidt man har hatt/har felles barn med søker',
     'forside.personvern.tredjeperson.li4': 'Sivilstand',
-    'forside.personvern.innhold': 'Hvis du ønsker vite mer om personvern og sikkerhet kan du lese',
+    'forside.personvern.innhold': 'Hvis du ønsker å vite mer om personvern og sikkerhet kan du lese',
     'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
     'forside.personvern.tekst': 'hvordan NAV behandler personopplysningene dine.',
     'forside.samtykke.tittel': 'Vi stoler på deg',
