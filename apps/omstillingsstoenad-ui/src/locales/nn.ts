@@ -146,7 +146,7 @@ export default {
     'merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse':
         'Du kan velje å krysse av for fleire eller berre høgaste fullførte',
     'merOmSituasjonenDin.utdanning.annenUtdanning': 'Anna utdanning',
-    'merOmSituasjonenDin.utdanning.annenUtdanningPlaceholder': 'Eks. kurs, enkeltår på universitet eller høgskule',
+    'merOmSituasjonenDin.utdanning.annenUtdanningPlaceholder': 'Til dømes kurs, enkeltår på universitet eller høgskule',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger': 'Informasjon om stønad til skulepengar',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.beskrivelse':
         'Du kan få stønad til dekning av skulepengar som attlevande ektefelle dersom du gjennomfører utdanning som er godkjent av NAV. Utdanninga må vere nødvendig og hensiktsmessig for å kome i eller behalde arbeid.\n\nStønad til skulepengar skal dekke dei faktiske utgiftene du har til studieavgift, semesteravgift, eksamensgebyr og/eller skulepengar ved privat utdanningsinstitusjon. Stønaden dekker dokumenterte utgifter opp til ei øvre grense.',
@@ -178,7 +178,7 @@ export default {
         'Reknar du med at inntekta di endrar seg dei neste 12 månadene?',
     'merOmSituasjonenDin.selvstendig.forventerEndretInntekt.beskrivelse': 'Kva er årsaka til endringane?',
     'merOmSituasjonenDin.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder':
-        'Eks. endring i forventa inntekt eller drift av næring',
+        'Til dømes endring i forventa inntekt eller drift av næring',
     'merOmSituasjonenDin.arbeidsforhold.arbeidssted': 'Arbeidsstad',
     'merOmSituasjonenDin.arbeidsforhold.tittel': 'Om arbeidsforhold',
     'merOmSituasjonenDin.arbeidsforhold.arbeidsgiver': 'Kva heiter arbeidsgivar?',
@@ -234,13 +234,13 @@ export default {
     'merOmSituasjonenDin.andreYtelser.annenPensjon.svar':
         'Får du eller har du søkt om avtalefesta pensjon (AFP) eller annan pensjon frå andre enn NAV?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.beskrivelse': 'Kva for pensjonsordning?',
-    'merOmSituasjonenDin.andreYtelser.annenPensjon.placeholder': 'Eks. Skandia, KLP, SPK, Oslo pensjonsforsikring',
+    'merOmSituasjonenDin.andreYtelser.annenPensjon.placeholder': 'Til dømes Skandia, KLP, SPK, Oslo pensjonsforsikring',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.svar': 'Får du pensjon frå eit anna land enn Noreg?',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvorfor':
         'Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon': 'Kva slags pensjon?',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder':
-        'Eks. alderspensjon, omstillingsstønad',
+        'Til dømes alderspensjon, omstillingsstønad',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.fraHvilketLand': 'Frå kva for land?',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar': 'Årleg beløp før skatt i landets valuta',
     'merOmSituasjonenDin.forventerEndretInntektType.oektStillingsprosent': 'Økt stillingsprosent',
@@ -397,7 +397,7 @@ export default {
     'omDenAvdoede.etternavn': 'Etternamn',
     'omDenAvdoede.foedselsnummer': 'Fødselsnummer / d-nummer',
     'omDenAvdoede.statsborgerskap': 'Statsborgarskap',
-    'omDenAvdoede.statsborgerskapPlaceholder': 'Eks. norsk',
+    'omDenAvdoede.statsborgerskapPlaceholder': 'Til dømes norsk',
     'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphald utanfor Noreg',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
@@ -445,7 +445,7 @@ export default {
     'omBarn.harBarnetVerge.foedselsnummer': 'Fødselsnummer til verje (valfri)',
     'omBarn.harBarnetVerge.foedselsnummerPlaceholder': '11 siffer',
     'omBarn.statsborgerskap': 'Statsborgarskap',
-    'omBarn.statsborgerskapPlaceholder': 'Eks. norsk',
+    'omBarn.statsborgerskapPlaceholder': 'Til dømes norsk',
     'omBarn.statsborger': 'statsborgar',
     'omBarn.borI': 'Bur i',
     'omBarn.dagligOmsorg': 'Har du dagleg omsorg for dette barnet?',
@@ -463,7 +463,7 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst':
         'Barnepensjon er skattepliktig, men vi trekkjer ikkje skatt av beløpet utan at vi får beskjed om det. Dersom du har spørsmål om kor stort skattetrekket vil vere, må du kontakte Skatteetaten.',
     'omBarn.barnepensjon.forskuddstrekk.trekkprosent': 'Oppgi ønskt skattetrekkprosent',
-    'omBarn.barnepensjon.forskuddstrekk.placeholder': 'i prosent, eks. 20%',
+    'omBarn.barnepensjon.forskuddstrekk.placeholder': 'i prosent, til dømes 20%',
     'omBarn.barnepensjon.forskuddstrekk.info':
         'Ver merksam på at frivillig skattetrekk må sendast inn på nytt kvart kalenderår.',
     'omBarn.infokort.foedselsnummer': 'FØDSELSNUMMER',
