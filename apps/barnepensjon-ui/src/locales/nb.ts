@@ -309,8 +309,8 @@ const summary = {
         'Dersom du ønsker å endre informasjon på en innsendt søknad må du benytte skjema ' +
         '<a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">Diverse dokumentasjon</a>. ' +
         'Det kreves også egne skjema for endring av ' +
-        '<a href="https://www.nav.no/soknader/nb/person/diverse/endre-opplysninger-om-bankkontonummer">kontonummer</a> eller ' +
-        '<a href="https://www.nav.no/no/nav-og-samfunn/kontakt-nav/utbetalinger/utbetalinger/utbetalingsdatoer-feriepenger-og-skattetrekk/barnepensjon_kap">frivillig skattetrekk</a>. ' +
+        '<a href="https://www.nav.no/start/soknad-endring-bankkontonummer">kontonummer</a> eller ' +
+        '<a href="https://www.nav.no/skattetrekk#trekke-mer-skatt">frivillig skattetrekk</a>. ' +
         'Felles for disse er at de må sendes inn pr post.\n\n' +
         'Sender du inn endringer må du gi oss beskjed ved å kontakte oss på telefon <a href="tel:+47 55 55 33 34">55 55 33 34</a>, slik at vi venter med saksbehandlingen av søknaden.',
     errorWhenSending:

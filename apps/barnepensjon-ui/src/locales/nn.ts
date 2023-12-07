@@ -48,7 +48,7 @@ const btn = {
     yesUnknownParent: 'Ja, forelderen min er ukjend',
     yesUnknownParentGuardian: 'Ja, forelderen er ukjend',
     noUnknownParent: 'Nei, eg veit kven foreldra mine er',
-    noUnknownParentGuardian: '<MANGLER TEKST>',
+    noUnknownParentGuardian: 'Nei, eg kjenner identiteten til begge foreldra mine',
 }
 
 const loggedInUserInfo = {
@@ -89,13 +89,17 @@ const radiobuttons = {
 
 const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
-    ingress: '<MANGLER TEKST>',
+    ingress:
+        'Hei, eg er her for å rettleie deg gjennom søknaden. Svar så godt du kan ut frå korleis situasjonen din ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
     startApplication: 'Start søknad',
     childMayBeApplicableForPension: 'Barn under 20 år som har mista ein eller begge foreldra sine, kan få barnepensjon',
-    childMayBeApplicableForPension_li1: 'Det er foreldra eller verjen til barnet som må søke om barnepensjon for barnet viss det er under 18 år.',
-    childMayBeApplicableForPension_li2: '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li1:
+        'Det er foreldra eller verjen til barnet som må søke om barnepensjon for barnet viss det er under 18 år.',
+    childMayBeApplicableForPension_li2:
+        'Som verje kan du berre sende søknad for barn du er verje for. Du vil bli beden om å dokumentere omsorgsforholdet etter at søknaden er send. Du kan også søkje for personar over 18 år.',
     childMayBeApplicableForPension_li3: 'Barn over 18 år må søkje sjølve.',
-    readMoreAboutChildrensPension: '<MANGLER TEKST>',
+    readMoreAboutChildrensPension:
+        'Dersom du har spørsmål om pensjonen – til dømes kor mykje du kan få, eller kva reglar som gjeld for skatt – kan du du <a href="https://www.nav.no/barnepensjon">lese meir om barnepensjon</a>.',
     weWillRetrieveInfoTitle: 'Personvern og tryggleik',
     weWillRetrieveInfo: 'Vi hentar informasjonen vi treng',
     infoWeRetrieve:
@@ -117,9 +121,10 @@ const frontPage = {
 const selectScenario = {
     whoIsApplying: 'Kven søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet har mista',
-    additionalSituationDetailsDescription: '<MANGLER TEKST>',
+    additionalSituationDetailsDescription:
+        'Dersom barnet har mista éin forelder og den andre forelderen er ukjend, vel du "Begge foreldre".',
     additionalSituationDetailsOver18: 'Eg har mista',
-    additionalSituationDetailsOver18Description: '<MANGLER TEKST>',
+    additionalSituationDetailsOver18Description: 'Viss den eine forelderen din er ukjend, vel du Begge foreldre.',
     PARENT: 'Eg søker for mitt eller mine barn under 18 år',
     GUARDIAN: 'Eg søker for eitt eller fleire barn eg er verje for',
     CHILD: 'Eg har fylt 18 år og søker på vegne av meg sjølv',
@@ -128,9 +133,9 @@ const selectScenario = {
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde.',
     guardianApplicantInformationLabel: 'Eg søker for eitt eller fleire barn eg er verje for',
     guardianApplicantInformation:
-        'I søknaden må du oppgi alle avdøde sine barn og/eller adoptivbarn som er under 18 år.',
+        'I søknaden må du oppgi alle barn og/eller adoptivbarn som avdøde hadde under 20 år. Du kan berre sende søknad for barn du er verje for.',
     guardiansMustSendDocumentation:
-        'Viss barna ikkje er heilsøsken, må ein søke for kvart barnekull. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på barn du er verje for.',
+        'For at vi skal kunne behandle søknaden om barnepensjon, må du ettersende dokumentasjon på barn du er verje for.\n\n Du må oppgi fødselsnummer på alle i søknaden. Dersom du ikkje har denne informasjonen, fyller du ut ein av våre<a href="https://www.nav.no/start/soknad-barnepensjon">andre søknader om barnepensjon</a>.',
     childApplicantInformation1:
         '<b>Viss du har mista ein forelder</b>\nNår dødsfallet skuldast ein yrkesskade eller yrkessjukdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
@@ -138,10 +143,10 @@ const selectScenario = {
     childApplicantInformationOver18:
         'Har du mista ein eller begge foreldra dine må du bruke <a href="https://www.nav.no/fyllut/nav180405?lang=nn-NO">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
-        'Du må oppgi heile fødselsnummeret til barnet/barna og avdøde. Viss ikkje du har det, må du bruke ein av våre <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">andre søknader om barnepensjon</a>.',
+        'Du må oppgi heile fødselsnummeret til barnet/barna og avdøde. Dersom du ikkje har denne informasjonen, fyller du ut ein av våre <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">andre søknader om barnepensjon</a>.',
     aboutSurvivorsPensionTitle: 'Har du mista ektefellen, sambuaren eller partnaren din?',
     aboutSurvivorsPensionDescription:
-        'Då kan du søke om attlevandepensjon eller overgangsstønad. Viss du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/soknader#gjenlevendepensjon">denne søknaden.</a>',
+        'Då kan du søkje om omstillingsstønad. Dersom du ønskjer å samstundes søkje om barnepensjon, kan du gjere begge delar i <a href="https://www.nav.no/omstillingsstnad/soknad/">søknad om omstillingsstønad.</a>',
     BOTH_PARENTS_DECEASED: 'Begge foreldra',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Eg er foreldrelaus',
     ONE_PARENT_DECEASED: 'Ein forelder',
@@ -178,16 +183,18 @@ const aboutParents = {
     addSecondParentBtn: 'Legg til forelder 2',
     bothParentsRequired:
         'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom barnet har mista mor si og farskapet ikkje er avklart, vel du alternativet «Eg har mista begge foreldre».',
-    chooseUnknowParent: '<MANGLER TEKST>',
+    chooseUnknowParent:
+        'Du må leggje til opplysningar om begge foreldre for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til den eine forelderen, vel du "Ukjend forelder".',
     childAndOneParentDeceased: 'Du treng ikkje fylle ut informasjon om attlevande forelder',
     unknownParent: 'Ukjend forelder',
     unknownParentQuestion: 'Kan du stadfeste at du ikkje kjenner identiteten til forelderen din?',
-    unknownParentQuestionGuardian: '<MANGLER TEKST>',
+    unknownParentQuestionGuardian: 'Kan du stadfeste at du ikkje kjenner identiteten til den avdøde forelderen?',
     childAndOneParentDeceasedGuidepanel:
         'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden din. \n\n Dersom du har mista éin forelder og den andre er ukjend, må du starte søknadsprosessen på nytt. "Eg har mista begge foreldre"',
     childAndBothParentsDeceasedGuidepanel:
         'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til forelderen din, vel du «Ukjend forelder».',
-    guardianAndOneParentDeceased: '<MANGLER TEKST>',
+    guardianAndOneParentDeceased:
+        'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden. \n\n Dersom barnet har mista éin forelder og du ikkje veit identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Vel alternativet "Begge foreldre".',
 }
 
 const livingParent = {
@@ -252,8 +259,8 @@ const aboutChildren = {
     childHasGuardian: 'Er det oppnemnt en verje for barnet?',
     guardianFnr: 'Fødselsnummer til verje (valgfri)',
     guardianFnrPlaceholder: '11 siffer',
-    information: '<MANGLER TEKST>',
-    informationGuardian: '<MANGLER TEKST>',
+    information: 'Legg til alle barn under 18 år som du har felles med avdøde.\n\n Barn over 18 år må søkje sjølve.',
+    informationGuardian: 'Legg til alle barn du er verje for.',
     infoRegardingSiblings: 'Her er info viss det er søsken',
     infoCard_residence: 'BUSTAD',
     infoCard_fnr: 'FØDSELSNUMMER',
@@ -278,7 +285,8 @@ const aboutChildren = {
     thisIsOptional: 'Dette er valfritt',
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldra til barnet?',
     loggedInUserIsGuardian: 'Er du verje for dette barnet?',
-    needToSendInDocumentation: '<MANGLER TEKST>',
+    needToSendInDocumentation:
+        'Når du har sendt inn søknaden, må du sende inn dokumentasjon på at du er verje for barnet.',
     onlyGuardiansCanApply:
         'Du kan berre søke om barnepensjon for barn du er verje for. \nAlle avdøde sine barn under 18 år kan leggjast til.',
 }
@@ -293,7 +301,14 @@ const summary = {
     AboutTheDeceased: 'Endre svar om den avdøde',
     AboutChildren: 'Endre svar om barn',
     YourSituation: 'Endre svar om din situasjon',
-    errorFromConflict: '<MANGLER TEKST>',
+    errorFromConflict:
+        'Vi har allereie fått ein søknad på eitt eller fleire av barna det blir søkt for.\n\n' +
+        'Dersom du ønskjer å endre informasjon på ein innsend søknad, nyttar du skjemaet ' +
+        '<a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">Diverse dokumentasjon</a>. ' +
+        'Eige skjema må også fyllast ut ved endring av <a href="https://www.nav.no/start/soknad-endring-bankkontonummer/nn">kontonummer</a> ' +
+        'eller <a href="https://www.nav.no/skattetrekk#trekke-mer-skatt">frivillig skattetrekk</a>. ' +
+        'Felles for desse er at dei må sendast inn per post.\n\n Viss du sender inn endringar, må du gi oss beskjed ' +
+        'ved å ringje oss på telefon <a href="tel:+47 55 55 33 34">55 55 33 34</a>, slik at vi ventar med å behandle søknaden.',
     errorWhenSending:
         'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil <a href="https://www.nav.no/person/kontakt-oss/nn/tilbakemeldinger/feil-og-mangler">her.</a>',
     sendApplicationTitle: 'Ønsker du å sende inn søknaden no?',
@@ -403,7 +418,8 @@ const logOutUser = {
 
 const receipt = {
     pageTitle: 'Søknaden er sendt til oss',
-    contact: '<MANGLER TEKST>',
+    contact:
+        'Vi har fått søknaden din om barnepensjon. Saka di er no til behandling hos NAV. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon frå deg.',
     youMustNotifyRegardingChanges: 'Du må melde frå om endringar',
     importantChangesCanAffectYourRights:
         'Du må melde frå med ein gong det skjer viktige endringar. Det kan til dømes vera ved:',
@@ -416,10 +432,11 @@ const receipt = {
     submissionOfGuardianshipInfo: 'Verje',
     guardianshipMustBeConfirmed:
         'Dersom du har sendt inn søknad som verje må du sende bekreftelse på utnevning av verje frå tingretten eller Statsforvalteren.',
-    guardianshipMustBeConfirmedLink: '<MANGLER TEKST>',
+    guardianshipMustBeConfirmedLink: 'Du finn skjemaet for ettersending her.',
     guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende#barnepensjon',
     viewCaseTitle: 'Sjekke status i saken',
-    viewCaseInfoContentPart1: '<MANGLER TEKST>',
+    viewCaseInfoContentPart1:
+        'Forelder eller verje kan ikkje følgje saka til barnet digitalt. Dersom du har spørsmål om søknaden, kontaktar du oss på telefon 55 55 33 34. Lurer du på kor lang tid behandlinga vil ta? Her kan du sjå forventa saksbehandlingstid ',
     viewCaseInfoContent2: 'Barn over 18 år kan sjølv sjekke status i saka si ved å logge inn i ',
     viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
     viewCaseInfoLinkText2: 'mitt NAV',
