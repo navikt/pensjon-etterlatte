@@ -16,16 +16,18 @@ export const FortsettSoeknadModal = () => {
     const nesteSteg = () => {
         if (state.opplysningerOmBarn.erValidert === true) {
             return StegPath.Oppsummering
-        } else if (state.merOmSituasjonenDin.erValidert === true) {
+        } else if (state.inntektenDin.erValidert === true) {
             return StegPath.OmBarn
+        } else if (state.merOmSituasjonenDin.erValidert === true) {
+            return StegPath.InntektenDin
         } else if (state.situasjonenDin.erValidert === true) {
             return StegPath.MerOmSituasjonenDin
-        } else if (state.omDenAvdoede.erValidert === true) {
-            return StegPath.SituasjonenDin
         } else if (state.omDegOgAvdoed.erValidert === true) {
-            return StegPath.OmAvdoed
-        } else if (state.omDeg.erValidert === true) {
+            return StegPath.SituasjonenDin
+        } else if (state.omDenAvdoede.erValidert === true) {
             return StegPath.OmDegOgAvdoed
+        } else if (state.omDeg.erValidert === true) {
+            return StegPath.OmAvdoed
         } else {
             return StegPath.OmDeg
         }

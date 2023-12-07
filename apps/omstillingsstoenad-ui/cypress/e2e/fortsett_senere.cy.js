@@ -18,7 +18,7 @@ describe("Skal fortsette og slette tidligere søknad", () => {
 
     it("Fortsett søknad skal sende deg til neste side som er klar for utfylling", () => {
         getById("fortsett_soeknad").click();
-        cy.url().should("include", "steg/om-deg-og-avdoed");
+        cy.url().should("include", "steg/om-den-avdoede");
     })
 
     it("Start på nytt skal sende deg til startsiden og slette state", () => {

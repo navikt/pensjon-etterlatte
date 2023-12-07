@@ -17,7 +17,7 @@ describe("Skal avbryte en soeknad",() => {
         cy.wait(["@hentSoeknad"]);
 
         getById("fortsett_soeknad").click();
-        cy.url().should("include", "steg/om-deg-og-avdoed");
+        cy.url().should("include", "steg/om-den-avdoede");
     }
 
     it("Fortsett søknad etter å ha trykket avbryt", () => {
@@ -27,7 +27,7 @@ describe("Skal avbryte en soeknad",() => {
         getById("avbryt-btn").click();
 
         getById("avbryt-nei-btn").click();
-        cy.url().should("include", "steg/om-deg-og-avdoed");
+        cy.url().should("include", "steg/om-den-avdoede");
     })
 
     it("Avbryt og fortsett senere", () => {
