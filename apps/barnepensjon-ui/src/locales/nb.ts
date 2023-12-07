@@ -449,6 +449,7 @@ const receipt = {
     processingTimeLink: 'forventet saksbehandlingstid.',
     processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
     closeApplicationButton: 'Les mer om barnepensjon',
+    closeApplicationButtonHref: 'https://www.nav.no/barnepensjon',
 }
 
 const yourSituation = {

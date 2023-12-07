@@ -450,18 +450,19 @@ const receipt = {
     moreAboutChangesLinkText: 'notifying us of any changes.',
     submissionOfGuardianshipInfo: 'Guardian',
     guardianshipMustBeConfirmed:
-        'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor, \n\n',
+        'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor, ',
     guardianshipMustBeConfirmedLink: 'The form that you need to send later can be found here.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende#barnepensjon',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersend-soknad-barnepensjon/en',
     viewCaseTitle: 'Do you want to check the status of the case',
     viewCaseInfoContentPart1:
-        "Parents or guardians cannot follow the child's case digitally. If you have any questions about the application, please contact us by phone 55 55 33 34. Curious about how long this will take? You can see the anticipated processing time here ",
+        "Parents or guardians cannot follow the child's case digitally. If you have any questions about the application, please contact us by phone +47 55 55 33 34. Curious about how long this will take? You can see the anticipated processing time here ",
     viewCaseInfoContent2: 'Children over the age of 18 can check the status of their case by logging on at ',
     viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
     viewCaseInfoLinkText2: 'mitt NAV (my NAV)',
-    processingTimeLink: 'processing time',
-    processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
+    processingTimeLink: 'processing time.',
+    processingTimeHref: 'https://www.nav.no/saksbehandlingstider/en',
     closeApplicationButton: `Read more about children's pension`,
+    closeApplicationButtonHref: 'https://www.nav.no/barnepensjon/en',
 }
 
 const yourSituation = {

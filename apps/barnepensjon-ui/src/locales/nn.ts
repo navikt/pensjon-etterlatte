@@ -431,22 +431,23 @@ const receipt = {
     changeAddressOrMoveAbroad: 'Flytting eller opphald i eit anna land over tid',
     changeInEduation: 'utdanningssituasjon og/eller arbeidsinntekt',
     moreAboutChanges: 'Du kan lese meir om å ',
-    moreAboutChangesLinkHref: 'https://www.nav.no/endringer',
+    moreAboutChangesLinkHref: 'https://www.nav.no/endringer/nn',
     moreAboutChangesLinkText: 'melde frå om endringar.',
     submissionOfGuardianshipInfo: 'Verje',
     guardianshipMustBeConfirmed:
         'Dersom du har sendt inn søknad som verje må du sende bekreftelse på utnevning av verje frå tingretten eller Statsforvalteren.',
     guardianshipMustBeConfirmedLink: 'Du finn skjemaet for ettersending her.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende#barnepensjon',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende/nn',
     viewCaseTitle: 'Sjekke status i saken',
     viewCaseInfoContentPart1:
-        'Forelder eller verje kan ikkje følgje saka til barnet digitalt. Dersom du har spørsmål om søknaden, kontaktar du oss på telefon 55 55 33 34. Lurer du på kor lang tid behandlinga vil ta? Her kan du sjå forventa saksbehandlingstid ',
+        'Forelder eller verje kan ikkje følgje saka til barnet digitalt. Dersom du har spørsmål om søknaden, kontaktar du oss på telefon 55 55 33 34. Lurer du på kor lang tid behandlinga vil ta? Her kan du sjå ',
     viewCaseInfoContent2: 'Barn over 18 år kan sjølv sjekke status i saka si ved å logge inn i ',
     viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
     viewCaseInfoLinkText2: 'mitt NAV',
-    processingTimeLink: 'saksbehandlingstid',
-    processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
+    processingTimeLink: 'forventa saksbehandlingstid',
+    processingTimeHref: 'https://www.nav.no/saksbehandlingstider/nn',
     closeApplicationButton: 'Les meir om barnepensjon',
+    closeApplicationButtonHref: 'https://www.nav.no/barnepensjon',
 }
 
 const yourSituation = {
