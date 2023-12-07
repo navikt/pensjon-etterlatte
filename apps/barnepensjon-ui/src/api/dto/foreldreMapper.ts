@@ -25,6 +25,7 @@ import { fullAdresse } from '../../utils/personalia'
 export const hentForeldre = (t: TFunction, child: IChild, application: IApplication, user: User): Forelder[] => {
     const oneParentDead = application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
     const isGuardian = application.applicant?.applicantRole === ApplicantRole.GUARDIAN
+    const hasUnknownParent = !!application.unknownParent
 
     let firstParent
     if (application?.applicant?.applicantRole === ApplicantRole.PARENT) {
@@ -33,10 +34,10 @@ export const hentForeldre = (t: TFunction, child: IChild, application: IApplicat
         firstParent = application.firstParent!!
     }
 
+    if (isGuardian && oneParentDead) return [mapTilForelder(t, application.secondParent!!)]
+    if (isGuardian && hasUnknownParent) return [mapTilForelder(t, firstParent)]
+
     const forelder2 = mapTilForelder(t, application.secondParent!!)
-
-    if (isGuardian && oneParentDead) return [forelder2]
-
     const forelder1 = mapTilForelder(t, firstParent)
 
     switch (child.parents) {
