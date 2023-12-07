@@ -309,7 +309,6 @@ const error = {
     'addressOfResidenceConfirmed.required': 'Bustadadresse må bekreftast/avkreftast',
     'alternativeAddress.required': 'Du må oppgi noverande bustadsadresse',
     'citizenship.required': 'Oppgi statsborgarskap',
-    'countryOfResidence.required': 'Oppgi noverande opphaldsland',
     'dateOfDeath.required': 'Oppgi når dødsfallet skjedde',
     'firstName.required': 'Oppgi førenamn',
     'firstName.pattern': 'Ugyldig førenamn',
@@ -338,7 +337,6 @@ const error = {
     'paymentDetails.iban.validate': 'Ugyldig IBAN-nummer',
     'paymentDetails.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fyllast ut',
     'paymentDetails.swift.validate': 'Ugyldig SWIFT-kode',
-    'residesInNorway.required': 'Opphald må svarast på',
     'selfEmplyment.wasSelfEmployed.required': 'Oppgi om avdøde var sjølvstendig næringsdrivande',
     'selfEmplyment.selfEmplymentDetails.income.pattern': 'Oppgi gyldig næringsinntekt (kun siffer)',
     'selfEmplyment.selfEmplymentDetails.incomeAtDeath.required': 'Oppgi om avdøde hadde næringsinntekt',
@@ -358,6 +356,10 @@ const error = {
     'whyDoYouApply.required': 'Oppgi grunnen til at du søker barnepensjon',
     'timeUsedForEducation.required': 'Oppgi kor mykje tid du bruker på utdanning',
     'doYouHaveIncome.required': 'Oppgi om du har lønnsinntekt',
+    'residesInNorway.required': 'Opphald må svarast på',
+    'countryOfResidence.required': 'Oppgi land',
+    'stayedAbroad.required': 'Opphald i utland må svarast på',
+    'stayedAbroadCountry.required': 'Oppgi noverande opphaldsland',
 }
 
 const pageNotFound = {

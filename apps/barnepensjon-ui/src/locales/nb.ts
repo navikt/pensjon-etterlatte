@@ -328,7 +328,6 @@ const error = {
     'addressOfResidenceConfirmed.required': 'Bostedsadresse må bekreftes/avkreftes',
     'alternativeAddress.required': 'Du må oppgi nåværende bostedsadresse',
     'citizenship.required': 'Oppgi statsborgerskap',
-    'countryOfResidence.required': 'Oppgi nåværende oppholdsland',
     'dateOfDeath.required': 'Oppgi når dødsfallet skjedde',
     'firstName.required': 'Oppgi fornavn',
     'firstName.pattern': 'Ugyldig fornavn',
@@ -377,6 +376,9 @@ const error = {
     'whyDoYouApply.required': 'Oppgi grunnen til at du søker barnepensjon',
     'timeUsedForEducation.required': 'Oppgi hvor mye tid du bruker på utdanning',
     'doYouHaveIncome.required': 'Oppgi om du har lønnsinntekt',
+    'countryOfResidence.required': 'Oppgi hvilket land du er bosatt i',
+    'stayedAbroad.required': 'Opphold må besvares',
+    'stayedAbroadCountry.required': 'Oppgi land',
 }
 
 const pageNotFound = {

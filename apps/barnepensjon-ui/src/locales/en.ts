@@ -318,7 +318,6 @@ const error = {
     'addressOfResidenceConfirmed.required': 'You must confirm whether or not this is your current residential address',
     'alternativeAddress.required': 'You must enter your current residential address',
     'citizenship.required': 'Enter nationality',
-    'countryOfResidence.required': 'Enter your current country of residence',
     'dateOfDeath.required': 'State when the death occurred',
     'firstName.required': 'Enter first name(s)',
     'firstName.pattern': 'Invalid first name(s)',
@@ -371,6 +370,9 @@ const error = {
     'whyDoYouApply.required': 'State the reason you are applying for the children’s pension',
     'timeUsedForEducation.required': 'State the amount of time you spend studying',
     'doYouHaveIncome.required': 'State whether you have earned income',
+    'countryOfResidence.required': 'Enter your current country of residence',
+    'stayedAbroad.required': 'You must answer this question about residence',
+    'stayedAbroadCountry.required': 'State which country'
 }
 
 const pageNotFound = {
