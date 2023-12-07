@@ -7,6 +7,7 @@ export const getTransKey = (error?: FieldError): string => {
     if (!error) return ''
 
     const name = error.ref?.name?.replace(/\[\d]/, '')
+    const nameWithoutDoubleDot = name?.replace('..', '.')
 
-    return `feil.${name}.${error.type}`
+    return `feil.${nameWithoutDoubleDot}.${error.type}`
 }

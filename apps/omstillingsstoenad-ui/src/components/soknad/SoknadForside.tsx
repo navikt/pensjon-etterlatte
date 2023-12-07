@@ -111,14 +111,22 @@ const SoknadForside = () => {
                             </ListItemWithIndent>
                             <ListItemWithIndent>
                                 <span
+                                  dangerouslySetInnerHTML={{
+                                      __html: t('forside.uthentingAvInfo.innholdListe.li5'),
+                                  }}
+                                />
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                <span
                                     dangerouslySetInnerHTML={{
-                                        __html: t('forside.uthentingAvInfo.innholdListe.li5'),
+                                        __html: t('forside.uthentingAvInfo.innholdListe.li6'),
                                     }}
                                 />
                             </ListItemWithIndent>
                             <ListItemWithIndent>
-                                <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li6')}</BodyLong>
+                                <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li7')}</BodyLong>
                             </ListItemWithIndent>
+
                         </List>
 
                         <SkjemaElement>

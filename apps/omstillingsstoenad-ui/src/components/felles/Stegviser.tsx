@@ -47,7 +47,7 @@ const Stegviser = ({ aktivtSteg, settSteg, muligeSteg, besoekteSteg }: Props) =>
     const aktivSide = aktivtSteg + 1
     const prosess = `${(100 / muligeSteg.length) * aktivSide}%`
     const stegNavn = t(muligeSteg[aktivtSteg].label)
-    const stegOversikt = `Steg ${aktivSide} av ${muligeSteg.length}`
+    const stegOversikt = t('steg', {aktivSide, muligeSteg: muligeSteg.length})
 
     return (
         <>

@@ -1,4 +1,5 @@
 export default {
+    steg: 'Steg {{aktivSide}} av {{muligeSteg}}',
     'steg.OmDeg': 'Personopplysninger',
     'steg.OmDegOgAvdoed': 'Om deg og avdøde',
     'steg.OmAvdoed': 'Opplysninger om den avdøde',
@@ -33,7 +34,7 @@ export default {
         'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
     'forside.startSoeknad': 'Start søknad',
     'forside.omYtelsene.innhold':
-        'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer du har felles barn med. I noen tilfeller kan du få støtte hvis dere tidligere var gift.\n\n ',
+        'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer du har felles barn med. I noen tilfeller kan du få støtte hvis dere tidligere var gift.\n ',
     'forside.omYtelsene.innhold.li1':
         'Støtten skal sikre inntekt og gi hjelp til selvhjelp i en omstillingsperiode etter dødsfallet.',
     'forside.omYtelsene.innhold.li2':
@@ -49,18 +50,20 @@ export default {
     'forside.omSoeknaden.personvern': 'Personvern og sikkerhet',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
-        'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være barn du har omsorg for ny ektefelle eller samboer eller verge som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
+        'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være barn du har omsorg for, ny ektefelle eller samboer eller verge som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
     'forside.uthentingAvInfo.innholdListe.li1':
-        '<strong>Personinformasjon</strong> fra Folkeregisteret (Personnummer, adresse, statsborgerskap, sivilstand)',
+        '<strong>Personinformasjon</strong> fra Folkeregisteret (personnummer, adresse, statsborgerskap, sivilstand)',
     'forside.uthentingAvInfo.innholdListe.li2':
-        '<strong>Inntektsinformasjon</strong> fra Skatteetaten (Informasjon om skattebelagt inntekt inneværende år)',
+        '<strong>Inntektsinformasjon</strong> fra Skatteetaten (informasjon om skattebelagt inntekt inneværende år)',
     'forside.uthentingAvInfo.innholdListe.li3':
         'Opplysninger om <strong>arbeidsforhold</strong> fra Arbeidsgiver- og arbeidstakerregisteret',
     'forside.uthentingAvInfo.innholdListe.li4':
-        'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (For eksempel alderspensjon eller uføretrygd)',
+        'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (for eksempel alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'Informasjon fra <strong>utenlandske trygdemyndigheter</strong> (der dette er aktuelt)',
+        'Opplysninger om <strong>ytelser fra andre enn NAV</strong> (for eksempel tjenestepensjonsordninger)',
     'forside.uthentingAvInfo.innholdListe.li6':
+        'Informasjon fra <strong>utenlandske trygdemyndigheter</strong> (der dette er aktuelt)',
+    'forside.uthentingAvInfo.innholdListe.li7':
         'Informasjon fra Lånekassen for å verifisere utdanning (der dette er aktuelt)',
     'forside.personvern.aktivitetsplikt':
         'Dersom det er relevant i forbindelse med aktivitetsplikten kan vi også samle inn opplysninger fra interne systemer som <strong>Arbeidssøkerregisteret</strong>.',
@@ -69,7 +72,7 @@ export default {
     'forside.personvern.tredjeperson.li2': 'Fødselsnummer',
     'forside.personvern.tredjeperson.li3': 'Hvorvidt man har hatt/har felles barn med søker',
     'forside.personvern.tredjeperson.li4': 'Sivilstand',
-    'forside.personvern.innhold': 'Hvis du ønsker vite mer om personvern og sikkerhet kan du lese',
+    'forside.personvern.innhold': 'Hvis du ønsker å vite mer om personvern og sikkerhet kan du lese',
     'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
     'forside.personvern.tekst': 'hvordan NAV behandler personopplysningene dine.',
     'forside.samtykke.tittel': 'Vi stoler på deg',
@@ -79,8 +82,10 @@ export default {
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'situasjonenDin.tittel': 'Situasjonen din',
-    'situasjonenDin.ingress':
-        'Retten din til omstillingsstønad kan påvirkes av\n - Sivilstanden din i dag\n - Omsorg for barn\n - Opphold utenfor Norge',
+    'situasjonenDin.ingress': 'Retten din til omstillingsstønad kan påvirkes av:',
+    'situasjonenDin.ingress.li1': 'Sivilstanden din i dag',
+    'situasjonenDin.ingress.li2': 'Omsorg for barn',
+    'situasjonenDin.ingress.li3': 'Opphold utenfor Norge',
     'situasjonenDin.nySivilstatus.sivilstatus': 'Sivilstanden din i dag',
     'situasjonenDin.nySivilstatus.beskrivelse':
         'Hvis du har giftet deg eller blitt samboer på nytt kan det avgjøre om du kan få omstillingsstønad og hvor mye du kan få.',
@@ -141,7 +146,8 @@ export default {
     'merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse':
         'Du kan velge den høyeste utdanningen du har eller flere utdanninger.',
     'merOmSituasjonenDin.utdanning.annenUtdanning': 'Annen utdanning',
-    'merOmSituasjonenDin.utdanning.annenUtdanningPlaceholder': 'Eks. kurs, enkeltår på universitet eller høyskole',
+    'merOmSituasjonenDin.utdanning.annenUtdanningPlaceholder':
+        'For eksempel kurs, enkeltår på universitet eller høyskole',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger': 'Informasjon om stønad til skolepenger',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.beskrivelse':
         'Du kan få stønad til dekning av skolepenger hvis du gjennomfører utdanning som er godkjent av NAV. Utdanningen må være nødvendig og hensiktsmessig for å komme i eller beholde arbeid.\n\nStønad til skolepenger skal dekke de faktiske utgiftene du har til studieavgift, semesteravgift, eksamensgebyr og/eller skolepenger ved privat utdanningsinstitusjon. Stønaden dekker dokumenterte utgifter opp til en øvre grense.',
@@ -174,7 +180,7 @@ export default {
         'Regner du med at inntekten din endrer seg de neste 12 månedene?',
     'merOmSituasjonenDin.selvstendig.forventerEndretInntekt.beskrivelse': 'Hva er grunnen til endringene?',
     'merOmSituasjonenDin.selvstendig.forventerEndretInntekt.beskrivelsePlaceholder':
-        'Eks. endring i forventet inntekt eller drift av næring',
+        'For eksemepel endring i forventet inntekt eller drift av næring',
     'merOmSituasjonenDin.arbeidsforhold.arbeidssted': 'Arbeidssted',
     'merOmSituasjonenDin.arbeidsforhold.tittel': 'Om arbeidsforholdet ditt',
     'merOmSituasjonenDin.arbeidsforhold.arbeidsgiver': 'Navn på arbeidssted',
@@ -231,13 +237,14 @@ export default {
     'merOmSituasjonenDin.andreYtelser.annenPensjon.svar':
         'Får du eller har du søkt om avtalefestet pensjon (AFP) eller annen pensjon fra andre enn NAV?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.beskrivelse': 'Hvilken pensjonsordning?',
-    'merOmSituasjonenDin.andreYtelser.annenPensjon.placeholder': 'Eks. Skandia, KLP, SPK, Oslo pensjonsforsikring',
+    'merOmSituasjonenDin.andreYtelser.annenPensjon.placeholder':
+        'For eksempel Skandia, KLP, SPK, Oslo pensjonsforsikring',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.svar': 'Mottar du pensjon fra et annet land enn Norge?',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvorfor':
         'Vi må vite dette for å vurdere ditt medlemsskap i Folketrygden',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjon': 'Hva slags pensjon?',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.hvaSlagsPensjonPlaceholder':
-        'Eks. alderspensjon, omstillingsstønad',
+        'For eksempel alderspensjon, omstillingsstønad',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.fraHvilketLand': 'Fra hvilket land?',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.bruttobeloepPrAar': 'Årlig beløp før skatt i landets valuta',
     'merOmSituasjonenDin.forventerEndretInntektType.oektStillingsprosent': 'Økt stillingsprosent',
@@ -278,8 +285,6 @@ export default {
         'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
         'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
-        'Skriv hva du forventer å ha i arbeidsinntekt fra samme måned som dødsfallet til desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
@@ -398,7 +403,7 @@ export default {
     'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
     'omDenAvdoede.foedselsnummer': 'Fødselsnummer / d-nummer',
     'omDenAvdoede.statsborgerskap': 'Statsborgerskap',
-    'omDenAvdoede.statsborgerskapPlaceholder': 'Eks. norsk',
+    'omDenAvdoede.statsborgerskapPlaceholder': 'For eksempel norsk',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphold utenfor Norge',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
         'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i omstillingsstønad og gi deg pensjonsrettigheter fra andre land.',
@@ -445,7 +450,7 @@ export default {
     'omBarn.harBarnetVerge.foedselsnummer': 'Fødselsnummer til verge (valgfri)',
     'omBarn.harBarnetVerge.foedselsnummerPlaceholder': '11 siffer',
     'omBarn.statsborgerskap': 'Statsborgerskap',
-    'omBarn.statsborgerskapPlaceholder': 'Eks. norsk',
+    'omBarn.statsborgerskapPlaceholder': 'For eksempel norsk',
     'omBarn.statsborger': 'statsborger',
     'omBarn.borI': 'Bor i',
     'omBarn.dagligOmsorg': 'Har du daglig omsorg for dette barnet?',
@@ -463,7 +468,7 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst':
         'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om størrelsen på skattetrekket må du ta kontakt med Skatteetaten.',
     'omBarn.barnepensjon.forskuddstrekk.trekkprosent': 'Oppgi ønsket skattetrekk',
-    'omBarn.barnepensjon.forskuddstrekk.placeholder': 'i prosent, eks. 20%',
+    'omBarn.barnepensjon.forskuddstrekk.placeholder': 'i prosent, for eksempel 20%',
     'omBarn.barnepensjon.forskuddstrekk.info':
         'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
     'omBarn.infokort.foedselsnummer': 'FØDSELSNUMMER',
@@ -504,10 +509,10 @@ export default {
     'soeknadKvittering.endring.endringsListe.inntekt': 'Inntekten din endrer seg',
     'soeknadKvittering.endring.endringsListe.bosted':
         'Du skal flytte eller oppholde deg i et annet land over lengre tid',
-    'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese mer om dine ',
+    'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese mer om å',
     'soeknadKvittering.endring.rettigheter.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'rettigheter og plikter.',
+    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'melde fra om endringer.',
     'soeknadKvittering.seSaken.tittel': 'Sjekk status i saken din',
     'soeknadKvittering.seSaken.informasjon.innhold1':
         'Du får varsel på SMS eller e-post når saken er ferdig behandlet. I mellomtiden kan du se søknaden din på',
@@ -675,6 +680,8 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Prosent',
     'felles.valgfri': 'valgfri',
+    counterLeft: 'tegn igjen',
+    counterTooMuch: 'tegn for mye',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',
     'endreSvarOppsummering.om-deg-og-avdoed': 'Endre svar om deg og avdøde',
     'endreSvarOppsummering.om-den-avdoede': 'Endre svar om avdøde',
@@ -748,6 +755,10 @@ export default {
     'feil.kontaktinfo.telefonnummer.pattern': 'Må være et gyldig telefonnummer',
     'feil.kontaktinfo.telefonnummer.minLength': 'Må være et gyldig telefonnummer',
     'feil.oppholderSegIUtlandet.required': 'Opphold må besvares',
+    'feil.oppholderSegIUtlandet.svar.required': 'Opphold må besvares',
+    'feil.oppholderSegIUtlandet.oppholdsland.required': 'Oppgi land',
+    'feil.bosattINorge.required': 'Oppgi om du er bosatt i Norge',
+    'feil.bosattLand.required': 'Oppgi hvilket land du er bosatt i',
     'feil.jobbStatus.required': 'Oppgi situasjonen din',
     'feil.utdanning.hoyesteFullfoerteUtdanning.required': 'Oppgi høyeste fullførte utdanning',
     'feil.utdanning.annenUtdanning.required': 'Oppgi annen utdanning',
@@ -783,6 +794,8 @@ export default {
     'feil.nySivilstatus.samboerskap.samboer.etternavn.required': 'Oppgi samboers etternavn',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.required': 'Oppgi samboers fødselsnummer',
     'feil.nySivilstatus.samboerskap.samboer.foedselsnummer.validate': 'Ugyldig fødselsnummer',
+    'feil.omsorgMinstFemti.required':
+        'Oppgi om du har minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet',
     'feil.bosattUtland.svar.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
     'feil.bosattUtland.land.required': 'Oppgi land',
     'feil.bosattUtland.adresse.required': 'Oppgi adresse',

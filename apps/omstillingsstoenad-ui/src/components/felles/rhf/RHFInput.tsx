@@ -63,17 +63,29 @@ export const RHFInputArea = ({ name, rules, className, valgfri, ...rest }: RHFIn
     const error: FieldError = get(errors, name) as FieldError
     const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
+    const i18nLocale = {
+        counterLeft: t('counterLeft'),
+        counterTooMuch: t('counterTooMuch'),
+    }
+
     return (
-            <Controller
-                    name={name}
-                    control={control}
-                    rules={{ required: !valgfri, ...rules }}
-                    render={({ field: { value, onChange } }) => (
-                            <div className={className}>
-                                <Textarea id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
-                            </div>
-                    )}
-            />
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: !valgfri, ...rules }}
+            render={({ field: { value, onChange } }) => (
+                <div className={className}>
+                    <Textarea
+                        id={name}
+                        value={value || ''}
+                        onChange={onChange}
+                        error={feilmelding}
+                        {...rest}
+                        i18n={i18nLocale}
+                    />
+                </div>
+            )}
+        />
     )
 }
 
