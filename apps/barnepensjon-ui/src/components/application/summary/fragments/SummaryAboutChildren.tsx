@@ -21,9 +21,10 @@ interface Props {
         firstParent: any
         secondParent: any
     }
+    unknownParent: boolean
 }
 
-export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicationRole, parents }: Props) => {
+export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicationRole, parents, unknownParent }: Props) => {
     const { t } = useTranslation('aboutChildren')
 
     if (!aboutChildren || isEmpty(aboutChildren)) return null
@@ -49,8 +50,10 @@ export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicati
             case ParentRelationType.FIRST_PARENT:
                 return t('remainingParent')
             case ParentRelationType.SECOND_PARENT:
+                if (unknownParent) return t('unknownParent', { ns: 'aboutParents' })
                 return nameAndFnr(parents.secondParent)
             case ParentRelationType.BOTH:
+                if (unknownParent) return t('guardianChild', { person1: nameAndFnr(parents.firstParent!) })
                 return t('bothOfTheAbove', {
                     person1: t('remainingParent'),
                     person2: nameAndFnr(parents.secondParent),

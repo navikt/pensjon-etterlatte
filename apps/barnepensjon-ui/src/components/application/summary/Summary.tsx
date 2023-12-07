@@ -122,6 +122,7 @@ export default function Summary({ prev }: StepProps) {
                             firstParent: application.firstParent,
                             secondParent: application.secondParent,
                         }}
+                        unknownParent={!!application.unknownParent}
                     />
                 </Accordion>
             </FormGroup>
