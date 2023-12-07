@@ -34,7 +34,7 @@ describe("Skal avbryte en soeknad",() => {
         getById("avbryt-btn").click();
 
         getById("avbryt-ja-btn").click();
-        cy.url().should("include", "https://www.nav.no/gjenlevendepensjon");
+        cy.url().should("include", "https://www.nav.no/omstillingsstonad");
     })
 
     it("Avbryt og slett søknad", () => {
@@ -46,7 +46,7 @@ describe("Skal avbryte en soeknad",() => {
         cy.intercept("DELETE", `${basePath}/api/api/kladd`, {}).as("slettSoeknad");
         getById("slett-soeknad").click();
         cy.wait(["@slettSoeknad"]); // Verifiser at slett kladd blir kalt
-        cy.url().should("include", "https://www.nav.no/gjenlevendepensjon");
+        cy.url().should("include", "https://www.nav.no/omstillingsstonad");
     })
 
 });
