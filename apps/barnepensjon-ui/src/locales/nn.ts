@@ -17,7 +17,7 @@ const common = {
     phoneNumberOptional: 'Telefonnummer (valfri)',
     phoneNumberHelpText: 'Telefonnummeret er henta frå Kontakt- og reservasjonsregisteret.',
     whyWeAsk: 'Kvifor spør vi om dette',
-    dateFormat: '(dd.mm.yyyy)',
+    dateFormat: '(dd.mm.åååå)',
     dateExample: 'eks. 01.11.2020',
     dateSRLabel: 'Oppgi dato',
     chooseCountry: 'Vel land',
@@ -48,7 +48,7 @@ const btn = {
     yesUnknownParent: 'Ja, forelderen min er ukjend',
     yesUnknownParentGuardian: 'Ja, forelderen er ukjend',
     noUnknownParent: 'Nei, eg veit kven foreldra mine er',
-    noUnknownParentGuardian: 'Nei, eg kjenner identiteten til begge foreldra mine',
+    noUnknownParentGuardian: 'Nei, eg kjenner identiteten til begge foreldra',
 }
 
 const loggedInUserInfo = {
@@ -126,9 +126,9 @@ const selectScenario = {
     whoIsApplying: 'Kven søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet har mista',
     additionalSituationDetailsDescription:
-        'Dersom barnet har mista éin forelder og den andre forelderen er ukjend, vel du "Begge foreldre".',
+        'Dersom barnet har mista éin forelder og den andre forelderen er ukjend, vel du "Begge foreldra".',
     additionalSituationDetailsOver18: 'Eg har mista',
-    additionalSituationDetailsOver18Description: 'Viss den eine forelderen din er ukjend, vel du Begge foreldre.',
+    additionalSituationDetailsOver18Description: 'Viss den eine forelderen din er ukjend, vel du "Begge foreldra".',
     PARENT: 'Eg søker for mitt eller mine barn under 18 år',
     GUARDIAN: 'Eg søker for eitt eller fleire barn eg er verje for',
     CHILD: 'Eg har fylt 18 år og søker på vegne av meg sjølv',
@@ -137,7 +137,7 @@ const selectScenario = {
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde.',
     guardianApplicantInformationLabel: 'Eg søker for eitt eller fleire barn eg er verje for',
     guardianApplicantInformation:
-        'I søknaden må du oppgi alle barn og/eller adoptivbarn som avdøde hadde under 20 år. Du kan berre sende søknad for barn du er verje for.',
+        'I søknaden må du oppgi alle barn og/eller adoptivbarn som avdøde hadde under 20 år.',
     guardiansMustSendDocumentation:
         'For at vi skal kunne behandle søknaden om barnepensjon, må du ettersende dokumentasjon på barn du er verje for.\n\n Du må oppgi fødselsnummer på alle i søknaden. Dersom du ikkje har denne informasjonen, fyller du ut ein av våre <a href="https://www.nav.no/start/soknad-barnepensjon">andre søknader om barnepensjon</a>.',
     childApplicantInformation1:
@@ -186,19 +186,19 @@ const aboutParents = {
     addFirstParentBtn: 'Legg til forelder 1',
     addSecondParentBtn: 'Legg til forelder 2',
     bothParentsRequired:
-        'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom barnet har mista mor si og farskapet ikkje er avklart, vel du alternativet «Eg har mista begge foreldre».',
+        'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom barnet har mista mor si og farskapet ikkje er avklart, vel du alternativet «Eg har mista begge foreldra».',
     chooseUnknowParent:
-        'Du må leggje til opplysningar om begge foreldre for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til den eine forelderen, vel du "Ukjend forelder".',
+        'Du må leggje til opplysningar om begge foreldra for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til den eine forelderen, vel du "Ukjend forelder".',
     childAndOneParentDeceased: 'Du treng ikkje fylle ut informasjon om attlevande forelder',
     unknownParent: 'Ukjend forelder',
     unknownParentQuestion: 'Kan du stadfeste at du ikkje kjenner identiteten til forelderen din?',
     unknownParentQuestionGuardian: 'Kan du stadfeste at du ikkje kjenner identiteten til den avdøde forelderen?',
     childAndOneParentDeceasedGuidepanel:
-        'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden din. \n\n Dersom du har mista éin forelder og den andre er ukjend, må du starte søknadsprosessen på nytt. "Eg har mista begge foreldre"',
+        'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden din. \n\n Dersom du har mista éin forelder og den andre er ukjend, må du starte søknadsprosessen på nytt. Vel "Eg har mista begge foreldra".',
     childAndBothParentsDeceasedGuidepanel:
         'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til forelderen din, vel du «Ukjend forelder».',
     guardianAndOneParentDeceased:
-        'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden. \n\n Dersom barnet har mista éin forelder og du ikkje veit identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Vel alternativet "Begge foreldre".',
+        'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden. \n\n Dersom barnet har mista éin forelder og du ikkje veit identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Vel alternativet "Begge foreldra".',
 }
 
 const livingParent = {
@@ -212,9 +212,9 @@ const aboutTheDeceased = {
     singleParentTitle: 'Om den avdøde',
     dateOfDeath: 'Når skjedde dødsfallet?',
     phoneNumber: 'Telefonnummer (valfri)',
-    abroadStaysTitle: 'Opphald utanfor Norge',
+    abroadStaysTitle: 'Opphald utanfor Noreg',
     workOrLivingAbroadCanAffectPension:
-        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Norge. Dette kan påvirke berekninga av barnepensjon og i tillegg gi barnet/barna pensjonsrettar frå andre land.',
+        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan påvirke berekninga av barnepensjon og i tillegg gi barnet/barna pensjonsrettar frå andre land.',
     workOrLivingAbroadCanAffectPensionOver18:
         'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan påverke utrekninga av barnepensjon og i tillegg gi deg pensjonsrettar frå andre land.',
     didTheDeceasedLiveAbroad: 'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
@@ -253,7 +253,7 @@ const aboutChildren = {
         'Det er berre barnets forelder eller oppnemnt verje som kan søke om barnepensjon for dette barnet. Det må søkast om barnepensjon i eigen søknad.',
     onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år.',
     livesIn: 'Bur i',
-    doesTheChildLiveAbroad: 'Bur barnet i eit anna land enn Norge?',
+    doesTheChildLiveAbroad: 'Bur barnet i eit anna land enn Noreg?',
     doesTheSiblingLiveAbroad: 'Bur søskenet i eit anna land enn Noreg?',
     stayAbroadCountry: 'Land',
     addressAbroad: 'Adresse i utlandet',
