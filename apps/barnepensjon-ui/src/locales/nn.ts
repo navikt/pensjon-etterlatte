@@ -101,18 +101,22 @@ const frontPage = {
     readMoreAboutChildrensPension:
         'Dersom du har spørsmål om pensjonen – til dømes kor mykje du kan få, eller kva reglar som gjeld for skatt – kan du du <a href="https://www.nav.no/barnepensjon">lese meir om barnepensjon</a>.',
     weWillRetrieveInfoTitle: 'Personvern og tryggleik',
-    weWillRetrieveInfo: 'Vi hentar informasjonen vi treng',
+    weWillRetrieveInfo: 'Vi hentar inn informasjonen vi treng',
     infoWeRetrieve:
-        'For å kunne behandle søknaden din treng vi informasjon om barnet/barna, foreldra til barna og eventuelle søsken.\n\nVi hentar:',
-    infoWeRetrieve_li1: '<strong>Personinformasjon</strong> frå Folkeregisteret',
-    infoWeRetrieve_li2: '<strong>Inntektsinformasjon</strong> frå Skatteetaten',
-    infoWeRetrieve_li3: 'Opplysingar om <strong>arbeidsforhold</strong> frå Arbeidsgiver- og arbeidstakerregisteret',
-    infoWeRetrieve_li4: 'Opplysingar om <strong>anna støtte frå NAV</strong>',
-    infoWeRetrieve_li5: 'Eventuelt informasjon frå <strong>utanlandske trygdemyndigheiter</strong>',
-    howWeHandleData:
-        '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten">Slik behandlar vi personopplysingane dine</a>',
+        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar vil som oftast vere ein attlevande forelder dersom det er brukaren sjølv, eller ein verje som har rett til å representere brukaren, som søkjer. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande: ',
+    infoWeRetrieve_li1:
+        '<strong>Personopplysningar</strong> frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand og/eller flyktningstatus)',
+    infoWeRetrieve_li2: 'Opplysningar om <strong>anna løpande støtte frå NAV</strong> (til dømes uføretrygd)',
+    infoWeRetrieve_li3: 'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
+    infoWeRetrieve_li4: 'Opplysningar om straffegjennomføring og opphald på institusjon   ',
+    survivingParentInfo:
+        'Dersom brukaren søkjer på eiga hand, eller ein verje søkjer på vegner av brukaren, vil NAV hente inn informasjon om ein eventuell attlevande forelder. Vi hentar då inn følgjande:',
+    survivingParentInfo_li1: 'Namn',
+    survivingParentInfo_li2: 'Fødselsnummer',
+    survivingParentInfo_li3: 'Adresse',
+    survivingParentInfo_li4: 'Medlemskap i folketrygda (der dette er nødvendig)',
     aboutPrivacy:
-        '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Om personvern og sikkerheit på nav.no</a>',
+        'Dersom du ønskjer å vite meir om personvern og tryggleik, kan du lese om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">korleis NAV behandlar personopplysningane dine.</a>',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Eg, {fornavn} {etternavn}, bekreftar at eg vil gi riktige og fullstendige opplysingar.',

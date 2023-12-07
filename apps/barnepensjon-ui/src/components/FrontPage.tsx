@@ -91,13 +91,24 @@ export default function FrontPage() {
                             <li>
                                 <Trans value={t('infoWeRetrieve_li4')} />
                             </li>
-                            <li>
-                                <Trans value={t('infoWeRetrieve_li5')} />
-                            </li>
                         </ul>
 
                         <BodyLong>
-                            <Trans value={t('howWeHandleData')} />
+                            <Trans value={t('survivingParentInfo')} />
+                            <ul>
+                                <li>
+                                    <Trans value={t('survivingParentInfo_li1')} />
+                                </li>
+                                <li>
+                                    <Trans value={t('survivingParentInfo_li2')} />
+                                </li>
+                                <li>
+                                    <Trans value={t('survivingParentInfo_li3')} />
+                                </li>
+                                <li>
+                                    <Trans value={t('survivingParentInfo_li4')} />
+                                </li>
+                            </ul>
                         </BodyLong>
 
                         <BodyLong>

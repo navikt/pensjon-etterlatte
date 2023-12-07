@@ -103,21 +103,24 @@ const frontPage = {
     readMoreAboutChildrensPension:
         'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon">read more about children’s pension here</a>.',
     weWillRetrieveInfoTitle: 'Personal data protection',
-    weWillRetrieveInfo: 'We collect the information we require',
+    weWillRetrieveInfo: 'We will collect any information we need',
     infoWeRetrieve:
-        'In order to process your application we require information about the child/children, the parents of the children and any siblings.  \n \n We retrieve:',
+        'In order to process your application, we need to gather information about you as the applicant and information about others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
     infoWeRetrieve_li1:
-        '<strong>Personal information</strong> from the Norwegian National Registry (“Folkeregisteret”)',
+        '<strong>Personal data</strong> from the National Population Register (national identification number, address, nationality, marital status and/or refugee status)',
     infoWeRetrieve_li2:
-        '<strong>Information about your income</strong> from the Norwegian Tax Administration (“Skatteetaten”)',
+        'Information about <strong>other current benefits or support from NAV</strong> (for example, disability pension)',
     infoWeRetrieve_li3:
-        'Information about your <strong>work situation</strong> from the NAV State Register of Employers and Employees (the Aa Register)',
-    infoWeRetrieve_li4: 'Information about <strong>other support you are receiving from NAV</strong>',
-    infoWeRetrieve_li5: 'As applicable, information from <strong>foreign social security authorities</strong>',
-    howWeHandleData:
-        '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten">Read more about how we process your personal data</a>',
+        'Information from <strong> foreign national insurance/social security authorities</strong> (if applicable)',
+    infoWeRetrieve_li4: 'Information about imprisonment and stays at institutions   ',
+    survivingParentInfo:
+        'If the user is applying on behalf of himself, or as a guardian applying for the user, NAV will collect information about any surviving parents. If so, we will need to collect:',
+    survivingParentInfo_li1: 'Name',
+    survivingParentInfo_li2: 'National identity number  ',
+    survivingParentInfo_li3: 'Address',
+    survivingParentInfo_li4: 'Membership of the National Insurance Scheme (when necessary)',
     aboutPrivacy:
-        '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Read more about data protection and security on the nav.no website</a>',
+        'If you would like to learn more about how we process and safeguard personal data, please read <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">NAV\'s privacy policy online.</a>',
     consentTitle: 'We trust you',
     consentDescription: 'You must provide us with the correct information so that we can process your application.\n\n',
     consentToNav: 'I, {fornavn} {etternavn}, hereby confirm that the information I provide is correct and complete.',
