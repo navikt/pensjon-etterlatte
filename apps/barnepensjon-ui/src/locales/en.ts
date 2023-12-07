@@ -55,7 +55,7 @@ const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
         'If the information we have about you is incorrect, you must change it in the National Registry. \n',
     incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
-    incorrectInfoMustBeCorrectedHrefText: '<MANGLER TEKST>',
+    incorrectInfoMustBeCorrectedHrefText: 'Change your information',
 }
 
 const paymentDetails = {
@@ -63,7 +63,7 @@ const paymentDetails = {
     NORSK: 'Norwegian',
     UTENLANDSK: 'Foreign',
     bankAccount: 'Enter the Norwegian bank account number for payment of the children’s pension',
-    bankAccountDescription: '<MANGLER TEKST>',
+    bankAccountDescription: 'You can add a separate bank account number for the child.',
     information: 'You can add a separate bank account number for the child.',
     accountType: 'Do you want the pension to be paid into a Norwegian bank account or a foreign bank account?',
     foreignBankName: 'Name of bank',
@@ -92,10 +92,10 @@ const frontPage = {
     frontPageTitle: 'Apply for children’s pension',
     ingress: '<MANGLER TEKST>',
     startApplication: 'Start the application',
-    childMayBeApplicableForPension: '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li1: '<MANGLER TEKST>',
+    childMayBeApplicableForPension: 'Children under the age of 20 who have lost one or both of their parents may receive financial support',
+    childMayBeApplicableForPension_li1: 'It is the parent or guardian of the child who must apply for the children’s pension for the child if he/she is under the age of 18.',
     childMayBeApplicableForPension_li2: '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li3: '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li3: 'Children who have turned 18 must apply themselves.',
     readMoreAboutChildrensPension: '<MANGLER TEKST>',
     weWillRetrieveInfoTitle: 'Personal data protection',
     weWillRetrieveInfo: 'We collect the information we require',
@@ -124,17 +124,17 @@ const selectScenario = {
     additionalSituationDetailsDescription: '<MANGLER TEKST>',
     additionalSituationDetailsOver18: 'I have lost',
     additionalSituationDetailsOver18Description: '<MANGLER TEKST>',
-    PARENT: 'I am applying for my child/children under the age of 18',
+    PARENT: 'I am applying for my child or children under the age of 18',
     GUARDIAN: 'I am applying for one or more children who I am the guardian for',
     CHILD: 'I have reached the age of 18 and am applying on behalf of myself',
-    parentApplicantInformationLabel: '<MANGLER TEKST>',
+    parentApplicantInformationLabel: 'I am applying for my child or children under the age of 18',
     parentApplicantInformation:
         'In the application, you must list all children and/or adoptive children under the age of 18 who you had together with the deceased.',
-    guardianApplicantInformationLabel: '<MANGLER TEKST>',
+    guardianApplicantInformationLabel: 'I am applying for one or more children who I am the guardian for',
     guardianApplicantInformation:
         'In the application, you must list all of the deceased’s children and/or adoptive children who are under the age of 18.',
     guardiansMustSendDocumentation:
-        'If the children are not full siblings, an application must be submitted for each family of children.  \n \nIn order for us to process the application for the children’s pension, you must submit documentation that you are the guardian of the child/children.',
+        'If the children are not full siblings, an application must be submitted for each family of children.  \n\n In order for us to process the application for the children’s pension, you must submit documentation for the child you are the guardian of.',
     childApplicantInformation1:
         '<b>If you have lost a parent</b> \nWhen the death was due to an occupational injury or occupational illness you are entitled to receive the children’s pension until the age of 21 if you are studying or serving as an apprentice or trainee.',
     childApplicantInformation2:
@@ -142,8 +142,7 @@ const selectScenario = {
     childApplicantInformationOver18:
         'If you have lost one or both of your parents you must use <a href="https://www.nav.no/soknader/en/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
-        'You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use <a href="https://www.nav.no/soknader/en/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">this application</a>.',
-    youNeedFnrForEveryoneInThisApplicationBothParentsDeceased: '<MANGLER TEKST>',
+        'You must provide the full Norwegian national identity number of the child/children and the deceased. If you do not have this, you will need to use one of our <a href="https://www.nav.no/soknader/en/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">other applications about children\'s pension</a>.',
     aboutSurvivorsPensionTitle: 'Have you lost your spouse, cohabiting partner or partner?',
     aboutSurvivorsPensionDescription:
         'You may then apply for a survivor’s pension or transitional benefit. If you would like to apply for the children’s pension at the same time, you can use <a href="https://www.nav.no/soknader/en/person/pensjon/gjenlevende-ektefelle-partner-eller-samboer">this application.</a>',
@@ -158,11 +157,11 @@ const aboutYou = {
         'If you have been living in a country other than Norway, this may determine whether you are eligible for a children’s pension and how much you can receive.',
     addressOfResidenceConfirmed: 'Do you live at this address?',
     alternativeAddress: 'Enter your current residential address',
-    staysAbroadTitle: 'Have you been living in Norway the last 12 months?',
-    residesInNorway: '<MANGLER TEKST>',
-    countryOfResidence: 'State which country',
-    stayedAbroad: '<MANGLER TEKST>',
-    stayedAbroadCountry: '<MANGLER TEKST>',
+    staysAbroadTitle: 'Stays outside Norway',
+    residesInNorway: 'Are you residing in Norway?',
+    countryOfResidence: 'State which country you are residing in',
+    stayedAbroad: 'have you lived or stayed abroad in the last 12 months?',
+    stayedAbroadCountry: 'State which country',
     stayedAbroadFromDate: 'From date',
     stayedAbroadToDate: 'To date',
     memberFolketrygdenAbroad:
@@ -190,9 +189,9 @@ const aboutParents = {
     unknownParentQuestion: 'Can you confirm that you do not know the identity of your parent?',
     unknownParentQuestionGuardian: '<MANGLER TEKST>',
     childAndOneParentDeceasedGuidepanel:
-        'You do not need to fill in the surviving parent information. We collect this information when we process your application. If you have lost one parent and the other is unknown, you will need to start the application process again. "I have lost both parents"',
+        'You do not need to fill in the surviving parent information. We collect this information when we process your application.\n\n If you have lost one parent and the other is unknown, you will need to start the application process again. Choose "I have lost both parents".',
     childAndBothParentsDeceasedGuidepanel:
-        'You must enter information about both your parents to continue the application. If you do not know the identity of your parent, select "Unknown parent".',
+        'You must enter information about both your parents to continue the application. \n\nIf you do not know the identity of your parent, select "Unknown parent".',
     guardianAndOneParentDeceased: '<MANGLER TEKST>',
 }
 
@@ -289,13 +288,13 @@ const aboutChildren = {
     loggedInUserIsGuardian: 'Are you the guardian of this child?',
     needToSendInDocumentation: '<MANGLER TEKST>',
     onlyGuardiansCanApply:
-        'You can only apply for a children’s pension for children you are the guardian of.  nAll of the deceased’s children under the age of 18 can be added.',
+        'You can only apply for a children’s pension for children you are the guardian of. \n All of the deceased’s children under the age of 18 can be added.',
 }
 
 const summary = {
     summaryTitle: 'Summary',
     readTheSummaryBeforeSending:
-        'Read through the summary of the application before submitting.  nIf you need to make changes, you can go back and do this.',
+        'Read through the summary of the application before submitting.  \nIf you need to make changes, you can go back and do this.',
     sendApplicationButton: 'Submit application',
     AboutYou: 'Change answers about you',
     AboutTheParents: 'Change answers about parents',
@@ -419,13 +418,13 @@ const receipt = {
     contact: '<MANGLER TEKST>',
     youMustNotifyRegardingChanges: 'You must notify us of any changes',
     importantChangesCanAffectYourRights:
-        'You must immediately notify us of any important life changes for the child or children. Examples of this include:',
+        'You must immediately notify us of any important changes. Examples of this include:',
     changeInLivingSituation: 'Change in living/family situation',
     changeAddressOrMoveAbroad: 'Move to or stay in another country over an extended period of time',
     changeInEduation: 'educational situation and/or earned income',
     moreAboutChanges: 'You can read more about ',
     moreAboutChangesLinkHref: 'https://www.nav.no/endringer',
-    moreAboutChangesLinkText: '<MANGLER TEKST>',
+    moreAboutChangesLinkText: 'notifying us of any changes.',
     submissionOfGuardianshipInfo: 'Guardian',
     guardianshipMustBeConfirmed:
         'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor, \n\n',

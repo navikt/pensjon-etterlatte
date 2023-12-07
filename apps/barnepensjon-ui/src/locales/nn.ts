@@ -55,7 +55,7 @@ const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
         'Viss opplysingane vi har om deg ikkje stemmer, må du endre desse hos Folkeregisteret. \n',
     incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
-    incorrectInfoMustBeCorrectedHrefText: '<MANGLER TEKST>',
+    incorrectInfoMustBeCorrectedHrefText: 'Endre opplysningane dine',
 }
 
 const paymentDetails = {
@@ -63,7 +63,7 @@ const paymentDetails = {
     NORSK: 'Norsk',
     UTENLANDSK: 'Utanlandsk',
     bankAccount: 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
-    bankAccountDescription: '<MANGLER TEKST>',
+    bankAccountDescription: 'Du kan leggje til eit eige kontonummer for barnet',
     information: 'Du kan legge til eit eige kontonummer for barnet.',
     accountType: 'Ønsker du å motta utbetalinga på norsk eller utanlandsk bankkonto?',
     foreignBankName: 'Bankens namn',
@@ -91,10 +91,10 @@ const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
     ingress: '<MANGLER TEKST>',
     startApplication: 'Start søknad',
-    childMayBeApplicableForPension: '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li1: '<MANGLER TEKST>',
+    childMayBeApplicableForPension: 'Barn under 20 år som har mista ein eller begge foreldra sine, kan få barnepensjon',
+    childMayBeApplicableForPension_li1: 'Det er foreldra eller verjen til barnet som må søke om barnepensjon for barnet viss det er under 18 år.',
     childMayBeApplicableForPension_li2: '<MANGLER TEKST>',
-    childMayBeApplicableForPension_li3: '<MANGLER TEKST>',
+    childMayBeApplicableForPension_li3: 'Barn over 18 år må søkje sjølve.',
     readMoreAboutChildrensPension: '<MANGLER TEKST>',
     weWillRetrieveInfoTitle: 'Personvern og tryggleik',
     weWillRetrieveInfo: 'Vi hentar informasjonen vi treng',
@@ -120,17 +120,17 @@ const selectScenario = {
     additionalSituationDetailsDescription: '<MANGLER TEKST>',
     additionalSituationDetailsOver18: 'Eg har mista',
     additionalSituationDetailsOver18Description: '<MANGLER TEKST>',
-    PARENT: 'Eg søker for mitt/mine barn under 18 år',
+    PARENT: 'Eg søker for mitt eller mine barn under 18 år',
     GUARDIAN: 'Eg søker for eitt eller fleire barn eg er verje for',
     CHILD: 'Eg har fylt 18 år og søker på vegne av meg sjølv',
-    parentApplicantInformationLabel: '<MANGLER TEKST>',
+    parentApplicantInformationLabel: 'Eg søker for mitt eller mine barn under 18 år',
     parentApplicantInformation:
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde.',
-    guardianApplicantInformationLabel: '<MANGLER TEKST>',
+    guardianApplicantInformationLabel: 'Eg søker for eitt eller fleire barn eg er verje for',
     guardianApplicantInformation:
         'I søknaden må du oppgi alle avdøde sine barn og/eller adoptivbarn som er under 18 år.',
     guardiansMustSendDocumentation:
-        'Viss barna ikkje er heilsøsken, må ein søke for kvart barnekull. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verje for barnet/barna.',
+        'Viss barna ikkje er heilsøsken, må ein søke for kvart barnekull. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på barn du er verje for.',
     childApplicantInformation1:
         '<b>Viss du har mista ein forelder</b>\nNår dødsfallet skuldast ein yrkesskade eller yrkessjukdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
@@ -138,8 +138,7 @@ const selectScenario = {
     childApplicantInformationOver18:
         'Har du mista ein eller begge foreldra dine må du bruke <a href="https://www.nav.no/fyllut/nav180405?lang=nn-NO">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
-        'Du må oppgi heile fødselsnummeret til barnet/barna og avdøde. Viss ikkje du har det, må du bruke <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">denne søknaden</a>.',
-    youNeedFnrForEveryoneInThisApplicationBothParentsDeceased: '<MANGLER TEKST>',
+        'Du må oppgi heile fødselsnummeret til barnet/barna og avdøde. Viss ikkje du har det, må du bruke ein av våre <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">andre søknader om barnepensjon</a>.',
     aboutSurvivorsPensionTitle: 'Har du mista ektefellen, sambuaren eller partnaren din?',
     aboutSurvivorsPensionDescription:
         'Då kan du søke om attlevandepensjon eller overgangsstønad. Viss du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/soknader#gjenlevendepensjon">denne søknaden.</a>',
@@ -154,13 +153,13 @@ const aboutYou = {
         'Dersom du oppheld deg i eit anna land enn Noreg, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     addressOfResidenceConfirmed: 'Bur du på denne adressa?',
     alternativeAddress: 'Oppgi noverande bustadsadresse',
-    staysAbroadTitle: 'Har du opphalde deg i Noreg dei siste 12 månadene?',
-    residesInNorway: '<MANGLER TEKST>',
-    stayedAbroad: '<MANGLER TEKST>',
-    stayedAbroadCountry: '<MANGLER TEKST>',
+    staysAbroadTitle: 'Opphald utanfor Noreg',
+    residesInNorway: 'Er du busett i Noreg?',
+    stayedAbroad: 'Har du budd eller opphalde deg i utlandet dei siste 12 månadene?',
+    stayedAbroadCountry: 'Oppgi hvilket land du oppheldt deg i',
     stayedAbroadFromDate: 'Frå dato',
     stayedAbroadToDate: 'Til dato',
-    countryOfResidence: 'Oppgi land',
+    countryOfResidence: 'Oppgi kva land du er busett i',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygda under opphald i eit anna land enn Noreg?',
     'subtitle.personalia': 'Personalia',
 }
@@ -405,13 +404,13 @@ const receipt = {
     contact: '<MANGLER TEKST>',
     youMustNotifyRegardingChanges: 'Du må melde frå om endringar',
     importantChangesCanAffectYourRights:
-        'Du må melde frå med ein gong det skjer viktige endringar i livet til barnet eller barna. Det kan til dømes vera ved:',
+        'Du må melde frå med ein gong det skjer viktige endringar. Det kan til dømes vera ved:',
     changeInLivingSituation: 'Endring i bu/familiesituasjon',
     changeAddressOrMoveAbroad: 'Flytting eller opphald i eit anna land over tid',
     changeInEduation: 'utdanningssituasjon og/eller arbeidsinntekt',
     moreAboutChanges: 'Du kan lese meir om å ',
     moreAboutChangesLinkHref: 'https://www.nav.no/endringer',
-    moreAboutChangesLinkText: '<MANGLER TEKST>',
+    moreAboutChangesLinkText: 'melde frå om endringar.',
     submissionOfGuardianshipInfo: 'Verje',
     guardianshipMustBeConfirmed:
         'Dersom du har sendt inn søknad som verje må du sende bekreftelse på utnevning av verje frå tingretten eller Statsforvalteren.',
