@@ -585,7 +585,7 @@ export default {
     'jobbStatus.etablerer': 'Eg etablerer eiga verksemd',
     'jobbStatus.tilbud': 'Eg har fått tilbod om jobb',
     'jobbStatus.underUtdanning': 'Eg er under utdanning eller skal ta utdanning',
-    'jobbStatus.arbeidssoker': 'Eg er arbeidssøkjar',
+    'jobbStatus.arbeidssoker': 'Eg er reell arbeidssøkjar',
     'jobbStatus.ingen': 'Eg er ikkje i arbeid, under utdanning eller arbeidssøkjar',
     'inntekt.loenn': 'Arbeidsinntekt',
     'inntekt.naering': 'Næringsinntekt',

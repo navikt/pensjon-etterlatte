@@ -589,7 +589,7 @@ export default {
     'jobbStatus.selvstendig': 'Jeg er selvstendig næringsdrivende',
     'jobbStatus.etablerer': 'Jeg etablerer egen virksomhet',
     'jobbStatus.tilbud': 'Jeg har fått tilbud om jobb',
-    'jobbStatus.arbeidssoker': 'Jeg er arbeidssøker',
+    'jobbStatus.arbeidssoker': 'Jeg er reell arbeidssøker',
     'jobbStatus.underUtdanning': 'Jeg tar eller skal ta utdanning',
     'jobbStatus.ingen': 'Jeg er ikke i arbeid, utdanning eller arbeidssøker',
     'arbeidsmengde.prosent': 'Prosent',
