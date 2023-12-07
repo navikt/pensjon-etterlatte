@@ -507,7 +507,7 @@ export default {
     'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese meir om å ',
     'soeknadKvittering.endring.rettigheter.lenke.href':
         'https://www.nav.no/nn/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
-    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'melde frå om endringar..',
+    'soeknadKvittering.endring.rettigheter.lenke.tekst': 'melde frå om endringar.',
     'soeknadKvittering.seSaken.tittel': 'Sjekk status i saka di',
     'soeknadKvittering.seSaken.informasjon.innhold1':
         'Du får varsel på SMS eller e-post når saka er ferdigbehandla. I mellomtida kan du sjå søknaden din på',
@@ -524,7 +524,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst':
         'Stønad til barnetilsyn for attlevande ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Utvida barnetrygd',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for attlevande',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for attlevande.',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
         'https://www.nav.no/gjenlevendepensjon#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon': 'Du finn meir informasjon om støtteordningar på ',
