@@ -532,8 +532,7 @@ export default {
     'soeknadKvittering.endring.endringsListe.bosted':
         'If you are going to move to or spend a prolonged period of time in another country',
     'soeknadKvittering.endring.rettigheter.informasjon': 'You can read more about ',
-    'soeknadKvittering.endring.rettigheter.lenke.href':
-        'https://www.nav.no/en/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
+    'soeknadKvittering.endring.rettigheter.lenke.href': 'https://www.nav.no/endringer/en',
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'notifying us of any changes.',
     'soeknadKvittering.seSaken.tittel': 'Check the satus of your application',
     'soeknadKvittering.seSaken.informasjon.innhold1':
@@ -542,7 +541,7 @@ export default {
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'your personal NAV page',
     'soeknadKvittering.seSaken.informasjon.innhold2':
         'Curious about how long this will take? That information is available here: ',
-    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider',
+    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider/en#omstillingsstonad',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'Expected case processing time.',
     'soeknadKvittering.andreStoenader.tittel': 'You may also be entitled to other benefits',
     'soeknadKvittering.andreStoenader.informasjon':
@@ -553,7 +552,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Extended child benefit',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'other benefits for a surviving spouse.',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
-        'https://www.nav.no/gjenlevendepensjon#andre-stonader',
+        'https://www.nav.no/omstillingsstonad#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon':
         'You will find more information about supplemental benefits on ',
     'soeknadKvittering.spoersmaal.knapp': 'Read more about transitional benefits here',

@@ -69,7 +69,7 @@ const Navigasjon = ({
         brukerDispatch({ type: BrukerAction.TILBAKESTILL })
 
         logEvent(LogEvents.KLIKK, { type: 'avbryt soknad', svar: 'ja' })
-        window.location.href = 'https://www.nav.no/gjenlevendepensjon'
+        window.location.href = 'https://www.nav.no/omstillingsstonad'
     }
 
     const fortsettSoknad = () => {
