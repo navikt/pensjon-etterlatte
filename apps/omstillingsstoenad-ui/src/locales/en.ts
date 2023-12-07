@@ -612,7 +612,7 @@ export default {
     'jobbStatus.etablerer': 'I am setting up my own business',
     'jobbStatus.tilbud': 'I have received a job offer',
     'jobbStatus.underUtdanning': 'I am or will begin studying',
-    'jobbStatus.arbeidssoker': 'I am a job seeker',
+    'jobbStatus.arbeidssoker': 'I am a genuine job seeker',
     'jobbStatus.ingen': 'I am neither employed, studying or a job seeker',
     'inntekt.loenn': 'Income from work',
     'inntekt.naering': 'Business income',
