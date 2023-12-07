@@ -53,7 +53,10 @@ export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicati
                 if (unknownParent) return t('unknownParent', { ns: 'aboutParents' })
                 return nameAndFnr(parents.secondParent)
             case ParentRelationType.BOTH:
-                if (unknownParent) return t('guardianChild', { person1: nameAndFnr(parents.firstParent!) })
+                if (applicationRole === ApplicantRole.GUARDIAN){
+                    if (unknownParent) return t('guardianChild', { person1: nameAndFnr(parents.firstParent!) })
+                    return t('guardianChild', { person1: nameAndFnr(parents.secondParent!) })
+                }
                 return t('bothOfTheAbove', {
                     person1: t('remainingParent'),
                     person2: nameAndFnr(parents.secondParent),
