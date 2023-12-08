@@ -164,6 +164,7 @@ const aboutYou = {
     alternativeAddress: 'Oppgi noverande bustadsadresse',
     staysAbroadTitle: 'Opphald utanfor Noreg',
     residesInNorway: 'Er du busett i Noreg?',
+    residesInNorwaySummaryQuestion: 'Er du busett i eit anna land enn Noreg?',
     stayedAbroad: 'Har du budd eller opphalde deg i utlandet dei siste 12 månadene?',
     stayedAbroadCountry: 'Oppgi hvilket land du oppheldt deg i',
     stayedAbroadFromDate: 'Frå dato',

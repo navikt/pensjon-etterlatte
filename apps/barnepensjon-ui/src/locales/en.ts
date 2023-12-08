@@ -168,6 +168,7 @@ const aboutYou = {
     alternativeAddress: 'Enter your current residential address',
     staysAbroadTitle: 'Stays outside Norway',
     residesInNorway: 'Are you residing in Norway?',
+    residesInNorwaySummaryQuestion: 'Are you residing in a country other than Norway?',
     countryOfResidence: 'State which country you are residing in',
     stayedAbroad: 'Have you lived or stayed abroad in the last 12 months?',
     stayedAbroadCountry: 'State which country',

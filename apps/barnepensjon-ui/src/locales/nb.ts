@@ -163,6 +163,7 @@ const aboutYou = {
     alternativeAddress: 'Oppgi nåværende bostedsadresse',
     staysAbroadTitle: 'Opphold utenfor Norge',
     residesInNorway: 'Er du bosatt i Norge?',
+    residesInNorwaySummaryQuestion: 'Er du bosatt i et annet land enn Norge?',
     countryOfResidence: 'Oppgi hvilket land du er bosatt i',
     stayedAbroad: 'Har du bodd eller oppholdt deg i utlandet de siste 12 månedene?',
     stayedAbroadCountry: 'Oppgi hvilket land du oppholdt deg i',

@@ -218,11 +218,17 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
 
     const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> | undefined = residesInNorway
         ? {
-              spoersmaal: t('residesInNorway', { ns: 'aboutYou' }),
-              svar: {
-                  innhold: t(residesInNorway, { ns: 'radiobuttons' }),
-                  verdi: residesInNorway,
-              },
+              spoersmaal: t('residesInNorwaySummaryQuestion', { ns: 'aboutYou' }),
+              svar:
+                  residesInNorway === JaNeiVetIkke.JA
+                      ? {
+                            innhold: t(JaNeiVetIkke.NEI, { ns: 'radiobuttons' }),
+                            verdi: JaNeiVetIkke.NEI,
+                        }
+                      : {
+                            innhold: t(JaNeiVetIkke.JA, { ns: 'radiobuttons' }),
+                            verdi: JaNeiVetIkke.JA,
+                        },
           }
         : undefined
 
