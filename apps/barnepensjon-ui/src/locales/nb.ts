@@ -293,7 +293,7 @@ const aboutChildren = {
     needToSendInDocumentation:
         'Du må sende inn dokumentasjon på at du er verge for barnet når du har sendt inn søknaden.',
     onlyGuardiansCanApply:
-        'Du kan kun søke om barnepensjon for barn du er verge for. \nAlle avdødes barn under 18 år kan legges til.',
+        'Du kan kun søke om barnepensjon for barn du er verge for. \nAlle avdødes barn kan legges til.',
 }
 
 const summary = {

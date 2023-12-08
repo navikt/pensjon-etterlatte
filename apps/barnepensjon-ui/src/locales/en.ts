@@ -301,7 +301,7 @@ const aboutChildren = {
     needToSendInDocumentation:
         'You must submit documentation proving that you are the guardian for the child after you have submitted the application.',
     onlyGuardiansCanApply:
-        'You can only apply for a children’s pension for children you are the guardian of. \n All of the deceased’s children under the age of 18 can be added.',
+        'You can only apply for a children’s pension for children you are the guardian of. \n All of the deceased’s children can be added.',
 }
 
 const summary = {
