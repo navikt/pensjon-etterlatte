@@ -18,13 +18,19 @@ export default function ParentQuestion({ parents }: Props) {
 
     const isParent = application.applicant?.applicantRole === ApplicantRole.PARENT
     const isGuardian = application.applicant?.applicantRole === ApplicantRole.GUARDIAN
+    const oneParentsDeceased = application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
     const hasUnknownParent = !!application.unknownParent
 
     const bothParents = () => {
         if (isParent) return t('jointChild', { person1: nameAndFnr(application.secondParent!) })
         if (isGuardian) {
-            if (application.unknownParent) return t('guardianChild', { person1: nameAndFnr(application.firstParent!) })
-            return t('guardianChild', { person1: nameAndFnr(application.secondParent!) })
+            if (application.unknownParent) {
+                return t('bothOfTheAbove', {
+                    person1: t('unknownParent', { ns: 'aboutParents' }),
+                    person2: nameAndFnr(application.firstParent!),
+                })
+            }
+            if (oneParentsDeceased) return t('guardianChild', { person1: nameAndFnr(application.secondParent!) })
         }
         return t('bothOfTheAbove', {
             person1: nameAndFnr(application.firstParent!),
@@ -36,8 +42,8 @@ export default function ParentQuestion({ parents }: Props) {
 
     const remainingParent = () => {
         if (isParent) return t('remainingParentsChild')
-        if (isGuardian) return t('remainingParent')
-        else nameAndFnr(application.firstParent!)
+        if (isGuardian && oneParentsDeceased) return t('remainingParent')
+        return nameAndFnr(application.firstParent!)
     }
 
     return (

@@ -6,7 +6,7 @@ import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IAboutChildren, IChild, ParentRelationType } from '../../../../types/person'
 import { StepLabelKey, StepPath } from '../../../../utils/steps'
-import { ApplicantRole } from '../../scenario/ScenarioSelection'
+import { ApplicantRole, ApplicantSituation } from '../../scenario/ScenarioSelection'
 import { AccordionItem } from '../AccordionItem'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import PaymentDetailsSummary from './PaymentDetailsSummary'
@@ -17,6 +17,7 @@ interface Props {
     aboutChildren?: IAboutChildren
     pathPrefix: string
     applicationRole?: ApplicantRole
+    applicantSituation?: ApplicantSituation
     parents: {
         firstParent: any
         secondParent: any
@@ -24,13 +25,14 @@ interface Props {
     unknownParent: boolean
 }
 
-export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicationRole, parents, unknownParent }: Props) => {
+export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicationRole, applicantSituation, parents, unknownParent }: Props) => {
     const { t } = useTranslation('aboutChildren')
 
     if (!aboutChildren || isEmpty(aboutChildren)) return null
 
     const isParent = applicationRole === ApplicantRole.PARENT
     const isChild = applicationRole === ApplicantRole.CHILD
+    const oneParentDeceased = applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
 
     const parentAnswerText = (child: IChild): string => {
         switch (child.parents) {
@@ -53,10 +55,10 @@ export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicati
                 if (unknownParent) return t('unknownParent', { ns: 'aboutParents' })
                 return nameAndFnr(parents.secondParent)
             case ParentRelationType.BOTH:
-                if (unknownParent) return t('guardianChild', { person1: nameAndFnr(parents.firstParent!) })
+                if (unknownParent) return t('bothOfTheAbove', { person1: t('unknownParent', { ns: 'aboutParents' }),person2: nameAndFnr(parents.firstParent!) })
                 return t('bothOfTheAbove', {
-                    person1: t('remainingParent'),
-                    person2: nameAndFnr(parents.secondParent),
+                    person1:  oneParentDeceased ? t('remainingParent') : nameAndFnr(parents.firstParent),
+                    person2:  nameAndFnr(parents.secondParent),
                 })
             default:
                 throw Error(`Unexpected parent relation: ${child.parents}`)
@@ -129,7 +131,9 @@ export const SummaryAboutChildren = memo(({ aboutChildren, pathPrefix, applicati
                                 content={JaNeiVetIkke.JA}
                             />
 
-                            {child.paymentDetails && <PaymentDetailsSummary paymentDetails={child.paymentDetails} />}
+                            {child.paymentDetails && (
+                                <PaymentDetailsSummary paymentDetails={child.paymentDetails} />
+                            )}
                         </>
                     )}
                 </Panel>

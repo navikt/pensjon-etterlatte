@@ -177,6 +177,15 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
         }
     }
 
+    const ukjentForelder: Opplysning<string> | undefined = !!application.unknownParent
+        ? {
+              spoersmaal: t('unknownParentQuestionGuardian', {
+                  ns: 'aboutParents',
+              }),
+              svar: t('yesUnknownParentGuardian', { ns: 'btn' }),
+          }
+        : undefined
+
     return {
         type: PersonType.BARN,
         fornavn: {
@@ -196,6 +205,7 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
             svar: child.citizenship!!,
         },
         utenlandsAdresse,
+        ukjentForelder,
         foreldre: hentForeldre(t, child, application, user),
         verge: mapVerge(t, child, user),
     }
