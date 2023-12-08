@@ -279,8 +279,8 @@ const aboutChildren = {
     infoCard_fnr: 'NORWEGIAN NATIONAL IDENTITY NUMBER',
     infoCard_citizenship: 'NATIONALITY',
     removeChildButton: 'Remove from the application',
-    addChildButton: '+ Add another child',
-    addSiblingButton: '+ Add another sibling',
+    addChildButton: '+ Add child',
+    addSiblingButton: '+ Add sibling',
     whoAreTheParents: 'Who are the parents of the child?',
     whoAreTheParentsHelpText:
         'We need to know if this is a child you share with the deceased (a “joint child”), the deceased’s child from another relationship, or your child from another relationship.',
