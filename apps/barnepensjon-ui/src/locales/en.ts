@@ -101,7 +101,7 @@ const frontPage = {
         "As the child's guardian, you can only send an application for the child you are guardian for. You will be asked to document your childcare obligations after submitting the application.  You can also apply for those who have turned 18.",
     childMayBeApplicableForPension_li3: 'Children who have turned 18 must apply themselves.',
     readMoreAboutChildrensPension:
-        'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon">read more about children’s pension here</a>.',
+        'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon/en">read more about children’s pension here</a>.',
     weWillRetrieveInfoTitle: 'Personal data protection',
     weWillRetrieveInfo: 'We will collect any information we need',
     infoWeRetrieve:
@@ -112,7 +112,7 @@ const frontPage = {
         'Information about <strong>other current benefits or support from NAV</strong> (for example, disability pension)',
     infoWeRetrieve_li3:
         'Information from <strong> foreign national insurance/social security authorities</strong> (if applicable)',
-    infoWeRetrieve_li4: 'Information about imprisonment and stays at institutions   ',
+    infoWeRetrieve_li4: 'Information about imprisonment and stays at institutions',
     survivingParentInfo:
         'If the user is applying on behalf of himself, or as a guardian applying for the user, NAV will collect information about any surviving parents. If so, we will need to collect:',
     survivingParentInfo_li1: 'Name',
