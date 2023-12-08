@@ -48,7 +48,7 @@ const mapTilBarnepensjonSoeknad = (
 ): Barnepensjon => {
     const innsender: Innsender = mapInnsender(t, user)
 
-    const harSamtykket: Opplysning<boolean> = mapSamtykke(t, application, user)
+    const harSamtykket: Opplysning<boolean> = mapSamtykke(t, application)
 
     const foreldre: Person[] = mapForeldreMedUtvidetInfo(t, application, user)
 
@@ -321,11 +321,11 @@ const mapSoesken = (t: TFunction, child: IChild, application: IApplication, user
         .map((c: IChild) => mapBarn(t, c, application, user))
 }
 
-const mapSamtykke = (t: TFunction, application: IApplication, user: User): Opplysning<boolean> => {
+const mapSamtykke = (t: TFunction, application: IApplication): Opplysning<boolean> => {
     if (!application.applicant!!.consent) throw Error('Kan ikke sende inn søknad uten å ha samtykket!')
 
     return {
-        spoersmaal: t('consentToNav', { ns: 'frontPage', fornavn: user.fornavn!!, etternavn: user.etternavn!! }),
+        spoersmaal: t('consentToNav', { ns: 'frontPage' }),
         svar: !!application.applicant?.consent,
     }
 }

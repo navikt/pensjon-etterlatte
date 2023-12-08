@@ -123,7 +123,7 @@ const frontPage = {
         'If you would like to learn more about how we process and safeguard personal data, please read <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">NAV\'s privacy policy online.</a>',
     consentTitle: 'We trust you',
     consentDescription: 'You must provide us with the correct information so that we can process your application.\n\n',
-    consentToNav: 'I, {fornavn} {etternavn}, hereby confirm that the information I provide is correct and complete.',
+    consentToNav: 'I hereby confirm that the information I provide is correct and complete.',
 }
 
 const selectScenario = {

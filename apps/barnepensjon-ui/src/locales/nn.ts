@@ -119,7 +119,7 @@ const frontPage = {
         'Dersom du ønskjer å vite meir om personvern og tryggleik, kan du lese om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">korleis NAV behandlar personopplysningane dine.</a>',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden.\n\n',
-    consentToNav: 'Eg, {fornavn} {etternavn}, bekreftar at eg vil gi riktige og fullstendige opplysingar.',
+    consentToNav: 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
 }
 
 const selectScenario = {

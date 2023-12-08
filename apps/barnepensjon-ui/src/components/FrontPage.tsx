@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes } from '../context/application/application'
 import { useApplicationContext } from '../context/application/ApplicationContext'
-import { useUserContext } from '../context/user/UserContext'
 import useTranslation from '../hooks/useTranslation'
 import FormGroup from './common/FormGroup'
 import Trans from './common/Trans'
@@ -13,15 +12,12 @@ import LanguageSelect from './common/LanguageSelect'
 export default function FrontPage() {
     const navigate = useNavigate()
 
-    const { state: user } = useUserContext()
     const { state, dispatch } = useApplicationContext()
 
     const [consent, setConsent] = useState(state?.applicant?.consent || false)
 
     const { t } = useTranslation('frontPage')
     const { logEvent } = useAmplitude()
-
-    const { fornavn, etternavn } = user
 
     function next() {
         dispatch({
@@ -126,7 +122,7 @@ export default function FrontPage() {
                 <ConfirmationPanel
                     checked={consent}
                     onChange={(e) => setConsent(e.target.checked)}
-                    label={t('consentToNav', { fornavn, etternavn })}
+                    label={t('consentToNav')}
                     size="medium"
                 />
             </FormGroup>
