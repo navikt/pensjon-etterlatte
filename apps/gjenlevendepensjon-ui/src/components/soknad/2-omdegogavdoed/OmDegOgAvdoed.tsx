@@ -9,7 +9,7 @@ import { SkjemaGruppe } from "../../felles/SkjemaGruppe";
 import ForholdTilAvdoedeSkjema from "./forholdTilAvdoede/ForholdTilAvdoedeSkjema";
 import Feilmeldinger from "../../felles/Feilmeldinger";
 import Datovelger from "../../felles/Datovelger";
-import { Cell, Grid, Label, Heading } from "@navikt/ds-react";
+import { Cell, Grid, Label, Heading, Alert, Link } from "@navikt/ds-react";
 import NySivilstatus from "./nySivilstatus/NySivilstatus";
 import Navigasjon from "../../felles/Navigasjon";
 import { deepCopy } from "../../../utils/deepCopy";
@@ -28,9 +28,12 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         handleSubmit,
         formState: { errors },
         getValues,
+        watch
     } = methods;
 
     const erValidert = state.omDegOgAvdoed.erValidert;
+
+    const datoForDoedsfallet = watch("avdoed.datoForDoedsfallet")
 
     const lagreNeste = (data: ISoekerOgAvdoed) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } });
@@ -47,6 +50,15 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(verdier), erValidert: false } });
         forrige!!();
     };
+
+    const doedsfallEtterNovember2023 = (dato: any): boolean => {
+        if (!dato) return false
+
+        const doedsfallDato = new Date(dato)
+        doedsfallDato.setHours(0, 0, 0, 0)
+
+        return doedsfallDato > new Date(2023, 10, 30)
+    }
 
     return (
         <>
@@ -80,6 +92,16 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
                             label={t("omDegOgAvdoed.avdoed.dato")}
                             maxDate={new Date()}
                         />
+
+                        <br/>
+                        {doedsfallEtterNovember2023(datoForDoedsfallet) && (
+                                <Alert variant='warning'>
+                                    {t('omDegOgAvdoed.avdoed.dato.etterNovember')}
+                                    <Link href={t('omDegOgAvdoed.avdoed.dato.etterNovember.href')}>
+                                        {t('omDegOgAvdoed.avdoed.dato.etterNovember.link')}
+                                    </Link>
+                                </Alert>
+                        )}
                     </SkjemaGruppe>
 
                     <ForholdTilAvdoedeSkjema />
