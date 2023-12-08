@@ -11,7 +11,7 @@ import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
 import Navigasjon from '../../felles/Navigasjon'
-import { BodyLong, Heading, HGrid } from '@navikt/ds-react'
+import { Alert, BodyLong, Heading, HGrid, Link } from '@navikt/ds-react'
 import { deepCopy } from '../../../utils/deepCopy'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
@@ -55,6 +55,15 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const selvstendigNaeringsdrivende = watch('selvstendigNaeringsdrivende.svar')
     const datoForDoedsfallet = watch('datoForDoedsfallet')
 
+    const doedsfallFoerDesember2023 = (dato: any): boolean => {
+        if (!dato) return false
+
+        const doedsfallDato = new Date(dato)
+        doedsfallDato.setHours(0, 0, 0, 0)
+
+        return doedsfallDato < new Date(2023, 11, 1)
+    }
+
     return (
         <FormProvider {...methods}>
             <SkjemaElement>
@@ -86,6 +95,16 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             label={t('omDenAvdoede.datoForDoedsfallet')}
                             maxDate={new Date()}
                         />
+
+                        <br/>
+                        {doedsfallFoerDesember2023(datoForDoedsfallet) && (
+                            <Alert variant='warning'>
+                                {t('omDenAvdoede.datoForDoedsfallet.foerDesember')}
+                                <Link href={t('omDenAvdoede.datoForDoedsfallet.foerDesember.href')}>
+                                    {t('omDenAvdoede.datoForDoedsfallet.foerDesember.link')}
+                                </Link>
+                            </Alert>
+                        )}
                     </SkjemaElement>
 
                     <SkjemaElement>
