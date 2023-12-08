@@ -248,17 +248,14 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
               }
             : undefined
 
-    if (residesInNorway === JaNeiVetIkke.JA && !!bosattNorge) {
+    if (residesInNorway === JaNeiVetIkke.JA && aboutYou.stayedAbroad!! === JaNeiVetIkke.JA && !!bosattNorge) {
         bosattNorge.opplysning = {
-            oppholdLand:
-                aboutYou.stayedAbroad!! === JaNeiVetIkke.JA
-                    ? {
-                          spoersmaal: t('stayedAbroadCountry', { ns: 'aboutYou' }),
-                          svar: {
-                              innhold: aboutYou!!.stayedAbroadCountry!!,
-                          },
-                      }
-                    : undefined,
+            oppholdLand: {
+                spoersmaal: t('stayedAbroadCountry', { ns: 'aboutYou' }),
+                svar: {
+                    innhold: aboutYou!!.stayedAbroadCountry!!,
+                },
+            },
             oppholdFra: aboutYou.stayedAbroadFromDate
                 ? {
                       spoersmaal: t('stayedAbroadFromDate', { ns: 'aboutYou' }),
