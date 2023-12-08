@@ -136,7 +136,7 @@ const selectScenario = {
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde.',
     guardianApplicantInformationLabel: 'Jeg søker for ett eller flere barn jeg er verge for',
     guardianApplicantInformation:
-        'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn under 20 år. Du kan kun sende søknad for barn du er verge for.',
+        'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn under 20 år.',
     guardiansMustSendDocumentation:
         'For at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på barn du er verge for.\n\n Du må oppgi fødselsnummer på alle i søknaden. Hvis du ikke har det, må du bruke en av våre <a href="https://www.nav.no/start/soknad-barnepensjon">andre søknader om barnepensjon</a>.',
     childApplicantInformation1:
@@ -449,6 +449,7 @@ const receipt = {
     processingTimeLink: 'forventet saksbehandlingstid.',
     processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
     closeApplicationButton: 'Les mer om barnepensjon',
+    closeApplicationButtonHref: 'https://www.nav.no/barnepensjon',
 }
 
 const yourSituation = {

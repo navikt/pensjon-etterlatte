@@ -132,7 +132,7 @@ const selectScenario = {
     additionalSituationDetailsDescription:
         'If the child has lost one parent and the other parent is unknown, you must choose "Both parents".',
     additionalSituationDetailsOver18: 'I have lost',
-    additionalSituationDetailsOver18Description: 'If one of the parents is unknown, select Both Parents.',
+    additionalSituationDetailsOver18Description: 'If one of the parents is unknown, select "Both parents".',
     PARENT: 'I am applying for my child or children under the age of 18',
     GUARDIAN: 'I am applying for one or more children who I am the guardian for',
     CHILD: 'I have reached the age of 18 and am applying on behalf of myself',
@@ -141,7 +141,7 @@ const selectScenario = {
         'In the application, you must list all children and/or adoptive children under the age of 18 who you had together with the deceased.',
     guardianApplicantInformationLabel: 'I am applying for one or more children who I am the guardian for',
     guardianApplicantInformation:
-        "The application must contain the names of all the deceased's children and/or adopted children under 20 years of age. You can only send an application for the children you are guardian for.",
+        "The application must contain the names of all the deceased's children and/or adopted children under 20 years of age.",
     guardiansMustSendDocumentation:
         'In order for us to process your children’s pension application, you must send us documentation on the child you are guardian for later.\n\n Remember to provide all their national identity numbers on the application. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon">other applications for children’s pensions</a>.',
     childApplicantInformation1:
@@ -151,10 +151,10 @@ const selectScenario = {
     childApplicantInformationOver18:
         'If you have lost one or both of your parents you must use <a href="https://www.nav.no/soknader/en/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene">this application</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
-        'You must enter the entire national identity number of the child/children and the deceased. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">other applications for children’s pensions</a>.',
+        'You must enter the entire national identity number of the child/children and the deceased. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon/en">other applications for children’s pensions</a>.',
     aboutSurvivorsPensionTitle: 'Have you lost your spouse, cohabiting partner or partner?',
     aboutSurvivorsPensionDescription:
-        'You may be eligible for transitional benefits. If you want to apply for a children’s pension at the same time, you can do both on the same <a href="https://www.nav.no/omstillingsstnad/soknad/">transitional benefits application form.</a>',
+        'You may be eligible for transitional benefits. If you want to apply for a children’s pension at the same time, you can do both on the same <a href="https://www.nav.no/omstillingsstonad/soknad/">transitional benefits application form.</a>',
     BOTH_PARENTS_DECEASED: 'Both parents',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'I have no parents',
     ONE_PARENT_DECEASED: 'One parent',
@@ -201,7 +201,7 @@ const aboutParents = {
     childAndOneParentDeceasedGuidepanel:
         'You do not need to fill in the surviving parent information. We collect this information when we process your application.\n\n If you have lost one parent and the other is unknown, you will need to start the application process again. Choose "I have lost both parents".',
     childAndBothParentsDeceasedGuidepanel:
-        'You must enter information about both your parents to continue the application. \n\nIf you do not know the identity of your parent, select "Unknown parent".',
+        'You must enter information about both your parents to continue the application. \n\n If you do not know the identity of your parent, select "Unknown parent".',
     guardianAndOneParentDeceased:
         'You do not need to fill in the surviving parent information. We collect this information when we process your application. \n\n If the child has lost one parent and you do not know the identity of the other parent, you must start the application process over again. Choose the alternative "Both parents".',
 }
@@ -450,18 +450,19 @@ const receipt = {
     moreAboutChangesLinkText: 'notifying us of any changes.',
     submissionOfGuardianshipInfo: 'Guardian',
     guardianshipMustBeConfirmed:
-        'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor, \n\n',
+        'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor, ',
     guardianshipMustBeConfirmedLink: 'The form that you need to send later can be found here.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende#barnepensjon',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersend-soknad-barnepensjon/en',
     viewCaseTitle: 'Do you want to check the status of the case',
     viewCaseInfoContentPart1:
-        "Parents or guardians cannot follow the child's case digitally. If you have any questions about the application, please contact us by phone 55 55 33 34. Curious about how long this will take? You can see the anticipated processing time here ",
+        "Parents or guardians cannot follow the child's case digitally. If you have any questions about the application, please contact us by phone +47 55 55 33 34. Curious about how long this will take? You can see the anticipated processing time here ",
     viewCaseInfoContent2: 'Children over the age of 18 can check the status of their case by logging on at ',
     viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
     viewCaseInfoLinkText2: 'mitt NAV (my NAV)',
-    processingTimeLink: 'processing time',
-    processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
+    processingTimeLink: 'processing time.',
+    processingTimeHref: 'https://www.nav.no/saksbehandlingstider/en',
     closeApplicationButton: `Read more about children's pension`,
+    closeApplicationButtonHref: 'https://www.nav.no/barnepensjon/en',
 }
 
 const yourSituation = {

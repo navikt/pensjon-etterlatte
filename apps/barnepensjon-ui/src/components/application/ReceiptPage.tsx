@@ -90,7 +90,7 @@ export default function ReceiptPage() {
                 <Button
                     variant={'secondary'}
                     type={'button'}
-                    onClick={() => (window.location.href = 'https://www.nav.no/barnepensjon')}
+                    onClick={() => (window.location.href = t('closeApplicationButtonHref'))}
                 >
                     {t('closeApplicationButton')}
                 </Button>
