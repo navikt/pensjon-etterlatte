@@ -105,7 +105,7 @@ const frontPage = {
     infoWeRetrieve:
         'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar vil som oftast vere ein attlevande forelder dersom det er brukaren sjølv, eller ein verje som har rett til å representere brukaren, som søkjer. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande: ',
     infoWeRetrieve_li1:
-        '<strong>Personopplysningar</strong> frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand og/eller flyktningstatus)',
+        '<strong>Personopplysningar</strong> frå Folkeregisteret (personnummer, adresse, statsborgarskap og/eller sivilstand)',
     infoWeRetrieve_li2: 'Opplysningar om <strong>anna løpande støtte frå NAV</strong> (til dømes uføretrygd)',
     infoWeRetrieve_li3: 'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
     infoWeRetrieve_li4: 'Opplysningar om straffegjennomføring og opphald på institusjon',

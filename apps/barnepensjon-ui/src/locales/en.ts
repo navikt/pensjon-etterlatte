@@ -107,7 +107,7 @@ const frontPage = {
     infoWeRetrieve:
         'In order to process your application, we need to gather information about you as the applicant and information about others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
     infoWeRetrieve_li1:
-        '<strong>Personal data</strong> from the National Population Register (national identification number, address, nationality, marital status and/or refugee status)',
+        '<strong>Personal data</strong> from the National Population Register (national identification number, address, nationality and/or marital status)',
     infoWeRetrieve_li2:
         'Information about <strong>other current benefits or support from NAV</strong> (for example, disability pension)',
     infoWeRetrieve_li3:
