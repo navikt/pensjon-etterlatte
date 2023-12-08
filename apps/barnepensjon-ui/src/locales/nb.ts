@@ -127,7 +127,7 @@ const selectScenario = {
     additionalSituationDetailsDescription:
         'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
     additionalSituationDetailsOver18: 'Jeg har mistet',
-    additionalSituationDetailsOver18Description: 'Hvis en av foreldrene dine er ukjent, velger du begge foreldrene.',
+    additionalSituationDetailsOver18Description: 'Hvis en av foreldrene dine er ukjent, velger du "Begge foreldrene".',
     PARENT: 'Jeg søker for mitt eller mine barn under 18 år',
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
     CHILD: 'Jeg har fylt 18 år og søker på vegne av meg selv',
