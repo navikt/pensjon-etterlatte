@@ -237,7 +237,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
         }
     }
 
-    const bosattNorge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland> | undefined =
+    const bosattNorge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland | undefined> | undefined =
         residesInNorway === JaNeiVetIkke.JA
             ? {
                   spoersmaal: t('stayedAbroad', { ns: 'aboutYou' }),
@@ -276,6 +276,8 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
                   }
                 : undefined,
         }
+    } else if (!!bosattNorge) {
+        bosattNorge.opplysning = undefined
     }
 
     const ukjentForelder: Opplysning<string> | undefined = !!application.unknownParent
