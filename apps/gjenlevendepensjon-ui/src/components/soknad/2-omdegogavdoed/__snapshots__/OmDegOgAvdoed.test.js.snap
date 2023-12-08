@@ -184,6 +184,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </div>
         </div>
       </section>
+      <br />
     </fieldset>
     <div
       id="forholdTilAvdoede.relasjon"
@@ -894,6 +895,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           </div>
         </div>
       </section>
+      <br />
     </fieldset>
     <div
       id="forholdTilAvdoede.relasjon"
