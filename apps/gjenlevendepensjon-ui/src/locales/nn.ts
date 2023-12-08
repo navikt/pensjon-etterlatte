@@ -180,6 +180,7 @@ export default {
     "omDegOgAvdoed.avdoed.hvem": "Kven er det som er død?",
     "omDegOgAvdoed.avdoed.fornavn": "Førenamn",
     "omDegOgAvdoed.avdoed.etternavn": "Etternamn",
+    "omDegOgAvdoed.avdoed.dato": "Dato",
     "omDegOgAvdoed.avdoed.dato.etterNovember": "Sia dødsfallet skjedde etter november 2023, må du søkje ",
     "omDegOgAvdoed.avdoed.dato.etterNovember.link": "omstillingsstønad.",
     "omDegOgAvdoed.avdoed.dato.etterNovember.href": "https://www.nav.no/omstillingsstonad",
