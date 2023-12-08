@@ -43,19 +43,21 @@ classDef text fill:none,color:#ddd
 
 barnepensjon-ui:::app --> selvbetjening-api
 gjenlevendepensjon-ui:::app --> selvbetjening-api
+omstillingsstonad-ui:::app --> selvbetjening-api
 
 subgraph frontend["Soeknad frontend"]
     barnepensjon-ui
     gjenlevendepensjon-ui
+    omstillingsstonad-ui
 end
 
 selvbetjening-api:::app --> innsendt-soeknad
 innsendt-soeknad:::app <--> innsendt-soeknad-v2[(soeknad\ndatabase)]:::db
 innsendt-soeknad -.-> sjekk-adressebeskyttelse
 sjekk-adressebeskyttelse:::app -.-> journalfoer-soeknad
+journalfoer-soeknad --> ey-pdfgen:::app
 journalfoer-soeknad:::app --> dokarkiv
 journalfoer-soeknad -. dokarkivResponse .-> innsendt-soeknad
-journalfoer-soeknad --> ey-pdfgen:::app
 
 selvbetjening-api --> pdl
 selvbetjening-api --> kodeverk
