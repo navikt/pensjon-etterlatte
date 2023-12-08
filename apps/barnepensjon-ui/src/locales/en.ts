@@ -54,7 +54,7 @@ const btn = {
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
         'If the information we have about you is incorrect, you must change it in the National Registry. \n',
-    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
+    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/en/forms/mine-opplysninger-i-folkeregisteret/',
     incorrectInfoMustBeCorrectedHrefText: 'Change your information',
 }
 
@@ -143,7 +143,7 @@ const selectScenario = {
     guardianApplicantInformation:
         "The application must contain the names of all the deceased's children and/or adopted children under 20 years of age.",
     guardiansMustSendDocumentation:
-        'In order for us to process your children’s pension application, you must send us documentation on the child you are guardian for later.\n\n Remember to provide all their national identity numbers on the application. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon">other applications for children’s pensions</a>.',
+        'In order for us to process your children’s pension application, you must send us documentation on the child you are guardian for later.\n\n Remember to provide all their national identity numbers on the application. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon/en">other applications for children’s pensions</a>.',
     childApplicantInformation1:
         '<b>If you have lost a parent</b> \nWhen the death was due to an occupational injury or occupational illness you are entitled to receive the children’s pension until the age of 21 if you are studying or serving as an apprentice or trainee.',
     childApplicantInformation2:
@@ -169,7 +169,7 @@ const aboutYou = {
     staysAbroadTitle: 'Stays outside Norway',
     residesInNorway: 'Are you residing in Norway?',
     countryOfResidence: 'State which country you are residing in',
-    stayedAbroad: 'have you lived or stayed abroad in the last 12 months?',
+    stayedAbroad: 'Have you lived or stayed abroad in the last 12 months?',
     stayedAbroadCountry: 'State which country',
     stayedAbroadFromDate: 'From date',
     stayedAbroadToDate: 'To date',

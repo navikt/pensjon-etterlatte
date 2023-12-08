@@ -54,7 +54,7 @@ const btn = {
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
         'Viss opplysingane vi har om deg ikkje stemmer, må du endre desse hos Folkeregisteret. \n',
-    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
+    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/nn/skjema/opplysninger-i-folkeregisteret/',
     incorrectInfoMustBeCorrectedHrefText: 'Endre opplysningane dine',
 }
 
