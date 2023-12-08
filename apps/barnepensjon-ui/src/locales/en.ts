@@ -94,7 +94,7 @@ const frontPage = {
         'Hello. I am here to guide you through the application process. Please respond as well as you can based on your current situation. You can notify us about any changes that occur later.\n\n We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
     startApplication: 'Start the application',
     childMayBeApplicableForPension:
-        'Children under the age of 20 who have lost one or both of their parents may receive financial support',
+        'Children under the age of 20 who have lost one or both of their parents may receive financial support.',
     childMayBeApplicableForPension_li1:
         'It is the parent or guardian of the child who must apply for the children’s pension for the child if he/she is under the age of 18.',
     childMayBeApplicableForPension_li2:

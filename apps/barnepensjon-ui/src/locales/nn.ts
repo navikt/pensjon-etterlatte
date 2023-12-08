@@ -92,14 +92,14 @@ const frontPage = {
     ingress:
         'Hei, eg er her for å rettleie deg gjennom søknaden. Svar så godt du kan ut frå korleis situasjonen din ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
     startApplication: 'Start søknad',
-    childMayBeApplicableForPension: 'Barn under 20 år som har mista ein eller begge foreldra sine, kan få barnepensjon',
+    childMayBeApplicableForPension: 'Barn under 20 år som har mista ein eller begge foreldra sine, kan få barnepensjon.',
     childMayBeApplicableForPension_li1:
         'Det er foreldra eller verjen til barnet som må søke om barnepensjon for barnet viss det er under 18 år.',
     childMayBeApplicableForPension_li2:
         'Som verje kan du berre sende søknad for barn du er verje for. Du vil bli beden om å dokumentere omsorgsforholdet etter at søknaden er send. Du kan også søkje for personar over 18 år.',
     childMayBeApplicableForPension_li3: 'Barn over 18 år må søkje sjølve.',
     readMoreAboutChildrensPension:
-        'Dersom du har spørsmål om pensjonen – til dømes kor mykje du kan få, eller kva reglar som gjeld for skatt – kan du du <a href="https://www.nav.no/barnepensjon">lese meir om barnepensjon</a>.',
+        'Dersom du har spørsmål om pensjonen, til dømes kor mykje du kan få, eller kva reglar som gjeld for skatt, kan du du <a href="https://www.nav.no/barnepensjon">lese meir om barnepensjon</a>.',
     weWillRetrieveInfoTitle: 'Personvern og tryggleik',
     weWillRetrieveInfo: 'Vi hentar inn informasjonen vi treng',
     infoWeRetrieve:
@@ -108,7 +108,7 @@ const frontPage = {
         '<strong>Personopplysningar</strong> frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand og/eller flyktningstatus)',
     infoWeRetrieve_li2: 'Opplysningar om <strong>anna løpande støtte frå NAV</strong> (til dømes uføretrygd)',
     infoWeRetrieve_li3: 'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
-    infoWeRetrieve_li4: 'Opplysningar om straffegjennomføring og opphald på institusjon   ',
+    infoWeRetrieve_li4: 'Opplysningar om straffegjennomføring og opphald på institusjon',
     survivingParentInfo:
         'Dersom brukaren søkjer på eiga hand, eller ein verje søkjer på vegner av brukaren, vil NAV hente inn informasjon om ein eventuell attlevande forelder. Vi hentar då inn følgjande:',
     survivingParentInfo_li1: 'Namn',
