@@ -50,14 +50,14 @@ export default function proxy(host: string): RequestHandler {
             const response = await fetch(`${host}${req.path}?kilde=${process.env.NAIS_APP_NAME}`, request)
 
             if (isOK(response.status)) {
-                logger.info(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
+                logger.info(sanitize(`${response.status} ${response.statusText}: ${req.method} ${req.path}`))
             } else {
-                logger.error(`${response.status} ${response.statusText}: ${req.method} ${req.path}`)
+                logger.error(sanitize(`${response.status} ${response.statusText}: ${req.method} ${req.path}`))
             }
 
             return res.status(response.status).send(await response.text())
         } catch (error) {
-            logger.error(`Feilet kall (${req.method} - ${req.path}): `, error)
+            logger.error(sanitize(`Feilet kall (${req.method} - ${req.path}): `), error)
 
             return res.status(500).send('Error')
         }
@@ -67,4 +67,8 @@ export default function proxy(host: string): RequestHandler {
 export const getHeaderTokenReq = (req: Request) => {
     const { authorization } = req.headers
     return authorization?.split(' ')[1]
+}
+
+function sanitize(value: String) {
+    return value.replace(/[\n\r]/g, '')
 }
