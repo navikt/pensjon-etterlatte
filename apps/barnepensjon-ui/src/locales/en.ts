@@ -273,7 +273,7 @@ const aboutChildren = {
     guardianFnr: 'The guardian’s Norwegian national identity number (optional)',
     guardianFnrPlaceholder: '11 digits',
     information:
-        'Add all the children under 18 that you have in common with the deceased.\n\n Children over the age of 18 must apply themselves.',
+        'Add all the children under 18 that you have in common with the deceased. Children over the age of 18 must apply themselves.',
     informationGuardian: 'Add all the children you are guardian for.',
     infoRegardingSiblings: 'Here is the information if there are siblings',
     infoCard_residence: 'PLACE OF RESIDENCE',
@@ -453,7 +453,7 @@ const receipt = {
     guardianshipMustBeConfirmed:
         'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor, ',
     guardianshipMustBeConfirmedLink: 'The form that you need to send later can be found here.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersend-soknad-barnepensjon/en',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende/en#childrens-pension',
     viewCaseTitle: 'Do you want to check the status of the case',
     viewCaseInfoContentPart1:
         "Parents or guardians cannot follow the child's case digitally. If you have any questions about the application, please contact us by phone +47 55 55 33 34. Curious about how long this will take? You can see the anticipated processing time here ",
