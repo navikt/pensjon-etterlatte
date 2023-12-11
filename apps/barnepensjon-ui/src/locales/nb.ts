@@ -105,7 +105,7 @@ const frontPage = {
     weWillRetrieveInfo: 'Vi henter informasjonen vi trenger',
     infoWeRetrieve:
         'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner vil som oftest være en gjenlevende foreldre i tilfeller der bruker søker selv eller dersom en verge som har rett til å representere brukeren søker.\n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
-    infoWeRetrieve_li1: '<strong>Personinformasjon</strong> fra Folkeregisteret (personnummer, adresse, statsborgerskap, sivilstand og/eller flyktningstatus',
+    infoWeRetrieve_li1: '<strong>Personinformasjon</strong> fra Folkeregisteret (personnummer, adresse, statsborgerskap og/eller sivilstand)',
     infoWeRetrieve_li2: 'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (for eksempel uføretrygd)',
     infoWeRetrieve_li3: 'Informasjon fra <strong>utenlandske trygdemyndigheter</strong> (der dette er aktuelt)',
     infoWeRetrieve_li4: 'Opplysninger om straffegjennomføring og opphold på institusjon',
@@ -118,7 +118,7 @@ const frontPage = {
         'Hvis du ønsker å vite mer om personvern og sikkerhet kan du lese <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">hvordan NAV behandler personopplysningene dine.</a>',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden.\n\n',
-    consentToNav: 'Jeg, {fornavn} {etternavn}, bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
+    consentToNav: 'Jeg bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
 }
 
 const selectScenario = {
@@ -127,7 +127,7 @@ const selectScenario = {
     additionalSituationDetailsDescription:
         'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
     additionalSituationDetailsOver18: 'Jeg har mistet',
-    additionalSituationDetailsOver18Description: 'Hvis en av foreldrene dine er ukjent, velger du begge foreldrene.',
+    additionalSituationDetailsOver18Description: 'Hvis en av foreldrene dine er ukjent, velger du "Begge foreldrene".',
     PARENT: 'Jeg søker for mitt eller mine barn under 18 år',
     GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
     CHILD: 'Jeg har fylt 18 år og søker på vegne av meg selv',
@@ -163,6 +163,7 @@ const aboutYou = {
     alternativeAddress: 'Oppgi nåværende bostedsadresse',
     staysAbroadTitle: 'Opphold utenfor Norge',
     residesInNorway: 'Er du bosatt i Norge?',
+    residesInNorwaySummaryQuestion: 'Er du bosatt i et annet land enn Norge?',
     countryOfResidence: 'Oppgi hvilket land du er bosatt i',
     stayedAbroad: 'Har du bodd eller oppholdt deg i utlandet de siste 12 månedene?',
     stayedAbroadCountry: 'Oppgi hvilket land du oppholdt deg i',
@@ -293,7 +294,7 @@ const aboutChildren = {
     needToSendInDocumentation:
         'Du må sende inn dokumentasjon på at du er verge for barnet når du har sendt inn søknaden.',
     onlyGuardiansCanApply:
-        'Du kan kun søke om barnepensjon for barn du er verge for. \nAlle avdødes barn under 18 år kan legges til.',
+        'Du kan kun søke om barnepensjon for barn du er verge for. \nAlle avdødes barn kan legges til.',
 }
 
 const summary = {

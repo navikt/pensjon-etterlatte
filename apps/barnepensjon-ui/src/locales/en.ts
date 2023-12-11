@@ -54,7 +54,7 @@ const btn = {
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
         'If the information we have about you is incorrect, you must change it in the National Registry. \n',
-    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
+    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/en/forms/mine-opplysninger-i-folkeregisteret/',
     incorrectInfoMustBeCorrectedHrefText: 'Change your information',
 }
 
@@ -94,25 +94,25 @@ const frontPage = {
         'Hello. I am here to guide you through the application process. Please respond as well as you can based on your current situation. You can notify us about any changes that occur later.\n\n We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
     startApplication: 'Start the application',
     childMayBeApplicableForPension:
-        'Children under the age of 20 who have lost one or both of their parents may receive financial support',
+        'Children under the age of 20 who have lost one or both of their parents may receive financial support.',
     childMayBeApplicableForPension_li1:
         'It is the parent or guardian of the child who must apply for the children’s pension for the child if he/she is under the age of 18.',
     childMayBeApplicableForPension_li2:
         "As the child's guardian, you can only send an application for the child you are guardian for. You will be asked to document your childcare obligations after submitting the application.  You can also apply for those who have turned 18.",
     childMayBeApplicableForPension_li3: 'Children who have turned 18 must apply themselves.',
     readMoreAboutChildrensPension:
-        'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon">read more about children’s pension here</a>.',
+        'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon/en">read more about children’s pension here</a>.',
     weWillRetrieveInfoTitle: 'Personal data protection',
     weWillRetrieveInfo: 'We will collect any information we need',
     infoWeRetrieve:
         'In order to process your application, we need to gather information about you as the applicant and information about others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
     infoWeRetrieve_li1:
-        '<strong>Personal data</strong> from the National Population Register (national identification number, address, nationality, marital status and/or refugee status)',
+        '<strong>Personal data</strong> from the National Population Register (national identification number, address, nationality and/or marital status)',
     infoWeRetrieve_li2:
         'Information about <strong>other current benefits or support from NAV</strong> (for example, disability pension)',
     infoWeRetrieve_li3:
         'Information from <strong> foreign national insurance/social security authorities</strong> (if applicable)',
-    infoWeRetrieve_li4: 'Information about imprisonment and stays at institutions   ',
+    infoWeRetrieve_li4: 'Information about imprisonment and stays at institutions',
     survivingParentInfo:
         'If the user is applying on behalf of himself, or as a guardian applying for the user, NAV will collect information about any surviving parents. If so, we will need to collect:',
     survivingParentInfo_li1: 'Name',
@@ -123,7 +123,7 @@ const frontPage = {
         'If you would like to learn more about how we process and safeguard personal data, please read <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">NAV\'s privacy policy online.</a>',
     consentTitle: 'We trust you',
     consentDescription: 'You must provide us with the correct information so that we can process your application.\n\n',
-    consentToNav: 'I, {fornavn} {etternavn}, hereby confirm that the information I provide is correct and complete.',
+    consentToNav: 'I hereby confirm that the information I provide is correct and complete.',
 }
 
 const selectScenario = {
@@ -143,7 +143,7 @@ const selectScenario = {
     guardianApplicantInformation:
         "The application must contain the names of all the deceased's children and/or adopted children under 20 years of age.",
     guardiansMustSendDocumentation:
-        'In order for us to process your children’s pension application, you must send us documentation on the child you are guardian for later.\n\n Remember to provide all their national identity numbers on the application. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon">other applications for children’s pensions</a>.',
+        'In order for us to process your children’s pension application, you must send us documentation on the child you are guardian for later.\n\n Remember to provide all their national identity numbers on the application. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon/en">other applications for children’s pensions</a>.',
     childApplicantInformation1:
         '<b>If you have lost a parent</b> \nWhen the death was due to an occupational injury or occupational illness you are entitled to receive the children’s pension until the age of 21 if you are studying or serving as an apprentice or trainee.',
     childApplicantInformation2:
@@ -168,8 +168,9 @@ const aboutYou = {
     alternativeAddress: 'Enter your current residential address',
     staysAbroadTitle: 'Stays outside Norway',
     residesInNorway: 'Are you residing in Norway?',
+    residesInNorwaySummaryQuestion: 'Are you residing in a country other than Norway?',
     countryOfResidence: 'State which country you are residing in',
-    stayedAbroad: 'have you lived or stayed abroad in the last 12 months?',
+    stayedAbroad: 'Have you lived or stayed abroad in the last 12 months?',
     stayedAbroadCountry: 'State which country',
     stayedAbroadFromDate: 'From date',
     stayedAbroadToDate: 'To date',
@@ -272,15 +273,15 @@ const aboutChildren = {
     guardianFnr: 'The guardian’s Norwegian national identity number (optional)',
     guardianFnrPlaceholder: '11 digits',
     information:
-        'Add all the children under 18 that you have in common with the deceased.\n\n Children over the age of 18 must apply themselves.',
+        'Add all the children under 18 that you have in common with the deceased. Children over the age of 18 must apply themselves.',
     informationGuardian: 'Add all the children you are guardian for.',
     infoRegardingSiblings: 'Here is the information if there are siblings',
     infoCard_residence: 'PLACE OF RESIDENCE',
     infoCard_fnr: 'NORWEGIAN NATIONAL IDENTITY NUMBER',
     infoCard_citizenship: 'NATIONALITY',
     removeChildButton: 'Remove from the application',
-    addChildButton: '+ Add another child',
-    addSiblingButton: '+ Add another sibling',
+    addChildButton: '+ Add child',
+    addSiblingButton: '+ Add sibling',
     whoAreTheParents: 'Who are the parents of the child?',
     whoAreTheParentsHelpText:
         'We need to know if this is a child you share with the deceased (a “joint child”), the deceased’s child from another relationship, or your child from another relationship.',
@@ -301,7 +302,7 @@ const aboutChildren = {
     needToSendInDocumentation:
         'You must submit documentation proving that you are the guardian for the child after you have submitted the application.',
     onlyGuardiansCanApply:
-        'You can only apply for a children’s pension for children you are the guardian of. \n All of the deceased’s children under the age of 18 can be added.',
+        'You can only apply for a children’s pension for children you are the guardian of. \n All of the deceased’s children can be added.',
 }
 
 const summary = {
@@ -452,7 +453,7 @@ const receipt = {
     guardianshipMustBeConfirmed:
         'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor, ',
     guardianshipMustBeConfirmedLink: 'The form that you need to send later can be found here.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersend-soknad-barnepensjon/en',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende/en#childrens-pension',
     viewCaseTitle: 'Do you want to check the status of the case',
     viewCaseInfoContentPart1:
         "Parents or guardians cannot follow the child's case digitally. If you have any questions about the application, please contact us by phone +47 55 55 33 34. Curious about how long this will take? You can see the anticipated processing time here ",
