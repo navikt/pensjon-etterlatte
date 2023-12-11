@@ -1,10 +1,11 @@
 import FormElement from '../../../common/FormElement'
 import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
-import { Cell, Grid, Label } from '@navikt/ds-react'
+import { HGrid, Label } from '@navikt/ds-react'
 import { RHFFoedselsnummerInput, RHFInput } from '../../../common/rhf/RHFInput'
 import FormGroup from '../../../common/FormGroup'
 import useTranslation from '../../../../hooks/useTranslation'
+import { GridColumns, GridGap } from '../../../../utils/grid'
 
 interface Props {
     isGuardian: boolean
@@ -29,29 +30,25 @@ export const GuardianDetails = ({ isGuardian, childHasGuardianship }: Props) => 
                     {childHasGuardianship === JaNeiVetIkke.JA && (
                         <>
                             <Label>{t('guardianName')}</Label>
-                            <Grid>
-                                <Cell xs={12} md={6}>
-                                    <RHFInput
-                                        name={'childHasGuardianship.firstName'}
-                                        label={t('guardianFirstName')}
-                                        rules={{ pattern: /^\D+$/ }}
-                                        valgfri={true}
-                                    />
-                                </Cell>
-                                <Cell xs={12} md={6}>
-                                    <RHFInput
-                                        name={'childHasGuardianship.lastName'}
-                                        label={t('guardianLastName')}
-                                        rules={{ pattern: /^\D+$/ }}
-                                        valgfri={true}
-                                    />
-                                </Cell>
-                            </Grid>
+                            <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
+                                <RHFInput
+                                    name={'childHasGuardianship.firstName'}
+                                    label={t('guardianFirstName')}
+                                    rules={{ pattern: /^\D+$/ }}
+                                    valgfri={true}
+                                />
+                                <RHFInput
+                                    name={'childHasGuardianship.lastName'}
+                                    label={t('guardianLastName')}
+                                    rules={{ pattern: /^\D+$/ }}
+                                    valgfri={true}
+                                />
+                            </HGrid>
                             <FormElement>
                                 <RHFFoedselsnummerInput
                                     name={'childHasGuardianship.fnr'}
                                     label={t('guardianFnr')}
-                                    placeholder={t('guardianFnrPlaceholder')}
+                                    description={t('guardianFnrPlaceholder')}
                                     valgfri={true}
                                 />
                             </FormElement>

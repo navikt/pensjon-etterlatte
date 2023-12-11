@@ -3,11 +3,14 @@ import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke } from '../../api/dto/FellesOpplysninger'
 import useTranslation from '../../hooks/useTranslation'
 import FormElement from './FormElement'
-import { RHFGeneralQuestionRadio, RHFInlineRadio } from './rhf/RHFRadio'
+import { RHFGeneralQuestionRadio, RHFRadio } from './rhf/RHFRadio'
 import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from './rhf/RHFInput'
 import FormGroup from './FormGroup'
 import { useFormContext } from 'react-hook-form'
 import { IAboutChildren, IAboutYou } from '../../types/person'
+import { Bredde } from '../../utils/bredde'
+import { useApplicationContext } from '../../context/application/ApplicationContext'
+import { ApplicantRole } from '../application/scenario/ScenarioSelection'
 
 const HelpTextLabel = styled.div`
     display: flex;
@@ -15,16 +18,18 @@ const HelpTextLabel = styled.div`
 
 export default function PaymentDetails() {
     const { t } = useTranslation('paymentDetails')
-
+    const { state } = useApplicationContext()
     const { watch } = useFormContext<IAboutYou | IAboutChildren>()
 
     const accountType = watch('paymentDetails.accountType')
     const withholdingTaxChildrensPension = watch('paymentDetails.taxWithhold.answer')
 
+    const isParent = state.applicant?.applicantRole === ApplicantRole.PARENT
+
     return (
         <FormGroup>
             <FormElement>
-                <RHFInlineRadio
+                <RHFRadio
                     id={'accountTypeSelection'}
                     name={'paymentDetails.accountType'}
                     legend={t('accountType')}
@@ -36,13 +41,14 @@ export default function PaymentDetails() {
 
             {accountType === BankkontoType.NORSK && (
                 <>
-                    <FormGroup>
+                    <FormElement>
                         <RHFKontonummerInput
                             name={'paymentDetails.bankAccount'}
                             label={t('bankAccount')}
-                            htmlSize={15}
+                            description={isParent && t('bankAccountDescription')}
+                            htmlSize={Bredde.XS}
                         />
-                    </FormGroup>
+                    </FormElement>
                     <FormGroup>
                         <FormElement>
                             <RHFGeneralQuestionRadio
@@ -59,8 +65,8 @@ export default function PaymentDetails() {
                                     <RHFProsentInput
                                         name={'paymentDetails.taxWithhold.taxPercentage'}
                                         label={t('desiredTaxPercentage')}
-                                        placeholder={t('desiredTaxPercentagePlaceholder')}
-                                        htmlSize={40}
+                                        description={t('desiredTaxPercentagePlaceholder')}
+                                        htmlSize={Bredde.XS}
                                     />
                                 </FormElement>
                                 <FormElement>
@@ -98,6 +104,7 @@ export default function PaymentDetails() {
                                     <HelpText placement={'top'}>{t('ibanHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
+                            htmlSize={Bredde.M}
                         />
                     </FormElement>
                     <FormElement>
@@ -110,6 +117,7 @@ export default function PaymentDetails() {
                                     <HelpText placement={'top'}>{t('swiftHelpText')}</HelpText>
                                 </HelpTextLabel>
                             }
+                            htmlSize={Bredde.S}
                         />
                     </FormElement>
                 </>

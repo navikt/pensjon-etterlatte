@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, RadioProps } from '@navikt/ds-react'
+import { BodyLong, Button, GuidePanel, Heading, Label, RadioProps } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes, IApplicant } from '../../../context/application/application'
@@ -10,7 +10,6 @@ import { RHFRadio } from '../../common/rhf/RHFRadio'
 import Trans from '../../common/Trans'
 import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
 import FormElement from '../../common/FormElement'
-import { isDev } from '../../../api/axios'
 
 export enum ApplicantRole {
     PARENT = 'PARENT',
@@ -52,7 +51,6 @@ export default function ScenarioSelection() {
     }
 
     const selectedRole = watch('applicantRole')
-    const applicantSituation = watch('applicantSituation')
 
     return (
         <FormProvider {...methods}>
@@ -69,17 +67,21 @@ export default function ScenarioSelection() {
             {ApplicantRole.PARENT === selectedRole && (
                 <>
                     <FormGroup>
+                        <Label spacing>{t('parentApplicantInformationLabel')}</Label>
                         <BodyLong size={'small'}>{t('parentApplicantInformation')}</BodyLong>
                         <FormElement>
                             <Trans value={t('youNeedFnrForEveryoneInThisApplicationSurvivingParent')} />
                         </FormElement>
                     </FormGroup>
                     <FormGroup>
-                        <Alert variant={'info'} inline={true}>
+                        <GuidePanel>
+                            <Heading size={'medium'} spacing>
+                                {t('aboutSurvivorsPensionTitle')}
+                            </Heading>
                             <BodyLong>
                                 <Trans value={t('aboutSurvivorsPensionDescription')} />
                             </BodyLong>
-                        </Alert>
+                        </GuidePanel>
                     </FormGroup>
                 </>
             )}
@@ -87,15 +89,19 @@ export default function ScenarioSelection() {
             {ApplicantRole.GUARDIAN === selectedRole && (
                 <>
                     <FormGroup>
+                        <Label spacing>{t('guardianApplicantInformationLabel')}</Label>
                         <BodyLong spacing size={'small'}>
                             {t('guardianApplicantInformation')}
                         </BodyLong>
-                        <BodyLong size={'small'}>{t('guardiansMustSendDocumentation')}</BodyLong>
+                        <BodyLong size={'small'}>
+                            <Trans value={t('guardiansMustSendDocumentation')} />
+                        </BodyLong>
                     </FormGroup>
                     <FormGroup>
                         <RHFRadio
                             legend={t('additionalSituationDetails')}
                             name={'applicantSituation'}
+                            description={t('additionalSituationDetailsDescription')}
                             children={[
                                 {
                                     children: t(ApplicantSituation.ONE_PARENT_DECEASED),
@@ -110,47 +116,16 @@ export default function ScenarioSelection() {
                             ]}
                         />
                     </FormGroup>
-
-                    {ApplicantSituation.ONE_PARENT_DECEASED === applicantSituation && (
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationOneParentDeceased')} />
-                        </BodyLong>
-                    )}
-                    {ApplicantSituation.BOTH_PARENTS_DECEASED === applicantSituation && (
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationBothParentsDeceased')} />
-                        </BodyLong>
-                    )}
-                    <FormGroup>
-                        <Alert variant={'info'}>
-                            <Trans value={t('guardianApplicantInformationFatherNotConfirmed')} />
-                        </Alert>
-                    </FormGroup>
                 </>
             )}
 
-            {ApplicantRole.CHILD === selectedRole && !isDev && (
-                <>
-                    <FormGroup>
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('childApplicantInformation1')} />
-                        </BodyLong>
-                        <BodyLong spacing size={'small'}>
-                            <Trans value={t('childApplicantInformation2')} />
-                        </BodyLong>
-                        <BodyLong size={'small'}>
-                            <Trans value={t('childApplicantInformationOver18')} />
-                        </BodyLong>
-                    </FormGroup>
-                </>
-            )}
-
-            {ApplicantRole.CHILD === selectedRole && isDev && (
+            {ApplicantRole.CHILD === selectedRole && (
                 <>
                     <FormGroup>
                         <RHFRadio
                             legend={t('additionalSituationDetailsOver18')}
                             name={'applicantSituation'}
+                            description={t('additionalSituationDetailsOver18Description')}
                             children={[
                                 {
                                     children: t(ApplicantSituation.ONE_PARENT_DECEASED),
@@ -170,11 +145,9 @@ export default function ScenarioSelection() {
 
             <ErrorSummaryWrapper errors={errors} />
 
-            {(ApplicantRole.CHILD !== selectedRole || isDev) && (
-                <FormGroup>
-                    <Button onClick={handleSubmit(next)}>{t('continueButton', { ns: 'btn' })}</Button>
-                </FormGroup>
-            )}
+            <FormGroup>
+                <Button onClick={handleSubmit(next)}>{t('continueButton', { ns: 'btn' })}</Button>
+            </FormGroup>
         </FormProvider>
     )
 }

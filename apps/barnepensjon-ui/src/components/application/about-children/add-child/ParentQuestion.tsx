@@ -1,23 +1,15 @@
 import FormElement from '../../../common/FormElement'
 import { RHFRadio } from '../../../common/rhf/RHFRadio'
-import { Alert, BodyLong, HelpText, Label, Panel } from '@navikt/ds-react'
+import { Alert, BodyLong, Panel } from '@navikt/ds-react'
 import useTranslation from '../../../../hooks/useTranslation'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
-import FormGroup from '../../../common/FormGroup'
 import { ParentRelationType } from '../../../../types/person'
 import { ApplicantRole, ApplicantSituation } from '../../scenario/ScenarioSelection'
 import { nameAndFnr } from '../../../../utils/personalia'
-import styled from 'styled-components'
 
 interface Props {
     parents?: ParentRelationType
 }
-
-const HelpTextLabel = styled.div`
-    .navds-label {
-        display: flex;
-    }
-`
 
 export default function ParentQuestion({ parents }: Props) {
     const { t } = useTranslation('aboutChildren')
@@ -25,38 +17,57 @@ export default function ParentQuestion({ parents }: Props) {
     const { state: application } = useApplicationContext()
 
     const isParent = application.applicant?.applicantRole === ApplicantRole.PARENT
+    const isGuardian = application.applicant?.applicantRole === ApplicantRole.GUARDIAN
+    const oneParentsDeceased = application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
+    const hasUnknownParent = !!application.unknownParent
+
+    const bothParents = () => {
+        if (isParent) return t('jointChild', { person1: nameAndFnr(application.secondParent!) })
+        if (isGuardian) {
+            if (application.unknownParent) {
+                return t('bothOfTheAbove', {
+                    person1: t('unknownParent', { ns: 'aboutParents' }),
+                    person2: nameAndFnr(application.firstParent!),
+                })
+            }
+            if (oneParentsDeceased) return t('guardianChild', { person1: nameAndFnr(application.secondParent!) })
+        }
+        return t('bothOfTheAbove', {
+            person1: nameAndFnr(application.firstParent!),
+            person2: hasUnknownParent
+                ? t('unknownParent', { ns: 'aboutParents' })
+                : nameAndFnr(application.secondParent!),
+        })
+    }
+
+    const remainingParent = () => {
+        if (isParent) return t('remainingParentsChild')
+        if (isGuardian && oneParentsDeceased) return t('remainingParent')
+        return nameAndFnr(application.firstParent!)
+    }
 
     return (
-        <FormGroup>
+        <FormElement>
             <FormElement>
                 <RHFRadio
-                    legend={
-                        <HelpTextLabel>
-                            <Label as={'span'}>
-                                {t('whoAreTheParents')}&nbsp;
-                                {isParent && <HelpText placement={'top'}>{t('whoAreTheParentsHelpText')}</HelpText>}
-                            </Label>
-                        </HelpTextLabel>
-                    }
+                    legend={t('whoAreTheParents')}
+                    description={isParent && t('whoAreTheParentsHelpText')}
                     name={'parents'}
                     children={[
                         {
-                            children: isParent
-                                ? t('jointChild', { person1: nameAndFnr(application.secondParent!) })
-                                : t('bothOfTheAbove', {
-                                      person1: nameAndFnr(application.firstParent!),
-                                      person2: nameAndFnr(application.secondParent!),
-                                  }),
+                            children: bothParents(),
                             value: ParentRelationType.BOTH,
                             required: true,
                         },
                         {
-                            children: isParent ? t('remainingParentsChild') : nameAndFnr(application.firstParent!),
+                            children: remainingParent(),
                             value: ParentRelationType.FIRST_PARENT,
                             required: true,
                         },
                         {
-                            children: nameAndFnr(application.secondParent!),
+                            children: hasUnknownParent
+                                ? t('unknownParent', { ns: 'aboutParents' })
+                                : nameAndFnr(application.secondParent!),
                             value: ParentRelationType.SECOND_PARENT,
                             required: true,
                         },
@@ -89,6 +100,6 @@ export default function ParentQuestion({ parents }: Props) {
                     </Alert>
                 </Panel>
             )}
-        </FormGroup>
+        </FormElement>
     )
 }

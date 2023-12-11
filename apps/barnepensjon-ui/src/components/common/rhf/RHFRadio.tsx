@@ -32,7 +32,7 @@ export const RHFGeneralQuestionRadio = ({
     if (vetIkke)
         defaultRadios.push({ children: t(JaNeiVetIkke.VET_IKKE), value: JaNeiVetIkke.VET_IKKE, required: true })
 
-    return <RHFInlineRadio id={id} name={name} legend={legend} description={description} children={defaultRadios} />
+    return <RHFRadio id={id} name={name} legend={legend} description={description} children={defaultRadios} />
 }
 
 const InlineRadioPanelGroup = styled(RadioGroup)`

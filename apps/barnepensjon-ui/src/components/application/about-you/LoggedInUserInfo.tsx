@@ -1,10 +1,13 @@
-import { Alert, BodyShort, Cell, Grid, Label, HelpText } from '@navikt/ds-react'
+import { Alert, BodyShort, HelpText, HGrid, Label, Link } from '@navikt/ds-react'
 import styled from 'styled-components'
 import { User } from '../../../context/user/user'
 import useTranslation from '../../../hooks/useTranslation'
 import FormGroup from '../../common/FormGroup'
 import FormElement from '../../common/FormElement'
 import { fullAdresse } from '../../../utils/personalia'
+import { GridColumns, GridGap } from '../../../utils/grid'
+import Trans from '../../common/Trans'
+import { ExternalLink } from '@navikt/ds-icons'
 
 interface LoggedInUserInfoProps {
     user: User
@@ -20,12 +23,17 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
     const { t } = useTranslation('common')
 
     return (
-        <FormGroup>
+        <>
             <FormElement>
-                <Alert variant={'warning'}>{t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })}</Alert>
+                <Alert variant={'info'}>
+                    <Trans value={t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })} />
+                    <Link href={t('incorrectInfoMustBeCorrectedHref', { ns: 'loggedInUserInfo' })} target={'_blank'}>
+                        {t('incorrectInfoMustBeCorrectedHrefText', { ns: 'loggedInUserInfo' })} <ExternalLink />
+                    </Link>
+                </Alert>
             </FormElement>
-            <Grid>
-                <Cell xs={6}>
+            <FormGroup>
+                <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
                     <div>
                         <Label>{t('name')}</Label>
                         <BodyShort spacing>
@@ -39,9 +47,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                             <BodyShort spacing>{fullAdresse(user)}</BodyShort>
                         </div>
                     )}
-                </Cell>
 
-                <Cell xs={6}>
                     <>
                         <div>
                             <Label>{t('fnrDnr')}</Label>
@@ -57,8 +63,8 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                             </HelpTextLabel>
                         )}
                     </>
-                </Cell>
-            </Grid>
-        </FormGroup>
+                </HGrid>
+            </FormGroup>
+        </>
     )
 }

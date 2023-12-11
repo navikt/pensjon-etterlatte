@@ -18,17 +18,6 @@
             }
         }
     },
-    "secondParent": {
-        "firstName": "Jon",
-        "lastName": "Dough",
-        "fnrDnr": "04096222195",
-        "citizenship": "Algerie",
-        "dateOfDeath": "2022-02-25",
-        "staysAbroad": {
-            "hasStaysAbroad": "VET_IKKE"
-        },
-        "occupationalInjury": "NEI"
-    },
     "firstParent": {
         "firstName": "Apple",
         "lastName": "Bees",
@@ -39,5 +28,6 @@
             "hasStaysAbroad": "NEI"
         },
         "occupationalInjury": "JA"
-    }
+    },
+    "unknownParent": true
 }

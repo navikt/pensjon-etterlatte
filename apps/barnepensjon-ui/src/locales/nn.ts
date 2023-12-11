@@ -17,13 +17,13 @@ const common = {
     phoneNumberOptional: 'Telefonnummer (valfri)',
     phoneNumberHelpText: 'Telefonnummeret er henta frå Kontakt- og reservasjonsregisteret.',
     whyWeAsk: 'Kvifor spør vi om dette',
-    dateFormat: '(dd.mm.yyyy)',
+    dateFormat: '(dd.mm.åååå)',
     dateExample: 'eks. 01.11.2020',
     dateSRLabel: 'Oppgi dato',
     chooseCountry: 'Vel land',
     chooseLanguage: 'Vel språk',
     norway: 'Noreg',
-    optional: 'valfri'
+    optional: 'valfri',
 }
 
 const navigation = {
@@ -45,11 +45,17 @@ const btn = {
     continueButton: 'Fortsett',
     yesButton: 'Ja, send søknad',
     noButton: 'Nei, gå tilbake',
+    yesUnknownParent: 'Ja, forelderen min er ukjend',
+    yesUnknownParentGuardian: 'Ja, forelderen er ukjend',
+    noUnknownParent: 'Nei, eg veit kven foreldra mine er',
+    noUnknownParentGuardian: 'Nei, eg kjenner identiteten til begge foreldra',
 }
 
 const loggedInUserInfo = {
     incorrectInfoMustBeCorrected:
-        'Viss opplysingane vi har om deg ikkje stemmer, må du endre desse hos Folkeregisteret',
+        'Viss opplysingane vi har om deg ikkje stemmer, må du endre desse hos Folkeregisteret. \n',
+    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/nn/skjema/opplysninger-i-folkeregisteret/',
+    incorrectInfoMustBeCorrectedHrefText: 'Endre opplysningane dine',
 }
 
 const paymentDetails = {
@@ -57,6 +63,7 @@ const paymentDetails = {
     NORSK: 'Norsk',
     UTENLANDSK: 'Utanlandsk',
     bankAccount: 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
+    bankAccountDescription: 'Du kan leggje til eit eige kontonummer for barnet',
     information: 'Du kan legge til eit eige kontonummer for barnet.',
     accountType: 'Ønsker du å motta utbetalinga på norsk eller utanlandsk bankkonto?',
     foreignBankName: 'Bankens namn',
@@ -68,7 +75,7 @@ const paymentDetails = {
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kallast også SWIFT, og er påkrevd ved betaling til ei rekke land.',
     doYouWantUsToWithholdTax: 'Ønsker du at vi legg inn eit skattetrekk for barnepensjonen?',
     childPensionIsTaxable:
-        'Barnepensjon er skattepliktig, men vi trekk ikkje skatt av beløpet utan at vi får beskjed om det. Viss du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
+        'Barnepensjon er skattepliktig, men vi trekkjer ikkje skatt av beløpet utan at vi får beskjed om det. Dersom du har spørsmål om kor stort skattetrekket vil vere, må du kontakte Skatteetaten.',
     desiredTaxPercentage: 'Oppgi ønska skattetrekk',
     desiredTaxPercentagePlaceholder: 'i prosent, eks. 20%',
     taxWithholdMustBeSentYearly: 'Ver merksam på at frivillig skattetrekk må sendast inn på nytt kvart kalenderår.',
@@ -82,68 +89,68 @@ const radiobuttons = {
 
 const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
-    helloUser: `Hei, {fornavn} {etternavn}`,
+    ingress:
+        'Hei, eg er her for å rettleie deg gjennom søknaden. Svar så godt du kan ut frå korleis situasjonen din ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
     startApplication: 'Start søknad',
-    childMayBeApplicableForPension:
-        'Barn under 18 år som har mista ein eller begge foreldra sine, kan få økonomisk støtte. Det er foreldra eller verjen til barnet som må søke om barnepensjon for barnet viss det er under 18 år. \n\nBarn som er under utdanning, eller er lærling eller praktikant, kan ha rett til barnepensjon sjølv om det er over 18 år:\n',
+    childMayBeApplicableForPension: 'Barn under 20 år som har mista ein eller begge foreldra sine, kan få barnepensjon.',
     childMayBeApplicableForPension_li1:
-        'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom, kan barnet ha rett til barnepensjon inntil fylte 21 år.',
+        'Det er foreldra eller verjen til barnet som må søke om barnepensjon for barnet viss det er under 18 år.',
     childMayBeApplicableForPension_li2:
-        'Viss barnet har mista begge foreldra sine, kan barnet ha rett til barnepensjon inntil fylte 20 år.',
-    childOver18HasToApplyByThemself:
-        'Barn over 18 år må søke sjølv.\n\n<a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>',
-    tax: 'Skatt',
-    aboutChildrensPensionTax:
-        'Barnepensjon er skattepliktig, men det vert ikkje trukke forskuddsskatt. Viss du har spørsmål om skatt må du ta kontakt med Skatteetaten.',
-    weWillRetrieveInfo: 'Vi hentar informasjonen vi treng',
+        'Som verje kan du berre sende søknad for barn du er verje for. Du vil bli beden om å dokumentere omsorgsforholdet etter at søknaden er send. Du kan også søkje for personar over 18 år.',
+    childMayBeApplicableForPension_li3: 'Barn over 18 år må søkje sjølve.',
+    readMoreAboutChildrensPension:
+        'Dersom du har spørsmål om pensjonen, til dømes kor mykje du kan få, eller kva reglar som gjeld for skatt, kan du du <a href="https://www.nav.no/barnepensjon">lese meir om barnepensjon</a>.',
+    weWillRetrieveInfoTitle: 'Personvern og tryggleik',
+    weWillRetrieveInfo: 'Vi hentar inn informasjonen vi treng',
     infoWeRetrieve:
-        'For å kunne behandle søknaden din treng vi informasjon om barnet/barna, foreldra til barna og eventuelle søsken.\n\nVi hentar:',
-    infoWeRetrieve_li1: '<strong>Personinformasjon</strong> frå Folkeregisteret',
-    infoWeRetrieve_li2: '<strong>Inntektsinformasjon</strong> frå Skatteetaten',
-    infoWeRetrieve_li3: 'Opplysingar om <strong>arbeidsforhold</strong> frå Arbeidsgiver- og arbeidstakerregisteret',
-    infoWeRetrieve_li4: 'Opplysingar om <strong>anna støtte frå NAV</strong>',
-    infoWeRetrieve_li5: 'Eventuelt informasjon frå <strong>utanlandske trygdemyndigheiter</strong>',
-    howWeHandleData:
-        '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernerklaering-for-arbeids-og-velferdsetaten">Slik behandlar vi personopplysingane dine</a>',
+        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar vil som oftast vere ein attlevande forelder dersom det er brukaren sjølv, eller ein verje som har rett til å representere brukaren, som søkjer. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande: ',
+    infoWeRetrieve_li1:
+        '<strong>Personopplysningar</strong> frå Folkeregisteret (personnummer, adresse, statsborgarskap og/eller sivilstand)',
+    infoWeRetrieve_li2: 'Opplysningar om <strong>anna løpande støtte frå NAV</strong> (til dømes uføretrygd)',
+    infoWeRetrieve_li3: 'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
+    infoWeRetrieve_li4: 'Opplysningar om straffegjennomføring og opphald på institusjon',
+    survivingParentInfo:
+        'Dersom brukaren søkjer på eiga hand, eller ein verje søkjer på vegner av brukaren, vil NAV hente inn informasjon om ein eventuell attlevande forelder. Vi hentar då inn følgjande:',
+    survivingParentInfo_li1: 'Namn',
+    survivingParentInfo_li2: 'Fødselsnummer',
+    survivingParentInfo_li3: 'Adresse',
+    survivingParentInfo_li4: 'Medlemskap i folketrygda (der dette er nødvendig)',
     aboutPrivacy:
-        '<a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">Om personvern og sikkerheit på nav.no</a>',
-    aboutTheApplicationTitle: 'Utfylling av søknaden',
-    aboutTheApplicationDescription:
-        'Vi lagrar søknaden i 72 timer så du kan ta pauser undervegs. Du kan når som helst avbryte søknaden.',
+        'Dersom du ønskjer å vite meir om personvern og tryggleik, kan du lese om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">korleis NAV behandlar personopplysningane dine.</a>',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden.\n\n',
-    consentToNav: 'Eg, {fornavn} {etternavn}, bekreftar at eg vil gi riktige og fullstendige opplysingar.',
+    consentToNav: 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
 }
 
 const selectScenario = {
     whoIsApplying: 'Kven søker du barnepensjon for?',
-    additionalSituationDetails: 'Barnet/barna har mista',
-    additionalSituationDetailsOver18: '<Mangler tekst>',
-    PARENT: 'Eg søker for mitt/mine barn under 18 år',
+    additionalSituationDetails: 'Barnet har mista',
+    additionalSituationDetailsDescription:
+        'Dersom barnet har mista éin forelder og den andre forelderen er ukjend, vel du "Begge foreldra".',
+    additionalSituationDetailsOver18: 'Eg har mista',
+    additionalSituationDetailsOver18Description: 'Viss den eine forelderen din er ukjend, vel du "Begge foreldra".',
+    PARENT: 'Eg søker for mitt eller mine barn under 18 år',
     GUARDIAN: 'Eg søker for eitt eller fleire barn eg er verje for',
     CHILD: 'Eg har fylt 18 år og søker på vegne av meg sjølv',
+    parentApplicantInformationLabel: 'Eg søker for mitt eller mine barn under 18 år',
     parentApplicantInformation:
-        'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde. Søsken kan få betydning for berekninga av barnepensjon.',
+        'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde.',
+    guardianApplicantInformationLabel: 'Eg søker for eitt eller fleire barn eg er verje for',
     guardianApplicantInformation:
-        'I søknaden må du oppgi alle avdøde sine barn og/eller adoptivbarn som er under 18 år. Søsken kan få betydning for berekninga av barnepensjon.',
+        'I søknaden må du oppgi alle barn og/eller adoptivbarn som avdøde hadde under 20 år.',
     guardiansMustSendDocumentation:
-        'Viss barna ikkje er heilsøsken, må ein søke for kvart barnekull. \n\nFor at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på at du er verje for barnet/barna.',
+        'For at vi skal kunne behandle søknaden om barnepensjon, må du ettersende dokumentasjon på barn du er verje for.\n\n Du må oppgi fødselsnummer på alle i søknaden. Dersom du ikkje har denne informasjonen, fyller du ut ein av våre <a href="https://www.nav.no/start/soknad-barnepensjon/nn">andre søknader om barnepensjon</a>.',
     childApplicantInformation1:
         '<b>Viss du har mista ein forelder</b>\nNår dødsfallet skuldast ein yrkesskade eller yrkessjukdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
         '<b>Viss du har mista begge foreldra dine eller farskapet ikkje er fastsatt må du bruke</b>\nDu kan få barnepensjon inntil du blir 20 år viss du er under utdanning, eller er lærling eller praktikant. Du kan få barnepensjon inntil du blir 21 år viss dødsfallet i tillegg skuldast ein yrkesskade eller yrkessjukdom.',
     childApplicantInformationOver18:
         'Har du mista ein eller begge foreldra dine må du bruke <a href="https://www.nav.no/fyllut/nav180405?lang=nn-NO">denne søknaden</a>.',
-    youNeedFnrForEveryoneInThisApplicationOneParentDeceased:
-        'Du må oppgi heile fødselsnummeret til barnet/barna og foreldra. Viss ikkje du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-04.01/brev">denne søknaden</a>.',
     youNeedFnrForEveryoneInThisApplicationSurvivingParent:
-        'Du må oppgi heile fødselsnummeret til barnet/barna og avdøde. Viss ikkje du har det, må du bruke <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">denne søknaden</a>.',
-    youNeedFnrForEveryoneInThisApplicationBothParentsDeceased:
-        'Du må oppgi heile fødselsnummeret til barnet/barna og foreldra. Viss ikkje du har det, må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
-    guardianApplicantInformationFatherNotConfirmed:
-        'Viss barnet har mista mora si og farskapet ikkje er fastsatt må du bruke <a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev">denne søknaden</a>.',
+        'Du må oppgi heile fødselsnummeret til barnet/barna og avdøde. Dersom du ikkje har denne informasjonen, fyller du ut ein av våre <a href="https://www.nav.no/start/soknad-barnepensjon/nn">andre søknader om barnepensjon</a>.',
+    aboutSurvivorsPensionTitle: 'Har du mista ektefellen, sambuaren eller partnaren din?',
     aboutSurvivorsPensionDescription:
-        '<b>Har du mista ektefellen, sambuaren eller partnaren din?</b>\nDå kan du søke om attlevandepensjon eller overgangsstønad. Viss du ønsker å søke om barnepensjon samtidig kan du bruke <a href="https://www.nav.no/soknader#gjenlevendepensjon">denne søknaden.</a>',
+        'Då kan du søkje om omstillingsstønad. Dersom du ønskjer å samstundes søkje om barnepensjon, kan du gjere begge delar i <a href="https://www.nav.no/omstillingsstonad/soknad/">søknad om omstillingsstønad.</a>',
     BOTH_PARENTS_DECEASED: 'Begge foreldra',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Eg er foreldrelaus',
     ONE_PARENT_DECEASED: 'Ein forelder',
@@ -152,18 +159,24 @@ const selectScenario = {
 const aboutYou = {
     title: 'Om deg',
     stayWhy:
-        'Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får attlevandepensjon og kor mykje du kan få.',
+        'Dersom du oppheld deg i eit anna land enn Noreg, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     addressOfResidenceConfirmed: 'Bur du på denne adressa?',
     alternativeAddress: 'Oppgi noverande bustadsadresse',
-    residesInNorway: '<MANGLER TEKST>',
-    residesInNorwayDescription: '<MANGLER TEKST>',
-    countryOfResidence: 'Oppgi land',
+    staysAbroadTitle: 'Opphald utanfor Noreg',
+    residesInNorway: 'Er du busett i Noreg?',
+    residesInNorwaySummaryQuestion: 'Er du busett i eit anna land enn Noreg?',
+    stayedAbroad: 'Har du budd eller opphalde deg i utlandet dei siste 12 månadene?',
+    stayedAbroadCountry: 'Oppgi hvilket land du oppheldt deg i',
+    stayedAbroadFromDate: 'Frå dato',
+    stayedAbroadToDate: 'Til dato',
+    countryOfResidence: 'Oppgi kva land du er busett i',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygda under opphald i eit anna land enn Noreg?',
     'subtitle.personalia': 'Personalia',
 }
 
 const aboutParents = {
     aboutParentsTitle: 'Om foreldra',
+    unknownParentTitle: 'Ukjend forelder',
     firstParent: 'Forelder 1',
     secondParent: 'Forelder 2',
     survivingParent: 'Attlevende forelder',
@@ -174,11 +187,19 @@ const aboutParents = {
     addFirstParentBtn: 'Legg til forelder 1',
     addSecondParentBtn: 'Legg til forelder 2',
     bothParentsRequired:
-        'Du må legge til opplysingar om begge foreldra for å halde fram med søknaden. \n\n Viss barnet har mista mora si og farskapet ikkje er fastsatt må du bruke',
-    missingOneParentLink:
-        '<a href="https://www.nav.no/soknader/nb/person/stonader-ved-dodsfall/barn-som-har-mistet-en-eller-begge-foreldrene/NAV%2018-01.05/brev"> denne søknaden</a>.',
-    bothParentsRequiredOver18: '<MANGLER TEKST>',
-    childAndOneParentDeceased: '<MANGLER TEKST>'
+        'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom barnet har mista mor si og farskapet ikkje er avklart, vel du alternativet «Eg har mista begge foreldra».',
+    chooseUnknowParent:
+        'Du må leggje til opplysningar om begge foreldra for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til den eine forelderen, vel du "Ukjend forelder".',
+    childAndOneParentDeceased: 'Du treng ikkje fylle ut informasjon om attlevande forelder',
+    unknownParent: 'Ukjend forelder',
+    unknownParentQuestion: 'Kan du stadfeste at du ikkje kjenner identiteten til forelderen din?',
+    unknownParentQuestionGuardian: 'Kan du stadfeste at du ikkje kjenner identiteten til den avdøde forelderen?',
+    childAndOneParentDeceasedGuidepanel:
+        'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden din. \n\n Dersom du har mista éin forelder og den andre er ukjend, må du starte søknadsprosessen på nytt. Vel "Eg har mista begge foreldra".',
+    childAndBothParentsDeceasedGuidepanel:
+        'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til forelderen din, vel du «Ukjend forelder».',
+    guardianAndOneParentDeceased:
+        'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden. \n\n Dersom barnet har mista éin forelder og du ikkje veit identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Vel alternativet "Begge foreldra".',
 }
 
 const livingParent = {
@@ -192,10 +213,11 @@ const aboutTheDeceased = {
     singleParentTitle: 'Om den avdøde',
     dateOfDeath: 'Når skjedde dødsfallet?',
     phoneNumber: 'Telefonnummer (valfri)',
-    abroadStaysTitle: 'Opphald utanfor Norge',
+    abroadStaysTitle: 'Opphald utanfor Noreg',
     workOrLivingAbroadCanAffectPension:
-        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Norge. Dette kan påvirke berekninga av barnepensjon og i tillegg gi barnet/barna pensjonsrettar frå andre land.',
-    workOrLivingAbroadCanAffectPensionOver18: '<MANGLER TEKST>',
+        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan påvirke berekninga av barnepensjon og i tillegg gi barnet/barna pensjonsrettar frå andre land.',
+    workOrLivingAbroadCanAffectPensionOver18:
+        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan påverke utrekninga av barnepensjon og i tillegg gi deg pensjonsrettar frå andre land.',
     didTheDeceasedLiveAbroad: 'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Budd og/eller arbeidd?',
@@ -211,32 +233,28 @@ const aboutTheDeceased = {
     incomeFromSelfEmployymentYearBeforeDeath: 'Oppgi næringsinntekt frå kalenderåret før dødsfallet (valfri)',
     incomeFromSelfEmploymentBeforeTaxes: 'Samla årsinntekt før skatt',
     hadIncomeFromSelfEmployment: 'Hadde han eller ho næringsinntekt når dødsfallet skjedde?',
-    otherTitle: 'Anna',
     occupationalInjury: 'Skuldast dødsfallet yrkesskade eller yrkessjukdom?',
     whyWeAskAboutOccupationalInjury:
         'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV, kan det avgjere om barnet/barna får barnepensjon og kor mykje det/dei kan få.',
-    whyWeAskAboutOccupationalInjuryOver18: '<MANGLER TEKST>',
-    deceasedHasServedInTheMilitary:
-        'Har han eller ho gjennomført militær eller sivil førstegongsteneste for Noreg som varte minst 30 dager?',
-    whyWeAskAboutMilitaryService: 'Dette kan gi opptening som vert tatt med i berekninga av barnepensjonen.',
-    militaryServiceYears: 'Kva for år? (valfri)',
+    whyWeAskAboutOccupationalInjuryOver18:
+        'Dersom dødsfallet skuldast yrkesskade eller yrkessjukdom som NAV har godkjent, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     BODD: 'Budd',
     ARBEIDET: 'Arbeidd',
     addCountryButton: '+ Legg til fleire land',
 }
 
 const aboutChildren = {
-    childAppliedForPension: 'Søkt om barnepensjon',
+    childAppliedForPension: 'Søker om barnepensjon',
     applyForThisChild: 'Søk om barnepensjon',
     userAppliesForChildrensPension: 'Ja, eg søker om barnepensjon for barnet',
     onlyChildrenOfDeceasedHaveRights: 'Det er berre avdødes barn og adoptivbarn som kan ha rett til barnepensjon.',
     onlyParentOrGuardianCanApply:
         'Har barnet mista ein forelder så må forelder eller oppnemnt verje sende eigen søknad.',
     onlyParentOrGuardianCanApplyOnLivingParent:
-        'Det er berre barnets foreldre eller oppnemnt verje som kan søke om barnepensjon for dette barnet. Det må søkast om barnepensjon i eigen søknad.',
+        'Det er berre barnets forelder eller oppnemnt verje som kan søke om barnepensjon for dette barnet. Det må søkast om barnepensjon i eigen søknad.',
     onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år.',
     livesIn: 'Bur i',
-    doesTheChildLiveAbroad: 'Bur barnet i eit anna land enn Norge?',
+    doesTheChildLiveAbroad: 'Bur barnet i eit anna land enn Noreg?',
     doesTheSiblingLiveAbroad: 'Bur søskenet i eit anna land enn Noreg?',
     stayAbroadCountry: 'Land',
     addressAbroad: 'Adresse i utlandet',
@@ -246,8 +264,8 @@ const aboutChildren = {
     childHasGuardian: 'Er det oppnemnt en verje for barnet?',
     guardianFnr: 'Fødselsnummer til verje (valgfri)',
     guardianFnrPlaceholder: '11 siffer',
-    information:
-        'Oppgi avdøde sine biologiske barn og/eller adoptivbarn under 18 år. \n\nDersom barna ikkje er heilsøsken, må forelder eller oppnemnt verje sende inn eigen søknad for desse barna.\n\nFosterbarn skal ikkje førasts opp, fordi dei ikkje har rett til barnepensjon etter fosterforeldra.\n\nBarn over 18 år må søke sjølv om barnepensjon. ',
+    information: 'Legg til alle barn under 18 år som du har felles med avdøde.\n\n Barn over 18 år må søkje sjølve.',
+    informationGuardian: 'Legg til alle barn du er verje for.',
     infoRegardingSiblings: 'Her er info viss det er søsken',
     infoCard_residence: 'BUSTAD',
     infoCard_fnr: 'FØDSELSNUMMER',
@@ -259,8 +277,10 @@ const aboutChildren = {
     whoAreTheParentsHelpText:
         'Vi må vite om dette er eit barn du har felles med avdøde, avdøde sitt eige barn, eller ditt eiget barn.',
     bothOfTheAbove: '{person1} og {person2}',
+    remainingParent: 'Attlevande forelder',
     remainingParentsChild: 'Eg',
     jointChild: 'Eg og {person1}',
+    guardianChild: 'Attlevande forelder og {person1}',
     relationHelpText:
         'Vi må vite om dette er eit barn du har felles med avdøde, avdøde sitt eige barn, eller ditt eige barn.',
     aboutChildrenTitle: 'Om barn',
@@ -270,8 +290,10 @@ const aboutChildren = {
     thisIsOptional: 'Dette er valfritt',
     youAndDeceasedAreTheParents: 'Er du og den avdøde foreldra til barnet?',
     loggedInUserIsGuardian: 'Er du verje for dette barnet?',
+    needToSendInDocumentation:
+        'Når du har sendt inn søknaden, må du sende inn dokumentasjon på at du er verje for barnet.',
     onlyGuardiansCanApply:
-        'Du kan berre søke om barnepensjon for barn du er verje for. \nAlle avdøde sine barn under 18 år kan leggjast til.',
+        'Du kan berre søke om barnepensjon for barn du er verje for. \nAlle avdøde sine barn kan leggjast til.',
 }
 
 const summary = {
@@ -284,9 +306,16 @@ const summary = {
     AboutTheDeceased: 'Endre svar om den avdøde',
     AboutChildren: 'Endre svar om barn',
     YourSituation: 'Endre svar om din situasjon',
-    errorWhenSending: 'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil ',
-    errorWhenSendingLink: 'her.',
-    errorWhenSendingHref: 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    errorFromConflict:
+        'Vi har allereie fått ein søknad på eitt eller fleire av barna det blir søkt for.\n\n' +
+        'Dersom du ønskjer å endre informasjon på ein innsend søknad, nyttar du skjemaet ' +
+        '<a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">Diverse dokumentasjon</a>. ' +
+        'Eige skjema må også fyllast ut ved endring av <a href="https://www.nav.no/start/soknad-endring-bankkontonummer/nn">kontonummer</a> ' +
+        'eller <a href="https://www.nav.no/skattetrekk#trekke-mer-skatt">frivillig skattetrekk</a>. ' +
+        'Felles for desse er at dei må sendast inn per post.\n\n Viss du sender inn endringar, må du gi oss beskjed ' +
+        'ved å ringje oss på telefon <a href="tel:+47 55 55 33 34">55 55 33 34</a>, slik at vi ventar med å behandle søknaden.',
+    errorWhenSending:
+        'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil <a href="https://www.nav.no/person/kontakt-oss/nn/tilbakemeldinger/feil-og-mangler">her.</a>',
     sendApplicationTitle: 'Ønsker du å sende inn søknaden no?',
     sendingApplicationTitle: 'Sender inn søknad',
     sendApplicationBody: 'Når du har sendt inn søknaden kan du ikkje endre på opplysingane som du har lagt inn.',
@@ -300,7 +329,6 @@ const error = {
     'addressOfResidenceConfirmed.required': 'Bustadadresse må bekreftast/avkreftast',
     'alternativeAddress.required': 'Du må oppgi noverande bustadsadresse',
     'citizenship.required': 'Oppgi statsborgarskap',
-    'countryOfResidence.required': 'Oppgi noverande opphaldsland',
     'dateOfDeath.required': 'Oppgi når dødsfallet skjedde',
     'firstName.required': 'Oppgi førenamn',
     'firstName.pattern': 'Ugyldig førenamn',
@@ -317,7 +345,6 @@ const error = {
     'children.required': 'Du må søke om barnepensjon for minst eit barn.',
     'children.validate': 'Du må søke om barnepensjon for minst eit barn.',
     'memberFolketrygdenAbroad.required': 'Oppgi om du er medlem i folketrygda under opphald i eit anna land enn Noreg',
-    'militaryService.completed.required': 'Oppgi om avdøde har gjennomført sivil eller militær førstegongsteneste',
     'occupationalInjury.required': 'Oppgi om dødsfallet skuldast yrkesskade eller yrkessjukdom',
     'paymentDetails.taxWithhold.answer.required': 'Oppgi om det blir ønskt å leggja til skattetrekk',
     'paymentDetails.taxWithhold.taxPercentage.required': 'Oppgi ønskt skattetrekk',
@@ -330,7 +357,6 @@ const error = {
     'paymentDetails.iban.validate': 'Ugyldig IBAN-nummer',
     'paymentDetails.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fyllast ut',
     'paymentDetails.swift.validate': 'Ugyldig SWIFT-kode',
-    'residesInNorway.required': 'Opphald må svarast på',
     'selfEmplyment.wasSelfEmployed.required': 'Oppgi om avdøde var sjølvstendig næringsdrivande',
     'selfEmplyment.selfEmplymentDetails.income.pattern': 'Oppgi gyldig næringsinntekt (kun siffer)',
     'selfEmplyment.selfEmplymentDetails.incomeAtDeath.required': 'Oppgi om avdøde hadde næringsinntekt',
@@ -350,6 +376,10 @@ const error = {
     'whyDoYouApply.required': 'Oppgi grunnen til at du søker barnepensjon',
     'timeUsedForEducation.required': 'Oppgi kor mykje tid du bruker på utdanning',
     'doYouHaveIncome.required': 'Oppgi om du har lønnsinntekt',
+    'residesInNorway.required': 'Opphald må svarast på',
+    'countryOfResidence.required': 'Oppgi land',
+    'stayedAbroad.required': 'Opphald i utland må svarast på',
+    'stayedAbroadCountry.required': 'Oppgi noverande opphaldsland',
 }
 
 const pageNotFound = {
@@ -392,40 +422,33 @@ const logOutUser = {
 }
 
 const receipt = {
-    thankYou: 'Takk for søknaden!',
     pageTitle: 'Søknaden er sendt til oss',
-    contact: 'Viss vi manglar informasjon for å behandle søknaden, kontaktar vi deg.',
+    contact:
+        'Vi har fått søknaden din om barnepensjon. Saka di er no til behandling hos NAV. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon frå deg.',
     youMustNotifyRegardingChanges: 'Du må melde frå om endringar',
     importantChangesCanAffectYourRights:
-        'Du må melde frå med ein gong det skjer viktige endringar i livet til barnet eller barna. Det kan til dømes vera ved:',
-    changeInLivingSituation: 'endring i bu/familiesituasjon',
-    changeAddressOrMoveAbroad: 'flytting eller opphald i eit anna land over tid',
-    childrenOver18MustNotify:
-        'Barn over 18 år som mottek barnepensjon må i tillegg gi beskjed om endring i utdanningssituasjon og/eller arbeidsinntekt.',
+        'Du må melde frå med ein gong det skjer viktige endringar. Det kan til dømes vera ved:',
+    changeInLivingSituation: 'Endring i bu/familiesituasjon',
+    changeAddressOrMoveAbroad: 'Flytting eller opphald i eit anna land over tid',
     changeInEduation: 'utdanningssituasjon og/eller arbeidsinntekt',
-    moreAboutRightsAndDuties: 'Du kan lese meir om rettar og plikter på',
-    moreAboutRightsAndDutiesLinkHref: 'https://nav.no/rettogplikt',
-    moreAboutRightsAndDutiesLinkText: 'nav.no/rettogplikt',
-    benefitsChangingTitle: 'Regelendringar',
-    benefitsChangingDescription1: 'Barnepensjon skal styrkast. Les meir om endringane her: ',
-    benefitsChangingDescription1_link: 'www.nav.no/barnepensjon',
-    benefitsChangingDescription1_href: 'https://www.nav.no/barnepensjon#regel',
+    moreAboutChanges: 'Du kan lese meir om å ',
+    moreAboutChangesLinkHref: 'https://www.nav.no/endringer/nn',
+    moreAboutChangesLinkText: 'melde frå om endringar.',
     submissionOfGuardianshipInfo: 'Verje',
     guardianshipMustBeConfirmed:
-        'Dersom du har sendt inn søknad som verje må du sende bekreftelse på utnevning av verje frå tingretten eller Statsforvalteren på ',
-    guardianshipMustBeConfirmedLink: 'skjema NAV 00-03.00.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon',
-    viewCaseTitle: 'Sjekke status i saken?',
+        'Dersom du har sendt inn søknad som verje må du sende bekreftelse på utnevning av verje frå tingretten eller Statsforvalteren.',
+    guardianshipMustBeConfirmedLink: 'Du finn skjemaet for ettersending her.',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende/nn',
+    viewCaseTitle: 'Sjekke status i saken',
     viewCaseInfoContentPart1:
-        'Forelder eller verje kan ikkje følge saken til barnet digitalt. Viss du har spørsmål om søknaden, må du kontakte oss på telefon 55 55 33 34.',
+        'Forelder eller verje kan ikkje følgje saka til barnet digitalt. Dersom du har spørsmål om søknaden, kontaktar du oss på telefon 55 55 33 34. Lurer du på kor lang tid behandlinga vil ta? Her kan du sjå ',
     viewCaseInfoContent2: 'Barn over 18 år kan sjølv sjekke status i saka si ved å logge inn i ',
-    viewCaseInfoLinkHref2: 'https://tjenester.nav.no/saksoversikt',
-    viewCaseInfoLinkText2: 'Ditt NAV',
-    processingTimeText_part1: 'Barnepensjon følger same ',
-    processingTimeLink4: 'saksbehandlingstid',
-    processingTimeHref4: 'https://www.nav.no/saksbehandlingstider',
-    processingTimeText_part2: ' som søknad om attlevandepensjon.',
-    closeApplicationButton: 'Avslutt',
+    viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
+    viewCaseInfoLinkText2: 'mitt NAV',
+    processingTimeLink: 'forventa saksbehandlingstid.',
+    processingTimeHref: 'https://www.nav.no/saksbehandlingstider/nn',
+    closeApplicationButton: 'Les meir om barnepensjon',
+    closeApplicationButtonHref: 'https://www.nav.no/barnepensjon',
 }
 
 const yourSituation = {

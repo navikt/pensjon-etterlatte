@@ -30,6 +30,7 @@ export function RHFConfirmationPanel({ name, valgfri, ...rest }: RHFConfirmation
                         {...rest}
                         checked={value || false}
                         onChange={(e) => onChange(!!e.target.checked)}
+                        defaultValue={value || false}
                     />
                 )}
             />

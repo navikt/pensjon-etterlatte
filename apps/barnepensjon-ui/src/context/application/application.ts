@@ -15,6 +15,7 @@ export interface IApplication {
     yourSituation?: ISituationChild
     firstParent?: IParent | IDeceasedParent
     secondParent?: IParent | IDeceasedParent
+    unknownParent?: boolean
     aboutChildren?: IAboutChildren
 }
 
@@ -30,6 +31,7 @@ export enum ActionTypes {
     UPDATE_ABOUT_YOU,
     UPDATE_FIRST_PARENT,
     UPDATE_SECOND_PARENT,
+    UPDATE_UNKNOWN_PARENT,
     UPDATE_YOUR_SITUATION,
     UPDATE_LANGUAGE,
     RESET,
@@ -77,12 +79,6 @@ export interface IDeceasedParent extends IParent {
     staysAbroad: IStaysAbroad
     selfEmplyment: ISelfEmployment
     occupationalInjury?: JaNeiVetIkke
-    militaryService?: IMilitaryService
-}
-
-export interface IMilitaryService {
-    completed: JaNeiVetIkke
-    period?: string
 }
 
 export interface IStaysAbroad {

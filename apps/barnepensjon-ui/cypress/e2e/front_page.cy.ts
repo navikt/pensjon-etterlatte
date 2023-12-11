@@ -7,7 +7,7 @@ describe('Front Page', { testIsolation: false }, () => {
 
     it('should require user to agree with the terms in order to continue', function () {
         cy.get('.navds-confirmation-panel').get('[type="checkbox"]').should('not.be.checked')
-        cy.get('.navds-button').should('be.disabled')
+        cy.get('.navds-button').should('not.be.visible')
     })
 
     it('should let the user start the application after agreeing with the terms', function () {

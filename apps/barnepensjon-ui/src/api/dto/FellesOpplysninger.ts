@@ -37,6 +37,12 @@ export interface Utenlandsadresse {
     adresse?: Opplysning<FritekstSvar>
 }
 
+export interface OppholdUtland {
+    oppholdLand?: Opplysning<FritekstSvar>
+    oppholdFra?: Opplysning<DatoSvar>
+    oppholdTil?: Opplysning<DatoSvar>
+}
+
 export interface UtbetalingsInformasjon {
     kontonummer?: Opplysning<FritekstSvar>
     utenlandskBankNavn?: Opplysning<FritekstSvar>
@@ -79,8 +85,6 @@ export interface Naeringsinntekt {
     naeringsinntektPrAarFoerDoedsfall?: Opplysning<FritekstSvar>
     naeringsinntektVedDoedsfall?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
-
-export type AarstallForMilitaerTjeneste = FritekstSvar
 
 export type EndretInntektBegrunnelse = FritekstSvar
 

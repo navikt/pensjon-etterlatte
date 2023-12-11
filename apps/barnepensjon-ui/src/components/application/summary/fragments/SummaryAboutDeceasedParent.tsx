@@ -1,4 +1,4 @@
-import { Heading, Panel } from '@navikt/ds-react'
+import { Panel, Tag } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { memo } from 'react'
 import { v4 as uuid } from 'uuid'
@@ -36,13 +36,14 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                     citizenship={aboutTheParent.citizenship}
                 />
                 <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath} />
+                <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
                 <TextGroupJaNeiVetIkke
                     title={t('didTheDeceasedLiveAbroad')}
                     content={aboutTheParent.staysAbroad.hasStaysAbroad}
                 />
                 {aboutTheParent.staysAbroad.abroadStays?.map((stay) => (
                     <Panel key={uuid()}>
-                        <Heading size={'small'}>{`Opphold i ${stay.country}`}</Heading>
+                        <Tag variant={'neutral-moderate'}>{`Opphold i ${stay.country}`}</Tag>
                         <TextGroup title={t('abroadInWhichCountry')} content={stay.country} />
                         <TextGroup title={t('livedOrWorkedAbroad')} content={stay.type?.map((item) => ` ${t(item)}`)} />
                         {stay.toDate && <TextGroup title={t('stayedAbroadToDate')} content={stay.toDate} />}
@@ -74,16 +75,6 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                         title={t('hadIncomeFromSelfEmployment')}
                         content={aboutTheParent.selfEmplyment.selfEmplymentDetails.incomeAtDeath}
                     />
-                )}
-                <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
-                {aboutTheParent.militaryService?.completed && (
-                    <TextGroupJaNeiVetIkke
-                        title={t('deceasedHasServedInTheMilitary')}
-                        content={aboutTheParent.militaryService?.completed}
-                    />
-                )}
-                {aboutTheParent.militaryService?.period && (
-                    <TextGroup title={t('militaryServiceYears')} content={aboutTheParent.militaryService?.period} />
                 )}
             </FormElement>
         </AccordionItem>

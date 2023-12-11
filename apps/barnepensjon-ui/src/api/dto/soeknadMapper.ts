@@ -9,6 +9,7 @@ import {
     EnumSvar,
     FritekstSvar,
     JaNeiVetIkke,
+    OppholdUtland,
     Opplysning,
     UtbetalingsInformasjon,
     Utenlandsadresse,
@@ -17,6 +18,7 @@ import { IAboutYou, IChild } from '../../types/person'
 import { Language } from '../../context/language/language'
 import { hentForeldre, hentForeldreOver18, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 import { mapVerge } from './mapVerge'
+import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
 
 export const mapTilBarnepensjonSoeknadListe = (
     t: TFunction,
@@ -46,11 +48,11 @@ const mapTilBarnepensjonSoeknad = (
 ): Barnepensjon => {
     const innsender: Innsender = mapInnsender(t, user)
 
-    const harSamtykket: Opplysning<boolean> = mapSamtykke(t, application, user)
+    const harSamtykket: Opplysning<boolean> = mapSamtykke(t, application)
 
     const foreldre: Person[] = mapForeldreMedUtvidetInfo(t, application, user)
 
-    const soesken: Barn[] = child ? mapSoesken(t, child, application, user) : [mapBarnOver18(t, application, user)]
+    const soesken: Barn[] = child ? mapSoesken(t, child, application, user) : []
 
     return {
         type: SoeknadType.BARNEPENSJON,
@@ -175,6 +177,15 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
         }
     }
 
+    const ukjentForelder: Opplysning<string> | undefined = !!application.unknownParent
+        ? {
+              spoersmaal: t('unknownParentQuestionGuardian', {
+                  ns: 'aboutParents',
+              }),
+              svar: t('yesUnknownParentGuardian', { ns: 'btn' }),
+          }
+        : undefined
+
     return {
         type: PersonType.BARN,
         fornavn: {
@@ -194,34 +205,92 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
             svar: child.citizenship!!,
         },
         utenlandsAdresse,
+        ukjentForelder,
         foreldre: hentForeldre(t, child, application, user),
         verge: mapVerge(t, child, user),
     }
 }
 
 const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Barn => {
-    const staysAbroad = application.aboutYou.residesInNorway
+    const residesInNorway = application.aboutYou.residesInNorway
+    const isChild = application.applicant?.applicantRole === ApplicantRole.CHILD
+    const aboutYou = application.aboutYou
 
-    const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> | undefined = staysAbroad
+    const utenlandsAdresse: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse> | undefined = residesInNorway
         ? {
-              spoersmaal: t('residesInNorway', { ns: 'aboutYou' }),
-              svar: {
-                  innhold: t(staysAbroad, { ns: 'radiobuttons' }),
-                  verdi: staysAbroad,
-              },
+              spoersmaal: t('residesInNorwaySummaryQuestion', { ns: 'aboutYou' }),
+              svar:
+                  residesInNorway === JaNeiVetIkke.JA
+                      ? {
+                            innhold: t(JaNeiVetIkke.NEI, { ns: 'radiobuttons' }),
+                            verdi: JaNeiVetIkke.NEI,
+                        }
+                      : {
+                            innhold: t(JaNeiVetIkke.JA, { ns: 'radiobuttons' }),
+                            verdi: JaNeiVetIkke.JA,
+                        },
           }
         : undefined
 
-    if (staysAbroad === JaNeiVetIkke.NEI && !!utenlandsAdresse) {
+    if (residesInNorway === JaNeiVetIkke.NEI && !!utenlandsAdresse) {
         utenlandsAdresse.opplysning = {
             land: {
                 spoersmaal: t('countryOfResidence', { ns: 'aboutYou' }),
                 svar: {
-                    innhold: application.aboutYou!!.countryOfResidence!!,
+                    innhold: aboutYou!!.countryOfResidence!!,
                 },
             },
         }
     }
+
+    const bosattNorge: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland | undefined> | undefined =
+        residesInNorway === JaNeiVetIkke.JA
+            ? {
+                  spoersmaal: t('stayedAbroad', { ns: 'aboutYou' }),
+                  svar: {
+                      innhold: t(aboutYou.stayedAbroad!!, { ns: 'radiobuttons' }),
+                      verdi: aboutYou.stayedAbroad!!,
+                  },
+              }
+            : undefined
+
+    if (residesInNorway === JaNeiVetIkke.JA && aboutYou.stayedAbroad!! === JaNeiVetIkke.JA && !!bosattNorge) {
+        bosattNorge.opplysning = {
+            oppholdLand: {
+                spoersmaal: t('stayedAbroadCountry', { ns: 'aboutYou' }),
+                svar: {
+                    innhold: aboutYou!!.stayedAbroadCountry!!,
+                },
+            },
+            oppholdFra: aboutYou.stayedAbroadFromDate
+                ? {
+                      spoersmaal: t('stayedAbroadFromDate', { ns: 'aboutYou' }),
+                      svar: {
+                          innhold: aboutYou.stayedAbroadFromDate!!,
+                      },
+                  }
+                : undefined,
+            oppholdTil: aboutYou.stayedAbroadToDate
+                ? {
+                      spoersmaal: t('stayedAbroadToDate', { ns: 'aboutYou' }),
+                      svar: {
+                          innhold: aboutYou.stayedAbroadToDate!!,
+                      },
+                  }
+                : undefined,
+        }
+    } else if (!!bosattNorge) {
+        bosattNorge.opplysning = undefined
+    }
+
+    const ukjentForelder: Opplysning<string> | undefined = !!application.unknownParent
+        ? {
+              spoersmaal: t(isChild ? 'unknownParentQuestion' : 'unknownParentQuestionGuardian', {
+                  ns: 'aboutParents',
+              }),
+              svar: t(isChild ? 'yesUnknownParent' : 'yesUnknownParentGuardian', { ns: 'btn' }),
+          }
+        : undefined
 
     return {
         type: PersonType.BARN,
@@ -242,7 +311,9 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
             svar: user.statsborgerskap!!,
         },
         foreldre: hentForeldreOver18(t, application),
+        ukjentForelder,
         utenlandsAdresse,
+        bosattNorge,
     }
 }
 
@@ -255,11 +326,11 @@ const mapSoesken = (t: TFunction, child: IChild, application: IApplication, user
         .map((c: IChild) => mapBarn(t, c, application, user))
 }
 
-const mapSamtykke = (t: TFunction, application: IApplication, user: User): Opplysning<boolean> => {
+const mapSamtykke = (t: TFunction, application: IApplication): Opplysning<boolean> => {
     if (!application.applicant!!.consent) throw Error('Kan ikke sende inn søknad uten å ha samtykket!')
 
     return {
-        spoersmaal: t('consentToNav', { ns: 'frontPage', fornavn: user.fornavn!!, etternavn: user.etternavn!! }),
+        spoersmaal: t('consentToNav', { ns: 'frontPage' }),
         svar: !!application.applicant?.consent,
     }
 }

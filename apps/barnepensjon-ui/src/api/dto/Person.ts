@@ -1,5 +1,4 @@
 import {
-    AarstallForMilitaerTjeneste,
     BetingetOpplysning,
     DatoSvar,
     EnumSvar,
@@ -7,6 +6,7 @@ import {
     JaNeiVetIkke,
     Kontaktinfo,
     Naeringsinntekt,
+    OppholdUtland,
     Opplysning,
     Utenlandsadresse,
     Utenlandsopphold,
@@ -74,7 +74,9 @@ export interface Barn extends Person {
 
     statsborgerskap: Opplysning<string>
     utenlandsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse | undefined>
+    bosattNorge?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland | undefined>
     foreldre: Forelder[]
+    ukjentForelder?: Opplysning<string>
     verge?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge>
     dagligOmsorg?: Opplysning<EnumSvar<OmsorgspersonType>>
 }
@@ -90,7 +92,6 @@ export interface Avdoed extends Person {
     statsborgerskap: Opplysning<FritekstSvar>
     utenlandsopphold: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsopphold[] | undefined>
     naeringsInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt> | undefined
-    militaertjeneste: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<AarstallForMilitaerTjeneste>> | undefined
     doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 

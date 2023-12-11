@@ -34,7 +34,7 @@ export default function SelfEmploymentDetails() {
                             name={'selfEmplyment.selfEmplymentDetails.income'}
                             valgfri
                             type="tel"
-                            placeholder={t('incomeFromSelfEmploymentBeforeTaxes')}
+                            description={t('incomeFromSelfEmploymentBeforeTaxes')}
                             label={t('incomeFromSelfEmployymentYearBeforeDeath')}
                         />
                     </FormElement>

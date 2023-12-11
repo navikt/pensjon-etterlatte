@@ -4,6 +4,7 @@ import { Link } from '@navikt/ds-react'
 export const InfocardWrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
     margin: 0 auto;
     column-gap: 1rem;
 `
@@ -18,7 +19,7 @@ export const Infocard = styled.div`
     border-bottom-right-radius: 5px;
 
     @media screen and (min-width: 650px) {
-        max-width: 49%;
+        max-width: 48%;
     }
 `
 

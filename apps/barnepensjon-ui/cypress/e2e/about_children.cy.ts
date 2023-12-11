@@ -22,7 +22,7 @@ describe('About Children', { testIsolation: false }, () => {
 
     it('should display saved children in the list', function () {
         cy.get('.navds-heading').should('contain.text', 'Lite Barn')
-        cy.get('.navds-tag').should('have.text', 'Søkt om barnepensjon')
+        cy.get('.navds-tag').should('have.text', 'Søker om barnepensjon')
     })
 
     it('should display warning when adding child above 18', function () {

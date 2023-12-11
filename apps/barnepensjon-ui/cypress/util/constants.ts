@@ -9,7 +9,7 @@ export enum Button {
     Back = 'Tilbake',
     Cancel = 'Avbryt',
     Send = 'Send søknad',
-    Exit = 'Avslutt',
+    Exit = 'Les mer om barnepensjon',
     Yes = 'Ja, send søknad',
     No = 'Nei, gå tilbake',
     TryAgain = 'Prøv igjen',

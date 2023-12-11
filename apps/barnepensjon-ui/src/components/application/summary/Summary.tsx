@@ -23,6 +23,7 @@ import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
 import Trans from '../../common/Trans'
 import { Translation } from '../../../context/language/translations'
 import { BodyShortMuted } from '../../common/StyledTypography'
+import { SummaryAboutUnknownParent } from './fragments/SummaryAboutUknownParent'
 
 const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
     const prefix = {
@@ -109,14 +110,20 @@ export default function Summary({ prev }: StepProps) {
                         pathPrefix={pathPrefix(application?.applicant)}
                     />
 
+                    {application.unknownParent && (
+                        <SummaryAboutUnknownParent pathPrefix={pathPrefix(application?.applicant)} />
+                    )}
+
                     <SummaryAboutChildren
                         aboutChildren={application.aboutChildren}
                         pathPrefix={pathPrefix(application?.applicant)}
                         applicationRole={application.applicant?.applicantRole}
+                        applicantSituation={application.applicant?.applicantSituation}
                         parents={{
                             firstParent: application.firstParent,
                             secondParent: application.secondParent,
                         }}
+                        unknownParent={!!application.unknownParent}
                     />
                 </Accordion>
             </FormGroup>

@@ -1,11 +1,9 @@
 import {
     BetingetOpplysning,
     EnumSvar,
-    FritekstSvar,
     JaNeiVetIkke,
     Naeringsinntekt,
     OppholdUtlandType,
-    Opplysning,
     Utenlandsopphold,
 } from './FellesOpplysninger'
 import { Avdoed, Forelder, GjenlevendeForelder, Person, PersonType } from './Person'
@@ -14,7 +12,6 @@ import {
     IApplication,
     IDeceasedParent,
     ILivingParent,
-    IMilitaryService,
     IParent,
     ISelfEmployment,
     IStaysAbroad,
@@ -26,6 +23,10 @@ import { User } from '../../context/user/user'
 import { fullAdresse } from '../../utils/personalia'
 
 export const hentForeldre = (t: TFunction, child: IChild, application: IApplication, user: User): Forelder[] => {
+    const oneParentDead = application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
+    const isGuardian = application.applicant?.applicantRole === ApplicantRole.GUARDIAN
+    const hasUnknownParent = !!application.unknownParent
+
     let firstParent
     if (application?.applicant?.applicantRole === ApplicantRole.PARENT) {
         firstParent = mapForelderFraInnloggetBruker(t, application.aboutYou, user)
@@ -33,8 +34,11 @@ export const hentForeldre = (t: TFunction, child: IChild, application: IApplicat
         firstParent = application.firstParent!!
     }
 
-    const forelder1 = mapTilForelder(t, firstParent)
+    if (isGuardian && oneParentDead) return [mapTilForelder(t, application.secondParent!!)]
+    if (isGuardian && hasUnknownParent) return [mapTilForelder(t, firstParent)]
+
     const forelder2 = mapTilForelder(t, application.secondParent!!)
+    const forelder1 = mapTilForelder(t, firstParent)
 
     switch (child.parents) {
         case ParentRelationType.FIRST_PARENT:
@@ -51,9 +55,12 @@ export const hentForeldre = (t: TFunction, child: IChild, application: IApplicat
 export const hentForeldreOver18 = (t: TFunction, application: IApplication): Forelder[] => {
     const oneParentDead = application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED
     const bothParentDead = application.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
+    const hasUnknownParent = !!application.unknownParent
 
     if (oneParentDead) {
         return [mapTilForelder(t, application.secondParent!!)]
+    } else if (hasUnknownParent) {
+        return [mapTilForelder(t, application.firstParent!!)]
     } else if (bothParentDead) {
         const firstParent = mapTilForelder(t, application.firstParent!!)
         const secondParent = mapTilForelder(t, application.secondParent!!)
@@ -80,9 +87,22 @@ const mapTilForelder = (t: TFunction, parent: IParent): Forelder => ({
 })
 
 export const mapForeldreMedUtvidetInfo = (t: TFunction, application: IApplication, user: User): Person[] => {
-    if (application.applicant?.applicantRole === ApplicantRole.CHILD) {
-        const avdoed: Avdoed = mapAvdoed(t, application.secondParent as IDeceasedParent)
-        return [avdoed]
+    if (
+        application.applicant?.applicantRole === ApplicantRole.CHILD ||
+        application.applicant?.applicantRole === ApplicantRole.GUARDIAN
+    ) {
+        let avdoed1: Avdoed
+        if (application.unknownParent) {
+            avdoed1 = mapAvdoed(t, application.firstParent as IDeceasedParent)
+        } else {
+            avdoed1 = mapAvdoed(t, application.secondParent as IDeceasedParent)
+            if (application.applicant.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED) {
+                const avdoed2: Avdoed = mapAvdoed(t, application.secondParent as IDeceasedParent)
+                return [avdoed1, avdoed2]
+            }
+        }
+
+        return [avdoed1]
     }
 
     let forelder1
@@ -175,7 +195,6 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
         },
         utenlandsopphold: mapUtenlandsopphold(t, parent.staysAbroad),
         naeringsInntekt: mapNaeringsinntekt(t, parent.selfEmplyment),
-        militaertjeneste: mapMilitaertjeneste(t, parent.militaryService),
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
             spoersmaal: t('occupationalInjury', { ns: 'aboutTheDeceased' }),
             svar: {
@@ -183,29 +202,6 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
                 verdi: parent.occupationalInjury!!,
             },
         },
-    }
-}
-
-const mapMilitaertjeneste = (t: TFunction, militaryService?: IMilitaryService) => {
-    if (!militaryService) return undefined
-
-    let opplysningMilitaertjeneste: Opplysning<FritekstSvar> | undefined
-    if (militaryService.completed === JaNeiVetIkke.JA) {
-        opplysningMilitaertjeneste = {
-            spoersmaal: t('militaryServiceYears', { ns: 'aboutTheDeceased' }),
-            svar: {
-                innhold: militaryService.period || '-',
-            },
-        }
-    }
-
-    return {
-        spoersmaal: t('deceasedHasServedInTheMilitary', { ns: 'aboutTheDeceased' }),
-        svar: {
-            innhold: t(militaryService!!.completed!!, { ns: 'radiobuttons' }),
-            verdi: militaryService!!.completed!!,
-        },
-        opplysning: opplysningMilitaertjeneste,
     }
 }
 
@@ -329,7 +325,6 @@ export const _test = {
     mapForelderFraInnloggetBruker,
     mapGjenlevendeForelder,
     mapAvdoed,
-    mapMilitaertjeneste,
     mapUtenlandsopphold,
     mapNaeringsinntekt,
 }
