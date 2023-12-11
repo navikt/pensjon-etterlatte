@@ -107,9 +107,11 @@ export default function FrontPage() {
                             </ul>
                         </BodyLong>
 
+                        {/*
                         <BodyLong>
                             <Trans value={t('aboutPrivacy')} />
                         </BodyLong>
+                        */}
                     </ExpansionCard.Content>
                 </ExpansionCard>
             </FormGroup>

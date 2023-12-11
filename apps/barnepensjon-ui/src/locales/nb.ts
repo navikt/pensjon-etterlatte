@@ -105,7 +105,7 @@ const frontPage = {
     weWillRetrieveInfo: 'Vi henter informasjonen vi trenger',
     infoWeRetrieve:
         'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner vil som oftest være en gjenlevende foreldre i tilfeller der bruker søker selv eller dersom en verge som har rett til å representere brukeren søker.\n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
-    infoWeRetrieve_li1: '<strong>Personinformasjon</strong> fra Folkeregisteret (personnummer, adresse, statsborgerskap, sivilstand og/eller flyktningstatus',
+    infoWeRetrieve_li1: '<strong>Personinformasjon</strong> fra Folkeregisteret (personnummer, adresse, statsborgerskap og/eller sivilstand)',
     infoWeRetrieve_li2: 'Opplysninger om <strong>annen løpende støtte fra NAV</strong> (for eksempel uføretrygd)',
     infoWeRetrieve_li3: 'Informasjon fra <strong>utenlandske trygdemyndigheter</strong> (der dette er aktuelt)',
     infoWeRetrieve_li4: 'Opplysninger om straffegjennomføring og opphold på institusjon',
@@ -163,6 +163,7 @@ const aboutYou = {
     alternativeAddress: 'Oppgi nåværende bostedsadresse',
     staysAbroadTitle: 'Opphold utenfor Norge',
     residesInNorway: 'Er du bosatt i Norge?',
+    residesInNorwaySummaryQuestion: 'Er du bosatt i et annet land enn Norge?',
     countryOfResidence: 'Oppgi hvilket land du er bosatt i',
     stayedAbroad: 'Har du bodd eller oppholdt deg i utlandet de siste 12 månedene?',
     stayedAbroadCountry: 'Oppgi hvilket land du oppholdt deg i',

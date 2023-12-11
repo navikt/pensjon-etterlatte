@@ -101,18 +101,18 @@ const frontPage = {
         "As the child's guardian, you can only send an application for the child you are guardian for. You will be asked to document your childcare obligations after submitting the application.  You can also apply for those who have turned 18.",
     childMayBeApplicableForPension_li3: 'Children who have turned 18 must apply themselves.',
     readMoreAboutChildrensPension:
-        'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon">read more about children’s pension here</a>.',
+        'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon/en">read more about children’s pension here</a>.',
     weWillRetrieveInfoTitle: 'Personal data protection',
     weWillRetrieveInfo: 'We will collect any information we need',
     infoWeRetrieve:
         'In order to process your application, we need to gather information about you as the applicant and information about others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
     infoWeRetrieve_li1:
-        '<strong>Personal data</strong> from the National Population Register (national identification number, address, nationality, marital status and/or refugee status)',
+        '<strong>Personal data</strong> from the National Population Register (national identification number, address, nationality and/or marital status)',
     infoWeRetrieve_li2:
         'Information about <strong>other current benefits or support from NAV</strong> (for example, disability pension)',
     infoWeRetrieve_li3:
         'Information from <strong> foreign national insurance/social security authorities</strong> (if applicable)',
-    infoWeRetrieve_li4: 'Information about imprisonment and stays at institutions   ',
+    infoWeRetrieve_li4: 'Information about imprisonment and stays at institutions',
     survivingParentInfo:
         'If the user is applying on behalf of himself, or as a guardian applying for the user, NAV will collect information about any surviving parents. If so, we will need to collect:',
     survivingParentInfo_li1: 'Name',
@@ -168,6 +168,7 @@ const aboutYou = {
     alternativeAddress: 'Enter your current residential address',
     staysAbroadTitle: 'Stays outside Norway',
     residesInNorway: 'Are you residing in Norway?',
+    residesInNorwaySummaryQuestion: 'Are you residing in a country other than Norway?',
     countryOfResidence: 'State which country you are residing in',
     stayedAbroad: 'Have you lived or stayed abroad in the last 12 months?',
     stayedAbroadCountry: 'State which country',
@@ -272,7 +273,7 @@ const aboutChildren = {
     guardianFnr: 'The guardian’s Norwegian national identity number (optional)',
     guardianFnrPlaceholder: '11 digits',
     information:
-        'Add all the children under 18 that you have in common with the deceased.\n\n Children over the age of 18 must apply themselves.',
+        'Add all the children under 18 that you have in common with the deceased. Children over the age of 18 must apply themselves.',
     informationGuardian: 'Add all the children you are guardian for.',
     infoRegardingSiblings: 'Here is the information if there are siblings',
     infoCard_residence: 'PLACE OF RESIDENCE',
@@ -452,7 +453,7 @@ const receipt = {
     guardianshipMustBeConfirmed:
         'If you have submitted an application as a guardian, you must submit confirmation of your appointment as guardian from the District Court or County Governor, ',
     guardianshipMustBeConfirmedLink: 'The form that you need to send later can be found here.',
-    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersend-soknad-barnepensjon/en',
+    guardianshipMustBeConfirmedHref: 'https://www.nav.no/ettersende/en#childrens-pension',
     viewCaseTitle: 'Do you want to check the status of the case',
     viewCaseInfoContentPart1:
         "Parents or guardians cannot follow the child's case digitally. If you have any questions about the application, please contact us by phone +47 55 55 33 34. Curious about how long this will take? You can see the anticipated processing time here ",
