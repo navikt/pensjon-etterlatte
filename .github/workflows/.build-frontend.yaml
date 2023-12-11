@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      id-token: write
     outputs:
       yarn-lock-hash: ${{ steps.keys.outputs.yarn-lock-hash }}
       image: ${{ steps.docker-build-push.outputs.image }}
