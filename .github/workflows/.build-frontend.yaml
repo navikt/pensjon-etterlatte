@@ -52,9 +52,13 @@ jobs:
       - name: Install node modules
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         working-directory: apps/${{ github.workflow }}
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
         run: yarn install --frozen-lockfile
       - name: Build
         working-directory: apps/${{ github.workflow }}
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
         run: yarn build
 
       - name: Build and publish docker image
