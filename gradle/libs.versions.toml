@@ -3,16 +3,16 @@ cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.1" }
 
 [versions]
 token-version = "3.1.8"
-ktor-version = "2.3.6"
+ktor-version = "2.3.7"
 jackson-version = "2.15.3"
 jupiter-version = "5.10.1"
-testcontainers-version = "1.19.1"
+testcontainers-version = "1.19.3"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2022061809451655538329.d6deccc62862"}
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version"}
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version"}
-navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.0.0"}
+navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.0.1"}
 
 etterlatte-common = { module = "no.nav.etterlatte:common", version = "2023.12.01-19.28.04ed855ae6eb"}
 etterlatte-common-test = { module = "no.nav.etterlatte:common-test", version = "2023.12.01-19.28.04ed855ae6eb"}
