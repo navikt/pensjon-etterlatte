@@ -9,6 +9,7 @@ import EndringInntekt from './EndringInntekt'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, NorgeOgUtland } from '../../../../typer/inntekt'
 import { useFormContext } from 'react-hook-form'
+import { erMellomOktoberogDesember } from '../../../../utils/dato'
 
 const Loennsinntekt = () => {
     const { t } = useTranslation()
@@ -47,23 +48,26 @@ const Loennsinntekt = () => {
                             htmlSize={Bredde.S}
                         />
                     </SkjemaGruppe>
-
                     <SkjemaGruppe>
                         <SkjemaElement>
                             <RHFValutaInput
                                 name={'loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall'}
                                 label={t('inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall')}
-                                description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse')}
+                                description={t(
+                                    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse'
+                                )}
                                 htmlSize={Bredde.S}
                             />
                         </SkjemaElement>
-                        <SkjemaElement>
-                            <RHFValutaInput
-                                name={'loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'}
-                                label={t('inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall')}
-                                htmlSize={Bredde.S}
-                            />
-                        </SkjemaElement>
+                        {erMellomOktoberogDesember() && (
+                            <SkjemaElement>
+                                <RHFValutaInput
+                                    name={'loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'}
+                                    label={t('inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall')}
+                                    htmlSize={Bredde.S}
+                                />
+                            </SkjemaElement>
+                        )}
                     </SkjemaGruppe>
                 </>
             )}
@@ -89,17 +93,21 @@ const Loennsinntekt = () => {
                             <RHFValutaInput
                                 name={'loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall'}
                                 label={t('inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall')}
-                                description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse')}
+                                description={t(
+                                    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse'
+                                )}
                                 htmlSize={Bredde.S}
                             />
                         </SkjemaElement>
-                        <SkjemaElement>
-                            <RHFValutaInput
-                                name={'loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall'}
-                                label={t('inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall')}
-                                htmlSize={Bredde.S}
-                            />
-                        </SkjemaElement>
+                        {erMellomOktoberogDesember() && (
+                            <SkjemaElement>
+                                <RHFValutaInput
+                                    name={'loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall'}
+                                    label={t('inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall')}
+                                    htmlSize={Bredde.S}
+                                />
+                            </SkjemaElement>
+                        )}
                     </SkjemaGruppe>
                 </>
             )}
