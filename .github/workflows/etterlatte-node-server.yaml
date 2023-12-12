@@ -35,11 +35,3 @@ jobs:
     permissions:
       contents: read
       id-token: write
-
-  deploy:
-    needs: build
-    if: github.event_name != 'pull_request'
-    uses: ./.github/workflows/.deploy.yaml
-    with:
-      image: ${{ needs.build.outputs.image }}
-    secrets: inherit
