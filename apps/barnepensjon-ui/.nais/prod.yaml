@@ -30,8 +30,8 @@ spec:
       cpu: 500m
       memory: 512Mi
     requests:
-      cpu: 200m
-      memory: 256Mi
+      cpu: 100m
+      memory: 192Mi
   prometheus:
     enabled: true
     path: /barnepensjon/soknad/metrics
