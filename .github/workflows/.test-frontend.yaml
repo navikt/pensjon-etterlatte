@@ -1,4 +1,4 @@
-name: .build-frontend.yaml
+name: .test-frontend.yaml
 
 on:
   workflow_call:
