@@ -1,12 +1,16 @@
 name: etterlatte-node-server
 
-env:
-  APP_NAME: ${{ github.workflow }}
-  IMAGE_TAG: ghcr.io/${{ github.repository }}/${{ github.workflow }}:${{ github.sha }}
-  IMAGE_TAG_LATEST: ghcr.io/${{ github.repository }}/${{ github.workflow }}:latest
-
 on:
   workflow_dispatch: # Allow manually triggered workflow run
+    inputs:
+      deploy-prod:
+        description: 'Deploy til produksjon'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - true
+          - false
   push:
     branches:
       - main
@@ -23,56 +27,11 @@ on:
       - '!apps/etterlatte-node-server/README.md'
 
 jobs:
-  build-and-publish:
-    name: Build, test and publish
-    runs-on: ubuntu-latest
+  build:
+    uses: ./.github/workflows/.build-frontend.yaml
+    with:
+      dockerfile: apps/etterlatte-node-server/Dockerfile
+    secrets: inherit
     permissions:
       contents: read
-      packages: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-
-      # Check cache for node_modules
-      - name: Cache node modules (client)
-        id: yarn-cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            apps/${{ env.APP_NAME }}/node_modules
-            ~/.cache/Cypress
-          key: ${{ env.APP_NAME }}-${{ hashFiles('apps/etterlatte-node-server/yarn.lock') }}
-
-      # Install and build client
-      - name: Yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        working-directory: apps/${{ env.APP_NAME }}
-        env:
-          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
-        run: yarn install
-      - name: Yarn build
-        working-directory: apps/${{ env.APP_NAME }}
-        env:
-          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
-        run: yarn build
-
-      # Docker login, build and push
-      - name: Login to Docker
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: apps/${{ env.APP_NAME }}
-          push: true
-          # Hvis main, markeres docker image med latest.
-          tags: |
-            ${{ env.IMAGE_TAG }} 
-            ${{ github.ref_name == 'main' && env.IMAGE_TAG_LATEST || ''}}
+      id-token: write
