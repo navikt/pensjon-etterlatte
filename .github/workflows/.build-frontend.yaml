@@ -2,6 +2,11 @@ name: .build-frontend.yaml
 
 on:
   workflow_call:
+    inputs:
+      dockerfile:
+        description: 'Sti til dockerfile'
+        required: true
+        type: string
     outputs:
       image:
         description: "Docker image url"
@@ -68,7 +73,7 @@ jobs:
           team: etterlatte
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          dockerfile: docker/frontend.Dockerfile
+          dockerfile: ${{ inputs.dockerfile }}
           docker_context: apps/${{ github.workflow }}/
           image_suffix: ${{ github.workflow }}
           tag: ${{ env.GITHUB_REF_SLUG }}

@@ -25,6 +25,8 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/.build-frontend.yaml
+    with:
+      dockerfile: docker/frontend.Dockerfile
     secrets: inherit
     permissions:
       contents: read

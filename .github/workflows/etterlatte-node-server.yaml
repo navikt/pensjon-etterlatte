@@ -29,6 +29,8 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/.build-frontend.yaml
+    with:
+      dockerfile: apps/etterlatte-node-server/Dockerfile
     secrets: inherit
     permissions:
       contents: read
