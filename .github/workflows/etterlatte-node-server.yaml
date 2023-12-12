@@ -39,11 +39,3 @@ jobs:
     with:
       image: ${{ needs.build.outputs.image }}
     secrets: inherit
-
-
-  build-and-publish:
-    name: Build, test and publish
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
