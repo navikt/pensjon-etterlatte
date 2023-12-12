@@ -7,6 +7,7 @@ dependencies {
 
     implementation(libs.database.hikari.cp)
     implementation(libs.database.flyway.core)
+    implementation(libs.database.flyway.postgres)
     implementation(libs.database.postgresql)
     implementation(libs.navfelles.token.validation.ktor)
 

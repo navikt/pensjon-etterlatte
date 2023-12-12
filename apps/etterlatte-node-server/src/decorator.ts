@@ -14,6 +14,7 @@ const props: DecoratorFetchProps = {
         urlLookupTable: false,
         context: 'privatperson',
         simple: true,
+        logoutWarning: true
     }
 }
 

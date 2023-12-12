@@ -9,7 +9,6 @@ export type Namespace =
     | 'aboutChildren'
     | 'summary'
     | 'receipt'
-    | 'logOutUser'
     | 'error'
     | 'common'
     | 'loggedInUserInfo'

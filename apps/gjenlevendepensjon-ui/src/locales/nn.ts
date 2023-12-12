@@ -603,11 +603,6 @@ export default {
     "feil.harBarnetVerge.fornavn.pattern": "Ugyldig førenamn",
     "feil.harBarnetVerge.etternavn.pattern": "Ugyldig etternamn",
     "feil.harBarnetVerge.foedselsnummer.validate": "Ugyldig fødselsnummer",
-    "brukerLoggesUt.info1": "Du vil bli logga ut om",
-    "brukerLoggesUt.tid": "minutt",
-    "brukerLoggesUt.knapp": "X-ikon for å lukke meldinga",
-    "brukerLoggesUt.info2": "Du kan sende søknad no eller halde fram seinare. \n Søknaden din vert lagra i 72 timar.",
-    "brukerLoggesUt.loggerUt": "Du blir no logga ut!",
     "systemUtilgjengelig.veileder": "Å nei, søknaden fungerer ikkje...",
     "systemUtilgjengelig.intro": "Det er ein feil i søknaden som gjer at han diverre ikkje fungerer som han skal.",
     "systemUtilgjengelig.beskrivelse":

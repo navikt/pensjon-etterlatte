@@ -3,11 +3,10 @@ import { basePath } from '../util/constants'
 describe('Invalid Applicant', () => {
     beforeEach(() => {
         cy.intercept('GET', `${basePath}/api/person/innlogget`, { fixture: 'user-too-young' }).as('loggedInUser')
-        cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')
 
         cy.visit('http://localhost:3000/barnepensjon/soknad')
 
-        cy.wait(['@loggedInUser', '@getExpirationTimeForLoggedInUser'])
+        cy.wait(['@loggedInUser'])
     })
 
     it('should redirect you to separate page when the user is too young to apply', function () {
