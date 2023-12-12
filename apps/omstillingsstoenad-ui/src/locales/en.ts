@@ -959,12 +959,6 @@ export default {
     'feil.harBarnetVerge.fornavn.pattern': 'Invalid first name',
     'feil.harBarnetVerge.etternavn.pattern': 'Invalid family name',
     'feil.harBarnetVerge.foedselsnummer.validate': 'Invalid national identity number',
-    'brukerLoggesUt.info1': 'You will be signed out in',
-    'brukerLoggesUt.tid': 'minutes',
-    'brukerLoggesUt.knapp': 'X-icon to close the message',
-    'brukerLoggesUt.info2':
-        'You can submit your application now or continue later. \n The application will be stored for 72 hours',
-    'brukerLoggesUt.loggerUt': 'You will now be signed out!',
     'systemUtilgjengelig.veileder': "Oh no, the application isn't working...",
     'systemUtilgjengelig.intro': 'There seems to be an error in the application.',
     'systemUtilgjengelig.beskrivelse':

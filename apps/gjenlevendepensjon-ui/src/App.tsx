@@ -7,7 +7,6 @@ import useInnloggetBruker from "./hooks/useInnloggetBruker";
 import { useAmplitude } from "./utils/amplitude";
 import { useSoknadContext } from "./context/soknad/SoknadContext";
 import { useTranslation } from "react-i18next";
-import UtloeptSession from './components/felles/UtloeptSession'
 import SystemUtilgjengelig from "./components/SystemUtilgjengelig";
 import styled from "styled-components";
 import useSoeknad from "./hooks/useSoeknad";
@@ -97,7 +96,6 @@ const App = () => {
                         <Alert variant="error">{soknadContext?.state?.error}</Alert>
                     </GlobalAlertWrap>
                 )}
-                <UtloeptSession />
             </SoeknadWrapper>
         </>
     );

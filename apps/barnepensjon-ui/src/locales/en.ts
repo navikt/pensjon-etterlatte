@@ -427,15 +427,6 @@ const invalidApplicant = {
     moreAboutChildrensPension: '<a href="https://www.nav.no/barnepensjon">Read more about the children’s pension</a>',
 }
 
-const logOutUser = {
-    btn: 'X icon to close the message',
-    time: 'minutes',
-    youWillBeLoggedOutIn: 'You will be logged out in',
-    sendNowOrContinueLater:
-        'You can submit the application now or continue later.  \n Your application will be saved for 72 hours.',
-    wereLoggingYouOut: 'You will be logged out!',
-}
-
 const receipt = {
     pageTitle: 'The application has been sent to us',
     contact:
@@ -503,7 +494,6 @@ const texts: Record<TNamespace, Record<TKey, Translation>> = {
     aboutYou,
     livingParent,
     aboutParents,
-    logOutUser,
     error,
     common,
     frontPage,

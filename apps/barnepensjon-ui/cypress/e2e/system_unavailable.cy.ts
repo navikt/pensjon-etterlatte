@@ -3,11 +3,10 @@ import { basePath, Button } from '../util/constants'
 describe('System Unavailable', { testIsolation: false }, () => {
     before(() => {
         cy.intercept('GET', `${basePath}/api/person/innlogget`, { statusCode: 404 }).as('loggedInUser')
-        cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')
 
         cy.visit('http://localhost:3000/barnepensjon/soknad')
 
-        cy.wait(['@loggedInUser', '@getExpirationTimeForLoggedInUser'])
+        cy.wait(['@loggedInUser'])
     })
 
     it('should redirect you to SystemUnavailable when backend services are down', function () {
@@ -21,12 +20,11 @@ describe('System Unavailable', { testIsolation: false }, () => {
     it('should send you to the front page when clicking the retry button if systems are up', function () {
         cy.intercept('GET', `${basePath}/api/person/innlogget`, { fixture: 'user' }).as('loggedInUser')
         cy.intercept('GET', `${basePath}/api/api/kladd`, '10000000').as('getApplication')
-        cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')
 
         cy.clickBtn(Button.TryAgain)
         cy.on('uncaught:exception', () => false)
 
-        cy.wait(['@loggedInUser', '@getApplication', '@getExpirationTimeForLoggedInUser'])
+        cy.wait(['@loggedInUser', '@getApplication'])
         cy.url().should('not.include', 'system-utilgjengelig')
     })
 })

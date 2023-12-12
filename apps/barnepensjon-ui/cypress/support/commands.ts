@@ -3,12 +3,11 @@ import { basePath, Button } from '../util/constants'
 Cypress.Commands.add('startApplication', (userFixture: string) => {
     cy.intercept('GET', `${basePath}/api/person/innlogget`, { fixture: userFixture }).as('loggedInUser')
     cy.intercept('GET', `${basePath}/api/api/kladd`, '10000000').as('getApplication')
-    cy.intercept('GET', `${basePath}/session`, {}).as('getExpirationTimeForLoggedInUser')
     cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'alleland' }).as('getCountries')
 
     cy.visit('http://localhost:3000/barnepensjon/soknad')
 
-    cy.wait(['@loggedInUser', '@getApplication', '@getExpirationTimeForLoggedInUser'])
+    cy.wait(['@loggedInUser', '@getApplication'])
 })
 
 Cypress.Commands.add('clickBtn', (btn: string, index: number = 0) => {
