@@ -46,10 +46,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@navikt/nav-dekoratoren-moduler@2.1.3":
-  version "2.1.3"
-  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/2.1.3/e2081da2da26254fa4eeaf564286e19452ec790f#e2081da2da26254fa4eeaf564286e19452ec790f"
-  integrity sha512-jjiRlW4xPoZHyudAwZForfvO7LZiRXkMpPLMXE3OvO/GR2Guk2eacAKxkvwrKPN/r5jQvgREI1CJnYuYMFN9Lw==
+"@navikt/nav-dekoratoren-moduler@2.1.5":
+  version "2.1.5"
+  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/2.1.5/ac9f8598a7535bed617e5df31f435819092acc9b#ac9f8598a7535bed617e5df31f435819092acc9b"
+  integrity sha512-6l5yy9c9f+SS/d8dTQ3CgxxEGCMFZx7EF+0SjecCOCyijWVQYci9hroEGTGxa23no3ZIUY9ePZHz36o4EXgWbQ==
   dependencies:
     csp-header "^5.1.0"
     html-react-parser "^3.0.16"
