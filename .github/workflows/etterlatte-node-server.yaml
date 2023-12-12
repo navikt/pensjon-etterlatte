@@ -35,13 +35,3 @@ jobs:
     permissions:
       contents: read
       id-token: write
-
-  test:
-    needs: build
-    uses: ./.github/workflows/.test-frontend.yaml
-    with:
-      yarn-lock-hash: ${{ needs.build.outputs.yarn-lock-hash }}
-    secrets: inherit
-    permissions:
-      contents: read
-      id-token: write
