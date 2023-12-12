@@ -33,9 +33,13 @@ jobs:
       - name: Install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         working-directory: apps/${{ github.workflow }}
-        run: yarn install
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+        run: yarn install --frozen-lockfile
       - name: Build
         working-directory: apps/${{ github.workflow }}
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
         run: yarn build
 
       # Run tests
