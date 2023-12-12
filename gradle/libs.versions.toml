@@ -38,7 +38,8 @@ ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-ve
 ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version"}
 
 database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "5.1.0"}
-database-flyway-core = { module = "org.flywaydb:flyway-core", version = "9.22.3"}
+database-flyway-core = { module = "org.flywaydb:flyway-core", version = "10.0.0" }
+database-flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version = "10.0.0" }
 database-postgresql = { module = "org.postgresql:postgresql", version = "42.6.0"}
 
 jackson-datatypejsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version"}
