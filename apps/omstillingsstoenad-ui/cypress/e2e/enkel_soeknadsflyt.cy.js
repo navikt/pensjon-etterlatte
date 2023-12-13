@@ -47,7 +47,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         const omDenAvdoede = mockSoeknad.omDenAvdoede
         getById('fornavn').type(omDenAvdoede.fornavn)
         getById('etternavn').type(omDenAvdoede.etternavn)
-        getById('datoForDoedsfallet').type(omDenAvdoede.datoForDoedsfallet)
+        getById('datoForDoedsfallet').type(new Date().toISOString().split('T')[0])
         getById('foedselsnummer').type(omDenAvdoede.foedselsnummer)
         getById('statsborgerskap').find('select').select(omDenAvdoede.statsborgerskap)
         selectValueForId('boddEllerJobbetUtland.svar', omDenAvdoede.boddEllerJobbetUtland.svar)
@@ -179,7 +179,9 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         // Næringsinntekt
         selectValueForId('naeringsinntekt.norgeEllerUtland', 'inntekt.norge')
 
-        getById('naeringsinntekt.norge.arbeidsinntektAaretFoer').type(inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer)
+        getById('naeringsinntekt.norge.arbeidsinntektAaretFoer').type(
+            inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer
+        )
         getById('naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall').type(
             inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall
         )

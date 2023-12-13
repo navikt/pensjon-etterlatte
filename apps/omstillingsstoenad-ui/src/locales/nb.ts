@@ -270,6 +270,13 @@ export default {
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': 'Arbeidsinntekten din året før dødsfallet',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+        'Hva var brutto årsinntekt i dødsfallsåret?',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
+        'Fra januar til og med desember',
+    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall': 'Hva hadde du i arbeidsinntekt etter dødsfallet?',
+    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall.beskrivelse':
+        'Fra måneden etter dødsfallet til og med desember det året. Hvis dødsfallmåneden var desember, oppgir du 0 kroner.',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, kan du oppgi totalinntekten som vises på lønnsslippen for desember.',
@@ -285,6 +292,8 @@ export default {
         'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
         'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt':
+        'Hva forventer du å ha i brutto arbeidsinntekt i år?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
@@ -299,6 +308,9 @@ export default {
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+        'Hva var brutto årsinntekt i dødsfallsåret?',
+    'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'Hva hadde du i næringsinntekt etter dødsfallet?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, må du anslå næringsinntekten.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
@@ -313,6 +325,8 @@ export default {
         'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'Skriv hva du forventer å ha i næringsinntekt fra samme måned som dødsfallet til desember.',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt':
+        'Hva forventer du å ha i brutto næringsinntekt i år?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
@@ -401,9 +415,9 @@ export default {
     'omDenAvdoede.fornavn': 'Fornavn',
     'omDenAvdoede.etternavn': 'Etternavn',
     'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
-    "omDenAvdoede.datoForDoedsfallet.foerDesember": "Siden dødsfallet skjedde før desember 2023, må du søke om ",
-    "omDenAvdoede.datoForDoedsfallet.foerDesember.link": "gjenlevendepensjon.",
-    "omDenAvdoede.datoForDoedsfallet.foerDesember.href": "https://www.nav.no/gjenlevendepensjon",
+    'omDenAvdoede.datoForDoedsfallet.foerDesember': 'Siden dødsfallet skjedde før desember 2023, må du søke om ',
+    'omDenAvdoede.datoForDoedsfallet.foerDesember.link': 'gjenlevendepensjon.',
+    'omDenAvdoede.datoForDoedsfallet.foerDesember.href': 'https://www.nav.no/gjenlevendepensjon',
     'omDenAvdoede.foedselsnummer': 'Fødselsnummer / d-nummer',
     'omDenAvdoede.statsborgerskap': 'Statsborgerskap',
     'omDenAvdoede.statsborgerskapPlaceholder': 'For eksempel norsk',

@@ -9,12 +9,16 @@ import EndringInntekt from './EndringInntekt'
 import { useFormContext } from 'react-hook-form'
 import { IInntekt, NorgeOgUtland } from '../../../../typer/inntekt'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { erMellomOktoberogDesember } from '../../../../utils/dato'
+import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
+import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 
 const Naeringsinntekt = () => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext<IInntekt>()
+    const { state: soknadState } = useSoknadContext()
+
+    const datoforDoedsfallet = soknadState.omDenAvdoede.datoForDoedsfallet
 
     const norgeEllerUtland = watch('naeringsinntekt.norgeEllerUtland')
 
@@ -40,32 +44,75 @@ const Naeringsinntekt = () => {
                     <SkjemaElement>
                         <Heading size={'small'}>{t('inntektenDin.naeringsinntekt.norgeEllerUtland.norge')}</Heading>
                     </SkjemaElement>
-                    <SkjemaElement>
-                        <RHFValutaInput
-                            name={'naeringsinntekt.norge.arbeidsinntektAaretFoer'}
-                            label={t('inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer')}
-                            description={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse')}
-                            htmlSize={Bredde.S}
-                        />
-                    </SkjemaElement>
-                    <SkjemaGruppe>
-                        <SkjemaElement>
-                            <RHFValutaInput
-                                name={'naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall'}
-                                label={t('inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall')}
-                                htmlSize={Bredde.S}
-                            />
-                        </SkjemaElement>
-                        {erMellomOktoberogDesember() && (
+                    {doedsdatoErIAar(datoforDoedsfallet!!) ? (
+                        <>
                             <SkjemaElement>
                                 <RHFValutaInput
-                                    name={'naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'}
-                                    label={t('inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall')}
+                                    name={'naeringsinntekt.norge.arbeidsinntektAaretFoer'}
+                                    label={t('inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer')}
+                                    description={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse')}
                                     htmlSize={Bredde.S}
                                 />
                             </SkjemaElement>
-                        )}
-                    </SkjemaGruppe>
+                            <SkjemaGruppe>
+                                <SkjemaElement>
+                                    <RHFValutaInput
+                                        name={'naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall'}
+                                        label={t('inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall')}
+                                        htmlSize={Bredde.S}
+                                    />
+                                </SkjemaElement>
+                                {erMellomOktoberogDesember() && (
+                                    <SkjemaElement>
+                                        <RHFValutaInput
+                                            name={'naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'}
+                                            label={t(
+                                                'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'
+                                            )}
+                                            htmlSize={Bredde.S}
+                                        />
+                                    </SkjemaElement>
+                                )}
+                            </SkjemaGruppe>
+                        </>
+                    ) : (
+                        <>
+                            <SkjemaElement>
+                                <RHFValutaInput
+                                    name={'naeringsinntekt.norge.arbeidsinntektAaretFoer'}
+                                    label={t(
+                                        'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer'
+                                    )}
+                                    description={t(
+                                        'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
+                                    )}
+                                    htmlSize={Bredde.S}
+                                />
+                            </SkjemaElement>
+                            <SkjemaGruppe>
+                                <SkjemaElement>
+                                    <RHFValutaInput
+                                        name={'naeringsinntekt.norge.inntektEtterDoedsfall'}
+                                        label={t('inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall')}
+                                        description={t(
+                                            'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall.beskrivelse'
+                                        )}
+                                        htmlSize={Bredde.S}
+                                    />
+                                </SkjemaElement>
+                                <SkjemaElement>
+                                    <RHFValutaInput
+                                        name={'naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt'}
+                                        label={t('inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt')}
+                                        description={t(
+                                            'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
+                                        )}
+                                        htmlSize={Bredde.S}
+                                    />
+                                </SkjemaElement>
+                            </SkjemaGruppe>
+                        </>
+                    )}
                 </>
             )}
 

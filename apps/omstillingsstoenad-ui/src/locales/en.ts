@@ -277,6 +277,13 @@ export default {
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': 'Your income from work before the death',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+        'What was your gross annual income in the year of the death?',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
+        'From january and up to and including december',
+    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
+    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall.beskrivelse':
+        'From the month after the death and up to and including december that year. If the death was in December, Hvis dødsfallmåneden var desember, state 0 kroner.',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse':
@@ -293,6 +300,8 @@ export default {
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
         'What do you expect to earn in gross annual income for next year?',
+    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt':
+        'What do you expect to earn in gross annual income this year?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
@@ -309,6 +318,9 @@ export default {
         'What was your gross annual income in the year before the death?',
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+        'What was your gross annual business income in the year of the death?',
+    'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
@@ -325,6 +337,8 @@ export default {
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'State your expected business income, from the month of the death until December.',
+    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt':
+        'What do you expect to earn in gross annual business income this year?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
@@ -421,9 +435,10 @@ export default {
     'omDenAvdoede.statsborgerskap': 'Nationality',
     'omDenAvdoede.statsborgerskapPlaceholder': 'For example: Norwegian',
     'omDenAvdoede.datoForDoedsfallet': 'When did the death occur?',
-    "omDenAvdoede.datoForDoedsfallet.foerDesember": "Because the deceased's time of death was before December 2023 you must apply for a ",
-    "omDenAvdoede.datoForDoedsfallet.foerDesember.link": "survivor's pension.",
-    "omDenAvdoede.datoForDoedsfallet.foerDesember.href": "https://www.nav.no/gjenlevendepensjon/en",
+    'omDenAvdoede.datoForDoedsfallet.foerDesember':
+        "Because the deceased's time of death was before December 2023 you must apply for a ",
+    'omDenAvdoede.datoForDoedsfallet.foerDesember.link': "survivor's pension.",
+    'omDenAvdoede.datoForDoedsfallet.foerDesember.href': 'https://www.nav.no/gjenlevendepensjon/en',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Time spent outside Norway',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
         'We need to know if the deceased has lived or worked outside Norway. This may both affect the size of the survivor’s pension you receive and give you pension rights from other countries.',
@@ -545,7 +560,8 @@ export default {
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'your personal NAV page',
     'soeknadKvittering.seSaken.informasjon.innhold2':
         'Curious about how long this will take? That information is available here: ',
-    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider/en#omstillingsstonad',
+    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href':
+        'https://www.nav.no/saksbehandlingstider/en#omstillingsstonad',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'Expected case processing time.',
     'soeknadKvittering.andreStoenader.tittel': 'You may also be entitled to other benefits',
     'soeknadKvittering.andreStoenader.informasjon':
@@ -555,8 +571,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst': 'Child care benefit for a surviving spouse',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Extended child benefit',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'other benefits for a surviving spouse.',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
-        'https://www.nav.no/omstillingsstonad#andre-stonader',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/omstillingsstonad#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon':
         'You will find more information about supplemental benefits on ',
     'soeknadKvittering.spoersmaal.knapp': 'Read more about transitional benefits here',
