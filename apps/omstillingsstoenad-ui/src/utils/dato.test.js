@@ -1,4 +1,4 @@
-import { antallAarMellom, erDato, ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from './dato'
+import { antallAarMellom, erDato, erMellomOktoberogDesember, ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from './dato'
 
 describe('Verifiser gyldighet av periode mellom samlivsbrudd og dødsfall', () => {
     it('Mer enn fem år mellom samlivsbrudd og dødsfall', () => {
@@ -114,5 +114,45 @@ describe('Funksjon fraDato fungerer som forventet', () => {
         expect(antallAarMellom('2000-01-01', '2000-12-01')).toBe(0)
         expect(antallAarMellom('2000-01-01', '2010-12-01')).toBe(10)
         expect(antallAarMellom('2000-12-01', '2005-01-01')).toBe(4)
+    })
+})
+
+describe('Funksjon erMellomOktoberOgDesember fungerer som forventet', () => {
+    beforeAll(() => {
+        jest.useFakeTimers('modern')
+    })
+
+    afterAll(() => {
+        jest.useRealTimers()
+    })
+
+    it('Skal returnere true hvis idag er mellom oktober og desember', () => {
+        jest.setSystemTime(new Date(2020, 10, 11))
+        expect(erMellomOktoberogDesember()).toBeTruthy()
+    })
+
+    it('Skal returnere true hvis idag er 31. desember', () => {
+        jest.setSystemTime(new Date(2020, 11, 31))
+        expect(erMellomOktoberogDesember()).toBeTruthy()
+    })
+
+    it('Skal returnere true hvis idag er 1. oktober', () => {
+        jest.setSystemTime(new Date(2020, 9, 1))
+        expect(erMellomOktoberogDesember()).toBeTruthy()
+    })
+
+    it('Skal returnere false hvis idag ikke er mellom oktober og desember', () => {
+        jest.setSystemTime(new Date(2020, 3, 1))
+        expect(erMellomOktoberogDesember()).toBeFalsy()
+    })
+
+    it('Skal returnere false hvis idag er 1. januar', () => {
+        jest.setSystemTime(new Date(2020, 0, 1))
+        expect(erMellomOktoberogDesember()).toBeFalsy()
+    })
+
+    it('Skal returnere false hvis idag er 30. september', () => {
+        jest.setSystemTime(new Date(2020, 8, 30))
+        expect(erMellomOktoberogDesember()).toBeFalsy()
     })
 })

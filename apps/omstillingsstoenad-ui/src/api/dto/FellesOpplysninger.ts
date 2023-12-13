@@ -158,7 +158,7 @@ interface InntektsType {
     arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
     arbeidsinntektIAar: {
         tilDoedsfall: Opplysning<FritekstSvar>
-        etterDoedsfall: Opplysning<FritekstSvar>
+        etterDoedsfall?: Opplysning<FritekstSvar>
     }
 }
 
