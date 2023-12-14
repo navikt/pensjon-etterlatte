@@ -19,6 +19,7 @@ import { SkjemaElement } from '../../felles/SkjemaElement'
 import { OppsummeringOmDeg } from './fragmenter/OppsummeringOmDeg'
 import { OppsummeringOmDenAvdoede } from './fragmenter/OppsummeringOmDenAvdoede'
 import { OppsummeringOmDegOgAvdoed } from './fragmenter/OppsummeringOmDegOgAvdoed'
+import { OppsummeringSituasjonenDin } from './fragmenter/OppsummeringSituasjonenDin'
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const navigate = useNavigate()
@@ -92,6 +93,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} />
                 <OppsummeringOmDenAvdoede omDenAvdoede={soeknad.omDenAvdoede} />
                 <OppsummeringOmDegOgAvdoed omDegOgAvdoed={soeknad.omDegOgAvdoed} />
+                <OppsummeringSituasjonenDin situasjonenDin={soeknad.situasjonenDin} />
                 {!isEmpty(soeknadOppsummering) && (
                         <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
                 )}

@@ -102,11 +102,6 @@ export const OppsummeringOmDegOgAvdoed = memo(({ omDegOgAvdoed }: Props) => {
                         )}
                     </>
                 )}
-
-                <TekstGruppeJaNeiVetIkke
-                    tittel={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
-                    innhold={omDegOgAvdoed.forholdTilAvdoede?.fellesBarn}
-                />
             </Panel>
         </AccordionItem>
     )

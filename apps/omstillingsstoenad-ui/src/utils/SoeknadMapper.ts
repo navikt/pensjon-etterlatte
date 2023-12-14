@@ -30,7 +30,7 @@ export default class SoeknadMapper {
             // this.mapOmDeg(soeknad.omDeg, bruker),
             // this.mapOmDenAvdoede(soeknad.omDenAvdoede),
             // this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
-            this.mapSituasjonenDin(soeknad.situasjonenDin),
+            // this.mapSituasjonenDin(soeknad.situasjonenDin),
             this.mapMerOmSituasjonenDin(soeknad.merOmSituasjonenDin),
             this.mapInntektenDin(soeknad.inntektenDin),
             this.mapOpplysningerOmBarn(soeknad.opplysningerOmBarn),
