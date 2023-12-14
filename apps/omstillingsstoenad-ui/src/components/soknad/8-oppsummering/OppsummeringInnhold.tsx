@@ -1,7 +1,7 @@
 import { Element, Gruppe } from '../../../utils/ObjectTreeReader'
 import { Accordion, BodyLong, Panel, Heading } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
-import TekstGruppe from './fragmenter/TekstGruppe'
+import { TekstGruppe } from './fragmenter/TekstGruppe'
 import { EditFilled } from '@navikt/ds-icons'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'

@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
+import { Accordion, Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import React, { memo, useEffect, useState } from 'react'
@@ -16,6 +16,7 @@ import Navigasjon from '../../felles/Navigasjon'
 import OppsummeringInnhold from './OppsummeringInnhold'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { SkjemaElement } from '../../felles/SkjemaElement'
+import { OppsummeringOmDeg } from './fragmenter/OppsummeringOmDeg'
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const navigate = useNavigate()
@@ -84,6 +85,10 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             <SkjemaElement>
                 <BodyLong>{t('oppsummering.beskrivelse')}</BodyLong>
             </SkjemaElement>
+
+            <Accordion>
+                <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} />
+            </Accordion>
 
             {!isEmpty(soeknadOppsummering) && (
                 <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
