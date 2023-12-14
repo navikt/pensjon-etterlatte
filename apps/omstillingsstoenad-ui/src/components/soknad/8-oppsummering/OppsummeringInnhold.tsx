@@ -1,5 +1,5 @@
 import { Element, Gruppe } from '../../../utils/ObjectTreeReader'
-import { Accordion, BodyLong, Panel, Heading } from '@navikt/ds-react'
+import { BodyLong, Panel, Heading } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
 import { TekstGruppe } from './fragmenter/TekstGruppe'
 import { EditFilled } from '@navikt/ds-icons'
@@ -24,24 +24,22 @@ const OppsummeringInnhold = memo(
 
         return (
             <>
-                <Accordion>
-                    {soeknadOppsummering.map(({ tittel, elementer, path }: Gruppe) => (
-                        <AccordionItem key={uuid()} tittel={tittel}>
-                            {!elementer.length && (
-                                <SkjemaGruppe>
-                                    <BodyLong>{t('felles.ingenInfo')}</BodyLong>
-                                </SkjemaGruppe>
-                            )}
+                {soeknadOppsummering.map(({ tittel, elementer, path }: Gruppe) => (
+                    <AccordionItem key={uuid()} tittel={tittel}>
+                        {!elementer.length && (
+                            <SkjemaGruppe>
+                                <BodyLong>{t('felles.ingenInfo')}</BodyLong>
+                            </SkjemaGruppe>
+                        )}
 
-                            {elementer.map(elementPanel)}
+                        {elementer.map(elementPanel)}
 
-                            <Link to={`/skjema/steg/${path}`} className={senderSoeknad ? 'disabled' : ''}>
-                                <EditFilled className={'edit-svg'} />
-                                <span>{t(`endreSvarOppsummering.${path}`)}</span>
-                            </Link>
-                        </AccordionItem>
-                    ))}
-                </Accordion>
+                        <Link to={`/skjema/steg/${path}`} className={senderSoeknad ? 'disabled' : ''}>
+                            <EditFilled className={'edit-svg'} />
+                            <span>{t(`endreSvarOppsummering.${path}`)}</span>
+                        </Link>
+                    </AccordionItem>
+                ))}
             </>
         )
     }

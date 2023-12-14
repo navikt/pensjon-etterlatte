@@ -25,9 +25,9 @@ export default class SoeknadMapper {
         this.otr = new ObjectTreeReader(t)
     }
 
-    lagOppsummering(soeknad: ISoeknad, bruker: IBruker): Gruppe[] {
+    lagOppsummering(soeknad: ISoeknad): Gruppe[] {
         return [
-            this.mapOmDeg(soeknad.omDeg, bruker),
+            // this.mapOmDeg(soeknad.omDeg, bruker),
             this.mapOmDenAvdoede(soeknad.omDenAvdoede),
             this.mapOmDegOgAvdoed(soeknad.omDegOgAvdoed),
             this.mapSituasjonenDin(soeknad.situasjonenDin),

@@ -38,7 +38,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             if (isEmpty(soeknad) || isEmpty(bruker)) {
                 setOppsummering([])
             } else {
-                const soeknadOppsummering = mapper.lagOppsummering(soeknad, bruker)
+                const soeknadOppsummering = mapper.lagOppsummering(soeknad)
                 setOppsummering(soeknadOppsummering)
             }
         })()
@@ -88,11 +88,10 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
             <Accordion>
                 <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} />
+                {!isEmpty(soeknadOppsummering) && (
+                        <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
+                )}
             </Accordion>
-
-            {!isEmpty(soeknadOppsummering) && (
-                <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
-            )}
 
             <br />
 
