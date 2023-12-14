@@ -6,7 +6,7 @@ import { ISoeker } from '../../../../typer/person'
 import { useTranslation } from 'react-i18next'
 import { StegPath, StegLabelKey } from '../../../../typer/steg'
 import { TekstGruppe } from './TekstGruppe'
-import InnloggetBrukerOppsummering from './InnloggetBrukerOppsummering'
+import PersonInfoOppsummering from './PersonInfoOppsummering'
 import { fullAdresse } from '../../../../utils/adresse'
 import UtbetalingsInformasjonOppsummering from './UtbetalingsInformasjonOppsummering'
 
@@ -28,7 +28,7 @@ export const OppsummeringOmDeg = memo(({ omDeg, bruker }: Props) => {
                 <Panel>
                     <Heading size={'small'}>{t('omDeg.undertittel.personalia')}</Heading>
 
-                    <InnloggetBrukerOppsummering
+                    <PersonInfoOppsummering
                         navn={`${bruker.fornavn} ${bruker.etternavn}`}
                         fnrDnr={bruker.foedselsnummer}
                         statsborgerskap={bruker.statsborgerskap}

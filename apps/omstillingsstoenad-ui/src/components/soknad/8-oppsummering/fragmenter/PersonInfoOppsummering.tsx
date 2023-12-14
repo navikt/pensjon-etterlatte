@@ -1,7 +1,7 @@
 import { TekstGruppe } from './TekstGruppe'
 import { useTranslation } from 'react-i18next'
 
-export default function InnloggetBrukerOppsummering({
+export default function PersonInfoOppsummering({
     navn,
     fornavn,
     etternavn,
@@ -33,7 +33,7 @@ export default function InnloggetBrukerOppsummering({
 
             <TekstGruppe tittel={t('felles.fnrDnr')} innhold={fnrDnr} />
             <TekstGruppe tittel={t('felles.statsborgerskap')} innhold={statsborgerskap} />
-            <TekstGruppe tittel={t('felles.sivilstatus')} innhold={sivilstatus} />
+            {sivilstatus && <TekstGruppe tittel={t('felles.sivilstatus')} innhold={sivilstatus} />}
             {adresse && <TekstGruppe tittel={t('felles.adresse')} innhold={adresse} />}
         </>
     )

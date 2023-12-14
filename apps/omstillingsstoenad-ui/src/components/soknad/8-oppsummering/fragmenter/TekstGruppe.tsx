@@ -1,6 +1,6 @@
 import { BodyShort, Label } from '@navikt/ds-react'
-import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import { useTranslation } from 'react-i18next'
+import { IValg } from '../../../../typer/Spoersmaal'
 
 const dtf = Intl.DateTimeFormat('no-NO', {
     timeZone: 'Europe/Oslo',
@@ -45,7 +45,7 @@ export const TekstGruppe = ({ tittel, innhold, id }: TekstGruppeProps) => {
 }
 
 interface TekstGruppeStandardSpoersmaalProps extends Omit<TekstGruppeProps, 'innhold'> {
-    innhold?: JaNeiVetIkke
+    innhold?: IValg
 }
 
 export const TekstGruppeJaNeiVetIkke = ({ id, tittel, innhold }: TekstGruppeStandardSpoersmaalProps) => {

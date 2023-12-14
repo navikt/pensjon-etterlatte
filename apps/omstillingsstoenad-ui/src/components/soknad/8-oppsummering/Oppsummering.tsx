@@ -17,6 +17,7 @@ import OppsummeringInnhold from './OppsummeringInnhold'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { OppsummeringOmDeg } from './fragmenter/OppsummeringOmDeg'
+import { OppsummeringOmDenAvdoede } from './fragmenter/OppsummeringOmDenAvdoede'
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const navigate = useNavigate()
@@ -88,6 +89,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
 
             <Accordion>
                 <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} />
+                <OppsummeringOmDenAvdoede omDenAvdoede={soeknad.omDenAvdoede} />
                 {!isEmpty(soeknadOppsummering) && (
                         <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
                 )}
