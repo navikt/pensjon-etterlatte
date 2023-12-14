@@ -399,9 +399,9 @@ export default {
     'omDenAvdoede.statsborgerskap': 'Statsborgarskap',
     'omDenAvdoede.statsborgerskapPlaceholder': 'Til dømes norsk',
     'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
-    "omDenAvdoede.datoForDoedsfallet.foerDesember": "Sia dødsfallet skjedde før desember 2023, må du søkje ",
-    "omDenAvdoede.datoForDoedsfallet.foerDesember.link": "attlevandepensjon.",
-    "omDenAvdoede.datoForDoedsfallet.foerDesember.href": "https://www.nav.no/gjenlevendepensjon",
+    'omDenAvdoede.datoForDoedsfallet.foerDesember': 'Sia dødsfallet skjedde før desember 2023, må du søkje ',
+    'omDenAvdoede.datoForDoedsfallet.foerDesember.link': 'attlevandepensjon.',
+    'omDenAvdoede.datoForDoedsfallet.foerDesember.href': 'https://www.nav.no/gjenlevendepensjon',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphald utanfor Noreg',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
         'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i omstillingsstønad og gi deg pensjonsrettar frå andre land.',
@@ -508,8 +508,7 @@ export default {
     'soeknadKvittering.endring.endringsListe.bosted':
         'Du skal flytte eller opphalde deg i eit anna land over lenger tid',
     'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese meir om å ',
-    'soeknadKvittering.endring.rettigheter.lenke.href':
-        'https://www.nav.no/nn/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
+    'soeknadKvittering.endring.rettigheter.lenke.href': 'https://www.nav.no/endringer/nn',
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'melde frå om endringar.',
     'soeknadKvittering.seSaken.tittel': 'Sjekk status i saka di',
     'soeknadKvittering.seSaken.informasjon.innhold1':
@@ -521,7 +520,7 @@ export default {
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventet saksbehandlingstid.',
     'soeknadKvittering.andreStoenader.tittel': 'Du kan også ha rett til andre stønader',
     'soeknadKvittering.andreStoenader.informasjon':
-        'Er du under utdanning, søkjer du jobb eller har de barn? Då kan du også ha rett på andre støtteordningar som til dømes barnepass eller dekking av utgifter du har i samband med utdanning eller jobbsøk',
+        'Er du under utdanning, søkjer du jobb eller har de barn? Då kan du også ha rett på andre støtteordningar som til dømes barnepass eller dekking av utgifter du har i samband med utdanning eller jobbsøk.',
     'soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst':
         'Stønad til skolepenger for attlevande ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst':

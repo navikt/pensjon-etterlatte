@@ -383,7 +383,7 @@ export default {
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Relasjonen din til avdøde da dødsfallet skjedde',
     'omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap': 'Vi giftet oss',
     'omDegOgAvdoed.forholdTilAvdoede.fellesBarn': 'Har eller har dere hatt felles barn?',
-    'omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse': 'Dette gjelder også hvis barnet er over 18 år',
+    'omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse': 'Dette gjelder også hvis barnet er over 18 år.',
     'omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn':
         'Var dere samboere og hadde dere felles barn før dere giftet dere?',
     'omDegOgAvdoed.forholdTilAvdoede.tidligereGift': 'Har du tidligere vært gift med avdøde?',
@@ -526,13 +526,13 @@ export default {
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventet saksbehandlingstid.',
     'soeknadKvittering.andreStoenader.tittel': 'Du kan også ha rett til andre stønader',
     'soeknadKvittering.andreStoenader.informasjon':
-        'Tar du utdanning, søker jobb eller har dere barn? Da kan du også ha rett til andre støtteordninger som barnepass, utgifter du har i forbindelse med utdanning eller jobbsøking',
+        'Tar du utdanning, søker jobb eller har dere barn? Da kan du også ha rett til andre støtteordninger som barnepass, utgifter du har i forbindelse med utdanning eller jobbsøking.',
     'soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst':
         'Stønad til skolepenger for gjenlevende ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst':
         'Stønad til barnetilsyn for gjenlevende ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Utvidet barnetrygd',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for gjenlevende',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for gjenlevende.',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
         'https://www.nav.no/gjenlevendepensjon#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon': 'Du finner mer informasjon om støtteordninger på ',
