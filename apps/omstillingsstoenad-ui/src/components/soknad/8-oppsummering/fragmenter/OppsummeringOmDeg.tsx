@@ -24,34 +24,32 @@ export const OppsummeringOmDeg = memo(({ omDeg, bruker }: Props) => {
             path={`/skjema/steg/${StegPath.OmDeg}`}
             pathText={t(StegLabelKey.OmDeg)}
         >
-            <>
-                <Panel>
-                    <Heading size={'small'}>{t('omDeg.undertittel.personalia')}</Heading>
+            <Panel>
+                <Heading size={'small'}>{t('omDeg.undertittel.personalia')}</Heading>
 
-                    <PersonInfoOppsummering
-                        navn={`${bruker.fornavn} ${bruker.etternavn}`}
-                        fnrDnr={bruker.foedselsnummer}
-                        statsborgerskap={bruker.statsborgerskap}
-                        sivilstatus={bruker.sivilstatus}
-                        adresse={fullAdresse(bruker)}
+                <PersonInfoOppsummering
+                    navn={`${bruker.fornavn} ${bruker.etternavn}`}
+                    fnrDnr={bruker.foedselsnummer}
+                    statsborgerskap={bruker.statsborgerskap}
+                    sivilstatus={bruker.sivilstatus}
+                    adresse={fullAdresse(bruker)}
+                />
+                {(bruker.telefonnummer || omDeg.kontaktinfo?.telefonnummer) && (
+                    <TekstGruppe
+                        tittel={t('felles.telefonnummer')}
+                        innhold={bruker.telefonnummer || omDeg.kontaktinfo?.telefonnummer}
                     />
-                    {(bruker.telefonnummer || omDeg.kontaktinfo?.telefonnummer) && (
-                        <TekstGruppe
-                            tittel={t('felles.telefonnummer')}
-                            innhold={bruker.telefonnummer || omDeg.kontaktinfo?.telefonnummer}
-                        />
-                    )}
-                    {omDeg.alternativAdresse && (
-                        <TekstGruppe tittel={t('omDeg.alternativAdresse')} innhold={omDeg.alternativAdresse} />
-                    )}
-                </Panel>
+                )}
+                {omDeg.alternativAdresse && (
+                    <TekstGruppe tittel={t('omDeg.alternativAdresse')} innhold={omDeg.alternativAdresse} />
+                )}
+            </Panel>
 
-                <Panel>
-                    {omDeg.utbetalingsInformasjon && (
-                        <UtbetalingsInformasjonOppsummering utbetalingsInformasjon={omDeg.utbetalingsInformasjon} />
-                    )}
-                </Panel>
-            </>
+            <Panel>
+                {omDeg.utbetalingsInformasjon && (
+                    <UtbetalingsInformasjonOppsummering utbetalingsInformasjon={omDeg.utbetalingsInformasjon} />
+                )}
+            </Panel>
         </AccordionItem>
     )
 })
