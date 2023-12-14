@@ -43,8 +43,8 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede }: Props) => {
                     tittel={t('omDenAvdoede.boddEllerJobbetUtland.svar')}
                     innhold={omDenAvdoede.boddEllerJobbetUtland?.svar}
                 />
-                {omDenAvdoede.boddEllerJobbetUtland?.oppholdUtland?.map((opphold) => (
-                    <Panel key={opphold.land}>
+                {omDenAvdoede.boddEllerJobbetUtland?.oppholdUtland?.map((opphold, index) => (
+                    <Panel key={index}>
                         <Tag variant={'neutral-moderate'}>{`Opphold i ${opphold.land}`}</Tag>
                         <TekstGruppe
                             tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}

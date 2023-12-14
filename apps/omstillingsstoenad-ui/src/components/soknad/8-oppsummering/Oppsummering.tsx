@@ -20,6 +20,7 @@ import { OppsummeringOmDeg } from './fragmenter/OppsummeringOmDeg'
 import { OppsummeringOmDenAvdoede } from './fragmenter/OppsummeringOmDenAvdoede'
 import { OppsummeringOmDegOgAvdoed } from './fragmenter/OppsummeringOmDegOgAvdoed'
 import { OppsummeringSituasjonenDin } from './fragmenter/OppsummeringSituasjonenDin'
+import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSituasjonenDin'
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const navigate = useNavigate()
@@ -94,8 +95,9 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 <OppsummeringOmDenAvdoede omDenAvdoede={soeknad.omDenAvdoede} />
                 <OppsummeringOmDegOgAvdoed omDegOgAvdoed={soeknad.omDegOgAvdoed} />
                 <OppsummeringSituasjonenDin situasjonenDin={soeknad.situasjonenDin} />
+                <OppsummeringMerSituasjonenDin merOmSituasjonenDin={soeknad.merOmSituasjonenDin} />
                 {!isEmpty(soeknadOppsummering) && (
-                        <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
+                    <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
                 )}
             </Accordion>
 
