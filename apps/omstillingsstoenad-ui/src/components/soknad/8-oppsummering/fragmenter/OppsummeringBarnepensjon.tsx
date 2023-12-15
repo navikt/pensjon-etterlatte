@@ -20,7 +20,7 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn }: Props) => 
         <AccordionItem
             tittel={t('omBarn.tittel')}
             path={`/skjema/steg/${StegPath.OmBarn}`}
-            pathText={t('omBarn.tittel')}
+            pathText={StegPath.OmBarn}
         >
             <Panel>
                 {opplysningerOmBarn.barn?.map((barnet, index) => (

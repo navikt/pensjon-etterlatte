@@ -18,7 +18,7 @@ export const OppsummeringOmDegOgAvdoed = memo(({ omDegOgAvdoed }: Props) => {
         <AccordionItem
             tittel={t(StegLabelKey.OmDegOgAvdoed)}
             path={`/skjema/steg/${StegPath.OmDegOgAvdoed}`}
-            pathText={t(StegLabelKey.OmDegOgAvdoed)}
+            pathText={StegPath.OmDegOgAvdoed}
         >
             <Panel>
                 {omDegOgAvdoed.forholdTilAvdoede?.relasjon && (

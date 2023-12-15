@@ -24,7 +24,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin }: Props) => {
         <AccordionItem
             tittel={t(StegLabelKey.InntektenDin)}
             path={`/skjema/steg/${StegPath.InntektenDin}`}
-            pathText={t(StegLabelKey.InntektenDin)}
+            pathText={StegPath.InntektenDin}
         >
             <Panel>
                 <Heading size={'small'}>{t('inntektenDin.undertittel')}</Heading>

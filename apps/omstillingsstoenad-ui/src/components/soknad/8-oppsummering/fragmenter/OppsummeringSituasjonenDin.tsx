@@ -18,7 +18,7 @@ export const OppsummeringSituasjonenDin = memo(({ situasjonenDin }: Props) => {
         <AccordionItem
             tittel={t(StegLabelKey.SituasjonenDin)}
             path={`/skjema/steg/${StegPath.SituasjonenDin}`}
-            pathText={t(StegLabelKey.SituasjonenDin)}
+            pathText={StegPath.SituasjonenDin}
         >
             <Panel>
                 {situasjonenDin.nySivilstatus?.sivilstatus && (
