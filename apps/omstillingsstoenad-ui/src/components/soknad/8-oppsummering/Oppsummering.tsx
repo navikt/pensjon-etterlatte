@@ -1,6 +1,6 @@
 import { Accordion, Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
-import React, { memo, useState } from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { sendSoeknad } from '../../../api/api'
@@ -21,7 +21,7 @@ import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSitua
 import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
 import { OppsummeringBarnepensjon } from './fragmenter/OppsummeringBarnepensjon'
 
-const Oppsummering: SoknadSteg = memo(({ forrige }) => {
+const Oppsummering: SoknadSteg = ({ forrige }) => {
     const navigate = useNavigate()
     const { t } = useTranslation()
 
@@ -155,6 +155,6 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             </Modal>
         </>
     )
-})
+}
 
 export default Oppsummering

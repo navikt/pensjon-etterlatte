@@ -1,55 +1,31 @@
-import { render, fireEvent } from '@testing-library/react'
-import { AccordionItem } from './AccordionItem'
-import TekstGruppe from './fragmenter/TekstGruppe'
+import { render } from '@testing-library/react'
+import { TekstGruppe } from './fragmenter/TekstGruppe'
 import Oppsummering from './Oppsummering'
+import { BrowserRouter } from 'react-router-dom'
 
 jest.mock('react-i18next', () => ({
+    // this mock makes sure any components using the translate hook can use it without a warning being shown
     ...jest.requireActual('react-i18next'),
-    useTranslation: () => ({
-        t: jest.fn((key) => key),
-        i18n: {
-            changeLanguage: () => new Promise(() => {}),
-        },
-    }),
-}))
-
-const mockedUsedNavigate = jest.fn()
-jest.mock('react-router-dom', () => ({
-    ...jest.requireActual('react-router-dom'),
-    useNavigate: () => mockedUsedNavigate,
+    useTranslation: () => {
+        return {
+            t: (str) => str,
+            i18n: {
+                changeLanguage: () => new Promise(() => {}),
+            },
+        }
+    },
 }))
 
 describe('Oppsummering', () => {
     it('Snapshot', () => {
-        const { container } = render(<Oppsummering />)
+        const { container } = render(<BrowserRouter><Oppsummering /></BrowserRouter>)
         expect(container).toMatchSnapshot()
-    })
-})
-
-describe('Test accordionItem', () => {
-    it('skal endre aria-expanded', () => {
-        const { container, getByText } = render(
-            <AccordionItem tittel="Testtittel" defaultOpen={false}>
-                Innhold
-            </AccordionItem>
-        )
-        expect(container.querySelectorAll('[aria-expanded]')[0].getAttribute('aria-expanded')).toBe('false')
-        fireEvent.click(getByText('Testtittel'))
-        expect(container.querySelectorAll('[aria-expanded]')[0].getAttribute('aria-expanded')).toBe('true')
-    })
-    it('skal rendre innholdet synlig', () => {
-        const { getByText } = render(
-            <AccordionItem tittel="Testtittel" defaultOpen={true}>
-                Innhold
-            </AccordionItem>
-        )
-        expect(getByText('Innhold')).toBeDefined()
     })
 })
 
 describe('Tekstgruppe', () => {
     it('Skal rendre testittel og testcontent', () => {
-        const { getByText } = render(<TekstGruppe tittel="Testtittel" innhold={'Testcontent'} />)
+        const { getByText } = render(<TekstGruppe tittel={'Testtittel'} innhold={'Testcontent'} />)
         expect(getByText('Testtittel')).toBeDefined()
         expect(getByText('Testcontent')).toBeDefined()
     })

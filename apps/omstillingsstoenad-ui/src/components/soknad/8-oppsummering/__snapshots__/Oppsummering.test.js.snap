@@ -20,6 +20,875 @@ exports[`Oppsummering Snapshot 1`] = `
       oppsummering.beskrivelse
     </p>
   </div>
+  <div
+    class="navds-accordion navds-accordion--medium navds-accordion--indent"
+  >
+    <div
+      class="navds-accordion__item"
+    >
+      <button
+        aria-expanded="false"
+        class="navds-accordion__header"
+        type="button"
+      >
+        <span
+          class="navds-accordion__icon-wrapper"
+        >
+          <svg
+            aria-hidden="true"
+            aria-labelledby="title-r0"
+            class="navds-accordion__header-chevron"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title
+              id="title-r0"
+            >
+              Vis mer
+            </title>
+            <path
+              clip-rule="evenodd"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="navds-accordion__header-content navds-heading navds-heading--small"
+        >
+          steg.OmDeg
+        </span>
+      </button>
+      <div
+        aria-hidden="true"
+        class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
+      >
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            omDeg.undertittel.personalia
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              felles.navn
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            >
+              undefined undefined
+            </p>
+          </div>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              felles.fnrDnr
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              felles.statsborgerskap
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <div
+          class="navds-panel"
+        />
+        <a
+          class=""
+          href="/skjema/steg/om-deg"
+        >
+          <svg
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M22.835 6.788a3.976 3.976 0 1 0-5.623-5.623L15.895 2.48l5.624 5.624 1.316-1.317Zm-2.73 2.73L8.073 21.55.682 24 0 23.318l2.45-7.392 12.03-12.03 5.625 5.623Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <span
+            style="padding-left: 0.25rem;"
+          >
+            endreSvarOppsummering.om-deg
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="navds-accordion__item"
+    >
+      <button
+        aria-expanded="false"
+        class="navds-accordion__header"
+        type="button"
+      >
+        <span
+          class="navds-accordion__icon-wrapper"
+        >
+          <svg
+            aria-hidden="true"
+            aria-labelledby="title-r2"
+            class="navds-accordion__header-chevron"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title
+              id="title-r2"
+            >
+              Vis mer
+            </title>
+            <path
+              clip-rule="evenodd"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="navds-accordion__header-content navds-heading navds-heading--small"
+        >
+          steg.OmAvdoed
+        </span>
+      </button>
+      <div
+        aria-hidden="true"
+        class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
+      >
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            omDeg.undertittel.personalia
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              felles.fornavn
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              felles.etternavn
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              felles.fnrDnr
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              felles.statsborgerskap
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              omDenAvdoede.datoForDoedsfallet
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              omDenAvdoede.doedsfallAarsak
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            omDenAvdoede.boddEllerJobbetUtland.tittel
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              omDenAvdoede.boddEllerJobbetUtland.svar
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            omDenAvdoede.selvstendigNaeringsdrivende.tittel
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              omDenAvdoede.selvstendigNaeringsdrivende.svar
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <a
+          class=""
+          href="/skjema/steg/om-den-avdoede"
+        >
+          <svg
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M22.835 6.788a3.976 3.976 0 1 0-5.623-5.623L15.895 2.48l5.624 5.624 1.316-1.317Zm-2.73 2.73L8.073 21.55.682 24 0 23.318l2.45-7.392 12.03-12.03 5.625 5.623Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <span
+            style="padding-left: 0.25rem;"
+          >
+            endreSvarOppsummering.om-den-avdoede
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="navds-accordion__item"
+    >
+      <button
+        aria-expanded="false"
+        class="navds-accordion__header"
+        type="button"
+      >
+        <span
+          class="navds-accordion__icon-wrapper"
+        >
+          <svg
+            aria-hidden="true"
+            aria-labelledby="title-r4"
+            class="navds-accordion__header-chevron"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title
+              id="title-r4"
+            >
+              Vis mer
+            </title>
+            <path
+              clip-rule="evenodd"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="navds-accordion__header-content navds-heading navds-heading--small"
+        >
+          steg.OmDegOgAvdoed
+        </span>
+      </button>
+      <div
+        aria-hidden="true"
+        class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
+      >
+        <div
+          class="navds-panel"
+        />
+        <a
+          class=""
+          href="/skjema/steg/om-deg-og-avdoed"
+        >
+          <svg
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M22.835 6.788a3.976 3.976 0 1 0-5.623-5.623L15.895 2.48l5.624 5.624 1.316-1.317Zm-2.73 2.73L8.073 21.55.682 24 0 23.318l2.45-7.392 12.03-12.03 5.625 5.623Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <span
+            style="padding-left: 0.25rem;"
+          >
+            endreSvarOppsummering.om-deg-og-avdoed
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="navds-accordion__item"
+    >
+      <button
+        aria-expanded="false"
+        class="navds-accordion__header"
+        type="button"
+      >
+        <span
+          class="navds-accordion__icon-wrapper"
+        >
+          <svg
+            aria-hidden="true"
+            aria-labelledby="title-r6"
+            class="navds-accordion__header-chevron"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title
+              id="title-r6"
+            >
+              Vis mer
+            </title>
+            <path
+              clip-rule="evenodd"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="navds-accordion__header-content navds-heading navds-heading--small"
+        >
+          steg.SituasjonenDin
+        </span>
+      </button>
+      <div
+        aria-hidden="true"
+        class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
+      >
+        <div
+          class="navds-panel"
+        />
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            situasjonenDin.omsorgForBarn.tittel
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              situasjonenDin.omsorgMinstFemti
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              situasjonenDin.gravidEllerNyligFoedt
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            situasjonenDin.oppholdUtenforNorge.tittel
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              situasjonenDin.bosattINorge
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <a
+          class=""
+          href="/skjema/steg/situasjonen-din"
+        >
+          <svg
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M22.835 6.788a3.976 3.976 0 1 0-5.623-5.623L15.895 2.48l5.624 5.624 1.316-1.317Zm-2.73 2.73L8.073 21.55.682 24 0 23.318l2.45-7.392 12.03-12.03 5.625 5.623Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <span
+            style="padding-left: 0.25rem;"
+          >
+            endreSvarOppsummering.situasjonen-din
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="navds-accordion__item"
+    >
+      <button
+        aria-expanded="false"
+        class="navds-accordion__header"
+        type="button"
+      >
+        <span
+          class="navds-accordion__icon-wrapper"
+        >
+          <svg
+            aria-hidden="true"
+            aria-labelledby="title-r8"
+            class="navds-accordion__header-chevron"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title
+              id="title-r8"
+            >
+              Vis mer
+            </title>
+            <path
+              clip-rule="evenodd"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="navds-accordion__header-content navds-heading navds-heading--small"
+        >
+          steg.MerOmSituasjonenDin
+        </span>
+      </button>
+      <div
+        aria-hidden="true"
+        class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
+      >
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            merOmSituasjonenDin.jobbStatus.tittel
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              merOmSituasjonenDin.jobbStatus
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            merOmSituasjonenDin.utdanning.tittelFullfoert
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <a
+          class=""
+          href="/skjema/steg/mer-om-situasjonen-din"
+        >
+          <svg
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M22.835 6.788a3.976 3.976 0 1 0-5.623-5.623L15.895 2.48l5.624 5.624 1.316-1.317Zm-2.73 2.73L8.073 21.55.682 24 0 23.318l2.45-7.392 12.03-12.03 5.625 5.623Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <span
+            style="padding-left: 0.25rem;"
+          >
+            endreSvarOppsummering.mer-om-situasjonen-din
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="navds-accordion__item"
+    >
+      <button
+        aria-expanded="false"
+        class="navds-accordion__header"
+        type="button"
+      >
+        <span
+          class="navds-accordion__icon-wrapper"
+        >
+          <svg
+            aria-hidden="true"
+            aria-labelledby="title-ra"
+            class="navds-accordion__header-chevron"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title
+              id="title-ra"
+            >
+              Vis mer
+            </title>
+            <path
+              clip-rule="evenodd"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="navds-accordion__header-content navds-heading navds-heading--small"
+        >
+          steg.InntektenDin
+        </span>
+      </button>
+      <div
+        aria-hidden="true"
+        class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
+      >
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            inntektenDin.undertittel
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              inntektenDin.inntektstyper
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            inntektenDin.ytelserNAV.tittel
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              inntektenDin.ytelserNAV.svar
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <div
+          class="navds-panel"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            inntektenDin.ytelserAndre.tittel
+          </h1>
+          <div
+            class="tekstgruppe"
+          >
+            <label
+              class="navds-label"
+            >
+              inntektenDin.ytelserAndre.svar
+            </label>
+            <p
+              class="navds-body-short navds-body-short--medium"
+            />
+          </div>
+        </div>
+        <a
+          class=""
+          href="/skjema/steg/inntekten-din"
+        >
+          <svg
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M22.835 6.788a3.976 3.976 0 1 0-5.623-5.623L15.895 2.48l5.624 5.624 1.316-1.317Zm-2.73 2.73L8.073 21.55.682 24 0 23.318l2.45-7.392 12.03-12.03 5.625 5.623Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <span
+            style="padding-left: 0.25rem;"
+          >
+            endreSvarOppsummering.inntekten-din
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="navds-accordion__item"
+    >
+      <button
+        aria-expanded="false"
+        class="navds-accordion__header"
+        type="button"
+      >
+        <span
+          class="navds-accordion__icon-wrapper"
+        >
+          <svg
+            aria-hidden="true"
+            aria-labelledby="title-rc"
+            class="navds-accordion__header-chevron"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title
+              id="title-rc"
+            >
+              Vis mer
+            </title>
+            <path
+              clip-rule="evenodd"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="navds-accordion__header-content navds-heading navds-heading--small"
+        >
+          omBarn.tittel
+        </span>
+      </button>
+      <div
+        aria-hidden="true"
+        class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
+      >
+        <div
+          class="navds-panel"
+        >
+          <p
+            class="navds-body-short navds-body-short--medium"
+          >
+            omBarn.ikkeSoekt
+          </p>
+        </div>
+        <a
+          class=""
+          href="/skjema/steg/om-barn"
+        >
+          <svg
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M22.835 6.788a3.976 3.976 0 1 0-5.623-5.623L15.895 2.48l5.624 5.624 1.316-1.317Zm-2.73 2.73L8.073 21.55.682 24 0 23.318l2.45-7.392 12.03-12.03 5.625 5.623Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <span
+            style="padding-left: 0.25rem;"
+          >
+            endreSvarOppsummering.om-barn
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
   <br />
   <fieldset
     class="sc-bdfCDU iGBHmN"
@@ -80,7 +949,7 @@ exports[`Oppsummering Snapshot 1`] = `
           class="navds-button__icon"
         >
           <svg
-            aria-labelledby="title-r2"
+            aria-labelledby="title-rg"
             fill="none"
             focusable="false"
             height="1em"
@@ -90,7 +959,7 @@ exports[`Oppsummering Snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <title
-              id="title-r2"
+              id="title-rg"
             >
               Lukk modalvindu
             </title>
@@ -181,7 +1050,7 @@ exports[`Oppsummering Snapshot 1`] = `
           class="navds-button__icon"
         >
           <svg
-            aria-labelledby="title-r5"
+            aria-labelledby="title-rj"
             fill="none"
             focusable="false"
             height="1em"
@@ -191,7 +1060,7 @@ exports[`Oppsummering Snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <title
-              id="title-r5"
+              id="title-rj"
             >
               Lukk modalvindu
             </title>
